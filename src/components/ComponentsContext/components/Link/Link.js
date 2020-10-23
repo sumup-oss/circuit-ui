@@ -21,12 +21,13 @@ import { childrenPropType } from '../../../../util/shared-prop-types';
 /**
  * A barebones Link component that's basically just an `<a>` tag
  */
-const LinkComponent = ({ children, ...props }, ref) => (
+const Link = React.forwardRef(({ children, ...props }, ref) => (
   <a {...props} ref={ref}>
     {children}
   </a>
-);
-const Link = React.forwardRef(LinkComponent);
+));
+
+Link.displayName = 'Link';
 
 Link.propTypes = {
   children: childrenPropType,

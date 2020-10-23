@@ -78,29 +78,28 @@ const StyledAnchor = styled(Text, {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<AnchorProps>(baseStyles);
 
-function AnchorComponent(
-  props: AnchorProps,
-  ref?: BaseProps['ref'],
-): ReturnType {
-  const components = useComponents();
-
-  // Need to typecast here because the StyledAnchor expects a button-like
-  // component for its `as` prop. It's safe to ignore that constraint here.
-  const Link = components.Link as any;
-
-  if (!props.href && !props.onClick) {
-    return <Text as="span" {...props} ref={ref} noMargin />;
-  }
-
-  if (props.href) {
-    return <StyledAnchor {...props} as={Link} ref={ref} noMargin />;
-  }
-
-  return <StyledAnchor as="button" {...props} ref={ref} noMargin />;
-}
-
 /**
  * The Anchor is used to display a link or button that visually looks like
  * a hyperlink. Based on the Text component, so it also supports its props.
  */
-export const Anchor = React.forwardRef(AnchorComponent);
+export const Anchor = React.forwardRef(
+  (props: AnchorProps, ref?: BaseProps['ref']): ReturnType => {
+    const components = useComponents();
+
+    // Need to typecast here because the StyledAnchor expects a button-like
+    // component for its `as` prop. It's safe to ignore that constraint here.
+    const Link = components.Link as any;
+
+    if (!props.href && !props.onClick) {
+      return <Text as="span" {...props} ref={ref} noMargin />;
+    }
+
+    if (props.href) {
+      return <StyledAnchor {...props} as={Link} ref={ref} noMargin />;
+    }
+
+    return <StyledAnchor as="button" {...props} ref={ref} noMargin />;
+  },
+);
+
+Anchor.displayName = 'Anchor';

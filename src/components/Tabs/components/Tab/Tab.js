@@ -74,7 +74,10 @@ const tabIndex = (selected) => (selected ? undefined : '-1');
 
 const StyledTab = styled('button')(defaultTabStyles, selectedTabStyles);
 
-const TabComponent = ({ selected = false, ...props }, ref) => (
+/**
+ * Tab component that represents a single tab inside a Tabs wrapper
+ */
+const Tab = forwardRef(({ selected = false, ...props }, ref) => (
   <StyledTab
     ref={ref}
     role="tab"
@@ -83,12 +86,9 @@ const TabComponent = ({ selected = false, ...props }, ref) => (
     tabIndex={tabIndex(selected)}
     {...props}
   />
-);
+));
 
-/**
- * Tab component that represents a single tab inside a Tabs wrapper
- */
-const Tab = forwardRef(TabComponent);
+Tab.displayName = 'Tab';
 
 Tab.propTypes = {
   /**

@@ -176,64 +176,66 @@ const Container = styled.div`
   position: relative;
 `;
 
-const TagComponent = (
-  {
-    children,
-    prefix: Prefix,
-    suffix: Suffix,
-    onRemove,
-    labelRemoveButton = 'Remove',
-    selected,
-    onClick,
-    tracking,
-    className,
-    ...props
-  }: TagProps,
-  ref: BaseProps['ref'],
-) => {
-  const as = onClick ? 'button' : 'div';
-  const handleClick = useClickHandler<MouseEvent<any>>(
-    onClick,
-    tracking,
-    'tag',
-  );
-  const removable = Boolean(onRemove);
+export const Tag = forwardRef(
+  (
+    {
+      children,
+      prefix: Prefix,
+      suffix: Suffix,
+      onRemove,
+      labelRemoveButton = 'Remove',
+      selected,
+      onClick,
+      tracking,
+      className,
+      ...props
+    }: TagProps,
+    ref: BaseProps['ref'],
+  ) => {
+    const as = onClick ? 'button' : 'div';
+    const handleClick = useClickHandler<MouseEvent<any>>(
+      onClick,
+      tracking,
+      'tag',
+    );
+    const removable = Boolean(onRemove);
 
-  return (
-    <Container className={className}>
-      <TagElement
-        removable={removable}
-        selected={selected}
-        onClick={handleClick}
-        type={onClick && 'button'}
-        as={as}
-        ref={ref}
-        {...props}
-      >
-        {Prefix && <Prefix css={prefixStyles} />}
-
-        {children}
-
-        {Suffix && <Suffix css={suffixStyles} />}
-      </TagElement>
-
-      {removable && (
-        <RemoveButton
-          type="button"
-          variant={selected ? 'primary' : 'secondary'}
+    return (
+      <Container className={className}>
+        <TagElement
+          removable={removable}
           selected={selected}
-          label={labelRemoveButton}
-          data-testid="tag-close"
-          size="kilo"
-          onClick={onRemove}
-          tracking={{
-            component: 'tag-remove',
-            ...tracking,
-          }}
-        />
-      )}
-    </Container>
-  );
-};
+          onClick={handleClick}
+          type={onClick && 'button'}
+          as={as}
+          ref={ref}
+          {...props}
+        >
+          {Prefix && <Prefix css={prefixStyles} />}
 
-export const Tag = forwardRef(TagComponent);
+          {children}
+
+          {Suffix && <Suffix css={suffixStyles} />}
+        </TagElement>
+
+        {removable && (
+          <RemoveButton
+            type="button"
+            variant={selected ? 'primary' : 'secondary'}
+            selected={selected}
+            label={labelRemoveButton}
+            data-testid="tag-close"
+            size="kilo"
+            onClick={onRemove}
+            tracking={{
+              component: 'tag-remove',
+              ...tracking,
+            }}
+          />
+        )}
+      </Container>
+    );
+  },
+);
+
+Tag.displayName = 'Tag';

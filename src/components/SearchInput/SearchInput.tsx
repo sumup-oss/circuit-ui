@@ -42,11 +42,14 @@ const ClearButton = styled(IconButton)`
   cursor: pointer !important;
 `;
 
-function SearchInputComponent(
-  { value, onClear, clearLabel = 'Clear', ...props }: SearchInputProps,
-  ref: SearchInputProps['ref'],
-) {
-  return (
+/**
+ * SearchInput component for forms.
+ */
+export const SearchInput = React.forwardRef(
+  (
+    { value, onClear, clearLabel = 'Clear', ...props }: SearchInputProps,
+    ref: SearchInputProps['ref'],
+  ) => (
     <Input
       value={value}
       type="text"
@@ -66,10 +69,7 @@ function SearchInputComponent(
       {...props}
       ref={ref}
     />
-  );
-}
+  ),
+);
 
-/**
- * SearchInput component for forms.
- */
-export const SearchInput = React.forwardRef(SearchInputComponent);
+SearchInput.displayName = 'SearchInput';

@@ -61,63 +61,65 @@ const CurrencyIcon = styled('span')`
   justify-content: center;
 `;
 
-function CurrencyInputComponent(
-  { locale, currency, placeholder, ...props }: CurrencyInputProps,
-  ref: CurrencyInputProps['ref'],
-) {
-  const currencyFormat =
-    resolveCurrencyFormat(locale, currency) || DEFAULT_FORMAT;
-  const {
-    currencyPosition,
-    currencySymbol,
-    minimumFractionDigits,
-    maximumFractionDigits,
-  } = currencyFormat;
-  const numberMask = createCurrencyMask(currencyFormat, locale);
-  const placeholderString = formatPlaceholder(placeholder, locale, {
-    minimumFractionDigits,
-    maximumFractionDigits,
-  });
-
-  const renderPrefix =
-    currencyPosition === 'prefix'
-      ? (preffixProps: { className?: string }) => (
-          <CurrencyIcon {...preffixProps}>{currencySymbol}</CurrencyIcon>
-        )
-      : null;
-
-  const renderSuffix =
-    currencyPosition === 'suffix'
-      ? (suffixProps: { className?: string }) => (
-          <CurrencyIcon {...suffixProps}>{currencySymbol}</CurrencyIcon>
-        )
-      : null;
-
-  return (
-    <TextMaskInput
-      ref={ref}
-      guide={false}
-      render={(inputRef, { defaultValue, ...renderProps }) => (
-        <Input
-          ref={inputRef}
-          value={defaultValue}
-          renderPrefix={renderPrefix}
-          renderSuffix={renderSuffix}
-          placeholder={placeholderString}
-          textAlign="right"
-          type="text"
-          {...renderProps}
-        />
-      )}
-      mask={numberMask}
-      {...props}
-    />
-  );
-}
-
 /**
  * CurrencyInput component for forms. Automatically looks up
  * symbols and places the symbol according to the locale. The corresponding
  * service exports a parser for formatting values automatically.
  */
-export const CurrencyInput = React.forwardRef(CurrencyInputComponent);
+export const CurrencyInput = React.forwardRef(
+  (
+    { locale, currency, placeholder, ...props }: CurrencyInputProps,
+    ref: CurrencyInputProps['ref'],
+  ) => {
+    const currencyFormat =
+      resolveCurrencyFormat(locale, currency) || DEFAULT_FORMAT;
+    const {
+      currencyPosition,
+      currencySymbol,
+      minimumFractionDigits,
+      maximumFractionDigits,
+    } = currencyFormat;
+    const numberMask = createCurrencyMask(currencyFormat, locale);
+    const placeholderString = formatPlaceholder(placeholder, locale, {
+      minimumFractionDigits,
+      maximumFractionDigits,
+    });
+
+    const renderPrefix =
+      currencyPosition === 'prefix'
+        ? (preffixProps: { className?: string }) => (
+            <CurrencyIcon {...preffixProps}>{currencySymbol}</CurrencyIcon>
+          )
+        : null;
+
+    const renderSuffix =
+      currencyPosition === 'suffix'
+        ? (suffixProps: { className?: string }) => (
+            <CurrencyIcon {...suffixProps}>{currencySymbol}</CurrencyIcon>
+          )
+        : null;
+
+    return (
+      <TextMaskInput
+        ref={ref}
+        guide={false}
+        render={(inputRef, { defaultValue, ...renderProps }) => (
+          <Input
+            ref={inputRef}
+            value={defaultValue}
+            renderPrefix={renderPrefix}
+            renderSuffix={renderSuffix}
+            placeholder={placeholderString}
+            textAlign="right"
+            type="text"
+            {...renderProps}
+          />
+        )}
+        mask={numberMask}
+        {...props}
+      />
+    );
+  },
+);
+
+CurrencyInput.displayName = 'CurrencyInput';

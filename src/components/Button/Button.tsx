@@ -217,37 +217,39 @@ const StyledButton = styled('button', {
   stretchStyles,
 );
 
-function ButtonComponent(
-  { children, icon: Icon, tracking, ...props }: ButtonProps,
-  ref?: BaseProps['ref'],
-): ReturnType {
-  const components = useComponents();
-
-  // Need to typecast here because the StyledButton expects a button-like
-  // component for its `as` prop. It's safe to ignore that constraint here.
-  const Link = components.Link as any;
-
-  const handleClick = useClickHandler<MouseEvent<any>>(
-    props.onClick,
-    tracking,
-    'button',
-  );
-
-  return (
-    <StyledButton
-      {...props}
-      ref={ref}
-      as={props.href ? Link : 'button'}
-      onClick={handleClick}
-    >
-      {Icon && <Icon css={iconStyles} role="presentation" />}
-      {children}
-    </StyledButton>
-  );
-}
-
 /**
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
  */
-export const Button = forwardRef(ButtonComponent);
+export const Button = forwardRef(
+  (
+    { children, icon: Icon, tracking, ...props }: ButtonProps,
+    ref?: BaseProps['ref'],
+  ): ReturnType => {
+    const components = useComponents();
+
+    // Need to typecast here because the StyledButton expects a button-like
+    // component for its `as` prop. It's safe to ignore that constraint here.
+    const Link = components.Link as any;
+
+    const handleClick = useClickHandler<MouseEvent<any>>(
+      props.onClick,
+      tracking,
+      'button',
+    );
+
+    return (
+      <StyledButton
+        {...props}
+        ref={ref}
+        as={props.href ? Link : 'button'}
+        onClick={handleClick}
+      >
+        {Icon && <Icon css={iconStyles} role="presentation" />}
+        {children}
+      </StyledButton>
+    );
+  },
+);
+
+Button.displayName = 'Button';

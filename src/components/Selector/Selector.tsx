@@ -134,52 +134,54 @@ const inputStyles = ({ theme }: StyleProps) => css`
 
 const SelectorInput = styled('input')<SelectorProps>(inputStyles);
 
-function SelectorComponent(
-  {
-    children,
-    value,
-    id,
-    name,
-    disabled,
-    multiple,
-    checked,
-    onChange,
-    tracking,
-    className,
-    ...props
-  }: SelectorProps,
-  ref: SelectorProps['ref'],
-) {
-  const inputId = id || uniqueId('selector_');
-  const type = multiple ? 'checkbox' : 'radio';
-  const handleChange = useClickHandler(onChange, tracking, 'selector');
-
-  return (
-    <>
-      <SelectorInput
-        type={type}
-        id={inputId}
-        name={name}
-        value={value}
-        checked={checked}
-        disabled={disabled}
-        onClick={handleChange}
-        ref={ref}
-        {...props}
-      />
-      <SelectorLabel
-        htmlFor={inputId}
-        disabled={disabled}
-        className={className}
-      >
-        {children}
-      </SelectorLabel>
-    </>
-  );
-}
-
 /**
  * A selector allows users to choose between several mutually-exlusive choices,
  * accompanied by descriptions, possibly with tabular data.
  */
-export const Selector = React.forwardRef(SelectorComponent);
+export const Selector = React.forwardRef(
+  (
+    {
+      children,
+      value,
+      id,
+      name,
+      disabled,
+      multiple,
+      checked,
+      onChange,
+      tracking,
+      className,
+      ...props
+    }: SelectorProps,
+    ref: SelectorProps['ref'],
+  ) => {
+    const inputId = id || uniqueId('selector_');
+    const type = multiple ? 'checkbox' : 'radio';
+    const handleChange = useClickHandler(onChange, tracking, 'selector');
+
+    return (
+      <>
+        <SelectorInput
+          type={type}
+          id={inputId}
+          name={name}
+          value={value}
+          checked={checked}
+          disabled={disabled}
+          onClick={handleChange}
+          ref={ref}
+          {...props}
+        />
+        <SelectorLabel
+          htmlFor={inputId}
+          disabled={disabled}
+          className={className}
+        >
+          {children}
+        </SelectorLabel>
+      </>
+    );
+  },
+);
+
+Selector.displayName = 'Selector';

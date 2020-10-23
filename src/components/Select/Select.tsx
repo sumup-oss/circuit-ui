@@ -279,99 +279,101 @@ const iconInactiveStyles = () => css`
 const IconActive = styled(ChevronDown)<{}>(iconBaseStyles, iconActiveStyles);
 const IconInactive = styled(ChevronUp)<{}>(iconBaseStyles, iconInactiveStyles);
 
-function SelectComponent(
-  {
-    value,
-    placeholder = 'Select an option',
-    disabled,
-    noMargin,
-    inline,
-    invalid,
-    options,
-    children,
-    renderPrefix: RenderPrefix,
-    validationHint,
-    label,
-    hideLabel,
-    className,
-    id: customId,
-    onChange,
-    tracking,
-    ...props
-  }: SelectProps,
-  ref?: SelectProps['ref'],
-): ReturnType {
-  const id = customId || uniqueId('select_');
-
-  const prefix = RenderPrefix && (
-    <RenderPrefix css={prefixStyles} value={value} />
-  );
-  const hasPrefix = Boolean(prefix);
-
-  const handleChange = useClickHandler(onChange, tracking, 'select');
-
-  if (!label) {
-    deprecate(
-      [
-        'The label is now built into the Select component.',
-        'Use the `label` prop to pass in the label content and',
-        'remove the Label component from your code.',
-        'The label will become required in the next major version.',
-      ].join(' '),
-    );
-  }
-
-  return (
-    <SelectLabel
-      className={className}
-      htmlFor={id}
-      inline={inline}
-      disabled={disabled}
-      noMargin={noMargin}
-      as={label ? 'label' : 'span'}
-    >
-      {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
-
-      <SelectContainer hideLabel={hideLabel}>
-        {prefix}
-        <SelectElement
-          id={id}
-          value={value}
-          ref={ref}
-          invalid={invalid}
-          aria-invalid={invalid}
-          disabled={disabled}
-          hasPrefix={hasPrefix}
-          {...props}
-          onChange={handleChange}
-        >
-          {!value && (
-            <option key="placeholder" value="">
-              {placeholder}
-            </option>
-          )}
-          {children ||
-            (options &&
-              options.map(({ label: labelValue, ...rest }) => (
-                <option key={rest.value} {...rest}>
-                  {labelValue}
-                </option>
-              )))}
-        </SelectElement>
-        <IconActive />
-        <IconInactive />
-      </SelectContainer>
-
-      <ValidationHint
-        disabled={disabled}
-        invalid={invalid}
-        validationHint={validationHint}
-      />
-    </SelectLabel>
-  );
-}
-
 /**
  * A native select component.
  */
-export const Select = React.forwardRef(SelectComponent);
+export const Select = React.forwardRef(
+  (
+    {
+      value,
+      placeholder = 'Select an option',
+      disabled,
+      noMargin,
+      inline,
+      invalid,
+      options,
+      children,
+      renderPrefix: RenderPrefix,
+      validationHint,
+      label,
+      hideLabel,
+      className,
+      id: customId,
+      onChange,
+      tracking,
+      ...props
+    }: SelectProps,
+    ref?: SelectProps['ref'],
+  ): ReturnType => {
+    const id = customId || uniqueId('select_');
+
+    const prefix = RenderPrefix && (
+      <RenderPrefix css={prefixStyles} value={value} />
+    );
+    const hasPrefix = Boolean(prefix);
+
+    const handleChange = useClickHandler(onChange, tracking, 'select');
+
+    if (!label) {
+      deprecate(
+        [
+          'The label is now built into the Select component.',
+          'Use the `label` prop to pass in the label content and',
+          'remove the Label component from your code.',
+          'The label will become required in the next major version.',
+        ].join(' '),
+      );
+    }
+
+    return (
+      <SelectLabel
+        className={className}
+        htmlFor={id}
+        inline={inline}
+        disabled={disabled}
+        noMargin={noMargin}
+        as={label ? 'label' : 'span'}
+      >
+        {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
+
+        <SelectContainer hideLabel={hideLabel}>
+          {prefix}
+          <SelectElement
+            id={id}
+            value={value}
+            ref={ref}
+            invalid={invalid}
+            aria-invalid={invalid}
+            disabled={disabled}
+            hasPrefix={hasPrefix}
+            {...props}
+            onChange={handleChange}
+          >
+            {!value && (
+              <option key="placeholder" value="">
+                {placeholder}
+              </option>
+            )}
+            {children ||
+              (options &&
+                options.map(({ label: labelValue, ...rest }) => (
+                  <option key={rest.value} {...rest}>
+                    {labelValue}
+                  </option>
+                )))}
+          </SelectElement>
+          <IconActive />
+          <IconInactive />
+        </SelectContainer>
+
+        <ValidationHint
+          disabled={disabled}
+          invalid={invalid}
+          validationHint={validationHint}
+        />
+      </SelectLabel>
+    );
+  },
+);
+
+Select.displayName = 'Select';

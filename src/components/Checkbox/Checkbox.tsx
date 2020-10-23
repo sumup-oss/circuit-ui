@@ -192,55 +192,57 @@ const tooltipStyles = ({ theme }: StyleProps) => css`
 
 const CheckboxTooltip = styled(Tooltip)<{}>(tooltipStyles);
 
-const CheckboxComponent = (
-  {
-    onChange,
-    children,
-    value,
-    id: customId,
-    name,
-    disabled,
-    validationHint,
-    className,
-    invalid,
-    tracking,
-    ...props
-  }: CheckboxProps,
-  ref: CheckboxProps['ref'],
-) => {
-  const id = customId || uniqueId('checkbox_');
-  const handleChange = useClickHandler(onChange, tracking, 'checkbox');
-
-  return (
-    <CheckboxWrapper className={className}>
-      <CheckboxInput
-        {...props}
-        id={id}
-        name={name}
-        value={value}
-        type="checkbox"
-        disabled={disabled}
-        invalid={invalid}
-        ref={ref}
-        onChange={handleChange}
-      />
-      <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
-        {children}
-        <Check aria-hidden="true" />
-      </CheckboxLabel>
-      {!disabled && validationHint && (
-        // TODO: Reenable typechecks once Tooltip has been migrated to TypeScript.
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        <CheckboxTooltip position={'top'} align={'right'}>
-          {validationHint}
-        </CheckboxTooltip>
-      )}
-    </CheckboxWrapper>
-  );
-};
-
 /**
  * Checkbox component for forms.
  */
-export const Checkbox = React.forwardRef(CheckboxComponent);
+export const Checkbox = React.forwardRef(
+  (
+    {
+      onChange,
+      children,
+      value,
+      id: customId,
+      name,
+      disabled,
+      validationHint,
+      className,
+      invalid,
+      tracking,
+      ...props
+    }: CheckboxProps,
+    ref: CheckboxProps['ref'],
+  ) => {
+    const id = customId || uniqueId('checkbox_');
+    const handleChange = useClickHandler(onChange, tracking, 'checkbox');
+
+    return (
+      <CheckboxWrapper className={className}>
+        <CheckboxInput
+          {...props}
+          id={id}
+          name={name}
+          value={value}
+          type="checkbox"
+          disabled={disabled}
+          invalid={invalid}
+          ref={ref}
+          onChange={handleChange}
+        />
+        <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
+          {children}
+          <Check aria-hidden="true" />
+        </CheckboxLabel>
+        {!disabled && validationHint && (
+          // TODO: Reenable typechecks once Tooltip has been migrated to TypeScript.
+          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+          // @ts-ignore
+          <CheckboxTooltip position={'top'} align={'right'}>
+            {validationHint}
+          </CheckboxTooltip>
+        )}
+      </CheckboxWrapper>
+    );
+  },
+);
+
+Checkbox.displayName = 'Checkbox';

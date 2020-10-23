@@ -266,88 +266,90 @@ const labelTextStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
 
 const LabelText = styled('span')(labelTextStyles);
 
-function InputComponent(
-  {
-    value,
-    renderPrefix: RenderPrefix,
-    renderSuffix: RenderSuffix,
-    validationHint,
-    invalid,
-    hasWarning,
-    showValid,
-    noMargin,
-    inline,
-    disabled,
-    labelStyles,
-    inputStyles,
-    as,
-    label,
-    hideLabel,
-    id: customId,
-    ...props
-  }: InputProps,
-  ref: InputProps['ref'],
-): ReturnType {
-  if (!label) {
-    deprecate(
-      [
-        'The label is now built into the input component.',
-        'Use the `label` prop to pass in the label content and',
-        'remove the Label component from your code.',
-        'The label will become required in the next major version.',
-      ].join(' '),
-    );
-  }
-
-  const id = customId || uniqueId('input_');
-
-  const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
-  const suffix = RenderSuffix && <RenderSuffix css={suffixStyles} />;
-
-  const hasPrefix = Boolean(prefix);
-  const hasSuffix = Boolean(suffix);
-
-  return (
-    <InputLabel
-      htmlFor={id}
-      inline={inline}
-      disabled={disabled}
-      noMargin={noMargin}
-      as={label ? 'label' : 'div'}
-    >
-      {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
-
-      <InputContainer css={labelStyles}>
-        {prefix}
-        <InputElement
-          as={as}
-          id={id}
-          value={value}
-          ref={ref}
-          invalid={invalid}
-          aria-invalid={invalid}
-          disabled={disabled}
-          hasWarning={hasWarning}
-          hasPrefix={hasPrefix}
-          hasSuffix={hasSuffix}
-          css={inputStyles}
-          {...props}
-        />
-        {suffix}
-      </InputContainer>
-
-      <ValidationHint
-        disabled={disabled}
-        invalid={invalid}
-        hasWarning={hasWarning}
-        showValid={showValid}
-        validationHint={validationHint}
-      />
-    </InputLabel>
-  );
-}
-
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
-export const Input = forwardRef(InputComponent);
+export const Input = forwardRef(
+  (
+    {
+      value,
+      renderPrefix: RenderPrefix,
+      renderSuffix: RenderSuffix,
+      validationHint,
+      invalid,
+      hasWarning,
+      showValid,
+      noMargin,
+      inline,
+      disabled,
+      labelStyles,
+      inputStyles,
+      as,
+      label,
+      hideLabel,
+      id: customId,
+      ...props
+    }: InputProps,
+    ref: InputProps['ref'],
+  ): ReturnType => {
+    if (!label) {
+      deprecate(
+        [
+          'The label is now built into the input component.',
+          'Use the `label` prop to pass in the label content and',
+          'remove the Label component from your code.',
+          'The label will become required in the next major version.',
+        ].join(' '),
+      );
+    }
+
+    const id = customId || uniqueId('input_');
+
+    const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
+    const suffix = RenderSuffix && <RenderSuffix css={suffixStyles} />;
+
+    const hasPrefix = Boolean(prefix);
+    const hasSuffix = Boolean(suffix);
+
+    return (
+      <InputLabel
+        htmlFor={id}
+        inline={inline}
+        disabled={disabled}
+        noMargin={noMargin}
+        as={label ? 'label' : 'div'}
+      >
+        {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
+
+        <InputContainer css={labelStyles}>
+          {prefix}
+          <InputElement
+            as={as}
+            id={id}
+            value={value}
+            ref={ref}
+            invalid={invalid}
+            aria-invalid={invalid}
+            disabled={disabled}
+            hasWarning={hasWarning}
+            hasPrefix={hasPrefix}
+            hasSuffix={hasSuffix}
+            css={inputStyles}
+            {...props}
+          />
+          {suffix}
+        </InputContainer>
+
+        <ValidationHint
+          disabled={disabled}
+          invalid={invalid}
+          hasWarning={hasWarning}
+          showValid={showValid}
+          validationHint={validationHint}
+        />
+      </InputLabel>
+    );
+  },
+);
+
+Input.displayName = 'Input';
