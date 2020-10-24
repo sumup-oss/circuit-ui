@@ -196,7 +196,6 @@ exports[`BaseStylesService should return the global base styles 1`] = `
     font-feature-settings: 'kern';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
     text-rendering: optimizeLegibility;
   }
 
