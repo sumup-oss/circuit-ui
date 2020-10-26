@@ -150,7 +150,7 @@
     "react-svg-loader": "^3.0.3",
     "react-swipeable": "^5.4.0",
     "react-test-renderer": "^16.8.6",
-    "style-loader": "^1.0.0",
+    "style-loader": "^2.0.0",
     "ts-jest": "^25.3.1",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
