@@ -170,53 +170,55 @@ const RadioButtonInput = styled('input')<InputElProps>(
   inputInvalidStyles,
 );
 
-const RadioButtonComponent = (
-  {
-    onChange,
-    children,
-    label,
-    id: customId,
-    name,
-    value,
-    checked,
-    invalid,
-    disabled,
-    tracking,
-    className,
-    ...props
-  }: RadioButtonProps,
-  ref: RadioButtonProps['ref'],
-) => {
-  const id = customId || uniqueId('radio-button_');
-  const handleChange = useClickHandler(onChange, tracking, 'radio-button');
-
-  return (
-    <>
-      <RadioButtonInput
-        {...props}
-        type="radio"
-        name={name}
-        id={id}
-        value={value}
-        invalid={invalid}
-        disabled={disabled}
-        checked={checked}
-        onClick={handleChange}
-        ref={ref}
-      />
-      <RadioButtonLabel
-        htmlFor={id}
-        disabled={disabled}
-        invalid={invalid}
-        className={className}
-      >
-        {children || label}
-      </RadioButtonLabel>
-    </>
-  );
-};
-
 /**
  * RadioButton component for forms.
  */
-export const RadioButton = React.forwardRef(RadioButtonComponent);
+export const RadioButton = React.forwardRef(
+  (
+    {
+      onChange,
+      children,
+      label,
+      id: customId,
+      name,
+      value,
+      checked,
+      invalid,
+      disabled,
+      tracking,
+      className,
+      ...props
+    }: RadioButtonProps,
+    ref: RadioButtonProps['ref'],
+  ) => {
+    const id = customId || uniqueId('radio-button_');
+    const handleChange = useClickHandler(onChange, tracking, 'radio-button');
+
+    return (
+      <>
+        <RadioButtonInput
+          {...props}
+          type="radio"
+          name={name}
+          id={id}
+          value={value}
+          invalid={invalid}
+          disabled={disabled}
+          checked={checked}
+          onClick={handleChange}
+          ref={ref}
+        />
+        <RadioButtonLabel
+          htmlFor={id}
+          disabled={disabled}
+          invalid={invalid}
+          className={className}
+        >
+          {children || label}
+        </RadioButtonLabel>
+      </>
+    );
+  },
+);
+
+RadioButton.displayName = 'RadioButton';

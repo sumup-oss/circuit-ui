@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ReactNode } from 'react';
+import React, { HTMLProps, ReactNode, MouseEvent } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { focusOutline } from '../../styles/style-helpers';
@@ -23,9 +24,14 @@ import { ReturnType } from '../../types/return-type';
 import Text from '../Text';
 import { TextProps } from '../Text/Text';
 import { useComponents } from '../ComponentsContext';
+import useClickHandler from '../../hooks/use-click-handler';
 
 interface BaseProps extends TextProps {
   children: ReactNode;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
   /**
    * The ref to the html dom element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
    */
@@ -74,31 +80,54 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const BaseAnchor = styled(Text, {
+const StyledAnchor = styled(Text, {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<AnchorProps>(baseStyles);
-
-function AnchorComponent(
-  props: AnchorProps,
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>,
-): ReturnType {
-  const { Link } = useComponents();
-  const AnchorLink = BaseAnchor.withComponent(Link);
-
-  if (!props.href && !props.onClick) {
-    return <Text as="span" {...props} ref={ref} noMargin />;
-  }
-
-  if (props.href) {
-    // typing issues with with
-    return <AnchorLink {...props} ref={ref} noMargin />;
-  }
-
-  return <BaseAnchor as="button" {...props} ref={ref} noMargin />;
-}
 
 /**
  * The Anchor is used to display a link or button that visually looks like
  * a hyperlink. Based on the Text component, so it also supports its props.
  */
-export const Anchor = React.forwardRef(AnchorComponent);
+export const Anchor = React.forwardRef(
+  ({ tracking, ...props }: AnchorProps, ref?: BaseProps['ref']): ReturnType => {
+    const components = useComponents();
+
+    // Need to typecast here because the StyledAnchor expects a button-like
+    // component for its `as` prop. It's safe to ignore that constraint here.
+    const Link = components.Link as any;
+
+    const handleClick = useClickHandler<MouseEvent<any>>(
+      props.onClick,
+      tracking,
+      'anchor',
+    );
+
+    if (!props.href && !props.onClick) {
+      return <Text as="span" {...props} ref={ref} noMargin />;
+    }
+
+    if (props.href) {
+      return (
+        <StyledAnchor
+          {...props}
+          as={Link}
+          ref={ref}
+          onClick={handleClick}
+          noMargin
+        />
+      );
+    }
+
+    return (
+      <StyledAnchor
+        as="button"
+        {...props}
+        ref={ref}
+        onClick={handleClick}
+        noMargin
+      />
+    );
+  },
+);
+
+Anchor.displayName = 'Anchor';

@@ -50,22 +50,24 @@ const sizeStyles = (size: IconButtonProps['size'] = 'mega') => (
   });
 };
 
-const IconButtonComponent = (
-  { children, label, size, ...props }: IconButtonProps,
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>,
-) => {
-  const child = Children.only(children);
-  const icon = cloneElement(child, { role: 'presentation' });
-  return (
-    <Button title={label} css={sizeStyles(size)} {...props} ref={ref}>
-      {icon}
-      <Label>{label}</Label>
-    </Button>
-  );
-};
-
 /**
  * The IconButton component displays a button with a single icon
  * as its only child.
  */
-export const IconButton = React.forwardRef(IconButtonComponent);
+export const IconButton = React.forwardRef(
+  (
+    { children, label, size, ...props }: IconButtonProps,
+    ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>,
+  ) => {
+    const child = Children.only(children);
+    const icon = cloneElement(child, { role: 'presentation' });
+    return (
+      <Button title={label} css={sizeStyles(size)} {...props} ref={ref}>
+        {icon}
+        <Label>{label}</Label>
+      </Button>
+    );
+  },
+);
+
+IconButton.displayName = 'IconButton';

@@ -49,14 +49,13 @@ const gigaStyles = ({ theme, size = 'mega' }: StyleProps & BlockquoteProps) =>
 
 const StyledText = styled(Text)<BlockquoteProps>(baseStyles, gigaStyles);
 
-export function BlockquoteComponent(
-  props: BlockquoteProps,
-  ref: BlockquoteProps['ref'],
-) {
-  return <StyledText {...props} as="blockquote" italic ref={ref} />;
-}
-
 /**
  * Indented and italicised text to denote a quotation.
  */
-export const Blockquote = React.forwardRef(BlockquoteComponent);
+export const Blockquote = React.forwardRef(
+  (props: BlockquoteProps, ref: BlockquoteProps['ref']) => (
+    <StyledText {...props} as="blockquote" italic ref={ref} />
+  ),
+);
+
+Blockquote.displayName = 'Blockquote';

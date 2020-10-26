@@ -84,7 +84,7 @@ const BORDER_WIDTH = '1px';
 
 const baseStyles = ({ theme }: StyleProps) => css`
   label: button;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: auto;
@@ -206,7 +206,7 @@ const iconStyles = (theme: Theme) => css`
   margin-right: ${theme.spacings.byte};
 `;
 
-const BaseButton = styled('button', {
+const StyledButton = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<ButtonProps>(
   baseStyles,
@@ -217,29 +217,39 @@ const BaseButton = styled('button', {
   stretchStyles,
 );
 
-function ButtonComponent(
-  { children, icon: Icon, tracking, ...props }: ButtonProps,
-  ref?: BaseProps['ref'],
-): ReturnType {
-  const { Link } = useComponents();
-  const LinkButton = BaseButton.withComponent(Link);
-  const ButtonElement = props.href ? LinkButton : BaseButton;
-  const handleClick = useClickHandler<MouseEvent<any>>(
-    props.onClick,
-    tracking,
-    'button',
-  );
-
-  return (
-    <ButtonElement {...props} ref={ref} onClick={handleClick}>
-      {Icon && <Icon css={iconStyles} role="presentation" />}
-      {children}
-    </ButtonElement>
-  );
-}
-
 /**
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
  */
-export const Button = forwardRef(ButtonComponent);
+export const Button = forwardRef(
+  (
+    { children, icon: Icon, tracking, ...props }: ButtonProps,
+    ref?: BaseProps['ref'],
+  ): ReturnType => {
+    const components = useComponents();
+
+    // Need to typecast here because the StyledButton expects a button-like
+    // component for its `as` prop. It's safe to ignore that constraint here.
+    const Link = components.Link as any;
+
+    const handleClick = useClickHandler<MouseEvent<any>>(
+      props.onClick,
+      tracking,
+      'button',
+    );
+
+    return (
+      <StyledButton
+        {...props}
+        ref={ref}
+        as={props.href ? Link : 'button'}
+        onClick={handleClick}
+      >
+        {Icon && <Icon css={iconStyles} role="presentation" />}
+        {children}
+      </StyledButton>
+    );
+  },
+);
+
+Button.displayName = 'Button';

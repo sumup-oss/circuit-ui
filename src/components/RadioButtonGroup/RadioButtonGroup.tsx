@@ -72,49 +72,51 @@ const StyledLegend = styled('legend')<HTMLProps<HTMLLegendElement>>(
   legendBaseStyles,
 );
 
-const RadioButtonGroupComponent = (
-  {
-    options,
-    onChange,
-    value: activeValue,
-    name: customName,
-    label,
-    invalid,
-    validationHint,
-    showValid,
-    disabled,
-    hasWarning,
-    ...props
-  }: RadioButtonGroupProps,
-  ref: RadioButtonGroupProps['ref'],
-) => {
-  const name = customName || uniqueId('radio-button-group_');
-  return (
-    <fieldset name={name} ref={ref} {...props}>
-      {label && <StyledLegend>{label}</StyledLegend>}
-      {options &&
-        options.map(({ children, value, className, ...rest }) => (
-          <div key={value && value.toString()} className={className}>
-            <RadioButton
-              {...{ ...rest, value, name, onChange }}
-              checked={value === activeValue}
-            >
-              {children}
-            </RadioButton>
-          </div>
-        ))}
-      <ValidationHint
-        invalid={invalid}
-        showValid={showValid}
-        disabled={disabled}
-        hasWarning={hasWarning}
-        validationHint={validationHint}
-      />
-    </fieldset>
-  );
-};
-
 /**
  * A group of RadioButtons.
  */
-export const RadioButtonGroup = React.forwardRef(RadioButtonGroupComponent);
+export const RadioButtonGroup = React.forwardRef(
+  (
+    {
+      options,
+      onChange,
+      value: activeValue,
+      name: customName,
+      label,
+      invalid,
+      validationHint,
+      showValid,
+      disabled,
+      hasWarning,
+      ...props
+    }: RadioButtonGroupProps,
+    ref: RadioButtonGroupProps['ref'],
+  ) => {
+    const name = customName || uniqueId('radio-button-group_');
+    return (
+      <fieldset name={name} ref={ref} {...props}>
+        {label && <StyledLegend>{label}</StyledLegend>}
+        {options &&
+          options.map(({ children, value, className, ...rest }) => (
+            <div key={value && value.toString()} className={className}>
+              <RadioButton
+                {...{ ...rest, value, name, onChange }}
+                checked={value === activeValue}
+              >
+                {children}
+              </RadioButton>
+            </div>
+          ))}
+        <ValidationHint
+          invalid={invalid}
+          showValid={showValid}
+          disabled={disabled}
+          hasWarning={hasWarning}
+          validationHint={validationHint}
+        />
+      </fieldset>
+    );
+  },
+);
+
+RadioButtonGroup.displayName = 'RadioButtonGroup';

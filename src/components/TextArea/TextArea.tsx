@@ -27,13 +27,13 @@ const textAreaStyles = css`
   resize: vertical;
 `;
 
-function TextAreaComponent(props: TextAreaProps, ref: TextAreaProps['ref']) {
-  return (
-    <Input {...props} inputStyles={textAreaStyles} as="textarea" ref={ref} />
-  );
-}
-
 /**
  * TextArea component for forms.
  */
-export const TextArea = React.forwardRef(TextAreaComponent);
+export const TextArea = React.forwardRef(
+  (props: TextAreaProps, ref: TextAreaProps['ref']) => (
+    <Input {...props} inputStyles={textAreaStyles} as="textarea" ref={ref} />
+  ),
+);
+
+TextArea.displayName = 'TextArea';

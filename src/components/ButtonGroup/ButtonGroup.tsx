@@ -103,16 +103,15 @@ const Wrapper = styled('div')<ButtonGroupProps>(
   inlineMobileStyles,
 );
 
-const ButtonGroupComponent = (
-  { children, ...props }: ButtonGroupProps,
-  ref: ButtonGroupProps['ref'],
-) => (
-  <Wrapper {...props} ref={ref}>
-    {children}
-  </Wrapper>
-);
-
 /**
  * Groups its Button children into a list and adds margins between.
  */
-export const ButtonGroup = React.forwardRef(ButtonGroupComponent);
+export const ButtonGroup = React.forwardRef(
+  ({ children, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => (
+    <Wrapper {...props} ref={ref}>
+      {children}
+    </Wrapper>
+  ),
+);
+
+ButtonGroup.displayName = 'ButtonGroup';
