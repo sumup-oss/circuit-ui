@@ -154,7 +154,7 @@
     "ts-jest": "^25.3.1",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^5.2.0"
   },
   "peerDependencies": {
     "@emotion/cache": "10.x",
