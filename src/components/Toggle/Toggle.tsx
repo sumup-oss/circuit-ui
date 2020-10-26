@@ -17,6 +17,7 @@ import React, { Ref } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { disableVisually } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import { Text, TextProps } from '../Text/Text';
 
@@ -69,7 +70,7 @@ const explanationStyles = ({ theme }: StyleProps) => css`
 
 const ToggleExplanation = styled(Text)<TextProps>(explanationStyles);
 
-type WrapperElProps = Pick<ToggleProps, 'noMargin'>;
+type WrapperElProps = Pick<ToggleProps, 'noMargin' | 'disabled'>;
 
 const toggleWrapperStyles = ({ theme }: StyleProps) => css`
   label: toggle;
@@ -83,6 +84,13 @@ const toggleWrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
+const toggleWrapperDisabledStyles = ({ disabled }: WrapperElProps) =>
+  disabled &&
+  css`
+    label: toggle--disabled;
+    ${disableVisually()};
+  `;
+
 const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) =>
   noMargin &&
   css`
@@ -92,6 +100,7 @@ const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) =>
 
 const ToggleWrapper = styled('div')<WrapperElProps>(
   toggleWrapperStyles,
+  toggleWrapperDisabledStyles,
   toggleWrapperNoMarginStyles,
 );
 
@@ -106,7 +115,7 @@ export const Toggle = React.forwardRef(
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
     return (
-      <ToggleWrapper {...{ noMargin }}>
+      <ToggleWrapper noMargin={noMargin} disabled={props.disabled}>
         <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
         {(label || explanation) && (
           <ToggleTextWrapper id={labelId} htmlFor={switchId}>

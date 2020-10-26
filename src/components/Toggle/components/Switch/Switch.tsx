@@ -93,7 +93,7 @@ type KnobElProps = Pick<SwitchProps, 'checked'>;
 const knobBaseStyles = ({ theme }: StyleProps) => css`
   label: toggle__switch-knob;
   display: block;
-  background-color: ${theme.colors.n100};
+  background-color: ${theme.colors.white};
   box-shadow: ${knobShadow(theme.colors.n500)};
   position: absolute;
   top: 50%;

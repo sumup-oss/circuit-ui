@@ -56,3 +56,17 @@ WithExplanation.args = {
   ...baseArgs,
   explanation: 'Some more detailed text of what this means',
 };
+
+export const Disabled = (args: ToggleProps) => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+  return <Toggle {...args} checked={checked} onChange={handleChange} />;
+};
+
+Disabled.args = {
+  ...baseArgs,
+  disabled: true,
+};
