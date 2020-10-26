@@ -144,7 +144,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-object-fit-images": "^1.1.2",
     "react": "^16.13.1",
-    "react-docgen": "^4.1.0",
+    "react-docgen": "^5.3.1",
     "react-docgen-annotation-resolver": "^1.1.0",
     "react-dom": "^16.10.2",
     "react-svg-loader": "^3.0.3",
