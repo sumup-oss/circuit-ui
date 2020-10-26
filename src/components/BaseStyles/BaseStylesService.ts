@@ -184,6 +184,7 @@ export const createBaseStyles = ({ theme }: StyleProps) => css`
 
   html {
     box-sizing: border-box;
+    overflow-x: hidden;
 
     [type='button'] {
       appearance: none;

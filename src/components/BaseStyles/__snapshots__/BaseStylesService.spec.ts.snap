@@ -165,6 +165,7 @@ exports[`BaseStylesService should return the global base styles 1`] = `
 
   html {
     box-sizing: border-box;
+    overflow-x: hidden;
 
     [type='button'] {
       appearance: none;
