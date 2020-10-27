@@ -62,6 +62,9 @@ exports[`Button styles should render a button with icon 1`] = `
 }
 
 .circuit-0 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   margin-right: 8px;
 }
 

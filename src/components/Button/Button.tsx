@@ -203,6 +203,7 @@ const stretchStyles = ({ stretch }: ButtonProps) =>
 
 const iconStyles = (theme: Theme) => css`
   label: button__icon;
+  flex-shrink: 0;
   margin-right: ${theme.spacings.byte};
 `;
 
