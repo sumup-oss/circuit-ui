@@ -45,7 +45,7 @@ type LabelElProps = Pick<RadioButtonProps, 'invalid' | 'disabled'>;
 
 const labelBaseStyles = ({ theme }: StyleProps) => css`
   label: radio-button__label;
-  color: ${theme.colors.n700};
+  color: ${theme.colors.bodyColor};
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -134,7 +134,8 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   }
 
   &:focus + label::before {
-    ${focusOutline({ theme })}
+    ${focusOutline({ theme })};
+    border-color: ${theme.colors.p500};
   }
 
   &:checked + label {
@@ -154,7 +155,8 @@ const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
   css`
     label: radio-button__input--invalid;
 
-    &:hover + label::before {
+    &:hover + label::before,
+    &:focus + label::before {
       border-color: ${theme.colors.r700};
     }
 

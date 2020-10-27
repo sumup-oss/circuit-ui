@@ -5,11 +5,6 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   position: relative;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
-}
-
 .circuit-2 {
   font-size: 13px;
   line-height: 20px;
@@ -18,6 +13,11 @@ label + .circuit-1 {
   pointer-events: none;
   box-shadow: none;
   margin-bottom: 16px;
+}
+
+label .circuit-2:not(label),
+label + .circuit-2:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -86,11 +86,6 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
   position: relative;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
-}
-
 .circuit-2 {
   font-size: 13px;
   line-height: 20px;
@@ -99,6 +94,11 @@ label + .circuit-1 {
   pointer-events: none;
   box-shadow: none;
   margin-bottom: 16px;
+}
+
+label .circuit-2:not(label),
+label + .circuit-2:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -169,13 +169,13 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   margin-bottom: 16px;
 }
 
-.circuit-1 {
-  position: relative;
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
+.circuit-1 {
+  position: relative;
 }
 
 .circuit-0 {
@@ -277,13 +277,13 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   margin-bottom: 16px;
 }
 
-.circuit-2 {
-  position: relative;
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
-label .circuit-2,
-label + .circuit-2 {
-  margin-top: 4px;
+.circuit-2 {
+  position: relative;
 }
 
 .circuit-0 {
@@ -379,13 +379,13 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
   margin-bottom: 16px;
 }
 
-.circuit-2 {
-  position: relative;
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
-label .circuit-2,
-label + .circuit-2 {
-  margin-top: 4px;
+.circuit-2 {
+  position: relative;
 }
 
 .circuit-0 {
@@ -483,13 +483,13 @@ exports[`TextArea should render with default styles 1`] = `
   margin-bottom: 16px;
 }
 
-.circuit-1 {
-  position: relative;
+label .circuit-2:not(label),
+label + .circuit-2:not(label) {
+  margin-top: 4px;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
+.circuit-1 {
+  position: relative;
 }
 
 .circuit-0 {
@@ -566,11 +566,6 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   position: relative;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
-}
-
 .circuit-2 {
   font-size: 13px;
   line-height: 20px;
@@ -579,6 +574,11 @@ label + .circuit-1 {
   pointer-events: none;
   box-shadow: none;
   margin-bottom: 16px;
+}
+
+label .circuit-2:not(label),
+label + .circuit-2:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -646,11 +646,6 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   position: relative;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
-}
-
 .circuit-0 {
   -webkit-appearance: none;
   background-color: #FFF;
@@ -714,6 +709,11 @@ label + .circuit-1 {
   margin-bottom: 16px;
 }
 
+label .circuit-2:not(label),
+label + .circuit-2:not(label) {
+  margin-top: 4px;
+}
+
 <div
   class="circuit-2"
   for="input_12"
@@ -737,13 +737,13 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   margin-bottom: 16px;
 }
 
-.circuit-1 {
-  position: relative;
+label .circuit-2:not(label),
+label + .circuit-2:not(label) {
+  margin-top: 4px;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
+.circuit-1 {
+  position: relative;
 }
 
 .circuit-0 {
@@ -837,11 +837,6 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   position: relative;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
-}
-
 .circuit-0 {
   -webkit-appearance: none;
   background-color: #FFF;
@@ -925,13 +920,13 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
   margin-bottom: 16px;
 }
 
-.circuit-1 {
-  position: relative;
+label .circuit-2:not(label),
+label + .circuit-2:not(label) {
+  margin-top: 4px;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
+.circuit-1 {
+  position: relative;
 }
 
 .circuit-0 {
@@ -947,7 +942,7 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #E6E6E6;
+  background-color: #F5F5F5;
   box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
@@ -1013,13 +1008,13 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   margin-bottom: 16px;
 }
 
-.circuit-1 {
-  position: relative;
+label .circuit-2:not(label),
+label + .circuit-2:not(label) {
+  margin-top: 4px;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
+.circuit-1 {
+  position: relative;
 }
 
 .circuit-0 {
@@ -1099,13 +1094,13 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   margin-bottom: 16px;
 }
 
-.circuit-1 {
-  position: relative;
+label .circuit-2:not(label),
+label + .circuit-2:not(label) {
+  margin-top: 4px;
 }
 
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
+.circuit-1 {
+  position: relative;
 }
 
 .circuit-0 {

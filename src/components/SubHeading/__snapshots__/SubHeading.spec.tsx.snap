@@ -5,6 +5,7 @@ exports[`SubHeading should render as h2 element 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #000;
   font-size: 12px;
   line-height: 20px;
 }
@@ -21,6 +22,7 @@ exports[`SubHeading should render as h3 element 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #000;
   font-size: 12px;
   line-height: 20px;
 }
@@ -37,6 +39,7 @@ exports[`SubHeading should render as h4 element 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #000;
   font-size: 12px;
   line-height: 20px;
 }
@@ -53,6 +56,7 @@ exports[`SubHeading should render as h5 element 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #000;
   font-size: 12px;
   line-height: 20px;
 }
@@ -69,6 +73,7 @@ exports[`SubHeading should render as h6 element 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #000;
   font-size: 12px;
   line-height: 20px;
 }
@@ -85,6 +90,7 @@ exports[`SubHeading should render with no margin styles when passed the noMargin
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #000;
   font-size: 12px;
   line-height: 20px;
   margin-bottom: 0;
@@ -100,6 +106,7 @@ exports[`SubHeading should render with size kilo 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #000;
   font-size: 12px;
   line-height: 20px;
 }
@@ -116,6 +123,7 @@ exports[`SubHeading should render with size mega 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #000;
   font-size: 14px;
   line-height: 18px;
 }

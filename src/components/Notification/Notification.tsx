@@ -106,7 +106,7 @@ export const Notification = ({
 
   return (
     <Container {...props}>
-      {Icon && <Icon css={iconStyles(variant)} />}
+      {Icon && <Icon css={iconStyles(variant)} size="large" />}
 
       <Content>{children}</Content>
 

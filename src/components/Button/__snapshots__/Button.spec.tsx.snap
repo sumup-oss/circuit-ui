@@ -30,7 +30,7 @@ exports[`Button styles should render a button with icon 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
-  color: #333;
+  color: #000;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
 }
@@ -120,7 +120,7 @@ exports[`Button styles should render a disabled button 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
-  color: #333;
+  color: #000;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
 }
@@ -189,7 +189,7 @@ exports[`Button styles should render a kilo button 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
-  color: #333;
+  color: #000;
   padding: 4px calc(16px - 1px);
   border-radius: 6px;
 }
@@ -257,7 +257,7 @@ exports[`Button styles should render a mega button 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
-  color: #333;
+  color: #000;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
 }
@@ -325,7 +325,7 @@ exports[`Button styles should render a primary button by default 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
-  color: #333;
+  color: #000;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
 }
@@ -393,7 +393,7 @@ exports[`Button styles should render a secondary button 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
-  color: #333;
+  color: #000;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
 }
@@ -461,7 +461,7 @@ exports[`Button styles should render a stretched button 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
-  color: #333;
+  color: #000;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   width: 100%;

@@ -143,7 +143,7 @@ const secondaryStyles = ({
     label: button--secondary;
     background-color: ${theme.colors.white};
     border-color: ${theme.colors.n500};
-    color: ${theme.colors.n800};
+    color: ${theme.colors.black};
 
     &:hover {
       background-color: ${theme.colors.n100};
