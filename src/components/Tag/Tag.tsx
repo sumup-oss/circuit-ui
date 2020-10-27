@@ -72,7 +72,9 @@ const tagBaseStyles = ({ theme }: StyleProps) => css`
   label: tag;
   display: inline-flex;
   align-items: center;
+  margin: 0;
   ${textMega({ theme })};
+  word-break: break-word;
   border: ${BORDER_WIDTH} solid ${theme.colors.n300};
   border-radius: ${theme.borderRadius.giga};
   padding: ${theme.spacings.bit} ${theme.spacings.kilo};
@@ -151,12 +153,14 @@ const TagElement = styled('div')<TagElProps>(
 
 const prefixStyles = (theme: Theme) => css`
   label: tag__prefix;
+  flex-shrink: 0;
   margin-left: -${theme.spacings.bit};
   margin-right: ${theme.spacings.bit};
 `;
 
 const suffixStyles = (theme: Theme) => css`
   label: tag__suffix;
+  flex-shrink: 0;
   margin-left: ${theme.spacings.bit};
   margin-right: -${theme.spacings.bit};
 `;

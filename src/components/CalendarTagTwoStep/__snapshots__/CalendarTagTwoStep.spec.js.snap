@@ -14,8 +14,10 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
+  word-break: break-word;
   border: 1px solid #CCC;
   border-radius: 6px;
   padding: 4px 12px;
