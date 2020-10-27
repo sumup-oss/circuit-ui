@@ -906,7 +906,17 @@
       "size": "small"
     },
     {
+      "name": "circle_checkmark_filled",
+      "category": "Notification",
+      "size": "small"
+    },
+    {
       "name": "circle_cross",
+      "category": "Notification",
+      "size": "small"
+    },
+    {
+      "name": "circle_cross_filled",
       "category": "Notification",
       "size": "small"
     },
@@ -921,7 +931,17 @@
       "size": "small"
     },
     {
+      "name": "circle_info_filled",
+      "category": "Notification",
+      "size": "small"
+    },
+    {
       "name": "circle_warning",
+      "category": "Notification",
+      "size": "small"
+    },
+    {
+      "name": "circle_warning_filled",
       "category": "Notification",
       "size": "small"
     },
