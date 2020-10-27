@@ -16,7 +16,11 @@
 /** @jsx jsx */
 import { HTMLProps } from 'react';
 import { css, jsx } from '@emotion/core';
-import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
+import {
+  CircleCheckmarkFilled,
+  CircleWarningFilled,
+  CircleCrossFilled,
+} from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -78,14 +82,21 @@ const getIcon = (state: ValidationHintProps) => {
       return null;
     }
     case state.invalid: {
-      return <CircleCross role="presentation" css={iconStyles('danger')} />;
+      return (
+        <CircleCrossFilled role="presentation" css={iconStyles('danger')} />
+      );
     }
     case state.hasWarning: {
-      return <CircleWarning role="presentation" css={iconStyles('warning')} />;
+      return (
+        <CircleWarningFilled role="presentation" css={iconStyles('warning')} />
+      );
     }
     case state.showValid: {
       return (
-        <CircleCheckmark role="presentation" css={iconStyles('success')} />
+        <CircleCheckmarkFilled
+          role="presentation"
+          css={iconStyles('success')}
+        />
       );
     }
     default: {
