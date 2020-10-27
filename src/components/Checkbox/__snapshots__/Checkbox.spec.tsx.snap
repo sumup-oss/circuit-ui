@@ -540,6 +540,8 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
+  border-color: #666;
+  background-color: #E6E6E6;
 }
 
 <div

@@ -103,7 +103,7 @@ const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
     }
   `;
 
-const labelDisabledStyles = ({ disabled }: LabelElProps) =>
+const labelDisabledStyles = ({ disabled, theme }: StyleProps & LabelElProps) =>
   disabled &&
   css`
     label: checkbox--disabled;
@@ -111,6 +111,8 @@ const labelDisabledStyles = ({ disabled }: LabelElProps) =>
 
     &::before {
       ${disableVisually()};
+      border-color: ${theme.colors.n700};
+      background-color: ${theme.colors.n200};
     }
   `;
 
