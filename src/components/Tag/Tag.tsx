@@ -99,6 +99,7 @@ const tagClickableStyles = ({ theme, onClick }: StyleProps & TagElProps) =>
     label: tag--clickable;
     cursor: pointer;
     outline: 0;
+    text-align: left;
 
     &:active {
       color: ${theme.colors.bodyColor};
@@ -168,8 +169,9 @@ const suffixStyles = (theme: Theme) => css`
 const closeButtonStyles = ({ theme }: StyleProps) => css`
   label: tag__close-button;
   position: absolute;
-  top: ${BORDER_WIDTH};
+  top: 50%;
   right: ${BORDER_WIDTH};
+  transform: translateY(-50%);
   border-radius: ${theme.borderRadius.mega};
 `;
 

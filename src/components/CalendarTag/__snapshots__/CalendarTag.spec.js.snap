@@ -27,6 +27,7 @@ exports[`CalendarTag should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
+  text-align: left;
 }
 
 .circuit-0:active {
