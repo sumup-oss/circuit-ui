@@ -35,7 +35,10 @@ const footerStyles = ({ theme }: StyleProps) => css`
       right: 0;
       width: 100%;
       height: ${theme.spacings.giga};
-      background: linear-gradient(transparent, ${theme.colors.white});
+      background: linear-gradient(
+        rgba(256, 256, 256, 0),
+        ${theme.colors.white}
+      );
     }
   }
 `;

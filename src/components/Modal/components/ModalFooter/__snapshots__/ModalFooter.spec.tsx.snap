@@ -49,7 +49,7 @@ exports[`ModalFooter should render with default styles 1`] = `
     right: 0;
     width: 100%;
     height: 24px;
-    background: linear-gradient(transparent,#FFF);
+    background: linear-gradient( rgba(256,256,256,0), #FFF );
   }
 }
 
