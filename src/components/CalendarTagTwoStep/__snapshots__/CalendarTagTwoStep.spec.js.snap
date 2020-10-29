@@ -14,8 +14,10 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
+  word-break: break-word;
   border: 1px solid #CCC;
   border-radius: 6px;
   padding: 4px 12px;
@@ -25,6 +27,7 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
+  text-align: left;
 }
 
 .circuit-0:active {

@@ -72,7 +72,9 @@ const tagBaseStyles = ({ theme }: StyleProps) => css`
   label: tag;
   display: inline-flex;
   align-items: center;
+  margin: 0;
   ${textMega({ theme })};
+  word-break: break-word;
   border: ${BORDER_WIDTH} solid ${theme.colors.n300};
   border-radius: ${theme.borderRadius.giga};
   padding: ${theme.spacings.bit} ${theme.spacings.kilo};
@@ -97,6 +99,7 @@ const tagClickableStyles = ({ theme, onClick }: StyleProps & TagElProps) =>
     label: tag--clickable;
     cursor: pointer;
     outline: 0;
+    text-align: left;
 
     &:active {
       color: ${theme.colors.bodyColor};
@@ -151,12 +154,14 @@ const TagElement = styled('div')<TagElProps>(
 
 const prefixStyles = (theme: Theme) => css`
   label: tag__prefix;
+  flex-shrink: 0;
   margin-left: -${theme.spacings.bit};
   margin-right: ${theme.spacings.bit};
 `;
 
 const suffixStyles = (theme: Theme) => css`
   label: tag__suffix;
+  flex-shrink: 0;
   margin-left: ${theme.spacings.bit};
   margin-right: -${theme.spacings.bit};
 `;
@@ -164,8 +169,9 @@ const suffixStyles = (theme: Theme) => css`
 const closeButtonStyles = ({ theme }: StyleProps) => css`
   label: tag__close-button;
   position: absolute;
-  top: ${BORDER_WIDTH};
+  top: 50%;
   right: ${BORDER_WIDTH};
+  transform: translateY(-50%);
   border-radius: ${theme.borderRadius.mega};
 `;
 

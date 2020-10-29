@@ -14,8 +14,10 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
+  word-break: break-word;
   border: 1px solid #CCC;
   border-radius: 6px;
   padding: 4px 12px;
@@ -25,6 +27,7 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
+  text-align: left;
 }
 
 .circuit-0:active {
@@ -71,8 +74,10 @@ exports[`Tag when is default should render with default styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
+  word-break: break-word;
   border: 1px solid #CCC;
   border-radius: 6px;
   padding: 4px 12px;
@@ -107,8 +112,10 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
+  word-break: break-word;
   border: 1px solid #CCC;
   border-radius: 6px;
   padding: 4px 12px;
@@ -157,8 +164,11 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   padding: 8px;
   border: 0;
   position: absolute;
-  top: 1px;
+  top: 50%;
   right: 1px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   border-radius: 4px;
 }
 
@@ -253,8 +263,10 @@ exports[`Tag when is selected should change the given icon color 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
+  word-break: break-word;
   border: 1px solid #CCC;
   border-radius: 6px;
   padding: 4px 12px;
@@ -268,6 +280,9 @@ exports[`Tag when is selected should change the given icon color 1`] = `
 }
 
 .circuit-0 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   margin-left: -4px;
   margin-right: 4px;
 }
@@ -301,8 +316,10 @@ exports[`Tag when is selected should render with selected styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
+  word-break: break-word;
   border: 1px solid #CCC;
   border-radius: 6px;
   padding: 4px 12px;
