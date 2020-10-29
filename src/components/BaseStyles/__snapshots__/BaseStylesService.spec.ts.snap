@@ -165,6 +165,7 @@ exports[`BaseStylesService should return the global base styles 1`] = `
 
   html {
     box-sizing: border-box;
+    overflow-x: hidden;
 
     [type='button'] {
       appearance: none;
@@ -196,7 +197,6 @@ exports[`BaseStylesService should return the global base styles 1`] = `
     font-feature-settings: 'kern';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
     text-rendering: optimizeLegibility;
   }
 
