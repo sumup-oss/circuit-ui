@@ -13,19 +13,31 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { FC } from 'react';
 import { css } from '@emotion/core';
-import isPropValid from '@emotion/is-prop-valid';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import styled, { StyleProps } from '../../styles/styled';
 import {
   shadowSingle,
   shadowDouble,
   shadowTriple,
 } from '../../styles/style-helpers';
 
-const baseStyles = ({ theme }) => css`
+type Shadow = 'single' | 'double' | 'triple';
+type Spacing = 'mega' | 'giga';
+
+export interface CardProps {
+  /**
+   * The shadow depth of the Card.
+   */
+  shadow?: Shadow;
+  /**
+   * The padding of the Card.
+   */
+  spacing?: Spacing;
+}
+
+const baseStyles = ({ theme }: StyleProps) => css`
   label: card;
   background-color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.mega};
@@ -34,7 +46,7 @@ const baseStyles = ({ theme }) => css`
   justify-content: space-between;
 `;
 
-const shadowStyles = ({ theme, shadow }) => {
+const shadowStyles = ({ theme, shadow = 'single' }: StyleProps & CardProps) => {
   if (!shadow) {
     return null;
   }
@@ -49,7 +61,7 @@ const shadowStyles = ({ theme, shadow }) => {
   `;
 };
 
-const spacingStyles = ({ theme, spacing }) => {
+const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
   if (!spacing) {
     return null;
   }
@@ -67,34 +79,8 @@ const spacingStyles = ({ theme, spacing }) => {
   `;
 };
 
-/**
- * Card component that is used for displaying content on a grid.
- */
-const Card = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
-})(baseStyles, shadowStyles, spacingStyles);
-
-Card.propTypes = {
-  /**
-   * The shadow depth of the Card.
-   */
-  shadow: PropTypes.oneOf(['single', 'double', 'triple']),
-  /**
-   * The padding of the Card.
-   */
-  spacing: PropTypes.oneOf(['mega', 'giga']),
-  /**
-   * Content to be rendered inside the Card.
-   */
-  children: childrenPropType,
-};
-
-Card.defaultProps = {
-  spacing: 'giga',
-  shadow: 'single',
-};
-
-/**
- * @component
- */
-export default Card;
+export const Card: FC<CardProps> = styled('div')<CardProps>(
+  baseStyles,
+  shadowStyles,
+  spacingStyles,
+);

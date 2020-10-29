@@ -17,6 +17,7 @@
 import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 import { css, jsx } from '@emotion/core';
+import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../.storybook/components';
 import CardList from '../CardList';
@@ -53,7 +54,7 @@ const squareStyles = () => css`
   max-height: 90vh;
 `;
 
-const contentStyles = (theme) => css`
+const contentStyles = (theme: Theme) => css`
   background: ${theme.colors.n300};
   width: 100%;
   height: 118px;

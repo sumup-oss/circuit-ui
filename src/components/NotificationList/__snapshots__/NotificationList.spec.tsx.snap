@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotificationList should render with default styles 1`] = `
-.circuit-2 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14,16 +14,16 @@ exports[`NotificationList should render with default styles 1`] = `
   max-width: calc(100vw - (24px * 2));
 }
 
-.circuit-2 > * {
+.circuit-1 > * {
   margin-top: 16px;
 }
 
-.circuit-2 > *:first-child {
+.circuit-1 > *:first-child {
   margin-top: 0;
 }
 
 @media (max-width:767px) {
-  .circuit-2 {
+  .circuit-1 {
     max-width: none;
     width: 100%;
   }
@@ -49,10 +49,11 @@ exports[`NotificationList should render with default styles 1`] = `
 
 <ul
   aria-live="polite"
-  class="circuit-2"
+  class="circuit-1"
 >
   <li
-    class="circuit-0 circuit-1"
+    class="circuit-0"
+    spacing="mega"
   >
     <p>
       This is a notification.

@@ -31,5 +31,6 @@ exports[`ModalWrapper should render with default styles 1`] = `
 
 <div
   class="circuit-0"
+  spacing="giga"
 />
 `;

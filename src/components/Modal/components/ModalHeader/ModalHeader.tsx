@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FC, MouseEvent } from 'react';
+import React, { FC, MouseEvent, KeyboardEvent } from 'react';
 
 import { CardHeader } from '../../../Card';
 import Heading from '../../../Heading';
@@ -27,7 +27,7 @@ export interface ModalHeaderProps {
    * Callback for the close button. If not specified, the button won't
    * be shown.
    */
-  onClose?: (event: MouseEvent) => void;
+  onClose?: (event: MouseEvent | KeyboardEvent) => void;
   /**
    * Text label for the close button for screen reader users.
    */

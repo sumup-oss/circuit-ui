@@ -22,7 +22,7 @@ exports[`CardFooter Left aligment should render with left alignment styles 1`] =
 }
 
 <footer
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;
 
@@ -57,6 +57,6 @@ exports[`CardFooter should render with default styles 1`] = `
 }
 
 <footer
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;

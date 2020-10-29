@@ -14,15 +14,26 @@
  */
 
 import React from 'react';
+import { fireEvent } from '@testing-library/dom';
 
-import { CardHeader } from '../..';
+import {
+  act,
+  create,
+  render,
+  renderToHtml,
+  axe,
+} from '../../../../util/test-utils';
+
+import { CardHeader } from './Header';
 
 describe('CardHeader', () => {
+  const children = <p>This is a content.</p>;
+
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CardHeader />);
+    const actual = create(<CardHeader>{children}</CardHeader>);
     expect(actual).toMatchSnapshot();
   });
 
@@ -30,7 +41,9 @@ describe('CardHeader', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CardHeader />);
+    const wrapper = renderToHtml(
+      <CardHeader labelCloseButton="Close">{children}</CardHeader>,
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
@@ -39,14 +52,22 @@ describe('CardHeader', () => {
    * Logic tests.
    */
   it('should render a close button when an onClose prop is passed', () => {
-    const { getByTestId } = render(<CardHeader onClose={() => {}} />);
+    const { getByTestId } = render(
+      <CardHeader labelCloseButton="Close" onClose={() => {}}>
+        {children}
+      </CardHeader>,
+    );
     const actual = getByTestId('header-close');
     expect(actual).not.toBeNull();
   });
 
   it('should call the onClose prop when the close button is clicked', () => {
     const onClose = jest.fn();
-    const { getByTestId } = render(<CardHeader onClose={onClose} />);
+    const { getByTestId } = render(
+      <CardHeader labelCloseButton="Close" onClose={onClose}>
+        {children}
+      </CardHeader>,
+    );
 
     act(() => {
       fireEvent.click(getByTestId('header-close'));
