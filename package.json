@@ -152,7 +152,7 @@
     "react-test-renderer": "^16.8.6",
     "style-loader": "^2.0.0",
     "ts-jest": "^25.3.1",
-    "ts-loader": "^6.2.2",
+    "ts-loader": "^8.0.7",
     "typescript": "^3.8.3",
     "webpack-merge": "^5.2.0"
   },
