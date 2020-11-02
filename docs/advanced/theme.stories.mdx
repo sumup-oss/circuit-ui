@@ -7,7 +7,7 @@ import {
   BorderRadius,
   BorderWidth,
   Type,
-  MediaQueriesTable
+  MediaQueriesTable,
 } from '../../.storybook/components';
 import { Heading, SubHeading, Text } from '../../src';
 
@@ -33,7 +33,7 @@ export default function App() {
 }
 ```
 
-In most cases, the default SumUp themes provided by [@sumup/design-tokens](https://www.npmjs.com/package/sumup/design-tokens) should cover your needs. If you need to create a custom theme, we recommend overriding or making a copy of one of the [default themes](https://github.com/sumup-oss/design-tokens/blob/main/src/themes) to ensure that no values are missing.
+In most cases, the default SumUp themes provided by [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) should cover your needs. If you need to create a custom theme, we recommend overriding or making a copy of one of the [default themes](https://github.com/sumup-oss/design-tokens/blob/main/src/themes) to ensure that no values are missing.
 
 Refer to the [Emotion theming](https://emotion.sh/docs/theming) documentation to learn how to use the theme in your own components.
 
@@ -282,7 +282,7 @@ const ResponsiveDiv = styled('div')(
     ${theme.mq.mega} {
       padding-top: ${theme.spacings.peta};
     }
-  `
+  `,
 );
 ```
 
