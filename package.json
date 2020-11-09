@@ -128,7 +128,7 @@
     "commitizen": "^4.2.2",
     "component-playground": "^3.2.1",
     "cross-env": "^6.0.3",
-    "css-loader": "^3.2.0",
+    "css-loader": "^5.0.1",
     "cz-customizable": "^6.2.0",
     "cz-customizable-ghooks": "^1.5.0",
     "emotion-theming": "^10.0.19",
