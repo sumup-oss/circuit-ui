@@ -1,6 +1,7 @@
 import React from 'react';
 import { addDecorator, addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { withPerformance } from 'storybook-addon-performance';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
 import { light } from '@sumup/design-tokens';
@@ -82,4 +83,5 @@ export const decorators = [
   withThemeProvider,
   // withStoryStyles,
   withTrackingAction,
+  withPerformance,
 ];
