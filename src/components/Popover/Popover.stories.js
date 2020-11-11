@@ -15,15 +15,35 @@
 
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import { findByText, fireEvent, getByText } from '@testing-library/dom';
 
 import Button from '../Button';
 import Card from '../Card';
 
 import Popover from './Popover';
 
+const interactionTasks = [
+  {
+    name: 'Open popover',
+    description:
+      'Click the popover and wait until the popover content is shown.',
+    run: async ({ container }) => {
+      fireEvent.click(getByText(container, 'Show'));
+      await findByText(container, 'Popover Content', undefined, {
+        timeout: 20000,
+      });
+    },
+  },
+];
+
 export default {
   title: 'Components/Popover',
   component: Popover,
+  parameters: {
+    performance: {
+      interactions: interactionTasks,
+    },
+  },
 };
 
 export const Base = (args) => {
