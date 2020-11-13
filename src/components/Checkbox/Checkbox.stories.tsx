@@ -15,15 +15,40 @@
 
 import React, { useState, ChangeEvent } from 'react';
 import { action } from '@storybook/addon-actions';
+import {
+  InteractionTaskArgs,
+  PublicInteractionTask,
+} from 'storybook-addon-performance';
+import { fireEvent, findByText, getByLabelText } from '@testing-library/dom';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
 import docs from './Checkbox.docs.mdx';
+
+const interactionTasks: PublicInteractionTask[] = [
+  {
+    name: 'Tick checkbox',
+    description: 'Click the checkbox and wait for the label to change',
+    run: async ({ container }: InteractionTaskArgs): Promise<void> => {
+      const element: HTMLElement | null = getByLabelText(
+        container,
+        'Unchecked',
+      );
+      fireEvent.click(element);
+      await findByText(container, 'Checked', undefined, {
+        timeout: 20000,
+      });
+    },
+  },
+];
 
 export default {
   title: 'Forms/Checkbox',
   component: Checkbox,
   parameters: {
     docs: { page: docs },
+    performance: {
+      interactions: interactionTasks,
+    },
   },
   argTypes: {
     name: { control: 'text' },
