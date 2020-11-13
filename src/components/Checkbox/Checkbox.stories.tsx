@@ -19,7 +19,8 @@ import {
   InteractionTaskArgs,
   PublicInteractionTask,
 } from 'storybook-addon-performance';
-import { fireEvent, findByText, getByLabelText } from '@testing-library/dom';
+import { findByText } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
 import docs from './Checkbox.docs.mdx';
@@ -29,11 +30,10 @@ const interactionTasks: PublicInteractionTask[] = [
     name: 'Tick checkbox',
     description: 'Click the checkbox and wait for the label to change',
     run: async ({ container }: InteractionTaskArgs): Promise<void> => {
-      const element: HTMLElement | null = getByLabelText(
-        container,
-        'Unchecked',
+      const checkbox: HTMLElement | null = container.querySelector(
+        'input[type=checkbox]',
       );
-      fireEvent.click(element);
+      userEvent.click(checkbox);
       await findByText(container, 'Checked', undefined, {
         timeout: 20000,
       });

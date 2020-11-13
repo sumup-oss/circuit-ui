@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { findByText, fireEvent, getByText } from '@testing-library/dom';
+import { findByText } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
 
 import Button from '../Button';
 import Card from '../Card';
@@ -28,10 +28,9 @@ const interactionTasks = [
     description:
       'Click the popover and wait until the popover content is shown.',
     run: async ({ container }) => {
-      fireEvent.click(getByText(container, 'Show'));
-      await findByText(container, 'Popover Content', undefined, {
-        timeout: 20000,
-      });
+      const button = container.querySelector('[data-testid=button]');
+      userEvent.click(button);
+      await findByText(container, 'Popover Content');
     },
   },
 ];
@@ -57,7 +56,11 @@ export const Base = (args) => {
       {...props}
       renderPopover={() => <Card>Popover Content</Card>}
       renderReference={() => (
-        <Button size="kilo" onClick={() => setOpen((prev) => !prev)}>
+        <Button
+          size="kilo"
+          onClick={() => setOpen((prev) => !prev)}
+          data-testid="button"
+        >
           {open ? 'Hide' : 'Show'}
         </Button>
       )}
