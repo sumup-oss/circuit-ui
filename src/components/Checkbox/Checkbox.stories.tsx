@@ -34,9 +34,7 @@ const interactionTasks: PublicInteractionTask[] = [
         'input[type=checkbox]',
       );
       userEvent.click(checkbox);
-      await findByText(container, 'Checked', undefined, {
-        timeout: 20000,
-      });
+      await findByText(container, 'Checked');
     },
   },
 ];
