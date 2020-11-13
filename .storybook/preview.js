@@ -79,9 +79,12 @@ const withTrackingAction = (Story) => (
   </TrackingRoot>
 );
 
+// Run only client tasks in prod builds of Storybook, SSR tasks are failing.
+// See https://github.com/atlassian-labs/storybook-addon-performance/pull/40
 addParameters({
   performance: {
-    allowedGroups: ['client'],
+    allowedGroups:
+      process.env.NODE_ENV === 'production' ? ['client'] : ['server', 'client'],
   },
 });
 
