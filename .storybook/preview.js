@@ -79,6 +79,12 @@ const withTrackingAction = (Story) => (
   </TrackingRoot>
 );
 
+addParameters({
+  performance: {
+    allowedGroups: ['client'],
+  },
+});
+
 export const decorators = [
   withThemeProvider,
   // withStoryStyles,
