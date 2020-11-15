@@ -16,6 +16,9 @@
 import Stylis from '@emotion/stylis';
 import { entries } from 'lodash/fp';
 
+// TODO: Remove file extension once moved to ./src/cli
+import { warning } from '../../src/util/warning.ts';
+
 import render from './render';
 
 const stylis = new Stylis();
@@ -24,7 +27,17 @@ function cleanLabel(string, name) {
   let label = string;
   try {
     // Strip the `.css-[id]-`.
-    [, label] = /^\.css-\w*-([\w-]*)$/i.exec(string);
+    const match = /^\.css-\w*-([\w-]*)$/i.exec(string);
+
+    // The styles have no label. This can happen when a style helper
+    // is used directly.
+    if (!match) {
+      warning(`A style object in "${name}" appears to be missing a label.`);
+
+      return null;
+    }
+
+    [, label] = match;
 
     // It's a wrapped styled component.
     if (!label.startsWith(name)) {
