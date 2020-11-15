@@ -10,10 +10,8 @@ __coverage__
 __reports__
 dist
 /public
-lib
 .out
-.docz
-circuit-ui-global.css
+circuit-ui-v1.css
 
 # Packages #
 

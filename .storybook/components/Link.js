@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 
 import { isStoryName, splitStoryName } from '../util/story-helpers';
 
-import { Text } from '../../src';
+import { Anchor } from '../../src';
 
 const styles = css`
   font: inherit;
@@ -24,9 +24,9 @@ const Link = ({ children, href, ...props }) => {
   }
 
   return (
-    <a css={styles} href={href} target="_blank" {...props}>
+    <Anchor css={styles} href={href} target="_blank" {...props}>
       {children}
-    </a>
+    </Anchor>
   );
 };
 

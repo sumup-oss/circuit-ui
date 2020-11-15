@@ -15,27 +15,24 @@ export const theme = create({
   fontBase: light.fontStack.default,
   colorPrimary: light.colors.p500,
   colorSecondary: light.colors.p500,
-  appBg: light.colors.bodyBg
+  appBg: light.colors.bodyBg,
 });
 
-// FIXME: BaseStyles should only be included once, however, I couldn't find
-//        any other way to add it to the Docs page.
 const withThemeProvider = (Component, baseProps = {}) => (props = {}) => (
   <ThemeProvider theme={light}>
-    <BaseStyles />
     <Component {...baseProps} {...props} />
   </ThemeProvider>
 );
 
 const TEXT_SIZE = 'mega';
 
-const headingStyles = theme => css`
+const headingStyles = (theme) => css`
   *:not(h1):not(h2):not(h3) + & {
     margin-top: ${theme.spacings.peta};
   }
 `;
 
-const subHeadingStyles = theme => css`
+const subHeadingStyles = (theme) => css`
   margin-top: ${theme.spacings.giga};
 `;
 
@@ -43,41 +40,41 @@ export const components = {
   h1: withThemeProvider(Heading, {
     as: 'h1',
     size: 'zetta',
-    css: headingStyles
+    css: headingStyles,
   }),
   h2: withThemeProvider(Heading, {
     as: 'h2',
     size: 'peta',
-    css: headingStyles
+    css: headingStyles,
   }),
   h3: withThemeProvider(Heading, {
     as: 'h3',
     size: 'giga',
-    css: headingStyles
+    css: headingStyles,
   }),
   h4: withThemeProvider(SubHeading, {
     as: 'h4',
     size: 'mega',
-    css: subHeadingStyles
+    css: subHeadingStyles,
   }),
   h5: withThemeProvider(SubHeading, {
     as: 'h5',
     size: 'kilo',
-    css: subHeadingStyles
+    css: subHeadingStyles,
   }),
   p: withThemeProvider(Text, { as: 'p', size: TEXT_SIZE }),
   li: withThemeProvider(Text, { as: 'li', size: TEXT_SIZE }),
   strong: withThemeProvider(Text, {
     as: 'strong',
     size: TEXT_SIZE,
-    bold: true
+    bold: true,
   }),
   em: withThemeProvider(Text, {
     as: 'em',
     size: TEXT_SIZE,
-    italic: true
+    italic: true,
   }),
   ul: withThemeProvider(List, { size: TEXT_SIZE }),
   ol: withThemeProvider(List, { ordered: true, size: TEXT_SIZE }),
-  a: withThemeProvider(Link, { size: TEXT_SIZE })
+  a: withThemeProvider(Link, { size: TEXT_SIZE }),
 };
