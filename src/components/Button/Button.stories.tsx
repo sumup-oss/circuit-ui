@@ -88,3 +88,12 @@ export const Tracking = (args: ButtonProps) => (
     Track me
   </Button>
 );
+
+export const Static = () => (
+  <button
+    className="button button--primary button--mega"
+    onClick={() => alert('Hello')}
+  >
+    Say hello
+  </button>
+);

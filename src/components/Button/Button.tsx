@@ -177,6 +177,10 @@ const tertiaryStyles = ({
   `;
 
 const sizeStyles = ({ theme, size = 'mega' }: ButtonProps & StyleProps) => {
+  if (!size) {
+    return null;
+  }
+
   const sizeMap = {
     kilo: {
       padding: `${theme.spacings.bit} calc(${theme.spacings.mega} - ${BORDER_WIDTH})`,
