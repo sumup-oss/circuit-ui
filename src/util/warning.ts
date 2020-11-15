@@ -13,8 +13,14 @@
  * limitations under the License.
  */
 
-import { warning } from './warning';
+const warned: { [key: string]: true } = {};
 
-export default function deprecate(explanation: string): void {
-  warning(`DEPRECATION: ${explanation}`);
+export function warning(message: string): void {
+  if (process.env.NODE_ENV !== 'production') {
+    if (!warned[message]) {
+      // eslint-disable-next-line no-console
+      console.warn(message);
+      warned[message] = true;
+    }
+  }
 }
