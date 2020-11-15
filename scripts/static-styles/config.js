@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { entries, isFunction, kebabCase } from 'lodash/fp';
+import { entries, isFunction, kebabCase, trimChars } from 'lodash/fp';
 import { light } from '@sumup/design-tokens';
 
 // import {
@@ -39,15 +39,13 @@ const element = (props) => <div {...props} />;
 export const PropTypes = {
   string: ['string'],
   number: [1],
-  bool: [true, false],
+  boolean: [true, false],
   func: [() => {}],
-  element: [element],
-  custom: ({ raw }) => {
-    if (raw.startsWith('childrenPropType')) {
-      return [element];
-    }
-    return null;
-  },
+  ReactNode: [element],
+  enum: ({ raw }) => raw.split('|').map(trimChars('" ')),
+  onClick: [() => {}],
+  renderPrefix: [element],
+  renderSuffix: [element],
 };
 
 const requiredPropTypes = {
@@ -57,13 +55,18 @@ const requiredPropTypes = {
   element,
 };
 
+function getPropName(name) {
+  return trimChars('" ', name);
+}
+
 function getVariations(name, prop, propOverrides) {
   if (propOverrides[name]) {
     return propOverrides[name];
   }
   const { name: type, ...meta } = prop.type;
-  if (PropTypes[type]) {
-    const propType = PropTypes[type];
+  const propType = PropTypes[type] || PropTypes[name];
+
+  if (propType) {
     return isFunction(propType) ? propType(meta) : propType;
   }
   return null;
@@ -71,18 +74,19 @@ function getVariations(name, prop, propOverrides) {
 
 function getProps(props, propOverrides) {
   return entries(props).reduce((acc, [name, prop]) => {
-    const { name: type } = prop.type;
-    const variations = getVariations(name, prop, propOverrides);
+    const propName = getPropName(name);
+    const variations = getVariations(propName, prop, propOverrides);
     if (!variations) {
+      const { name: type } = prop.type;
       console.warn(
         [
-          `No variations found for prop "${name}" of type "${type}"`,
+          `No variations found for prop "${propName}" of type "${type}"`,
           'Please provide a custom override.',
         ].join(' '),
       );
       return acc;
     }
-    return { ...acc, [name]: variations };
+    return { ...acc, [propName]: variations };
   }, {});
 }
 
@@ -90,8 +94,9 @@ function getRequiredProps(props) {
   return entries(props)
     .filter(([, prop]) => prop.required)
     .reduce((acc, [name, prop]) => {
+      const propName = getPropName(name);
       const value = requiredPropTypes[prop.type.name];
-      return { ...acc, [name]: value };
+      return { ...acc, [propName]: value };
     }, {});
 }
 
@@ -99,6 +104,7 @@ export function getComponentInfo(component, propOverrides = {}) {
   try {
     // eslint-disable-next-line no-underscore-dangle
     const { displayName, props } = component.__docgenInfo;
+
     return {
       component,
       name: kebabCase(displayName),
