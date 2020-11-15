@@ -64,3 +64,5 @@ export const Circular = (args: BadgeProps) => (
     </Badge>
   </Stack>
 );
+
+export const Static = () => <div className="badge badge--neutral">Badge</div>;

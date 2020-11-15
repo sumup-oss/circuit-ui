@@ -4,7 +4,8 @@ import { Meta, Status, Intro } from '../../.storybook/components';
 
 # Static CSS
 
-<Status.Experimental/><Status.Description>This has not been tested in production. Use with caution.</Status.Description>
+<Status.InReview />
+<Status.Description>Currently in preview. Use with caution.</Status.Description>
 
 <Intro>
   Projects that can't or don't use React can still benefit from Circuit UI. They
@@ -13,14 +14,14 @@ import { Meta, Status, Intro } from '../../.storybook/components';
 
 ## Generating a stylesheet
 
-Circuit UI offers a CLI to generate a stylesheet that is tailored to your project. Below is an overview of the available options:
+After installing `@sumup/circuit-ui` into your project, you have access to the Circuit UI CLI to generate a stylesheet that is tailored to your project. Below is an overview of the available options:
 
 ```sh
-$ yarn static-styles --help
+$ yarn circuit-ui static-styles --help
 
 Usage:
   --theme             The name of the theme to use.
-                                      [options: "circuit"] [default: "circuit"]
+                                          [options: "light"] [default: "light"]
   --components        A comma separated list of the components to include.
                       Also supports "all" or "none".
                                                        [array] [default: "all"]
@@ -36,7 +37,7 @@ Usage:
   --version           Show the version                                [boolean]
 ```
 
-A hosted version of a stylesheet with all supported components is available at https://circuit.sumup.com/static/circuit-ui-v1.css, however, we recommend generating a custom stylesheet with only the styles you need.
+A hosted version of a stylesheet with all supported components is available at https://circuit.sumup.com/static/circuit-ui-v2.css, however, we recommend generating a custom stylesheet with only the styles you need.
 
 ## Theming
 

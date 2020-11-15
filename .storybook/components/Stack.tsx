@@ -18,7 +18,7 @@ import styled from '@emotion/styled';
 const Stack = styled.div<{}>`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 1rem;
 

@@ -19,7 +19,7 @@ import { Theme } from '@sumup/design-tokens';
 
 import { warning } from '../../util/warning';
 
-import { ComponentConfig, InsertFactory } from './types';
+import { ComponentVariations, InsertFactory } from './types';
 import { render } from './render';
 
 const stylis = new Stylis();
@@ -96,7 +96,7 @@ export function componentStyles({
   components,
   theme,
 }: {
-  components: ComponentConfig[];
+  components: ComponentVariations[];
   theme: Theme;
 }) {
   const styleSheets: { [label: string]: string } = {};

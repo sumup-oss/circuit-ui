@@ -49,6 +49,12 @@ export type PropTypes = {
 export type ComponentConfig = {
   name: string;
   component: ComponentType<any>;
+  props?: PropTypes;
+};
+
+export type ComponentVariations = {
+  name: string;
+  component: ComponentType<any>;
   props?: { [name: string]: Variation[] };
 };
 
