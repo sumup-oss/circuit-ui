@@ -45,7 +45,7 @@ function cleanRules(stylesObj, label) {
   let rules = stylesObj.styles;
   try {
     // Strip source maps.
-    rules = rules.replace(/\/\*#.*\*\//i, '');
+    rules = rules.replace(/\/\*#.*?\*\//gi, '');
     // Strip superfluous whitespace.
     rules = rules.replace(/\s{2,}/g, '');
     // Strip duplicate semicolons.
