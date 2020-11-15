@@ -14,23 +14,35 @@
  */
 
 import { entries, includes, isObject, isNil, set } from 'lodash';
+import { Theme } from '@sumup/design-tokens';
 
 const DEFAULT_OPTIONS = {
   omit: ['__esModule', 'mq', 'grid'],
 };
 
-export function createTheme(theme, options = {}) {
+type Options = {
+  omit?: string[];
+};
+
+type Visitor = (key: string, value: unknown, fullPath: string[]) => void;
+
+type CustomProperties = { [key: string]: string };
+
+export function createTheme(theme: Theme, options: Options = {}): Theme {
   const opts = { ...DEFAULT_OPTIONS, ...options };
-  const staticTheme = {};
+  const staticTheme = {} as Theme;
 
   traverse(theme, buildTheme(staticTheme, opts.omit));
 
   return staticTheme;
 }
 
-export function createGlobalStyles(theme, options = {}) {
+export function createRootVariables(
+  theme: Theme,
+  options: Options = {},
+): string {
   const opts = { ...DEFAULT_OPTIONS, ...options };
-  const customProperties = {};
+  const customProperties = {} as CustomProperties;
 
   traverse(theme, buildGlobalStyles(customProperties, opts.omit));
 
@@ -41,8 +53,8 @@ export function createGlobalStyles(theme, options = {}) {
   return `:root { ${rules.join(' ')} }`;
 }
 
-export function buildTheme(theme, omit) {
-  return (key, value, path) => {
+export function buildTheme(theme: Theme, omit: string[]): Visitor {
+  return (_, value, path) => {
     if (includes(omit, path[0])) {
       set(theme, path, value);
       return;
@@ -53,8 +65,11 @@ export function buildTheme(theme, omit) {
   };
 }
 
-export function buildGlobalStyles(customProperties, omit) {
-  return (key, value, path) => {
+export function buildGlobalStyles(
+  customProperties: CustomProperties,
+  omit: string[],
+): Visitor {
+  return (_, value, path) => {
     if (includes(omit, path[0])) {
       return;
     }
@@ -63,7 +78,7 @@ export function buildGlobalStyles(customProperties, omit) {
   };
 }
 
-export function traverse(obj, fn, path = []) {
+export function traverse(obj: {}, fn: Visitor, path: string[] = []) {
   entries(obj).forEach(([key, value]) => {
     const fullPath = [...path, key];
 

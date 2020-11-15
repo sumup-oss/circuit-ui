@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import { traverse, createTheme, createGlobalStyles } from './custom-properties';
+import { Theme } from '@sumup/design-tokens';
+
+import {
+  traverse,
+  createTheme,
+  createRootVariables,
+} from './custom-properties';
 
 describe('Custom properties', () => {
   const theme = {
@@ -30,15 +36,15 @@ describe('Custom properties', () => {
       kilo: '12px',
       mega: '16px',
     },
-  };
+  } as Theme;
 
-  const mq = {
+  const mq = ({
     untilKilo: '(max-width: 479px)',
     kilo: 480,
     kiloToMega: '(min-width: 480px) and (max-width: 767px)',
     mega: 768,
     untilMega: '(max-width: 767px)',
-  };
+  } as unknown) as Theme['mq'];
 
   describe('createTheme', () => {
     it('should replace the theme values with CSS custom properties', () => {
@@ -83,9 +89,9 @@ describe('Custom properties', () => {
     });
   });
 
-  describe('createGlobalStyles', () => {
-    it('should return global values for the CSS custom properties', () => {
-      const actual = createGlobalStyles(theme);
+  describe('createRootVariables', () => {
+    it('should return root values for the CSS custom properties', () => {
+      const actual = createRootVariables(theme);
       const expected =
         // eslint-disable-next-line max-len
         ':root { --colors-n100: #FAFBFC; --colors-n300: #D8DDE1; --colors-n500: #9DA7B1; --colors-n700: #5C656F; --colors-n900: #212933; --spacings-bit: 4px; --spacings-byte: 8px; --spacings-kilo: 12px; --spacings-mega: 16px; }';
@@ -93,7 +99,7 @@ describe('Custom properties', () => {
     });
 
     it('should not include omitted properties', () => {
-      const actual = createGlobalStyles({ ...theme, mq });
+      const actual = createRootVariables({ ...theme, mq });
       const expected =
         // eslint-disable-next-line max-len
         ':root { --colors-n100: #FAFBFC; --colors-n300: #D8DDE1; --colors-n500: #9DA7B1; --colors-n700: #5C656F; --colors-n900: #212933; --spacings-bit: 4px; --spacings-byte: 8px; --spacings-kilo: 12px; --spacings-mega: 16px; }';

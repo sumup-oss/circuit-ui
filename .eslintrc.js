@@ -29,6 +29,12 @@ module.exports = require('@sumup/foundry/eslint')(
         },
       },
       {
+        files: ['src/cli/**/*'],
+        rules: {
+          'no-console': 'off',
+        },
+      },
+      {
         files: [
           'src/cli/migrate/__testfixtures__/**/*.input.*',
           'src/cli/migrate/__testfixtures__/**/*.output.*',
@@ -46,7 +52,6 @@ module.exports = require('@sumup/foundry/eslint')(
           // jscodeshift expect no return value for files
           // that should not be transformed.
           'consistent-return': 'off',
-          'no-console': 'off',
           '@typescript-eslint/no-unsafe-call': 'off',
           '@typescript-eslint/no-unsafe-assignment': 'off',
           '@typescript-eslint/no-unsafe-member-access': 'off',

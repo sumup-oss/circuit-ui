@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, SumUp Ltd.
+ * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,18 +13,5 @@
  * limitations under the License.
  */
 
-// eslint-disable-next-line import/no-extraneous-dependencies
-module.exports = require('@sumup/foundry/eslint')(
-  {
-    language: 'JavaScript',
-    environments: ['Node'],
-    frameworks: ['React', 'Emotion', 'Jest'],
-    openSource: true,
-  },
-  {
-    rules: {
-      'arrow-parens': 'off',
-      'no-console': 'off',
-    },
-  },
-);
+export { FunctionalComponent } from './functional-component';
+export { StyledComponent } from './styled-component';

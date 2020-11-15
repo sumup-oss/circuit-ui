@@ -13,7 +13,27 @@
  * limitations under the License.
  */
 
-import FunctionalComponent from './functional-component';
-import StyledComponent from './styled-component';
+import Stylis from '@emotion/stylis';
+import { Theme } from '@sumup/design-tokens';
 
-export { FunctionalComponent, StyledComponent };
+import { BaseStyles } from '../..';
+
+import { render } from './render';
+import { InsertFactory } from './types';
+
+const stylis = new Stylis();
+
+export function globalStyles(theme: Theme) {
+  let styleSheet = '';
+
+  const insertFactory: InsertFactory = () => (_, serialized) => {
+    const rules = serialized.styles;
+    styleSheet = stylis('', rules);
+  };
+
+  const renderFn = render(theme, insertFactory);
+
+  renderFn(BaseStyles);
+
+  return styleSheet;
+}

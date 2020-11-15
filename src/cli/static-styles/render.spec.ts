@@ -13,19 +13,20 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 
-import render from './render';
+import styled, { StyleProps } from '../../styles/styled';
+
+import { render } from './render';
 
 describe('Render', () => {
-  const styles = ({ theme }) => css`
-    color: ${theme.colors.red};
+  const styles = ({ theme }: StyleProps) => css`
+    color: ${theme.colors.n900};
   `;
 
   const name = 'component';
-  const Component = styled('div')(styles);
+  const Component = styled('div')<{}>(styles);
 
   it('should render the component', () => {
     const insert = jest.fn();

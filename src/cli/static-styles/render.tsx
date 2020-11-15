@@ -13,19 +13,23 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { ComponentType } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { CacheProvider } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import createCache from '@emotion/cache';
+import { Theme } from '@sumup/design-tokens';
+
+import { InsertFactory } from './types';
 
 const cache = createCache();
 
-export default function render(theme, insertFactory) {
-  return (Component, props = {}, name = '') => {
-    const insert = insertFactory(props, name);
+export function render(theme: Theme, insertFactory: InsertFactory) {
+  return (Component: ComponentType, props = {}, componentName = '') => {
+    const insert = insertFactory(componentName);
+    const extendedCache = { ...cache, insert };
     return renderToStaticMarkup(
-      <CacheProvider value={{ ...cache, insert }}>
+      <CacheProvider value={extendedCache}>
         <ThemeProvider theme={theme}>
           <Component {...props} />
         </ThemeProvider>

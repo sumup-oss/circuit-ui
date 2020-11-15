@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { light as theme } from '@sumup/design-tokens';
+import { light } from '@sumup/design-tokens';
 
-import globalStyles from './global-styles';
+import { globalStyles } from './global-styles';
 
 describe('Global styles', () => {
   // FIXME: For some reason, the `insert` function is never called.
   it.skip('should return the global styles', () => {
-    const actual = globalStyles({ theme });
+    const actual = globalStyles(light);
     expect(actual).not.toBeFalsy();
   });
 });

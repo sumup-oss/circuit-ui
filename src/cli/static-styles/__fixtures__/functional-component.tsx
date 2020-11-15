@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
@@ -33,7 +32,15 @@ const Label = styled.label`
   color: gray;
 `;
 
-function FunctionalComponent({ label, value }) {
+interface FunctionalComponentProps {
+  label: string;
+  value: string;
+}
+
+export function FunctionalComponent({
+  label,
+  value,
+}: FunctionalComponentProps) {
   const id = 'id';
   return (
     <Wrapper>
@@ -42,13 +49,3 @@ function FunctionalComponent({ label, value }) {
     </Wrapper>
   );
 }
-
-FunctionalComponent.propTypes = {
-  label: PropTypes.string,
-  value: PropTypes.string,
-};
-
-/**
- * @component
- */
-export default FunctionalComponent;

@@ -18,8 +18,9 @@
 import yargs from 'yargs';
 
 import { migrate, listTransforms, listLanguages } from './migrate';
+import { staticStyles, listComponents, listThemes } from './static-styles';
 
-type CommandType = 'migrate';
+type CommandType = 'migrate' | 'static-styles';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-expressions
 yargs
@@ -51,13 +52,69 @@ yargs
         }),
     (args) => execute('migrate', args),
   )
+  .command(
+    'static-styles',
+    "Automatically transforms your source code to Circuit UI's latest APIs",
+    (yrgs) =>
+      yrgs
+        .option('theme', {
+          desc: 'The name of the theme to use.',
+          choices: listThemes(),
+          default: 'light',
+        })
+        .option('components', {
+          desc:
+            // eslint-disable-next-line max-len
+            'A comma separated list of the components to include. Also accepts "all" or "none".',
+          options: ['all', 'none', ...listComponents()],
+          type: 'array',
+          default: 'all',
+          coerce: (val) => {
+            if (val.length === 1) {
+              if (val[0] === 'all') {
+                return listComponents();
+              }
+              if (val[0] === 'none') {
+                return [];
+              }
+              if (val[0].includes(',')) {
+                return val[0].split(',');
+              }
+            }
+            return val;
+          },
+        })
+        .option('global', {
+          desc: 'Whether to include global styles.',
+          type: 'boolean',
+          default: false,
+        })
+        .option('customProperties', {
+          desc: 'Whether to use CSS custom properties (variables).',
+          type: 'boolean',
+          default: false,
+        })
+        .option('pretty', {
+          desc: 'Whether the CSS should be formatted with prettier.',
+          type: 'boolean',
+          default: false,
+        })
+        .option('filePath', {
+          desc:
+            // eslint-disable-next-line max-len
+            'Path to the file where the stylesheet should be saved, relative to the current directory.',
+          type: 'string',
+          normalize: true,
+        }),
+    (args) => execute('static-styles', args),
+  )
   .showHelpOnFail(true)
   .demandCommand(1, '')
   .help()
   .version().argv;
 
 function execute(command: CommandType, args: any): void {
-  const commands = { migrate };
+  const commands = { migrate, 'static-styles': staticStyles };
   const commandFn = commands[command];
 
   commandFn(args);

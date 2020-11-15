@@ -13,16 +13,21 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-const baseStyles = ({ theme }) => css`
+import styled, { StyleProps } from '../../../styles/styled';
+
+interface StyledComponentProps {
+  label: string;
+  disabled?: boolean;
+}
+
+const baseStyles = ({ theme }: StyleProps) => css`
   label: styled-component;
   border: 1px solid ${theme.colors.p500};
 `;
 
-const disabledStyles = ({ disabled }) =>
+const disabledStyles = ({ disabled }: StyledComponentProps) =>
   disabled &&
   css`
     label: styled-component--disabled;
@@ -30,14 +35,7 @@ const disabledStyles = ({ disabled }) =>
     opacity: 0.5;
   `;
 
-const StyledComponent = styled.input(baseStyles, disabledStyles);
-
-StyledComponent.propTypes = {
-  label: PropTypes.string,
-  disabled: PropTypes.bool,
-};
-
-/**
- * @component
- */
-export default StyledComponent;
+export const StyledComponent = styled.input<StyledComponentProps>(
+  baseStyles,
+  disabledStyles,
+);

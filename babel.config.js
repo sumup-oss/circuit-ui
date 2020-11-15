@@ -2,6 +2,21 @@ module.exports = {
   plugins: [
     ['@babel/plugin-proposal-class-properties', { loose: true }],
     'lodash',
+    'react-docgen',
+    [
+      'babel-plugin-react-docgen-typescript',
+      {
+        shouldExtractLiteralValuesFromEnum: true,
+        propFilter: (prop, component) => {
+          if (prop.parent) {
+            return !prop.parent.fileName.includes('node_modules');
+          }
+
+          return true;
+        },
+        exclude: 'stories\\.tsx$',
+      },
+    ],
   ],
   presets: [
     ['@babel/preset-env', { loose: true }],
@@ -16,33 +31,9 @@ module.exports = {
   ],
   env: {
     static: {
-      plugins: [
-        ['@babel/plugin-proposal-class-properties', { loose: true }],
-        'lodash',
-        'react-docgen',
-        [
-          'babel-plugin-react-docgen-typescript',
-          {
-            shouldExtractLiteralValuesFromEnum: true,
-            propFilter: (prop, component) => {
-              if (prop.parent) {
-                return !prop.parent.fileName.includes('node_modules');
-              }
-
-              return true;
-            },
-            exclude: 'stories\\.tsx$',
-          },
-        ],
-      ],
       presets: [
         '@babel/preset-typescript',
-        [
-          '@babel/preset-env',
-          {
-            loose: true,
-          },
-        ],
+        ['@babel/preset-env', { loose: true }],
         '@babel/preset-react',
         [
           '@emotion/babel-preset-css-prop',
@@ -54,27 +45,10 @@ module.exports = {
       ],
     },
     test: {
-      plugins: [
-        ['@babel/plugin-proposal-class-properties', { loose: true }],
-        'lodash',
-        'react-docgen',
-      ],
       presets: [
-        [
-          '@babel/preset-env',
-          {
-            targets: {
-              node: 'current',
-            },
-          },
-        ],
+        ['@babel/preset-env', { targets: { node: 'current' } }],
         '@babel/preset-react',
-        [
-          '@emotion/babel-preset-css-prop',
-          {
-            autoLabel: false,
-          },
-        ],
+        ['@emotion/babel-preset-css-prop', { autoLabel: false }],
       ],
     },
   },

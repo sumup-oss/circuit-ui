@@ -46,12 +46,16 @@ export function migrate({
   const availableLanguages = listLanguages();
 
   if (!availableTransforms.includes(transform)) {
-    throw new Error(`Unknown codemod ${transform}. Run --help for options.`);
+    throw new Error(
+      `Unknown transform "${transform}". Run --help for options.`,
+    );
   }
 
   languages.forEach((language) => {
     if (!availableLanguages.includes(language)) {
-      throw new Error(`Unknown language ${language}. Run --help for options.`);
+      throw new Error(
+        `Unknown language "${language}". Run --help for options.`,
+      );
     }
   });
 

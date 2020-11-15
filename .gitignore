@@ -1,17 +1,18 @@
 # Project #
 
-package-lock.json
 .stylelintcache
 .eslintcache
-*.swp
 node_modules
 jest-test-results.json
 __coverage__
 __reports__
 dist
 /public
-.out
-circuit-ui-v1.css
+
+# Static styles
+
+docgen.ts
+circuit-ui-*.css
 
 # Packages #
 

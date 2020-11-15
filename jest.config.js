@@ -18,7 +18,7 @@ module.exports = {
   testURL: 'http://localhost',
   coverageDirectory: './__coverage__',
   rootDir: '.',
-  roots: ['src', 'scripts'],
+  roots: ['src'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   collectCoverageFrom: [
     'src/@(components|util|styles)/**/*.{ts,tsx,js,jsx}',

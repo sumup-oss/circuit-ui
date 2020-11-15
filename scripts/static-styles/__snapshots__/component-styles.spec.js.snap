@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Component styles component types should extract the styles from a functional component 1`] = `".functional-component__wrapper{padding:8px;}.functional-component__label{margin-bottom:4px;color:gray;}.functional-component{border:1px solid blue;}"`;
-
-exports[`Component styles component types should extract the styles from a styled component 1`] = `".styled-component{border:1px solid #3063E9;}.styled-component--disabled{pointer-events:none;opacity:0.5;}"`;

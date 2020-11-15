@@ -15,34 +15,45 @@
 
 import Stylis from '@emotion/stylis';
 import { entries } from 'lodash/fp';
+import { Theme } from '@sumup/design-tokens';
 
-// TODO: Remove file extension once moved to ./src/cli
-import { warning } from '../../src/util/warning.ts';
+import { warning } from '../../util/warning';
 
-import render from './render';
+import { ComponentConfig, InsertFactory } from './types';
+import { render } from './render';
 
 const stylis = new Stylis();
 
-function cleanLabel(string, name) {
+function cleanLabel(string: string, name: string) {
   let label = string;
   try {
-    // Strip the `.css-[id]-`.
-    const match = /^\.css-\w*-([\w-]*)$/i.exec(string);
+    // Strip the `.css-[id]-` prefix.
+    const matchOne = /^\.css-\w*-([\w-]*)$/i.exec(string);
 
-    // The styles have no label. This can happen when a style helper
-    // is used directly.
-    if (!match) {
-      warning(`A style object in "${name}" appears to be missing a label.`);
+    if (!matchOne) {
+      warning(
+        `A style object in "${name}" appears to be missing a label. This can happen when a style helper is used directly.`,
+      );
 
       return null;
     }
 
-    [, label] = match;
+    [, label] = matchOne;
 
-    // It's a wrapped styled component.
+    // It's likely a wrapped styled component.
     if (!label.startsWith(name)) {
       const regex = new RegExp(`.*(${name}.*)`, 'i');
-      [, label] = regex.exec(label);
+      const matchTwo = regex.exec(label);
+
+      if (!matchTwo) {
+        warning(
+          `A style object in "${name}" has a label that doesn't match or contain the component name.`,
+        );
+
+        return null;
+      }
+
+      [, label] = matchTwo;
     }
 
     // Deduplicate the base name, e.g. `badge-badge--neutral`.
@@ -54,8 +65,8 @@ function cleanLabel(string, name) {
   }
 }
 
-function cleanRules(stylesObj, label) {
-  let rules = stylesObj.styles;
+function cleanRules(styles: string, label: string) {
+  let rules = styles;
   try {
     // Strip source maps.
     rules = rules.replace(/\/\*#.*?\*\//gi, '');
@@ -81,14 +92,28 @@ function cleanRules(stylesObj, label) {
   }
 }
 
-export default function componentStyles({ components, theme } = {}) {
-  const styleSheets = {};
+export function componentStyles({
+  components,
+  theme,
+}: {
+  components: ComponentConfig[];
+  theme: Theme;
+}) {
+  const styleSheets: { [label: string]: string } = {};
 
-  const insertFactory = (props, name) => (...args) => {
-    const label = cleanLabel(args[0], name);
-    const rules = cleanRules(args[1], label);
+  const insertFactory: InsertFactory = (name: string) => (
+    selector,
+    serialized,
+  ) => {
+    const label = cleanLabel(selector, name);
 
-    if (!label || !rules) {
+    if (!label) {
+      return;
+    }
+
+    const rules = cleanRules(serialized.styles, label);
+
+    if (!rules) {
       return;
     }
 
@@ -107,20 +132,20 @@ export default function componentStyles({ components, theme } = {}) {
   const renderFn = render(theme, insertFactory);
 
   components.forEach(
-    ({ component: Component, name, props = {}, requiredProps = {} }) => {
+    ({ component: Component, name: componentName, props = {} }) => {
       // Reset all props to `null`.
       const baseProps = entries(props).reduce(
         (acc, [prop]) => ({ ...acc, [prop]: null }),
-        requiredProps,
+        {},
       );
 
       // Render the plain base component.
-      renderFn(Component, baseProps, name);
+      renderFn(Component, baseProps, componentName);
 
       // Render each prop variation (not combination).
       entries(props).forEach(([key, variations]) => {
         variations.forEach((value) => {
-          renderFn(Component, { ...baseProps, [key]: value }, name);
+          renderFn(Component, { ...baseProps, [key]: value }, componentName);
         });
       });
     },
