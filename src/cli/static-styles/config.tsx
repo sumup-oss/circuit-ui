@@ -18,6 +18,7 @@ import { light } from '@sumup/design-tokens';
 
 // Can't import from the main index file because babel-node chokes when
 // when transpiling so many files to extract the docgen information.
+import Anchor from '../../components/Anchor';
 import Badge from '../../components/Badge';
 import Button from '../../components/Button';
 
@@ -35,10 +36,15 @@ export const propTypes: PropTypes = {
 
 export const themes = { light };
 export const components: ComponentConfig[] = [
+  {
+    name: 'Anchor',
+    component: Anchor,
+    propTypes: { onClick: propTypes.func },
+  },
   { name: 'Badge', component: Badge },
   {
     name: 'Button',
     component: Button,
-    props: { icon: propTypes.element },
+    propTypes: { icon: propTypes.element },
   },
 ];

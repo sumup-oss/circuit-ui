@@ -43,3 +43,9 @@ AsButton.args = {
   onClick: () => alert('Hello'),
   children: `Say hello`,
 };
+
+export const Static = () => (
+  <a href="https://wikipedia.org" className="anchor">
+    Wikipedia
+  </a>
+);

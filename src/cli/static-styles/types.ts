@@ -43,19 +43,17 @@ export type ComponentWithDocGen = ComponentType & {
 export type Variation = any;
 
 export type PropTypes = {
+  [name: string]: Variation[];
+};
+
+export type ExtendedPropTypes = {
   [name: string]: Variation[] | ((propType: PropItemType) => Variation[]);
 };
 
 export type ComponentConfig = {
   name: string;
   component: ComponentType<any>;
-  props?: PropTypes;
-};
-
-export type ComponentVariations = {
-  name: string;
-  component: ComponentType<any>;
-  props?: { [name: string]: Variation[] };
+  propTypes?: PropTypes;
 };
 
 export type Config = {

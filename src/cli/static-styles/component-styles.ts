@@ -19,7 +19,7 @@ import { Theme } from '@sumup/design-tokens';
 
 import { warning } from '../../util/warning';
 
-import { ComponentVariations, InsertFactory } from './types';
+import { ComponentConfig, InsertFactory } from './types';
 import { render } from './render';
 
 const stylis = new Stylis();
@@ -96,7 +96,7 @@ export function componentStyles({
   components,
   theme,
 }: {
-  components: ComponentVariations[];
+  components: ComponentConfig[];
   theme: Theme;
 }) {
   const styleSheets: { [label: string]: string } = {};
@@ -132,9 +132,9 @@ export function componentStyles({
   const renderFn = render(theme, insertFactory);
 
   components.forEach(
-    ({ component: Component, name: componentName, props = {} }) => {
+    ({ component: Component, name: componentName, propTypes = {} }) => {
       // Reset all props to `null`.
-      const baseProps = entries(props).reduce(
+      const baseProps = entries(propTypes).reduce(
         (acc, [prop]) => ({ ...acc, [prop]: null }),
         {},
       );
@@ -143,7 +143,7 @@ export function componentStyles({
       renderFn(Component, baseProps, componentName);
 
       // Render each prop variation (not combination).
-      entries(props).forEach(([key, variations]) => {
+      entries(propTypes).forEach(([key, variations]) => {
         variations.forEach((value) => {
           renderFn(Component, { ...baseProps, [key]: value }, componentName);
         });

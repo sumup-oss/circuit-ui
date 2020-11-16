@@ -17,7 +17,7 @@ const Link = ({ children, href, ...props }) => {
     const [group, component, name = 'page'] = splitStoryName(storyName);
     const kind = `${group}|${component}`;
     return (
-      <LinkTo {...props} kind={kind} story={name}>
+      <LinkTo {...props} kind={kind} story={name} className="anchor">
         {children}
       </LinkTo>
     );

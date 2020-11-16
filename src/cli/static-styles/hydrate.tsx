@@ -22,12 +22,13 @@ import { entries, isFunction, kebabCase, trimChars } from 'lodash/fp';
 // @ts-ignore
 // eslint-disable-next-line import/extensions
 import { docgen } from './docgen';
-import { propTypes } from './config';
+import { propTypes as basePropTypes } from './config';
 import {
   ComponentConfig,
   Props,
   PropItem,
   PropTypes,
+  ExtendedPropTypes,
   Variation,
 } from './types';
 
@@ -35,23 +36,17 @@ const element = (props: any) => <div {...props} />;
 
 const trimQuotes = trimChars('" ');
 
-const extendedPropTypes: PropTypes = {
-  ...propTypes,
+const extendedPropTypes: ExtendedPropTypes = {
+  ...basePropTypes,
   enum: ({ value }) => value.map((v: { value: string }) => trimQuotes(v.value)),
   ReactNode: [element],
   children: [element],
   onClick: [() => {}],
 };
 
-function getVariations(
-  propName: string,
-  prop: PropItem,
-  propOverrides: PropTypes,
-): Variation[] | null {
+function getVariations(propName: string, prop: PropItem): Variation[] | null {
   const propType =
-    propOverrides[propName] ||
-    extendedPropTypes[prop.type.name] ||
-    extendedPropTypes[propName];
+    extendedPropTypes[prop.type.name] || extendedPropTypes[propName];
 
   if (propType) {
     return isFunction(propType) ? propType(prop.type) : propType;
@@ -60,10 +55,10 @@ function getVariations(
   return null;
 }
 
-function getProps(props: Props, propOverrides: PropTypes) {
-  return entries(props).reduce((acc, [name, prop]) => {
+function getProps(props: Props, propTypes: PropTypes): PropTypes {
+  const extractedProps = entries(props).reduce((acc, [name, prop]) => {
     const propName = trimQuotes(name);
-    const variations = getVariations(propName, prop, propOverrides);
+    const variations = getVariations(propName, prop);
     if (!variations) {
       const { name: type } = prop.type;
       console.warn(
@@ -75,18 +70,19 @@ function getProps(props: Props, propOverrides: PropTypes) {
       return acc;
     }
     return { ...acc, [propName]: variations };
-  }, {});
+  }, {} as PropTypes);
+  return { ...extractedProps, ...propTypes };
 }
 
 export function hydrate(componentConfig: ComponentConfig) {
   try {
-    const { name, component, props: propOverrides = {} } = componentConfig;
+    const { name, component, propTypes = {} } = componentConfig;
     const { props } = docgen[name];
 
     return {
       component,
       name: kebabCase(name),
-      props: getProps(props, propOverrides),
+      propTypes: getProps(props, propTypes),
     };
   } catch (error) {
     console.error('Failed to extract component info.', componentConfig);

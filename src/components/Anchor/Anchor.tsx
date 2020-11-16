@@ -43,6 +43,7 @@ type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size'>;
 export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
 
 const baseStyles = ({ theme }: StyleProps) => css`
+  label: anchor;
   display: inline-block;
   text-decoration: underline;
   text-decoration-skip-ink: auto;
