@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import fs from 'fs/promises';
+import fs from 'fs';
 import path from 'path';
 
 import prettier from 'prettier';
@@ -63,7 +63,7 @@ async function extractDocgenInfo() {
       { ...prettierConfig, parser: 'typescript' },
     );
 
-    await fs.writeFile(filePath, content);
+    await fs.promises.writeFile(filePath, content);
   } catch (error) {
     console.error(error);
     process.exit(1);
