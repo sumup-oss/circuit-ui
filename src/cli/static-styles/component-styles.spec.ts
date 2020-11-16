@@ -39,7 +39,7 @@ describe('Component styles', () => {
       const component = {
         name: 'styled-component',
         component: fixtures.StyledComponent,
-        props: {
+        propTypes: {
           value: ['string'],
           disabled: [true, false],
         },
@@ -57,7 +57,7 @@ describe('Component styles', () => {
       const component = {
         name: 'functional-component',
         component: fixtures.FunctionalComponent,
-        props: {
+        propTypes: {
           label: ['label'],
           value: ['value'],
         },
