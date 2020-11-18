@@ -177,7 +177,8 @@ const inputInvalidStyles = ({
   css`
     label: input--error;
     &:not(:focus)::placeholder {
-      color: ${theme.colors.r300};
+      color: ${theme.colors.danger};
+      opacity: 0.5;
     }
   `;
 
