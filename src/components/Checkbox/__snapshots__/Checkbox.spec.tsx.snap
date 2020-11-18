@@ -49,7 +49,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 }
 
 .circuit-1 {
-  color: #0F131A;
+  color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -225,7 +225,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 }
 
 .circuit-1 {
-  color: #0F131A;
+  color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -356,7 +356,7 @@ exports[`Checkbox should render with default styles 1`] = `
 }
 
 .circuit-1 {
-  color: #0F131A;
+  color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -486,7 +486,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 }
 
 .circuit-1 {
-  color: #0F131A;
+  color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -639,7 +639,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 }
 
 .circuit-1 {
-  color: #0F131A;
+  color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
   position: relative;

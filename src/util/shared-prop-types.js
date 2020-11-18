@@ -60,6 +60,11 @@ const typePropType = PropTypes.shape({
   lineHeight: PropTypes.string,
 }).isRequired;
 
+/**
+ * @deprecated
+ *
+ * Import the `themePropType` from the `@sumup/design-tokens` package instead.
+ */
 export const themePropType = PropTypes.shape({
   colors: PropTypes.shape({
     white: PropTypes.string.isRequired,

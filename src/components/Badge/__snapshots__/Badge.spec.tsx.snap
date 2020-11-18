@@ -15,7 +15,7 @@ exports[`Badge should have hover/active styles only when the onClick handler is 
   -ms-letter-spacing: 0.25px;
   letter-spacing: 0.25px;
   background-color: #E6E6E6;
-  color: #0F131A;
+  color: #1A1A1A;
   border: 0;
   outline: 0;
   cursor: pointer;
@@ -57,7 +57,7 @@ exports[`Badge should have the correct circle styles 1`] = `
   -ms-letter-spacing: 0.25px;
   letter-spacing: 0.25px;
   background-color: #E6E6E6;
-  color: #0F131A;
+  color: #1A1A1A;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -118,7 +118,7 @@ exports[`Badge should render with default styles 1`] = `
   -ms-letter-spacing: 0.25px;
   letter-spacing: 0.25px;
   background-color: #E6E6E6;
-  color: #0F131A;
+  color: #1A1A1A;
 }
 
 <div
@@ -163,7 +163,7 @@ exports[`Badge should render with success styles 1`] = `
   -moz-letter-spacing: 0.25px;
   -ms-letter-spacing: 0.25px;
   letter-spacing: 0.25px;
-  background-color: #47995A;
+  background-color: #138849;
   color: #FFF;
 }
 
@@ -187,7 +187,7 @@ exports[`Badge should render with warning styles 1`] = `
   -ms-letter-spacing: 0.25px;
   letter-spacing: 0.25px;
   background-color: #F6CC1B;
-  color: #0F131A;
+  color: #1A1A1A;
 }
 
 <div

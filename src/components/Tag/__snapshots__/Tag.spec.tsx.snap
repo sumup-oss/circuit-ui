@@ -31,7 +31,7 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
 }
 
 .circuit-0:active {
-  color: #0F131A;
+  color: #1A1A1A;
 }
 
 .circuit-0:hover {
