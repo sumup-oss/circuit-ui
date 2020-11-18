@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { createMediaQueries } from '../utils';
+import { createMediaQueries } from '../utils/media-queries';
 import {
   Spacings,
   IconSizes,

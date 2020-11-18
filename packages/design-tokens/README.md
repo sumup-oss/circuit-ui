@@ -50,6 +50,25 @@ const Bold = styled.strong`
 
 The theme is a plain JavaScript object, so you can use it in other ways, too.
 
+### With prop types
+
+The package exports a `themePropType` which can be used to check the `theme` prop:
+
+```js
+import PropTypes from 'prop-types';
+import { withTheme } from 'emotion-theming';
+import { themePropType } from '@sumup/design-tokens';
+
+export function ComponentWithInlineStyles({ theme, label }) {
+  return <div style={{ color: theme.colors.p500 }}>{label}</div>;
+}
+
+ComponentWithInlineStyles.propTypes = {
+  theme: themePropType.isRequired,
+  label: PropTypes.string,
+};
+```
+
 ### With TypeScript
 
 The package exports a `Theme` interface which can be used to type Emotion's `styled` function. Create a custom `styled` instance as described in the [Emotion docs](https://emotion.sh/docs/typescript):

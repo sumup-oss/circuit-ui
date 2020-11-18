@@ -25,9 +25,13 @@
     "prerelease": "yarn build",
     "release": "foundry run semantic-release"
   },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
   "devDependencies": {
     "@sumup/foundry": "^3.0.0",
     "@types/jest": "^26.0.15",
+    "@types/prop-types": "^15.7.3",
     "jest": "^25.4.0",
     "jest-extended": "^0.11.5",
     "ts-jest": "^25.4.0",
