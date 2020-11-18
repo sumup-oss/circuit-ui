@@ -53,16 +53,19 @@ const baseStyles = ({ theme }: StyleProps) => css`
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
-  color: ${theme.colors.p700};
+  color: ${theme.colors.p500};
   transition: opacity ${theme.transitions.default},
     color ${theme.transitions.default},
     background-color ${theme.transitions.default},
     border-color ${theme.transitions.default};
 
-  &:hover,
+  &:hover {
+    color: ${theme.colors.p700};
+    cursor: pointer;
+  }
+
   &:active {
     color: ${theme.colors.p900};
-    cursor: pointer;
   }
 
   &:visited {

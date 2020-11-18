@@ -48,7 +48,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #0F131A;
+  color: #1A1A1A;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -148,7 +148,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #0F131A;
+  color: #1A1A1A;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -249,7 +249,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #0F131A;
+  color: #1A1A1A;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -377,7 +377,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #0F131A;
+  color: #1A1A1A;
   padding-left: 26px;
   position: relative;
   cursor: pointer;

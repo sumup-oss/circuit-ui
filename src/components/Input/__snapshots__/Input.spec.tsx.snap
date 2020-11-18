@@ -866,19 +866,23 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #EA7A7A;
+  color: #D23F47;
+  opacity: 0.5;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #EA7A7A;
+  color: #D23F47;
+  opacity: 0.5;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #EA7A7A;
+  color: #D23F47;
+  opacity: 0.5;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #EA7A7A;
+  color: #D23F47;
+  opacity: 0.5;
 }
 
 .circuit-0:hover {
