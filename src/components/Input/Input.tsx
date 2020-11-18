@@ -146,6 +146,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   width: 100%;
   margin: 0;
   ${textMega({ theme })};
+  ${inputOutline({ theme })};
 
   &::placeholder {
     color: ${theme.colors.n500};
@@ -162,6 +163,8 @@ const inputWarningStyles = ({
   hasWarning &&
   css`
     label: input--warning;
+    ${inputOutline({ theme, hasWarning })};
+
     &:not(:focus)::placeholder {
       color: ${theme.colors.warning};
     }
@@ -176,6 +179,8 @@ const inputInvalidStyles = ({
   invalid &&
   css`
     label: input--error;
+    ${inputOutline({ theme, invalid })};
+
     &:not(:focus)::placeholder {
       color: ${theme.colors.danger};
       opacity: 0.5;
@@ -226,7 +231,6 @@ const InputElement = styled('input')<InputElProps>(
   inputDisabledStyles,
   inputPrefixStyles,
   inputSuffixStyles,
-  inputOutline,
 );
 
 /**

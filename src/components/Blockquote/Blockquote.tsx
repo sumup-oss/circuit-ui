@@ -13,20 +13,18 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import Text from '../Text';
 import { TextProps } from '../Text/Text';
 
-type Size = 'kilo' | 'mega' | 'giga';
-
 export interface BlockquoteProps extends TextProps {
   /**
    * A Circuit UI body text size.
    */
-  size?: Size;
+  size?: 'kilo' | 'mega' | 'giga';
   /**
    * The ref to the HTML DOM element.
    */
@@ -52,7 +50,7 @@ const StyledText = styled(Text)<BlockquoteProps>(baseStyles, gigaStyles);
 /**
  * Indented and italicised text to denote a quotation.
  */
-export const Blockquote = React.forwardRef(
+export const Blockquote = forwardRef(
   (props: BlockquoteProps, ref: BlockquoteProps['ref']) => (
     <StyledText {...props} as="blockquote" italic ref={ref} />
   ),

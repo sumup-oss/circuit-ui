@@ -15,7 +15,7 @@
 
 /** @jsx jsx */
 import React, { Children, cloneElement, ReactElement } from 'react';
-import { css, jsx, SerializedStyles } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
 import { hideVisually } from '../../styles/style-helpers';
@@ -34,11 +34,19 @@ export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
   label: string;
 }
 
-const Label = styled('span')(hideVisually);
+const labelStyles = css`
+  label: button__label;
+  ${hideVisually()};
+`;
+
+const Label = styled('span')(labelStyles);
 
 const sizeStyles = (size: IconButtonProps['size'] = 'mega') => (
   theme: Theme,
-): SerializedStyles => {
+) => {
+  if (!size) {
+    return null;
+  }
   const sizeMap = {
     kilo: theme.spacings.byte,
     mega: theme.spacings.kilo,

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { ReactElement, Ref } from 'react';
+import React, { forwardRef, ReactElement, Ref } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -79,6 +79,9 @@ const alignmentMap = {
 } as const;
 
 const alignmentStyles = ({ align = 'right' }: ButtonGroupProps) => {
+  if (!align) {
+    return null;
+  }
   const label = `button-group--${align}`;
 
   return css`
@@ -106,7 +109,7 @@ const Wrapper = styled('div')<ButtonGroupProps>(
 /**
  * Groups its Button children into a list and adds margins between.
  */
-export const ButtonGroup = React.forwardRef(
+export const ButtonGroup = forwardRef(
   ({ children, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => (
     <Wrapper {...props} ref={ref}>
       {children}

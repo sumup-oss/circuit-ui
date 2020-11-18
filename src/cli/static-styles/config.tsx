@@ -21,6 +21,15 @@ import { light } from '@sumup/design-tokens';
 import Anchor from '../../components/Anchor';
 import Badge from '../../components/Badge';
 import Button from '../../components/Button';
+// import Blockquote from '../../components/Blockquote';
+// import ButtonGroup from '../../components/ButtonGroup';
+// import Checkbox from '../../components/Checkbox';
+// import Hamburger from '../../components/Hamburger';
+// import Heading from '../../components/Heading';
+// import Hr from '../../components/Hr';
+// import Image from '../../components/Image';
+// import Input from '../../components/Input';
+// import Label from '../../components/Label';
 
 import { ComponentConfig, PropTypes } from './types';
 
@@ -47,4 +56,13 @@ export const components: ComponentConfig[] = [
     component: Button,
     propTypes: { icon: propTypes.element },
   },
+  // { name: 'Blockquote', component: Blockquote },
+  // { name: 'ButtonGroup', component: ButtonGroup },
+  // { name: 'Checkbox', component: Checkbox },
+  // { name: 'Hamburger', component: Hamburger },
+  // { name: 'Heading', component: Heading },
+  // { name: 'Hr', component: Hr },
+  // { name: 'Image', component: Image },
+  // { name: 'Input', component: Input },
+  // { name: 'Label', component: Label },
 ];

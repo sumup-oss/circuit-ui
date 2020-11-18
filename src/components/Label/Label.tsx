@@ -67,7 +67,7 @@ const inlineStyles = ({ theme, inline }: StyleProps & LabelProps) =>
 const disabledStyles = ({ disabled }: LabelProps) =>
   disabled &&
   css`
-    label: input__label--disabled;
+    label: label--disabled;
     ${disableVisually()};
   `;
 

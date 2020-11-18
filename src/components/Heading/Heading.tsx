@@ -19,14 +19,12 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 
-type Size = 'kilo' | 'mega' | 'giga' | 'tera' | 'peta' | 'exa' | 'zetta';
-
 export interface HeadingProps
   extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
   /**
    * A Circuit UI heading size.
    */
-  size?: Size;
+  size?: 'kilo' | 'mega' | 'giga' | 'tera' | 'peta' | 'exa' | 'zetta';
   /**
    * Removes the default bottom margin from the heading.
    */
@@ -36,6 +34,8 @@ export interface HeadingProps
    */
   as?: string;
 }
+
+type Size = 'kilo' | 'mega' | 'giga' | 'tera' | 'peta' | 'exa' | 'zetta';
 
 const mobileSizeMap: { [key in Size]: Size } = {
   kilo: 'kilo',
