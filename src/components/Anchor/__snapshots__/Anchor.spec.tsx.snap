@@ -19,7 +19,7 @@ exports[`Anchor styles should render as a \`button\` when an onClick is passed 1
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
-  color: #234BC3;
+  color: #3063E9;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
 }
@@ -31,10 +31,13 @@ exports[`Anchor styles should render as a \`button\` when an onClick is passed 1
   }
 }
 
-.circuit-0:hover,
+.circuit-0:hover {
+  color: #234BC3;
+  cursor: pointer;
+}
+
 .circuit-0:active {
   color: #1A368E;
-  cursor: pointer;
 }
 
 .circuit-0:visited {
@@ -105,7 +108,7 @@ exports[`Anchor styles should render as an \`a\` when an href (and onClick) is p
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
-  color: #234BC3;
+  color: #3063E9;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
 }
@@ -117,10 +120,13 @@ exports[`Anchor styles should render as an \`a\` when an href (and onClick) is p
   }
 }
 
-.circuit-0:hover,
+.circuit-0:hover {
+  color: #234BC3;
+  cursor: pointer;
+}
+
 .circuit-0:active {
   color: #1A368E;
-  cursor: pointer;
 }
 
 .circuit-0:visited {
