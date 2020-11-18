@@ -26,7 +26,7 @@ exports[`SubNavList styles should render with default styles when there is a sel
 .circuit-0::before {
   content: '';
   width: 2px;
-  background: #666;
+  background: #999;
   height: calc(32px * 2);
   position: absolute;
   top: 0;
@@ -59,7 +59,7 @@ exports[`SubNavList styles should render with default styles when there is no se
 .circuit-0::before {
   content: '';
   width: 2px;
-  background: #666;
+  background: #999;
   height: calc(32px * 2);
   position: absolute;
   top: 0;

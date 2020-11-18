@@ -57,7 +57,7 @@ const listStyles = ({ theme, children }) =>
     &::before {
       content: '';
       width: 2px;
-      background: ${theme.colors.n700};
+      background: ${theme.colors.n500};
       height: calc(${SUB_NAV_ITEM_HEIGHT}px * ${children.length});
       position: absolute;
       top: 0;
