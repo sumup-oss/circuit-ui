@@ -14,6 +14,7 @@
  */
 
 import { FC } from 'react';
+import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -79,8 +80,6 @@ const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
   `;
 };
 
-export const Card: FC<CardProps> = styled('div')<CardProps>(
-  baseStyles,
-  shadowStyles,
-  spacingStyles,
-);
+export const Card: FC<CardProps> = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
+})<CardProps>(baseStyles, shadowStyles, spacingStyles);

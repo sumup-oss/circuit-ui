@@ -27,7 +27,7 @@ export interface CardHeaderProps {
   /**
    * Heading to be shown.
    */
-  children: ReactNode;
+  children?: ReactNode;
   /**
    * Text label for the close button for screen readers.
    * Important for accessibility.
@@ -52,7 +52,17 @@ const baseStyles = ({ theme }: StyleProps) => css`
   margin-bottom: ${theme.spacings.giga};
 `;
 
-const CardHeaderContainer = styled('header')<CardHeaderProps>(baseStyles);
+const noHeadingStyles = ({ children }: CardHeaderProps) =>
+  !children &&
+  css`
+    label: card__header--no-heading;
+    justify-content: flex-end;
+  `;
+
+const CardHeaderContainer = styled('header')<CardHeaderProps>(
+  baseStyles,
+  noHeadingStyles,
+);
 
 const closeButtonStyles = ({ theme }: StyleProps) => css`
   margin-top: -${theme.spacings.byte};
@@ -69,24 +79,19 @@ const CardHeaderCloseButton = styled(CloseButton)<CloseButtonProps>(
  * purposes only.
  */
 export const CardHeader: FC<CardHeaderProps> = ({
-  children,
-  tracking,
   onClose,
+  children,
   labelCloseButton,
+  tracking = {},
   ...props
 }) => (
-  <CardHeaderContainer
-    labelCloseButton={labelCloseButton}
-    tracking={tracking}
-    onClose={onClose}
-    {...props}
-  >
+  <CardHeaderContainer {...props}>
     {children}
     {onClose && labelCloseButton && (
       <CardHeaderCloseButton
+        onClick={onClose}
         label={labelCloseButton}
         data-testid="header-close"
-        onClick={onClose}
         tracking={{
           component: 'close-button',
           ...tracking,
