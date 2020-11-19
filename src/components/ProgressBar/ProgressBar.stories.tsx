@@ -42,6 +42,7 @@ export const Steps = (args: ProgressBarProps) => (
 
 Steps.args = {
   label: 'A step-based progressbar',
+  hideLabel: true,
   value: 3,
   max: 10,
 };
@@ -52,6 +53,7 @@ export const Timer = (args: ProgressBarProps) => (
 
 Timer.args = {
   label: 'A time-based progressbar',
+  hideLabel: true,
   duration: 3000,
   paused: false,
   loop: true,
