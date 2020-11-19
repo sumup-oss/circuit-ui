@@ -41,7 +41,7 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   globals: {
     'ts-jest': {
-      tsConfig: {
+      tsconfig: {
         jsx: 'react',
       },
     },
