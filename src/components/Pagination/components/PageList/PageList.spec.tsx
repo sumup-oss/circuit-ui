@@ -27,7 +27,7 @@ import {
 import { PageList, PageListProps } from './PageList';
 
 describe('PageList', () => {
-  function renderPageList(renderFn: RenderFn, props: PageListProps) {
+  function renderPageList<T>(renderFn: RenderFn<T>, props: PageListProps) {
     return renderFn(<PageList {...props} />);
   }
 

@@ -22,7 +22,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { uniqueId } from '../../util/id';
 import deprecate from '../../util/deprecate';
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import {
   textMega,
   hideVisually,
@@ -276,8 +276,14 @@ const iconInactiveStyles = () => css`
   }
 `;
 
-const IconActive = styled(ChevronDown)<{}>(iconBaseStyles, iconActiveStyles);
-const IconInactive = styled(ChevronUp)<{}>(iconBaseStyles, iconInactiveStyles);
+const IconActive = styled(ChevronDown)<NoTheme>(
+  iconBaseStyles,
+  iconActiveStyles,
+);
+const IconInactive = styled(ChevronUp)<NoTheme>(
+  iconBaseStyles,
+  iconInactiveStyles,
+);
 
 /**
  * A native select component.

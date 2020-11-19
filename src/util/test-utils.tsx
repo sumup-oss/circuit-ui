@@ -17,7 +17,12 @@ import React, { FunctionComponent } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
 import { configureAxe } from 'jest-axe';
-import { render as renderTest, wait, act } from '@testing-library/react';
+import {
+  render as renderTest,
+  wait,
+  act,
+  RenderResult,
+} from '@testing-library/react';
 import { renderHook, act as actHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from 'emotion-theming';
@@ -28,7 +33,10 @@ import {
   defaultComponents,
 } from '../components/ComponentsContext';
 
-export type RenderFn = (component: React.ReactElement, ...rest: any) => any;
+export type RenderFn<T = any> = (
+  component: React.ReactElement,
+  ...rest: any
+) => T;
 
 const WithProviders: FunctionComponent = ({ children }) => (
   <ComponentsContext.Provider value={defaultComponents}>
@@ -36,15 +44,11 @@ const WithProviders: FunctionComponent = ({ children }) => (
   </ComponentsContext.Provider>
 );
 
-const renderWithProviders = (renderer: RenderFn): RenderFn => (
-  component,
-  ...rest
-): RenderFn => renderer(<WithProviders>{component}</WithProviders>, rest);
-
-const render: RenderFn = (component, options) =>
+const render: RenderFn<RenderResult> = (component, options) =>
   renderTest(component, { wrapper: WithProviders, ...options });
-const renderToHtml: RenderFn = renderWithProviders(renderToStaticMarkup);
-const create: RenderFn = (...args) => {
+const renderToHtml: RenderFn<string> = (component) =>
+  renderToStaticMarkup(<WithProviders>{component}</WithProviders>);
+const create = (...args: Parameters<RenderFn<RenderResult>>) => {
   const { container } = render(...args);
   return container.children.length > 1
     ? container.children

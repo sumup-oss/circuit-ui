@@ -13,14 +13,17 @@
  * limitations under the License.
  */
 
+// TODO: Improve types
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 /** @jsx jsx */
 import {
   useState,
   useEffect,
   FC,
   SVGProps,
-  ReactNode,
   MouseEvent,
+  ReactNode,
   KeyboardEvent,
 } from 'react';
 import { css, jsx } from '@emotion/core';
@@ -120,6 +123,7 @@ const disabledStyles = ({ theme, disabled }: StyleProps & Disabled) =>
     color: ${theme.colors.n500};
   `;
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const NavLabel = BaseNavLabel as any;
 
 const AggregatorContainer = styled('button')<Disabled & Selected>(

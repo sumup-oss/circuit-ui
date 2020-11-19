@@ -15,6 +15,7 @@
 
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
+import { Theme } from '@sumup/design-tokens';
 
 import Spinner from '.';
 
@@ -28,7 +29,7 @@ export default {
 
 export const Base = () => (
   <Spinner
-    css={(theme) =>
+    css={(theme: Theme) =>
       css`
         color: ${theme.colors.p500};
       `

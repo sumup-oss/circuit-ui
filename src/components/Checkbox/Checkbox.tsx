@@ -18,7 +18,7 @@ import { css } from '@emotion/core';
 import { Check } from '@sumup/icons';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import {
   disableVisually,
   hideVisually,
@@ -131,7 +131,7 @@ const checkboxWrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const CheckboxWrapper = styled('div')<{}>(checkboxWrapperStyles);
+const CheckboxWrapper = styled('div')<NoTheme>(checkboxWrapperStyles);
 
 type InputElProps = Omit<CheckboxProps, 'tracking'>;
 
@@ -185,7 +185,7 @@ const tooltipStyles = ({ theme }: StyleProps) => css`
   left: -${theme.spacings.kilo};
 `;
 
-const CheckboxTooltip = styled(Tooltip)<{}>(tooltipStyles);
+const CheckboxTooltip = styled(Tooltip)(tooltipStyles);
 
 /**
  * Checkbox component for forms.
@@ -229,7 +229,7 @@ export const Checkbox = React.forwardRef(
         </CheckboxLabel>
         {!disabled && validationHint && (
           // TODO: Reenable typechecks once Tooltip has been migrated to TypeScript.
-          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           <CheckboxTooltip position={'top'} align={'right'}>
             {validationHint}

@@ -21,3 +21,5 @@ export default styled as CreateStyled<Theme>;
 export interface StyleProps {
   theme: Theme;
 }
+
+export type NoTheme = Record<string, unknown>;

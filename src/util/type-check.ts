@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const isFunction = (value?: any): value is Function =>
   typeof value === 'function';
 
@@ -20,4 +21,5 @@ export const isString = (value?: any): value is string =>
   typeof value === 'string';
 
 export const isArray = (value?: any): value is [] =>
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   value && typeof value === 'object' && value.constructor === Array;

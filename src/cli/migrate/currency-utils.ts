@@ -105,12 +105,12 @@ const transform: Transform = (file, api) => {
 
 function replaceFormatFunction(callee: string) {
   return (nodePath: ASTPath<CallExpression>) => {
-    /* eslint-disable no-param-reassign, @typescript-eslint/ban-ts-ignore */
+    /* eslint-disable no-param-reassign, @typescript-eslint/ban-ts-comment */
     // @ts-ignore
     nodePath.value.arguments = reorderArguments(nodePath.value.arguments);
     // @ts-ignore
     nodePath.value.callee = callee;
-    /* eslint-enable no-param-reassign, @typescript-eslint/ban-ts-ignore */
+    /* eslint-enable no-param-reassign, @typescript-eslint/ban-ts-comment */
 
     return nodePath.node;
   };

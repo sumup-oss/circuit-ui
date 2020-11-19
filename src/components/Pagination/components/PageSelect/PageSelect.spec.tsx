@@ -27,7 +27,7 @@ import {
 import { PageSelect, PageSelectProps } from './PageSelect';
 
 describe('PageSelect', () => {
-  function renderPageSelect(renderFn: RenderFn, props: PageSelectProps) {
+  function renderPageSelect<T>(renderFn: RenderFn<T>, props: PageSelectProps) {
     return renderFn(<PageSelect {...props} />);
   }
 

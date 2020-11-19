@@ -28,7 +28,7 @@ import {
 import { Hamburger, HamburgerProps } from './Hamburger';
 
 describe('Hamburger', () => {
-  function renderHamburger(renderFn: RenderFn, props: HamburgerProps) {
+  function renderHamburger<T>(renderFn: RenderFn<T>, props: HamburgerProps) {
     return renderFn(<Hamburger {...props} />);
   }
 

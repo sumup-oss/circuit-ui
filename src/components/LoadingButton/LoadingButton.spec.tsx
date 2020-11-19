@@ -20,7 +20,10 @@ import { create, renderToHtml, axe, RenderFn } from '../../util/test-utils';
 import { LoadingButton, LoadingButtonProps } from './LoadingButton';
 
 describe('LoadingButton', () => {
-  function renderLoadingButton(renderFn: RenderFn, props: LoadingButtonProps) {
+  function renderLoadingButton<T>(
+    renderFn: RenderFn<T>,
+    props: LoadingButtonProps,
+  ) {
     return renderFn(<LoadingButton {...props} />);
   }
 

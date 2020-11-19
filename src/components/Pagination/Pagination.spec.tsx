@@ -27,7 +27,7 @@ import {
 import { Pagination, PaginationProps } from './Pagination';
 
 describe('Pagination', () => {
-  function renderPagination(renderFn: RenderFn, props: PaginationProps) {
+  function renderPagination<T>(renderFn: RenderFn<T>, props: PaginationProps) {
     return renderFn(<Pagination {...props} />);
   }
 

@@ -59,7 +59,7 @@ Timer.args = {
 };
 
 export const Labelled = (args: ProgressBarProps) => {
-  const fraction = `${args.value}/${args.max}`;
+  const fraction = `${args.value!}/${args.max!}`;
   const percentage = `${(args.value! / args.max!) * 100}%`;
   return (
     <Fragment>

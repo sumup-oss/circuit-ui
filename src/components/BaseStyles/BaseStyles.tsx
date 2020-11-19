@@ -15,9 +15,10 @@
 
 import React from 'react';
 import { Global } from '@emotion/core';
+import { Theme } from '@sumup/design-tokens';
 
 import { createBaseStyles } from './BaseStylesService';
 
 export const BaseStyles = () => (
-  <Global styles={(theme) => createBaseStyles({ theme })} />
+  <Global styles={(theme: Theme) => createBaseStyles({ theme })} />
 );

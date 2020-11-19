@@ -16,7 +16,7 @@
 import React, { Children, HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import Card from '../Card';
 
 export interface NotificationListProps extends HTMLProps<HTMLUListElement> {
@@ -50,9 +50,10 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const NotificationListWrapper = styled('ul')<{}>(baseStyles);
+const NotificationListWrapper = styled('ul')<NoTheme>(baseStyles);
 
 // FIXME: Remove typecast once the Card has been migrated to TypeScript.
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const NotificationListCard = Card.withComponent('li') as any;
 
 /**

@@ -20,8 +20,8 @@ import { create, renderToHtml, axe, RenderFn } from '../../util/test-utils';
 import { ValidationHint, ValidationHintProps } from './ValidationHint';
 
 describe('ValidationHint', () => {
-  function renderValidationHint(
-    renderFn: RenderFn,
+  function renderValidationHint<T>(
+    renderFn: RenderFn<T>,
     props: ValidationHintProps = {},
   ) {
     return renderFn(

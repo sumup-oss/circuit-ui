@@ -15,7 +15,7 @@
 
 import { css } from '@emotion/core';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 
 const baseStyles = ({ theme }: StyleProps) => css`
   label: hr;
@@ -29,4 +29,4 @@ const baseStyles = ({ theme }: StyleProps) => css`
 /**
  * A horizontal rule to visually and semantically separate text.
  */
-export const Hr = styled('hr')<{}>(baseStyles);
+export const Hr = styled('hr')<NoTheme>(baseStyles);

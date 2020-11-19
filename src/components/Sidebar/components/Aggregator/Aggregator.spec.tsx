@@ -22,6 +22,7 @@ import {
   render,
   act,
   userEvent,
+  RenderFn,
 } from '../../../../util/test-utils';
 
 import Aggregator, { AggregatorProps } from './Aggregator';
@@ -40,14 +41,18 @@ const defaultProps = {
   tracking: {},
 };
 
-const renderComponent = (fn: Function, props: Partial<AggregatorProps> = {}) =>
-  fn(
+function renderComponent<T>(
+  renderFn: RenderFn<T>,
+  props: Partial<AggregatorProps> = {},
+) {
+  return renderFn(
     <ul>
       <Aggregator {...defaultProps} {...props} data-testid="aggregator">
         {props.children || defaultProps.children}
       </Aggregator>
     </ul>,
   );
+}
 
 describe('Aggregator', () => {
   describe('styles', () => {

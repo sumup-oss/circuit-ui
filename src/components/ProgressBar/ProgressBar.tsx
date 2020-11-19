@@ -16,7 +16,7 @@
 import React, { ReactNode } from 'react';
 import { css, keyframes } from '@emotion/core';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { hideVisually, textKilo } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import { ReturnType } from '../../types/return-type';
@@ -85,7 +85,7 @@ const wrapperStyles = () => css`
   align-items: center;
 `;
 
-const ProgressBarWrapper = styled('div')<{}>(wrapperStyles);
+const ProgressBarWrapper = styled('div')<NoTheme>(wrapperStyles);
 
 const baseStyles = ({ theme }: StyleProps) => css`
   label: progress-bar;

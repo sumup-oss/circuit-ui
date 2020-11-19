@@ -13,7 +13,9 @@
  * limitations under the License.
  */
 
-export function getDisplayName(Component: any): string | undefined {
+import { ComponentType } from 'react';
+
+export function getDisplayName(Component: ComponentType): string | undefined {
   if (typeof Component === 'string') {
     return Component;
   }

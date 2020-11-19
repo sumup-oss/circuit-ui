@@ -97,6 +97,7 @@ export const Anchor = React.forwardRef(
 
     // Need to typecast here because the StyledAnchor expects a button-like
     // component for its `as` prop. It's safe to ignore that constraint here.
+    /* eslint-disable @typescript-eslint/no-unsafe-assignment */
     const Link = components.Link as any;
 
     const handleClick = useClickHandler<MouseEvent<any>>(

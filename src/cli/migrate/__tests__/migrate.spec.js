@@ -70,8 +70,9 @@ function defineTest(transformName, testFilePrefix, testOptions = {}) {
 
     testName = `${testName} with the ${parser} parser`;
 
+    // eslint-disable-next-line jest/valid-title
     describe(transformName, () => {
-      // eslint-disable-next-line jest/expect-expect
+      // eslint-disable-next-line jest/expect-expect, jest/valid-title
       it(testName, () => {
         runInlineTest(
           module,

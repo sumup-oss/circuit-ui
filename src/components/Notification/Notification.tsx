@@ -23,7 +23,7 @@ import {
 } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { CloseButton, CloseButtonProps } from '../CloseButton/CloseButton';
 
 type Variant = 'success' | 'error' | 'warning';
@@ -45,14 +45,14 @@ const containerStyles = () => css`
   align-items: flex-start;
 `;
 
-const Container = styled('div')<{}>(containerStyles);
+const Container = styled('div')<NoTheme>(containerStyles);
 
 const contentStyles = () => css`
   label: notification__content;
   width: 100%;
 `;
 
-const Content = styled('div')<{}>(contentStyles);
+const Content = styled('div')<NoTheme>(contentStyles);
 
 const colorMap = {
   success: 'success',
