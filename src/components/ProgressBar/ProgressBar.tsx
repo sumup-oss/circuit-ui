@@ -17,11 +17,15 @@ import React, { ReactNode } from 'react';
 import { css, keyframes } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { textKilo } from '../../styles/style-helpers';
+import { hideVisually, textKilo } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import { ReturnType } from '../../types/return-type';
 
+// TODO: Make the label prop required.
 interface BaseProps {
+  /**
+   * @deprecated Use the `label` prop instead.
+   */
   children?: ReactNode;
   /**
    * Choose from 2 style variants. Default: 'primary'.
@@ -31,6 +35,14 @@ interface BaseProps {
    * Choose from 3 sizes. Default: 'kilo'.
    */
   size?: 'byte' | 'kilo' | 'mega';
+  /**
+   * A descriptive label that is used by screenreaders.
+   */
+  label?: string;
+  /**
+   * Visually hide the label. It will remain accessible to screenreaders.
+   */
+  hideLabel?: boolean;
 }
 
 interface StepProgressProps {
@@ -63,6 +75,10 @@ interface TimeProgressProps {
 export type ProgressBarProps = BaseProps &
   StepProgressProps &
   TimeProgressProps;
+
+type TaskProgressElProps = Omit<BaseProps, 'label'> & StepProgressProps;
+type TimeProgressElProps = Omit<BaseProps, 'label'> & TimeProgressProps;
+type LabelElProps = Pick<BaseProps, 'hideLabel'>;
 
 const wrapperStyles = () => css`
   display: flex;
@@ -134,7 +150,7 @@ const timedStyles = ({
   duration = 3000,
   loop = false,
   paused = false,
-}: StyleProps & TimeProgressProps) => css`
+}: StyleProps & TimeProgressElProps) => css`
   &::after {
     border-radius: ${theme.borderRadius.pill};
     animation-name: ${loop ? loopAnimation : oneAnimation};
@@ -148,7 +164,7 @@ const timedStyles = ({
 const variantStyles = ({
   theme,
   variant = 'primary',
-}: StyleProps & BaseProps) => {
+}: StyleProps & Omit<BaseProps, 'label'>) => {
   const variantMap = {
     primary: theme.colors.p500,
     secondary: theme.colors.n900,
@@ -162,7 +178,10 @@ const variantStyles = ({
   `;
 };
 
-const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & BaseProps) => {
+const sizeStyles = ({
+  theme,
+  size = 'kilo',
+}: StyleProps & Omit<BaseProps, 'label'>) => {
   const sizeMap = {
     byte: theme.spacings.bit,
     kilo: theme.spacings.byte,
@@ -174,14 +193,14 @@ const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & BaseProps) => {
   });
 };
 
-const TaskProgress = styled('span')<BaseProps & StepProgressProps>(
+const TaskProgress = styled('span')<TaskProgressElProps>(
   baseStyles,
   variantStyles,
   sizeStyles,
   taskStyles,
 );
 
-const TimeProgress = styled('span')<BaseProps & TimeProgressProps>(
+const TimeProgress = styled('span')<TimeProgressElProps>(
   baseStyles,
   variantStyles,
   sizeStyles,
@@ -194,7 +213,17 @@ const labelStyles = ({ theme }: StyleProps) => css`
   margin-left: ${theme.spacings.byte};
 `;
 
-const ProgressBarLabel = styled('span')<{}>(labelStyles);
+const labelHiddenStyles = ({ hideLabel }: LabelElProps) =>
+  hideLabel &&
+  css`
+    label: progress-bar__label--hidden;
+    ${hideVisually()};
+  `;
+
+const ProgressBarLabel = styled('span')<LabelElProps>(
+  labelStyles,
+  labelHiddenStyles,
+);
 
 /**
  * The ProgressBar component communicates the progress of a task or timer
@@ -211,14 +240,18 @@ export function ProgressBar({
   duration,
   loop,
   paused,
+  label,
+  hideLabel,
   ...props
 }: ProgressBarProps) {
   const ariaId = uniqueId('progress-bar_');
+  const title = hideLabel ? label : undefined;
   return (
     <ProgressBarWrapper {...props}>
       {max || value ? (
         <TaskProgress
           role="progressbar"
+          title={title}
           aria-valuenow={value}
           aria-valuemin={0}
           aria-valuemax={max}
@@ -230,6 +263,7 @@ export function ProgressBar({
         />
       ) : (
         <TimeProgress
+          title={title}
           aria-labelledby={ariaId}
           duration={duration}
           loop={loop}
@@ -238,7 +272,9 @@ export function ProgressBar({
           variant={variant}
         />
       )}
-      <ProgressBarLabel id={ariaId}>{children}</ProgressBarLabel>
+      <ProgressBarLabel id={ariaId} hideLabel={hideLabel}>
+        {children || label}
+      </ProgressBarLabel>
     </ProgressBarWrapper>
   );
 }

@@ -1,5 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ProgressBar step-based should render with a hidden label 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.circuit-0 {
+  background-color: #E6E6E6;
+  border-radius: 999999px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 8px;
+}
+
+.circuit-0::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #3063E9;
+  -webkit-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+  height: 100%;
+  width: 1px;
+}
+
+.circuit-0::after {
+  background-color: #3063E9;
+}
+
+.circuit-0::after {
+  width: 50%;
+}
+
+.circuit-1 {
+  font-size: 13px;
+  line-height: 20px;
+  margin-left: 8px;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="circuit-2"
+>
+  <span
+    aria-labelledby="progress-bar_2"
+    aria-valuemax="1"
+    aria-valuemin="0"
+    aria-valuenow="0.5"
+    class="circuit-0"
+    max="1"
+    role="progressbar"
+    title="A progress bar"
+    value="0.5"
+  />
+  <span
+    class="circuit-1"
+    id="progress-bar_2"
+  >
+    A progress bar
+  </span>
+</div>
+`;
+
 exports[`ProgressBar step-based should render with default styles 1`] = `
 .circuit-2 {
   display: -webkit-box;
@@ -65,7 +147,105 @@ exports[`ProgressBar step-based should render with default styles 1`] = `
   <span
     class="circuit-1"
     id="progress-bar_1"
+  >
+    A progress bar
+  </span>
+</div>
+`;
+
+exports[`ProgressBar time-based should render with a hidden label 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.circuit-1 {
+  font-size: 13px;
+  line-height: 20px;
+  margin-left: 8px;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0 {
+  background-color: #E6E6E6;
+  border-radius: 999999px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 8px;
+}
+
+.circuit-0::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #3063E9;
+  -webkit-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+  height: 100%;
+  width: 1px;
+}
+
+.circuit-0::after {
+  background-color: #3063E9;
+}
+
+.circuit-0::after {
+  border-radius: 999999px;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 3000ms;
+  animation-duration: 3000ms;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+<div
+  class="circuit-2"
+>
+  <span
+    aria-labelledby="progress-bar_5"
+    class="circuit-0"
+    title="A progress bar"
   />
+  <span
+    class="circuit-1"
+    id="progress-bar_5"
+  >
+    A progress bar
+  </span>
 </div>
 `;
 
@@ -142,13 +322,15 @@ exports[`ProgressBar time-based should render with default styles 1`] = `
   class="circuit-2"
 >
   <span
-    aria-labelledby="progress-bar_3"
+    aria-labelledby="progress-bar_4"
     class="circuit-0"
   />
   <span
     class="circuit-1"
-    id="progress-bar_3"
-  />
+    id="progress-bar_4"
+  >
+    A progress bar
+  </span>
 </div>
 `;
 
@@ -238,14 +420,16 @@ exports[`ProgressBar time-based should render with loop styles 1`] = `
   class="circuit-2"
 >
   <span
-    aria-labelledby="progress-bar_5"
+    aria-labelledby="progress-bar_7"
     class="circuit-0"
     loop=""
   />
   <span
     class="circuit-1"
-    id="progress-bar_5"
-  />
+    id="progress-bar_7"
+  >
+    A progress bar
+  </span>
 </div>
 `;
 
@@ -332,12 +516,14 @@ exports[`ProgressBar time-based should render with paused styles 1`] = `
   class="circuit-2"
 >
   <span
-    aria-labelledby="progress-bar_4"
+    aria-labelledby="progress-bar_6"
     class="circuit-0"
   />
   <span
     class="circuit-1"
-    id="progress-bar_4"
-  />
+    id="progress-bar_6"
+  >
+    A progress bar
+  </span>
 </div>
 `;

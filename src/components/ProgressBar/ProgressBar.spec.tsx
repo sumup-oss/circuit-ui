@@ -21,12 +21,23 @@ import ProgressBar from '.';
 
 describe('ProgressBar', () => {
   describe('step-based', () => {
+    const baseProps = {
+      label: 'A progress bar',
+      max: 1,
+
+      value: 0.5,
+    };
+
     /**
      * Style tests.
      */
-
     it('should render with default styles', () => {
-      const actual = create(<ProgressBar max={1} value={0.5} />);
+      const actual = create(<ProgressBar {...baseProps} />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with a hidden label', () => {
+      const actual = create(<ProgressBar {...baseProps} hideLabel />);
       expect(actual).toMatchSnapshot();
     });
 
@@ -34,28 +45,41 @@ describe('ProgressBar', () => {
      * Accessibility tests.
      */
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<ProgressBar max={1} value={0.5} />);
+      const wrapper = renderToHtml(
+        <ProgressBar {...baseProps} max={1} value={0.5}>
+          children
+        </ProgressBar>,
+      );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });
   });
 
   describe('time-based', () => {
+    const baseProps = {
+      label: 'A progress bar',
+    };
+
     /**
      * Style tests.
      */
     it('should render with default styles', () => {
-      const actual = create(<ProgressBar />);
+      const actual = create(<ProgressBar {...baseProps} />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with a hidden label', () => {
+      const actual = create(<ProgressBar {...baseProps} hideLabel />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render with paused styles', () => {
-      const actual = create(<ProgressBar paused />);
+      const actual = create(<ProgressBar {...baseProps} paused />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render with loop styles', () => {
-      const actual = create(<ProgressBar loop />);
+      const actual = create(<ProgressBar {...baseProps} loop />);
       expect(actual).toMatchSnapshot();
     });
 
@@ -63,7 +87,7 @@ describe('ProgressBar', () => {
      * Accessibility tests.
      */
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<ProgressBar />);
+      const wrapper = renderToHtml(<ProgressBar {...baseProps} />);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });

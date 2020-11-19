@@ -46,7 +46,7 @@ describe('Pagination', () => {
       ...baseProps,
       currentPage: 1,
     });
-    const prevButtonEl = getByText('Previous');
+    const prevButtonEl = getByText('Previous').closest('button');
 
     expect(prevButtonEl).toBeDisabled();
   });
@@ -56,7 +56,7 @@ describe('Pagination', () => {
       ...baseProps,
       currentPage: baseProps.totalPages,
     });
-    const nextButtonEl = getByText('Next');
+    const nextButtonEl = getByText('Next').closest('button');
 
     expect(nextButtonEl).toBeDisabled();
   });
