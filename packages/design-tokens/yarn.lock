@@ -771,9 +771,9 @@
     type-detect "4.0.8"
 
 "@sumup/foundry@^3.0.0":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@sumup/foundry/-/foundry-3.1.1.tgz#ea34a68851a6e671dc7742b296286b69f06052d7"
-  integrity sha512-OwcnAn3+MpVXHmu9fDF1t3O9WoentiuhmRXezCOcT2u/G16JSYwBRXdELAmHF6TCw9ZAecYK3nOPQDhMCb4IeQ==
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@sumup/foundry/-/foundry-3.1.3.tgz#32b05af15cbe294b228ed99b230a1c7e6c9600c1"
+  integrity sha512-GU1ObOAcdMbPGpp37/d0cy6DGoU/Q2n5oCFa6CveByZ+eBvM9oMDH/pd2UTcEHzehFczTEtKd4oRZ7dAKLeo2A==
   dependencies:
     "@semantic-release/commit-analyzer" "^8.0.0"
     "@semantic-release/github" "^7.0.0"
