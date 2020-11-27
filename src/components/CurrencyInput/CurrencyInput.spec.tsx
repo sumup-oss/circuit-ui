@@ -25,13 +25,13 @@ describe('CurrencyInput', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CurrencyInput currency="EUR" />);
+    const actual = create(<CurrencyInput currency="EUR" label="Amount" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should adjust input padding and suffix width to match currency symbol width', () => {
     const actual = create(
-      <CurrencyInput placeholder="123,45" currency="CHF" />,
+      <CurrencyInput placeholder="123,45" currency="CHF" label="Amount" />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -43,7 +43,12 @@ describe('CurrencyInput', () => {
     it('should accept a working ref', () => {
       const tref = React.createRef<NumberFormat>();
       const { container } = render(
-        <CurrencyInput locale="de-DE" currency="EUR" ref={tref} />,
+        <CurrencyInput
+          locale="de-DE"
+          currency="EUR"
+          ref={tref}
+          label="Amount"
+        />,
       );
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
@@ -52,10 +57,10 @@ describe('CurrencyInput', () => {
     it('should format an amount correctly', () => {
       const { getByLabelText } = render(
         <CurrencyInput
-          label="Amount"
           locale="de-DE"
           currency="EUR"
           value={12345.67}
+          label="Amount"
         />,
       );
       const input = getByLabelText(new RegExp('Amount'));
