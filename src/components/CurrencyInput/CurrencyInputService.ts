@@ -13,33 +13,7 @@
  * limitations under the License.
  */
 
-import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import { format } from '@sumup/intl';
-
-export const createCurrencyMask = (
-  currencyFormat: {
-    maximumFractionDigits: number;
-    decimalDelimiter?: string;
-    groupDelimiter?: string;
-  },
-  options = {},
-) => {
-  const {
-    maximumFractionDigits: decimalLimit,
-    decimalDelimiter: decimalSymbol = '.',
-    groupDelimiter: thousandsSeparatorSymbol = ',',
-  } = currencyFormat;
-
-  return createNumberMask({
-    prefix: '',
-    suffix: '',
-    thousandsSeparatorSymbol,
-    allowDecimal: decimalLimit > 0,
-    decimalLimit,
-    decimalSymbol,
-    ...options,
-  });
-};
 
 export function formatPlaceholder(
   placeholder?: string | number,

@@ -15,16 +15,19 @@
 
 import React, { Ref } from 'react';
 import { resolveCurrencyFormat } from '@sumup/intl';
-import TextMaskInput from 'react-text-mask';
+import NumberFormat from 'react-number-format';
 
 import styled from '../../styles/styled';
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
 
-import { createCurrencyMask, formatPlaceholder } from './CurrencyInputService';
+import { formatPlaceholder } from './CurrencyInputService';
 
 export interface CurrencyInputProps
-  extends Omit<InputProps, 'placeholder' | 'ref'> {
+  extends Omit<
+    InputProps,
+    'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
+  > {
   /**
    * A ISO 4217 currency code, such as 'USD' for the US dollar,
    * 'EUR' for the Euro, or 'CNY' for the Chinese RMB.
@@ -41,7 +44,18 @@ export interface CurrencyInputProps
    * currency format.
    */
   placeholder?: string | number;
-  ref: Ref<TextMaskInput>;
+  /**
+   * The ref to the html dom element.
+   */
+  ref?: Ref<NumberFormat>;
+  /**
+   * The value of the input element.
+   */
+  value?: string | number;
+  /**
+   * The default value of the input element.
+   */
+  defaultValue?: string | number;
 }
 
 const DEFAULT_FORMAT = {
@@ -49,8 +63,8 @@ const DEFAULT_FORMAT = {
   currencySymbol: '$',
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
-  decimalSymbol: '.',
-  housandsSeparatorSymbol: ',',
+  decimalDelimiter: '.',
+  groupDelimiter: ',',
 };
 
 const CurrencyIcon = styled('span')`
@@ -78,8 +92,9 @@ export const CurrencyInput = React.forwardRef(
       currencySymbol,
       minimumFractionDigits,
       maximumFractionDigits,
+      decimalDelimiter,
+      groupDelimiter,
     } = currencyFormat;
-    const numberMask = createCurrencyMask(currencyFormat, locale);
     const placeholderString = formatPlaceholder(placeholder, locale, {
       minimumFractionDigits,
       maximumFractionDigits,
@@ -87,8 +102,8 @@ export const CurrencyInput = React.forwardRef(
 
     const renderPrefix =
       currencyPosition === 'prefix'
-        ? (preffixProps: { className?: string }) => (
-            <CurrencyIcon {...preffixProps}>{currencySymbol}</CurrencyIcon>
+        ? (prefixProps: { className?: string }) => (
+            <CurrencyIcon {...prefixProps}>{currencySymbol}</CurrencyIcon>
           )
         : null;
 
@@ -99,23 +114,24 @@ export const CurrencyInput = React.forwardRef(
           )
         : null;
 
+    const isNumericString = typeof props.value === 'string';
+
     return (
-      <TextMaskInput
-        ref={ref}
-        guide={false}
-        render={(inputRef, { defaultValue, ...renderProps }) => (
-          <Input
-            ref={inputRef}
-            value={defaultValue}
-            renderPrefix={renderPrefix}
-            renderSuffix={renderSuffix}
-            placeholder={placeholderString}
-            textAlign="right"
-            type="text"
-            {...renderProps}
-          />
-        )}
-        mask={numberMask}
+      <NumberFormat
+        // NumberFormat props
+        thousandSeparator={groupDelimiter}
+        decimalSeparator={decimalDelimiter}
+        decimalScale={maximumFractionDigits}
+        isNumericString={isNumericString}
+        customInput={Input}
+        getInputRef={ref}
+        allowedDecimalSeparators={[decimalDelimiter]}
+        // Circuit input props
+        renderPrefix={renderPrefix}
+        renderSuffix={renderSuffix}
+        placeholder={placeholderString}
+        textAlign="right"
+        type="text"
         {...props}
       />
     );

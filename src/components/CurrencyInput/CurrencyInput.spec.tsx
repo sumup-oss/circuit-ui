@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import TextMaskInput from 'react-text-mask';
+import NumberFormat from 'react-number-format';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
@@ -25,13 +25,13 @@ describe('CurrencyInput', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CurrencyInput currency="EUR" />);
+    const actual = create(<CurrencyInput currency="EUR" label="Amount" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should adjust input padding and suffix width to match currency symbol width', () => {
     const actual = create(
-      <CurrencyInput placeholder="123,45" currency="CHF" />,
+      <CurrencyInput placeholder="123,45" currency="CHF" label="Amount" />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -40,13 +40,31 @@ describe('CurrencyInput', () => {
     /**
      * Should accept a working ref
      */
-    it.skip('should accept a working ref', () => {
-      const tref = React.createRef<TextMaskInput>();
+    it('should accept a working ref', () => {
+      const tref = React.createRef<NumberFormat>();
       const { container } = render(
-        <CurrencyInput id="id" locale="de-DE" currency="EUR" ref={tref} />,
+        <CurrencyInput
+          locale="de-DE"
+          currency="EUR"
+          ref={tref}
+          label="Amount"
+        />,
       );
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
+    });
+
+    it('should format an amount correctly', () => {
+      const { getByLabelText } = render(
+        <CurrencyInput
+          locale="de-DE"
+          currency="EUR"
+          value={12345.67}
+          label="Amount"
+        />,
+      );
+      const input = getByLabelText(new RegExp('Amount'));
+      expect(input.value).toBe('12,345.67');
     });
   });
 
