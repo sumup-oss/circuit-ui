@@ -13,44 +13,11 @@
  * limitations under the License.
  */
 
-import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-
-import { createCurrencyMask, formatPlaceholder } from './CurrencyInputService';
-
-jest.mock('text-mask-addons/dist/createNumberMask', () => jest.fn());
+import { formatPlaceholder } from './CurrencyInputService';
 
 describe('CurrencyInputService', () => {
   beforeEach(() => {
     jest.resetAllMocks();
-  });
-
-  describe('createCurrencyMask', () => {
-    it('should create a number mask for use with react-text-mask', () => {
-      const currencyFormat = {
-        maximumFractionDigits: 2,
-        decimalDelimiter: '.',
-        groupDelimiter: ',',
-      };
-      createCurrencyMask(currencyFormat);
-      const options = createNumberMask.mock.calls[0][0];
-      const actualAllowDecimal = options.allowDecimal;
-      const actualDecimalLimit = options.decimalLimit;
-      expect(actualAllowDecimal).toBeTruthy();
-      expect(actualDecimalLimit).toBe(2);
-    });
-
-    it('should allow specifying options', () => {
-      const currencyFormat = {
-        maximumFractionDigits: 2,
-        decimalDelimiter: '.',
-        groupDelimiter: ',',
-      };
-      const options = { foo: 'bar' };
-      createCurrencyMask(currencyFormat, options);
-      const expected = options.foo;
-      const actual = createNumberMask.mock.calls[0][0].foo;
-      expect(actual).toEqual(expected);
-    });
   });
 
   describe('formatPlaceholder', () => {

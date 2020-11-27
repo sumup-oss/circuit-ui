@@ -92,7 +92,7 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
    */
   hideLabel?: boolean;
   /**
-   * Emotion style object to overwrite the <input> element styles.
+   * Emotion style object to overwrite the input element styles.
    */
   inputStyles?: InterpolationWithTheme<Theme>;
   /**

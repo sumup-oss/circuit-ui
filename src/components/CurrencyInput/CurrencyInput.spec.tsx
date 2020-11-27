@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import TextMaskInput from 'react-text-mask';
+import NumberFormat from 'react-number-format';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
@@ -40,13 +40,26 @@ describe('CurrencyInput', () => {
     /**
      * Should accept a working ref
      */
-    it.skip('should accept a working ref', () => {
-      const tref = React.createRef<TextMaskInput>();
+    it('should accept a working ref', () => {
+      const tref = React.createRef<NumberFormat>();
       const { container } = render(
-        <CurrencyInput id="id" locale="de-DE" currency="EUR" ref={tref} />,
+        <CurrencyInput locale="de-DE" currency="EUR" ref={tref} />,
       );
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
+    });
+
+    it('should format an amount correctly', () => {
+      const { getByLabelText } = render(
+        <CurrencyInput
+          label="Amount"
+          locale="de-DE"
+          currency="EUR"
+          value={12345.67}
+        />,
+      );
+      const input = getByLabelText(new RegExp('Amount'));
+      expect(input.value).toBe('12,345.67');
     });
   });
 

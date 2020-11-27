@@ -110,6 +110,7 @@ label + .circuit-3:not(label) {
     <input
       class="circuit-1"
       id="input_2"
+      inputmode="numeric"
       placeholder="123,45"
       type="text"
       value=""
@@ -228,6 +229,7 @@ label + .circuit-3:not(label) {
     <input
       class="circuit-1"
       id="input_1"
+      inputmode="numeric"
       type="text"
       value=""
     />
