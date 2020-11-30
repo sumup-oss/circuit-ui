@@ -22,4 +22,4 @@ export const isString = (value?: any): value is string =>
 
 export const isArray = (value?: any): value is [] =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  value && typeof value === 'object' && value.constructor === Array;
+  Boolean(value) && typeof value === 'object' && value.constructor === Array;
