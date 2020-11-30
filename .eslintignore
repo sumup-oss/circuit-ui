@@ -12,3 +12,4 @@ __reports__/
 /*rc.js
 /plopfile.js
 /jest.*.js
+tsconfig.json

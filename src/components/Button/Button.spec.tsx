@@ -29,7 +29,7 @@ import {
 import { Button, ButtonProps } from './Button';
 
 describe('Button', () => {
-  function renderButton(renderFn: RenderFn, props: ButtonProps) {
+  function renderButton<T>(renderFn: RenderFn<T>, props: ButtonProps) {
     return renderFn(<Button {...props} />);
   }
 

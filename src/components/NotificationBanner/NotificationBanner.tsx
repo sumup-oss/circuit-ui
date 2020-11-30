@@ -16,7 +16,7 @@
 import React, { HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { shadowSingle } from '../../styles/style-helpers';
 
 export interface NotificationBannerProps extends HTMLProps<HTMLDivElement> {
@@ -34,14 +34,14 @@ const outerStyles = ({ theme }: StyleProps) => css`
   border-radius: ${theme.borderRadius.mega};
 `;
 
-const NotificationBannerOuter = styled('div')<{}>(outerStyles);
+const NotificationBannerOuter = styled('div')<NoTheme>(outerStyles);
 
 const innerStyles = ({ theme }: StyleProps) => css`
   label: notification-banner__inner;
   padding: ${theme.spacings.mega} ${theme.spacings.giga};
 `;
 
-const NotificationBannerInner = styled('div')<{}>(innerStyles);
+const NotificationBannerInner = styled('div')<NoTheme>(innerStyles);
 
 /**
  * NotificationBanner displays a persistent Notification.

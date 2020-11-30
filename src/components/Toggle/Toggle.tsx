@@ -16,7 +16,7 @@
 import React, { Ref } from 'react';
 import { css } from '@emotion/core';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { disableVisually } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import { Text, TextProps } from '../Text/Text';
@@ -54,7 +54,7 @@ const textWrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const ToggleTextWrapper = styled('label')<{}>(textWrapperStyles);
+const ToggleTextWrapper = styled('label')<NoTheme>(textWrapperStyles);
 
 const labelStyles = css`
   label: toggle__label;

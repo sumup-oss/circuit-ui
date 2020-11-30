@@ -24,6 +24,7 @@ import * as MockedModal from './Modal';
 
 describe('Modal', () => {
   beforeEach(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     (MockedModal as any).TRANSITION_DURATION = 0;
   });
 

@@ -55,7 +55,7 @@ export function findImportsByPath(
     nodePath.value.specifiers.forEach((specifier: unknown) => {
       // These TypeScript errors are incorrect,
       // but I (Connor) am too lazy to submit a fix ¯\_(ツ)_/¯
-      /* eslint-disable @typescript-eslint/ban-ts-ignore */
+      /* eslint-disable @typescript-eslint/ban-ts-comment */
       if (j.ImportDefaultSpecifier.check(specifier)) {
         imports.push({
           type: 'default',
@@ -71,7 +71,7 @@ export function findImportsByPath(
           local: specifier.local.name,
         });
       }
-      /* eslint-enable @typescript-eslint/ban-ts-ignore */
+      /* eslint-enable @typescript-eslint/ban-ts-comment */
     });
   });
 

@@ -37,7 +37,7 @@ describe('Text', () => {
 
   const sizes: TextProps['size'][] = ['kilo', 'mega', 'giga'];
   it.each(sizes)('should render with size %s', (size) => {
-    const actual = create(<Text size={size}>{`${size} text`}</Text>);
+    const actual = create(<Text size={size}>{`${size as string} text`}</Text>);
     expect(actual).toMatchSnapshot();
   });
 

@@ -63,7 +63,7 @@ describe('CurrencyInput', () => {
           label="Amount"
         />,
       );
-      const input = getByLabelText(new RegExp('Amount'));
+      const input = getByLabelText(new RegExp('Amount')) as HTMLInputElement;
       expect(input.value).toBe('12,345.67');
     });
   });

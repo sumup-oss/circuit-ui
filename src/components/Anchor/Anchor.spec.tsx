@@ -28,7 +28,7 @@ import {
 import { Anchor, AnchorProps } from './Anchor';
 
 describe('Anchor', () => {
-  function renderAnchor(renderFn: RenderFn, props: AnchorProps) {
+  function renderAnchor<T>(renderFn: RenderFn<T>, props: AnchorProps) {
     return renderFn(<Anchor {...props} />);
   }
 
@@ -62,7 +62,10 @@ describe('Anchor', () => {
       const props = {
         ...baseProps,
         'href': 'https://sumup.com',
-        'onClick': jest.fn((event) => event.preventDefault()),
+        'onClick': jest.fn((event) => {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+          event.preventDefault();
+        }),
         'data-testid': 'anchor',
       };
       const { getByTestId } = renderAnchor(render, props);

@@ -41,6 +41,8 @@ export const Steps = (args: ProgressBarProps) => (
 );
 
 Steps.args = {
+  label: 'A step-based progressbar',
+  hideLabel: true,
   value: 3,
   max: 10,
 };
@@ -50,6 +52,8 @@ export const Timer = (args: ProgressBarProps) => (
 );
 
 Timer.args = {
+  label: 'A time-based progressbar',
+  hideLabel: true,
   duration: 3000,
   paused: false,
   loop: true,
@@ -57,16 +61,12 @@ Timer.args = {
 };
 
 export const Labelled = (args: ProgressBarProps) => {
-  const fraction = `${args.value}/${args.max}`;
+  const fraction = `${args.value!}/${args.max!}`;
   const percentage = `${(args.value! / args.max!) * 100}%`;
   return (
     <Fragment>
-      <ProgressBar {...args} css={progressBarStyles}>
-        {fraction}
-      </ProgressBar>
-      <ProgressBar {...args} css={progressBarStyles}>
-        {percentage}
-      </ProgressBar>
+      <ProgressBar {...args} css={progressBarStyles} label={fraction} />
+      <ProgressBar {...args} css={progressBarStyles} label={percentage} />
     </Fragment>
   );
 };
@@ -82,6 +82,7 @@ export const Variants = (args: ProgressBarProps) =>
       key={variant}
       {...args}
       variant={variant}
+      label={`A ${variant} progressbar`}
       css={progressBarStyles}
     >
       {variant}
@@ -95,7 +96,13 @@ Variants.args = {
 
 export const Sizes = (args: ProgressBarProps) =>
   sizes.map((size) => (
-    <ProgressBar key={size} {...args} size={size} css={progressBarStyles}>
+    <ProgressBar
+      key={size}
+      {...args}
+      size={size}
+      label={`A ${size} progressbar`}
+      css={progressBarStyles}
+    >
       {size}
     </ProgressBar>
   ));
