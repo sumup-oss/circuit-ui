@@ -79,7 +79,7 @@
     "@babel/preset-typescript": "^7.12.1",
     "@emotion/babel-preset-css-prop": "^10.0.9",
     "@emotion/cache": "^10.0.19",
-    "@emotion/core": "10.0.27",
+    "@emotion/core": "10.1.1",
     "@emotion/is-prop-valid": "^0.8.2",
     "@emotion/styled": "^10.0.17",
     "@emotion/stylis": "^0.8.4",
