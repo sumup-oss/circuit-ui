@@ -117,7 +117,6 @@ exports[`Card should render with spacing styles 1`] = `
 
 <div
   class="circuit-0"
-  spacing="mega"
 />
 `;
 
@@ -142,6 +141,5 @@ exports[`Card should render with spacing styles 2`] = `
 
 <div
   class="circuit-0"
-  spacing="giga"
 />
 `;
