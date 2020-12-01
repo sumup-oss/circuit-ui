@@ -18,7 +18,7 @@ import { entries, isFunction, kebabCase, trimChars } from 'lodash/fp';
 
 // This file needs to be generated with the `yarn build:docgen` command.
 // The TS error is suppressed to pass linting in CI.
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line import/extensions
 import { docgen } from './docgen';
@@ -28,6 +28,7 @@ import {
   Props,
   PropItem,
   PropTypes,
+  ExtendedPropType,
   ExtendedPropTypes,
   Variation,
 } from './types';
@@ -38,17 +39,19 @@ const trimQuotes = trimChars('" ');
 
 const extendedPropTypes: ExtendedPropTypes = {
   ...basePropTypes,
-  enum: ({ value }) => value.map((v: { value: string }) => trimQuotes(v.value)),
+  enum: ({ value }) =>
+    (value as { value: string }[]).map((v) => trimQuotes(v.value)),
   ReactNode: [element],
   children: [element],
   onClick: [() => {}],
 };
 
 function getVariations(propName: string, prop: PropItem): Variation[] | null {
-  const propType =
+  const propType: ExtendedPropType =
     extendedPropTypes[prop.type.name] || extendedPropTypes[propName];
 
   if (propType) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return isFunction(propType) ? propType(prop.type) : propType;
   }
 
@@ -77,6 +80,7 @@ function getProps(props: Props, propTypes: PropTypes): PropTypes {
 export function hydrate(componentConfig: ComponentConfig) {
   try {
     const { name, component, propTypes = {} } = componentConfig;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
     const { props } = docgen[name];
 
     return {

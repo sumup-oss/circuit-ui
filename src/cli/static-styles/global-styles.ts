@@ -28,6 +28,7 @@ export function globalStyles(theme: Theme) {
 
   const insertFactory: InsertFactory = () => (_, serialized) => {
     const rules = serialized.styles;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     styleSheet = stylis('', rules);
   };
 

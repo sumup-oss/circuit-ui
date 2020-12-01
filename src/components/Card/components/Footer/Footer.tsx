@@ -57,6 +57,6 @@ const alignmentStyles = ({
  * purposes only.
  */
 
-export const CardFooter: FC<CardFooterProps> = styled('footer')<
-  CardFooterProps
->(baseStyles, alignmentStyles);
+export const CardFooter: FC<CardFooterProps> = styled(
+  'footer',
+)<CardFooterProps>(baseStyles, alignmentStyles);

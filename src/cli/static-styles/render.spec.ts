@@ -16,7 +16,7 @@
 import { css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 
 import { render } from './render';
 
@@ -26,7 +26,7 @@ describe('Render', () => {
   `;
 
   const name = 'component';
-  const Component = styled('div')<{}>(styles);
+  const Component = styled('div')<NoTheme>(styles);
 
   it('should render the component', () => {
     const insert = jest.fn();

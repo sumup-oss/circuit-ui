@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /**
  * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -145,6 +146,7 @@ export function componentStyles({
       // Render each prop variation (not combination).
       entries(propTypes).forEach(([key, variations]) => {
         variations.forEach((value) => {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           renderFn(Component, { ...baseProps, [key]: value }, componentName);
         });
       });
@@ -152,6 +154,7 @@ export function componentStyles({
   );
 
   const styleSheet = entries(styleSheets)
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     .map(([label, rules]) => stylis(`.${label}`, rules))
     .join('');
 

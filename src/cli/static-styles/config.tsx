@@ -23,6 +23,7 @@ import Badge from '../../components/Badge';
 import Button from '../../components/Button';
 // import Blockquote from '../../components/Blockquote';
 // import ButtonGroup from '../../components/ButtonGroup';
+// import Card from '../../components/Card';
 // import Checkbox from '../../components/Checkbox';
 // import Hamburger from '../../components/Hamburger';
 // import Heading from '../../components/Heading';
@@ -58,6 +59,7 @@ export const components: ComponentConfig[] = [
   },
   // { name: 'Blockquote', component: Blockquote },
   // { name: 'ButtonGroup', component: ButtonGroup },
+  // { name: 'Card', component: Card },
   // { name: 'Checkbox', component: Checkbox },
   // { name: 'Hamburger', component: Hamburger },
   // { name: 'Heading', component: Heading },

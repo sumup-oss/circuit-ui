@@ -24,18 +24,15 @@ import {
   shadowTriple,
 } from '../../styles/style-helpers';
 
-type Shadow = 'single' | 'double' | 'triple';
-type Spacing = 'mega' | 'giga';
-
 export interface CardProps {
   /**
    * The shadow depth of the Card.
    */
-  shadow?: Shadow;
+  shadow?: 'single' | 'double' | 'triple';
   /**
    * The padding of the Card.
    */
-  spacing?: Spacing;
+  spacing?: 'mega' | 'giga';
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`

@@ -70,4 +70,5 @@ async function extractDocgenInfo() {
   }
 }
 
-extractDocgenInfo();
+// eslint-disable-next-line no-void
+void extractDocgenInfo();

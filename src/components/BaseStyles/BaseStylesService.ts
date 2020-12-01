@@ -36,7 +36,7 @@ export const createBaseStyles = ({ theme }: StyleProps) => css`
     font-family: 'aktiv-grotesk';
     font-weight: 700;
     font-display: swap;
-    src: url('${FONTS_BASE_URL}/aktiv-grotest-700.woff2') format('woff2'), 
+    src: url('${FONTS_BASE_URL}/aktiv-grotest-700.woff2') format('woff2'),
       url('${FONTS_BASE_URL}/aktiv-grotest-700.woff') format('woff'),
       url('${FONTS_BASE_URL}/aktiv-grotest-700.eot') format('embedded-opentype');
   }

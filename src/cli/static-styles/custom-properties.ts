@@ -78,7 +78,11 @@ export function buildGlobalStyles(
   };
 }
 
-export function traverse(obj: {}, fn: Visitor, path: string[] = []) {
+export function traverse(
+  obj: Record<string, any>,
+  fn: Visitor,
+  path: string[] = [],
+) {
   entries(obj).forEach(([key, value]) => {
     const fullPath = [...path, key];
 

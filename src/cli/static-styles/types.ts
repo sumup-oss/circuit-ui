@@ -46,8 +46,12 @@ export type PropTypes = {
   [name: string]: Variation[];
 };
 
+export type ExtendedPropType =
+  | Variation[]
+  | ((propType: PropItemType) => Variation[]);
+
 export type ExtendedPropTypes = {
-  [name: string]: Variation[] | ((propType: PropItemType) => Variation[]);
+  [name: string]: ExtendedPropType;
 };
 
 export type ComponentConfig = {
