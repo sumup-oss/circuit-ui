@@ -29,6 +29,11 @@ export interface CardHeaderProps {
    */
   children?: ReactNode;
   /**
+   * Callback for the close button. If not specified, the button won't
+   * be shown.
+   */
+  onClose?: (event: MouseEvent | KeyboardEvent) => void;
+  /**
    * Text label for the close button for screen readers.
    * Important for accessibility.
    */
@@ -37,12 +42,9 @@ export interface CardHeaderProps {
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
-  /**
-   * Callback for the close button. If not specified, the button won't
-   * be shown.
-   */
-  onClose?: (event: MouseEvent | KeyboardEvent) => void;
 }
+
+type ContainerElProps = Pick<CardHeaderProps, 'children'>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   label: card__header;
@@ -52,14 +54,14 @@ const baseStyles = ({ theme }: StyleProps) => css`
   margin-bottom: ${theme.spacings.giga};
 `;
 
-const noHeadingStyles = ({ children }: CardHeaderProps) =>
+const noHeadingStyles = ({ children }: ContainerElProps) =>
   !children &&
   css`
     label: card__header--no-heading;
     justify-content: flex-end;
   `;
 
-const CardHeaderContainer = styled('header')<CardHeaderProps>(
+const CardHeaderContainer = styled('header')<ContainerElProps>(
   baseStyles,
   noHeadingStyles,
 );
@@ -87,15 +89,14 @@ export const CardHeader: FC<CardHeaderProps> = ({
 }) => (
   <CardHeaderContainer {...props}>
     {children}
-    {onClose && labelCloseButton && (
+    {onClose && (
       <CardHeaderCloseButton
         onClick={onClose}
-        label={labelCloseButton}
+        // TODO: The labelCloseButton should be added to the conditional
+        //       on LOC 92 in the next major version.
+        label={labelCloseButton as string}
         data-testid="header-close"
-        tracking={{
-          component: 'close-button',
-          ...tracking,
-        }}
+        tracking={{ component: 'close-button', ...tracking }}
       />
     )}
   </CardHeaderContainer>
