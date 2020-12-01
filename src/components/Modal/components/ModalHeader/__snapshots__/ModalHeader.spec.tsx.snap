@@ -34,7 +34,7 @@ exports[`ModalHeader should render with default styles 1`] = `
 }
 
 <header
-  class="circuit-1 circuit-2"
+  class="circuit-1"
 >
   <h2
     class="circuit-0"

@@ -13,11 +13,21 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { FC } from 'react';
 import { css } from '@emotion/core';
 
-const baseStyles = ({ theme }) => css`
+import styled, { StyleProps } from '../../../../styles/styled';
+
+type Align = 'left' | 'right';
+
+export interface CardFooterProps {
+  /**
+   * Direction to align the content. Either left/right
+   */
+  align?: Align;
+}
+
+const baseStyles = ({ theme }: StyleProps) => css`
   label: card__footer;
   display: block;
   width: 100%;
@@ -30,7 +40,10 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const alignmentStyles = ({ theme, align }) =>
+const alignmentStyles = ({
+  theme,
+  align = 'right',
+}: StyleProps & CardFooterProps) =>
   align === 'right' &&
   css`
     label: card__footer--right;
@@ -43,24 +56,7 @@ const alignmentStyles = ({ theme, align }) =>
  * Footer used in the Card component. Used for styling and aligment
  * purposes only.
  */
-const CardFooter = styled('footer')(baseStyles, alignmentStyles);
 
-CardFooter.propTypes = {
-  /**
-   * Buttons wrapped in a ButtonGroup.
-   */
-  children: PropTypes.element,
-  /**
-   * Direction to align the content. Either left/right
-   */
-  align: PropTypes.oneOf(['left', 'right']),
-};
-
-CardFooter.defaultProps = {
-  align: 'right',
-};
-
-/**
- * @component
- */
-export default CardFooter;
+export const CardFooter: FC<CardFooterProps> = styled('footer')<
+  CardFooterProps
+>(baseStyles, alignmentStyles);
