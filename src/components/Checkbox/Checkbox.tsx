@@ -221,7 +221,15 @@ export const Checkbox = React.forwardRef(
           disabled={disabled}
           invalid={invalid}
           ref={ref}
-          onChange={handleChange}
+          onClick={handleChange}
+          onChange={() => {
+            /**
+             * Noop to silence React warning:
+             * https://github.com/facebook/react/issues/3070#issuecomment-73311114
+             * Change is handled by onClick which has better browser support:
+             * https://stackoverflow.com/a/5575369/4620154
+             */
+          }}
         />
         <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
           {children}

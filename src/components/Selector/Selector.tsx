@@ -169,6 +169,14 @@ export const Selector = React.forwardRef(
           checked={checked}
           disabled={disabled}
           onClick={handleChange}
+          onChange={() => {
+            /**
+             * Noop to silence React warning:
+             * https://github.com/facebook/react/issues/3070#issuecomment-73311114
+             * Change is handled by onClick which has better browser support:
+             * https://stackoverflow.com/a/5575369/4620154
+             */
+          }}
           ref={ref}
           {...props}
         />
