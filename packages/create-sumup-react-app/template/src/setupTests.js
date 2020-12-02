@@ -5,6 +5,7 @@
 import '@testing-library/jest-dom/extend-expect';
 
 import serializer, { matchers } from 'jest-emotion';
+import { toHaveNoViolations } from 'jest-axe';
 
 /**
  * These matchers help you test agains specific style rules
@@ -14,6 +15,7 @@ import serializer, { matchers } from 'jest-emotion';
  */
 // eslint-disable-next-line no-undef
 expect.extend(matchers);
+expect.extend(toHaveNoViolations);
 
 /**
  * The serializer will make sure emotion generated styles

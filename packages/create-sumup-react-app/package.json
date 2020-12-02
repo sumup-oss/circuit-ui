@@ -1,37 +1,23 @@
 {
-  "name": "@sumup/create-sumup-react-app",
+  "name": "@sumup/cra-template",
   "version": "0.0.0-semantically-released",
   "description": "Creates a ready for development React app using create-react-app.",
   "repository": "github:sumup/create-sumup-react-app",
   "scripts": {
-    "lint": "foundry run eslint \"**/*.js\"",
+    "lint": "foundry run eslint \"./**/*.js\"",
     "release": "semantic-release",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3"
   },
-  "files": [
-    "/lib",
-    "/files",
-    "bin",
-    "index.js",
-    "main.js",
-    "yarn.lock",
-    "README",
-    "CODE_OF_CONDUCT",
-    "CONTRIBUTING"
-  ],
-  "bin": "bin",
-  "main": "index.js",
   "author": "Felix Jung <felix.jung@sumup.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "chalk": "^2.4.2",
-    "esm": "^3.2.25",
-    "listr": "^0.14.3",
-    "listr-verbose-renderer": "^0.5.0",
     "@sumup/foundry": "^2.2.0"
   },
   "devDependencies": {
     "license-checker": "^25.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "husky": {
     "hooks": {

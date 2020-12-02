@@ -13,4 +13,15 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup/foundry/lint-staged')();
+module.exports = require('@sumup/foundry/lint-staged')(
+  {
+    language: 'JavaScript',
+  },
+  {
+    // Necessary noop, because configs are merged not replaced.
+    '*.(js|jsx|json|ts|tsx)': [],
+    '*.(js|jsx|ts|tsx)': [
+      'foundry run eslint --fix --no-eslintrc --config .eslintrc.js',
+    ],
+  },
+);
