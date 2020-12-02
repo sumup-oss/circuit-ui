@@ -1,1 +1,1 @@
-module.exports = require('@sumup/foundry/semantic-release').modules;
+module.exports = require('@sumup/foundry/semantic-release')({ publish: true });

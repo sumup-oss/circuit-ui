@@ -26,7 +26,7 @@ jobs:
           npm install -g yarn
           yarn --pure-lockfile
       - name: Lint
-        run: yarn lint
+        run: yarn lint:ci
 
   licences:
     runs-on: ubuntu-latest
