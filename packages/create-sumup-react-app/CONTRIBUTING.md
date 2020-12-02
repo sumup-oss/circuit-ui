@@ -22,8 +22,8 @@ Checks the source code for problems that will cause it to break when run and cod
 ### Submit a pull request
 
 1. Find an existing issue to work on or follow [the steps above](#file-an-issue) to create a new one that you're also going to fix. Add a comment to the issue to signal that you're working on a fix for the issue you picked.
-2. Branch out from latest `master`.
+2. Branch out from latest `main`.
 3. Code, add, commit and push your changes in your branch.
 4. Make sure that tests and linter(s) pass locally for you.
 5. Create the pull request using the pull request template.
-6. A codeowner/maintainer will review it shortly and help you merge your change to `master`.
+6. A codeowner/maintainer will review it shortly and help you merge your change to `main`.
