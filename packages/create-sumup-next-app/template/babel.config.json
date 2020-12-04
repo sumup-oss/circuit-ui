@@ -1,0 +1,4 @@
+{
+  "presets": ["next/babel", "@emotion/babel-preset-css-prop"],
+  "plugins": ["lodash", "inline-react-svg"]
+}

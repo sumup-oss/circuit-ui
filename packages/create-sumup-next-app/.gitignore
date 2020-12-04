@@ -1,5 +1,11 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+dist/
+__reports__
+template/yarn.lock
+template/tsconfig.json
+template/next-env.d.ts
+
 # Logs
 logs
 *.log
@@ -73,3 +79,12 @@ typings/
 
 # Serverless directories
 .serverless
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

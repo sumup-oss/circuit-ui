@@ -1,7 +1,7 @@
 {
   "name": "@sumup/create-sumup-next-app",
   "version": "1.2.0",
-  "description": "Creates a fresh NextJS application preconfigured with SumUp's Circuit UI and Foundry",
+  "description": "Create a fresh Next.js application preconfigured with SumUp's Circuit UI and Foundry",
   "keywords": [
     "react",
     "next",
@@ -9,26 +9,25 @@
     "sumup"
   ],
   "scripts": {
-    "lint": "foundry run eslint \"**/*.js\""
+    "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "yarn lint --fix",
+    "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
+    "type-check": "tsc"
   },
-  "bin": "bin",
-  "main": "index.js",
-  "author": "Connor Baer <connor.baer@sumup.com>",
+  "author": "Connor Bär <connor.baer@sumup.com>",
   "license": "MIT",
   "repository": "https://github.com/sumup/create-sumup-next-app",
   "bugs": {
     "url": "https://github.com/sumup/create-sumup-next-app/issues"
   },
   "engines": {
-    "node": ">=8"
-  },
-  "dependencies": {
-    "chalk": "^2.4.1",
-    "esm": "^3.1.0",
-    "listr": "^0.14.2",
-    "listr-verbose-renderer": "^0.5.0"
+    "node": ">=10.13.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "^1.1.4"
+    "@sumup/foundry": "^4.0.0-canary",
+    "@testing-library/jest-dom": "^5.0.0",
+    "@types/jest": "^26.0.0",
+    "@types/jest-axe": "^3.0.0",
+    "typescript": "^4.1.2"
   }
 }
