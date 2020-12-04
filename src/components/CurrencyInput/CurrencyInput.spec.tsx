@@ -16,7 +16,14 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
 
-import { create, render, renderToHtml, axe } from '../../util/test-utils';
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  act,
+  userEvent,
+} from '../../util/test-utils';
 
 import CurrencyInput from '.';
 
@@ -54,17 +61,46 @@ describe('CurrencyInput', () => {
       expect(tref.current).toBe(input);
     });
 
-    it('should format an amount correctly', () => {
+    it('should format a en-GB amount correctly', () => {
+      const { getByLabelText } = render(
+        <CurrencyInput
+          locale="en-GB"
+          currency="EUR"
+          value={1234.5}
+          label="Amount"
+        />,
+      );
+
+      const input = getByLabelText(new RegExp('Amount')) as HTMLInputElement;
+      expect(input.value).toBe('1,234.5');
+
+      act(() => {
+        userEvent.type(input, '1234.56');
+      });
+
+      expect(input.value).toBe('1,234.56');
+    });
+
+    // FIXME: Our current Node version only supports English locales.
+    // Unskip when we upgrade to Node 13+.
+    it.skip('should format a de-DE amount correctly', () => {
       const { getByLabelText } = render(
         <CurrencyInput
           locale="de-DE"
           currency="EUR"
-          value={12345.67}
+          value={1234.5}
           label="Amount"
         />,
       );
+
       const input = getByLabelText(new RegExp('Amount')) as HTMLInputElement;
-      expect(input.value).toBe('12,345.67');
+      expect(input.value).toBe('1.234,5');
+
+      act(() => {
+        userEvent.type(input, '1234,56');
+      });
+
+      expect(input.value).toBe('1.234,56');
     });
   });
 
