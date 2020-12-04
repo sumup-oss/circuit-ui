@@ -52,6 +52,7 @@ export { default as CloseButton } from './components/CloseButton';
 export { default as IconButton } from './components/IconButton';
 export { default as Toggle } from './components/Toggle';
 export { default as Selector } from './components/Selector';
+export { default as SelectorGroup } from './components/SelectorGroup';
 
 // Notifications
 export { default as Notification } from './components/Notification';
