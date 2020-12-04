@@ -114,15 +114,12 @@ export const CurrencyInput = React.forwardRef(
           )
         : null;
 
-    const isNumericString = typeof props.value === 'string';
-
     return (
       <NumberFormat
         // NumberFormat props
         thousandSeparator={groupDelimiter}
         decimalSeparator={decimalDelimiter}
         decimalScale={maximumFractionDigits}
-        isNumericString={isNumericString}
         customInput={Input}
         getInputRef={ref}
         allowedDecimalSeparators={[decimalDelimiter]}
