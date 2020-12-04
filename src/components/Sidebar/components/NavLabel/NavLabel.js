@@ -19,6 +19,7 @@ import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
   label: nav-label;
+  display: block;
   margin-left: ${theme.spacings.kilo};
 `;
 
@@ -39,7 +40,7 @@ const secondaryVisibleStyles = ({ secondary, visible }) =>
     margin-top: 0px;
   `;
 
-const NavLabel = styled.div(
+const NavLabel = styled.span(
   baseStyles,
   secondaryStyles,
   secondaryVisibleStyles,
