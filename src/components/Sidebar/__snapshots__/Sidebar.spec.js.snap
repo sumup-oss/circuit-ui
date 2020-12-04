@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Sidebar /> should render and match snapshot when open 1`] = `
+exports[`Sidebar should render and match snapshot when open 1`] = `
 HTMLCollection [
   .circuit-0 {
   display: -webkit-box;
@@ -166,7 +166,7 @@ HTMLCollection [
 <button
     class="circuit-1 circuit-2"
     data-testid="sidebar-close-button"
-    title="Close"
+    title="Close sidebar"
     type="button"
   >
     <svg
@@ -187,13 +187,13 @@ HTMLCollection [
     <span
       class="circuit-0"
     >
-      Close
+      Close sidebar
     </span>
   </button>,
 ]
 `;
 
-exports[`<Sidebar /> should render and match the snapshot when closed 1`] = `
+exports[`Sidebar should render and match the snapshot when closed 1`] = `
 HTMLCollection [
   .circuit-0 {
   display: -webkit-box;
@@ -343,7 +343,7 @@ HTMLCollection [
 <button
     class="circuit-1 circuit-2"
     data-testid="sidebar-close-button"
-    title="Close"
+    title="Close sidebar"
     type="button"
   >
     <svg
@@ -364,7 +364,7 @@ HTMLCollection [
     <span
       class="circuit-0"
     >
-      Close
+      Close sidebar
     </span>
   </button>,
 ]
