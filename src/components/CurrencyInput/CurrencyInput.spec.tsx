@@ -81,9 +81,7 @@ describe('CurrencyInput', () => {
       expect(input.value).toBe('1,234.56');
     });
 
-    // FIXME: Our current Node version only supports English locales.
-    // Unskip when we upgrade to Node 13+.
-    it.skip('should format a de-DE amount correctly', () => {
+    it('should format a de-DE amount correctly', () => {
       const { getByLabelText } = render(
         <CurrencyInput
           locale="de-DE"
