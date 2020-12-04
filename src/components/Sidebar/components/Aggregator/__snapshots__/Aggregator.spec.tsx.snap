@@ -34,6 +34,7 @@ HTMLCollection [
 }
 
 .circuit-0 {
+  display: block;
   margin-left: 12px;
 }
 
@@ -83,11 +84,11 @@ HTMLCollection [
         data-testid="aggregator"
       >
         default-icon
-        <div
+        <span
           class="circuit-0 circuit-1"
         >
           Aggregator
-        </div>
+        </span>
       </button>
       <ul
         class="circuit-3 circuit-4"
@@ -136,6 +137,7 @@ exports[`Aggregator styles should render with default styles 1`] = `
 }
 
 .circuit-0 {
+  display: block;
   margin-left: 12px;
 }
 
@@ -179,11 +181,11 @@ exports[`Aggregator styles should render with default styles 1`] = `
       data-testid="aggregator"
     >
       default-icon
-      <div
+      <span
         class="circuit-0 circuit-1"
       >
         Aggregator
-      </div>
+      </span>
     </button>
     <ul
       class="circuit-3 circuit-4"
@@ -200,6 +202,7 @@ exports[`Aggregator styles should render with default styles 1`] = `
 
 exports[`Aggregator styles should render with disabled state styles and match the snapshot 1`] = `
 .circuit-0 {
+  display: block;
   margin-left: 12px;
 }
 
@@ -254,11 +257,11 @@ exports[`Aggregator styles should render with disabled state styles and match th
           stroke-width="2"
         />
       </svg>
-      <div
+      <span
         class="circuit-0 circuit-1"
       >
         Aggregator
-      </div>
+      </span>
     </button>
   </li>
 </ul>

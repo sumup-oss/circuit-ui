@@ -15,14 +15,23 @@
 
 import React from 'react';
 
+import deprecate from '../../util/deprecate';
 import { getDisplayName } from '../../util/get-display-name';
 
 import useComponents from './useComponents';
 
 /**
+ * @deprecated
+ *
  * Subscribe to the components context with a HOC.
  */
 const withComponents = (Component) => {
+  deprecate(
+    [
+      'The `withComponents` HOC has been deprecated.',
+      'Use the `useComponents` hook instead.',
+    ].join(' '),
+  );
   function WrappedComponent(props) {
     const components = useComponents();
     return <Component {...props} components={components} />;

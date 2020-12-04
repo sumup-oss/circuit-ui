@@ -17,9 +17,14 @@ import React from 'react';
 
 import Sidebar from './Sidebar';
 
-describe('<Sidebar />', () => {
+describe('Sidebar', () => {
+  const baseProps = {
+    closeButtonLabel: 'Close sidebar',
+  };
+
   it('should render and match the snapshot when closed', () => {
     const props = {
+      ...baseProps,
       open: false,
       onClose: jest.fn(),
     };
@@ -29,6 +34,7 @@ describe('<Sidebar />', () => {
 
   it('should render and match snapshot when open', () => {
     const props = {
+      ...baseProps,
       open: true,
       onClose: jest.fn(),
     };
@@ -38,6 +44,7 @@ describe('<Sidebar />', () => {
 
   it('should dispatch onClose when CloseButton is clicked', () => {
     const props = {
+      ...baseProps,
       open: true,
       onClose: jest.fn(),
     };
@@ -50,6 +57,7 @@ describe('<Sidebar />', () => {
 
   it('should dispatch onClose when the Backdrop is clicked', () => {
     const props = {
+      ...baseProps,
       open: true,
       onClose: jest.fn(),
     };
@@ -62,7 +70,7 @@ describe('<Sidebar />', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Sidebar closeButtonLabel="close" />);
+      const wrapper = renderToHtml(<Sidebar {...baseProps} />);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });

@@ -34,6 +34,7 @@ exports[`NavItem styles should render with default styles and match the snapshot
 }
 
 .circuit-0 {
+  display: block;
   margin-left: 12px;
 }
 
@@ -43,7 +44,7 @@ exports[`NavItem styles should render with default styles and match the snapshot
   <a
     class="circuit-2 circuit-3"
   >
-    <div
+    <span
       class="circuit-0 circuit-1"
     />
   </a>
@@ -88,6 +89,7 @@ exports[`NavItem styles should render with default styles and match the snapshot
 }
 
 .circuit-0 {
+  display: block;
   margin-left: 12px;
   margin-left: 0px;
   margin-top: -12px;
@@ -102,7 +104,7 @@ exports[`NavItem styles should render with default styles and match the snapshot
   <a
     class="circuit-2 circuit-3"
   >
-    <div
+    <span
       class="circuit-0 circuit-1"
     />
   </a>
@@ -115,6 +117,7 @@ exports[`NavItem styles should render with disabled state styles and match the s
 }
 
 .circuit-0 {
+  display: block;
   margin-left: 12px;
 }
 
@@ -151,7 +154,7 @@ exports[`NavItem styles should render with disabled state styles and match the s
     class="circuit-2 circuit-3"
     disabled=""
   >
-    <div
+    <span
       class="circuit-0 circuit-1"
     />
   </a>
@@ -164,6 +167,7 @@ exports[`NavItem styles should render with selected state styles and match the s
 }
 
 .circuit-0 {
+  display: block;
   margin-left: 12px;
 }
 
@@ -199,7 +203,7 @@ exports[`NavItem styles should render with selected state styles and match the s
   <a
     class="circuit-2 circuit-3"
   >
-    <div
+    <span
       class="circuit-0 circuit-1"
     />
   </a>

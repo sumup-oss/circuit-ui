@@ -19,8 +19,8 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
-import { componentsPropType } from '../../../../util/shared-prop-types';
 import useClickHandler from '../../../../hooks/use-click-handler';
+import { useComponents } from '../../../ComponentsContext';
 import NavLabel from '../NavLabel';
 
 import { getIcon } from './utils';
@@ -75,7 +75,7 @@ const disabledStyles = ({ theme, disabled }) =>
     color: ${theme.colors.n500};
   `;
 
-const StyledLink = styled('a', {
+const NavLink = styled('a', {
   shouldForwardProp: isPropValid,
 })(baseStyles, hoverStyles, selectedStyles, secondaryStyles, disabledStyles);
 
@@ -88,13 +88,13 @@ const NavItem = ({
   selected,
   disabled,
   onClick,
-  components,
   tracking,
   ...props
 }) => {
-  const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
-  const Link = StyledLink.withComponent(components.Link);
+  const { Link } = useComponents();
   const handleClick = useClickHandler(onClick, tracking, 'sidebar-nav-item');
+
+  const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
 
   return (
     <li
@@ -103,7 +103,8 @@ const NavItem = ({
         display: block;
       `}
     >
-      <Link
+      <NavLink
+        as={Link}
         onClick={disabled ? null : handleClick}
         selected={selected}
         secondary={secondary}
@@ -115,7 +116,7 @@ const NavItem = ({
         <NavLabel secondary={secondary} visible={visible}>
           {label}
         </NavLabel>
-      </Link>
+      </NavLink>
     </li>
   );
 };
@@ -153,7 +154,6 @@ NavItem.propTypes = {
    * The onClick method to handle the click event on NavItems
    */
   onClick: PropTypes.func,
-  components: componentsPropType,
   /**
    * Additional data that is dispatched with click tracking event.
    */

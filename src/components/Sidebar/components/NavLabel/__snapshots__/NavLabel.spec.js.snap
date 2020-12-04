@@ -2,6 +2,7 @@
 
 exports[`NavLabel styles should render and match snapshot when secondary 1`] = `
 .circuit-0 {
+  display: block;
   margin-left: 12px;
   margin-left: 0px;
   margin-top: -12px;
@@ -10,33 +11,35 @@ exports[`NavLabel styles should render and match snapshot when secondary 1`] = `
   margin-top: 0px;
 }
 
-<div
+<span
   class="circuit-0 circuit-1"
 >
   Item 01
-</div>
+</span>
 `;
 
 exports[`NavLabel styles should render and match snapshot when visible 1`] = `
 .circuit-0 {
+  display: block;
   margin-left: 12px;
 }
 
-<div
+<span
   class="circuit-0 circuit-1"
 >
   Item 01
-</div>
+</span>
 `;
 
 exports[`NavLabel styles should render with default styles 1`] = `
 .circuit-0 {
+  display: block;
   margin-left: 12px;
 }
 
-<div
+<span
   class="circuit-0 circuit-1"
 >
   Item 01
-</div>
+</span>
 `;
