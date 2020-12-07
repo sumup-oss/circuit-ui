@@ -78,7 +78,7 @@
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-typescript": "^7.12.1",
     "@emotion/babel-preset-css-prop": "^10.0.9",
-    "@emotion/cache": "^10.0.19",
+    "@emotion/cache": "^11.0.0",
     "@emotion/core": "10.1.1",
     "@emotion/is-prop-valid": "^0.8.2",
     "@emotion/styled": "^10.0.17",
