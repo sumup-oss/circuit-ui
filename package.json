@@ -136,7 +136,7 @@
     "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
     "jest-cli": "^26.6.3",
-    "jest-emotion": "^10.0.10",
+    "jest-emotion": "^11.0.0",
     "license-checker": "^25.0.1",
     "onchange": "^7.1.0",
     "postcss-loader": "^4.0.4",
