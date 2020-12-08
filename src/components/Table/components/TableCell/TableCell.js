@@ -27,7 +27,7 @@ const baseStyles = ({ theme, align }) => css`
   text-align: ${align};
   transition: background-color ${theme.transitions.default};
   vertical-align: middle;
-  white-space: nowrap;
+  overflow-wrap: break-word;
 `;
 
 const presentationStyles = ({ theme, role, header }) =>
@@ -46,7 +46,7 @@ const presentationStyles = ({ theme, role, header }) =>
     ${theme.mq.untilMega} {
       display: table-cell;
       min-width: 145px;
-      white-space: unset;
+      max-width: 145px;
       width: 145px;
     }
   `;

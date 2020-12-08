@@ -45,7 +45,6 @@ const baseStyles = ({ theme, align }) => css`
   text-align: ${align};
   transition: background-color ${theme.transitions.default},
     color ${theme.transitions.default};
-  white-space: nowrap;
 `;
 
 const hoveredStyles = ({ theme, isHovered }) =>
@@ -75,7 +74,7 @@ const fixedStyles = ({ theme, fixed }) =>
       top: auto;
       position: absolute;
       width: 145px;
-      white-space: unset;
+      overflow-wrap: break-word;
     }
   `;
 
