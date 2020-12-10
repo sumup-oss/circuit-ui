@@ -18,7 +18,7 @@ tbody .circuit-4:last-child td {
   -webkit-transition: background-color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 <tbody>
@@ -60,7 +60,7 @@ tbody .circuit-6:last-child td {
   -webkit-transition: background-color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .circuit-0 {
@@ -70,7 +70,6 @@ tbody .circuit-6:last-child td {
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -79,7 +78,7 @@ tbody .circuit-6:last-child td {
     top: auto;
     position: absolute;
     width: 145px;
-    white-space: unset;
+    overflow-wrap: break-word;
   }
 }
 
@@ -91,7 +90,7 @@ tbody .circuit-6:last-child td {
   -webkit-transition: background-color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
-  white-space: nowrap;
+  overflow-wrap: break-word;
   display: none;
 }
 
@@ -99,7 +98,7 @@ tbody .circuit-6:last-child td {
   .circuit-2 {
     display: table-cell;
     min-width: 145px;
-    white-space: unset;
+    max-width: 145px;
     width: 145px;
   }
 }
@@ -151,7 +150,7 @@ tbody .circuit-4:last-child td {
   -webkit-transition: background-color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 <tbody>
@@ -193,7 +192,7 @@ tbody .circuit-4:last-child td {
   -webkit-transition: background-color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .circuit-0 {
@@ -204,7 +203,7 @@ tbody .circuit-4:last-child td {
   -webkit-transition: background-color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
-  white-space: nowrap;
+  overflow-wrap: break-word;
   background-color: #F5F5F5;
 }
 
