@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "analyze": "ANALYZE=true yarn build",
     "test": "jest --watch",
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json",
     "postinstall": "yarn foundry init; echo \"Remove the postinstall script from the package.json file after setting up Foundry.\""
@@ -13,6 +14,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.0",
     "@emotion/styled": "^10.0.0",
+    "@next/bundle-analyzer": "^10.0.0",
     "@sumup/circuit-ui": "^2.0.0",
     "@sumup/collector": "^1.0.0",
     "@sumup/design-tokens": "^2.0.0",
