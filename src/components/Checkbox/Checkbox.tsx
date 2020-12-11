@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
+/** @jsx jsx */
 import React, { HTMLProps, Ref } from 'react';
-import { css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import { Check } from '@sumup/icons';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
@@ -201,6 +202,7 @@ export const Checkbox = React.forwardRef(
       disabled,
       validationHint,
       className,
+      style,
       invalid,
       tracking,
       ...props
@@ -211,7 +213,7 @@ export const Checkbox = React.forwardRef(
     const handleChange = useClickHandler(onChange, tracking, 'checkbox');
 
     return (
-      <CheckboxWrapper className={className}>
+      <CheckboxWrapper className={className} style={style}>
         <CheckboxInput
           {...props}
           id={id}

@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import React, { Ref, HTMLProps } from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+import React, { Fragment, Ref, HTMLProps } from 'react';
+import { css, jsx } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -151,6 +152,7 @@ export const Selector = React.forwardRef(
       onChange,
       tracking,
       className,
+      style,
       ...props
     }: SelectorProps,
     ref: SelectorProps['ref'],
@@ -160,7 +162,7 @@ export const Selector = React.forwardRef(
     const handleChange = useClickHandler(onChange, tracking, 'selector');
 
     return (
-      <>
+      <Fragment>
         <SelectorInput
           type={type}
           id={inputId}
@@ -184,10 +186,11 @@ export const Selector = React.forwardRef(
           htmlFor={inputId}
           disabled={disabled}
           className={className}
+          style={style}
         >
           {children}
         </SelectorLabel>
-      </>
+      </Fragment>
     );
   },
 );
