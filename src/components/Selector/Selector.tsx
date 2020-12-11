@@ -136,7 +136,7 @@ const inputStyles = ({ theme }: StyleProps) => css`
 const SelectorInput = styled('input')<SelectorProps>(inputStyles);
 
 /**
- * A selector allows users to choose between several mutually-exlusive choices,
+ * A selector allows users to choose between several mutually-exclusive choices
  * accompanied by descriptions, possibly with tabular data.
  */
 export const Selector = React.forwardRef(

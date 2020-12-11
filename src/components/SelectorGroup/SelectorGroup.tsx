@@ -81,7 +81,9 @@ export const SelectorGroup = React.forwardRef(
             <Selector
               key={value}
               {...{ ...rest, value, name, onChange, multiple }}
-              checked={includes(value, activeValue)}
+              checked={
+                multiple ? includes(value, activeValue) : value === activeValue
+              }
             >
               {children}
             </Selector>
