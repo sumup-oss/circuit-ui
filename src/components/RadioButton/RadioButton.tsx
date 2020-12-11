@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, Ref } from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+import React, { Fragment, HTMLProps, Ref } from 'react';
+import { css, jsx } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -187,6 +188,7 @@ export const RadioButton = React.forwardRef(
       disabled,
       tracking,
       className,
+      style,
       ...props
     }: RadioButtonProps,
     ref: RadioButtonProps['ref'],
@@ -195,7 +197,7 @@ export const RadioButton = React.forwardRef(
     const handleChange = useClickHandler(onChange, tracking, 'radio-button');
 
     return (
-      <>
+      <Fragment>
         <RadioButtonInput
           {...props}
           type="radio"
@@ -221,10 +223,11 @@ export const RadioButton = React.forwardRef(
           disabled={disabled}
           invalid={invalid}
           className={className}
+          style={style}
         >
           {children || label}
         </RadioButtonLabel>
-      </>
+      </Fragment>
     );
   },
 );

@@ -304,6 +304,7 @@ export const Select = React.forwardRef(
       label,
       hideLabel,
       className,
+      style,
       id: customId,
       onChange,
       tracking,
@@ -334,6 +335,7 @@ export const Select = React.forwardRef(
     return (
       <SelectLabel
         className={className}
+        style={style}
         htmlFor={id}
         inline={inline}
         disabled={disabled}

@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
+/** @jsx jsx */
 import React, { HTMLProps, Ref } from 'react';
-import { css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { textKilo } from '../../styles/style-helpers';
@@ -97,8 +98,12 @@ export const RadioButtonGroup = React.forwardRef(
       <fieldset name={name} ref={ref} {...props}>
         {label && <StyledLegend>{label}</StyledLegend>}
         {options &&
-          options.map(({ children, value, className, ...rest }) => (
-            <div key={value && value.toString()} className={className}>
+          options.map(({ children, value, className, style, ...rest }) => (
+            <div
+              key={value && value.toString()}
+              className={className}
+              style={style}
+            >
               <RadioButton
                 {...{ ...rest, value, name, onChange }}
                 checked={value === activeValue}

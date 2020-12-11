@@ -14,7 +14,7 @@
  */
 
 /** @jsx jsx */
-import { forwardRef, HTMLProps, Ref, FC, SVGProps, MouseEvent } from 'react';
+import React, { HTMLProps, Ref, FC, SVGProps, MouseEvent } from 'react';
 import { css, jsx } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
@@ -182,7 +182,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-export const Tag = forwardRef(
+export const Tag = React.forwardRef(
   (
     {
       children,
@@ -194,6 +194,7 @@ export const Tag = forwardRef(
       onClick,
       tracking,
       className,
+      style,
       ...props
     }: TagProps,
     ref: BaseProps['ref'],
@@ -207,7 +208,7 @@ export const Tag = forwardRef(
     const removable = Boolean(onRemove);
 
     return (
-      <Container className={className}>
+      <Container className={className} style={style}>
         <TagElement
           removable={removable}
           selected={selected}
