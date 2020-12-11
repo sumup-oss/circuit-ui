@@ -32,7 +32,7 @@ export interface SelectorGroupProps {
     disabled?: boolean;
   }[];
   /**
-   * Controles/Toggles the checked state. Passed on to the Selectors.
+   * Controls/Toggles the checked state. Passed on to the Selectors.
    */
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   /**
@@ -90,3 +90,5 @@ export const SelectorGroup = React.forwardRef(
     );
   },
 );
+
+SelectorGroup.displayName = 'SelectorGroup';
