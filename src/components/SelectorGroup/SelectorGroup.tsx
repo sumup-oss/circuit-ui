@@ -13,8 +13,10 @@
  * limitations under the License.
  */
 
-import React, { ReactNode, ChangeEvent } from 'react';
+/** @jsx jsx */
+import React, { ReactNode, ChangeEvent, Ref } from 'react';
 import { includes } from 'lodash/fp';
+import { jsx } from '@emotion/core';
 
 import { uniqueId } from '../../util/id';
 import Selector from '../Selector';
@@ -49,33 +51,42 @@ export interface SelectorGroupProps {
    * Whether the user can select multiple options.
    */
   multiple?: boolean;
+  /**
+   * The ref to the HTML Dom element
+   */
+  ref?: Ref<HTMLDivElement>;
 }
 
 /**
  * A group of Selectors.
  */
-export function SelectorGroup({
-  options,
-  onChange,
-  value: activeValue,
-  name: customName,
-  label,
-  multiple,
-  ...props
-}: SelectorGroupProps) {
-  const name = customName || uniqueId('selector-group_');
-  return (
-    <div role="group" aria-label={label} {...props}>
-      {options &&
-        options.map(({ children, value, ...rest }) => (
-          <Selector
-            key={value}
-            {...{ ...rest, value, name, onChange, multiple }}
-            checked={includes(value, activeValue)}
-          >
-            {children}
-          </Selector>
-        ))}
-    </div>
-  );
-}
+export const SelectorGroup = React.forwardRef(
+  (
+    {
+      options,
+      onChange,
+      value: activeValue,
+      name: customName,
+      label,
+      multiple,
+      ...props
+    }: SelectorGroupProps,
+    ref: SelectorGroupProps['ref'],
+  ) => {
+    const name = customName || uniqueId('selector-group_');
+    return (
+      <div role="group" aria-label={label} ref={ref} {...props}>
+        {options &&
+          options.map(({ children, value, ...rest }) => (
+            <Selector
+              key={value}
+              {...{ ...rest, value, name, onChange, multiple }}
+              checked={includes(value, activeValue)}
+            >
+              {children}
+            </Selector>
+          ))}
+      </div>
+    );
+  },
+);

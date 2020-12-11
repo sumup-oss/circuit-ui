@@ -71,6 +71,15 @@ describe('SelectorGroup', () => {
     expect(getByLabelText('Option 3')).toHaveAttribute('checked');
   });
 
+  it('should accept a working ref', () => {
+    const tref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <SelectorGroup {...defaultProps} ref={tref} />,
+    );
+    const div = container.querySelector('div');
+    expect(tref.current).toBe(div);
+  });
+
   /**
    * Accessibility tests.
    */

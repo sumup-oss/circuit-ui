@@ -80,6 +80,15 @@ describe('RadioButtonGroup', () => {
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
+  it('should accept a working ref', () => {
+    const tref = React.createRef<HTMLFieldSetElement>();
+    const { container } = render(
+      <RadioButtonGroup {...baseProps} ref={tref} />,
+    );
+    const fieldset = container.querySelector('fieldset');
+    expect(tref.current).toBe(fieldset);
+  });
+
   /**
    * Accessibility tests.
    */
