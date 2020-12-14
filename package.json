@@ -80,7 +80,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.9",
     "@emotion/cache": "^10.0.19",
     "@emotion/core": "10.1.1",
-    "@emotion/is-prop-valid": "^0.8.2",
+    "@emotion/is-prop-valid": "^1.0.0",
     "@emotion/styled": "^10.0.17",
     "@emotion/stylis": "^0.8.4",
     "@storybook/addon-a11y": "^6.0.10",
