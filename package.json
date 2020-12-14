@@ -112,7 +112,7 @@
     "@types/lodash": "^4.14.165",
     "@types/no-scroll": "^2.1.0",
     "@types/react": "^17.0.0",
-    "@types/react-dom": "^16.9.9",
+    "@types/react-dom": "^17.0.0",
     "@types/react-modal": "^3.10.5",
     "audit-ci": "^3.1.1",
     "babel-eslint": "^10.0.1",
