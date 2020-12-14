@@ -43,5 +43,4 @@ const footerStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-// FIXME: Remove any typecast once the Card has been migrated to TypeScript.
-export const ModalFooter = styled(CardFooter as any)(footerStyles);
+export const ModalFooter = styled(CardFooter)(footerStyles);

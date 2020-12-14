@@ -16,14 +16,10 @@
 import React from 'react';
 
 import { Stack } from '../../../.storybook/components';
-import UntypedCard from '../Card';
+import Card from '../Card';
 
 import docs from './InlineMessage.docs.mdx';
 import { InlineMessage, InlineMessageProps } from './InlineMessage';
-
-// FIXME: Remove once the Card component has been migrated to TypeScript.
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-const Card = UntypedCard as any;
 
 export default {
   title: 'Forms/InlineMessage',
