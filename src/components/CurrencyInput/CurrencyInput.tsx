@@ -129,6 +129,7 @@ export const CurrencyInput = React.forwardRef(
         placeholder={placeholderString}
         textAlign="right"
         type="text"
+        inputMode="decimal"
         {...props}
       />
     );
