@@ -99,6 +99,8 @@ export const CurrencyInput = React.forwardRef(
       minimumFractionDigits,
       maximumFractionDigits,
     });
+    // Allow common decimal signs as well as the one from resolveCurrencyFormat()
+    const allowedDecimalSeparators = ['.', ',', decimalDelimiter];
 
     const renderPrefix =
       currencyPosition === 'prefix'
@@ -122,7 +124,7 @@ export const CurrencyInput = React.forwardRef(
         decimalScale={maximumFractionDigits}
         customInput={Input}
         getInputRef={ref}
-        allowedDecimalSeparators={[decimalDelimiter]}
+        allowedDecimalSeparators={allowedDecimalSeparators}
         // Circuit input props
         renderPrefix={renderPrefix}
         renderSuffix={renderSuffix}
