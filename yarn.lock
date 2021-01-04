@@ -2739,9 +2739,9 @@
   integrity sha512-EA3EeGqm1FklGOmeZZ8LSU4aJnT0thlV88RLsPdzvDIlDlUAIy36jli0qFVxIIYxrEc13lrwnsKJ+Y4zrL/CFg==
 
 "@sumup/intl@^1.0.0":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@sumup/intl/-/intl-1.1.3.tgz#7c486b22ea2ab398620b002c3f107699cfef82d3"
-  integrity sha512-tr0pu4Bz9LmaYuLz0UTvBp5K7Qd3lqe2gqsyI3smfmdWZOLVXESlfXaTWRTtvcA+tpnfJajWyu+fmRq/+MlwkA==
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@sumup/intl/-/intl-1.2.0.tgz#4ab2ef439a06af4e0d80f651f0b5780cc29aeee5"
+  integrity sha512-aSLaotd49QdczVQ8NjsylH/GQIzyPMAR8+z5YG0lP5bOqSjHX7Rx/NbtICeByos3Udc5e+BgXXFKuBmL3aivBA==
   dependencies:
     intl-format-cache "^4.2.27"
 
