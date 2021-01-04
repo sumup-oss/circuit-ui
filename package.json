@@ -129,7 +129,7 @@
     "css-loader": "^5.0.1",
     "cz-customizable": "^6.3.0",
     "cz-customizable-ghooks": "^2.0.0",
-    "emotion-theming": "^10.0.19",
+    "emotion-theming": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "expect": "^26.6.2",
     "fork-ts-checker-webpack-plugin": "^6.0.3",
