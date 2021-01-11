@@ -102,7 +102,7 @@ label + .circuit-4:not(label) {
 
 <label
   class="circuit-4"
-  for="input_2"
+  for="input_4"
 >
   <span
     class="circuit-0"
@@ -119,7 +119,7 @@ label + .circuit-4:not(label) {
     </span>
     <input
       class="circuit-2"
-      id="input_2"
+      id="input_4"
       inputmode="decimal"
       placeholder="123,45"
       type="text"
@@ -231,7 +231,7 @@ label + .circuit-4:not(label) {
 
 <label
   class="circuit-4"
-  for="input_1"
+  for="input_2"
 >
   <span
     class="circuit-0"
@@ -248,7 +248,7 @@ label + .circuit-4:not(label) {
     </span>
     <input
       class="circuit-2"
-      id="input_1"
+      id="input_2"
       inputmode="decimal"
       type="text"
       value=""
