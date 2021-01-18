@@ -31,14 +31,14 @@ describe('useClickHandler', () => {
     const tracking = undefined;
     const defaultComponentName = 'test';
 
-    it('should call the onClick callback with the event', async () => {
+    it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
       const { result } = renderHook(() =>
         useClickHandler(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
-      await act(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -48,7 +48,7 @@ describe('useClickHandler', () => {
       expect(onClick).toHaveBeenCalledWith(event);
     });
 
-    it('should NOT call the tracking dispatch', async () => {
+    it('should NOT call the tracking dispatch', () => {
       const dispatch = jest.fn();
       mockCollector.useClickTrigger = jest.fn(() => dispatch);
 
@@ -58,7 +58,7 @@ describe('useClickHandler', () => {
       );
 
       const event = new MouseEvent('click');
-      await act(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -81,14 +81,14 @@ describe('useClickHandler', () => {
     const tracking = { label: 'trackingId' };
     const defaultComponentName = 'test';
 
-    it('should call the onClick callback with the event', async () => {
+    it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
       const { result } = renderHook(() =>
         useClickHandler(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
-      await act(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -98,7 +98,7 @@ describe('useClickHandler', () => {
       expect(onClick).toHaveBeenCalledWith(event);
     });
 
-    it('should call the tracking dispatch', async () => {
+    it('should call the tracking dispatch', () => {
       const dispatch = jest.fn();
       mockCollector.useClickTrigger = jest.fn(() => dispatch);
 
@@ -108,7 +108,7 @@ describe('useClickHandler', () => {
       );
 
       const event = new MouseEvent('click');
-      await act(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);

@@ -48,7 +48,7 @@ describe('useComponentSize', () => {
     expect(result.current).toEqual({ width: 800, height: 450 });
   });
 
-  it('should update on window resize events', async () => {
+  it('should update on window resize events', () => {
     const ref = {
       current: {
         offsetWidth: 800,
@@ -58,7 +58,7 @@ describe('useComponentSize', () => {
 
     const { result, unmount } = renderHook(() => useComponentSize(ref));
 
-    await act(() => {
+    act(() => {
       ref.current.offsetWidth = 400;
 
       global.dispatchEvent(new Event('resize'));

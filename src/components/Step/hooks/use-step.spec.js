@@ -74,7 +74,7 @@ describe('useStep', () => {
     unmount();
   });
 
-  it('should update paused state when pause action is called', async () => {
+  it('should update paused state when pause action is called', () => {
     const { result, unmount } = renderHook(() =>
       useStep({
         autoPlay: true,
@@ -84,7 +84,7 @@ describe('useStep', () => {
 
     expect(result.current.state.paused).toEqual(false);
 
-    await act(() => {
+    act(() => {
       result.current.actions.pause();
     });
 
@@ -93,7 +93,7 @@ describe('useStep', () => {
     unmount();
   });
 
-  it('should update paused state when play action is called', async () => {
+  it('should update paused state when play action is called', () => {
     const { result, unmount } = renderHook(() =>
       useStep({
         autoPlay: false,
@@ -103,7 +103,7 @@ describe('useStep', () => {
 
     expect(result.current.state.paused).toEqual(true);
 
-    await act(() => {
+    act(() => {
       result.current.actions.play();
     });
 
@@ -112,7 +112,7 @@ describe('useStep', () => {
     unmount();
   });
 
-  it('should not update state if play action is called repeatedly', async () => {
+  it('should not update state if play action is called repeatedly', () => {
     const { result, unmount } = renderHook(() =>
       useStep({
         autoPlay: false,
@@ -122,13 +122,13 @@ describe('useStep', () => {
 
     expect(result.current.state.paused).toEqual(true);
 
-    await act(() => {
+    act(() => {
       result.current.actions.play();
     });
 
     expect(result.current.state.paused).toEqual(false);
 
-    await act(() => {
+    act(() => {
       result.current.actions.play();
     });
 
@@ -137,12 +137,12 @@ describe('useStep', () => {
     unmount();
   });
 
-  it('should not update paused state when step duration is missing in props', async () => {
+  it('should not update paused state when step duration is missing in props', () => {
     const { result, unmount } = renderHook(() => useStep());
 
     expect(result.current.state.paused).toEqual(true);
 
-    await act(() => {
+    act(() => {
       result.current.actions.play();
     });
 
@@ -151,14 +151,14 @@ describe('useStep', () => {
     unmount();
   });
 
-  it('should update steps state when next action is called', async () => {
+  it('should update steps state when next action is called', () => {
     const initialStep = 1;
     const { result, unmount } = renderHook(() => useStep({ initialStep }));
 
     expect(result.current.state.step).toEqual(initialStep);
     expect(result.current.state.previousStep).toEqual(initialStep - 1);
 
-    await act(() => {
+    act(() => {
       result.current.actions.next();
     });
 
@@ -168,14 +168,14 @@ describe('useStep', () => {
     unmount();
   });
 
-  it('should update steps state when previous action is called', async () => {
+  it('should update steps state when previous action is called', () => {
     const initialStep = 1;
     const { result, unmount } = renderHook(() => useStep({ initialStep }));
 
     expect(result.current.state.step).toEqual(initialStep);
     expect(result.current.state.previousStep).toEqual(initialStep - 1);
 
-    await act(() => {
+    act(() => {
       result.current.actions.previous();
     });
 
@@ -185,7 +185,7 @@ describe('useStep', () => {
     unmount();
   });
 
-  it('should update steps state based on used step interval', async () => {
+  it('should update steps state based on used step interval', () => {
     const initialStep = 1;
     const stepInterval = 3;
     const { result, unmount } = renderHook(() =>
@@ -195,14 +195,14 @@ describe('useStep', () => {
     expect(result.current.state.step).toEqual(initialStep);
     expect(result.current.state.previousStep).toEqual(0);
 
-    await act(() => {
+    act(() => {
       result.current.actions.next();
     });
 
     expect(result.current.state.step).toEqual(initialStep + stepInterval);
     expect(result.current.state.previousStep).toEqual(initialStep);
 
-    await act(() => {
+    act(() => {
       result.current.actions.previous();
     });
 
@@ -240,7 +240,7 @@ describe('useStep', () => {
     expect(result.current.state.step).toEqual(initialStep + stepInterval);
     expect(result.current.state.previousStep).toEqual(initialStep);
 
-    await act(() => {
+    act(() => {
       result.current.actions.pause();
     });
 
@@ -280,7 +280,7 @@ describe('useStep', () => {
     unmount();
   });
 
-  it('should restart if cycle and totalSteps props are specified', async () => {
+  it('should restart if cycle and totalSteps props are specified', () => {
     const initialStep = 0;
     const stepInterval = 1;
     const totalSteps = 2;
@@ -298,13 +298,13 @@ describe('useStep', () => {
       totalSteps - stepInterval,
     );
 
-    await act(() => {
+    act(() => {
       result.current.actions.next();
     });
     expect(result.current.state.step).toEqual(initialStep + stepInterval);
     expect(result.current.state.previousStep).toEqual(initialStep);
 
-    await act(() => {
+    act(() => {
       result.current.actions.next();
     });
     expect(result.current.state.step).toEqual(initialStep);
@@ -315,7 +315,7 @@ describe('useStep', () => {
     unmount();
   });
 
-  it('should support onPlay action handler props', async () => {
+  it('should support onPlay action handler props', () => {
     const onPlay = jest.fn();
     const onPause = jest.fn();
     const onNext = jest.fn();
@@ -324,22 +324,22 @@ describe('useStep', () => {
       useStep({ onPlay, onPause, onNext, onPrevious }),
     );
 
-    await act(() => {
+    act(() => {
       result.current.actions.play();
     });
     expect(onPlay).toHaveBeenCalledTimes(1);
 
-    await act(() => {
+    act(() => {
       result.current.actions.pause();
     });
     expect(onPause).toHaveBeenCalledTimes(1);
 
-    await act(() => {
+    act(() => {
       result.current.actions.next();
     });
     expect(onNext).toHaveBeenCalledTimes(1);
 
-    await act(() => {
+    act(() => {
       result.current.actions.previous();
     });
     expect(onPrevious).toHaveBeenCalledTimes(1);
