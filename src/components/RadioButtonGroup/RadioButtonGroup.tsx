@@ -64,14 +64,13 @@ export interface RadioButtonGroupProps
   showValid?: boolean;
 }
 
-const legendBaseStyles = ({ theme }: StyleProps) => css`
+const legendStyles = ({ theme }: StyleProps) => css`
+  label: radio-button-group__legend;
   ${textKilo({ theme })};
   margin-bottom: ${theme.spacings.bit};
 `;
 
-const StyledLegend = styled('legend')<HTMLProps<HTMLLegendElement>>(
-  legendBaseStyles,
-);
+const Legend = styled('legend')(legendStyles);
 
 /**
  * A group of RadioButtons.
@@ -96,7 +95,7 @@ export const RadioButtonGroup = React.forwardRef(
     const name = customName || uniqueId('radio-button-group_');
     return (
       <fieldset name={name} ref={ref} {...props}>
-        {label && <StyledLegend>{label}</StyledLegend>}
+        {label && <Legend>{label}</Legend>}
         {options &&
           options.map(({ children, value, className, style, ...rest }) => (
             <div

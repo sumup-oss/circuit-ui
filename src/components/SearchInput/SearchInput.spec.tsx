@@ -17,21 +17,22 @@ import React from 'react';
 import { identity } from 'lodash/fp';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
-import Label from '../Label';
 
 import SearchInput from '.';
 
 describe('SearchInput', () => {
+  const baseProps = { label: 'Search' };
+
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<SearchInput />);
+    const actual = create(<SearchInput {...baseProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should grey out icon when disabled', () => {
-    const actual = create(<SearchInput disabled />);
+    const actual = create(<SearchInput {...baseProps} disabled />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -39,7 +40,7 @@ describe('SearchInput', () => {
     const onClear = jest.fn(identity);
 
     const { getByTestId } = render(
-      <SearchInput value="search value" onClear={onClear} />,
+      <SearchInput {...baseProps} value="search value" onClear={onClear} />,
     );
     expect(getByTestId('input-clear')).toBeVisible();
   });
@@ -50,7 +51,7 @@ describe('SearchInput', () => {
      */
     it('should accept a working ref', () => {
       const tref = React.createRef<HTMLInputElement & HTMLTextAreaElement>();
-      const { container } = render(<SearchInput ref={tref} />);
+      const { container } = render(<SearchInput {...baseProps} ref={tref} />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
     });
@@ -60,12 +61,7 @@ describe('SearchInput', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <Label htmlFor="search">
-        <SearchInput id="search" />
-        Search
-      </Label>,
-    );
+    const wrapper = renderToHtml(<SearchInput {...baseProps} />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

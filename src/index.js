@@ -39,6 +39,7 @@ export { default as Input } from './components/Input';
 export { default as RadioButton } from './components/RadioButton';
 export { default as RadioButtonGroup } from './components/RadioButtonGroup';
 export { default as SearchInput } from './components/SearchInput';
+export { default as DateInput } from './components/DateInput';
 export { default as Select } from './components/Select';
 export { default as TextArea } from './components/TextArea';
 export { default as CurrencyInput } from './components/CurrencyInput';

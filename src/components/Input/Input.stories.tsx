@@ -18,6 +18,7 @@ import { css, jsx } from '@emotion/core';
 
 import SearchInput from '../SearchInput';
 import CurrencyInput from '../CurrencyInput';
+import DateInput from '../DateInput';
 
 import docs from './Input.docs.mdx';
 import { Input, InputProps } from './Input';
@@ -25,7 +26,7 @@ import { Input, InputProps } from './Input';
 export default {
   title: 'Forms/Input',
   component: Input,
-  subcomponents: { SearchInput, CurrencyInput },
+  subcomponents: { SearchInput, CurrencyInput, DateInput },
   parameters: {
     docs: { page: docs },
   },

@@ -1,11 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchInput should grey out icon when disabled 1`] = `
-.circuit-2 {
+.circuit-0 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.circuit-3 {
   position: relative;
 }
 
-.circuit-0 {
+.circuit-1 {
   position: absolute;
   top: 1px;
   left: 1px;
@@ -16,7 +21,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   width: 40px;
 }
 
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -26,12 +31,12 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   margin-bottom: 16px;
 }
 
-label .circuit-3:not(label),
-label + .circuit-3:not(label) {
+label .circuit-4:not(label),
+label + .circuit-4:not(label) {
   margin-top: 4px;
 }
 
-.circuit-1 {
+.circuit-2 {
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -50,40 +55,45 @@ label + .circuit-3:not(label) {
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-2::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-<div
-  class="circuit-3"
+<label
+  class="circuit-4"
   disabled=""
   for="input_2"
 >
+  <span
+    class="circuit-0"
+  >
+    Search
+  </span>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <svg
-      class="circuit-0"
+      class="circuit-1"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -98,34 +108,39 @@ label + .circuit-3:not(label) {
       />
     </svg>
     <input
-      class="circuit-1"
+      class="circuit-2"
       disabled=""
       id="input_2"
       type="text"
       value=""
     />
   </div>
-</div>
+</label>
 `;
 
 exports[`SearchInput should render with default styles 1`] = `
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-label .circuit-3:not(label),
-label + .circuit-3:not(label) {
+label .circuit-4:not(label),
+label + .circuit-4:not(label) {
   margin-top: 4px;
 }
 
-.circuit-2 {
+.circuit-0 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.circuit-3 {
   position: relative;
 }
 
-.circuit-0 {
+.circuit-1 {
   position: absolute;
   top: 1px;
   left: 1px;
@@ -136,7 +151,7 @@ label + .circuit-3:not(label) {
   width: 40px;
 }
 
-.circuit-1 {
+.circuit-2 {
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -154,51 +169,56 @@ label + .circuit-3:not(label) {
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-2::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
-<div
-  class="circuit-3"
+<label
+  class="circuit-4"
   for="input_1"
 >
+  <span
+    class="circuit-0"
+  >
+    Search
+  </span>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <svg
-      class="circuit-0"
+      class="circuit-1"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -213,11 +233,11 @@ label + .circuit-3:not(label) {
       />
     </svg>
     <input
-      class="circuit-1"
+      class="circuit-2"
       id="input_1"
       type="text"
       value=""
     />
   </div>
-</div>
+</label>
 `;
