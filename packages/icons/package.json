@@ -19,6 +19,7 @@
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "yarn lint --fix",
     "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
+    "check-sizes": "./scripts/check-svg-sizes.sh",
     "prerelease": "yarn build && cp web/v1/* .",
     "release": "foundry run semantic-release",
     "postrelease": "rm -f *.svg"

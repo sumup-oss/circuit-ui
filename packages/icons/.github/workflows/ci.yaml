@@ -29,6 +29,8 @@ jobs:
           yarn --pure-lockfile
       - name: Lint
         run: yarn lint:ci
+      - name: Check file sizes
+        run: ./scripts/check-svg-sizes.sh
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
