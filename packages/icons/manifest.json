@@ -181,7 +181,17 @@
       "size": "large"
     },
     {
+      "name": "flag_ar",
+      "category": "Country flag",
+      "size": "small"
+    },
+    {
       "name": "flag_at",
+      "category": "Country flag",
+      "size": "small"
+    },
+    {
+      "name": "flag_au",
       "category": "Country flag",
       "size": "small"
     },
@@ -307,6 +317,11 @@
     },
     {
       "name": "flag_no",
+      "category": "Country flag",
+      "size": "small"
+    },
+    {
+      "name": "flag_pe",
       "category": "Country flag",
       "size": "small"
     },
