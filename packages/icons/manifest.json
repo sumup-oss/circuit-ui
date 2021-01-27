@@ -211,6 +211,11 @@
       "size": "small"
     },
     {
+      "name": "flag_ca",
+      "category": "Country flag",
+      "size": "small"
+    },
+    {
       "name": "flag_ch",
       "category": "Country flag",
       "size": "small"
@@ -272,6 +277,11 @@
     },
     {
       "name": "flag_gr",
+      "category": "Country flag",
+      "size": "small"
+    },
+    {
+      "name": "flag_hr",
       "category": "Country flag",
       "size": "small"
     },
@@ -342,6 +352,11 @@
     },
     {
       "name": "flag_se",
+      "category": "Country flag",
+      "size": "small"
+    },
+    {
+      "name": "flag_si",
       "category": "Country flag",
       "size": "small"
     },
