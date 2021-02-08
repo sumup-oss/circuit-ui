@@ -14,13 +14,35 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { Theme } from '@sumup/design-tokens';
+
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 
 import Title from './components/Title';
 
-const baseStyles = ({ theme }) => css`
+export interface HeaderProps {
+  /**
+   * The page title for the Header.
+   */
+  title: string;
+  /**
+   * If the Header should appear only on
+   * mobile screens (useful for when using together with the Sidebar).
+   */
+  mobileOnly: boolean;
+  /**
+   * The child component of Header.
+   */
+  children: React.ReactNode;
+}
+
+interface MobileOnlyProps extends StyleProps {
+	theme: Theme;
+	mobileOnly: boolean;
+}
+
+const containerStyles = ({ theme }: StyleProps) => css`
   label: header;
   width: 100%;
   display: flex;
@@ -32,7 +54,7 @@ const baseStyles = ({ theme }) => css`
   position: sticky;
 `;
 
-const mobileOnlyStyles = ({ theme, mobileOnly }) =>
+const mobileOnlyStyles = ({ theme, mobileOnly }: MobileOnlyProps) =>
   mobileOnly &&
   css`
     ${theme.mq.giga} {
@@ -40,30 +62,14 @@ const mobileOnlyStyles = ({ theme, mobileOnly }) =>
     }
   `;
 
-const Container = styled('div')(baseStyles, mobileOnlyStyles);
+const Container = styled('div')<NoTheme>(mobileOnlyStyles && containerStyles);
 
-const Header = ({ title, mobileOnly, children, ...props }) => (
+export const Header = ({ title, mobileOnly, children, ...props }: HeaderProps) => 
   <Container mobileOnly={mobileOnly} {...props}>
     {children}
     <Title>{title}</Title>
   </Container>
 );
-
-Header.propTypes = {
-  /**
-   * The page title for the Header.
-   */
-  title: PropTypes.string,
-  /**
-   * If the Header should appear only on
-   * mobile screens (useful for when using together with the Sidebar).
-   */
-  mobileOnly: PropTypes.bool,
-  /**
-   * The child component of Header.
-   */
-  children: PropTypes.node,
-};
 
 /**
  * @component
