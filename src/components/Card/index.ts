@@ -15,6 +15,11 @@
 
 import { Card } from './Card';
 
+export type { CardProps } from './Card';
+
 export { Header as CardHeader, Footer as CardFooter } from './components';
+
+export type { HeaderProps as CardHeaderProps } from './components';
+export type { FooterProps as CardFooterProps } from './components';
 
 export default Card;

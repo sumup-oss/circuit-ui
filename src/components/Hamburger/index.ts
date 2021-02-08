@@ -15,4 +15,6 @@
 
 import { Hamburger } from './Hamburger';
 
+export type { HamburgerProps } from './Hamburger';
+
 export default Hamburger;

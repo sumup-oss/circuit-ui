@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Global } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
 import { createBaseStyles } from './BaseStylesService';
 
-export const BaseStyles = () => (
+export const BaseStyles: FunctionComponent = () => (
   <Global styles={(theme: Theme) => createBaseStyles({ theme })} />
 );

@@ -15,4 +15,6 @@
 
 import { SelectorGroup } from './SelectorGroup';
 
+export type { SelectorGroupProps } from './SelectorGroup';
+
 export default SelectorGroup;

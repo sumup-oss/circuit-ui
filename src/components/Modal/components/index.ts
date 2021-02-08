@@ -14,5 +14,11 @@
  */
 
 export { ModalWrapper } from './ModalWrapper/ModalWrapper';
+
+export type { ModalWrapperProps } from './ModalWrapper/ModalWrapper';
+
 export { ModalHeader } from './ModalHeader/ModalHeader';
+
+export type { ModalHeaderProps } from './ModalHeader/ModalHeader';
+
 export { ModalFooter } from './ModalFooter/ModalFooter';

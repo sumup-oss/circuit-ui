@@ -16,4 +16,7 @@
 import { CardHeader as Header } from './Header/Header';
 import { CardFooter as Footer } from './Footer/Footer';
 
+export type { CardHeaderProps as HeaderProps } from './Header/Header';
+export type { CardFooterProps as FooterProps } from './Footer/Footer';
+
 export { Header, Footer };

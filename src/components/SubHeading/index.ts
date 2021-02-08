@@ -15,4 +15,6 @@
 
 import { SubHeading } from './SubHeading';
 
+export type { SubHeadingProps } from './SubHeading';
+
 export default SubHeading;

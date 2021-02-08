@@ -33,4 +33,10 @@ export {
   ModalFooter,
 };
 
+export type { ModalProps } from './Modal';
+
+export type { ModalHeaderProps, ModalWrapperProps } from './components';
+
+export type { ModalContextValue } from './ModalContext';
+
 export default Modal;

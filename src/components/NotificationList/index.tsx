@@ -15,4 +15,6 @@
 
 import { NotificationList } from './NotificationList';
 
+export type { NotificationListProps } from './NotificationList';
+
 export default NotificationList;

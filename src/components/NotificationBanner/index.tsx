@@ -15,4 +15,6 @@
 
 import { NotificationBanner } from './NotificationBanner';
 
+export type { NotificationBannerProps } from './NotificationBanner';
+
 export default NotificationBanner;
