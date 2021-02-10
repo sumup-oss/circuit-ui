@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
-import { NotificationBanner } from './NotificationBanner';
+import { RadioButtonGroup } from './RadioButtonGroup';
 
-export default NotificationBanner;
+export type { RadioButtonGroupProps } from './RadioButtonGroup';
+
+export default RadioButtonGroup;

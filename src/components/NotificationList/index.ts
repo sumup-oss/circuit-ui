@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
-import { RadioButtonGroup } from './RadioButtonGroup';
+import { NotificationList } from './NotificationList';
 
-export default RadioButtonGroup;
+export type { NotificationListProps } from './NotificationList';
+
+export default NotificationList;

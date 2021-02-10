@@ -33,7 +33,7 @@ import useClickHandler from '../../hooks/use-click-handler';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 
-type Option = {
+export type SelectOption = {
   value: string | number;
   label: string;
   disabled?: boolean;
@@ -59,7 +59,7 @@ export interface SelectProps
   /**
    * Options to select from. Can also be provided with the children prop.
    */
-  options?: Option[];
+  options?: SelectOption[];
   /**
    * Styles the select as disabled.
    */

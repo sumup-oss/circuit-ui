@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
-import { NotificationList } from './NotificationList';
+import { NotificationBanner } from './NotificationBanner';
 
-export default NotificationList;
+export type { NotificationBannerProps } from './NotificationBanner';
+
+export default NotificationBanner;

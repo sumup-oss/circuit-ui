@@ -15,4 +15,6 @@
 
 import { LoadingButton } from './LoadingButton';
 
+export type { LoadingButtonProps } from './LoadingButton';
+
 export default LoadingButton;

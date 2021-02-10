@@ -26,19 +26,19 @@ import { Global, css } from '@emotion/core';
 
 import { Modal, ModalProps } from './Modal';
 
-type ModalContextType = {
+export type ModalContextValue = {
   setModal: (modal: ModalProps) => void;
   getModal: () => ModalProps | null;
 };
 
-export const ModalContext = createContext<ModalContextType>({
+export const ModalContext = createContext<ModalContextValue>({
   setModal: () => {},
   getModal: () => null,
 });
 
 export const ModalConsumer = ModalContext.Consumer;
 
-export const useModal = (): ModalContextType => useContext(ModalContext);
+export const useModal = (): ModalContextValue => useContext(ModalContext);
 
 export const ModalProvider: FC<Pick<ModalProps, 'appElement'>> = (props) => {
   const [isOpen, setOpen] = useState(false);
