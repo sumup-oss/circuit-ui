@@ -15,9 +15,21 @@
 
 import React from 'react';
 
-import Title from './Title';
+import {
+  create,
+  render,
+  RenderFn,
+  renderToHtml,
+  axe,
+} from '../../../../util/test-utils';
+
+import Title, { TitleProps } from './Title';
 
 describe('Title', () => {
+  function renderTitle<T>(renderFn: RenderFn<T>, props: TitleProps) {
+    return renderFn(<Title {...props} />);
+  }
+
   describe('styles', () => {
     it('should render with default styles', () => {
       const actual = create(<Title>Title</Title>);
@@ -26,11 +38,9 @@ describe('Title', () => {
   });
 
   it('should render children', () => {
-    const { getByTestId } = render(
-      <Title>
-        <span data-testid="child">Title</span>
-      </Title>,
-    );
+    const { getByTestId } = renderTitle(render, {
+      children: <span data-testid="child">Title</span>,
+    });
     const childEl = getByTestId('child');
     expect(childEl).not.toBeNull();
     expect(childEl).toHaveTextContent('Title');

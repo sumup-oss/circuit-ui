@@ -25,21 +25,23 @@ export interface HeaderProps {
   /**
    * The page title for the Header.
    */
-  title: string;
+  'title': string;
   /**
    * If the Header should appear only on
    * mobile screens (useful for when using together with the Sidebar).
    */
-  mobileOnly: boolean;
+  'mobileOnly'?: boolean;
   /**
    * The child component of Header.
    */
-  children: React.ReactNode;
+  'children'?: React.ReactNode;
+
+  'data-testid'?: string;
 }
 
 interface MobileOnlyProps extends StyleProps {
-	theme: Theme;
-	mobileOnly: boolean;
+  theme: Theme;
+  mobileOnly: boolean;
 }
 
 const containerStyles = ({ theme }: StyleProps) => css`
@@ -64,7 +66,12 @@ const mobileOnlyStyles = ({ theme, mobileOnly }: MobileOnlyProps) =>
 
 const Container = styled('div')<NoTheme>(mobileOnlyStyles && containerStyles);
 
-export const Header = ({ title, mobileOnly, children, ...props }: HeaderProps) => 
+export const Header = ({
+  title,
+  mobileOnly,
+  children,
+  ...props
+}: HeaderProps) => (
   <Container mobileOnly={mobileOnly} {...props}>
     {children}
     <Title>{title}</Title>

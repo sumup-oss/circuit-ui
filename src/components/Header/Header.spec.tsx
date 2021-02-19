@@ -15,33 +15,42 @@
 
 import React from 'react';
 
-import Header from './Header';
+import {
+  create,
+  render,
+  RenderFn,
+  renderToHtml,
+  axe,
+} from '../../util/test-utils';
+
+import { Header, HeaderProps } from './Header';
 
 describe('Header', () => {
-  const props = {
-    title: 'Title',
-    onHamburgerClick: jest.fn(),
-    hamburgerButtonLabel: 'hamburger-button',
+  const baseProps = {
+    'title': 'Title',
+    'mobileOnly': false,
+    'data-testid': 'child',
+    'children': 'Text',
   };
+
+  function renderHeader<T>(renderFn: RenderFn<T>, props: HeaderProps) {
+    return renderFn(<Header {...props} />);
+  }
 
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = create(<Header {...props} />);
+      const actual = renderHeader(create, baseProps);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render and match snapshot for mobileOnly styles', () => {
-      const mobileProps = { ...props, mobileOnly: true };
-      const actual = create(<Header {...mobileProps} />);
+      const mobileProps = { ...baseProps, mobileOnly: true };
+      const actual = renderHeader(create, mobileProps);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render children', () => {
-      const { getByTestId } = render(
-        <Header>
-          <span data-testid="child">Text</span>
-        </Header>,
-      );
+      const { getByTestId } = renderHeader(render, baseProps);
       const childEl = getByTestId('child');
       expect(childEl).not.toBeNull();
       expect(childEl).toHaveTextContent('Text');
@@ -50,7 +59,7 @@ describe('Header', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Header {...props} />);
+      const wrapper = renderToHtml(<Header {...baseProps} />);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });
