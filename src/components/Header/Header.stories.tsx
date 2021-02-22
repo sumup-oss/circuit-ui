@@ -15,6 +15,8 @@
 
 import React from 'react';
 
+import Hamburger from '../Hamburger';
+
 import Header from '.';
 
 export default {
@@ -22,7 +24,16 @@ export default {
   component: Header,
 };
 
-export const Base = (args) => <Header {...args}></Header>;
+const baseProps = {
+  labelActive: 'Close menu',
+  labelInActive: 'Open menu',
+};
+
+export const Base = (args) => (
+  <Header {...args}>
+    <Hamburger {...baseProps} />
+  </Header>
+);
 
 Base.args = {
   title: 'Title',
