@@ -81,4 +81,3 @@ export const Header = ({
 /**
  * @component
  */
-export default Header;
