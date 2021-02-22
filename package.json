@@ -139,7 +139,7 @@
     "jest-emotion": "^10.0.10",
     "license-checker": "^25.0.1",
     "onchange": "^7.1.0",
-    "postcss-loader": "^4.0.4",
+    "postcss-loader": "^5.0.0",
     "postcss-object-fit-images": "^1.1.2",
     "react": "^17.0.1",
     "react-docgen": "^5.3.1",
