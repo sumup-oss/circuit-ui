@@ -77,7 +77,7 @@
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-typescript": "^7.12.1",
-    "@emotion/babel-preset-css-prop": "^10.0.9",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/cache": "^10.0.19",
     "@emotion/core": "10.1.1",
     "@emotion/is-prop-valid": "^1.0.0",
