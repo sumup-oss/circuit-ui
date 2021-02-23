@@ -1,15 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header styles should render and match snapshot for mobileOnly styles 1`] = `
-.circuit-0 {
-  font-size: 17px;
-  line-height: 24px;
-  font-weight: 700;
-  color: #F5F5F5;
-  margin-left: 16px;
-}
-
-.circuit-2 {
+.circuit-1 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -27,17 +19,21 @@ exports[`Header styles should render and match snapshot for mobileOnly styles 1`
   position: sticky;
 }
 
-@media (min-width:960px) {
-  .circuit-2 {
-    display: none;
-  }
+.circuit-0 {
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #F5F5F5;
+  margin-left: 16px;
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1"
+  data-testid="child"
 >
+  Text
   <h1
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Title
   </h1>
@@ -45,7 +41,7 @@ exports[`Header styles should render and match snapshot for mobileOnly styles 1`
 `;
 
 exports[`Header styles should render with default styles 1`] = `
-.circuit-2 {
+.circuit-1 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -72,10 +68,12 @@ exports[`Header styles should render with default styles 1`] = `
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1"
+  data-testid="child"
 >
+  Text
   <h1
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Title
   </h1>

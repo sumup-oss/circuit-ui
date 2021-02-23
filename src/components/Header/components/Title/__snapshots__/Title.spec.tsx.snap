@@ -10,7 +10,7 @@ exports[`Title styles should render with default styles 1`] = `
 }
 
 <h1
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Title
 </h1>

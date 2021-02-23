@@ -13,11 +13,18 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-const baseStyles = ({ theme }) => css`
+import styled, { StyleProps } from '../../../../styles/styled';
+
+export interface TitleProps {
+  /**
+   * The children component passed to the Title
+   */
+  children: React.ReactNode;
+}
+
+const baseStyles = ({ theme }: StyleProps) => css`
   label: header__title;
   font-size: ${theme.typography.headings.kilo.fontSize};
   line-height: ${theme.typography.headings.kilo.lineHeight};
@@ -26,14 +33,7 @@ const baseStyles = ({ theme }) => css`
   margin-left: ${theme.spacings.mega};
 `;
 
-const Title = styled('h1')(baseStyles);
-
-Title.propTypes = {
-  /**
-   * The children component passed to the Title
-   */
-  children: PropTypes.node,
-};
+const Title = styled('h1')<TitleProps>(baseStyles);
 
 /**
  * @component
