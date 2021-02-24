@@ -15,7 +15,7 @@
 
 import React from 'react';
 
-import { render, act, userEvent, wait } from '../../util/test-utils';
+import { render, act, userEvent, waitFor } from '../../util/test-utils';
 import Button from '../Button';
 
 import { ModalProps } from './Modal';
@@ -97,10 +97,10 @@ describe('Modal', () => {
         userEvent.click(getByTestId('button-close'));
       });
 
-      await wait();
-
-      expect(defaultModal.onClose).toHaveBeenCalled();
-      expect(queryByTestId('card')).toBeNull();
+      await waitFor(() => {
+        expect(defaultModal.onClose).toHaveBeenCalled();
+        expect(queryByTestId('card')).toBeNull();
+      });
     });
   });
 

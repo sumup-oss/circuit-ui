@@ -14,9 +14,10 @@
  */
 
 import React from 'react';
+import { css } from '@emotion/core';
 import { Search, Cross } from '@sumup/icons';
 
-import styled from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled';
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
 import IconButton from '../IconButton';
@@ -33,14 +34,17 @@ export interface SearchInputProps extends InputProps {
   clearLabel?: string;
 }
 
-const ClearButton = styled(IconButton)`
+const clearButtonStyles = ({ theme }: StyleProps) => css`
   border: none;
   margin: 0 !important;
   width: auto !important;
   height: calc(100% - 2px) !important;
   pointer-events: all !important;
   cursor: pointer !important;
+  border-radius: ${theme.borderRadius.giga};
 `;
+
+const ClearButton = styled(IconButton)(clearButtonStyles);
 
 /**
  * SearchInput component for forms.

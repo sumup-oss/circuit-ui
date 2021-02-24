@@ -19,7 +19,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { configureAxe } from 'jest-axe';
 import {
   render as renderTest,
-  wait,
+  waitFor,
   act,
   RenderResult,
 } from '@testing-library/react';
@@ -70,6 +70,6 @@ export {
   act,
   actHook,
   userEvent,
-  wait,
+  waitFor,
   axe,
 };

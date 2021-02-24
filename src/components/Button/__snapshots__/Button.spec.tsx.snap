@@ -26,13 +26,13 @@ exports[`Button styles should render a button with icon 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
 }
 
 .circuit-1:focus {
@@ -119,13 +119,13 @@ exports[`Button styles should render a disabled button 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -188,13 +188,13 @@ exports[`Button styles should render a kilo button 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
   padding: 4px calc(16px - 1px);
-  border-radius: 6px;
 }
 
 .circuit-0:focus {
@@ -256,13 +256,13 @@ exports[`Button styles should render a mega button 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -324,13 +324,13 @@ exports[`Button styles should render a primary button by default 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -392,13 +392,13 @@ exports[`Button styles should render a secondary button 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -460,13 +460,13 @@ exports[`Button styles should render a stretched button 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
   width: 100%;
 }
 
@@ -529,13 +529,13 @@ exports[`Button styles should render a tertiary button 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
 }
 
 .circuit-0:focus {

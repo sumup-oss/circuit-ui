@@ -24,14 +24,9 @@ export default {
   component: Header,
 };
 
-const baseProps = {
-  labelActive: 'Close menu',
-  labelInActive: 'Open menu',
-};
-
 export const Base = (args) => (
   <Header {...args}>
-    <Hamburger {...baseProps} />
+    <Hamburger labelActive="Close menu" labelInActive="Open menu" size="kilo" />
   </Header>
 );
 
