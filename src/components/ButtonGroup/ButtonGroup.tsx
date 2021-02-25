@@ -44,7 +44,7 @@ const getInlineStyles = ({ theme }: StyleProps) => css`
   > a {
     width: auto;
 
-    &:not(:last-of-type) {
+    &:not(:last-child) {
       margin-right: ${theme.spacings.mega};
       margin-bottom: 0;
     }
@@ -62,7 +62,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   > a {
     width: 100%;
 
-    &:not(:last-of-type) {
+    &:not(:last-child) {
       margin-bottom: ${theme.spacings.mega};
     }
   }

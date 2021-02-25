@@ -145,8 +145,8 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
   width: 100%;
 }
 
-.circuit-2 > button:not(:last-of-type),
-.circuit-2 > a:not(:last-of-type) {
+.circuit-2 > button:not(:last-child),
+.circuit-2 > a:not(:last-child) {
   margin-bottom: 16px;
 }
 
@@ -162,8 +162,8 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
     width: auto;
   }
 
-  .circuit-2 > button:not(:last-of-type),
-  .circuit-2 > a:not(:last-of-type) {
+  .circuit-2 > button:not(:last-child),
+  .circuit-2 > a:not(:last-child) {
     margin-right: 16px;
     margin-bottom: 0;
   }
@@ -330,8 +330,8 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   width: 100%;
 }
 
-.circuit-2 > button:not(:last-of-type),
-.circuit-2 > a:not(:last-of-type) {
+.circuit-2 > button:not(:last-child),
+.circuit-2 > a:not(:last-child) {
   margin-bottom: 16px;
 }
 
@@ -347,8 +347,8 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
     width: auto;
   }
 
-  .circuit-2 > button:not(:last-of-type),
-  .circuit-2 > a:not(:last-of-type) {
+  .circuit-2 > button:not(:last-child),
+  .circuit-2 > a:not(:last-child) {
     margin-right: 16px;
     margin-bottom: 0;
   }
@@ -395,8 +395,8 @@ exports[`ButtonGroup should render with default styles 1`] = `
   width: 100%;
 }
 
-.circuit-2 > button:not(:last-of-type),
-.circuit-2 > a:not(:last-of-type) {
+.circuit-2 > button:not(:last-child),
+.circuit-2 > a:not(:last-child) {
   margin-bottom: 16px;
 }
 
@@ -412,8 +412,8 @@ exports[`ButtonGroup should render with default styles 1`] = `
     width: auto;
   }
 
-  .circuit-2 > button:not(:last-of-type),
-  .circuit-2 > a:not(:last-of-type) {
+  .circuit-2 > button:not(:last-child),
+  .circuit-2 > a:not(:last-child) {
     margin-right: 16px;
     margin-bottom: 0;
   }
