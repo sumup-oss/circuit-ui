@@ -13,45 +13,64 @@
  * limitations under the License.
  */
 
-import { Children } from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { Children, ReactElement } from 'react';
 import { css } from '@emotion/core';
 
+import styled, { StyleProps } from '../../styles/styled';
 import { clearfix } from '../../styles/style-helpers';
 
-const fallbackBaseStyles = ({ children, theme }) => {
+export interface InlineElementsProps {
+  /**
+   * The child elements to be displayed inline.
+   */
+  children: ReactElement | ReactElement[];
+  /**
+   * Let's children take up widths according to given ratios. The ratios are
+   * equivalent to the flex-grow parameter, which they are used with.
+   */
+  ratios?: number[];
+  /**
+   * Forces inline display even on mobile.
+   */
+  inlineMobile?: boolean;
+}
+
+const fallbackBaseStyles = ({
+  theme,
+  children,
+}: StyleProps & InlineElementsProps) => {
   const childrenCount = Children.count(children);
+  const width = `(100% - ${childrenCount - 1} * ${
+    theme.spacings.byte
+  }) / ${childrenCount}`;
 
   return css`
     label: inline-elements--fallback;
-
     > * {
       display: block;
       width: 100%;
     }
-
     ${theme.mq.kilo} {
       > * {
         float: left;
         width: ${(1 / childrenCount) * 95}%;
-        width: calc(
-          (100% - ${childrenCount - 1} * ${theme.spacings.byte}) /
-            ${childrenCount}
-        );
+        width: calc(${width});
       }
-
       ${clearfix()};
     }
   `;
 };
 
-const baseStyles = ({ theme, ratios = [], children }) => {
+const baseStyles = ({
+  theme,
+  ratios = [],
+  children,
+}: StyleProps & InlineElementsProps) => {
   const flexGrows =
     ratios.length &&
     Children.map(
       children,
-      (child, childIndex) => `
+      (_, childIndex) => `
         > :nth-child(${childIndex + 1}) {
           flex-grow: ${ratios[childIndex] || 1};
           width: auto;
@@ -91,32 +110,37 @@ const baseStyles = ({ theme, ratios = [], children }) => {
   `;
 };
 
-const fallbackInlineMobileStyles = ({ theme, inlineMobile, children }) => {
+const fallbackInlineMobileStyles = ({
+  theme,
+  inlineMobile,
+  children,
+}: StyleProps & InlineElementsProps) => {
   if (!inlineMobile) {
     return null;
   }
 
   const childrenCount = Children.count(children);
+  const width = `(100% - ${childrenCount - 1} * ${
+    theme.spacings.byte
+  }) / ${childrenCount}`;
 
   return css`
     label: inline-elements--inline-mobile-fallback;
-
     ${theme.mq.untilKilo} {
       > * {
         float: left;
         width: ${(1 / childrenCount) * 95}%;
-        width: calc(
-          (100% - ${childrenCount - 1} * ${theme.spacings.byte}) /
-            ${childrenCount}
-        );
+        width: calc(${width});
       }
-
       ${clearfix()};
     }
   `;
 };
 
-const inlineMobileStyles = ({ theme, inlineMobile }) =>
+const inlineMobileStyles = ({
+  theme,
+  inlineMobile,
+}: StyleProps & InlineElementsProps) =>
   inlineMobile &&
   css`
     label: inline-elements--inline-mobile;
@@ -136,35 +160,11 @@ const inlineMobileStyles = ({ theme, inlineMobile }) =>
   `;
 
 /**
- * Layout helper that displays elements inline. Useful for
- * form elements.
+ * Layout helper that displays child elements inline. Useful for form elements.
  */
-const InlineElements = styled('div')(
+export const InlineElements = styled('div')<InlineElementsProps>(
   fallbackBaseStyles,
   baseStyles,
   fallbackInlineMobileStyles,
   inlineMobileStyles,
 );
-
-InlineElements.propTypes = {
-  /**
-   * The child elements to be displayed inline.
-   */
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  /**
-   * Forces inline display even on mobile.
-   */
-  inlineMobile: PropTypes.bool,
-  /**
-   * Let's children take up widths according to
-   * given ratios. The ratios are equivalent
-   * to the flex-grow parameter, which they are
-   * used with.
-   */
-  ratios: PropTypes.arrayOf(PropTypes.number),
-};
-
-/**
- * @component
- */
-export default InlineElements;

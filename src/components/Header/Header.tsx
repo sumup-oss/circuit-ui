@@ -77,7 +77,3 @@ export const Header = ({
     <Title>{title}</Title>
   </Container>
 );
-
-/**
- * @component
- */

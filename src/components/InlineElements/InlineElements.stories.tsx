@@ -17,7 +17,9 @@
 import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/core';
 
-import InlineElements from './InlineElements';
+import { StyleProps } from '../../styles/styled';
+
+import { InlineElements } from './InlineElements';
 
 export default {
   title: 'Layout/InlineElements',
@@ -36,11 +38,11 @@ const Box = styled('div')`
   padding: 12px;
 
   &:nth-of-type(n) {
-    background-color: ${(p) => p.theme.colors.n300};
+    background-color: ${({ theme }: StyleProps) => theme.colors.n300};
   }
 
   &:nth-of-type(2n) {
-    background-color: ${(p) => p.theme.colors.n100};
+    background-color: ${({ theme }: StyleProps) => theme.colors.n100};
   }
 `;
 
