@@ -18,6 +18,7 @@ import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
+import deprecate from '../../util/deprecate';
 
 type Size = 'kilo' | 'mega' | 'giga' | 'tera' | 'peta' | 'exa' | 'zetta';
 
@@ -67,12 +68,23 @@ const sizeStyles = ({ theme, size = 'peta' }: StyleProps & HeadingProps) =>
     }
   `;
 
-const noMarginStyles = ({ noMargin }: HeadingProps) =>
-  noMargin &&
-  css`
+const noMarginStyles = ({ noMargin }: HeadingProps) => {
+  if (!noMargin) {
+    deprecate(
+      [
+        'The default outer spacing in the Heading component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      ].join(' '),
+    );
+    return null;
+  }
+
+  return css`
     label: heading--no-margin;
     margin-bottom: 0;
   `;
+};
 
 /**
  * A flexible heading component capable of rendering using any HTML heading tag.

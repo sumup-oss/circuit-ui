@@ -27,14 +27,16 @@ export default {
 };
 
 export const Base = (args: HeadingProps) => (
-  <Heading {...args}>This is a heading</Heading>
+  <Heading {...args} noMargin>
+    This is a heading
+  </Heading>
 );
 
 const sizes = ['zetta', 'exa', 'peta', 'tera', 'giga', 'mega', 'kilo'] as const;
 
 export const Sizes = (args: HeadingProps) =>
   sizes.map((s) => (
-    <Heading key={s} {...args} size={s}>
+    <Heading key={s} {...args} size={s} noMargin>
       This is a {s} heading
     </Heading>
   ));
