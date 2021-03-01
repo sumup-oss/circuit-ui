@@ -31,31 +31,35 @@ export default {
   },
 };
 
-export const Base = (args: TextProps) => <Text {...args}>{content}</Text>;
+export const Base = (args: TextProps) => (
+  <Text {...args} noMargin>
+    {content}
+  </Text>
+);
 
 const sizes = ['kilo', 'mega', 'giga'] as const;
 
 export const Sizes = (args: TextProps) =>
   sizes.map((s) => (
-    <Text key={s} {...args} size={s}>
+    <Text key={s} {...args} size={s} noMargin>
       This is a {s} text. {content}
     </Text>
   ));
 
 export const Bold = (args: TextProps) => (
-  <Text {...args} as="strong" bold>
+  <Text {...args} as="strong" bold noMargin>
     {content}
   </Text>
 );
 
 export const Italic = (args: TextProps) => (
-  <Text {...args} as="em" italic>
+  <Text {...args} as="em" italic noMargin>
     {content}
   </Text>
 );
 
 export const Strike = (args: TextProps) => (
-  <Text {...args} as="s" strike>
+  <Text {...args} as="s" strike noMargin>
     {content}
   </Text>
 );

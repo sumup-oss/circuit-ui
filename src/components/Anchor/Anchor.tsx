@@ -21,8 +21,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 import styled, { StyleProps } from '../../styles/styled';
 import { focusOutline } from '../../styles/style-helpers';
 import { ReturnType } from '../../types/return-type';
-import Text from '../Text';
-import { TextProps } from '../Text/Text';
+import { Text, TextProps } from '../Text/Text';
 import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';
 
