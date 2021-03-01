@@ -2731,9 +2731,9 @@
     yargs "^15.0.0"
 
 "@sumup/icons@^1.0.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@sumup/icons/-/icons-1.5.0.tgz#4de62ed0914d0a1d096fa2a5b8c28403250a592b"
-  integrity sha512-Te15Xieyqk5Sr/Hwsh+L1QmODzv/zYE/FVrHdV1qZUeleYBEOOk/VvW08/2KoInSGEWIIxvT1yk4krjBhtM/bA==
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@sumup/icons/-/icons-1.5.1.tgz#a8a50b5501b7ae600ca2f65bb5913961cb434965"
+  integrity sha512-fK6iOkTsUtA6fhZQdIl0S/N5iThoAfAA9BukYSG8Dv9XBQEuVwKtOIITQuJ7kKW8GJxX0pIXOENc7VqHz3feYw==
 
 "@sumup/intl@^1.0.0":
   version "1.2.0"
