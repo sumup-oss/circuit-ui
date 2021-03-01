@@ -16,6 +16,7 @@
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
+import deprecate from '../../util/deprecate';
 
 type Variant = 'danger' | 'success' | 'warning';
 
@@ -38,12 +39,23 @@ const baseStyles = css`
   label: inline-message;
 `;
 
-const marginStyles = ({ noMargin }: InlineMessageProps) =>
-  noMargin &&
-  css`
+const marginStyles = ({ noMargin }: InlineMessageProps) => {
+  if (!noMargin) {
+    deprecate(
+      [
+        'The default outer spacing in the InlineMessage component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      ].join(' '),
+    );
+    return null;
+  }
+
+  return css`
     label: text--no-margin;
     margin-bottom: 0;
   `;
+};
 
 const createLeftBorderStyles = (variantName: Variant) => ({
   theme,
