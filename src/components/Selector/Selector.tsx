@@ -26,6 +26,7 @@ import {
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import useClickHandler from '../../hooks/use-click-handler';
+import deprecate from '../../util/deprecate';
 
 export interface SelectorProps extends HTMLProps<HTMLInputElement> {
   /**
@@ -53,6 +54,10 @@ export interface SelectorProps extends HTMLProps<HTMLInputElement> {
    */
   multiple?: boolean;
   /**
+   * Removes the default bottom margin from the input.
+   */
+  noMargin?: boolean;
+  /**
    * The ref to the html dom element
    */
   ref?: Ref<HTMLInputElement>;
@@ -62,7 +67,7 @@ export interface SelectorProps extends HTMLProps<HTMLInputElement> {
   tracking?: TrackingProps;
 }
 
-type LabelElProps = Pick<SelectorProps, 'disabled'>;
+type LabelElProps = Pick<SelectorProps, 'disabled' | 'noMargin'>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   label: selector__label;
@@ -114,7 +119,28 @@ const disabledStyles = ({ disabled }: LabelElProps) =>
     ${disableVisually()};
   `;
 
-const SelectorLabel = styled('label')<LabelElProps>(baseStyles, disabledStyles);
+const noMarginStyles = ({ noMargin }: LabelElProps) => {
+  if (!noMargin) {
+    deprecate(
+      [
+        'The default outer spacing in the Selector component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      ].join(' '),
+    );
+    return null;
+  }
+  return css`
+    label: selector__label--no-margin;
+    margin-bottom: 0;
+  `;
+};
+
+const SelectorLabel = styled('label')<LabelElProps>(
+  baseStyles,
+  disabledStyles,
+  noMarginStyles,
+);
 
 const inputStyles = ({ theme }: StyleProps) => css`
   label: selector__input;
@@ -153,6 +179,7 @@ export const Selector = React.forwardRef(
       tracking,
       className,
       style,
+      noMargin,
       ...props
     }: SelectorProps,
     ref: SelectorProps['ref'],
@@ -187,6 +214,7 @@ export const Selector = React.forwardRef(
           disabled={disabled}
           className={className}
           style={style}
+          noMargin={noMargin}
         >
           {children}
         </SelectorLabel>

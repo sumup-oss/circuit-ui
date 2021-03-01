@@ -32,6 +32,7 @@ export default {
 const baseArgs = {
   name: 'selector',
   value: 'default',
+  noMargin: true,
 };
 
 export const Base = (args: SelectorProps) => (
