@@ -55,6 +55,11 @@ describe('Checkbox', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with noMargin styles when passed the noMargin prop', () => {
+    const actual = create(<Checkbox noMargin {...defaultProps} />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with a tooltip when passed a validation hint', () => {
     const actual = create(
       <Checkbox validationHint="This field is required." {...defaultProps} />,

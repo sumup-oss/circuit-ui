@@ -142,14 +142,14 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 >
   <input
     class="circuit-0"
-    id="checkbox_5"
+    id="checkbox_6"
     name="name"
     type="checkbox"
     value=""
   />
   <label
     class="circuit-1"
-    for="checkbox_5"
+    for="checkbox_6"
   >
     <svg
       aria-hidden="true"
@@ -704,6 +704,140 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   <label
     class="circuit-1"
     for="checkbox_4"
+  >
+    <svg
+      aria-hidden="true"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 8.79L6 13l8-9"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`Checkbox should render with noMargin styles when passed the noMargin prop 1`] = `
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:hover + label::before {
+  border-color: #666;
+}
+
+.circuit-0:focus + label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+  border-color: #3063E9;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:checked + label > svg {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #3063E9;
+  background-color: #3063E9;
+}
+
+.circuit-1 {
+  color: #1A1A1A;
+  display: inline-block;
+  padding-left: 26px;
+  position: relative;
+  cursor: pointer;
+}
+
+.circuit-1::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+}
+
+.circuit-1 svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0,0);
+  -ms-transform: translateY(-50%) scale(0,0);
+  transform: translateY(-50%) scale(0,0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+}
+
+.circuit-2 {
+  position: relative;
+}
+
+.circuit-2:last-of-type {
+  margin-bottom: 16px;
+}
+
+.circuit-2:last-of-type {
+  margin-bottom: 0;
+}
+
+<div
+  class="circuit-2"
+>
+  <input
+    class="circuit-0"
+    id="checkbox_5"
+    name="name"
+    type="checkbox"
+    value=""
+  />
+  <label
+    class="circuit-1"
+    for="checkbox_5"
   >
     <svg
       aria-hidden="true"
