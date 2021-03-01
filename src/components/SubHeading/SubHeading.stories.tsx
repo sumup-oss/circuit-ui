@@ -27,14 +27,16 @@ export default {
 };
 
 export const Base = (args: SubHeadingProps) => (
-  <SubHeading {...args}>This is a subheading</SubHeading>
+  <SubHeading {...args} noMargin>
+    This is a subheading
+  </SubHeading>
 );
 
 const sizes = ['mega', 'kilo'] as const;
 
 export const Sizes = (args: SubHeadingProps) =>
   sizes.map((s) => (
-    <SubHeading key={s} {...args} size={s}>
+    <SubHeading key={s} {...args} size={s} noMargin>
       This is a {s} subheading.
     </SubHeading>
   ));
