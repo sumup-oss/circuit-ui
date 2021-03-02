@@ -15,7 +15,7 @@
 
 import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
-import { curry } from 'lodash';
+import { curry, isObject } from 'lodash';
 
 type ThemeArgs = Theme | { theme: Theme };
 
@@ -49,14 +49,55 @@ const spacingString = (size: Spacing, theme: Theme) => {
   return css({ margin: theme.spacings[size] });
 };
 
-export const spacing = curry((size: Spacing, args: ThemeArgs) => {
-  const theme = getTheme(args);
-
-  if (typeof size === 'string') {
-    return spacingString(size, theme);
+const spacingObject = (
+  size: { top?: Spacing; bottom?: Spacing; right?: Spacing; left?: Spacing },
+  theme: Theme,
+) => {
+  const margins: {
+    marginTop?: string;
+    marginBottom?: string;
+    marginRight?: string;
+    marginLeft?: string;
+  } = {};
+  if (size.top) {
+    margins.marginTop = theme.spacings[size.top];
   }
-  return null;
-});
+
+  if (size.bottom) {
+    margins.marginBottom = theme.spacings[size.bottom];
+  }
+
+  if (size.right) {
+    margins.marginRight = theme.spacings[size.right];
+  }
+
+  if (size.left) {
+    margins.marginLeft = theme.spacings[size.left];
+  }
+
+  return css(margins);
+};
+
+export const spacing = curry(
+  (
+    size:
+      | Spacing
+      | { top?: Spacing; bottom?: Spacing; right?: Spacing; left?: Spacing },
+    args: ThemeArgs,
+  ) => {
+    const theme = getTheme(args);
+
+    if (typeof size === 'string') {
+      return spacingString(size, theme);
+    }
+
+    if (isObject(size)) {
+      return spacingObject(size, theme);
+    }
+
+    return null;
+  },
+);
 
 export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
