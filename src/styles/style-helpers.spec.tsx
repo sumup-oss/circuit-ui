@@ -96,6 +96,82 @@ describe('Style helpers', () => {
       ) as SerializedStyles;
       expect(styles).toMatchInlineSnapshot(`"margin:16px;"`);
     });
+
+    it('should apply spacing to four sides when passing an array', () => {
+      const { styles } = StyleHelpers.spacing(
+        ['giga'],
+        light,
+      ) as SerializedStyles;
+      expect(styles).toMatchInlineSnapshot(`"margin:24px;"`);
+    });
+
+    it('should apply vertical and horizontal spacing when passing two values in an array', () => {
+      const { styles } = StyleHelpers.spacing(
+        ['giga', 'mega'],
+        light,
+      ) as SerializedStyles;
+      expect(styles).toMatchInlineSnapshot(
+        `"margin-top:24px;margin-bottom:24px;margin-right:16px;margin-left:16px;"`,
+      );
+    });
+
+    it('should apply only vertical spacing when passing one value and null in an array', () => {
+      const { styles } = StyleHelpers.spacing(
+        ['mega', null],
+        light,
+      ) as SerializedStyles;
+      expect(styles).toMatchInlineSnapshot(
+        `"margin-top:16px;margin-bottom:16px;"`,
+      );
+    });
+
+    it('should apply only horizontal spacing when passing one value and null in an array', () => {
+      const { styles } = StyleHelpers.spacing(
+        [null, 'kilo'],
+        light,
+      ) as SerializedStyles;
+      expect(styles).toMatchInlineSnapshot(
+        `"margin-right:12px;margin-left:12px;"`,
+      );
+    });
+
+    it('should apply vertical and horizontal spacing when passing three values in an array', () => {
+      const { styles } = StyleHelpers.spacing(
+        ['giga', 'mega', 'kilo'],
+        light,
+      ) as SerializedStyles;
+      expect(styles).toMatchInlineSnapshot(
+        `"margin-top:24px;margin-bottom:12px;margin-right:16px;margin-left:16px;"`,
+      );
+    });
+
+    it('should apply individual spacing to each sides when passing all four values in an array', () => {
+      const { styles } = StyleHelpers.spacing(
+        ['giga', 'mega', 'kilo', 'byte'],
+        light,
+      ) as SerializedStyles;
+      expect(styles).toMatchInlineSnapshot(
+        `"margin-top:24px;margin-bottom:12px;margin-right:16px;margin-left:8px;"`,
+      );
+    });
+
+    it('should apply individual spacing for one side when passing an object', () => {
+      const { styles } = StyleHelpers.spacing(
+        { bottom: 'kilo' },
+        light,
+      ) as SerializedStyles;
+      expect(styles).toMatchInlineSnapshot(`"margin-bottom:12px;"`);
+    });
+
+    it('should apply individual spacing to each sides when passing all four values in an object', () => {
+      const { styles } = StyleHelpers.spacing(
+        { top: 'kilo', right: 'mega', left: 'giga', bottom: 'kilo' },
+        light,
+      ) as SerializedStyles;
+      expect(styles).toMatchInlineSnapshot(
+        `"margin-top:12px;margin-bottom:12px;margin-right:16px;margin-left:24px;"`,
+      );
+    });
   });
 
   describe('shadowSingle', () => {
