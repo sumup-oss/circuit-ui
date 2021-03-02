@@ -15,6 +15,7 @@
 
 import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
+import { curry } from 'lodash';
 
 type ThemeArgs = Theme | { theme: Theme };
 
@@ -34,6 +35,28 @@ type StyleFn =
 
 export const cx = (...styleFns: StyleFn[]) => (theme: Theme) =>
   styleFns.map((styleFn) => styleFn && styleFn(theme));
+type Spacing = keyof Theme['spacings'] | null;
+
+const spacingString = (size: Spacing, theme: Theme) => {
+  if (!size) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn(
+        'You are trying to reset the spacing which is not supported, because `null` means no margin, not zero margin. Fix it by providing one of the supported values.',
+      );
+    }
+    return null;
+  }
+  return css({ margin: theme.spacings[size] });
+};
+
+export const spacing = curry((size: Spacing, args: ThemeArgs) => {
+  const theme = getTheme(args);
+
+  if (typeof size === 'string') {
+    return spacingString(size, theme);
+  }
+  return null;
+});
 
 export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);

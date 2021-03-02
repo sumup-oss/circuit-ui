@@ -82,6 +82,19 @@ describe('Style helpers', () => {
           class="circuit-0"
         />
       `);
+import { SerializedStyles } from '@emotion/core';
+import { light } from '@sumup/design-tokens';
+
+import * as StyleHelpers from './style-helpers';
+
+describe('Style helpers', () => {
+  describe('spacing', () => {
+    it('should apply spacing to four sides when passing a string', () => {
+      const { styles } = StyleHelpers.spacing(
+        'mega',
+        light,
+      ) as SerializedStyles;
+      expect(styles).toMatchInlineSnapshot(`"margin:16px;"`);
     });
   });
 
