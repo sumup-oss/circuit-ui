@@ -15,7 +15,7 @@
 
 import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
-import { curry, isObject } from 'lodash';
+import { curry, isObject, isArray } from 'lodash';
 
 type ThemeArgs = Theme | { theme: Theme };
 
@@ -77,11 +77,71 @@ const spacingObject = (
 
   return css(margins);
 };
+const spacingArray = (
+  size: [Spacing, Spacing?, Spacing?, Spacing?],
+  theme: Theme,
+) => {
+  const margins: {
+    marginTop?: string;
+    marginBottom?: string;
+    marginRight?: string;
+    marginLeft?: string;
+  } = {};
+
+  if (size.length === 1) {
+    if (!size[0]) {
+      if (process.env.NODE_ENV !== 'production') {
+        console.warn(
+          'You are trying to reset the spacing which is not supported, because `null` means no margin, not zero margin. Fix it by providing one of the supprted values',
+        );
+      }
+      return null;
+    }
+    return css({ margin: theme.spacings[size[0]] });
+  }
+  if (size.length === 2) {
+    if (size[0]) {
+      margins.marginTop = theme.spacings[size[0]];
+      margins.marginBottom = theme.spacings[size[0]];
+    }
+
+    if (size[1]) {
+      margins.marginRight = theme.spacings[size[1]];
+      margins.marginLeft = theme.spacings[size[1]];
+    }
+
+    return css(margins);
+  }
+  if (size.length === 3) {
+    return spacingObject(
+      {
+        top: size[0],
+        right: size[1],
+        bottom: size[2],
+        left: size[1],
+      },
+      theme,
+    );
+  }
+  if (size.length === 4) {
+    return spacingObject(
+      {
+        top: size[0],
+        right: size[1],
+        bottom: size[2],
+        left: size[3],
+      },
+      theme,
+    );
+  }
+  return null;
+};
 
 export const spacing = curry(
   (
     size:
       | Spacing
+      | [Spacing, Spacing?, Spacing?, Spacing?]
       | { top?: Spacing; bottom?: Spacing; right?: Spacing; left?: Spacing },
     args: ThemeArgs,
   ) => {
@@ -89,6 +149,10 @@ export const spacing = curry(
 
     if (typeof size === 'string') {
       return spacingString(size, theme);
+    }
+
+    if (isArray(size)) {
+      return spacingArray(size, theme);
     }
 
     if (isObject(size)) {
