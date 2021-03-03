@@ -15,7 +15,7 @@
 
 import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
-import { curry, isObject, isArray } from 'lodash';
+import { curry, isObject, isArray } from 'lodash/fp';
 
 type ThemeArgs = Theme | { theme: Theme };
 
@@ -41,7 +41,7 @@ const spacingString = (size: Spacing, theme: Theme) => {
   if (!size) {
     if (process.env.NODE_ENV !== 'production') {
       console.warn(
-        'You are trying to reset the spacing which is not supported, because `null` means no margin, not zero margin. Fix it by providing one of the supported values.',
+        'A single `null` value was passed to the spacing mixin. This has no effect since `null` represents no set margin, not zero margin. If you are trying to reset the spacing, use custom styles instead.',
       );
     }
     return null;
@@ -81,18 +81,11 @@ const spacingArray = (
   size: [Spacing, Spacing?, Spacing?, Spacing?],
   theme: Theme,
 ) => {
-  const margins: {
-    marginTop?: string;
-    marginBottom?: string;
-    marginRight?: string;
-    marginLeft?: string;
-  } = {};
-
   if (size.length === 1) {
     if (!size[0]) {
       if (process.env.NODE_ENV !== 'production') {
         console.warn(
-          'You are trying to reset the spacing which is not supported, because `null` means no margin, not zero margin. Fix it by providing one of the supprted values',
+          'A single `null` value was passed to the spacing mixin. This has no effect since `null` represents no set margin, not zero margin. If you are trying to reset the spacing, use custom styles instead.',
         );
       }
       return null;
@@ -100,6 +93,12 @@ const spacingArray = (
     return css({ margin: theme.spacings[size[0]] });
   }
   if (size.length === 2) {
+    const margins: {
+      marginTop?: string;
+      marginBottom?: string;
+      marginRight?: string;
+      marginLeft?: string;
+    } = {};
     if (size[0]) {
       margins.marginTop = theme.spacings[size[0]];
       margins.marginBottom = theme.spacings[size[0]];
