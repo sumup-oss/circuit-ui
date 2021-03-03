@@ -32,7 +32,7 @@ export const Base = (args) => {
       date={date}
       onDateChange={setDate}
       focused={focusedInput}
-      onFocusChange={setFocusedInput}
+      onFocusChange={({ focused }) => setFocusedInput(focused)}
     />
   );
 };
