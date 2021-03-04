@@ -41,13 +41,13 @@ exports[`Buttons styles should render with default styles 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
   padding: 8px;
   margin-left: 8px;
 }

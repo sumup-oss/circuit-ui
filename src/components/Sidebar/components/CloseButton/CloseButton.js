@@ -21,7 +21,6 @@ import BaseButton from '../../../CloseButton';
 
 const baseStyles = ({ theme }) => css`
   label: sidebar-close-button;
-  border-radius: ${theme.borderRadius.circle};
   position: absolute;
   bottom: ${theme.spacings.mega};
   right: ${theme.spacings.mega};

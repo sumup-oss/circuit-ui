@@ -43,13 +43,13 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
   padding: 8px;
   margin-right: 12px;
   -webkit-flex-shrink: 0;
@@ -131,13 +131,16 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3063E9;
   border-color: #3063E9;
   color: #FFF;
   padding: 4px calc(16px - 1px);
-  border-radius: 6px;
+  min-width: 34px;
+  padding: 4px;
+  margin-right: 4px;
 }
 
 .circuit-2:focus {
@@ -166,6 +169,10 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   border-color: #1A368E;
 }
 
+li:last-child .circuit-2 {
+  margin-right: 0;
+}
+
 .circuit-3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -191,13 +198,16 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
   padding: 4px calc(16px - 1px);
-  border-radius: 6px;
+  min-width: 34px;
+  padding: 4px;
+  margin-right: 4px;
 }
 
 .circuit-3:focus {
@@ -222,6 +232,10 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 
 .circuit-3:active {
   color: #1A368E;
+}
+
+li:last-child .circuit-3 {
+  margin-right: 0;
 }
 
 .circuit-9 {
@@ -249,13 +263,13 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
   padding: 8px;
   margin-left: 12px;
   -webkit-flex-shrink: 0;
@@ -446,13 +460,13 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
   padding: 8px;
   margin-right: 12px;
   -webkit-flex-shrink: 0;
@@ -522,13 +536,13 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
+  border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
   padding: 8px calc(24px - 1px);
-  border-radius: 8px;
   padding: 8px;
   margin-left: 12px;
   -webkit-flex-shrink: 0;

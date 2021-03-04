@@ -13,17 +13,18 @@
  * limitations under the License.
  */
 
-import React, { FunctionComponent } from 'react';
+import React, { HTMLProps } from 'react';
+import { css } from '@emotion/core';
 
-import styled from '../../../../styles/styled';
+import styled, { StyleProps } from '../../../../styles/styled';
 import Button from '../../../Button';
 
-export interface PageListProps {
+export interface PageListProps
+  extends Omit<HTMLProps<HTMLOListElement>, 'onChange' | 'type'> {
   onChange: (page: number) => void;
   pageLabel: (page: number) => string;
   pages: number[];
   currentPage: number;
-  [key: string]: any;
 }
 
 const List = styled.ol`
@@ -32,20 +33,32 @@ const List = styled.ol`
   justify-content: center;
 `;
 
-export const PageList: FunctionComponent<PageListProps> = ({
+const buttonStyles = ({ theme }: StyleProps) => css`
+  min-width: 34px;
+  padding: ${theme.spacings.bit};
+  margin-right: ${theme.spacings.bit};
+
+  li:last-child & {
+    margin-right: 0;
+  }
+`;
+
+const PageButton = styled(Button)(buttonStyles);
+
+export const PageList = ({
   onChange,
   pageLabel,
   pages,
   currentPage,
   ...props
-}) => (
+}: PageListProps) => (
   <List role="list" {...props}>
     {pages.map((page) => {
       const isCurrent = currentPage === page;
       const label = pageLabel(page);
       return (
         <li key={page}>
-          <Button
+          <PageButton
             size="kilo"
             onClick={() => onChange(page)}
             variant={isCurrent ? 'primary' : 'tertiary'}
@@ -54,7 +67,7 @@ export const PageList: FunctionComponent<PageListProps> = ({
             aria-current={isCurrent}
           >
             {page}
-          </Button>
+          </PageButton>
         </li>
       );
     })}

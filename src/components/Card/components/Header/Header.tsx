@@ -68,7 +68,7 @@ const CardHeaderContainer = styled('header')<ContainerElProps>(
 
 const closeButtonStyles = ({ theme }: StyleProps) => css`
   margin-top: -${theme.spacings.byte};
-  margin-right: -${theme.spacings.kilo};
+  margin-right: -${theme.spacings.mega};
   margin-bottom: -${theme.spacings.byte};
 `;
 
