@@ -172,6 +172,13 @@ describe('Style helpers', () => {
         `"margin-top:12px;margin-bottom:12px;margin-right:16px;margin-left:24px;"`,
       );
     });
+
+    it('should apply correct margin for the currying behaviour', () => {
+      const { styles } = StyleHelpers.spacing('mega')(
+        light,
+      ) as SerializedStyles;
+      expect(styles).toMatchInlineSnapshot(`"margin:16px;"`);
+    });
   });
 
   describe('shadowSingle', () => {
