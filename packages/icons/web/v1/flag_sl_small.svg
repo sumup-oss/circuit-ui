@@ -1,32 +1,28 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 6h13a2 2 0 012 2v8a2 2 0 01-2 2h-13a2 2 0 01-2-2V8a2 2 0 012-2zm0 .5A1.5 1.5 0 004 8v8a1.5 1.5 0 001.5 1.5h13A1.5 1.5 0 0020 16V8a1.5 1.5 0 00-1.5-1.5h-13z" fill="#D8DDE1"/>
-    <g clip-path="url(#flag_sl_small_svg__clip0)">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 10.159h16V8.113c0-.891-.716-1.613-1.6-1.613H5.6c-.884 0-1.6.723-1.6 1.613v2.046z" fill="#fff"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 13.898h16V10.13H4v3.768z" fill="#015DA4"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 15.887c0 .89.716 1.613 1.6 1.613h12.8c.884 0 1.6-.723 1.6-1.613v-2.046H4v2.046z" fill="#CD1D28"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.582 10.13l.077-1.217-.077 1.217z" fill="#F9F9F9"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.576 10.249l.008-.119-.008.119z" fill="#2752A7"/>
-        <mask id="flag_sl_small_svg__a" maskUnits="userSpaceOnUse" x="6" y="8" width="3" height="4">
-            <path d="M8.738 8.913v2.656H6.504V8.913h2.234z" fill="#fff"/>
-        </mask>
-        <g mask="url(#flag_sl_small_svg__a)">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.01 11.2c.17.173.38.3.611.369a1.471 1.471 0 001.035-1.314l.008-.124.074-1.181a2.172 2.172 0 00-.078-.037l-.077 1.218-.007.118a1.391 1.391 0 01-.955 1.235 1.391 1.391 0 01-.955-1.235l-.083-1.336a2.2 2.2 0 00-.08.037l.075 1.18.008.125c.022.357.173.693.424.946" fill="#FF1F1F"/>
-        </g>
-        <mask id="flag_sl_small_svg__b" maskUnits="userSpaceOnUse" x="6" y="8" width="3" height="4">
-            <path d="M8.66 8.692H6.583v2.791H8.66v-2.79z" fill="#fff"/>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.882 2h12.236C15.158 2 16 2.843 16 3.882v7.53c0 1.04-.843 1.882-1.882 1.882H1.882A1.882 1.882 0 0 1 0 11.412v-7.53C0 2.842.843 2 1.882 2zm0 .47c-.78 0-1.411.633-1.411 1.412v7.53c0 .78.632 1.411 1.411 1.411h12.236c.78 0 1.411-.632 1.411-1.411v-7.53c0-.78-.632-1.411-1.411-1.411H1.882z" fill="#D8DDE1"/>
+    <g clip-path="url(#flag_sl_small_svg__a)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 5.93h15V4.012c0-.835-.671-1.512-1.5-1.512H2c-.828 0-1.5.678-1.5 1.512V5.93z" fill="#fff"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 9.436h15V5.904H.5v3.532z" fill="#015DA4"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 11.3c0 .835.671 1.512 1.5 1.512h12c.829 0 1.5-.677 1.5-1.512V9.382H.5V11.3z" fill="#CD1D28"/>
+        <path d="M3.129 6.567L3 6.208l-.05-.358h.95V7.2l-.4-.224-.371-.41z" fill="#fff"/>
+        <path d="M4.671 6.567l.129-.359.05-.358H3.9V7.2l.4-.224.371-.41z" fill="#fff"/>
+        <path d="M3.4 4.65l.5-.05.5.05v.45l-.5.2-.5-.2v-.45z" fill="#FFE600"/>
+        <mask id="flag_sl_small_svg__b" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="4" width="3" height="4">
+            <path d="M4.942 4.762v2.49H2.847v-2.49h2.095z" fill="#fff"/>
         </mask>
         <g mask="url(#flag_sl_small_svg__b)">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.37 10.105l.252-.506.25.506.168-.225.42.563a.283.283 0 01-.173.26.276.276 0 01-.247-.016.28.28 0 00-.28 0 .275.275 0 01-.278 0 .279.279 0 00-.28 0 .278.278 0 01-.397-.136.283.283 0 01-.021-.108l.419-.563.167.225zM7.22 8.86l.077.008.031-.072.032.072.077-.009-.046.064.046.063-.077-.008-.032.071-.031-.071-.078.008.046-.063-.046-.064zm.293.394l.077.008.032-.072.03.072.078-.008-.046.063.046.063-.077-.008-.031.072-.032-.072-.077.008.045-.063-.045-.063zm.293-.395l.077.009.032-.072.031.072.077-.009-.046.064.046.063-.077-.008-.031.071-.032-.071-.077.008.046-.063-.046-.064zm.49 2.002a.276.276 0 01-.256-.012.278.278 0 00-.279 0 .278.278 0 01-.28 0 .279.279 0 00-.278 0 .278.278 0 01-.257.012 1.368 1.368 0 01-.063-.112.307.307 0 01.04.019.276.276 0 00.28 0 .278.278 0 01.279 0 .278.278 0 00.28 0H7.76a.279.279 0 01.28 0 .276.276 0 00.279 0 .321.321 0 01.04-.02c-.02.04-.04.077-.063.113zm-.177.224c-.14.141-.31.248-.497.313a1.295 1.295 0 01-.603-.433.273.273 0 00.184-.034.278.278 0 01.279 0 .277.277 0 00.28 0H7.76a.28.28 0 01.28 0c.055.032.12.044.183.034a1.246 1.246 0 01-.105.12zm-1.452-.837a1.391 1.391 0 00.955 1.235c.263-.085.496-.248.666-.469a1.4 1.4 0 00.288-.766l.008-.118.076-1.217a2.554 2.554 0 00-2.077 0l.084 1.335z" fill="#005EA5"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.321 6.907c.16.16.357.28.573.345.268-.08.504-.242.677-.463.174-.22.276-.488.294-.77l.007-.115.07-1.108a2.028 2.028 0 0 0-.074-.034l-.071 1.142-.008.11a1.304 1.304 0 0 1-.895 1.158A1.304 1.304 0 0 1 3 6.015l-.078-1.253-.074.034.07 1.108.007.116c.02.335.162.65.397.887" fill="#FF1F1F"/>
         </g>
-        <path fill="url(#flag_sl_small_svg__pattern0)" d="M6.783 8.796h1.669v2.597H6.783z"/>
+        <mask id="flag_sl_small_svg__c" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="4" width="3" height="4">
+            <path d="M4.868 4.555H2.921V7.17h1.947V4.555z" fill="#fff"/>
+        </mask>
+        <g mask="url(#flag_sl_small_svg__c)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.659 5.88l.235-.475.236.475.157-.212.393.528a.266.266 0 0 1-.162.244.26.26 0 0 1-.23-.015.265.265 0 0 0-.263 0 .259.259 0 0 1-.262 0 .26.26 0 0 0-.261 0 .26.26 0 0 1-.373-.128.265.265 0 0 1-.02-.1l.393-.529.157.212zm-.142-1.168l.073.008.03-.068.03.068.071-.008-.043.06.043.059-.072-.008-.03.067-.03-.067-.072.008.044-.06-.044-.06zm.275.37l.073.007.03-.067.029.067.073-.008-.044.06.044.059-.073-.008-.03.068-.029-.068-.073.008.043-.06-.043-.059zm.275-.37l.073.008.03-.068.029.068.072-.008-.043.06.043.059-.072-.008-.03.067-.03-.067-.072.008.043-.06-.043-.06zm.46 1.876a.26.26 0 0 1-.24-.01.261.261 0 0 0-.262 0 .26.26 0 0 1-.262 0 .26.26 0 0 0-.261 0s0-.001 0 0a.261.261 0 0 1-.24.01 1.28 1.28 0 0 1-.06-.105.288.288 0 0 1 .038.018.259.259 0 0 0 .262 0 .26.26 0 0 1 .261 0 .26.26 0 0 0 .262 0 .262.262 0 0 1 .262 0 .26.26 0 0 0 .262 0 .303.303 0 0 1 .038-.018 1.213 1.213 0 0 1-.06.105zm-.166.21c-.132.133-.291.233-.467.293a1.215 1.215 0 0 1-.565-.406.256.256 0 0 0 .173-.032.26.26 0 0 1 .261 0 .26.26 0 0 0 .262 0 .262.262 0 0 1 .262 0c.052.031.113.042.173.032-.031.04-.064.078-.1.113zm-1.362-.784a1.304 1.304 0 0 0 .895 1.157 1.29 1.29 0 0 0 .625-.439c.16-.207.254-.457.27-.718l.008-.111.071-1.141a2.394 2.394 0 0 0-1.947 0l.078 1.252z" fill="#005EA5"/>
+        </g>
     </g>
     <defs>
-        <clipPath id="flag_sl_small_svg__clip0">
-            <path fill="#fff" d="M4 6.5h16v11H4z"/>
+        <clipPath id="flag_sl_small_svg__a">
+            <path fill="#fff" transform="translate(0 2.5)" d="M0 0h16v11H0z"/>
         </clipPath>
-        <pattern id="flag_sl_small_svg__pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlink:href="#flag_sl_small_svg__image0" transform="scale(.02174 .01408)"/>
-        </pattern>
-        <image id="flag_sl_small_svg__image0" width="46" height="71" xlink:href="data:image/png;base64,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"/>
     </defs>
 </svg>
