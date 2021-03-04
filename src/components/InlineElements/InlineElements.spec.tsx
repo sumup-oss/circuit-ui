@@ -15,29 +15,42 @@
 
 import React from 'react';
 
-import InlineElements from '.';
+import { create, renderToHtml, axe, RenderFn } from '../../util/test-utils';
+
+import { InlineElements, InlineElementsProps } from './InlineElements';
 
 describe('InlineElements', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<InlineElements />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with ratio styles', () => {
-    const actual = create(
-      <InlineElements inlineMobile ratios={[2, 1]}>
+  function renderInlineElements<T>(
+    renderFn: RenderFn<T>,
+    props?: Omit<InlineElementsProps, 'children'>,
+  ) {
+    return renderFn(
+      <InlineElements {...props}>
         <div />
         <div />
       </InlineElements>,
     );
+  }
+
+  /**
+   * Style tests.
+   */
+  it('should render with default styles', () => {
+    const actual = renderInlineElements(create);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with ratio styles', () => {
+    const actual = renderInlineElements(create, {
+      ratios: [2, 1],
+    });
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with inlineMobile styles', () => {
-    const actual = create(<InlineElements inlineMobile />);
+    const actual = renderInlineElements(create, {
+      inlineMobile: true,
+    });
     expect(actual).toMatchSnapshot();
   });
 
@@ -45,7 +58,7 @@ describe('InlineElements', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<InlineElements />);
+    const wrapper = renderInlineElements(renderToHtml);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

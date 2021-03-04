@@ -94,6 +94,8 @@ export { default as Row } from './components/Row';
 export { default as Col } from './components/Col';
 export { default as Spacing } from './components/Spacing';
 export type { SpacingProps } from './components/Spacing';
+export { default as InlineElements } from './components/InlineElements';
+export type { InlineElementsProps } from './components/InlineElements';
 
 // Misc
 export { Tabs, TabList, TabPanel, Tab } from './components/Tabs';
@@ -151,9 +153,6 @@ export { default as Header } from './components/Header';
 export { default as Step, useStep } from './components/Step';
 export { default as AspectRatio } from './components/AspectRatio';
 export { default as Carousel, CarouselComposer } from './components/Carousel';
-
-// Helpers
-export { default as InlineElements } from './components/InlineElements';
 
 export {
   ComponentsContext,

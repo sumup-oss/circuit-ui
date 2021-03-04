@@ -20,8 +20,8 @@ exports[`InlineElements should render with default styles 1`] = `
 @media (min-width:480px) {
   .circuit-0 > * {
     float: left;
-    width: Infinity%;
-    width: calc( (100% - -1 * 8px) / 0 );
+    width: 47.5%;
+    width: calc((100% - 1 * 8px) / 2);
   }
 
   .circuit-0::before,
@@ -69,8 +69,11 @@ exports[`InlineElements should render with default styles 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
-/>
+  class="circuit-0"
+>
+  <div />
+  <div />
+</div>
 `;
 
 exports[`InlineElements should render with inlineMobile styles 1`] = `
@@ -93,8 +96,8 @@ exports[`InlineElements should render with inlineMobile styles 1`] = `
 @media (min-width:480px) {
   .circuit-0 > * {
     float: left;
-    width: Infinity%;
-    width: calc( (100% - -1 * 8px) / 0 );
+    width: 47.5%;
+    width: calc((100% - 1 * 8px) / 2);
   }
 
   .circuit-0::before,
@@ -144,8 +147,8 @@ exports[`InlineElements should render with inlineMobile styles 1`] = `
 @media (max-width:479px) {
   .circuit-0 > * {
     float: left;
-    width: Infinity%;
-    width: calc( (100% - -1 * 8px) / 0 );
+    width: 47.5%;
+    width: calc((100% - 1 * 8px) / 2);
   }
 
   .circuit-0::before,
@@ -178,8 +181,11 @@ exports[`InlineElements should render with inlineMobile styles 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
-/>
+  class="circuit-0"
+>
+  <div />
+  <div />
+</div>
 `;
 
 exports[`InlineElements should render with ratio styles 1`] = `
@@ -203,7 +209,7 @@ exports[`InlineElements should render with ratio styles 1`] = `
   .circuit-0 > * {
     float: left;
     width: 47.5%;
-    width: calc( (100% - 1 * 8px) / 2 );
+    width: calc((100% - 1 * 8px) / 2);
   }
 
   .circuit-0::before,
@@ -266,44 +272,8 @@ exports[`InlineElements should render with ratio styles 1`] = `
   }
 }
 
-@media (max-width:479px) {
-  .circuit-0 > * {
-    float: left;
-    width: 47.5%;
-    width: calc( (100% - 1 * 8px) / 2 );
-  }
-
-  .circuit-0::before,
-  .circuit-0::after {
-    content: ' ';
-    display: table;
-  }
-
-  .circuit-0::after {
-    clear: both;
-  }
-}
-
-@media (max-width:479px) {
-  .circuit-0 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    width: auto;
-  }
-
-  .circuit-0 > *:not(:last-of-type) {
-    margin-bottom: 0;
-    margin-right: 8px;
-  }
-}
-
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   <div />
   <div />
