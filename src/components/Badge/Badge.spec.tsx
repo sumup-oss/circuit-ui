@@ -35,23 +35,17 @@ describe('Badge', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with success styles', () => {
-    const actual = create(<Badge variant="success" />);
-    expect(actual).toMatchSnapshot();
-  });
+  const variants = [
+    'neutral',
+    'success',
+    'warning',
+    'danger',
+    'primary',
+    'promo',
+  ] as const;
 
-  it('should render with warning styles', () => {
-    const actual = create(<Badge variant="warning" />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with danger styles', () => {
-    const actual = create(<Badge variant="danger" />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with primary styles', () => {
-    const actual = create(<Badge variant="primary" />);
+  it.each(variants)('should render with %s styles', (variant) => {
+    const actual = create(<Badge variant={variant} />);
     expect(actual).toMatchSnapshot();
   });
 

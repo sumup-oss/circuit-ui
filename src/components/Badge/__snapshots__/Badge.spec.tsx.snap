@@ -126,6 +126,29 @@ exports[`Badge should render with default styles 1`] = `
 />
 `;
 
+exports[`Badge should render with neutral styles 1`] = `
+.circuit-0 {
+  border-radius: 999999px;
+  color: #FFF;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #E6E6E6;
+  color: #1A1A1A;
+}
+
+<div
+  class="circuit-0"
+/>
+`;
+
 exports[`Badge should render with primary styles 1`] = `
 .circuit-0 {
   border-radius: 999999px;
@@ -141,6 +164,29 @@ exports[`Badge should render with primary styles 1`] = `
   -ms-letter-spacing: 0.25px;
   letter-spacing: 0.25px;
   background-color: #3063E9;
+  color: #FFF;
+}
+
+<div
+  class="circuit-0"
+/>
+`;
+
+exports[`Badge should render with promo styles 1`] = `
+.circuit-0 {
+  border-radius: 999999px;
+  color: #FFF;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #CA58FF;
   color: #FFF;
 }
 

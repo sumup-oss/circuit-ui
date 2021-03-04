@@ -30,7 +30,7 @@ export interface BadgeProps extends HTMLProps<HTMLDivElement> {
   /**
    * Choose from 4 style variants. Default: 'neutral'.
    */
-  variant?: 'neutral' | 'success' | 'warning' | 'danger' | 'primary';
+  variant?: 'neutral' | 'success' | 'warning' | 'danger' | 'primary' | 'promo';
   /**
    * Use the circular badge to indicate a count of items related to an element.
    */
@@ -73,6 +73,11 @@ const COLOR_MAP = {
     text: 'bodyColor',
     default: 'n200',
     hover: 'n300',
+  },
+  promo: {
+    text: 'white',
+    default: 'v500',
+    hover: 'v700',
   },
 } as const;
 
