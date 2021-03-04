@@ -27,7 +27,7 @@ const IMAGES = [
   'https://source.unsplash.com/6ArTTluciuA/1600x900',
   'https://source.unsplash.com/uanoYn1AmPs/1600x900',
   'https://source.unsplash.com/Ai2TRdvI6gM/1600x900',
-  'https://source.unsplash.com/wxGwllldlIQ/1600x900',
+  'https://source.unsplash.com/oQl0eVYd_n8/1600x900',
 ];
 const STEP_DURATION = 2000;
 const ANIMATION_DURATION = 300;
