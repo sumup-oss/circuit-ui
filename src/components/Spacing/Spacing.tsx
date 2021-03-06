@@ -16,6 +16,7 @@
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
+import deprecate from '../../util/deprecate';
 
 export interface SpacingProps {
   /**
@@ -28,9 +29,18 @@ export interface SpacingProps {
   top?: boolean;
 }
 
-const baseStyles = () => css`
-  label: spacing;
-`;
+const baseStyles = () => {
+  deprecate(
+    [
+      'The `Spacing` component has been deprecated.',
+      'Use the `spacing` style mixin instead.',
+      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534',
+    ].join(' '),
+  );
+  return css`
+    label: spacing;
+  `;
+};
 
 const marginBottomStyles = ({ theme, bottom }: SpacingProps & StyleProps) =>
   bottom &&
@@ -47,11 +57,12 @@ const marginTopStyles = ({ theme, top }: SpacingProps & StyleProps) =>
   `;
 
 /**
+ * @deprecated Use the `spacing` style mixin instead.
+ *
  * Margin helper component for default margin usage. The idea is to wrap your
  * visual components with this one in order to add top or bottom spacing based
  * on the theme variables.
  */
-
 export const Spacing = styled('div')<SpacingProps>(
   baseStyles,
   marginBottomStyles,
