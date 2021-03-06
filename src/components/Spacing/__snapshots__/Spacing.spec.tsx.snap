@@ -22,6 +22,6 @@ exports[`Spacing margin top should render with margin top styles 1`] = `
 
 exports[`Spacing should render with default styles 1`] = `
 <div
-  class="css-ywy0d0-spacing"
+  class="css-1l0cm9g-spacing"
 />
 `;
