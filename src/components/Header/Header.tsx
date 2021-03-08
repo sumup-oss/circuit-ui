@@ -13,36 +13,34 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { forwardRef, Ref, HTMLProps } from 'react';
 import { css } from '@emotion/core';
-import { Theme } from '@sumup/design-tokens';
 
-import styled, { NoTheme, StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled';
 
 import Title from './components/Title';
 
-export interface HeaderProps {
+export interface HeaderProps extends HTMLProps<HTMLDivElement> {
   /**
    * The page title for the Header.
    */
-  'title': string;
+  title: string;
   /**
    * If the Header should appear only on
    * mobile screens (useful for when using together with the Sidebar).
    */
-  'mobileOnly'?: boolean;
+  mobileOnly?: boolean;
   /**
    * The child component of Header.
    */
-  'children'?: React.ReactNode;
-
-  'data-testid'?: string;
+  children?: React.ReactNode;
+  /**
+   * The ref to the HTML DOM element.
+   */
+  ref?: Ref<HTMLDivElement>;
 }
 
-interface MobileOnlyProps extends StyleProps {
-  theme: Theme;
-  mobileOnly: boolean;
-}
+type HeaderElProps = Pick<HeaderProps, 'mobileOnly'>;
 
 const containerStyles = ({ theme }: StyleProps) => css`
   label: header;
@@ -56,7 +54,7 @@ const containerStyles = ({ theme }: StyleProps) => css`
   position: sticky;
 `;
 
-const mobileOnlyStyles = ({ theme, mobileOnly }: MobileOnlyProps) =>
+const mobileOnlyStyles = ({ theme, mobileOnly }: StyleProps & HeaderElProps) =>
   mobileOnly &&
   css`
     ${theme.mq.giga} {
@@ -64,16 +62,21 @@ const mobileOnlyStyles = ({ theme, mobileOnly }: MobileOnlyProps) =>
     }
   `;
 
-const Container = styled('div')<NoTheme>(mobileOnlyStyles && containerStyles);
-
-export const Header = ({
-  title,
-  mobileOnly,
-  children,
-  ...props
-}: HeaderProps) => (
-  <Container mobileOnly={mobileOnly} {...props}>
-    {children}
-    <Title>{title}</Title>
-  </Container>
+const Container = styled('div')<HeaderElProps>(
+  mobileOnlyStyles,
+  containerStyles,
 );
+
+export const Header = forwardRef(
+  (
+    { title, mobileOnly, children, ...props }: HeaderProps,
+    ref: HeaderProps['ref'],
+  ) => (
+    <Container mobileOnly={mobileOnly} ref={ref} {...props}>
+      {children}
+      <Title>{title}</Title>
+    </Container>
+  ),
+);
+
+Header.displayName = 'Header';
