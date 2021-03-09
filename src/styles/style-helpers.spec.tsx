@@ -13,14 +13,81 @@
  * limitations under the License.
  */
 
-import { light } from '@sumup/design-tokens';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
+import { light, Theme } from '@sumup/design-tokens';
 
-import * as StyleHelpers from './style-helpers';
+import { create } from '../util/test-utils';
+
+import {
+  cx,
+  shadowSingle,
+  shadowDouble,
+  shadowTriple,
+  headingKilo,
+  headingMega,
+  headingGiga,
+  headingTera,
+  headingExa,
+  headingPeta,
+  headingZetta,
+  subHeadingKilo,
+  subHeadingMega,
+  textKilo,
+  textMega,
+  textGiga,
+  disableVisually,
+  hideVisually,
+  focusOutline,
+  clearfix,
+  hideScrollbar,
+  inputOutline,
+} from './style-helpers';
 
 describe('Style helpers', () => {
+  const red = (theme: Theme) => css`
+    color: ${theme.colors.r500};
+  `;
+  const green = (theme: Theme) => css`
+    color: ${theme.colors.g500};
+  `;
+
+  describe('cx', () => {
+    it('should call each style function with the theme', () => {
+      const actual = create(<div css={cx(red, green)} />);
+
+      expect(actual).toMatchInlineSnapshot(`
+        .circuit-0 {
+          color: #D23F47;
+          color: #8CC13F;
+        }
+
+        <div
+          class="circuit-0"
+        />
+      `);
+    });
+
+    it('should skip falsy style functions', () => {
+      const isGreen = false;
+
+      const actual = create(<div css={cx(red, isGreen && green)} />);
+
+      expect(actual).toMatchInlineSnapshot(`
+        .circuit-0 {
+          color: #D23F47;
+        }
+
+        <div
+          class="circuit-0"
+        />
+      `);
+    });
+  });
+
   describe('shadowSingle', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.shadowSingle({ theme: light });
+      const { styles } = shadowSingle({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
             box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
@@ -32,7 +99,7 @@ describe('Style helpers', () => {
 
   describe('shadowDouble', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.shadowDouble({ theme: light });
+      const { styles } = shadowDouble({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
             box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
@@ -44,7 +111,7 @@ describe('Style helpers', () => {
 
   describe('shadowTriple', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.shadowTriple({ theme: light });
+      const { styles } = shadowTriple({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
             box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
@@ -56,7 +123,7 @@ describe('Style helpers', () => {
 
   describe('headingKilo', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.headingKilo({ theme: light });
+      const { styles } = headingKilo({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 17px;
@@ -68,7 +135,7 @@ describe('Style helpers', () => {
 
   describe('headingMega', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.headingMega({ theme: light });
+      const { styles } = headingMega({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 19px;
@@ -80,7 +147,7 @@ describe('Style helpers', () => {
 
   describe('headingGiga', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.headingGiga({ theme: light });
+      const { styles } = headingGiga({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 22px;
@@ -92,7 +159,7 @@ describe('Style helpers', () => {
 
   describe('headingTera', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.headingTera({ theme: light });
+      const { styles } = headingTera({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 24px;
@@ -104,7 +171,7 @@ describe('Style helpers', () => {
 
   describe('headingPeta', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.headingPeta({ theme: light });
+      const { styles } = headingPeta({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 28px;
@@ -116,7 +183,7 @@ describe('Style helpers', () => {
 
   describe('headingExa', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.headingExa({ theme: light });
+      const { styles } = headingExa({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 36px;
@@ -128,7 +195,7 @@ describe('Style helpers', () => {
 
   describe('headingZetta', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.headingZetta({ theme: light });
+      const { styles } = headingZetta({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 42px;
@@ -140,7 +207,7 @@ describe('Style helpers', () => {
 
   describe('subHeadingKilo', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.subHeadingKilo({ theme: light });
+      const { styles } = subHeadingKilo({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 12px;
@@ -152,7 +219,7 @@ describe('Style helpers', () => {
 
   describe('subHeadingMega', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.subHeadingMega({ theme: light });
+      const { styles } = subHeadingMega({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 14px;
@@ -164,7 +231,7 @@ describe('Style helpers', () => {
 
   describe('textKilo', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.textKilo({ theme: light });
+      const { styles } = textKilo({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 13px;
@@ -176,7 +243,7 @@ describe('Style helpers', () => {
 
   describe('textMega', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.textMega({ theme: light });
+      const { styles } = textMega({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 16px;
@@ -188,7 +255,7 @@ describe('Style helpers', () => {
 
   describe('textGiga', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.textGiga({ theme: light });
+      const { styles } = textGiga({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
               font-size: 18px;
@@ -200,7 +267,7 @@ describe('Style helpers', () => {
 
   describe('disableVisually', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.disableVisually();
+      const { styles } = disableVisually();
       expect(styles).toMatchInlineSnapshot(`
         "
           opacity: 0.5;
@@ -213,7 +280,7 @@ describe('Style helpers', () => {
 
   describe('hideVisually', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.hideVisually();
+      const { styles } = hideVisually();
       expect(styles).toMatchInlineSnapshot(`
         "
           border: 0;
@@ -232,7 +299,7 @@ describe('Style helpers', () => {
 
   describe('focusOutline', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.focusOutline({ theme: light });
+      const { styles } = focusOutline({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
             outline: 0;
@@ -248,7 +315,7 @@ describe('Style helpers', () => {
 
   describe('clearfix', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.clearfix();
+      const { styles } = clearfix();
       expect(styles).toMatchInlineSnapshot(`
         "
           &::before,
@@ -266,7 +333,7 @@ describe('Style helpers', () => {
 
   describe('hideScrollbar', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.hideScrollbar();
+      const { styles } = hideScrollbar();
       expect(styles).toMatchInlineSnapshot(`
         "
           -ms-overflow-style: none;
@@ -282,7 +349,7 @@ describe('Style helpers', () => {
 
   describe('inputOutline', () => {
     it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.inputOutline(light);
+      const { styles } = inputOutline(light);
       expect(styles).toMatchInlineSnapshot(`
         "
             box-shadow: 0 0 0 1px #999;
@@ -303,7 +370,7 @@ describe('Style helpers', () => {
     });
 
     it('should match the snapshot when invalid', () => {
-      const { styles } = StyleHelpers.inputOutline({
+      const { styles } = inputOutline({
         theme: light,
         invalid: true,
       });
@@ -327,7 +394,7 @@ describe('Style helpers', () => {
     });
 
     it('should match the snapshot when it has a warning', () => {
-      const { styles } = StyleHelpers.inputOutline({
+      const { styles } = inputOutline({
         theme: light,
         hasWarning: true,
       });
