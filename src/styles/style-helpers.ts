@@ -15,7 +15,7 @@
 
 import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
-import { curry, isObject, isArray } from 'lodash/fp';
+import { curry } from 'lodash/fp';
 
 type ThemeArgs = Theme | { theme: Theme };
 
@@ -35,130 +35,46 @@ type StyleFn =
 
 export const cx = (...styleFns: StyleFn[]) => (theme: Theme) =>
   styleFns.map((styleFn) => styleFn && styleFn(theme));
-type Spacing = keyof Theme['spacings'] | null;
 
-const spacingString = (size: Spacing, theme: Theme) => {
-  if (!size) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.warn(
-        'A single `null` value was passed to the spacing mixin. This has no effect since `null` represents no set margin, not zero margin. If you are trying to reset the spacing, use custom styles instead.',
-      );
-    }
-    return null;
-  }
-  return css({ margin: theme.spacings[size] });
-};
-
-const spacingObject = (
-  size: { top?: Spacing; bottom?: Spacing; right?: Spacing; left?: Spacing },
-  theme: Theme,
-) => {
-  const margins: {
-    marginTop?: string;
-    marginBottom?: string;
-    marginRight?: string;
-    marginLeft?: string;
-  } = {};
-  if (size.top) {
-    margins.marginTop = theme.spacings[size.top];
-  }
-
-  if (size.bottom) {
-    margins.marginBottom = theme.spacings[size.bottom];
-  }
-
-  if (size.right) {
-    margins.marginRight = theme.spacings[size.right];
-  }
-
-  if (size.left) {
-    margins.marginLeft = theme.spacings[size.left];
-  }
-
-  return css(margins);
-};
-const spacingArray = (
-  size: [Spacing, Spacing?, Spacing?, Spacing?],
-  theme: Theme,
-) => {
-  if (size.length === 1) {
-    if (!size[0]) {
-      if (process.env.NODE_ENV !== 'production') {
-        console.warn(
-          'A single `null` value was passed to the spacing mixin. This has no effect since `null` represents no set margin, not zero margin. If you are trying to reset the spacing, use custom styles instead.',
-        );
-      }
-      return null;
-    }
-    return css({ margin: theme.spacings[size[0]] });
-  }
-  if (size.length === 2) {
-    const margins: {
-      marginTop?: string;
-      marginBottom?: string;
-      marginRight?: string;
-      marginLeft?: string;
-    } = {};
-    if (size[0]) {
-      margins.marginTop = theme.spacings[size[0]];
-      margins.marginBottom = theme.spacings[size[0]];
-    }
-
-    if (size[1]) {
-      margins.marginRight = theme.spacings[size[1]];
-      margins.marginLeft = theme.spacings[size[1]];
-    }
-
-    return css(margins);
-  }
-  if (size.length === 3) {
-    return spacingObject(
-      {
-        top: size[0],
-        right: size[1],
-        bottom: size[2],
-        left: size[1],
-      },
-      theme,
-    );
-  }
-  if (size.length === 4) {
-    return spacingObject(
-      {
-        top: size[0],
-        right: size[1],
-        bottom: size[2],
-        left: size[3],
-      },
-      theme,
-    );
-  }
-  return null;
-};
+type Spacing = keyof Theme['spacings'];
 
 export const spacing = curry(
   (
     size:
       | Spacing
-      | [Spacing, Spacing?, Spacing?, Spacing?]
       | { top?: Spacing; bottom?: Spacing; right?: Spacing; left?: Spacing },
     args: ThemeArgs,
   ) => {
     const theme = getTheme(args);
 
     if (typeof size === 'string') {
-      return spacingString(size, theme);
+      return css({ margin: theme.spacings[size] });
     }
 
-    if (isArray(size)) {
-      return spacingArray(size, theme);
+    const margins: {
+      marginTop?: string;
+      marginBottom?: string;
+      marginRight?: string;
+      marginLeft?: string;
+    } = {};
+
+    if (size.top) {
+      margins.marginTop = theme.spacings[size.top];
     }
 
-    if (isObject(size)) {
-      return spacingObject(size, theme);
+    if (size.bottom) {
+      margins.marginBottom = theme.spacings[size.bottom];
     }
 
-    return null;
+    if (size.right) {
+      margins.marginRight = theme.spacings[size.right];
+    }
+
+    if (size.left) {
+      margins.marginLeft = theme.spacings[size.left];
+    }
+
+    return css(margins);
   },
 );
 
