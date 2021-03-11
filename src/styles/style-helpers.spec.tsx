@@ -19,9 +19,9 @@ import { light, Theme } from '@sumup/design-tokens';
 
 import { create } from '../util/test-utils';
 
-import * as StyleHelpers from './style-helpers';
 import {
   cx,
+  spacing,
   shadowSingle,
   shadowDouble,
   shadowTriple,
@@ -88,17 +88,17 @@ describe('Style helpers', () => {
 
   describe('spacing', () => {
     it('should apply spacing to four sides when passing a string', () => {
-      const { styles } = StyleHelpers.spacing('mega', light);
+      const { styles } = spacing('mega', light);
       expect(styles).toMatchInlineSnapshot(`"margin:16px;"`);
     });
 
     it('should apply individual spacing for one side when passing an object', () => {
-      const { styles } = StyleHelpers.spacing({ bottom: 'kilo' }, light);
+      const { styles } = spacing({ bottom: 'kilo' }, light);
       expect(styles).toMatchInlineSnapshot(`"margin-bottom:12px;"`);
     });
 
     it('should apply individual spacing to each sides when passing all four values in an object', () => {
-      const { styles } = StyleHelpers.spacing(
+      const { styles } = spacing(
         { top: 'kilo', right: 'mega', left: 'giga', bottom: 'kilo' },
         light,
       );
@@ -108,7 +108,7 @@ describe('Style helpers', () => {
     });
 
     it('should apply 0px spacing to one side when passing 0 value in an object', () => {
-      const { styles } = StyleHelpers.spacing(
+      const { styles } = spacing(
         { top: 0, right: 'mega', left: 'giga', bottom: 'kilo' },
         light,
       );
@@ -118,12 +118,12 @@ describe('Style helpers', () => {
     });
 
     it('should apply 0px spacing to all sides when passing 0 value', () => {
-      const { styles } = StyleHelpers.spacing(0, light);
+      const { styles } = spacing(0, light);
       expect(styles).toMatchInlineSnapshot(`"margin:0px;"`);
     });
 
     it('should apply correct margin for the currying behaviour', () => {
-      const { styles } = StyleHelpers.spacing('mega')(light);
+      const { styles } = spacing('mega')(light);
       expect(styles).toMatchInlineSnapshot(`"margin:16px;"`);
     });
   });
@@ -132,11 +132,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = shadowSingle({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                      box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
-                        0 0 1px 0 rgba(12, 15, 20, 0.07), 0 2px 2px 0 rgba(12, 15, 20, 0.07);
-                    "
-              `);
+        "
+            box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
+              0 0 1px 0 rgba(12, 15, 20, 0.07), 0 2px 2px 0 rgba(12, 15, 20, 0.07);
+          "
+      `);
     });
   });
 
@@ -144,11 +144,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = shadowDouble({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                      box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
-                        0 2px 2px 0 rgba(12, 15, 20, 0.07), 0 4px 4px 0 rgba(12, 15, 20, 0.07);
-                    "
-              `);
+        "
+            box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
+              0 2px 2px 0 rgba(12, 15, 20, 0.07), 0 4px 4px 0 rgba(12, 15, 20, 0.07);
+          "
+      `);
     });
   });
 
@@ -156,11 +156,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = shadowTriple({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                      box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
-                        0 4px 4px 0 rgba(12, 15, 20, 0.07), 0 8px 8px 0 rgba(12, 15, 20, 0.07);
-                    "
-              `);
+        "
+            box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
+              0 4px 4px 0 rgba(12, 15, 20, 0.07), 0 8px 8px 0 rgba(12, 15, 20, 0.07);
+          "
+      `);
     });
   });
 
@@ -168,11 +168,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = headingKilo({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 17px;
-                        line-height: 24px;
-                      "
-              `);
+        "
+              font-size: 17px;
+              line-height: 24px;
+            "
+      `);
     });
   });
 
@@ -180,11 +180,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = headingMega({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 19px;
-                        line-height: 24px;
-                      "
-              `);
+        "
+              font-size: 19px;
+              line-height: 24px;
+            "
+      `);
     });
   });
 
@@ -192,11 +192,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = headingGiga({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 22px;
-                        line-height: 24px;
-                      "
-              `);
+        "
+              font-size: 22px;
+              line-height: 24px;
+            "
+      `);
     });
   });
 
@@ -204,11 +204,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = headingTera({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 24px;
-                        line-height: 32px;
-                      "
-              `);
+        "
+              font-size: 24px;
+              line-height: 32px;
+            "
+      `);
     });
   });
 
@@ -216,11 +216,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = headingPeta({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 28px;
-                        line-height: 32px;
-                      "
-              `);
+        "
+              font-size: 28px;
+              line-height: 32px;
+            "
+      `);
     });
   });
 
@@ -228,11 +228,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = headingExa({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 36px;
-                        line-height: 44px;
-                      "
-              `);
+        "
+              font-size: 36px;
+              line-height: 44px;
+            "
+      `);
     });
   });
 
@@ -240,11 +240,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = headingZetta({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 42px;
-                        line-height: 48px;
-                      "
-              `);
+        "
+              font-size: 42px;
+              line-height: 48px;
+            "
+      `);
     });
   });
 
@@ -252,11 +252,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = subHeadingKilo({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 12px;
-                        line-height: 20px;
-                      "
-              `);
+        "
+              font-size: 12px;
+              line-height: 20px;
+            "
+      `);
     });
   });
 
@@ -264,11 +264,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = subHeadingMega({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 14px;
-                        line-height: 18px;
-                      "
-              `);
+        "
+              font-size: 14px;
+              line-height: 18px;
+            "
+      `);
     });
   });
 
@@ -276,11 +276,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = textKilo({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 13px;
-                        line-height: 20px;
-                      "
-              `);
+        "
+              font-size: 13px;
+              line-height: 20px;
+            "
+      `);
     });
   });
 
@@ -288,11 +288,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = textMega({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 16px;
-                        line-height: 24px;
-                      "
-              `);
+        "
+              font-size: 16px;
+              line-height: 24px;
+            "
+      `);
     });
   });
 
@@ -300,11 +300,11 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = textGiga({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                        font-size: 18px;
-                        line-height: 28px;
-                      "
-              `);
+        "
+              font-size: 18px;
+              line-height: 28px;
+            "
+      `);
     });
   });
 
@@ -312,12 +312,12 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = disableVisually();
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                    opacity: 0.5;
-                    pointer-events: none;
-                    box-shadow: none;
-                  "
-              `);
+        "
+          opacity: 0.5;
+          pointer-events: none;
+          box-shadow: none;
+        "
+      `);
     });
   });
 
@@ -325,18 +325,18 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = hideVisually();
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                    border: 0;
-                    clip: rect(0 0 0 0);
-                    height: 1px;
-                    margin: -1px;
-                    overflow: hidden;
-                    padding: 0;
-                    position: absolute;
-                    white-space: nowrap;
-                    width: 1px;
-                  "
-              `);
+        "
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          white-space: nowrap;
+          width: 1px;
+        "
+      `);
     });
   });
 
@@ -344,15 +344,15 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = focusOutline({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                      outline: 0;
-                      box-shadow: 0 0 0 4px #AFD0FE;
+        "
+            outline: 0;
+            box-shadow: 0 0 0 4px #AFD0FE;
 
-                      &::-moz-focus-inner {
-                        border: 0;
-                      }
-                    "
-              `);
+            &::-moz-focus-inner {
+              border: 0;
+            }
+          "
+      `);
     });
   });
 
@@ -360,17 +360,17 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = clearfix();
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                    &::before,
-                    &::after {
-                      content: ' ';
-                      display: table;
-                    }
-                    &::after {
-                      clear: both;
-                    }
-                  "
-              `);
+        "
+          &::before,
+          &::after {
+            content: ' ';
+            display: table;
+          }
+          &::after {
+            clear: both;
+          }
+        "
+      `);
     });
   });
 
@@ -378,15 +378,15 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = hideScrollbar();
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
+        "
+          -ms-overflow-style: none;
+          scrollbar-width: none;
 
-                    &::-webkit-scrollbar {
-                      display: none;
-                    }
-                  "
-              `);
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        "
+      `);
     });
   });
 
@@ -394,22 +394,22 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = inputOutline(light);
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                      box-shadow: 0 0 0 1px #999;
+        "
+            box-shadow: 0 0 0 1px #999;
 
-                      &:hover {
-                        box-shadow: 0 0 0 1px #666;
-                      }
+            &:hover {
+              box-shadow: 0 0 0 1px #666;
+            }
 
-                      &:focus {
-                        box-shadow: 0 0 0 2px #3063E9;
-                      }
+            &:focus {
+              box-shadow: 0 0 0 2px #3063E9;
+            }
 
-                      &:active {
-                        box-shadow: 0 0 0 1px #3063E9;
-                      }
-                    "
-              `);
+            &:active {
+              box-shadow: 0 0 0 1px #3063E9;
+            }
+          "
+      `);
     });
 
     it('should match the snapshot when invalid', () => {
@@ -418,22 +418,22 @@ describe('Style helpers', () => {
         invalid: true,
       });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                      box-shadow: 0 0 0 1px #D23F47;
+        "
+            box-shadow: 0 0 0 1px #D23F47;
 
-                      &:hover {
-                        box-shadow: 0 0 0 1px #B22426;
-                      }
+            &:hover {
+              box-shadow: 0 0 0 1px #B22426;
+            }
 
-                      &:focus {
-                        box-shadow: 0 0 0 2px #D23F47;
-                      }
+            &:focus {
+              box-shadow: 0 0 0 2px #D23F47;
+            }
 
-                      &:active {
-                        box-shadow: 0 0 0 1px #D23F47;
-                      }
-                    "
-              `);
+            &:active {
+              box-shadow: 0 0 0 1px #D23F47;
+            }
+          "
+      `);
     });
 
     it('should match the snapshot when it has a warning', () => {
@@ -442,22 +442,22 @@ describe('Style helpers', () => {
         hasWarning: true,
       });
       expect(styles).toMatchInlineSnapshot(`
-                  "
-                      box-shadow: 0 0 0 1px #F5C625;
+        "
+            box-shadow: 0 0 0 1px #F5C625;
 
-                      &:hover {
-                        box-shadow: 0 0 0 1px #AD7A14;
-                      }
+            &:hover {
+              box-shadow: 0 0 0 1px #AD7A14;
+            }
 
-                      &:focus {
-                        box-shadow: 0 0 0 2px #F5C625;
-                      }
+            &:focus {
+              box-shadow: 0 0 0 2px #F5C625;
+            }
 
-                      &:active {
-                        box-shadow: 0 0 0 1px #F5C625;
-                      }
-                    "
-              `);
+            &:active {
+              box-shadow: 0 0 0 1px #F5C625;
+            }
+          "
+      `);
     });
   });
 });

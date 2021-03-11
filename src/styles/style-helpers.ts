@@ -42,7 +42,10 @@ const getSpacingValue = (theme: Theme, size: Spacing) => {
   if (process.env.NODE_ENV !== 'production') {
     if (typeof size === 'number' && size !== 0) {
       console.warn(
-        'A custom number value was passed to the spacing mixing. This is not supported, and you can use custom styles instead and 0 to reset the spacing.',
+        [
+          `The number "${size as number}" was passed to the spacing mixin.`,
+          'This is not supported. Pass a spacing constant or 0 instead.',
+        ].join(' '),
       );
     }
   }
