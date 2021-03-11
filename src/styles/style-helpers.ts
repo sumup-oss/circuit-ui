@@ -36,7 +36,18 @@ type StyleFn =
 export const cx = (...styleFns: StyleFn[]) => (theme: Theme) =>
   styleFns.map((styleFn) => styleFn && styleFn(theme));
 
-type Spacing = keyof Theme['spacings'];
+type Spacing = keyof Theme['spacings'] | 0;
+
+const getSpacingValue = (theme: Theme, size: Spacing) => {
+  if (process.env.NODE_ENV !== 'production') {
+    if (typeof size === 'number' && size !== 0) {
+      console.warn(
+        'A custom number value was passed to the spacing mixing. This is not supported, and you can use custom styles instead and 0 to reset the spacing.',
+      );
+    }
+  }
+  return typeof size === 'string' ? theme.spacings[size] : '0px';
+};
 
 export const spacing = curry(
   (
@@ -47,8 +58,8 @@ export const spacing = curry(
   ) => {
     const theme = getTheme(args);
 
-    if (typeof size === 'string') {
-      return css({ margin: theme.spacings[size] });
+    if (typeof size === 'string' || typeof size === 'number') {
+      return css({ margin: getSpacingValue(theme, size) });
     }
 
     const margins: {
@@ -58,22 +69,21 @@ export const spacing = curry(
       marginLeft?: string;
     } = {};
 
-    if (size.top) {
-      margins.marginTop = theme.spacings[size.top];
+    if (typeof size.top !== 'undefined') {
+      margins.marginTop = getSpacingValue(theme, size.top);
     }
 
-    if (size.bottom) {
-      margins.marginBottom = theme.spacings[size.bottom];
+    if (typeof size.bottom !== 'undefined') {
+      margins.marginBottom = getSpacingValue(theme, size.bottom);
     }
 
-    if (size.right) {
-      margins.marginRight = theme.spacings[size.right];
+    if (typeof size.right !== 'undefined') {
+      margins.marginRight = getSpacingValue(theme, size.right);
     }
 
-    if (size.left) {
-      margins.marginLeft = theme.spacings[size.left];
+    if (typeof size.left !== 'undefined') {
+      margins.marginLeft = getSpacingValue(theme, size.left);
     }
-
     return css(margins);
   },
 );
