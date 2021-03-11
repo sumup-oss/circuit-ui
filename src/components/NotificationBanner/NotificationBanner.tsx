@@ -17,7 +17,7 @@ import React, { HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
-import { shadowSingle } from '../../styles/style-helpers';
+import { shadowSingle } from '../../styles/style-mixins';
 
 export interface NotificationBannerProps extends HTMLProps<HTMLDivElement> {
   /**

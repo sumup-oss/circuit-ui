@@ -18,7 +18,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { includes } from 'lodash/fp';
 
-import { textKilo, shadowSingle } from '../../styles/style-helpers';
+import { textKilo, shadowSingle } from '../../styles/style-mixins';
 import {
   positionPropType,
   childrenPropType,

@@ -18,7 +18,7 @@ import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
-import { focusOutline, hideVisually } from '../../../../styles/style-helpers';
+import { focusOutline, hideVisually } from '../../../../styles/style-mixins';
 import useClickHandler from '../../../../hooks/use-click-handler';
 
 export interface SwitchProps

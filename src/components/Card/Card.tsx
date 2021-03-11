@@ -22,7 +22,7 @@ import {
   shadowSingle,
   shadowDouble,
   shadowTriple,
-} from '../../styles/style-helpers';
+} from '../../styles/style-mixins';
 
 export interface CardProps {
   /**

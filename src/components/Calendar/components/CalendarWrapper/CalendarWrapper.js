@@ -23,7 +23,7 @@ import {
   shadowTriple,
   focusOutline,
   disableVisually,
-} from '../../../../styles/style-helpers';
+} from '../../../../styles/style-mixins';
 
 import CalendarInheritStyles from './CalendarImportedStyles';
 

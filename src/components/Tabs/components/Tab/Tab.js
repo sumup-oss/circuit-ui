@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { textMega, focusOutline } from '../../../../styles/style-helpers';
+import { textMega, focusOutline } from '../../../../styles/style-mixins';
 
 const defaultTabStyles = ({ theme }) => css`
   label: tab;

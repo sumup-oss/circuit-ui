@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
-import { hideVisually } from '../../../../styles/style-helpers';
+import { hideVisually } from '../../../../styles/style-mixins';
 import { ASCENDING, DESCENDING } from '../../constants';
 
 const baseStyles = ({ theme }) => css`

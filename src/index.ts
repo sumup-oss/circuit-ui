@@ -14,7 +14,7 @@
  */
 
 import * as sharedPropTypes from './util/shared-prop-types';
-import * as styleHelpers from './styles/style-helpers';
+import * as styleHelpers from './styles/style-mixins';
 
 // Typography
 export { default as Heading } from './components/Heading';

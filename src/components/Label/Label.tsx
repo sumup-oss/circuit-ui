@@ -21,7 +21,7 @@ import {
   textKilo,
   hideVisually,
   disableVisually,
-} from '../../styles/style-helpers';
+} from '../../styles/style-mixins';
 
 export interface LabelProps extends HTMLProps<HTMLLabelElement> {
   /**

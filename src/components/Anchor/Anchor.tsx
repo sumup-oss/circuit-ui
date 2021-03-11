@@ -19,7 +19,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { focusOutline } from '../../styles/style-helpers';
+import { focusOutline } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { Text, TextProps } from '../Text/Text';
 import { useComponents } from '../ComponentsContext';

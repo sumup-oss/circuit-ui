@@ -23,7 +23,7 @@ import React, {
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { focusOutline } from '../../styles/style-helpers';
+import { focusOutline } from '../../styles/style-mixins';
 import deprecate from '../../util/deprecate';
 
 export interface BadgeProps extends HTMLProps<HTMLDivElement> {

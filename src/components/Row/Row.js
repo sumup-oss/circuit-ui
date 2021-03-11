@@ -16,7 +16,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { clearfix } from '../../styles/style-helpers';
+import { clearfix } from '../../styles/style-mixins';
 
 const getBreakPointStyles = (theme, breakpoint) => {
   const config = theme.grid[breakpoint];
