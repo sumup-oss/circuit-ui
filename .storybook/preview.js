@@ -28,6 +28,7 @@ const SORT_ORDER = {
     'Event Tracking',
     'Static CSS',
   ],
+  style: ['style mixin'],
   Typography: ['Heading', 'SubHeading', 'Text'],
   Layout: [],
   Forms: [],
