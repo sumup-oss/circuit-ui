@@ -15,6 +15,7 @@
 
 import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
+import { curry } from 'lodash/fp';
 
 type ThemeArgs = Theme | { theme: Theme };
 
@@ -34,6 +35,61 @@ type StyleFn =
 
 export const cx = (...styleFns: StyleFn[]) => (theme: Theme) =>
   styleFns.map((styleFn) => styleFn && styleFn(theme));
+
+type Spacing = keyof Theme['spacings'] | 0;
+
+const getSpacingValue = (theme: Theme, size: Spacing) => {
+  if (process.env.NODE_ENV !== 'production') {
+    if (typeof size === 'number' && size !== 0) {
+      console.warn(
+        [
+          `The number "${size as number}" was passed to the spacing mixin.`,
+          'This is not supported. Pass a spacing constant or 0 instead.',
+        ].join(' '),
+      );
+    }
+  }
+  return typeof size === 'string' ? theme.spacings[size] : '0px';
+};
+
+export const spacing = curry(
+  (
+    size:
+      | Spacing
+      | { top?: Spacing; bottom?: Spacing; right?: Spacing; left?: Spacing },
+    args: ThemeArgs,
+  ) => {
+    const theme = getTheme(args);
+
+    if (typeof size === 'string' || typeof size === 'number') {
+      return css({ margin: getSpacingValue(theme, size) });
+    }
+
+    const margins: {
+      marginTop?: string;
+      marginBottom?: string;
+      marginRight?: string;
+      marginLeft?: string;
+    } = {};
+
+    if (typeof size.top !== 'undefined') {
+      margins.marginTop = getSpacingValue(theme, size.top);
+    }
+
+    if (typeof size.bottom !== 'undefined') {
+      margins.marginBottom = getSpacingValue(theme, size.bottom);
+    }
+
+    if (typeof size.right !== 'undefined') {
+      margins.marginRight = getSpacingValue(theme, size.right);
+    }
+
+    if (typeof size.left !== 'undefined') {
+      margins.marginLeft = getSpacingValue(theme, size.left);
+    }
+    return css(margins);
+  },
+);
 
 export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);

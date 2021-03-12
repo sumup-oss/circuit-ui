@@ -21,6 +21,7 @@ import { create } from '../util/test-utils';
 
 import {
   cx,
+  spacing,
   shadowSingle,
   shadowDouble,
   shadowTriple,
@@ -82,6 +83,48 @@ describe('Style helpers', () => {
           class="circuit-0"
         />
       `);
+    });
+  });
+
+  describe('spacing', () => {
+    it('should apply spacing to four sides when passing a string', () => {
+      const { styles } = spacing('mega', light);
+      expect(styles).toMatchInlineSnapshot(`"margin:16px;"`);
+    });
+
+    it('should apply individual spacing for one side when passing an object', () => {
+      const { styles } = spacing({ bottom: 'kilo' }, light);
+      expect(styles).toMatchInlineSnapshot(`"margin-bottom:12px;"`);
+    });
+
+    it('should apply individual spacing to each sides when passing all four values in an object', () => {
+      const { styles } = spacing(
+        { top: 'kilo', right: 'mega', left: 'giga', bottom: 'kilo' },
+        light,
+      );
+      expect(styles).toMatchInlineSnapshot(
+        `"margin-top:12px;margin-bottom:12px;margin-right:16px;margin-left:24px;"`,
+      );
+    });
+
+    it('should apply 0px spacing to one side when passing 0 value in an object', () => {
+      const { styles } = spacing(
+        { top: 0, right: 'mega', left: 'giga', bottom: 'kilo' },
+        light,
+      );
+      expect(styles).toMatchInlineSnapshot(
+        `"margin-top:0px;margin-bottom:12px;margin-right:16px;margin-left:24px;"`,
+      );
+    });
+
+    it('should apply 0px spacing to all sides when passing 0 value', () => {
+      const { styles } = spacing(0, light);
+      expect(styles).toMatchInlineSnapshot(`"margin:0px;"`);
+    });
+
+    it('should apply correct margin for the currying behaviour', () => {
+      const { styles } = spacing('mega')(light);
+      expect(styles).toMatchInlineSnapshot(`"margin:16px;"`);
     });
   });
 
