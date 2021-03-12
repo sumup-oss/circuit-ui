@@ -18,6 +18,7 @@ import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
+import deprecate from '../../util/deprecate';
 
 type Size = 'kilo' | 'mega';
 
@@ -53,12 +54,22 @@ const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & SubHeadingProps) =>
     line-height: ${theme.typography.subHeadings[size].lineHeight};
   `;
 
-const noMarginStyles = ({ noMargin }: SubHeadingProps) =>
-  noMargin &&
-  css`
+const noMarginStyles = ({ noMargin }: SubHeadingProps) => {
+  if (!noMargin) {
+    deprecate(
+      [
+        'The default outer spacing in the SubHeading component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      ].join(' '),
+    );
+    return null;
+  }
+  return css`
     label: sub-heading--no-margin;
     margin-bottom: 0;
   `;
+};
 
 /**
  * A flexible subheading component capable of rendering using any HTML heading

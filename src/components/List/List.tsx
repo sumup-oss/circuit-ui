@@ -13,17 +13,19 @@
  * limitations under the License.
  */
 
-import React, { FC } from 'react';
+import React, { forwardRef, Ref, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { textMega, textKilo, textGiga } from '../../styles/style-helpers';
+import deprecate from '../../util/deprecate';
 
 type Size = 'kilo' | 'mega' | 'giga';
 type Variant = 'ordered' | 'unordered';
 
-export interface ListProps {
+export interface ListProps
+  extends Omit<HTMLProps<HTMLOListElement>, 'size' | 'type'> {
   /**
    * A Circuit UI body text size.
    */
@@ -36,6 +38,10 @@ export interface ListProps {
    * Removes the default bottom margin from the list.
    */
   noMargin?: boolean;
+  /**
+   The ref to the HTML DOM element
+   */
+  ref?: Ref<HTMLOListElement & HTMLUListElement>;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
@@ -83,20 +89,34 @@ const sizeStyles = ({ theme, size = 'mega' }: ListProps & StyleProps) => {
   `;
 };
 
-const marginStyles = ({ noMargin }: ListProps) =>
-  noMargin &&
-  css`
+const marginStyles = ({ noMargin }: ListProps) => {
+  if (!noMargin) {
+    deprecate(
+      [
+        'The default outer spacing in the List component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      ].join(' '),
+    );
+    return null;
+  }
+  return css`
     label: list--no-margin;
     margin-bottom: 0;
   `;
+};
 
 const BaseList = styled('ol', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<ListProps & { as: 'ul' | 'ol' }>(baseStyles, sizeStyles, marginStyles);
+})<ListProps>(baseStyles, sizeStyles, marginStyles);
 
 /**
  * A list, which can be ordered or unordered.
  */
-export const List: FC<ListProps> = ({ variant, ...props }) => (
-  <BaseList as={variant === 'ordered' ? 'ol' : 'ul'} {...props} />
+export const List = forwardRef(
+  ({ variant, ...props }: ListProps, ref: ListProps['ref']) => (
+    <BaseList as={variant === 'ordered' ? 'ol' : 'ul'} {...props} ref={ref} />
+  ),
 );
+
+List.displayName = 'List';

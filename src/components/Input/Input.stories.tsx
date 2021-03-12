@@ -44,6 +44,7 @@ const baseArgs = {
   label: 'First name',
   placeholder: 'Jane',
   validationHint: 'Maximum 100 characters',
+  noMargin: true,
 };
 
 export const Base = (args: InputProps) => <Input {...args} css={inputStyles} />;
@@ -59,6 +60,7 @@ Valid.args = {
   placeholder: 'jane123',
   validationHint: 'Yay! That username is available.',
   showValid: true,
+  noMargin: true,
 };
 
 export const Invalid = (args: InputProps) => (

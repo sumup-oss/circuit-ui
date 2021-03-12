@@ -19,6 +19,7 @@ import { css } from '@emotion/core';
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { disableVisually } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
+import deprecate from '../../util/deprecate';
 import { Text, TextProps } from '../Text/Text';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
@@ -91,12 +92,22 @@ const toggleWrapperDisabledStyles = ({ disabled }: WrapperElProps) =>
     ${disableVisually()};
   `;
 
-const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) =>
-  noMargin &&
-  css`
+const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
+  if (!noMargin) {
+    deprecate(
+      [
+        'The default outer spacing in the Toggle component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      ].join(' '),
+    );
+    return null;
+  }
+  return css`
     label: toggle--no-margin;
     margin-bottom: 0;
   `;
+};
 
 const ToggleWrapper = styled('div')<WrapperElProps>(
   toggleWrapperStyles,

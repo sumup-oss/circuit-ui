@@ -66,7 +66,7 @@ const CheckboxWithState = ({
     setChecked((prev) => !prev);
   };
   return (
-    <Checkbox {...props} checked={checked} onChange={handleChange}>
+    <Checkbox {...props} checked={checked} onChange={handleChange} noMargin>
       {children || (checked ? 'Checked' : 'Unchecked')}
     </Checkbox>
   );

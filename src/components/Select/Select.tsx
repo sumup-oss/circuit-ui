@@ -144,12 +144,22 @@ const SelectContainer = styled('div')<ContainerElProps>(
 
 type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
 
-const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
-  !noMargin &&
-  css`
-    label: input__label--margin;
-    margin-bottom: ${theme.spacings.mega};
-  `;
+const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
+  if (!noMargin) {
+    deprecate(
+      [
+        'The default outer spacing in the Select component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      ].join(' '),
+    );
+    return css`
+      label: input__label--margin;
+      margin-bottom: ${theme.spacings.mega};
+    `;
+  }
+  return null;
+};
 
 const labelInlineStyles = ({ inline }: LabelElProps) =>
   inline &&

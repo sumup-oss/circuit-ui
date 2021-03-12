@@ -19,15 +19,16 @@ import { css, jsx } from '@emotion/core';
 import { Check } from '@sumup/icons';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
-import styled, { NoTheme, StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled';
 import {
   disableVisually,
   hideVisually,
   focusOutline,
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
-import Tooltip from '../Tooltip';
+import deprecate from '../../util/deprecate';
 import useClickHandler from '../../hooks/use-click-handler';
+import Tooltip from '../Tooltip';
 
 export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
   /**
@@ -38,6 +39,10 @@ export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
    * Warning or error message, displayed in a tooltip.
    */
   validationHint?: string;
+  /**
+   * Removes the default bottom margin from the input.
+   */
+  noMargin?: boolean;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -123,7 +128,9 @@ const CheckboxLabel = styled('label')<LabelElProps>(
   labelInvalidStyles,
 );
 
-const checkboxWrapperStyles = ({ theme }: StyleProps) => css`
+type WrapperElProps = Pick<CheckboxProps, 'noMargin'>;
+
+const wrapperBaseStyles = ({ theme }: StyleProps) => css`
   label: checkbox;
   position: relative;
 
@@ -132,7 +139,30 @@ const checkboxWrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const CheckboxWrapper = styled('div')<NoTheme>(checkboxWrapperStyles);
+const wrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
+  if (!noMargin) {
+    deprecate(
+      [
+        'The default outer spacing in the Input component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      ].join(' '),
+    );
+
+    return null;
+  }
+  return css`
+    label: checkbox--no-margin;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  `;
+};
+
+const CheckboxWrapper = styled('div')<WrapperElProps>(
+  wrapperBaseStyles,
+  wrapperNoMarginStyles,
+);
 
 type InputElProps = Omit<CheckboxProps, 'tracking'>;
 
@@ -204,6 +234,7 @@ export const Checkbox = React.forwardRef(
       className,
       style,
       invalid,
+      noMargin,
       tracking,
       ...props
     }: CheckboxProps,
@@ -213,7 +244,7 @@ export const Checkbox = React.forwardRef(
     const handleChange = useClickHandler(onChange, tracking, 'checkbox');
 
     return (
-      <CheckboxWrapper className={className} style={style}>
+      <CheckboxWrapper className={className} style={style} noMargin={noMargin}>
         <CheckboxInput
           {...props}
           id={id}

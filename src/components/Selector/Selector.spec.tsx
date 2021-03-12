@@ -57,6 +57,15 @@ describe('Selector', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render a noMargin selector', () => {
+    const actual = create(
+      <Selector {...defaultProps} noMargin>
+        Label
+      </Selector>,
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render a radio input by default', () => {
     const { getByLabelText } = render(
       <Selector {...defaultProps}>Label</Selector>,

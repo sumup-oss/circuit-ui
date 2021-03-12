@@ -114,19 +114,40 @@ const InputContainer = styled('div')(containerStyles);
 
 type LabelElProps = Pick<InputProps, 'noMargin'>;
 
-const labelCustomStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
-  !noMargin &&
-  css`
-    label: input__label--margin;
-    margin-bottom: ${theme.spacings.mega};
+const labelCustomStyles = ({ theme }: StyleProps) => css`
+  label: input__label;
 
-    label &:not(label),
-    label + &:not(label) {
-      margin-top: ${theme.spacings.bit};
-    }
-  `;
+  label &:not(label),
+  label + &:not(label) {
+    margin-top: ${theme.spacings.bit};
+  }
+`;
 
-const InputLabel = styled(Label)<LabelElProps>(labelCustomStyles);
+const labelNoMarginStyles = ({
+  theme,
+  noMargin,
+}: StyleProps & LabelElProps) => {
+  if (!noMargin) {
+    deprecate(
+      [
+        'The default outer spacing in the Input component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      ].join(' '),
+    );
+
+    return css`
+      label: input__label--margin;
+      margin-bottom: ${theme.spacings.mega};
+    `;
+  }
+  return null;
+};
+
+const InputLabel = styled(Label)<LabelElProps>(
+  labelCustomStyles,
+  labelNoMarginStyles,
+);
 
 type InputElProps = InputProps & {
   hasPrefix: boolean;
@@ -309,7 +330,7 @@ export const Input = forwardRef(
     if (!label) {
       deprecate(
         [
-          'The label is now built into the input component.',
+          'The label is now built into the Input component.',
           'Use the `label` prop to pass in the label content and',
           'remove the Label component from your code.',
           'The label will become required in the next major version.',

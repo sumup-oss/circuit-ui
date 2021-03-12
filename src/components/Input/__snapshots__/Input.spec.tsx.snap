@@ -977,6 +977,11 @@ exports[`Input should render with no margin styles when passed the noMargin prop
   display: block;
 }
 
+label .circuit-2:not(label),
+label + .circuit-2:not(label) {
+  margin-top: 4px;
+}
+
 <div
   class="circuit-2"
   for="input_14"
