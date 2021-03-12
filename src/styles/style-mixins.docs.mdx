@@ -8,7 +8,36 @@ The spacing value can take different shapes to make it easy to apply any combina
 ## Usage examples
 
 Spacing function accepts space string or objects, returns margin and apply spacing.
-Here is an example of using the spacing() function when passing string value.
-Pass to the function the value you wish to use.
+Below are examples of using the spacing() function. Pass to the function the value you wish to use.
 
-<Story id="styles-spacing-mixin--spacing-string" />
+### Apply individual spacing
+
+You can set the individual spacing to one side when passing one value in an object (example, top: 'giga'). You can use the following values to define the spacing:
+
+- 'bit',
+- 'byte',
+- 'kilo',
+- 'mega',
+- 'giga',
+- 'tera',
+- 'peta',
+- 'exa',
+- 'zetta',
+
+<Story id="styles-spacing-mixin--apply-spacing-one-side" />
+
+### Apply individual spacing to each sides
+
+You can set the individual spacing to each side when passing all four values in an object.
+
+<Story id="styles-spacing-mixin--apply-spacing-four-sides" />
+
+### Apply spacing to four sides when passing a string
+
+If you want to apply spacing to all sides with passing just one value, you can do it by passing a string value of any spacing constant.
+
+<Story id="styles-spacing-mixin--apply-spacing-all-sides" />
+
+There is an option for the spacing reset, by simply passing 0 value. Any other number is not supported.
+
+<Story id="styles-spacing-mixin--reset-spacing" />

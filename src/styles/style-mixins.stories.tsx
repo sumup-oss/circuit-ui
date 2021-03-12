@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /**
  * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +16,6 @@
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import { Theme } from '@sumup/design-tokens';
 
 import Button from '../components/Button';
 
@@ -27,70 +27,81 @@ export default {
   parameters: {
     docs: { page: docs },
   },
-  argTypes: {
-    top: {
-      control: {
-        type: 'select',
-        options: ['mega', 'giga', 'kilo'],
-      },
-    },
-    bottom: {
-      control: {
-        type: 'select',
-        options: ['mega', 'giga', 'kilo'],
-      },
-    },
-    right: {
-      control: {
-        type: 'select',
-        options: ['mega', 'giga', 'kilo'],
-      },
-    },
-    left: {
-      control: {
-        type: 'select',
-        options: ['mega', 'giga', 'kilo'],
-      },
-    },
+};
+
+const spaceOptions = {
+  control: {
+    type: 'select',
+    options: [
+      'bit',
+      'byte',
+      'kilo',
+      'mega',
+      'giga',
+      'tera',
+      'peta',
+      'exa',
+      'zetta',
+    ],
   },
 };
 
-const background = (theme: Theme) => css`
-  background-color: ${theme.colors.n200};
+const background = () => css`
+  background-color: #f8cb9c;
 `;
 
-export const SpacingObjectOneSide = (args) => (
+export const ApplySpacingOneSide = (args) => (
   <div css={background}>
     <Button css={spacing(args)}>Example</Button>
   </div>
 );
 
-SpacingObjectOneSide.args = { top: 'mega' };
+ApplySpacingOneSide.args = { top: 'mega' };
 
-export const SpacingObjectAllSides = (args) => (
+ApplySpacingOneSide.argTypes = {
+  top: spaceOptions,
+};
+
+export const ApplySpacingFourSides = (args) => (
   <div css={background}>
     <Button css={spacing(args)}>Example</Button>
   </div>
 );
 
-SpacingObjectAllSides.args = {
+ApplySpacingFourSides.args = {
   top: 'mega',
   right: 'kilo',
   bottom: 'mega',
   left: 'kilo',
 };
 
-export const SpacingString = (args) => (
+ApplySpacingFourSides.argTypes = {
+  top: spaceOptions,
+  bottom: spaceOptions,
+  right: spaceOptions,
+};
+
+export const ApplySpacingAllSides = (args) => (
   <div css={background}>
-    <Button css={spacing(args)}>Example</Button>
+    <Button css={spacing(args.size)}>Example</Button>
   </div>
 );
+ApplySpacingAllSides.args = { size: 'mega' };
+ApplySpacingAllSides.argTypes = {
+  size: spaceOptions,
+};
 
-SpacingString.argTypes = {
+export const ResetSpacing = (args) => (
+  <div css={background}>
+    <Button css={spacing(args.size)}>Example</Button>
+  </div>
+);
+ResetSpacing.args = { size: 'kilo' };
+ResetSpacing.argTypes = {
   size: {
     control: {
       type: 'select',
-      options: ['mega', 'giga', 'kilo'],
+      options: ['kilo', 0],
     },
   },
 };
