@@ -2652,9 +2652,9 @@
     store2 "^2.7.1"
 
 "@sumup/collector@^1.0.0":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@sumup/collector/-/collector-1.0.5.tgz#170ebfc8a6cb20d3641148bfe01e1fd15218c657"
-  integrity sha512-fqxTBi8n1bHPDbtzZgQW6x9100rDsm86c0+rpTIwCGQIGCnXcfdmnvnJ96orL15sOy8CgHK2N3d8QZ/7FCg0Kg==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@sumup/collector/-/collector-1.1.0.tgz#1183a834ec3b14b525d86a520cfd53cabef349b1"
+  integrity sha512-jXZoY7Ad9V0FY0UI65BB2debuqi1hq1DCJKZV7d5Gay2M4oV+bxEOJ8C/SSs219ZjR6wW4ZaMAmzpFNQxmRFgw==
   dependencies:
     tti-polyfill "^0.2.2"
 
