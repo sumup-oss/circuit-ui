@@ -48,6 +48,7 @@ const spaceOptions = {
 
 const background = () => css`
   background-color: #f8cb9c;
+  display: inline-block;
 `;
 
 export const ApplySpacingOneSide = (args) => (
@@ -70,9 +71,9 @@ export const ApplySpacingFourSides = (args) => (
 
 ApplySpacingFourSides.args = {
   top: 'mega',
-  right: 'kilo',
+  right: 'giga',
   bottom: 'mega',
-  left: 'kilo',
+  left: 'giga',
 };
 
 ApplySpacingFourSides.argTypes = {
@@ -86,7 +87,7 @@ export const ApplySpacingAllSides = (args) => (
     <Button css={spacing(args.size)}>Example</Button>
   </div>
 );
-ApplySpacingAllSides.args = { size: 'mega' };
+ApplySpacingAllSides.args = { size: 'kilo' };
 ApplySpacingAllSides.argTypes = {
   size: spaceOptions,
 };
