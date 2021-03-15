@@ -68,7 +68,7 @@ const iconStyles = (color: 'danger' | 'warning' | 'success') => (
   theme: Theme,
 ) => css`
   label: ${`validation-hint__icon--${color}`};
-  flex-shrink: 1;
+  flex-shrink: 0;
   width: ${theme.iconSizes.kilo};
   height: ${theme.iconSizes.kilo};
   margin-top: 0.15em;
