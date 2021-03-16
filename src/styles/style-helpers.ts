@@ -15,20 +15,19 @@
 
 import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
-import { curry } from 'lodash/fp';
 
-type ThemeArgs = Theme | { theme: Theme };
+type ThemeArg = Theme | { theme: Theme };
 
-function isTheme(args: ThemeArgs): args is Theme {
+function isTheme(args: ThemeArg): args is Theme {
   return (args as { theme: Theme }).theme === undefined;
 }
 
-export const getTheme = (args: ThemeArgs): Theme =>
+export const getTheme = (args: ThemeArg): Theme =>
   isTheme(args) ? args : args.theme;
 
 type StyleFn =
   | ((theme: Theme) => SerializedStyles)
-  | ((args: ThemeArgs) => SerializedStyles)
+  | ((args: ThemeArg) => SerializedStyles)
   | false
   | null
   | undefined;
@@ -38,60 +37,99 @@ export const cx = (...styleFns: StyleFn[]) => (theme: Theme) =>
 
 type Spacing = keyof Theme['spacings'] | 0;
 
-const getSpacingValue = (theme: Theme, size: Spacing) => {
+type SpacingValue = Spacing | 'auto' | 0;
+
+type SpacingValueWithNull = SpacingValue & null;
+
+type SpacingObject = {
+  top?: SpacingValue;
+  right?: SpacingValue;
+  bottom?: SpacingValue;
+  left?: SpacingValue;
+};
+
+function parseArrayValues(values: SpacingValue[]): SpacingObject {
+  const [
+    firstValue,
+    secondValue = firstValue,
+    thirdValue = firstValue,
+    fourthValue = secondValue,
+  ] = values;
+
+  return {
+    top: firstValue,
+    right: secondValue,
+    bottom: thirdValue,
+    left: fourthValue,
+  };
+}
+
+const mapSpacingValue = (
+  theme: Theme,
+  value: SpacingValue,
+): MarginCSSPropValue => {
   if (process.env.NODE_ENV !== 'production') {
-    if (typeof size === 'number' && size !== 0) {
+    if (typeof value === 'number' && value !== 0) {
+      // eslint-disable-next-line no-console
       console.warn(
         [
-          `The number "${size as number}" was passed to the spacing mixin.`,
-          'This is not supported. Pass a spacing constant or 0 instead.',
+          `The number "${value as number}" was passed to the spacing mixin.`,
+          "This is not supported. Pass a spacing constant, 'auto', or 0 instead.",
         ].join(' '),
       );
     }
   }
-  return typeof size === 'string' ? theme.spacings[size] : '0px';
+
+  if (value === 0 || value === 'auto') {
+    return String(value);
+  }
+
+  return theme.spacings[value];
 };
 
-export const spacing = curry(
-  (
-    size:
-      | Spacing
-      | { top?: Spacing; bottom?: Spacing; right?: Spacing; left?: Spacing },
-    args: ThemeArgs,
-  ) => {
+type CSSPropFunc = (theme: ThemeArg) => ReturnType<typeof css>;
+
+type MarginCSSPropValue = Omit<SpacingValue, Spacing> & string;
+
+type MarginCSSProps = {
+  marginTop?: MarginCSSPropValue;
+  marginRight?: MarginCSSPropValue;
+  marginBottom?: MarginCSSPropValue;
+  marginLeft?: MarginCSSPropValue;
+};
+
+export const spacing = (
+  values: SpacingValueWithNull[] | SpacingObject,
+): CSSPropFunc => {
+  const { top, right, bottom, left } = Array.isArray(values)
+    ? parseArrayValues(values)
+    : values;
+
+  return (args: ThemeArg) => {
     const theme = getTheme(args);
+    const cssProps: MarginCSSProps = {};
 
-    if (typeof size === 'string' || typeof size === 'number') {
-      return css({ margin: getSpacingValue(theme, size) });
+    if (top !== null && typeof top !== 'undefined') {
+      cssProps.marginTop = mapSpacingValue(theme, top);
     }
 
-    const margins: {
-      marginTop?: string;
-      marginBottom?: string;
-      marginRight?: string;
-      marginLeft?: string;
-    } = {};
-
-    if (typeof size.top !== 'undefined') {
-      margins.marginTop = getSpacingValue(theme, size.top);
+    if (right !== null && typeof right !== 'undefined') {
+      cssProps.marginRight = mapSpacingValue(theme, right);
     }
 
-    if (typeof size.bottom !== 'undefined') {
-      margins.marginBottom = getSpacingValue(theme, size.bottom);
+    if (bottom !== null && typeof bottom !== 'undefined') {
+      cssProps.marginBottom = mapSpacingValue(theme, bottom);
     }
 
-    if (typeof size.right !== 'undefined') {
-      margins.marginRight = getSpacingValue(theme, size.right);
+    if (left !== null && typeof left !== 'undefined') {
+      cssProps.marginBottom = mapSpacingValue(theme, left);
     }
 
-    if (typeof size.left !== 'undefined') {
-      margins.marginLeft = getSpacingValue(theme, size.left);
-    }
-    return css(margins);
-  },
-);
+    return css(cssProps);
+  };
+};
 
-export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
+export const shadowSingle = (args: ThemeArg): SerializedStyles => {
   const theme = getTheme(args);
   return css`
     box-shadow: 0 0 0 1px ${theme.colors.shadow},
@@ -99,7 +137,7 @@ export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
   `;
 };
 
-export const shadowDouble = (args: ThemeArgs): SerializedStyles => {
+export const shadowDouble = (args: ThemeArg): SerializedStyles => {
   const theme = getTheme(args);
   return css`
     box-shadow: 0 0 0 1px ${theme.colors.shadow},
@@ -107,7 +145,7 @@ export const shadowDouble = (args: ThemeArgs): SerializedStyles => {
   `;
 };
 
-export const shadowTriple = (args: ThemeArgs): SerializedStyles => {
+export const shadowTriple = (args: ThemeArg): SerializedStyles => {
   const theme = getTheme(args);
   return css`
     box-shadow: 0 0 0 1px ${theme.colors.shadow},
@@ -119,7 +157,7 @@ function createTypeHelper<T extends 'headings' | 'subHeadings' | 'text'>(
   type: T,
   size: keyof Theme['typography'][T],
 ) {
-  return (args: ThemeArgs): SerializedStyles => {
+  return (args: ThemeArg): SerializedStyles => {
     const theme = getTheme(args);
     const { fontSize, lineHeight } = (theme.typography[type][
       size
@@ -178,7 +216,7 @@ export const hideVisually = (): SerializedStyles => css`
 /**
  * Visually communicates to the user that an element is focused.
  */
-export const focusOutline = (args: ThemeArgs): SerializedStyles => {
+export const focusOutline = (args: ThemeArg): SerializedStyles => {
   const theme = getTheme(args);
   return css`
     outline: 0;
