@@ -35,20 +35,20 @@ type StyleFn =
 export const cx = (...styleFns: StyleFn[]) => (theme: Theme) =>
   styleFns.map((styleFn) => styleFn && styleFn(theme));
 
-type Spacing = keyof Theme['spacings'] | 0;
+type Spacing = keyof Theme['spacings'];
 
 type SpacingValue = Spacing | 'auto' | 0;
 
-type SpacingValueWithNull = SpacingValue & null;
+type SpacingValueWithNull = SpacingValue | null;
 
 type SpacingObject = {
-  top?: SpacingValue;
-  right?: SpacingValue;
-  bottom?: SpacingValue;
-  left?: SpacingValue;
+  top?: SpacingValueWithNull;
+  right?: SpacingValueWithNull;
+  bottom?: SpacingValueWithNull;
+  left?: SpacingValueWithNull;
 };
 
-function parseArrayValues(values: SpacingValue[]): SpacingObject {
+function parseArrayValues(values: SpacingValueWithNull[]): SpacingObject {
   const [
     firstValue,
     secondValue = firstValue,
@@ -99,8 +99,18 @@ type MarginCSSProps = {
 };
 
 export const spacing = (
-  values: SpacingValueWithNull[] | SpacingObject,
+  values: SpacingValueWithNull[] | SpacingObject | SpacingValue,
 ): CSSPropFunc => {
+  if (typeof values === 'string' || typeof values === 'number') {
+    return (args: ThemeArg) => {
+      const theme = getTheme(args);
+
+      const margin = mapSpacingValue(theme, values);
+
+      return css({ margin });
+    };
+  }
+
   const { top, right, bottom, left } = Array.isArray(values)
     ? parseArrayValues(values)
     : values;
@@ -122,7 +132,7 @@ export const spacing = (
     }
 
     if (left !== null && typeof left !== 'undefined') {
-      cssProps.marginBottom = mapSpacingValue(theme, left);
+      cssProps.marginLeft = mapSpacingValue(theme, left);
     }
 
     return css(cssProps);
