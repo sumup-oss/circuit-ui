@@ -19,6 +19,16 @@ import * as styleMixins from './style-mixins';
 
 type StyleMixins = typeof styleMixins;
 
+const PUBLIC_STYLE_MIXINS: { [key: string]: boolean } = {
+  cx: true,
+  spacing: true,
+  disableVisually: true,
+  hideVisually: true,
+  focusOutline: true,
+  clearfix: true,
+  hideScrollbar: true,
+};
+
 /**
  * @deprecated The aggregate `styleHelpers` export has been deprecated.
  *             Import each style mixin directly instead.
@@ -29,10 +39,14 @@ export const styleHelpers: StyleMixins =
         // @ts-expect-error TypeScript isn't smart enough to infer the types here
         // and I'm too lazy to explicitly define them. — @connor-baer
         acc[name] = (...args) => {
-          deprecate(
-            'The aggregate `styleHelpers` export has been deprecated.',
-            `Import \`${name}\` directly instead.`,
-          );
+          if (PUBLIC_STYLE_MIXINS[name]) {
+            deprecate(
+              'The aggregate `styleHelpers` export has been deprecated.',
+              `Import \`${name}\` directly instead.`,
+            );
+          } else {
+            deprecate(`The style mixin \`${name}\` has been deprecated.`);
+          }
           // @ts-expect-error TypeScript isn't smart enough to infer the types here
           // and I'm too lazy to explicitly define them. — @connor-baer
           return fn(...args);
