@@ -17,12 +17,12 @@ import warning from 'tiny-warning';
 
 const warned: { [key: string]: true } = {};
 
-export default function deprecate(explanation: string): void {
+export default function deprecate(...explanations: string[]): void {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
   ) {
-    const message = `DEPRECATION: ${explanation}`;
+    const message = `DEPRECATION: ${explanations.join(' ')}`;
 
     if (!warned[message]) {
       warning(false, message);

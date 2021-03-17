@@ -14,7 +14,7 @@
  */
 
 import * as sharedPropTypes from './util/shared-prop-types';
-import * as styleHelpers from './styles/style-mixins';
+import { styleHelpers } from './styles/style-helpers';
 
 // Typography
 export { default as Heading } from './components/Heading';
@@ -159,6 +159,16 @@ export {
   withComponents,
   useComponents,
 } from './components/ComponentsContext';
+
+export {
+  cx,
+  spacing,
+  disableVisually,
+  hideVisually,
+  focusOutline,
+  clearfix,
+  hideScrollbar,
+} from './styles/style-mixins';
 
 export { sharedPropTypes, styleHelpers };
 export { uniqueId } from './util/id';
