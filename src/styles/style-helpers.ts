@@ -36,33 +36,45 @@ type StyleFn =
 export const cx = (...styleFns: StyleFn[]) => (theme: Theme) =>
   styleFns.map((styleFn) => styleFn && styleFn(theme));
 
-type Spacing = keyof Theme['spacings'] | 0;
+type Spacing = keyof Theme['spacings'];
 
-const getSpacingValue = (theme: Theme, size: Spacing) => {
+type SpacingValue = Spacing | 'auto' | 0;
+
+const mapSpacingValue = (theme: Theme, value: SpacingValue) => {
   if (process.env.NODE_ENV !== 'production') {
-    if (typeof size === 'number' && size !== 0) {
+    if (typeof value === 'number' && value !== 0) {
       console.warn(
         [
-          `The number "${size as number}" was passed to the spacing mixin.`,
-          'This is not supported. Pass a spacing constant or 0 instead.',
+          `The number "${value as number}" was passed to the spacing mixin.`,
+          `This is not supported. Pass a spacing constant, 'auto', or 0 instead.`,
         ].join(' '),
       );
     }
   }
-  return typeof size === 'string' ? theme.spacings[size] : '0px';
+
+  if (value === 0 || value === 'auto') {
+    return String(value);
+  }
+
+  return theme.spacings[value];
 };
 
 export const spacing = curry(
   (
     size:
-      | Spacing
-      | { top?: Spacing; bottom?: Spacing; right?: Spacing; left?: Spacing },
+      | SpacingValue
+      | {
+          top?: SpacingValue;
+          bottom?: SpacingValue;
+          right?: SpacingValue;
+          left?: SpacingValue;
+        },
     args: ThemeArgs,
   ) => {
     const theme = getTheme(args);
 
     if (typeof size === 'string' || typeof size === 'number') {
-      return css({ margin: getSpacingValue(theme, size) });
+      return css({ margin: mapSpacingValue(theme, size) });
     }
 
     const margins: {
@@ -73,19 +85,19 @@ export const spacing = curry(
     } = {};
 
     if (typeof size.top !== 'undefined') {
-      margins.marginTop = getSpacingValue(theme, size.top);
-    }
-
-    if (typeof size.bottom !== 'undefined') {
-      margins.marginBottom = getSpacingValue(theme, size.bottom);
+      margins.marginTop = mapSpacingValue(theme, size.top);
     }
 
     if (typeof size.right !== 'undefined') {
-      margins.marginRight = getSpacingValue(theme, size.right);
+      margins.marginRight = mapSpacingValue(theme, size.right);
+    }
+
+    if (typeof size.bottom !== 'undefined') {
+      margins.marginBottom = mapSpacingValue(theme, size.bottom);
     }
 
     if (typeof size.left !== 'undefined') {
-      margins.marginLeft = getSpacingValue(theme, size.left);
+      margins.marginLeft = mapSpacingValue(theme, size.left);
     }
     return css(margins);
   },

@@ -103,7 +103,7 @@ describe('Style helpers', () => {
         light,
       );
       expect(styles).toMatchInlineSnapshot(
-        `"margin-top:12px;margin-bottom:12px;margin-right:16px;margin-left:24px;"`,
+        `"margin-top:12px;margin-right:16px;margin-bottom:12px;margin-left:24px;"`,
       );
     });
 
@@ -113,13 +113,18 @@ describe('Style helpers', () => {
         light,
       );
       expect(styles).toMatchInlineSnapshot(
-        `"margin-top:0px;margin-bottom:12px;margin-right:16px;margin-left:24px;"`,
+        `"margin-top:0;margin-right:16px;margin-bottom:12px;margin-left:24px;"`,
       );
     });
 
-    it('should apply 0px spacing to all sides when passing 0 value', () => {
+    it('should support `0` spacing value', () => {
       const { styles } = spacing(0, light);
-      expect(styles).toMatchInlineSnapshot(`"margin:0px;"`);
+      expect(styles).toMatchInlineSnapshot(`"margin:0;"`);
+    });
+
+    it('should support the `auto` spacing value', () => {
+      const { styles } = spacing('auto', light);
+      expect(styles).toMatchInlineSnapshot(`"margin:auto;"`);
     });
 
     it('should apply correct margin for the currying behaviour', () => {
