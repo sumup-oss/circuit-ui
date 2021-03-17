@@ -15,7 +15,6 @@
 
 import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
-import { curry } from 'lodash/fp';
 
 type ThemeArgs = Theme | { theme: Theme };
 
@@ -40,6 +39,13 @@ type Spacing = keyof Theme['spacings'];
 
 type SpacingValue = Spacing | 'auto' | 0;
 
+type SpacingObject = {
+  top?: SpacingValue;
+  bottom?: SpacingValue;
+  right?: SpacingValue;
+  left?: SpacingValue;
+};
+
 const mapSpacingValue = (theme: Theme, value: SpacingValue) => {
   if (process.env.NODE_ENV !== 'production') {
     if (typeof value === 'number' && value !== 0) {
@@ -59,30 +65,24 @@ const mapSpacingValue = (theme: Theme, value: SpacingValue) => {
   return theme.spacings[value];
 };
 
-export const spacing = curry(
-  (
-    size:
-      | SpacingValue
-      | {
-          top?: SpacingValue;
-          bottom?: SpacingValue;
-          right?: SpacingValue;
-          left?: SpacingValue;
-        },
-    args: ThemeArgs,
-  ) => {
-    const theme = getTheme(args);
+export const spacing = (size: SpacingValue | SpacingObject) => {
+  if (typeof size === 'string' || typeof size === 'number') {
+    return (args: ThemeArgs) => {
+      const theme = getTheme(args);
 
-    if (typeof size === 'string' || typeof size === 'number') {
       return css({ margin: mapSpacingValue(theme, size) });
-    }
+    };
+  }
 
-    const margins: {
-      marginTop?: string;
-      marginBottom?: string;
-      marginRight?: string;
-      marginLeft?: string;
-    } = {};
+  const margins: {
+    marginTop?: string;
+    marginBottom?: string;
+    marginRight?: string;
+    marginLeft?: string;
+  } = {};
+
+  return (args: ThemeArgs) => {
+    const theme = getTheme(args);
 
     if (typeof size.top !== 'undefined') {
       margins.marginTop = mapSpacingValue(theme, size.top);
@@ -100,8 +100,8 @@ export const spacing = curry(
       margins.marginLeft = mapSpacingValue(theme, size.left);
     }
     return css(margins);
-  },
-);
+  };
+};
 
 export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
