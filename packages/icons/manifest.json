@@ -451,6 +451,11 @@
       "size": "large"
     },
     {
+      "name": "company",
+      "category": "Finance",
+      "size": "large"
+    },
+    {
       "name": "card",
       "category": "Finance",
       "size": "large"
