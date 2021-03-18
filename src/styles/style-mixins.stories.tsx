@@ -15,12 +15,20 @@
  */
 
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
+import styled from '@emotion/styled';
 
 import Button from '../components/Button';
 
 import docs from './style-mixins.docs.mdx';
-import { spacing } from './style-mixins';
+import {
+  spacing,
+  focusOutline,
+  disableVisually,
+  clearfix,
+  hideVisually,
+  hideScrollbar,
+} from './style-mixins';
 
 export default {
   title: 'Advanced/Style Mixins',
@@ -46,15 +54,15 @@ const spaceOptions = {
   },
 };
 
-const background = () => css`
-  background-color: #f8cb9c;
+const Background = styled.div`
   display: inline-block;
+  background-color: #f8cb9c;
 `;
 
 export const ApplySpacingOneSide = (args) => (
-  <div css={background}>
+  <Background>
     <Button css={spacing(args)}>Example</Button>
-  </div>
+  </Background>
 );
 
 ApplySpacingOneSide.args = { top: 'mega' };
@@ -64,9 +72,9 @@ ApplySpacingOneSide.argTypes = {
 };
 
 export const ApplySpacingFourSides = (args) => (
-  <div css={background}>
+  <Background>
     <Button css={spacing(args)}>Example</Button>
-  </div>
+  </Background>
 );
 
 ApplySpacingFourSides.args = {
@@ -83,9 +91,9 @@ ApplySpacingFourSides.argTypes = {
 };
 
 export const ApplySpacingAllSides = (args) => (
-  <div css={background}>
+  <Background>
     <Button css={spacing(args.size)}>Example</Button>
-  </div>
+  </Background>
 );
 ApplySpacingAllSides.args = { size: 'kilo' };
 ApplySpacingAllSides.argTypes = {
@@ -93,9 +101,9 @@ ApplySpacingAllSides.argTypes = {
 };
 
 export const ResetSpacing = (args) => (
-  <div css={background}>
+  <Background>
     <Button css={spacing(args.size)}>Example</Button>
-  </div>
+  </Background>
 );
 ResetSpacing.args = { size: 'kilo' };
 ResetSpacing.argTypes = {
@@ -106,3 +114,62 @@ ResetSpacing.argTypes = {
     },
   },
 };
+
+const Parent = styled.div`
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid magenta;
+`;
+
+const Child = styled.div`
+  float: right;
+  height: 120px;
+  width: 240px;
+  background-color: #ccc;
+`;
+
+export const Clearfix = () => (
+  <Parent css={clearfix}>
+    <Child />
+    An electronic circuit is composed of individual electronic components, such
+    as resistors, transistors, capacitors, inductors and diodes, connected by
+    conductive wires or traces through which electric current can flow.
+  </Parent>
+);
+
+const Focused = styled.div`
+  display: inline-block;
+  height: 48px;
+  width: 480px;
+  max-width: 100%;
+  background-color: white;
+`;
+
+export const FocusOutline = () => <Focused css={focusOutline} />;
+
+export const DisableVisually = () => (
+  <div css={disableVisually}>This element is visually disabled.</div>
+);
+
+export const HideVisually = () => (
+  <div css={hideVisually}>This element is visually hidden.</div>
+);
+
+const Scrollable = styled.div`
+  overflow-x: scroll;
+`;
+
+const Overflow = styled.div`
+  width: 120%;
+`;
+
+export const HideScrollbar = () => (
+  <Scrollable css={hideScrollbar}>
+    <Overflow>
+      An electronic circuit is composed of individual electronic components,
+      such as resistors, transistors, capacitors, inductors and diodes,
+      connected by conductive wires or traces through which electric current can
+      flow.
+    </Overflow>
+  </Scrollable>
+);

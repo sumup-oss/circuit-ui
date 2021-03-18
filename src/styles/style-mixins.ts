@@ -207,7 +207,7 @@ export const focusOutline = (args: ThemeArgs): SerializedStyles => {
 };
 
 /**
- * A CSS hack to force an element to self-clear its floated children.
+ * Forces an element to self-clear its floated children.
  * Taken from [CSS Tricks](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/).
  */
 export const clearfix = (): SerializedStyles => css`
@@ -222,7 +222,7 @@ export const clearfix = (): SerializedStyles => css`
 `;
 
 /**
- * Hide the browser scrollbar on a scrollable element, e.g. with overflow.
+ * Hides the browser scrollbar on a scrollable element, e.g. with overflow.
  */
 export const hideScrollbar = (): SerializedStyles => css`
   -ms-overflow-style: none;

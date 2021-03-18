@@ -90,3 +90,53 @@ If you want to apply spacing to all sides with passing just one value, you can d
 There is an option for the spacing reset, by simply passing 0 value. Any other number is not supported.
 
 <Story id="advanced-style-mixins--reset-spacing" />
+
+## `clearfix`
+
+Forces an element to self-clear its floated children. Taken from [CSS Tricks](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/).
+
+```ts
+clearfix(): SerializedStyles;
+```
+
+<Story id="advanced-style-mixins--clearfix" />
+
+## `focusOutline`
+
+Visually communicates to the user that an element is focused.
+
+```ts
+focusOutline(theme: Theme | { theme: Theme }): SerializedStyles;
+```
+
+<Story id="advanced-style-mixins--focus-outline" />
+
+## `disableVisually`
+
+Visually communicates to the user that an element is disabled and prevents user interactions.
+
+```ts
+disableVisually(): SerializedStyles;
+```
+
+<Story id="advanced-style-mixins--disable-visually" />
+
+## `hideVisually`
+
+Visually hides an element while keeping it accessible to users who rely on a screen reader.
+
+```ts
+hideVisually(): SerializedStyles;
+```
+
+<Story id="advanced-style-mixins--hide-visually" />
+
+## `hideScrollbar`
+
+Hides the browser scrollbar on a scrollable element, e.g. with overflow.
+
+```ts
+hideScrollbar(): SerializedStyles;
+```
+
+<Story id="advanced-style-mixins--hide-scrollbar" />
