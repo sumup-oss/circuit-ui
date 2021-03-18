@@ -14,7 +14,7 @@ import { Intro, Status, Props, Story } from '../../.storybook/components';
 ## Usage
 
 ```tsx
-import { spacing, clearfix, cx } from '@sumup/circuit-ui';
+import { clearfix, spacing } from '@sumup/circuit-ui';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -25,14 +25,28 @@ const Basic = () => <div css={clearfix} />;
 const Options = () => <div css={spacing('mega')} />;
 
 // Style mixins can also be used in a style function...
-const styles = ({ theme }) => css`
+const someStyles = ({ theme }) => css`
   &:focus {
     ${focusOutline(theme)};
   }
 `;
 
 // ...or passed to a styled component directly
-const StyledComponent = styled.div(styles, clearfix);
+const StyledComponent = styled.div(someStyles, clearfix);
+```
+
+## `cx`
+
+Use the `cx` helper to combine multiple style mixins or conditionally apply a style mixin. Each style mixin is called with the `theme`.
+
+```tsx
+import { cx, clearfix, spacing, disableVisually } from '@sumup/circuit-ui';
+
+// The `cx` helper accepts any number of style mixins.
+const Multiple = () => <div css={cx(clearfix, spacing('mega'))} />;
+
+// Falsy values are skipped which is useful to conditionally apply style mixins.
+const Conditional = () => <div css={cx(disabled && disableVisually)} />;
 ```
 
 ## `spacing`
