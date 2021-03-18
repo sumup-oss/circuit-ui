@@ -51,17 +51,17 @@ const Conditional = () => <div css={cx(disabled && disableVisually)} />;
 
 ## `spacing`
 
-Mixins are functions that accept a space enum + the theme and return styles. The spacing function is fairly simple and helps to ensure consistency in UI.
+The spacing function is fairly simple and helps to ensure consistency in UI.
 The spacing value can take different shapes to make it easy to apply any combination of spacings.
 
 ### Usage examples
 
-Spacing function accepts space string or objects, returns margin and apply spacing.
-Below are examples of using the spacing() function. Pass to the function the value you wish to use.
+Spacing function accepts space string or objects, returns margin and apply spacing. It can also accept `'0'` and `auto` value.
+Below are examples of using the `spacing()` function. Pass to the function the value you wish to use.
 
-### Apply individual spacing
+### Individual spacing
 
-You can set the individual spacing to one side when passing one value in an object (example, top: 'giga'). You can use the following values to define the spacing:
+You can set the individual spacing to one side when passing one value in an object. You can use the following values to define the spacing:
 
 - 'bit',
 - 'byte',
@@ -73,23 +73,53 @@ You can set the individual spacing to one side when passing one value in an obje
 - 'exa',
 - 'zetta',
 
-<Story id="advanced-style-mixins--apply-spacing-one-side" />
+```tsx
+const ButtonWithMargin = (props) => (
+  <Button css={spacing({ top: 'mega' })}>Example</Button>
+);
+```
 
-### Apply individual spacing to each sides
+<Story id="advanced-style-mixins--individual-spacing-one-side" />
+
+### Individual spacing each side
 
 You can set the individual spacing to each side when passing all four values in an object.
 
-<Story id="advanced-style-mixins--apply-spacing-four-sides" />
+```tsx
+const ButtonWithMargin = (props) => (
+  <Button
+    css={spacing({ top: 'kilo', right: 'mega', left: 'giga', bottom: 'kilo' })}
+  >
+    Example
+  </Button>
+);
+```
 
-### Apply spacing to four sides when passing a string
+<Story id="advanced-style-mixins--individual-spacing-each-side" />
+
+### Spacing all sides when passing a string
 
 If you want to apply spacing to all sides with passing just one value, you can do it by passing a string value of any spacing constant.
 
-<Story id="advanced-style-mixins--apply-spacing-all-sides" />
+```tsx
+const ButtonWithMargin = (props) => (
+  <Button css={spacing('kilo')}>Example</Button>
+);
+```
 
-There is an option for the spacing reset, by simply passing 0 value. Any other number is not supported.
+<Story id="advanced-style-mixins--spacing-all-sides" />
 
-<Story id="advanced-style-mixins--reset-spacing" />
+### `Auto` and `'0'` spacing
+
+There is a support for the auto and '0' value to allow resetting margins to default behavior.
+
+```tsx
+const ButtonWithMargin = (props) => (
+  <Button css={spacing('auto')}>Example</Button>
+);
+```
+
+<Story id="advanced-style-mixins--auto-and-0-spacing" />
 
 ## `clearfix`
 

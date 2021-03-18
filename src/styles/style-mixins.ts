@@ -68,7 +68,9 @@ const mapSpacingValue = (theme: Theme, value: SpacingValue) => {
 
   return theme.spacings[value];
 };
-
+/**
+ * Spacing mixin that accept a space enum + the theme and apply different combination of spacing.
+ */
 export const spacing = (size: SpacingValue | SpacingObject) => {
   if (typeof size === 'string' || typeof size === 'number') {
     return (args: ThemeArgs) => {

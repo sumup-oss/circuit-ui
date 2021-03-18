@@ -59,58 +59,59 @@ const Background = styled.div`
   background-color: #f8cb9c;
 `;
 
-export const ApplySpacingOneSide = (args) => (
+export const IndividualSpacingOneSide = (args) => (
   <Background>
     <Button css={spacing(args)}>Example</Button>
   </Background>
 );
 
-ApplySpacingOneSide.args = { top: 'mega' };
+IndividualSpacingOneSide.args = { top: 'mega' };
 
-ApplySpacingOneSide.argTypes = {
+IndividualSpacingOneSide.argTypes = {
   top: spaceOptions,
 };
 
-export const ApplySpacingFourSides = (args) => (
+export const IndividualSpacingEachSide = (args) => (
   <Background>
     <Button css={spacing(args)}>Example</Button>
   </Background>
 );
 
-ApplySpacingFourSides.args = {
+IndividualSpacingEachSide.args = {
   top: 'mega',
   right: 'giga',
   bottom: 'mega',
   left: 'giga',
 };
 
-ApplySpacingFourSides.argTypes = {
+IndividualSpacingEachSide.argTypes = {
   top: spaceOptions,
-  bottom: spaceOptions,
   right: spaceOptions,
+  bottom: spaceOptions,
+  left: spaceOptions,
 };
 
-export const ApplySpacingAllSides = (args) => (
+export const SpacingAllSides = (args) => (
   <Background>
     <Button css={spacing(args.size)}>Example</Button>
   </Background>
 );
-ApplySpacingAllSides.args = { size: 'kilo' };
-ApplySpacingAllSides.argTypes = {
+SpacingAllSides.args = { size: 'kilo' };
+SpacingAllSides.argTypes = {
   size: spaceOptions,
 };
 
-export const ResetSpacing = (args) => (
+export const AutoAnd0Spacing = (args) => (
   <Background>
     <Button css={spacing(args.size)}>Example</Button>
   </Background>
 );
-ResetSpacing.args = { size: 'kilo' };
-ResetSpacing.argTypes = {
+AutoAnd0Spacing.args = { size: 'auto' };
+AutoAnd0Spacing.argTypes = {
   size: {
     control: {
       type: 'select',
-      options: ['kilo', 0],
+      options: ['auto', 0, 'mega'],
     },
   },
 };
