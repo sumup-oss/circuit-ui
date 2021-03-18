@@ -118,7 +118,7 @@ const composeBreakpoints = curry((fn, grid, theme, breakpoints) =>
  * returns a single style, otherwise composes the breakpoints into an array of
  * styles
  */
-export const getSpanStyles = ({ grid, ...theme }, span) =>
+export const getSpanStyles = ({ grid, ...theme }, span = '0') =>
   isString(span)
     ? createSpanStyles(grid.default, theme, span)
     : composeBreakpoints(createSpanStyles, grid, theme, span);
@@ -128,7 +128,7 @@ export const getSpanStyles = ({ grid, ...theme }, span) =>
  * returns a single style, otherwise composes the breakpoints into an array of
  * styles
  */
-export const getSkipStyles = ({ grid, ...theme }, skip) =>
+export const getSkipStyles = ({ grid, ...theme }, skip = '0') =>
   isString(skip)
     ? createSkipStyles(grid.default, theme, skip)
     : composeBreakpoints(createSkipStyles, grid, theme, skip);
