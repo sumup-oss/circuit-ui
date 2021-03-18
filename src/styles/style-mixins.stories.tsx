@@ -121,7 +121,7 @@ const Parent = styled.div`
   border: 1px solid magenta;
 `;
 
-const Child = styled.div`
+const Floating = styled.div`
   float: right;
   height: 120px;
   width: 240px;
@@ -130,7 +130,7 @@ const Child = styled.div`
 
 export const Clearfix = () => (
   <Parent css={clearfix}>
-    <Child />
+    <Floating />
     An electronic circuit is composed of individual electronic components, such
     as resistors, transistors, capacitors, inductors and diodes, connected by
     conductive wires or traces through which electric current can flow.
