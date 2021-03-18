@@ -23,7 +23,7 @@ import docs from './style-mixins.docs.mdx';
 import { spacing } from './style-mixins';
 
 export default {
-  title: 'Styles/Spacing Mixin',
+  title: 'Advanced/Style Mixins',
   parameters: {
     docs: { page: docs },
   },

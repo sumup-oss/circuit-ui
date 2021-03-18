@@ -32,6 +32,10 @@ type StyleFn =
   | null
   | undefined;
 
+/**
+ * Helper to pass multiple style mixins to the `css` prop.
+ * Mixins can be applied conditionally, falsy values are omitted.
+ */
 export const cx = (...styleFns: StyleFn[]) => (theme: Theme) =>
   styleFns.map((styleFn) => styleFn && styleFn(theme));
 

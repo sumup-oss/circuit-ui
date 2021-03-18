@@ -5,10 +5,13 @@ import { Meta, Intro, Story } from '../../.storybook/components';
 # Event Tracking
 
 <Intro>
-Tracking user interactions enables you to learn about usage patterns.
-Circuit UI provides out of the box interaction tracking by leveraging <a href="https://github.com/sumup-oss/collector">Collector</a>. 
-
-In this guide we will cover all the basics to start measuring using Circuit UI components. We highly recommending checking <a href="https://github.com/sumup-oss/collector">Collector</a> out for an in-depth overview. Here are the steps to enable and use it.
+  Tracking user interactions enables you to learn about usage patterns. Circuit
+  UI provides out of the box interaction tracking by leveraging{' '}
+  <a href="https://github.com/sumup-oss/collector">Collector</a>. <br />
+  In this guide we will cover all the basics to start measuring using Circuit UI
+  components. We highly recommending checking <a href="https://github.com/sumup-oss/collector">
+    Collector
+  </a> out for an in-depth overview. Here are the steps to enable and use it.
 </Intro>
 
 ## Configuring Tracking Dispatch
@@ -54,17 +57,15 @@ import { useClickTrigger } from '@sumup/collector';
 export default function Selector({ onChange }) {
   const dispatch = useClickTrigger();
   const handleChange = (selected) => {
-    dispatch({ 
+    dispatch({
       label: selected.toString(),
-      component: 'selector', 
-      customParameters: { custom1: 'data' } 
+      component: 'selector',
+      customParameters: { custom1: 'data' },
     });
 
     onChange(selected);
   };
 
-  return (
-    <Selector onChange={handleChange} />
-  );
+  return <Selector onChange={handleChange} />;
 }
 ```

@@ -24,11 +24,11 @@ const SORT_ORDER = {
   Advanced: [
     'Theme',
     'Icons',
+    'Style Mixins',
     'Base Components',
     'Event Tracking',
     'Static CSS',
   ],
-  style: ['style mixin'],
   Typography: ['Heading', 'SubHeading', 'Text'],
   Layout: [],
   Forms: [],
