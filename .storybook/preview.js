@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { withPerformance } from 'storybook-addon-performance';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
+import { Global, css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 import { TrackingRoot, TrackingView } from '@sumup/collector';
 
@@ -57,6 +58,19 @@ const StoryStyles = styled.div`
   }
 `;
 
+const globalStyles = (theme) => css`
+  code {
+    padding: 0.15em 0.2em 0.05em;
+    margin: -0.15em 0 -0.05em;
+    border-radius: 0.2em;
+    background: ${theme.colors.n200};
+  }
+
+  pre code {
+    background: inherit;
+  }
+`;
+
 const withStoryStyles = (Story) => {
   return (
     <StoryStyles>
@@ -68,6 +82,7 @@ const withStoryStyles = (Story) => {
 const withThemeProvider = (Story) => (
   <ThemeProvider theme={light}>
     <BaseStyles />
+    <Global styles={globalStyles} />
     <Story />
   </ThemeProvider>
 );
