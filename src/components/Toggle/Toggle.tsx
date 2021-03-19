@@ -17,7 +17,7 @@ import React, { Ref } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
-import { disableVisually } from '../../styles/style-helpers';
+import { disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import deprecate from '../../util/deprecate';
 import { Text, TextProps } from '../Text/Text';

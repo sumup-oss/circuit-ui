@@ -18,7 +18,7 @@ import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { textMega, textKilo, textGiga } from '../../styles/style-helpers';
+import { textMega, textKilo, textGiga } from '../../styles/style-mixins';
 import deprecate from '../../util/deprecate';
 
 type Size = 'kilo' | 'mega' | 'giga';

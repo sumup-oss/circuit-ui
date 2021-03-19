@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
-import { focusOutline } from '../../../../styles/style-helpers';
+import { focusOutline } from '../../../../styles/style-mixins';
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import { isFunction } from '../../../../util/type-check';
 import { ASCENDING, DESCENDING } from '../../constants';

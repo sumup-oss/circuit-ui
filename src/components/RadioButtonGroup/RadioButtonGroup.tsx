@@ -18,7 +18,7 @@ import React, { HTMLProps, Ref } from 'react';
 import { css, jsx } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { textKilo } from '../../styles/style-helpers';
+import { textKilo } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
 import ValidationHint from '../ValidationHint';

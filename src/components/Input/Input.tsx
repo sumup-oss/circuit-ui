@@ -23,7 +23,7 @@ import {
   textMega,
   hideVisually,
   inputOutline,
-} from '../../styles/style-helpers';
+} from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';

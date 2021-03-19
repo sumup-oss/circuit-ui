@@ -33,7 +33,7 @@ import {
   textMega,
   disableVisually,
   focusOutline,
-} from '../../styles/style-helpers';
+} from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';

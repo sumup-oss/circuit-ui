@@ -27,7 +27,7 @@ import {
   textMega,
   hideVisually,
   inputOutline,
-} from '../../styles/style-helpers';
+} from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import useClickHandler from '../../hooks/use-click-handler';
 import Label from '../Label';

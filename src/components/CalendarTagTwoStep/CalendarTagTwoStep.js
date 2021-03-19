@@ -22,7 +22,7 @@ import { START_DATE, END_DATE } from 'react-dates/constants';
 
 import { RangePickerController } from '../Calendar';
 import Tag from '../Tag';
-import { textKilo } from '../../styles/style-helpers';
+import { textKilo } from '../../styles/style-mixins';
 
 const calendarInfoBase = () => css`
   text-align: right;

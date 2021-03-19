@@ -24,7 +24,7 @@ import {
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { textKilo } from '../../styles/style-helpers';
+import { textKilo } from '../../styles/style-mixins';
 
 export interface ValidationHintProps extends HTMLProps<HTMLSpanElement> {
   validationHint?: string;

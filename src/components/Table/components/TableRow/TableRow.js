@@ -18,7 +18,7 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 
 import { isEnter, isSpacebar } from '../../../../util/key-codes';
-import { focusOutline } from '../../../../styles/style-helpers';
+import { focusOutline } from '../../../../styles/style-mixins';
 
 const baseStyles = () => css`
   label: table-row;

@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { isNil, throttle } from 'lodash/fp';
 
-import { shadowSingle } from '../../styles/style-helpers';
+import { shadowSingle } from '../../styles/style-mixins';
 
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';

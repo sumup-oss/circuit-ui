@@ -24,7 +24,7 @@ import {
   disableVisually,
   hideVisually,
   focusOutline,
-} from '../../styles/style-helpers';
+} from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import deprecate from '../../util/deprecate';
 import useClickHandler from '../../hooks/use-click-handler';

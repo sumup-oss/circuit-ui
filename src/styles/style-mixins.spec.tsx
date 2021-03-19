@@ -43,7 +43,7 @@ import {
   clearfix,
   hideScrollbar,
   inputOutline,
-} from './style-helpers';
+} from './style-mixins';
 
 describe('Style helpers', () => {
   const red = (theme: Theme) => css`

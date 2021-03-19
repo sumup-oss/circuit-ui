@@ -17,7 +17,7 @@ import React, { ReactNode } from 'react';
 import { css, keyframes } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
-import { hideVisually, textKilo } from '../../styles/style-helpers';
+import { hideVisually, textKilo } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { ReturnType } from '../../types/return-type';
 
