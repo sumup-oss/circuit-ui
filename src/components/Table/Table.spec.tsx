@@ -15,8 +15,16 @@
 
 import React from 'react';
 
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  act,
+  userEvent,
+} from '../../util/test-utils';
+
 import Table from './Table';
-import { ASCENDING } from './constants';
 
 const headers = [
   { children: 'Letters', sortable: true },
@@ -83,7 +91,7 @@ describe('Table', () => {
       );
 
       act(() => {
-        fireEvent.click(getAllByTestId('table-row')[0]);
+        userEvent.click(getAllByTestId('table-row')[0]);
       });
 
       expect(onRowClickMock).toHaveBeenCalledTimes(1);
@@ -100,7 +108,7 @@ describe('Table', () => {
         const cellEls = getAllByTestId('table-cell');
 
         act(() => {
-          fireEvent.click(letterHeaderEl);
+          userEvent.click(letterHeaderEl);
         });
 
         const sortedRow = ['a', 'b', 'c'];
@@ -121,10 +129,10 @@ describe('Table', () => {
         const cellEls = getAllByTestId('table-cell');
 
         act(() => {
-          fireEvent.click(letterHeaderEl);
+          userEvent.click(letterHeaderEl);
         });
         act(() => {
-          fireEvent.click(letterHeaderEl);
+          userEvent.click(letterHeaderEl);
         });
 
         const sortedRow = ['c', 'b', 'a'];
@@ -139,13 +147,13 @@ describe('Table', () => {
       it('should call a custom sort callback', () => {
         const onSortByMock = jest.fn();
         const index = 0;
-        const nextDirection = ASCENDING;
+        const nextDirection = 'ascending';
         const { getAllByTestId } = render(
           <Table onSortBy={onSortByMock} headers={headers} rows={rows} />,
         );
 
         act(() => {
-          fireEvent.click(getAllByTestId('table-header')[0]);
+          userEvent.click(getAllByTestId('table-header')[0]);
         });
 
         expect(onSortByMock).toHaveBeenCalledTimes(1);

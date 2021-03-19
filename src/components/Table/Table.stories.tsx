@@ -21,6 +21,7 @@ import Badge from '../Badge';
 import docs from './Table.docs.mdx';
 
 import Table, { TableHeader, TableRow, TableCell } from '.';
+import { TableProps } from './Table';
 
 export default {
   title: 'Components/Table',
@@ -31,7 +32,7 @@ export default {
   },
 };
 
-export const Base = ({ onSortBy, ...args }) => <Table {...args} />;
+export const Base = ({ onSortBy, ...args }: TableProps) => <Table {...args} />;
 
 Base.args = {
   headers: [
@@ -71,7 +72,9 @@ Base.args = {
   onRowClick: action('onRowClick'),
 };
 
-export const WithComponentRows = ({ onSortBy, ...args }) => <Table {...args} />;
+export const WithComponentRows = ({ onSortBy, ...args }: TableProps) => (
+  <Table {...args} />
+);
 
 WithComponentRows.args = {
   headers: ['Name', 'Type'],
@@ -82,7 +85,9 @@ WithComponentRows.args = {
   ],
 };
 
-export const Sortable = ({ onSortBy, ...args }) => <Table {...args} />;
+export const Sortable = ({ onSortBy, ...args }: TableProps) => (
+  <Table {...args} />
+);
 
 Sortable.args = {
   headers: [
@@ -114,7 +119,7 @@ Sortable.args = {
   ],
 };
 
-export const CustomSort = (args) => (
+export const CustomSort = (args: TableProps) => (
   <Table
     {...args}
     onSortBy={(i, direction, rows) =>

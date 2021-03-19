@@ -109,7 +109,7 @@ describe('Table utils', () => {
     });
 
     it('should return the sortByValue', () => {
-      const props = { sortByValue: 'Foo' };
+      const props = { children: 'Foo', sortByValue: 'Foo' };
       const expected = props.sortByValue;
       const actual = utils.getSortByValue(props);
 
@@ -165,8 +165,8 @@ describe('Table utils', () => {
         const currentSort = 'Foo';
         const isActive = true;
         const expected = ASCENDING;
+        // @ts-expect-error currentShort can only be "ascending" or "descending"
         const actual = utils.getSortDirection(isActive, currentSort);
-
         expect(actual).toBe(expected);
       });
     });
