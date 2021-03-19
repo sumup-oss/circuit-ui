@@ -58,7 +58,7 @@ describe('Col utils', () => {
       const breakpoints = [['last'], ['first'], ['default']];
 
       const expected = [['default'], ['first'], ['last']];
-      const actual = utils.sortByPriority(grid, breakpoints);
+      const actual = utils.sortByPriority(grid)(breakpoints);
 
       expect(actual).toEqual(expected);
     });
@@ -73,7 +73,7 @@ describe('Col utils', () => {
       const theme = 'default';
       const tuple = ['default', 0];
 
-      utils.mapBreakpoint(mock, grid, theme, tuple);
+      utils.mapBreakpoint(mock, grid, theme)(tuple);
 
       expect(mock).toHaveBeenCalledWith(grid[head(tuple)], theme, last(tuple));
     });

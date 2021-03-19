@@ -14,7 +14,7 @@
  */
 
 import PropTypes from 'prop-types';
-import { isString, isNumber, isArray, curry } from 'lodash/fp';
+import { isString, isNumber, isArray } from 'lodash/fp';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 
@@ -43,7 +43,7 @@ export const getSortDirection = (isActive, currentSort) => {
   return currentSort === ASCENDING ? DESCENDING : ASCENDING;
 };
 
-export const ascendingSort = curry((i, a, b) => {
+export const ascendingSort = (i) => (a, b) => {
   const firstRow = getRowCells(a);
   const secondRow = getRowCells(b);
   const first = getSortByValue(firstRow[i]);
@@ -57,9 +57,9 @@ export const ascendingSort = curry((i, a, b) => {
   }
 
   return 0;
-});
+};
 
-export const descendingSort = curry((i, a, b) => {
+export const descendingSort = (i) => (a, b) => {
   const firstRow = getRowCells(a);
   const secondRow = getRowCells(b);
   const first = getSortByValue(firstRow[i]);
@@ -73,7 +73,7 @@ export const descendingSort = curry((i, a, b) => {
   }
 
   return 0;
-});
+};
 
 export const RowPropType = PropTypes.oneOfType([
   PropTypes.string,

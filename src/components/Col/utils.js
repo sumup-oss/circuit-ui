@@ -21,7 +21,6 @@ import {
   toPairs,
   head,
   compose,
-  curry,
   map,
   mapValues,
   values,
@@ -65,7 +64,7 @@ export const createSkipStyles = (grid, theme, skip) => {
   return wrapStyles(styles, breakpoint, theme);
 };
 
-const createBreakpointStyles = curry((theme, current) => {
+const createBreakpointStyles = (theme) => (current) => {
   const config = theme.grid[current.breakpoint];
 
   if (!config) {
@@ -78,7 +77,7 @@ const createBreakpointStyles = curry((theme, current) => {
   `;
 
   return wrapStyles(styles, current.breakpoint, theme);
-});
+};
 
 /**
  * Return the default styles for each breakpoint provided by the config
@@ -90,35 +89,32 @@ export const getBreakPointStyles = (theme) =>
  * Sort the key/value based on the breakpoint priority
  * defined on the grid config.
  */
-export const sortByPriority = curry((grid, iteratee) =>
-  iteratee.sort((a, b) => grid[head(a)].priority - grid[head(b)].priority),
-);
+export const sortByPriority = (grid) => (iteratee) =>
+  iteratee.sort((a, b) => grid[head(a)].priority - grid[head(b)].priority);
 
 /**
  * Map the provided key/value breakpoint into styles based on the grid/theme
  * config.
  */
-export const mapBreakpoint = curry((fn, grid, theme, [key, value]) =>
-  fn(grid[key], theme, value),
-);
+export const mapBreakpoint = (fn, grid, theme) => ([key, value]) =>
+  fn(grid[key], theme, value);
 
 /**
  * Compose the breakpoints object into an array of styles.
  */
-const composeBreakpoints = curry((fn, grid, theme, breakpoints) =>
+const composeBreakpoints = (fn, grid, theme, breakpoints) =>
   compose(
     map(mapBreakpoint(fn, grid, theme)),
     sortByPriority(grid),
     toPairs,
-  )(breakpoints),
-);
+  )(breakpoints);
 
 /**
  * Return the styles of the span based on the provided value. If it is a string
  * returns a single style, otherwise composes the breakpoints into an array of
  * styles
  */
-export const getSpanStyles = ({ grid, ...theme }, span) =>
+export const getSpanStyles = ({ grid, ...theme }, span = '0') =>
   isString(span)
     ? createSpanStyles(grid.default, theme, span)
     : composeBreakpoints(createSpanStyles, grid, theme, span);
@@ -128,7 +124,7 @@ export const getSpanStyles = ({ grid, ...theme }, span) =>
  * returns a single style, otherwise composes the breakpoints into an array of
  * styles
  */
-export const getSkipStyles = ({ grid, ...theme }, skip) =>
+export const getSkipStyles = ({ grid, ...theme }, skip = '0') =>
   isString(skip)
     ? createSkipStyles(grid.default, theme, skip)
     : composeBreakpoints(createSkipStyles, grid, theme, skip);
