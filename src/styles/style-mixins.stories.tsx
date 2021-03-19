@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /**
  * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,6 +17,7 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 
+import { Stack } from '../../.storybook/components';
 import Button from '../components/Button';
 
 import docs from './style-mixins.docs.mdx';
@@ -28,6 +28,8 @@ import {
   clearfix,
   hideVisually,
   hideScrollbar,
+  SpacingValue,
+  SpacingObject,
 } from './style-mixins';
 
 export default {
@@ -41,6 +43,8 @@ const spaceOptions = {
   control: {
     type: 'select',
     options: [
+      0,
+      'auto',
       'bit',
       'byte',
       'kilo',
@@ -59,61 +63,41 @@ const Background = styled.div`
   background-color: #f8cb9c;
 `;
 
-export const IndividualSpacingOneSide = (args) => (
-  <Background>
-    <Button css={spacing(args)}>Example</Button>
-  </Background>
-);
-
-IndividualSpacingOneSide.args = { top: 'mega' };
-
-IndividualSpacingOneSide.argTypes = {
-  top: spaceOptions,
+type SpacingArgs = {
+  all: SpacingValue;
+  top: SpacingValue;
+  right: SpacingValue;
+  bottom: SpacingValue;
+  left: SpacingValue;
 };
 
-export const IndividualSpacingEachSide = (args) => (
-  <Background>
-    <Button css={spacing(args)}>Example</Button>
-  </Background>
+export const Spacing = ({ all, top, left, bottom, right }: SpacingArgs) => (
+  <Stack>
+    <Background>
+      <Button css={spacing(all)}>Add sides</Button>
+    </Background>
+    <Background>
+      <Button css={spacing({ top, left, bottom, right })}>
+        Individual sides
+      </Button>
+    </Background>
+  </Stack>
 );
 
-IndividualSpacingEachSide.args = {
+Spacing.args = {
+  all: 'kilo',
   top: 'mega',
   right: 'giga',
   bottom: 'mega',
   left: 'giga',
 };
 
-IndividualSpacingEachSide.argTypes = {
+Spacing.argTypes = {
+  all: spaceOptions,
   top: spaceOptions,
   right: spaceOptions,
   bottom: spaceOptions,
   left: spaceOptions,
-};
-
-export const SpacingAllSides = (args) => (
-  <Background>
-    <Button css={spacing(args.size)}>Example</Button>
-  </Background>
-);
-SpacingAllSides.args = { size: 'kilo' };
-SpacingAllSides.argTypes = {
-  size: spaceOptions,
-};
-
-export const AutoAnd0Spacing = (args) => (
-  <Background>
-    <Button css={spacing(args.size)}>Example</Button>
-  </Background>
-);
-AutoAnd0Spacing.args = { size: 'auto' };
-AutoAnd0Spacing.argTypes = {
-  size: {
-    control: {
-      type: 'select',
-      options: ['auto', 0, 'mega'],
-    },
-  },
 };
 
 const Parent = styled.div`
@@ -122,7 +106,7 @@ const Parent = styled.div`
   border: 1px solid magenta;
 `;
 
-const Child = styled.div`
+const Floated = styled.div`
   float: right;
   height: 120px;
   width: 240px;
@@ -131,7 +115,7 @@ const Child = styled.div`
 
 export const Clearfix = () => (
   <Parent css={clearfix}>
-    <Child />
+    <Floated />
     An electronic circuit is composed of individual electronic components, such
     as resistors, transistors, capacitors, inductors and diodes, connected by
     conductive wires or traces through which electric current can flow.

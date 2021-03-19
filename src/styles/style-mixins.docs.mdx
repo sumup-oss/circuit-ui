@@ -54,6 +54,15 @@ const Conditional = () => <div css={cx(disabled && disableVisually)} />;
 The spacing function is fairly simple and helps to ensure consistency in UI.
 The spacing value can take different shapes to make it easy to apply any combination of spacings.
 
+```ts
+type Spacing = 0 | 'auto' | keyof Theme['spacings'];
+
+spacing(size:
+  | Spacing
+  | { top?: Spacing; left?: Spacing; bottom?: Spacing; right?: Spacing }
+): (theme: Theme | { theme: Theme }) => SerializedStyles;
+```
+
 ### Usage examples
 
 Spacing function accepts space string or objects, returns margin and apply spacing. It can also accept `'0'` and `auto` value.

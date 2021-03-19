@@ -41,9 +41,9 @@ export const cx = (...styleFns: StyleFn[]) => (theme: Theme) =>
 
 type Spacing = keyof Theme['spacings'];
 
-type SpacingValue = Spacing | 'auto' | 0;
+export type SpacingValue = Spacing | 'auto' | 0;
 
-type SpacingObject = {
+export type SpacingObject = {
   top?: SpacingValue;
   bottom?: SpacingValue;
   right?: SpacingValue;
