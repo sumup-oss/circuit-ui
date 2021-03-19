@@ -37,7 +37,7 @@ const StyledComponent = styled.div(someStyles, clearfix);
 
 ## `cx`
 
-Use the `cx` helper to combine multiple style mixins or conditionally apply a style mixin. Each style mixin is called with the `theme`.
+Combines multiple style mixins and calls each one with the `theme`. Modeled after the [`classNames`](https://github.com/JedWatson/classnames) package and [Emotion's (removed) `cx`](https://5bb1495273f2cf57a2cf39cc--emotion.netlify.app/docs/cx) helper.
 
 ```tsx
 import { cx, clearfix, spacing, disableVisually } from '@sumup/circuit-ui';
@@ -46,38 +46,40 @@ import { cx, clearfix, spacing, disableVisually } from '@sumup/circuit-ui';
 const Multiple = () => <div css={cx(clearfix, spacing('mega'))} />;
 
 // Falsy values are skipped which is useful to conditionally apply style mixins.
-const Conditional = () => <div css={cx(disabled && disableVisually)} />;
+const Conditional = ({ disabled }) => (
+  <div css={cx(disabled && disableVisually)} />
+);
 ```
 
 ## `spacing`
 
-The spacing function is fairly simple and helps to ensure consistency in UI.
-The spacing value can take different shapes to make it easy to apply any combination of spacings.
-It accepts space string or objects, returns margin and apply spacing. There is a support for the `auto` and `'0'` value to allow resetting margins to default behavior.
+Applies consistent outer spacing to an element. For the supported values have a look at the "Spacing" section on the [Theme](Advanced/Theme) page.
 
 ```ts
 type Spacing = 0 | 'auto' | keyof Theme['spacings'];
 
-spacing(size:
-  | Spacing
-  | { top?: Spacing; left?: Spacing; bottom?: Spacing; right?: Spacing }
+spacing(
+  size:
+    | Spacing
+    | { top?: Spacing; left?: Spacing; bottom?: Spacing; right?: Spacing },
 ): (theme: Theme | { theme: Theme }) => SerializedStyles;
 ```
 
-### Usage examples
-
-Below are examples of using the spacing function. For the supported values look at the [`Theme`](Advanced/Theme) page under `Spacings`.
-You can set the individual spacing to each side when passing all four values in an object. If you want to apply spacing to all sides with passing just one value, you can do it with string value of any spacing constant.
-
 ```tsx
-const ButtonWithMargin = (props) => (
-  <Button css={spacing('kilo')}>All sides</Button>
-  <Button css={spacing({ top: 'mega' })}>Spacing Top</Button>
-  <Button
-  css={spacing({ top: 'kilo', right: 'mega', left: 'giga', bottom: 'kilo' })}>
-  Individual side
-  </Button>
-  <Button css={spacing('auto')}> Auto spacing</Button>
+// A single spacing string is applied to all sides
+const AllSides = () => <div css={spacing('kilo')} />;
+
+// Specify spacing for individual sides in an object
+const IndividualSides = () => (
+  <div
+    css={spacing({ top: 'kilo', right: 'mega', left: 'giga', bottom: 'kilo' })}
+  />
+);
+
+// The `spacing` mixin supports the special values `0` and `auto`,
+// this can be useful to horizontally center an element
+const HorizontallyCentered = () => (
+  <div css={spacing({ left: 'auto', right: 'auto' })} />
 );
 ```
 

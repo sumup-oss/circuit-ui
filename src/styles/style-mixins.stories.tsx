@@ -86,10 +86,10 @@ export const Spacing = ({ all, top, left, bottom, right }: SpacingArgs) => (
 
 Spacing.args = {
   all: 'kilo',
-  top: 'mega',
+  top: 'kilo',
   right: 'giga',
-  bottom: 'mega',
-  left: 'giga',
+  bottom: 'peta',
+  left: 'zetta',
 };
 
 Spacing.argTypes = {
