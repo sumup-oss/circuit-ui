@@ -16,13 +16,7 @@
 import React from 'react';
 import { fireEvent } from '@testing-library/dom';
 
-import {
-  act,
-  create,
-  render,
-  renderToHtml,
-  axe,
-} from '../../../../util/test-utils';
+import { create, render, renderToHtml, axe } from '../../../../util/test-utils';
 
 import { CardHeader } from './Header';
 
@@ -38,17 +32,6 @@ describe('CardHeader', () => {
   });
 
   /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <CardHeader labelCloseButton="Close">{children}</CardHeader>,
-    );
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
-  });
-
-  /**
    * Logic tests.
    */
   it('should render a close button when an onClose prop is passed', () => {
@@ -58,7 +41,7 @@ describe('CardHeader', () => {
       </CardHeader>,
     );
     const actual = getByTestId('header-close');
-    expect(actual).not.toBeNull();
+    expect(actual).toBeVisible();
   });
 
   it('should call the onClose prop when the close button is clicked', () => {
@@ -69,10 +52,19 @@ describe('CardHeader', () => {
       </CardHeader>,
     );
 
-    act(() => {
-      fireEvent.click(getByTestId('header-close'));
-    });
+    fireEvent.click(getByTestId('header-close'));
 
     expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(
+      <CardHeader labelCloseButton="Close">{children}</CardHeader>,
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });

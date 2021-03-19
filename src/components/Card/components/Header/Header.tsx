@@ -55,7 +55,8 @@ const baseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const noHeadingStyles = ({ children }: ContainerElProps) =>
-  !children &&
+  Array.isArray(children) &&
+  !children[0] &&
   css`
     label: card__header--no-heading;
     justify-content: flex-end;
