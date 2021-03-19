@@ -74,7 +74,7 @@ type SpacingArgs = {
 export const Spacing = ({ all, top, left, bottom, right }: SpacingArgs) => (
   <Stack>
     <Background>
-      <Button css={spacing(all)}>Add sides</Button>
+      <Button css={spacing(all)}>All sides</Button>
     </Background>
     <Background>
       <Button css={spacing({ top, left, bottom, right })}>
