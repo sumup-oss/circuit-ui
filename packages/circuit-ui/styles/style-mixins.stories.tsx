@@ -17,7 +17,7 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { Stack } from '../../.storybook/components';
+import { Stack } from '../../../.storybook/components';
 import Button from '../components/Button';
 
 import docs from './style-mixins.docs.mdx';

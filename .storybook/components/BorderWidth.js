@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Text } from '../../src';
+import { Text } from '../../packages/circuit-ui';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -73,7 +73,7 @@ const BorderWidth = ({ size }) => (
 BorderWidth.propTypes = {
   // eslint-disable-next-line
   theme: PropTypes.object.isRequired,
-  size: PropTypes.string.isRequired
+  size: PropTypes.string.isRequired,
 };
 
 export default BorderWidth;

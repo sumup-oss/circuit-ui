@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Text } from '../../src';
+import { Text } from '../../packages/circuit-ui';
 
 const Box = styled('div')`
   ${({ theme, spacingName }) => css`
@@ -72,7 +72,7 @@ const Spacing = ({ spacingName }) => (
 Spacing.propTypes = {
   // eslint-disable-next-line
   theme: PropTypes.object.isRequired,
-  spacingName: PropTypes.string.isRequired
+  spacingName: PropTypes.string.isRequired,
 };
 
 export default Spacing;

@@ -16,7 +16,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 
-import { Stack } from '../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components';
 
 import docs from './CurrencyInput.docs.mdx';
 import { CurrencyInput, CurrencyInputProps } from './CurrencyInput';

@@ -17,7 +17,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { ThumbUp } from '@sumup/icons';
 
-import { Stack } from '../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components';
 import ButtonGroup from '../ButtonGroup';
 import LoadingButton from '../LoadingButton';
 import IconButton from '../IconButton';

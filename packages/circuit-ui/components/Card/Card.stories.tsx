@@ -19,7 +19,7 @@ import { action } from '@storybook/addon-actions';
 import { css, jsx } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
-import { Stack } from '../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components';
 import CardList from '../CardList';
 import Heading from '../Heading';
 import Text from '../Text';

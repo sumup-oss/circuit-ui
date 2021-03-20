@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 
-import { Text } from '../../src';
+import { Text } from '../../packages/circuit-ui';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -69,7 +69,7 @@ const BorderRadius = ({ size, ...props }) => (
 BorderRadius.propTypes = {
   // eslint-disable-next-line
   theme: PropTypes.object.isRequired,
-  size: PropTypes.string.isRequired
+  size: PropTypes.string.isRequired,
 };
 
 export default BorderRadius;

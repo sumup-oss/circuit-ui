@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Image as BaseImage } from '../../src';
+import { Image as BaseImage } from '../../packages/circuit-ui';
 
 const FULL_WIDTH = 'full-width';
 

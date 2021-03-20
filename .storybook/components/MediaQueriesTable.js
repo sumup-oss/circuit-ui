@@ -17,11 +17,11 @@ import React from 'react';
 import { withTheme, ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Table } from '../../src';
+import { Table } from '../../packages/circuit-ui';
 
 const HEADERS = ['Breakpoint name', 'Query'];
 
-const renderBreakpoint = bp => {
+const renderBreakpoint = (bp) => {
   if (typeof bp === 'number') {
     return `(min-width: ${bp.toString()}px)`;
   }
@@ -32,9 +32,9 @@ const renderBreakpoint = bp => {
 const TableWrapper = withTheme(({ theme }) => (
   <Table
     headers={HEADERS}
-    rows={Object.keys(theme.breakpoints).map(bp => [
+    rows={Object.keys(theme.breakpoints).map((bp) => [
       bp,
-      renderBreakpoint(theme.breakpoints[bp])
+      renderBreakpoint(theme.breakpoints[bp]),
     ])}
   />
 ));

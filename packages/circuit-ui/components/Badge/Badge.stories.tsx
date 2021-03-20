@@ -15,7 +15,7 @@
 
 import React from 'react';
 
-import { Stack } from '../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components';
 
 import { Badge, BadgeProps } from './Badge';
 import docs from './Badge.docs.mdx';

@@ -15,7 +15,7 @@
 
 import Stylis from '@emotion/stylis';
 
-import { BaseStyles } from '../../src/index.ts';
+import { BaseStyles } from '../../packages/circuit-ui/index.ts';
 
 import render from './render';
 

@@ -15,7 +15,7 @@
 
 import React from 'react';
 
-import { Stack } from '../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components';
 import Card from '../Card';
 
 import docs from './InlineMessage.docs.mdx';
