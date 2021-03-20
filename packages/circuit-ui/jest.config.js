@@ -18,16 +18,15 @@ module.exports = {
   testURL: 'http://localhost',
   coverageDirectory: './__coverage__',
   rootDir: '.',
-  roots: ['src', 'scripts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   collectCoverageFrom: [
-    'src/@(components|util|styles)/**/*.{ts,tsx,js,jsx}',
-    '!src/@(components|util|styles)/**/index.{ts,tsx,js,jsx}',
-    '!src/@(components|util|styles)/**/*.stories.{ts,tsx,js,jsx}',
-    '!src/@(components|util|styles)/**/*.docs.mdx',
-    '!**/node_modules/**',
+    '@(components|util|styles)/**/*.{ts,tsx,js,jsx}',
+    '!@(components|util|styles)/**/index.{ts,tsx,js,jsx}',
+    '!@(components|util|styles)/**/*.stories.{ts,tsx,js,jsx}',
+    '!@(components|util|styles)/**/*.docs.mdx',
+    '!node_modules/**',
   ],
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: ['node_modules', '.'],
   // HACK: See https://github.com/storybookjs/storybook/pull/9292
   moduleNameMapper: {
     'react-syntax-highlighter/dist/esm/(.*)':

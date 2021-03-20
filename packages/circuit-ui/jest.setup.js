@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { createSerializer } from 'jest-emotion';
 import { toHaveNoViolations } from 'jest-axe';
@@ -23,17 +22,13 @@ import {
   create,
   render,
   renderToHtml,
-  renderHook,
   act,
-  actHook,
   userEvent,
-  wait,
   axe,
-} from './src/util/test-utils';
+} from './util/test-utils';
 
 global.axe = axe;
 global.act = act;
-global.wait = wait;
 global.fireEvent = fireEvent;
 global.userEvent = userEvent;
 global.render = render;

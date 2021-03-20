@@ -27,7 +27,14 @@
       }
     ]
   },
-  "include": ["**/*"],
+  "include": [
+    "cli/**/*",
+    "components/**/*",
+    "hooks/**/*",
+    "styles/**/*",
+    "types/**/*",
+    "util/**/*"
+  ],
   "exclude": [
     "node_modules",
     "**/*/__tests__/*",
@@ -35,5 +42,5 @@
     "**/*.spec.*",
     "**/*.stories.*"
   ],
-  "typeRoots": ["./node_modules/@types"]
+  "typeRoots": ["./node_modules/@types", "./types/"]
 }
