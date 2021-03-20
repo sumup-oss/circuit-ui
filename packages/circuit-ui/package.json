@@ -5,6 +5,7 @@
   "description": "SumUp's React UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
+  "types": "dist/es/index.d.ts",
   "bin": {
     "circuit-ui": "./dist/cjs/cli/index.js"
   },
@@ -14,6 +15,7 @@
   ],
   "repository": {
     "type": "git",
+    "directory": "packages/circuit-ui",
     "url": "git+https://github.com/sumup-oss/circuit-ui.git"
   },
   "license": "Apache-2.0",
@@ -30,7 +32,6 @@
     "static-styles": "cross-env BABEL_ENV=static babel-node --extensions '.js,.ts,.tsx' ./scripts/static-styles/cli.js",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
-    "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
     "test": "jest --watch",
     "test:output": "mkdir -p __reports__ && jest --json --outputFile=__reports__/jest-results.json",
     "test:ci": "yarn test:output --ci --coverage --runInBand",
@@ -64,7 +65,7 @@
     "@emotion/styled": "^10.0.17",
     "@emotion/stylis": "^0.8.4",
     "@sumup/collector": "^1.0.0",
-    "@sumup/design-tokens": "^2.1.0",
+    "@sumup/design-tokens": "^2.1.1",
     "@sumup/icons": "^1.0.0",
     "@sumup/intl": "^1.0.0",
     "@svgr/webpack": "^5.5.0",

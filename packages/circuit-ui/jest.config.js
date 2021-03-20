@@ -20,10 +20,10 @@ module.exports = {
   rootDir: '.',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   collectCoverageFrom: [
-    '@(components|util|styles)/**/*.{ts,tsx,js,jsx}',
-    '!@(components|util|styles)/**/index.{ts,tsx,js,jsx}',
-    '!@(components|util|styles)/**/*.stories.{ts,tsx,js,jsx}',
-    '!@(components|util|styles)/**/*.docs.mdx',
+    '@(components|hooks|styles|util)/**/*.{ts,tsx,js,jsx}',
+    '!@(components|hooks|styles|util)/**/index.{ts,tsx,js,jsx}',
+    '!@(components|hooks|styles|util)/**/*.stories.{ts,tsx,js,jsx}',
+    '!@(components|hooks|styles|util)/**/*.docs.mdx',
     '!node_modules/**',
   ],
   moduleDirectories: ['node_modules', '.'],
@@ -42,6 +42,7 @@ module.exports = {
     'ts-jest': {
       tsconfig: {
         jsx: 'react',
+        moduleResolution: 'node',
       },
     },
   },

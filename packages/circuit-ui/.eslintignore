@@ -1,8 +1,10 @@
 node_modules/
 build/
 dist/
+static/
+public/
+.next/
 .out/
-coverage/
 __coverage__/
 __reports__/
 *.config.js
@@ -10,3 +12,4 @@ __reports__/
 plopfile.js
 jest.*.js
 tsconfig.json
+scripts/

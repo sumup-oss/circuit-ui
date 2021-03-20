@@ -33,7 +33,8 @@
     "hooks/**/*",
     "styles/**/*",
     "types/**/*",
-    "util/**/*"
+    "util/**/*",
+    "index.ts"
   ],
   "exclude": [
     "node_modules",

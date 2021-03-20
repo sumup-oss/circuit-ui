@@ -3282,10 +3282,10 @@
   dependencies:
     tti-polyfill "^0.2.2"
 
-"@sumup/design-tokens@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-2.1.0.tgz#a018acdc441bbcacaa95ac3561ba5de194eefbbb"
-  integrity sha512-cDRh0f58+e4TbVvPSkmq6qhUsSYB3HLGztXLUsmQpA4pkmy+TFTYkQW2aR04NyTg30+jK+HBndyMd5bHhD/6Sg==
+"@sumup/design-tokens@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-2.1.1.tgz#72f278f721de4e4852fe60529b30c9d04d0cfc13"
+  integrity sha512-sUTJDm/WUQeXZUS77pFnE3ChwcXZhTA812ju3kjAmlsUw79SMbbWUzQuRzG7PSiqv4czHyT2TGBehe14KuPIpQ==
   dependencies:
     prop-types "^15.7.2"
 

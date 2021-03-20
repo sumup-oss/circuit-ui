@@ -1,4 +1,4 @@
-name: Continous Integration
+name: Continuos Integration
 
 on: [push]
 
@@ -30,15 +30,15 @@ jobs:
       - name: Check licenses
         run: yarn check:licenses
       - name: Lint
-        run: yarn lint:ci
+        run: yarn lint
       - name: Test
-        run: yarn test:ci
+        run: yarn lerna run test:ci
       - name: Codecov
         uses: codecov/codecov-action@v1.0.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn release
+      # - name: Release
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #   run: yarn release
