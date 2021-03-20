@@ -16,7 +16,7 @@
 import * as Types from './types';
 import * as lightBase from './themes/light';
 
-export { themePropType } from './utils/prop-types';
+export { themePropType } from './utils/theme-prop-type';
 
 // HACK: Copy the theme, otherwise, it gets exported as 'module'.
 const light: Types.Theme = { ...lightBase };
