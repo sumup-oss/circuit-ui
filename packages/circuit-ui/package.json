@@ -1,7 +1,7 @@
 {
   "name": "@sumup/circuit-ui",
   "sideEffects": false,
-  "version": "0.0.0-semantically-released",
+  "version": "2.4.0",
   "description": "SumUp's React UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",

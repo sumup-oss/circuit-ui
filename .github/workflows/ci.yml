@@ -1,0 +1,57 @@
+name: CI
+
+on: [push]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js v14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # https://github.com/actions/cache/blob/main/examples.md#node---yarn
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: yarn --pure-lockfile --prefer-offline
+
+      - name: Check the dependency licenses
+        run: yarn check:licenses
+
+      - name: Lint the code
+        run: yarn lint
+
+      - name: Run the unit tests
+        run: yarn lerna run test:ci
+
+      - name: Upload the results to Codecov
+        uses: codecov/codecov-action@v1.0.3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Create release PR or publish to npm
+        if: github.ref == 'refs/heads/main'
+        uses: changesets/action@master
+        with:
+          publish: yarn release
+          version: yarn version-packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
