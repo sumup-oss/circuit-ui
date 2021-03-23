@@ -1,6 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SortArrow Style tests should render with ascending arrow styles 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
+  color: #3063E9;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.circuit-2:focus {
+  opacity: 1;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0 {
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<button
+  class="circuit-2"
+  role="button"
+  title="Sort"
+>
+  <svg
+    class="circuit-0"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4 6l4 4 4-4"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
+  <span
+    class="circuit-1"
+  >
+    Sort
+  </span>
+</button>
+`;
+
+exports[`SortArrow Style tests should render with both arrows styles 1`] = `
 .circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -38,94 +126,6 @@ exports[`SortArrow Style tests should render with ascending arrow styles 1`] = `
 }
 
 .circuit-3:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0 {
-  margin-top: -3px;
-  margin-bottom: -3px;
-}
-
-.circuit-1 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-<button
-  class="circuit-3 circuit-4"
-  role="button"
-  title="Sort"
->
-  <svg
-    class="circuit-0"
-    fill="none"
-    height="16"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M4 6l4 4 4-4"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
-  <span
-    class="circuit-1 circuit-2"
-  >
-    Sort
-  </span>
-</button>
-`;
-
-exports[`SortArrow Style tests should render with both arrows styles 1`] = `
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 40px;
-  width: 20px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  opacity: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
-  color: #3063E9;
-  border: 0;
-  background: none;
-  outline: 0;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-.circuit-4:focus {
-  opacity: 1;
-}
-
-.circuit-4:focus::-moz-focus-inner {
   border: 0;
 }
 
@@ -148,7 +148,7 @@ exports[`SortArrow Style tests should render with both arrows styles 1`] = `
 }
 
 <button
-  class="circuit-4 circuit-5"
+  class="circuit-3"
   role="button"
   title="Sort"
 >
@@ -185,7 +185,7 @@ exports[`SortArrow Style tests should render with both arrows styles 1`] = `
     />
   </svg>
   <span
-    class="circuit-2 circuit-3"
+    class="circuit-2"
   >
     Sort
   </span>
@@ -193,7 +193,7 @@ exports[`SortArrow Style tests should render with both arrows styles 1`] = `
 `;
 
 exports[`SortArrow Style tests should render with descending arrow styles 1`] = `
-.circuit-3 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -225,11 +225,11 @@ exports[`SortArrow Style tests should render with descending arrow styles 1`] = 
   cursor: pointer;
 }
 
-.circuit-3:focus {
+.circuit-2:focus {
   opacity: 1;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
@@ -252,7 +252,7 @@ exports[`SortArrow Style tests should render with descending arrow styles 1`] = 
 }
 
 <button
-  class="circuit-3 circuit-4"
+  class="circuit-2"
   role="button"
   title="Sort"
 >
@@ -273,7 +273,7 @@ exports[`SortArrow Style tests should render with descending arrow styles 1`] = 
     />
   </svg>
   <span
-    class="circuit-1 circuit-2"
+    class="circuit-1"
   >
     Sort
   </span>

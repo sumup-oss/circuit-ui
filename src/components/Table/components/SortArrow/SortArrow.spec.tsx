@@ -15,7 +15,14 @@
 
 import React from 'react';
 
-import { ASCENDING, DESCENDING } from '../../constants';
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  act,
+  userEvent,
+} from '../../../../util/test-utils';
 
 import SortArrow from '.';
 
@@ -27,12 +34,12 @@ describe('SortArrow', () => {
     });
 
     it('should render with ascending arrow styles', () => {
-      const actual = create(<SortArrow direction={ASCENDING} />);
+      const actual = create(<SortArrow direction="ascending" />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render with descending arrow styles', () => {
-      const actual = create(<SortArrow direction={DESCENDING} />);
+      const actual = create(<SortArrow direction="descending" />);
       expect(actual).toMatchSnapshot();
     });
   });

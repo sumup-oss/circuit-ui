@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TableHead Style tests should render with default styles 1`] = `
-.circuit-12 {
+.circuit-10 {
   vertical-align: middle;
 }
 
-tbody .circuit-12:last-child th,
-tbody .circuit-12:last-child td {
+tbody .circuit-10:last-child th,
+tbody .circuit-10:last-child td {
   border-bottom: none;
 }
 
-.circuit-6 {
+.circuit-4 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -30,7 +30,7 @@ tbody .circuit-12:last-child td {
   user-select: none;
 }
 
-.circuit-6:focus-within::after {
+.circuit-4:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -45,22 +45,22 @@ tbody .circuit-12:last-child td {
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-6:focus-within::after::-moz-focus-inner {
+.circuit-4:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-6:focus-within,
-.circuit-6:hover {
+.circuit-4:focus-within,
+.circuit-4:hover {
   background-color: #F5F5F5;
   color: #3063E9;
 }
 
-.circuit-6:focus-within > button,
-.circuit-6:hover > button {
+.circuit-4:focus-within > button,
+.circuit-4:hover > button {
   opacity: 1;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -92,11 +92,11 @@ tbody .circuit-12:last-child td {
   cursor: pointer;
 }
 
-.circuit-4:focus {
+.circuit-3:focus {
   opacity: 1;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
@@ -118,7 +118,7 @@ tbody .circuit-12:last-child td {
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-6 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -133,18 +133,18 @@ tbody .circuit-12:last-child td {
 }
 
 <thead
-  class="circuit-14 circuit-15"
+  class="circuit-12 circuit-13"
 >
   <tr
-    class="circuit-12 circuit-13"
+    class="circuit-10 circuit-11"
   >
     <th
       aria-sort="none"
-      class="circuit-6 circuit-7"
+      class="circuit-4 circuit-5"
       data-testid="table-header"
     >
       <button
-        class="circuit-4 circuit-5"
+        class="circuit-3"
         role="button"
         title="Sort"
       >
@@ -181,7 +181,7 @@ tbody .circuit-12:last-child td {
           />
         </svg>
         <span
-          class="circuit-2 circuit-3"
+          class="circuit-2"
         >
           Sort
         </span>
@@ -189,13 +189,13 @@ tbody .circuit-12:last-child td {
       Foo
     </th>
     <th
-      class="circuit-8 circuit-7"
+      class="circuit-6 circuit-5"
       data-testid="table-header"
     >
       Bar
     </th>
     <th
-      class="circuit-8 circuit-7"
+      class="circuit-6 circuit-5"
       data-testid="table-header"
     >
       Baz
@@ -205,16 +205,16 @@ tbody .circuit-12:last-child td {
 `;
 
 exports[`TableHead Style tests should render with rowHeader styles 1`] = `
-.circuit-12 {
+.circuit-10 {
   vertical-align: middle;
 }
 
-tbody .circuit-12:last-child th,
-tbody .circuit-12:last-child td {
+tbody .circuit-10:last-child th,
+tbody .circuit-10:last-child td {
   border-bottom: none;
 }
 
-.circuit-6 {
+.circuit-4 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -234,7 +234,7 @@ tbody .circuit-12:last-child td {
   user-select: none;
 }
 
-.circuit-6:focus-within::after {
+.circuit-4:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -249,22 +249,22 @@ tbody .circuit-12:last-child td {
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-6:focus-within::after::-moz-focus-inner {
+.circuit-4:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-6:focus-within,
-.circuit-6:hover {
+.circuit-4:focus-within,
+.circuit-4:hover {
   background-color: #F5F5F5;
   color: #3063E9;
 }
 
-.circuit-6:focus-within > button,
-.circuit-6:hover > button {
+.circuit-4:focus-within > button,
+.circuit-4:hover > button {
   opacity: 1;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -296,11 +296,11 @@ tbody .circuit-12:last-child td {
   cursor: pointer;
 }
 
-.circuit-4:focus {
+.circuit-3:focus {
   opacity: 1;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
@@ -322,7 +322,7 @@ tbody .circuit-12:last-child td {
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-6 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -337,18 +337,18 @@ tbody .circuit-12:last-child td {
 }
 
 <thead
-  class="circuit-14 circuit-15"
+  class="circuit-12 circuit-13"
 >
   <tr
-    class="circuit-12 circuit-13"
+    class="circuit-10 circuit-11"
   >
     <th
       aria-sort="none"
-      class="circuit-6 circuit-7"
+      class="circuit-4 circuit-5"
       data-testid="table-header"
     >
       <button
-        class="circuit-4 circuit-5"
+        class="circuit-3"
         role="button"
         title="Sort"
       >
@@ -385,7 +385,7 @@ tbody .circuit-12:last-child td {
           />
         </svg>
         <span
-          class="circuit-2 circuit-3"
+          class="circuit-2"
         >
           Sort
         </span>
@@ -393,13 +393,13 @@ tbody .circuit-12:last-child td {
       Foo
     </th>
     <th
-      class="circuit-8 circuit-7"
+      class="circuit-6 circuit-5"
       data-testid="table-header"
     >
       Bar
     </th>
     <th
-      class="circuit-8 circuit-7"
+      class="circuit-6 circuit-5"
       data-testid="table-header"
     >
       Baz
