@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
-.circuit-58 {
+.circuit-56 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-56 {
+.circuit-55 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-56 {
+  .circuit-55 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
@@ -32,7 +32,7 @@ exports[`Table Style tests should not render a scrollable table if the rowHeader
 
   .circuit-54:after {
     content: '';
-    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -308,13 +308,13 @@ tbody .circuit-20:last-child td {
 }
 
 <div
-  class="circuit-58 circuit-59"
+  class="circuit-56"
 >
   <div
-    class="circuit-56 circuit-57"
+    class="circuit-55"
   >
     <table
-      class="circuit-54 circuit-55"
+      class="circuit-54"
     >
       <thead
         class="circuit-22 circuit-23"
@@ -539,17 +539,17 @@ tbody .circuit-20:last-child td {
 `;
 
 exports[`Table Style tests should render a collapsed table 1`] = `
-.circuit-58 {
+.circuit-56 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-56 {
+.circuit-55 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-56 {
+  .circuit-55 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
@@ -837,7 +837,7 @@ tbody .circuit-20:last-child td {
 
   .circuit-54:after {
     content: '';
-    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -847,13 +847,13 @@ tbody .circuit-20:last-child td {
 }
 
 <div
-  class="circuit-58 circuit-59"
+  class="circuit-56"
 >
   <div
-    class="circuit-56 circuit-57"
+    class="circuit-55"
   >
     <table
-      class="circuit-54 circuit-55"
+      class="circuit-54"
     >
       <thead
         class="circuit-22 circuit-23"
@@ -1078,17 +1078,17 @@ tbody .circuit-20:last-child td {
 `;
 
 exports[`Table Style tests should render a condensed table 1`] = `
-.circuit-58 {
+.circuit-56 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-56 {
+.circuit-55 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-56 {
+  .circuit-55 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
@@ -1109,7 +1109,7 @@ exports[`Table Style tests should render a condensed table 1`] = `
 
   .circuit-54:after {
     content: '';
-    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -1420,13 +1420,13 @@ tbody .circuit-20:last-child td {
 }
 
 <div
-  class="circuit-58 circuit-59"
+  class="circuit-56"
 >
   <div
-    class="circuit-56 circuit-57"
+    class="circuit-55"
   >
     <table
-      class="circuit-54 circuit-55"
+      class="circuit-54"
     >
       <thead
         class="circuit-22 circuit-23"
@@ -1793,14 +1793,14 @@ tbody .circuit-18:last-child td {
   overflow-wrap: break-word;
 }
 
-.circuit-50 {
+.circuit-48 {
   position: relative;
   height: 100%;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 @media (max-width:767px) {
-  .circuit-50 {
+  .circuit-48 {
     height: 100%;
   }
 }
@@ -1825,20 +1825,20 @@ tbody .circuit-18:last-child td {
   }
 }
 
-.circuit-48 {
+.circuit-47 {
   height: 0px;
   overflow-y: auto;
 }
 
 <div
-  class="circuit-50 circuit-51"
+  class="circuit-48"
 >
   <div
-    class="circuit-48 circuit-49"
+    class="circuit-47"
     height="0px"
   >
     <table
-      class="circuit-46 circuit-47"
+      class="circuit-46"
     >
       <thead
         class="circuit-20 circuit-21"
@@ -2031,17 +2031,17 @@ tbody .circuit-18:last-child td {
 `;
 
 exports[`Table Style tests should render with default styles 1`] = `
-.circuit-58 {
+.circuit-56 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-56 {
+.circuit-55 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-56 {
+  .circuit-55 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
@@ -2062,7 +2062,7 @@ exports[`Table Style tests should render with default styles 1`] = `
 
   .circuit-54:after {
     content: '';
-    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -2338,13 +2338,13 @@ tbody .circuit-20:last-child td {
 }
 
 <div
-  class="circuit-58 circuit-59"
+  class="circuit-56"
 >
   <div
-    class="circuit-56 circuit-57"
+    class="circuit-55"
   >
     <table
-      class="circuit-54 circuit-55"
+      class="circuit-54"
     >
       <thead
         class="circuit-22 circuit-23"
@@ -2569,17 +2569,17 @@ tbody .circuit-20:last-child td {
 `;
 
 exports[`Table Style tests should render with rowHeader styles 1`] = `
-.circuit-58 {
+.circuit-56 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-56 {
+.circuit-55 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-56 {
+  .circuit-55 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
@@ -2600,7 +2600,7 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
 
   .circuit-54:after {
     content: '';
-    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -2876,13 +2876,13 @@ tbody .circuit-20:last-child td {
 }
 
 <div
-  class="circuit-58 circuit-59"
+  class="circuit-56"
 >
   <div
-    class="circuit-56 circuit-57"
+    class="circuit-55"
   >
     <table
-      class="circuit-54 circuit-55"
+      class="circuit-54"
     >
       <thead
         class="circuit-22 circuit-23"
@@ -3107,12 +3107,12 @@ tbody .circuit-20:last-child td {
 `;
 
 exports[`Table Style tests should render without the table shadow 1`] = `
-.circuit-56 {
+.circuit-55 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-56 {
+  .circuit-55 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
@@ -3133,7 +3133,7 @@ exports[`Table Style tests should render without the table shadow 1`] = `
 
   .circuit-54:after {
     content: '';
-    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -3408,20 +3408,20 @@ tbody .circuit-20:last-child td {
   overflow-wrap: break-word;
 }
 
-.circuit-58 {
+.circuit-56 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   box-shadow: none;
 }
 
 <div
-  class="circuit-58 circuit-59"
+  class="circuit-56"
 >
   <div
-    class="circuit-56 circuit-57"
+    class="circuit-55"
   >
     <table
-      class="circuit-54 circuit-55"
+      class="circuit-54"
     >
       <thead
         class="circuit-22 circuit-23"

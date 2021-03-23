@@ -113,7 +113,7 @@ describe('Table', () => {
 
         const sortedRow = ['a', 'b', 'c'];
 
-        rows.forEach((row, index) => {
+        rows.forEach((_row, index) => {
           // There's a hidden header cell that we need to skip with +1.
           const cellIndex = rowLength * index + 1;
           expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
@@ -137,7 +137,7 @@ describe('Table', () => {
 
         const sortedRow = ['c', 'b', 'a'];
 
-        rows.forEach((row, index) => {
+        rows.forEach((_row, index) => {
           // There's a hidden header cell that we need to skip with +1.
           const cellIndex = rowLength * index + 1;
           expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
