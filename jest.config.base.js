@@ -13,17 +13,25 @@
  * limitations under the License.
  */
 
-const baseConfig = require('../../jest.config.base');
-
-const packageJson = require('./package.json');
-
-const packageName = packageJson.name.split('@sumup/').pop();
-
 module.exports = {
-  ...baseConfig,
-  name: packageName,
-  displayName: packageName,
-  rootDir: '../..',
-  roots: [`<rootDir>/packages/${packageName}`],
-  setupFilesAfterEnv: [`<rootDir>/packages/${packageName}/jest.setup.js`],
+  preset: 'ts-jest',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+  // HACK: See https://github.com/storybookjs/storybook/pull/9292
+  moduleNameMapper: {
+    'react-syntax-highlighter/dist/esm/(.*)':
+      'react-syntax-highlighter/dist/cjs/$1',
+  },
+  transform: {
+    '^.+\\.(js|jsx)$': 'babel-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js',
+  },
+  testURL: 'http://localhost',
+  globals: {
+    'ts-jest': {
+      tsconfig: {
+        jsx: 'react',
+      },
+    },
+  },
 };

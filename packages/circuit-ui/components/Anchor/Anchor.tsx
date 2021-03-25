@@ -25,7 +25,7 @@ import { Text, TextProps } from '../Text/Text';
 import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';
 
-interface BaseProps extends TextProps {
+export interface BaseProps extends TextProps {
   children: ReactNode;
   /**
    * Additional data that is dispatched with the tracking event.

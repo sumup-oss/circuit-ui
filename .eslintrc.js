@@ -8,6 +8,7 @@ module.exports = require('@sumup/foundry/eslint')(
   {
     parserOptions: {
       project: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
+      tsconfigRootDir: __dirname,
     },
     overrides: [
       {

@@ -13,17 +13,18 @@
  * limitations under the License.
  */
 
-const baseConfig = require('../../jest.config.base');
-
-const packageJson = require('./package.json');
-
-const packageName = packageJson.name.split('@sumup/').pop();
+const baseConfig = require('./jest.config.base');
 
 module.exports = {
   ...baseConfig,
-  name: packageName,
-  displayName: packageName,
-  rootDir: '../..',
-  roots: [`<rootDir>/packages/${packageName}`],
-  setupFilesAfterEnv: [`<rootDir>/packages/${packageName}/jest.setup.js`],
+  projects: ['<rootDir>/packages/*/jest.config.js'],
+  coverageDirectory: '<rootDir>/__coverage__',
+  collectCoverageFrom: [
+    '<rootDir>/packages/**/*.{ts,tsx,js,jsx}',
+    '!<rootDir>/packages/**/node_modules/**/*.{ts,tsx,js,jsx}',
+    '!<rootDir>/packages/**/index.{ts,tsx,js,jsx}',
+    '!<rootDir>/packages/**/*.stories.{ts,tsx,js,jsx}',
+    '!<rootDir>/packages/**/*.docs.mdx',
+    '!<rootDir>/packages/**/__testfixtures__/**/*',
+  ],
 };
