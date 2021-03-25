@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TableBody Style tests should render with default styles 1`] = `
-.circuit-4 {
+.circuit-2 {
   vertical-align: middle;
 }
 
-tbody .circuit-4:last-child th,
-tbody .circuit-4:last-child td {
+tbody .circuit-2:last-child th,
+tbody .circuit-2:last-child td {
   border-bottom: none;
 }
 
@@ -23,17 +23,17 @@ tbody .circuit-4:last-child td {
 
 <tbody>
   <tr
-    class="circuit-4 circuit-5"
+    class="circuit-2 circuit-3"
     data-testid="table-row"
   >
     <td
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       data-testid="table-cell"
     >
       Foo
     </td>
     <td
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       data-testid="table-cell"
     >
       Bar
@@ -43,16 +43,16 @@ tbody .circuit-4:last-child td {
 `;
 
 exports[`TableBody Style tests should render with fixed header styles 1`] = `
-.circuit-6 {
+.circuit-4 {
   vertical-align: middle;
 }
 
-tbody .circuit-6:last-child th,
-tbody .circuit-6:last-child td {
+tbody .circuit-4:last-child th,
+tbody .circuit-4:last-child td {
   border-bottom: none;
 }
 
-.circuit-4 {
+.circuit-3 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -105,7 +105,7 @@ tbody .circuit-6:last-child td {
 
 <tbody>
   <tr
-    class="circuit-6 circuit-7"
+    class="circuit-4 circuit-5"
     data-testid="table-row"
   >
     <th
@@ -116,14 +116,14 @@ tbody .circuit-6:last-child td {
     </th>
     <td
       aria-hidden="true"
-      class="circuit-2 circuit-3"
+      class="circuit-2"
       data-testid="table-cell"
       role="presentation"
     >
       Foo
     </td>
     <td
-      class="circuit-4 circuit-3"
+      class="circuit-3"
       data-testid="table-cell"
     >
       Bar
@@ -133,12 +133,12 @@ tbody .circuit-6:last-child td {
 `;
 
 exports[`TableBody logic tests sortHover should not render a cell with hovered styles if its column is not currently hovered 1`] = `
-.circuit-4 {
+.circuit-2 {
   vertical-align: middle;
 }
 
-tbody .circuit-4:last-child th,
-tbody .circuit-4:last-child td {
+tbody .circuit-2:last-child th,
+tbody .circuit-2:last-child td {
   border-bottom: none;
 }
 
@@ -155,17 +155,17 @@ tbody .circuit-4:last-child td {
 
 <tbody>
   <tr
-    class="circuit-4 circuit-5"
+    class="circuit-2 circuit-3"
     data-testid="table-row"
   >
     <td
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       data-testid="table-cell"
     >
       Foo
     </td>
     <td
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       data-testid="table-cell"
     >
       Bar
@@ -175,16 +175,16 @@ tbody .circuit-4:last-child td {
 `;
 
 exports[`TableBody logic tests sortHover should render a cell with hovered styles if its column is currently hovered 1`] = `
-.circuit-4 {
+.circuit-2 {
   vertical-align: middle;
 }
 
-tbody .circuit-4:last-child th,
-tbody .circuit-4:last-child td {
+tbody .circuit-2:last-child th,
+tbody .circuit-2:last-child td {
   border-bottom: none;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -209,17 +209,17 @@ tbody .circuit-4:last-child td {
 
 <tbody>
   <tr
-    class="circuit-4 circuit-5"
+    class="circuit-2 circuit-3"
     data-testid="table-row"
   >
     <td
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       data-testid="table-cell"
     >
       Foo
     </td>
     <td
-      class="circuit-2 circuit-1"
+      class="circuit-1"
       data-testid="table-cell"
     >
       Bar
