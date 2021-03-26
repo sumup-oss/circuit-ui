@@ -9,30 +9,33 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Use Node.js v14
+      - name: Setup Node.js v14
         uses: actions/setup-node@v1
         with:
           node-version: 14.x
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # https://github.com/actions/cache/blob/main/examples.md#node---yarn
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
       - name: Install dependencies
-        run: |
-          npm install -g yarn
-          yarn --pure-lockfile
-      - name: Build docs
+        run: yarn --pure-lockfile --prefer-offline
+
+      - name: Build documentation
         run: yarn predeploy
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
