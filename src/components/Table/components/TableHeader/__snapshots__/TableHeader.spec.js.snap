@@ -23,6 +23,7 @@ exports[`TableHeader Style tests should render with condensed styles 1`] = `
 <th
   class="circuit-0 circuit-1"
   data-testid="table-header"
+  scope="col"
 >
   Foo
 </th>
@@ -46,6 +47,7 @@ exports[`TableHeader Style tests should render with default styles 1`] = `
 <th
   class="circuit-0 circuit-1"
   data-testid="table-header"
+  scope="col"
 >
   Foo
 </th>
@@ -70,6 +72,7 @@ exports[`TableHeader Style tests should render with hovered styles 1`] = `
 <th
   class="circuit-0 circuit-1"
   data-testid="table-header"
+  scope="col"
 >
   Foo
 </th>
@@ -88,6 +91,7 @@ exports[`TableHeader Style tests should render with row styles 1`] = `
 <th
   class="circuit-0 circuit-1"
   data-testid="table-header"
+  scope="row"
 >
   Foo
 </th>
@@ -207,6 +211,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   aria-sort="none"
   class="circuit-4 circuit-5"
   data-testid="table-header"
+  scope="col"
 >
   <button
     class="circuit-3"
@@ -372,6 +377,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   aria-sort="ascending"
   class="circuit-3 circuit-4"
   data-testid="table-header"
+  scope="col"
 >
   <button
     class="circuit-2"
@@ -521,6 +527,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   aria-sort="descending"
   class="circuit-3 circuit-4"
   data-testid="table-header"
+  scope="col"
 >
   <button
     class="circuit-2"

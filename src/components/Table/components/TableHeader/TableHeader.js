@@ -138,7 +138,7 @@ const condensedColStyles = ({ condensed, scope, theme }) =>
   `;
 
 const StyledHeader = styled('th', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'scope',
+  shouldForwardProp: (prop) => isPropValid(prop),
 })`
   ${baseStyles};
   ${hoveredStyles};

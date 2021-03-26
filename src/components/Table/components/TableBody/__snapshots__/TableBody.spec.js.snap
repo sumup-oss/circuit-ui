@@ -111,6 +111,7 @@ tbody .circuit-4:last-child td {
     <th
       class="circuit-0 circuit-1"
       data-testid="table-header"
+      scope="row"
     >
       Foo
     </th>

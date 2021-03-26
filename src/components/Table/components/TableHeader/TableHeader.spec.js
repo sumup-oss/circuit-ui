@@ -29,9 +29,7 @@ describe('TableHeader', () => {
     });
 
     it('should render with row styles', () => {
-      const actual = create(
-        <TableHeader scope={'row'}>{children}</TableHeader>,
-      );
+      const actual = create(<TableHeader scope="row">{children}</TableHeader>);
       expect(actual).toMatchSnapshot();
     });
 
