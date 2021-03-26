@@ -100,12 +100,12 @@ describe('Table', () => {
 
     describe('sorting', () => {
       it('should sort a column in ascending order', () => {
-        const { getAllByTestId } = render(
-          <Table rows={rows} headers={headers} />,
+        const { getAllByRole } = render(
+          <Table rows={rows} headers={headers} rowHeaders={false} />,
         );
 
-        const letterHeaderEl = getAllByTestId('table-header')[0];
-        const cellEls = getAllByTestId('table-cell');
+        const letterHeaderEl = getAllByRole('columnheader')[0];
+        const cellEls = getAllByRole('cell');
 
         act(() => {
           userEvent.click(letterHeaderEl);
@@ -114,19 +114,18 @@ describe('Table', () => {
         const sortedRow = ['a', 'b', 'c'];
 
         rows.forEach((_row, index) => {
-          // There's a hidden header cell that we need to skip with +1.
-          const cellIndex = rowLength * index + 1;
+          const cellIndex = rowLength * index;
           expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
         });
       });
 
       it('should sort a column in descending order', () => {
-        const { getAllByTestId } = render(
-          <Table rows={rows} headers={headers} />,
+        const { getAllByRole } = render(
+          <Table rows={rows} headers={headers} rowHeaders={false} />,
         );
 
-        const letterHeaderEl = getAllByTestId('table-header')[0];
-        const cellEls = getAllByTestId('table-cell');
+        const letterHeaderEl = getAllByRole('columnheader')[0];
+        const cellEls = getAllByRole('cell');
 
         act(() => {
           userEvent.click(letterHeaderEl);
@@ -138,8 +137,7 @@ describe('Table', () => {
         const sortedRow = ['c', 'b', 'a'];
 
         rows.forEach((_row, index) => {
-          // There's a hidden header cell that we need to skip with +1.
-          const cellIndex = rowLength * index + 1;
+          const cellIndex = rowLength * index;
           expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
         });
       });

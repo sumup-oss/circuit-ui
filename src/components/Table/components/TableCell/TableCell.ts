@@ -39,6 +39,9 @@ type TableCellProps = {
   condensed?: boolean;
   sortable?: boolean;
   role?: 'presentation';
+  /**
+   * @private A testid for selecting table cells in tests. Handles internally.
+   */
   ['data-testid']: string;
 };
 
@@ -129,6 +132,10 @@ const TableCell: FC<TableCellProps> = styled.td`
   ${condensedPresentationStyles};
 `;
 
+/**
+ * FIXME: we don't need this data-testid (should query by role when testing)
+ * but some might rely on it in their tests, so this will be a breaking change.
+ */
 TableCell.defaultProps = {
   'data-testid': 'table-cell',
 };
