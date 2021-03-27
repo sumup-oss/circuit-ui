@@ -1,34 +1,38 @@
 {
   "name": "@sumup/icons",
-  "version": "0.0.0-semantically-released",
+  "version": "1.6.0",
   "description": "A collection of icons by SumUp",
-  "repository": "git@github.com:sumup-oss/icons.git",
-  "author": "Connor Bär <connor.baer@sumup.com>",
-  "license": "Apache-2.0",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "files": [
-    "manifest.json",
     "dist",
-    "*.svg"
+    "README.md",
+    "*.svg",
+    "manifest.json"
   ],
+  "repository": {
+    "type": "git",
+    "directory": "packages/icons",
+    "url": "git+https://github.com/sumup-oss/circuit-ui.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sumup-oss/circuit-ui/issues"
+  },
+  "homepage": "https://github.com/sumup-oss/circuit-ui/blob/main/packages/icons/README.md",
   "scripts": {
     "build": "ts-node ./scripts/web.ts",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "yarn lint --fix",
-    "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
-    "check-sizes": "./scripts/check-svg-sizes.sh",
-    "prerelease": "yarn build && cp web/v1/* .",
-    "release": "foundry run semantic-release",
-    "postrelease": "rm -f *.svg"
+    "prepublish": "yarn build && cp web/v1/* .",
+    "postpublish": "rm -f *.svg"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
-    "@sumup/foundry": "^3.0.0",
     "@types/babel__core": "^7.1.7",
     "@types/dedent": "^0.7.0",
     "@types/lodash": "^4.14.149",

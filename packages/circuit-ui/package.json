@@ -1,11 +1,11 @@
 {
   "name": "@sumup/circuit-ui",
-  "sideEffects": false,
   "version": "2.4.0",
   "description": "SumUp's React UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "types": "dist/es/index.d.ts",
+  "sideEffects": false,
   "bin": {
     "circuit-ui": "./dist/cjs/cli/index.js"
   },
@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/sumup-oss/circuit-ui/issues"
   },
-  "homepage": "https://github.com/sumup-oss/circuit-ui#readme",
+  "homepage": "https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/README.md",
   "scripts": {
     "start": "tsc --watch",
     "build": "tsc && tsc --project tsconfig.cjs.json && yarn build:executable",
@@ -33,7 +33,7 @@
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
     "test": "jest --watch",
-    "prerelease": "yarn build"
+    "prepublish": "yarn build"
   },
   "dependencies": {
     "cross-spawn": "^7.0.3",
@@ -58,7 +58,7 @@
     "@emotion/stylis": "^0.8.4",
     "@sumup/collector": "^1.0.0",
     "@sumup/design-tokens": "^2.1.1",
-    "@sumup/icons": "^1.0.0",
+    "@sumup/icons": "^1.6.0",
     "@sumup/intl": "^1.0.0",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/dom": "^7.27.1",

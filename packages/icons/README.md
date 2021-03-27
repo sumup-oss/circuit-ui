@@ -1,23 +1,12 @@
 <div align="center">
 
-# SumUp Icons
+# @sumup/icons
 
-A collection of icons for the web, part of the SumUp Design System.
+A collection of icons for the web, part of the SumUp Circuit Design System.
 
-[![License](https://img.shields.io/badge/license--lightgrey.svg)](https://github.com/sumup-oss/icons/LICENSE)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Version](https://img.shields.io/npm/v/@sumup/icons)](https://www.npmjs.com/package/@sumup/icons) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/blob/main/LICENSE) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 </div>
-
-## Table of contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Import as React component](#import-as-react-component)
-  - [Import as SVG file](#import-as-svg-file)
-  - [Load from a URL](#load-from-a-url)
-- [Code of Conduct](#code-of-conduct)
-- [About SumUp](#about-sumup)
 
 ## Installation
 
@@ -98,7 +87,7 @@ It is not possible to change the color of an external SVG using the `css` color 
 
 ### Load from a URL
 
-The latest version of the icon library is [automatically deployed](https://icons.sumup-oss.now.sh/) to [Vercel Now](https://vercel.com/). The files are hosted behind a global CDN, so they load quickly for all users. You can load the icons from `https://icons.sumup-oss.now.sh/v1/<name>_<size>.svg`. Below are some examples:
+The latest version of the icon library is [automatically deployed](https://icons.sumup-oss.now.sh/) to [Vercel](https://vercel.com/). The files are hosted behind a global CDN, so they load quickly for all users. You can load the icons from `https://icons.sumup-oss.now.sh/v1/<name>_<size>.svg`. Below are some examples:
 
 ```html
 <img src="https://icons.sumup-oss.now.sh/v1/check_small.svg" alt="checkmark" />
@@ -111,21 +100,3 @@ The latest version of the icon library is [automatically deployed](https://icons
 ```
 
 It is not possible to change the color of an external SVG using the `css` color property. Instead, you can use the [CSS `filter` hack](https://blog.union.io/code/2017/08/10/img-svg-fill/) to colorize the icon.
-
-## Code of Conduct
-
-We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](CODE_OF_CONDUCT.md).
-
-If you feel another member of the community violated our CoC or you are experiencing problems participating in our community because of another individual's behavior, please get in touch with our maintainers. We will enforce the CoC.
-
-### Maintainers
-
-- [Connor Bär](mailto:connor.baer@sumup.com)
-
-## About SumUp
-
-![SumUp logo](https://raw.githubusercontent.com/sumup-oss/assets/master/sumup-logo.svg?sanitize=true)
-
-[SumUp](https://sumup.com) is a mobile-point of sale provider. It is our mission to make easy and fast card payments a reality across the _entire_ world. You can pay with SumUp in more than 30 countries, already. Our engineers work in Berlin, Cologne, Sofia, and Sāo Paulo. They write code in JavaScript, Swift, Ruby, Go, Java, Erlang, Elixir, and more.
-
-Want to come work with us? [Head to our careers page](https://sumup.com/careers) to find out more.

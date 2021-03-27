@@ -26,7 +26,6 @@
     "deploy": "gh-pages -d public",
     "check:security": "audit-ci --critical",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
-    "prerelease": "lerna run build",
     "release": "changeset publish"
   },
   "devDependencies": {

@@ -32,16 +32,19 @@ jobs:
       - name: Install dependencies
         run: yarn --pure-lockfile --prefer-offline
 
-      - name: Check the dependency licenses
+      - name: Check dependency licenses
         run: yarn check:licenses
 
-      - name: Lint the code
+      - name: Check SVG sizes
+        run: ./scripts/check-svg-sizes.sh
+
+      - name: Lint code
         run: yarn lint:ci
 
-      - name: Run the unit tests
+      - name: Run unit tests
         run: yarn test:ci
 
-      - name: Upload the results to Codecov
+      - name: Upload results to Codecov
         uses: codecov/codecov-action@v1.0.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

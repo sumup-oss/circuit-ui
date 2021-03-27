@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+/* eslint-disable node/shebang */
+
 import yargs from 'yargs';
 
 import { migrate, listTransforms, listLanguages } from './migrate';
