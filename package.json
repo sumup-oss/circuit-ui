@@ -148,7 +148,7 @@
     "react-svg-loader": "^3.0.3",
     "react-swipeable": "^5.4.0",
     "react-test-renderer": "^17.0.1",
-    "storybook-addon-performance": "^0.14.0",
+    "storybook-addon-performance": "^0.15.1",
     "style-loader": "^2.0.0",
     "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.11",
