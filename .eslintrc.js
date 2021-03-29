@@ -7,12 +7,8 @@ module.exports = require('@sumup/foundry/eslint')(
   },
   {
     parserOptions: {
-      project: ['./tsconfig.eslint.json'],
-    },
-    rules: {
-      // The custom JSX pragma is required to make Emotion's css prop
-      // work with TypeScript.
-      'emotion/jsx-import': 'error',
+      project: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
+      tsconfigRootDir: __dirname,
     },
     overrides: [
       {
@@ -29,21 +25,33 @@ module.exports = require('@sumup/foundry/eslint')(
         },
       },
       {
+        files: ['packages/circuit-ui/**/*'],
+        rules: {
+          // The custom JSX pragma is required to make Emotion's css prop
+          // work with TypeScript.
+          'emotion/jsx-import': 'error',
+        },
+      },
+      {
         files: [
-          'src/cli/migrate/__testfixtures__/**/*.input.*',
-          'src/cli/migrate/__testfixtures__/**/*.output.*',
+          'packages/circuit-ui/cli/migrate/__testfixtures__/**/*.input.*',
+          'packages/circuit-ui/cli/migrate/__testfixtures__/**/*.output.*',
         ],
         rules: {
           'import/no-unresolved': 'off',
+          'import/no-extraneous-dependencies': 'off',
           'notice/notice': 'off',
           '@typescript-eslint/no-unused-vars': 'off',
           'prettier/prettier': 'off',
         },
       },
       {
-        files: ['src/cli/migrate/*.ts', 'src/cli/migrate/utils/*.ts'],
+        files: [
+          'packages/circuit-ui/cli/migrate/*.ts',
+          'packages/circuit-ui/cli/migrate/utils/*.ts',
+        ],
         rules: {
-          // jscodeshift expect no return value for files
+          // jscodeshift expects no return value for files
           // that should not be transformed.
           'consistent-return': 'off',
           'no-console': 'off',

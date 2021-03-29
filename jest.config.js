@@ -13,37 +13,18 @@
  * limitations under the License.
  */
 
+const baseConfig = require('./jest.config.base');
+
 module.exports = {
-  preset: 'ts-jest',
-  testURL: 'http://localhost',
-  coverageDirectory: './__coverage__',
-  rootDir: '.',
-  roots: ['src', 'scripts'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+  ...baseConfig,
+  projects: ['<rootDir>/packages/*/jest.config.js'],
+  coverageDirectory: '<rootDir>/__coverage__',
   collectCoverageFrom: [
-    'src/@(components|util|styles)/**/*.{ts,tsx,js,jsx}',
-    '!src/@(components|util|styles)/**/index.{ts,tsx,js,jsx}',
-    '!src/@(components|util|styles)/**/*.stories.{ts,tsx,js,jsx}',
-    '!src/@(components|util|styles)/**/*.docs.mdx',
-    '!**/node_modules/**',
+    '<rootDir>/packages/**/*.{ts,tsx,js,jsx}',
+    '!<rootDir>/packages/**/node_modules/**/*.{ts,tsx,js,jsx}',
+    '!<rootDir>/packages/**/index.{ts,tsx,js,jsx}',
+    '!<rootDir>/packages/**/*.stories.{ts,tsx,js,jsx}',
+    '!<rootDir>/packages/**/*.docs.mdx',
+    '!<rootDir>/packages/**/__testfixtures__/**/*',
   ],
-  moduleDirectories: ['node_modules', 'src'],
-  // HACK: See https://github.com/storybookjs/storybook/pull/9292
-  moduleNameMapper: {
-    'react-syntax-highlighter/dist/esm/(.*)':
-      'react-syntax-highlighter/dist/cjs/$1',
-  },
-  transform: {
-    '^.+\\.(js|jsx)$': 'babel-jest',
-    '^.+\\.(ts|tsx)$': 'ts-jest',
-    '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js',
-  },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  globals: {
-    'ts-jest': {
-      tsconfig: {
-        jsx: 'react',
-      },
-    },
-  },
 };

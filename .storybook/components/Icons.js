@@ -29,8 +29,8 @@ import {
   InlineElements,
   Label,
   SearchInput,
-  Select
-} from '../../src';
+  Select,
+} from '../../packages/circuit-ui';
 
 function group(key, collection) {
   const grouped = groupBy(key, collection);
@@ -42,18 +42,18 @@ function getComponentName(name) {
   const words = name.split(/[^a-z0-9]/i);
   // Uppercase the first letter and lowercase the rest
   const pascalCased = words.map(
-    part => part.charAt(0).toUpperCase() + part.substr(1).toLowerCase()
+    (part) => part.charAt(0).toUpperCase() + part.substr(1).toLowerCase(),
   );
   return pascalCased.join('');
 }
 
 const Filters = styled(InlineElements)`
-  margin-top: ${p => p.theme.spacings.tera};
-  margin-bottom: ${p => p.theme.spacings.peta};
+  margin-top: ${(p) => p.theme.spacings.tera};
+  margin-bottom: ${(p) => p.theme.spacings.peta};
 `;
 
 const Category = styled.section`
-  margin-bottom: ${p => p.theme.spacings.tera};
+  margin-bottom: ${(p) => p.theme.spacings.tera};
 `;
 
 const List = styled.div`
@@ -64,16 +64,16 @@ const List = styled.div`
 const Wrapper = styled.div`
   width: 7.5rem;
   text-align: center;
-  margin-top: ${p => p.theme.spacings.giga};
-  margin-bottom: ${p => p.theme.spacings.giga};
+  margin-top: ${(p) => p.theme.spacings.giga};
+  margin-bottom: ${(p) => p.theme.spacings.giga};
 `;
 
 const Size = styled.p`
-  color: ${p => p.theme.colors.n700};
+  color: ${(p) => p.theme.colors.n700};
   font-style: italic;
 `;
 
-const iconStyles = (color, size) => theme => css`
+const iconStyles = (color, size) => (theme) => css`
   height: 3rem;
   width: auto;
   max-width: 6rem;
@@ -89,22 +89,22 @@ const Icons = () => {
   const [size, setSize] = useState('all');
   const [color, setColor] = useState('n900');
 
-  const handleSearch = event => {
+  const handleSearch = (event) => {
     setSearch(event.target.value);
   };
 
-  const handleSizeChange = event => {
+  const handleSizeChange = (event) => {
     setSize(event.target.value);
   };
 
-  const handleColorChange = event => {
+  const handleColorChange = (event) => {
     setColor(event.target.value);
   };
 
   const sizeOptions = [
     { label: 'All sizes', value: 'all' },
     { label: 'Small', value: 'small' },
-    { label: 'Large', value: 'large' }
+    { label: 'Large', value: 'large' },
   ];
 
   const colorOptions = [
@@ -114,12 +114,12 @@ const Icons = () => {
     { label: 'Primary', value: 'p500' },
     { label: 'Success', value: 'success' },
     { label: 'Warning', value: 'warning' },
-    { label: 'Danger', value: 'danger' }
+    { label: 'Danger', value: 'danger' },
   ];
 
   const activeIcons = icons.filter(
-    icon =>
-      includes(search, icon.name) && (size === 'all' || size === icon.size)
+    (icon) =>
+      includes(search, icon.name) && (size === 'all' || size === icon.size),
   );
 
   return (
@@ -165,7 +165,7 @@ const Icons = () => {
               {category}
             </Heading>
             <List>
-              {sortBy('name', items).map(icon => {
+              {sortBy('name', items).map((icon) => {
                 const id = `${icon.name}-${icon.size}`;
                 const componentName = getComponentName(icon.name);
                 const Icon = iconComponents[componentName];

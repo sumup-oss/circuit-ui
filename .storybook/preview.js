@@ -8,7 +8,7 @@ import { Global, css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 import { TrackingRoot, TrackingView } from '@sumup/collector';
 
-import { BaseStyles } from '../src';
+import { BaseStyles } from '../packages/circuit-ui';
 import { theme, components } from './util/theme';
 import { sortStories } from './util/story-helpers';
 

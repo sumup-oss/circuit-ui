@@ -1,0 +1,66 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+
+# Button
+
+<Status.Stable />
+
+A button allows us to highlight actions in the product and make them easily perceived and achievable through just one click.
+
+<Story id="components-button--base" />
+<Props />
+
+## When to use it
+
+Use buttons when users need to either navigate through a product or perform a specific action.
+
+## Usage guidelines
+
+- **Do** always label a button in a clear and understandable way
+- **Do** always think about the priority of the action to be taken when choosing a type of button
+- **Do** position buttons in a predictable and coherent way throughout the product.
+- **Do** combine different button types if you have more than one button in a specific screen
+- **Do** use a loading state to provide feedback for our user when the action revolves around saving or
+  inputting information, especially when it could take some seconds.
+
+## Content guidelines
+
+- **Do** always start the label with an actionable verb accompanied by a noun to provide enough context (example: "Confirm order").
+  The only exceptions are the following common actions: "Save"; "Cancel"; and "Close".
+- **Do** keep the label to a maximum of 3 words
+- **Do not** capitalize all words of the label, just the first word or brand/product words (such as Apple Pay, for example)
+
+## Component variations
+
+### Variants
+
+<Story id="components-button--variants" />
+
+The **primary button** should be used for the most important actions. There should always be just one primary button visible at a time on the screen.
+
+The **secondary button** should be used for secondary actions to compliment a primary action, or when multiple actions of equal importance are required.
+
+The **tertiary button** should be used for supportive actions, and can be paired with the primary or the secondary button.
+
+### Sizes
+
+The button component supports 2 different sizes:
+
+- **mega**, the default size
+- **kilo**, used when there are sizing constraints
+
+<Story id="components-button--sizes" />
+
+## ButtonGroup
+
+Used when users have two opposite actions to be taken in a certain step of a flow. It is generally used aligned to the right,
+with a primary button for the expected action and a secondary button on its left.
+
+<Story id="components-button-buttongroup--base" />
+
+- **Do** use the same verb tenses for both actions
+
+## LoadingButton
+
+When the button's action is inputting/saving information or it takes more than 3 seconds to take the user to the next step/page, you can indicate a loading state with `LoadingButton`.
+
+<Story id="components-button-loadingbutton--base" />

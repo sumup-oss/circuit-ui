@@ -21,7 +21,7 @@ import { ThemeProvider } from 'emotion-theming';
 import { css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 
-import { Badge, Text } from '../../src';
+import { Badge, Text } from '../../packages/circuit-ui';
 
 const variants = {
   stable: { variant: 'success', label: 'Stable' },

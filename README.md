@@ -2,9 +2,9 @@
 
 [![Circuit UI Logo](https://circuit.sumup.com/images/logo-header.png)](https://circuit.sumup.com)
 
-[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Version](https://img.shields.io/npm/v/@sumup/circuit-ui)](https://www.npmjs.com/package/@sumup/circuit-ui) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/blob/main/LICENSE)
 
-[Circuit UI Web](https://circuit.sumup.com) is the web incarnation of the [SumUp](https://sumup.com) Circuit UI Design System. Our primary goal is to create a system that can be used to build a wide variety of SumUp websites and apps, while providing a consistent user experience to our end users. In addition, the design system and component library should be easy to use for developers and designers.
+[Circuit UI Web](https://circuit.sumup.com) is the web implementation of the [SumUp](https://sumup.com) Circuit Design System. Our primary goal is to create a system that can be used to build a wide variety of SumUp websites and apps, while providing a consistent and inclusive user experience to our end users. In addition, the design system and component library should be easy to use for developers and designers.
 
 </div>
 
@@ -18,8 +18,9 @@ Here are a few helpful links for getting started with Circuit UI:
 - [Theming](https://circuit.sumup.com/?path=/docs/advanced-theme--page) - Learn about our foundations such as colors, spacing, and typography.
 - [Contribute](https://circuit.sumup.com/?path=/docs/introduction-contributing--page) - File a bug report, suggest a change, or open a pull request.
 
-## Related projects
+## Packages
 
+- **[@sumup/circuit-ui](https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui)** — the core React component library
 - **[create-sumup-react-app](https://github.com/sumup/create-sumup-react-app)** — bootstrap a new React app with [create-react-app](https://create-react-app.dev/), Circuit UI, and [Foundry](https://github.com/sumup-oss/foundry)
 - **[create-sumup-next-app](https://github.com/sumup/create-sumup-next-app)** — bootstrap a fresh [Next.js](https://nextjs.org/) app with Circuit UI and [Foundry](https://github.com/sumup-oss/foundry)
 
@@ -32,7 +33,7 @@ If you feel another member of the community violated our CoC or you are experien
 ### Maintainers
 
 - [Connor Bär](mailto:connor.baer@sumup.com)
-- [Fernando Fleury](mailto:fernando.fleury@sumup.com)
+- [Amela Kodzic](mailto:amela.kodzic@sumup.com)
 
 ## Contributing
 

@@ -1,0 +1,157 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+
+# Sidebar
+
+<Status.InReview />
+<Status.Description>Under active development</Status.Description>
+
+The sidebar is the primary navigational component on SumUp's web-based applications. It groups different
+sections of the same product (the user dashboard, for example), allowing easy navigation between first
+and the second level of navigations, keeping a strong anchor for our users to always know where they are.
+
+<Story id="components-sidebar--base" />
+
+<Props />
+
+## When to use it
+
+If you have a single product that is web-based and has multiple value propositions/actions for a given user,
+you should use a sidebar to ensure the usability and navigation of that product.
+
+The sidebar supports first and second level items. The first level is used for primary actions/value for our users within a product.
+When you have related multiple sections or the breakdown of a certain value you should group them as secondary items under a single first level item,
+which will act as an aggregator.
+
+## Usage guidelines
+
+- **Do** use sentence case for every single navigation items
+- **Do** always position the sidebar on the left side on desktop and in the top side (collapsed version) on mobile
+- **Do** make sure that the sidebar is always visible and sticky, both on desktop and mobile
+- **Do** add icons to first level items to help our users understand what they should expect in that section
+- **Do** group related items of a given action under a secondary
+- **Do not** place any element or part of an element on the sidebar.
+- **Do not** use the secondary level as anchors of the first level.
+
+## Content guidelines
+
+- **Do** use sentence case for naming navigation items
+- **Do** order the items according to the priority/usage of the action/value
+- **Do** place the log out (if your application has a logged in environment) as an item on the sidebar
+- **Do not** use more than 3 words for your an item (aim for 1 word if possible)
+
+## Usage in code
+
+There are a couple of different components you'll need to construct your
+Sidebar:
+
+- `Sidebar` - Wrapper component, which must also be wrapped with a component
+  that will determine the width of the expanded sidebar.
+- `Sidebar.Header` - Header component
+- `Sidebar.NavList` - Wrapper for the list of navigation items
+- `Sidebar.Aggregator` - Wraps around a list of `Sidebar.NavItem` in case
+  you want to provided nested navigation.
+- `Sidebar.NavItem` - Individual navigation items.
+- `Sidebar.Footer` - Footer component
+
+### Adding items to the sidebar
+
+When you want to create a sidebar with a flat navigation structure, you
+can simply use something like this:
+
+```jsx
+import React, { useState } from 'react';
+import { Sidebar } from '@sumup/circuit-ui';
+
+const Navigation = () => {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState([false, false]);
+  const handleSelect = newSelectedIndex => {
+    setSelected(selected.map((s, i) => i === newSelectedIndex && !i);
+  };
+
+  return (
+    <Sidebar open={open} onClose={() => setOpen(!open)} closeButtonLabel="close-button">
+      <Sidebar.Header>Header</Sidebar.Header>
+      <Sidebar.NavList>
+        <Sidebar.NavItem
+          selected={selected[0]}
+          onClick={() => handleSelect(0)}
+          label="Item #1"
+        />
+        <Sidebar.NavItem
+          selected={selected[1]}
+          onClick={() => handleSelect(1)}
+          label="Item #2"
+        />
+      </Sidebar.NavList>
+      <Sidebar.Footer>Footer</Sidebar.Footer>
+    </Sidebar>
+  );
+};
+
+```
+
+### Adding submenus to the sidebar
+
+In order to create submenus, you need to wrap the `Sidebar.NavItem` components
+that you want to put inside a parent menu with the `Sidebar.Aggregator`
+component. You can do that like this:
+
+```jsx
+<Sidebar.Aggregator label="Parent">
+  <Sidebar.NavItem onClick={() => null} label="Child 1" selected={true} />
+  <Sidebar.NavItem onClick={() => null} label="Child 2" selected={false} />
+</Sidebar.Aggregator>
+```
+
+### Using the SidebarContext
+
+To avoid keeping the logic of toggling the `Sidebar` on your application, you can use the available
+`SidebarContextProvider` and `SidebarContextConsumer` that are implemented with the new version of
+React's Context API. You can do that like this:
+
+```jsx
+import React, { useState } from 'react';
+import { Sidebar, SidebarContextProvider, SidebarContextConsumer } from '@sumup/circuit-ui';
+
+const Navigation = () => {
+  const [selected, setSelected] = useState([false, false]);
+  const handleSelect = newSelectedIndex => {
+    setSelected(selected.map((s, i) => i === newSelectedIndex && !i);
+  };
+
+  return (
+    <SidebarContextProvider>
+      <SidebarContextConsumer>
+        {({ isSidebarOpen, toggleSidebar }) => (
+          <Sidebar
+            open={isSidebarOpen}
+            onClose={toggleSidebar}
+            closeButtonLabel="close-button"
+          >
+            <Sidebar.Header>Header</Sidebar.Header>
+            <Sidebar.NavList>
+              <Sidebar.NavItem
+                selected={selected[0]}
+                onClick={() => handleSelect(0)}
+                label="Item #1"
+                />
+              <Sidebar.NavItem
+                selected={selected[1]}
+                onClick={() => handleSelect(1)}
+                label="Item #2"
+              />
+            </Sidebar.NavList>
+            <Sidebar.Footer>Footer</Sidebar.Footer>
+          </Sidebar>
+        )}
+      </SidebarContextConsumer
+    </SidebarContextProvider>
+  );
+};
+
+```
+
+That way, you can use the `SidebarContextConsumer` to control the `Sidebar` open state on other
+components of your application without the need to drill the toggling function to where you need
+to use it.

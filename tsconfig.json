@@ -27,7 +27,7 @@
       }
     ]
   },
-  "include": ["src/**/*"],
+  "include": ["**/*"],
   "exclude": [
     "node_modules",
     "**/*/__tests__/*",
@@ -35,5 +35,5 @@
     "**/*.spec.*",
     "**/*.stories.*"
   ],
-  "typeRoots": ["./node_modules/@types", "./src/types/"]
+  "typeRoots": ["./node_modules/@types"]
 }

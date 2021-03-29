@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 
 import { isStoryName, splitStoryName } from '../util/story-helpers';
 
-import { Text } from '../../src';
+import { Text } from '../../packages/circuit-ui';
 
 const styles = css`
   font: inherit;

@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Text } from '../../src';
+import { Text } from '../../packages/circuit-ui';
 
 const TypePx = styled(Text)`
   ${({ theme: t }) => css`
@@ -47,7 +47,7 @@ const Type = ({ size, component, name, fontWeight, ...props }) => {
           </Fragment>
         ),
         size,
-        ...props
+        ...props,
       })}
     </ThemeProvider>
   );
@@ -57,11 +57,11 @@ Type.propTypes = {
   component: PropTypes.func.isRequired, // eslint-disable-line
   size: PropTypes.string.isRequired,
   fontWeight: PropTypes.string,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 Type.defaultProps = {
-  fontWeight: null
+  fontWeight: null,
 };
 
 export default Type;
