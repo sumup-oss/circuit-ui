@@ -1,40 +1,44 @@
 {
   "name": "@sumup/design-tokens",
-  "version": "0.0.0-semantically-released",
+  "version": "2.1.1",
   "description": "Visual primitives such as typography, color, and spacing that are shared across platforms.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "types": "dist/es/index.d.ts",
-  "repository": "git@github.com:sumup-oss/design-tokens.git",
-  "author": "Connor Bär <connor.baer@sumup.com>",
-  "license": "Apache-2.0",
-  "private": false,
+  "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "directory": "packages/design-tokens",
+    "url": "git+https://github.com/sumup-oss/circuit-ui.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sumup-oss/circuit-ui/issues"
+  },
+  "homepage": "https://github.com/sumup-oss/circuit-ui/blob/main/packages/design-tokens/README.md",
   "scripts": {
+    "start": "tsc --watch",
     "build": "yarn build:es && yarn build:cjs",
     "build:es": "tsc",
     "build:cjs": "tsc --project tsconfig.cjs.json",
-    "start": "tsc --watch",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
-    "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
-    "test": "jest --watch",
-    "test:ci": "jest --ci --json --runInBand --coverage --outputFile=__reports__/jest-results.json",
-    "prerelease": "yarn build",
-    "release": "foundry run semantic-release"
+    "test": "jest --watch"
   },
   "dependencies": {
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
-    "@sumup/foundry": "^3.0.0",
     "@types/jest": "^26.0.15",
     "@types/prop-types": "^15.7.3",
-    "jest": "^25.4.0",
+    "jest": "^26.6.3",
     "jest-extended": "^0.11.5",
-    "ts-jest": "^25.4.0",
-    "typescript": "^3.8.3"
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.2.3"
   }
 }

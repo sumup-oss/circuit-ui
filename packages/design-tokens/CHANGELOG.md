@@ -1,1 +1,0 @@
-This project uses [`semantic-release`](https://github.com/semantic-release/semantic-release) to automatically publish [GitHub release notes](https://github.com/sumup-oss/design-tokens/releases) for each version.

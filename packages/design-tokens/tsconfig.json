@@ -12,6 +12,13 @@
     "isolatedModules": true,
     "outDir": "./dist/es"
   },
-  "include": ["src/**/*"],
-  "typeRoots": ["./node_modules/@types", "./src/types/"]
+  "include": [
+    "tests/**/*",
+    "themes/**/*",
+    "types/**/*",
+    "utils/**/*",
+    "index.ts"
+  ],
+  "exclude": ["node_modules", "**/dist/**/*", "**/*.spec.*", "**/*.stories.*"],
+  "typeRoots": ["./node_modules/@types", "./types/"]
 }

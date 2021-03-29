@@ -26,6 +26,7 @@ module.exports = {
     '^.+\\.(ts|tsx)$': 'ts-jest',
     '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js',
   },
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   testURL: 'http://localhost',
   globals: {
     'ts-jest': {

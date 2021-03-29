@@ -1,17 +1,18 @@
 {
   "name": "@sumup/circuit-ui",
-  "sideEffects": false,
   "version": "2.4.0",
   "description": "SumUp's React UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "types": "dist/es/index.d.ts",
+  "sideEffects": false,
   "bin": {
     "circuit-ui": "./dist/cjs/cli/index.js"
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "repository": {
     "type": "git",
@@ -28,12 +29,11 @@
     "build": "tsc && tsc --project tsconfig.cjs.json && yarn build:executable",
     "build:executable": "chmod +x ./dist/cjs/cli/index.js",
     "build:stylesheets": "mkdir -p public/static && yarn static-styles --global --filePath=./public/static/circuit-ui-v1.css",
-    "create:component": "foundry run plop component",
-    "static-styles": "cross-env BABEL_ENV=static babel-node --extensions '.js,.ts,.tsx' ./scripts/static-styles/cli.js",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
     "test": "jest --watch",
-    "prerelease": "yarn build"
+    "create:component": "foundry run plop component",
+    "static-styles": "cross-env BABEL_ENV=static babel-node --extensions '.js,.ts,.tsx' ./scripts/static-styles/cli.js"
   },
   "dependencies": {
     "cross-spawn": "^7.0.3",

@@ -30,8 +30,9 @@
   "include": ["**/*"],
   "exclude": [
     "node_modules",
-    "**/*/__tests__/*",
-    "**/*/__testfixtures__/*",
+    "**/dist/*",
+    "**/__tests__/*",
+    "**/__testfixtures__/*",
     "**/*.spec.*",
     "**/*.stories.*"
   ],
