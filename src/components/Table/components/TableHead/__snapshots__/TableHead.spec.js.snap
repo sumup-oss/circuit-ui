@@ -133,10 +133,10 @@ tbody .circuit-10:last-child td {
 }
 
 <thead
-  class="circuit-12 circuit-13"
+  class="circuit-11 circuit-12"
 >
   <tr
-    class="circuit-10 circuit-11"
+    class="circuit-10"
   >
     <th
       aria-sort="none"
@@ -340,10 +340,10 @@ tbody .circuit-10:last-child td {
 }
 
 <thead
-  class="circuit-12 circuit-13"
+  class="circuit-11 circuit-12"
 >
   <tr
-    class="circuit-10 circuit-11"
+    class="circuit-10"
   >
     <th
       aria-sort="none"

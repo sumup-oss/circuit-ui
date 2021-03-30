@@ -1,36 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
-.circuit-42 {
+.circuit-38 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-41 {
+.circuit-37 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-41 {
+  .circuit-37 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-40 {
+.circuit-36 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-40 {
+  .circuit-36 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-40:after {
+  .circuit-36:after {
     content: '';
     background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
@@ -256,7 +256,7 @@ tbody .circuit-15:last-child td {
   vertical-align: middle;
 }
 
-.circuit-19 {
+.circuit-18 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -266,7 +266,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-19 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -275,7 +275,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-21 {
+.circuit-20 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -288,7 +288,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-21 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -296,7 +296,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-22 {
+.circuit-21 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -308,19 +308,19 @@ tbody .circuit-15:last-child td {
 }
 
 <div
-  class="circuit-42"
+  class="circuit-38"
 >
   <div
-    class="circuit-41"
+    class="circuit-37"
   >
     <table
-      class="circuit-40"
+      class="circuit-36"
     >
       <thead
-        class="circuit-17 circuit-18"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
         >
           <th
             aria-sort="none"
@@ -443,11 +443,11 @@ tbody .circuit-15:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -455,31 +455,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -487,31 +487,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -519,20 +519,20 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Baz
@@ -545,17 +545,17 @@ tbody .circuit-15:last-child td {
 `;
 
 exports[`Table Style tests should render a collapsed table 1`] = `
-.circuit-42 {
+.circuit-38 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-41 {
+.circuit-37 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-41 {
+  .circuit-37 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
@@ -777,7 +777,7 @@ tbody .circuit-15:last-child td {
   vertical-align: middle;
 }
 
-.circuit-19 {
+.circuit-18 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -787,7 +787,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-19 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -796,7 +796,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-21 {
+.circuit-20 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -809,7 +809,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-21 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -817,7 +817,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-22 {
+.circuit-21 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -828,7 +828,7 @@ tbody .circuit-15:last-child td {
   overflow-wrap: break-word;
 }
 
-.circuit-40 {
+.circuit-36 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
@@ -836,12 +836,12 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-40 {
+  .circuit-36 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-40:after {
+  .circuit-36:after {
     content: '';
     background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
@@ -853,19 +853,19 @@ tbody .circuit-15:last-child td {
 }
 
 <div
-  class="circuit-42"
+  class="circuit-38"
 >
   <div
-    class="circuit-41"
+    class="circuit-37"
   >
     <table
-      class="circuit-40"
+      class="circuit-36"
     >
       <thead
-        class="circuit-17 circuit-18"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
         >
           <th
             aria-sort="none"
@@ -988,11 +988,11 @@ tbody .circuit-15:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -1000,31 +1000,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -1032,31 +1032,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -1064,20 +1064,20 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Baz
@@ -1090,36 +1090,36 @@ tbody .circuit-15:last-child td {
 `;
 
 exports[`Table Style tests should render a condensed table 1`] = `
-.circuit-42 {
+.circuit-38 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-41 {
+.circuit-37 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-41 {
+  .circuit-37 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-40 {
+.circuit-36 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-40 {
+  .circuit-36 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-40:after {
+  .circuit-36:after {
     content: '';
     background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
@@ -1367,7 +1367,7 @@ tbody .circuit-15:last-child td {
   padding: 8px 16px;
 }
 
-.circuit-19 {
+.circuit-18 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -1381,7 +1381,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-19 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -1390,7 +1390,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-21 {
+.circuit-20 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -1409,7 +1409,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-21 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -1417,7 +1417,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-22 {
+.circuit-21 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -1432,19 +1432,19 @@ tbody .circuit-15:last-child td {
 }
 
 <div
-  class="circuit-42"
+  class="circuit-38"
 >
   <div
-    class="circuit-41"
+    class="circuit-37"
   >
     <table
-      class="circuit-40"
+      class="circuit-36"
     >
       <thead
-        class="circuit-17 circuit-18"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
         >
           <th
             aria-sort="none"
@@ -1567,11 +1567,11 @@ tbody .circuit-15:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -1579,31 +1579,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -1611,31 +1611,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -1643,20 +1643,20 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Baz
@@ -1800,7 +1800,7 @@ tbody .circuit-14:last-child td {
   vertical-align: middle;
 }
 
-.circuit-18 {
+.circuit-17 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -1811,58 +1811,58 @@ tbody .circuit-14:last-child td {
   overflow-wrap: break-word;
 }
 
-.circuit-35 {
+.circuit-31 {
   position: relative;
   height: 100%;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 @media (max-width:767px) {
-  .circuit-35 {
+  .circuit-31 {
     height: 100%;
   }
 }
 
-.circuit-33 {
+.circuit-29 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
-.circuit-16 {
+.circuit-15 {
   -webkit-transform: translateY(px);
   -ms-transform: translateY(px);
   transform: translateY(px);
 }
 
 @media (max-width:767px) {
-  .circuit-16 {
+  .circuit-15 {
     -webkit-transform: translateY(nullpx);
     -ms-transform: translateY(nullpx);
     transform: translateY(nullpx);
   }
 }
 
-.circuit-34 {
+.circuit-30 {
   height: 0px;
   overflow-y: auto;
 }
 
 <div
-  class="circuit-35"
+  class="circuit-31"
 >
   <div
-    class="circuit-34"
+    class="circuit-30"
     height="0px"
   >
     <table
-      class="circuit-33"
+      class="circuit-29"
     >
       <thead
-        class="circuit-16 circuit-17"
+        class="circuit-15 circuit-16"
       >
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-14"
         >
           <th
             aria-sort="none"
@@ -1977,69 +1977,69 @@ tbody .circuit-14:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-14"
           data-testid="table-row"
         >
           <td
-            class="circuit-18"
+            class="circuit-17"
             data-testid="table-cell"
           >
             b
           </td>
           <td
-            class="circuit-18"
+            class="circuit-17"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-18"
+            class="circuit-17"
             data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-14"
           data-testid="table-row"
         >
           <td
-            class="circuit-18"
+            class="circuit-17"
             data-testid="table-cell"
           >
             a
           </td>
           <td
-            class="circuit-18"
+            class="circuit-17"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-18"
+            class="circuit-17"
             data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-14"
           data-testid="table-row"
         >
           <td
-            class="circuit-18"
+            class="circuit-17"
             data-testid="table-cell"
           >
             c
           </td>
           <td
-            class="circuit-18"
+            class="circuit-17"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-18"
+            class="circuit-17"
             data-testid="table-cell"
           >
             Baz
@@ -2052,36 +2052,36 @@ tbody .circuit-14:last-child td {
 `;
 
 exports[`Table Style tests should render with default styles 1`] = `
-.circuit-42 {
+.circuit-38 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-41 {
+.circuit-37 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-41 {
+  .circuit-37 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-40 {
+.circuit-36 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-40 {
+  .circuit-36 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-40:after {
+  .circuit-36:after {
     content: '';
     background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
@@ -2307,7 +2307,7 @@ tbody .circuit-15:last-child td {
   vertical-align: middle;
 }
 
-.circuit-19 {
+.circuit-18 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -2317,7 +2317,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-19 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -2326,7 +2326,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-21 {
+.circuit-20 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -2339,7 +2339,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-21 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -2347,7 +2347,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-22 {
+.circuit-21 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -2359,19 +2359,19 @@ tbody .circuit-15:last-child td {
 }
 
 <div
-  class="circuit-42"
+  class="circuit-38"
 >
   <div
-    class="circuit-41"
+    class="circuit-37"
   >
     <table
-      class="circuit-40"
+      class="circuit-36"
     >
       <thead
-        class="circuit-17 circuit-18"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
         >
           <th
             aria-sort="none"
@@ -2494,11 +2494,11 @@ tbody .circuit-15:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -2506,31 +2506,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -2538,31 +2538,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -2570,20 +2570,20 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Baz
@@ -2596,36 +2596,36 @@ tbody .circuit-15:last-child td {
 `;
 
 exports[`Table Style tests should render with rowHeader styles 1`] = `
-.circuit-42 {
+.circuit-38 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-41 {
+.circuit-37 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-41 {
+  .circuit-37 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-40 {
+.circuit-36 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-40 {
+  .circuit-36 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-40:after {
+  .circuit-36:after {
     content: '';
     background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
@@ -2851,7 +2851,7 @@ tbody .circuit-15:last-child td {
   vertical-align: middle;
 }
 
-.circuit-19 {
+.circuit-18 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -2861,7 +2861,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-19 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -2870,7 +2870,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-21 {
+.circuit-20 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -2883,7 +2883,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-21 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -2891,7 +2891,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-22 {
+.circuit-21 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -2903,19 +2903,19 @@ tbody .circuit-15:last-child td {
 }
 
 <div
-  class="circuit-42"
+  class="circuit-38"
 >
   <div
-    class="circuit-41"
+    class="circuit-37"
   >
     <table
-      class="circuit-40"
+      class="circuit-36"
     >
       <thead
-        class="circuit-17 circuit-18"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
         >
           <th
             aria-sort="none"
@@ -3038,11 +3038,11 @@ tbody .circuit-15:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -3050,31 +3050,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -3082,31 +3082,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -3114,20 +3114,20 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Baz
@@ -3140,31 +3140,31 @@ tbody .circuit-15:last-child td {
 `;
 
 exports[`Table Style tests should render without the table shadow 1`] = `
-.circuit-41 {
+.circuit-37 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-41 {
+  .circuit-37 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-40 {
+.circuit-36 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-40 {
+  .circuit-36 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-40:after {
+  .circuit-36:after {
     content: '';
     background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
     height: 100%;
@@ -3390,7 +3390,7 @@ tbody .circuit-15:last-child td {
   vertical-align: middle;
 }
 
-.circuit-19 {
+.circuit-18 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -3400,7 +3400,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-19 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -3409,7 +3409,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-21 {
+.circuit-20 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -3422,7 +3422,7 @@ tbody .circuit-15:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-21 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -3430,7 +3430,7 @@ tbody .circuit-15:last-child td {
   }
 }
 
-.circuit-22 {
+.circuit-21 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -3441,26 +3441,26 @@ tbody .circuit-15:last-child td {
   overflow-wrap: break-word;
 }
 
-.circuit-42 {
+.circuit-38 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   box-shadow: none;
 }
 
 <div
-  class="circuit-42"
+  class="circuit-38"
 >
   <div
-    class="circuit-41"
+    class="circuit-37"
   >
     <table
-      class="circuit-40"
+      class="circuit-36"
     >
       <thead
-        class="circuit-17 circuit-18"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
         >
           <th
             aria-sort="none"
@@ -3583,11 +3583,11 @@ tbody .circuit-15:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -3595,31 +3595,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -3627,31 +3627,31 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-15 circuit-16"
+          class="circuit-15"
           data-testid="table-row"
         >
           <th
-            class="circuit-19 circuit-5"
+            class="circuit-18 circuit-5"
             data-testid="table-header"
             scope="row"
           >
@@ -3659,20 +3659,20 @@ tbody .circuit-15:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-21"
+            class="circuit-20"
             data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-21"
             data-testid="table-cell"
           >
             Baz
