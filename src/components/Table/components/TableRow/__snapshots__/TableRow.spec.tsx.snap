@@ -34,7 +34,7 @@ tbody .circuit-0:hover th {
 }
 
 <tr
-  class="circuit-0 circuit-1"
+  class="circuit-0"
   tabindex="0"
 >
   Foo
@@ -52,7 +52,7 @@ tbody .circuit-0:last-child td {
 }
 
 <tr
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Foo
 </tr>
