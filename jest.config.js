@@ -22,9 +22,10 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/packages/**/*.{ts,tsx,js,jsx}',
     '!<rootDir>/packages/**/node_modules/**/*.{ts,tsx,js,jsx}',
+    '!<rootDir>/packages/**/dist/**/*.{ts,tsx,js,jsx}',
+    '!<rootDir>/packages/**/__testfixtures__/**/*',
     '!<rootDir>/packages/**/index.{ts,tsx,js,jsx}',
     '!<rootDir>/packages/**/*.stories.{ts,tsx,js,jsx}',
     '!<rootDir>/packages/**/*.docs.mdx',
-    '!<rootDir>/packages/**/__testfixtures__/**/*',
   ],
 };
