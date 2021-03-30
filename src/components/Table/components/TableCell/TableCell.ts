@@ -40,9 +40,9 @@ type TableCellProps = {
   sortable?: boolean;
   role?: 'presentation';
   /**
-   * @private A testid for selecting table cells in tests. Handles internally.
+   * @private A testid for selecting table cells in tests. Handled internally.
    */
-  ['data-testid']: string;
+  ['data-testid']?: string;
 };
 
 const baseStyles = ({
