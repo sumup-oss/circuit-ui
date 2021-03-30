@@ -31,8 +31,11 @@ jobs:
       - name: Install dependencies
         run: yarn --pure-lockfile --prefer-offline
 
-      - name: Build Storybook
+      - name: Build packages
         run: yarn build
+
+      - name: Build Storybook
+        run: yarn docs:build
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1

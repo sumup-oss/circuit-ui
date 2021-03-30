@@ -22,16 +22,13 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui/blob/main/packages/design-tokens/README.md",
   "scripts": {
+    "start": "tsc --watch",
     "build": "yarn build:es && yarn build:cjs",
     "build:es": "tsc",
     "build:cjs": "tsc --project tsconfig.cjs.json",
-    "start": "tsc --watch",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
-    "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
-    "test": "jest --watch",
-    "test:ci": "jest --ci --json --runInBand --coverage --outputFile=__reports__/jest-results.json",
-    "prepublish": "yarn build"
+    "test": "jest --watch"
   },
   "dependencies": {
     "prop-types": "^15.7.2"
