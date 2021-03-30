@@ -21,13 +21,12 @@
     "test:ci": "mkdir -p __reports__ && jest --json --outputFile=__reports__/jest-results.json --ci --coverage --runInBand",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
-    "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
+    "lint:ci": "yarn lint --format github",
     "docs": "yarn docs:start",
     "docs:start": "start-storybook -p 6006 -s .storybook/public",
     "docs:build": "build-storybook -c .storybook -o public -s .storybook/public",
     "check:security": "audit-ci --critical",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
-    "prerelease": "lerna run build",
     "release": "changeset publish"
   },
   "devDependencies": {
@@ -60,6 +59,7 @@
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-react-docgen": "^4.2.1",
     "chromatic": "^5.1.0",
+    "eslint-formatter-github": "^1.0.11",
     "eslint-plugin-prettier": "^3.1.0",
     "expect": "^26.6.2",
     "jest": "^26.6.3",
