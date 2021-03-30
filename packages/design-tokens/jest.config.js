@@ -24,7 +24,7 @@ module.exports = {
   name: packageName,
   displayName: packageName,
   rootDir: '../..',
-  roots: [`<rootDir>/packages/${packageName}/src`],
+  roots: [`<rootDir>/packages/${packageName}`],
   clearMocks: true,
   testEnvironment: 'node',
   setupFilesAfterEnv: ['jest-extended'],

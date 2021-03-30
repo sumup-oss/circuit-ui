@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { light } from '.';
+import { light } from '..';
 
 describe('Themes', () => {
   describe('light', () => {
