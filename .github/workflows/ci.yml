@@ -35,6 +35,9 @@ jobs:
       - name: Check dependency licenses
         run: yarn check:licenses
 
+      - name: Check SVG sizes
+        run: ./scripts/check-svg-sizes.sh
+
       - name: Build packages
         run: yarn build
 

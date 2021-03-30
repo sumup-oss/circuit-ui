@@ -125,7 +125,7 @@ function transpileMain(fileName: string, code: string): void {
     presets: ['@babel/preset-env', '@babel/preset-react'],
     plugins: [['inline-react-svg', { svgo: false }]],
     filename: fileName,
-  }).code;
+  })?.code as string;
   writeFile(distDir, fileName, output);
 }
 
@@ -136,7 +136,7 @@ function transpileModule(fileName: string, code: string): void {
     presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
     plugins: [['inline-react-svg', { svgo: false }]],
     filename: fileName,
-  }).code;
+  })?.code as string;
   writeFile(distDir, fileName, output);
 }
 
@@ -157,8 +157,11 @@ function main(): void {
   const components = flow(
     groupBy('name'),
     entries,
-    map((group) => ({ name: getComponentName(group[0]), icons: group[1] })),
-  )(manifest.icons);
+    map((group: [string, Icon[]]) => ({
+      name: getComponentName(group[0]),
+      icons: group[1],
+    })),
+  )(manifest.icons) as Component[];
 
   const indexRaw = buildIndexFile(components);
   const declarationFile = buildDeclarationFile(components);

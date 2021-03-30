@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/sumup-oss/circuit-ui/issues"
   },
-  "homepage": "https://github.com/sumup-oss/circuit-ui#readme",
+  "homepage": "https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/README.md",
   "scripts": {
     "start": "tsc --watch",
     "build": "tsc && tsc --project tsconfig.cjs.json && yarn build:executable",
@@ -58,7 +58,7 @@
     "@emotion/stylis": "^0.8.4",
     "@sumup/collector": "^1.0.0",
     "@sumup/design-tokens": "^2.1.1",
-    "@sumup/icons": "^1.0.0",
+    "@sumup/icons": "^1.6.0",
     "@sumup/intl": "^1.0.0",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/dom": "^7.27.1",

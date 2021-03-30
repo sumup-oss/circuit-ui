@@ -25,6 +25,7 @@
     "docs": "yarn docs:start",
     "docs:start": "start-storybook -p 6006 -s .storybook/public",
     "docs:build": "build-storybook -c .storybook -o public -s .storybook/public",
+    "vercel-build": "yarn build && yarn docs:build",
     "check:security": "audit-ci --critical",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
     "release": "changeset publish"

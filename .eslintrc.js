@@ -1,7 +1,7 @@
 module.exports = require('@sumup/foundry/eslint')(
   {
     language: 'TypeScript',
-    environments: ['Browser'],
+    environments: ['Node', 'Browser'],
     frameworks: ['React', 'Emotion', 'Jest'],
     openSource: true,
   },
@@ -58,6 +58,13 @@ module.exports = require('@sumup/foundry/eslint')(
           '@typescript-eslint/no-unsafe-call': 'off',
           '@typescript-eslint/no-unsafe-assignment': 'off',
           '@typescript-eslint/no-unsafe-member-access': 'off',
+        },
+      },
+      {
+        files: ['packages/icons/scripts/*'],
+        rules: {
+          'import/no-extraneous-dependencies': 'off',
+          'node/no-unpublished-require': 'off',
         },
       },
     ],
