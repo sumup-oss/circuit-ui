@@ -87,15 +87,15 @@ It is not possible to change the color of an external SVG using the `css` color 
 
 ### Load from a URL
 
-The latest version of the icon library is [automatically deployed](https://icons.sumup-oss.now.sh/) to [Vercel](https://vercel.com/). The files are hosted behind a global CDN, so they load quickly for all users. You can load the icons from `https://icons.sumup-oss.now.sh/v1/<name>_<size>.svg`. Below are some examples:
+The latest version of the icon library is [automatically deployed](https://circuit.sumup.com/icons/v1) to [Vercel](https://vercel.com/). The files are hosted behind a global CDN, so they load quickly for all users. You can load the icons from `https://circuit.sumup.com/icons/v1/<name>_<size>.svg`. Below are some examples:
 
 ```html
-<img src="https://icons.sumup-oss.now.sh/v1/check_small.svg" alt="checkmark" />
+<img src="https://circuit.sumup.com/icons/v1/check_small.svg" alt="checkmark" />
 ```
 
 ```css
 .icon {
-  background-image: url('https://icons.sumup-oss.now.sh/v1/circle_checkmark_filled_large.svg');
+  background-image: url('https://circuit.sumup.com/icons/v1/circle_checkmark_filled_large.svg');
 }
 ```
 
