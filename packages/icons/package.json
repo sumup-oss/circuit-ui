@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/sumup-oss/circuit-ui/issues"
   },
-  "homepage": "https://github.com/sumup-oss/circuit-ui/blob/main/packages/icons/README.md",
+  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/README.md",
   "scripts": {
     "start": "ts-node-dev --respawn --watch web ./scripts/web.ts",
     "build": "ts-node ./scripts/web.ts",

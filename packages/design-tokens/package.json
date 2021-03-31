@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/sumup-oss/circuit-ui/issues"
   },
-  "homepage": "https://github.com/sumup-oss/circuit-ui/blob/main/packages/design-tokens/README.md",
+  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens/README.md",
   "scripts": {
     "start": "tsc --watch",
     "build": "yarn build:es && yarn build:cjs",

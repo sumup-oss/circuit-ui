@@ -2,7 +2,7 @@
 
 # Welcome to SumUp Next.js <!-- omit in toc -->
 
-A [Next.js](https://nextjs.org) starter app, preconfigured with SumUp's [Circuit UI](https://www.npmjs.com/package/@sumup/circuit-ui) component library, SumUp's [Foundry](https://www.npmjs.com/package/@sumup/foundry) CLI toolkit for writing JavaScript, and a minimal custom server.
+A [Next.js](https://nextjs.org) starter app, preconfigured with SumUp's [Circuit UI](https://circuit.sumup.com) component library and SumUp's [Foundry](https://www.npmjs.com/package/@sumup/foundry) CLI toolkit for writing TypeScript.
 
 </div>
 
@@ -46,20 +46,8 @@ project-name/
 │  ├─ _app.js
 │  ├─ _document.js
 │  └─ index.js
-├─ public/
-│  └─ favicon.png
-└─ .babelrc.js
-├─ .eslintignore
-├─ .eslintrc.js
-├─ .gitignore
-├─ jest.config.js
-├─ jest.fileTransform.js
-├─ jest.setup.js
-├─ jest.transform.js
-├─ package.json
-├─ plopfile.js
-├─ README.md
-└─ yarn.lock
+└─ public/
+   └─ favicon.png
 ```
 
 Routing in Next.js is based on the file system, so `./pages/index.js` maps to the `/` route and `./pages/about.js` would map to `/about`.
@@ -117,7 +105,7 @@ You can fetch data in `pages` components using `getInitialProps` like this:
 ### `./pages/stars.js`
 
 ```jsx
-const Page = props => <div>Next stars: {props.stars}</div>;
+const Page = (props) => <div>Next stars: {props.stars}</div>;
 
 export const getStaticProps = async () => {
   const res = await fetch('https://api.github.com/repos/vercel/next.js');

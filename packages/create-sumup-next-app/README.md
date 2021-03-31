@@ -1,24 +1,26 @@
 <div align="center">
 
-# ⚛️ create-sumup-next-app ⚛️
+# create-sumup-next-app
 
 A
 [create-next-app template](https://nextjs.org/docs/api-reference/create-next-app) for TypeScript Next.js apps with SumUp's frontend stack.
+
+[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Version](https://img.shields.io/npm/v/@sumup/circuit-ui)](https://www.npmjs.com/package/@sumup/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui/LICENSE) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/sumup-oss/circuit-ui/tree/main/CODE_OF_CONDUCT.md)
 
 </div>
 
 ## 💻 Prerequisites
 
-- You should have **Node.js** installed at a version equal or above **`v9.10.0`**. If you cannot do that, see the Troubleshooting section for ways around this requirement.
+- You should have **Node.js** installed at a version equal or above **`v10.13.0`**. If you cannot do that, see the Troubleshooting section for ways around this requirement.
 - At the moment this project reqires **`yarn`** to be installed on your system. Yarn is a package manager for JavaScript. You can read how to install the Yarn CLI in [their documentation](https://yarnpkg.com/en/docs/install).
 
 ## ✨ Setting up a new SumUp Next.js project
 
 1. Open your terminal.
 2. Navigate to the directory you would like to place your project in.
-3. Run `yarn create next-app --example "https://github.com/sumup/create-sumup-next-app/tree/main/template" my-app`, where `my-app` is the name of your project.
+3. Run `yarn create next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-next-app/template" my-app`, where `my-app` is the name of your project.
 
-This will create the folder `my-app` and initialize a new project inside. The project will be based on [`Next.js`](https://github.com/vercel/next.js/) and will use SumUp's [`Circuit UI`](https://circuit.sumup.com/#/) component library and [`Foundry`](https://github.com/sumup/foundry) toolkit, as well as [`lodash`](https://lodash.com/).
+This will create the folder `my-app` and initialize a new project inside. The project will be based on [`Next.js`](https://github.com/vercel/next.js/) and will use SumUp's [`Circuit UI`](https://circuit.sumup.com/) component library and [`Foundry`](https://github.com/sumup/foundry) toolkit, as well as [`lodash`](https://lodash.com/).
 
 ## 🛠 Development workflow
 
