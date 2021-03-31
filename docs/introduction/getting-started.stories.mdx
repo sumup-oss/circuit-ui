@@ -12,7 +12,7 @@ import { Meta, Status, Intro, Link } from '../../.storybook/components';
 
 ## Creating a new app with Circuit UI
 
-Starting fresh? The quickest way to bootstrap a new project with Circuit UI is using [`create-sumup-react-app`](https://github.com/sumup/create-sumup-react-app). It will create a new project based on [`create-react-app`](https://github.com/facebook/create-react-app) and will add Circuit UI and SumUp's [Foundry](https://github.com/sumup/foundry) JavaScript toolkit.
+Starting fresh? The quickest way to bootstrap a new project with Circuit UI is using [`create-sumup-react-app`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-react-app). It will create a new project based on [`create-react-app`](https://github.com/facebook/create-react-app) and will add Circuit UI and SumUp's [Foundry](https://github.com/sumup-oss/foundry) JavaScript toolkit.
 
 ### Prerequisites
 
@@ -54,10 +54,9 @@ npm install --save @sumup/collector @sumup/design-tokens @sumup/icons react reac
 
 ### Configuring the theme
 
-Finally, you need to make the theme available to Circuit UI. SumUp's default themes are part of the [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) package. In most cases, they should cover your needs. Refer to the [Theme documentation](Advanced|Theme) to learn how to use and customize the theme.  
+Finally, you need to make the theme available to Circuit UI. SumUp's default themes are part of the [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) package. In most cases, they should cover your needs. Refer to the [Theme documentation](Advanced|Theme) to learn how to use and customize the theme.
 
 At the root of your application, wrap the components in the `ThemeProvider` from Emotion:
-
 
 ```jsx
 import { ThemeProvider } from 'emotion-theming';

@@ -9,7 +9,7 @@ import {
   Type,
   MediaQueriesTable,
 } from '../../.storybook/components';
-import { Heading, SubHeading, Text } from '../../src';
+import { Heading, SubHeading, Text } from '../../packages/circuit-ui';
 
 <Meta title="Advanced/Theme" />
 
@@ -17,7 +17,7 @@ import { Heading, SubHeading, Text } from '../../src';
 
 ## Configuring the theme
 
-Theming is built into [Emotion](https://github.com/emotion-js/emotion), our CSS-in-JS library. You need to make the theme available to the components by wrapping your application in a `ThemeProvider` (this is already configured when using [`create-sumup-react-app`](https://github.com/sumup/create-sumup-react-app)):
+Theming is built into [Emotion](https://github.com/emotion-js/emotion), our CSS-in-JS library. You need to make the theme available to the components by wrapping your application in a `ThemeProvider` (this is already configured when using [`create-sumup-react-app`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-react-app)):
 
 ```jsx
 import { ThemeProvider } from 'emotion-theming';
@@ -33,7 +33,7 @@ export default function App() {
 }
 ```
 
-In most cases, the default SumUp themes provided by [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) should cover your needs. If you need to create a custom theme, we recommend overriding or making a copy of one of the [default themes](https://github.com/sumup-oss/design-tokens/blob/main/src/themes) to ensure that no values are missing.
+In most cases, the default SumUp themes provided by [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) should cover your needs. If you need to create a custom theme, we recommend overriding or making a copy of one of the [default themes](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens/themes) to ensure that no values are missing.
 
 Refer to the [Emotion theming](https://emotion.sh/docs/theming) documentation to learn how to use the theme in your own components.
 

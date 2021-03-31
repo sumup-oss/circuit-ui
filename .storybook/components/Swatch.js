@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Text, styleHelpers } from '../../src';
+import { Text, styleHelpers } from '../../packages/circuit-ui';
 
 const SWATCH_WIDTH = '99px';
 const SWATCH_HEIGHT = '99px';
@@ -77,7 +77,7 @@ const Swatch = ({ colorName }) => (
 Swatch.propTypes = {
   // eslint-disable-next-line
   theme: PropTypes.object.isRequired,
-  colorName: PropTypes.string.isRequired
+  colorName: PropTypes.string.isRequired,
 };
 
 export default Swatch;

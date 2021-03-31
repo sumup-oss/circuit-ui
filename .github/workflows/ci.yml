@@ -1,0 +1,65 @@
+name: Continuous Integration
+
+on: [push]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js v14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # https://github.com/actions/cache/blob/main/examples.md#node---yarn
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: yarn --pure-lockfile --prefer-offline
+
+      - name: Install template dependencies
+        run: cd packages/create-sumup-next-app/template && yarn --no-lockfile --prefer-offline --ignore-scripts
+
+      - name: Check dependency licenses
+        run: yarn check:licenses
+
+      - name: Check SVG sizes
+        run: ./scripts/check-svg-sizes.sh
+
+      - name: Build packages
+        run: yarn build
+
+      - name: Lint code
+        run: yarn lint:ci
+
+      - name: Run unit tests
+        run: yarn test:ci
+
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v1.0.3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Create release PR or publish to npm
+        if: github.ref == 'refs/heads/main'
+        uses: changesets/action@master
+        with:
+          publish: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,10 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#circle_info_small_svg__clip0)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v.5a1 1 0 002 0V4zm0 3.5a1 1 0 00-2 0v4a1 1 0 102 0v-4z" fill="currentColor"/>
+    </g>
+    <defs>
+        <clipPath id="circle_info_small_svg__clip0">
+            <path d="M0 0h16v16H0V0z" fill="#fff"/>
+        </clipPath>
+    </defs>
+</svg>

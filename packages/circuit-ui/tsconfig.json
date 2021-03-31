@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./dist/es",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2020",
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "lint": {
+          "validProperties": ["label"]
+        }
+      }
+    ]
+  },
+  "include": [
+    "cli/**/*",
+    "components/**/*",
+    "hooks/**/*",
+    "styles/**/*",
+    "types/**/*",
+    "util/**/*",
+    "index.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*/__tests__/*",
+    "**/*/__testfixtures__/*",
+    "**/*.spec.*",
+    "**/*.stories.*"
+  ],
+  "typeRoots": ["./node_modules/@types", "./types/"]
+}

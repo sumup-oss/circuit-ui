@@ -1,0 +1,19 @@
+{
+  "name": "@sumup/cra-template",
+  "version": "2.0.2",
+  "description": "Creates a ready for development React app using create-react-app.",
+  "repository": {
+    "type": "git",
+    "directory": "packages/icons",
+    "url": "git+https://github.com/sumup-oss/circuit-ui.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sumup-oss/circuit-ui/issues"
+  },
+  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-react-app/README.md",
+  "scripts": {
+    "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "yarn lint --fix"
+  }
+}

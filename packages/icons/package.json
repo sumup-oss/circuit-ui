@@ -1,0 +1,51 @@
+{
+  "name": "@sumup/icons",
+  "version": "1.6.0",
+  "description": "A collection of icons by SumUp",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "*.svg",
+    "manifest.json"
+  ],
+  "repository": {
+    "type": "git",
+    "directory": "packages/icons",
+    "url": "git+https://github.com/sumup-oss/circuit-ui.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sumup-oss/circuit-ui/issues"
+  },
+  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/README.md",
+  "scripts": {
+    "start": "ts-node-dev --respawn --watch web ./scripts/web.ts",
+    "build": "ts-node ./scripts/web.ts",
+    "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "yarn lint --fix",
+    "prepublish": "yarn build && cp web/v1/* .",
+    "postpublish": "rm -f *.svg"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@types/babel__core": "^7.1.7",
+    "@types/dedent": "^0.7.0",
+    "@types/lodash": "^4.14.149",
+    "babel-plugin-inline-react-svg": "^2.0.1",
+    "dedent": "^0.7.0",
+    "lodash": "^4.17.15",
+    "svgo": "^2.0.3",
+    "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.0.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0 <18.0.0"
+  }
+}

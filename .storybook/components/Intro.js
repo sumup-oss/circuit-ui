@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Text } from '../../src';
+import { Text } from '../../packages/circuit-ui';
 
 const StyledText = styled(Text)(
   ({ theme }) => css`
@@ -27,7 +27,7 @@ const StyledText = styled(Text)(
     font-size: 20px !important;
     color: ${theme.colors.n700};
     margin-bottom: ${theme.spacings.giga};
-  `
+  `,
 );
 
 const Intro = ({ children, ...props }) => (

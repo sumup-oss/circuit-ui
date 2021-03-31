@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Text } from '../../src';
+import { Text } from '../../packages/circuit-ui';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -70,7 +70,7 @@ const IconSize = ({ size }) => (
 );
 
 IconSize.propTypes = {
-  size: PropTypes.string.isRequired
+  size: PropTypes.string.isRequired,
 };
 
 export default IconSize;

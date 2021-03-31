@@ -19,8 +19,8 @@ import { css } from '@emotion/core';
 import {
   Grid as OriginalGrid,
   Row as OriginalRow,
-  Col as OriginalCol
-} from '../../src';
+  Col as OriginalCol,
+} from '../../packages/circuit-ui';
 
 export const Grid = styled(OriginalGrid)`
   ${({ theme }) => css`

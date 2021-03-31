@@ -1,0 +1,41 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+import SelectorGroup from '../SelectorGroup';
+
+# Selector
+
+<Status.Stable />
+
+The selector is a component that allows users to select a single or multiple options from a range of items, keeping that selection highlighted and allowing possible changes to happen on the same screen based on it.
+
+<Story id="forms-selector--base" />
+<Props />
+
+## When to use it
+
+We should use a selector when we need the user to choose a critical option on the flows that impact the
+same screen that they are currently in. For example, choosing a payment method on the order flow.
+
+## Usage guidelines
+
+- **Do** always position the selectable options on the same horizontal line for easy comparison
+- **Do** provide the possible change on the content below the selector (for instance showing credit card input fields if users select this type of payment)
+- **Do not** use a selector for more than 3 items. Consider using a select dropdown, instead.
+
+## Component variations
+
+### Selected
+
+<Story id="forms-selector--selected" />
+
+### Disabled
+
+<Story id="forms-selector--disabled" />
+
+## SelectorGroup
+
+<Story id="forms-selector-selectorgroup--base" />
+<Props of={SelectorGroup} />
+
+### Multiple
+
+<Story id="forms-selector-selectorgroup--multiple" />

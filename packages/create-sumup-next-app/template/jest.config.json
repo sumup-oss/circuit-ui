@@ -1,0 +1,24 @@
+{
+  "preset": "ts-jest",
+  "globals": {
+    "ts-jest": {
+      "babelConfig": true
+    }
+  },
+  "testURL": "http://localhost",
+  "moduleFileExtensions": ["js", "jsx", "ts", "tsx"],
+  "testPathIgnorePatterns": ["./.next/", "./node_modules/"],
+  "setupFilesAfterEnv": ["<rootDir>/setupTests.tsx"],
+  "snapshotSerializers": ["jest-emotion"],
+  "coverageDirectory": "./__coverage__",
+  "coverageReporters": ["cobertura", "text-summary", "html"],
+  "collectCoverageFrom": [
+    "components/**/*.(js|jsx|ts|tsx)",
+    "pages/**/*.(js|jsx|ts|tsx)",
+    "services/**/*.(js|jsx|ts|tsx)",
+    "!components/**/index.(js|jsx|ts|tsx)",
+    "!**/*.d.ts",
+    "!/public/",
+    "!/node_modules/"
+  ]
+}
