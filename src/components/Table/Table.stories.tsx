@@ -19,9 +19,9 @@ import { action } from '@storybook/addon-actions';
 import Badge from '../Badge';
 
 import docs from './Table.docs.mdx';
+import { TableProps } from './Table';
 
 import Table, { TableHeader, TableRow, TableCell } from '.';
-import { TableProps } from './Table';
 
 export default {
   title: 'Components/Table',
@@ -122,10 +122,14 @@ Sortable.args = {
 export const CustomSort = (args: TableProps) => (
   <Table
     {...args}
-    onSortBy={(i, direction, rows) =>
+    onSortBy={(_i, direction, rows) =>
       direction === 'ascending'
-        ? rows.sort((a, b) => a[0].localeCompare(b[0]))
-        : rows.sort((a, b) => b[0].localeCompare(a[0]))
+        ? rows.sort(
+            (a, b) => typeof a[0] === 'string' && a[0].localeCompare(b[0]),
+          )
+        : rows.sort(
+            (a, b) => typeof b[0] === 'string' && b[0].localeCompare(a[0]),
+          )
     }
   />
 );

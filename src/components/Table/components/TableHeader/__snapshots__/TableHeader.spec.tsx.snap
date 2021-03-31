@@ -6,8 +6,8 @@ exports[`TableHeader Style tests should render with condensed styles 1`] = `
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
   color: #666;
   font-size: 13px;
   font-weight: 700;
@@ -21,7 +21,7 @@ exports[`TableHeader Style tests should render with condensed styles 1`] = `
 }
 
 <th
-  class="circuit-0 circuit-1"
+  class="circuit-0"
   data-testid="table-header"
   scope="col"
 >
@@ -35,8 +35,8 @@ exports[`TableHeader Style tests should render with default styles 1`] = `
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
   color: #666;
   font-size: 13px;
   font-weight: 700;
@@ -45,7 +45,7 @@ exports[`TableHeader Style tests should render with default styles 1`] = `
 }
 
 <th
-  class="circuit-0 circuit-1"
+  class="circuit-0"
   data-testid="table-header"
   scope="col"
 >
@@ -59,8 +59,8 @@ exports[`TableHeader Style tests should render with hovered styles 1`] = `
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
   background-color: #F5F5F5;
   color: #666;
   font-size: 13px;
@@ -70,7 +70,7 @@ exports[`TableHeader Style tests should render with hovered styles 1`] = `
 }
 
 <th
-  class="circuit-0 circuit-1"
+  class="circuit-0"
   data-testid="table-header"
   scope="col"
 >
@@ -84,12 +84,12 @@ exports[`TableHeader Style tests should render with row styles 1`] = `
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
 }
 
 <th
-  class="circuit-0 circuit-1"
+  class="circuit-0"
   data-testid="table-header"
   scope="row"
 >
@@ -103,8 +103,8 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
   color: #666;
   font-size: 13px;
   font-weight: 700;
@@ -209,7 +209,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
 <th
   aria-label="Sort by Foo in ascending order"
   aria-sort="none"
-  class="circuit-4 circuit-5"
+  class="circuit-4"
   data-testid="table-header"
   scope="col"
 >
@@ -324,8 +324,8 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
   color: #666;
   font-size: 13px;
   font-weight: 700;
@@ -375,7 +375,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 
 <th
   aria-sort="ascending"
-  class="circuit-3 circuit-4"
+  class="circuit-3"
   data-testid="table-header"
   scope="col"
 >
@@ -474,8 +474,8 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
   color: #666;
   font-size: 13px;
   font-weight: 700;
@@ -525,7 +525,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 
 <th
   aria-sort="descending"
-  class="circuit-3 circuit-4"
+  class="circuit-3"
   data-testid="table-header"
   scope="col"
 >

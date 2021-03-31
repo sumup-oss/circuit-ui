@@ -15,6 +15,8 @@
 
 import React from 'react';
 
+import { TableHeaderProps } from './TableHeader';
+
 import TableHeader from '.';
 
 export default {
@@ -22,7 +24,7 @@ export default {
   component: TableHeader,
 };
 
-export const Base = (args) => (
+export const Base = (args: TableHeaderProps) => (
   <TableHeader style={{ width: '300px', alignSelf: 'center' }} {...args}>
     Header
   </TableHeader>

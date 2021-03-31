@@ -43,16 +43,16 @@ tbody .circuit-2:last-child td {
 `;
 
 exports[`TableBody Style tests should render with fixed header styles 1`] = `
-.circuit-4 {
+.circuit-3 {
   vertical-align: middle;
 }
 
-tbody .circuit-4:last-child th,
-tbody .circuit-4:last-child td {
+tbody .circuit-3:last-child th,
+tbody .circuit-3:last-child td {
   border-bottom: none;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -68,8 +68,8 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
 }
 
 @media (max-width:767px) {
@@ -82,7 +82,7 @@ tbody .circuit-4:last-child td {
   }
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -95,7 +95,7 @@ tbody .circuit-4:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-2 {
+  .circuit-1 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -105,11 +105,11 @@ tbody .circuit-4:last-child td {
 
 <tbody>
   <tr
-    class="circuit-4"
+    class="circuit-3"
     data-testid="table-row"
   >
     <th
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       data-testid="table-header"
       scope="row"
     >
@@ -117,14 +117,14 @@ tbody .circuit-4:last-child td {
     </th>
     <td
       aria-hidden="true"
-      class="circuit-2"
+      class="circuit-1"
       data-testid="table-cell"
       role="presentation"
     >
       Foo
     </td>
     <td
-      class="circuit-3"
+      class="circuit-2"
       data-testid="table-cell"
     >
       Bar
