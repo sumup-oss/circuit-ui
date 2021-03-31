@@ -133,11 +133,11 @@ To configure the syntax highlighting in your favorite text editor, head to the [
 
 ## Contributing
 
-If you have ideas for how we could improve this readme or the project in general, [let us know](https://github.com/sumup/create-sumup-next-app/issues) or [contribute some](https://github.com/sumup/create-sumup-next-app/edit/main/template/README.md)!
+If you have ideas for how we could improve this readme or the project in general, [let us know](https://github.com/sumup-oss/circuit-ui/issues) or [contribute some](https://github.com/sumup-oss/circuit-ui/edit/main/packages/create-sumup-next-app/template/README.md)!
 
 ## Questions? Feedback?
 
-Check out [Next.js FAQ & docs](https://nextjs.org/docs) or [let us know](https://github.com/sumup/create-sumup-next-app/issues) your feedback.
+Check out [Next.js FAQ & docs](https://nextjs.org/docs) or [let us know](https://github.com/sumup-oss/circuit-ui/issues) your feedback.
 
 ## About SumUp
 

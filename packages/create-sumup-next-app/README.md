@@ -20,7 +20,7 @@ A
 2. Navigate to the directory you would like to place your project in.
 3. Run `yarn create next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-next-app/template" my-app`, where `my-app` is the name of your project.
 
-This will create the folder `my-app` and initialize a new project inside. The project will be based on [`Next.js`](https://github.com/vercel/next.js/) and will use SumUp's [`Circuit UI`](https://circuit.sumup.com/) component library and [`Foundry`](https://github.com/sumup/foundry) toolkit, as well as [`lodash`](https://lodash.com/).
+This will create the folder `my-app` and initialize a new project inside. The project will be based on [`Next.js`](https://github.com/vercel/next.js/) and will use SumUp's [`Circuit UI`](https://circuit.sumup.com/) component library and [`Foundry`](https://github.com/sumup-oss/foundry) toolkit, as well as [`lodash`](https://lodash.com/).
 
 ## 🛠 Development workflow
 
@@ -36,7 +36,7 @@ We try making adding new components as easy as possible. Run `yarn create-compon
 
 <div align="center">
 
-![A GIF of how to use the create-component script.](https://github.com/sumup/create-sumup-next-app/blob/main/assets/create-component.gif?raw=true 'Using create-component')
+![A GIF of how to use the create-component script.](https://github.com/sumup-oss/circuit-ui/tree/main/assets/create-component.gif?raw=true 'Using create-component')
 
 </div>
 
@@ -56,9 +56,9 @@ Writing tests is great. Tests are the second line of defence against bugs ending
 ## 📖 Useful resources
 
 - The [docs](https://nextjs.org/docs#setup) for `create-next-app` contain a lot of solutions for common problems when writing a React application.
-- Foundry [docs](https://github.com/sumup/foundry#table-of-contents).
-- Circuit UI [docs](https://circuit.sumup.com/) and [storybook](https://circuit.sumup.com/storybook/).
-- The [README](https://github.com/testing-library/react-testing-library/#readme) for`react-testing-library`.
+- Foundry [docs](https://github.com/sumup-oss/foundry#table-of-contents).
+- Circuit UI [docs](https://circuit.sumup.com/).
+- The [README](https://github.com/testing-library/react-testing-library/#readme) for`@testing-library/react`.
 
 ## 💁‍♀ Tips
 
@@ -79,14 +79,6 @@ The ESLint extension for VSCode has a `nodePath` setting. It allows you to add a
 Don't worry, this won't break ESLint for other projects. It just gives VSCode another relative path where it can look for ESLint.
 
 ## ⚠️ Troubleshooting
-
-### Debug mode
-
-`create-sumup-next-app` has a debug mode. To output verbose logging to your console, add the `--debug` flag when creating your app. For example:
-
-```
-yarn create @sumup/sumup-next-app my-debugging-app --debug
-```
 
 ### Engine node is incompatible
 
@@ -118,13 +110,3 @@ Make sure you have watchman installed. On macOS and Homebrew as your package man
 ```bash
 brew install watchman
 ```
-
-## 🔗 Related
-
-- [create-sumup-react-app](https://github.com/sumup/create-sumup-react-app) - Create new React apps with CRA, Circuit UI, and Foundry.
-- [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) - Create Next.js apps in one command.
-- [create-react-app](https://github.com/facebook/create-react-app) - Create new React apps with no build configuration.
-
-## 💙 About SumUp
-
-[SumUp](https://sumup.com) is a mobile-point of sale provider. It is our mission to make easy and fast card payments a reality across the _entire_ world. You can pay with SumUp in more than 30 countries, already. Our engineers work in Berlin, Cologne, Sofia, and Sāo Paulo. They write code in JavaScript, Swift, Ruby, Elixir, Erlang, and much more. Want to come work and with us? [Head to our careers page](https://sumup.com/careers) to find out more.

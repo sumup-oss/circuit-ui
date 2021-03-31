@@ -4,7 +4,7 @@
   "description": "Create a fresh Next.js application preconfigured with SumUp's Circuit UI and Foundry",
   "repository": {
     "type": "git",
-    "directory": "packages/circuit-ui",
+    "directory": "packages/icons",
     "url": "git+https://github.com/sumup-oss/circuit-ui.git"
   },
   "license": "Apache-2.0",

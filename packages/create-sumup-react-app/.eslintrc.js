@@ -36,6 +36,7 @@ module.exports = require('@sumup/foundry/eslint')(
         rules: {
           'notice/notice': 'off',
           'import/no-unresolved': 'off',
+          'import/no-extraneous-dependencies': 'off',
           'no-unused-vars': 'warn',
         },
       },

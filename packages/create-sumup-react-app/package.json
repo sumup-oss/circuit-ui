@@ -1,29 +1,19 @@
 {
   "name": "@sumup/cra-template",
-  "version": "0.0.0-semantically-released",
+  "version": "2.0.2",
   "description": "Creates a ready for development React app using create-react-app.",
-  "repository": "github:sumup/create-sumup-react-app",
+  "repository": {
+    "type": "git",
+    "directory": "packages/icons",
+    "url": "git+https://github.com/sumup-oss/circuit-ui.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sumup-oss/circuit-ui/issues"
+  },
+  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-react-app/README.md",
   "scripts": {
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "yarn lint --fix",
-    "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
-    "check:licenses": "license-checker --production --summary --failOn=GPLv3",
-    "release": "semantic-release"
-  },
-  "author": "Felix Jung <felix.jung@sumup.com>",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "@sumup/foundry": "^4.0.0-canary"
-  },
-  "devDependencies": {
-    "license-checker": "^25.0.1"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "lint:fix": "yarn lint --fix"
   }
 }
