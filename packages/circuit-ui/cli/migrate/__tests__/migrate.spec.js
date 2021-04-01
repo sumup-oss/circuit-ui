@@ -32,6 +32,7 @@ defineTest('exit-animations');
 defineTest('input-deepref-prop');
 defineTest('input-styles-prop');
 defineTest('component-names-v2');
+defineTest('component-names-typography');
 defineTest('component-static-properties');
 defineTest('toggle-checked-prop');
 defineTest('badge-variant-enum');
