@@ -19,7 +19,7 @@ import { action } from '@storybook/addon-actions';
 import { css, jsx } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
-import Heading from '../Heading';
+import Headline from '../Headline';
 import Text from '../Text';
 import Button from '../Button';
 import NotificationList from '../NotificationList';
@@ -51,9 +51,9 @@ const headingStyles = (theme: Theme) =>
 
 export const Base = (args: NotificationProps) => (
   <Notification {...args}>
-    <Heading as="h4" size="kilo" noMargin>
+    <Headline as="h4" size="kilo" noMargin>
       New Feature — Intelligent Reporting
-    </Heading>
+    </Headline>
     <Text>
       Get automatic insights into your business statistics with one click.
     </Text>
@@ -72,14 +72,14 @@ Base.args = {
 export const Variants = () => (
   <Fragment>
     <Notification variant="success" css={notificationStyles}>
-      <Heading size="kilo" as="h4" noMargin>
+      <Headline size="kilo" as="h4" noMargin>
         Transaction successfully refunded
-      </Heading>
+      </Headline>
     </Notification>
     <Notification variant="warning" css={notificationStyles}>
-      <Heading size="kilo" as="h4" noMargin>
+      <Headline size="kilo" as="h4" noMargin>
         You need to verify your account
-      </Heading>
+      </Headline>
       <Text>
         We need to verify your identity before you can continue transacting.
       </Text>
@@ -88,9 +88,9 @@ export const Variants = () => (
       </Button>
     </Notification>
     <Notification variant="error" css={notificationStyles}>
-      <Heading size="kilo" as="h4" css={headingStyles}>
+      <Headline size="kilo" as="h4" css={headingStyles}>
         We failed to process your transaction
-      </Heading>
+      </Headline>
       <Button size="kilo" onClick={action('Button clicked')}>
         Try again
       </Button>

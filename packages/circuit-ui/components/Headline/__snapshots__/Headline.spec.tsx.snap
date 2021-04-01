@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Heading should render as h1 element 1`] = `
+exports[`Headline should render as h1 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -23,7 +23,7 @@ exports[`Heading should render as h1 element 1`] = `
 </h1>
 `;
 
-exports[`Heading should render as h2 element 1`] = `
+exports[`Headline should render as h2 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -46,7 +46,7 @@ exports[`Heading should render as h2 element 1`] = `
 </h2>
 `;
 
-exports[`Heading should render as h3 element 1`] = `
+exports[`Headline should render as h3 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -69,7 +69,7 @@ exports[`Heading should render as h3 element 1`] = `
 </h3>
 `;
 
-exports[`Heading should render as h4 element 1`] = `
+exports[`Headline should render as h4 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -92,7 +92,7 @@ exports[`Heading should render as h4 element 1`] = `
 </h4>
 `;
 
-exports[`Heading should render as h5 element 1`] = `
+exports[`Headline should render as h5 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -115,7 +115,7 @@ exports[`Heading should render as h5 element 1`] = `
 </h5>
 `;
 
-exports[`Heading should render as h6 element 1`] = `
+exports[`Headline should render as h6 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -138,7 +138,7 @@ exports[`Heading should render as h6 element 1`] = `
 </h6>
 `;
 
-exports[`Heading should render with no margin styles when passed the noMargin prop 1`] = `
+exports[`Headline should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -160,7 +160,7 @@ exports[`Heading should render with no margin styles when passed the noMargin pr
 />
 `;
 
-exports[`Heading should render with size exa 1`] = `
+exports[`Headline should render with size exa 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -183,7 +183,7 @@ exports[`Heading should render with size exa 1`] = `
 </h2>
 `;
 
-exports[`Heading should render with size giga 1`] = `
+exports[`Headline should render with size giga 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -206,7 +206,7 @@ exports[`Heading should render with size giga 1`] = `
 </h2>
 `;
 
-exports[`Heading should render with size kilo 1`] = `
+exports[`Headline should render with size kilo 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -229,7 +229,7 @@ exports[`Heading should render with size kilo 1`] = `
 </h2>
 `;
 
-exports[`Heading should render with size mega 1`] = `
+exports[`Headline should render with size mega 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -252,7 +252,7 @@ exports[`Heading should render with size mega 1`] = `
 </h2>
 `;
 
-exports[`Heading should render with size peta 1`] = `
+exports[`Headline should render with size peta 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -275,7 +275,7 @@ exports[`Heading should render with size peta 1`] = `
 </h2>
 `;
 
-exports[`Heading should render with size tera 1`] = `
+exports[`Headline should render with size tera 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -298,7 +298,7 @@ exports[`Heading should render with size tera 1`] = `
 </h2>
 `;
 
-exports[`Heading should render with size zetta 1`] = `
+exports[`Headline should render with size zetta 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;

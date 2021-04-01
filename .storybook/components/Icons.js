@@ -24,7 +24,7 @@ import * as iconComponents from '@sumup/icons';
 import { icons } from '@sumup/icons/manifest.json';
 
 import {
-  Heading,
+  Headline,
   Text,
   InlineElements,
   Label,
@@ -161,9 +161,9 @@ const Icons = () => {
       ) : (
         group('category', activeIcons).map(({ category, items }) => (
           <Category key={category}>
-            <Heading as="h3" size="giga">
+            <Headline as="h3" size="giga">
               {category}
-            </Heading>
+            </Headline>
             <List>
               {sortBy('name', items).map((icon) => {
                 const id = `${icon.name}-${icon.size}`;

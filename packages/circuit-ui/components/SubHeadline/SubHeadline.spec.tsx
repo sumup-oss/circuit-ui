@@ -17,38 +17,30 @@ import React from 'react';
 
 import { create, renderToHtml, axe } from '../../util/test-utils';
 
-import { Heading } from './Heading';
+import { SubHeadline } from './SubHeadline';
 
-describe('Heading', () => {
+describe('SubHeadline', () => {
   /**
    * Style tests.
    */
-  const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
   it.each(elements)(`should render as %s element`, (element) => {
-    const heading = create(
-      <Heading as={element}>{`${element} heading`}</Heading>,
+    const subheading = create(
+      <SubHeadline as={element}>{`${element} subheading`}</SubHeadline>,
     );
-    expect(heading).toMatchSnapshot();
+    expect(subheading).toMatchSnapshot();
   });
 
-  const sizes = [
-    'kilo',
-    'mega',
-    'giga',
-    'tera',
-    'peta',
-    'exa',
-    'zetta',
-  ] as const;
+  const sizes = ['kilo', 'mega'] as const;
   it.each(sizes)(`should render with size %s`, (size) => {
-    const heading = create(
-      <Heading {...{ size }}>{`${size} heading`}</Heading>,
+    const subheading = create(
+      <SubHeadline {...{ size }}>{`${size} subheading`}</SubHeadline>,
     );
-    expect(heading).toMatchSnapshot();
+    expect(subheading).toMatchSnapshot();
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Heading noMargin />);
+    const actual = create(<SubHeadline noMargin />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -56,7 +48,7 @@ describe('Heading', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Heading>Heading</Heading>);
+    const wrapper = renderToHtml(<SubHeadline>Subheading</SubHeadline>);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

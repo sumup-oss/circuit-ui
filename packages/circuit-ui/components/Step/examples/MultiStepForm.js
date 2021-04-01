@@ -20,7 +20,7 @@ import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-import Heading from '../../Heading';
+import Headline from '../../Headline';
 import Button from '../../Button';
 import ButtonGroup from '../../ButtonGroup';
 import Input from '../../Input';
@@ -65,7 +65,7 @@ FormTwo.propTypes = {
 
 const Thanks = () => (
   <section>
-    <Heading>Thanks!</Heading>
+    <Headline>Thanks!</Headline>
   </section>
 );
 
@@ -88,9 +88,9 @@ const MultiStepForm = () => {
 
         return (
           <Container>
-            <Heading size="giga">
+            <Headline size="giga">
               Step {stepNumber} of {totalSteps}
-            </Heading>
+            </Headline>
             <ProgressBar
               value={stepNumber}
               max={totalSteps}

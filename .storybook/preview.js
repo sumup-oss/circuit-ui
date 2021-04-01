@@ -35,7 +35,7 @@ const SORT_ORDER = {
     'Base Components': {},
     'Static CSS': {},
   },
-  Typography: { Heading: {}, SubHeading: {}, Text: {} },
+  Typography: { Headline: {}, SubHeadline: {}, Body: {} },
   Layout: {},
   Forms: {},
   Components: {},

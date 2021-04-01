@@ -16,7 +16,7 @@
 import React, { FC, MouseEvent, KeyboardEvent } from 'react';
 
 import { CardHeader } from '../../../Card';
-import Heading from '../../../Heading';
+import Headline from '../../../Headline';
 
 export interface ModalHeaderProps {
   /**
@@ -41,9 +41,9 @@ export const ModalHeader: FC<ModalHeaderProps> = ({
 }) => (
   <CardHeader onClose={onClose} labelCloseButton={labelCloseButton}>
     {title && (
-      <Heading size="kilo" noMargin>
+      <Headline size="kilo" noMargin>
         {title}
-      </Heading>
+      </Headline>
     )}
   </CardHeader>
 );

@@ -5,8 +5,8 @@ import { light } from '@sumup/design-tokens';
 
 import {
   BaseStyles,
-  Heading,
-  SubHeading,
+  Headline,
+  SubHeadline,
   Text,
   List,
 } from '../../packages/circuit-ui';
@@ -41,35 +41,35 @@ const headingStyles = (theme) => css`
   }
 `;
 
-const subHeadingStyles = (theme) => css`
+const subHeadlineStyles = (theme) => css`
   margin-top: ${theme.spacings.giga};
 `;
 
 export const components = {
-  h1: withThemeProvider(Heading, {
+  h1: withThemeProvider(Headline, {
     as: 'h1',
     size: 'zetta',
     css: headingStyles,
   }),
-  h2: withThemeProvider(Heading, {
+  h2: withThemeProvider(Headline, {
     as: 'h2',
     size: 'peta',
     css: headingStyles,
   }),
-  h3: withThemeProvider(Heading, {
+  h3: withThemeProvider(Headline, {
     as: 'h3',
     size: 'giga',
     css: headingStyles,
   }),
-  h4: withThemeProvider(SubHeading, {
+  h4: withThemeProvider(SubHeadline, {
     as: 'h4',
     size: 'mega',
-    css: subHeadingStyles,
+    css: subHeadlineStyles,
   }),
-  h5: withThemeProvider(SubHeading, {
+  h5: withThemeProvider(SubHeadline, {
     as: 'h5',
     size: 'kilo',
-    css: subHeadingStyles,
+    css: subHeadlineStyles,
   }),
   p: withThemeProvider(Text, { as: 'p', size: TEXT_SIZE }),
   li: withThemeProvider(Text, { as: 'li', size: TEXT_SIZE }),

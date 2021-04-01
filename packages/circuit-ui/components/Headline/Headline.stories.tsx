@@ -15,28 +15,28 @@
 
 import React from 'react';
 
-import { Heading, HeadingProps } from './Heading';
-import docs from './Heading.docs.mdx';
+import { Headline, HeadlineProps } from './Headline';
+import docs from './Headline.docs.mdx';
 
 export default {
-  title: 'Typography/Heading',
-  component: Heading,
+  title: 'Typography/Headline',
+  component: Headline,
   parameters: {
     docs: { page: docs },
   },
 };
 
-export const Base = (args: HeadingProps) => (
-  <Heading {...args} noMargin>
+export const Base = (args: HeadlineProps) => (
+  <Headline {...args} noMargin>
     This is a heading
-  </Heading>
+  </Headline>
 );
 
 const sizes = ['zetta', 'exa', 'peta', 'tera', 'giga', 'mega', 'kilo'] as const;
 
-export const Sizes = (args: HeadingProps) =>
+export const Sizes = (args: HeadlineProps) =>
   sizes.map((s) => (
-    <Heading key={s} {...args} size={s} noMargin>
+    <Headline key={s} {...args} size={s} noMargin>
       This is a {s} heading
-    </Heading>
+    </Headline>
   ));

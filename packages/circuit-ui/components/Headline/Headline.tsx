@@ -22,7 +22,7 @@ import deprecate from '../../util/deprecate';
 
 type Size = 'kilo' | 'mega' | 'giga' | 'tera' | 'peta' | 'exa' | 'zetta';
 
-export interface HeadingProps
+export interface HeadlineProps
   extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
   /**
    * A Circuit UI heading size.
@@ -55,7 +55,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.black};
 `;
 
-const sizeStyles = ({ theme, size = 'peta' }: StyleProps & HeadingProps) =>
+const sizeStyles = ({ theme, size = 'peta' }: StyleProps & HeadlineProps) =>
   size &&
   css`
     label: ${`heading--${size}`};
@@ -68,11 +68,11 @@ const sizeStyles = ({ theme, size = 'peta' }: StyleProps & HeadingProps) =>
     }
   `;
 
-const noMarginStyles = ({ noMargin }: HeadingProps) => {
+const noMarginStyles = ({ noMargin }: HeadlineProps) => {
   if (!noMargin) {
     deprecate(
       [
-        'The default outer spacing in the Heading component is deprecated.',
+        'The default outer spacing in the Headline component is deprecated.',
         'Use the `noMargin` prop to silence this warning.',
         'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       ].join(' '),
@@ -89,6 +89,6 @@ const noMarginStyles = ({ noMargin }: HeadingProps) => {
 /**
  * A flexible heading component capable of rendering using any HTML heading tag.
  */
-export const Heading: FC<HeadingProps> = styled('h2', {
+export const Headline: FC<HeadlineProps> = styled('h2', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<HeadingProps>(baseStyles, sizeStyles, noMarginStyles);
+})<HeadlineProps>(baseStyles, sizeStyles, noMarginStyles);

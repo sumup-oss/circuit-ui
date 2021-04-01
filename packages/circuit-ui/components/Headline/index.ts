@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { SubHeading } from './SubHeading';
+import { Headline } from './Headline';
 
-export type { SubHeadingProps } from './SubHeading';
+export type { HeadlineProps } from './Headline';
 
-export default SubHeading;
+export default Headline;

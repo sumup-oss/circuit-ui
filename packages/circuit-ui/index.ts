@@ -17,10 +17,10 @@ import * as sharedPropTypes from './util/shared-prop-types';
 import { styleHelpers } from './styles/style-helpers';
 
 // Typography
-export { default as Heading } from './components/Heading';
-export type { HeadingProps } from './components/Heading';
-export { default as SubHeading } from './components/SubHeading';
-export type { SubHeadingProps } from './components/SubHeading';
+export { default as Headline } from './components/Headline';
+export type { HeadlineProps } from './components/Headline';
+export { default as SubHeadline } from './components/SubHeadline';
+export type { SubHeadlineProps } from './components/SubHeadline';
 export { default as Text } from './components/Text';
 export type { TextProps } from './components/Text';
 export { default as Anchor } from './components/Anchor';

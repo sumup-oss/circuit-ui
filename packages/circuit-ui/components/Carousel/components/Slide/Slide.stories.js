@@ -17,7 +17,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import Heading from '../../../Heading';
+import Headline from '../../../Headline';
 import Image from '../../../Image';
 
 import Slide from './Slide';
@@ -35,7 +35,7 @@ const headingStyles = css`
   left: 25px;
   z-index: 2;
 `;
-const StyledHeading = styled(Heading)(headingStyles);
+const StyledHeadline = styled(Headline)(headingStyles);
 
 export const OnlyImage = (args) => (
   <Slide {...args}>
@@ -52,6 +52,6 @@ export const TextAndImage = (args) => (
       src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
       alt="Aerial photo of turbulent turquoise ocean waves"
     />
-    <StyledHeading size="exa">Get The SumUp Card Reader Today!</StyledHeading>
+    <StyledHeadline size="exa">Get The SumUp Card Reader Today!</StyledHeadline>
   </Slide>
 );

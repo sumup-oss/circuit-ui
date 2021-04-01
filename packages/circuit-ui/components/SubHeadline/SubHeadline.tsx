@@ -22,7 +22,7 @@ import deprecate from '../../util/deprecate';
 
 type Size = 'kilo' | 'mega';
 
-export interface SubHeadingProps
+export interface SubHeadlineProps
   extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
   /**
    * A Circuit UI subheading size.
@@ -46,7 +46,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.black};
 `;
 
-const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & SubHeadingProps) =>
+const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & SubHeadlineProps) =>
   size &&
   css`
     label: ${`sub-heading--${size}`};
@@ -54,11 +54,11 @@ const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & SubHeadingProps) =>
     line-height: ${theme.typography.subHeadings[size].lineHeight};
   `;
 
-const noMarginStyles = ({ noMargin }: SubHeadingProps) => {
+const noMarginStyles = ({ noMargin }: SubHeadlineProps) => {
   if (!noMargin) {
     deprecate(
       [
-        'The default outer spacing in the SubHeading component is deprecated.',
+        'The default outer spacing in the SubHeadline component is deprecated.',
         'Use the `noMargin` prop to silence this warning.',
         'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       ].join(' '),
@@ -75,6 +75,6 @@ const noMarginStyles = ({ noMargin }: SubHeadingProps) => {
  * A flexible subheading component capable of rendering using any HTML heading
  * tag, except h1.
  */
-export const SubHeading: FC<SubHeadingProps> = styled('h3', {
+export const SubHeadline: FC<SubHeadlineProps> = styled('h3', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<SubHeadingProps>(baseStyles, sizeStyles, noMarginStyles);
+})<SubHeadlineProps>(baseStyles, sizeStyles, noMarginStyles);

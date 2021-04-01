@@ -15,28 +15,28 @@
 
 import React from 'react';
 
-import { SubHeading, SubHeadingProps } from './SubHeading';
-import docs from './SubHeading.docs.mdx';
+import { SubHeadline, SubHeadlineProps } from './SubHeadline';
+import docs from './SubHeadline.docs.mdx';
 
 export default {
-  title: 'Typography/SubHeading',
-  component: SubHeading,
+  title: 'Typography/SubHeadline',
+  component: SubHeadline,
   parameters: {
     docs: { page: docs },
   },
 };
 
-export const Base = (args: SubHeadingProps) => (
-  <SubHeading {...args} noMargin>
+export const Base = (args: SubHeadlineProps) => (
+  <SubHeadline {...args} noMargin>
     This is a subheading
-  </SubHeading>
+  </SubHeadline>
 );
 
 const sizes = ['mega', 'kilo'] as const;
 
-export const Sizes = (args: SubHeadingProps) =>
+export const Sizes = (args: SubHeadlineProps) =>
   sizes.map((s) => (
-    <SubHeading key={s} {...args} size={s} noMargin>
+    <SubHeadline key={s} {...args} size={s} noMargin>
       This is a {s} subheading.
-    </SubHeading>
+    </SubHeadline>
   ));
