@@ -44,6 +44,7 @@ const transform: Transform = (file, api) => {
   [
     ['Heading', 'Headline'],
     ['SubHeading', 'SubHeadline'],
+    ['Text', 'Body'],
   ].forEach((componentNames) => {
     transformFactory(j, root, componentNames);
   });
