@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Text } from './Text';
+import { Body } from './Body';
 
-export type { TextProps } from './Text';
+export type { TextProps } from './Body';
 
-export default Text;
+export default Body;

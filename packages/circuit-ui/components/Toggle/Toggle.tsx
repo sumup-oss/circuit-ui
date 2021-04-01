@@ -20,7 +20,7 @@ import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import deprecate from '../../util/deprecate';
-import { Text, TextProps } from '../Text/Text';
+import { Body, TextProps } from '../Body/Body';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
 
@@ -62,14 +62,14 @@ const labelStyles = css`
   padding-top: 2px;
 `;
 
-const ToggleLabel = styled(Text)(labelStyles);
+const ToggleLabel = styled(Body)(labelStyles);
 
 const explanationStyles = ({ theme }: StyleProps) => css`
   label: toggle__explanation;
   color: ${theme.colors.n700};
 `;
 
-const ToggleExplanation = styled(Text)<TextProps>(explanationStyles);
+const ToggleExplanation = styled(Body)<TextProps>(explanationStyles);
 
 type WrapperElProps = Pick<ToggleProps, 'noMargin' | 'disabled'>;
 

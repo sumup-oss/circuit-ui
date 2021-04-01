@@ -21,7 +21,7 @@ import { action } from '@storybook/addon-actions';
 
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
-import Text from '../Text';
+import Body from '../Body';
 
 import docs from './Modal.docs.mdx';
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
@@ -69,7 +69,7 @@ export const WithHeader = (args: ModalProps) => (
     {() => (
       <ModalWrapper>
         <ModalHeader title="A modal" />
-        <Text>Some text in the modal body.</Text>
+        <Body>Some text in the modal body.</Body>
       </ModalWrapper>
     )}
   </PageWithModal>
@@ -79,7 +79,7 @@ export const WithoutCloseButton = (args: ModalProps) => (
   <PageWithModal {...args} {...defaultModal}>
     {() => (
       <ModalWrapper>
-        <Text>Some text in the modal body.</Text>
+        <Body>Some text in the modal body.</Body>
       </ModalWrapper>
     )}
   </PageWithModal>
@@ -90,7 +90,7 @@ export const WithTitleAndCloseButton = (args: ModalProps) => (
     {({ onClose }) => (
       <ModalWrapper>
         <ModalHeader title="A modal" onClose={onClose} />
-        <Text>Some text in the modal body.</Text>
+        <Body>Some text in the modal body.</Body>
       </ModalWrapper>
     )}
   </PageWithModal>
@@ -101,7 +101,7 @@ export const WithFooter = (args: ModalProps) => (
     {({ onClose }) => (
       <ModalWrapper>
         <ModalHeader title="A modal" />
-        <Text>Some text in the modal body.</Text>
+        <Body>Some text in the modal body.</Body>
         <ModalFooter>
           <ButtonGroup>
             <Button
@@ -172,7 +172,7 @@ export const WithCustomStyles = (args: ModalProps) => {
         >
           <Container>
             <LeftColumn>
-              <Text>A nice custom modal for special cases.</Text>
+              <Body>A nice custom modal for special cases.</Body>
             </LeftColumn>
             <RightColumn />
           </Container>

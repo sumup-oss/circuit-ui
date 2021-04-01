@@ -179,7 +179,7 @@ export default {
     //   prefix: PropTypes.element,
     //   suffix: PropTypes.element
     // }),
-    // getComponentInfo(Text, {
+    // getComponentInfo(Body, {
     //   size: ['kilo', 'mega', 'giga']
     // }),
     // getComponentInfo(TextArea),

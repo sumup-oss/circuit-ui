@@ -10,7 +10,7 @@ import {
   Type,
   MediaQueriesTable,
 } from '../../.storybook/components';
-import { Headline, SubHeadline, Text } from '../../packages/circuit-ui';
+import { Headline, SubHeadline, Body } from '../../packages/circuit-ui';
 
 <Meta title="Features/Theme" />
 
@@ -181,7 +181,7 @@ theme.borderWidth.[kilo|mega]
 theme.typography.[headings|subHeadlines|text].<SIZE_NAME>.[fontSize|lineHeight]
 ```
 
-Avoid using `theme.typography` directly in your styles, rather use the specialized components [`Headline`](Typography/Headline/Base), [`SubHeadline`](Typography/SubHeadline/Base), and [`Text`](Typography/Text/Base).
+Avoid using `theme.typography` directly in your styles, rather use the specialized components [`Headline`](Typography/Headline/Base), [`SubHeadline`](Typography/SubHeadline/Base), and [`Body`](Typography/Body/Base).
 
 ### Headlines
 
@@ -195,19 +195,19 @@ Avoid using `theme.typography` directly in your styles, rather use the specializ
   <Type size="kilo" component={Headline} name="headings" />
 </Preview>
 
-### Subheading
+### Subheadline
 
 <Preview>
   <Type size="mega" component={SubHeadline} name="subHeadlines" />
   <Type size="kilo" component={SubHeadline} name="subHeadlines" />
 </Preview>
 
-### Text
+### Body
 
 <Preview>
-  <Type size="giga" component={Text} name="text" />
-  <Type size="mega" component={Text} name="text" />
-  <Type size="kilo" component={Text} name="text" />
+  <Type size="giga" component={Body} name="text" />
+  <Type size="mega" component={Body} name="text" />
+  <Type size="kilo" component={Body} name="text" />
 </Preview>
 
 ## Font stack
@@ -222,11 +222,11 @@ theme.fontStack.[default|mono]
 theme.fontWeight.[regular|bold]
 ```
 
-You can only toggle the boldness of `Body` but not `Headline` or `Subheadline`.
+You can only toggle the boldness of `Body`, but not `Headline` or `Subheadline`.
 
 <Preview>
-  <Type size="mega" bold component={Text} fontWeight="bold" name="text" />
-  <Type size="mega" component={Text} fontWeight="regular" name="text" />
+  <Type size="mega" bold component={Body} fontWeight="bold" name="text" />
+  <Type size="mega" component={Body} fontWeight="regular" name="text" />
 </Preview>
 
 ## Grid

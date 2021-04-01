@@ -17,8 +17,8 @@ import React from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
-import Text from '../Text';
-import { TextProps } from '../Text/Text';
+import Body from '../Body';
+import { TextProps } from '../Body/Body';
 
 type Size = 'kilo' | 'mega' | 'giga';
 
@@ -47,7 +47,7 @@ const gigaStyles = ({ theme, size = 'mega' }: StyleProps & BlockquoteProps) =>
     border-left: 3px solid ${theme.colors.p500};
   `;
 
-const StyledText = styled(Text)<BlockquoteProps>(baseStyles, gigaStyles);
+const StyledText = styled(Body)<BlockquoteProps>(baseStyles, gigaStyles);
 
 /**
  * Indented and italicised text to denote a quotation.

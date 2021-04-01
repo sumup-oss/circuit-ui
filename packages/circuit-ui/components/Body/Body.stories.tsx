@@ -15,51 +15,51 @@
 
 import React from 'react';
 
-import docs from './Text.docs.mdx';
-import { TextProps } from './Text';
+import docs from './Body.docs.mdx';
+import { TextProps } from './Body';
 
-import Text from '.';
+import Body from '.';
 
 const content =
   'An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.';
 
 export default {
-  title: 'Typography/Text',
-  component: Text,
+  title: 'Typography/Body',
+  component: Body,
   parameters: {
     docs: { page: docs },
   },
 };
 
 export const Base = (args: TextProps) => (
-  <Text {...args} noMargin>
+  <Body {...args} noMargin>
     {content}
-  </Text>
+  </Body>
 );
 
 const sizes = ['kilo', 'mega', 'giga'] as const;
 
 export const Sizes = (args: TextProps) =>
   sizes.map((s) => (
-    <Text key={s} {...args} size={s} noMargin>
+    <Body key={s} {...args} size={s} noMargin>
       This is a {s} text. {content}
-    </Text>
+    </Body>
   ));
 
 export const Bold = (args: TextProps) => (
-  <Text {...args} as="strong" bold noMargin>
+  <Body {...args} as="strong" bold noMargin>
     {content}
-  </Text>
+  </Body>
 );
 
 export const Italic = (args: TextProps) => (
-  <Text {...args} as="em" italic noMargin>
+  <Body {...args} as="em" italic noMargin>
     {content}
-  </Text>
+  </Body>
 );
 
 export const Strike = (args: TextProps) => (
-  <Text {...args} as="s" strike noMargin>
+  <Body {...args} as="s" strike noMargin>
     {content}
-  </Text>
+  </Body>
 );

@@ -17,7 +17,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Headline from '../Headline';
-import Text from '../Text';
+import Body from '../Body';
 import Button from '../Button';
 import Notification from '../Notification';
 
@@ -34,9 +34,9 @@ export const Base = (args: NotificationListProps) => (
       <Headline as="h4" size="kilo" noMargin>
         New Feature — Intelligent Reporting
       </Headline>
-      <Text>
+      <Body>
         Get automatic insights into your business statistics with one click.
-      </Text>
+      </Body>
       <Button size="kilo" onClick={action('Action clicked')}>
         Learn more
       </Button>

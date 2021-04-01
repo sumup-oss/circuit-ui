@@ -20,7 +20,7 @@ import { css, jsx } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
 import Headline from '../Headline';
-import Text from '../Text';
+import Body from '../Body';
 import Button from '../Button';
 import NotificationList from '../NotificationList';
 import NotificationBanner from '../NotificationBanner';
@@ -54,9 +54,9 @@ export const Base = (args: NotificationProps) => (
     <Headline as="h4" size="kilo" noMargin>
       New Feature — Intelligent Reporting
     </Headline>
-    <Text>
+    <Body>
       Get automatic insights into your business statistics with one click.
-    </Text>
+    </Body>
     <Button size="kilo" onClick={action('Action clicked')}>
       Learn more
     </Button>
@@ -80,9 +80,9 @@ export const Variants = () => (
       <Headline size="kilo" as="h4" noMargin>
         You need to verify your account
       </Headline>
-      <Text>
+      <Body>
         We need to verify your identity before you can continue transacting.
-      </Text>
+      </Body>
       <Button size="kilo" onClick={action('Button clicked')}>
         Verify account
       </Button>

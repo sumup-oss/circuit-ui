@@ -19,9 +19,9 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Text } from '../../packages/circuit-ui';
+import { Body } from '../../packages/circuit-ui';
 
-const StyledText = styled(Text)(
+const StyledText = styled(Body)(
   ({ theme }) => css`
     line-height: 1.66 !important;
     font-size: 20px !important;

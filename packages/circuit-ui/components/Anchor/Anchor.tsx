@@ -21,7 +21,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 import styled, { StyleProps } from '../../styles/styled';
 import { focusOutline } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
-import { Text, TextProps } from '../Text/Text';
+import { Body, TextProps } from '../Body/Body';
 import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';
 
@@ -82,13 +82,13 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const StyledAnchor = styled(Text, {
+const StyledAnchor = styled(Body, {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<AnchorProps>(baseStyles);
 
 /**
  * The Anchor is used to display a link or button that visually looks like
- * a hyperlink. Based on the Text component, so it also supports its props.
+ * a hyperlink. Based on the Body component, so it also supports its props.
  */
 export const Anchor = React.forwardRef(
   ({ tracking, ...props }: AnchorProps, ref?: BaseProps['ref']): ReturnType => {
@@ -106,7 +106,7 @@ export const Anchor = React.forwardRef(
     );
 
     if (!props.href && !props.onClick) {
-      return <Text as="span" {...props} ref={ref} noMargin />;
+      return <Body as="span" {...props} ref={ref} noMargin />;
     }
 
     if (props.href) {

@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 
-import { Text } from '../../packages/circuit-ui';
+import { Body } from '../../packages/circuit-ui';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -45,7 +45,7 @@ const BorderRadiusSize = styled('span')`
   `};
 `;
 
-const BorderRadiusName = styled(Text)`
+const BorderRadiusName = styled(Body)`
   ${({ theme }) => css`
     margin-left: ${theme.spacings.kilo};
     color: ${theme.colors.n500};
@@ -56,7 +56,7 @@ const BorderRadius = ({ size, ...props }) => (
   <Wrapper>
     <Box size={size} {...props} />
     <div>
-      <Text as="span">{size}</Text>
+      <Body as="span">{size}</Body>
       <BorderRadiusSize>
         <BorderRadiusName size="kilo" as="span">
           {light.borderRadius[size]}

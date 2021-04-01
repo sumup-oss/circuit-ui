@@ -17,47 +17,47 @@ import React from 'react';
 
 import { create, renderToHtml, axe } from '../../util/test-utils';
 
-import { Text, TextProps } from './Text';
+import { Body, TextProps } from './Body';
 
-describe('Text', () => {
+describe('Body', () => {
   /**
    * Style tests.
    */
 
   it('should render with default styles', () => {
-    const actual = create(<Text>Text</Text>);
+    const actual = create(<Body>Body</Body>);
     expect(actual).toMatchSnapshot();
   });
 
   const elements = ['p', 'article', 'div'];
   it.each(elements)('should render as %s element', (as) => {
-    const actual = create(<Text as={as}>{`${as.toUpperCase()} text`}</Text>);
+    const actual = create(<Body as={as}>{`${as.toUpperCase()} text`}</Body>);
     expect(actual).toMatchSnapshot();
   });
 
   const sizes: TextProps['size'][] = ['kilo', 'mega', 'giga'];
   it.each(sizes)('should render with size %s', (size) => {
-    const actual = create(<Text size={size}>{`${size as string} text`}</Text>);
+    const actual = create(<Body size={size}>{`${size as string} text`}</Body>);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Text noMargin />);
+    const actual = create(<Body noMargin />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render bold text when passed the bold prop', () => {
-    const actual = create(<Text bold />);
+    const actual = create(<Body bold />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render italic text when passed the italic prop', () => {
-    const actual = create(<Text italic />);
+    const actual = create(<Body italic />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render struck through text when passed the strike prop', () => {
-    const actual = create(<Text strike />);
+    const actual = create(<Body strike />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -65,7 +65,7 @@ describe('Text', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Text>Text</Text>);
+    const wrapper = renderToHtml(<Body>Body</Body>);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

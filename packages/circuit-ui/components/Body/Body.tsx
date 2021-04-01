@@ -108,7 +108,7 @@ const marginStyles = ({ noMargin }: TextProps & StyleProps) => {
   if (!noMargin) {
     deprecate(
       [
-        'The default outer spacing in the Text component is deprecated.',
+        'The default outer spacing in the Body component is deprecated.',
         'Use the `noMargin` prop to silence this warning.',
         'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       ].join(' '),
@@ -123,10 +123,10 @@ const marginStyles = ({ noMargin }: TextProps & StyleProps) => {
 };
 
 /**
- * The Text component is used to present the core textual content
+ * The Body component is used to present the core textual content
  * to our users.
  */
-export const Text: FC<TextProps> = styled('p', {
+export const Body: FC<TextProps> = styled('p', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<TextProps>(
   baseStyles,

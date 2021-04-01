@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text should render as article element 1`] = `
+exports[`Body should render as article element 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -22,7 +22,7 @@ exports[`Text should render as article element 1`] = `
 </article>
 `;
 
-exports[`Text should render as div element 1`] = `
+exports[`Body should render as div element 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -44,7 +44,7 @@ exports[`Text should render as div element 1`] = `
 </div>
 `;
 
-exports[`Text should render as p element 1`] = `
+exports[`Body should render as p element 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -66,7 +66,7 @@ exports[`Text should render as p element 1`] = `
 </p>
 `;
 
-exports[`Text should render bold text when passed the bold prop 1`] = `
+exports[`Body should render bold text when passed the bold prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -87,7 +87,7 @@ exports[`Text should render bold text when passed the bold prop 1`] = `
 />
 `;
 
-exports[`Text should render italic text when passed the italic prop 1`] = `
+exports[`Body should render italic text when passed the italic prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -108,7 +108,7 @@ exports[`Text should render italic text when passed the italic prop 1`] = `
 />
 `;
 
-exports[`Text should render struck through text when passed the strike prop 1`] = `
+exports[`Body should render struck through text when passed the strike prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -130,7 +130,7 @@ exports[`Text should render struck through text when passed the strike prop 1`] 
 />
 `;
 
-exports[`Text should render with default styles 1`] = `
+exports[`Body should render with default styles 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -148,11 +148,11 @@ exports[`Text should render with default styles 1`] = `
 <p
   class="circuit-0"
 >
-  Text
+  Body
 </p>
 `;
 
-exports[`Text should render with no margin styles when passed the noMargin prop 1`] = `
+exports[`Body should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -173,7 +173,7 @@ exports[`Text should render with no margin styles when passed the noMargin prop 
 />
 `;
 
-exports[`Text should render with size giga 1`] = `
+exports[`Body should render with size giga 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -195,7 +195,7 @@ exports[`Text should render with size giga 1`] = `
 </p>
 `;
 
-exports[`Text should render with size kilo 1`] = `
+exports[`Body should render with size kilo 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -217,7 +217,7 @@ exports[`Text should render with size kilo 1`] = `
 </p>
 `;
 
-exports[`Text should render with size mega 1`] = `
+exports[`Body should render with size mega 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;

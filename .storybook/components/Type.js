@@ -20,9 +20,9 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Text } from '../../packages/circuit-ui';
+import { Body } from '../../packages/circuit-ui';
 
-const TypePx = styled(Text)`
+const TypePx = styled(Body)`
   ${({ theme: t }) => css`
     color: ${t.colors.n500};
     margin-left: ${t.spacings.mega};

@@ -25,7 +25,7 @@ import { icons } from '@sumup/icons/manifest.json';
 
 import {
   Headline,
-  Text,
+  Body,
   InlineElements,
   Label,
   SearchInput,
@@ -157,7 +157,7 @@ const Icons = () => {
       </Filters>
 
       {isEmpty(activeIcons) ? (
-        <Text>No icons found</Text>
+        <Body>No icons found</Body>
       ) : (
         group('category', activeIcons).map(({ category, items }) => (
           <Category key={category}>

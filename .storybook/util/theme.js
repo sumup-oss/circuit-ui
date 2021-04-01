@@ -7,7 +7,7 @@ import {
   BaseStyles,
   Headline,
   SubHeadline,
-  Text,
+  Body,
   List,
 } from '../../packages/circuit-ui';
 
@@ -71,14 +71,14 @@ export const components = {
     size: 'kilo',
     css: subHeadlineStyles,
   }),
-  p: withThemeProvider(Text, { as: 'p', size: TEXT_SIZE }),
-  li: withThemeProvider(Text, { as: 'li', size: TEXT_SIZE }),
-  strong: withThemeProvider(Text, {
+  p: withThemeProvider(Body, { as: 'p', size: TEXT_SIZE }),
+  li: withThemeProvider(Body, { as: 'li', size: TEXT_SIZE }),
+  strong: withThemeProvider(Body, {
     as: 'strong',
     size: TEXT_SIZE,
     bold: true,
   }),
-  em: withThemeProvider(Text, {
+  em: withThemeProvider(Body, {
     as: 'em',
     size: TEXT_SIZE,
     italic: true,
