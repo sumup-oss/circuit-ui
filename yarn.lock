@@ -452,14 +452,13 @@
     js-tokens "^4.0.0"
 
 "@babel/node@^7.12.6":
-  version "7.13.10"
-  resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.13.10.tgz#8babfc08940722c704136f61283a4cb9af88a2c5"
-  integrity sha512-cxJcxGsyGMXifzP+Plz/wcYFvGgi5Xz/RVOLQ50Hiz62BkhTaTeKVXQrHi6nmrf+hnP3Xtl/P6S4OCYGrk1zmw==
+  version "7.13.13"
+  resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.13.13.tgz#9201214dab4ae41c1e1596b7d2e27098395b1509"
+  integrity sha512-gElSPunpriXoBGQxDkd5h9L13SVTyzFLTPv9jN1aXJNLR10iNs+MsfhYL/WGJGCJQFddHAdThY7CkmGVz2KPag==
   dependencies:
     "@babel/register" "^7.13.8"
     commander "^4.0.1"
     core-js "^3.2.1"
-    lodash "^4.17.19"
     node-environment-flags "^1.0.5"
     regenerator-runtime "^0.13.4"
     v8flags "^3.1.1"
