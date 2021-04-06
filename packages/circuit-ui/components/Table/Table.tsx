@@ -78,7 +78,7 @@ export type TableProps = {
    * Click handler for the row
    * The signature is (index)
    */
-  onRowClick?: (index: Row) => unknown;
+  onRowClick?: (rowIndex: number) => void;
   /**
    * Collapses the table cells.
    */
@@ -364,6 +364,12 @@ class Table extends Component<TableProps, TableState> {
             rowHeaders={rowHeaders}
             borderCollapsed={borderCollapsed}
           >
+            {/*
+             * TODO: choose either null or undefined for fallbacks and use across all table.
+             * TS works better with `undefined` (we can use `prop?: type`) but this would
+             * create a breaking change in some Table props, like the onSortBy signature
+             * (direction can be null).
+             */}
             <TableHead
               top={scrollTop || undefined}
               condensed={condensed}
@@ -380,8 +386,8 @@ class Table extends Component<TableProps, TableState> {
               condensed={condensed}
               rows={sortedRows}
               rowHeaders={rowHeaders}
-              sortHover={sortHover}
-              onRowClick={onRowClick}
+              sortHover={sortHover || undefined}
+              onRowClick={onRowClick || undefined}
             />
           </StyledTable>
         </ScrollContainer>

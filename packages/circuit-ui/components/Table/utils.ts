@@ -13,10 +13,6 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-
-import { childrenPropType } from '../../util/shared-prop-types';
-
 export type DIRECTION = 'ascending' | 'descending';
 
 // TODO this should also take a JSX.Element, will have to adapt mapCellChildren
@@ -99,14 +95,3 @@ export const descendingSort = (i: number) => (a: Row, b: Row): 0 | 1 | -1 => {
 
   return 0;
 };
-
-/**
- * TODO delete this when TableHead and TableBody have been migrated
- */
-export const RowPropType = PropTypes.oneOfType([
-  PropTypes.string,
-  PropTypes.shape({
-    children: childrenPropType,
-    align: PropTypes.string,
-  }),
-]);

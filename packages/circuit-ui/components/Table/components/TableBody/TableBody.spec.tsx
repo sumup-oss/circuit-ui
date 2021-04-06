@@ -15,6 +15,8 @@
 
 import React from 'react';
 
+import { create, render, renderToHtml, axe } from '../../../../util/test-utils';
+
 import TableBody from '.';
 
 const fixtureRows = [['Foo', 'Bar']];
@@ -36,7 +38,7 @@ describe('TableBody', () => {
     describe('rowHeaders', () => {
       it('should render a table cell as the first element on each row with no rowHeaders', () => {
         const { getByTestId } = render(<TableBody rows={fixtureRows} />);
-        const tableCell = getByTestId('table-row').firstChild;
+        const tableCell = getByTestId('table-row').children[0];
 
         expect(tableCell.tagName).toBe('TD');
       });
@@ -45,7 +47,7 @@ describe('TableBody', () => {
         const { getByTestId } = render(
           <TableBody rows={fixtureRows} rowHeaders />,
         );
-        const tableCell = getByTestId('table-row').firstChild;
+        const tableCell = getByTestId('table-row').children[0];
 
         expect(tableCell.tagName).toBe('TH');
       });
@@ -88,7 +90,7 @@ describe('TableBody', () => {
 
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<TableBody rowHeader rows={fixtureRows} />);
+      const wrapper = renderToHtml(<TableBody rowHeaders rows={fixtureRows} />);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });
