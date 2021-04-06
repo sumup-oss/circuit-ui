@@ -49,7 +49,7 @@ export const getCellChildren = (props: Cell): CellChildren =>
 
 export const getSortByValue = (props: Cell): string | CellChildren =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  typeof props === 'object' && props.sortByValue
+  typeof props === 'object' && props.sortByValue !== undefined
     ? props.sortByValue
     : getCellChildren(props);
 
