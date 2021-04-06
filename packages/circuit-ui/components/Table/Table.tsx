@@ -375,7 +375,7 @@ class Table extends Component<TableProps, TableState> {
               condensed={condensed}
               scrollable={scrollable}
               sortDirection={sortDirection || undefined}
-              sortedRow={sortedRow || undefined}
+              sortedRow={sortedRow === null ? undefined : sortedRow}
               onSortBy={this.onSortBy}
               onSortEnter={this.onSortEnter}
               onSortLeave={this.onSortLeave}

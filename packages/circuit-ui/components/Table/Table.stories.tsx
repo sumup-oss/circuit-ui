@@ -44,7 +44,7 @@ Base.args = {
   rows: [
     {
       'cells': [
-        'Lorem ipsum dolor',
+        'Lorem ipsum',
         {
           'children': '12/01/2017',
           'sortByValue': 0,
@@ -56,13 +56,13 @@ Base.args = {
       'data-selector': 'item-1',
     },
     [
-      'Ipsum dolor sit amet',
+      'Consectetur adipiscing',
       { children: '13/01/2017', sortByValue: 1 },
       'Virtual Terminal',
       { children: 'Enabled', align: 'right' },
     ],
     [
-      'Dolor sit amet, consectetur adipiscing',
+      'Dolor sit amet',
       { children: '14/01/2017', sortByValue: 2 },
       '-',
       { children: 'Disabled', align: 'right' },
