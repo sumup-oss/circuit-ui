@@ -22,13 +22,14 @@ export type DIRECTION = 'ascending' | 'descending';
 // TODO this should also take a JSX.Element, will have to adapt mapCellChildren
 type CellChildren = string | number;
 
-type Cell =
-  | CellChildren
-  | {
-      children: CellChildren;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      sortByValue?: any; // TODO sortByValue is usually a number but it could be a date object, or possibly more
-    };
+type CellObject = {
+  children: CellChildren;
+  sortable?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  sortByValue?: any; // TODO sortByValue is usually a number but it could be a date object, or possibly more
+};
+
+export type Cell = CellChildren | CellObject;
 
 export type Row =
   | Cell[]
@@ -42,7 +43,7 @@ export const mapRowProps = (props: Row): { cells: Cell[] } =>
 
 export const getRowCells = (props: Row): Cell[] => mapRowProps(props).cells;
 
-export const mapCellProps = (props: Cell): { children: CellChildren } =>
+export const mapCellProps = (props: Cell): CellObject =>
   typeof props === 'string' || typeof props === 'number'
     ? { children: props }
     : props;

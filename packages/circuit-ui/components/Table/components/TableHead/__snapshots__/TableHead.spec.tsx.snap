@@ -133,7 +133,7 @@ tbody .circuit-7:last-child td {
 }
 
 <thead
-  class="circuit-8 circuit-9"
+  class="circuit-8"
 >
   <tr
     class="circuit-7"
@@ -208,63 +208,13 @@ tbody .circuit-7:last-child td {
 `;
 
 exports[`TableHead Style tests should render with rowHeader styles 1`] = `
-.circuit-7 {
+.circuit-8 {
   vertical-align: middle;
 }
 
-tbody .circuit-7:last-child th,
-tbody .circuit-7:last-child td {
+tbody .circuit-8:last-child th,
+tbody .circuit-8:last-child td {
   border-bottom: none;
-}
-
-.circuit-4 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  color: #666;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.circuit-4:focus-within::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-4:focus-within::after::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-4:focus-within,
-.circuit-4:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
-}
-
-.circuit-4:focus-within > button,
-.circuit-4:hover > button {
-  opacity: 1;
 }
 
 .circuit-3 {
@@ -325,7 +275,7 @@ tbody .circuit-7:last-child td {
   width: 1px;
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -339,11 +289,95 @@ tbody .circuit-7:last-child td {
   vertical-align: middle;
 }
 
+.circuit-4 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  color: #666;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (max-width:767px) {
+  .circuit-4 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    overflow-wrap: break-word;
+  }
+}
+
+.circuit-4:focus-within::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus-within::after::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-4:focus-within,
+.circuit-4:hover {
+  background-color: #F5F5F5;
+  color: #3063E9;
+}
+
+.circuit-4:focus-within > button,
+.circuit-4:hover > button {
+  opacity: 1;
+}
+
+.circuit-5 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
+  vertical-align: middle;
+  overflow-wrap: break-word;
+  display: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+}
+
+@media (max-width:767px) {
+  .circuit-5 {
+    display: table-cell;
+    min-width: 145px;
+    max-width: 145px;
+    width: 145px;
+  }
+}
+
 <thead
-  class="circuit-8 circuit-9"
+  class="circuit-9"
 >
   <tr
-    class="circuit-7"
+    class="circuit-8"
   >
     <th
       aria-sort="none"
@@ -396,15 +430,23 @@ tbody .circuit-7:last-child td {
       </button>
       Foo
     </th>
-    <th
+    <td
+      aria-hidden="true"
       class="circuit-5"
+      data-testid="table-cell"
+      role="presentation"
+    >
+      Foo
+    </td>
+    <th
+      class="circuit-6"
       data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
-      class="circuit-5"
+      class="circuit-6"
       data-testid="table-header"
       scope="col"
     >

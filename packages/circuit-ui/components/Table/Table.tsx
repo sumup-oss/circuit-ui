@@ -365,11 +365,11 @@ class Table extends Component<TableProps, TableState> {
             borderCollapsed={borderCollapsed}
           >
             <TableHead
-              top={scrollTop}
+              top={scrollTop || undefined}
               condensed={condensed}
               scrollable={scrollable}
-              sortDirection={sortDirection}
-              sortedRow={sortedRow}
+              sortDirection={sortDirection || undefined}
+              sortedRow={sortedRow || undefined}
               onSortBy={this.onSortBy}
               onSortEnter={this.onSortEnter}
               onSortLeave={this.onSortLeave}
