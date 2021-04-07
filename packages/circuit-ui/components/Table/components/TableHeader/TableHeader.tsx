@@ -21,6 +21,7 @@ import { focusOutline } from '../../../../styles/style-mixins';
 import { isFunction } from '../../../../util/type-check';
 import SortArrow from '../SortArrow';
 import styled, { StyleProps } from '../../../../styles/styled';
+import { Direction } from '../../types';
 
 export interface TableHeaderProps
   extends HTMLProps<HTMLTableHeaderCellElement> {
@@ -51,16 +52,14 @@ export interface TableHeaderProps
    * Visually hidden label for the sort button for visually impaired users.
    * When passed as a function, it is called with the sort `{ direction }`.
    */
-  sortLabel?:
-    | string
-    | (({ direction }: { direction?: 'ascending' | 'descending' }) => string);
+  sortLabel?: string | (({ direction }: { direction?: Direction }) => string);
   /**
    * @private Adds active style to the Header if it is currently hovered by
    * sort.
    * Handled internally
    */
   isHovered?: boolean;
-  sortDirection?: 'ascending' | 'descending';
+  sortDirection?: Direction;
   /**
    * @private Adds sorted style to the Header if it is currently sorted
    * Handled internally
@@ -78,17 +77,13 @@ export interface TableHeaderProps
   children: ReactNode;
 }
 
-const getAriaSort = (
-  sortable: boolean,
-  sortDirection?: 'ascending' | 'descending',
-) => (sortable ? sortDirection || 'none' : undefined);
+const getAriaSort = (sortable: boolean, sortDirection?: Direction) =>
+  sortable ? sortDirection || 'none' : undefined;
 
 const getLabelSort = (
   sortable?: boolean,
-  sortDirection?: 'ascending' | 'descending',
-  sortLabel?:
-    | string
-    | (({ direction }: { direction?: 'ascending' | 'descending' }) => string),
+  sortDirection?: Direction,
+  sortLabel?: string | (({ direction }: { direction?: Direction }) => string),
 ) => {
   if (!sortable) {
     return undefined;

@@ -20,7 +20,7 @@ import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 import { mapCellProps, getCellChildren } from '../../utils';
-import { Cell } from '../../types';
+import { Cell, Direction } from '../../types';
 import { TH_KEY_PREFIX } from '../../constants';
 import styled, { StyleProps } from '../../../../styles/styled';
 
@@ -64,7 +64,7 @@ type TableHeadProps = ScrollableOptions & {
   /**
    * @private The current sortDirection
    */
-  sortDirection?: 'ascending' | 'descending';
+  sortDirection?: Direction;
   /**
    * @private The current sorted row index
    */

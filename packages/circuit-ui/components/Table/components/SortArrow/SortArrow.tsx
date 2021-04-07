@@ -20,9 +20,10 @@ import { ChevronUp, ChevronDown } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { hideVisually } from '../../../../styles/style-mixins';
+import { Direction } from '../../types';
 
 interface SortArrowProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  direction?: 'ascending' | 'descending';
+  direction?: Direction;
   label?: string;
 }
 

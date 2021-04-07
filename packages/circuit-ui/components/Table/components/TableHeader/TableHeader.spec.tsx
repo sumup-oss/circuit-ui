@@ -16,6 +16,7 @@
 import React from 'react';
 
 import { create, renderToHtml, axe } from '../../../../util/test-utils';
+import { Direction } from '../../types';
 
 import TableHeader from '.';
 
@@ -34,11 +35,7 @@ describe('TableHeader', () => {
     });
 
     it('should render with sortable styles', () => {
-      const sortLabel = ({
-        direction,
-      }: {
-        direction?: 'ascending' | 'descending';
-      }) => {
+      const sortLabel = ({ direction }: { direction?: Direction }) => {
         const order = direction === 'ascending' ? 'descending' : 'ascending';
         return `Sort by Foo in ${order} order`;
       };
