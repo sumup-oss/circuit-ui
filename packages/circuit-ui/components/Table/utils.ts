@@ -58,9 +58,6 @@ export const ascendingSort = (i: number) => (a: Row, b: Row): 0 | 1 | -1 => {
     second === null ||
     second === undefined
   ) {
-    // if (process.env.NODE_ENV !== 'production') {
-    //   console.warn(['Warn']);
-    // }
     return 0;
   }
 
@@ -86,9 +83,6 @@ export const descendingSort = (i: number) => (a: Row, b: Row): 0 | 1 | -1 => {
     second === null ||
     second === undefined
   ) {
-    // if (process.env.NODE_ENV !== 'production') {
-    //   console.warn(['Warn']);
-    // }
     return 0;
   }
 
