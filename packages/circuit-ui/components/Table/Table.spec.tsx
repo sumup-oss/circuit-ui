@@ -23,6 +23,7 @@ import {
   act,
   userEvent,
 } from '../../util/test-utils';
+import Badge from '../Badge';
 
 import Table from './Table';
 
@@ -77,7 +78,24 @@ describe('Table', () => {
     });
 
     it('should not render a scrollable table if the rowHeaders prop is true', () => {
-      const actual = create(<Table headers={headers} rows={rows} />);
+      const actual = create(<Table headers={headers} rows={rows} rowHeaders />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with component cells', () => {
+      const actual = create(
+        <Table
+          headers={['Name', 'Type']}
+          rows={[
+            ['Apple', 'Fruit'],
+            ['Broccoli', 'Vegetable'],
+            [
+              'Chickpeas',
+              { children: <Badge color={'warning'}>Unknown</Badge> },
+            ],
+          ]}
+        />,
+      );
       expect(actual).toMatchSnapshot();
     });
   });

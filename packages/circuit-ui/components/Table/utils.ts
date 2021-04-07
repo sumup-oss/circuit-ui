@@ -13,14 +13,9 @@
  * limitations under the License.
  */
 
-import {
-  Direction,
-  SortByValue,
-  CellObject,
-  CellChildren,
-  Cell,
-  Row,
-} from './types';
+import { ReactNode } from 'react';
+
+import { Direction, SortByValue, CellObject, Cell, Row } from './types';
 
 export const mapRowProps = (props: Row): { cells: Cell[] } =>
   Array.isArray(props) ? { cells: props } : props;
@@ -32,10 +27,10 @@ export const mapCellProps = (props: Cell): CellObject =>
     ? { children: props }
     : props;
 
-export const getCellChildren = (props: Cell): CellChildren =>
+export const getCellChildren = (props: Cell): ReactNode =>
   mapCellProps(props).children;
 
-export const getSortByValue = (props: Cell): SortByValue | CellChildren =>
+export const getSortByValue = (props: Cell): SortByValue | ReactNode =>
   typeof props === 'object' && props.sortByValue !== undefined
     ? props.sortByValue
     : getCellChildren(props);
@@ -57,6 +52,18 @@ export const ascendingSort = (i: number) => (a: Row, b: Row): 0 | 1 | -1 => {
   const first = getSortByValue(firstRow[i]);
   const second = getSortByValue(secondRow[i]);
 
+  if (
+    first === null ||
+    first === undefined ||
+    second === null ||
+    second === undefined
+  ) {
+    // if (process.env.NODE_ENV !== 'production') {
+    //   console.warn(['Warn']);
+    // }
+    return 0;
+  }
+
   if (first < second) {
     return -1;
   }
@@ -72,6 +79,18 @@ export const descendingSort = (i: number) => (a: Row, b: Row): 0 | 1 | -1 => {
   const secondRow = getRowCells(b);
   const first = getSortByValue(firstRow[i]);
   const second = getSortByValue(secondRow[i]);
+
+  if (
+    first === null ||
+    first === undefined ||
+    second === null ||
+    second === undefined
+  ) {
+    // if (process.env.NODE_ENV !== 'production') {
+    //   console.warn(['Warn']);
+    // }
+    return 0;
+  }
 
   if (first > second) {
     return -1;

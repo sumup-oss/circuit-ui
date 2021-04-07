@@ -13,15 +13,16 @@
  * limitations under the License.
  */
 
+import { ReactNode } from 'react';
+
 export type SortByValue = boolean | number | string | Date;
 
 export type Direction = 'ascending' | 'descending';
 
-// TODO this should also take a JSX.Element, will have to adapt mapCellChildren
-export type CellChildren = string | number;
+type CellChildren = string | number;
 
 export type CellObject = {
-  children: CellChildren;
+  children: ReactNode;
   sortable?: boolean;
   sortByValue?: SortByValue;
 };

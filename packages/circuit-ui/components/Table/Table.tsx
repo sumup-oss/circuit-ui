@@ -44,7 +44,7 @@ export type TableProps = {
    */
   rows: Row[];
   /**
-   * Enables/disables sticky columns on mobile
+   * Enables/disables sticky columns on mobile. Defaults to true.
    */
   rowHeaders?: boolean;
   /**
