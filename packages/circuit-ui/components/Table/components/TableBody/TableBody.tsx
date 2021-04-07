@@ -15,7 +15,8 @@
 
 import React, { Fragment } from 'react';
 
-import { mapRowProps, mapCellProps, getCellChildren, Row } from '../../utils';
+import { mapRowProps, mapCellProps, getCellChildren } from '../../utils';
+import { Row } from '../../types';
 import { TR_KEY_PREFIX, TD_KEY_PREFIX } from '../../constants';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';

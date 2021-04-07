@@ -22,13 +22,8 @@ import styled, { StyleProps } from '../../styles/styled';
 
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
-import {
-  getSortDirection,
-  ascendingSort,
-  descendingSort,
-  DIRECTION,
-  Row,
-} from './utils';
+import { getSortDirection, ascendingSort, descendingSort } from './utils';
+import { Direction, Row } from './types';
 
 export type TableProps = {
   /**
@@ -71,7 +66,7 @@ export type TableProps = {
    */
   onSortBy?: (
     index: number,
-    nextDirection: DIRECTION | null,
+    nextDirection: Direction | null, // we're keeping null here for backwards compatibility, will switch to an optional param in v3
     currentRows: Row[],
   ) => Row[];
   /**
@@ -147,7 +142,7 @@ const scrollableStyles = ({
   height,
 }: {
   scrollable: boolean;
-  height: string | null;
+  height?: string;
 }) =>
   scrollable &&
   css`
@@ -158,7 +153,7 @@ const scrollableStyles = ({
 const ScrollContainer = styled.div<
   StyleProps & {
     scrollable: boolean;
-    height: string | null;
+    height?: string;
     rowHeaders: boolean;
   }
 >`
@@ -222,11 +217,11 @@ const StyledTable = styled.table<
 `;
 
 type TableState = {
-  sortedRow: number | null;
-  sortHover: number | null;
-  sortDirection: DIRECTION | null;
-  scrollTop: number | null;
-  tableBodyHeight: string | null;
+  sortedRow?: number;
+  sortHover?: number;
+  sortDirection?: Direction;
+  scrollTop?: number;
+  tableBodyHeight?: string;
 };
 
 /**
@@ -234,11 +229,11 @@ type TableState = {
  */
 class Table extends Component<TableProps, TableState> {
   state: TableState = {
-    sortedRow: null,
-    sortHover: null,
-    sortDirection: null,
-    scrollTop: null,
-    tableBodyHeight: null,
+    sortedRow: undefined,
+    sortHover: undefined,
+    sortDirection: undefined,
+    scrollTop: undefined,
+    tableBodyHeight: undefined,
   };
 
   private tableRef = createRef<HTMLDivElement>();
@@ -288,7 +283,7 @@ class Table extends Component<TableProps, TableState> {
 
   onSortEnter = (i: number) => this.setState({ sortHover: i });
 
-  onSortLeave = () => this.setState({ sortHover: null });
+  onSortLeave = () => this.setState({ sortHover: undefined });
 
   onSortBy = (i: number) => {
     const { sortedRow, sortDirection } = this.state;
@@ -302,22 +297,22 @@ class Table extends Component<TableProps, TableState> {
     const { rows, onSortBy } = this.props;
     const { sortDirection, sortedRow } = this.state;
 
-    if (sortedRow === null) {
+    if (sortedRow === undefined) {
       return rows;
     }
 
     return onSortBy
-      ? onSortBy(sortedRow, sortDirection, rows)
-      : this.defaultSortBy(sortedRow, sortDirection, rows);
+      ? onSortBy(sortedRow, sortDirection || null, rows)
+      : this.defaultSortBy(sortedRow, rows, sortDirection);
   };
 
-  updateSort = (i: number, nextDirection: DIRECTION | null) =>
+  updateSort = (i: number, nextDirection: Direction) =>
     this.setState({
       sortedRow: i,
       sortDirection: nextDirection,
     });
 
-  defaultSortBy = (i: number, direction: DIRECTION | null, rows: Row[]) => {
+  defaultSortBy = (i: number, rows: Row[], direction?: Direction) => {
     const sortFn = direction === 'ascending' ? ascendingSort : descendingSort;
 
     return [...rows].sort(sortFn(i));
@@ -335,7 +330,7 @@ class Table extends Component<TableProps, TableState> {
       borderCollapsed = false,
       condensed = false,
       scrollable = false,
-      onRowClick = null,
+      onRowClick,
     } = this.props;
     const {
       sortDirection,
@@ -364,18 +359,12 @@ class Table extends Component<TableProps, TableState> {
             rowHeaders={rowHeaders}
             borderCollapsed={borderCollapsed}
           >
-            {/*
-             * TODO: choose either null or undefined for fallbacks and use across all table.
-             * TS works better with `undefined` (we can use `prop?: type`) but this would
-             * create a breaking change in some Table props, like the onSortBy signature
-             * (direction can be null).
-             */}
             <TableHead
-              top={scrollTop || undefined}
+              top={scrollTop}
               condensed={condensed}
               scrollable={scrollable}
-              sortDirection={sortDirection || undefined}
-              sortedRow={sortedRow === null ? undefined : sortedRow}
+              sortDirection={sortDirection}
+              sortedRow={sortedRow}
               onSortBy={this.onSortBy}
               onSortEnter={this.onSortEnter}
               onSortLeave={this.onSortLeave}
@@ -386,8 +375,8 @@ class Table extends Component<TableProps, TableState> {
               condensed={condensed}
               rows={sortedRows}
               rowHeaders={rowHeaders}
-              sortHover={sortHover || undefined}
-              onRowClick={onRowClick || undefined}
+              sortHover={sortHover}
+              onRowClick={onRowClick}
             />
           </StyledTable>
         </ScrollContainer>

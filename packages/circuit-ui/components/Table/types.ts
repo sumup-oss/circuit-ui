@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,24 @@
  * limitations under the License.
  */
 
-export const TR_KEY_PREFIX = 'table-row';
-export const TD_KEY_PREFIX = 'table-cell';
-export const TH_KEY_PREFIX = 'table-header';
+export type SortByValue = boolean | number | string | Date;
+
+export type Direction = 'ascending' | 'descending';
+
+// TODO this should also take a JSX.Element, will have to adapt mapCellChildren
+export type CellChildren = string | number;
+
+export type CellObject = {
+  children: CellChildren;
+  sortable?: boolean;
+  sortByValue?: SortByValue;
+};
+
+export type Cell = CellChildren | CellObject;
+
+export type Row =
+  | Cell[]
+  | {
+      cells: Cell[];
+      align?: string;
+    };

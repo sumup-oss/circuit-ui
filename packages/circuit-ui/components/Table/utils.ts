@@ -13,26 +13,14 @@
  * limitations under the License.
  */
 
-export type DIRECTION = 'ascending' | 'descending';
-
-// TODO this should also take a JSX.Element, will have to adapt mapCellChildren
-type CellChildren = string | number;
-
-type CellObject = {
-  children: CellChildren;
-  sortable?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  sortByValue?: any; // TODO sortByValue is usually a number but it could be a date object, or possibly more
-};
-
-export type Cell = CellChildren | CellObject;
-
-export type Row =
-  | Cell[]
-  | {
-      cells: Cell[];
-      align?: string;
-    };
+import {
+  Direction,
+  SortByValue,
+  CellObject,
+  CellChildren,
+  Cell,
+  Row,
+} from './types';
 
 export const mapRowProps = (props: Row): { cells: Cell[] } =>
   Array.isArray(props) ? { cells: props } : props;
@@ -47,16 +35,15 @@ export const mapCellProps = (props: Cell): CellObject =>
 export const getCellChildren = (props: Cell): CellChildren =>
   mapCellProps(props).children;
 
-export const getSortByValue = (props: Cell): string | CellChildren =>
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+export const getSortByValue = (props: Cell): SortByValue | CellChildren =>
   typeof props === 'object' && props.sortByValue !== undefined
     ? props.sortByValue
     : getCellChildren(props);
 
 export const getSortDirection = (
   isActive?: boolean,
-  currentSort?: DIRECTION | null,
-): DIRECTION => {
+  currentSort?: Direction,
+): Direction => {
   if (!currentSort || !isActive) {
     return 'ascending';
   }

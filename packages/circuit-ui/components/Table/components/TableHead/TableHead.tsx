@@ -19,7 +19,8 @@ import { css } from '@emotion/core';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
-import { mapCellProps, getCellChildren, Cell } from '../../utils';
+import { mapCellProps, getCellChildren } from '../../utils';
+import { Cell } from '../../types';
 import { TH_KEY_PREFIX } from '../../constants';
 import styled, { StyleProps } from '../../../../styles/styled';
 

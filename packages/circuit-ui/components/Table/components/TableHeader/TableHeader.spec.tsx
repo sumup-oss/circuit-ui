@@ -16,7 +16,6 @@
 import React from 'react';
 
 import { create, renderToHtml, axe } from '../../../../util/test-utils';
-import { ASCENDING, DESCENDING } from '../../constants';
 
 import TableHeader from '.';
 
@@ -64,7 +63,7 @@ describe('TableHeader', () => {
     describe('sortable + sorted', () => {
       it('should render with sortable + sorted ascending styles', () => {
         const actual = create(
-          <TableHeader sortable isSorted sortDirection={ASCENDING}>
+          <TableHeader sortable isSorted sortDirection="ascending">
             {children}
           </TableHeader>,
         );
@@ -73,7 +72,7 @@ describe('TableHeader', () => {
 
       it('should render with sortable + sorted descending styles', () => {
         const actual = create(
-          <TableHeader sortable isSorted sortDirection={DESCENDING}>
+          <TableHeader sortable isSorted sortDirection="descending">
             {children}
           </TableHeader>,
         );

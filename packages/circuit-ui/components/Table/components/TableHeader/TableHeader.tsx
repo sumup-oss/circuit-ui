@@ -29,7 +29,7 @@ export interface TableHeaderProps
    */
   align?: 'left' | 'right' | 'center';
   /**
-   * @private Adds ROL or COL styles based on the provided Scope.
+   * @private Adds row or col styles based on the provided Scope.
    * Handled internally
    */
   scope?: 'col' | 'row';
