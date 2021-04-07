@@ -19,15 +19,13 @@ export type SortByValue = boolean | number | string | Date;
 
 export type Direction = 'ascending' | 'descending';
 
-type CellChildren = string | number;
-
 export type CellObject = {
   children: ReactNode;
   sortable?: boolean;
   sortByValue?: SortByValue;
 };
 
-export type Cell = CellChildren | CellObject;
+export type Cell = string | number | CellObject;
 
 export type Row =
   | Cell[]
