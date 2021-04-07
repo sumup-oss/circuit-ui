@@ -23,21 +23,14 @@ import styled, { StyleProps } from '../../styles/styled';
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
 import { getSortDirection, ascendingSort, descendingSort } from './utils';
-import { Direction, Row } from './types';
+import { Direction, Row, Cell } from './types';
 
 export type TableProps = {
   /**
    * An array of headers for the table. The Header can be a string or an object
    * with options described on TableHeader component
    */
-  headers?: (
-    | string
-    | {
-        children: string;
-        align?: 'left' | 'right' | 'center';
-        sortable?: boolean;
-      }
-  )[];
+  headers?: Cell[];
   /**
    * (An array of rows or object with children) containing an array of cells for the table. The Cell can be a
    * string or an object with options described on TableCell component
