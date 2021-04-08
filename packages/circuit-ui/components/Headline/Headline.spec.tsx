@@ -25,26 +25,18 @@ describe('Headline', () => {
    */
   const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
   it.each(elements)(`should render as %s element`, (element) => {
-    const heading = create(
-      <Headline as={element}>{`${element} heading`}</Headline>,
+    const headline = create(
+      <Headline as={element}>{`${element} headline`}</Headline>,
     );
-    expect(heading).toMatchSnapshot();
+    expect(headline).toMatchSnapshot();
   });
 
-  const sizes = [
-    'kilo',
-    'mega',
-    'giga',
-    'tera',
-    'peta',
-    'exa',
-    'zetta',
-  ] as const;
+  const sizes = ['one', 'two', 'three', 'four'] as const;
   it.each(sizes)(`should render with size %s`, (size) => {
-    const heading = create(
-      <Headline {...{ size }}>{`${size} heading`}</Headline>,
+    const headline = create(
+      <Headline {...{ size }}>{`${size} headline`}</Headline>,
     );
-    expect(heading).toMatchSnapshot();
+    expect(headline).toMatchSnapshot();
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /**
  * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,54 +21,42 @@ import isPropValid from '@emotion/is-prop-valid';
 import styled, { StyleProps } from '../../styles/styled';
 import deprecate from '../../util/deprecate';
 
-type Size = 'kilo' | 'mega' | 'giga' | 'tera' | 'peta' | 'exa' | 'zetta';
+type Size = 'one' | 'two' | 'three' | 'four';
 
 export interface HeadlineProps
   extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
   /**
-   * A Circuit UI heading size.
+   * A Circuit UI headline size.
    */
   size?: Size;
   /**
-   * Removes the default bottom margin from the heading.
+   * Removes the default bottom margin from the headline.
    */
   noMargin?: boolean;
   /**
-   * The HTML heading element to render.
+   * The HTML headline element to render.
    */
   as?: string;
 }
 
-const mobileSizeMap: { [key in Size]: Size } = {
-  kilo: 'kilo',
-  mega: 'mega',
-  giga: 'mega',
-  tera: 'giga',
-  peta: 'tera',
-  exa: 'peta',
-  zetta: 'peta',
-};
-
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: heading;
+  label: headline;
   font-weight: ${theme.fontWeight.bold};
   margin-bottom: ${theme.spacings.giga};
   color: ${theme.colors.black};
 `;
 
-const sizeStyles = ({ theme, size = 'peta' }: StyleProps & HeadlineProps) =>
-  size &&
-  css`
-    label: ${`heading--${size}`};
-    font-size: ${theme.typography.headings[mobileSizeMap[size]].fontSize};
-    line-height: ${theme.typography.headings[mobileSizeMap[size]].lineHeight};
+const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => {
+  if (!size) {
+    return null;
+  }
 
-    ${theme.mq.kilo} {
-      font-size: ${theme.typography.headings[size].fontSize};
-      line-height: ${theme.typography.headings[size].lineHeight};
-    }
+  return css`
+    label: ${`headline-${size}`};
+    font-size: ${theme.typography.headline[size].fontSize};
+    line-height: ${theme.typography.headline[size].lineHeight};
   `;
-
+};
 const noMarginStyles = ({ noMargin }: HeadlineProps) => {
   if (!noMargin) {
     deprecate(
@@ -81,13 +70,13 @@ const noMarginStyles = ({ noMargin }: HeadlineProps) => {
   }
 
   return css`
-    label: heading--no-margin;
+    label: headline--no-margin;
     margin-bottom: 0;
   `;
 };
 
 /**
- * A flexible heading component capable of rendering using any HTML heading tag.
+ * A flexible headline component capable of rendering using any HTML headline tag.
  */
 export const Headline: FC<HeadlineProps> = styled('h2', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
