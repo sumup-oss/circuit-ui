@@ -22,13 +22,11 @@ export type { HeadlineProps } from './components/Headline';
 export { default as SubHeadline } from './components/SubHeadline';
 export type { SubHeadlineProps } from './components/SubHeadline';
 export { default as Body } from './components/Body';
-export type { TextProps } from './components/Body';
+export type { BodyProps } from './components/Body';
 export { default as Anchor } from './components/Anchor';
 export type { AnchorProps } from './components/Anchor';
 export { default as List } from './components/List';
 export type { ListProps } from './components/List';
-export { default as Blockquote } from './components/Blockquote';
-export type { BlockquoteProps } from './components/Blockquote';
 
 // Forms
 export {
