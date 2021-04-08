@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup/foundry/lint-staged')({
-  language: 'TypeScript',
-});
+module.exports = require('@sumup/foundry/lint-staged')(
+  {
+    language: 'TypeScript',
+  },
+  {
+    '*.svg': ['svgo --config svgo.config.js --pretty'],
+  },
+);
