@@ -61,7 +61,7 @@ const contentStyles = (theme: Theme) => css`
 `;
 
 const Header = () => (
-  <Headline size="kilo" noMargin>
+  <Headline size="four" noMargin>
     Card heading
   </Headline>
 );

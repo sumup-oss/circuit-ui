@@ -31,7 +31,7 @@ export default {
 export const Base = (args: NotificationListProps) => (
   <NotificationList {...args}>
     <Notification variant="success">
-      <Headline as="h4" size="kilo" noMargin>
+      <Headline as="h4" size="four" noMargin>
         New Feature — Intelligent Reporting
       </Headline>
       <Body>
@@ -46,7 +46,7 @@ export const Base = (args: NotificationListProps) => (
       onClose={action('Notification dismissed')}
       closeLabel="Close"
     >
-      <Headline as="h4" size="kilo" noMargin>
+      <Headline as="h4" size="four" noMargin>
         We failed to process your transaction
       </Headline>
     </Notification>

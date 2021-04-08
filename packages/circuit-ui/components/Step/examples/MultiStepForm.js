@@ -88,7 +88,7 @@ const MultiStepForm = () => {
 
         return (
           <Container>
-            <Headline size="giga">
+            <Headline size="three">
               Step {stepNumber} of {totalSteps}
             </Headline>
             <ProgressBar

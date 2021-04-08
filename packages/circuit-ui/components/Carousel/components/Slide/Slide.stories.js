@@ -52,6 +52,6 @@ export const TextAndImage = (args) => (
       src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
       alt="Aerial photo of turbulent turquoise ocean waves"
     />
-    <StyledHeadline size="exa">Get The SumUp Card Reader Today!</StyledHeadline>
+    <StyledHeadline size="one">Get The SumUp Card Reader Today!</StyledHeadline>
   </Slide>
 );

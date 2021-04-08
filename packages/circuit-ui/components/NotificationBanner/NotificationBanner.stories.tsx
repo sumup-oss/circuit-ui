@@ -34,7 +34,7 @@ export default {
 export const Base = (args: NotificationBannerProps) => (
   <NotificationBanner {...args}>
     <Notification variant="success">
-      <Headline as="h4" size="kilo" noMargin>
+      <Headline as="h4" size="four" noMargin>
         New Feature — Intelligent Reporting
       </Headline>
       <Body>

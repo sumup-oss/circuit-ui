@@ -51,7 +51,7 @@ const headingStyles = (theme: Theme) =>
 
 export const Base = (args: NotificationProps) => (
   <Notification {...args}>
-    <Headline as="h4" size="kilo" noMargin>
+    <Headline as="h4" size="four" noMargin>
       New Feature — Intelligent Reporting
     </Headline>
     <Body>
@@ -72,12 +72,12 @@ Base.args = {
 export const Variants = () => (
   <Fragment>
     <Notification variant="success" css={notificationStyles}>
-      <Headline size="kilo" as="h4" noMargin>
+      <Headline size="four" as="h4" noMargin>
         Transaction successfully refunded
       </Headline>
     </Notification>
     <Notification variant="warning" css={notificationStyles}>
-      <Headline size="kilo" as="h4" noMargin>
+      <Headline size="four" as="h4" noMargin>
         You need to verify your account
       </Headline>
       <Body>
@@ -88,7 +88,7 @@ export const Variants = () => (
       </Button>
     </Notification>
     <Notification variant="error" css={notificationStyles}>
-      <Headline size="kilo" as="h4" css={headingStyles}>
+      <Headline size="four" as="h4" css={headingStyles}>
         We failed to process your transaction
       </Headline>
       <Button size="kilo" onClick={action('Button clicked')}>
