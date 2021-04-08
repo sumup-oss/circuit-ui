@@ -20,14 +20,8 @@ import isPropValid from '@emotion/is-prop-valid';
 import styled, { StyleProps } from '../../styles/styled';
 import deprecate from '../../util/deprecate';
 
-type Size = 'kilo' | 'mega';
-
 export interface SubHeadlineProps
   extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
-  /**
-   * A Circuit UI subheading size.
-   */
-  size?: Size;
   /**
    * Removes the default bottom margin from the subheading.
    */
@@ -39,20 +33,14 @@ export interface SubHeadlineProps
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: sub-heading;
+  label: sub-headline;
   text-transform: uppercase;
   font-weight: ${theme.fontWeight.bold};
+  font-size: ${theme.typography.subHeadline.fontSize};
+  line-height: ${theme.typography.subHeadline.lineHeight};
   margin-bottom: ${theme.spacings.kilo};
-  color: ${theme.colors.black};
+  color: ${theme.colors.n700};
 `;
-
-const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & SubHeadlineProps) =>
-  size &&
-  css`
-    label: ${`sub-heading--${size}`};
-    font-size: ${theme.typography.subHeadings[size].fontSize};
-    line-height: ${theme.typography.subHeadings[size].lineHeight};
-  `;
 
 const noMarginStyles = ({ noMargin }: SubHeadlineProps) => {
   if (!noMargin) {
@@ -77,4 +65,4 @@ const noMarginStyles = ({ noMargin }: SubHeadlineProps) => {
  */
 export const SubHeadline: FC<SubHeadlineProps> = styled('h3', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<SubHeadlineProps>(baseStyles, sizeStyles, noMarginStyles);
+})<SubHeadlineProps>(baseStyles, noMarginStyles);
