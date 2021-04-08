@@ -20,7 +20,7 @@ import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import deprecate from '../../util/deprecate';
-import { Body, TextProps } from '../Body/Body';
+import { Body, BodyProps } from '../Body/Body';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
 
@@ -69,7 +69,7 @@ const explanationStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.n700};
 `;
 
-const ToggleExplanation = styled(Body)<TextProps>(explanationStyles);
+const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);
 
 type WrapperElProps = Pick<ToggleProps, 'noMargin' | 'disabled'>;
 
@@ -131,12 +131,12 @@ export const Toggle = React.forwardRef(
         {(label || explanation) && (
           <ToggleTextWrapper id={labelId} htmlFor={switchId}>
             {label && (
-              <ToggleLabel size="kilo" noMargin>
+              <ToggleLabel size="two" noMargin>
                 {label}
               </ToggleLabel>
             )}
             {explanation && (
-              <ToggleExplanation size="kilo" noMargin>
+              <ToggleExplanation size="two" noMargin>
                 {explanation}
               </ToggleExplanation>
             )}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /**
  * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,30 +21,24 @@ import isPropValid from '@emotion/is-prop-valid';
 import styled, { StyleProps } from '../../styles/styled';
 import deprecate from '../../util/deprecate';
 
-type Size = 'kilo' | 'mega' | 'giga';
+type Size = 'one' | 'two';
+type Variant = 'highlight' | 'quote' | 'success' | 'error' | 'subtle';
 
-export interface TextProps
+export interface BodyProps
   extends Omit<HTMLProps<HTMLParagraphElement>, 'size'> {
   /**
    * Choose from 3 font sizes.
    */
   size?: Size;
   /**
-   * Remove the default margin below the text.
+   * Choose from style variants.
    */
+  variant?: Variant;
+  /**
+   /**
+    * Remove the default margin below the text.
+    */
   noMargin?: boolean;
-  /**
-   * Turn the text bold.
-   */
-  bold?: boolean;
-  /**
-   * Turn the text italic.
-   */
-  italic?: boolean;
-  /**
-   * Add a line through the text.
-   */
-  strike?: boolean;
   /**
    * Render the text using any HTML element.
    */
@@ -55,56 +50,64 @@ export interface TextProps
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: text;
+  label: body;
   font-weight: ${theme.fontWeight.regular};
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const mobileSizeMap: { [key in Size]: Size } = {
-  kilo: 'kilo',
-  mega: 'mega',
-  giga: 'mega',
-};
-
-const sizeStyles = ({ theme, size = 'mega' }: TextProps & StyleProps) => {
+const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => {
   if (!size) {
     return null;
   }
 
   return css`
-    label: ${`text--${size}`};
-    font-size: ${theme.typography.text[mobileSizeMap[size]].fontSize};
-    line-height: ${theme.typography.text[mobileSizeMap[size]].lineHeight};
-
-    ${theme.mq.kilo} {
-      font-size: ${theme.typography.text[size].fontSize};
-      line-height: ${theme.typography.text[size].lineHeight};
-    }
+    label: ${`body-${size}`};
+    font-size: ${theme.typography.body[size].fontSize};
+    line-height: ${theme.typography.body[size].lineHeight};
   `;
 };
 
-const boldStyles = ({ theme, bold }: TextProps & StyleProps) =>
-  bold &&
-  css`
-    label: text--bold;
-    font-weight: ${theme.fontWeight.bold};
-  `;
+const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
+  switch (variant) {
+    default: {
+      return null;
+    }
+    case 'highlight': {
+      return css`
+        label: ${`body--${variant}`};
+        font-weight: ${theme.fontWeight.bold};
+      `;
+    }
+    case 'quote': {
+      return css`
+        label: ${`body--${variant}`};
+        font-style: italic;
+        padding-left: ${theme.spacings.kilo};
+        border-left: 2px solid ${theme.colors.p500};
+      `;
+    }
+    case 'success': {
+      return css`
+        label: ${`body--${variant}`};
+        color: ${theme.colors.success};
+      `;
+    }
+    case 'error': {
+      return css`
+        label: ${`body--${variant}`};
+        color: ${theme.colors.danger};
+      `;
+    }
+    case 'subtle': {
+      return css`
+        label: ${`body--${variant}`};
+        color: ${theme.colors.n700};
+      `;
+    }
+  }
+};
 
-const italicStyles = ({ italic }: TextProps & StyleProps) =>
-  italic &&
-  css`
-    label: text--italic;
-    font-style: italic;
-  `;
-
-const strikeThroughStyles = ({ strike }: TextProps & StyleProps) =>
-  strike &&
-  css`
-    label: text--strike-through;
-    text-decoration: line-through;
-  `;
-
-const marginStyles = ({ noMargin }: TextProps & StyleProps) => {
+const marginStyles = ({ noMargin }: BodyProps & StyleProps) => {
   if (!noMargin) {
     deprecate(
       [
@@ -126,13 +129,6 @@ const marginStyles = ({ noMargin }: TextProps & StyleProps) => {
  * The Body component is used to present the core textual content
  * to our users.
  */
-export const Body: FC<TextProps> = styled('p', {
+export const Body: FC<BodyProps> = styled('p', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<TextProps>(
-  baseStyles,
-  sizeStyles,
-  marginStyles,
-  boldStyles,
-  italicStyles,
-  strikeThroughStyles,
-);
+})<BodyProps>(baseStyles, sizeStyles, marginStyles, variantStyles);

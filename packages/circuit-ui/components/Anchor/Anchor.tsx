@@ -21,11 +21,11 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 import styled, { StyleProps } from '../../styles/styled';
 import { focusOutline } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
-import { Body, TextProps } from '../Body/Body';
+import { Body, BodyProps } from '../Body/Body';
 import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';
 
-export interface BaseProps extends TextProps {
+export interface BaseProps extends BodyProps {
   children: ReactNode;
   /**
    * Additional data that is dispatched with the tracking event.

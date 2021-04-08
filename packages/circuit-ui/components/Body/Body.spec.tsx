@@ -17,7 +17,7 @@ import React from 'react';
 
 import { create, renderToHtml, axe } from '../../util/test-utils';
 
-import { Body, TextProps } from './Body';
+import { Body, BodyProps } from './Body';
 
 describe('Body', () => {
   /**
@@ -35,7 +35,7 @@ describe('Body', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  const sizes: TextProps['size'][] = ['kilo', 'mega', 'giga'];
+  const sizes: BodyProps['size'][] = ['one', 'two'];
   it.each(sizes)('should render with size %s', (size) => {
     const actual = create(<Body size={size}>{`${size as string} text`}</Body>);
     expect(actual).toMatchSnapshot();
@@ -43,21 +43,6 @@ describe('Body', () => {
 
   it('should render with no margin styles when passed the noMargin prop', () => {
     const actual = create(<Body noMargin />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render bold text when passed the bold prop', () => {
-    const actual = create(<Body bold />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render italic text when passed the italic prop', () => {
-    const actual = create(<Body italic />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render struck through text when passed the strike prop', () => {
-    const actual = create(<Body strike />);
     expect(actual).toMatchSnapshot();
   });
 

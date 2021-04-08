@@ -16,7 +16,7 @@
 import React from 'react';
 
 import docs from './Body.docs.mdx';
-import { TextProps } from './Body';
+import { BodyProps } from './Body';
 
 import Body from '.';
 
@@ -31,35 +31,26 @@ export default {
   },
 };
 
-export const Base = (args: TextProps) => (
+export const Base = (args: BodyProps) => (
   <Body {...args} noMargin>
     {content}
   </Body>
 );
 
-const sizes = ['kilo', 'mega', 'giga'] as const;
+const sizes = ['one', 'two'] as const;
 
-export const Sizes = (args: TextProps) =>
+export const Sizes = (args: BodyProps) =>
   sizes.map((s) => (
     <Body key={s} {...args} size={s} noMargin>
-      This is a {s} text. {content}
+      This is a body {s}. {content}
     </Body>
   ));
 
-export const Bold = (args: TextProps) => (
-  <Body {...args} as="strong" bold noMargin>
-    {content}
-  </Body>
-);
+const variants = ['highlight', 'quote', 'success', 'error', 'subtle'] as const;
 
-export const Italic = (args: TextProps) => (
-  <Body {...args} as="em" italic noMargin>
-    {content}
-  </Body>
-);
-
-export const Strike = (args: TextProps) => (
-  <Body {...args} as="s" strike noMargin>
-    {content}
-  </Body>
-);
+export const Variants = (args: BodyProps) =>
+  variants.map((variant) => (
+    <Body key={variant} {...args} variant={variant} noMargin>
+      This is a {variant} body
+    </Body>
+  ));

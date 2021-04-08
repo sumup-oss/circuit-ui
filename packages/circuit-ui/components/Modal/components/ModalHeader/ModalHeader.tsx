@@ -41,7 +41,7 @@ export const ModalHeader: FC<ModalHeaderProps> = ({
 }) => (
   <CardHeader onClose={onClose} labelCloseButton={labelCloseButton}>
     {title && (
-      <Headline size="kilo" noMargin>
+      <Headline size="four" noMargin>
         {title}
       </Headline>
     )}
