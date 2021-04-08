@@ -221,6 +221,17 @@ export interface Theme {
       mega: Typography;
       giga: Typography;
     };
+    headline: {
+      one: Typography;
+      two: Typography;
+      three: Typography;
+      four: Typography;
+    };
+    subHeadline: Typography;
+    body: {
+      one: Typography;
+      two: Typography;
+    };
   };
   fontStack: FontStack;
   fontWeight: FontWeight;

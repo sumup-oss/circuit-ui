@@ -159,6 +159,17 @@ export const themePropType = PropTypes.shape({
       mega: typePropType,
       giga: typePropType,
     }).isRequired,
+    headline: PropTypes.shape({
+      one: typePropType,
+      two: typePropType,
+      three: typePropType,
+      four: typePropType,
+    }).isRequired,
+    subHeadline: PropTypes.shape({ typePropType }).isRequired,
+    body: PropTypes.shape({
+      one: typePropType,
+      two: typePropType,
+    }).isRequired,
   }).isRequired,
   fontStack: PropTypes.shape({
     default: PropTypes.string,
