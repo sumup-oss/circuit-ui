@@ -22,6 +22,7 @@ jest.autoMockOff();
 
 const PARSERS = ['babel', 'tsx', 'flow'];
 
+// v2
 defineTest('button-variant-enum');
 defineTest('button-size-giga');
 defineTest('list-variant-enum');
@@ -32,7 +33,6 @@ defineTest('exit-animations');
 defineTest('input-deepref-prop');
 defineTest('input-styles-prop');
 defineTest('component-names-v2');
-defineTest('component-names-typography');
 defineTest('component-static-properties');
 defineTest('toggle-checked-prop');
 defineTest('badge-variant-enum');
@@ -45,6 +45,10 @@ defineTest('theme-to-design-tokens', 'theme-to-design-tokens-2');
 defineTest('theme-icon-sizes');
 defineTest('currency-utils', 'currency-utils-1');
 defineTest('currency-utils', 'currency-utils-2');
+
+// v3
+defineTest('component-names-typography');
+defineTest('typography-sizes');
 
 function defineTest(transformName, testFilePrefix, testOptions = {}) {
   const dirName = __dirname;
