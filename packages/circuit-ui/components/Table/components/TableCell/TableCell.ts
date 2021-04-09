@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../../../styles/styled';
@@ -124,7 +123,7 @@ const condensedPresentationStyles = ({
  * TableCell component for the Table. You shouldn't import this component
  * directly, the Table handles it
  */
-const TableCell: FC<TableCellProps> = styled.td`
+const TableCell = styled.td<TableCellProps>`
   ${baseStyles};
   ${condensedStyles};
   ${presentationStyles};

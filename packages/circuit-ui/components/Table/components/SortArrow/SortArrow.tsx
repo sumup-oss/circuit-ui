@@ -14,7 +14,7 @@
  */
 
 /** @jsx jsx */
-import { ButtonHTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 import { css, jsx } from '@emotion/core';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
@@ -22,8 +22,9 @@ import styled, { StyleProps } from '../../../../styles/styled';
 import { hideVisually } from '../../../../styles/style-mixins';
 import { Direction } from '../../types';
 
-interface SortArrowProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface SortArrowProps extends HTMLAttributes<HTMLButtonElement> {
   direction?: Direction;
+  // FIXME the label should be a required attribute.
   label?: string;
 }
 

@@ -79,12 +79,14 @@ type TableHeadProps = ScrollableOptions & {
   onSortLeave?: (i: number) => void;
 };
 
+type TheadElProps = Pick<TableHeadProps, 'scrollable' | 'top' | 'rowHeaders'>;
+
 const fixedStyles = ({
   scrollable,
   top,
   rowHeaders,
   theme,
-}: StyleProps & TableHeadProps) =>
+}: TheadElProps & StyleProps) =>
   scrollable &&
   top && // we need this check despite the TS types
   css`
@@ -96,11 +98,11 @@ const fixedStyles = ({
     }
   `;
 
-const Thead = styled.thead`
+const Thead = styled.thead<TheadElProps>`
   ${fixedStyles}
 `;
 
-const TableHead: React.FC<TableHeadProps> = ({
+const TableHead = ({
   headers = [],
   rowHeaders = false,
   condensed,
@@ -111,7 +113,7 @@ const TableHead: React.FC<TableHeadProps> = ({
   sortedRow,
   onSortEnter,
   onSortLeave,
-}) => (
+}: TableHeadProps): JSX.Element => (
   <Thead scrollable={scrollable} top={top} rowHeaders={rowHeaders}>
     {!!headers.length && (
       <TableRow>

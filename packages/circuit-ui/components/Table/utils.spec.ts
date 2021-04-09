@@ -164,7 +164,7 @@ describe('Table utils', () => {
         const currentSort = 'Foo';
         const isActive = true;
         const expected = 'ascending';
-        // @ts-expect-error currentShort can only be "ascending" or "descending"
+        // @ts-expect-error currentSort can only be "ascending" or "descending"
         const actual = utils.getSortDirection(isActive, currentSort);
         expect(actual).toBe(expected);
       });

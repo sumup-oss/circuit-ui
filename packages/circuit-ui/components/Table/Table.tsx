@@ -59,7 +59,8 @@ export type TableProps = {
    */
   onSortBy?: (
     index: number,
-    nextDirection: Direction | null, // we're keeping null here for backwards compatibility, will switch to an optional param in v3
+    // FIXME: we're keeping null here for backward compatibility, will switch to an optional param in v3
+    nextDirection: Direction | null,
     currentRows: Row[],
   ) => Row[];
   /**
@@ -78,6 +79,11 @@ export type TableProps = {
  * The position: relative; container is necessary because ShadowContainer
  * is a position: absolute; element
  */
+type TableContainerElProps = Pick<
+  TableProps,
+  'scrollable' | 'rowHeaders' | 'noShadow'
+>;
+
 const tableContainerBaseStyles = () => css`
   label: table-container;
   position: relative;
@@ -87,7 +93,7 @@ const tableContainerScrollableStyles = ({
   scrollable,
   rowHeaders,
   theme,
-}: { scrollable: boolean; rowHeaders: boolean } & StyleProps) =>
+}: TableContainerElProps & StyleProps) =>
   scrollable &&
   css`
     height: 100%;
@@ -96,16 +102,14 @@ const tableContainerScrollableStyles = ({
     }
   `;
 
-const noShadowStyles = ({ noShadow }: { noShadow: boolean }) =>
+const noShadowStyles = ({ noShadow }: TableContainerElProps) =>
   noShadow &&
   css`
     label: table-container--no-shadow;
     box-shadow: none;
   `;
 
-const TableContainer = styled.div<
-  { scrollable: boolean; rowHeaders: boolean; noShadow: boolean } & StyleProps
->`
+const TableContainer = styled.div<TableContainerElProps & StyleProps>`
   ${tableContainerBaseStyles};
   ${tableContainerScrollableStyles};
   ${shadowSingle};
@@ -115,10 +119,13 @@ const TableContainer = styled.div<
 /**
  * Scroll container styles.
  */
+type ScrollContainerElElProps = Pick<TableProps, 'scrollable' | 'rowHeaders'> &
+  Pick<TableState, 'tableBodyHeight'>;
+
 const containerStyles = ({
   theme,
   rowHeaders,
-}: { rowHeaders: boolean } & StyleProps) =>
+}: ScrollContainerElElProps & StyleProps) =>
   rowHeaders &&
   css`
     label: table-container;
@@ -132,24 +139,15 @@ const containerStyles = ({
 
 const scrollableStyles = ({
   scrollable,
-  height,
-}: {
-  scrollable: boolean;
-  height?: string;
-}) =>
+  tableBodyHeight,
+}: ScrollContainerElElProps) =>
   scrollable &&
   css`
-    height: ${height || '100%'};
+    height: ${tableBodyHeight || '100%'};
     overflow-y: auto;
   `;
 
-const ScrollContainer = styled.div<
-  StyleProps & {
-    scrollable: boolean;
-    height?: string;
-    rowHeaders: boolean;
-  }
->`
+const ScrollContainer = styled.div<ScrollContainerElElProps>`
   ${containerStyles};
   ${scrollableStyles};
 `;
@@ -157,6 +155,8 @@ const ScrollContainer = styled.div<
 /**
  * Table styles.
  */
+type TableElProps = Pick<TableProps, 'borderCollapsed' | 'rowHeaders'>;
+
 const baseStyles = ({ theme }: StyleProps) => css`
   label: table;
   background-color: ${theme.colors.white};
@@ -164,10 +164,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   width: 100%;
 `;
 
-const responsiveStyles = ({
-  theme,
-  rowHeaders,
-}: { rowHeaders: boolean } & StyleProps) =>
+const responsiveStyles = ({ theme, rowHeaders }: TableElProps & StyleProps) =>
   rowHeaders &&
   css`
     label: table--responsive;
@@ -191,19 +188,13 @@ const responsiveStyles = ({
     }
   `;
 
-const borderCollapsedStyles = ({
-  borderCollapsed,
-}: {
-  borderCollapsed: boolean;
-}) =>
+const borderCollapsedStyles = ({ borderCollapsed }: TableElProps) =>
   borderCollapsed &&
   css`
     border-collapse: collapse;
   `;
 
-const StyledTable = styled.table<
-  StyleProps & { borderCollapsed: boolean; rowHeaders: boolean }
->`
+const StyledTable = styled.table<TableElProps>`
   ${baseStyles};
   ${responsiveStyles};
   ${borderCollapsedStyles};
@@ -268,9 +259,11 @@ class Table extends Component<TableProps, TableState> {
 
   calculateTableBodyHeight = () => {
     this.setState({
-      tableBodyHeight: isNil(this.tableRef.current)
-        ? 'unset'
-        : `${this.tableRef.current.offsetHeight}px`,
+      tableBodyHeight:
+        isNil(this.tableRef.current) ||
+        isNil(this.tableRef.current.parentElement)
+          ? 'unset'
+          : `${this.tableRef.current.parentElement.offsetHeight}px`,
     });
   };
 
@@ -345,7 +338,7 @@ class Table extends Component<TableProps, TableState> {
         <ScrollContainer
           rowHeaders={rowHeaders}
           scrollable={scrollable}
-          height={tableBodyHeight}
+          tableBodyHeight={tableBodyHeight}
           onScroll={scrollable ? this.handleScroll : undefined}
         >
           <StyledTable

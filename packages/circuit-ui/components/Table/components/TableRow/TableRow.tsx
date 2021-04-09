@@ -14,7 +14,7 @@
  */
 
 /** @jsx jsx */
-import { MouseEvent, KeyboardEvent } from 'react';
+import { FC, MouseEvent, KeyboardEvent } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 
@@ -71,7 +71,7 @@ const clickableStyles = ({ theme, onClick }: StyleProps & TableRowProps) =>
 
 const Tr = styled.tr(baseStyles, clickableStyles);
 
-const TableRow: React.FC<TableRowProps> = ({ onClick, ...props }) => (
+const TableRow: FC<TableRowProps> = ({ onClick, ...props }) => (
   <Tr onClick={onClick} tabIndex={onClick ? 0 : undefined} {...props} />
 );
 export default TableRow;

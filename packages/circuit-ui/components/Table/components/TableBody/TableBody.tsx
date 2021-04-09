@@ -55,13 +55,13 @@ const getRowKey = (rowIndex: number) => `${TR_KEY_PREFIX}-${rowIndex}`;
 const getCellKey = (rowIndex: number, cellIndex: number) =>
   `${TD_KEY_PREFIX}-${rowIndex}-${cellIndex}`;
 
-const TableBody: React.FC<TableBodyProps> = ({
+const TableBody = ({
   rows = [],
   condensed,
   rowHeaders = false,
   sortHover,
   onRowClick,
-}) => (
+}: TableBodyProps): JSX.Element => (
   <tbody>
     {rows.map((row, rowIndex) => {
       const { cells, ...props } = mapRowProps(row);

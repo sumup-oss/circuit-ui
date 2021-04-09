@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ReactNode, MouseEvent, KeyboardEvent } from 'react';
+import React, {
+  HTMLProps,
+  FC,
+  ReactNode,
+  MouseEvent,
+  KeyboardEvent,
+} from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -93,7 +99,13 @@ const getLabelSort = (
     : sortLabel;
 };
 
-const baseStyles = ({ theme, align }: StyleProps & StyledHeaderProps) => css`
+/**
+ * <th> element styles.
+ */
+
+type ThElProps = Omit<TableHeaderProps, 'sortDirection' | 'sortLabel'>;
+
+const baseStyles = ({ theme, align }: StyleProps & ThElProps) => css`
   label: table-header;
   background-color: ${theme.colors.white};
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
@@ -103,14 +115,14 @@ const baseStyles = ({ theme, align }: StyleProps & StyledHeaderProps) => css`
     color ${theme.transitions.default};
 `;
 
-const hoveredStyles = ({ theme, isHovered }: StyleProps & StyledHeaderProps) =>
+const hoveredStyles = ({ theme, isHovered }: StyleProps & ThElProps) =>
   isHovered &&
   css`
     label: table-cell--hover;
     background-color: ${theme.colors.n100};
   `;
 
-const colStyles = ({ theme, scope }: StyleProps & StyledHeaderProps) =>
+const colStyles = ({ theme, scope }: StyleProps & ThElProps) =>
   scope === 'col' &&
   css`
     label: table-header--col;
@@ -121,7 +133,7 @@ const colStyles = ({ theme, scope }: StyleProps & StyledHeaderProps) =>
     vertical-align: middle;
   `;
 
-const fixedStyles = ({ theme, fixed }: StyleProps & StyledHeaderProps) =>
+const fixedStyles = ({ theme, fixed }: StyleProps & ThElProps) =>
   fixed &&
   css`
     label: table-header--fixed;
@@ -134,7 +146,7 @@ const fixedStyles = ({ theme, fixed }: StyleProps & StyledHeaderProps) =>
     }
   `;
 
-const sortableStyles = ({ theme, sortable }: StyleProps & StyledHeaderProps) =>
+const sortableStyles = ({ theme, sortable }: StyleProps & ThElProps) =>
   sortable &&
   css`
     label: table-header--sortable;
@@ -167,10 +179,7 @@ const sortableStyles = ({ theme, sortable }: StyleProps & StyledHeaderProps) =>
     }
   `;
 
-const sortableActiveStyles = ({
-  sortable,
-  isSorted,
-}: StyleProps & StyledHeaderProps) =>
+const sortableActiveStyles = ({ sortable, isSorted }: ThElProps) =>
   sortable &&
   isSorted &&
   css`
@@ -179,10 +188,7 @@ const sortableActiveStyles = ({
     }
   `;
 
-const condensedStyles = ({
-  condensed,
-  theme,
-}: StyleProps & StyledHeaderProps) =>
+const condensedStyles = ({ condensed, theme }: StyleProps & ThElProps) =>
   condensed &&
   css`
     label: table-header--condensed;
@@ -195,7 +201,7 @@ const condensedColStyles = ({
   condensed,
   scope,
   theme,
-}: StyleProps & StyledHeaderProps) =>
+}: StyleProps & ThElProps) =>
   condensed &&
   scope === 'col' &&
   css`
@@ -203,11 +209,9 @@ const condensedColStyles = ({
     padding: ${theme.spacings.byte} ${theme.spacings.mega};
   `;
 
-type StyledHeaderProps = Omit<TableHeaderProps, 'sortDirection' | 'sortLabel'>;
-
 const StyledHeader = styled('th', {
   shouldForwardProp: (prop) => isPropValid(prop),
-})<StyledHeaderProps>(
+})<ThElProps>(
   baseStyles,
   hoveredStyles,
   fixedStyles,
@@ -222,7 +226,7 @@ const StyledHeader = styled('th', {
  * TableHeader component for the Table. You shouldn't import this component
  * directly, the Table handles it
  */
-const TableHeader: React.FC<TableHeaderProps> = ({
+const TableHeader: FC<TableHeaderProps> = ({
   sortLabel,
   sortable = false,
   children,
