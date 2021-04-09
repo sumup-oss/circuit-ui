@@ -49,6 +49,7 @@ defineTest('currency-utils', 'currency-utils-2');
 // v3
 defineTest('component-names-typography');
 defineTest('typography-sizes');
+defineTest('body-variant-highlight');
 
 function defineTest(transformName, testFilePrefix, testOptions = {}) {
   const dirName = __dirname;
