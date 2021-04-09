@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Component, createRef } from 'react';
+import React, { Component, createRef, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import { isNil, throttle } from 'lodash/fp';
 
@@ -120,7 +120,7 @@ const TableContainer = styled.div<TableContainerElProps & StyleProps>`
  * Scroll container styles.
  */
 type ScrollContainerElElProps = Pick<TableProps, 'scrollable' | 'rowHeaders'> &
-  Pick<TableState, 'tableBodyHeight'>;
+  HTMLProps<HTMLDivElement>;
 
 const containerStyles = ({
   theme,
@@ -137,13 +137,10 @@ const containerStyles = ({
     }
   `;
 
-const scrollableStyles = ({
-  scrollable,
-  tableBodyHeight,
-}: ScrollContainerElElProps) =>
+const scrollableStyles = ({ scrollable, height }: ScrollContainerElElProps) =>
   scrollable &&
   css`
-    height: ${tableBodyHeight || '100%'};
+    height: ${height || '100%'};
     overflow-y: auto;
   `;
 
@@ -338,7 +335,7 @@ class Table extends Component<TableProps, TableState> {
         <ScrollContainer
           rowHeaders={rowHeaders}
           scrollable={scrollable}
-          tableBodyHeight={tableBodyHeight}
+          height={tableBodyHeight}
           onScroll={scrollable ? this.handleScroll : undefined}
         >
           <StyledTable
