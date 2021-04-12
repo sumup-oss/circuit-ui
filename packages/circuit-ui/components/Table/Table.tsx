@@ -25,7 +25,8 @@ import TableBody from './components/TableBody';
 import { getSortDirection, ascendingSort, descendingSort } from './utils';
 import { Direction, Row, Cell } from './types';
 
-export type TableProps = {
+export interface TableProps
+  extends Omit<HTMLProps<HTMLDivElement>, 'headers' | 'rows'> {
   /**
    * An array of headers for the table. The Header can be a string or an object
    * with options described on TableHeader component
@@ -72,7 +73,7 @@ export type TableProps = {
    * Collapses the table cells.
    */
   borderCollapsed?: boolean;
-};
+}
 
 /**
  * Table container styles.
@@ -314,6 +315,9 @@ class Table extends Component<TableProps, TableState> {
       condensed = false,
       scrollable = false,
       onRowClick,
+      rows,
+      onSortBy,
+      ...props
     } = this.props;
     const {
       sortDirection,
@@ -331,6 +335,7 @@ class Table extends Component<TableProps, TableState> {
         scrollable={scrollable}
         rowHeaders={rowHeaders}
         noShadow={noShadow}
+        {...props}
       >
         <ScrollContainer
           rowHeaders={rowHeaders}

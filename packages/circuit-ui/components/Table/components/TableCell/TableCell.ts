@@ -19,7 +19,7 @@ import styled, { StyleProps } from '../../../../styles/styled';
 
 const PRESENTATION = 'presentation';
 
-type TableCellProps = {
+export type TableCellProps = {
   /**
    * Aligns the content of the Cell with text-align
    */

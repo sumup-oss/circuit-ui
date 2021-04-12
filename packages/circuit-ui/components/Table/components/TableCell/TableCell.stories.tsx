@@ -15,6 +15,8 @@
 
 import React from 'react';
 
+import { TableCellProps } from './TableCell';
+
 import TableCell from '.';
 
 export default {
@@ -22,7 +24,7 @@ export default {
   component: TableCell,
 };
 
-export const Base = (args) => (
+export const Base = (args: TableCellProps) => (
   <TableCell style={{ width: '300px', alignSelf: 'center' }} {...args}>
     Cell
   </TableCell>
