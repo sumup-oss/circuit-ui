@@ -83,13 +83,15 @@ export interface TableHeaderProps
   children: ReactNode;
 }
 
-const getAriaSort = (sortable: boolean, sortDirection?: Direction) =>
-  sortable ? sortDirection || 'none' : undefined;
+const getAriaSort = (
+  sortable: TableHeaderProps['sortable'],
+  sortDirection: TableHeaderProps['sortDirection'],
+) => (sortable ? sortDirection || 'none' : undefined);
 
 const getLabelSort = (
-  sortable?: boolean,
-  sortDirection?: Direction,
-  sortLabel?: string | (({ direction }: { direction?: Direction }) => string),
+  sortable: TableHeaderProps['sortable'],
+  sortDirection: TableHeaderProps['sortDirection'],
+  sortLabel: TableHeaderProps['sortLabel'],
 ) => {
   if (!sortable) {
     return undefined;
