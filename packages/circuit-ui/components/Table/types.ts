@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,17 +13,23 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { ReactNode } from 'react';
 
-import TableHeader from '.';
+export type SortByValue = boolean | number | string | Date;
 
-export default {
-  title: 'Components/Table/TableHeader',
-  component: TableHeader,
+export type Direction = 'ascending' | 'descending';
+
+export type CellObject = {
+  children: ReactNode;
+  sortable?: boolean;
+  sortByValue?: SortByValue;
 };
 
-export const Base = (args) => (
-  <TableHeader style={{ width: '300px', alignSelf: 'center' }} {...args}>
-    Header
-  </TableHeader>
-);
+export type Cell = string | number | CellObject;
+
+export type Row =
+  | Cell[]
+  | {
+      cells: Cell[];
+      align?: string;
+    };

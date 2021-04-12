@@ -14,24 +14,54 @@
  */
 
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 
-import {
-  mapRowProps,
-  mapCellProps,
-  getCellChildren,
-  RowPropType,
-} from '../../utils';
+import { mapRowProps, mapCellProps, getCellChildren } from '../../utils';
+import { Row } from '../../types';
 import { TR_KEY_PREFIX, TD_KEY_PREFIX } from '../../constants';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 
-const getRowKey = (index) => `${TR_KEY_PREFIX}-${index}`;
-const getCellKey = (rowIndex, cellIndex) =>
+/**
+ * @private TableHead for the Table component. The Table handles rendering it
+ */
+type TableBodyProps = {
+  /**
+   *(An array of rows or object with children) containing cells for the table. The Cell can be a string
+   * or an object with options described on TableHeader component
+   */
+  rows?: Row[];
+  /**
+   * Enables/disables sticky columns on mobile
+   */
+  rowHeaders?: boolean;
+  /**
+   * @private The current hovered sort cell index
+   * Handled internally
+   */
+  sortHover?: number;
+  /**
+   * @private Adds condensed styles to the table.
+   * Handled internally
+   */
+  condensed?: boolean;
+  /**
+   * onClick handler
+   */
+  onRowClick?: (rowIndex: number) => void;
+};
+
+const getRowKey = (rowIndex: number) => `${TR_KEY_PREFIX}-${rowIndex}`;
+const getCellKey = (rowIndex: number, cellIndex: number) =>
   `${TD_KEY_PREFIX}-${rowIndex}-${cellIndex}`;
 
-const TableBody = ({ rows, condensed, rowHeaders, sortHover, onRowClick }) => (
+const TableBody = ({
+  rows = [],
+  condensed,
+  rowHeaders = false,
+  sortHover,
+  onRowClick,
+}: TableBodyProps): JSX.Element => (
   <tbody>
     {rows.map((row, rowIndex) => {
       const { cells, ...props } = mapRowProps(row);
@@ -39,7 +69,7 @@ const TableBody = ({ rows, condensed, rowHeaders, sortHover, onRowClick }) => (
         <TableRow
           key={getRowKey(rowIndex)}
           data-testid="table-row"
-          onClick={onRowClick ? () => onRowClick(rowIndex) : null}
+          onClick={onRowClick ? () => onRowClick(rowIndex) : undefined}
           {...props}
         >
           {cells.map((cell, cellIndex) =>
@@ -48,7 +78,7 @@ const TableBody = ({ rows, condensed, rowHeaders, sortHover, onRowClick }) => (
                 <TableHeader
                   fixed
                   condensed={condensed}
-                  scope={'row'}
+                  scope="row"
                   isHovered={sortHover === cellIndex}
                   {...mapCellProps(cell)}
                 />
@@ -74,46 +104,5 @@ const TableBody = ({ rows, condensed, rowHeaders, sortHover, onRowClick }) => (
     })}
   </tbody>
 );
-
-/**
- * @private TableHead for the Table component. The Table handles rendering it
- */
-TableBody.propTypes = {
-  /**
-   *(An array of rows or object with children) containing cells for the table. The Cell can be a string
-   * or an object with options described on TableHeader component
-   */
-  rows: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.shape({ cells: PropTypes.arrayOf(RowPropType) }),
-      PropTypes.arrayOf(RowPropType),
-    ]),
-  ),
-  /**
-   * Enables/disables sticky columns on mobile
-   */
-  rowHeaders: PropTypes.bool,
-  /**
-   * @private The current hovered sort cell index
-   * Handled internally
-   */
-  sortHover: PropTypes.number,
-  /**
-   * @private Adds condensed styles to the table.
-   * Handled internally
-   */
-  condensed: PropTypes.bool,
-  /**
-   * onClick handler
-   */
-  onRowClick: PropTypes.func,
-};
-
-TableBody.defaultProps = {
-  rows: [],
-  rowHeaders: false,
-  sortHover: null,
-  onRowClick: null,
-};
 
 export default TableBody;

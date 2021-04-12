@@ -15,8 +15,17 @@
 
 import React from 'react';
 
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  act,
+  userEvent,
+} from '../../util/test-utils';
+import Badge from '../Badge';
+
 import Table from './Table';
-import { ASCENDING } from './constants';
 
 const headers = [
   { children: 'Letters', sortable: true },
@@ -69,7 +78,24 @@ describe('Table', () => {
     });
 
     it('should not render a scrollable table if the rowHeaders prop is true', () => {
-      const actual = create(<Table headers={headers} rows={rows} />);
+      const actual = create(<Table headers={headers} rows={rows} rowHeaders />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with component cells', () => {
+      const actual = create(
+        <Table
+          headers={['Name', 'Type']}
+          rows={[
+            ['Apple', 'Fruit'],
+            ['Broccoli', 'Vegetable'],
+            [
+              'Chickpeas',
+              { children: <Badge color={'warning'}>Unknown</Badge> },
+            ],
+          ]}
+        />,
+      );
       expect(actual).toMatchSnapshot();
     });
   });
@@ -83,7 +109,7 @@ describe('Table', () => {
       );
 
       act(() => {
-        fireEvent.click(getAllByTestId('table-row')[0]);
+        userEvent.click(getAllByTestId('table-row')[0]);
       });
 
       expect(onRowClickMock).toHaveBeenCalledTimes(1);
@@ -92,46 +118,44 @@ describe('Table', () => {
 
     describe('sorting', () => {
       it('should sort a column in ascending order', () => {
-        const { getAllByTestId } = render(
-          <Table rows={rows} headers={headers} />,
+        const { getAllByRole } = render(
+          <Table rows={rows} headers={headers} rowHeaders={false} />,
         );
 
-        const letterHeaderEl = getAllByTestId('table-header')[0];
-        const cellEls = getAllByTestId('table-cell');
+        const letterHeaderEl = getAllByRole('columnheader')[0];
+        const cellEls = getAllByRole('cell');
 
         act(() => {
-          fireEvent.click(letterHeaderEl);
+          userEvent.click(letterHeaderEl);
         });
 
         const sortedRow = ['a', 'b', 'c'];
 
-        rows.forEach((row, index) => {
-          // There's a hidden header cell that we need to skip with +1.
-          const cellIndex = rowLength * index + 1;
+        rows.forEach((_row, index) => {
+          const cellIndex = rowLength * index;
           expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
         });
       });
 
       it('should sort a column in descending order', () => {
-        const { getAllByTestId } = render(
-          <Table rows={rows} headers={headers} />,
+        const { getAllByRole } = render(
+          <Table rows={rows} headers={headers} rowHeaders={false} />,
         );
 
-        const letterHeaderEl = getAllByTestId('table-header')[0];
-        const cellEls = getAllByTestId('table-cell');
+        const letterHeaderEl = getAllByRole('columnheader')[0];
+        const cellEls = getAllByRole('cell');
 
         act(() => {
-          fireEvent.click(letterHeaderEl);
+          userEvent.click(letterHeaderEl);
         });
         act(() => {
-          fireEvent.click(letterHeaderEl);
+          userEvent.click(letterHeaderEl);
         });
 
         const sortedRow = ['c', 'b', 'a'];
 
-        rows.forEach((row, index) => {
-          // There's a hidden header cell that we need to skip with +1.
-          const cellIndex = rowLength * index + 1;
+        rows.forEach((_row, index) => {
+          const cellIndex = rowLength * index;
           expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
         });
       });
@@ -139,13 +163,13 @@ describe('Table', () => {
       it('should call a custom sort callback', () => {
         const onSortByMock = jest.fn();
         const index = 0;
-        const nextDirection = ASCENDING;
+        const nextDirection = 'ascending';
         const { getAllByTestId } = render(
           <Table onSortBy={onSortByMock} headers={headers} rows={rows} />,
         );
 
         act(() => {
-          fireEvent.click(getAllByTestId('table-header')[0]);
+          userEvent.click(getAllByTestId('table-header')[0]);
         });
 
         expect(onSortByMock).toHaveBeenCalledTimes(1);

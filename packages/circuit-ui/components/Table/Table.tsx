@@ -13,34 +13,88 @@
  * limitations under the License.
  */
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, { Component, createRef, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import { isNil, throttle } from 'lodash/fp';
 
 import { shadowSingle } from '../../styles/style-mixins';
+import styled, { StyleProps } from '../../styles/styled';
 
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
-import {
-  getSortDirection,
-  ascendingSort,
-  descendingSort,
-  RowPropType,
-} from './utils';
-import { ASCENDING } from './constants';
+import { getSortDirection, ascendingSort, descendingSort } from './utils';
+import { Direction, Row, Cell } from './types';
+
+export interface TableProps
+  extends Omit<HTMLProps<HTMLDivElement>, 'headers' | 'rows'> {
+  /**
+   * An array of headers for the table. The Header can be a string or an object
+   * with options described on TableHeader component
+   */
+  headers?: Cell[];
+  /**
+   * (An array of rows or object with children) containing an array of cells for the table. The Cell can be a
+   * string or an object with options described on TableCell component
+   */
+  rows: Row[];
+  /**
+   * Enables/disables sticky columns on mobile. Defaults to true.
+   */
+  rowHeaders?: boolean;
+  /**
+   * Removes the default box-shadow from the table.
+   */
+  noShadow?: boolean;
+  /**
+   * Toggles condensed styles on the Table.
+   */
+  condensed?: boolean;
+  /**
+   * Toggles vertical scroll on the Table body.
+   */
+  scrollable?: boolean;
+  /**
+   * Custom onSortBy function for the onSort handler.
+   * The signature is (index, nextDirection, currentRows) and it should return
+   * an array of rows
+   */
+  onSortBy?: (
+    index: number,
+    // FIXME: we're keeping null here for backward compatibility, will switch to an optional param in v3
+    nextDirection: Direction | null,
+    currentRows: Row[],
+  ) => Row[];
+  /**
+   * Click handler for the row
+   * The signature is (index)
+   */
+  onRowClick?: (rowIndex: number) => void;
+  /**
+   * Collapses the table cells.
+   */
+  borderCollapsed?: boolean;
+}
 
 /**
  * Table container styles.
  * The position: relative; container is necessary because ShadowContainer
  * is a position: absolute; element
  */
+type TableContainerElProps = Pick<
+  TableProps,
+  'scrollable' | 'rowHeaders' | 'noShadow'
+>;
+
 const tableContainerBaseStyles = () => css`
   label: table-container;
   position: relative;
 `;
-const tableContainerScrollableStyles = ({ scrollable, rowHeaders, theme }) =>
+
+const tableContainerScrollableStyles = ({
+  scrollable,
+  rowHeaders,
+  theme,
+}: TableContainerElProps & StyleProps) =>
   scrollable &&
   css`
     height: 100%;
@@ -49,14 +103,14 @@ const tableContainerScrollableStyles = ({ scrollable, rowHeaders, theme }) =>
     }
   `;
 
-const noShadowStyles = ({ noShadow }) =>
+const noShadowStyles = ({ noShadow }: TableContainerElProps) =>
   noShadow &&
   css`
     label: table-container--no-shadow;
     box-shadow: none;
   `;
 
-const TableContainer = styled.div`
+const TableContainer = styled.div<TableContainerElProps & StyleProps>`
   ${tableContainerBaseStyles};
   ${tableContainerScrollableStyles};
   ${shadowSingle};
@@ -66,7 +120,13 @@ const TableContainer = styled.div`
 /**
  * Scroll container styles.
  */
-const containerStyles = ({ theme, rowHeaders }) =>
+type ScrollContainerElElProps = Pick<TableProps, 'scrollable' | 'rowHeaders'> &
+  HTMLProps<HTMLDivElement>;
+
+const containerStyles = ({
+  theme,
+  rowHeaders,
+}: ScrollContainerElElProps & StyleProps) =>
   rowHeaders &&
   css`
     label: table-container;
@@ -78,14 +138,14 @@ const containerStyles = ({ theme, rowHeaders }) =>
     }
   `;
 
-const scrollableStyles = ({ scrollable, height }) =>
+const scrollableStyles = ({ scrollable, height }: ScrollContainerElElProps) =>
   scrollable &&
   css`
     height: ${height || '100%'};
     overflow-y: auto;
   `;
 
-const ScrollContainer = styled.div`
+const ScrollContainer = styled.div<ScrollContainerElElProps>`
   ${containerStyles};
   ${scrollableStyles};
 `;
@@ -93,14 +153,16 @@ const ScrollContainer = styled.div`
 /**
  * Table styles.
  */
-const baseStyles = ({ theme }) => css`
+type TableElProps = Pick<TableProps, 'borderCollapsed' | 'rowHeaders'>;
+
+const baseStyles = ({ theme }: StyleProps) => css`
   label: table;
   background-color: ${theme.colors.white};
   border-collapse: separate;
   width: 100%;
 `;
 
-const responsiveStyles = ({ theme, rowHeaders }) =>
+const responsiveStyles = ({ theme, rowHeaders }: TableElProps & StyleProps) =>
   rowHeaders &&
   css`
     label: table--responsive;
@@ -124,29 +186,39 @@ const responsiveStyles = ({ theme, rowHeaders }) =>
     }
   `;
 
-const borderCollapsedStyles = ({ borderCollapsed }) =>
+const borderCollapsedStyles = ({ borderCollapsed }: TableElProps) =>
   borderCollapsed &&
   css`
     border-collapse: collapse;
   `;
 
-const StyledTable = styled.table`
+const StyledTable = styled.table<TableElProps>`
   ${baseStyles};
   ${responsiveStyles};
   ${borderCollapsedStyles};
 `;
 
+type TableState = {
+  sortedRow?: number;
+  sortHover?: number;
+  sortDirection?: Direction;
+  scrollTop?: number;
+  tableBodyHeight?: string;
+};
+
 /**
  * Table interface component. It handles rendering rows/headers properly
  */
-class Table extends Component {
-  state = {
-    sortedRow: null,
-    sortHover: null,
-    sortDirection: null,
-    scrollTop: null,
-    tableBodyHeight: null,
+class Table extends Component<TableProps, TableState> {
+  state: TableState = {
+    sortedRow: undefined,
+    sortHover: undefined,
+    sortDirection: undefined,
+    scrollTop: undefined,
+    tableBodyHeight: undefined,
   };
+
+  private tableRef = createRef<HTMLDivElement>();
 
   componentDidMount() {
     if (this.props.scrollable) {
@@ -154,12 +226,12 @@ class Table extends Component {
     }
   }
 
-  componentDidUpdate({ scrollable }) {
-    if (!scrollable && this.props.scrollable) {
+  componentDidUpdate(prevProps: TableProps) {
+    if (!prevProps.scrollable && this.props.scrollable) {
       this.addVerticalScroll();
     }
 
-    if (scrollable && !this.props.scrollable) {
+    if (prevProps.scrollable && !this.props.scrollable) {
       this.removeVerticalScroll();
     }
   }
@@ -185,21 +257,19 @@ class Table extends Component {
 
   calculateTableBodyHeight = () => {
     this.setState({
-      tableBodyHeight: isNil(this.tableContainer)
-        ? 'unset'
-        : `${this.tableContainer.parentNode.offsetHeight}px`,
+      tableBodyHeight:
+        isNil(this.tableRef.current) ||
+        isNil(this.tableRef.current.parentElement)
+          ? 'unset'
+          : `${this.tableRef.current.parentElement.offsetHeight}px`,
     });
   };
 
-  setTableRef = (tableContainer) => {
-    this.tableContainer = tableContainer;
-  };
+  onSortEnter = (i: number) => this.setState({ sortHover: i });
 
-  onSortEnter = (i) => this.setState({ sortHover: i });
+  onSortLeave = () => this.setState({ sortHover: undefined });
 
-  onSortLeave = () => this.setState({ sortHover: null });
-
-  onSortBy = (i) => {
+  onSortBy = (i: number) => {
     const { sortedRow, sortDirection } = this.state;
     const isActive = i === sortedRow;
     const nextDirection = getSortDirection(isActive, sortDirection);
@@ -211,42 +281,42 @@ class Table extends Component {
     const { rows, onSortBy } = this.props;
     const { sortDirection, sortedRow } = this.state;
 
-    if (sortedRow === null) {
+    if (sortedRow === undefined) {
       return rows;
     }
 
     return onSortBy
-      ? onSortBy(sortedRow, sortDirection, rows)
-      : this.defaultSortBy(sortedRow, sortDirection, rows);
+      ? onSortBy(sortedRow, sortDirection || null, rows)
+      : this.defaultSortBy(sortedRow, rows, sortDirection);
   };
 
-  updateSort = (i, nextDirection) =>
+  updateSort = (i: number, nextDirection: Direction) =>
     this.setState({
       sortedRow: i,
       sortDirection: nextDirection,
     });
 
-  defaultSortBy = (i, direction, rows) => {
-    const sortFn = direction === ASCENDING ? ascendingSort : descendingSort;
+  defaultSortBy = (i: number, rows: Row[], direction?: Direction) => {
+    const sortFn = direction === 'ascending' ? ascendingSort : descendingSort;
 
     return [...rows].sort(sortFn(i));
   };
 
-  handleScroll = (e) => {
-    this.setState({ scrollTop: e.target.scrollTop });
+  handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    this.setState({ scrollTop: e.currentTarget.scrollTop });
   };
 
   render() {
     const {
-      rowHeaders,
-      headers,
-      noShadow,
-      borderCollapsed,
-      condensed,
-      scrollable,
+      rowHeaders = true,
+      headers = [],
+      noShadow = false,
+      borderCollapsed = false,
+      condensed = false,
+      scrollable = false,
       onRowClick,
-      onSortBy,
       rows,
+      onSortBy,
       ...props
     } = this.props;
     const {
@@ -261,7 +331,7 @@ class Table extends Component {
 
     return (
       <TableContainer
-        ref={this.setTableRef}
+        ref={this.tableRef}
         scrollable={scrollable}
         rowHeaders={rowHeaders}
         noShadow={noShadow}
@@ -271,7 +341,7 @@ class Table extends Component {
           rowHeaders={rowHeaders}
           scrollable={scrollable}
           height={tableBodyHeight}
-          onScroll={scrollable ? this.handleScroll : null}
+          onScroll={scrollable ? this.handleScroll : undefined}
         >
           <StyledTable
             rowHeaders={rowHeaders}
@@ -281,7 +351,6 @@ class Table extends Component {
               top={scrollTop}
               condensed={condensed}
               scrollable={scrollable}
-              scrollTop={scrollTop}
               sortDirection={sortDirection}
               sortedRow={sortedRow}
               onSortBy={this.onSortBy}
@@ -292,7 +361,6 @@ class Table extends Component {
             />
             <TableBody
               condensed={condensed}
-              scrollable={scrollable}
               rows={sortedRows}
               rowHeaders={rowHeaders}
               sortHover={sortHover}
@@ -304,66 +372,5 @@ class Table extends Component {
     );
   }
 }
-
-Table.propTypes = {
-  /**
-   * An array of headers for the table. The Header can be a string or an object
-   * with options described on TableHeader component
-   */
-  headers: PropTypes.arrayOf(RowPropType),
-  /**
-   * (An array of rows or object with children) containing an array of cells for the table. The Cell can be a
-   * string or an object with options described on TableCell component
-   */
-  rows: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.shape({ cells: PropTypes.arrayOf(RowPropType) }),
-      PropTypes.arrayOf(RowPropType),
-    ]),
-  ),
-  /**
-   * Enables/disables sticky columns on mobile
-   */
-  rowHeaders: PropTypes.bool,
-  /**
-   * Removes the default box-shadow from the table.
-   */
-  noShadow: PropTypes.bool,
-  /**
-   * Toggles condensed styles on the Table.
-   */
-  condensed: PropTypes.bool,
-  /**
-   * Toggles vertical scroll on the Table body.
-   */
-  scrollable: PropTypes.bool,
-  /**
-   * Custom onSortBy function for the onSort handler.
-   * The signature is (index, nextDirection, currentRows) and it should return
-   * an array of rows
-   */
-  onSortBy: PropTypes.func,
-  /**
-   * Click handler for the row
-   * The signature is (index)
-   */
-  onRowClick: PropTypes.func,
-  /**
-   * Collapses the table cells.
-   */
-  borderCollapsed: PropTypes.bool,
-};
-
-Table.defaultProps = {
-  headers: [],
-  rows: [],
-  rowHeaders: true,
-  condensed: false,
-  scrollable: false,
-  noShadow: false,
-  onSortBy: null,
-  onRowClick: null,
-  borderCollapsed: false,
-};
 
 export default Table;

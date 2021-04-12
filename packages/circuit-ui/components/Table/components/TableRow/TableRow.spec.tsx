@@ -15,6 +15,15 @@
 
 import React from 'react';
 
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  act,
+  userEvent,
+} from '../../../../util/test-utils';
+
 import TableRow from '.';
 
 const children = 'Foo';
@@ -46,7 +55,7 @@ describe('TableHeader', () => {
 
       act(() => {
         rowEl.focus();
-        fireEvent.keyDown(rowEl, { key: 'Enter', code: 'Enter' });
+        userEvent.click(rowEl);
       });
       expect(onClick).toHaveBeenCalledTimes(1);
     });
@@ -62,8 +71,8 @@ describe('TableHeader', () => {
 
       act(() => {
         rowEl.focus();
-        fireEvent.keyDown(rowEl, { key: 'Enter', code: 'Enter' });
-        fireEvent.keyDown(rowEl, { key: ' ', code: 'Spacebar' });
+        userEvent.type(rowEl, '{enter}');
+        userEvent.type(rowEl, ' ');
       });
 
       expect(onClick).toHaveBeenCalledTimes(2);

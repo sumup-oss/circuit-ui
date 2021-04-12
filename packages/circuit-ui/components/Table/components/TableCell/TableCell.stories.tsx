@@ -13,10 +13,19 @@
  * limitations under the License.
  */
 
-export const ASCENDING = 'ascending';
-export const DESCENDING = 'descending';
-export const COL = 'col';
-export const ROW = 'row';
-export const TR_KEY_PREFIX = 'table-row';
-export const TD_KEY_PREFIX = 'table-cell';
-export const TH_KEY_PREFIX = 'table-header';
+import React from 'react';
+
+import { TableCellProps } from './TableCell';
+
+import TableCell from '.';
+
+export default {
+  title: 'Components/Table/TableCell',
+  component: TableCell,
+};
+
+export const Base = (args: TableCellProps) => (
+  <TableCell style={{ width: '300px', alignSelf: 'center' }} {...args}>
+    Cell
+  </TableCell>
+);

@@ -13,17 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
-import TableCell from '.';
-
-export default {
-  title: 'Components/Table/TableCell',
-  component: TableCell,
-};
-
-export const Base = (args) => (
-  <TableCell style={{ width: '300px', alignSelf: 'center' }} {...args}>
-    Cell
-  </TableCell>
-);
+export const TR_KEY_PREFIX = 'table-row';
+export const TD_KEY_PREFIX = 'table-cell';
+export const TH_KEY_PREFIX = 'table-header';

@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TableHead Style tests should render with default styles 1`] = `
-.circuit-12 {
+.circuit-7 {
   vertical-align: middle;
 }
 
-tbody .circuit-12:last-child th,
-tbody .circuit-12:last-child td {
+tbody .circuit-7:last-child th,
+tbody .circuit-7:last-child td {
   border-bottom: none;
 }
 
-.circuit-6 {
+.circuit-4 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
   color: #666;
   font-size: 13px;
   font-weight: 700;
@@ -30,7 +30,7 @@ tbody .circuit-12:last-child td {
   user-select: none;
 }
 
-.circuit-6:focus-within::after {
+.circuit-4:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -45,22 +45,22 @@ tbody .circuit-12:last-child td {
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-6:focus-within::after::-moz-focus-inner {
+.circuit-4:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-6:focus-within,
-.circuit-6:hover {
+.circuit-4:focus-within,
+.circuit-4:hover {
   background-color: #F5F5F5;
   color: #3063E9;
 }
 
-.circuit-6:focus-within > button,
-.circuit-6:hover > button {
+.circuit-4:focus-within > button,
+.circuit-4:hover > button {
   opacity: 1;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -92,11 +92,11 @@ tbody .circuit-12:last-child td {
   cursor: pointer;
 }
 
-.circuit-4:focus {
+.circuit-3:focus {
   opacity: 1;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
@@ -118,13 +118,13 @@ tbody .circuit-12:last-child td {
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-5 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
   color: #666;
   font-size: 13px;
   font-weight: 700;
@@ -133,18 +133,19 @@ tbody .circuit-12:last-child td {
 }
 
 <thead
-  class="circuit-14 circuit-15"
+  class="circuit-8"
 >
   <tr
-    class="circuit-12 circuit-13"
+    class="circuit-7"
   >
     <th
       aria-sort="none"
-      class="circuit-6 circuit-7"
+      class="circuit-4"
       data-testid="table-header"
+      scope="col"
     >
       <button
-        class="circuit-4 circuit-5"
+        class="circuit-3"
         role="button"
         title="Sort"
       >
@@ -181,7 +182,7 @@ tbody .circuit-12:last-child td {
           />
         </svg>
         <span
-          class="circuit-2 circuit-3"
+          class="circuit-2"
         >
           Sort
         </span>
@@ -189,14 +190,16 @@ tbody .circuit-12:last-child td {
       Foo
     </th>
     <th
-      class="circuit-8 circuit-7"
+      class="circuit-5"
       data-testid="table-header"
+      scope="col"
     >
       Bar
     </th>
     <th
-      class="circuit-8 circuit-7"
+      class="circuit-5"
       data-testid="table-header"
+      scope="col"
     >
       Baz
     </th>
@@ -205,66 +208,16 @@ tbody .circuit-12:last-child td {
 `;
 
 exports[`TableHead Style tests should render with rowHeader styles 1`] = `
-.circuit-12 {
+.circuit-8 {
   vertical-align: middle;
 }
 
-tbody .circuit-12:last-child th,
-tbody .circuit-12:last-child td {
+tbody .circuit-8:last-child th,
+tbody .circuit-8:last-child td {
   border-bottom: none;
 }
 
-.circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  color: #666;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.circuit-6:focus-within::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-6:focus-within::after::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-6:focus-within,
-.circuit-6:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
-}
-
-.circuit-6:focus-within > button,
-.circuit-6:hover > button {
-  opacity: 1;
-}
-
-.circuit-4 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -296,11 +249,11 @@ tbody .circuit-12:last-child td {
   cursor: pointer;
 }
 
-.circuit-4:focus {
+.circuit-3:focus {
   opacity: 1;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
@@ -322,13 +275,13 @@ tbody .circuit-12:last-child td {
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-6 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
   color: #666;
   font-size: 13px;
   font-weight: 700;
@@ -336,19 +289,104 @@ tbody .circuit-12:last-child td {
   vertical-align: middle;
 }
 
+.circuit-4 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  color: #666;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (max-width:767px) {
+  .circuit-4 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    overflow-wrap: break-word;
+  }
+}
+
+.circuit-4:focus-within::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus-within::after::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-4:focus-within,
+.circuit-4:hover {
+  background-color: #F5F5F5;
+  color: #3063E9;
+}
+
+.circuit-4:focus-within > button,
+.circuit-4:hover > button {
+  opacity: 1;
+}
+
+.circuit-5 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
+  vertical-align: middle;
+  overflow-wrap: break-word;
+  display: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+}
+
+@media (max-width:767px) {
+  .circuit-5 {
+    display: table-cell;
+    min-width: 145px;
+    max-width: 145px;
+    width: 145px;
+  }
+}
+
 <thead
-  class="circuit-14 circuit-15"
+  class="circuit-9"
 >
   <tr
-    class="circuit-12 circuit-13"
+    class="circuit-8"
   >
     <th
       aria-sort="none"
-      class="circuit-6 circuit-7"
+      class="circuit-4"
       data-testid="table-header"
+      scope="col"
     >
       <button
-        class="circuit-4 circuit-5"
+        class="circuit-3"
         role="button"
         title="Sort"
       >
@@ -385,22 +423,32 @@ tbody .circuit-12:last-child td {
           />
         </svg>
         <span
-          class="circuit-2 circuit-3"
+          class="circuit-2"
         >
           Sort
         </span>
       </button>
       Foo
     </th>
+    <td
+      aria-hidden="true"
+      class="circuit-5"
+      data-testid="table-cell"
+      role="presentation"
+    >
+      Foo
+    </td>
     <th
-      class="circuit-8 circuit-7"
+      class="circuit-6"
       data-testid="table-header"
+      scope="col"
     >
       Bar
     </th>
     <th
-      class="circuit-8 circuit-7"
+      class="circuit-6"
       data-testid="table-header"
+      scope="col"
     >
       Baz
     </th>

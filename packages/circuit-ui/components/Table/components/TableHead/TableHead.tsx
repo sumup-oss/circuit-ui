@@ -14,18 +14,81 @@
  */
 
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
-import { mapCellProps, getCellChildren, RowPropType } from '../../utils';
-import { ASCENDING, DESCENDING, TH_KEY_PREFIX } from '../../constants';
+import { mapCellProps, getCellChildren } from '../../utils';
+import { Cell, Direction } from '../../types';
+import { TH_KEY_PREFIX } from '../../constants';
+import styled, { StyleProps } from '../../../../styles/styled';
 
-const fixedStyles = ({ scrollable, top, rowHeaders, theme }) =>
+type ScrollableOptions =
+  | {
+      /**
+       * @private Adds scrollable styles the table head according to the table props.
+       * Handled internally.
+       */
+      scrollable: true;
+      /**
+       * @private The value used to make the thead fixed while scrolling.
+       * Handled internally.
+       */
+      top: number;
+    }
+  | {
+      scrollable?: boolean;
+      top?: number;
+    };
+
+type TableHeadProps = ScrollableOptions & {
+  /**
+   * An array of headers for the table. The Header can be a string or an object
+   * with options described on TableHeader component
+   */
+  headers?: Cell[];
+  /**
+   * Enables/disables sticky columns on mobile
+   */
+  rowHeaders?: boolean;
+  /**
+   * @private Adds condensed styles the table head according to the table props.
+   * Handled internally.
+   */
+  condensed?: boolean;
+  /**
+   * @private sortBy handler
+   */
+  onSortBy?: (i: number) => void;
+  /**
+   * @private The current sortDirection
+   */
+  sortDirection?: Direction;
+  /**
+   * @private The current sorted row index
+   */
+  sortedRow?: number;
+  /**
+   * @private sortEnter handler
+   */
+  onSortEnter?: (i: number) => void;
+  /**
+   * @private sortLeave handler
+   */
+  onSortLeave?: (i: number) => void;
+};
+
+type TheadElProps = Pick<TableHeadProps, 'scrollable' | 'top' | 'rowHeaders'>;
+
+const fixedStyles = ({
+  scrollable,
+  top,
+  rowHeaders,
+  theme,
+}: TheadElProps & StyleProps) =>
   scrollable &&
+  top && // we need this check despite the TS types
   css`
     label: table-head--fixed;
     transform: translateY(${top}px);
@@ -35,13 +98,13 @@ const fixedStyles = ({ scrollable, top, rowHeaders, theme }) =>
     }
   `;
 
-const Thead = styled.thead`
+const Thead = styled.thead<TheadElProps>`
   ${fixedStyles}
 `;
 
 const TableHead = ({
-  headers,
-  rowHeaders,
+  headers = [],
+  rowHeaders = false,
   condensed,
   scrollable,
   top,
@@ -50,10 +113,10 @@ const TableHead = ({
   sortedRow,
   onSortEnter,
   onSortLeave,
-}) => (
+}: TableHeadProps): JSX.Element => (
   <Thead scrollable={scrollable} top={top} rowHeaders={rowHeaders}>
     {!!headers.length && (
-      <TableRow header>
+      <TableRow>
         {headers.map((header, i) => {
           const cellProps = mapCellProps(header);
           return (
@@ -61,29 +124,29 @@ const TableHead = ({
               <TableHeader
                 {...cellProps}
                 condensed={condensed}
-                scrollable={scrollable}
                 fixed={rowHeaders && i === 0}
                 onClick={
-                  cellProps.sortable ? onSortBy && (() => onSortBy(i)) : null
+                  cellProps.sortable
+                    ? onSortBy && (() => onSortBy(i))
+                    : undefined
                 }
                 onMouseEnter={
                   cellProps.sortable
                     ? onSortEnter && (() => onSortEnter(i))
-                    : null
+                    : undefined
                 }
                 onMouseLeave={
                   cellProps.sortable
                     ? onSortLeave && (() => onSortLeave(i))
-                    : null
+                    : undefined
                 }
-                sortDirection={sortedRow === i ? sortDirection : null}
+                sortDirection={sortedRow === i ? sortDirection : undefined}
                 isSorted={sortedRow === i}
               />
               {rowHeaders && i === 0 && (
                 <TableCell
                   header
                   condensed={condensed}
-                  scrollable={scrollable}
                   role="presentation"
                   aria-hidden="true"
                 >
@@ -97,62 +160,5 @@ const TableHead = ({
     )}
   </Thead>
 );
-
-/**
- * @private TableHead for the Table component. The Table handlers rendering it
- */
-TableHead.propTypes = {
-  /**
-   * An array of headers for the table. The Header can be a string or an object
-   * with options described on TableHeader component
-   */
-  headers: PropTypes.arrayOf(RowPropType),
-  /**
-   * Enables/disables sticky columns on mobile
-   */
-  rowHeaders: PropTypes.bool,
-  /**
-   * @private Adds condensed styles the table head according to the table props.
-   * Handled internally.
-   */
-  condensed: PropTypes.bool,
-  /**
-   * @private Adds scrollable styles the table head according to the table props.
-   * Handled internally.
-   */
-  scrollable: PropTypes.bool,
-  /**
-   * @private The value used to make the thead fixed while scrolling.
-   * Handled internally.
-   */
-  top: PropTypes.number,
-  /**
-   * @private sortBy handler
-   */
-  onSortBy: PropTypes.func,
-  /**
-   * @private The current sortDirection
-   */
-  sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
-  /**
-   * @private The current sorted row index
-   */
-  sortedRow: PropTypes.number,
-  /**
-   * @private sortEnter handler
-   */
-  onSortEnter: PropTypes.func,
-  /**
-   * @private sortLeave handler
-   */
-  onSortLeave: PropTypes.func,
-};
-
-TableHead.defaultProps = {
-  headers: [],
-  rowHeaders: false,
-  sortDirection: null,
-  sortedRow: null,
-};
 
 export default TableHead;

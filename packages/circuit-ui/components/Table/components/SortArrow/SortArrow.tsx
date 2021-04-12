@@ -14,15 +14,21 @@
  */
 
 /** @jsx jsx */
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { HTMLAttributes } from 'react';
 import { css, jsx } from '@emotion/core';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
+import styled, { StyleProps } from '../../../../styles/styled';
 import { hideVisually } from '../../../../styles/style-mixins';
-import { ASCENDING, DESCENDING } from '../../constants';
+import { Direction } from '../../types';
 
-const baseStyles = ({ theme }) => css`
+interface SortArrowProps extends HTMLAttributes<HTMLButtonElement> {
+  direction?: Direction;
+  // FIXME the label should be a required attribute.
+  label?: string;
+}
+
+const baseStyles = ({ theme }: StyleProps) => css`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,17 +69,16 @@ const Label = styled('span')(hideVisually);
 /**
  * @private Arrow component for TableHeader sorting
  */
-const SortArrow = ({ label = 'Sort', direction = null, ...props }) => (
+const SortArrow = ({
+  label = 'Sort',
+  direction,
+  ...props
+}: SortArrowProps): JSX.Element => (
   <Wrapper role="button" title={label} {...props}>
-    {direction !== ASCENDING && <ChevronUp css={iconStyles} />}
-    {direction !== DESCENDING && <ChevronDown css={iconStyles} />}
+    {direction !== 'ascending' && <ChevronUp css={iconStyles} />}
+    {direction !== 'descending' && <ChevronDown css={iconStyles} />}
     <Label>{label}</Label>
   </Wrapper>
 );
-
-SortArrow.propTypes = {
-  direction: PropTypes.oneOf([ASCENDING, DESCENDING]),
-  label: PropTypes.string,
-};
 
 export default SortArrow;

@@ -15,36 +15,51 @@
 
 import React from 'react';
 
-import TableCell from '.';
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  act,
+  userEvent,
+} from '../../../../util/test-utils';
 
-const children = 'Foo';
+import SortArrow from '.';
 
-describe('TableCell', () => {
+describe('SortArrow', () => {
   describe('Style tests', () => {
-    it('should render with default styles', () => {
-      const actual = create(<TableCell>{children}</TableCell>);
+    it('should render with both arrows styles', () => {
+      const actual = create(<SortArrow />);
       expect(actual).toMatchSnapshot();
     });
 
-    it('should render with isHovered styles', () => {
-      const actual = create(<TableCell isHovered>{children}</TableCell>);
+    it('should render with ascending arrow styles', () => {
+      const actual = create(<SortArrow direction="ascending" />);
       expect(actual).toMatchSnapshot();
     });
 
-    it('should render with header styles', () => {
-      const actual = create(<TableCell header>{children}</TableCell>);
+    it('should render with descending arrow styles', () => {
+      const actual = create(<SortArrow direction="descending" />);
       expect(actual).toMatchSnapshot();
     });
+  });
 
-    it('should render with condensed styles', () => {
-      const actual = create(<TableCell condensed>{children}</TableCell>);
-      expect(actual).toMatchSnapshot();
+  describe('Logic tests', () => {
+    it('should call the onClick callback', () => {
+      const onClick = jest.fn();
+      const { getByTestId } = render(
+        <SortArrow onClick={onClick} data-testid="sort" />,
+      );
+      act(() => {
+        userEvent.click(getByTestId('sort'));
+      });
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<TableCell sortable>{children}</TableCell>);
+      const wrapper = renderToHtml(<SortArrow />);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });

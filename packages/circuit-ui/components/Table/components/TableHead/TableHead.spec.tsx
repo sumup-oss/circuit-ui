@@ -15,6 +15,15 @@
 
 import React from 'react';
 
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  act,
+  userEvent,
+} from '../../../../util/test-utils';
+
 import TableHead from '.';
 
 const fixtureHeaders = [{ children: 'Foo', sortable: true }, 'Bar', 'Baz'];
@@ -27,7 +36,7 @@ describe('TableHead', () => {
     });
 
     it('should render with rowHeader styles', () => {
-      const actual = create(<TableHead rowHeader headers={fixtureHeaders} />);
+      const actual = create(<TableHead rowHeaders headers={fixtureHeaders} />);
       expect(actual).toMatchSnapshot();
     });
   });
@@ -41,7 +50,7 @@ describe('TableHead', () => {
       );
 
       act(() => {
-        fireEvent.click(getByTestId('table-header'));
+        userEvent.click(getByTestId('table-header'));
       });
 
       expect(onSortByMock).not.toHaveBeenCalled();
@@ -55,7 +64,7 @@ describe('TableHead', () => {
       );
 
       act(() => {
-        fireEvent.click(getByTestId('table-header'));
+        userEvent.click(getByTestId('table-header'));
       });
 
       expect(onSortByMock).toHaveBeenCalledTimes(1);
@@ -72,7 +81,7 @@ describe('TableHead', () => {
       );
 
       act(() => {
-        fireEvent.mouseEnter(getByTestId('table-header'));
+        userEvent.hover(getByTestId('table-header'));
       });
 
       expect(onSortEnterMock).not.toHaveBeenCalled();
@@ -86,7 +95,7 @@ describe('TableHead', () => {
       );
 
       act(() => {
-        fireEvent.mouseEnter(getByTestId('table-header'));
+        userEvent.hover(getByTestId('table-header'));
       });
 
       expect(onSortEnterMock).toHaveBeenCalledTimes(1);
@@ -103,7 +112,7 @@ describe('TableHead', () => {
       );
 
       act(() => {
-        fireEvent.mouseLeave(getByTestId('table-header'));
+        userEvent.unhover(getByTestId('table-header'));
       });
 
       expect(onSortLeaveMock).not.toHaveBeenCalled();
@@ -117,7 +126,7 @@ describe('TableHead', () => {
       );
 
       act(() => {
-        fireEvent.mouseLeave(getByTestId('table-header'));
+        userEvent.unhover(getByTestId('table-header'));
       });
 
       expect(onSortLeaveMock).toHaveBeenCalledTimes(1);
@@ -128,7 +137,7 @@ describe('TableHead', () => {
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(
-        <TableHead rowHeader headers={fixtureHeaders} />,
+        <TableHead rowHeaders headers={fixtureHeaders} />,
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

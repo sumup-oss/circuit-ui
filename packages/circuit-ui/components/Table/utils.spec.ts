@@ -14,7 +14,6 @@
  */
 
 import * as utils from './utils';
-import { ASCENDING, DESCENDING } from './constants';
 
 describe('Table utils', () => {
   describe('mapRowProps()', () => {
@@ -109,7 +108,7 @@ describe('Table utils', () => {
     });
 
     it('should return the sortByValue', () => {
-      const props = { sortByValue: 'Foo' };
+      const props = { children: 'Foo', sortByValue: 'Foo' };
       const expected = props.sortByValue;
       const actual = utils.getSortByValue(props);
 
@@ -119,8 +118,8 @@ describe('Table utils', () => {
 
   describe('getSortDirection()', () => {
     describe('sort not active', () => {
-      it('should return ASCENDING', () => {
-        const expected = ASCENDING;
+      it('should return "ascending"', () => {
+        const expected = 'ascending';
         const isActive = false;
         const actual = utils.getSortDirection(isActive);
 
@@ -129,8 +128,8 @@ describe('Table utils', () => {
     });
 
     describe('no currentSort', () => {
-      it('should return ASCENDING', () => {
-        const expected = ASCENDING;
+      it('should return "ascending"', () => {
+        const expected = 'ascending';
         const isActive = true;
         const actual = utils.getSortDirection(isActive);
 
@@ -138,22 +137,22 @@ describe('Table utils', () => {
       });
     });
 
-    describe('ASCENDING', () => {
-      it('should return DESCENDING', () => {
-        const currentSort = ASCENDING;
+    describe('"ascending"', () => {
+      it('should return "descending"', () => {
+        const currentSort = 'ascending';
         const isActive = true;
-        const expected = DESCENDING;
+        const expected = 'descending';
         const actual = utils.getSortDirection(isActive, currentSort);
 
         expect(actual).toBe(expected);
       });
     });
 
-    describe('DESCENDING', () => {
-      it('should return ASCENDING', () => {
-        const currentSort = DESCENDING;
+    describe('"descending"', () => {
+      it('should return "ascending"', () => {
+        const currentSort = 'descending';
         const isActive = true;
-        const expected = ASCENDING;
+        const expected = 'ascending';
         const actual = utils.getSortDirection(isActive, currentSort);
 
         expect(actual).toBe(expected);
@@ -161,12 +160,12 @@ describe('Table utils', () => {
     });
 
     describe('unknown direction', () => {
-      it('should return ASCENDING', () => {
+      it('should return "ascending"', () => {
         const currentSort = 'Foo';
         const isActive = true;
-        const expected = ASCENDING;
+        const expected = 'ascending';
+        // @ts-expect-error currentSort can only be "ascending" or "descending"
         const actual = utils.getSortDirection(isActive, currentSort);
-
         expect(actual).toBe(expected);
       });
     });

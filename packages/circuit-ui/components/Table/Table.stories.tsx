@@ -19,6 +19,7 @@ import { action } from '@storybook/addon-actions';
 import Badge from '../Badge';
 
 import docs from './Table.docs.mdx';
+import { TableProps } from './Table';
 
 import Table, { TableHeader, TableRow, TableCell } from '.';
 
@@ -31,7 +32,7 @@ export default {
   },
 };
 
-export const Base = ({ onSortBy, ...args }) => <Table {...args} />;
+export const Base = ({ onSortBy, ...args }: TableProps) => <Table {...args} />;
 
 Base.args = {
   headers: [
@@ -43,7 +44,7 @@ Base.args = {
   rows: [
     {
       'cells': [
-        'Lorem ipsum dolor',
+        'Lorem ipsum',
         {
           'children': '12/01/2017',
           'sortByValue': 0,
@@ -55,13 +56,13 @@ Base.args = {
       'data-selector': 'item-1',
     },
     [
-      'Ipsum dolor sit amet',
+      'Consectetur adipiscing',
       { children: '13/01/2017', sortByValue: 1 },
       'Virtual Terminal',
       { children: 'Enabled', align: 'right' },
     ],
     [
-      'Dolor sit amet, consectetur adipiscing',
+      'Dolor sit amet',
       { children: '14/01/2017', sortByValue: 2 },
       '-',
       { children: 'Disabled', align: 'right' },
@@ -71,7 +72,9 @@ Base.args = {
   onRowClick: action('onRowClick'),
 };
 
-export const WithComponentRows = ({ onSortBy, ...args }) => <Table {...args} />;
+export const WithComponentRows = ({ onSortBy, ...args }: TableProps) => (
+  <Table {...args} />
+);
 
 WithComponentRows.args = {
   headers: ['Name', 'Type'],
@@ -82,7 +85,9 @@ WithComponentRows.args = {
   ],
 };
 
-export const Sortable = ({ onSortBy, ...args }) => <Table {...args} />;
+export const Sortable = ({ onSortBy, ...args }: TableProps) => (
+  <Table {...args} />
+);
 
 Sortable.args = {
   headers: [
@@ -114,13 +119,17 @@ Sortable.args = {
   ],
 };
 
-export const CustomSort = (args) => (
+export const CustomSort = (args: TableProps) => (
   <Table
     {...args}
-    onSortBy={(i, direction, rows) =>
+    onSortBy={(_i, direction, rows) =>
       direction === 'ascending'
-        ? rows.sort((a, b) => a[0].localeCompare(b[0]))
-        : rows.sort((a, b) => b[0].localeCompare(a[0]))
+        ? rows.sort(
+            (a, b) => typeof a[0] === 'string' && a[0].localeCompare(b[0]),
+          )
+        : rows.sort(
+            (a, b) => typeof b[0] === 'string' && b[0].localeCompare(a[0]),
+          )
     }
   />
 );

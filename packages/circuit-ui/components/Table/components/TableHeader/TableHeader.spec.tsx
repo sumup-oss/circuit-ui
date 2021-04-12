@@ -15,7 +15,8 @@
 
 import React from 'react';
 
-import { ASCENDING, DESCENDING } from '../../constants';
+import { create, renderToHtml, axe } from '../../../../util/test-utils';
+import { Direction } from '../../types';
 
 import TableHeader from '.';
 
@@ -29,14 +30,12 @@ describe('TableHeader', () => {
     });
 
     it('should render with row styles', () => {
-      const actual = create(
-        <TableHeader scope={'row'}>{children}</TableHeader>,
-      );
+      const actual = create(<TableHeader scope="row">{children}</TableHeader>);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render with sortable styles', () => {
-      const sortLabel = ({ direction }) => {
+      const sortLabel = ({ direction }: { direction?: Direction }) => {
         const order = direction === 'ascending' ? 'descending' : 'ascending';
         return `Sort by Foo in ${order} order`;
       };
@@ -61,7 +60,7 @@ describe('TableHeader', () => {
     describe('sortable + sorted', () => {
       it('should render with sortable + sorted ascending styles', () => {
         const actual = create(
-          <TableHeader sortable isSorted sortDirection={ASCENDING}>
+          <TableHeader sortable isSorted sortDirection="ascending">
             {children}
           </TableHeader>,
         );
@@ -70,7 +69,7 @@ describe('TableHeader', () => {
 
       it('should render with sortable + sorted descending styles', () => {
         const actual = create(
-          <TableHeader sortable isSorted sortDirection={DESCENDING}>
+          <TableHeader sortable isSorted sortDirection="descending">
             {children}
           </TableHeader>,
         );

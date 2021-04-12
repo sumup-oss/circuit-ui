@@ -14,11 +14,18 @@
  */
 
 /** @jsx jsx */
+import { FC, MouseEvent, KeyboardEvent } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 
-import { isEnter, isSpacebar } from '../../../../util/key-codes';
 import { focusOutline } from '../../../../styles/style-mixins';
+import { StyleProps } from '../../../../styles/styled';
+
+type TableRowProps = {
+  onClick?: (
+    event: MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>,
+  ) => void;
+};
 
 const baseStyles = () => css`
   label: table-row;
@@ -37,7 +44,7 @@ const baseStyles = () => css`
 // Chrome doesn't respect position: relative; on table elements
 // so the transform property is used to create a separate stacking context
 // which is needed to show the focus outline above the other table rows.
-const clickableStyles = ({ theme, onClick }) =>
+const clickableStyles = ({ theme, onClick }: StyleProps & TableRowProps) =>
   onClick &&
   css`
     label: table-row--clickable;
@@ -64,20 +71,7 @@ const clickableStyles = ({ theme, onClick }) =>
 
 const Tr = styled.tr(baseStyles, clickableStyles);
 
-const TableRow = ({ onClick, ...props }) => {
-  const handleKeyDown = (event) => {
-    if (isEnter(event) || isSpacebar(event)) {
-      onClick();
-    }
-  };
-  return (
-    <Tr
-      onClick={onClick}
-      onKeyDown={onClick ? handleKeyDown : null}
-      tabIndex={onClick ? '0' : undefined}
-      {...props}
-    />
-  );
-};
-
+const TableRow: FC<TableRowProps> = ({ onClick, ...props }) => (
+  <Tr onClick={onClick} tabIndex={onClick ? 0 : undefined} {...props} />
+);
 export default TableRow;

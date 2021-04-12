@@ -13,13 +13,41 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+
+import styled, { StyleProps } from '../../../../styles/styled';
 
 const PRESENTATION = 'presentation';
 
-const baseStyles = ({ theme, align }) => css`
+export type TableCellProps = {
+  /**
+   * Aligns the content of the Cell with text-align
+   */
+  align?: 'left' | 'right' | 'center';
+  /**
+   * @private Add heading styles to placeholder Cell.
+   * Handled internally
+   */
+  header?: boolean;
+  /**
+   * @private Adds active style to the Cell if it is currently hovered by
+   * sort.
+   * Handled internally
+   */
+  isHovered?: boolean;
+  condensed?: boolean;
+  sortable?: boolean;
+  role?: 'presentation';
+  /**
+   * @private A testid for selecting table cells in tests. Handled internally.
+   */
+  ['data-testid']?: string;
+};
+
+const baseStyles = ({
+  theme,
+  align = 'left',
+}: TableCellProps & StyleProps) => css`
   label: table-cell;
   background-color: ${theme.colors.white};
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
@@ -30,7 +58,11 @@ const baseStyles = ({ theme, align }) => css`
   overflow-wrap: break-word;
 `;
 
-const presentationStyles = ({ theme, role, header }) =>
+const presentationStyles = ({
+  theme,
+  role,
+  header = false,
+}: TableCellProps & StyleProps) =>
   role === PRESENTATION &&
   css`
     label: table-cell--presentation;
@@ -51,14 +83,17 @@ const presentationStyles = ({ theme, role, header }) =>
     }
   `;
 
-const hoverStyles = ({ theme, isHovered }) =>
+const hoverStyles = ({
+  theme,
+  isHovered = false,
+}: TableCellProps & StyleProps) =>
   isHovered &&
   css`
     label: table-cell--hover;
     background-color: ${theme.colors.n100};
   `;
 
-const condensedStyles = ({ condensed, theme }) =>
+const condensedStyles = ({ condensed, theme }: TableCellProps & StyleProps) =>
   condensed &&
   css`
     label: table-cell--condensed;
@@ -66,7 +101,12 @@ const condensedStyles = ({ condensed, theme }) =>
     ${theme.typography.text.kilo};
   `;
 
-const condensedPresentationStyles = ({ role, header, condensed, theme }) =>
+const condensedPresentationStyles = ({
+  role,
+  header = false,
+  condensed,
+  theme,
+}: TableCellProps & StyleProps) =>
   condensed &&
   role === PRESENTATION &&
   css`
@@ -83,7 +123,7 @@ const condensedPresentationStyles = ({ role, header, condensed, theme }) =>
  * TableCell component for the Table. You shouldn't import this component
  * directly, the Table handles it
  */
-const TableCell = styled.td`
+const TableCell = styled.td<TableCellProps>`
   ${baseStyles};
   ${condensedStyles};
   ${presentationStyles};
@@ -91,29 +131,12 @@ const TableCell = styled.td`
   ${condensedPresentationStyles};
 `;
 
-TableCell.propTypes = {
-  /**
-   * Aligns the content of the Cell with text-align
-   */
-  align: PropTypes.oneOf(['left', 'right', 'center']),
-  /**
-   * @private Add heading styles to placeholder Cell.
-   * Handled internally
-   */
-  header: PropTypes.bool,
-  /**
-   * @private Adds active style to the Cell if it is currently hovered by
-   * sort.
-   * Handled internally
-   */
-  isHovered: PropTypes.bool,
-};
-
+/**
+ * FIXME: we don't need this data-testid (should query by role when testing)
+ * but some might rely on it in their tests, so this will be a breaking change.
+ */
 TableCell.defaultProps = {
   'data-testid': 'table-cell',
-  'align': 'left',
-  'header': false,
-  'isHovered': false,
 };
 
 export default TableCell;
