@@ -20,21 +20,26 @@ const SORT_ORDER = {
     'Getting Started',
     'Design Principles',
     'Contributing',
-    'Code of Conduct',
   ],
-  Advanced: [
+  Features: [
     'Theme',
     'Icons',
     'Style Mixins',
-    'Base Components',
     'Event Tracking',
+    'Base Components',
     'Static CSS',
   ],
   Typography: ['Heading', 'SubHeading', 'Text'],
   Layout: [],
   Forms: [],
   Components: [],
-  Icons: [],
+  Packages: [
+    'circuit-ui',
+    'design-tokens',
+    'icons',
+    'create-sumup-next-app',
+    'create-sumup-react-app',
+  ],
 };
 
 export const parameters = {

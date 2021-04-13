@@ -14,6 +14,7 @@ lib
 .out
 .docz
 circuit-ui-global.css
+docs/packages/
 
 # Packages #
 

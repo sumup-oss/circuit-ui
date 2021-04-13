@@ -1,6 +1,6 @@
 <div align="center">
 
-# create-sumup-next-app
+# @sumup/cna-template
 
 A
 [create-next-app template](https://nextjs.org/docs/api-reference/create-next-app) for TypeScript Next.js apps with SumUp's frontend stack.

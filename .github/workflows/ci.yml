@@ -39,7 +39,7 @@ jobs:
         run: yarn check:licenses
 
       - name: Check SVG sizes
-        run: ./scripts/check-svg-sizes.sh
+        run: yarn check:svg-sizes
 
       - name: Build packages
         run: yarn build
