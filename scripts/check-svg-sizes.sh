@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Reports all SVGs in the /web folder that exceed the size limit.
+# Reports all SVGs that exceed the size limit.
 
 size_limit=15
 offenders=$(find ./packages -type f -name "*.svg" -size +${size_limit}k ! -path '*node_modules*')
