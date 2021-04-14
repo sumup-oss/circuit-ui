@@ -15,31 +15,37 @@ import { sortStories } from './util/story-helpers';
 // Add group and story names to the sort order to explicitly order them.
 // Items that are not included in the list are shown below the sorted items.
 const SORT_ORDER = {
-  Introduction: [
-    'Welcome',
-    'Getting Started',
-    'Design Principles',
-    'Contributing',
-  ],
-  Features: [
-    'Theme',
-    'Icons',
-    'Style Mixins',
-    'Event Tracking',
-    'Base Components',
-    'Static CSS',
-  ],
-  Typography: ['Heading', 'SubHeading', 'Text'],
-  Layout: [],
-  Forms: [],
-  Components: [],
-  Packages: [
-    'circuit-ui',
-    'design-tokens',
-    'icons',
-    'create-sumup-next-app',
-    'create-sumup-react-app',
-  ],
+  Introduction: {
+    'Welcome': {},
+    'Getting Started': {},
+    'Design Principles': {},
+    'Contributing': {
+      'Overview': {},
+      'Code Conventions': {},
+      'Testing': {},
+      'Release Process': {},
+      'Deprecations': {},
+    },
+  },
+  Features: {
+    'Theme': {},
+    'Icons': {},
+    'Style Mixins': {},
+    'Event Tracking': {},
+    'Base Components': {},
+    'Static CSS': {},
+  },
+  Typography: { Heading: {}, SubHeading: {}, Text: {} },
+  Layout: {},
+  Forms: {},
+  Components: {},
+  Packages: {
+    'circuit-ui': {},
+    'design-tokens': {},
+    'icons': {},
+    'create-sumup-next-app': {},
+    'create-sumup-react-app': {},
+  },
 };
 
 export const parameters = {

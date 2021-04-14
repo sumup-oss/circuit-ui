@@ -27,6 +27,11 @@ const StyledText = styled(Text)(
     font-size: 20px !important;
     color: ${theme.colors.n700};
     margin-bottom: ${theme.spacings.giga};
+
+    * {
+      line-height: 1.66 !important;
+      font-size: 20px !important;
+    }
   `,
 );
 
