@@ -4,8 +4,7 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-Cards are one of the most important elements that give structure for the content we are showing for our
-users. They group related information and make our product easy to scan and understand.
+Cards are one of the most important elements that give structure for the content we are showing to our users. They group related information and make our product easy to scan and understand.
 
 <Story id="components-card--base" />
 
@@ -22,32 +21,23 @@ You should use cards whenever you need to present related information in an easy
 - **Do** place primary buttons on the bottom of the card, especially the main call to action for the next step
 - **Do not** place more than one primary button on a card
 - **Do not** fill the card with a lot of content. If the card requires too much scrolling, consider breaking it into multiple sections with different cards
-- **Do not** place a card
 
 ## Component variations
 
-### Card spacings
+### Card Spacings
 
-Cards come in two spacing variations, mega and giga. Giga
-is the default and should be used for most cases.
+Cards come in two spacing variations, `mega` and `giga`. `giga` is the default and should be used for most cases.
 
 <Story id="components-card--spacings" />
 
-### Shadows
+### CardHeader
 
-A card has three possible different shadows ranging from low intensity (single) to maximum (triple). For most cases,
-the single shadow is recommended.
-
-<Story id="components-card--shadows" />
-
-### Header
-
-Cards can also include in themselves several components, such as a configurable Header.
+Cards can also include in themselves several components, such as a configurable CardHeader.
 
 <Story id="components-card--with-header" />
 
-### Footer
+### CardFooter
 
-Besides the Header mentioned above, the card can make use of other components such as a footer with different alignments.
+Besides the CardHeader mentioned above, the card can make use of other components such as the CardFooter with different alignments.
 
 <Story id="components-card--with-footer" />

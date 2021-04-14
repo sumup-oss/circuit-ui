@@ -21,7 +21,6 @@ import { css, jsx } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components';
-import CardList from '../CardList';
 import Heading from '../Heading';
 import Text from '../Text';
 import ButtonGroup from '../ButtonGroup';
@@ -34,7 +33,7 @@ import Card, { CardHeader, CardFooter } from '.';
 export default {
   title: 'Components/Card',
   component: Card,
-  subcomponents: { CardList },
+  subcomponents: { CardHeader, CardFooter },
   parameters: {
     docs: { page: docs },
   },
@@ -72,14 +71,6 @@ const Content = () => (
 );
 
 export const Base = () => <Card css={cardStyles} />;
-
-export const Shadows = () => (
-  <Stack>
-    <Card shadow={'single'} css={squareStyles} />
-    <Card shadow={'double'} css={squareStyles} />
-    <Card shadow={'triple'} css={squareStyles} />
-  </Stack>
-);
 
 export const Spacings = () => (
   <Stack>
