@@ -3,7 +3,7 @@
 exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
 .circuit-31 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  border: 1px solid #CCC;
 }
 
 .circuit-30 {
@@ -802,7 +802,7 @@ tbody .circuit-3:last-child td {
 exports[`Table Style tests should render a collapsed table 1`] = `
 .circuit-31 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  border: 1px solid #CCC;
 }
 
 .circuit-30 {
@@ -1347,7 +1347,7 @@ tbody .circuit-12:last-child td {
 exports[`Table Style tests should render a condensed table 1`] = `
 .circuit-31 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  border: 1px solid #CCC;
 }
 
 .circuit-30 {
@@ -2069,7 +2069,7 @@ tbody .circuit-11:last-child td {
 .circuit-27 {
   position: relative;
   height: 100%;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  border: 1px solid #CCC;
 }
 
 @media (max-width:767px) {
@@ -2295,7 +2295,7 @@ tbody .circuit-11:last-child td {
 exports[`Table Style tests should render with component cells 1`] = `
 .circuit-20 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  border: 1px solid #CCC;
 }
 
 .circuit-19 {
@@ -2604,7 +2604,7 @@ tbody .circuit-3:last-child td {
 exports[`Table Style tests should render with default styles 1`] = `
 .circuit-31 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  border: 1px solid #CCC;
 }
 
 .circuit-30 {
@@ -3148,7 +3148,7 @@ tbody .circuit-12:last-child td {
 exports[`Table Style tests should render with rowHeader styles 1`] = `
 .circuit-31 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  border: 1px solid #CCC;
 }
 
 .circuit-30 {
@@ -3993,8 +3993,6 @@ tbody .circuit-12:last-child td {
 
 .circuit-31 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-  box-shadow: none;
 }
 
 <div
