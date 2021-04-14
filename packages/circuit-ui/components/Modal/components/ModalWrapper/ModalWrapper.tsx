@@ -23,6 +23,7 @@ export type ModalWrapperProps = CardProps;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   width: 100%;
+  border: none;
 
   ${theme.mq.untilKilo} {
     border-bottom-left-radius: 0;
@@ -35,5 +36,5 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const Wrapper = styled(Card)<ModalWrapperProps>(baseStyles);
 
 export const ModalWrapper: FC<ModalWrapperProps> = (props) => (
-  <Wrapper shadow="triple" spacing="giga" {...props} />
+  <Wrapper spacing="giga" {...props} />
 );
