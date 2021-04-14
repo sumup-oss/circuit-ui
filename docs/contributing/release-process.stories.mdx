@@ -1,0 +1,31 @@
+import { Meta } from '../../.storybook/components';
+
+<Meta title="Introduction/Contributing/Release Process" />
+
+# Release Process
+
+Circuit UI follows semantic versioning. In short, this means we use patch versions for bugfixes, minor versions for new features, and major versions for breaking changes.
+
+## Changesets
+
+Circuit UI uses [changesets](https://github.com/atlassian/changesets) to do versioning. A changeset is a piece of information about changes made in a branch or commit. It holds three bits of information:
+
+- What needs to be released
+- What version the packages should be released at (using a [semver bump type](https://semver.org/))
+- A changelog entry for the released packages
+
+Refer to the [official documentation](https://github.com/atlassian/changesets/blob/main/docs/adding-a-changeset.md#i-am-in-a-multi-package-repository-a-mono-repo) for more information.
+
+## Release branches
+
+We have a couple of special branches that are used for stable releases and prereleases.
+
+- **`main`** - The code in the `main` branch is stable and production-tested. When a PR is merged to `main` that contains a new changeset, `changesets` opens a PR and keeps it up to date with the latest changes. When the PR is merged, a new version is automatically published to NPM and the changesets since the last release are added to CHANGELOG.md files in GitHub.
+- **`canary`** - This is a branch you can use to test your changes integrated with other branches before it is ready to be PR'd to `main`. It is also useful if you need to deploy the changes somewhere to test them. `canary` is a throw-away branch that can be recreated from `main` at any time. Usually, `canary` is a couple of commits ahead of `main`.
+- **`next`** — This branch is used to develop the next major version in parallel. It is the only branch that can contain breaking changes.
+
+To install the most recent version from a release channel in your project, run:
+
+```sh
+yarn add @sumup/circuit-ui@<release-channel>
+```

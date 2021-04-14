@@ -14,7 +14,10 @@ lib
 .out
 .docz
 circuit-ui-global.css
+
+# These are generated in CI from other files.
 docs/packages/
+docs/contribution/overview.stories.mdx
 
 # Packages #
 

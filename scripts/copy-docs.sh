@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-# Copies package READMEs to be included in Storybook
+# Copies documentation files to be included in Storybook
+
+# Package READMEs
 
 packages=(./packages/*)
 
@@ -13,3 +15,7 @@ for package in "${packages[@]}"; do
 
   echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Packages/${package_name}\" />\n\n$(cat ${src_file_path})" > "${dest_file_path}"
 done
+
+# CONTRIBUTING.md
+
+echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Introduction/Contributing/Overview\" />\n\n$(cat "./CONTRIBUTING.md")" > "./docs/contributing/overview.stories.mdx"

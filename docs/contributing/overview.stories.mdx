@@ -1,10 +1,14 @@
+import { Meta } from '../../.storybook/components';
+
+<Meta title="Introduction/Contributing/Overview" />
+
 # Contributing
 
 ## Code of Conduct (CoC)
 
 We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](https://github.com/sumup-oss/circuit-ui/tree/main/CODE_OF_CONDUCT.md).
 
-If you feel another member of the community violated our CoC or you are experiencing problems participating in our community because of another individual's behavior, please get in touch with our [maintainers](README.md#maintainers). We will enforce the CoC.
+If you feel another member of the community violated our CoC or you are experiencing problems participating in our community because of another individual's behavior, please get in touch with our [maintainers](https://github.com/sumup-oss/circuit-ui/tree/main/README.md#maintainers). We will enforce the CoC.
 
 ![Overview diagram of the contribution model](https://github.com/sumup-oss/circuit-ui/tree/main/assets/contribution-model.jpg?raw=true)
 
@@ -54,7 +58,13 @@ Refer to the `package.json` files in each package for other helpful scripts.
 
 ### Changesets
 
-Circuit UI uses [changesets](https://github.com/atlassian/changesets) to do versioning. As a contributors you can add a changeset by running `yarn changeset`. Read more in our [release process docs](https://circuit.sumup.com/?path=/docs/introduction-contributing-release-process--page).
+Circuit UI uses [changesets](https://github.com/atlassian/changesets) to do versioning. A changeset is a piece of information about changes made in a branch or commit. It holds three bits of information:
+
+- What needs to be released
+- What version the packages should be released at (using a [semver bump type](https://semver.org/))
+- A changelog entry for the released packages
+
+As a contributors you can add a changeset by running `yarn changeset`. Refer to the [official documentation](https://github.com/atlassian/changesets/blob/main/docs/adding-a-changeset.md#i-am-in-a-multi-package-repository-a-mono-repo) for more information.
 
 ### Troubleshooting
 
