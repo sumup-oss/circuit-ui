@@ -1,0 +1,15 @@
+name: PR Labels
+
+on: pull_request
+
+jobs:
+  packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label PR with affected packages
+        uses: adamzolyak/monorepo-pr-labeler-action@3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE_DIRS: 'packages'
+        with:
+          prefix: '🗂'
