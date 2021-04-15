@@ -81,7 +81,7 @@
     "fork-ts-checker-webpack-plugin": "^6.0.3",
     "jest-axe": "^4.1.0",
     "jest-emotion": "^10.0.10",
-    "postcss-loader": "^4.0.4",
+    "postcss-loader": "^5.2.0",
     "postcss-object-fit-images": "^1.1.2",
     "react": "^17.0.1",
     "react-docgen": "^5.3.1",
