@@ -1,6 +1,6 @@
 {
   "name": "@sumup/icons",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "A collection of icons by SumUp",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
