@@ -17,7 +17,7 @@ circuit-ui-global.css
 
 # These are generated in CI from other files.
 docs/packages/
-docs/contribution/overview.stories.mdx
+docs/contributing/overview.stories.mdx
 
 # Packages #
 
