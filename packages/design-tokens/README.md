@@ -14,10 +14,10 @@ Depending on your preference, run one of the following in your terminal:
 
 ```sh
 # With Yarn
-$ yarn add @sumup/design-tokens
+yarn add @sumup/design-tokens
 
 # With npm
-$ npm install @sumup/design-tokens
+npm install @sumup/design-tokens
 ```
 
 ## Usage

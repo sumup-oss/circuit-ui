@@ -1,5 +1,6 @@
 import {
   Meta,
+  Intro,
   Preview,
   Swatch,
   Spacing,
@@ -11,35 +12,17 @@ import {
 } from '../../.storybook/components';
 import { Heading, SubHeading, Text } from '../../packages/circuit-ui';
 
-<Meta title="Advanced/Theme" />
+<Meta title="Features/Theme" />
 
-# Theming
+# Theme
 
-## Configuring the theme
+<Intro>
 
-Theming is built into [Emotion](https://github.com/emotion-js/emotion), our CSS-in-JS library. You need to make the theme available to the components by wrapping your application in a `ThemeProvider` (this is already configured when using [`create-sumup-react-app`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-react-app)):
+The theme used throughout Circuit UI comes from SumUp's design token library, [`@sumup/design-tokens`](Packages/design-tokens), which is a required peer dependency of `@sumup/circuit-ui`. Refer to its [documentation](Packages/design-tokens) for usage instructions.
 
-```jsx
-import { ThemeProvider } from 'emotion-theming';
-import { Button } from '@sumup/circuit-ui';
-import { light } from '@sumup/design-tokens';
+</Intro>
 
-export default function App() {
-  return (
-    <ThemeProvider theme={light}>
-      <Button primary>Click me</Button>
-    </ThemeProvider>
-  );
-}
-```
-
-In most cases, the default SumUp themes provided by [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) should cover your needs. If you need to create a custom theme, we recommend overriding or making a copy of one of the [default themes](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens/themes) to ensure that no values are missing.
-
-Refer to the [Emotion theming](https://emotion.sh/docs/theming) documentation to learn how to use the theme in your own components.
-
-## Theme reference
-
-### Colors
+## Colors
 
 ```
 theme.colors.<COLOR_NAME>
@@ -47,7 +30,7 @@ theme.colors.<COLOR_NAME>
 
 When referring to a color that should be treated as _primary_ (such as a button or a link), be sure to use the "p" (primary) family of colors rather than the "b" (blue) family of colors.
 
-#### Primary
+### Primary
 
 <Swatch colorName="p100" />
 <Swatch colorName="p200" />
@@ -57,7 +40,7 @@ When referring to a color that should be treated as _primary_ (such as a button 
 <Swatch colorName="p700" />
 <Swatch colorName="p900" />
 
-#### Neutrals
+### Neutrals
 
 <Swatch colorName="n100" />
 <Swatch colorName="n200" />
@@ -67,7 +50,7 @@ When referring to a color that should be treated as _primary_ (such as a button 
 <Swatch colorName="n800" />
 <Swatch colorName="n900" />
 
-#### Blues
+### Blues
 
 <Swatch colorName="b100" />
 <Swatch colorName="b200" />
@@ -77,7 +60,7 @@ When referring to a color that should be treated as _primary_ (such as a button 
 <Swatch colorName="b700" />
 <Swatch colorName="b900" />
 
-#### Greens
+### Greens
 
 <Swatch colorName="g100" />
 <Swatch colorName="g200" />
@@ -86,7 +69,7 @@ When referring to a color that should be treated as _primary_ (such as a button 
 <Swatch colorName="g700" />
 <Swatch colorName="g900" />
 
-#### Yellows
+### Yellows
 
 <Swatch colorName="y100" />
 <Swatch colorName="y200" />
@@ -95,7 +78,7 @@ When referring to a color that should be treated as _primary_ (such as a button 
 <Swatch colorName="y700" />
 <Swatch colorName="y900" />
 
-#### Oranges
+### Oranges
 
 <Swatch colorName="o100" />
 <Swatch colorName="o200" />
@@ -104,7 +87,7 @@ When referring to a color that should be treated as _primary_ (such as a button 
 <Swatch colorName="o700" />
 <Swatch colorName="o900" />
 
-#### Reds
+### Reds
 
 <Swatch colorName="r100" />
 <Swatch colorName="r200" />
@@ -113,7 +96,7 @@ When referring to a color that should be treated as _primary_ (such as a button 
 <Swatch colorName="r700" />
 <Swatch colorName="r900" />
 
-#### Violets
+### Violets
 
 <Swatch colorName="v100" />
 <Swatch colorName="v200" />
@@ -122,20 +105,20 @@ When referring to a color that should be treated as _primary_ (such as a button 
 <Swatch colorName="v700" />
 <Swatch colorName="v900" />
 
-#### Application colors
+### Application colors
 
 <Swatch colorName="bodyBg" />
 <Swatch colorName="bodyColor" />
 <Swatch colorName="shadow" />
 <Swatch colorName="overlay" />
 
-#### Semantic colors
+### Semantic colors
 
 <Swatch colorName="danger" />
 <Swatch colorName="success" />
 <Swatch colorName="warning" />
 
-### Spacings
+## Spacings
 
 ```
 theme.spacings.[bit|byte|kilo|mega|giga|tera|peta|exa|zetta]
@@ -155,7 +138,7 @@ Use spacings for gutters, margins, and paddings. Don't use it for border width, 
   <Spacing spacingName="zetta" />
 </Preview>
 
-### Icon sizes
+## Icon sizes
 
 ```
 theme.iconSizes.[kilo|mega|giga]
@@ -167,7 +150,7 @@ theme.iconSizes.[kilo|mega|giga]
   <IconSize size="giga" />
 </Preview>
 
-### Border radius
+## Border radius
 
 ```
 theme.borderRadius.[kilo|mega|giga|circle|pill]
@@ -181,7 +164,7 @@ theme.borderRadius.[kilo|mega|giga|circle|pill]
   <BorderRadius size="pill" style={{ height: '16px' }} />
 </Preview>
 
-### Border width
+## Border width
 
 ```
 theme.borderWidth.[kilo|mega]
@@ -192,7 +175,7 @@ theme.borderWidth.[kilo|mega]
   <BorderWidth size="mega" />
 </Preview>
 
-### Typography
+## Typography
 
 ```
 theme.typography.[headings|subHeadings|text].<SIZE_NAME>.[fontSize|lineHeight]
@@ -200,7 +183,7 @@ theme.typography.[headings|subHeadings|text].<SIZE_NAME>.[fontSize|lineHeight]
 
 Avoid using `theme.typography` directly in your styles, rather use the specialized components [`Heading`](Typography/Heading/Base), [`SubHeading`](Typography/SubHeading/Base), and [`Text`](Typography/Text/Base).
 
-#### Headings
+### Headings
 
 <Preview>
   <Type size="zetta" component={Heading} name="headings" />
@@ -212,14 +195,14 @@ Avoid using `theme.typography` directly in your styles, rather use the specializ
   <Type size="kilo" component={Heading} name="headings" />
 </Preview>
 
-#### Subheading
+### Subheading
 
 <Preview>
   <Type size="mega" component={SubHeading} name="subHeadings" />
   <Type size="kilo" component={SubHeading} name="subHeadings" />
 </Preview>
 
-#### Text
+### Text
 
 <Preview>
   <Type size="giga" component={Text} name="text" />
@@ -227,28 +210,26 @@ Avoid using `theme.typography` directly in your styles, rather use the specializ
   <Type size="kilo" component={Text} name="text" />
 </Preview>
 
-### Font stack
+## Font stack
 
 ```
 theme.fontStack.[default|mono]
 ```
 
-Refer to the [Fonts](Advanced/Fonts) documentation to learn how to define and load custom fonts in a performant way.
-
-### Font weight
+## Font weight
 
 ```
 theme.fontWeight.[regular|bold]
 ```
 
-You can only toggle the boldness of `Text`, but not `Heading` or `Subheading`.
+You can only toggle the boldness of `Text` but not `Heading` or `Subheading`.
 
 <Preview>
   <Type size="mega" bold component={Text} fontWeight="bold" name="text" />
   <Type size="mega" component={Text} fontWeight="regular" name="text" />
 </Preview>
 
-### Grid
+## Grid
 
 ```
 theme.grid.<BREAKPOINT>.[priority|breakpoint|cols|maxWidth|gutter]
@@ -257,11 +238,11 @@ theme.grid.<BREAKPOINT>.[priority|breakpoint|cols|maxWidth|gutter]
 The grid provided by Circuit UI is a float-based grid. We use
 this grid in applications where we need to support older browsers, such as Android and iOS webviews.
 
-The [static CSS](Advanced/Static-CSS) does not include a grid system.
+The [static CSS](Features/Static-CSS) does not include a grid system.
 
-Refer to the [grid](Advanced/Grid) documentation for an overview of the grid system.
+Refer to the [grid](Layout/Grid) documentation for an overview of the grid system.
 
-### Breakpoints and media queries
+## Breakpoints and media queries
 
 ```
 theme.mq.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera]
@@ -272,7 +253,7 @@ Avoid using `theme.breakpoints` directly, instead use the named media query help
 
 <MediaQueriesTable />
 
-#### Usage in code
+### Usage in code
 
 ```js
 import styled from '@emotion/styled';
@@ -287,19 +268,19 @@ const ResponsiveDiv = styled('div')(
 );
 ```
 
-### Transitions
+## Transitions
 
 ```
-theme.transitions.[default]
+theme.transitions.[default|slow]
 ```
 
-For now there is just one transition. In the future when we
+For now, there are just two transitions. In the future, when we
 have animations, there may be more :)
 
-### Z-index
+## Z-index
 
 ```
-theme.zIndex.[default|absolute|popover|select|tooltip|modal]
+theme.zIndex.[default|absolute|input|modal|popover|sidebar|tooltip]
 ```
 
 Z-indices for various components to ensure they stack properly.

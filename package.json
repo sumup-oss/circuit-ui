@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui#readme",
   "scripts": {
-    "start": "lerna run start",
+    "start": "lerna run start --stream",
     "build": "lerna run build",
     "test": "jest --watch",
     "test:ci": "mkdir -p __reports__ && jest --json --outputFile=__reports__/jest-results.json --ci --coverage --runInBand",
@@ -25,9 +25,12 @@
     "docs": "yarn docs:start",
     "docs:start": "start-storybook -p 6006 -s .storybook/public",
     "docs:build": "build-storybook -c .storybook -o public -s .storybook/public && cp -R ./packages/icons/web ./public/icons",
-    "vercel-build": "yarn build && yarn docs:build",
+    "vercel-build": "yarn copy-docs && yarn build && yarn docs:build",
     "check:security": "audit-ci --critical",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
+    "check:svg-sizes": "./scripts/check-svg-sizes.sh",
+    "copy-docs": "./scripts/copy-docs.sh",
+    "bootstrap": "yarn build && cd packages/create-sumup-next-app/template && yarn --no-lockfile --ignore-scripts",
     "release": "changeset publish"
   },
   "devDependencies": {

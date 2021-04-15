@@ -2,7 +2,7 @@
 
 [![Circuit UI Logo](https://circuit.sumup.com/images/logo-header.png)](https://circuit.sumup.com)
 
-[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/tree/main/LICENSE) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/sumup-oss/circuit-ui/tree/main/CODE_OF_CONDUCT.md)
+[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](./LICENSE) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/sumup-oss/circuit-ui/tree/main/CODE_OF_CONDUCT.md)
 
 [Circuit UI Web](https://circuit.sumup.com) is the web implementation of the [SumUp](https://sumup.com) Circuit Design System. Our primary goal is to create a system that can be used to build a wide variety of SumUp websites and apps, while providing a consistent and inclusive user experience to our end users. In addition, the design system and component library should be easy to use for developers and designers.
 
@@ -20,15 +20,15 @@ Here are a few helpful links for getting started with Circuit UI:
 
 ## Packages
 
-- **[@sumup/circuit-ui](https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui)** — the core React component library
-- **[@sumup/design-tokens](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens)** — visual primitives such as typography, color, and spacing
-- **[@sumup/icons](https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons)** — a collection of SVG icons
-- **[create-sumup-next-app](https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-next-app)** — bootstrap a fresh [Next.js](https://nextjs.org/) app with Circuit UI and [Foundry](https://github.com/sumup-oss/foundry)
-- **[create-sumup-react-app](https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-react-app)** — bootstrap a new React app with [create-react-app](https://create-react-app.dev/), Circuit UI, and [Foundry](https://github.com/sumup-oss/foundry)
+- **[@sumup/circuit-ui](./packages/circuit-ui)** — the core React component library
+- **[@sumup/design-tokens](./packages/design-tokens)** — visual primitives such as typography, color, and spacing
+- **[@sumup/icons](./packages/icons)** — a collection of SVG icons
+- **[create-sumup-next-app](./packages/create-sumup-next-app)** — bootstrap a fresh [Next.js](https://nextjs.org/) app with Circuit UI and [Foundry](https://github.com/sumup-oss/foundry)
+- **[create-sumup-react-app](./packages/create-sumup-react-app)** — bootstrap a new React app with [create-react-app](https://create-react-app.dev/), Circuit UI, and [Foundry](https://github.com/sumup-oss/foundry)
 
 ## Code of conduct
 
-We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](https://github.com/sumup-oss/circuit-ui/tree/main/CODE_OF_CONDUCT.md).
+We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](./CODE_OF_CONDUCT.md).
 
 If you feel another member of the community violated our CoC or you are experiencing problems participating in our community because of another individual's behavior, please get in touch with our maintainers. We will enforce the CoC.
 

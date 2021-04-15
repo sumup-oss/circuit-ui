@@ -29,11 +29,10 @@ import {
   hideVisually,
   hideScrollbar,
   SpacingValue,
-  SpacingObject,
 } from './style-mixins';
 
 export default {
-  title: 'Advanced/Style Mixins',
+  title: 'Features/Style Mixins',
   parameters: {
     docs: { page: docs },
   },
