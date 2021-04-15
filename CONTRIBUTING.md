@@ -48,13 +48,13 @@ All packages related to the design system are organized in this monorepo. Thanks
 - `yarn build` — will build packages once
 - `yarn test` — will run unit tests on every change
 - `yarn lint` — will lint the code once
-- `yarn docs` — will run the [Storybook](https://storybook.js.org/) in development mode
+- `yarn docs` — will run the [Storybook](https://circuit.sumup.com) in development mode
 
 Refer to the `package.json` files in each package for other helpful scripts.
 
 ### Changesets
 
-Circuit UI uses [changesets](https://github.com/atlassian/changesets) to do versioning. As a contributors you can add a changeset by running `yarn changeset`. Read more in our [release process docs](https://circuit.sumup.com/?path=/docs/introduction-contributing-release-process--page).
+Circuit UI uses [changesets](https://github.com/atlassian/changesets) for versioning. As a contributor you can add a changeset for your changes by running `yarn changeset`. Read more in our [release process docs](https://circuit.sumup.com/?path=/docs/introduction-contributing-release-process--page).
 
 ### Troubleshooting
 
