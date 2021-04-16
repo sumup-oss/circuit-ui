@@ -17,7 +17,7 @@ exports[`BaseStylesService should return the global base styles 1`] = `
     font-family: 'aktiv-grotesk';
     font-weight: 700;
     font-display: swap;
-    src: url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2') format('woff2'), 
+    src: url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2') format('woff2'),
       url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff') format('woff'),
       url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.eot') format('embedded-opentype');
   }
