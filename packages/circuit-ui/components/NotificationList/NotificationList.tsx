@@ -17,7 +17,7 @@ import React, { Children, HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
-import { shadowSingle } from '../../styles/style-mixins';
+import { shadow } from '../../styles/style-mixins';
 
 export interface NotificationListProps extends HTMLProps<HTMLUListElement> {
   /**
@@ -52,10 +52,11 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const NotificationListWrapper = styled('ul')<NoTheme>(baseStyles);
 
+// FIXME: Replace border-radius with theme value in v3.
 const cardStyles = ({ theme }: StyleProps) => css`
   label: card;
   background-color: ${theme.colors.white};
-  border-radius: ${theme.borderRadius.giga};
+  border-radius: 16px;
   border: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
   display: flex;
   flex-direction: column;
@@ -63,7 +64,7 @@ const cardStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.mega} ${theme.spacings.mega};
 `;
 
-const NotificationListCard = styled('li')(cardStyles, shadowSingle);
+const NotificationListCard = styled('li')(cardStyles, shadow());
 
 /**
  * NotificationList displays Notifications as Cards in a corner.
