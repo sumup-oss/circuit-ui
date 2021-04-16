@@ -63,7 +63,7 @@ const Swatch = ({ colorName }) => (
     <ColorWrapper>
       <Color colorName={colorName} />
       <ColorName>
-        <Body bold as="p" size="kilo" noMargin>
+        <Body bold as="p" size="two" noMargin>
           {colorName}
         </Body>
         <ColorHex as="p" size="kilo" noMargin>

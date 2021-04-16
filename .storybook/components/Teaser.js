@@ -42,7 +42,7 @@ const Wrapper = styled(Card)(
 const Teaser = ({ title, children, ...props }) => (
   <ThemeProvider theme={light}>
     <Wrapper shadow="double">
-      <Headline as="h2" size="giga">
+      <Headline as="h2" size="three">
         {title}
       </Headline>
 
