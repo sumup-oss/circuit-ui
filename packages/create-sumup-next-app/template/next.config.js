@@ -20,7 +20,6 @@ module.exports = withBundleAnalyzer(
       SITE_NAME: 'SumUp',
       SITE_LOCALE: 'en',
       SITE_BASEURL: 'https://example.sumup.com',
-      STATIC_ASSET_BASEURL: 'https://static.sumup.com',
     },
   }),
 );

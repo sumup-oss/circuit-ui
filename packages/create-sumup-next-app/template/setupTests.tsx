@@ -20,4 +20,3 @@ expect.extend(toHaveNoViolations);
 process.env.SITE_NAME = 'SumUp';
 process.env.SITE_LOCALE = 'en';
 process.env.SITE_BASEURL = 'https://example.sumup.com';
-process.env.STATIC_ASSET_BASEURL = 'https://static.sumup.com';
