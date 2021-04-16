@@ -39,21 +39,21 @@ export default {
 };
 
 const spaceOptions = {
+  options: [
+    0,
+    'auto',
+    'bit',
+    'byte',
+    'kilo',
+    'mega',
+    'giga',
+    'tera',
+    'peta',
+    'exa',
+    'zetta',
+  ],
   control: {
     type: 'select',
-    options: [
-      0,
-      'auto',
-      'bit',
-      'byte',
-      'kilo',
-      'mega',
-      'giga',
-      'tera',
-      'peta',
-      'exa',
-      'zetta',
-    ],
   },
 };
 
