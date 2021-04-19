@@ -54,7 +54,7 @@
     "@emotion/cache": "^10.0.19",
     "@emotion/core": "10.1.1",
     "@emotion/is-prop-valid": "^1.0.0",
-    "@emotion/styled": "^10.0.17",
+    "@emotion/styled": "^11.3.0",
     "@emotion/stylis": "^0.8.4",
     "@sumup/collector": "^1.0.0",
     "@sumup/design-tokens": "^2.1.1",
