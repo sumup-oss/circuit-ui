@@ -30,7 +30,7 @@ const textStyles = ({ theme }) => css`
 const StyledText = styled(Body)(textStyles);
 
 const Status = ({ step, total, ...props }) => (
-  <StyledText bold {...props}>
+  <StyledText variant="highlight" {...props}>
     {step + 1} / {total}
   </StyledText>
 );

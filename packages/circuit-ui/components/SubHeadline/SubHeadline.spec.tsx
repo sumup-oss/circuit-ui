@@ -31,14 +31,6 @@ describe('SubHeadline', () => {
     expect(subheading).toMatchSnapshot();
   });
 
-  const sizes = ['kilo', 'mega'] as const;
-  it.each(sizes)(`should render with size %s`, (size) => {
-    const subheading = create(
-      <SubHeadline {...{ size }}>{`${size} subheading`}</SubHeadline>,
-    );
-    expect(subheading).toMatchSnapshot();
-  });
-
   it('should render with no margin styles when passed the noMargin prop', () => {
     const actual = create(<SubHeadline noMargin />);
     expect(actual).toMatchSnapshot();

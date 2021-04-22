@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /**
  * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -74,13 +73,13 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
     }
     case 'highlight': {
       return css`
-        label: ${`body--${variant}`};
+        label: body--highlight;
         font-weight: ${theme.fontWeight.bold};
       `;
     }
     case 'quote': {
       return css`
-        label: ${`body--${variant}`};
+        label: body--quote;
         font-style: italic;
         padding-left: ${theme.spacings.kilo};
         border-left: 2px solid ${theme.colors.p500};
@@ -88,19 +87,19 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
     }
     case 'success': {
       return css`
-        label: ${`body--${variant}`};
+        label: body--success;
         color: ${theme.colors.success};
       `;
     }
     case 'error': {
       return css`
-        label: ${`body--${variant}`};
+        label: body--error;
         color: ${theme.colors.danger};
       `;
     }
     case 'subtle': {
       return css`
-        label: ${`body--${variant}`};
+        label: body--subtle;
         color: ${theme.colors.n700};
       `;
     }

@@ -60,7 +60,7 @@ const Spacing = ({ spacingName }) => (
       <div>
         <Body as="span">{spacingName}</Body>
         <SpacingSize>
-          <SpacingName size="kilo" as="span">
+          <SpacingName size="two" as="span">
             {light.spacings[spacingName]}
           </SpacingName>
         </SpacingSize>

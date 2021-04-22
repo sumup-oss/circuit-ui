@@ -66,7 +66,7 @@ const Swatch = ({ colorName }) => (
         <Body bold as="p" size="two" noMargin>
           {colorName}
         </Body>
-        <ColorHex as="p" size="kilo" noMargin>
+        <ColorHex as="p" size="two" noMargin>
           {light.colors[colorName]}
         </ColorHex>
       </ColorName>

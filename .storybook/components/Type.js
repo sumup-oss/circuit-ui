@@ -41,7 +41,7 @@ const Type = ({ size, component, name, fontWeight, ...props }) => {
         children: (
           <Fragment>
             This is {size}
-            <TypePx as="span" size="kilo">
+            <TypePx as="span" size="two">
               {weight ? `${weight}` : `${fontSize}, ${lineHeight}`}
             </TypePx>
           </Fragment>

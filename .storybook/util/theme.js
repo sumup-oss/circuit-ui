@@ -33,7 +33,7 @@ const withThemeProvider = (Component, baseProps = {}) => (props = {}) => (
   </ThemeProvider>
 );
 
-const TEXT_SIZE = 'mega';
+const TEXT_SIZE = 'one';
 
 const headingStyles = (theme) => css`
   *:not(h1):not(h2):not(h3) + & {
@@ -48,27 +48,26 @@ const subHeadlineStyles = (theme) => css`
 export const components = {
   h1: withThemeProvider(Headline, {
     as: 'h1',
-    size: 'zetta',
+    size: 'one',
     css: headingStyles,
   }),
   h2: withThemeProvider(Headline, {
     as: 'h2',
-    size: 'peta',
+    size: 'two',
     css: headingStyles,
   }),
   h3: withThemeProvider(Headline, {
     as: 'h3',
-    size: 'giga',
+    size: 'three',
     css: headingStyles,
   }),
-  h4: withThemeProvider(SubHeadline, {
+  h4: withThemeProvider(Headline, {
     as: 'h4',
-    size: 'mega',
+    size: 'four',
     css: subHeadlineStyles,
   }),
-  h5: withThemeProvider(SubHeadline, {
-    as: 'h5',
-    size: 'kilo',
+  subheadline: withThemeProvider(SubHeadline, {
+    as: 'subheadline',
     css: subHeadlineStyles,
   }),
   p: withThemeProvider(Body, { as: 'p', size: TEXT_SIZE }),
