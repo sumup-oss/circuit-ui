@@ -49,7 +49,7 @@ const Status = ({ variant: status = 'stable' }) => {
 
 Status.Description = ({ children }) => (
   <ThemeProvider theme={light}>
-    <Body size="two" as="span" italic>
+    <Body size="two" as="span">
       {' '}
       {children}
     </Body>
