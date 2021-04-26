@@ -6,7 +6,7 @@ We want to foster an inclusive and friendly community around our Open Source eff
 
 If you feel another member of the community violated our CoC or you are experiencing problems participating in our community because of another individual's behavior, please get in touch with our [maintainers](README.md#maintainers). We will enforce the CoC.
 
-![Overview diagram of the contribution model](https://github.com/sumup-oss/circuit-ui/tree/main/assets/contribution-model.jpg?raw=true)
+![Overview diagram of the contribution model](/assets/contribution-model.jpg?raw=true "Overview diagram of the contribution model")
 
 ## Submitting an issue
 
