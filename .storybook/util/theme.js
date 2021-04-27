@@ -9,7 +9,7 @@ import {
   SubHeadline,
   Body,
   List,
-} from '../../packages/circuit-ui';
+} from '@sumup/circuit-ui';
 
 import { Link } from '../components';
 
@@ -35,7 +35,7 @@ const withThemeProvider = (Component, baseProps = {}) => (props = {}) => (
 
 const TEXT_SIZE = 'one';
 
-const headingStyles = (theme) => css`
+const headlineStyles = (theme) => css`
   *:not(h1):not(h2):not(h3) + & {
     margin-top: ${theme.spacings.peta};
   }
@@ -45,21 +45,25 @@ const subHeadlineStyles = (theme) => css`
   margin-top: ${theme.spacings.giga};
 `;
 
+const italicStyles = css`
+  font-style: italic;
+`;
+
 export const components = {
   h1: withThemeProvider(Headline, {
     as: 'h1',
     size: 'one',
-    css: headingStyles,
+    css: headlineStyles,
   }),
   h2: withThemeProvider(Headline, {
     as: 'h2',
     size: 'two',
-    css: headingStyles,
+    css: headlineStyles,
   }),
   h3: withThemeProvider(Headline, {
     as: 'h3',
     size: 'three',
-    css: headingStyles,
+    css: headlineStyles,
   }),
   h4: withThemeProvider(Headline, {
     as: 'h4',
@@ -75,12 +79,12 @@ export const components = {
   strong: withThemeProvider(Body, {
     as: 'strong',
     size: TEXT_SIZE,
-    bold: true,
+    variant: 'highlight',
   }),
   em: withThemeProvider(Body, {
     as: 'em',
     size: TEXT_SIZE,
-    italic: true,
+    css: italicStyles,
   }),
   ul: withThemeProvider(List, { size: TEXT_SIZE }),
   ol: withThemeProvider(List, { size: TEXT_SIZE, variant: 'ordered' }),

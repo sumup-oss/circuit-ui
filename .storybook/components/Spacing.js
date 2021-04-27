@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Body } from '../../packages/circuit-ui';
+import { Body } from '@sumup/circuit-ui';
 
 const Box = styled('div')`
   ${({ theme, spacingName }) => css`

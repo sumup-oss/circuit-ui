@@ -28,6 +28,9 @@ const HeadingKilo = () => <Heading size="kilo">Headline 4</Heading>;
 const SubHeadlineMega = () => <SubHeadline size="mega">Test</SubHeadline>;
 const SubHeadlineKilo = () => <SubHeadline size="kilo">Test</SubHeadline>;
 
+const SubHeadingMega = () => <SubHeading size="mega">Test</SubHeading>;
+const SubHeadingKilo = () => <SubHeading size="kilo">Test</SubHeading>;
+
 const BodyMega = () => <Body size="mega">Body 1</Body>;
 const BodyKilo = () => <Body size="kilo">Body 2</Body>;
 

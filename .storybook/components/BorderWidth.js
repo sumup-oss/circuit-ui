@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Body } from '../../packages/circuit-ui';
+import { Body } from '@sumup/circuit-ui';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -61,7 +61,7 @@ const BorderWidth = ({ size }) => (
       <div>
         <Body as="span">{size}</Body>
         <BorderWidthSize>
-          <BorderWidthName size="kilo" as="span">
+          <BorderWidthName size="two" as="span">
             {light.borderWidth[size]}
           </BorderWidthName>
         </BorderWidthSize>

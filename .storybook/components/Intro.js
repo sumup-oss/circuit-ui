@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Body } from '../../packages/circuit-ui';
+import { Body } from '@sumup/circuit-ui';
 
 const StyledText = styled(Body)(
   ({ theme }) => css`
@@ -37,14 +37,8 @@ const StyledText = styled(Body)(
 
 const Intro = ({ children, ...props }) => (
   <ThemeProvider theme={light}>
-    <StyledText size="giga" {...props}>
-      {children}
-    </StyledText>
+    <StyledText {...props}>{children}</StyledText>
   </ThemeProvider>
 );
-
-Intro.KILO = 'kilo';
-Intro.MEGA = 'mega';
-Intro.GIGA = 'giga';
 
 export default Intro;

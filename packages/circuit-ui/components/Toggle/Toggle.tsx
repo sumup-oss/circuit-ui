@@ -57,13 +57,6 @@ const textWrapperStyles = ({ theme }: StyleProps) => css`
 
 const ToggleTextWrapper = styled('label')<NoTheme>(textWrapperStyles);
 
-const labelStyles = css`
-  label: toggle__label;
-  padding-top: 2px;
-`;
-
-const ToggleLabel = styled(Body)(labelStyles);
-
 const explanationStyles = ({ theme }: StyleProps) => css`
   label: toggle__explanation;
   color: ${theme.colors.n700};
@@ -131,9 +124,9 @@ export const Toggle = React.forwardRef(
         {(label || explanation) && (
           <ToggleTextWrapper id={labelId} htmlFor={switchId}>
             {label && (
-              <ToggleLabel size="two" noMargin>
+              <Body size="one" noMargin>
                 {label}
-              </ToggleLabel>
+              </Body>
             )}
             {explanation && (
               <ToggleExplanation size="two" noMargin>

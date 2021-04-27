@@ -30,7 +30,7 @@ import {
   Label,
   SearchInput,
   Select,
-} from '../../packages/circuit-ui';
+} from '@sumup/circuit-ui';
 
 function group(key, collection) {
   const grouped = groupBy(key, collection);

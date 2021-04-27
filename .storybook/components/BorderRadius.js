@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 
-import { Body } from '../../packages/circuit-ui';
+import { Body } from '@sumup/circuit-ui';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -58,7 +58,7 @@ const BorderRadius = ({ size, ...props }) => (
     <div>
       <Body as="span">{size}</Body>
       <BorderRadiusSize>
-        <BorderRadiusName size="kilo" as="span">
+        <BorderRadiusName size="two" as="span">
           {light.borderRadius[size]}
         </BorderRadiusName>
       </BorderRadiusSize>

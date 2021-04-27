@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Body, styleHelpers } from '../../packages/circuit-ui';
+import { Body, styleHelpers } from '@sumup/circuit-ui';
 
 const SWATCH_WIDTH = '99px';
 const SWATCH_HEIGHT = '99px';
@@ -63,7 +63,7 @@ const Swatch = ({ colorName }) => (
     <ColorWrapper>
       <Color colorName={colorName} />
       <ColorName>
-        <Body bold as="p" size="two" noMargin>
+        <Body variant="highlight" size="two" noMargin>
           {colorName}
         </Body>
         <ColorHex as="p" size="two" noMargin>

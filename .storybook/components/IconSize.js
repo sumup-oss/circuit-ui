@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Body } from '../../packages/circuit-ui';
+import { Body } from '@sumup/circuit-ui';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -60,7 +60,7 @@ const IconSize = ({ size }) => (
       <div>
         <Body as="span">{size}</Body>
         <IconSizeSize>
-          <IconSizeName size="kilo" as="span">
+          <IconSizeName size="two" as="span">
             {light.iconSizes[size]}
           </IconSizeName>
         </IconSizeSize>

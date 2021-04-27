@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Headline, Body, Card } from '../../packages/circuit-ui';
+import { Headline, Body, Card } from '@sumup/circuit-ui';
 
 // HACK: This prevents the cards from awkwardly wrapping if one of them
 //       only has one line of text.

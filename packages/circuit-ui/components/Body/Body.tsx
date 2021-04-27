@@ -13,8 +13,10 @@
  * limitations under the License.
  */
 
-import { FC, HTMLProps } from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+
+import { forwardRef, HTMLProps } from 'react';
+import { jsx, css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -82,7 +84,7 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
         label: body--quote;
         font-style: italic;
         padding-left: ${theme.spacings.kilo};
-        border-left: 2px solid ${theme.colors.p500};
+        border-left: ${theme.borderWidth.mega} solid ${theme.colors.p500};
       `;
     }
     case 'success': {
@@ -124,10 +126,29 @@ const marginStyles = ({ noMargin }: BodyProps & StyleProps) => {
   `;
 };
 
+const StyledBody = styled('p', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
+})<BodyProps>(baseStyles, sizeStyles, marginStyles, variantStyles);
+
+function getHTMLElement(variant?: Variant): string {
+  if (variant === 'highlight') {
+    return 'strong';
+  }
+  if (variant === 'quote') {
+    return 'blockquote';
+  }
+  return 'p';
+}
+
 /**
  * The Body component is used to present the core textual content
  * to our users.
  */
-export const Body: FC<BodyProps> = styled('p', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<BodyProps>(baseStyles, sizeStyles, marginStyles, variantStyles);
+export const Body = forwardRef(
+  ({ ...props }: BodyProps, ref?: BodyProps['ref']) => {
+    const as = getHTMLElement(props.variant);
+    return <StyledBody {...props} ref={ref} as={as} />;
+  },
+);
+
+Body.displayName = 'Body';
