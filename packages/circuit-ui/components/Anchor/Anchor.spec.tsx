@@ -13,7 +13,10 @@
  * limitations under the License.
  */
 
+/** @jsx jsx */
+
 import React from 'react';
+import { jsx, css } from '@emotion/core';
 
 import {
   create,
@@ -35,9 +38,31 @@ describe('Anchor', () => {
   const baseProps = { children: 'Anchor' };
 
   describe('styles', () => {
-    it('should render as a `span` when neither href nor onClick is passed', () => {
-      const actual = renderAnchor(create, baseProps);
+    it('should render with default styles', () => {
+      const actual = renderAnchor(create, {
+        ...baseProps,
+        href: 'https://sumup.com',
+      });
       expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with custom styles', () => {
+      const actual = renderAnchor(create, {
+        ...baseProps,
+        href: 'https://sumup.com',
+        css: css`
+          color: rebeccapurple;
+        `,
+      });
+      expect(actual).toMatchSnapshot();
+    });
+  });
+
+  describe('business logic', () => {
+    it('should render as a `span` when neither href nor onClick is passed', () => {
+      const { container } = renderAnchor(render, baseProps);
+      const actual = container.querySelector('span');
+      expect(actual).toBeVisible();
     });
 
     it('should render as an `a` when an href (and onClick) is passed', () => {
@@ -46,18 +71,18 @@ describe('Anchor', () => {
         href: 'https://sumup.com',
         onClick: jest.fn(),
       };
-      const actual = renderAnchor(create, props);
-      expect(actual).toMatchSnapshot();
+      const { container } = renderAnchor(render, props);
+      const actual = container.querySelector('a');
+      expect(actual).toBeVisible();
     });
 
     it('should render as a `button` when an onClick is passed', () => {
       const props = { ...baseProps, onClick: jest.fn() };
-      const actual = renderAnchor(create, props);
-      expect(actual).toMatchSnapshot();
+      const { container } = renderAnchor(render, props);
+      const actual = container.querySelector('button');
+      expect(actual).toBeVisible();
     });
-  });
 
-  describe('business logic', () => {
     it('should call the onClick handler when rendered as a link', () => {
       const props = {
         ...baseProps,
@@ -92,38 +117,31 @@ describe('Anchor', () => {
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });
 
-    /**
-     * Should accept a working ref for "button"
-     */
-    it('should accept a working ref for a "button"', () => {
+    it('should accept a working ref for a button', () => {
       const tref = React.createRef<any>();
       const { container } = render(
-        <Anchor ref={tref}>This is a span as button</Anchor>,
+        <Anchor onClick={jest.fn()} ref={tref}>
+          button
+        </Anchor>,
       );
-      const button = container.querySelector('span');
+      const button = container.querySelector('button');
       expect(tref.current).toBe(button);
     });
 
-    /**
-     * Should accept a working ref for link
-     */
     it('should accept a working ref for a link', () => {
       const tref = React.createRef<any>();
       const { container } = render(
-        <Anchor href="http://sumup.com" ref={tref}>
-          Link button
+        <Anchor href="https://sumup.com" ref={tref}>
+          link
         </Anchor>,
       );
       const anchor = container.querySelector('a');
       expect(tref.current).toBe(anchor);
     });
 
-    /**
-     * Should accept a working ref for span
-     */
     it('should accept a working ref for a span', () => {
       const tref = React.createRef<any>();
-      const { container } = render(<Anchor ref={tref}>Text button</Anchor>);
+      const { container } = render(<Anchor ref={tref}>span</Anchor>);
       const span = container.querySelector('span');
       expect(tref.current).toBe(span);
     });
