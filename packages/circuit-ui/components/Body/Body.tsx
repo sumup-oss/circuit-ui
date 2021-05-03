@@ -144,11 +144,9 @@ function getHTMLElement(variant?: Variant): string {
  * The Body component is used to present the core textual content
  * to our users.
  */
-export const Body = forwardRef(
-  ({ ...props }: BodyProps, ref?: BodyProps['ref']) => {
-    const as = getHTMLElement(props.variant);
-    return <StyledBody {...props} ref={ref} as={as} />;
-  },
-);
+export const Body = forwardRef((props: BodyProps, ref?: BodyProps['ref']) => {
+  const as = props.as || getHTMLElement(props.variant);
+  return <StyledBody {...props} ref={ref} as={as} />;
+});
 
 Body.displayName = 'Body';
