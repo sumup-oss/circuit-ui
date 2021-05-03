@@ -178,7 +178,7 @@ theme.borderWidth.[kilo|mega]
 ## Typography
 
 ```
-theme.typography.[headings|subHeadlines|text].<SIZE_NAME>.[fontSize|lineHeight]
+theme.typography.[headlines|subHeadlines|text].<SIZE_NAME>.[fontSize|lineHeight]
 ```
 
 Avoid using `theme.typography` directly in your styles, rather use the specialized components [`Headline`](Typography/Headline/Base), [`SubHeadline`](Typography/SubHeadline/Base), and [`Body`](Typography/Body/Base).
@@ -186,28 +186,23 @@ Avoid using `theme.typography` directly in your styles, rather use the specializ
 ### Headlines
 
 <Preview>
-  <Type size="zetta" component={Headline} name="headings" />
-  <Type size="exa" component={Headline} name="headings" />
-  <Type size="peta" component={Headline} name="headings" />
-  <Type size="tera" component={Headline} name="headings" />
-  <Type size="giga" component={Headline} name="headings" />
-  <Type size="mega" component={Headline} name="headings" />
-  <Type size="kilo" component={Headline} name="headings" />
+  <Type size="one" component={Headline} name="headings" />
+  <Type size="two" component={Headline} name="headings" />
+  <Type size="three" component={Headline} name="headings" />
+  <Type size="four" component={Headline} name="headings" />
 </Preview>
 
 ### Subheadline
 
 <Preview>
-  <Type size="mega" component={SubHeadline} name="subHeadlines" />
-  <Type size="kilo" component={SubHeadline} name="subHeadlines" />
+  <Type component={SubHeadline} name="subHeadlines" />
 </Preview>
 
 ### Body
 
 <Preview>
-  <Type size="giga" component={Body} name="text" />
-  <Type size="mega" component={Body} name="text" />
-  <Type size="kilo" component={Body} name="text" />
+  <Type size="one" component={Body} name="text" />
+  <Type size="two" component={Body} name="text" />
 </Preview>
 
 ## Font stack

@@ -5,21 +5,14 @@ exports[`Headline should render as h1 element 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
-  font-size: 24px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 28px;
-    line-height: 32px;
-  }
+  font-size: 32px;
+  line-height: 36px;
 }
 
 <h1
   class="circuit-0"
 >
-  h1 heading
+  h1 headline
 </h1>
 `;
 
@@ -28,21 +21,14 @@ exports[`Headline should render as h2 element 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
-  font-size: 24px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 28px;
-    line-height: 32px;
-  }
+  font-size: 32px;
+  line-height: 36px;
 }
 
 <h2
   class="circuit-0"
 >
-  h2 heading
+  h2 headline
 </h2>
 `;
 
@@ -51,21 +37,14 @@ exports[`Headline should render as h3 element 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
-  font-size: 24px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 28px;
-    line-height: 32px;
-  }
+  font-size: 32px;
+  line-height: 36px;
 }
 
 <h3
   class="circuit-0"
 >
-  h3 heading
+  h3 headline
 </h3>
 `;
 
@@ -74,21 +53,14 @@ exports[`Headline should render as h4 element 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
-  font-size: 24px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 28px;
-    line-height: 32px;
-  }
+  font-size: 32px;
+  line-height: 36px;
 }
 
 <h4
   class="circuit-0"
 >
-  h4 heading
+  h4 headline
 </h4>
 `;
 
@@ -97,21 +69,14 @@ exports[`Headline should render as h5 element 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
-  font-size: 24px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 28px;
-    line-height: 32px;
-  }
+  font-size: 32px;
+  line-height: 36px;
 }
 
 <h5
   class="circuit-0"
 >
-  h5 heading
+  h5 headline
 </h5>
 `;
 
@@ -120,21 +85,14 @@ exports[`Headline should render as h6 element 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
-  font-size: 24px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 28px;
-    line-height: 32px;
-  }
+  font-size: 32px;
+  line-height: 36px;
 }
 
 <h6
   class="circuit-0"
 >
-  h6 heading
+  h6 headline
 </h6>
 `;
 
@@ -143,16 +101,9 @@ exports[`Headline should render with no margin styles when passed the noMargin p
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 32px;
+  line-height: 36px;
   margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 28px;
-    line-height: 32px;
-  }
 }
 
 <h2
@@ -160,163 +111,66 @@ exports[`Headline should render with no margin styles when passed the noMargin p
 />
 `;
 
-exports[`Headline should render with size exa 1`] = `
+exports[`Headline should render with size four 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
-  font-size: 28px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 36px;
-    line-height: 44px;
-  }
-}
-
-<h2
-  class="circuit-0"
->
-  exa heading
-</h2>
-`;
-
-exports[`Headline should render with size giga 1`] = `
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #000;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 24px;
 }
 
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 22px;
-    line-height: 24px;
-  }
-}
-
 <h2
   class="circuit-0"
 >
-  giga heading
+  four headline
 </h2>
 `;
 
-exports[`Headline should render with size kilo 1`] = `
+exports[`Headline should render with size one 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
-  font-size: 17px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 17px;
-    line-height: 24px;
-  }
+  font-size: 32px;
+  line-height: 36px;
 }
 
 <h2
   class="circuit-0"
 >
-  kilo heading
+  one headline
 </h2>
 `;
 
-exports[`Headline should render with size mega 1`] = `
+exports[`Headline should render with size three 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 19px;
-    line-height: 24px;
-  }
 }
 
 <h2
   class="circuit-0"
 >
-  mega heading
+  three headline
 </h2>
 `;
 
-exports[`Headline should render with size peta 1`] = `
+exports[`Headline should render with size two 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
   font-size: 24px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 28px;
-    line-height: 32px;
-  }
+  line-height: 28px;
 }
 
 <h2
   class="circuit-0"
 >
-  peta heading
-</h2>
-`;
-
-exports[`Headline should render with size tera 1`] = `
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #000;
-  font-size: 22px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 24px;
-    line-height: 32px;
-  }
-}
-
-<h2
-  class="circuit-0"
->
-  tera heading
-</h2>
-`;
-
-exports[`Headline should render with size zetta 1`] = `
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #000;
-  font-size: 28px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 42px;
-    line-height: 48px;
-  }
-}
-
-<h2
-  class="circuit-0"
->
-  zetta heading
+  two headline
 </h2>
 `;

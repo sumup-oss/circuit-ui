@@ -39,7 +39,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   font-size: ${theme.typography.subHeadline.fontSize};
   line-height: ${theme.typography.subHeadline.lineHeight};
   margin-bottom: ${theme.spacings.kilo};
-  color: ${theme.colors.n700};
+  color: ${theme.colors.black};
 `;
 
 const noMarginStyles = ({ noMargin }: SubHeadlineProps) => {

@@ -8,18 +8,11 @@ exports[`Body should render as article element 1`] = `
   line-height: 24px;
 }
 
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-<article
+<p
   class="circuit-0"
 >
   ARTICLE text
-</article>
+</p>
 `;
 
 exports[`Body should render as div element 1`] = `
@@ -30,18 +23,11 @@ exports[`Body should render as div element 1`] = `
   line-height: 24px;
 }
 
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-<div
+<p
   class="circuit-0"
 >
   DIV text
-</div>
+</p>
 `;
 
 exports[`Body should render as p element 1`] = `
@@ -52,82 +38,11 @@ exports[`Body should render as p element 1`] = `
   line-height: 24px;
 }
 
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 <p
   class="circuit-0"
 >
   P text
 </p>
-`;
-
-exports[`Body should render bold text when passed the bold prop 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 700;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-<p
-  class="circuit-0"
-/>
-`;
-
-exports[`Body should render italic text when passed the italic prop 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  font-style: italic;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-<p
-  class="circuit-0"
-/>
-`;
-
-exports[`Body should render struck through text when passed the strike prop 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  -webkit-text-decoration: line-through;
-  text-decoration: line-through;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-<p
-  class="circuit-0"
-/>
 `;
 
 exports[`Body should render with default styles 1`] = `
@@ -136,13 +51,6 @@ exports[`Body should render with default styles 1`] = `
   margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
 }
 
 <p
@@ -161,19 +69,12 @@ exports[`Body should render with no margin styles when passed the noMargin prop 
   margin-bottom: 0;
 }
 
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 <p
   class="circuit-0"
 />
 `;
 
-exports[`Body should render with size giga 1`] = `
+exports[`Body should render with size one 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -181,60 +82,24 @@ exports[`Body should render with size giga 1`] = `
   line-height: 24px;
 }
 
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 18px;
-    line-height: 28px;
-  }
-}
-
 <p
   class="circuit-0"
 >
-  giga text
+  one text
 </p>
 `;
 
-exports[`Body should render with size kilo 1`] = `
+exports[`Body should render with size two 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
 }
 
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 13px;
-    line-height: 20px;
-  }
-}
-
 <p
   class="circuit-0"
 >
-  kilo text
-</p>
-`;
-
-exports[`Body should render with size mega 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-<p
-  class="circuit-0"
->
-  mega text
+  two text
 </p>
 `;
