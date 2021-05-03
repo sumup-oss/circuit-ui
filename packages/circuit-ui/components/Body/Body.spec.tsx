@@ -15,7 +15,7 @@
 
 import React from 'react';
 
-import { create, renderToHtml, axe } from '../../util/test-utils';
+import { create, renderToHtml, axe, render } from '../../util/test-utils';
 
 import { Body, BodyProps } from './Body';
 
@@ -31,8 +31,11 @@ describe('Body', () => {
 
   const elements = ['p', 'article', 'div'];
   it.each(elements)('should render as %s element', (as) => {
-    const actual = create(<Body as={as}>{`${as.toUpperCase()} text`}</Body>);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(
+      <Body as={as}>{`${as.toUpperCase()} text`}</Body>,
+    );
+    const actual = container.querySelector(as);
+    expect(actual).toBeVisible();
   });
 
   const sizes: BodyProps['size'][] = ['one', 'two'];

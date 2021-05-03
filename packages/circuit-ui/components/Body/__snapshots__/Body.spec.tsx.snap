@@ -1,50 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Body should render as article element 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-<p
-  class="circuit-0"
->
-  ARTICLE text
-</p>
-`;
-
-exports[`Body should render as div element 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-<p
-  class="circuit-0"
->
-  DIV text
-</p>
-`;
-
-exports[`Body should render as p element 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-<p
-  class="circuit-0"
->
-  P text
-</p>
-`;
-
 exports[`Body should render with default styles 1`] = `
 .circuit-0 {
   font-weight: 400;
