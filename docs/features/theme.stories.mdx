@@ -178,7 +178,7 @@ theme.borderWidth.[kilo|mega]
 ## Typography
 
 ```
-theme.typography.[headlines|subHeadlines|text].<SIZE_NAME>.[fontSize|lineHeight]
+theme.typography.[headline|subHeadline|body].<SIZE_NAME>.[fontSize|lineHeight]
 ```
 
 Avoid using `theme.typography` directly in your styles, rather use the specialized components [`Headline`](Typography/Headline/Base), [`SubHeadline`](Typography/SubHeadline/Base), and [`Body`](Typography/Body/Base).
@@ -186,23 +186,23 @@ Avoid using `theme.typography` directly in your styles, rather use the specializ
 ### Headlines
 
 <Preview>
-  <Type size="one" component={Headline} name="headings" />
-  <Type size="two" component={Headline} name="headings" />
-  <Type size="three" component={Headline} name="headings" />
-  <Type size="four" component={Headline} name="headings" />
+  <Type size="one" component={Headline} name="headline" />
+  <Type size="two" component={Headline} name="headline" />
+  <Type size="three" component={Headline} name="headline" />
+  <Type size="four" component={Headline} name="headline" />
 </Preview>
 
 ### Subheadline
 
 <Preview>
-  <Type component={SubHeadline} name="subHeadlines" />
+  <Type component={SubHeadline} name="subHeadline" />
 </Preview>
 
 ### Body
 
 <Preview>
-  <Type size="one" component={Body} name="text" />
-  <Type size="two" component={Body} name="text" />
+  <Type size="one" component={Body} name="body" />
+  <Type size="two" component={Body} name="body" />
 </Preview>
 
 ## Font stack
@@ -217,11 +217,17 @@ theme.fontStack.[default|mono]
 theme.fontWeight.[regular|bold]
 ```
 
-You can only toggle the boldness of `Body`, but not `Headline` or `Subheadline`.
+You can only toggle the boldness of `Body`, but not `Headline` or `SubHeadline`.
 
 <Preview>
-  <Type size="mega" bold component={Body} fontWeight="bold" name="text" />
-  <Type size="mega" component={Body} fontWeight="regular" name="text" />
+  <Type
+    size="mega"
+    variant="highlight"
+    component={Body}
+    fontWeight="bold"
+    name="body"
+  />
+  <Type size="mega" component={Body} fontWeight="regular" name="body" />
 </Preview>
 
 ## Grid
