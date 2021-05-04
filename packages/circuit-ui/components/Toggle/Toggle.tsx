@@ -20,7 +20,7 @@ import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import deprecate from '../../util/deprecate';
-import { Text, TextProps } from '../Text/Text';
+import { Body, BodyProps } from '../Body/Body';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
 
@@ -57,19 +57,12 @@ const textWrapperStyles = ({ theme }: StyleProps) => css`
 
 const ToggleTextWrapper = styled('label')<NoTheme>(textWrapperStyles);
 
-const labelStyles = css`
-  label: toggle__label;
-  padding-top: 2px;
-`;
-
-const ToggleLabel = styled(Text)(labelStyles);
-
 const explanationStyles = ({ theme }: StyleProps) => css`
   label: toggle__explanation;
   color: ${theme.colors.n700};
 `;
 
-const ToggleExplanation = styled(Text)<TextProps>(explanationStyles);
+const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);
 
 type WrapperElProps = Pick<ToggleProps, 'noMargin' | 'disabled'>;
 
@@ -131,12 +124,12 @@ export const Toggle = React.forwardRef(
         {(label || explanation) && (
           <ToggleTextWrapper id={labelId} htmlFor={switchId}>
             {label && (
-              <ToggleLabel size="kilo" noMargin>
+              <Body size="one" noMargin>
                 {label}
-              </ToggleLabel>
+              </Body>
             )}
             {explanation && (
-              <ToggleExplanation size="kilo" noMargin>
+              <ToggleExplanation size="two" noMargin>
                 {explanation}
               </ToggleExplanation>
             )}

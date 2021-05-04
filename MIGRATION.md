@@ -167,3 +167,27 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The themes have been moved to [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens). Import them from there instead (🤖 _theme-to-design-tokens_)
 - The `iconSizes.byte` theme value has been removed. Use `iconSizes.kilo` instead (🤖 _theme-icon-sizes_)
 - The `grid.afterTera` theme value has been renamed to `grid.tera` (🤖 _theme-grid-tera_)
+
+## From v2.x to v3
+
+### Typography refresh
+
+The new semantic typography components make it clear when each should be used, are flexible enough to cover all use cases, and for the first time include semantic colors as well.
+The existing sizes are adapted to the new ones. This means some of sizes have been removed and new size names have been added that represent more semantic variations.
+
+### Removed components
+
+- The **Blockquote** component has been removed. Use the **Body** component **(variant="quote")** instead.
+- The **Text** component's bold prop has been removed. Use the **Body** component **(variant="highlight")** instead (🤖 body-variant-highlight).
+- The **Text** component's italic and strike props has been removed. Use the custom styles instead.
+
+### Renamed components
+
+- The **Heading** component has been renamed to **Headline** (🤖 _component-names-typography_)
+- The **SubHeading** component has been renamed to **SubHeadline** (🤖 _component-names-typography_)
+- The **Text** component has been renamed to **Body** (🤖 _component-names-typography_)
+
+### Changed components
+
+- The size prop has been changed to accept the new size numbers for **Headline**, **SubHeadline**, **Body**. For **Headline** component **_exa_** and **_peta_** has been changed to **_one_** with new values, **_tera_** has been changed to **_two_**, **_giga_** to **_three_**, **_mega_** and **_kilo_** to **_four_**. For **Body** component **_giga_** size has been removed, and **_mega_** and **_kilo_** sizes have been changed to **_one_** and **_two_** respectively. The **SubHeadline** component now uses only one size value (🤖 _typography-sizes_).
+- The **Body** component's **success** and **error** variants have been added.

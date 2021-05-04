@@ -13,19 +13,20 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ReactNode, MouseEvent } from 'react';
-import { css } from '@emotion/core';
-import isPropValid from '@emotion/is-prop-valid';
-import { Dispatch as TrackingProps } from '@sumup/collector';
+/** @jsx jsx */
 
-import styled, { StyleProps } from '../../styles/styled';
+import { forwardRef, HTMLProps, ReactNode, MouseEvent } from 'react';
+import { jsx, css } from '@emotion/core';
+import { Dispatch as TrackingProps } from '@sumup/collector';
+import { Theme } from '@sumup/design-tokens';
+
 import { focusOutline } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
-import { Text, TextProps } from '../Text/Text';
+import { Body, BodyProps } from '../Body/Body';
 import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';
 
-export interface BaseProps extends TextProps {
+export interface BaseProps extends BodyProps {
   children: ReactNode;
   /**
    * Additional data that is dispatched with the tracking event.
@@ -41,7 +42,7 @@ type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size'>;
 
 export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
 
-const baseStyles = ({ theme }: StyleProps) => css`
+const baseStyles = (theme: Theme) => css`
   display: inline-block;
   text-decoration: underline;
   text-decoration-skip-ink: auto;
@@ -82,15 +83,11 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const StyledAnchor = styled(Text, {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<AnchorProps>(baseStyles);
-
 /**
  * The Anchor is used to display a link or button that visually looks like
- * a hyperlink. Based on the Text component, so it also supports its props.
+ * a hyperlink. Based on the Body component, so it also supports its props.
  */
-export const Anchor = React.forwardRef(
+export const Anchor = forwardRef(
   ({ tracking, ...props }: AnchorProps, ref?: BaseProps['ref']): ReturnType => {
     const components = useComponents();
 
@@ -106,13 +103,14 @@ export const Anchor = React.forwardRef(
     );
 
     if (!props.href && !props.onClick) {
-      return <Text as="span" {...props} ref={ref} noMargin />;
+      return <Body as="span" {...props} ref={ref} noMargin />;
     }
 
     if (props.href) {
       return (
-        <StyledAnchor
+        <Body
           {...props}
+          css={baseStyles}
           as={Link}
           ref={ref}
           onClick={handleClick}
@@ -122,9 +120,10 @@ export const Anchor = React.forwardRef(
     }
 
     return (
-      <StyledAnchor
+      <Body
         as="button"
         {...props}
+        css={baseStyles}
         ref={ref}
         onClick={handleClick}
         noMargin

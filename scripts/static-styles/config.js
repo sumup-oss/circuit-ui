@@ -140,7 +140,7 @@ export default {
     // },
     // getComponentInfo(Checkbox),
     // getComponentInfo(Hamburger),
-    // getComponentInfo(Heading, {
+    // getComponentInfo(Headline, {
     //   size: [
     //     "kilo",
     //     "mega",
@@ -171,7 +171,7 @@ export default {
     //   renderPrefix: PropTypes.element
     // }),
     // { name: 'selector', component: Selector },
-    // getComponentInfo(SubHeading, {
+    // getComponentInfo(SubHeadline, {
     //   size: ['kilo', 'mega']
     // }),
     // getComponentInfo(Tag, {
@@ -179,7 +179,7 @@ export default {
     //   prefix: PropTypes.element,
     //   suffix: PropTypes.element
     // }),
-    // getComponentInfo(Text, {
+    // getComponentInfo(Body, {
     //   size: ['kilo', 'mega', 'giga']
     // }),
     // getComponentInfo(TextArea),

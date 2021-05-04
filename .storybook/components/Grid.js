@@ -20,7 +20,7 @@ import {
   Grid as OriginalGrid,
   Row as OriginalRow,
   Col as OriginalCol,
-} from '../../packages/circuit-ui';
+} from '@sumup/circuit-ui';
 
 export const Grid = styled(OriginalGrid)`
   ${({ theme }) => css`

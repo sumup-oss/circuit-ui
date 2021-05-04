@@ -19,8 +19,8 @@ import { action } from '@storybook/addon-actions';
 import { css, jsx } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
-import Heading from '../Heading';
-import Text from '../Text';
+import Headline from '../Headline';
+import Body from '../Body';
 import Button from '../Button';
 import NotificationList from '../NotificationList';
 import NotificationBanner from '../NotificationBanner';
@@ -51,12 +51,12 @@ const headingStyles = (theme: Theme) =>
 
 export const Base = (args: NotificationProps) => (
   <Notification {...args}>
-    <Heading as="h4" size="kilo" noMargin>
+    <Headline as="h4" size="four" noMargin>
       New Feature — Intelligent Reporting
-    </Heading>
-    <Text>
+    </Headline>
+    <Body>
       Get automatic insights into your business statistics with one click.
-    </Text>
+    </Body>
     <Button size="kilo" onClick={action('Action clicked')}>
       Learn more
     </Button>
@@ -72,25 +72,25 @@ Base.args = {
 export const Variants = () => (
   <Fragment>
     <Notification variant="success" css={notificationStyles}>
-      <Heading size="kilo" as="h4" noMargin>
+      <Headline size="four" as="h4" noMargin>
         Transaction successfully refunded
-      </Heading>
+      </Headline>
     </Notification>
     <Notification variant="warning" css={notificationStyles}>
-      <Heading size="kilo" as="h4" noMargin>
+      <Headline size="four" as="h4" noMargin>
         You need to verify your account
-      </Heading>
-      <Text>
+      </Headline>
+      <Body>
         We need to verify your identity before you can continue transacting.
-      </Text>
+      </Body>
       <Button size="kilo" onClick={action('Button clicked')}>
         Verify account
       </Button>
     </Notification>
     <Notification variant="error" css={notificationStyles}>
-      <Heading size="kilo" as="h4" css={headingStyles}>
+      <Headline size="four" as="h4" css={headingStyles}>
         We failed to process your transaction
-      </Heading>
+      </Headline>
       <Button size="kilo" onClick={action('Button clicked')}>
         Try again
       </Button>

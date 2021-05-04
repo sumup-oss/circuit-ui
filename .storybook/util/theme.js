@@ -5,11 +5,11 @@ import { light } from '@sumup/design-tokens';
 
 import {
   BaseStyles,
-  Heading,
-  SubHeading,
-  Text,
+  Headline,
+  SubHeadline,
+  Body,
   List,
-} from '../../packages/circuit-ui';
+} from '@sumup/circuit-ui';
 
 import { Link } from '../components';
 
@@ -33,55 +33,58 @@ const withThemeProvider = (Component, baseProps = {}) => (props = {}) => (
   </ThemeProvider>
 );
 
-const TEXT_SIZE = 'mega';
+const TEXT_SIZE = 'one';
 
-const headingStyles = (theme) => css`
+const headlineStyles = (theme) => css`
   *:not(h1):not(h2):not(h3) + & {
     margin-top: ${theme.spacings.peta};
   }
 `;
 
-const subHeadingStyles = (theme) => css`
+const subHeadlineStyles = (theme) => css`
   margin-top: ${theme.spacings.giga};
 `;
 
+const italicStyles = css`
+  font-style: italic;
+`;
+
 export const components = {
-  h1: withThemeProvider(Heading, {
+  h1: withThemeProvider(Headline, {
     as: 'h1',
-    size: 'zetta',
-    css: headingStyles,
+    size: 'one',
+    css: headlineStyles,
   }),
-  h2: withThemeProvider(Heading, {
+  h2: withThemeProvider(Headline, {
     as: 'h2',
-    size: 'peta',
-    css: headingStyles,
+    size: 'two',
+    css: headlineStyles,
   }),
-  h3: withThemeProvider(Heading, {
+  h3: withThemeProvider(Headline, {
     as: 'h3',
-    size: 'giga',
-    css: headingStyles,
+    size: 'three',
+    css: headlineStyles,
   }),
-  h4: withThemeProvider(SubHeading, {
+  h4: withThemeProvider(Headline, {
     as: 'h4',
-    size: 'mega',
-    css: subHeadingStyles,
+    size: 'four',
+    css: subHeadlineStyles,
   }),
-  h5: withThemeProvider(SubHeading, {
-    as: 'h5',
-    size: 'kilo',
-    css: subHeadingStyles,
+  subheadline: withThemeProvider(SubHeadline, {
+    as: 'subheadline',
+    css: subHeadlineStyles,
   }),
-  p: withThemeProvider(Text, { as: 'p', size: TEXT_SIZE }),
-  li: withThemeProvider(Text, { as: 'li', size: TEXT_SIZE }),
-  strong: withThemeProvider(Text, {
+  p: withThemeProvider(Body, { as: 'p', size: TEXT_SIZE }),
+  li: withThemeProvider(Body, { as: 'li', size: TEXT_SIZE }),
+  strong: withThemeProvider(Body, {
     as: 'strong',
     size: TEXT_SIZE,
-    bold: true,
+    variant: 'highlight',
   }),
-  em: withThemeProvider(Text, {
+  em: withThemeProvider(Body, {
     as: 'em',
     size: TEXT_SIZE,
-    italic: true,
+    css: italicStyles,
   }),
   ul: withThemeProvider(List, { size: TEXT_SIZE }),
   ol: withThemeProvider(List, { size: TEXT_SIZE, variant: 'ordered' }),

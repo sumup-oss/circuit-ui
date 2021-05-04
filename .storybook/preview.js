@@ -8,7 +8,7 @@ import { Global, css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 import { TrackingRoot, TrackingView } from '@sumup/collector';
 
-import { BaseStyles } from '../packages/circuit-ui';
+import { BaseStyles } from '@sumup/circuit-ui';
 import { theme, components } from './util/theme';
 import { sortStories } from './util/story-helpers';
 
@@ -35,7 +35,7 @@ const SORT_ORDER = {
     'Base Components': {},
     'Static CSS': {},
   },
-  Typography: { Heading: {}, SubHeading: {}, Text: {} },
+  Typography: { Headline: {}, SubHeadline: {}, Body: {} },
   Layout: {},
   Forms: {},
   Components: {},

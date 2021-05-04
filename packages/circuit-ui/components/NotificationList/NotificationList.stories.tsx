@@ -16,8 +16,8 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import Heading from '../Heading';
-import Text from '../Text';
+import Headline from '../Headline';
+import Body from '../Body';
 import Button from '../Button';
 import Notification from '../Notification';
 
@@ -31,12 +31,12 @@ export default {
 export const Base = (args: NotificationListProps) => (
   <NotificationList {...args}>
     <Notification variant="success">
-      <Heading as="h4" size="kilo" noMargin>
+      <Headline as="h4" size="four" noMargin>
         New Feature — Intelligent Reporting
-      </Heading>
-      <Text>
+      </Headline>
+      <Body>
         Get automatic insights into your business statistics with one click.
-      </Text>
+      </Body>
       <Button size="kilo" onClick={action('Action clicked')}>
         Learn more
       </Button>
@@ -46,9 +46,9 @@ export const Base = (args: NotificationListProps) => (
       onClose={action('Notification dismissed')}
       closeLabel="Close"
     >
-      <Heading as="h4" size="kilo" noMargin>
+      <Headline as="h4" size="four" noMargin>
         We failed to process your transaction
-      </Heading>
+      </Headline>
     </Notification>
   </NotificationList>
 );

@@ -24,13 +24,13 @@ import * as iconComponents from '@sumup/icons';
 import { icons } from '@sumup/icons/manifest.json';
 
 import {
-  Heading,
-  Text,
+  Headline,
+  Body,
   InlineElements,
   Label,
   SearchInput,
   Select,
-} from '../../packages/circuit-ui';
+} from '@sumup/circuit-ui';
 
 function group(key, collection) {
   const grouped = groupBy(key, collection);
@@ -157,13 +157,13 @@ const Icons = () => {
       </Filters>
 
       {isEmpty(activeIcons) ? (
-        <Text>No icons found</Text>
+        <Body>No icons found</Body>
       ) : (
         group('category', activeIcons).map(({ category, items }) => (
           <Category key={category}>
-            <Heading as="h3" size="giga">
+            <Headline as="h3" size="three">
               {category}
-            </Heading>
+            </Headline>
             <List>
               {sortBy('name', items).map((icon) => {
                 const id = `${icon.name}-${icon.size}`;

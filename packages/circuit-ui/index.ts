@@ -17,18 +17,16 @@ import * as sharedPropTypes from './util/shared-prop-types';
 import { styleHelpers } from './styles/style-helpers';
 
 // Typography
-export { default as Heading } from './components/Heading';
-export type { HeadingProps } from './components/Heading';
-export { default as SubHeading } from './components/SubHeading';
-export type { SubHeadingProps } from './components/SubHeading';
-export { default as Text } from './components/Text';
-export type { TextProps } from './components/Text';
+export { default as Headline } from './components/Headline';
+export type { HeadlineProps } from './components/Headline';
+export { default as SubHeadline } from './components/SubHeadline';
+export type { SubHeadlineProps } from './components/SubHeadline';
+export { default as Body } from './components/Body';
+export type { BodyProps } from './components/Body';
 export { default as Anchor } from './components/Anchor';
 export type { AnchorProps } from './components/Anchor';
 export { default as List } from './components/List';
 export type { ListProps } from './components/List';
-export { default as Blockquote } from './components/Blockquote';
-export type { BlockquoteProps } from './components/Blockquote';
 
 // Forms
 export {

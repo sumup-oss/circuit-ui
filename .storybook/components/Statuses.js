@@ -21,7 +21,7 @@ import { ThemeProvider } from 'emotion-theming';
 import { css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 
-import { Badge, Text } from '../../packages/circuit-ui';
+import { Badge, Body } from '@sumup/circuit-ui';
 
 const variants = {
   stable: { variant: 'success', label: 'Stable' },
@@ -49,10 +49,10 @@ const Status = ({ variant: status = 'stable' }) => {
 
 Status.Description = ({ children }) => (
   <ThemeProvider theme={light}>
-    <Text size="kilo" as="span" italic>
+    <Body size="two" as="span">
       {' '}
       {children}
-    </Text>
+    </Body>
   </ThemeProvider>
 );
 

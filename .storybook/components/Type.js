@@ -20,9 +20,9 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Text } from '../../packages/circuit-ui';
+import { Body } from '@sumup/circuit-ui';
 
-const TypePx = styled(Text)`
+const TypePx = styled(Body)`
   ${({ theme: t }) => css`
     color: ${t.colors.n500};
     margin-left: ${t.spacings.mega};
@@ -41,7 +41,7 @@ const Type = ({ size, component, name, fontWeight, ...props }) => {
         children: (
           <Fragment>
             This is {size}
-            <TypePx as="span" size="kilo">
+            <TypePx as="span" size="two">
               {weight ? `${weight}` : `${fontSize}, ${lineHeight}`}
             </TypePx>
           </Fragment>

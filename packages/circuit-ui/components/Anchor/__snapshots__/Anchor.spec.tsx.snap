@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Anchor styles should render as a \`button\` when an onClick is passed 1`] = `
+exports[`Anchor styles should render with custom styles 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -22,13 +22,7 @@ exports[`Anchor styles should render as a \`button\` when an onClick is passed 1
   color: #3063E9;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
+  color: rebeccapurple;
 }
 
 .circuit-0:hover {
@@ -59,37 +53,15 @@ exports[`Anchor styles should render as a \`button\` when an onClick is passed 1
   border: 0;
 }
 
-<button
+<a
   class="circuit-0"
+  href="https://sumup.com"
 >
   Anchor
-</button>
+</a>
 `;
 
-exports[`Anchor styles should render as a \`span\` when neither href nor onClick is passed 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-<span
-  class="circuit-0"
->
-  Anchor
-</span>
-`;
-
-exports[`Anchor styles should render as an \`a\` when an href (and onClick) is passed 1`] = `
+exports[`Anchor styles should render with default styles 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -111,13 +83,6 @@ exports[`Anchor styles should render as an \`a\` when an href (and onClick) is p
   color: #3063E9;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
 }
 
 .circuit-0:hover {

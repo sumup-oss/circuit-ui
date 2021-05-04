@@ -21,8 +21,8 @@ import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components';
 import CardList from '../CardList';
-import Heading from '../Heading';
-import Text from '../Text';
+import Headline from '../Headline';
+import Body from '../Body';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 
@@ -61,13 +61,13 @@ const contentStyles = (theme: Theme) => css`
 `;
 
 const Header = () => (
-  <Heading size="kilo" noMargin>
+  <Headline size="four" noMargin>
     Card heading
-  </Heading>
+  </Headline>
 );
 
 const Content = () => (
-  <Text noMargin>This is some text showing in my card</Text>
+  <Body noMargin>This is some text showing in my card</Body>
 );
 
 export const Base = () => <Card css={cardStyles} />;

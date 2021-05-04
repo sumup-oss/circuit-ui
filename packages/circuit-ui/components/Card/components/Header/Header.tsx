@@ -25,7 +25,7 @@ import {
 
 export interface CardHeaderProps {
   /**
-   * Heading to be shown.
+   * Headline to be shown.
    */
   children?: ReactNode;
   /**
@@ -54,7 +54,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   margin-bottom: ${theme.spacings.giga};
 `;
 
-const noHeadingStyles = ({ children }: ContainerElProps) =>
+const noHeadlineStyles = ({ children }: ContainerElProps) =>
   Array.isArray(children) &&
   !children[0] &&
   css`
@@ -64,7 +64,7 @@ const noHeadingStyles = ({ children }: ContainerElProps) =>
 
 const CardHeaderContainer = styled('header')<ContainerElProps>(
   baseStyles,
-  noHeadingStyles,
+  noHeadlineStyles,
 );
 
 const closeButtonStyles = ({ theme }: StyleProps) => css`

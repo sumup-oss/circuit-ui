@@ -115,6 +115,38 @@ export const typography = {
       lineHeight: '28px',
     },
   },
+  headline: {
+    one: {
+      fontSize: '32px',
+      lineHeight: '36px',
+    },
+    two: {
+      fontSize: '24px',
+      lineHeight: '28px',
+    },
+    three: {
+      fontSize: '20px',
+      lineHeight: '24px',
+    },
+    four: {
+      fontSize: '18px',
+      lineHeight: '24px',
+    },
+  },
+  subHeadline: {
+    fontSize: '14px',
+    lineHeight: '20px',
+  },
+  body: {
+    one: {
+      fontSize: '16px',
+      lineHeight: '24px',
+    },
+    two: {
+      fontSize: '14px',
+      lineHeight: '20px',
+    },
+  },
 };
 
 export const fontStack: FontStack = {

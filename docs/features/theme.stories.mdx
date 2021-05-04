@@ -10,7 +10,7 @@ import {
   Type,
   MediaQueriesTable,
 } from '../../.storybook/components';
-import { Heading, SubHeading, Text } from '../../packages/circuit-ui';
+import { Headline, SubHeadline, Body } from '../../packages/circuit-ui';
 
 <Meta title="Features/Theme" />
 
@@ -178,36 +178,31 @@ theme.borderWidth.[kilo|mega]
 ## Typography
 
 ```
-theme.typography.[headings|subHeadings|text].<SIZE_NAME>.[fontSize|lineHeight]
+theme.typography.[headline|subHeadline|body].<SIZE_NAME>.[fontSize|lineHeight]
 ```
 
-Avoid using `theme.typography` directly in your styles, rather use the specialized components [`Heading`](Typography/Heading/Base), [`SubHeading`](Typography/SubHeading/Base), and [`Text`](Typography/Text/Base).
+Avoid using `theme.typography` directly in your styles, rather use the specialized components [`Headline`](Typography/Headline/Base), [`SubHeadline`](Typography/SubHeadline/Base), and [`Body`](Typography/Body/Base).
 
-### Headings
+### Headlines
 
 <Preview>
-  <Type size="zetta" component={Heading} name="headings" />
-  <Type size="exa" component={Heading} name="headings" />
-  <Type size="peta" component={Heading} name="headings" />
-  <Type size="tera" component={Heading} name="headings" />
-  <Type size="giga" component={Heading} name="headings" />
-  <Type size="mega" component={Heading} name="headings" />
-  <Type size="kilo" component={Heading} name="headings" />
+  <Type size="one" component={Headline} name="headline" />
+  <Type size="two" component={Headline} name="headline" />
+  <Type size="three" component={Headline} name="headline" />
+  <Type size="four" component={Headline} name="headline" />
 </Preview>
 
-### Subheading
+### Subheadline
 
 <Preview>
-  <Type size="mega" component={SubHeading} name="subHeadings" />
-  <Type size="kilo" component={SubHeading} name="subHeadings" />
+  <Type component={SubHeadline} name="subHeadline" />
 </Preview>
 
-### Text
+### Body
 
 <Preview>
-  <Type size="giga" component={Text} name="text" />
-  <Type size="mega" component={Text} name="text" />
-  <Type size="kilo" component={Text} name="text" />
+  <Type size="one" component={Body} name="body" />
+  <Type size="two" component={Body} name="body" />
 </Preview>
 
 ## Font stack
@@ -222,11 +217,17 @@ theme.fontStack.[default|mono]
 theme.fontWeight.[regular|bold]
 ```
 
-You can only toggle the boldness of `Text` but not `Heading` or `Subheading`.
+You can only toggle the boldness of `Body`, but not `Headline` or `SubHeadline`.
 
 <Preview>
-  <Type size="mega" bold component={Text} fontWeight="bold" name="text" />
-  <Type size="mega" component={Text} fontWeight="regular" name="text" />
+  <Type
+    size="mega"
+    variant="highlight"
+    component={Body}
+    fontWeight="bold"
+    name="body"
+  />
+  <Type size="mega" component={Body} fontWeight="regular" name="body" />
 </Preview>
 
 ## Grid

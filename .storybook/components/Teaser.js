@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import { Heading, Text, Card } from '../../packages/circuit-ui';
+import { Headline, Body, Card } from '@sumup/circuit-ui';
 
 // HACK: This prevents the cards from awkwardly wrapping if one of them
 //       only has one line of text.
@@ -42,9 +42,9 @@ const Wrapper = styled(Card)(
 const Teaser = ({ title, children, ...props }) => (
   <ThemeProvider theme={light}>
     <Wrapper shadow="double">
-      <Heading as="h2" size="giga">
+      <Headline as="h2" size="three">
         {title}
-      </Heading>
+      </Headline>
 
       {children}
     </Wrapper>

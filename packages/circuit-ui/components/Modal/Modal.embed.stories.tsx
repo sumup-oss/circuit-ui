@@ -20,7 +20,7 @@ import { action } from '@storybook/addon-actions';
 
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
-import Text from '../Text';
+import Body from '../Body';
 
 import { ModalHeader, ModalFooter } from './components';
 import {
@@ -40,27 +40,27 @@ export const Base = (args: ModalWrapperProps) => (
 export const WithTitle = (args: ModalWrapperProps) => (
   <ModalWrapper {...args}>
     <ModalHeader title="A title" />
-    <Text>Hello world!</Text>
+    <Body>Hello world!</Body>
   </ModalWrapper>
 );
 
 export const WithoutCloseButton = (args: ModalWrapperProps) => (
   <ModalWrapper {...args}>
-    <Text>Some text in the modal body.</Text>
+    <Body>Some text in the modal body.</Body>
   </ModalWrapper>
 );
 
 export const WithTitleAndCloseButton = (args: ModalWrapperProps) => (
   <ModalWrapper {...args}>
     <ModalHeader title="A modal" onClose={action('onClose')} />
-    <Text>Some text in the modal body.</Text>
+    <Body>Some text in the modal body.</Body>
   </ModalWrapper>
 );
 
 export const WithFooter = (args: ModalWrapperProps) => (
   <ModalWrapper {...args}>
     <ModalHeader title="A modal" />
-    <Text>Some text in the modal body.</Text>
+    <Body>Some text in the modal body.</Body>
     <ModalFooter>
       <ButtonGroup>
         <Button variant="secondary" onClick={action('Cancel button clicked')}>
@@ -110,7 +110,7 @@ export const WithCustomStyles = (args: ModalWrapperProps) => {
     >
       <Container>
         <LeftColumn>
-          <Text>A nice custom modal for special cases.</Text>
+          <Body>A nice custom modal for special cases.</Body>
         </LeftColumn>
         <RightColumn />
       </Container>
