@@ -14,10 +14,8 @@
  */
 
 import React from 'react';
-import { ThumbUp } from '@sumup/icons';
 
 import {
-  create,
   render,
   renderToHtml,
   axe,
@@ -34,54 +32,6 @@ describe('Button', () => {
   }
 
   const baseProps = { children: 'Button' };
-
-  describe('styles', () => {
-    it('should render a primary button by default', () => {
-      const wrapper = renderButton(create, baseProps);
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a secondary button', () => {
-      const wrapper = renderButton(create, {
-        ...baseProps,
-        variant: 'secondary',
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a tertiary button', () => {
-      const wrapper = renderButton(create, {
-        ...baseProps,
-        variant: 'tertiary',
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a kilo button', () => {
-      const wrapper = renderButton(create, { ...baseProps, size: 'kilo' });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a mega button', () => {
-      const wrapper = renderButton(create, { ...baseProps, size: 'mega' });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a disabled button', () => {
-      const wrapper = renderButton(create, { ...baseProps, disabled: true });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a stretched button', () => {
-      const wrapper = renderButton(create, { ...baseProps, stretch: true });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a button with icon', () => {
-      const wrapper = renderButton(create, { ...baseProps, icon: ThumbUp });
-      expect(wrapper).toMatchSnapshot();
-    });
-  });
 
   describe('business logic', () => {
     it('should render as a link when passed the href prop', () => {
