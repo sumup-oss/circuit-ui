@@ -52,7 +52,7 @@ We try to make adding new components as easy as possible. Run `yarn create:compo
 
 <div align="center">
 
-![A GIF of how to use the create:component script.](https://github.com/sumup-oss/circuit-ui/tree/main/assets/create-component.gif?raw=true 'Using create:component')
+![A GIF of how to use the create:component script.](https://github.com/sumup-oss/circuit-ui/raw/main/assets/create-component.gif 'Using create:component')
 
 </div>
 
