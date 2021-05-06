@@ -27,10 +27,6 @@ export default {
   parameters: {
     docs: { page: docs },
   },
-  argTypes: {
-    label: { control: 'text' },
-    variant: { control: { type: 'radio', options: ['square', 'round'] } },
-  },
 };
 
 export const base = (args: ImageInputProps): JSX.Element => (

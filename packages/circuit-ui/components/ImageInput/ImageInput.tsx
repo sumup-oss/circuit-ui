@@ -78,7 +78,7 @@ export const ImageInput = ({
       <Image
         as="label"
         imageUrl={imageUrl}
-        size="large"
+        variant="business"
         htmlFor={id}
         {...props}
       >

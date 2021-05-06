@@ -28,28 +28,28 @@ export default {
   },
   argTypes: {
     imageUrl: { control: 'text' },
-    variant: { control: { type: 'radio', options: ['square', 'round'] } },
-    size: { control: { type: 'radio', options: ['large', 'small'] } },
+    variant: { control: { type: 'radio', options: ['business', 'person'] } },
+    size: { control: { type: 'radio', options: ['yotta', 'giga'] } },
   },
 };
 
 export const base = (args: AvatarProps): JSX.Element => <Avatar {...args} />;
 base.args = {
   imageUrl: 'https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png',
-  variant: 'round',
-  size: 'large',
+  variant: 'person',
+  size: 'yotta',
 };
 
 export const sizes = (): JSX.Element => (
   <Stack>
     <Avatar
-      size="large"
-      variant="round"
+      size="yotta"
+      variant="person"
       imageUrl="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
     />
     <Avatar
-      size="small"
-      variant="round"
+      size="giga"
+      variant="person"
       imageUrl="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
     />
   </Stack>
@@ -58,19 +58,19 @@ export const sizes = (): JSX.Element => (
 export const identity = (): JSX.Element => (
   <Stack>
     <Avatar
-      variant="round"
+      variant="person"
       imageUrl="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
     />
-    <Avatar variant="round" />
+    <Avatar variant="person" />
   </Stack>
 );
 
 export const object = (): JSX.Element => (
   <Stack>
     <Avatar
-      variant="square"
+      variant="business"
       imageUrl="https://source.unsplash.com/EcWFOYOpkpY"
     />
-    <Avatar variant="square" />
+    <Avatar variant="business" />
   </Stack>
 );
