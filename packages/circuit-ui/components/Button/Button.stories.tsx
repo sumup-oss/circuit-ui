@@ -59,6 +59,20 @@ export const Variants = (args: ButtonProps) => (
   </Stack>
 );
 
+export const Destructive = (args: ButtonProps) => (
+  <Stack>
+    <Button {...args} variant="primary" destructive>
+      Primary
+    </Button>
+    <Button {...args} variant="secondary" destructive>
+      Secondary
+    </Button>
+    <Button {...args} variant="tertiary" destructive>
+      Tertiary
+    </Button>
+  </Stack>
+);
+
 export const Sizes = (args: ButtonProps) => (
   <Stack>
     <Button {...args} size="kilo">
