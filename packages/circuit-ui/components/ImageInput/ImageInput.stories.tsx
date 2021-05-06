@@ -22,7 +22,7 @@ import { ImageInputProps } from './ImageInput';
 import ImageInput from '.';
 
 export default {
-  title: `ImageInput`,
+  title: 'Components/ImageInput',
   component: ImageInput,
   parameters: {
     docs: { page: docs },

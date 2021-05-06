@@ -21,7 +21,7 @@ import { Avatar, AvatarProps } from './Avatar';
 import docs from './Avatar.docs.mdx';
 
 export default {
-  title: `Avatar`,
+  title: 'Components/Avatar',
   component: Avatar,
   parameters: {
     docs: { page: docs },

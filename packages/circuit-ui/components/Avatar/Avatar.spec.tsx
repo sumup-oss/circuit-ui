@@ -19,7 +19,7 @@ import { render, axe } from '../../util/test-utils';
 
 import { Avatar, AvatarProps } from './Avatar';
 
-describe('Avatar', () => {
+describe.skip('Avatar', () => {
   function renderAvatar(props: AvatarProps = {}, options = {}) {
     return render(<Avatar {...props} />, options);
   }

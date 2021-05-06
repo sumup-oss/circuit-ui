@@ -66,21 +66,19 @@ const baseStyles = ({
   width: ${avatarSizes[size]};
   height: ${avatarSizes[size]};
   box-shadow: inset 0 0 0 ${theme.borderWidth.kilo} rgba(0, 0, 0, 0.1);
-  border-radius: ${
-    variant === 'round' ? theme.borderRadius.circle : theme.borderRadius.tera
-  };
+  border-radius: ${variant === 'round'
+    ? theme.borderRadius.circle
+    : theme.borderRadius.tera};
   border: none;
   background-color: ${theme.colors.n300};
   background-size: cover;
   background-position: center;
-  background-image: url("data:image/svg+xml;utf8,${placeholders[variant]}");
+  background-image: url('data:image/svg+xml;utf8,${placeholders[variant]}');
 
-  ${
-    imageUrl &&
-    css`
-      background-image: url(${imageUrl});
-    `
-  };
+  ${imageUrl &&
+  css`
+    background-image: url(${imageUrl});
+  `};
 `;
 
 /**
