@@ -23,17 +23,21 @@ export const mapRowProps = (props: Row): { cells: Cell[] } =>
 export const getRowCells = (props: Row): Cell[] => mapRowProps(props).cells;
 
 export const mapCellProps = (props: Cell): CellObject =>
-  typeof props === 'string' || typeof props === 'number'
+  typeof props === 'string' ||
+  typeof props === 'number' ||
+  props === null ||
+  props === undefined
     ? { children: props }
     : props;
 
 export const getCellChildren = (props: Cell): ReactNode =>
   mapCellProps(props).children;
 
-export const getSortByValue = (props: Cell): SortByValue | ReactNode =>
-  typeof props === 'object' && props.sortByValue !== undefined
-    ? props.sortByValue
-    : getCellChildren(props);
+export const getSortByValue = (props: Cell): SortByValue | ReactNode => {
+  const cell = mapCellProps(props);
+
+  return cell.sortByValue !== undefined ? cell.sortByValue : cell.children;
+};
 
 export const getSortDirection = (
   isActive?: boolean,
