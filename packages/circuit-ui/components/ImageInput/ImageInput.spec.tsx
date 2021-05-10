@@ -21,7 +21,7 @@ import { ImageInput, ImageInputProps } from './ImageInput';
 
 describe.skip('ImageInput', () => {
   function renderImageInput(
-    props: ImageInputProps = { label: 'Upload an image' },
+    props: ImageInputProps = { label: 'Upload an image', alt: '' },
     options = {},
   ) {
     return render(<ImageInput {...props} />, options);

@@ -39,6 +39,7 @@ base.args = {
 
 export const withImage = (): JSX.Element => (
   <ImageInput
+    alt=""
     label="Upload an image"
     imageUrl="https://source.unsplash.com/EcWFOYOpkpY"
   />

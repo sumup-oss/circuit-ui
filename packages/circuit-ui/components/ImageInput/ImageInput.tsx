@@ -18,6 +18,7 @@ import { ChangeEvent, Fragment, InputHTMLAttributes, useState } from 'react';
 import { css, jsx } from '@emotion/core';
 
 import Avatar from '../Avatar';
+import Label from '../Label';
 import styled from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import { focusOutline, hideVisually } from '../../styles/style-mixins';
@@ -28,6 +29,10 @@ export interface ImageInputProps
    * label
    */
   label: string;
+  /**
+   * alt
+   */
+  alt: string;
   /**
    * imageUrl
    */
@@ -40,12 +45,12 @@ const Input = styled.input(
 
     &:focus + label {
       ${focusOutline({ theme })};
-      border-color: ${theme.colors.p500};
+      border-radius: ${theme.borderRadius.tera};
     }
   `,
 );
 
-const Image = styled(Avatar)`
+const StyledAvatar = styled(Avatar)`
   :hover {
     filter: brightness(90%);
     cursor: pointer;
@@ -58,6 +63,7 @@ const Image = styled(Avatar)`
 export const ImageInput = ({
   label,
   imageUrl: initialImageUrl,
+  alt,
   id: customId,
   ...props
 }: ImageInputProps): JSX.Element => {
@@ -74,16 +80,17 @@ export const ImageInput = ({
 
   return (
     <Fragment>
-      <Input id={id} type="file" accept="image/*" onChange={handleChange} />
-      <Image
-        as="label"
-        imageUrl={imageUrl}
-        variant="business"
-        htmlFor={id}
+      <Input
+        id={id}
+        type="file"
+        accept="image/*"
+        onChange={handleChange}
         {...props}
-      >
+      />
+      <Label htmlFor={id}>
         <span css={hideVisually()}>{label}</span>
-      </Image>
+        <StyledAvatar src={imageUrl} variant="business" alt={alt} />
+      </Label>
     </Fragment>
   );
 };

@@ -27,7 +27,8 @@ export default {
     docs: { page: docs },
   },
   argTypes: {
-    imageUrl: { control: 'text' },
+    src: { control: 'text' },
+    alt: { control: 'text' },
     variant: { control: { type: 'radio', options: ['business', 'person'] } },
     size: { control: { type: 'radio', options: ['yotta', 'giga'] } },
   },
@@ -35,7 +36,8 @@ export default {
 
 export const base = (args: AvatarProps): JSX.Element => <Avatar {...args} />;
 base.args = {
-  imageUrl: 'https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png',
+  src: 'https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png',
+  alt: '',
   variant: 'person',
   size: 'yotta',
 };
@@ -45,12 +47,14 @@ export const sizes = (): JSX.Element => (
     <Avatar
       size="yotta"
       variant="person"
-      imageUrl="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+      src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+      alt=""
     />
     <Avatar
       size="giga"
       variant="person"
-      imageUrl="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+      src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+      alt=""
     />
   </Stack>
 );
@@ -59,9 +63,10 @@ export const identity = (): JSX.Element => (
   <Stack>
     <Avatar
       variant="person"
-      imageUrl="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+      src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+      alt=""
     />
-    <Avatar variant="person" />
+    <Avatar variant="person" src="" alt="" />
   </Stack>
 );
 
@@ -69,8 +74,9 @@ export const object = (): JSX.Element => (
   <Stack>
     <Avatar
       variant="business"
-      imageUrl="https://source.unsplash.com/EcWFOYOpkpY"
+      src="https://source.unsplash.com/EcWFOYOpkpY"
+      alt=""
     />
-    <Avatar variant="business" />
+    <Avatar variant="business" src="" alt="" />
   </Stack>
 );

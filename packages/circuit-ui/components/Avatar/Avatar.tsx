@@ -13,18 +13,21 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 
-export interface AvatarProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'size'> {
+export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
   /**
-   * The URL of the Avatar image
+   * The Avatar image source
    */
-  imageUrl?: string;
+  src?: string;
+  /**
+   * Alt text for the Avatar
+   */
+  alt: string;
   /**
    * The variant of the Avatar, either representing a person or a business
    */
@@ -33,15 +36,6 @@ export interface AvatarProps
    * The size of the Avatar
    */
   size?: 'giga' | 'yotta';
-  /**
-   * Alternative DOM element to render
-   */
-  as?: 'label';
-  /**
-   * htmlFor when the element is a label
-   * TODO the element should extend either a div or a label
-   */
-  htmlFor?: string;
 }
 
 const avatarSizes = {
@@ -54,34 +48,44 @@ const placeholders = {
   business: `<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 25C30 20.0294 34.0294 16 39 16C43.9706 16 48 20.0294 48 25C48 29.9706 43.9706 34 39 34C34.0294 34 30 29.9706 30 25Z" fill="white"/><path d="M41.1571 60.5691L30.6742 48.3905C29.0304 46.4808 26.0517 46.5483 24.496 48.5304L8 69.5483V81.9998C8 85.3135 10.6863 87.9998 14 87.9998H19.9592L41.1571 60.5691Z" fill="white"/><path d="M70.4856 32.878C72.0409 30.876 75.0425 30.8075 76.6876 32.7363L87.9996 45.9986V81.9986C87.9996 85.3123 85.3133 87.9986 81.9996 87.9986H27.6611L70.4856 32.878Z" fill="white"/></svg>`,
 };
 
+type StyledImageProps = Omit<AvatarProps, 'variant' | 'size'> & {
+  variant: 'person' | 'business';
+  size: 'giga' | 'yotta';
+};
+
 const baseStyles = ({
   theme,
-  imageUrl,
-  variant = 'person',
-  size = 'yotta',
-}: AvatarProps & StyleProps) => css`
+  variant,
+  size,
+}: StyledImageProps & StyleProps) => css`
   display: block;
   width: ${avatarSizes[size]};
   height: ${avatarSizes[size]};
-  box-shadow: inset 0 0 0 ${theme.borderWidth.kilo} rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 ${theme.borderWidth.kilo} rgba(0, 0, 0, 0.1);
+  background-color: ${theme.colors.n300};
   border-radius: ${variant === 'person'
     ? theme.borderRadius.circle
     : theme.borderRadius.tera};
-  border: none;
-  background-color: ${theme.colors.n300};
-  background-size: cover;
-  background-position: center;
-  background-image: url('data:image/svg+xml;utf8,${placeholders[variant]}');
-
-  ${imageUrl &&
-  css`
-    background-image: url(${imageUrl});
-  `};
+  object-fit: cover;
+  object-position: center;
 `;
+
+const StyledImage = styled('img', {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<StyledImageProps>(baseStyles);
 
 /**
  * The Avatar component.
  */
-export const Avatar = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop),
-})<AvatarProps>(baseStyles);
+export const Avatar = ({
+  src: initialSrc,
+  alt = '',
+  variant = 'person',
+  size = 'yotta',
+  ...props
+}: AvatarProps): JSX.Element => {
+  const src = initialSrc || `data:image/svg+xml;utf8,${placeholders[variant]}`;
+  return (
+    <StyledImage src={src} alt={alt} variant={variant} size={size} {...props} />
+  );
+};
