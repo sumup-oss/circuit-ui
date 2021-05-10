@@ -98,6 +98,19 @@ describe('Table', () => {
       );
       expect(actual).toMatchSnapshot();
     });
+
+    it('should render "null" or "undefined" cells', () => {
+      const actual = create(
+        <Table
+          headers={['Name', 'Type']}
+          rows={[
+            [null, 'Fruit'],
+            ['Broccoli', undefined],
+          ]}
+        />,
+      );
+      expect(actual).toMatchSnapshot();
+    });
   });
 
   describe('Interaction tests', () => {

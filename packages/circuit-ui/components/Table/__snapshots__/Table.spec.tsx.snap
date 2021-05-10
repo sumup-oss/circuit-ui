@@ -544,6 +544,261 @@ tbody .circuit-12:last-child td {
 </div>
 `;
 
+exports[`Table Style tests should render "null" or "undefined" cells 1`] = `
+.circuit-15 {
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+}
+
+.circuit-14 {
+  border-radius: 4px;
+}
+
+@media (max-width:767px) {
+  .circuit-14 {
+    height: unset;
+    margin-left: 145px;
+    overflow-x: auto;
+  }
+}
+
+.circuit-13 {
+  background-color: #FFF;
+  border-collapse: separate;
+  width: 100%;
+}
+
+@media (max-width:767px) {
+  .circuit-13 {
+    margin-left: -145px;
+    width: calc(100% + 145px);
+  }
+
+  .circuit-13:after {
+    content: '';
+    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
+    height: 100%;
+    left: 145px;
+    position: absolute;
+    top: 0;
+    width: 6px;
+  }
+}
+
+.circuit-3 {
+  vertical-align: middle;
+}
+
+tbody .circuit-3:last-child th,
+tbody .circuit-3:last-child td {
+  border-bottom: none;
+}
+
+.circuit-1 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
+  vertical-align: middle;
+  overflow-wrap: break-word;
+  display: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+}
+
+@media (max-width:767px) {
+  .circuit-1 {
+    display: table-cell;
+    min-width: 145px;
+    max-width: 145px;
+    width: 145px;
+  }
+}
+
+.circuit-2 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  color: #666;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+}
+
+.circuit-5 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+}
+
+@media (max-width:767px) {
+  .circuit-5 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    overflow-wrap: break-word;
+  }
+}
+
+.circuit-6 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
+  vertical-align: middle;
+  overflow-wrap: break-word;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-6 {
+    display: table-cell;
+    min-width: 145px;
+    max-width: 145px;
+    width: 145px;
+  }
+}
+
+.circuit-7 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
+  vertical-align: middle;
+  overflow-wrap: break-word;
+}
+
+.circuit-0 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  color: #666;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+}
+
+@media (max-width:767px) {
+  .circuit-0 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    overflow-wrap: break-word;
+  }
+}
+
+<div
+  class="circuit-15"
+>
+  <div
+    class="circuit-14"
+  >
+    <table
+      class="circuit-13"
+    >
+      <thead
+        class="circuit-4"
+      >
+        <tr
+          class="circuit-3"
+        >
+          <th
+            class="circuit-0"
+            data-testid="table-header"
+            scope="col"
+          >
+            Name
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-1"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Name
+          </td>
+          <th
+            class="circuit-2"
+            data-testid="table-header"
+            scope="col"
+          >
+            Type
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="circuit-3"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-5"
+            data-testid="table-header"
+            scope="row"
+          />
+          <td
+            aria-hidden="true"
+            class="circuit-6"
+            data-testid="table-cell"
+            role="presentation"
+          />
+          <td
+            class="circuit-7"
+            data-testid="table-cell"
+          >
+            Fruit
+          </td>
+        </tr>
+        <tr
+          class="circuit-3"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-5"
+            data-testid="table-header"
+            scope="row"
+          >
+            Broccoli
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-6"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Broccoli
+          </td>
+          <td
+            class="circuit-7"
+            data-testid="table-cell"
+          />
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`Table Style tests should render a collapsed table 1`] = `
 .circuit-31 {
   position: relative;
