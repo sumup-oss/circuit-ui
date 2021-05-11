@@ -14,11 +14,13 @@
  */
 
 /** @jsx jsx */
-import { ChangeEvent, Fragment, InputHTMLAttributes, useState } from 'react';
+import { ChangeEvent, InputHTMLAttributes, useState } from 'react';
 import { css, jsx } from '@emotion/core';
+import { Bin } from '@sumup/icons';
 
 import Avatar from '../Avatar';
 import Label from '../Label';
+import IconButton from '../IconButton';
 import styled from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import { focusOutline, hideVisually } from '../../styles/style-mixins';
@@ -26,20 +28,24 @@ import { focusOutline, hideVisually } from '../../styles/style-mixins';
 export interface ImageInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
-   * label
+   * A clear and concise description of the image input's purpose.
    */
   label: string;
   /**
-   * alt
+   * A unique identifier for the input element. If not defined, a generated id is used.
    */
-  alt: string;
+  id?: string;
   /**
-   * imageUrl
+   * An existing image URL to be displayed in the image input.
    */
   imageUrl?: string;
+  /**
+   * An accessible label for the "remove" icon button.
+   */
+  removeButtonLabel: string;
 }
 
-const Input = styled.input(
+const HiddenInput = styled.input(
   ({ theme }) => css`
     ${hideVisually()};
 
@@ -50,11 +56,29 @@ const Input = styled.input(
   `,
 );
 
-const StyledAvatar = styled(Avatar)`
-  :hover {
-    filter: brightness(90%);
-    cursor: pointer;
-  }
+const StyledAvatar = styled(Avatar)(
+  ({ theme }) => css`
+    &:hover {
+      filter: brightness(90%);
+      cursor: pointer;
+    }
+    &:hover + button {
+      background-color: ${theme.colors.p900};
+      border-color: ${theme.colors.p900};
+    }
+  `,
+);
+
+const ActionButton = styled(IconButton)(
+  ({ theme }) => css`
+    position: absolute;
+    right: -${theme.spacings.bit};
+    bottom: -${theme.spacings.bit};
+  `,
+);
+
+const AddButton = styled(ActionButton)`
+  pointer-events: none;
 `;
 
 /**
@@ -63,8 +87,8 @@ const StyledAvatar = styled(Avatar)`
 export const ImageInput = ({
   label,
   imageUrl: initialImageUrl,
-  alt,
   id: customId,
+  removeButtonLabel,
   ...props
 }: ImageInputProps): JSX.Element => {
   const id = customId || uniqueId('imageinput_');
@@ -79,8 +103,12 @@ export const ImageInput = ({
   };
 
   return (
-    <Fragment>
-      <Input
+    <div
+      css={css`
+        position: relative;
+      `}
+    >
+      <HiddenInput
         id={id}
         type="file"
         accept="image/*"
@@ -89,8 +117,46 @@ export const ImageInput = ({
       />
       <Label htmlFor={id}>
         <span css={hideVisually()}>{label}</span>
-        <StyledAvatar src={imageUrl} variant="business" alt={alt} />
+        <StyledAvatar src={imageUrl} variant="business" alt="" />
+        {!imageUrl && (
+          <AddButton
+            type="button"
+            size="kilo"
+            variant="primary"
+            aria-hidden="true"
+            tabIndex={-1}
+            label=""
+          >
+            {/* FIXME add to @sumup/icons and upgrade the dependency in the next major */}
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M7.99999 0C8.55228 0 8.99999 0.447715 8.99999 1V6.99999H15C15.5523 6.99999 16 7.44771 16 7.99999C16 8.55228 15.5523 8.99999 15 8.99999H8.99999V15C8.99999 15.5523 8.55228 16 7.99999 16C7.44771 16 6.99999 15.5523 6.99999 15V8.99999H1C0.447715 8.99999 0 8.55228 0 7.99999C0 7.44771 0.447715 6.99999 1 6.99999H6.99999V1C6.99999 0.447715 7.44771 0 7.99999 0Z"
+                fill="white"
+              />
+            </svg>
+          </AddButton>
+        )}
       </Label>
-    </Fragment>
+      {imageUrl && (
+        <ActionButton
+          type="button"
+          size="kilo"
+          variant="primary"
+          destructive
+          label={removeButtonLabel}
+          onClick={() => setImageUrl(undefined)}
+        >
+          <Bin />
+        </ActionButton>
+      )}
+    </div>
   );
 };
