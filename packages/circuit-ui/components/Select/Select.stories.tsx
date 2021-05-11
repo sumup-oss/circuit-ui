@@ -65,6 +65,13 @@ Invalid.args = {
   invalid: true,
 };
 
+export const Optional = (args: SelectProps) => <Select {...args} />;
+
+Optional.args = {
+  ...baseArgs,
+  optionalLabel: 'optional',
+};
+
 export const WithPrefix = (args: SelectProps) => {
   const [value, setValue] = useState('US');
   return (

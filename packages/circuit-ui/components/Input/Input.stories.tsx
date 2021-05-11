@@ -83,6 +83,15 @@ Warning.args = {
   hasWarning: true,
 };
 
+export const Optional = (args: InputProps) => (
+  <Input {...args} css={inputStyles} />
+);
+
+Optional.args = {
+  ...baseArgs,
+  optionalLabel: 'optional',
+};
+
 export const Readonly = (args: InputProps) => (
   <Input {...args} css={inputStyles} />
 );
