@@ -108,7 +108,6 @@ label + .circuit-4:not(label) {
     class="circuit-0"
   >
     Amount
-    
   </span>
   <div
     class="circuit-3"
@@ -238,7 +237,6 @@ label + .circuit-4:not(label) {
     class="circuit-0"
   >
     Amount
-    
   </span>
   <div
     class="circuit-3"

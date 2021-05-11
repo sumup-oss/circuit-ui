@@ -371,9 +371,7 @@ export const Select = React.forwardRef(
             {label}
             {optionalLabel && !required ? (
               <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
-            ) : (
-              ''
-            )}
+            ) : null}
           </LabelText>
         )}
 

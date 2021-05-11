@@ -374,9 +374,7 @@ export const Input = forwardRef(
             {label}
             {optionalLabel && !required ? (
               <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
-            ) : (
-              ''
-            )}
+            ) : null}
           </LabelText>
         )}
         <InputContainer>

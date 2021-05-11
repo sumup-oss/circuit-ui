@@ -714,7 +714,6 @@ select:not(:active) ~ .circuit-5 {
       class="circuit-0"
     >
       Pagination
-      
     </span>
     <div
       class="circuit-6"

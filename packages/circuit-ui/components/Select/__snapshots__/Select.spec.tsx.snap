@@ -276,7 +276,6 @@ select:not(:active) ~ .circuit-3 {
     class="circuit-0"
   >
     Label
-    
   </span>
   <div
     class="circuit-4"
@@ -842,7 +841,6 @@ select:not(:active) ~ .circuit-3 {
     class="circuit-0"
   >
     Label
-    
   </span>
   <div
     class="circuit-4"
