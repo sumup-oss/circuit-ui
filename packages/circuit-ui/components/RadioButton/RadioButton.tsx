@@ -47,6 +47,7 @@ type LabelElProps = Pick<RadioButtonProps, 'invalid' | 'disabled'>;
 const labelBaseStyles = ({ theme }: StyleProps) => css`
   label: radio-button__label;
   color: ${theme.colors.bodyColor};
+  display: inline-block;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
