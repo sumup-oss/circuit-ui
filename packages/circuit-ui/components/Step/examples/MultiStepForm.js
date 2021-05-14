@@ -15,6 +15,7 @@
 
 /* istanbul ignore file */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';

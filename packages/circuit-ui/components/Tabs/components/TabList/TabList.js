@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
