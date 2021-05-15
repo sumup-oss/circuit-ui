@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import React, { Fragment, Ref, HTMLProps } from 'react';
 import { css, jsx } from '@emotion/core';

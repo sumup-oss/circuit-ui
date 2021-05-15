@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { MouseEvent, KeyboardEvent } from 'react';
 import styled from '@emotion/styled';
