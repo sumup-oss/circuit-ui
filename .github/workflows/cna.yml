@@ -3,6 +3,7 @@ name: Create SumUp Next App
 on:
   schedule:
     - cron: '0 3 * * 1'
+  workflow_dispatch:
 
 jobs:
   test:
@@ -16,8 +17,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Bootstrap test app
+      - name: Bootstrap app
         run: yarn create next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-next-app/template" test-app
 
-      - name: Build test app
-        run: cd test-app && yarn build
+      - name: Build app
+        working-directory: ./test-app
+        run: yarn build
+
+      - name: Install test dependencies
+        working-directory: ./test-app
+        run: yarn add puppeteer start-server-and-test
+
+      - name: Test app
+        working-directory: ./test-app
+        run: start-server-and-test start http://localhost:3000 "node ../scripts/verify-template.js"
