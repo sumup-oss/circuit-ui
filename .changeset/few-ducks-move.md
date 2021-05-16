@@ -1,5 +1,5 @@
 ---
-'@sumup/cra-template': patch
+'@sumup/cna-template': patch
 ---
 
 Added default options when initializing Foundry.
