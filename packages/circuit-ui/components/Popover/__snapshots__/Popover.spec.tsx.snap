@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PopoverItem styles should render as a \`button\` when an onClick is passed 1`] = `
+.circuit-1 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #1A1A1A;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-1:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-1:focus {
+  background-color: #FFF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0 {
+  margin-right: 8px;
+}
+
+<button
+  class="circuit-1"
+>
+  <svg
+    class="circuit-0"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M13 3L5 14h7l-1 7 8-11h-7l1-7z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
+  PopoverItem
+</button>
+`;
+
+exports[`PopoverItem styles should render as an \`a\` when an href (and onClick) is passed 1`] = `
+.circuit-1 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #1A1A1A;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-1:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-1:focus {
+  background-color: #FFF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0 {
+  margin-right: 8px;
+}
+
+<a
+  class="circuit-1"
+  href="https://sumup.com"
+>
+  <svg
+    class="circuit-0"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M13 3L5 14h7l-1 7 8-11h-7l1-7z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
+  PopoverItem
+</a>
+`;
