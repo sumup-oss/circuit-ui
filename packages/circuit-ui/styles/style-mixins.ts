@@ -334,3 +334,29 @@ export const inputOutline = (
     }
   `;
 };
+
+export const listItem = (args: ThemeArgs): SerializedStyles => {
+  const theme = getTheme(args);
+  return css`
+    background-color: ${theme.colors.white};
+    padding: ${theme.spacings.kilo} ${theme.spacings.tera}
+      ${theme.spacings.kilo} ${theme.spacings.mega};
+    border: 0;
+    color: ${theme.colors.bodyColor};
+    text-decoration: none;
+
+    &:hover {
+      background-color: ${theme.colors.n100};
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: ${theme.colors.n200};
+    }
+
+    &:focus {
+      background-color: ${theme.colors.white};
+      ${focusOutline({ theme })};
+    }
+  `;
+};
