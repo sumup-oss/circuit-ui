@@ -27,7 +27,6 @@ const puppeteer = require('puppeteer');
     const page = await browser.newPage();
 
     await page.goto('http://localhost:3000');
-    await page.screenshot({ path: 'example.png' });
 
     const heading = await page.$eval('h1', (e) => e.textContent);
     const assertion = heading.includes(expected);
