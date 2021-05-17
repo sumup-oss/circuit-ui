@@ -120,7 +120,6 @@ export { default as ProgressBar } from './components/ProgressBar';
 export type { ProgressBarProps } from './components/ProgressBar';
 export { default as Tag } from './components/Tag';
 export type { TagProps } from './components/Tag';
-export { default as Popover } from './components/Popover';
 export { default as Tooltip } from './components/Tooltip';
 export { default as BaseStyles } from './components/BaseStyles';
 export {

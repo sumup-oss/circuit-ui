@@ -28,6 +28,6 @@
  * limitations under the License.
  */
 
-import Popover from './Popover';
+import { PopoverItem } from './Popover';
 
-export default Popover;
+export default PopoverItem;
