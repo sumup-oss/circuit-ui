@@ -24,12 +24,16 @@ import {
   focusOutline,
   hideVisually,
   disableVisually,
+  textMega,
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import useClickHandler from '../../hooks/use-click-handler';
 import deprecate from '../../util/deprecate';
 
-export interface SelectorProps extends HTMLProps<HTMLInputElement> {
+export type SelectorSize = 'kilo' | 'mega' | 'flexible';
+
+export interface SelectorProps
+  extends Omit<HTMLProps<HTMLInputElement>, 'size'> {
   /**
    * Value string for input.
    */
@@ -42,6 +46,10 @@ export interface SelectorProps extends HTMLProps<HTMLInputElement> {
    * The name of the selector.
    */
   name?: string;
+  /**
+   * Choose from 3 sizes. Default: 'mega'.
+   */
+  size?: SelectorSize;
   /**
    * Whether the selector is selected or not.
    */
@@ -68,48 +76,57 @@ export interface SelectorProps extends HTMLProps<HTMLInputElement> {
   tracking?: TrackingProps;
 }
 
-type LabelElProps = Pick<SelectorProps, 'disabled' | 'noMargin'>;
+type LabelElProps = Pick<SelectorProps, 'disabled' | 'noMargin' | 'size'>;
+
+const LABEL_BORDER_RADIUS = '8px';
+
+/**
+ * ::before serves as a host element for the focus outline.
+ * Selector uses box-shadow to draw its border, therefore
+ * in order to draw focus outline with another box-shadow
+ * we need a different element.
+ * All the dimensions calculations are to align ::before with
+ * Selector's border and not just with its content, otherwise
+ * focus outline will render on top of the border.
+ */
+const focusOutlineHostStyles = ({ theme }: StyleProps) => css`
+  &::before {
+    display: none;
+    content: '';
+    position: absolute;
+    top: -${theme.borderWidth.mega};
+    left: -${theme.borderWidth.mega};
+    width: calc(100% + ${theme.borderWidth.mega} * 2);
+    height: calc(100% + ${theme.borderWidth.mega} * 2);
+    border: ${theme.borderWidth.mega} solid transparent;
+    border-radius: calc(${LABEL_BORDER_RADIUS} + ${theme.borderWidth.mega});
+    ${focusOutline({ theme })}
+  }
+`;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   label: selector__label;
-  display: block;
+  display: inline-block;
   cursor: pointer;
   padding: ${theme.spacings.mega} ${theme.spacings.giga};
-  border-radius: ${theme.borderRadius.byte};
   background-color: ${theme.colors.white};
+  ${textMega({ theme })};
   text-align: center;
   position: relative;
   margin-bottom: ${theme.spacings.mega};
-
-  &::before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: ${theme.borderRadius.byte};
-    border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
-    transition: border 0.1s ease-in-out;
-  }
+  border: none;
+  border-radius: ${LABEL_BORDER_RADIUS};
+  box-shadow: 0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n300};
+  transition: box-shadow 0.1s ease-in-out;
 
   &:hover {
     background-color: ${theme.colors.n100};
-
-    &::before {
-      border-color: ${theme.colors.n500};
-    }
+    box-shadow: 0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n500};
   }
 
   &:active {
     background-color: ${theme.colors.n200};
-
-    &::before {
-      border-color: ${theme.colors.n700};
-    }
+    box-shadow: 0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n700};
   }
 `;
 
@@ -137,9 +154,32 @@ const noMarginStyles = ({ noMargin }: LabelElProps) => {
   `;
 };
 
+const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
+  const sizeMap = {
+    kilo: {
+      padding: `${theme.spacings.bit} ${theme.spacings.mega}`,
+    },
+    mega: {
+      // +1px is to match the height of other form components
+      // like Input or Select that also have +1px for vertical padding
+      padding: `calc(${theme.spacings.byte} + 1px) ${theme.spacings.giga}`,
+    },
+    flexible: {
+      padding: `${theme.spacings.mega} ${theme.spacings.mega}`,
+    },
+  };
+
+  return css({
+    label: `selector--${size}`,
+    ...sizeMap[size],
+  });
+};
+
 const SelectorLabel = styled('label')<LabelElProps>(
   baseStyles,
+  sizeStyles,
   disabledStyles,
+  focusOutlineHostStyles,
   noMarginStyles,
 );
 
@@ -147,20 +187,18 @@ const inputStyles = ({ theme }: StyleProps) => css`
   label: selector__input;
   ${hideVisually()};
 
+  // Show the focus outline host
   &:focus + label::before {
-    ${focusOutline({ theme })};
+    display: block;
   }
 
   &:checked + label {
     background-color: ${theme.colors.p100};
-
-    &::before {
-      border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
-    }
+    box-shadow: 0 0 0 ${theme.borderWidth.mega} ${theme.colors.p500};
   }
 `;
 
-const SelectorInput = styled('input')<SelectorProps>(inputStyles);
+const SelectorInput = styled('input')<HTMLProps<HTMLInputElement>>(inputStyles);
 
 /**
  * A selector allows users to choose between several mutually-exclusive choices
@@ -181,6 +219,7 @@ export const Selector = React.forwardRef(
       className,
       style,
       noMargin,
+      size,
       ...props
     }: SelectorProps,
     ref: SelectorProps['ref'],
@@ -213,6 +252,7 @@ export const Selector = React.forwardRef(
         <SelectorLabel
           htmlFor={inputId}
           disabled={disabled}
+          size={size}
           className={className}
           style={style}
           noMargin={noMargin}

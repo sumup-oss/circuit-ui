@@ -17,10 +17,14 @@
 /** @jsx jsx */
 import React, { ReactNode, ChangeEvent, Ref } from 'react';
 import { includes } from 'lodash/fp';
-import { jsx } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 
+import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import Selector from '../Selector';
+import { SelectorSize } from '../Selector/Selector';
+
+type GapSize = 'kilo' | 'mega';
 
 export interface SelectorGroupProps {
   /**
@@ -53,10 +57,78 @@ export interface SelectorGroupProps {
    */
   multiple?: boolean;
   /**
+   * Whether to layout Selectors in a row or a column. Default: 'vertical'.
+   */
+  orientation?: 'vertical' | 'horizontal';
+  /**
+   * Size of the Selectors within the group. Default: 'mega'.
+   */
+  size?: SelectorSize;
+  /**
+   * Spacing between selectors in a group. Default: 'kilo'.
+   */
+  gapSize?: GapSize;
+  /**
+   * Whether the group should take the whole width available. Default: true.
+   */
+  stretch?: boolean;
+  /**
    * The ref to the HTML Dom element
    */
   ref?: Ref<HTMLDivElement>;
 }
+
+type ContainerProps = Pick<
+  SelectorGroupProps,
+  'orientation' | 'gapSize' | 'stretch'
+>;
+
+const stretchStyles = ({ stretch = true }: StyleProps & ContainerProps) => css`
+  display: ${stretch ? 'flex' : 'inline-flex'};
+  align-items: ${stretch ? 'stretch' : 'flex-start'};
+  width: ${stretch ? '100%' : 'auto'};
+`;
+
+const orientationStyles = ({
+  theme,
+  gapSize = 'mega',
+  orientation = 'vertical',
+}: StyleProps & ContainerProps) => css`
+  flex-direction: ${orientation === 'vertical' ? 'column' : 'row'};
+
+  > div {
+    &:not(:last-child) {
+      margin-right: ${orientation === 'horizontal'
+        ? theme.spacings[gapSize]
+        : 0};
+      margin-bottom: ${orientation === 'vertical'
+        ? theme.spacings[gapSize]
+        : 0};
+    }
+  }
+`;
+
+const baseStyles = () => css`
+  label: selector-group;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+const StyledSelectorGroup = styled.div(
+  baseStyles,
+  stretchStyles,
+  orientationStyles,
+);
+
+const OptionItem = styled.div`
+  label: selector-group__option-item;
+  flex-grow: 1;
+`;
+
+const StyledSelector = styled(Selector)`
+  width: 100%;
+`;
 
 /**
  * A group of Selectors.
@@ -70,26 +142,46 @@ export const SelectorGroup = React.forwardRef(
       name: customName,
       label,
       multiple,
-      ...props
+      size,
+      gapSize,
+      stretch,
+      ...rest
     }: SelectorGroupProps,
     ref: SelectorGroupProps['ref'],
   ) => {
     const name = customName || uniqueId('selector-group_');
+
     return (
-      <div role="group" aria-label={label} ref={ref} {...props}>
+      <StyledSelectorGroup
+        role="group"
+        aria-label={label}
+        ref={ref}
+        gapSize={gapSize}
+        stretch={stretch}
+        {...rest}
+      >
         {options &&
-          options.map(({ children, value, ...rest }) => (
-            <Selector
-              key={value}
-              {...{ ...rest, value, name, onChange, multiple }}
-              checked={
-                multiple ? includes(value, activeValue) : value === activeValue
-              }
-            >
-              {children}
-            </Selector>
+          options.map(({ children, value, ...optionRest }) => (
+            <OptionItem key={value}>
+              <StyledSelector
+                name={name}
+                onChange={onChange}
+                multiple={multiple}
+                value={value}
+                size={size}
+                noMargin
+                checked={
+                  multiple
+                    ? includes(value, activeValue)
+                    : value === activeValue
+                }
+                {...optionRest}
+              >
+                {children}
+              </StyledSelector>
+            </OptionItem>
           ))}
-      </div>
+      </StyledSelectorGroup>
     );
   },
 );

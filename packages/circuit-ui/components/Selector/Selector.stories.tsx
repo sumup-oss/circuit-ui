@@ -15,7 +15,9 @@
 
 import React from 'react';
 
+import { Stack } from '../../../../.storybook/components';
 import SelectorGroup from '../SelectorGroup';
+import Text from '../Text';
 
 import docs from './Selector.docs.mdx';
 import { Selector, SelectorProps } from './Selector';
@@ -62,3 +64,21 @@ Disabled.args = {
   name: 'disabled',
   disabled: true,
 };
+export const Sizes = (args: SelectorProps) => (
+  <Stack>
+    <Selector {...args} size="kilo">
+      Kilo
+    </Selector>
+    <Selector {...args} size="mega">
+      Mega
+    </Selector>
+    <Selector {...args} size="flexible">
+      <Text bold noMargin>
+        Flexible
+      </Text>
+      <Text noMargin>Hello World!</Text>
+    </Selector>
+  </Stack>
+);
+
+Disabled.args = { ...baseArgs, disabled: true };
