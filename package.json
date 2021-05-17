@@ -30,7 +30,7 @@
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
     "check:svg-sizes": "./scripts/check-svg-sizes.sh",
     "copy-docs": "./scripts/copy-docs.sh",
-    "bootstrap": "yarn build && cd packages/create-sumup-next-app/template && yarn --no-lockfile --ignore-scripts",
+    "bootstrap": "yarn build && yarn copy-docs && cd packages/create-sumup-next-app/template && yarn --no-lockfile --ignore-scripts",
     "release": "changeset publish"
   },
   "devDependencies": {
