@@ -28,11 +28,21 @@ import { Modal, ModalProps } from './Modal';
 
 export type ModalContextValue = {
   setModal: (modal: ModalProps) => void;
+  removeModal: () => void;
+  isModalOpen: boolean;
+  /**
+   * @deprecated
+   *
+   * If you need access to the `onClose` method or `isOpen` state of the modal,
+   * use the `removeModal` and `isOpen` context properties instead.
+   */
   getModal: () => ModalProps | null;
 };
 
 export const ModalContext = createContext<ModalContextValue>({
   setModal: () => {},
+  removeModal: () => {},
+  isModalOpen: false,
   getModal: () => null,
 });
 
@@ -58,7 +68,7 @@ export const ModalProvider: FC<Pick<ModalProps, 'appElement'>> = (props) => {
   const { onClose, children, ...modalProps } = modal || {};
 
   const handleClose = useCallback(
-    (event: MouseEvent | KeyboardEvent): void => {
+    (event?: MouseEvent | KeyboardEvent): void => {
       if (onClose) {
         onClose(event);
       }
@@ -70,7 +80,14 @@ export const ModalProvider: FC<Pick<ModalProps, 'appElement'>> = (props) => {
   const getModal = useCallback(() => modal, [modal]);
 
   return (
-    <ModalContext.Provider value={{ setModal: openModal, getModal }}>
+    <ModalContext.Provider
+      value={{
+        setModal: openModal,
+        removeModal: handleClose,
+        isModalOpen: isOpen,
+        getModal,
+      }}
+    >
       {props.children}
 
       {modal && (

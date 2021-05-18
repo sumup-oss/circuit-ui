@@ -25,10 +25,10 @@ import IS_IOS from '../../util/ios';
 import { isFunction } from '../../util/type-check';
 import useClickHandler from '../../hooks/use-click-handler';
 
-type OnClose = (event: MouseEvent | KeyboardEvent) => void;
+type OnClose = (event?: MouseEvent | KeyboardEvent) => void;
 
 export interface ModalProps extends Partial<Props> {
-  children: ReactNode | (({ onClose }: { onClose: OnClose }) => ReactNode);
+  children: ReactNode | (({ onClose }: { onClose?: OnClose }) => ReactNode);
   /**
    * Determines if the modal is visible or not.
    */
@@ -37,7 +37,7 @@ export interface ModalProps extends Partial<Props> {
    * Function to close the modal. Passed down to the children
    * render prop.
    */
-  onClose: OnClose;
+  onClose?: OnClose;
   /**
    * React Modal's accessibility string.
    */
