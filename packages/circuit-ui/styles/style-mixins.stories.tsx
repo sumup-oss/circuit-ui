@@ -130,7 +130,12 @@ const Focused = styled.div`
   background-color: white;
 `;
 
-export const FocusOutline = () => <Focused css={focusOutline} />;
+export const FocusOutline = () => (
+  <Stack>
+    <Focused css={focusOutline} />
+    <Focused css={focusOutline('inset')} />
+  </Stack>
+);
 
 export const DisableVisually = () => (
   <div css={disableVisually}>This element is visually disabled.</div>
