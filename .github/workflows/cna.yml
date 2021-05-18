@@ -25,9 +25,8 @@ jobs:
         run: yarn build
 
       - name: Install test dependencies
-        working-directory: ./test-app
-        run: yarn add puppeteer start-server-and-test
+        run: yarn add puppeteer -W
 
       - name: Test app
         working-directory: ./test-app
-        run: start-server-and-test start http://localhost:3000 "node ../scripts/verify-template.js"
+        run: npx start-server-and-test start http://localhost:3000 "node ../scripts/verify-template.js"

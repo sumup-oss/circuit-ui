@@ -41,6 +41,8 @@ const puppeteer = require('puppeteer');
     }
 
     await browser.close();
+
+    console.log(`Found page heading containing ${expected}.`);
   } catch (error) {
     console.error(error);
     process.exit(1);
