@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Fixed the alignment of long, multiline labels in the RadioButton component. Fixes #934.
+Fixed the alignment of long, multiline labels in the RadioButton component (#934).
