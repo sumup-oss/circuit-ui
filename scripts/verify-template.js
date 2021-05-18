@@ -34,15 +34,15 @@ const puppeteer = require('puppeteer');
     if (!assertion) {
       throw new Error(
         [
-          `Expected page heading to contain '${expected}',`,
-          `instead got '${heading}'.`,
+          `Expected page heading to contain "${expected}",`,
+          `instead got "${heading}".`,
         ].join(' '),
       );
     }
 
     await browser.close();
 
-    console.log(`Found page heading containing ${expected}.`);
+    console.log(`Found page heading containing "${expected}".`);
   } catch (error) {
     console.error(error);
     process.exit(1);

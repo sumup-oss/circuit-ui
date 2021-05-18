@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/core */
 
-import React from 'react';
 import styled from '@emotion/styled';
-import { css, Global } from '@emotion/core';
+import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { Card, Heading, List, Text, BaseStyles } from '@sumup/circuit-ui';
 import { light } from '@sumup/design-tokens';
@@ -28,25 +27,20 @@ const Container = styled('header')`
   margin: 0 auto;
 `;
 
-const globalStyles = (theme) => css`
-  body {
-    background-color: ${theme.colors.n100};
-  }
-`;
-
 const App = () => (
   <ThemeProvider theme={light}>
     <BaseStyles />
-    <Global styles={globalStyles} />
     <Container>
       <Logo data-testid="sumup-logo" />
       <Card>
-        <Heading size={Heading.KILO}>Welcome to SumUp React</Heading>
+        <Heading as="h1" size="kilo">
+          Welcome to SumUp React
+        </Heading>
         <Text>
           This is a <code>create-react-app</code>
           -based project featuring some SumUp-specific customizations:
         </Text>
-        <List size={List.MEGA}>
+        <List size="mega">
           <li>Circuit UI integration</li>
           <li>Emotion support (incl. babel plugin)</li>
           <li>Lodash support (incl. babel plugin)</li>
@@ -56,7 +50,7 @@ const App = () => (
           </li>
         </List>
         <Text
-          size={Text.GIGA}
+          size="giga"
           css={css`
             text-align: center;
           `}
@@ -65,7 +59,7 @@ const App = () => (
           <br />
         </Text>
         <Text
-          size={Text.GIGA}
+          size="giga"
           css={css`
             text-align: center;
             transform: scale3d(1.5, 1.5, 1);
