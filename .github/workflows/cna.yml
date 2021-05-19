@@ -1,0 +1,32 @@
+name: Create SumUp Next App
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js v14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Bootstrap app
+        run: yarn create next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-next-app/template" test-app
+
+      - name: Build app
+        working-directory: ./test-app
+        run: yarn build
+
+      - name: Install test dependencies
+        run: yarn add puppeteer -W
+
+      - name: Test app
+        working-directory: ./test-app
+        run: npx start-server-and-test start http://localhost:3000 "node ../scripts/verify-template.js"

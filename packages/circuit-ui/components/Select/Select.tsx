@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import React, { FC, ReactNode, Ref, HTMLProps, ChangeEvent } from 'react';
 import { css, jsx } from '@emotion/core';
@@ -92,9 +93,14 @@ export interface SelectProps
    */
   renderPrefix?: FC<{ value?: string | number; className?: string }>;
   /**
-   * Warning or error message, displayed in a tooltip.
+   * Warning or error message, displayed below the select.
    */
   validationHint?: string;
+  /**
+   * Label to indicate that the select is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
   /**
    * Visually hide the label. This should only be used in rare cases and only if the
    * purpose of the field can be inferred from other context.
@@ -241,6 +247,13 @@ const labelTextStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
 
 const LabelText = styled('span')(labelTextStyles);
 
+const optionalLabelStyles = ({ theme }: StyleProps) => css`
+  label: input__optional-label;
+  color: ${theme.colors.n700};
+`;
+
+const OptionalLabel = styled('span')(optionalLabelStyles);
+
 /**
  * Used with css prop directly, so it does not require prop
  * destructuring.
@@ -307,10 +320,12 @@ export const Select = React.forwardRef(
       noMargin,
       inline,
       invalid,
+      required,
       options,
       children,
       renderPrefix: RenderPrefix,
       validationHint,
+      optionalLabel,
       label,
       hideLabel,
       className,
@@ -352,7 +367,14 @@ export const Select = React.forwardRef(
         noMargin={noMargin}
         as={label ? 'label' : 'span'}
       >
-        {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
+        {label && (
+          <LabelText hideLabel={hideLabel}>
+            {label}
+            {optionalLabel && !required ? (
+              <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
+            ) : null}
+          </LabelText>
+        )}
 
         <SelectContainer hideLabel={hideLabel}>
           {prefix}
@@ -362,6 +384,7 @@ export const Select = React.forwardRef(
             ref={ref}
             invalid={invalid}
             aria-invalid={invalid}
+            required={required}
             disabled={disabled}
             hasPrefix={hasPrefix}
             {...props}

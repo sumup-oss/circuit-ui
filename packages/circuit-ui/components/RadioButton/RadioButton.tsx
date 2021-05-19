@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import React, { Fragment, HTMLProps, Ref } from 'react';
 import { css, jsx } from '@emotion/core';
@@ -47,6 +48,7 @@ type LabelElProps = Pick<RadioButtonProps, 'invalid' | 'disabled'>;
 const labelBaseStyles = ({ theme }: StyleProps) => css`
   label: radio-button__label;
   color: ${theme.colors.bodyColor};
+  display: inline-block;
   padding-left: 26px;
   position: relative;
   cursor: pointer;

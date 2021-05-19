@@ -15,10 +15,27 @@
 
 import PropTypes from 'prop-types';
 
+import {
+  Theme,
+  Typography,
+  Colors,
+  Spacings,
+  IconSizes,
+  BorderRadius,
+  BorderWidth,
+  FontStack,
+  FontWeight,
+  Breakpoints,
+  MediaQueries,
+  Grid,
+  Transitions,
+  ZIndex,
+} from '../types';
+
 const typePropType = PropTypes.shape({
   fontSize: PropTypes.string,
   lineHeight: PropTypes.string,
-}).isRequired;
+} as { [key in keyof Typography]: any }).isRequired;
 
 const breakpointPropType = PropTypes.oneOfType([
   PropTypes.string,
@@ -111,7 +128,7 @@ export const themePropType = PropTypes.shape({
     shadow: PropTypes.string.isRequired,
     bodyBg: PropTypes.string.isRequired,
     bodyColor: PropTypes.string.isRequired,
-  }).isRequired,
+  } as { [key in keyof Colors]: any }).isRequired,
   spacings: PropTypes.shape({
     bit: PropTypes.string.isRequired,
     byte: PropTypes.string.isRequired,
@@ -122,12 +139,12 @@ export const themePropType = PropTypes.shape({
     peta: PropTypes.string.isRequired,
     exa: PropTypes.string.isRequired,
     zetta: PropTypes.string.isRequired,
-  }).isRequired,
+  } as { [key in keyof Spacings]: any }).isRequired,
   iconSizes: PropTypes.shape({
     kilo: PropTypes.string.isRequired,
     mega: PropTypes.string.isRequired,
     giga: PropTypes.string.isRequired,
-  }).isRequired,
+  } as { [key in keyof IconSizes]: any }).isRequired,
   borderRadius: PropTypes.shape({
     kilo: PropTypes.string.isRequired,
     mega: PropTypes.string.isRequired,
@@ -135,11 +152,11 @@ export const themePropType = PropTypes.shape({
     tera: PropTypes.string.isRequired,
     circle: PropTypes.string.isRequired,
     pill: PropTypes.string.isRequired,
-  }).isRequired,
+  } as { [key in keyof BorderRadius]: any }).isRequired,
   borderWidth: PropTypes.shape({
     kilo: PropTypes.string.isRequired,
     mega: PropTypes.string.isRequired,
-  }).isRequired,
+  } as { [key in keyof BorderWidth]: any }).isRequired,
   typography: PropTypes.shape({
     headings: PropTypes.shape({
       kilo: typePropType,
@@ -174,12 +191,12 @@ export const themePropType = PropTypes.shape({
   fontStack: PropTypes.shape({
     default: PropTypes.string,
     mono: PropTypes.string,
-  }).isRequired,
+  } as { [key in keyof FontStack]: any }).isRequired,
   fontWeight: PropTypes.shape({
     regular: PropTypes.string.isRequired,
     bold: PropTypes.string.isRequired,
-  }).isRequired,
-  breakpoint: PropTypes.shape({
+  } as { [key in keyof FontWeight]: any }).isRequired,
+  breakpoints: PropTypes.shape({
     untilKilo: breakpointPropType,
     kilo: breakpointPropType,
     kiloToMega: breakpointPropType,
@@ -189,8 +206,8 @@ export const themePropType = PropTypes.shape({
     giga: breakpointPropType,
     gigaToTera: breakpointPropType,
     tera: breakpointPropType,
-  }).isRequired,
-  mx: PropTypes.shape({
+  } as { [key in keyof Breakpoints]: any }).isRequired,
+  mq: PropTypes.shape({
     untilKilo: PropTypes.string.isRequired,
     kilo: PropTypes.string.isRequired,
     kiloToMega: PropTypes.string.isRequired,
@@ -200,7 +217,7 @@ export const themePropType = PropTypes.shape({
     giga: PropTypes.string.isRequired,
     gigaToTera: PropTypes.string.isRequired,
     tera: PropTypes.string.isRequired,
-  }).isRequired,
+  } as { [key in keyof MediaQueries]: any }).isRequired,
   grid: PropTypes.shape({
     default: gridPropType,
     untilKilo: gridPropType,
@@ -208,11 +225,11 @@ export const themePropType = PropTypes.shape({
     mega: gridPropType,
     giga: gridPropType,
     tera: gridPropType,
-  }).isRequired,
+  } as { [key in keyof Grid]: any }).isRequired,
   transitions: PropTypes.shape({
     default: PropTypes.string.isRequired,
     slow: PropTypes.string.isRequired,
-  }).isRequired,
+  } as { [key in keyof Transitions]: any }).isRequired,
   zIndex: PropTypes.shape({
     default: PropTypes.number.isRequired,
     absolute: PropTypes.number.isRequired,
@@ -226,5 +243,5 @@ export const themePropType = PropTypes.shape({
     backdrop: PropTypes.number.isRequired,
     sidebar: PropTypes.number.isRequired,
     modal: PropTypes.number.isRequired,
-  }).isRequired,
-});
+  } as { [key in keyof ZIndex]: any }).isRequired,
+} as { [key in keyof Theme]: any });

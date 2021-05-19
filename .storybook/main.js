@@ -17,6 +17,9 @@ module.exports = {
     '@storybook/addon-viewport',
     'storybook-addon-performance',
   ],
+  features: {
+    postcss: false,
+  },
   webpackFinal: transpileModules,
   managerWebpack: transpileModules,
 };

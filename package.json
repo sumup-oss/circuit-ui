@@ -30,7 +30,7 @@
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
     "check:svg-sizes": "./scripts/check-svg-sizes.sh",
     "copy-docs": "./scripts/copy-docs.sh",
-    "bootstrap": "yarn build && cd packages/create-sumup-next-app/template && yarn --no-lockfile --ignore-scripts",
+    "bootstrap": "yarn build && yarn copy-docs && cd packages/create-sumup-next-app/template && yarn --no-lockfile --ignore-scripts",
     "release": "changeset publish"
   },
   "devDependencies": {
@@ -55,7 +55,7 @@
     "@storybook/source-loader": "^6.0.10",
     "@sumup/foundry": "^4.0.0-canary",
     "@types/jest": "^26.0.15",
-    "audit-ci": "^3.1.1",
+    "audit-ci": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.1",

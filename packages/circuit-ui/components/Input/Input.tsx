@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { forwardRef, Ref, FC, HTMLProps, ReactNode } from 'react';
 import { css, jsx, InterpolationWithTheme } from '@emotion/core';
@@ -55,9 +56,14 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
    */
   renderSuffix?: FC<{ className?: string }>;
   /**
-   * Warning or error message, displayed in a tooltip.
+   * Warning or error message, displayed below the input.
    */
   validationHint?: string;
+  /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
   /**
    * Triggers error styles on the component. Important for accessibility.
    */
@@ -301,6 +307,13 @@ const LabelText = styled('span')<{ hideLabel?: boolean }>(
   labelTextHiddenStyles,
 );
 
+const optionalLabelStyles = ({ theme }: StyleProps) => css`
+  label: input__optional-label;
+  color: ${theme.colors.n700};
+`;
+
+const OptionalLabel = styled('span')(optionalLabelStyles);
+
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
@@ -311,6 +324,8 @@ export const Input = forwardRef(
       renderPrefix: RenderPrefix,
       renderSuffix: RenderSuffix,
       validationHint,
+      optionalLabel,
+      required,
       invalid,
       hasWarning,
       showValid,
@@ -355,8 +370,14 @@ export const Input = forwardRef(
         as={label ? 'label' : 'div'}
         css={labelStyles}
       >
-        {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
-
+        {label && (
+          <LabelText hideLabel={hideLabel}>
+            {label}
+            {optionalLabel && !required ? (
+              <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
+            ) : null}
+          </LabelText>
+        )}
         <InputContainer>
           {prefix}
           <InputElement
@@ -366,6 +387,7 @@ export const Input = forwardRef(
             ref={ref}
             invalid={invalid}
             aria-invalid={invalid}
+            required={required}
             disabled={disabled}
             hasWarning={hasWarning}
             hasPrefix={hasPrefix}
@@ -375,7 +397,6 @@ export const Input = forwardRef(
           />
           {suffix}
         </InputContainer>
-
         <ValidationHint
           disabled={disabled}
           invalid={invalid}

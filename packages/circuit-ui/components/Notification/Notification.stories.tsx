@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';

@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import { light, Theme } from '@sumup/design-tokens';
@@ -356,6 +357,20 @@ describe('Style helpers', () => {
               border: 0;
             }
           "
+      `);
+    });
+
+    it('should match the snapshot with an inset outline', () => {
+      const { styles } = focusOutline('inset')({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+                outline: 0;
+                box-shadow: inset 0 0 0 4px #AFD0FE;
+
+                &::-moz-focus-inner {
+                  border: 0;
+                }
+              "
       `);
     });
   });

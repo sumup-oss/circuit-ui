@@ -25,7 +25,7 @@ export type CellObject = {
   sortByValue?: SortByValue;
 };
 
-export type Cell = string | number | CellObject;
+export type Cell = string | number | CellObject | null | undefined;
 
 export type Row =
   | Cell[]

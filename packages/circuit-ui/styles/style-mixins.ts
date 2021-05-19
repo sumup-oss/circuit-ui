@@ -36,7 +36,9 @@ type StyleFn =
  * Helper to pass multiple style mixins to the `css` prop.
  * Mixins can be applied conditionally, falsy values are omitted.
  */
-export const cx = (...styleFns: StyleFn[]) => (theme: Theme) =>
+export const cx = (...styleFns: StyleFn[]) => (
+  theme: Theme,
+): (SerializedStyles | false | null | undefined)[] =>
   styleFns.map((styleFn) => styleFn && styleFn(theme));
 
 type Spacing = keyof Theme['spacings'];
@@ -53,6 +55,7 @@ export type SpacingObject = {
 const mapSpacingValue = (theme: Theme, value: SpacingValue) => {
   if (process.env.NODE_ENV !== 'production') {
     if (typeof value === 'number' && value !== 0) {
+      // eslint-disable-next-line no-console
       console.warn(
         [
           `The number "${value as number}" was passed to the spacing mixin.`,
@@ -68,10 +71,13 @@ const mapSpacingValue = (theme: Theme, value: SpacingValue) => {
 
   return theme.spacings[value];
 };
+
 /**
- * Spacing mixin that accept a space enum + the theme and apply different combination of spacing.
+ * Adds margin to one or more sides of an element.
  */
-export const spacing = (size: SpacingValue | SpacingObject) => {
+export const spacing = (
+  size: SpacingValue | SpacingObject,
+): ((args: ThemeArgs) => SerializedStyles) => {
   if (typeof size === 'string' || typeof size === 'number') {
     return (args: ThemeArgs) => {
       const theme = getTheme(args);
@@ -196,8 +202,29 @@ export const hideVisually = (): SerializedStyles => css`
 /**
  * Visually communicates to the user that an element is focused.
  */
-export const focusOutline = (args: ThemeArgs): SerializedStyles => {
-  const theme = getTheme(args);
+
+export function focusOutline(
+  options: 'inset',
+): (args: ThemeArgs) => SerializedStyles;
+export function focusOutline(args: ThemeArgs): SerializedStyles;
+export function focusOutline(
+  argsOrOptions: ThemeArgs | 'inset',
+): SerializedStyles | ((args: ThemeArgs) => SerializedStyles) {
+  if (typeof argsOrOptions === 'string') {
+    return (args: ThemeArgs): SerializedStyles => {
+      const theme = getTheme(args);
+      return css`
+        outline: 0;
+        box-shadow: inset 0 0 0 4px ${theme.colors.p300};
+
+        &::-moz-focus-inner {
+          border: 0;
+        }
+      `;
+    };
+  }
+
+  const theme = getTheme(argsOrOptions);
   return css`
     outline: 0;
     box-shadow: 0 0 0 4px ${theme.colors.p300};
@@ -206,7 +233,7 @@ export const focusOutline = (args: ThemeArgs): SerializedStyles => {
       border: 0;
     }
   `;
-};
+}
 
 /**
  * Forces an element to self-clear its floated children.

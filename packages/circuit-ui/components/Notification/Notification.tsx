@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { FC, SVGProps, ReactNode, MouseEvent, KeyboardEvent } from 'react';
 import { css, jsx } from '@emotion/core';

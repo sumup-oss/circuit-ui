@@ -16,6 +16,7 @@
 // TODO: Improve types
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import {
   useState,
@@ -28,6 +29,7 @@ import {
 } from 'react';
 import { css, jsx } from '@emotion/core';
 import { TrackingElement } from '@sumup/collector';
+import { isEmpty } from 'lodash/fp';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import SubNavList from '../SubNavList';
@@ -187,7 +189,7 @@ const Aggregator = ({
         {icon}
         <NavLabel secondary={false}>{label}</NavLabel>
       </AggregatorContainer>
-      {children && !disabled && (
+      {!isEmpty(children) && !disabled && (
         <TrackingElement name={TRACKING_ELEMENT}>
           <SubNavList visible={isOpen}>{children}</SubNavList>
         </TrackingElement>

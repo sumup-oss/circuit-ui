@@ -13,4 +13,5 @@ __reports__/
 plopfile.js
 jest.*.js
 tsconfig.json
+package.json
 scripts/

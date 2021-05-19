@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import React, { Children, cloneElement, ReactElement } from 'react';
 import { css, jsx, SerializedStyles } from '@emotion/core';

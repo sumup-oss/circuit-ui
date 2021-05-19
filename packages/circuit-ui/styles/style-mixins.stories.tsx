@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -39,21 +40,21 @@ export default {
 };
 
 const spaceOptions = {
+  options: [
+    0,
+    'auto',
+    'bit',
+    'byte',
+    'kilo',
+    'mega',
+    'giga',
+    'tera',
+    'peta',
+    'exa',
+    'zetta',
+  ],
   control: {
     type: 'select',
-    options: [
-      0,
-      'auto',
-      'bit',
-      'byte',
-      'kilo',
-      'mega',
-      'giga',
-      'tera',
-      'peta',
-      'exa',
-      'zetta',
-    ],
   },
 };
 
@@ -129,7 +130,12 @@ const Focused = styled.div`
   background-color: white;
 `;
 
-export const FocusOutline = () => <Focused css={focusOutline} />;
+export const FocusOutline = () => (
+  <Stack>
+    <Focused css={focusOutline} />
+    <Focused css={focusOutline('inset')} />
+  </Stack>
+);
 
 export const DisableVisually = () => (
   <div css={disableVisually}>This element is visually disabled.</div>

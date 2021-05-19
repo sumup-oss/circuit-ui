@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 
@@ -81,6 +82,15 @@ Warning.args = {
   ...baseArgs,
   validationHint: 'This does not look right.',
   hasWarning: true,
+};
+
+export const Optional = (args: InputProps) => (
+  <Input {...args} css={inputStyles} />
+);
+
+Optional.args = {
+  ...baseArgs,
+  optionalLabel: 'optional',
 };
 
 export const Readonly = (args: InputProps) => (

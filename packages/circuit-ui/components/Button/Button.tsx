@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import {
   forwardRef,
@@ -53,6 +54,11 @@ export interface BaseProps {
    */
   'disabled'?: boolean;
   /**
+   * Change the color from blue to red to signal to the user that the action
+   * is irreversible or otherwise dangerous.
+   */
+  'destructive'?: boolean;
+  /**
    * Stretch the button across the full width of its parent.
    */
   'stretch'?: boolean;
@@ -81,6 +87,34 @@ type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size'>;
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
 const BORDER_WIDTH = '1px';
+
+const COLOR_MAP = {
+  default: {
+    default: 'p500',
+    hover: 'p700',
+    active: 'p900',
+  },
+  destructive: {
+    default: 'danger',
+    hover: 'r700',
+    active: 'r900',
+  },
+} as const;
+
+const SECONDARY_COLOR_MAP = {
+  default: {
+    text: 'black',
+    default: 'n500',
+    hover: 'n700',
+    active: 'n800',
+  },
+  destructive: {
+    text: 'danger',
+    default: 'danger',
+    hover: 'r700',
+    active: 'r900',
+  },
+} as const;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   label: button;
@@ -116,66 +150,89 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const primaryStyles = ({
   theme,
   variant = 'secondary',
-}: ButtonProps & StyleProps) =>
-  variant === 'primary' &&
-  css`
+  destructive,
+}: ButtonProps & StyleProps) => {
+  if (variant !== 'primary') {
+    return null;
+  }
+
+  const colors = destructive ? COLOR_MAP.destructive : COLOR_MAP.default;
+
+  return css`
     label: button--primary;
-    background-color: ${theme.colors.p500};
-    border-color: ${theme.colors.p500};
+    background-color: ${theme.colors[colors.default]};
+    border-color: ${theme.colors[colors.default]};
     color: ${theme.colors.white};
 
     &:hover {
-      background-color: ${theme.colors.p700};
-      border-color: ${theme.colors.p700};
+      background-color: ${theme.colors[colors.hover]};
+      border-color: ${theme.colors[colors.hover]};
     }
 
     &:active {
-      background-color: ${theme.colors.p900};
-      border-color: ${theme.colors.p900};
+      background-color: ${theme.colors[colors.active]};
+      border-color: ${theme.colors[colors.active]};
     }
   `;
+};
 
 const secondaryStyles = ({
   theme,
   variant = 'secondary',
-}: ButtonProps & StyleProps) =>
-  variant === 'secondary' &&
-  css`
+  destructive,
+}: ButtonProps & StyleProps) => {
+  if (variant !== 'secondary') {
+    return null;
+  }
+
+  const colors = destructive
+    ? SECONDARY_COLOR_MAP.destructive
+    : SECONDARY_COLOR_MAP.default;
+
+  return css`
     label: button--secondary;
     background-color: ${theme.colors.white};
-    border-color: ${theme.colors.n500};
-    color: ${theme.colors.black};
+    border-color: ${theme.colors[colors.default]};
+    color: ${theme.colors[colors.text]};
 
     &:hover {
       background-color: ${theme.colors.n100};
-      border-color: ${theme.colors.n700};
+      border-color: ${theme.colors[colors.hover]};
     }
 
     &:active {
       background-color: ${theme.colors.n200};
-      border-color: ${theme.colors.n800};
+      border-color: ${theme.colors[colors.active]};
     }
   `;
+};
 
 const tertiaryStyles = ({
   theme,
   variant = 'secondary',
-}: ButtonProps & StyleProps) =>
-  variant === 'tertiary' &&
-  css`
+  destructive,
+}: ButtonProps & StyleProps) => {
+  if (variant !== 'tertiary') {
+    return null;
+  }
+
+  const colors = destructive ? COLOR_MAP.destructive : COLOR_MAP.default;
+
+  return css`
     label: button--tertiary;
     background-color: transparent;
     border-color: transparent;
-    color: ${theme.colors.p500};
+    color: ${theme.colors[colors.default]};
 
     &:hover {
-      color: ${theme.colors.p700};
+      color: ${theme.colors[colors.hover]};
     }
 
     &:active {
-      color: ${theme.colors.p900};
+      color: ${theme.colors[colors.active]};
     }
   `;
+};
 
 const sizeStyles = ({ theme, size = 'mega' }: ButtonProps & StyleProps) => {
   const sizeMap = {

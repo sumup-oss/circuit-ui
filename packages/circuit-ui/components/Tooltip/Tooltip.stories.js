@@ -28,15 +28,15 @@ export default {
   },
   argTypes: {
     position: {
+      options: ['top', 'bottom', 'left', 'right'],
       control: {
         type: 'select',
-        options: ['top', 'bottom', 'left', 'right'],
       },
     },
     align: {
+      options: ['top', 'bottom', 'left', 'right', 'center'],
       control: {
         type: 'select',
-        options: ['top', 'bottom', 'left', 'right', 'center'],
       },
     },
   },

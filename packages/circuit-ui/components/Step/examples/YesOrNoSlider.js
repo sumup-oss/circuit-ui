@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Swipeable } from 'react-swipeable';
+import { useSwipeable } from 'react-swipeable';
 
 import Image from '../../Image';
 import Button from '../../Button';
@@ -37,6 +37,7 @@ const sliderWrapperStyles = css`
   overflow: hidden;
   width: ${SLIDE_WIDTH}px;
 `;
+
 const SliderWrapper = styled('div')(sliderWrapperStyles);
 
 const sliderImageBaseStyles = ({ theme }) => css`
@@ -45,16 +46,23 @@ const sliderImageBaseStyles = ({ theme }) => css`
   padding: ${theme.spacings.giga};
   transition: transform ${ANIMATION_DURATION}ms ease;
 `;
+
 const slideImageTransformStyles = ({ swipe }) =>
   swipe.dir &&
   css`
     transform: translate3d(${swipe.deltaX * -1}px, ${swipe.deltaY * -1}px, 0)
       rotate(${calculateRotationAngle(swipe.dir, swipe.velocity)}deg);
   `;
+
 const SliderImage = styled(Image)(
   sliderImageBaseStyles,
   slideImageTransformStyles,
 );
+
+const Swipeable = ({ children, ...props }) => {
+  const handlers = useSwipeable(props);
+  return <div {...handlers}>{children}</div>;
+};
 
 const YesOrNoSlider = ({ images, ...stepProps }) => {
   const [swipe, setSwipe] = useState({});
