@@ -1,5 +1,11 @@
 # @sumup/cra-template
 
+## 2.0.5
+
+### Patch Changes
+
+- [`96e3edbe`](https://github.com/sumup-oss/circuit-ui/commit/96e3edbe425ede0daee17b08a6453c1da2d4290b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed missing import of React in the CRA template.
+
 ## 2.0.4
 
 ### Patch Changes
