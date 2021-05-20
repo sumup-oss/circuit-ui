@@ -13,14 +13,16 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Zap } from '@sumup/icons';
 
-import { PopoverItem } from './Popover';
+import Button from '../Button';
+
+import { Popover, PopoverItem } from './Popover';
 
 export default {
   title: 'Components/Popover',
-  component: PopoverItem,
+  component: Popover,
   argTypes: {
     children: { control: 'text' },
   },
@@ -33,4 +35,57 @@ Base.args = {
   href: 'https://sumup.com/',
   children: 'Label',
   icon: Zap,
+};
+
+export const Example = (args) => {
+  const [isOpen, setOpen] = useState(false);
+  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
+    null,
+  );
+
+  const handleClick = () => {
+    setOpen((prev) => !prev);
+  };
+
+  const handleClose = () => {
+    console.log('Work please');
+    setOpen((prev) => !prev);
+  };
+
+  return (
+    <>
+      <Button onClick={handleClick} ref={setReferenceElement}>
+        Show popover
+      </Button>
+      <Popover
+        handleClose={handleClose}
+        {...args}
+        isOpen={isOpen}
+        referenceElement={referenceElement}
+      />
+    </>
+  );
+};
+
+Example.args = {
+  actions: [
+    {
+      onClick: () => alert('Hello'),
+      href: 'https://sumup.com/',
+      children: 'Label',
+      icon: Zap,
+    },
+    {
+      onClick: () => alert('Hello'),
+      href: 'https://sumup.com/',
+      children: 'Label',
+      icon: Zap,
+    },
+    {
+      onClick: () => alert('Hello'),
+      children: 'Label',
+      icon: Zap,
+    },
+    { type: 'divider' },
+  ],
 };

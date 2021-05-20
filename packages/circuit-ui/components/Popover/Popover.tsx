@@ -16,13 +16,23 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
-import { FC, HTMLProps, ReactNode, SVGProps, MouseEvent } from 'react';
+import {
+  useState,
+  FC,
+  HTMLProps,
+  ReactNode,
+  SVGProps,
+  MouseEvent,
+} from 'react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
+import { usePopper } from 'react-popper';
+import { Placement } from '@popperjs/core';
 
-import styled from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled';
 import { listItem } from '../../styles/style-mixins';
 import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';
+import Hr from '../Hr';
 
 export interface BaseProps {
   children: ReactNode;
@@ -46,7 +56,7 @@ type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'type'>;
 export type PopoverItemProps = BaseProps & LinkElProps & ButtonElProps;
 type PopoverItemWrapperProps = LinkElProps & ButtonElProps;
 
-const wrapperStyles = () => css`
+const itemWrapperStyles = () => css`
   label: popover-item;
   display: flex;
   justify-content: center;
@@ -56,7 +66,7 @@ const wrapperStyles = () => css`
 
 const PopoverItemWrapper = styled('button')<PopoverItemWrapperProps>(
   listItem,
-  wrapperStyles,
+  itemWrapperStyles,
 );
 
 const iconStyles = (theme: Theme) => css`
@@ -93,5 +103,77 @@ export const PopoverItem = ({
       {Icon && <Icon css={iconStyles} />}
       {children}
     </PopoverItemWrapper>
+  );
+};
+
+const wrapperStyles = ({ theme }: StyleProps) => css`
+  label: popover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: ${theme.spacings.byte};
+  border: 1px solid #e6e6e6;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+  border-radius: ${theme.spacings.byte};
+`;
+
+const overlayStyles = () => css`
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+`;
+
+const Overlay = styled('div')(overlayStyles);
+
+const PopoverWrapper = styled('div')(wrapperStyles);
+
+type Divider = { type: 'divider' };
+type Action = PopoverItemProps | Divider;
+
+function isDivider(action: Action): action is Divider {
+  return 'type' in action && action.type === 'divider';
+}
+
+export interface PopoverProps {
+  isOpen: boolean;
+  actions: [];
+  referenceElement: HTMLElement | null;
+  placement: Placement;
+  handleClose: () => any;
+}
+
+export const Popover = ({
+  isOpen,
+  handleClose,
+  actions,
+  referenceElement,
+  placement = 'bottom',
+  ...props
+}: PopoverProps) => {
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement,
+  });
+
+  if (!isOpen) {
+    return null;
+  }
+
+  return (
+    <Overlay onClick={handleClose}>
+      <PopoverWrapper
+        {...props}
+        ref={setPopperElement}
+        style={styles.popper}
+        {...attributes.popper}
+      >
+        {actions.map((action, index) =>
+          isDivider(action) ? <Hr /> : <PopoverItem key={index} {...action} />,
+        )}
+      </PopoverWrapper>
+    </Overlay>
   );
 };
