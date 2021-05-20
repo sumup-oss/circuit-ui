@@ -35,12 +35,13 @@ export const base = (args: ImageInputProps): JSX.Element => (
 
 base.args = {
   label: 'Upload an image',
+  clearButtonLabel: 'Clear',
 };
 
 export const withImage = (): JSX.Element => (
   <ImageInput
-    alt=""
     label="Upload an image"
+    clearButtonLabel="Clear"
     imageUrl="https://source.unsplash.com/EcWFOYOpkpY"
   />
 );

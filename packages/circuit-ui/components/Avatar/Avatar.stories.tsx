@@ -29,7 +29,7 @@ export default {
   argTypes: {
     src: { control: 'text' },
     alt: { control: 'text' },
-    variant: { control: { type: 'radio', options: ['business', 'person'] } },
+    variant: { control: { type: 'radio', options: ['object', 'identity'] } },
     size: { control: { type: 'radio', options: ['yotta', 'giga'] } },
   },
 };
@@ -37,46 +37,52 @@ export default {
 export const base = (args: AvatarProps): JSX.Element => <Avatar {...args} />;
 base.args = {
   src: 'https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png',
-  alt: '',
-  variant: 'person',
+  variant: 'identity',
   size: 'yotta',
 };
-
-export const sizes = (): JSX.Element => (
-  <Stack>
-    <Avatar
-      size="yotta"
-      variant="person"
-      src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
-      alt=""
-    />
-    <Avatar
-      size="giga"
-      variant="person"
-      src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
-      alt=""
-    />
-  </Stack>
-);
 
 export const identity = (): JSX.Element => (
   <Stack>
     <Avatar
-      variant="person"
       src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
-      alt=""
+      variant="identity"
     />
-    <Avatar variant="person" src="" alt="" />
+    <Avatar variant="identity" />
   </Stack>
 );
 
 export const object = (): JSX.Element => (
   <Stack>
-    <Avatar
-      variant="business"
-      src="https://source.unsplash.com/EcWFOYOpkpY"
-      alt=""
-    />
-    <Avatar variant="business" src="" alt="" />
+    <Avatar src="https://source.unsplash.com/EcWFOYOpkpY" variant="object" />
+    <Avatar variant="object" />
+  </Stack>
+);
+
+export const sizes = (): JSX.Element => (
+  <Stack>
+    <Stack>
+      <Avatar
+        src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+        variant="identity"
+        size="yotta"
+      />
+      <Avatar
+        src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+        variant="identity"
+        size="giga"
+      />
+    </Stack>
+    <Stack>
+      <Avatar
+        src="https://source.unsplash.com/EcWFOYOpkpY"
+        variant="object"
+        size="yotta"
+      />
+      <Avatar
+        src="https://source.unsplash.com/EcWFOYOpkpY"
+        variant="object"
+        size="giga"
+      />
+    </Stack>
   </Stack>
 );

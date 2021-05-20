@@ -4,7 +4,7 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-The Avatar component is used to display an avatar or an object image. Use the ImageInput component to allow users to upload an image.
+The Avatar component is used to display an avatar or an object image. It is used internally by the ImageInput component, to allow users to upload images.
 
 <Story id="avatar--base" />
 
@@ -12,24 +12,25 @@ The Avatar component is used to display an avatar or an object image. Use the Im
 
 ## Usage guidelines
 
-- **Do** …
-- **Do not** …
+- **Do** use the right variant for your use case (see _Variants_ below).
+- **Do** use the ImageInput component to allow users to upload images.
+- **Do not** add alt text if the Avatar is purely presentational (for example to show a thumbnail next to a user or product name).
 
 ## Variants
 
-There are two main variants for the component, as well as two sizes.
-
-### Object variant
-
-For example for product images.
-
-<Story id="avatar--object" />
+There are two variants and two sizes available for the component.
 
 ### Identity variant
 
-For a merchant or business profile.
+Use the identity variant with a circle shape for identity account purposes (e.g. profile, contact, business).
 
 <Story id="avatar--identity" />
+
+### Object variant
+
+Use the object variant with a rectangle shape for product item purposes (e.g. product catalogue).
+
+<Story id="avatar--object" />
 
 ### Sizes
 

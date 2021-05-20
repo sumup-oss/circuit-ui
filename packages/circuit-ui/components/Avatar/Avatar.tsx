@@ -21,19 +21,22 @@ import styled, { StyleProps } from '../../styles/styled';
 
 export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
   /**
-   * The Avatar image source
+   * The source of Avatar image.
+   * Defaults to a placeholder.
    */
   src?: string;
   /**
-   * Alt text for the Avatar
+   * Alt text for the Avatar image.
+   * Defaults to "" for presentational elements (e.g. a small product image next to its name in a list).
    */
-  alt: string;
+  alt?: string;
   /**
-   * The variant of the Avatar, either representing a person or a business
+   * The variant of the Avatar, either identity or object. Refer to the docs for usage guidelines.
+   * The variant also changes which placeholder is rendered when an src prop is not provided.
    */
-  variant?: 'person' | 'business';
+  variant?: 'identity' | 'object';
   /**
-   * The size of the Avatar
+   * One of two available sizes for the Avatar.
    */
   size?: 'giga' | 'yotta';
 }
@@ -44,12 +47,12 @@ const avatarSizes = {
 };
 
 const placeholders = {
-  person: `<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48 18C40.268 18 34 24.268 34 32C34 39.732 40.268 46 48 46C55.732 46 62 39.732 62 32C62 24.268 55.732 18 48 18Z" fill="white"/><path d="M47.9998 88C61.53 88 73.4913 81.2822 80.73 71C73.4913 60.7178 61.53 54 47.9997 54C34.4695 54 22.5083 60.7178 15.2695 71C22.5083 81.2822 34.4695 88 47.9998 88Z" fill="white"/></svg>`,
-  business: `<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 25C30 20.0294 34.0294 16 39 16C43.9706 16 48 20.0294 48 25C48 29.9706 43.9706 34 39 34C34.0294 34 30 29.9706 30 25Z" fill="white"/><path d="M41.1571 60.5691L30.6742 48.3905C29.0304 46.4808 26.0517 46.5483 24.496 48.5304L8 69.5483V81.9998C8 85.3135 10.6863 87.9998 14 87.9998H19.9592L41.1571 60.5691Z" fill="white"/><path d="M70.4856 32.878C72.0409 30.876 75.0425 30.8075 76.6876 32.7363L87.9996 45.9986V81.9986C87.9996 85.3123 85.3133 87.9986 81.9996 87.9986H27.6611L70.4856 32.878Z" fill="white"/></svg>`,
+  identity: `<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48 18C40.268 18 34 24.268 34 32C34 39.732 40.268 46 48 46C55.732 46 62 39.732 62 32C62 24.268 55.732 18 48 18Z" fill="white"/><path d="M47.9998 88C61.53 88 73.4913 81.2822 80.73 71C73.4913 60.7178 61.53 54 47.9997 54C34.4695 54 22.5083 60.7178 15.2695 71C22.5083 81.2822 34.4695 88 47.9998 88Z" fill="white"/></svg>`,
+  object: `<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 25C30 20.0294 34.0294 16 39 16C43.9706 16 48 20.0294 48 25C48 29.9706 43.9706 34 39 34C34.0294 34 30 29.9706 30 25Z" fill="white"/><path d="M41.1571 60.5691L30.6742 48.3905C29.0304 46.4808 26.0517 46.5483 24.496 48.5304L8 69.5483V81.9998C8 85.3135 10.6863 87.9998 14 87.9998H19.9592L41.1571 60.5691Z" fill="white"/><path d="M70.4856 32.878C72.0409 30.876 75.0425 30.8075 76.6876 32.7363L87.9996 45.9986V81.9986C87.9996 85.3123 85.3133 87.9986 81.9996 87.9986H27.6611L70.4856 32.878Z" fill="white"/></svg>`,
 };
 
 type StyledImageProps = Omit<AvatarProps, 'variant' | 'size'> & {
-  variant: 'person' | 'business';
+  variant: 'identity' | 'object';
   size: 'giga' | 'yotta';
 };
 
@@ -63,7 +66,7 @@ const baseStyles = ({
   height: ${avatarSizes[size]};
   box-shadow: 0 0 0 ${theme.borderWidth.kilo} rgba(0, 0, 0, 0.1);
   background-color: ${theme.colors.n300};
-  border-radius: ${variant === 'person'
+  border-radius: ${variant === 'identity'
     ? theme.borderRadius.circle
     : theme.borderRadius.tera};
   object-fit: cover;
@@ -80,7 +83,7 @@ const StyledImage = styled('img', {
 export const Avatar = ({
   src: initialSrc,
   alt = '',
-  variant = 'person',
+  variant = 'identity',
   size = 'yotta',
   ...props
 }: AvatarProps): JSX.Element => {

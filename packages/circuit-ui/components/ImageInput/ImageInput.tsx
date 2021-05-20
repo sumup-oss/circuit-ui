@@ -136,7 +136,7 @@ export const ImageInput = ({
       />
       <Label htmlFor={id}>
         <span css={hideVisually()}>{label}</span>
-        <StyledAvatar src={imageUrl} variant="business" alt="" />
+        <StyledAvatar src={imageUrl} variant="object" />
         {!imageUrl && (
           <AddButton
             type="button"
