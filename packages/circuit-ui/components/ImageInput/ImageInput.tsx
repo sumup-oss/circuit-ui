@@ -14,7 +14,7 @@
  */
 
 /** @jsx jsx */
-import { ChangeEvent, InputHTMLAttributes, useState } from 'react';
+import { useState, useRef, InputHTMLAttributes, ChangeEvent } from 'react';
 import { css, jsx } from '@emotion/core';
 import { Bin } from '@sumup/icons';
 
@@ -40,9 +40,9 @@ export interface ImageInputProps
    */
   imageUrl?: string;
   /**
-   * An accessible label for the "remove" icon button.
+   * An accessible label for the "clear" icon button.
    */
-  removeButtonLabel: string;
+  clearButtonLabel: string;
 }
 
 const HiddenInput = styled.input(
@@ -88,9 +88,10 @@ export const ImageInput = ({
   label,
   imageUrl: initialImageUrl,
   id: customId,
-  removeButtonLabel,
+  clearButtonLabel,
   ...props
 }: ImageInputProps): JSX.Element => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const id = customId || uniqueId('imageinput_');
   const [imageUrl, setImageUrl] = useState<string | undefined>(initialImageUrl);
 
@@ -102,6 +103,13 @@ export const ImageInput = ({
     setImageUrl(image);
   };
 
+  const handleClear = () => {
+    if (inputRef.current) {
+      setImageUrl(undefined);
+      inputRef.current.value = '';
+    }
+  };
+
   return (
     <div
       css={css`
@@ -109,6 +117,7 @@ export const ImageInput = ({
       `}
     >
       <HiddenInput
+        ref={inputRef}
         id={id}
         type="file"
         accept="image/*"
@@ -151,8 +160,8 @@ export const ImageInput = ({
           size="kilo"
           variant="primary"
           destructive
-          label={removeButtonLabel}
-          onClick={() => setImageUrl(undefined)}
+          label={clearButtonLabel}
+          onClick={handleClear}
         >
           <Bin />
         </ActionButton>
