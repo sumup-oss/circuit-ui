@@ -17,9 +17,9 @@ import { useReducer, useEffect, useRef } from 'react';
 import { isFunction } from 'lodash/fp';
 
 import * as StepService from '../StepService';
-import useClickHandler from '../../../hooks/use-click-handler';
+import { useClickHandler } from '../../../hooks/useClickHandler';
 
-export default function useStep(props = {}) {
+export function useStep(props = {}) {
   if (
     process.env.NODE_ENV !== 'production' &&
     props.cycle &&

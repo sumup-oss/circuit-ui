@@ -23,7 +23,7 @@ import noScroll from 'no-scroll';
 
 import IS_IOS from '../../util/ios';
 import { isFunction } from '../../util/type-check';
-import useClickHandler from '../../hooks/use-click-handler';
+import { useClickHandler } from '../../hooks/useClickHandler';
 
 type OnClose = (event?: MouseEvent | KeyboardEvent) => void;
 

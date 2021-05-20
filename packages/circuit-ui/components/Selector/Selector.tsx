@@ -21,7 +21,7 @@ import { Theme } from '@sumup/design-tokens';
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import useClickHandler from '../../hooks/use-click-handler';
+import { useClickHandler } from '../../hooks/useClickHandler';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 

@@ -15,7 +15,7 @@
 
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import useComponentSize from './use-component-size';
+import { useComponentSize } from './useComponentSize';
 
 jest.mock('lodash/fp/throttle', () =>
   jest.fn(() => (fn) => {

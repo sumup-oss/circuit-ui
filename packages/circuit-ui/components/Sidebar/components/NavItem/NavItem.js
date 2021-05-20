@@ -18,7 +18,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
-import useClickHandler from '../../../../hooks/use-click-handler';
+import { useClickHandler } from '../../../../hooks/useClickHandler';
 import { useComponents } from '../../../ComponentsContext';
 import NavLabel from '../NavLabel';
 

@@ -16,7 +16,7 @@
 import PropTypes from 'prop-types';
 import { isFunction } from 'lodash/fp';
 
-import useStep from './hooks/use-step';
+import { useStep } from './hooks/useStep';
 
 function Step({
   children,

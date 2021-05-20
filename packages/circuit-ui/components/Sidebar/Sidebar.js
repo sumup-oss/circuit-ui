@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { TrackingElement } from '@sumup/collector';
 
-import useClickHandler from '../../hooks/use-click-handler';
+import { useClickHandler } from '../../hooks/useClickHandler';
 
 import Header from './components/Header';
 import Footer from './components/Footer';

@@ -30,7 +30,7 @@ function getSize(el) {
   };
 }
 
-export default function useComponentSize(ref = {}) {
+export function useComponentSize(ref = {}) {
   const [componentSize, setComponentSize] = useState(getSize(ref.current));
   const handleResize = useCallback(
     throttle(500)(() => {

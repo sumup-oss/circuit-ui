@@ -24,7 +24,7 @@ import {
   childrenPropType,
   childrenRenderPropType,
 } from '../../util/shared-prop-types';
-import useComponentSize from '../../hooks/use-component-size';
+import { useComponentSize } from '../../hooks/useComponentSize';
 
 import Container from './components/Container';
 import Slides from './components/Slides';

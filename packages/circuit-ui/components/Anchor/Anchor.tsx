@@ -22,7 +22,7 @@ import { focusOutline } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { Body, BodyProps } from '../Body/Body';
 import { useComponents } from '../ComponentsContext';
-import useClickHandler from '../../hooks/use-click-handler';
+import { useClickHandler } from '../../hooks/useClickHandler';
 
 export interface BaseProps extends BodyProps {
   children: ReactNode;

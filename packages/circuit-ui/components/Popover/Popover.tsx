@@ -35,7 +35,7 @@ import { useTheme } from 'emotion-theming';
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
 import { useComponents } from '../ComponentsContext';
-import useClickHandler from '../../hooks/use-click-handler';
+import { useClickHandler } from '../../hooks/useClickHandler';
 import Hr from '../Hr';
 
 export interface BaseProps {
