@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { useState, useRef, InputHTMLAttributes, ChangeEvent } from 'react';
 import { css, jsx } from '@emotion/core';
