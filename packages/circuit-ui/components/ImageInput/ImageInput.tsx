@@ -66,6 +66,13 @@ const StyledAvatar = styled(Avatar)(
       cursor: pointer;
     }
     &:hover + button {
+      background-color: ${theme.colors.p700};
+      border-color: ${theme.colors.p700};
+    }
+    &:active {
+      filter: brightness(80%);
+    }
+    &:active + button {
       background-color: ${theme.colors.p900};
       border-color: ${theme.colors.p900};
     }
