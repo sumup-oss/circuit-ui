@@ -53,6 +53,8 @@ const HiddenInput = styled.input(
     &:focus + label {
       ${focusOutline({ theme })};
       border-radius: ${theme.borderRadius.tera};
+      // ensures the focus outline doesn't appear behind the ActionButton
+      border-bottom-right-radius: 12px;
     }
   `,
 );
