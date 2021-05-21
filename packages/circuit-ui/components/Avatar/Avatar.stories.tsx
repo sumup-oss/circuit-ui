@@ -36,10 +36,17 @@ export default {
 
 export const base = (args: AvatarProps): JSX.Element => <Avatar {...args} />;
 base.args = {
-  src: 'https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png',
-  variant: 'identity',
+  src: 'https://picsum.photos/id/63/200',
+  variant: 'object',
   size: 'yotta',
 };
+
+export const object = (): JSX.Element => (
+  <Stack>
+    <Avatar src="https://picsum.photos/id/63/200" variant="object" />
+    <Avatar variant="object" />
+  </Stack>
+);
 
 export const identity = (): JSX.Element => (
   <Stack>
@@ -51,36 +58,29 @@ export const identity = (): JSX.Element => (
   </Stack>
 );
 
-export const object = (): JSX.Element => (
-  <Stack>
-    <Avatar src="https://source.unsplash.com/EcWFOYOpkpY" variant="object" />
-    <Avatar variant="object" />
-  </Stack>
-);
-
 export const sizes = (): JSX.Element => (
   <Stack>
     <Stack>
       <Avatar
-        src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
-        variant="identity"
+        src="https://picsum.photos/id/63/200"
+        variant="object"
         size="yotta"
       />
       <Avatar
-        src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
-        variant="identity"
+        src="https://picsum.photos/id/63/200"
+        variant="object"
         size="giga"
       />
     </Stack>
     <Stack>
       <Avatar
-        src="https://source.unsplash.com/EcWFOYOpkpY"
-        variant="object"
+        src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+        variant="identity"
         size="yotta"
       />
       <Avatar
-        src="https://source.unsplash.com/EcWFOYOpkpY"
-        variant="object"
+        src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+        variant="identity"
         size="giga"
       />
     </Stack>

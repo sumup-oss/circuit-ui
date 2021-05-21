@@ -83,7 +83,7 @@ const StyledImage = styled('img', {
 export const Avatar = ({
   src: initialSrc,
   alt = '',
-  variant = 'identity',
+  variant = 'object',
   size = 'yotta',
   ...props
 }: AvatarProps): JSX.Element => {
