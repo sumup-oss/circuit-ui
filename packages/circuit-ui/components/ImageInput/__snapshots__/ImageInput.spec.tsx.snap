@@ -1,0 +1,890 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageInput styles should render with an existing image 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-8 {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-3 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  border-radius: 8px;
+  border-bottom-right-radius: 12px;
+}
+
+.circuit-3:hover {
+  cursor: pointer;
+}
+
+.circuit-3:hover > button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-3:active > button {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.circuit-3:hover::before {
+  opacity: 0.1;
+}
+
+.circuit-3:active::before {
+  opacity: 0.2;
+}
+
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.circuit-4 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  color: #FFF;
+}
+
+.circuit-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #D23F47;
+  border-color: #D23F47;
+  color: #FFF;
+  padding: 8px calc(24px - 1px);
+  padding: 8px;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover {
+  background-color: #B22426;
+  border-color: #B22426;
+}
+
+.circuit-5:active {
+  background-color: #941618;
+  border-color: #941618;
+}
+
+<div>
+  <div
+    class="circuit-8"
+  >
+    <input
+      accept="image/*"
+      aria-invalid="false"
+      class="circuit-0"
+      id="imageinput_2"
+      type="file"
+    />
+    <label
+      class="circuit-3"
+      for="imageinput_2"
+    >
+      <span
+        class="circuit-1"
+      >
+        Upload an image
+      </span>
+      <img
+        alt=""
+        class="circuit-2"
+        src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+      />
+    </label>
+    <button
+      class="circuit-5"
+      title="Clear"
+      type="button"
+    >
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M6.2 0c-.665 0-1.243.332-1.63.815A2.707 2.707 0 004 2.5V3H1a1 1 0 000 2h1v8.9c0 .56.225 1.095.622 1.489.397.392.932.611 1.49.611h7.777c.557 0 1.092-.219 1.49-.611.396-.394.621-.929.621-1.489V5h1a1 1 0 100-2h-3v-.5c0-.6-.189-1.208-.57-1.685C11.042.332 10.464 0 9.8 0H6.2zM10 3v-.5a.715.715 0 00-.132-.436.23.23 0 00-.069-.062L9.795 2h-3.59l-.004.002a.23.23 0 00-.069.062A.715.715 0 006 2.5V3h4zM5 5H4v8.9c0 .023.01.048.029.067.02.02.05.033.082.033h7.778a.117.117 0 00.082-.033A.094.094 0 0012 13.9V5H5zm1.5 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zm4 1a1 1 0 10-2 0v4a1 1 0 102 0v-4z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <span
+        class="circuit-4"
+      >
+        Clear
+      </span>
+    </button>
+    <span
+      class="circuit-7"
+    >
+      <span
+        class="circuit-4"
+      >
+        Uploading
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ImageInput styles should render with default styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-8 {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  border-radius: 8px;
+  border-bottom-right-radius: 12px;
+}
+
+.circuit-5:hover {
+  cursor: pointer;
+}
+
+.circuit-5:hover > button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-5:active > button {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-5::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.circuit-5:hover::before {
+  opacity: 0.1;
+}
+
+.circuit-5:active::before {
+  opacity: 0.2;
+}
+
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.circuit-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
+  padding: 8px calc(24px - 1px);
+  padding: 8px;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  pointer-events: none;
+}
+
+.circuit-4:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-4:hover {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-4:active {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-3 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  color: #FFF;
+}
+
+<div>
+  <div
+    class="circuit-8"
+  >
+    <input
+      accept="image/*"
+      aria-invalid="false"
+      class="circuit-0"
+      id="imageinput_1"
+      type="file"
+    />
+    <label
+      class="circuit-5"
+      for="imageinput_1"
+    >
+      <span
+        class="circuit-1"
+      >
+        Upload an image
+      </span>
+      <img
+        alt=""
+        class="circuit-2"
+        src="data:image/svg+xml;utf8,<svg width=\\"96\\" height=\\"96\\" viewBox=\\"0 0 96 96\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M30 25C30 20.0294 34.0294 16 39 16C43.9706 16 48 20.0294 48 25C48 29.9706 43.9706 34 39 34C34.0294 34 30 29.9706 30 25Z\\" fill=\\"white\\"/><path d=\\"M41.1571 60.5691L30.6742 48.3905C29.0304 46.4808 26.0517 46.5483 24.496 48.5304L8 69.5483V81.9998C8 85.3135 10.6863 87.9998 14 87.9998H19.9592L41.1571 60.5691Z\\" fill=\\"white\\"/><path d=\\"M70.4856 32.878C72.0409 30.876 75.0425 30.8075 76.6876 32.7363L87.9996 45.9986V81.9986C87.9996 85.3123 85.3133 87.9986 81.9996 87.9986H27.6611L70.4856 32.878Z\\" fill=\\"white\\"/></svg>"
+      />
+      <button
+        aria-hidden="true"
+        class="circuit-4"
+        tabindex="-1"
+        title=""
+        type="button"
+      >
+        <svg
+          fill="none"
+          height="16"
+          role="presentation"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M7.99999 0C8.55228 0 8.99999 0.447715 8.99999 1V6.99999H15C15.5523 6.99999 16 7.44771 16 7.99999C16 8.55228 15.5523 8.99999 15 8.99999H8.99999V15C8.99999 15.5523 8.55228 16 7.99999 16C7.44771 16 6.99999 15.5523 6.99999 15V8.99999H1C0.447715 8.99999 0 8.55228 0 7.99999C0 7.44771 0.447715 6.99999 1 6.99999H6.99999V1C6.99999 0.447715 7.44771 0 7.99999 0Z"
+            fill="white"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+      </button>
+    </label>
+    <span
+      class="circuit-7"
+    >
+      <span
+        class="circuit-3"
+      >
+        Uploading
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ImageInput styles should render with invalid styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-8 {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.circuit-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
+  padding: 8px calc(24px - 1px);
+  padding: 8px;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  pointer-events: none;
+}
+
+.circuit-4:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-4:hover {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-4:active {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-3 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  color: #FFF;
+}
+
+.circuit-5 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  border-radius: 8px;
+  border-bottom-right-radius: 12px;
+  box-shadow: 0 0 0 2px #D23F47;
+}
+
+.circuit-5:hover {
+  cursor: pointer;
+}
+
+.circuit-5:hover > button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-5:active > button {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-5:hover {
+  box-shadow: 0 0 0 2px #B22426;
+}
+
+.circuit-5:active {
+  box-shadow: 0 0 0 2px #D23F47;
+}
+
+.circuit-5::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.circuit-5:hover::before {
+  opacity: 0.1;
+}
+
+.circuit-5:active::before {
+  opacity: 0.2;
+}
+
+.circuit-10 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  margin-top: 4px;
+  color: #666;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+  color: #D23F47;
+}
+
+.circuit-9 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 0.15em;
+  margin-right: 4px;
+  color: #D23F47;
+}
+
+<div>
+  <div
+    class="circuit-8"
+  >
+    <input
+      accept="image/*"
+      aria-invalid="true"
+      class="circuit-0"
+      id="imageinput_3"
+      type="file"
+    />
+    <label
+      class="circuit-5"
+      for="imageinput_3"
+    >
+      <span
+        class="circuit-1"
+      >
+        Upload an image
+      </span>
+      <img
+        alt=""
+        class="circuit-2"
+        src="data:image/svg+xml;utf8,<svg width=\\"96\\" height=\\"96\\" viewBox=\\"0 0 96 96\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M30 25C30 20.0294 34.0294 16 39 16C43.9706 16 48 20.0294 48 25C48 29.9706 43.9706 34 39 34C34.0294 34 30 29.9706 30 25Z\\" fill=\\"white\\"/><path d=\\"M41.1571 60.5691L30.6742 48.3905C29.0304 46.4808 26.0517 46.5483 24.496 48.5304L8 69.5483V81.9998C8 85.3135 10.6863 87.9998 14 87.9998H19.9592L41.1571 60.5691Z\\" fill=\\"white\\"/><path d=\\"M70.4856 32.878C72.0409 30.876 75.0425 30.8075 76.6876 32.7363L87.9996 45.9986V81.9986C87.9996 85.3123 85.3133 87.9986 81.9996 87.9986H27.6611L70.4856 32.878Z\\" fill=\\"white\\"/></svg>"
+      />
+      <button
+        aria-hidden="true"
+        class="circuit-4"
+        tabindex="-1"
+        title=""
+        type="button"
+      >
+        <svg
+          fill="none"
+          height="16"
+          role="presentation"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M7.99999 0C8.55228 0 8.99999 0.447715 8.99999 1V6.99999H15C15.5523 6.99999 16 7.44771 16 7.99999C16 8.55228 15.5523 8.99999 15 8.99999H8.99999V15C8.99999 15.5523 8.55228 16 7.99999 16C7.44771 16 6.99999 15.5523 6.99999 15V8.99999H1C0.447715 8.99999 0 8.55228 0 7.99999C0 7.44771 0.447715 6.99999 1 6.99999H6.99999V1C6.99999 0.447715 7.44771 0 7.99999 0Z"
+            fill="white"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+      </button>
+    </label>
+    <span
+      class="circuit-7"
+    >
+      <span
+        class="circuit-3"
+      >
+        Uploading
+      </span>
+    </span>
+  </div>
+  <span
+    class="circuit-10"
+  >
+    <svg
+      class="circuit-9"
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+    The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB.
+  </span>
+</div>
+`;
