@@ -19,7 +19,14 @@ import { render, axe } from '../../util/test-utils';
 
 import { Avatar, AvatarProps } from './Avatar';
 
-describe.skip('Avatar', () => {
+const sizes = ['giga', 'yotta'] as const;
+const variants = ['object', 'identity'] as const;
+const images = {
+  object: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
+  identity: 'https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png',
+};
+
+describe('Avatar', () => {
   function renderAvatar(props: AvatarProps = {}, options = {}) {
     return render(<Avatar {...props} />, options);
   }
@@ -29,10 +36,31 @@ describe.skip('Avatar', () => {
       const { container } = renderAvatar();
       expect(container).toMatchSnapshot();
     });
-  });
 
-  describe('business logic', () => {
-    it.todo('should have tests');
+    it.each(sizes)('should render the %s size', (size) => {
+      const { container } = renderAvatar({
+        size,
+      });
+      expect(container).toMatchSnapshot();
+    });
+
+    it.each(variants)(
+      'should render the %s variant with an image',
+      (variant) => {
+        const { container } = renderAvatar({
+          src: images[variant],
+          variant,
+        });
+        expect(container).toMatchSnapshot();
+      },
+    );
+
+    it.each(variants)('should render the %s variant placeholder', (variant) => {
+      const { container } = renderAvatar({
+        variant,
+      });
+      expect(container).toMatchSnapshot();
+    });
   });
 
   describe('accessibility', () => {

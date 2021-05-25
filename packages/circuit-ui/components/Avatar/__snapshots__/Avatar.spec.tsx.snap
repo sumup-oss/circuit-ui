@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar styles should render the giga size 1`] = `
+.circuit-0 {
+  display: block;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+<div>
+  <img
+    alt=""
+    class="circuit-0"
+    src="data:image/svg+xml;utf8,<svg width=\\"96\\" height=\\"96\\" viewBox=\\"0 0 96 96\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M30 25C30 20.0294 34.0294 16 39 16C43.9706 16 48 20.0294 48 25C48 29.9706 43.9706 34 39 34C34.0294 34 30 29.9706 30 25Z\\" fill=\\"white\\"/><path d=\\"M41.1571 60.5691L30.6742 48.3905C29.0304 46.4808 26.0517 46.5483 24.496 48.5304L8 69.5483V81.9998C8 85.3135 10.6863 87.9998 14 87.9998H19.9592L41.1571 60.5691Z\\" fill=\\"white\\"/><path d=\\"M70.4856 32.878C72.0409 30.876 75.0425 30.8075 76.6876 32.7363L87.9996 45.9986V81.9986C87.9996 85.3123 85.3133 87.9986 81.9996 87.9986H27.6611L70.4856 32.878Z\\" fill=\\"white\\"/></svg>"
+  />
+</div>
+`;
+
+exports[`Avatar styles should render the identity variant placeholder 1`] = `
+.circuit-0 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+<div>
+  <img
+    alt=""
+    class="circuit-0"
+    src="data:image/svg+xml;utf8,<svg width=\\"96\\" height=\\"96\\" viewBox=\\"0 0 96 96\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M48 18C40.268 18 34 24.268 34 32C34 39.732 40.268 46 48 46C55.732 46 62 39.732 62 32C62 24.268 55.732 18 48 18Z\\" fill=\\"white\\"/><path d=\\"M47.9998 88C61.53 88 73.4913 81.2822 80.73 71C73.4913 60.7178 61.53 54 47.9997 54C34.4695 54 22.5083 60.7178 15.2695 71C22.5083 81.2822 34.4695 88 47.9998 88Z\\" fill=\\"white\\"/></svg>"
+  />
+</div>
+`;
+
+exports[`Avatar styles should render the identity variant with an image 1`] = `
+.circuit-0 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+<div>
+  <img
+    alt=""
+    class="circuit-0"
+    src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+  />
+</div>
+`;
+
+exports[`Avatar styles should render the object variant placeholder 1`] = `
+.circuit-0 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+<div>
+  <img
+    alt=""
+    class="circuit-0"
+    src="data:image/svg+xml;utf8,<svg width=\\"96\\" height=\\"96\\" viewBox=\\"0 0 96 96\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M30 25C30 20.0294 34.0294 16 39 16C43.9706 16 48 20.0294 48 25C48 29.9706 43.9706 34 39 34C34.0294 34 30 29.9706 30 25Z\\" fill=\\"white\\"/><path d=\\"M41.1571 60.5691L30.6742 48.3905C29.0304 46.4808 26.0517 46.5483 24.496 48.5304L8 69.5483V81.9998C8 85.3135 10.6863 87.9998 14 87.9998H19.9592L41.1571 60.5691Z\\" fill=\\"white\\"/><path d=\\"M70.4856 32.878C72.0409 30.876 75.0425 30.8075 76.6876 32.7363L87.9996 45.9986V81.9986C87.9996 85.3123 85.3133 87.9986 81.9996 87.9986H27.6611L70.4856 32.878Z\\" fill=\\"white\\"/></svg>"
+  />
+</div>
+`;
+
+exports[`Avatar styles should render the object variant with an image 1`] = `
+.circuit-0 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+<div>
+  <img
+    alt=""
+    class="circuit-0"
+    src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+  />
+</div>
+`;
+
+exports[`Avatar styles should render the yotta size 1`] = `
+.circuit-0 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+<div>
+  <img
+    alt=""
+    class="circuit-0"
+    src="data:image/svg+xml;utf8,<svg width=\\"96\\" height=\\"96\\" viewBox=\\"0 0 96 96\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M30 25C30 20.0294 34.0294 16 39 16C43.9706 16 48 20.0294 48 25C48 29.9706 43.9706 34 39 34C34.0294 34 30 29.9706 30 25Z\\" fill=\\"white\\"/><path d=\\"M41.1571 60.5691L30.6742 48.3905C29.0304 46.4808 26.0517 46.5483 24.496 48.5304L8 69.5483V81.9998C8 85.3135 10.6863 87.9998 14 87.9998H19.9592L41.1571 60.5691Z\\" fill=\\"white\\"/><path d=\\"M70.4856 32.878C72.0409 30.876 75.0425 30.8075 76.6876 32.7363L87.9996 45.9986V81.9986C87.9996 85.3123 85.3133 87.9986 81.9996 87.9986H27.6611L70.4856 32.878Z\\" fill=\\"white\\"/></svg>"
+  />
+</div>
+`;
+
+exports[`Avatar styles should render with default styles 1`] = `
+.circuit-0 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+<div>
+  <img
+    alt=""
+    class="circuit-0"
+    src="data:image/svg+xml;utf8,<svg width=\\"96\\" height=\\"96\\" viewBox=\\"0 0 96 96\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M30 25C30 20.0294 34.0294 16 39 16C43.9706 16 48 20.0294 48 25C48 29.9706 43.9706 34 39 34C34.0294 34 30 29.9706 30 25Z\\" fill=\\"white\\"/><path d=\\"M41.1571 60.5691L30.6742 48.3905C29.0304 46.4808 26.0517 46.5483 24.496 48.5304L8 69.5483V81.9998C8 85.3135 10.6863 87.9998 14 87.9998H19.9592L41.1571 60.5691Z\\" fill=\\"white\\"/><path d=\\"M70.4856 32.878C72.0409 30.876 75.0425 30.8075 76.6876 32.7363L87.9996 45.9986V81.9986C87.9996 85.3123 85.3133 87.9986 81.9996 87.9986H27.6611L70.4856 32.878Z\\" fill=\\"white\\"/></svg>"
+  />
+</div>
+`;
