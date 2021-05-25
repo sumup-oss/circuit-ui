@@ -36,14 +36,17 @@ export default {
 
 export const base = (args: AvatarProps): JSX.Element => <Avatar {...args} />;
 base.args = {
-  src: 'https://picsum.photos/id/63/200',
+  src: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
   variant: 'object',
   size: 'yotta',
 };
 
 export const object = (): JSX.Element => (
   <Stack>
-    <Avatar src="https://picsum.photos/id/63/200" variant="object" />
+    <Avatar
+      src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+      variant="object"
+    />
     <Avatar variant="object" />
   </Stack>
 );
@@ -62,12 +65,12 @@ export const sizes = (): JSX.Element => (
   <Stack>
     <Stack>
       <Avatar
-        src="https://picsum.photos/id/63/200"
+        src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
         variant="object"
         size="yotta"
       />
       <Avatar
-        src="https://picsum.photos/id/63/200"
+        src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
         variant="object"
         size="giga"
       />

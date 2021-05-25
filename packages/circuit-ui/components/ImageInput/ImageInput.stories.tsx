@@ -14,6 +14,7 @@
  */
 
 /** @jsx jsx */
+import { useState } from 'react';
 import { jsx } from '@emotion/core';
 
 import docs from './ImageInput.docs.mdx';
@@ -36,12 +37,82 @@ export const base = (args: ImageInputProps): JSX.Element => (
 base.args = {
   label: 'Upload an image',
   clearButtonLabel: 'Clear',
+  onChange: () => Promise.resolve(),
+  onClear: () => {},
+  loadingLabel: 'Uploading',
 };
 
 export const withImage = (): JSX.Element => (
   <ImageInput
     label="Upload an image"
     clearButtonLabel="Clear"
-    imageUrl="https://source.unsplash.com/EcWFOYOpkpY"
+    imageUrl="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+    onChange={() => Promise.resolve()}
+    onClear={() => {}}
+    loadingLabel="Uploading"
   />
 );
+
+export const invalid = (): JSX.Element => (
+  <ImageInput
+    label="Upload an image"
+    clearButtonLabel="Clear"
+    imageUrl="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+    onChange={() => Promise.resolve()}
+    onClear={() => {}}
+    invalid={true}
+    validationHint="The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB."
+    loadingLabel="Uploading"
+  />
+);
+
+export const Stateful = (): JSX.Element => {
+  const [imageUrl, setImageUrl] = useState<string>('');
+  const [error, setError] = useState<string>('');
+
+  /**
+   * Fakes a network request that fails 30% of the time
+   */
+  const uploadFile = (file) =>
+    // upload the file to storage
+    new Promise<string>((resolve, reject) =>
+      setTimeout(() => {
+        const shouldFail = Math.random() < 0.3;
+        return shouldFail
+          ? reject()
+          : resolve('https://source.unsplash.com/EcWFOYOpkpY/200x200');
+      }, 2000),
+    );
+
+  const onChange = (file) => {
+    setError('');
+    setImageUrl('');
+    return uploadFile(file)
+      .then((remoteImageUrl) => {
+        setImageUrl(remoteImageUrl);
+      })
+      .catch(() =>
+        setError(
+          'The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB.',
+        ),
+      );
+  };
+
+  const onClear = () => {
+    setError('');
+    setImageUrl('');
+  };
+
+  return (
+    <ImageInput
+      label="Upload an image"
+      clearButtonLabel="Clear"
+      imageUrl={imageUrl}
+      onChange={onChange}
+      onClear={onClear}
+      invalid={!!error}
+      validationHint={error}
+      loadingLabel="Uploading"
+    />
+  );
+};
