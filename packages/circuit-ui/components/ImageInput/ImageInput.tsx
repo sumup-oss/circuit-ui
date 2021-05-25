@@ -74,59 +74,95 @@ export interface ImageInputProps
   loadingLabel: string;
 }
 
-const HiddenInput = styled.input(
-  ({ theme, invalid }: StyleProps & { invalid: boolean }) => css`
-    ${hideVisually()};
+const InputWrapper = styled.div`
+  display: inline-block;
+  position: relative;
+  text-align: center;
+`;
 
+const HiddenInput = styled.input(
+  ({ theme }) => css`
+    ${hideVisually()};
     &:focus + label {
-      ${!invalid && focusOutline({ theme })};
-      border-radius: ${theme.borderRadius.tera};
-      // ensures the focus outline doesn't appear behind the ActionButton
-      border-bottom-right-radius: 12px;
+      ${focusOutline({ theme })};
     }
   `,
 );
 
-const StyledAvatar = styled(Avatar)(
-  ({
-    theme,
-    invalid,
-    isLoading,
-  }: StyleProps & { invalid: boolean; isLoading: boolean }) => css`
-    ${isLoading &&
-    css`
-      // TODO switch from brightness() to ::before everywhere
-      // FIXME use a brightness filter instead of a pseudo-element when we drop support for IE
-      filter: brightness(40%);
-    `}
-    ${invalid &&
-    css`
-      box-shadow: 0 0 0 2px ${theme.colors.danger};
-    `};
-    &:hover {
-      filter: brightness(90%);
-      cursor: pointer;
-      ${invalid &&
-      css`
-        box-shadow: 0 0 0 2px ${theme.colors.r700};
-      `};
-    }
-    &:hover + button {
+type StyledLabelProps = StyleProps & { isLoading: boolean; invalid: boolean };
+
+const baseLabelStyles = ({ theme }: StyledLabelProps) => css`
+  border-radius: ${theme.borderRadius.tera};
+  // ensures the focus outline doesn't appear behind the ActionButton
+  border-bottom-right-radius: 12px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const addButtonStyles = ({ theme }: StyledLabelProps) => css`
+  &:hover {
+    & > button {
       background-color: ${theme.colors.p700};
       border-color: ${theme.colors.p700};
     }
-    &:active {
-      filter: brightness(80%);
-      ${invalid &&
-      css`
-        box-shadow: 0 0 0 2px ${theme.colors.danger};
-      `};
-    }
-    &:active + button {
+  }
+  &:active {
+    & > button {
       background-color: ${theme.colors.p900};
       border-color: ${theme.colors.p900};
     }
-  `,
+  }
+`;
+
+const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
+  invalid &&
+  css`
+    box-shadow: 0 0 0 2px ${theme.colors.danger};
+    &:hover {
+      box-shadow: 0 0 0 2px ${theme.colors.r700};
+    }
+    &:active {
+      box-shadow: 0 0 0 2px ${theme.colors.danger};
+    }
+  `;
+
+const overlayLabelStyles = ({ theme, isLoading }: StyledLabelProps) => css`
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-radius: ${theme.borderRadius.tera};
+    background-color: ${theme.colors.black};
+    opacity: 0;
+    pointer-events: none;
+    ${isLoading &&
+    css`
+      opacity: 0.4;
+    `}
+  }
+  &:hover::before {
+    ${!isLoading &&
+    css`
+      opacity: 0.1;
+    `}
+  }
+  &:active::before {
+    ${!isLoading &&
+    css`
+      opacity: 0.2;
+    `}
+  }
+`;
+
+const StyledLabel = styled(Label)<StyledLabelProps>(
+  baseLabelStyles,
+  addButtonStyles,
+  invalidLabelStyles,
+  overlayLabelStyles,
 );
 
 const ActionButton = styled(IconButton)(
@@ -141,13 +177,9 @@ const AddButton = styled(ActionButton)`
   pointer-events: none;
 `;
 
-const InputWrapper = styled.div`
-  display: inline-block;
-  position: relative;
-  text-align: center;
-`;
+type LoadingIconProps = StyleProps & { isLoading: boolean };
 
-const spinnerBaseStyles = ({ theme }: StyleProps) => css`
+const spinnerBaseStyles = ({ theme }: LoadingIconProps) => css`
   position: absolute;
   width: ${theme.iconSizes.giga};
   height: ${theme.iconSizes.giga};
@@ -160,14 +192,14 @@ const spinnerBaseStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.white};
 `;
 
-const spinnerLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
+const spinnerLoadingStyles = ({ isLoading }: LoadingIconProps) =>
   isLoading &&
   css`
     opacity: 1;
     visibility: visible;
   `;
 
-const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
+const LoadingIcon = styled(Spinner)<LoadingIconProps>(
   spinnerBaseStyles,
   spinnerLoadingStyles,
 );
@@ -225,17 +257,12 @@ export const ImageInput = ({
           accept="image/*"
           onChange={handleChange}
           disabled={disabled || isLoading}
-          invalid={invalid}
           aria-invalid={invalid}
           {...props}
         />
-        <Label htmlFor={id}>
+        <StyledLabel isLoading={isLoading} invalid={invalid} htmlFor={id}>
           <span css={hideVisually()}>{label}</span>
-          <StyledAvatar
-            isLoading={isLoading}
-            src={imageUrl || previewImage}
-            invalid={invalid}
-          />
+          <Avatar src={imageUrl || previewImage} />
           {!imageUrl && (
             <AddButton
               type="button"
@@ -263,7 +290,7 @@ export const ImageInput = ({
               </svg>
             </AddButton>
           )}
-        </Label>
+        </StyledLabel>
         {imageUrl && (
           <ActionButton
             type="button"
