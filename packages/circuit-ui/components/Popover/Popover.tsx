@@ -116,17 +116,18 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   box-sizing: border-box;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
   border-radius: ${theme.spacings.byte};
-`;
 
-const overlayStyles = () => css`
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
+  ::before {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
 `;
-
-const Overlay = styled('div')(overlayStyles);
 
 const PopoverWrapper = styled('div')(wrapperStyles);
 
@@ -163,17 +164,15 @@ export const Popover = ({
   }
 
   return (
-    <Overlay onClick={handleClose}>
-      <PopoverWrapper
-        {...props}
-        ref={setPopperElement}
-        style={styles.popper}
-        {...attributes.popper}
-      >
-        {actions.map((action, index) =>
-          isDivider(action) ? <Hr /> : <PopoverItem key={index} {...action} />,
-        )}
-      </PopoverWrapper>
-    </Overlay>
+    <PopoverWrapper
+      {...props}
+      ref={setPopperElement}
+      style={styles.popper}
+      {...attributes.popper}
+    >
+      {actions.map((action, index) =>
+        isDivider(action) ? <Hr /> : <PopoverItem key={index} {...action} />,
+      )}
+    </PopoverWrapper>
   );
 };
