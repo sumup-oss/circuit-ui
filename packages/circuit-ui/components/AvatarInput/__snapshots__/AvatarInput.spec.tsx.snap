@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ImageInput styles should render with an existing image 1`] = `
+exports[`AvatarInput styles should render with an existing image 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -219,12 +219,12 @@ exports[`ImageInput styles should render with an existing image 1`] = `
       accept="image/*"
       aria-invalid="false"
       class="circuit-0"
-      id="imageinput_2"
+      id="AvatarInput_2"
       type="file"
     />
     <label
       class="circuit-3"
-      for="imageinput_2"
+      for="AvatarInput_2"
     >
       <span
         class="circuit-1"
@@ -276,7 +276,7 @@ exports[`ImageInput styles should render with an existing image 1`] = `
 </div>
 `;
 
-exports[`ImageInput styles should render with default styles 1`] = `
+exports[`AvatarInput styles should render with default styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -496,12 +496,12 @@ exports[`ImageInput styles should render with default styles 1`] = `
       accept="image/*"
       aria-invalid="false"
       class="circuit-0"
-      id="imageinput_1"
+      id="AvatarInput_1"
       type="file"
     />
     <label
       class="circuit-5"
-      for="imageinput_1"
+      for="AvatarInput_1"
     >
       <span
         class="circuit-1"
@@ -553,7 +553,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
 </div>
 `;
 
-exports[`ImageInput styles should render with invalid styles 1`] = `
+exports[`AvatarInput styles should render with invalid styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -811,12 +811,12 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
       accept="image/*"
       aria-invalid="true"
       class="circuit-0"
-      id="imageinput_3"
+      id="AvatarInput_3"
       type="file"
     />
     <label
       class="circuit-5"
-      for="imageinput_3"
+      for="AvatarInput_3"
     >
       <span
         class="circuit-1"

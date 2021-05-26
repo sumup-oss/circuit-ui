@@ -34,7 +34,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import { focusOutline, hideVisually } from '../../styles/style-mixins';
 
-export interface ImageInputProps
+export interface AvatarInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
   /**
    * A clear and concise description of the image input's purpose.
@@ -207,9 +207,9 @@ const LoadingIcon = styled(Spinner)<LoadingIconProps>(
 const LoadingLabel = styled.span(hideVisually);
 
 /**
- * ImageInput component.
+ * AvatarInput component.
  */
-export const ImageInput = ({
+export const AvatarInput = ({
   label,
   imageUrl,
   id: customId,
@@ -221,9 +221,9 @@ export const ImageInput = ({
   invalid = false,
   loadingLabel,
   ...props
-}: ImageInputProps): JSX.Element => {
+}: AvatarInputProps): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const id = customId || uniqueId('imageinput_');
+  const id = customId || uniqueId('AvatarInput_');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');
 

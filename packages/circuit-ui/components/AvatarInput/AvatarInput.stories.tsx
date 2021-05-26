@@ -17,21 +17,21 @@
 import { useState } from 'react';
 import { jsx } from '@emotion/core';
 
-import docs from './ImageInput.docs.mdx';
-import { ImageInputProps } from './ImageInput';
+import docs from './AvatarInput.docs.mdx';
+import { AvatarInputProps } from './AvatarInput';
 
-import ImageInput from '.';
+import AvatarInput from '.';
 
 export default {
-  title: 'Components/ImageInput',
-  component: ImageInput,
+  title: 'Components/AvatarInput',
+  component: AvatarInput,
   parameters: {
     docs: { page: docs },
   },
 };
 
-export const base = (args: ImageInputProps): JSX.Element => (
-  <ImageInput {...args} />
+export const base = (args: AvatarInputProps): JSX.Element => (
+  <AvatarInput {...args} />
 );
 
 base.args = {
@@ -43,7 +43,7 @@ base.args = {
 };
 
 export const withImage = (): JSX.Element => (
-  <ImageInput
+  <AvatarInput
     label="Upload an image"
     clearButtonLabel="Clear"
     imageUrl="https://source.unsplash.com/EcWFOYOpkpY/200x200"
@@ -54,7 +54,7 @@ export const withImage = (): JSX.Element => (
 );
 
 export const invalid = (): JSX.Element => (
-  <ImageInput
+  <AvatarInput
     label="Upload an image"
     clearButtonLabel="Clear"
     imageUrl="https://source.unsplash.com/EcWFOYOpkpY/200x200"
@@ -104,7 +104,7 @@ export const Stateful = (): JSX.Element => {
   };
 
   return (
-    <ImageInput
+    <AvatarInput
       label="Upload an image"
       clearButtonLabel="Clear"
       imageUrl={imageUrl}
