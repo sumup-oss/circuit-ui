@@ -15,7 +15,7 @@
 
 import React, { useState } from 'react';
 
-import { render, axe, userEvent } from '../../util/test-utils';
+import { render, axe, userEvent, waitFor } from '../../util/test-utils';
 
 import { ImageInput, ImageInputProps } from './ImageInput';
 
@@ -61,9 +61,11 @@ describe('ImageInput', () => {
       });
       expect(container).toMatchSnapshot();
     });
-
-    it.todo('should render with loading styles');
   });
+
+  const mockUploadFn = jest
+    .fn<Promise<string>, [File]>()
+    .mockResolvedValue('https://source.unsplash.com/EcWFOYOpkpY/200x200');
 
   /**
    * Copied from the component Stories
@@ -72,30 +74,14 @@ describe('ImageInput', () => {
     const [imageUrl, setImageUrl] = useState<string>('');
     const [error, setError] = useState<string>('');
 
-    const uploadFile = (
-      _file: File, // we need the _ to tell TS the variable is unused
-    ) =>
-      // upload the file to storage
-      new Promise<string>((resolve, reject) =>
-        setTimeout(() => {
-          const shouldFail = Math.random() < 0.3;
-          return shouldFail
-            ? reject()
-            : resolve('https://source.unsplash.com/EcWFOYOpkpY/200x200');
-        }, 2000),
-      );
     const onChange = (file: File) => {
       setError('');
       setImageUrl('');
-      return uploadFile(file)
+      return mockUploadFn(file)
         .then((remoteImageUrl) => {
           setImageUrl(remoteImageUrl);
         })
-        .catch(() =>
-          setError(
-            'The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB.',
-          ),
-        );
+        .catch((e: Error) => setError(e.message));
     };
 
     const onClear = () => {
@@ -118,20 +104,59 @@ describe('ImageInput', () => {
   }
 
   describe('business logic', () => {
-    it('should upload an image', () => {
+    const file = new File(['avatar'], 'avatar.png', { type: 'image/png' });
+
+    it('should call the provided upload function', async () => {
       const { getAllByLabelText } = render(<StatefulInput />);
-      const file = new File(['avatar'], 'avatar.png', { type: 'image/png' });
       /**
        * TODO find a better way to query the input. We can't use a query by role because
        * a file input can be a role=button (according to Chrome) but role=button on an
        * input element is invalid according to jest-axe.
        */
-      const input = getAllByLabelText(
+      const inputEl = getAllByLabelText(
         defaultProps.label,
       )[1] as HTMLInputElement;
-      userEvent.upload(input, file);
-      expect(input.files && input.files[0]).toEqual(file);
-      expect(input.files).toHaveLength(1);
+
+      userEvent.upload(inputEl, file);
+
+      await waitFor(() => {
+        expect(inputEl.files && inputEl.files[0]).toEqual(file);
+        expect(inputEl.files).toHaveLength(1);
+        expect(mockUploadFn).toHaveBeenCalledWith(file);
+      });
+    });
+
+    it('should render a successfully uploaded image', async () => {
+      const { getAllByLabelText, getByRole } = render(<StatefulInput />);
+      const inputEl = getAllByLabelText(
+        defaultProps.label,
+      )[1] as HTMLInputElement;
+      const imageEl = getByRole('img') as HTMLImageElement;
+
+      userEvent.upload(inputEl, file);
+
+      await waitFor(() => {
+        expect(imageEl.src).toBe(
+          'https://source.unsplash.com/EcWFOYOpkpY/200x200',
+        );
+      });
+    });
+
+    it('should render an error message when the upload fails', async () => {
+      const errorMessage =
+        'The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB.';
+      mockUploadFn.mockRejectedValue(new Error(errorMessage));
+      const { getAllByLabelText, getByText } = render(<StatefulInput />);
+      const inputEl = getAllByLabelText(
+        defaultProps.label,
+      )[1] as HTMLInputElement;
+
+      userEvent.upload(inputEl, file);
+
+      await waitFor(() => {
+        expect(getByText(errorMessage)).toBeVisible();
+        expect(inputEl).toBeInvalid();
+      });
     });
   });
 
