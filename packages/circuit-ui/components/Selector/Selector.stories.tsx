@@ -17,7 +17,7 @@ import React from 'react';
 
 import { Stack } from '../../../../.storybook/components';
 import SelectorGroup from '../SelectorGroup';
-import Text from '../Text';
+import Body from '../Body';
 
 import docs from './Selector.docs.mdx';
 import { Selector, SelectorProps } from './Selector';
@@ -73,10 +73,10 @@ export const Sizes = (args: SelectorProps) => (
       Mega
     </Selector>
     <Selector {...args} size="flexible">
-      <Text bold noMargin>
+      <Body variant="highlight" noMargin>
         Flexible
-      </Text>
-      <Text noMargin>Hello World!</Text>
+      </Body>
+      <Body noMargin>Hello World!</Body>
     </Selector>
   </Stack>
 );

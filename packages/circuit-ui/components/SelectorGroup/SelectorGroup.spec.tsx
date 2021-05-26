@@ -81,13 +81,15 @@ describe('SelectorGroup', () => {
   });
 
   describe('Orientation', () => {
-    it('should render with vertical layout by default', () => {
+    it('should render with horizontal layout by default', () => {
       const actual = create(<SelectorGroup {...defaultProps} />);
       expect(actual).toMatchSnapshot();
     });
 
-    it('should render with horizontal layout', () => {
-      const actual = create(<SelectorGroup {...defaultProps} />);
+    it('should render with vertical layout', () => {
+      const actual = create(
+        <SelectorGroup {...defaultProps} orientation="vertical" />,
+      );
       expect(actual).toMatchSnapshot();
     });
   });

@@ -15,13 +15,12 @@
 
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React, { Fragment, Ref, HTMLProps } from 'react';
+import React, { Fragment, Ref, HTMLProps, useState } from 'react';
 import { css, jsx } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
-  focusOutline,
   hideVisually,
   disableVisually,
   textMega,
@@ -76,57 +75,57 @@ export interface SelectorProps
   tracking?: TrackingProps;
 }
 
-type LabelElProps = Pick<SelectorProps, 'disabled' | 'noMargin' | 'size'>;
+type LabelElProps = { hasFocus: boolean } & Pick<
+  SelectorProps,
+  'disabled' | 'noMargin' | 'size' | 'checked'
+>;
 
-const LABEL_BORDER_RADIUS = '8px';
+const outlineStyles = ({
+  theme,
+  checked,
+  hasFocus,
+}: StyleProps & LabelElProps) => {
+  const defaultBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n300}`;
+  const hoverBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n500}`;
+  const activeBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n700}`;
+  const checkedBorder = `0 0 0 ${theme.borderWidth.mega} ${theme.colors.p500}`;
+  const focusOutline = hasFocus
+    ? `, 0 0 0 ${checked ? '5px' : '4px'} ${theme.colors.p300}`
+    : '';
 
-/**
- * ::before serves as a host element for the focus outline.
- * Selector uses box-shadow to draw its border, therefore
- * in order to draw focus outline with another box-shadow
- * we need a different element.
- * All the dimensions calculations are to align ::before with
- * Selector's border and not just with its content, otherwise
- * focus outline will render on top of the border.
- */
-const focusOutlineHostStyles = ({ theme }: StyleProps) => css`
-  &::before {
-    display: none;
-    content: '';
-    position: absolute;
-    top: -${theme.borderWidth.mega};
-    left: -${theme.borderWidth.mega};
-    width: calc(100% + ${theme.borderWidth.mega} * 2);
-    height: calc(100% + ${theme.borderWidth.mega} * 2);
-    border: ${theme.borderWidth.mega} solid transparent;
-    border-radius: calc(${LABEL_BORDER_RADIUS} + ${theme.borderWidth.mega});
-    ${focusOutline({ theme })}
-  }
-`;
+  return css`
+    box-shadow: ${`${checked ? checkedBorder : defaultBorder}${focusOutline}`};
 
-const baseStyles = ({ theme }: StyleProps) => css`
+    &:hover {
+      box-shadow: ${`${checked ? checkedBorder : hoverBorder}${focusOutline}`};
+    }
+
+    &:active {
+      box-shadow: ${`${checked ? checkedBorder : activeBorder}${focusOutline}`};
+    }
+  `;
+};
+
+const baseStyles = ({ theme, checked }: StyleProps & LabelElProps) => css`
   label: selector__label;
   display: inline-block;
   cursor: pointer;
   padding: ${theme.spacings.mega} ${theme.spacings.giga};
-  background-color: ${theme.colors.white};
-  ${textMega({ theme })};
+  background-color: ${checked ? theme.colors.p100 : theme.colors.white};
   text-align: center;
   position: relative;
   margin-bottom: ${theme.spacings.mega};
   border: none;
-  border-radius: ${LABEL_BORDER_RADIUS};
-  box-shadow: 0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n300};
+  border-radius: ${theme.borderRadius.tera};
   transition: box-shadow 0.1s ease-in-out;
+  ${textMega({ theme })};
 
   &:hover {
     background-color: ${theme.colors.n100};
-    box-shadow: 0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n500};
   }
 
   &:active {
     background-color: ${theme.colors.n200};
-    box-shadow: 0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n700};
   }
 `;
 
@@ -170,7 +169,7 @@ const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   };
 
   return css({
-    label: `selector--${size}`,
+    label: `selector__label--${size}`,
     ...sizeMap[size],
   });
 };
@@ -179,23 +178,13 @@ const SelectorLabel = styled('label')<LabelElProps>(
   baseStyles,
   sizeStyles,
   disabledStyles,
-  focusOutlineHostStyles,
+  outlineStyles,
   noMarginStyles,
 );
 
-const inputStyles = ({ theme }: StyleProps) => css`
+const inputStyles = () => css`
   label: selector__input;
   ${hideVisually()};
-
-  // Show the focus outline host
-  &:focus + label::before {
-    display: block;
-  }
-
-  &:checked + label {
-    background-color: ${theme.colors.p100};
-    box-shadow: 0 0 0 ${theme.borderWidth.mega} ${theme.colors.p500};
-  }
 `;
 
 const SelectorInput = styled('input')<HTMLProps<HTMLInputElement>>(inputStyles);
@@ -224,6 +213,7 @@ export const Selector = React.forwardRef(
     }: SelectorProps,
     ref: SelectorProps['ref'],
   ) => {
+    const [hasFocus, setHasFocus] = useState(false);
     const inputId = id || uniqueId('selector_');
     const type = multiple ? 'checkbox' : 'radio';
     const handleChange = useClickHandler(onChange, tracking, 'selector');
@@ -246,12 +236,16 @@ export const Selector = React.forwardRef(
              * https://stackoverflow.com/a/5575369/4620154
              */
           }}
+          onFocus={() => setHasFocus(true)}
+          onBlur={() => setHasFocus(false)}
           ref={ref}
           {...props}
         />
         <SelectorLabel
           htmlFor={inputId}
           disabled={disabled}
+          checked={checked}
+          hasFocus={hasFocus}
           size={size}
           className={className}
           style={style}

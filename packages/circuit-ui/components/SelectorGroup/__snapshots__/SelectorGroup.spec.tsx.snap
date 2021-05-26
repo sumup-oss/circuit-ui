@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelectorGroup Orientation should render with horizontal layout 1`] = `
+exports[`SelectorGroup Orientation should render with horizontal layout by default 1`] = `
 .circuit-9 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10,23 +10,23 @@ exports[`SelectorGroup Orientation should render with horizontal layout 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  width: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  width: auto;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .circuit-9 > div:not(:last-child) {
-  margin-right: 0;
-  margin-bottom: 16px;
+  margin-right: 16px;
+  margin-bottom: 0;
 }
 
 .circuit-2 {
@@ -49,226 +49,40 @@ exports[`SelectorGroup Orientation should render with horizontal layout 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
-  display: block;
-}
-
-.circuit-0:checked + label {
-  background-color: #F0F6FF;
-  box-shadow: 0 0 0 2px #3063E9;
-}
-
 .circuit-1 {
   display: inline-block;
   cursor: pointer;
   padding: 16px 24px;
   background-color: #FFF;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   position: relative;
   margin-bottom: 16px;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 0 1px #CCC;
   -webkit-transition: box-shadow 0.1s ease-in-out;
   transition: box-shadow 0.1s ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
   padding: calc(8px + 1px) 24px;
+  box-shadow: 0 0 0 1px #CCC;
   margin-bottom: 0;
   width: 100%;
 }
 
 .circuit-1:hover {
   background-color: #F5F5F5;
-  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-1:active {
   background-color: #E6E6E6;
-  box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-1::before {
-  display: none;
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 2px * 2);
-  height: calc(100% + 2px * 2);
-  border: 2px solid transparent;
-  border-radius: calc(8px + 2px);
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-1::before::-moz-focus-inner {
-  border: 0;
-}
-
-<div
-  aria-label="Choose an option"
-  class="circuit-9"
-  role="group"
->
-  <div
-    class="circuit-2"
-  >
-    <input
-      class="circuit-0"
-      id="selector_22"
-      name="selector-group_21"
-      type="radio"
-      value="first"
-    />
-    <label
-      class="circuit-1"
-      for="selector_22"
-    >
-      Option 1
-    </label>
-  </div>
-  <div
-    class="circuit-2"
-  >
-    <input
-      class="circuit-0"
-      id="selector_23"
-      name="selector-group_21"
-      type="radio"
-      value="second"
-    />
-    <label
-      class="circuit-1"
-      for="selector_23"
-    >
-      Option 2
-    </label>
-  </div>
-  <div
-    class="circuit-2"
-  >
-    <input
-      class="circuit-0"
-      id="selector_24"
-      name="selector-group_21"
-      type="radio"
-      value="third"
-    />
-    <label
-      class="circuit-1"
-      for="selector_24"
-    >
-      Option 3
-    </label>
-  </div>
-</div>
-`;
-
-exports[`SelectorGroup Orientation should render with vertical layout by default 1`] = `
-.circuit-9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  width: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.circuit-9 > div:not(:last-child) {
-  margin-right: 0;
-  margin-bottom: 16px;
-}
-
-.circuit-2 {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-}
-
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-0:focus + label::before {
-  display: block;
-}
-
-.circuit-0:checked + label {
-  background-color: #F0F6FF;
-  box-shadow: 0 0 0 2px #3063E9;
-}
-
-.circuit-1 {
-  display: inline-block;
-  cursor: pointer;
-  padding: 16px 24px;
-  background-color: #FFF;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  position: relative;
-  margin-bottom: 16px;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 0 0 1px #CCC;
-  -webkit-transition: box-shadow 0.1s ease-in-out;
-  transition: box-shadow 0.1s ease-in-out;
-  padding: calc(8px + 1px) 24px;
-  margin-bottom: 0;
-  width: 100%;
 }
 
 .circuit-1:hover {
-  background-color: #F5F5F5;
   box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-1:active {
-  background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-1::before {
-  display: none;
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 2px * 2);
-  height: calc(100% + 2px * 2);
-  border: 2px solid transparent;
-  border-radius: calc(8px + 2px);
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-1::before::-moz-focus-inner {
-  border: 0;
 }
 
 <div
@@ -330,6 +144,151 @@ exports[`SelectorGroup Orientation should render with vertical layout by default
 </div>
 `;
 
+exports[`SelectorGroup Orientation should render with vertical layout 1`] = `
+.circuit-2 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-1 {
+  display: inline-block;
+  cursor: pointer;
+  padding: 16px 24px;
+  background-color: #FFF;
+  text-align: center;
+  position: relative;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 8px;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(8px + 1px) 24px;
+  box-shadow: 0 0 0 1px #CCC;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-1:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #999;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #666;
+}
+
+.circuit-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  width: auto;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.circuit-9 > div:not(:last-child) {
+  margin-right: 0;
+  margin-bottom: 16px;
+}
+
+<div
+  aria-label="Choose an option"
+  class="circuit-9"
+  orientation="vertical"
+  role="group"
+>
+  <div
+    class="circuit-2"
+  >
+    <input
+      class="circuit-0"
+      id="selector_22"
+      name="selector-group_21"
+      type="radio"
+      value="first"
+    />
+    <label
+      class="circuit-1"
+      for="selector_22"
+    >
+      Option 1
+    </label>
+  </div>
+  <div
+    class="circuit-2"
+  >
+    <input
+      class="circuit-0"
+      id="selector_23"
+      name="selector-group_21"
+      type="radio"
+      value="second"
+    />
+    <label
+      class="circuit-1"
+      for="selector_23"
+    >
+      Option 2
+    </label>
+  </div>
+  <div
+    class="circuit-2"
+  >
+    <input
+      class="circuit-0"
+      id="selector_24"
+      name="selector-group_21"
+      type="radio"
+      value="third"
+    />
+    <label
+      class="circuit-1"
+      for="selector_24"
+    >
+      Option 3
+    </label>
+  </div>
+</div>
+`;
+
 exports[`SelectorGroup should render with default styles 1`] = `
 .circuit-9 {
   display: -webkit-box;
@@ -340,23 +299,23 @@ exports[`SelectorGroup should render with default styles 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  width: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  width: auto;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .circuit-9 > div:not(:last-child) {
-  margin-right: 0;
-  margin-bottom: 16px;
+  margin-right: 16px;
+  margin-bottom: 0;
 }
 
 .circuit-2 {
@@ -379,61 +338,40 @@ exports[`SelectorGroup should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
-  display: block;
-}
-
-.circuit-0:checked + label {
-  background-color: #F0F6FF;
-  box-shadow: 0 0 0 2px #3063E9;
-}
-
 .circuit-1 {
   display: inline-block;
   cursor: pointer;
   padding: 16px 24px;
   background-color: #FFF;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   position: relative;
   margin-bottom: 16px;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 0 1px #CCC;
   -webkit-transition: box-shadow 0.1s ease-in-out;
   transition: box-shadow 0.1s ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
   padding: calc(8px + 1px) 24px;
+  box-shadow: 0 0 0 1px #CCC;
   margin-bottom: 0;
   width: 100%;
 }
 
 .circuit-1:hover {
   background-color: #F5F5F5;
-  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-1:active {
   background-color: #E6E6E6;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #999;
+}
+
+.circuit-1:active {
   box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-1::before {
-  display: none;
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 2px * 2);
-  height: calc(100% + 2px * 2);
-  border: 2px solid transparent;
-  border-radius: calc(8px + 2px);
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-1::before::-moz-focus-inner {
-  border: 0;
 }
 
 <div
