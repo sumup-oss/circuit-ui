@@ -19,13 +19,13 @@ import { render, axe, userEvent, waitFor } from '../../util/test-utils';
 
 import { AvatarInput, AvatarInputProps } from './AvatarInput';
 
-const defaultProps: AvatarInputProps = {
+const defaultProps = {
   label: 'Upload an image',
   loadingLabel: 'Uploading',
   clearButtonLabel: 'Clear',
   onChange: () => Promise.resolve(),
   onClear: () => {},
-};
+} as const;
 
 describe('AvatarInput', () => {
   // eslint-disable-next-line node/no-unsupported-features/node-builtins
@@ -66,6 +66,7 @@ describe('AvatarInput', () => {
   const mockUploadFn = jest
     .fn<Promise<string>, [File]>()
     .mockResolvedValue('https://source.unsplash.com/EcWFOYOpkpY/200x200');
+  const mockClearFn = jest.fn();
 
   /**
    * Copied from the component Stories
@@ -87,6 +88,7 @@ describe('AvatarInput', () => {
     const onClear = () => {
       setError('');
       setImageUrl('');
+      mockClearFn();
     };
 
     return (
@@ -137,6 +139,33 @@ describe('AvatarInput', () => {
 
       await waitFor(() => {
         expect(imageEl.src).toBe(
+          'https://source.unsplash.com/EcWFOYOpkpY/200x200',
+        );
+      });
+    });
+
+    it('should clear an uploaded image', async () => {
+      const { getAllByLabelText, getByRole } = render(<StatefulInput />);
+      const inputEl = getAllByLabelText(
+        defaultProps.label,
+      )[1] as HTMLInputElement;
+      const imageEl = getByRole('img') as HTMLImageElement;
+
+      userEvent.upload(inputEl, file);
+
+      await waitFor(() => {
+        expect(imageEl.src).toBe(
+          'https://source.unsplash.com/EcWFOYOpkpY/200x200',
+        );
+      });
+
+      userEvent.click(
+        getByRole('button', { name: defaultProps.clearButtonLabel }),
+      );
+
+      await waitFor(() => {
+        expect(mockClearFn).toHaveBeenCalledTimes(1);
+        expect(imageEl.src).not.toBe(
           'https://source.unsplash.com/EcWFOYOpkpY/200x200',
         );
       });
