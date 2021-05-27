@@ -26,22 +26,16 @@ export default {
   parameters: {
     docs: { page: docs },
   },
-  argTypes: {
-    src: { control: 'text' },
-    alt: { control: 'text' },
-    variant: { control: { type: 'radio', options: ['object', 'identity'] } },
-    size: { control: { type: 'radio', options: ['yotta', 'giga'] } },
-  },
 };
 
-export const base = (args: AvatarProps): JSX.Element => <Avatar {...args} />;
-base.args = {
+export const Base = (args: AvatarProps): JSX.Element => <Avatar {...args} />;
+Base.args = {
   src: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
   variant: 'object',
   size: 'yotta',
 };
 
-export const object = (): JSX.Element => (
+export const ObjectVariant = (): JSX.Element => (
   <Stack>
     <Avatar
       src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
@@ -51,7 +45,7 @@ export const object = (): JSX.Element => (
   </Stack>
 );
 
-export const identity = (): JSX.Element => (
+export const IdentityVariant = (): JSX.Element => (
   <Stack>
     <Avatar
       src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
@@ -61,7 +55,7 @@ export const identity = (): JSX.Element => (
   </Stack>
 );
 
-export const sizes = (): JSX.Element => (
+export const Sizes = (): JSX.Element => (
   <Stack>
     <Stack>
       <Avatar

@@ -21,8 +21,8 @@ import styled, { StyleProps } from '../../styles/styled';
 
 export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
   /**
-   * The source of Avatar image.
-   * Defaults to a placeholder.
+   * The source URL of the Avatar image.
+   * Defaults to a placeholder illustration.
    */
   src?: string;
   /**
@@ -32,11 +32,11 @@ export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
   alt?: string;
   /**
    * The variant of the Avatar, either identity or object. Refer to the docs for usage guidelines.
-   * The variant also changes which placeholder is rendered when an src prop is not provided.
+   * The variant also changes which placeholder is rendered when the `src` prop is not provided.
    */
   variant?: 'object' | 'identity';
   /**
-   * One of two available sizes for the Avatar.
+   * One of two available sizes for the Avatar, either giga or yotta.
    */
   size?: 'giga' | 'yotta';
 }

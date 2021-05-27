@@ -30,11 +30,11 @@ export default {
   },
 };
 
-export const base = (args: AvatarInputProps): JSX.Element => (
+export const Base = (args: AvatarInputProps): JSX.Element => (
   <AvatarInput {...args} />
 );
 
-base.args = {
+Base.args = {
   label: 'Upload an image',
   clearButtonLabel: 'Clear',
   onChange: () => Promise.resolve(),
@@ -42,22 +42,22 @@ base.args = {
   loadingLabel: 'Uploading',
 };
 
-export const withImage = (): JSX.Element => (
+export const WithImage = (): JSX.Element => (
   <AvatarInput
     label="Upload an image"
     clearButtonLabel="Clear"
-    imageUrl="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+    src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     loadingLabel="Uploading"
   />
 );
 
-export const invalid = (): JSX.Element => (
+export const Invalid = (): JSX.Element => (
   <AvatarInput
     label="Upload an image"
     clearButtonLabel="Clear"
-    imageUrl="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+    src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     invalid={true}
@@ -107,7 +107,7 @@ export const Stateful = (): JSX.Element => {
     <AvatarInput
       label="Upload an image"
       clearButtonLabel="Clear"
-      imageUrl={imageUrl}
+      src={imageUrl}
       onChange={onChange}
       onClear={onClear}
       invalid={!!error}

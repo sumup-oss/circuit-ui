@@ -47,7 +47,7 @@ describe('AvatarInput', () => {
     it('should render with an existing image', () => {
       const { container } = renderAvatarInput({
         ...defaultProps,
-        imageUrl: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
+        src: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
       });
       expect(container).toMatchSnapshot();
     });
@@ -95,7 +95,7 @@ describe('AvatarInput', () => {
       <AvatarInput
         label="Upload an image"
         clearButtonLabel="Clear"
-        imageUrl={imageUrl}
+        src={imageUrl}
         onChange={onChange}
         onClear={onClear}
         invalid={!!error}

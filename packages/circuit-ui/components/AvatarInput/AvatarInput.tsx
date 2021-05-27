@@ -37,7 +37,7 @@ import { focusOutline, hideVisually } from '../../styles/style-mixins';
 export interface AvatarInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
   /**
-   * A clear and concise description of the image input's purpose.
+   * A clear and concise description of the AvatarInput's purpose.
    */
   label: string;
   /**
@@ -45,9 +45,9 @@ export interface AvatarInputProps
    */
   id?: string;
   /**
-   * An existing image URL to be displayed in the image input.
+   * The source URL of an existing Avatar to be displayed in the AvatarInput.
    */
-  imageUrl?: string;
+  src?: string;
   /**
    * An accessible label for the "clear" icon button.
    */
@@ -212,7 +212,7 @@ const LoadingLabel = styled.span(hideVisually);
  */
 export const AvatarInput = ({
   label,
-  imageUrl,
+  src,
   id: customId,
   clearButtonLabel,
   onChange,
@@ -266,8 +266,8 @@ export const AvatarInput = ({
         />
         <StyledLabel isLoading={isLoading} invalid={invalid} htmlFor={id}>
           <span css={hideVisually()}>{label}</span>
-          <Avatar src={imageUrl || previewImage} />
-          {!imageUrl && (
+          <Avatar src={src || previewImage} />
+          {!src && (
             <AddButton
               type="button"
               size="kilo"
@@ -295,7 +295,7 @@ export const AvatarInput = ({
             </AddButton>
           )}
         </StyledLabel>
-        {imageUrl && (
+        {src && (
           <ActionButton
             type="button"
             size="kilo"
