@@ -61,6 +61,8 @@ export { default as CurrencyInput } from './components/CurrencyInput';
 export type { CurrencyInputProps } from './components/CurrencyInput';
 export { default as InlineMessage } from './components/InlineMessage';
 export type { InlineMessageProps } from './components/InlineMessage';
+export { default as AvatarInput } from './components/AvatarInput';
+export type { AvatarInputProps } from './components/AvatarInput';
 
 // Actions
 export { default as Button } from './components/Button';
@@ -153,6 +155,8 @@ export { default as Header } from './components/Header';
 export { default as Step, useStep } from './components/Step';
 export { default as AspectRatio } from './components/AspectRatio';
 export { default as Carousel, CarouselComposer } from './components/Carousel';
+export { default as Avatar } from './components/Avatar';
+export type { AvatarProps } from './components/Avatar';
 
 export {
   ComponentsContext,
