@@ -190,6 +190,7 @@ const spinnerBaseStyles = ({ theme }: LoadingIconProps) => css`
   transition: opacity ${theme.transitions.default},
     visibility ${theme.transitions.default};
   color: ${theme.colors.white};
+  pointer-events: none;
 `;
 
 const spinnerLoadingStyles = ({ isLoading }: LoadingIconProps) =>

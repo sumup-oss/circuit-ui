@@ -145,6 +145,7 @@ exports[`AvatarInput styles should render with an existing image 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
   color: #FFF;
+  pointer-events: none;
 }
 
 .circuit-5 {
@@ -486,6 +487,7 @@ exports[`AvatarInput styles should render with default styles 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
   color: #FFF;
+  pointer-events: none;
 }
 
 <div>
@@ -720,6 +722,7 @@ exports[`AvatarInput styles should render with invalid styles 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
   color: #FFF;
+  pointer-events: none;
 }
 
 .circuit-5 {
