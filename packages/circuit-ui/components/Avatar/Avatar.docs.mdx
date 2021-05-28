@@ -4,7 +4,7 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-The Avatar component is used to display an avatar or an object image. It can be replaced by an [AvatarInput](Components/AvatarInput) to allow users to upload avatars.
+The Avatar component is used to display an avatar or an object image. It can be replaced by an [ImageInput](Forms/ImageInput) to allow users to upload an avatar.
 
 <Story id="components-avatar--base" />
 
@@ -13,7 +13,7 @@ The Avatar component is used to display an avatar or an object image. It can be 
 ## Usage guidelines
 
 - **Do** use the right variant for your use case (see _Variants_ below).
-- **Do** use the AvatarInput component to allow users to upload images.
+- **Do** use the [ImageInput component](Forms/ImageInput) with the `component={Avatar}` prop to allow users to upload an avatar.
 - **Do not** add alt text if the Avatar is purely presentational (for example to show a thumbnail next to a user or product name).
 
 ## Variants

@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AvatarInput } from './AvatarInput';
+import { ImageInput } from './ImageInput';
 
-export type { AvatarInputProps } from './AvatarInput';
+export type { ImageInputProps } from './ImageInput';
 
-export default AvatarInput;
+export default ImageInput;

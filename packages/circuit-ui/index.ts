@@ -61,8 +61,8 @@ export { default as CurrencyInput } from './components/CurrencyInput';
 export type { CurrencyInputProps } from './components/CurrencyInput';
 export { default as InlineMessage } from './components/InlineMessage';
 export type { InlineMessageProps } from './components/InlineMessage';
-export { default as AvatarInput } from './components/AvatarInput';
-export type { AvatarInputProps } from './components/AvatarInput';
+export { default as ImageInput } from './components/ImageInput';
+export type { ImageInputProps } from './components/ImageInput';
 
 // Actions
 export { default as Button } from './components/Button';

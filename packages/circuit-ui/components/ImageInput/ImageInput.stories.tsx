@@ -19,21 +19,21 @@ import { jsx } from '@emotion/core';
 
 import Avatar from '../Avatar';
 
-import docs from './AvatarInput.docs.mdx';
-import { AvatarInputProps } from './AvatarInput';
+import docs from './ImageInput.docs.mdx';
+import { ImageInputProps } from './ImageInput';
 
-import AvatarInput from '.';
+import ImageInput from '.';
 
 export default {
-  title: 'Components/AvatarInput',
-  component: AvatarInput,
+  title: 'Forms/ImageInput',
+  component: ImageInput,
   parameters: {
     docs: { page: docs },
   },
 };
 
-export const Base = (args: AvatarInputProps): JSX.Element => (
-  <AvatarInput {...args} />
+export const Base = (args: ImageInputProps): JSX.Element => (
+  <ImageInput {...args} />
 );
 
 Base.args = {
@@ -46,7 +46,7 @@ Base.args = {
 };
 
 export const WithImage = (): JSX.Element => (
-  <AvatarInput
+  <ImageInput
     label="Upload an image"
     clearButtonLabel="Clear"
     src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
@@ -58,13 +58,13 @@ export const WithImage = (): JSX.Element => (
 );
 
 export const Invalid = (): JSX.Element => (
-  <AvatarInput
+  <ImageInput
     label="Upload an image"
     clearButtonLabel="Clear"
     src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
-    invalid={true}
+    invalid
     validationHint="The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB."
     loadingLabel="Uploading"
     component={Avatar}
@@ -72,13 +72,12 @@ export const Invalid = (): JSX.Element => (
 );
 
 export const CustomComponent = (): JSX.Element => (
-  <AvatarInput
+  <ImageInput
     label="Upload an image"
     clearButtonLabel="Clear"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     loadingLabel="Uploading"
-    invalid
     component={({ src }) => (
       <img
         style={{
@@ -137,7 +136,7 @@ export const Stateful = (): JSX.Element => {
   };
 
   return (
-    <AvatarInput
+    <ImageInput
       label="Upload an image"
       clearButtonLabel="Clear"
       src={imageUrl}

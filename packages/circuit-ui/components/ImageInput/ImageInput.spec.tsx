@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import Avatar from '../Avatar';
 import { render, axe, userEvent, waitFor } from '../../util/test-utils';
 
-import { AvatarInput, AvatarInputProps } from './AvatarInput';
+import { ImageInput, ImageInputProps } from './ImageInput';
 
 const defaultProps = {
   label: 'Upload an image',
@@ -29,25 +29,25 @@ const defaultProps = {
   component: Avatar,
 } as const;
 
-describe('AvatarInput', () => {
+describe('ImageInput', () => {
   // eslint-disable-next-line node/no-unsupported-features/node-builtins
   global.URL.createObjectURL = jest.fn();
 
-  function renderAvatarInput(
-    props: AvatarInputProps = defaultProps,
+  function renderImageInput(
+    props: ImageInputProps = defaultProps,
     options = {},
   ) {
-    return render(<AvatarInput {...props} />, options);
+    return render(<ImageInput {...props} />, options);
   }
 
   describe('styles', () => {
     it('should render with default styles', () => {
-      const { container } = renderAvatarInput();
+      const { container } = renderImageInput();
       expect(container).toMatchSnapshot();
     });
 
     it('should render with an existing image', () => {
-      const { container } = renderAvatarInput({
+      const { container } = renderImageInput({
         ...defaultProps,
         src: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
       });
@@ -55,7 +55,7 @@ describe('AvatarInput', () => {
     });
 
     it('should render with invalid styles', () => {
-      const { container } = renderAvatarInput({
+      const { container } = renderImageInput({
         ...defaultProps,
         invalid: true,
         validationHint:
@@ -94,7 +94,7 @@ describe('AvatarInput', () => {
     };
 
     return (
-      <AvatarInput
+      <ImageInput
         label="Upload an image"
         clearButtonLabel="Clear"
         src={imageUrl}
