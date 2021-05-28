@@ -25,7 +25,6 @@ import {
 import { css, jsx } from '@emotion/core';
 import { Bin } from '@sumup/icons';
 
-import Avatar from '../Avatar';
 import Label from '../Label';
 import IconButton from '../IconButton';
 import Spinner from '../Spinner';
@@ -72,6 +71,10 @@ export interface AvatarInputProps
    * ...
    */
   loadingLabel: string;
+  /**
+   * ...
+   */
+  component: ({ src }: { src?: string }) => JSX.Element;
 }
 
 const InputWrapper = styled.div`
@@ -91,10 +94,9 @@ const HiddenInput = styled.input(
 
 type StyledLabelProps = StyleProps & { isLoading: boolean; invalid: boolean };
 
-const baseLabelStyles = ({ theme }: StyledLabelProps) => css`
-  border-radius: ${theme.borderRadius.tera};
-  // ensures the focus outline doesn't appear behind the ActionButton
-  border-bottom-right-radius: 12px;
+const baseLabelStyles = css`
+  border-radius: 12px;
+  overflow: hidden;
   &:hover {
     cursor: pointer;
   }
@@ -129,13 +131,14 @@ const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
 
 const overlayLabelStyles = ({ theme, isLoading }: StyledLabelProps) => css`
   &::before {
+    // @FIXME replace with a brightness filter when we drop IE support
     content: '';
     position: absolute;
     top: 0;
     left: 0%;
     width: 100%;
     height: 100%;
-    border-radius: ${theme.borderRadius.tera};
+    border-radius: 12px;
     background-color: ${theme.colors.black};
     opacity: 0;
     pointer-events: none;
@@ -221,6 +224,7 @@ export const AvatarInput = ({
   validationHint,
   invalid = false,
   loadingLabel,
+  component: Component,
   ...props
 }: AvatarInputProps): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -243,12 +247,24 @@ export const AvatarInput = ({
       .catch(() => setIsLoading(false));
   };
 
-  const handleClear = () => {
+  const clearInputElement = () => {
     if (inputRef.current) {
       inputRef.current.value = '';
     }
+  };
+
+  const handleClear = () => {
+    clearInputElement();
     setPreviewImage('');
     onClear();
+  };
+
+  /**
+   * We clear the input DOM element on click so that the onChange event is
+   * re-triggered if the same image is uploaded again.
+   */
+  const handleClick = () => {
+    clearInputElement();
   };
 
   return (
@@ -260,13 +276,14 @@ export const AvatarInput = ({
           type="file"
           accept="image/*"
           onChange={handleChange}
+          onClick={handleClick}
           disabled={disabled || isLoading}
           aria-invalid={invalid}
           {...props}
         />
         <StyledLabel isLoading={isLoading} invalid={invalid} htmlFor={id}>
           <span css={hideVisually()}>{label}</span>
-          <Avatar src={src || previewImage} />
+          <Component src={src || previewImage} />
           {!src && (
             <AddButton
               type="button"

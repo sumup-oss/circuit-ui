@@ -63,7 +63,11 @@ const baseStyles = ({
   background-color: ${theme.colors.n300};
   border-radius: ${variant === 'identity'
     ? theme.borderRadius.circle
-    : theme.borderRadius.tera};
+    : /**
+       * @FIXME add this value to design tokens and upgrade in the next major
+       * to use it here and in the ImageInput
+       */
+      '12px'};
   object-fit: cover;
   object-position: center;
 `;
@@ -76,14 +80,20 @@ const StyledImage = styled('img', {
  * The Avatar component.
  */
 export const Avatar = ({
-  src: initialSrc,
+  src,
   alt = '',
   variant = 'object',
   size,
   ...props
 }: AvatarProps): JSX.Element => {
-  const src = initialSrc || `data:image/svg+xml;utf8,${placeholders[variant]}`;
+  const placeholder = `data:image/svg+xml;utf8,${placeholders[variant]}`;
   return (
-    <StyledImage src={src} alt={alt} variant={variant} size={size} {...props} />
+    <StyledImage
+      src={src || placeholder}
+      alt={alt}
+      variant={variant}
+      size={size}
+      {...props}
+    />
   );
 };

@@ -15,6 +15,7 @@
 
 import React, { useState } from 'react';
 
+import Avatar from '../Avatar';
 import { render, axe, userEvent, waitFor } from '../../util/test-utils';
 
 import { AvatarInput, AvatarInputProps } from './AvatarInput';
@@ -25,6 +26,7 @@ const defaultProps = {
   clearButtonLabel: 'Clear',
   onChange: () => Promise.resolve(),
   onClear: () => {},
+  component: Avatar,
 } as const;
 
 describe('AvatarInput', () => {
@@ -101,6 +103,7 @@ describe('AvatarInput', () => {
         invalid={!!error}
         validationHint={error}
         loadingLabel="Uploading"
+        component={Avatar}
       />
     );
   }

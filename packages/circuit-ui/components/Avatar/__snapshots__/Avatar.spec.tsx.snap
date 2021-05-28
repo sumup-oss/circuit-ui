@@ -7,7 +7,7 @@ exports[`Avatar styles should render the giga size 1`] = `
   height: 48px;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
   background-color: #CCC;
-  border-radius: 8px;
+  border-radius: 12px;
   object-fit: cover;
   object-position: center;
 }
@@ -70,7 +70,7 @@ exports[`Avatar styles should render the object variant placeholder 1`] = `
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
   background-color: #CCC;
-  border-radius: 8px;
+  border-radius: 12px;
   object-fit: cover;
   object-position: center;
 }
@@ -91,7 +91,7 @@ exports[`Avatar styles should render the object variant with an image 1`] = `
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
   background-color: #CCC;
-  border-radius: 8px;
+  border-radius: 12px;
   object-fit: cover;
   object-position: center;
 }
@@ -112,7 +112,7 @@ exports[`Avatar styles should render the yotta size 1`] = `
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
   background-color: #CCC;
-  border-radius: 8px;
+  border-radius: 12px;
   object-fit: cover;
   object-position: center;
 }
@@ -133,7 +133,7 @@ exports[`Avatar styles should render with default styles 1`] = `
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
   background-color: #CCC;
-  border-radius: 8px;
+  border-radius: 12px;
   object-fit: cover;
   object-position: center;
 }

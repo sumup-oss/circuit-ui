@@ -17,6 +17,8 @@
 import { useState } from 'react';
 import { jsx } from '@emotion/core';
 
+import Avatar from '../Avatar';
+
 import docs from './AvatarInput.docs.mdx';
 import { AvatarInputProps } from './AvatarInput';
 
@@ -40,6 +42,7 @@ Base.args = {
   onChange: () => Promise.resolve(),
   onClear: () => {},
   loadingLabel: 'Uploading',
+  component: Avatar,
 };
 
 export const WithImage = (): JSX.Element => (
@@ -50,6 +53,7 @@ export const WithImage = (): JSX.Element => (
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     loadingLabel="Uploading"
+    component={Avatar}
   />
 );
 
@@ -63,6 +67,35 @@ export const Invalid = (): JSX.Element => (
     invalid={true}
     validationHint="The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB."
     loadingLabel="Uploading"
+    component={Avatar}
+  />
+);
+
+export const CustomComponent = (): JSX.Element => (
+  <AvatarInput
+    label="Upload an image"
+    clearButtonLabel="Clear"
+    onChange={() => Promise.resolve()}
+    onClear={() => {}}
+    loadingLabel="Uploading"
+    invalid
+    component={({ src }) => (
+      <img
+        style={{
+          display: 'block',
+          width: '400px',
+          height: '100px',
+          backgroundColor: 'lightgrey',
+          objectFit: 'cover',
+          objectPosition: 'cover',
+        }}
+        src={
+          src || // we add a transparent svg placeholder to avoid a broken image icon
+          'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"></svg>'
+        }
+        alt=""
+      />
+    )}
   />
 );
 
@@ -113,6 +146,7 @@ export const Stateful = (): JSX.Element => {
       invalid={!!error}
       validationHint={error}
       loadingLabel="Uploading"
+      component={Avatar}
     />
   );
 };
