@@ -4,15 +4,42 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-The ImageInput component allows users to upload avatar images. It can be used on its own or as part of a form.
+The ImageInput component allows users to upload images. It can be used on its own or as part of a form.
 
-<Story id="components-ImageInput--base" />
+<Story id="forms-imageinput--base" />
 
 <Props />
 
 ## Usage guidelines
 
-- **Do** use a short and concise alert message. Consider the maximum amount of characters in one line (50-60, including spaces) for an optimal readability.
-- **Do not** use the ImageInput component if the avatar is read-only for the user, use the [Avatar](Components/Avatar) component instead.
+Refer to the `Stateful` component story for a simplified code usage example.
 
-## (TBD)
+- **Do** use the onChange callback to immediately trigger an image upload when the user has selected one, even when the component is being used as part of a form (it will make form submission faster).
+- **Do not** use the ImageInput component if the image is read-only for the user. Instead, use the visual component from the ImageInput's `component` prop by itself, for example the [Avatar](Components/Avatar).
+
+## Input states
+
+### Existing image
+
+When an `src` prop is provided, the ImageInput renders a "Clear" icon instead of the "Add" icon. It also forwards the prop to the visual component passed as a prop. Clicking the "Clear" icon clears the input.
+
+<Story id="forms-imageinput--with-image" />
+
+### Invalid
+
+When an image upload fails, set the `invalid` prop to true to render invalid styles, and show the user a clear and concise error message using the `validationHint` prop.
+
+<Story id="forms-imageinput--invalid" />
+
+## Custom component
+
+The ImageInput has drop-in support for the [Avatar](Components/Avatar) component as a visual element.
+
+However, where the end result image needs to be in a landscape view, a custom component with different dimensions can be used to reflect the final image's aspect ratio.
+
+There are some caveats with this approach:
+
+- A custom placeholder will also need to be provided to match the custom aspect ratio. Refer to the `CustomComponent` story for a code example.
+- Currently, the `ImageInput` only supports rectangular components with a fixed border-radius, in order to correctly apply state-specific styles.
+
+<Story id="forms-imageinput--custom-component" />

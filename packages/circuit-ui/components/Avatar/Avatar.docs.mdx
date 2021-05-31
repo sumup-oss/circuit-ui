@@ -4,7 +4,7 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-The Avatar component is used to display an avatar or an object image. It can be replaced by an [ImageInput](Forms/ImageInput) to allow users to upload an avatar.
+The Avatar component displays an identity or an object image. It can be passed to the [ImageInput](Forms/ImageInput) to allow users to upload an avatar.
 
 <Story id="components-avatar--base" />
 
@@ -13,8 +13,17 @@ The Avatar component is used to display an avatar or an object image. It can be 
 ## Usage guidelines
 
 - **Do** use the right variant for your use case (see _Variants_ below).
-- **Do** use the [ImageInput component](Forms/ImageInput) with the `component={Avatar}` prop to allow users to upload an avatar.
-- **Do not** add alt text if the Avatar is purely presentational (for example to show a thumbnail next to a user or product name).
+- **Do** use the [ImageInput component](Forms/ImageInput) with the `component={Avatar}` prop to allow users to upload an avatar (note: the ImageInput only supports `variant="object"` for now).
+
+## Accessibility
+
+The Avatar can receive alt text like any other image element. However, in many cases, alt text in this context will not make sense.
+
+For example, if the Avatar is used as an illustrative element in a products list next to each product's name, using the product name as alt text will be redundant: assistive technology will already read out the names once.
+
+Therefore, the alt prop is not required and defaults to `""`, effectively making the Avatar invisible to assistive technology.
+
+Howver, bear in mind that the alt text is fundamental for accessibility if the Avatar is used without textual elements, for example as part of a products grid where only the images are shown.
 
 ## Variants
 
