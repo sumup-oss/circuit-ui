@@ -63,6 +63,25 @@ describe('ImageInput', () => {
       });
       expect(container).toMatchSnapshot();
     });
+
+    it('should render a custom component', () => {
+      const { container } = renderImageInput({
+        ...defaultProps,
+        src: 'https://source.unsplash.com/EcWFOYOpkpY/800x200',
+        // eslint-disable-next-line react/display-name
+        component: ({ src }) => (
+          <img
+            style={{
+              width: '400px',
+              height: '100px',
+            }}
+            src={src}
+            alt=""
+          />
+        ),
+      });
+      expect(container).toMatchSnapshot();
+    });
   });
 
   const mockUploadFn = jest
