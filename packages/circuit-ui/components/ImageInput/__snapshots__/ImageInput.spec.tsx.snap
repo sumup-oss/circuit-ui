@@ -320,7 +320,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
   border: 0;
 }
 
-.circuit-5 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -328,21 +328,21 @@ exports[`ImageInput styles should render with default styles 1`] = `
   overflow: hidden;
 }
 
-.circuit-5:hover {
+.circuit-3:hover {
   cursor: pointer;
 }
 
-.circuit-5:hover > button {
+.circuit-3:hover > button {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-5:active > button {
+.circuit-3:active > button {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-5::before {
+.circuit-3::before {
   content: '';
   position: absolute;
   top: 0;
@@ -355,11 +355,11 @@ exports[`ImageInput styles should render with default styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-5:hover::before {
+.circuit-3:hover::before {
   opacity: 0.1;
 }
 
-.circuit-5:active::before {
+.circuit-3:active::before {
   opacity: 0.2;
 }
 
@@ -387,7 +387,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
   object-position: center;
 }
 
-.circuit-4 {
+.circuit-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -426,33 +426,33 @@ exports[`ImageInput styles should render with default styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-4:focus {
+.circuit-5:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-5:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-5:disabled,
+.circuit-5[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-4:hover {
+.circuit-5:hover {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-4:active {
+.circuit-5:active {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-3 {
+.circuit-4 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -502,7 +502,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
       type="file"
     />
     <label
-      class="circuit-5"
+      class="circuit-3"
       for="ImageInput_1"
     >
       <span
@@ -515,34 +515,34 @@ exports[`ImageInput styles should render with default styles 1`] = `
         class="circuit-2"
         src="data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" fill=\\"none\\" viewBox=\\"0 0 96 96\\"><path fill=\\"white\\" d=\\"M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z\\"/></svg>"
       />
-      <button
-        aria-hidden="true"
-        class="circuit-4"
-        tabindex="-1"
-        title=""
-        type="button"
-      >
-        <svg
-          fill="none"
-          height="16"
-          role="presentation"
-          width="16"
-        >
-          <path
-            d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
-            fill="#fff"
-          />
-        </svg>
-        <span
-          class="circuit-3"
-        />
-      </button>
     </label>
+    <button
+      aria-hidden="true"
+      class="circuit-5"
+      tabindex="-1"
+      title=""
+      type="button"
+    >
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        width="16"
+      >
+        <path
+          d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
+          fill="#fff"
+        />
+      </svg>
+      <span
+        class="circuit-4"
+      />
+    </button>
     <span
       class="circuit-7"
     >
       <span
-        class="circuit-3"
+        class="circuit-4"
       >
         Uploading
       </span>
@@ -618,7 +618,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   object-position: center;
 }
 
-.circuit-4 {
+.circuit-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -657,33 +657,33 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-4:focus {
+.circuit-5:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-5:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-5:disabled,
+.circuit-5[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-4:hover {
+.circuit-5:hover {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-4:active {
+.circuit-5:active {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-3 {
+.circuit-4 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -721,7 +721,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-5 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -729,21 +729,21 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   overflow: hidden;
 }
 
-.circuit-5:hover {
+.circuit-3:hover {
   cursor: pointer;
 }
 
-.circuit-5:hover > button {
+.circuit-3:hover > button {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-5:active > button {
+.circuit-3:active > button {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-5::after {
+.circuit-3::after {
   content: '';
   position: absolute;
   top: 0;
@@ -754,11 +754,11 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   box-shadow: inset 0 0 0 2px #D23F47;
 }
 
-.circuit-5:hover::after {
+.circuit-3:hover::after {
   box-shadow: inset 0 0 0 2px #B22426;
 }
 
-.circuit-5::before {
+.circuit-3::before {
   content: '';
   position: absolute;
   top: 0;
@@ -771,11 +771,11 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-5:hover::before {
+.circuit-3:hover::before {
   opacity: 0.1;
 }
 
-.circuit-5:active::before {
+.circuit-3:active::before {
   opacity: 0.2;
 }
 
@@ -820,7 +820,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
       type="file"
     />
     <label
-      class="circuit-5"
+      class="circuit-3"
       for="ImageInput_3"
     >
       <span
@@ -833,34 +833,34 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
         class="circuit-2"
         src="data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" fill=\\"none\\" viewBox=\\"0 0 96 96\\"><path fill=\\"white\\" d=\\"M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z\\"/></svg>"
       />
-      <button
-        aria-hidden="true"
-        class="circuit-4"
-        tabindex="-1"
-        title=""
-        type="button"
-      >
-        <svg
-          fill="none"
-          height="16"
-          role="presentation"
-          width="16"
-        >
-          <path
-            d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
-            fill="#fff"
-          />
-        </svg>
-        <span
-          class="circuit-3"
-        />
-      </button>
     </label>
+    <button
+      aria-hidden="true"
+      class="circuit-5"
+      tabindex="-1"
+      title=""
+      type="button"
+    >
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        width="16"
+      >
+        <path
+          d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
+          fill="#fff"
+        />
+      </svg>
+      <span
+        class="circuit-4"
+      />
+    </button>
     <span
       class="circuit-7"
     >
       <span
-        class="circuit-3"
+        class="circuit-4"
       >
         Uploading
       </span>

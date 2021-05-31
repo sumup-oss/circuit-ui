@@ -40,17 +40,10 @@ export interface ImageInputProps
    */
   label: string;
   /**
-   * A unique identifier for the input element. If not defined, a generated id is used.
+   * The visual component to render as an image input. It should accept an src
+   * prop to render the image.
    */
-  id?: string;
-  /**
-   * The source URL of an existing Avatar to be displayed in the ImageInput.
-   */
-  src?: string;
-  /**
-   * An accessible label for the "clear" icon button.
-   */
-  clearButtonLabel: string;
+  component: ({ src }: { src?: string }) => JSX.Element;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -60,21 +53,30 @@ export interface ImageInputProps
    */
   onClear: () => void;
   /**
-   * ...
+   * An accessible label for the "clear" icon button.
    */
-  validationHint?: string;
+  clearButtonLabel: string;
   /**
-   * ...
-   */
-  invalid?: boolean;
-  /**
-   * ...
+   * An accessible label to communicate the input's loading state.
    */
   loadingLabel: string;
   /**
-   * ...
+   * The source URL of an existing Avatar to be displayed in the ImageInput.
    */
-  component: ({ src }: { src?: string }) => JSX.Element;
+  src?: string;
+  /**
+   * A unique identifier for the input element. If not defined, a generated id
+   * is used.
+   */
+  id?: string;
+  /**
+   * Triggers error styles on the component. Important for accessibility.
+   */
+  invalid?: boolean;
+  /**
+   * An information or error message, displayed below the input.
+   */
+  validationHint?: string;
 }
 
 const InputWrapper = styled.div`
@@ -290,27 +292,8 @@ export const ImageInput = ({
         <StyledLabel isLoading={isLoading} invalid={invalid} htmlFor={id}>
           <span css={hideVisually()}>{label}</span>
           <Component src={src || previewImage} />
-          {!src && (
-            <AddButton
-              type="button"
-              size="kilo"
-              variant="primary"
-              aria-hidden="true"
-              tabIndex={-1}
-              label=""
-              disabled={isLoading}
-            >
-              {/* FIXME add to @sumup/icons and upgrade the dependency in the next major */}
-              <svg width="16" height="16" fill="none">
-                <path
-                  d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
-                  fill="#fff"
-                />
-              </svg>
-            </AddButton>
-          )}
         </StyledLabel>
-        {src && (
+        {src ? (
           <ActionButton
             type="button"
             size="kilo"
@@ -322,6 +305,24 @@ export const ImageInput = ({
           >
             <Bin />
           </ActionButton>
+        ) : (
+          <AddButton
+            type="button"
+            size="kilo"
+            variant="primary"
+            aria-hidden="true"
+            tabIndex={-1}
+            label=""
+            disabled={isLoading}
+          >
+            {/* FIXME add to @sumup/icons and upgrade the dependency in the next major */}
+            <svg width="16" height="16" fill="none">
+              <path
+                d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
+                fill="#fff"
+              />
+            </svg>
+          </AddButton>
         )}
         <LoadingIcon isLoading={isLoading}>
           <LoadingLabel>{loadingLabel}</LoadingLabel>

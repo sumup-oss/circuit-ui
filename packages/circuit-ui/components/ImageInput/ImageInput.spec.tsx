@@ -112,15 +112,8 @@ describe('ImageInput', () => {
     const file = new File(['avatar'], 'avatar.png', { type: 'image/png' });
 
     it('should call the provided upload function', async () => {
-      const { getAllByLabelText } = render(<StatefulInput />);
-      /**
-       * TODO find a better way to query the input. We can't use a query by role because
-       * a file input can be a role=button (according to Chrome) but role=button on an
-       * input element is invalid according to jest-axe.
-       */
-      const inputEl = getAllByLabelText(
-        defaultProps.label,
-      )[1] as HTMLInputElement;
+      const { getByLabelText } = render(<StatefulInput />);
+      const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
 
       userEvent.upload(inputEl, file);
 
@@ -132,10 +125,8 @@ describe('ImageInput', () => {
     });
 
     it('should render a successfully uploaded image', async () => {
-      const { getAllByLabelText, getByRole } = render(<StatefulInput />);
-      const inputEl = getAllByLabelText(
-        defaultProps.label,
-      )[1] as HTMLInputElement;
+      const { getByLabelText, getByRole } = render(<StatefulInput />);
+      const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
       const imageEl = getByRole('img') as HTMLImageElement;
 
       userEvent.upload(inputEl, file);
@@ -148,10 +139,8 @@ describe('ImageInput', () => {
     });
 
     it('should clear an uploaded image', async () => {
-      const { getAllByLabelText, getByRole } = render(<StatefulInput />);
-      const inputEl = getAllByLabelText(
-        defaultProps.label,
-      )[1] as HTMLInputElement;
+      const { getByLabelText, getByRole } = render(<StatefulInput />);
+      const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
       const imageEl = getByRole('img') as HTMLImageElement;
 
       userEvent.upload(inputEl, file);
@@ -178,10 +167,8 @@ describe('ImageInput', () => {
       const errorMessage =
         'The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB.';
       mockUploadFn.mockRejectedValue(new Error(errorMessage));
-      const { getAllByLabelText, getByText } = render(<StatefulInput />);
-      const inputEl = getAllByLabelText(
-        defaultProps.label,
-      )[1] as HTMLInputElement;
+      const { getByLabelText, getByText } = render(<StatefulInput />);
+      const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
 
       userEvent.upload(inputEl, file);
 
