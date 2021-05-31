@@ -23,10 +23,12 @@ import {
   ReactNode,
   SVGProps,
   MouseEvent,
+  Fragment,
 } from 'react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
-import { Placement } from '@popperjs/core';
+import { Placement, State, Modifier } from '@popperjs/core';
+import { useTheme } from 'emotion-theming';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem } from '../../styles/style-mixins';
@@ -116,20 +118,23 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   box-sizing: border-box;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
   border-radius: ${theme.spacings.byte};
-
-  ::before {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    background: rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-  }
+  background-color: white;
 `;
 
 const PopoverWrapper = styled('div')(wrapperStyles);
+
+const Overlay = styled.div(
+  ({ theme }: StyleProps) => css`
+    ${theme.mq.untilKilo} {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: ${theme.colors.overlay};
+    }
+  `,
+);
 
 type Divider = { type: 'divider' };
 type Action = PopoverItemProps | Divider;
@@ -154,9 +159,28 @@ export const Popover = ({
   placement = 'bottom',
   ...props
 }: PopoverProps) => {
+  const theme: Theme = useTheme();
+  console.log(window.matchMedia(theme.mq.untilKilo).matches);
+  const mobilePosition: Modifier<'mobilePosition', { state: State }> = {
+    name: 'mobilePosition',
+    enabled: true,
+    phase: 'write',
+    fn({ state }) {
+      if (window.matchMedia(theme.mq.untilKilo).matches) {
+        state.styles.popper = {
+          width: '100%',
+          left: '0px',
+          right: '0px',
+          bottom: '0px',
+          position: 'fixed',
+        };
+      }
+    },
+  };
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement,
+    modifiers: [mobilePosition],
   });
 
   if (!isOpen) {
@@ -164,15 +188,18 @@ export const Popover = ({
   }
 
   return (
-    <PopoverWrapper
-      {...props}
-      ref={setPopperElement}
-      style={styles.popper}
-      {...attributes.popper}
-    >
-      {actions.map((action, index) =>
-        isDivider(action) ? <Hr /> : <PopoverItem key={index} {...action} />,
-      )}
-    </PopoverWrapper>
+    <Fragment>
+      <Overlay />
+      <PopoverWrapper
+        {...props}
+        ref={setPopperElement}
+        style={styles.popper}
+        {...attributes.popper}
+      >
+        {actions.map((action, index) =>
+          isDivider(action) ? <Hr /> : <PopoverItem key={index} {...action} />,
+        )}
+      </PopoverWrapper>
+    </Fragment>
   );
 };
