@@ -120,12 +120,18 @@ const addButtonStyles = ({ theme }: StyledLabelProps) => css`
 const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
   invalid &&
   css`
-    box-shadow: 0 0 0 2px ${theme.colors.danger};
-    &:hover {
-      box-shadow: 0 0 0 2px ${theme.colors.r700};
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      box-shadow: inset 0 0 0 2px ${theme.colors.danger};
     }
-    &:active {
-      box-shadow: 0 0 0 2px ${theme.colors.danger};
+    &:hover::after {
+      box-shadow: inset 0 0 0 2px ${theme.colors.r700};
     }
   `;
 
