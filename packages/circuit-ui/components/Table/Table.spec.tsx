@@ -186,7 +186,7 @@ describe('Table', () => {
         });
 
         expect(onSortByMock).toHaveBeenCalledTimes(1);
-        expect(onSortByMock).toHaveBeenCalledWith(index, nextDirection, rows);
+        expect(onSortByMock).toHaveBeenCalledWith(index, rows, nextDirection);
       });
     });
   });

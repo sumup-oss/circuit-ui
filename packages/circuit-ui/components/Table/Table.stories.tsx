@@ -122,7 +122,7 @@ Sortable.args = {
 export const CustomSort = (args: TableProps) => (
   <Table
     {...args}
-    onSortBy={(_i, direction, rows) =>
+    onSortBy={(_i, rows, direction) =>
       direction === 'ascending'
         ? rows.sort(
             (a, b) => typeof a[0] === 'string' && a[0].localeCompare(b[0]),
