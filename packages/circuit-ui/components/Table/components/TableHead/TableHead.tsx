@@ -44,8 +44,7 @@ type ScrollableOptions =
 
 type TableHeadProps = ScrollableOptions & {
   /**
-   * An array of headers for the table. The Header can be a string or an object
-   * with options described on TableHeader component
+   * An array of header cells for the table.
    */
   headers?: Cell[];
   /**

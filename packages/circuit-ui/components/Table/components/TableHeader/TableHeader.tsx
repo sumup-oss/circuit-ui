@@ -32,7 +32,7 @@ import { Direction } from '../../types';
 export interface TableHeaderProps
   extends HTMLProps<HTMLTableHeaderCellElement> {
   /**
-   * Aligns the content of the Header with text-align
+   * Aligns the content of the Header with text-align.
    */
   align?: 'left' | 'right' | 'center';
   /**
@@ -51,7 +51,7 @@ export interface TableHeaderProps
    */
   condensed?: boolean;
   /**
-   * Defines whether or not the Header is sortable
+   * Defines whether or not the Header is sortable.
    */
   sortable?: boolean;
   /**
@@ -65,19 +65,26 @@ export interface TableHeaderProps
    * Handled internally
    */
   isHovered?: boolean;
+  /**
+   * The Table's current sort direction.
+   */
   sortDirection?: Direction;
   /**
-   * @private Adds sorted style to the Header if it is currently sorted
+   * @private Adds sorted style to the Header if it is currently sorted.
    * Handled internally
    */
   isSorted?: boolean;
+  /**
+   * A function triggered when the Header is clicked.
+   */
   onClick?: (
     event:
       | MouseEvent<HTMLTableHeaderCellElement | HTMLButtonElement>
       | KeyboardEvent<HTMLTableHeaderCellElement | HTMLButtonElement>,
   ) => void;
   /**
-   * @private A testid for selecting table cells in tests. Handled internally.
+   * @private A testid for selecting table cells in tests.
+   * Handled internally.
    */
   ['data-testid']?: string;
   children: ReactNode;
@@ -248,7 +255,6 @@ const TableHeader: FC<TableHeaderProps> = ({
       sortable={sortable}
       condensed={condensed}
       aria-sort={getAriaSort(sortable, sortDirection)}
-      aria-label={label}
       onClick={onClick}
       align={align}
       scope={scope}
@@ -258,7 +264,7 @@ const TableHeader: FC<TableHeaderProps> = ({
       data-testid="table-header"
       {...props}
     >
-      {sortable && (
+      {sortable && label && (
         <SortArrow label={label} direction={sortDirection} onClick={onClick} />
       )}
       {children}

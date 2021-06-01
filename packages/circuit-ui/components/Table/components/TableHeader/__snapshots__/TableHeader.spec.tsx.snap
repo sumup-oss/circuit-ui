@@ -207,7 +207,6 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
 }
 
 <th
-  aria-label="Sort by Foo in ascending order"
   aria-sort="none"
   class="circuit-4"
   data-testid="table-header"
@@ -216,7 +215,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   <button
     class="circuit-3"
     role="button"
-    title="Sort by Foo in ascending order"
+    title="Sort in ascending order"
   >
     <svg
       class="circuit-0"
@@ -253,7 +252,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
     <span
       class="circuit-2"
     >
-      Sort by Foo in ascending order
+      Sort in ascending order
     </span>
   </button>
   Foo
@@ -382,7 +381,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   <button
     class="circuit-2"
     role="button"
-    title="Sort"
+    title="Sort in descending order"
   >
     <svg
       class="circuit-0"
@@ -403,7 +402,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
     <span
       class="circuit-1"
     >
-      Sort
+      Sort in descending order
     </span>
   </button>
   Foo
@@ -532,7 +531,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   <button
     class="circuit-2"
     role="button"
-    title="Sort"
+    title="Sort in ascending order"
   >
     <svg
       class="circuit-0"
@@ -553,7 +552,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
     <span
       class="circuit-1"
     >
-      Sort
+      Sort in ascending order
     </span>
   </button>
   Foo

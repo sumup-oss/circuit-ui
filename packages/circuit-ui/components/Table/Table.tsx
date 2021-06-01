@@ -28,13 +28,12 @@ import { Direction, Row, Cell } from './types';
 export interface TableProps
   extends Omit<HTMLProps<HTMLDivElement>, 'headers' | 'rows'> {
   /**
-   * An array of headers for the table. The Header can be a string or an object
-   * with options described on TableHeader component
+   * An array of header cells for the table.
    */
   headers?: Cell[];
   /**
-   * (An array of rows or object with children) containing an array of cells for the table. The Cell can be a
-   * string or an object with options described on TableCell component
+   * An array of rows or an object with children containing an array of cells
+   * for the table.
    */
   rows: Row[];
   /**

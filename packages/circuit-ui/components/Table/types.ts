@@ -19,10 +19,18 @@ export type SortByValue = boolean | number | string | Date;
 
 export type Direction = 'ascending' | 'descending';
 
-export type CellObject = {
+type SortableCellProps =
+  | { sortable?: false; sortLabel?: never; sortByValue?: never }
+  | {
+      sortable: true;
+      sortLabel:
+        | string
+        | (({ direction }: { direction?: Direction }) => string);
+      sortByValue?: SortByValue;
+    };
+
+export type CellObject = SortableCellProps & {
   children: ReactNode;
-  sortable?: boolean;
-  sortByValue?: SortByValue;
 };
 
 export type Cell = string | number | CellObject | null | undefined;

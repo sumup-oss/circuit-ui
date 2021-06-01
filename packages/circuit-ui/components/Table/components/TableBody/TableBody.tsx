@@ -27,16 +27,16 @@ import TableCell from '../TableCell';
  */
 type TableBodyProps = {
   /**
-   *(An array of rows or object with children) containing cells for the table. The Cell can be a string
-   * or an object with options described on TableHeader component
+   * An array of rows or an object with children containing an array of cells
+   * for the table.
    */
   rows?: Row[];
   /**
-   * Enables/disables sticky columns on mobile
+   * Enables/disables sticky columns on mobile.
    */
   rowHeaders?: boolean;
   /**
-   * @private The current hovered sort cell index
+   * @private The current hovered sort cell index.
    * Handled internally
    */
   sortHover?: number;
@@ -46,7 +46,7 @@ type TableBodyProps = {
    */
   condensed?: boolean;
   /**
-   * onClick handler
+   * A function to call when the row is clicked.
    */
   onRowClick?: (rowIndex: number) => void;
 };

@@ -26,10 +26,23 @@ import {
 import Badge from '../Badge';
 
 import Table from './Table';
+import { Cell, Direction } from './types';
 
-const headers = [
-  { children: 'Letters', sortable: true },
-  { children: 'Numbers', sortable: true },
+const sortLabel = ({ direction }: { direction?: Direction }) => {
+  const order = direction === 'ascending' ? 'descending' : 'ascending';
+  return `Sort in ${order} order`;
+};
+const headers: Cell[] = [
+  {
+    children: 'Letters',
+    sortable: true,
+    sortLabel,
+  },
+  {
+    children: 'Numbers',
+    sortable: true,
+    sortLabel,
+  },
   'Words',
 ];
 const rows = [

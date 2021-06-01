@@ -25,8 +25,7 @@ import { Direction } from '../../types';
 
 interface SortArrowProps extends HTMLAttributes<HTMLButtonElement> {
   direction?: Direction;
-  // FIXME the label should be a required attribute.
-  label?: string;
+  label: string;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
@@ -71,7 +70,7 @@ const Label = styled('span')(hideVisually);
  * @private Arrow component for TableHeader sorting
  */
 const SortArrow = ({
-  label = 'Sort',
+  label,
   direction,
   ...props
 }: SortArrowProps): JSX.Element => (

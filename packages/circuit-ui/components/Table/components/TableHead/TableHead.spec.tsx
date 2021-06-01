@@ -23,10 +23,19 @@ import {
   act,
   userEvent,
 } from '../../../../util/test-utils';
+import { Cell, Direction } from '../../types';
 
 import TableHead from '.';
 
-const fixtureHeaders = [{ children: 'Foo', sortable: true }, 'Bar', 'Baz'];
+const sortLabel = ({ direction }: { direction?: Direction }) => {
+  const order = direction === 'ascending' ? 'descending' : 'ascending';
+  return `Sort in ${order} order`;
+};
+const fixtureHeaders: Cell[] = [
+  { children: 'Foo', sortable: true, sortLabel },
+  'Bar',
+  'Baz',
+];
 
 describe('TableHead', () => {
   describe('Style tests', () => {
@@ -57,7 +66,7 @@ describe('TableHead', () => {
     });
 
     it('should dispatch the onSortBy handler', () => {
-      const headers = [{ children: 'Foo', sortable: true }];
+      const headers: Cell[] = [{ children: 'Foo', sortable: true, sortLabel }];
       const onSortByMock = jest.fn();
       const { getByTestId } = render(
         <TableHead onSortBy={onSortByMock} headers={headers} />,
@@ -88,7 +97,7 @@ describe('TableHead', () => {
     });
 
     it('should dispatch the onSortEnter handler', () => {
-      const headers = [{ children: 'Foo', sortable: true }];
+      const headers: Cell[] = [{ children: 'Foo', sortable: true, sortLabel }];
       const onSortEnterMock = jest.fn();
       const { getByTestId } = render(
         <TableHead onSortEnter={onSortEnterMock} headers={headers} />,
@@ -104,6 +113,21 @@ describe('TableHead', () => {
   });
 
   describe('onSortLeave', () => {
+    it('should dispatch the onSortLeave handler', () => {
+      const headers: Cell[] = [{ children: 'Foo', sortable: true, sortLabel }];
+      const onSortLeaveMock = jest.fn();
+      const { getByTestId } = render(
+        <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,
+      );
+
+      act(() => {
+        userEvent.unhover(getByTestId('table-header'));
+      });
+
+      expect(onSortLeaveMock).toHaveBeenCalledTimes(1);
+      expect(onSortLeaveMock).toHaveBeenCalledWith(0);
+    });
+
     it('should not dispatch the onSortLeave handler when the column is not sortable', () => {
       const headers = ['Foo'];
       const onSortLeaveMock = jest.fn();
@@ -116,21 +140,6 @@ describe('TableHead', () => {
       });
 
       expect(onSortLeaveMock).not.toHaveBeenCalled();
-    });
-
-    it('should dispatch the onSortLeave handler', () => {
-      const headers = [{ children: 'Foo', sortable: true }];
-      const onSortLeaveMock = jest.fn();
-      const { getByTestId } = render(
-        <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,
-      );
-
-      act(() => {
-        userEvent.unhover(getByTestId('table-header'));
-      });
-
-      expect(onSortLeaveMock).toHaveBeenCalledTimes(1);
-      expect(onSortLeaveMock).toHaveBeenCalledWith(0);
     });
   });
 

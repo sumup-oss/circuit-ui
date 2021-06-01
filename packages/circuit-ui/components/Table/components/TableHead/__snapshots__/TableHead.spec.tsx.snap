@@ -147,7 +147,7 @@ tbody .circuit-7:last-child td {
       <button
         class="circuit-3"
         role="button"
-        title="Sort"
+        title="Sort in ascending order"
       >
         <svg
           class="circuit-0"
@@ -184,7 +184,7 @@ tbody .circuit-7:last-child td {
         <span
           class="circuit-2"
         >
-          Sort
+          Sort in ascending order
         </span>
       </button>
       Foo
@@ -388,7 +388,7 @@ tbody .circuit-8:last-child td {
       <button
         class="circuit-3"
         role="button"
-        title="Sort"
+        title="Sort in ascending order"
       >
         <svg
           class="circuit-0"
@@ -425,7 +425,7 @@ tbody .circuit-8:last-child td {
         <span
           class="circuit-2"
         >
-          Sort
+          Sort in ascending order
         </span>
       </button>
       Foo
