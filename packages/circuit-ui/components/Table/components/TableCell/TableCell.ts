@@ -30,18 +30,15 @@ export type TableCellProps = {
    */
   header?: boolean;
   /**
-   * @private Adds active style to the Cell if it is currently hovered by
-   * sort.
+   * @private Adds active style to the Cell if it is currently hovered by sort.
    * Handled internally
    */
   isHovered?: boolean;
-  condensed?: boolean;
-  sortable?: boolean;
-  role?: 'presentation';
   /**
-   * @private A testid for selecting table cells in tests. Handled internally.
+   * Adds condensed styles to the cell.
    */
-  ['data-testid']?: string;
+  condensed?: boolean;
+  role?: 'presentation';
 };
 
 const baseStyles = ({
@@ -121,7 +118,7 @@ const condensedPresentationStyles = ({
 
 /**
  * TableCell component for the Table. You shouldn't import this component
- * directly, the Table handles it
+ * directly, the Table handles it.
  */
 const TableCell = styled.td<TableCellProps>`
   ${baseStyles};
@@ -130,13 +127,5 @@ const TableCell = styled.td<TableCellProps>`
   ${hoverStyles};
   ${condensedPresentationStyles};
 `;
-
-/**
- * FIXME: we don't need this data-testid (should query by role when testing)
- * but some might rely on it in their tests, so this will be a breaking change.
- */
-TableCell.defaultProps = {
-  'data-testid': 'table-cell',
-};
 
 export default TableCell;
