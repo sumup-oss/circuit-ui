@@ -96,7 +96,6 @@ describe('Select', () => {
   /**
    * Accessibility tests.
    */
-  // FIXME: Had to disable this since it produces a false positive. Not sure why.
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
       <Select {...{ options }} id="select" label="Label" />,
