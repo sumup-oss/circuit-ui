@@ -22,10 +22,21 @@ export type Direction = 'ascending' | 'descending';
 type SortableCellProps =
   | { sortable?: false; sortLabel?: never; sortByValue?: never }
   | {
+      /**
+       * Makes a table column sortable when passed to a header cell. An
+       * accessible sortLabel also needs to be provided.
+       */
       sortable: true;
+      /**
+       * Visually hidden label for the sort button for visually impaired users.
+       * When passed as a function, it is called with the sort `{ direction }`.
+       */
       sortLabel:
         | string
         | (({ direction }: { direction?: Direction }) => string);
+      /**
+       * An optional value to change the order of the table rows.
+       */
       sortByValue?: SortByValue;
     };
 
@@ -40,4 +51,30 @@ export type Row =
   | {
       cells: Cell[];
       align?: string;
+    };
+
+export type SortParams =
+  | {
+      /**
+       * Defines whether or not the row is sortable.
+       */
+      sortable: true;
+      /**
+       * Defines whether or not the row is currently sorted.
+       */
+      isSorted: boolean;
+      /**
+       * A visually hidden label for the sort button for visually impaired users.
+       */
+      sortLabel: string;
+      /**
+       * The row's current sort direction.
+       */
+      sortDirection?: Direction;
+    }
+  | {
+      sortable: false;
+      sortLabel?: never;
+      sortDirection?: never;
+      isSorted?: never;
     };

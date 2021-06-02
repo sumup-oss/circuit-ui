@@ -67,7 +67,7 @@ const iconStyles = () => css`
 const Label = styled('span')(hideVisually);
 
 /**
- * @private Arrow component for TableHeader sorting
+ * SortArrow for the Table component. The Table handles rendering it.
  */
 const SortArrow = ({
   label,

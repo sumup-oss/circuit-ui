@@ -28,7 +28,7 @@ import TableRow from '.';
 
 const children = 'Foo';
 
-describe('TableHeader', () => {
+describe('TableRow', () => {
   describe('Style tests', () => {
     it('should render with default styles', () => {
       const actual = create(<TableRow>{children}</TableRow>);

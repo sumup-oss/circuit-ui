@@ -20,6 +20,7 @@ import Badge from '../Badge';
 
 import docs from './Table.docs.mdx';
 import { TableProps } from './Table';
+import { Direction } from './types';
 
 import Table, { TableHeader, TableRow, TableCell } from '.';
 
@@ -32,12 +33,19 @@ export default {
   },
 };
 
-export const Base = ({ onSortBy, ...args }: TableProps) => <Table {...args} />;
+const sortLabel = ({ direction }: { direction?: Direction }) => {
+  const order = direction === 'ascending' ? 'descending' : 'ascending';
+  return `Sort in ${order} order`;
+};
+
+export const Base = ({ onSortBy, ...args }: TableProps): JSX.Element => (
+  <Table {...args} />
+);
 
 Base.args = {
   headers: [
-    { children: 'Name', sortable: true },
-    { children: 'Created at', sortable: true },
+    { children: 'Name', sortable: true, sortLabel },
+    { children: 'Created at', sortable: true, sortLabel },
     'Permissions',
     { children: 'Status', align: 'right' },
   ],
@@ -72,9 +80,10 @@ Base.args = {
   onRowClick: action('onRowClick'),
 };
 
-export const WithComponentRows = ({ onSortBy, ...args }: TableProps) => (
-  <Table {...args} />
-);
+export const WithComponentRows = ({
+  onSortBy,
+  ...args
+}: TableProps): JSX.Element => <Table {...args} />;
 
 WithComponentRows.args = {
   headers: ['Name', 'Type'],
@@ -85,14 +94,14 @@ WithComponentRows.args = {
   ],
 };
 
-export const Sortable = ({ onSortBy, ...args }: TableProps) => (
+export const Sortable = ({ onSortBy, ...args }: TableProps): JSX.Element => (
   <Table {...args} />
 );
 
 Sortable.args = {
   headers: [
-    { children: 'Name', sortable: true },
-    { children: 'Date added', sortable: true },
+    { children: 'Name', sortable: true, sortLabel },
+    { children: 'Date added', sortable: true, sortLabel },
   ],
   rows: [
     [
@@ -119,7 +128,7 @@ Sortable.args = {
   ],
 };
 
-export const CustomSort = (args: TableProps) => (
+export const CustomSort = (args: TableProps): JSX.Element => (
   <Table
     {...args}
     onSortBy={(_i, rows, direction) =>
@@ -135,7 +144,7 @@ export const CustomSort = (args: TableProps) => (
 );
 
 CustomSort.args = {
-  headers: [{ children: 'Country', sortable: true }],
+  headers: [{ children: 'Country', sortable: true, sortLabel }],
   rows: [
     ['Schweiz'],
     ['Österreich'],

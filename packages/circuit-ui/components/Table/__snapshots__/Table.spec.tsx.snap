@@ -323,6 +323,7 @@ tbody .circuit-12:last-child td {
           class="circuit-12"
         >
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
             data-testid="table-header"
@@ -381,6 +382,7 @@ tbody .circuit-12:last-child td {
             Letters
           </td>
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
             data-testid="table-header"
@@ -1108,6 +1110,7 @@ tbody .circuit-12:last-child td {
           class="circuit-12"
         >
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
             data-testid="table-header"
@@ -1166,6 +1169,7 @@ tbody .circuit-12:last-child td {
             Letters
           </td>
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
             data-testid="table-header"
@@ -1677,6 +1681,7 @@ tbody .circuit-12:last-child td {
           class="circuit-12"
         >
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
             data-testid="table-header"
@@ -1735,6 +1740,7 @@ tbody .circuit-12:last-child td {
             Letters
           </td>
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
             data-testid="table-header"
@@ -2071,6 +2077,7 @@ tbody .circuit-11:last-child td {
           class="circuit-11"
         >
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
             data-testid="table-header"
@@ -2122,6 +2129,7 @@ tbody .circuit-11:last-child td {
             Letters
           </th>
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
             data-testid="table-header"
@@ -2873,6 +2881,7 @@ tbody .circuit-12:last-child td {
           class="circuit-12"
         >
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
             data-testid="table-header"
@@ -2931,6 +2940,7 @@ tbody .circuit-12:last-child td {
             Letters
           </td>
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
             data-testid="table-header"
@@ -3407,6 +3417,7 @@ tbody .circuit-12:last-child td {
           class="circuit-12"
         >
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
             data-testid="table-header"
@@ -3465,6 +3476,7 @@ tbody .circuit-12:last-child td {
             Letters
           </td>
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
             data-testid="table-header"
@@ -3942,6 +3954,7 @@ tbody .circuit-12:last-child td {
           class="circuit-12"
         >
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
             data-testid="table-header"
@@ -4000,6 +4013,7 @@ tbody .circuit-12:last-child td {
             Letters
           </td>
           <th
+            aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
             data-testid="table-header"

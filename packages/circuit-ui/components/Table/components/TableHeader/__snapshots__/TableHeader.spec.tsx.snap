@@ -207,6 +207,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
 }
 
 <th
+  aria-label="Sort in ascending order"
   aria-sort="none"
   class="circuit-4"
   data-testid="table-header"
@@ -373,6 +374,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 }
 
 <th
+  aria-label="Sort in descending order"
   aria-sort="ascending"
   class="circuit-3"
   data-testid="table-header"
@@ -523,6 +525,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 }
 
 <th
+  aria-label="Sort in ascending order"
   aria-sort="descending"
   class="circuit-3"
   data-testid="table-header"

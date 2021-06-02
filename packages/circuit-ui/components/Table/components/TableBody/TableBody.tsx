@@ -17,14 +17,10 @@ import React, { Fragment } from 'react';
 
 import { mapRowProps, mapCellProps, getCellChildren } from '../../utils';
 import { Row } from '../../types';
-import { TR_KEY_PREFIX, TD_KEY_PREFIX } from '../../constants';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 
-/**
- * @private TableHead for the Table component. The Table handles rendering it
- */
 type TableBodyProps = {
   /**
    * An array of rows or an object with children containing an array of cells
@@ -36,13 +32,11 @@ type TableBodyProps = {
    */
   rowHeaders?: boolean;
   /**
-   * @private The current hovered sort cell index.
-   * Handled internally
+   * The current hovered sort cell index.
    */
   sortHover?: number;
   /**
-   * @private Adds condensed styles to the table.
-   * Handled internally
+   * Adds condensed styles to the table.
    */
   condensed?: boolean;
   /**
@@ -51,10 +45,9 @@ type TableBodyProps = {
   onRowClick?: (rowIndex: number) => void;
 };
 
-const getRowKey = (rowIndex: number) => `${TR_KEY_PREFIX}-${rowIndex}`;
-const getCellKey = (rowIndex: number, cellIndex: number) =>
-  `${TD_KEY_PREFIX}-${rowIndex}-${cellIndex}`;
-
+/**
+ * TableBody for the Table component. The Table handles rendering it.
+ */
 const TableBody = ({
   rows = [],
   condensed,
@@ -67,19 +60,20 @@ const TableBody = ({
       const { cells, ...props } = mapRowProps(row);
       return (
         <TableRow
-          key={getRowKey(rowIndex)}
+          key={`table-row-${rowIndex}`}
           data-testid="table-row"
           onClick={onRowClick ? () => onRowClick(rowIndex) : undefined}
           {...props}
         >
           {cells.map((cell, cellIndex) =>
             rowHeaders && cellIndex === 0 ? (
-              <Fragment key={getCellKey(rowIndex, cellIndex)}>
+              <Fragment key={`table-cell-${rowIndex}-${cellIndex}`}>
                 <TableHeader
                   fixed
                   condensed={condensed}
                   scope="row"
                   isHovered={sortHover === cellIndex}
+                  sortParams={{ sortable: false }}
                   {...mapCellProps(cell)}
                 />
                 <TableCell
@@ -92,7 +86,7 @@ const TableBody = ({
               </Fragment>
             ) : (
               <TableCell
-                key={getCellKey(rowIndex, cellIndex)}
+                key={`table-cell-${rowIndex}-${cellIndex}`}
                 condensed={condensed}
                 isHovered={sortHover === cellIndex}
                 {...mapCellProps(cell)}

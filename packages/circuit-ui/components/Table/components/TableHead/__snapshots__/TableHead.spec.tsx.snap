@@ -139,6 +139,7 @@ tbody .circuit-7:last-child td {
     class="circuit-7"
   >
     <th
+      aria-label="Sort in ascending order"
       aria-sort="none"
       class="circuit-4"
       data-testid="table-header"
@@ -380,6 +381,7 @@ tbody .circuit-8:last-child td {
     class="circuit-8"
   >
     <th
+      aria-label="Sort in ascending order"
       aria-sort="none"
       class="circuit-4"
       data-testid="table-header"

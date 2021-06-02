@@ -21,17 +21,15 @@ const PRESENTATION = 'presentation';
 
 export type TableCellProps = {
   /**
-   * Aligns the content of the Cell with text-align
+   * Aligns the content of the Cell with text-align.
    */
   align?: 'left' | 'right' | 'center';
   /**
-   * @private Add heading styles to placeholder Cell.
-   * Handled internally
+   * Adds heading styles to placeholder Cell.
    */
   header?: boolean;
   /**
-   * @private Adds active style to the Cell if it is currently hovered by sort.
-   * Handled internally
+   * Adds active style to the Cell if it is currently hovered by sort.
    */
   isHovered?: boolean;
   /**
@@ -117,8 +115,7 @@ const condensedPresentationStyles = ({
   `;
 
 /**
- * TableCell component for the Table. You shouldn't import this component
- * directly, the Table handles it.
+ * TableCell for the Table component. The Table handles rendering it.
  */
 const TableCell = styled.td<TableCellProps>`
   ${baseStyles};
