@@ -22,12 +22,11 @@ import docs from './Table.docs.mdx';
 import { TableProps } from './Table';
 import { Direction } from './types';
 
-import Table, { TableHeader, TableRow, TableCell } from '.';
+import Table from '.';
 
 export default {
   title: 'Components/Table',
   component: Table,
-  subcomponents: { TableHeader, TableRow, TableCell },
   parameters: {
     docs: { page: docs },
   },
