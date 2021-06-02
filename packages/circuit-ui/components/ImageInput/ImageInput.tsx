@@ -219,7 +219,7 @@ const LoadingIcon = styled(Spinner)<LoadingIconProps>(
 const LoadingLabel = styled.span(hideVisually);
 
 /**
- * ImageInput component.
+ * The ImageInput component allows users to upload images.
  */
 export const ImageInput = ({
   label,

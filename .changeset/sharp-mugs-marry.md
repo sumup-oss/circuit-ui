@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': minor
 ---
 
-Added two new components, `Avatar` and `ImageInput`, to display and upload avatar images.
+Added a new `Avatar` component to display identity or object images.

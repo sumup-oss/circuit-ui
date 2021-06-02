@@ -17,13 +17,13 @@ The Avatar component displays an identity or an object image. It can be passed t
 
 ## Accessibility
 
-The Avatar can receive alt text like any other image element. However, in many cases, alt text in this context will not make sense.
+The Avatar should have alt text, like any other image element. However, it can be omitted in some cases.
 
-For example, if the Avatar is used as an illustrative element in a products list next to each product's name, using the product name as alt text will be redundant: assistive technology will already read out the names once.
+For example, if the Avatar is used as an illustrative element in a products list next to each product's name, using the product name as alt text is redundant: assistive technology will already read out the names once.
 
 Therefore, the alt prop is not required and defaults to `""`, effectively making the Avatar invisible to assistive technology.
 
-Howver, bear in mind that the alt text is fundamental for accessibility if the Avatar is used without textual elements, for example as part of a products grid where only the images are shown.
+However, bear in mind that the alt text is fundamental for accessibility if the Avatar is used without textual elements, for example as part of a grid of products where only the images are shown.
 
 ## Variants
 

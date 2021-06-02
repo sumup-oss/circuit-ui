@@ -77,7 +77,7 @@ const StyledImage = styled('img', {
 })<AvatarProps>(baseStyles);
 
 /**
- * The Avatar component.
+ * The Avatar component displays an identity or an object image.
  */
 export const Avatar = ({
   src,
