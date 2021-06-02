@@ -139,8 +139,13 @@ export type {
   ModalContextValue,
 } from './components/Modal';
 
-export { TableRow, TableCell, TableHeader } from './components/Table';
 export { default as Table } from './components/Table';
+export type {
+  TableProps,
+  TableSortDirection,
+  TableCell,
+  TableRow,
+} from './components/Table';
 
 export { default as Sidebar } from './components/Sidebar';
 export {

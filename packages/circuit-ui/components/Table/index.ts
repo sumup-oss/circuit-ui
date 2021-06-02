@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-import Table from './Table';
-import TableRow from './components/TableRow';
-import TableCell from './components/TableCell';
-import TableHeader from './components/TableHeader';
+import Table, { TableProps } from './Table';
+import {
+  Direction as TableSortDirection,
+  Cell as TableCell,
+  Row as TableRow,
+} from './types';
 
-export { TableRow, TableCell, TableHeader };
+export type { TableProps, TableSortDirection, TableCell, TableRow };
 
 export default Table;
