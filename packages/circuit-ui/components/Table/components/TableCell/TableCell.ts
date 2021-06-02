@@ -32,11 +32,13 @@ export type TableCellProps = {
    * Adds active style to the Cell if it is currently hovered by sort.
    */
   isHovered?: boolean;
-  /**
-   * Adds condensed styles to the cell.
-   */
   condensed?: boolean;
+  sortable?: boolean;
   role?: 'presentation';
+  /**
+   * A testid for selecting table cells in tests.
+   */
+  ['data-testid']?: string;
 };
 
 const baseStyles = ({
@@ -124,5 +126,9 @@ const TableCell = styled.td<TableCellProps>`
   ${hoverStyles};
   ${condensedPresentationStyles};
 `;
+
+TableCell.defaultProps = {
+  'data-testid': 'table-cell',
+};
 
 export default TableCell;

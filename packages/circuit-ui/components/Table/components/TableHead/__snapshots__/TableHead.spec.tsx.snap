@@ -435,6 +435,7 @@ tbody .circuit-8:last-child td {
     <td
       aria-hidden="true"
       class="circuit-5"
+      data-testid="table-cell"
       role="presentation"
     >
       Foo

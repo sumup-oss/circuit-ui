@@ -28,11 +28,13 @@ tbody .circuit-2:last-child td {
   >
     <td
       class="circuit-0"
+      data-testid="table-cell"
     >
       Foo
     </td>
     <td
       class="circuit-0"
+      data-testid="table-cell"
     >
       Bar
     </td>
@@ -116,12 +118,14 @@ tbody .circuit-3:last-child td {
     <td
       aria-hidden="true"
       class="circuit-1"
+      data-testid="table-cell"
       role="presentation"
     >
       Foo
     </td>
     <td
       class="circuit-2"
+      data-testid="table-cell"
     >
       Bar
     </td>
@@ -157,11 +161,13 @@ tbody .circuit-2:last-child td {
   >
     <td
       class="circuit-0"
+      data-testid="table-cell"
     >
       Foo
     </td>
     <td
       class="circuit-0"
+      data-testid="table-cell"
     >
       Bar
     </td>
@@ -209,11 +215,13 @@ tbody .circuit-2:last-child td {
   >
     <td
       class="circuit-0"
+      data-testid="table-cell"
     >
       Foo
     </td>
     <td
       class="circuit-1"
+      data-testid="table-cell"
     >
       Bar
     </td>
