@@ -200,7 +200,41 @@ describe('Table utils', () => {
   });
 
   describe('getSortParams', () => {
-    it('should return a sortable signature', () => {
+    it('should return sort params with a string sortLabel', () => {
+      const actual = utils.getSortParams({
+        rowIndex: 1,
+        sortable: true,
+        sortLabel: 'Sort',
+      });
+      const expected: SortParams = {
+        sortable: true,
+        isSorted: false,
+        sortLabel: 'Sort',
+      };
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return sort params with a function sortLabel', () => {
+      const sortLabel = ({ direction }: { direction?: Direction }) => {
+        const order = direction === 'ascending' ? 'descending' : 'ascending';
+        return `Sort in ${order} order`;
+      };
+      const actual = utils.getSortParams({
+        rowIndex: 1,
+        sortable: true,
+        sortLabel,
+      });
+      const expected: SortParams = {
+        sortable: true,
+        isSorted: false,
+        sortLabel: 'Sort in ascending order',
+      };
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return sort params for a currently sorted row', () => {
       const sortLabel = ({ direction }: { direction?: Direction }) => {
         const order = direction === 'ascending' ? 'descending' : 'ascending';
         return `Sort in ${order} order`;
@@ -215,19 +249,21 @@ describe('Table utils', () => {
       const expected: SortParams = {
         sortable: true,
         isSorted: true,
-        sortLabel: `Sort in ascending order`,
+        sortLabel: 'Sort in ascending order',
         sortDirection: 'descending',
       };
 
       expect(actual).toEqual(expected);
     });
-    it('should return a non-sortable signature if sortable is falsy', () => {
+
+    it('should return sortable:false if sortable is falsy', () => {
       const actual = utils.getSortParams({ rowIndex: 0 });
       const expected = { sortable: false };
 
       expect(actual).toEqual(expected);
     });
-    it('should return a non-sortable signature if sortLabel is falsy', () => {
+
+    it('should return sortable:false if sortLabel is falsy', () => {
       const actual = utils.getSortParams({ rowIndex: 0, sortable: true });
       const expected = { sortable: false };
 
