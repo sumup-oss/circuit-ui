@@ -43,7 +43,7 @@ export interface ImageInputProps
    * The visual component to render as an image input. It should accept an src
    * prop to render the image.
    */
-  component: ({ src }: { src?: string }) => JSX.Element;
+  component: ({ src, alt }: { src?: string; alt: string }) => JSX.Element;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -224,6 +224,7 @@ const LoadingLabel = styled.span(hideVisually);
 export const ImageInput = ({
   label,
   src,
+  alt,
   id: customId,
   clearButtonLabel,
   onChange,
@@ -291,7 +292,7 @@ export const ImageInput = ({
         />
         <StyledLabel isLoading={isLoading} invalid={invalid} htmlFor={id}>
           <span css={hideVisually()}>{label}</span>
-          <Component src={src || previewImage} />
+          <Component src={src || previewImage} alt={alt || ''} />
         </StyledLabel>
         {src ? (
           <ActionButton

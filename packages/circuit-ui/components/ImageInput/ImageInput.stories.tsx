@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { useState } from 'react';
 import { jsx } from '@emotion/core';
@@ -71,33 +72,6 @@ export const Invalid = (): JSX.Element => (
   />
 );
 
-export const CustomComponent = (): JSX.Element => (
-  <ImageInput
-    label="Upload an image"
-    clearButtonLabel="Clear"
-    onChange={() => Promise.resolve()}
-    onClear={() => {}}
-    loadingLabel="Uploading"
-    component={({ src }) => (
-      <img
-        style={{
-          display: 'block',
-          width: '400px',
-          height: '100px',
-          backgroundColor: 'lightgrey',
-          objectFit: 'cover',
-          objectPosition: 'cover',
-        }}
-        src={
-          src || // we add a transparent svg placeholder to avoid a broken image icon
-          'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"></svg>'
-        }
-        alt=""
-      />
-    )}
-  />
-);
-
 export const Stateful = (): JSX.Element => {
   const [imageUrl, setImageUrl] = useState<string>('');
   const [error, setError] = useState<string>('');
@@ -149,3 +123,56 @@ export const Stateful = (): JSX.Element => {
     />
   );
 };
+
+export const CustomComponentImg = (): JSX.Element => (
+  <ImageInput
+    label="Upload an image"
+    clearButtonLabel="Clear"
+    onChange={() => Promise.resolve()}
+    onClear={() => {}}
+    loadingLabel="Uploading"
+    component={({ src }) => (
+      <img
+        style={{
+          display: 'block',
+          width: '400px',
+          height: '100px',
+          backgroundColor: 'lightgrey',
+          objectFit: 'cover',
+          objectPosition: 'cover',
+        }}
+        src={
+          src || // we add a transparent svg placeholder to avoid a broken image icon
+          'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"></svg>'
+        }
+        alt="" // we don't need alt text because it is set by the ImageInput, but this fixes a jsx-a11y error
+      />
+    )}
+  />
+);
+
+CustomComponentImg.storyName = 'Custom Component (with an img element)';
+
+export const CustomComponentDiv = (): JSX.Element => (
+  <ImageInput
+    label="Upload an image"
+    clearButtonLabel="Clear"
+    onChange={() => Promise.resolve()}
+    onClear={() => {}}
+    loadingLabel="Uploading"
+    component={({ src }) => (
+      <div
+        style={{
+          width: '400px',
+          height: '100px',
+          backgroundColor: 'lightgrey',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundImage: src ? `url(${src})` : undefined,
+        }}
+      />
+    )}
+  />
+);
+
+CustomComponentDiv.storyName = 'Custom Component (with a div element)';

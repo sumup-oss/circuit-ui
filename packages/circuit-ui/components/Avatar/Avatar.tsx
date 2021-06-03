@@ -26,10 +26,9 @@ export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
    */
   src?: string;
   /**
-   * Alt text for the Avatar image.
-   * Defaults to "" for presentational elements (e.g. a small product image next to its name in a list).
+   * Alt text for the Avatar image. Set it to "" if the image is presentational.
    */
-  alt?: string;
+  alt: string;
   /**
    * The variant of the Avatar, either identity or object. Refer to the docs for usage guidelines.
    * The variant also changes which placeholder is rendered when the `src` prop is not provided.
