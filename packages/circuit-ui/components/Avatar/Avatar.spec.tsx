@@ -27,7 +27,7 @@ const images = {
 };
 
 describe('Avatar', () => {
-  function renderAvatar(props: AvatarProps = {}, options = {}) {
+  function renderAvatar(props: AvatarProps = { alt: '' }, options = {}) {
     return render(<Avatar {...props} />, options);
   }
 
@@ -40,6 +40,7 @@ describe('Avatar', () => {
     it.each(sizes)('should render the %s size', (size) => {
       const { container } = renderAvatar({
         size,
+        alt: '',
       });
       expect(container).toMatchSnapshot();
     });
@@ -50,6 +51,7 @@ describe('Avatar', () => {
         const { container } = renderAvatar({
           src: images[variant],
           variant,
+          alt: '',
         });
         expect(container).toMatchSnapshot();
       },
@@ -58,6 +60,7 @@ describe('Avatar', () => {
     it.each(variants)('should render the %s variant placeholder', (variant) => {
       const { container } = renderAvatar({
         variant,
+        alt: '',
       });
       expect(container).toMatchSnapshot();
     });
