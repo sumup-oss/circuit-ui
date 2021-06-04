@@ -88,6 +88,8 @@ export { default as NotificationBanner } from './components/NotificationBanner';
 export type { NotificationBannerProps } from './components/NotificationBanner';
 export { default as NotificationList } from './components/NotificationList';
 export type { NotificationListProps } from './components/NotificationList';
+export { default as NotificationFullscreen } from './components/NotificationFullscreen';
+export type { NotificationFullscreenProps } from './components/NotificationFullscreen';
 
 // Layout
 export { default as Grid } from './components/Grid';

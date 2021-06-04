@@ -45,6 +45,7 @@ const SORT_ORDER = {
   },
   Components: {},
   Hooks: {},
+  Patterns: {},
   Packages: {
     'circuit-ui': {},
     'design-tokens': {},
