@@ -25,7 +25,7 @@ const Wrapper = styled(Card)`
 
   padding: 0;
   border-radius: ${(p) => p.theme.borderRadius.mega};
-  border: ${(p) => p.theme.borderWidth.kilo} solid ${(p) => p.theme.colors.n300};
+  border: ${(p) => `${p.theme.borderWidth.kilo} solid ${p.theme.colors.n300}`};
 `;
 
 Wrapper.defaultProps = Card.defaultProps;
