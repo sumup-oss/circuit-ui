@@ -17,7 +17,7 @@ import React, { Children, HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
-import Card from '../Card';
+import { shadow } from '../../styles/style-mixins';
 
 export interface NotificationListProps extends HTMLProps<HTMLUListElement> {
   /**
@@ -52,7 +52,19 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const NotificationListWrapper = styled('ul')<NoTheme>(baseStyles);
 
-const NotificationListCard = styled(Card)<NotificationListProps>();
+// FIXME: Replace border-radius with theme value in v3.
+const cardStyles = ({ theme }: StyleProps) => css`
+  label: card;
+  background-color: ${theme.colors.white};
+  border-radius: 16px;
+  border: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: ${theme.spacings.mega} ${theme.spacings.mega};
+`;
+
+const NotificationListCard = styled('li')(cardStyles, shadow());
 
 /**
  * NotificationList displays Notifications as Cards in a corner.
@@ -63,9 +75,7 @@ export const NotificationList = ({
 }: NotificationListProps) => (
   <NotificationListWrapper {...props} aria-live="polite">
     {Children.map(children, (child, i) => (
-      <NotificationListCard spacing="mega" shadow="double" key={i} as="li">
-        {child}
-      </NotificationListCard>
+      <NotificationListCard key={i}>{child}</NotificationListCard>
     ))}
   </NotificationListWrapper>
 );

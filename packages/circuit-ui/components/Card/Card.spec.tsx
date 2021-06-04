@@ -28,21 +28,13 @@ describe('Card', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with shadow styles', () => {
-    const actualSingle = create(<Card shadow={'single'} />);
-    expect(actualSingle).toMatchSnapshot();
-    const actualDouble = create(<Card shadow={'double'} />);
-    expect(actualDouble).toMatchSnapshot();
-    const actualTriple = create(<Card shadow={'triple'} />);
-    expect(actualTriple).toMatchSnapshot();
-  });
-
-  it('should render with spacing styles', () => {
-    const actualMega = create(<Card spacing={'mega'} />);
-    expect(actualMega).toMatchSnapshot();
-    const actualGiga = create(<Card spacing={'giga'} />);
-    expect(actualGiga).toMatchSnapshot();
-  });
+  it.each(['mega', 'giga'] as const)(
+    'should render with %s spacing styles',
+    (spacing) => {
+      const actual = create(<Card spacing={spacing} />);
+      expect(actual).toMatchSnapshot();
+    },
+  );
 
   /**
    * Accessibility tests.

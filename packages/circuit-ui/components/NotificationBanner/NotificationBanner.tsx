@@ -17,7 +17,7 @@ import React, { HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
-import { shadowSingle } from '../../styles/style-mixins';
+import { shadow } from '../../styles/style-mixins';
 
 export interface NotificationBannerProps extends HTMLProps<HTMLDivElement> {
   /**
@@ -26,15 +26,15 @@ export interface NotificationBannerProps extends HTMLProps<HTMLDivElement> {
   children: ReactNode;
 }
 
+// FIXME: Replace border-radius with theme value in v3.
 const outerStyles = ({ theme }: StyleProps) => css`
   label: notification-banner;
   width: 100%;
   background-color: ${theme.colors.white};
-  ${shadowSingle({ theme })};
-  border-radius: ${theme.borderRadius.mega};
+  border-radius: 16px;
 `;
 
-const NotificationBannerOuter = styled('div')<NoTheme>(outerStyles);
+const NotificationBannerOuter = styled('div')<NoTheme>(outerStyles, shadow());
 
 const innerStyles = ({ theme }: StyleProps) => css`
   label: notification-banner__inner;

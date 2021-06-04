@@ -36,6 +36,7 @@ const baseStyles = ({ theme }) => css`
   &:last-child {
     border-bottom-left-radius: ${theme.borderRadius.mega};
     border-bottom-right-radius: ${theme.borderRadius.mega};
+    border-bottom: none;
   }
 `;
 

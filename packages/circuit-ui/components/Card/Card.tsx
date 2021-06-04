@@ -18,15 +18,12 @@ import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  shadowSingle,
-  shadowDouble,
-  shadowTriple,
-} from '../../styles/style-mixins';
+import deprecate from '../../util/deprecate';
 
 export interface CardProps {
   /**
-   * The shadow depth of the Card.
+   * @deprecated
+   * The shadow variations have been replaced with a single outline.
    */
   shadow?: 'single' | 'double' | 'triple';
   /**
@@ -35,28 +32,25 @@ export interface CardProps {
   spacing?: 'mega' | 'giga';
 }
 
+// FIXME: Replace border-radius with theme value in v3.
 const baseStyles = ({ theme }: StyleProps) => css`
   label: card;
   background-color: ${theme.colors.white};
-  border-radius: ${theme.borderRadius.mega};
+  border-radius: 16px;
+  border: ${theme.borderWidth.mega} solid ${theme.colors.n200};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
-const shadowStyles = ({ theme, shadow = 'single' }: StyleProps & CardProps) => {
-  if (!shadow) {
-    return null;
+const shadowStyles = ({ shadow }: CardProps) => {
+  if (shadow) {
+    deprecate(
+      'The `shadow` prop of the Card component has been deprecated.',
+      'The shadow variations have been replaced with a single outline.',
+    );
   }
-  const shadowOptions = {
-    single: shadowSingle,
-    double: shadowDouble,
-    triple: shadowTriple,
-  };
-  return css`
-    label: ${`card--shadow-${shadow}`};
-    ${shadowOptions[shadow]({ theme })};
-  `;
+  return null;
 };
 
 const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {

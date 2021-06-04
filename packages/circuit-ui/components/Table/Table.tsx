@@ -17,7 +17,6 @@ import React, { Component, createRef, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import { isNil, throttle } from 'lodash/fp';
 
-import { shadowSingle } from '../../styles/style-mixins';
 import styled, { StyleProps } from '../../styles/styled';
 
 import TableHead from './components/TableHead';
@@ -103,18 +102,20 @@ const tableContainerScrollableStyles = ({
     }
   `;
 
-const noShadowStyles = ({ noShadow }: TableContainerElProps) =>
-  noShadow &&
+const shadowStyles = ({
+  theme,
+  noShadow,
+}: TableContainerElProps & StyleProps) =>
+  !noShadow &&
   css`
-    label: table-container--no-shadow;
-    box-shadow: none;
+    label: table-container--shadow;
+    border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   `;
 
 const TableContainer = styled.div<TableContainerElProps & StyleProps>`
   ${tableContainerBaseStyles};
   ${tableContainerScrollableStyles};
-  ${shadowSingle};
-  ${noShadowStyles};
+  ${shadowStyles};
 `;
 
 /**
