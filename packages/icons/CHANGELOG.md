@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 1.7.0
+
+### Minor Changes
+
+- [#961](https://github.com/sumup-oss/circuit-ui/pull/961) [`d6cfe1df`](https://github.com/sumup-oss/circuit-ui/commit/d6cfe1dff247bea93b83c19dde728ca36b51bc0b) Thanks [@robinmetral](https://github.com/robinmetral)! - Add new Plus icons in small and large sizes.
+
 ## 1.6.2
 
 ### Patch Changes
