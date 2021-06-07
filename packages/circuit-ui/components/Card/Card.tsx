@@ -41,6 +41,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 `;
 
 const shadowStyles = ({ shadow }: CardProps) => {
