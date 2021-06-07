@@ -52,8 +52,8 @@ export const Base = (args) => {
 
   return (
     <Popover
-      isOpen={open}
       {...props}
+      isOpen={open}
       renderPopover={() => <Card>Popover Content</Card>}
       renderReference={() => (
         <Button
