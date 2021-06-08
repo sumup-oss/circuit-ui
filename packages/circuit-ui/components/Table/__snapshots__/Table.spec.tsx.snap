@@ -326,7 +326,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -377,7 +376,6 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-5"
-            data-testid="table-cell"
             role="presentation"
           >
             Letters
@@ -386,7 +384,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -436,7 +433,6 @@ tbody .circuit-12:last-child td {
           </th>
           <th
             class="circuit-11"
-            data-testid="table-header"
             scope="col"
           >
             Words
@@ -446,11 +442,9 @@ tbody .circuit-12:last-child td {
       <tbody>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             b
@@ -458,31 +452,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             3
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             a
@@ -490,31 +479,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             1
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             c
@@ -522,20 +506,17 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             2
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Baz
           </td>
@@ -726,7 +707,6 @@ tbody .circuit-3:last-child td {
         >
           <th
             class="circuit-0"
-            data-testid="table-header"
             scope="col"
           >
             Name
@@ -734,14 +714,12 @@ tbody .circuit-3:last-child td {
           <td
             aria-hidden="true"
             class="circuit-1"
-            data-testid="table-cell"
             role="presentation"
           >
             Name
           </td>
           <th
             class="circuit-2"
-            data-testid="table-header"
             scope="col"
           >
             Type
@@ -751,33 +729,27 @@ tbody .circuit-3:last-child td {
       <tbody>
         <tr
           class="circuit-3"
-          data-testid="table-row"
         >
           <th
             class="circuit-5"
-            data-testid="table-header"
             scope="row"
           />
           <td
             aria-hidden="true"
             class="circuit-6"
-            data-testid="table-cell"
             role="presentation"
           />
           <td
             class="circuit-7"
-            data-testid="table-cell"
           >
             Fruit
           </td>
         </tr>
         <tr
           class="circuit-3"
-          data-testid="table-row"
         >
           <th
             class="circuit-5"
-            data-testid="table-header"
             scope="row"
           >
             Broccoli
@@ -785,14 +757,12 @@ tbody .circuit-3:last-child td {
           <td
             aria-hidden="true"
             class="circuit-6"
-            data-testid="table-cell"
             role="presentation"
           >
             Broccoli
           </td>
           <td
             class="circuit-7"
-            data-testid="table-cell"
           />
         </tr>
       </tbody>
@@ -1128,7 +1098,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -1179,7 +1148,6 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-5"
-            data-testid="table-cell"
             role="presentation"
           >
             Letters
@@ -1188,7 +1156,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -1238,7 +1205,6 @@ tbody .circuit-12:last-child td {
           </th>
           <th
             class="circuit-11"
-            data-testid="table-header"
             scope="col"
           >
             Words
@@ -1248,11 +1214,9 @@ tbody .circuit-12:last-child td {
       <tbody>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             b
@@ -1260,31 +1224,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             3
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             a
@@ -1292,31 +1251,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             1
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             c
@@ -1324,20 +1278,17 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             2
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Baz
           </td>
@@ -1709,7 +1660,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -1760,7 +1710,6 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-5"
-            data-testid="table-cell"
             role="presentation"
           >
             Letters
@@ -1769,7 +1718,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -1819,7 +1767,6 @@ tbody .circuit-12:last-child td {
           </th>
           <th
             class="circuit-11"
-            data-testid="table-header"
             scope="col"
           >
             Words
@@ -1829,11 +1776,9 @@ tbody .circuit-12:last-child td {
       <tbody>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             b
@@ -1841,31 +1786,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             3
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             a
@@ -1873,31 +1813,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             1
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             c
@@ -1905,20 +1840,17 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             2
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Baz
           </td>
@@ -2115,7 +2047,6 @@ tbody .circuit-11:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -2167,7 +2098,6 @@ tbody .circuit-11:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -2217,7 +2147,6 @@ tbody .circuit-11:last-child td {
           </th>
           <th
             class="circuit-10"
-            data-testid="table-header"
             scope="col"
           >
             Words
@@ -2227,69 +2156,57 @@ tbody .circuit-11:last-child td {
       <tbody>
         <tr
           class="circuit-11"
-          data-testid="table-row"
         >
           <td
             class="circuit-13"
-            data-testid="table-cell"
           >
             b
           </td>
           <td
             class="circuit-13"
-            data-testid="table-cell"
           >
             3
           </td>
           <td
             class="circuit-13"
-            data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
           class="circuit-11"
-          data-testid="table-row"
         >
           <td
             class="circuit-13"
-            data-testid="table-cell"
           >
             a
           </td>
           <td
             class="circuit-13"
-            data-testid="table-cell"
           >
             1
           </td>
           <td
             class="circuit-13"
-            data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
           class="circuit-11"
-          data-testid="table-row"
         >
           <td
             class="circuit-13"
-            data-testid="table-cell"
           >
             c
           </td>
           <td
             class="circuit-13"
-            data-testid="table-cell"
           >
             2
           </td>
           <td
             class="circuit-13"
-            data-testid="table-cell"
           >
             Baz
           </td>
@@ -2497,7 +2414,6 @@ tbody .circuit-3:last-child td {
         >
           <th
             class="circuit-0"
-            data-testid="table-header"
             scope="col"
           >
             Name
@@ -2505,14 +2421,12 @@ tbody .circuit-3:last-child td {
           <td
             aria-hidden="true"
             class="circuit-1"
-            data-testid="table-cell"
             role="presentation"
           >
             Name
           </td>
           <th
             class="circuit-2"
-            data-testid="table-header"
             scope="col"
           >
             Type
@@ -2522,11 +2436,9 @@ tbody .circuit-3:last-child td {
       <tbody>
         <tr
           class="circuit-3"
-          data-testid="table-row"
         >
           <th
             class="circuit-5"
-            data-testid="table-header"
             scope="row"
           >
             Apple
@@ -2534,25 +2446,21 @@ tbody .circuit-3:last-child td {
           <td
             aria-hidden="true"
             class="circuit-6"
-            data-testid="table-cell"
             role="presentation"
           >
             Apple
           </td>
           <td
             class="circuit-7"
-            data-testid="table-cell"
           >
             Fruit
           </td>
         </tr>
         <tr
           class="circuit-3"
-          data-testid="table-row"
         >
           <th
             class="circuit-5"
-            data-testid="table-header"
             scope="row"
           >
             Broccoli
@@ -2560,25 +2468,21 @@ tbody .circuit-3:last-child td {
           <td
             aria-hidden="true"
             class="circuit-6"
-            data-testid="table-cell"
             role="presentation"
           >
             Broccoli
           </td>
           <td
             class="circuit-7"
-            data-testid="table-cell"
           >
             Vegetable
           </td>
         </tr>
         <tr
           class="circuit-3"
-          data-testid="table-row"
         >
           <th
             class="circuit-5"
-            data-testid="table-header"
             scope="row"
           >
             Chickpeas
@@ -2586,14 +2490,12 @@ tbody .circuit-3:last-child td {
           <td
             aria-hidden="true"
             class="circuit-6"
-            data-testid="table-cell"
             role="presentation"
           >
             Chickpeas
           </td>
           <td
             class="circuit-7"
-            data-testid="table-cell"
           >
             <div
               class="circuit-15"
@@ -2935,7 +2837,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -2986,7 +2887,6 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-5"
-            data-testid="table-cell"
             role="presentation"
           >
             Letters
@@ -2995,7 +2895,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -3045,7 +2944,6 @@ tbody .circuit-12:last-child td {
           </th>
           <th
             class="circuit-11"
-            data-testid="table-header"
             scope="col"
           >
             Words
@@ -3055,11 +2953,9 @@ tbody .circuit-12:last-child td {
       <tbody>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             b
@@ -3067,31 +2963,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             3
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             a
@@ -3099,31 +2990,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             1
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             c
@@ -3131,20 +3017,17 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             2
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Baz
           </td>
@@ -3481,7 +3364,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -3532,7 +3414,6 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-5"
-            data-testid="table-cell"
             role="presentation"
           >
             Letters
@@ -3541,7 +3422,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -3591,7 +3471,6 @@ tbody .circuit-12:last-child td {
           </th>
           <th
             class="circuit-11"
-            data-testid="table-header"
             scope="col"
           >
             Words
@@ -3601,11 +3480,9 @@ tbody .circuit-12:last-child td {
       <tbody>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             b
@@ -3613,31 +3490,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             3
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             a
@@ -3645,31 +3517,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             1
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             c
@@ -3677,20 +3544,17 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             2
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Baz
           </td>
@@ -4028,7 +3892,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-4"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -4079,7 +3942,6 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-5"
-            data-testid="table-cell"
             role="presentation"
           >
             Letters
@@ -4088,7 +3950,6 @@ tbody .circuit-12:last-child td {
             aria-label="Sort in ascending order"
             aria-sort="none"
             class="circuit-10"
-            data-testid="table-header"
             scope="col"
           >
             <button
@@ -4138,7 +3999,6 @@ tbody .circuit-12:last-child td {
           </th>
           <th
             class="circuit-11"
-            data-testid="table-header"
             scope="col"
           >
             Words
@@ -4148,11 +4008,9 @@ tbody .circuit-12:last-child td {
       <tbody>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             b
@@ -4160,31 +4018,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             3
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             a
@@ -4192,31 +4045,26 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             1
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
           class="circuit-12"
-          data-testid="table-row"
         >
           <th
             class="circuit-14"
-            data-testid="table-header"
             scope="row"
           >
             c
@@ -4224,20 +4072,17 @@ tbody .circuit-12:last-child td {
           <td
             aria-hidden="true"
             class="circuit-15"
-            data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             2
           </td>
           <td
             class="circuit-16"
-            data-testid="table-cell"
           >
             Baz
           </td>

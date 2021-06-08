@@ -130,12 +130,15 @@ describe('Table', () => {
     it('should call the row click callback', () => {
       const onRowClickMock = jest.fn();
       const index = 0;
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Table onRowClick={onRowClickMock} headers={headers} rows={rows} />,
       );
 
+      const rowElements = getAllByRole('row');
+
       act(() => {
-        userEvent.click(getAllByTestId('table-row')[0]);
+        // rowElements[0] is the hidden first row
+        userEvent.click(rowElements[1]);
       });
 
       expect(onRowClickMock).toHaveBeenCalledTimes(1);
@@ -190,12 +193,14 @@ describe('Table', () => {
         const onSortByMock = jest.fn();
         const index = 0;
         const nextDirection = 'ascending';
-        const { getAllByTestId } = render(
+        const { getAllByRole } = render(
           <Table onSortBy={onSortByMock} headers={headers} rows={rows} />,
         );
 
+        const headerElements = getAllByRole('columnheader');
+
         act(() => {
-          userEvent.click(getAllByTestId('table-header')[0]);
+          userEvent.click(headerElements[0]);
         });
 
         expect(onSortByMock).toHaveBeenCalledTimes(1);

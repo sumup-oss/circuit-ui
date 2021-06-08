@@ -142,7 +142,6 @@ tbody .circuit-7:last-child td {
       aria-label="Sort in ascending order"
       aria-sort="none"
       class="circuit-4"
-      data-testid="table-header"
       scope="col"
     >
       <button
@@ -192,14 +191,12 @@ tbody .circuit-7:last-child td {
     </th>
     <th
       class="circuit-5"
-      data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
       class="circuit-5"
-      data-testid="table-header"
       scope="col"
     >
       Baz
@@ -384,7 +381,6 @@ tbody .circuit-8:last-child td {
       aria-label="Sort in ascending order"
       aria-sort="none"
       class="circuit-4"
-      data-testid="table-header"
       scope="col"
     >
       <button
@@ -435,21 +431,18 @@ tbody .circuit-8:last-child td {
     <td
       aria-hidden="true"
       class="circuit-5"
-      data-testid="table-cell"
       role="presentation"
     >
       Foo
     </td>
     <th
       class="circuit-6"
-      data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
       class="circuit-6"
-      data-testid="table-header"
       scope="col"
     >
       Baz

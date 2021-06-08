@@ -35,10 +35,6 @@ export type TableCellProps = {
   condensed?: boolean;
   sortable?: boolean;
   role?: 'presentation';
-  /**
-   * A testid for selecting table cells in tests.
-   */
-  ['data-testid']?: string;
 };
 
 const baseStyles = ({
@@ -126,9 +122,5 @@ const TableCell = styled.td<TableCellProps>`
   ${hoverStyles};
   ${condensedPresentationStyles};
 `;
-
-TableCell.defaultProps = {
-  'data-testid': 'table-cell',
-};
 
 export default TableCell;

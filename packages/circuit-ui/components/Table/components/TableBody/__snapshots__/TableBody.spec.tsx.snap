@@ -24,17 +24,14 @@ tbody .circuit-2:last-child td {
 <tbody>
   <tr
     class="circuit-2"
-    data-testid="table-row"
   >
     <td
       class="circuit-0"
-      data-testid="table-cell"
     >
       Foo
     </td>
     <td
       class="circuit-0"
-      data-testid="table-cell"
     >
       Bar
     </td>
@@ -106,11 +103,9 @@ tbody .circuit-3:last-child td {
 <tbody>
   <tr
     class="circuit-3"
-    data-testid="table-row"
   >
     <th
       class="circuit-0"
-      data-testid="table-header"
       scope="row"
     >
       Foo
@@ -118,14 +113,12 @@ tbody .circuit-3:last-child td {
     <td
       aria-hidden="true"
       class="circuit-1"
-      data-testid="table-cell"
       role="presentation"
     >
       Foo
     </td>
     <td
       class="circuit-2"
-      data-testid="table-cell"
     >
       Bar
     </td>
@@ -157,17 +150,14 @@ tbody .circuit-2:last-child td {
 <tbody>
   <tr
     class="circuit-2"
-    data-testid="table-row"
   >
     <td
       class="circuit-0"
-      data-testid="table-cell"
     >
       Foo
     </td>
     <td
       class="circuit-0"
-      data-testid="table-cell"
     >
       Bar
     </td>
@@ -211,17 +201,14 @@ tbody .circuit-2:last-child td {
 <tbody>
   <tr
     class="circuit-2"
-    data-testid="table-row"
   >
     <td
       class="circuit-0"
-      data-testid="table-cell"
     >
       Foo
     </td>
     <td
       class="circuit-1"
-      data-testid="table-cell"
     >
       Bar
     </td>

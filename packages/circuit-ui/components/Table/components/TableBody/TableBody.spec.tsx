@@ -37,17 +37,17 @@ describe('TableBody', () => {
   describe('logic tests', () => {
     describe('rowHeaders', () => {
       it('should render a table cell as the first element on each row with no rowHeaders', () => {
-        const { getByTestId } = render(<TableBody rows={fixtureRows} />);
-        const tableCell = getByTestId('table-row').children[0];
+        const { getByRole } = render(<TableBody rows={fixtureRows} />);
+        const tableCell = getByRole('row').children[0];
 
         expect(tableCell.tagName).toBe('TD');
       });
 
       it('should render a table header as the first element of each row with rowHeaders', () => {
-        const { getByTestId } = render(
+        const { getByRole } = render(
           <TableBody rows={fixtureRows} rowHeaders />,
         );
-        const tableCell = getByTestId('table-row').children[0];
+        const tableCell = getByRole('row').children[0];
 
         expect(tableCell.tagName).toBe('TH');
       });

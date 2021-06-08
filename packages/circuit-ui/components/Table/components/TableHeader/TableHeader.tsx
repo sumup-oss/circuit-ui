@@ -200,7 +200,6 @@ const TableHeader: FC<TableHeaderProps> = ({
     aria-sort={
       sortParams.sortable ? sortParams.sortDirection || 'none' : undefined
     }
-    data-testid="table-header"
     {...props}
   >
     {sortParams.sortable && (

@@ -61,7 +61,6 @@ const TableBody = ({
       return (
         <TableRow
           key={`table-row-${rowIndex}`}
-          data-testid="table-row"
           onClick={onRowClick ? () => onRowClick(rowIndex) : undefined}
           {...props}
         >
