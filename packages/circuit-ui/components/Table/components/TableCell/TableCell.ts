@@ -66,6 +66,7 @@ const presentationStyles = ({
       font-size: ${theme.typography.text.kilo.fontSize};
       font-weight: ${theme.fontWeight.bold};
       padding: ${theme.spacings.byte} ${theme.spacings.giga};
+      white-space: nowrap;
     `}
 
     ${theme.mq.untilMega} {

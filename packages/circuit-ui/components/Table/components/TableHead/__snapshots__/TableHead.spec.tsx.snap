@@ -22,6 +22,7 @@ tbody .circuit-7:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -130,6 +131,7 @@ tbody .circuit-7:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 <thead
@@ -285,6 +287,7 @@ tbody .circuit-8:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .circuit-4 {
@@ -299,6 +302,7 @@ tbody .circuit-8:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -360,6 +364,7 @@ tbody .circuit-8:last-child td {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {

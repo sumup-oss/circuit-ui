@@ -88,6 +88,7 @@ const colStyles = ({ theme, scope }: StyleProps & ThElProps) =>
     font-weight: ${theme.fontWeight.bold};
     padding: ${theme.spacings.byte} ${theme.spacings.giga};
     vertical-align: middle;
+    white-space: nowrap;
   `;
 
 const fixedStyles = ({ theme, fixed }: StyleProps & ThElProps) =>

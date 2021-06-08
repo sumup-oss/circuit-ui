@@ -62,6 +62,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -181,6 +182,7 @@ tbody .circuit-12:last-child td {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -204,6 +206,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -254,6 +257,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .circuit-14 {
@@ -590,6 +594,7 @@ tbody .circuit-3:last-child td {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -613,6 +618,7 @@ tbody .circuit-3:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .circuit-5 {
@@ -678,6 +684,7 @@ tbody .circuit-3:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -810,6 +817,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -929,6 +937,7 @@ tbody .circuit-12:last-child td {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -952,6 +961,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -1002,6 +1012,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .circuit-14 {
@@ -1419,6 +1430,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -1488,6 +1500,7 @@ tbody .circuit-12:last-child td {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
+  white-space: nowrap;
   padding: 12px 16px;
   font-size: 13px;
   line-height: 20px;
@@ -1515,6 +1528,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -1570,6 +1584,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   vertical-align: middle;
   font-size: 13px;
   line-height: 20px;
@@ -1941,6 +1956,7 @@ tbody .circuit-11:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -1991,6 +2007,7 @@ tbody .circuit-11:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .circuit-13 {
@@ -2280,6 +2297,7 @@ tbody .circuit-3:last-child td {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -2303,6 +2321,7 @@ tbody .circuit-3:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .circuit-5 {
@@ -2368,6 +2387,7 @@ tbody .circuit-3:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -2573,6 +2593,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -2692,6 +2713,7 @@ tbody .circuit-12:last-child td {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -2715,6 +2737,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -2765,6 +2788,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .circuit-14 {
@@ -3100,6 +3124,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -3219,6 +3244,7 @@ tbody .circuit-12:last-child td {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -3242,6 +3268,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -3292,6 +3319,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .circuit-14 {
@@ -3622,6 +3650,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -3741,6 +3770,7 @@ tbody .circuit-12:last-child td {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -3764,6 +3794,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -3814,6 +3845,7 @@ tbody .circuit-12:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .circuit-14 {
