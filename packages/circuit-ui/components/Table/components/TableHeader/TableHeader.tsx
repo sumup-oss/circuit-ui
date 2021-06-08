@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, FC } from 'react';
+import React, { HTMLProps, FC, MouseEventHandler } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -23,7 +23,7 @@ import styled, { StyleProps } from '../../../../styles/styled';
 import { SortParams } from '../../types';
 
 export interface TableHeaderProps
-  extends HTMLProps<HTMLTableHeaderCellElement> {
+  extends Omit<HTMLProps<HTMLTableHeaderCellElement>, 'onClick'> {
   /**
    * Aligns the content of the Header with text-align.
    */
@@ -44,6 +44,10 @@ export interface TableHeaderProps
    * Adds active styles to the Header if it is currently hovered by sort.
    */
   isHovered?: boolean;
+  /**
+   * Props related to table sorting. Defaults to not sortable.
+   */
+  onClick?: MouseEventHandler<HTMLTableHeaderCellElement | HTMLButtonElement>;
   /**
    * Props related to table sorting. Defaults to not sortable.
    */
@@ -186,6 +190,7 @@ const TableHeader: FC<TableHeaderProps> = ({
   fixed = false,
   isHovered = false,
   sortParams = { sortable: false },
+  onClick,
   ...props
 }) => (
   <StyledHeader
@@ -200,12 +205,14 @@ const TableHeader: FC<TableHeaderProps> = ({
     aria-sort={
       sortParams.sortable ? sortParams.sortDirection || 'none' : undefined
     }
+    onClick={onClick}
     {...props}
   >
     {sortParams.sortable && (
       <SortArrow
         label={sortParams.sortLabel}
         direction={sortParams.sortDirection}
+        onClick={onClick}
       />
     )}
     {children}
