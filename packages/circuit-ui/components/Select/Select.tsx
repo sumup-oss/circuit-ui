@@ -25,7 +25,7 @@ import { uniqueId } from '../../util/id';
 import deprecate from '../../util/deprecate';
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import {
-  textMega,
+  typography,
   hideVisually,
   inputOutline,
 } from '../../styles/style-mixins';
@@ -204,7 +204,6 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   white-space: nowrap;
   transition: box-shadow ${theme.transitions.default},
     padding ${theme.transitions.default};
-  ${textMega({ theme })};
 
   &:-moz-focusring {
     color: transparent;
@@ -236,6 +235,7 @@ const selectPrefixStyles = ({ theme, hasPrefix }: StyleProps & SelectElProps) =>
   `;
 
 const SelectElement = styled.select<SelectElProps>(
+  typography('body', 'one'),
   selectBaseStyles,
   selectInvalidStyles,
   selectPrefixStyles,

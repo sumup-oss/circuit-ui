@@ -39,7 +39,7 @@ export const Base = (args: ListProps) => (
   </List>
 );
 
-const variants = ['unordered', 'ordered'] as const;
+const variants: ListProps['variant'][] = ['unordered', 'ordered'];
 
 export const Variants = (args: ListProps) =>
   variants.map((variant) => (
@@ -48,7 +48,7 @@ export const Variants = (args: ListProps) =>
     </List>
   ));
 
-const sizes = ['kilo', 'mega', 'giga'] as const;
+const sizes: ListProps['size'][] = ['kilo', 'mega'];
 
 export const Sizes = (args: ListProps) =>
   sizes.map((size) => (

@@ -18,10 +18,10 @@ import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { textMega, textKilo, textGiga } from '../../styles/style-mixins';
+import { typography } from '../../styles/style-mixins';
 import deprecate from '../../util/deprecate';
 
-type Size = 'kilo' | 'mega' | 'giga';
+type Size = 'kilo' | 'mega';
 type Variant = 'ordered' | 'unordered';
 
 export interface ListProps
@@ -56,19 +56,13 @@ const sizeStyles = ({ theme, size = 'mega' }: ListProps & StyleProps) => {
       marginBottom: theme.spacings.kilo,
       paddingLeft: theme.spacings.kilo,
       marginLeft: theme.spacings.bit,
-      type: textKilo({ theme }),
+      type: typography('body', 'two')(theme),
     },
     mega: {
       marginBottom: theme.spacings.byte,
       paddingLeft: theme.spacings.kilo,
       marginLeft: theme.spacings.kilo,
-      type: textMega({ theme }),
-    },
-    giga: {
-      marginBottom: theme.spacings.kilo,
-      paddingLeft: theme.spacings.mega,
-      marginLeft: theme.spacings.kilo,
-      type: textGiga({ theme }),
+      type: typography('body', 'one')(theme),
     },
   };
   const { marginBottom, paddingLeft, marginLeft, type } = sizeMap[size];

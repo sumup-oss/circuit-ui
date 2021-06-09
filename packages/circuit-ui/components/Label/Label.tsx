@@ -18,7 +18,7 @@ import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
-  textKilo,
+  typography,
   hideVisually,
   disableVisually,
 } from '../../styles/style-mixins';
@@ -43,9 +43,8 @@ export interface LabelProps extends HTMLProps<HTMLLabelElement> {
   disabled?: boolean;
 }
 
-const baseStyles = ({ theme }: StyleProps) => css`
+const baseStyles = () => css`
   label: label;
-  ${textKilo({ theme })};
   display: block;
 `;
 
@@ -75,6 +74,7 @@ const disabledStyles = ({ disabled }: LabelProps) =>
  * Label component for form inputs.
  */
 export const Label = styled.label<LabelProps>(
+  typography('body', 'two'),
   baseStyles,
   visuallyHiddenStyles,
   inlineStyles,

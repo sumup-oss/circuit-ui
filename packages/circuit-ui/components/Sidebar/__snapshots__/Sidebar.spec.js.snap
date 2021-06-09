@@ -85,6 +85,8 @@ HTMLCollection [
 }
 
 .circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -101,8 +103,6 @@ HTMLCollection [
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -250,6 +250,8 @@ HTMLCollection [
     data-testid="sidebar-backdrop"
   />,
   .circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -266,8 +268,6 @@ HTMLCollection [
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;

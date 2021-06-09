@@ -158,75 +158,26 @@ export const shadowTriple = (args: ThemeArgs): SerializedStyles => {
   `;
 };
 
-function createTypeHelper<T extends 'headings' | 'subHeadings' | 'text'>(
+/**
+ * Adds margin to one or more sides of an element.
+ */
+export function typography<T extends keyof Theme['typography']>(
   type: T,
   size: keyof Theme['typography'][T],
-) {
-  return (args: ThemeArgs): SerializedStyles => {
+): (args: ThemeArgs) => SerializedStyles {
+  return (args: ThemeArgs) => {
     const theme = getTheme(args);
+
     const { fontSize, lineHeight } = (theme.typography[type][
       size
     ] as unknown) as {
       fontSize: string;
       lineHeight: string;
     };
-    return css`
-      font-size: ${fontSize};
-      line-height: ${lineHeight};
-    `;
+
+    return css({ fontSize, lineHeight });
   };
 }
-
-/**
- * @private
- */
-export const headingKilo = createTypeHelper('headings', 'kilo');
-/**
- * @private
- */
-export const headingMega = createTypeHelper('headings', 'mega');
-/**
- * @private
- */
-export const headingGiga = createTypeHelper('headings', 'giga');
-/**
- * @private
- */
-export const headingTera = createTypeHelper('headings', 'tera');
-/**
- * @private
- */
-export const headingPeta = createTypeHelper('headings', 'peta');
-/**
- * @private
- */
-export const headingExa = createTypeHelper('headings', 'exa');
-/**
- * @private
- */
-export const headingZetta = createTypeHelper('headings', 'zetta');
-
-/**
- * @private
- */
-export const subHeadingKilo = createTypeHelper('subHeadings', 'kilo');
-/**
- * @private
- */
-export const subHeadingMega = createTypeHelper('subHeadings', 'mega');
-
-/**
- * @private
- */
-export const textKilo = createTypeHelper('text', 'kilo');
-/**
- * @private
- */
-export const textMega = createTypeHelper('text', 'mega');
-/**
- * @private
- */
-export const textGiga = createTypeHelper('text', 'giga');
 
 /**
  * Visually communicates to the user that an element is disabled

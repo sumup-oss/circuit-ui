@@ -6,6 +6,8 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -15,8 +17,6 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   word-break: break-word;
   border: 1px solid #CCC;
   border-radius: 8px;

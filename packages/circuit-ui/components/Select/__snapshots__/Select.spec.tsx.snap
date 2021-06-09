@@ -47,7 +47,7 @@ select:not(:active) ~ .circuit-2 {
 }
 
 .circuit-4 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   opacity: 0.5;
@@ -57,6 +57,8 @@ select:not(:active) ~ .circuit-2 {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -80,8 +82,6 @@ select:not(:active) ~ .circuit-2 {
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -167,7 +167,7 @@ select:not(:active) ~ .circuit-2 {
 
 exports[`Select should render with a label 1`] = `
 .circuit-5 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -185,6 +185,8 @@ label + .circuit-4 {
 }
 
 .circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -208,8 +210,6 @@ label + .circuit-4 {
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -343,7 +343,7 @@ select:not(:active) ~ .circuit-3 {
 
 exports[`Select should render with a prefix when passed the prefix prop 1`] = `
 .circuit-5 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -407,6 +407,8 @@ select:not(:active) ~ .circuit-3 {
 }
 
 .circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -430,8 +432,6 @@ select:not(:active) ~ .circuit-3 {
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #999;
 }
@@ -531,7 +531,7 @@ select:not(:active) ~ .circuit-3 {
 
 exports[`Select should render with a tooltip when passed a validation hint 1`] = `
 .circuit-5 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -549,6 +549,8 @@ label + .circuit-3 {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -572,8 +574,6 @@ label + .circuit-3 {
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -633,7 +633,7 @@ select:not(:active) ~ .circuit-2 {
 }
 
 .circuit-4 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -724,13 +724,15 @@ select:not(:active) ~ .circuit-2 {
 
 exports[`Select should render with a visually-hidden label 1`] = `
 .circuit-5 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
 .circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -754,8 +756,6 @@ exports[`Select should render with a visually-hidden label 1`] = `
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -908,7 +908,7 @@ select:not(:active) ~ .circuit-3 {
 
 exports[`Select should render with default styles 1`] = `
 .circuit-4 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -926,6 +926,8 @@ label + .circuit-3 {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -949,8 +951,6 @@ label + .circuit-3 {
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -1124,7 +1124,7 @@ select:not(:active) ~ .circuit-2 {
 }
 
 .circuit-4 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   opacity: 0.5;
@@ -1134,6 +1134,8 @@ select:not(:active) ~ .circuit-2 {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1157,8 +1159,6 @@ select:not(:active) ~ .circuit-2 {
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -1254,6 +1254,8 @@ label + .circuit-3 {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1277,8 +1279,6 @@ label + .circuit-3 {
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -1338,7 +1338,7 @@ select:not(:active) ~ .circuit-2 {
 }
 
 .circuit-4 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   display: inline-block;
@@ -1417,7 +1417,7 @@ select:not(:active) ~ .circuit-2 {
 
 exports[`Select should render with invalid styles when passed the invalid prop 1`] = `
 .circuit-4 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -1469,6 +1469,8 @@ select:not(:active) ~ .circuit-2 {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1492,8 +1494,6 @@ select:not(:active) ~ .circuit-2 {
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   padding-right: 56px;
   box-shadow: 0 0 0 1px #D23F47;
 }
@@ -1601,6 +1601,8 @@ label + .circuit-3 {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1624,8 +1626,6 @@ label + .circuit-3 {
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -1685,7 +1685,7 @@ select:not(:active) ~ .circuit-2 {
 }
 
 .circuit-4 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
 }

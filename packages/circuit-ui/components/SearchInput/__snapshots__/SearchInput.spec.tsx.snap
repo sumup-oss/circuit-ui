@@ -22,7 +22,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 }
 
 .circuit-4 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   opacity: 0.5;
@@ -37,6 +37,8 @@ label + .circuit-4:not(label) {
 }
 
 .circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -47,8 +49,6 @@ label + .circuit-4:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   background-color: #E6E6E6;
   padding-left: 40px;
   padding-right: 40px;
@@ -120,7 +120,7 @@ label + .circuit-4:not(label) {
 
 exports[`SearchInput should render with default styles 1`] = `
 .circuit-4 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -152,6 +152,8 @@ label + .circuit-4:not(label) {
 }
 
 .circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -162,8 +164,6 @@ label + .circuit-4:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   padding-left: 40px;
   padding-right: 40px;
   box-shadow: 0 0 0 1px #999;

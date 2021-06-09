@@ -2,6 +2,8 @@
 
 exports[`ButtonGroup Center aligment should render with center alignment styles 1`] = `
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -18,8 +20,6 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -62,6 +62,8 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
 }
 
 .circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -78,8 +80,6 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -187,6 +187,8 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
 
 exports[`ButtonGroup Left aligment should render with left alignment styles 1`] = `
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -203,8 +205,6 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -247,6 +247,8 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
 }
 
 .circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -263,8 +265,6 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -420,6 +420,8 @@ exports[`ButtonGroup should render with default styles 1`] = `
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -436,8 +438,6 @@ exports[`ButtonGroup should render with default styles 1`] = `
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -480,6 +480,8 @@ exports[`ButtonGroup should render with default styles 1`] = `
 }
 
 .circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -496,8 +498,6 @@ exports[`ButtonGroup should render with default styles 1`] = `
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;

@@ -148,40 +148,12 @@ exports[`List should render with no margin styles when passed the noMargin prop 
 </ul>
 `;
 
-exports[`List should render with size giga 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  padding-left: 16px;
-  font-size: 18px;
-  line-height: 28px;
-}
-
-.circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 12px;
-}
-
-.circuit-0 ul,
-.circuit-0 ol {
-  margin-left: 12px;
-}
-
-<ul
-  class="circuit-0"
->
-  <li>
-    giga
-  </li>
-</ul>
-`;
-
 exports[`List should render with size kilo 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
   padding-left: 12px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
 }
 

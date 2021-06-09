@@ -21,7 +21,7 @@ import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
-  textMega,
+  typography,
   hideVisually,
   inputOutline,
 } from '../../styles/style-mixins';
@@ -172,7 +172,6 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     padding ${theme.transitions.default};
   width: 100%;
   margin: 0;
-  ${textMega({ theme })};
 
   &::placeholder {
     color: ${theme.colors.n500};
@@ -245,6 +244,7 @@ const inputSuffixStyles = ({ hasSuffix }: StyleProps & InputElProps) =>
   `;
 
 const InputElement = styled('input')<InputElProps>(
+  typography('body', 'one'),
   inputBaseStyles,
   inputWarningStyles,
   inputInvalidStyles,
