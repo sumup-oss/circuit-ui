@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { Cell, Direction, SortParams } from './types';
 import * as utils from './utils';
 
 describe('Table utils', () => {
@@ -108,7 +109,12 @@ describe('Table utils', () => {
     });
 
     it('should return the sortByValue', () => {
-      const props = { children: 'Foo', sortByValue: 'Foo' };
+      const props: Cell = {
+        children: 'Foo',
+        sortable: true,
+        sortLabel: 'Sort',
+        sortByValue: 'Foo',
+      };
       const expected = props.sortByValue;
       const actual = utils.getSortByValue(props);
 
@@ -188,6 +194,78 @@ describe('Table utils', () => {
       const arr = [[2], [7], [10]];
       const expected = [[10], [7], [2]];
       const actual = [...arr].sort(utils.descendingSort(index));
+
+      expect(actual).toEqual(expected);
+    });
+  });
+
+  describe('getSortParams', () => {
+    it('should return sort params with a string sortLabel', () => {
+      const actual = utils.getSortParams({
+        rowIndex: 1,
+        sortable: true,
+        sortLabel: 'Sort',
+      });
+      const expected: SortParams = {
+        sortable: true,
+        isSorted: false,
+        sortLabel: 'Sort',
+      };
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return sort params with a function sortLabel', () => {
+      const sortLabel = ({ direction }: { direction?: Direction }) => {
+        const order = direction === 'ascending' ? 'descending' : 'ascending';
+        return `Sort in ${order} order`;
+      };
+      const actual = utils.getSortParams({
+        rowIndex: 1,
+        sortable: true,
+        sortLabel,
+      });
+      const expected: SortParams = {
+        sortable: true,
+        isSorted: false,
+        sortLabel: 'Sort in ascending order',
+      };
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return sort params for a currently sorted row', () => {
+      const sortLabel = ({ direction }: { direction?: Direction }) => {
+        const order = direction === 'ascending' ? 'descending' : 'ascending';
+        return `Sort in ${order} order`;
+      };
+      const actual = utils.getSortParams({
+        rowIndex: 1,
+        sortedRow: 1,
+        sortable: true,
+        sortDirection: 'descending',
+        sortLabel,
+      });
+      const expected: SortParams = {
+        sortable: true,
+        isSorted: true,
+        sortLabel: 'Sort in ascending order',
+        sortDirection: 'descending',
+      };
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return sortable:false if sortable is falsy', () => {
+      const actual = utils.getSortParams({ rowIndex: 0 });
+      const expected = { sortable: false };
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return sortable:false if sortLabel is falsy', () => {
+      const actual = utils.getSortParams({ rowIndex: 0, sortable: true });
+      const expected = { sortable: false };
 
       expect(actual).toEqual(expected);
     });

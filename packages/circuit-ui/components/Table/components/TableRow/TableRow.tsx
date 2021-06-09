@@ -72,6 +72,9 @@ const clickableStyles = ({ theme, onClick }: StyleProps & TableRowProps) =>
 
 const Tr = styled.tr(baseStyles, clickableStyles);
 
+/**
+ * TableRow for the Table component. The Table handles rendering it.
+ */
 const TableRow: FC<TableRowProps> = ({ onClick, ...props }) => (
   <Tr onClick={onClick} tabIndex={onClick ? 0 : undefined} {...props} />
 );

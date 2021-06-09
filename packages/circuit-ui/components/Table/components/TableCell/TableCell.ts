@@ -21,27 +21,20 @@ const PRESENTATION = 'presentation';
 
 export type TableCellProps = {
   /**
-   * Aligns the content of the Cell with text-align
+   * Aligns the content of the Cell with text-align.
    */
   align?: 'left' | 'right' | 'center';
   /**
-   * @private Add heading styles to placeholder Cell.
-   * Handled internally
+   * Adds heading styles to placeholder Cell.
    */
   header?: boolean;
   /**
-   * @private Adds active style to the Cell if it is currently hovered by
-   * sort.
-   * Handled internally
+   * Adds active style to the Cell if it is currently hovered by sort.
    */
   isHovered?: boolean;
   condensed?: boolean;
   sortable?: boolean;
   role?: 'presentation';
-  /**
-   * @private A testid for selecting table cells in tests. Handled internally.
-   */
-  ['data-testid']?: string;
 };
 
 const baseStyles = ({
@@ -73,6 +66,7 @@ const presentationStyles = ({
       font-size: ${theme.typography.text.kilo.fontSize};
       font-weight: ${theme.fontWeight.bold};
       padding: ${theme.spacings.byte} ${theme.spacings.giga};
+      white-space: nowrap;
     `}
 
     ${theme.mq.untilMega} {
@@ -120,8 +114,7 @@ const condensedPresentationStyles = ({
   `;
 
 /**
- * TableCell component for the Table. You shouldn't import this component
- * directly, the Table handles it
+ * TableCell for the Table component. The Table handles rendering it.
  */
 const TableCell = styled.td<TableCellProps>`
   ${baseStyles};
@@ -130,13 +123,5 @@ const TableCell = styled.td<TableCellProps>`
   ${hoverStyles};
   ${condensedPresentationStyles};
 `;
-
-/**
- * FIXME: we don't need this data-testid (should query by role when testing)
- * but some might rely on it in their tests, so this will be a breaking change.
- */
-TableCell.defaultProps = {
-  'data-testid': 'table-cell',
-};
 
 export default TableCell;

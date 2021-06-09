@@ -15,7 +15,16 @@
 
 import { ReactNode } from 'react';
 
-import { Direction, SortByValue, CellObject, Cell, Row } from './types';
+import { isFunction } from '../../util/type-check';
+
+import {
+  Direction,
+  SortByValue,
+  CellObject,
+  Cell,
+  Row,
+  SortParams,
+} from './types';
 
 export const mapRowProps = (props: Row): { cells: Cell[] } =>
   Array.isArray(props) ? { cells: props } : props;
@@ -98,4 +107,31 @@ export const descendingSort = (i: number) => (a: Row, b: Row): 0 | 1 | -1 => {
   }
 
   return 0;
+};
+
+export const getSortParams = ({
+  rowIndex,
+  sortable,
+  sortDirection,
+  sortLabel,
+  sortedRow,
+}: {
+  rowIndex: number;
+  sortable?: boolean;
+  sortDirection?: Direction;
+  sortLabel?: string | (({ direction }: { direction?: Direction }) => string);
+  sortedRow?: number;
+}): SortParams => {
+  if (!sortable || !sortLabel) {
+    return { sortable: false };
+  }
+  const isSorted = sortedRow === rowIndex;
+  return {
+    sortable: true,
+    sortLabel: isFunction(sortLabel)
+      ? sortLabel({ direction: sortDirection })
+      : sortLabel,
+    sortDirection: isSorted ? sortDirection : undefined,
+    isSorted,
+  };
 };

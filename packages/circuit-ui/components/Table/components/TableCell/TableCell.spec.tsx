@@ -46,7 +46,7 @@ describe('TableCell', () => {
 
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<TableCell sortable>{children}</TableCell>);
+      const wrapper = renderToHtml(<TableCell>{children}</TableCell>);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });

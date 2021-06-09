@@ -13,99 +13,54 @@
  * limitations under the License.
  */
 
-import React, {
-  HTMLProps,
-  FC,
-  ReactNode,
-  MouseEvent,
-  KeyboardEvent,
-} from 'react';
+import React, { HTMLProps, FC, MouseEventHandler } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import { focusOutline } from '../../../../styles/style-mixins';
-import { isFunction } from '../../../../util/type-check';
 import SortArrow from '../SortArrow';
 import styled, { StyleProps } from '../../../../styles/styled';
-import { Direction } from '../../types';
+import { SortParams } from '../../types';
 
 export interface TableHeaderProps
-  extends HTMLProps<HTMLTableHeaderCellElement> {
+  extends Omit<HTMLProps<HTMLTableHeaderCellElement>, 'onClick'> {
   /**
-   * Aligns the content of the Header with text-align
+   * Aligns the content of the Header with text-align.
    */
   align?: 'left' | 'right' | 'center';
   /**
-   * @private Adds row or col styles based on the provided Scope.
-   * Handled internally
+   * Adds row or col styles based on the provided Scope.
    */
   scope?: 'col' | 'row';
   /**
-   * @private Adds sticky style to the Header based on rowHeader definition.
-   * Handled internally
+   * Adds sticky style to the Header based on rowHeader definition.
    */
   fixed?: boolean;
   /**
-   * @private Adds condensed style to the Header based on the table props.
-   * Handled internally
+   * Adds condensed style to the Header based on the table props.
    */
   condensed?: boolean;
   /**
-   * Defines whether or not the Header is sortable
-   */
-  sortable?: boolean;
-  /**
-   * Visually hidden label for the sort button for visually impaired users.
-   * When passed as a function, it is called with the sort `{ direction }`.
-   */
-  sortLabel?: string | (({ direction }: { direction?: Direction }) => string);
-  /**
-   * @private Adds active style to the Header if it is currently hovered by
-   * sort.
-   * Handled internally
+   * Adds active styles to the Header if it is currently hovered by sort.
    */
   isHovered?: boolean;
-  sortDirection?: Direction;
   /**
-   * @private Adds sorted style to the Header if it is currently sorted
-   * Handled internally
+   * Props related to table sorting. Defaults to not sortable.
    */
-  isSorted?: boolean;
-  onClick?: (
-    event:
-      | MouseEvent<HTMLTableHeaderCellElement | HTMLButtonElement>
-      | KeyboardEvent<HTMLTableHeaderCellElement | HTMLButtonElement>,
-  ) => void;
+  onClick?: MouseEventHandler<HTMLTableHeaderCellElement | HTMLButtonElement>;
   /**
-   * @private A testid for selecting table cells in tests. Handled internally.
+   * Props related to table sorting. Defaults to not sortable.
    */
-  ['data-testid']?: string;
-  children: ReactNode;
+  sortParams?: SortParams;
 }
-
-const getAriaSort = (
-  sortable: TableHeaderProps['sortable'],
-  sortDirection: TableHeaderProps['sortDirection'],
-) => (sortable ? sortDirection || 'none' : undefined);
-
-const getLabelSort = (
-  sortable: TableHeaderProps['sortable'],
-  sortDirection: TableHeaderProps['sortDirection'],
-  sortLabel: TableHeaderProps['sortLabel'],
-) => {
-  if (!sortable) {
-    return undefined;
-  }
-  return isFunction(sortLabel)
-    ? sortLabel({ direction: sortDirection })
-    : sortLabel;
-};
 
 /**
  * <th> element styles.
  */
-
-type ThElProps = Omit<TableHeaderProps, 'sortDirection' | 'sortLabel'>;
+type ThElProps = Omit<TableHeaderProps, 'sortParams'> & {
+  sortable: SortParams['sortable'];
+  isSorted: SortParams['isSorted'];
+};
 
 const baseStyles = ({ theme, align }: StyleProps & ThElProps) => css`
   label: table-header;
@@ -133,6 +88,7 @@ const colStyles = ({ theme, scope }: StyleProps & ThElProps) =>
     font-weight: ${theme.fontWeight.bold};
     padding: ${theme.spacings.byte} ${theme.spacings.giga};
     vertical-align: middle;
+    white-space: nowrap;
   `;
 
 const fixedStyles = ({ theme, fixed }: StyleProps & ThElProps) =>
@@ -225,45 +181,43 @@ const StyledHeader = styled('th', {
 );
 
 /**
- * TableHeader component for the Table. You shouldn't import this component
- * directly, the Table handles it
+ * TableHeader for the Table component. The Table handles rendering it.
  */
 const TableHeader: FC<TableHeaderProps> = ({
-  sortLabel,
-  sortable = false,
   children,
-  sortDirection,
   condensed,
-  onClick,
   align = 'left',
   scope = 'col',
   fixed = false,
   isHovered = false,
-  isSorted = false,
+  sortParams = { sortable: false },
+  onClick,
   ...props
-}) => {
-  const label = getLabelSort(sortable, sortDirection, sortLabel);
-  return (
-    <StyledHeader
-      sortable={sortable}
-      condensed={condensed}
-      aria-sort={getAriaSort(sortable, sortDirection)}
-      aria-label={label}
-      onClick={onClick}
-      align={align}
-      scope={scope}
-      fixed={fixed}
-      isHovered={isHovered}
-      isSorted={isSorted}
-      data-testid="table-header"
-      {...props}
-    >
-      {sortable && (
-        <SortArrow label={label} direction={sortDirection} onClick={onClick} />
-      )}
-      {children}
-    </StyledHeader>
-  );
-};
+}) => (
+  <StyledHeader
+    condensed={condensed}
+    align={align}
+    scope={scope}
+    fixed={fixed}
+    isHovered={isHovered}
+    sortable={sortParams.sortable}
+    isSorted={!!sortParams.isSorted}
+    aria-label={sortParams.sortLabel}
+    aria-sort={
+      sortParams.sortable ? sortParams.sortDirection || 'none' : undefined
+    }
+    onClick={onClick}
+    {...props}
+  >
+    {sortParams.sortable && (
+      <SortArrow
+        label={sortParams.sortLabel}
+        direction={sortParams.sortDirection}
+        onClick={onClick}
+      />
+    )}
+    {children}
+  </StyledHeader>
+);
 
 export default TableHeader;

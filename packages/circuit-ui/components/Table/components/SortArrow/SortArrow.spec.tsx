@@ -29,17 +29,17 @@ import SortArrow from '.';
 describe('SortArrow', () => {
   describe('Style tests', () => {
     it('should render with both arrows styles', () => {
-      const actual = create(<SortArrow />);
+      const actual = create(<SortArrow label="Sort" />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render with ascending arrow styles', () => {
-      const actual = create(<SortArrow direction="ascending" />);
+      const actual = create(<SortArrow label="Sort" direction="ascending" />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render with descending arrow styles', () => {
-      const actual = create(<SortArrow direction="descending" />);
+      const actual = create(<SortArrow label="Sort" direction="descending" />);
       expect(actual).toMatchSnapshot();
     });
   });
@@ -48,7 +48,7 @@ describe('SortArrow', () => {
     it('should call the onClick callback', () => {
       const onClick = jest.fn();
       const { getByTestId } = render(
-        <SortArrow onClick={onClick} data-testid="sort" />,
+        <SortArrow label="Sort" onClick={onClick} data-testid="sort" />,
       );
       act(() => {
         userEvent.click(getByTestId('sort'));
@@ -59,7 +59,7 @@ describe('SortArrow', () => {
 
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<SortArrow />);
+      const wrapper = renderToHtml(<SortArrow label="Sort" />);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });

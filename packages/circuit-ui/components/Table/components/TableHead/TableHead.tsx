@@ -19,21 +19,18 @@ import { css } from '@emotion/core';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
-import { mapCellProps, getCellChildren } from '../../utils';
+import { mapCellProps, getCellChildren, getSortParams } from '../../utils';
 import { Cell, Direction } from '../../types';
-import { TH_KEY_PREFIX } from '../../constants';
 import styled, { StyleProps } from '../../../../styles/styled';
 
 type ScrollableOptions =
   | {
       /**
-       * @private Adds scrollable styles the table head according to the table props.
-       * Handled internally.
+       * Adds scrollable styles the table head according to the table props.
        */
       scrollable: true;
       /**
-       * @private The value used to make the thead fixed while scrolling.
-       * Handled internally.
+       * The value used to make the thead fixed while scrolling.
        */
       top: number;
     }
@@ -44,8 +41,7 @@ type ScrollableOptions =
 
 type TableHeadProps = ScrollableOptions & {
   /**
-   * An array of headers for the table. The Header can be a string or an object
-   * with options described on TableHeader component
+   * An array of header cells for the table.
    */
   headers?: Cell[];
   /**
@@ -53,28 +49,27 @@ type TableHeadProps = ScrollableOptions & {
    */
   rowHeaders?: boolean;
   /**
-   * @private Adds condensed styles the table head according to the table props.
-   * Handled internally.
+   * Adds condensed styles the table head according to the table props.
    */
   condensed?: boolean;
   /**
-   * @private sortBy handler
+   * sortBy handler
    */
   onSortBy?: (i: number) => void;
   /**
-   * @private The current sortDirection
+   * The current sortDirection
    */
   sortDirection?: Direction;
   /**
-   * @private The current sorted row index
+   * The current sorted row index
    */
   sortedRow?: number;
   /**
-   * @private sortEnter handler
+   * sortEnter handler
    */
   onSortEnter?: (i: number) => void;
   /**
-   * @private sortLeave handler
+   * sortLeave handler
    */
   onSortLeave?: (i: number) => void;
 };
@@ -102,6 +97,9 @@ const Thead = styled.thead<TheadElProps>`
   ${fixedStyles}
 `;
 
+/**
+ * TableHead for the Table component. The Table handles rendering it.
+ */
 const TableHead = ({
   headers = [],
   rowHeaders = false,
@@ -119,29 +117,36 @@ const TableHead = ({
       <TableRow>
         {headers.map((header, i) => {
           const cellProps = mapCellProps(header);
+          const { sortable, sortLabel } = cellProps;
+          const sortParams = getSortParams({
+            rowIndex: i,
+            sortable,
+            sortDirection,
+            sortLabel,
+            sortedRow,
+          });
           return (
-            <Fragment key={`${TH_KEY_PREFIX}-${i}`}>
+            <Fragment key={`table-header-${i}`}>
               <TableHeader
                 {...cellProps}
                 condensed={condensed}
                 fixed={rowHeaders && i === 0}
                 onClick={
-                  cellProps.sortable
+                  sortParams.sortable
                     ? onSortBy && (() => onSortBy(i))
                     : undefined
                 }
                 onMouseEnter={
-                  cellProps.sortable
+                  sortParams.sortable
                     ? onSortEnter && (() => onSortEnter(i))
                     : undefined
                 }
                 onMouseLeave={
-                  cellProps.sortable
+                  sortParams.sortable
                     ? onSortLeave && (() => onSortLeave(i))
                     : undefined
                 }
-                sortDirection={sortedRow === i ? sortDirection : undefined}
-                isSorted={sortedRow === i}
+                sortParams={sortParams}
               />
               {rowHeaders && i === 0 && (
                 <TableCell

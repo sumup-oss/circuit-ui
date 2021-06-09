@@ -16,7 +16,6 @@
 import React from 'react';
 
 import { create, renderToHtml, axe } from '../../../../util/test-utils';
-import { Direction } from '../../types';
 
 import TableHeader from '.';
 
@@ -35,12 +34,14 @@ describe('TableHeader', () => {
     });
 
     it('should render with sortable styles', () => {
-      const sortLabel = ({ direction }: { direction?: Direction }) => {
-        const order = direction === 'ascending' ? 'descending' : 'ascending';
-        return `Sort by Foo in ${order} order`;
-      };
       const actual = create(
-        <TableHeader sortable sortLabel={sortLabel}>
+        <TableHeader
+          sortParams={{
+            sortable: true,
+            sortLabel: 'Sort in ascending order',
+            isSorted: false,
+          }}
+        >
           {children}
         </TableHeader>,
       );
@@ -60,7 +61,14 @@ describe('TableHeader', () => {
     describe('sortable + sorted', () => {
       it('should render with sortable + sorted ascending styles', () => {
         const actual = create(
-          <TableHeader sortable isSorted sortDirection="ascending">
+          <TableHeader
+            sortParams={{
+              sortable: true,
+              sortDirection: 'ascending',
+              sortLabel: 'Sort in descending order',
+              isSorted: true,
+            }}
+          >
             {children}
           </TableHeader>,
         );
@@ -69,7 +77,14 @@ describe('TableHeader', () => {
 
       it('should render with sortable + sorted descending styles', () => {
         const actual = create(
-          <TableHeader sortable isSorted sortDirection="descending">
+          <TableHeader
+            sortParams={{
+              sortable: true,
+              sortDirection: 'descending',
+              sortLabel: 'Sort in ascending order',
+              isSorted: true,
+            }}
+          >
             {children}
           </TableHeader>,
         );
@@ -81,7 +96,13 @@ describe('TableHeader', () => {
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(
-        <TableHeader sortable sortLabel="Sort by Foo">
+        <TableHeader
+          sortParams={{
+            sortable: true,
+            sortLabel: 'Sort in ascending order',
+            isSorted: false,
+          }}
+        >
           {children}
         </TableHeader>,
       );

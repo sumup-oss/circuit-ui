@@ -22,6 +22,7 @@ tbody .circuit-7:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -130,6 +131,7 @@ tbody .circuit-7:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 <thead
@@ -139,15 +141,15 @@ tbody .circuit-7:last-child td {
     class="circuit-7"
   >
     <th
+      aria-label="Sort in ascending order"
       aria-sort="none"
       class="circuit-4"
-      data-testid="table-header"
       scope="col"
     >
       <button
         class="circuit-3"
         role="button"
-        title="Sort"
+        title="Sort in ascending order"
       >
         <svg
           class="circuit-0"
@@ -184,21 +186,19 @@ tbody .circuit-7:last-child td {
         <span
           class="circuit-2"
         >
-          Sort
+          Sort in ascending order
         </span>
       </button>
       Foo
     </th>
     <th
       class="circuit-5"
-      data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
       class="circuit-5"
-      data-testid="table-header"
       scope="col"
     >
       Baz
@@ -287,6 +287,7 @@ tbody .circuit-8:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .circuit-4 {
@@ -301,6 +302,7 @@ tbody .circuit-8:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
@@ -362,6 +364,7 @@ tbody .circuit-8:last-child td {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
+  white-space: nowrap;
 }
 
 @media (max-width:767px) {
@@ -380,15 +383,15 @@ tbody .circuit-8:last-child td {
     class="circuit-8"
   >
     <th
+      aria-label="Sort in ascending order"
       aria-sort="none"
       class="circuit-4"
-      data-testid="table-header"
       scope="col"
     >
       <button
         class="circuit-3"
         role="button"
-        title="Sort"
+        title="Sort in ascending order"
       >
         <svg
           class="circuit-0"
@@ -425,7 +428,7 @@ tbody .circuit-8:last-child td {
         <span
           class="circuit-2"
         >
-          Sort
+          Sort in ascending order
         </span>
       </button>
       Foo
@@ -433,21 +436,18 @@ tbody .circuit-8:last-child td {
     <td
       aria-hidden="true"
       class="circuit-5"
-      data-testid="table-cell"
       role="presentation"
     >
       Foo
     </td>
     <th
       class="circuit-6"
-      data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
       class="circuit-6"
-      data-testid="table-header"
       scope="col"
     >
       Baz

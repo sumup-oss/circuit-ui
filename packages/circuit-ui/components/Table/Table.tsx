@@ -27,13 +27,12 @@ import { Direction, Row, Cell } from './types';
 export interface TableProps
   extends Omit<HTMLProps<HTMLDivElement>, 'headers' | 'rows'> {
   /**
-   * An array of headers for the table. The Header can be a string or an object
-   * with options described on TableHeader component
+   * An array of header cells for the table.
    */
   headers?: Cell[];
   /**
-   * (An array of rows or object with children) containing an array of cells for the table. The Cell can be a
-   * string or an object with options described on TableCell component
+   * An array of rows or an object with children containing an array of cells
+   * for the table.
    */
   rows: Row[];
   /**
@@ -54,14 +53,13 @@ export interface TableProps
   scrollable?: boolean;
   /**
    * Custom onSortBy function for the onSort handler.
-   * The signature is (index, nextDirection, currentRows) and it should return
+   * The signature is (index, currentRows, nextDirection) and it should return
    * an array of rows
    */
   onSortBy?: (
     index: number,
-    // FIXME: we're keeping null here for backward compatibility, will switch to an optional param in v3
-    nextDirection: Direction | null,
     currentRows: Row[],
+    nextDirection?: Direction,
   ) => Row[];
   /**
    * Click handler for the row
@@ -287,7 +285,7 @@ class Table extends Component<TableProps, TableState> {
     }
 
     return onSortBy
-      ? onSortBy(sortedRow, sortDirection || null, rows)
+      ? onSortBy(sortedRow, rows, sortDirection)
       : this.defaultSortBy(sortedRow, rows, sortDirection);
   };
 
