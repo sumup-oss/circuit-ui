@@ -22,7 +22,10 @@ function isTheme(args: ThemeArgs): args is Theme {
   return (args as { theme: Theme }).theme === undefined;
 }
 
-export const getTheme = (args: ThemeArgs): Theme =>
+/**
+ * @private
+ */
+const getTheme = (args: ThemeArgs): Theme =>
   isTheme(args) ? args : args.theme;
 
 type StyleFn =
@@ -59,7 +62,7 @@ const mapSpacingValue = (theme: Theme, value: SpacingValue) => {
       console.warn(
         [
           `The number "${value as number}" was passed to the spacing mixin.`,
-          `This is not supported. Pass a spacing constant, 'auto', or 0 instead.`,
+          "This is not supported. Pass a spacing constant, 'auto', or 0 instead.",
         ].join(' '),
       );
     }
@@ -115,6 +118,16 @@ export const spacing = (
   };
 };
 
+/**
+ * @private
+ */
+export const shadow = () => (_args: ThemeArgs): SerializedStyles => css`
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+`;
+
+/**
+ * @private
+ */
 export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
   return css`
@@ -123,6 +136,9 @@ export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
   `;
 };
 
+/**
+ * @private
+ */
 export const shadowDouble = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
   return css`
@@ -131,6 +147,9 @@ export const shadowDouble = (args: ThemeArgs): SerializedStyles => {
   `;
 };
 
+/**
+ * @private
+ */
 export const shadowTriple = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
   return css`
@@ -158,19 +177,55 @@ function createTypeHelper<T extends 'headings' | 'subHeadings' | 'text'>(
   };
 }
 
+/**
+ * @private
+ */
 export const headingKilo = createTypeHelper('headings', 'kilo');
+/**
+ * @private
+ */
 export const headingMega = createTypeHelper('headings', 'mega');
+/**
+ * @private
+ */
 export const headingGiga = createTypeHelper('headings', 'giga');
+/**
+ * @private
+ */
 export const headingTera = createTypeHelper('headings', 'tera');
+/**
+ * @private
+ */
 export const headingPeta = createTypeHelper('headings', 'peta');
+/**
+ * @private
+ */
 export const headingExa = createTypeHelper('headings', 'exa');
+/**
+ * @private
+ */
 export const headingZetta = createTypeHelper('headings', 'zetta');
 
+/**
+ * @private
+ */
 export const subHeadingKilo = createTypeHelper('subHeadings', 'kilo');
+/**
+ * @private
+ */
 export const subHeadingMega = createTypeHelper('subHeadings', 'mega');
 
+/**
+ * @private
+ */
 export const textKilo = createTypeHelper('text', 'kilo');
+/**
+ * @private
+ */
 export const textMega = createTypeHelper('text', 'mega');
+/**
+ * @private
+ */
 export const textGiga = createTypeHelper('text', 'giga');
 
 /**

@@ -4,8 +4,8 @@ exports[`NotificationBanner should render with default styles 1`] = `
 .circuit-1 {
   width: 100%;
   background-color: #FFF;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-  border-radius: 4px;
+  border-radius: 16px;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
 }
 
 .circuit-0 {

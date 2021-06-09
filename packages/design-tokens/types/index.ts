@@ -108,6 +108,7 @@ export type BorderRadius = {
   mega: string;
   giga: string;
   tera: string;
+  peta: string;
   circle: string;
   pill: string;
 };

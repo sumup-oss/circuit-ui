@@ -51,6 +51,7 @@ export const borderRadius: BorderRadius = {
   mega: '4px',
   giga: '6px',
   tera: '8px',
+  peta: '12px',
   circle: '100%',
   pill: '999999px', // HACK: By providing a very large absolute size, the browser picks the maximum size in one dimension.
 };

@@ -36,6 +36,11 @@
       "size": "large"
     },
     {
+      "name": "plus",
+      "category": "Action",
+      "size": "large"
+    },
+    {
       "name": "refresh",
       "category": "Action",
       "size": "large"
@@ -807,6 +812,11 @@
     },
     {
       "name": "play",
+      "category": "Action",
+      "size": "small"
+    },
+    {
+      "name": "plus",
       "category": "Action",
       "size": "small"
     },

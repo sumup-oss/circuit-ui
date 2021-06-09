@@ -30,7 +30,6 @@ export default {
 };
 
 const baseArgs = {
-  name: 'selector',
   value: 'default',
   noMargin: true,
 };
@@ -39,16 +38,27 @@ export const Base = (args: SelectorProps) => (
   <Selector {...args}>Select me!</Selector>
 );
 
-Base.args = baseArgs;
+Base.args = {
+  ...baseArgs,
+  name: 'base',
+};
 
 export const Selected = (args: SelectorProps) => (
   <Selector {...args}>I am selected!</Selector>
 );
 
-Selected.args = { ...baseArgs, checked: true };
+Selected.args = {
+  ...baseArgs,
+  name: 'selected',
+  checked: true,
+};
 
 export const Disabled = (args: SelectorProps) => (
   <Selector {...args}>I cannot be selected</Selector>
 );
 
-Disabled.args = { ...baseArgs, disabled: true };
+Disabled.args = {
+  ...baseArgs,
+  name: 'disabled',
+  disabled: true,
+};

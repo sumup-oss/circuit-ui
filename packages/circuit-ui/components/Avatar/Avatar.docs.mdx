@@ -1,0 +1,44 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+
+# Avatar
+
+<Status.Stable />
+
+The Avatar component displays an identity or an object image. It can be passed to the [ImageInput](Forms/ImageInput) to allow users to upload an avatar.
+
+<Story id="components-avatar--base" />
+
+<Props />
+
+## Usage guidelines
+
+- **Do** use the right variant for your use case (see _Variants_ below).
+- **Do** use the [ImageInput component](Forms/ImageInput) with the `component={Avatar}` prop to allow users to upload an avatar (note: the ImageInput only supports `variant="object"` for now).
+
+## Accessibility
+
+The Avatar has a required `alt` prop to ensure that it is accessible to visually impaired users.
+
+Alt text can be fundamental for accessibility, especially in interfaces without textual elements. For example, if the Avatar is used to render a grid of products where the names are not shown, omitting alt text would make it inaccessible.
+
+However, if the image is purely presentational, the alt text can be set to `""`. For example, if the Avatar is used as an illustrative element in a products list next to each product's name, using the product name as alt text would be redundant: assistive technology will already read out the names once. In this case, setting `alt=""` will effectively make the Avatar invisible to assistive technology.
+
+## Variants
+
+There are two variants and two sizes available for the component.
+
+### Object variant
+
+Use the object variant with a square shape for product item purposes (e.g. product catalogue).
+
+<Story id="components-avatar--object" />
+
+### Identity variant
+
+Use the identity variant with a circle shape for identity account purposes (e.g. profile, contact, business).
+
+<Story id="components-avatar--identity" />
+
+### Sizes
+
+<Story id="components-avatar--sizes" />

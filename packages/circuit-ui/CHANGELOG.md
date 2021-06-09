@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 2.6.0
+
+### Minor Changes
+
+- [#922](https://github.com/sumup-oss/circuit-ui/pull/922) [`feb6b32a`](https://github.com/sumup-oss/circuit-ui/commit/feb6b32a61964a79d87492e99da73a2a63562811) Thanks [@robinmetral](https://github.com/robinmetral)! - Added a new `ImageInput` component to allow users to upload images.
+
+* [#922](https://github.com/sumup-oss/circuit-ui/pull/922) [`feb6b32a`](https://github.com/sumup-oss/circuit-ui/commit/feb6b32a61964a79d87492e99da73a2a63562811) Thanks [@robinmetral](https://github.com/robinmetral)! - Added a new `Avatar` component to display identity or object images.
+
+- [#890](https://github.com/sumup-oss/circuit-ui/pull/890) [`e6c39366`](https://github.com/sumup-oss/circuit-ui/commit/e6c393662f6b736c3b3c80ed29f2805c58d93204) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the styles of the Card, CardList, Modal, Notification, and Table components to increase the color contrast with the new white background color. The `shadow` prop of the Card component has been deprecated and replaced with a single outline.
+
 ## 2.5.0
 
 ### Minor Changes
@@ -19,9 +29,6 @@
 ### Patch Changes
 
 - [#936](https://github.com/sumup-oss/circuit-ui/pull/936) [`b0f243a3`](https://github.com/sumup-oss/circuit-ui/commit/b0f243a3ada85d3e5f192111ddf0ed206b0e4d18) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the alignment of long, multiline labels in the RadioButton component (#934).
-
-- Updated dependencies [[`e4c940bc`](https://github.com/sumup-oss/circuit-ui/commit/e4c940bc803623cab1e36eecc122d67aeb9ca8c8)]:
-  - @sumup/design-tokens@2.1.2
 
 ## 2.4.3
 

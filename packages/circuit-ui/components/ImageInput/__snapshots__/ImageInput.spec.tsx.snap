@@ -1,0 +1,1157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageInput styles should render a custom component 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-7 {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.circuit-2:hover {
+  cursor: pointer;
+}
+
+.circuit-2:hover > button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-2:active > button {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.circuit-2:hover::before {
+  opacity: 0.1;
+}
+
+.circuit-2:active::before {
+  opacity: 0.2;
+}
+
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-6 {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  color: #FFF;
+  pointer-events: none;
+}
+
+.circuit-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #D23F47;
+  border-color: #D23F47;
+  color: #FFF;
+  padding: 8px calc(24px - 1px);
+  padding: 8px;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+}
+
+.circuit-4:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-4:hover {
+  background-color: #B22426;
+  border-color: #B22426;
+}
+
+.circuit-4:active {
+  background-color: #941618;
+  border-color: #941618;
+}
+
+<div>
+  <div
+    class="circuit-7"
+  >
+    <input
+      accept="image/*"
+      aria-invalid="false"
+      class="circuit-0"
+      id="ImageInput_4"
+      type="file"
+    />
+    <label
+      class="circuit-2"
+      for="ImageInput_4"
+    >
+      <span
+        class="circuit-1"
+      >
+        Upload an image
+      </span>
+      <img
+        alt=""
+        src="https://source.unsplash.com/EcWFOYOpkpY/800x200"
+        style="width: 400px; height: 100px;"
+      />
+    </label>
+    <button
+      class="circuit-4"
+      title="Clear"
+      type="button"
+    >
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M6.2 0c-.665 0-1.243.332-1.63.815A2.707 2.707 0 004 2.5V3H1a1 1 0 000 2h1v8.9c0 .56.225 1.095.622 1.489.397.392.932.611 1.49.611h7.777c.557 0 1.092-.219 1.49-.611.396-.394.621-.929.621-1.489V5h1a1 1 0 100-2h-3v-.5c0-.6-.189-1.208-.57-1.685C11.042.332 10.464 0 9.8 0H6.2zM10 3v-.5a.715.715 0 00-.132-.436.23.23 0 00-.069-.062L9.795 2h-3.59l-.004.002a.23.23 0 00-.069.062A.715.715 0 006 2.5V3h4zM5 5H4v8.9c0 .023.01.048.029.067.02.02.05.033.082.033h7.778a.117.117 0 00.082-.033A.094.094 0 0012 13.9V5H5zm1.5 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zm4 1a1 1 0 10-2 0v4a1 1 0 102 0v-4z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <span
+        class="circuit-3"
+      >
+        Clear
+      </span>
+    </button>
+    <span
+      class="circuit-6"
+    >
+      <span
+        class="circuit-3"
+      >
+        Uploading
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ImageInput styles should render with an existing image 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-8 {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-3 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.circuit-3:hover {
+  cursor: pointer;
+}
+
+.circuit-3:hover > button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-3:active > button {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.circuit-3:hover::before {
+  opacity: 0.1;
+}
+
+.circuit-3:active::before {
+  opacity: 0.2;
+}
+
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.circuit-4 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  color: #FFF;
+  pointer-events: none;
+}
+
+.circuit-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #D23F47;
+  border-color: #D23F47;
+  color: #FFF;
+  padding: 8px calc(24px - 1px);
+  padding: 8px;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover {
+  background-color: #B22426;
+  border-color: #B22426;
+}
+
+.circuit-5:active {
+  background-color: #941618;
+  border-color: #941618;
+}
+
+<div>
+  <div
+    class="circuit-8"
+  >
+    <input
+      accept="image/*"
+      aria-invalid="false"
+      class="circuit-0"
+      id="ImageInput_2"
+      type="file"
+    />
+    <label
+      class="circuit-3"
+      for="ImageInput_2"
+    >
+      <span
+        class="circuit-1"
+      >
+        Upload an image
+      </span>
+      <img
+        alt=""
+        class="circuit-2"
+        src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+      />
+    </label>
+    <button
+      class="circuit-5"
+      title="Clear"
+      type="button"
+    >
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M6.2 0c-.665 0-1.243.332-1.63.815A2.707 2.707 0 004 2.5V3H1a1 1 0 000 2h1v8.9c0 .56.225 1.095.622 1.489.397.392.932.611 1.49.611h7.777c.557 0 1.092-.219 1.49-.611.396-.394.621-.929.621-1.489V5h1a1 1 0 100-2h-3v-.5c0-.6-.189-1.208-.57-1.685C11.042.332 10.464 0 9.8 0H6.2zM10 3v-.5a.715.715 0 00-.132-.436.23.23 0 00-.069-.062L9.795 2h-3.59l-.004.002a.23.23 0 00-.069.062A.715.715 0 006 2.5V3h4zM5 5H4v8.9c0 .023.01.048.029.067.02.02.05.033.082.033h7.778a.117.117 0 00.082-.033A.094.094 0 0012 13.9V5H5zm1.5 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zm4 1a1 1 0 10-2 0v4a1 1 0 102 0v-4z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <span
+        class="circuit-4"
+      >
+        Clear
+      </span>
+    </button>
+    <span
+      class="circuit-7"
+    >
+      <span
+        class="circuit-4"
+      >
+        Uploading
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ImageInput styles should render with default styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-8 {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-3 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.circuit-3:hover {
+  cursor: pointer;
+}
+
+.circuit-3:hover > button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-3:active > button {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.circuit-3:hover::before {
+  opacity: 0.1;
+}
+
+.circuit-3:active::before {
+  opacity: 0.2;
+}
+
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.circuit-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
+  padding: 8px calc(24px - 1px);
+  padding: 8px;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  pointer-events: none;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-5:active {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-4 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  color: #FFF;
+  pointer-events: none;
+}
+
+<div>
+  <div
+    class="circuit-8"
+  >
+    <input
+      accept="image/*"
+      aria-invalid="false"
+      class="circuit-0"
+      id="ImageInput_1"
+      type="file"
+    />
+    <label
+      class="circuit-3"
+      for="ImageInput_1"
+    >
+      <span
+        class="circuit-1"
+      >
+        Upload an image
+      </span>
+      <img
+        alt=""
+        class="circuit-2"
+        src="data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" fill=\\"none\\" viewBox=\\"0 0 96 96\\"><path fill=\\"white\\" d=\\"M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z\\"/></svg>"
+      />
+    </label>
+    <button
+      aria-hidden="true"
+      class="circuit-5"
+      tabindex="-1"
+      title=""
+      type="button"
+    >
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        width="16"
+      >
+        <path
+          d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
+          fill="#fff"
+        />
+      </svg>
+      <span
+        class="circuit-4"
+      />
+    </button>
+    <span
+      class="circuit-7"
+    >
+      <span
+        class="circuit-4"
+      >
+        Uploading
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ImageInput styles should render with invalid styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-8 {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.circuit-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
+  padding: 8px calc(24px - 1px);
+  padding: 8px;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  pointer-events: none;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-5:active {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-4 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  color: #FFF;
+  pointer-events: none;
+}
+
+.circuit-3 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.circuit-3:hover {
+  cursor: pointer;
+}
+
+.circuit-3:hover > button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-3:active > button {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-3::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 2px #D23F47;
+}
+
+.circuit-3:hover::after {
+  box-shadow: inset 0 0 0 2px #B22426;
+}
+
+.circuit-3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.circuit-3:hover::before {
+  opacity: 0.1;
+}
+
+.circuit-3:active::before {
+  opacity: 0.2;
+}
+
+.circuit-10 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  margin-top: 4px;
+  color: #666;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+  color: #D23F47;
+}
+
+.circuit-9 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 0.15em;
+  margin-right: 4px;
+  color: #D23F47;
+}
+
+<div>
+  <div
+    class="circuit-8"
+  >
+    <input
+      accept="image/*"
+      aria-invalid="true"
+      class="circuit-0"
+      id="ImageInput_3"
+      type="file"
+    />
+    <label
+      class="circuit-3"
+      for="ImageInput_3"
+    >
+      <span
+        class="circuit-1"
+      >
+        Upload an image
+      </span>
+      <img
+        alt=""
+        class="circuit-2"
+        src="data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" fill=\\"none\\" viewBox=\\"0 0 96 96\\"><path fill=\\"white\\" d=\\"M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z\\"/></svg>"
+      />
+    </label>
+    <button
+      aria-hidden="true"
+      class="circuit-5"
+      tabindex="-1"
+      title=""
+      type="button"
+    >
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        width="16"
+      >
+        <path
+          d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
+          fill="#fff"
+        />
+      </svg>
+      <span
+        class="circuit-4"
+      />
+    </button>
+    <span
+      class="circuit-7"
+    >
+      <span
+        class="circuit-4"
+      >
+        Uploading
+      </span>
+    </span>
+  </div>
+  <span
+    class="circuit-10"
+  >
+    <svg
+      class="circuit-9"
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+    The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB.
+  </span>
+</div>
+`;

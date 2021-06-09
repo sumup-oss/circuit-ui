@@ -23,6 +23,7 @@ import { create } from '../util/test-utils';
 import {
   cx,
   spacing,
+  shadow,
   shadowSingle,
   shadowDouble,
   shadowTriple,
@@ -130,6 +131,17 @@ describe('Style helpers', () => {
     it('should support the `auto` spacing value', () => {
       const { styles } = spacing('auto')(light);
       expect(styles).toMatchInlineSnapshot(`"margin:auto;"`);
+    });
+  });
+
+  describe('shadow', () => {
+    it('should match the snapshot', () => {
+      const { styles } = shadow()({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+          box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+        "
+      `);
     });
   });
 

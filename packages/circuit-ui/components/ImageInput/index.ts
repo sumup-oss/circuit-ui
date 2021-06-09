@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,25 +13,8 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
+import { ImageInput } from './ImageInput';
 
-import Card from '../Card';
+export type { ImageInputProps } from './ImageInput';
 
-/**
- * Component that wraps a list of CardList.Item components
- */
-const Wrapper = styled(Card)`
-  label: cardlist__wrapper;
-
-  padding: 0;
-  border-radius: ${(p) => p.theme.borderRadius.mega};
-  border: ${(p) => `${p.theme.borderWidth.kilo} solid ${p.theme.colors.n300}`};
-`;
-
-Wrapper.defaultProps = Card.defaultProps;
-Wrapper.displayName = 'CardList';
-
-/**
- * @component
- */
-export default Wrapper;
+export default ImageInput;
