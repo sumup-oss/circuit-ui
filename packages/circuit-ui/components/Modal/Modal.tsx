@@ -14,40 +14,23 @@
  */
 
 import { FC, MouseEvent, KeyboardEvent, ReactNode } from 'react';
-import ReactModal, { Props } from 'react-modal';
+import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { ClassNames } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';
-import noScroll from 'no-scroll';
 
-import IS_IOS from '../../util/ios';
 import { isFunction } from '../../util/type-check';
 import { useClickHandler } from '../../hooks/useClickHandler';
 
 type OnClose = (event?: MouseEvent | KeyboardEvent) => void;
 
-export interface ModalProps extends Partial<Props> {
+export interface ModalProps extends Omit<ReactModalProps, 'isOpen'> {
   children: ReactNode | (({ onClose }: { onClose?: OnClose }) => ReactNode);
   /**
-   * Determines if the modal is visible or not.
-   */
-  isOpen?: boolean;
-  /**
-   * Function to close the modal. Passed down to the children
-   * render prop.
+   * Function to close the modal. Passed down to the children render prop.
    */
   onClose?: OnClose;
-  /**
-   * React Modal's accessibility string.
-   */
-  contentLabel?: string;
-  /**
-   * The element that should be used as root for the
-   * React portal used to display the modal. See
-   * http://reactcommunity.org/react-modal/accessibility/#app-element
-   */
-  appElement?: string | HTMLElement;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -55,7 +38,6 @@ export interface ModalProps extends Partial<Props> {
 }
 
 export const TRANSITION_DURATION = 200;
-export const DEFAULT_APP_ELEMENT = '#root';
 
 const TOP_MARGIN = '10vh';
 const TRANSFORM_Y_FLOATING = '10vh';
@@ -73,15 +55,12 @@ export const Modal: FC<ModalProps> = ({
   children,
   onClose,
   contentLabel = 'Modal',
-  appElement = DEFAULT_APP_ELEMENT,
-  isOpen = true,
   tracking = {},
   ...props
 }) => {
   const theme: Theme = useTheme();
   const handleClose =
     useClickHandler(onClose, tracking, 'modal-close') || onClose;
-  ReactModal.setAppElement(appElement);
   return (
     <ClassNames>
       {({ css }) => {
@@ -178,17 +157,15 @@ export const Modal: FC<ModalProps> = ({
         };
 
         const reactModalProps = {
-          isOpen,
+          isOpen: true,
           className,
           overlayClassName,
-          htmlOpenClassName: 'ReactModal__Html--open',
           contentLabel,
-          onAfterOpen: () => IS_IOS && noScroll.on(),
-          onAfterClose: () => IS_IOS && noScroll.off(),
           onRequestClose: handleClose,
           closeTimeoutMS: TRANSITION_DURATION,
           ...props,
         };
+
         return (
           <ReactModal {...reactModalProps}>
             {isFunction(children)

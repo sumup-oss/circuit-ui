@@ -13,5 +13,14 @@
  * limitations under the License.
  */
 
-export { useModal } from './useModal';
-export type { ModalProps } from './Modal';
+// import React from 'react';
+
+// import { render, act, userEvent, waitFor } from '../../util/test-utils';
+// import Button from '../Button';
+
+// import { ModalProps } from './Modal';
+// import { ModalProvider, useModal } from './ModalContext';
+
+describe('ModalContext', () => {});
+
+export const tmp = 'tmp';
