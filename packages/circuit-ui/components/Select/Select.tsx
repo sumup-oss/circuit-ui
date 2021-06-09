@@ -235,7 +235,7 @@ const selectPrefixStyles = ({ theme, hasPrefix }: StyleProps & SelectElProps) =>
   `;
 
 const SelectElement = styled.select<SelectElProps>(
-  typography('body', 'one'),
+  typography('one'),
   selectBaseStyles,
   selectInvalidStyles,
   selectPrefixStyles,

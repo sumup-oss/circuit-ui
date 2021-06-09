@@ -36,7 +36,7 @@ const buttonBase = ({ theme, primary }) => css`
   border: none;
   background: none;
 
-  ${typography('body', 'two')(theme)};
+  ${typography('two')(theme)};
   margin-left: ${theme.spacings.kilo}};
   cursor: pointer;
   color: ${primary ? theme.colors.b500 : theme.colors.n900};

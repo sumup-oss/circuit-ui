@@ -194,7 +194,7 @@ export const createBaseStyles = ({ theme }: StyleProps) => css`
   body {
     background-color: ${theme.colors.bodyBg};
     color: ${theme.colors.bodyColor};
-    ${typography('body', 'one')(theme)};
+    ${typography('one')(theme)};
   }
 
   /**

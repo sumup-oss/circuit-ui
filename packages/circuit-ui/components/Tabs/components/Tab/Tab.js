@@ -72,7 +72,7 @@ const selectedTabStyles = ({ theme, selected }) =>
 const tabIndex = (selected) => (selected ? undefined : '-1');
 
 const StyledTab = styled('button')(
-  typography('body', 'one'),
+  typography('one'),
   defaultTabStyles,
   selectedTabStyles,
 );

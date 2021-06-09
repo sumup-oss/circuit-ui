@@ -125,7 +125,7 @@ const positionAndAlignStyles = ({
  * A Tooltip component
  */
 const Tooltip = styled('div')(
-  typography('body', 'two'),
+  typography('two'),
   baseStyles,
   shadowSingle,
   positionAndAlignStyles,

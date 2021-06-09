@@ -220,7 +220,7 @@ const labelHiddenStyles = ({ hideLabel }: LabelElProps) =>
   `;
 
 const ProgressBarLabel = styled('span')<LabelElProps>(
-  typography('body', 'two'),
+  typography('two'),
   labelStyles,
   labelHiddenStyles,
 );

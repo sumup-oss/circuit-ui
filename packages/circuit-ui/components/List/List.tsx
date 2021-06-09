@@ -56,13 +56,13 @@ const sizeStyles = ({ theme, size = 'mega' }: ListProps & StyleProps) => {
       marginBottom: theme.spacings.kilo,
       paddingLeft: theme.spacings.kilo,
       marginLeft: theme.spacings.bit,
-      type: typography('body', 'two')(theme),
+      type: typography('two')(theme),
     },
     mega: {
       marginBottom: theme.spacings.byte,
       paddingLeft: theme.spacings.kilo,
       marginLeft: theme.spacings.kilo,
-      type: typography('body', 'one')(theme),
+      type: typography('one')(theme),
     },
   };
   const { marginBottom, paddingLeft, marginLeft, type } = sizeMap[size];

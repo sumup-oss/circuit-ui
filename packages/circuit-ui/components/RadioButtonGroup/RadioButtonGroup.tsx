@@ -70,7 +70,7 @@ const legendStyles = ({ theme }: StyleProps) => css`
   margin-bottom: ${theme.spacings.bit};
 `;
 
-const Legend = styled('legend')(legendStyles, typography('body', 'two'));
+const Legend = styled('legend')(legendStyles, typography('two'));
 
 /**
  * A group of RadioButtons.

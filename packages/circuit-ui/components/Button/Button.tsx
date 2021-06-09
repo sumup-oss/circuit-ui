@@ -265,7 +265,7 @@ const iconStyles = (theme: Theme) => css`
 const StyledButton = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<ButtonProps>(
-  typography('body', 'one'),
+  typography('one'),
   baseStyles,
   primaryStyles,
   secondaryStyles,

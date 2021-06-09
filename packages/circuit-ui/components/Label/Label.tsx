@@ -74,7 +74,7 @@ const disabledStyles = ({ disabled }: LabelProps) =>
  * Label component for form inputs.
  */
 export const Label = styled.label<LabelProps>(
-  typography('body', 'two'),
+  typography('two'),
   baseStyles,
   visuallyHiddenStyles,
   inlineStyles,

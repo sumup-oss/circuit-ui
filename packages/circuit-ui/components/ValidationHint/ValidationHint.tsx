@@ -59,7 +59,7 @@ const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
   `;
 
 const Wrapper = styled('span')<ValidationHintProps>(
-  typography('body', 'two'),
+  typography('two'),
   baseStyles,
   validStyles,
   invalidStyles,

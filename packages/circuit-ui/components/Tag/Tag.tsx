@@ -145,7 +145,7 @@ const tagSelectedClickableStyles = ({
   `;
 
 const TagElement = styled('div')<TagElProps>(
-  typography('body', 'one'),
+  typography('one'),
   tagBaseStyles,
   tagRemovableStyles,
   tagClickableStyles,

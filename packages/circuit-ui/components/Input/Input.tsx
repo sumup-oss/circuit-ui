@@ -244,7 +244,7 @@ const inputSuffixStyles = ({ hasSuffix }: StyleProps & InputElProps) =>
   `;
 
 const InputElement = styled('input')<InputElProps>(
-  typography('body', 'one'),
+  typography('one'),
   inputBaseStyles,
   inputWarningStyles,
   inputInvalidStyles,

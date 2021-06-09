@@ -161,21 +161,13 @@ export const shadowTriple = (args: ThemeArgs): SerializedStyles => {
 /**
  * Adds margin to one or more sides of an element.
  */
-export function typography<T extends keyof Theme['typography']>(
-  type: T,
-  size: keyof Theme['typography'][T],
+export function typography(
+  size: keyof Theme['typography']['body'],
 ): (args: ThemeArgs) => SerializedStyles {
   return (args: ThemeArgs) => {
     const theme = getTheme(args);
 
-    const { fontSize, lineHeight } = (theme.typography[type][
-      size
-    ] as unknown) as {
-      fontSize: string;
-      lineHeight: string;
-    };
-
-    return css({ fontSize, lineHeight });
+    return css(theme.typography.body[size]);
   };
 }
 
