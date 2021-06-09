@@ -27,6 +27,7 @@ import {
   shadowSingle,
   shadowDouble,
   shadowTriple,
+  typography,
   disableVisually,
   hideVisually,
   focusOutline,
@@ -166,6 +167,15 @@ describe('Style helpers', () => {
               0 4px 4px 0 rgba(12, 15, 20, 0.07), 0 8px 8px 0 rgba(12, 15, 20, 0.07);
           "
       `);
+    });
+  });
+
+  describe('typography', () => {
+    it('should match the snapshot', () => {
+      const { styles } = typography('one')(light);
+      expect(styles).toMatchInlineSnapshot(
+        `"font-size:16px;line-height:24px;"`,
+      );
     });
   });
 

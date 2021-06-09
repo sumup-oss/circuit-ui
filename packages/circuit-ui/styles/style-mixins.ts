@@ -159,7 +159,7 @@ export const shadowTriple = (args: ThemeArgs): SerializedStyles => {
 };
 
 /**
- * Adds margin to one or more sides of an element.
+ * Sets the font size and line height matching the Body component.
  */
 export function typography(
   size: keyof Theme['typography']['body'],
