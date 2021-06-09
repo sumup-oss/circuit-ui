@@ -16,6 +16,7 @@
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../../../styles/styled';
+import { typography } from '../../../../styles/style-mixins';
 
 const PRESENTATION = 'presentation';
 
@@ -63,7 +64,7 @@ const presentationStyles = ({
 
     ${header &&
     css`
-      font-size: ${theme.typography.text.kilo.fontSize};
+      ${typography('two')(theme)};
       font-weight: ${theme.fontWeight.bold};
       padding: ${theme.spacings.byte} ${theme.spacings.giga};
       white-space: nowrap;
@@ -92,7 +93,7 @@ const condensedStyles = ({ condensed, theme }: TableCellProps & StyleProps) =>
   css`
     label: table-cell--condensed;
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-    ${theme.typography.text.kilo};
+    ${typography('two')(theme)};
   `;
 
 const condensedPresentationStyles = ({
@@ -106,7 +107,8 @@ const condensedPresentationStyles = ({
   css`
     label: table-cell-presentation--condensed;
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-    ${theme.typography.text.kilo};
+    ${typography('two')(theme)};
+
     ${header &&
     css`
       padding: ${theme.spacings.byte} ${theme.spacings.mega};
@@ -116,12 +118,12 @@ const condensedPresentationStyles = ({
 /**
  * TableCell for the Table component. The Table handles rendering it.
  */
-const TableCell = styled.td<TableCellProps>`
-  ${baseStyles};
-  ${condensedStyles};
-  ${presentationStyles};
-  ${hoverStyles};
-  ${condensedPresentationStyles};
-`;
+const TableCell = styled.td<TableCellProps>(
+  baseStyles,
+  condensedStyles,
+  presentationStyles,
+  hoverStyles,
+  condensedPresentationStyles,
+);
 
 export default TableCell;

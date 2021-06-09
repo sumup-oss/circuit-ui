@@ -19,12 +19,13 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import Body from '../../../Body';
+import { typography } from '../../../../styles/style-mixins';
 
 const textStyles = ({ theme }) => css`
   margin-bottom: 0;
 
   ${theme.mq.untilKilo} {
-    ${theme.typography.text.kilo};
+    ${typography('two')(theme)};
   }
 `;
 const StyledText = styled(Body)(textStyles);
