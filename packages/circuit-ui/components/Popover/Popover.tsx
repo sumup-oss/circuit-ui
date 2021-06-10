@@ -16,7 +16,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
-import {
+import React, {
   useState,
   FC,
   HTMLProps,
@@ -24,14 +24,17 @@ import {
   SVGProps,
   MouseEvent,
   Fragment,
+  useMemo,
+  RefObject,
 } from 'react';
+import { useClickAway, useLatest } from 'react-use';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
 import { useTheme } from 'emotion-theming';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { listItem } from '../../styles/style-mixins';
+import { listItem, textMega } from '../../styles/style-mixins';
 import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';
 import Hr from '../Hr';
@@ -41,7 +44,9 @@ export interface BaseProps {
   /**
    * Display an icon in addition to the label.
    */
-  icon: FC<SVGProps<SVGSVGElement>>;
+  icon?: FC<SVGProps<SVGSVGElement>>;
+
+  destructive?: boolean;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -63,12 +68,12 @@ const itemWrapperStyles = () => css`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 100%;
 `;
 
 const PopoverItemWrapper = styled('button')<PopoverItemWrapperProps>(
   listItem,
   itemWrapperStyles,
+  textMega,
 );
 
 const iconStyles = (theme: Theme) => css`
@@ -82,7 +87,7 @@ export const PopoverItem = ({
   onClick,
   tracking,
   ...props
-}: PopoverItemProps) => {
+}: PopoverItemProps): JSX.Element => {
   const components = useComponents();
 
   // Need to typecast here because the PopoverItemWrapper expects a button-like
@@ -112,16 +117,27 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   label: popover;
   display: flex;
   flex-direction: column;
+  justify-content: start;
   align-items: flex-start;
-  padding: ${theme.spacings.byte};
-  border: 1px solid #e6e6e6;
+  padding: ${theme.spacings.byte} 0px;
+  border: 1px solid ${theme.colors.n200};
   box-sizing: border-box;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
-  border-radius: ${theme.spacings.byte};
-  background-color: white;
+  border-radius: 8px;
+  background-color: ${theme.colors.white};
+
+  ${theme.mq.untilKilo} {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 `;
 
 const PopoverWrapper = styled('div')(wrapperStyles);
+
+const dividerStyles = (theme: Theme) => css`
+  margin: ${theme.spacings.byte} ${theme.spacings.mega};
+  width: calc(100% - ${theme.spacings.mega}*2);
+`;
 
 const Overlay = styled.div(
   ({ theme }: StyleProps) => css`
@@ -145,42 +161,84 @@ function isDivider(action: Action): action is Divider {
 
 export interface PopoverProps {
   isOpen: boolean;
-  actions: [];
-  referenceElement: HTMLElement | null;
-  placement: Placement;
-  handleClose: () => any;
+  actions: Action[];
+  referenceElement: RefObject<HTMLElement>;
+  placement?: Placement;
+  onClose: (event: Event) => void;
 }
 
 export const Popover = ({
   isOpen,
-  handleClose,
+  onClose,
   actions,
   referenceElement,
   placement = 'bottom',
   ...props
-}: PopoverProps) => {
+}: PopoverProps): JSX.Element | null => {
   const theme: Theme = useTheme();
-  console.log(window.matchMedia(theme.mq.untilKilo).matches);
-  const mobilePosition: Modifier<'mobilePosition', { state: State }> = {
-    name: 'mobilePosition',
-    enabled: true,
-    phase: 'write',
-    fn({ state }) {
-      if (window.matchMedia(theme.mq.untilKilo).matches) {
-        state.styles.popper = {
-          width: '100%',
-          left: '0px',
-          right: '0px',
-          bottom: '0px',
-          position: 'fixed',
-        };
-      }
-    },
-  };
+
+  // Popper custom modifier to apply bottom sheet for mobile.
+  // The window.matchMedia() is a useful API for this, it allows you to change the styles based on a condition.
+  // useMemo hook is used in order to prevent the render loop, more https://popper.js.org/react-popper/v2/faq/#why-i-get-render-loop-whenever-i-put-a-function-inside-the-popper-configuration
+  const mobilePosition: Modifier<'mobilePosition', { state: State }> = useMemo(
+    () => ({
+      name: 'mobilePosition',
+      enabled: true,
+      phase: 'write',
+      fn({ state }) {
+        if (window.matchMedia(`${theme.breakpoints.untilKilo}`).matches) {
+          // eslint-disable-next-line no-param-reassign
+          state.styles.popper = {
+            width: '100%',
+            left: '0px',
+            right: '0px',
+            bottom: '0px',
+            position: 'fixed',
+          };
+        } else {
+          // eslint-disable-next-line no-param-reassign
+          state.styles.popper.width = 'auto';
+        }
+      },
+    }),
+    [theme],
+  );
+  // Note: the usePopper hook intentionally takes the DOM node, not refs, in order to be able to update when the nodes change.
+  // A callback ref is used here to permit this behaviour, and useState is an appropriate way to implement this.
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    placement,
-    modifiers: [mobilePosition],
+  const { styles, attributes } = usePopper(
+    referenceElement.current,
+    popperElement,
+    {
+      placement,
+      modifiers: [
+        mobilePosition,
+        // The flip modifier is used if the popper has placement set to bottom, but there isn't enough space to position the popper in that direction.
+        // By default, it will change the popper placement to top. As soon as enough space is detected, the placement will be reverted to the originally defined (or preferred) one.
+        // You can also define fallback placements by providing a list of placements to try. When no space is available on the preferred placement, the modifier will test the ones provided in the list, and use the first useful one.
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['top', 'right', 'left'],
+          },
+        },
+      ],
+    },
+  );
+
+  // This is a performance optimization to prevent event listeners from being
+  // re-attached on every render.
+  const popperRef = useLatest(popperElement);
+
+  useClickAway(popperRef, (event) => {
+    // The reference element has its own click handler to toggle the popover.
+    if (
+      !referenceElement.current ||
+      referenceElement.current.contains(event.target as Node)
+    ) {
+      return;
+    }
+    onClose(event);
   });
 
   if (!isOpen) {
@@ -197,7 +255,11 @@ export const Popover = ({
         {...attributes.popper}
       >
         {actions.map((action, index) =>
-          isDivider(action) ? <Hr /> : <PopoverItem key={index} {...action} />,
+          isDivider(action) ? (
+            <Hr css={dividerStyles} key={index} />
+          ) : (
+            <PopoverItem key={index} {...action} />
+          ),
         )}
       </PopoverWrapper>
     </Fragment>
