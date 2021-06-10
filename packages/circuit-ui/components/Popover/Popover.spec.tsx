@@ -13,12 +13,24 @@
  * limitations under the License.
  */
 
-import { Zap } from '@sumup/icons';
-import React from 'react';
+import { Bin, CirclePlus, PenStroke, ThumbUp, Zap } from '@sumup/icons';
+import { fireEvent } from '@testing-library/dom';
+import React, { useRef, useState } from 'react';
 
-import { create, renderToHtml, axe, RenderFn } from '../../util/test-utils';
+import {
+  create,
+  renderToHtml,
+  axe,
+  RenderFn,
+  render,
+  act,
+  userEvent,
+} from '../../util/test-utils';
+import Button from '../Button';
 
-import { PopoverItem, PopoverItemProps } from './Popover';
+import { PopoverItem, PopoverItemProps, Popover } from './Popover';
+
+const placements = ['auto', 'top', 'bottom', 'left', 'right'];
 
 describe('PopoverItem', () => {
   function renderPopoverItem<T>(
@@ -60,6 +72,153 @@ describe('PopoverItem', () => {
       const wrapper = renderPopoverItem(renderToHtml, props);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
+    });
+  });
+});
+
+describe('Popover', () => {
+  const Default = (props) => {
+    const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(
+      null,
+    );
+
+    return (
+      <>
+        <button ref={referenceElement}>Button</button>
+        <Popover referenceElement={referenceElement} {...props} />
+      </>
+    );
+  };
+
+  const Interactive = () => {
+    const [isOpen, setOpen] = useState(true);
+    const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(
+      null,
+    );
+
+    const handleClick = () => {
+      setOpen((prev) => !prev);
+    };
+
+    const onClose = () => {
+      setOpen(false);
+    };
+
+    return (
+      <>
+        <Button
+          size="kilo"
+          variant="tertiary"
+          onClick={handleClick}
+          ref={referenceElement}
+          icon={ThumbUp}
+        >
+          Button
+        </Button>
+        <Popover
+          actions={[
+            {
+              onClick: () => alert('Hello'),
+              children: 'Add',
+              icon: CirclePlus,
+            },
+            {
+              onClick: () => alert('Hello'),
+              children: 'Edit',
+              icon: PenStroke,
+            },
+            { type: 'divider' },
+            {
+              onClick: () => alert('Hello'),
+              children: 'Delete',
+              icon: Bin,
+              destructive: true,
+            },
+          ]}
+          onClose={onClose}
+          isOpen={isOpen}
+          referenceElement={referenceElement}
+        />
+      </>
+    );
+  };
+
+  describe('styles', () => {
+    it('should render with default styles', () => {
+      const props = {
+        actions: [
+          {
+            onClick: () => alert('Hello'),
+            children: 'Add',
+            icon: CirclePlus,
+          },
+        ],
+        isOpen: true,
+        onClose: jest.fn(),
+      };
+
+      const actual = create(<Default {...props} />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    placements.forEach((placement) => {
+      it(`should render popover on ${placement}`, () => {
+        const props = {
+          actions: [
+            {
+              onClick: () => alert('Hello'),
+              children: 'Add',
+              icon: CirclePlus,
+            },
+          ],
+          isOpen: true,
+          onClose: jest.fn(),
+        };
+        const actual = create(<Default {...props} />);
+        expect(actual).toMatchSnapshot();
+      });
+    });
+
+    it('should render popover when isOpen=true', () => {
+      const { queryByText } = render(<Interactive />);
+      expect(queryByText('Edit')).not.toBeNull();
+    });
+
+    it('should close popover when passing a click outside', () => {
+      const { queryByText } = render(<Interactive />);
+      expect(queryByText('Edit')).not.toBeNull();
+
+      userEvent.click(document.body);
+
+      expect(queryByText('Add')).toBeNull();
+    });
+
+    it('should close popover when passing a click to a reference element', () => {
+      const { queryByText, getAllByRole } = render(<Interactive />);
+      expect(queryByText('Edit')).not.toBeNull();
+
+      act(() => {
+        fireEvent.click(getAllByRole('button')[0]);
+      });
+
+      expect(queryByText('Add')).toBeNull();
+    });
+
+    it('should render nothing when isOpen=false', () => {
+      const props = {
+        actions: [
+          {
+            onClick: () => alert('Hello'),
+            children: 'Add',
+            icon: CirclePlus,
+          },
+        ],
+        isOpen: false,
+        onClose: jest.fn(),
+      };
+
+      const { queryByTestId } = render(<Default {...props} />);
+      expect(queryByTestId('popover-child')).toBeNull();
     });
   });
 });

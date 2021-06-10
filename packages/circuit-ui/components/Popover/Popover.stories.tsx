@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
-import { Zap } from '@sumup/icons';
+import React, { useState, useRef } from 'react';
+import { ThumbUp, Zap } from '@sumup/icons';
 
 import Button from '../Button';
 
@@ -39,27 +39,30 @@ Base.args = {
 
 export const Example = (args) => {
   const [isOpen, setOpen] = useState(false);
-  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
-    null,
-  );
+  const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 
   const handleClick = () => {
     setOpen((prev) => !prev);
   };
 
-  const handleClose = () => {
-    console.log('Work please');
-    setOpen((prev) => !prev);
+  const onClose = () => {
+    setOpen(false);
   };
 
   return (
     <>
-      <Button onClick={handleClick} ref={setReferenceElement}>
-        Show popover
+      <Button
+        size="kilo"
+        variant="tertiary"
+        onClick={handleClick}
+        ref={referenceElement}
+        icon={ThumbUp}
+      >
+        Button
       </Button>
       <Popover
-        handleClose={handleClose}
         {...args}
+        onClose={onClose}
         isOpen={isOpen}
         referenceElement={referenceElement}
       />
@@ -71,21 +74,22 @@ Example.args = {
   actions: [
     {
       onClick: () => alert('Hello'),
-      href: 'https://sumup.com/',
+      href: '',
       children: 'Label',
       icon: Zap,
     },
     {
       onClick: () => alert('Hello'),
       href: 'https://sumup.com/',
-      children: 'Label',
-      icon: Zap,
-    },
-    {
-      onClick: () => alert('Hello'),
       children: 'Label',
       icon: Zap,
     },
     { type: 'divider' },
+    {
+      onClick: () => alert('Hello'),
+      children: 'Label',
+      icon: Zap,
+      destructive: true,
+    },
   ],
 };
