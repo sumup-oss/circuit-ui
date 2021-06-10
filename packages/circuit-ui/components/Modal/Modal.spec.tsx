@@ -13,93 +13,52 @@
  * limitations under the License.
  */
 
-import { render, act, userEvent, waitFor } from '../../util/test-utils';
-import Button from '../Button';
-import { ModalProvider } from '../ModalContext';
+import { render, act, userEvent, axe } from '../../util/test-utils';
 
-import { ModalProps } from './Modal';
-import { useModal } from './useModal';
-import * as MockedModal from './Modal';
+import { Modal, ModalProps } from './Modal';
 
 describe('Modal', () => {
-  beforeEach(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    (MockedModal as any).TRANSITION_DURATION = 0;
-  });
-
-  const SetModal = ({ modal }: { modal: ModalProps }) => {
-    const { setModal } = useModal();
-    return (
-      <Button
-        data-testid="button-open"
-        type="button"
-        onClick={() => setModal(modal)}
-      >
-        Open modal
-      </Button>
-    );
-  };
-
-  const PageWithModal = ({ modal }: { modal: ModalProps }) => (
-    <ModalProvider>
-      <SetModal modal={modal} />
-    </ModalProvider>
-  );
-
   const defaultModal: ModalProps = {
+    isOpen: true,
+    labelCloseButton: 'Close modal',
+    onClose: jest.fn(),
     // eslint-disable-next-line react/prop-types, react/display-name
-    children: ({ onClose }) => (
-      <div>
-        <div data-testid="card">Hello World!</div>
-        <button type="button" data-testid="button-close" onClick={onClose} />
-      </div>
-    ),
-    // Disables the need for a wrapper. I couldn't get the Modal to work
-    // with the wrapper enabled. Here's an issue describing that it
-    // should work:
-    // https://github.com/reactjs/react-modal/issues/563
-    // Here are the docs for setting the app element:
+    children: () => <p data-testid="children">Hello world!</p>,
+    // Silences the warning about the missing app element.
+    // In user land, the modal is always rendered by the ModalProvider,
+    // which takes care of setting the app element.
     // http://reactcommunity.org/react-modal/accessibility/#app-element
     ariaHideApp: false,
-    onClose: jest.fn(),
   };
 
-  const openModal = (modal: ModalProps) => {
-    const wrapper = render(<PageWithModal modal={modal} />);
+  it('should match the snapshot', () => {
+    const { baseElement } = render(<Modal {...defaultModal} />);
+    expect(baseElement).toMatchSnapshot();
+  });
+
+  it('should render the modal', () => {
+    const { getByRole } = render(<Modal {...defaultModal} />);
+    expect(getByRole('dialog')).toBeVisible();
+  });
+
+  it('should call the onClose callback', () => {
+    const { getByRole } = render(<Modal {...defaultModal} />);
 
     act(() => {
-      userEvent.click(wrapper.getByTestId('button-open'));
+      userEvent.click(getByRole('button'));
     });
 
-    return wrapper;
-  };
-
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
-
-  it('should open', () => {
-    const { getByTestId } = openModal(defaultModal);
-    expect(getByTestId('card')).toBeVisible();
-  });
-
-  describe('closing the modal', () => {
-    it('should be closeable by pressing a close button', async () => {
-      const { getByTestId, queryByTestId } = openModal(defaultModal);
-
-      act(() => {
-        userEvent.click(getByTestId('button-close'));
-      });
-
-      await waitFor(() => {
-        expect(defaultModal.onClose).toHaveBeenCalled();
-        expect(queryByTestId('card')).toBeNull();
-      });
-    });
+    expect(defaultModal.onClose).toHaveBeenCalled();
   });
 
   it('should render the children render prop', () => {
-    const { getByTestId } = openModal(defaultModal);
-    expect(getByTestId('card')).toHaveTextContent('Hello World!');
+    const { getByTestId } = render(<Modal {...defaultModal} />);
+    expect(getByTestId('children')).toHaveTextContent('Hello world!');
+  });
+
+  it('should meet accessibility guidelines', async () => {
+    const { container } = render(<Modal {...defaultModal} />);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });
