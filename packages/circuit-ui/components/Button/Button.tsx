@@ -21,6 +21,7 @@ import {
   FC,
   SVGProps,
   MouseEvent,
+  KeyboardEvent,
 } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
@@ -69,6 +70,10 @@ export interface BaseProps {
    */
   'type'?: 'button' | 'submit' | 'reset' | undefined;
   /**
+   * Function that's called when the button is clicked.
+   */
+  'onClick'?: (event: MouseEvent | KeyboardEvent) => void;
+  /**
    * Additional data that is dispatched with the tracking event.
    */
   'tracking'?: TrackingProps;
@@ -79,8 +84,8 @@ export interface BaseProps {
   'data-testid'?: string;
 }
 
-type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size'>;
-type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size'>;
+type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'onClick'>;
+type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'onClick'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
@@ -290,7 +295,7 @@ export const Button = forwardRef(
     /* eslint-disable @typescript-eslint/no-unsafe-assignment */
     const Link = components.Link as any;
 
-    const handleClick = useClickHandler<MouseEvent<any>>(
+    const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
       props.onClick,
       tracking,
       'button',

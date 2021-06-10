@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { forwardRef, HTMLProps, ReactNode, MouseEvent, Ref } from 'react';
+import {
+  forwardRef,
+  HTMLProps,
+  ReactNode,
+  MouseEvent,
+  KeyboardEvent,
+  Ref,
+} from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
@@ -27,6 +34,10 @@ import { useClickHandler } from '../../hooks/useClickHandler';
 export interface BaseProps extends BodyProps {
   children: ReactNode;
   /**
+   * Function that's called when the button is clicked.
+   */
+  onClick?: (event: MouseEvent | KeyboardEvent) => void;
+  /**
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
@@ -35,8 +46,8 @@ export interface BaseProps extends BodyProps {
    */
   ref?: Ref<HTMLButtonElement & HTMLAnchorElement>;
 }
-type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size'>;
-type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size'>;
+type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'onClick'>;
+type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'onClick'>;
 
 export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
 
@@ -94,7 +105,7 @@ export const Anchor = forwardRef(
     /* eslint-disable @typescript-eslint/no-unsafe-assignment */
     const Link = components.Link as any;
 
-    const handleClick = useClickHandler<MouseEvent<any>>(
+    const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
       props.onClick,
       tracking,
       'anchor',

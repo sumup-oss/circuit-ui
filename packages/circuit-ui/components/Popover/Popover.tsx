@@ -21,6 +21,7 @@ import {
   HTMLProps,
   SVGProps,
   MouseEvent,
+  KeyboardEvent,
   Fragment,
   useMemo,
   RefObject,
