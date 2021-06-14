@@ -147,6 +147,8 @@ export { ModalProvider } from './components/ModalContext';
 export type { ModalProviderProps } from './components/ModalContext';
 export { useModal } from './components/Modal';
 export type { ModalProps } from './components/Modal';
+export { useNotificationModal } from './components/NotificationModal';
+export type { NotificationModalProps } from './components/NotificationModal';
 
 export { default as Table } from './components/Table';
 export type {
