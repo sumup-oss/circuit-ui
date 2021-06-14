@@ -1,5 +1,4 @@
 import { Status, Props, Story } from '../../../../.storybook/components';
-import { ModalWrapper, ModalHeader, ModalFooter } from '.';
 
 # Modal
 
@@ -8,9 +7,6 @@ import { ModalWrapper, ModalHeader, ModalFooter } from '.';
 Modals are floating cards which overlay the primary UI. All content in a single modal should be related to completing one single task. Modals are heavy UI elements which obscure the primary user interface — avoid them where possible.
 
 <Story id="components-modal--base" />
-<Props of={ModalWrapper} />
-<Props of={ModalHeader} />
-<Props of={ModalFooter} />
 
 ## When to use it
 
@@ -18,74 +14,32 @@ Use it when you want the user to focus on a single and perhaps more complex task
 
 ## Usage guidelines
 
-#### General guidelines
-
 - **Do** use modals sparingly.
 - **Do** use modals when you want to isolate an action from the primary UI.
 - **Do not** draw a modal over another modal.
 - **Do not** fill a modal with content which has multiple end results.
 - **Do not** present a modal without a user prompting a modal (e.g. as a popup).
 
-#### Header guidelines
-
-- **Do** use concise yet descriptive headings that label the function of the specific modal.
-- **Do not** exclude headings from modals.
-
-#### Content guidelines
-
-- **Do** align text content to the left.
-- **Do not** have more than two columns of content.
-
-#### Footer guidelines
-
-The modal footer contains CTA's which carry out an action on the entire modal.
-
-- **Do** align modal CTA's to the right side of the footer.
-- **Do not** have more than one "Primary - Major" CTA.
-
 ## Usage in code
-
-There are a number of ways to use a modal in code. In some codebases, you
-may opt to create a helper higher-order component that complements the
-`ModalConsumer`.
-
-### Using the ModalProvider
 
 The benefit of using the ModalProvider is that it can be declared once at the application root, and you do not need to manage the open/closed state of the modal yourself.
 
 ```js
-import {
-  useModal,
-  ModalProvider,
-  ModalWrapper,
-  ModalHeader,
-  Button,
-} from '@sumup/circuit-ui';
+import { useModal, ModalProvider, Button, Body } from '@sumup/circuit-ui';
 
 const SayHello = ({ name }) => {
   const { setModal } = useModal();
-  const showModal = () => {
-    setModal({
-      children: ({ onClose }) => (
-        <ModalWrapper>
-          <ModalHeader title="This is a modal" onClose={onClose} />
-          Hello {name}
-        </ModalWrapper>
-      ),
-    });
+
+  const handleClick = () => {
+    setModal({ children: <Body>Hello {name}</Body> });
   };
-  return <Button onClick={showModal}>Say hello</Button>;
+
+  return <Button onClick={handleClick}>Say hello</Button>;
 };
 
-const Page = () => {
-  return (
-    <ModalProvider>
-      <SayHello name="World" />
-    </ModalProvider>
-  );
-};
+const Page = () => (
+  <ModalProvider>
+    <SayHello name="World" />
+  </ModalProvider>
+);
 ```
-
-- `ModalWrapper` This is the wrapper for the body of a modal.
-- `ModalHeader` This contains the title and the `X` close button.
-- `ModalFooter` This component aligns its content.
