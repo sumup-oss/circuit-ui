@@ -23,7 +23,7 @@ const sizes = ['giga', 'yotta'] as const;
 const variants = ['object', 'identity'] as const;
 const images = {
   object: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
-  identity: 'https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png',
+  identity: 'https://source.unsplash.com/ZDgrqccUn88/200x200',
 };
 
 describe('Avatar', () => {

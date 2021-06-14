@@ -33,6 +33,7 @@ Base.args = {
   src: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
   variant: 'object',
   size: 'yotta',
+  alt: 'A cup of coffee on a table',
 };
 
 export const ObjectVariant = (): JSX.Element => (
@@ -40,18 +41,20 @@ export const ObjectVariant = (): JSX.Element => (
     <Avatar
       src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
       variant="object"
+      alt="A cup of coffee on a table"
     />
-    <Avatar variant="object" />
+    <Avatar variant="object" alt="A cup of coffee on a table" />
   </Stack>
 );
 
 export const IdentityVariant = (): JSX.Element => (
   <Stack>
     <Avatar
-      src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+      src="https://source.unsplash.com/ZDgrqccUn88/200x200"
       variant="identity"
+      alt="A portrait of a grey cat"
     />
-    <Avatar variant="identity" />
+    <Avatar variant="identity" alt="" />
   </Stack>
 );
 
@@ -62,23 +65,27 @@ export const Sizes = (): JSX.Element => (
         src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
         variant="object"
         size="yotta"
+        alt="A cup of coffee on a table"
       />
       <Avatar
         src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
         variant="object"
         size="giga"
+        alt="A cup of coffee on a table"
       />
     </Stack>
     <Stack>
       <Avatar
-        src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+        src="https://source.unsplash.com/ZDgrqccUn88/200x200"
         variant="identity"
         size="yotta"
+        alt="A portrait of a grey cat"
       />
       <Avatar
-        src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+        src="https://source.unsplash.com/ZDgrqccUn88/200x200"
         variant="identity"
         size="giga"
+        alt="A portrait of a grey cat"
       />
     </Stack>
   </Stack>
