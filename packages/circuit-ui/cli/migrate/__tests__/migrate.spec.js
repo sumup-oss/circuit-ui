@@ -47,10 +47,10 @@ defineTest('currency-utils', 'currency-utils-1');
 defineTest('currency-utils', 'currency-utils-2');
 
 // v3
-defineTest('component-names-typography');
+defineTest('component-names-v3');
 defineTest('typography-sizes');
 defineTest('body-variant-highlight');
-defineTest('component-names-v3');
+defineTest('theme-border-radius');
 
 function defineTest(transformName, testFilePrefix, testOptions = {}) {
   const dirName = __dirname;

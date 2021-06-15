@@ -41,7 +41,12 @@ const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  [['NotificationBanner', 'NotificationCard']].forEach((componentNames) => {
+  [
+    ['Heading', 'Headline'],
+    ['SubHeading', 'SubHeadline'],
+    ['Text', 'Body'],
+    ['NotificationBanner', 'NotificationCard'],
+  ].forEach((componentNames) => {
     transformFactory(j, root, componentNames);
   });
 
