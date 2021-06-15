@@ -24,7 +24,7 @@ import Headline from '../Headline';
 import Body from '../Body';
 import Button from '../Button';
 import NotificationList from '../NotificationList';
-import NotificationBanner from '../NotificationBanner';
+import NotificationCard from '../NotificationCard';
 
 import docs from './Notification.docs.mdx';
 import { Notification, NotificationProps } from './Notification';
@@ -32,7 +32,7 @@ import { Notification, NotificationProps } from './Notification';
 export default {
   title: 'Components/Notification',
   component: Notification,
-  subcomponents: { NotificationList, NotificationBanner },
+  subcomponents: { NotificationList, NotificationCard },
   parameters: {
     docs: { page: docs },
   },

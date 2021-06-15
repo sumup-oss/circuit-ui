@@ -17,15 +17,15 @@ import React from 'react';
 
 import { create, renderToHtml, axe } from '../../util/test-utils';
 
-import { NotificationBanner } from './NotificationBanner';
+import { NotificationCard } from './NotificationCard';
 
-describe('NotificationBanner', () => {
+describe('NotificationCard', () => {
   const children = <p>This is a notification.</p>;
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<NotificationBanner>{children}</NotificationBanner>);
+    const actual = create(<NotificationCard>{children}</NotificationCard>);
     expect(actual).toMatchSnapshot();
   });
 
@@ -34,7 +34,7 @@ describe('NotificationBanner', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <NotificationBanner>{children}</NotificationBanner>,
+      <NotificationCard>{children}</NotificationCard>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
