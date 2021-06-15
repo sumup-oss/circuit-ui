@@ -21,18 +21,15 @@ import Headline from '../Headline';
 import Body from '../Body';
 import Button from '../Button';
 
-import {
-  NotificationBanner,
-  NotificationBannerProps,
-} from './NotificationBanner';
+import { NotificationCard, NotificationCardProps } from './NotificationCard';
 
 export default {
-  title: 'Components/Notification/NotificationBanner',
-  component: NotificationBanner,
+  title: 'Components/Notification/NotificationCard',
+  component: NotificationCard,
 };
 
-export const Base = (args: NotificationBannerProps) => (
-  <NotificationBanner {...args}>
+export const Base = (args: NotificationCardProps) => (
+  <NotificationCard {...args}>
     <Notification variant="success">
       <Headline as="h4" size="four" noMargin>
         New Feature — Intelligent Reporting
@@ -44,5 +41,5 @@ export const Base = (args: NotificationBannerProps) => (
         Learn more
       </Button>
     </Notification>
-  </NotificationBanner>
+  </NotificationCard>
 );

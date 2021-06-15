@@ -83,8 +83,8 @@ export type { SelectorGroupProps } from './components/SelectorGroup';
 // Notifications
 export { default as Notification } from './components/Notification';
 export type { NotificationProps } from './components/Notification';
-export { default as NotificationBanner } from './components/NotificationBanner';
-export type { NotificationBannerProps } from './components/NotificationBanner';
+export { default as NotificationCard } from './components/NotificationCard';
+export type { NotificationCardProps } from './components/NotificationCard';
 export { default as NotificationList } from './components/NotificationList';
 export type { NotificationListProps } from './components/NotificationList';
 

@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { shadow } from '../../styles/style-mixins';
 
-export interface NotificationBannerProps extends HTMLProps<HTMLDivElement> {
+export interface NotificationCardProps extends HTMLProps<HTMLDivElement> {
   /**
    * A single Notification.
    */
@@ -34,23 +34,23 @@ const outerStyles = ({ theme }: StyleProps) => css`
   border-radius: 16px;
 `;
 
-const NotificationBannerOuter = styled('div')<NoTheme>(outerStyles, shadow());
+const NotificationCardOuter = styled('div')<NoTheme>(outerStyles, shadow());
 
 const innerStyles = ({ theme }: StyleProps) => css`
   label: notification-banner__inner;
   padding: ${theme.spacings.mega} ${theme.spacings.giga};
 `;
 
-const NotificationBannerInner = styled('div')<NoTheme>(innerStyles);
+const NotificationCardInner = styled('div')<NoTheme>(innerStyles);
 
 /**
- * NotificationBanner displays a persistent Notification.
+ * NotificationCard displays a persistent Notification.
  */
-export const NotificationBanner = ({
+export const NotificationCard = ({
   children,
   ...props
-}: NotificationBannerProps) => (
-  <NotificationBannerOuter {...props} aria-live="polite" role="status">
-    <NotificationBannerInner>{children}</NotificationBannerInner>
-  </NotificationBannerOuter>
+}: NotificationCardProps) => (
+  <NotificationCardOuter {...props} aria-live="polite" role="status">
+    <NotificationCardInner>{children}</NotificationCardInner>
+  </NotificationCardOuter>
 );
