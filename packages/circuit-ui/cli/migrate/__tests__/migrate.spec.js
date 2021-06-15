@@ -50,6 +50,7 @@ defineTest('currency-utils', 'currency-utils-2');
 defineTest('component-names-typography');
 defineTest('typography-sizes');
 defineTest('body-variant-highlight');
+defineTest('component-names-v3');
 
 function defineTest(transformName, testFilePrefix, testOptions = {}) {
   const dirName = __dirname;
