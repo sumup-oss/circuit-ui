@@ -104,7 +104,6 @@ export type IconSizes = {
 };
 
 export type BorderRadius = {
-  none: string;
   bit: string;
   byte: string;
   kilo: string;

@@ -32,7 +32,9 @@ const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  renameFactory(j, root, 'kilo', 'none'); // TODO add and deprecate none in design tokens
+  findProperty(j, root, `theme.borderRadius.kilo`).replaceWith(
+    j.identifier(`'1px'`),
+  );
   renameFactory(j, root, 'mega', 'bit');
   renameFactory(j, root, 'giga', 'byte');
   renameFactory(j, root, 'tera', 'byte');

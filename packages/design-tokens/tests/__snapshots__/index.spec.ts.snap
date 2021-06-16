@@ -8,7 +8,6 @@ Object {
     "circle": "100%",
     "kilo": "12px",
     "mega": "16px",
-    "none": "0",
     "pill": "999999px",
   },
   "borderWidth": Object {

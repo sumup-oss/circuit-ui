@@ -1,17 +1,12 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-const borderRadiusStyles = ({ theme }) => css`
+const elementStyles = ({ theme }) => css`
   border-top-left-radius: ${theme.borderRadius.bit};
   border-top-right-radius: ${theme.borderRadius.byte};
   border-bottom-left-radius: ${theme.borderRadius.byte};
   border-bottom-right-radius: ${theme.borderRadius.kilo};
+  border-radius: ${'1px'};
 `;
 
-const removedRadiusStyles = ({ theme }) => css`
-  border-radius: ${theme.borderRadius.none};
-`;
-
-const BorderRadius = styled.div(borderRadiusStyles);
-
-const RemovedRadius = styled.div(removedRadiusStyles);
+const Element = styled.div(elementStyles);

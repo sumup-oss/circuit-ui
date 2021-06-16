@@ -47,7 +47,6 @@ export const iconSizes: IconSizes = {
 };
 
 export const borderRadius: BorderRadius = {
-  none: '0',
   bit: '4px',
   byte: '8px',
   kilo: '12px',
