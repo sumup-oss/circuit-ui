@@ -37,23 +37,6 @@ export default {
   },
 };
 
-export const PopoverItemAnchor = (args) => <PopoverItem {...args} />;
-
-PopoverItemAnchor.args = {
-  onClick: () => alert('Hello'),
-  href: 'https://sumup.com/',
-  children: 'Label',
-  icon: Zap,
-};
-
-export const PopoverItemButton = (args) => <PopoverItem {...args} />;
-
-PopoverItemButton.args = {
-  onClick: () => alert('Hello'),
-  children: 'Label',
-  icon: Zap,
-};
-
 export const PopoverBase = (args) => {
   const [isOpen, setOpen] = useState(false);
   const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
@@ -171,4 +154,13 @@ PopoverIconTrigger.args = {
       destructive: true,
     },
   ],
+};
+
+export const PopoverItemBase = (args) => <PopoverItem {...args} />;
+
+PopoverItemBase.args = {
+  onClick: () => alert('Hello'),
+  href: 'https://sumup.com/',
+  children: 'Label',
+  icon: Zap,
 };

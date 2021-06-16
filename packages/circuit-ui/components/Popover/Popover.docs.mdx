@@ -1,13 +1,66 @@
 import { Status, Props, Story } from '../../../../.storybook/components';
-import { Popover } from '.';
+import { Popover } from '@sumup/circuit-ui';
 
 # Popover
 
-The popover component displays a list of subsequent action options, when interacting wuith an actionable component.
+Popover menus are a common pattern to display a list of subsequent action options, when interacting with an actionable component.
 
-<Story id="base" />
-<Story id="example" />
+<Story id="popover-base" />
+<Story id="popover-icon-trigger" />
+<Props of={Popover} />
+<Story id="popover-item-base" />
+
+- Triggers of Popover can be primary, secondary, tertiary buttons, an overflow icons, or components with embedded buttons such as image upload component.
+- Each Popover action item is represented by an appropriate HTML element (button or a).
+- If needed the dividing line can be used to separate Popover action items.
+- The leading icon is optional.
+- The Popover is powered by React Popper [https://popper.js.org/docs/v2/] which means you can easily change the Popover placement by simply passing the placement prop.
 
 ## Usage guidelines
 
-Triggers of Popover can be primary, secondary, tertiary buttons, an overflow icons, or components with embedded buttons such as image upload component.
+- **Do** popover menu label should be clear, actionable, concise and understandable
+- **Do** always think about the priority of the action option to be taken and put the option order in logical order
+
+## Usage in code
+
+```js
+import React from 'react';
+import {
+  Popover,
+  Button,
+} from '@sumup/circuit-ui';
+
+  const [isOpen, setOpen] = useState(false);
+  const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
+
+  const handleClick = () => {
+    setOpen((prev) => !prev);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
+ const props = {
+    actions: [
+      {
+        onClick: () => alert('Hello'),
+        children: 'Add',
+        icon: CirclePlus,
+      },
+    ],
+    isOpen: true,
+    onClose: jest.fn(),
+  };
+
+  return (
+    <>
+    <Button onClick={handleClick} ref={referenceElement}>Say hello</Button>
+      <Popover
+        {...props}
+        referenceElement={referenceElement}
+      />
+    </>
+  );
+};
+```

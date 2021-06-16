@@ -357,6 +357,7 @@ export const listItem = (
       ? theme.colors.danger
       : theme.colors.bodyColor};
     text-decoration: none;
+    position: relative;
 
     &:hover {
       background-color: ${theme.colors.n100};

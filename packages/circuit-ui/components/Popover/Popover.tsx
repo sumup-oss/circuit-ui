@@ -173,6 +173,7 @@ export interface PopoverProps {
   actions: Action[];
   referenceElement: RefObject<HTMLElement>;
   placement?: Placement;
+  fallbackPlacements?: Placement[];
   onClose: (event: Event) => void;
 }
 
@@ -182,6 +183,7 @@ export const Popover = ({
   actions,
   referenceElement,
   placement = 'bottom',
+  fallbackPlacements = ['top', 'right', 'left'],
   ...props
 }: PopoverProps): JSX.Element | null => {
   const theme: Theme = useTheme();
@@ -218,7 +220,7 @@ export const Popover = ({
   const flip = {
     name: 'flip',
     options: {
-      fallbackPlacements: ['top', 'right', 'left'],
+      fallbackPlacements,
     },
   };
 
