@@ -58,7 +58,7 @@ exports[`Avatar styles should render the identity variant with an image 1`] = `
   <img
     alt=""
     class="circuit-0"
-    src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+    src="https://source.unsplash.com/ZDgrqccUn88/200x200"
   />
 </div>
 `;
