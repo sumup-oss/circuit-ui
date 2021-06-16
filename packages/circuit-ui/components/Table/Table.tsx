@@ -129,7 +129,7 @@ const containerStyles = ({
   rowHeaders &&
   css`
     label: table-container;
-    border-radius: ${theme.borderRadius.mega};
+    border-radius: ${theme.borderRadius.bit};
     ${theme.mq.untilMega} {
       height: unset;
       margin-left: 145px;

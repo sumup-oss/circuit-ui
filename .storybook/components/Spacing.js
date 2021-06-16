@@ -26,7 +26,6 @@ const Box = styled('div')`
   ${({ theme, spacingName }) => css`
     width: ${theme.spacings[spacingName]};
     height: ${theme.spacings[spacingName]};
-    border-radius: ${theme.borderRadius.kilo};
     background-color: ${theme.colors.r300};
     margin-right: ${theme.spacings.mega};
   `};

@@ -30,8 +30,8 @@ const ColorWrapper = styled('div')`
     display: inline-block;
     margin-right: ${theme.spacings.kilo};
     margin-bottom: ${theme.spacings.kilo};
-    border-bottom-left-radius: ${theme.borderRadius.giga};
-    border-bottom-right-radius: ${theme.borderRadius.giga};
+    border-bottom-left-radius: ${theme.borderRadius.byte};
+    border-bottom-right-radius: ${theme.borderRadius.byte};
     ${styleHelpers.shadowSingle({ theme })};
   `};
 `;
@@ -40,8 +40,8 @@ const Color = styled('div')`
   ${({ theme, colorName }) => css`
     width: ${SWATCH_WIDTH};
     height: ${SWATCH_HEIGHT};
-    border-top-left-radius: ${theme.borderRadius.giga};
-    border-top-right-radius: ${theme.borderRadius.giga};
+    border-top-left-radius: ${theme.borderRadius.byte};
+    border-top-right-radius: ${theme.borderRadius.byte};
     background-color: ${theme.colors[colorName]};
   `};
 `;

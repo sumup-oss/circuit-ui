@@ -13,41 +13,32 @@
  * limitations under the License.
  */
 
-import { Transform, JSCodeshift, Collection } from 'jscodeshift';
+import { Collection, JSCodeshift, Transform } from 'jscodeshift';
 
-import { findImportsByPath } from './utils';
+import { findProperty } from './utils';
 
-function transformFactory(
+function renameFactory(
   j: JSCodeshift,
   root: Collection,
-  componentNames: string[],
+  prevValue: string,
+  nextValue: string,
 ): void {
-  const [oldComponentName, newComponentName] = componentNames;
-  const imports = findImportsByPath(j, root, '@sumup/circuit-ui');
-
-  const componentImport = imports.find((i) => i.name === oldComponentName);
-
-  if (!componentImport) {
-    return;
-  }
-
-  root
-    .find(j.Identifier)
-    .filter((nodePath) => nodePath.node.name === oldComponentName)
-    .replaceWith(j.identifier(newComponentName));
+  findProperty(j, root, `theme.borderRadius.${prevValue}`).replaceWith(
+    j.identifier(`theme.borderRadius.${nextValue}`),
+  );
 }
 
 const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  [
-    ['Heading', 'Headline'],
-    ['SubHeading', 'SubHeadline'],
-    ['Text', 'Body'],
-  ].forEach((componentNames) => {
-    transformFactory(j, root, componentNames);
-  });
+  findProperty(j, root, `theme.borderRadius.kilo`).replaceWith(
+    j.identifier(`'1px'`),
+  );
+  renameFactory(j, root, 'mega', 'bit');
+  renameFactory(j, root, 'giga', 'byte');
+  renameFactory(j, root, 'tera', 'byte');
+  renameFactory(j, root, 'peta', 'kilo');
 
   return root.toSource();
 };

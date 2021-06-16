@@ -26,7 +26,6 @@ const Box = styled('div')`
   ${({ theme, size }) => css`
     width: ${theme.iconSizes[size]};
     height: ${theme.iconSizes[size]};
-    border-radius: ${theme.borderRadius.kilo};
     background-color: ${theme.colors.r300};
     margin-right: ${theme.spacings.mega};
   `};

@@ -77,7 +77,7 @@ const tagBaseStyles = ({ theme }: StyleProps) => css`
   ${textMega({ theme })};
   word-break: break-word;
   border: ${BORDER_WIDTH} solid ${theme.colors.n300};
-  border-radius: ${theme.borderRadius.giga};
+  border-radius: ${theme.borderRadius.byte};
   padding: ${theme.spacings.bit} ${theme.spacings.kilo};
   cursor: default;
   background-color: ${theme.colors.white};
@@ -173,7 +173,7 @@ const closeButtonStyles = ({ theme }: StyleProps) => css`
   top: 50%;
   right: ${BORDER_WIDTH};
   transform: translateY(-50%);
-  border-radius: ${theme.borderRadius.mega};
+  border-radius: ${theme.borderRadius.byte};
 `;
 
 const RemoveButton = styled(CloseButton)<CloseButtonProps>(closeButtonStyles);

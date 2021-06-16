@@ -32,11 +32,10 @@ export interface CardProps {
   spacing?: 'mega' | 'giga';
 }
 
-// FIXME: Replace border-radius with theme value in v3.
 const baseStyles = ({ theme }: StyleProps) => css`
   label: card;
   background-color: ${theme.colors.white};
-  border-radius: 16px;
+  border-radius: ${theme.borderRadius.mega};
   border: ${theme.borderWidth.mega} solid ${theme.colors.n200};
   display: flex;
   flex-direction: column;
@@ -55,6 +54,7 @@ const shadowStyles = ({ shadow }: CardProps) => {
 
 const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
   if (!spacing) {
+    // we need this for static style extraction
     return null;
   }
   const spacings = {

@@ -23,7 +23,7 @@ import {
   Fragment,
 } from 'react';
 import { css, jsx } from '@emotion/core';
-import { Bin } from '@sumup/icons';
+import { Bin, Plus } from '@sumup/icons';
 
 import Label from '../Label';
 import IconButton from '../IconButton';
@@ -316,13 +316,7 @@ export const ImageInput = ({
             label=""
             disabled={isLoading}
           >
-            {/* FIXME add to @sumup/icons and upgrade the dependency in the next major */}
-            <svg width="16" height="16" fill="none">
-              <path
-                d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
-                fill="#fff"
-              />
-            </svg>
+            <Plus />
           </AddButton>
         )}
         <LoadingIcon isLoading={isLoading}>

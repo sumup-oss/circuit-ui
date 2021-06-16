@@ -104,11 +104,10 @@ export type IconSizes = {
 };
 
 export type BorderRadius = {
+  bit: string;
+  byte: string;
   kilo: string;
   mega: string;
-  giga: string;
-  tera: string;
-  peta: string;
   circle: string;
   pill: string;
 };

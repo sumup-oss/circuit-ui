@@ -64,7 +64,7 @@ const boxStyles = ({ theme }: StyleProps) => css`
 
 const Box = styled.span<HTMLProps<HTMLSpanElement>>(boxStyles);
 
-const layersBaseStyles = ({ theme }: StyleProps) => css`
+const layersBaseStyles = () => css`
   label: hamburger__layers;
   top: 50%;
   width: ${HAMBURGER_WIDTH};
@@ -73,7 +73,7 @@ const layersBaseStyles = ({ theme }: StyleProps) => css`
   &::after,
   &::before {
     background-color: currentColor;
-    border-radius: ${theme.borderRadius.kilo};
+    border-radius: 1px;
     display: block;
     height: ${LAYER_HEIGHT};
     position: absolute;

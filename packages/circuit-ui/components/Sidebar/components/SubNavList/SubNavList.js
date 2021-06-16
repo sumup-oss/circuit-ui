@@ -61,7 +61,7 @@ const listStyles = ({ theme, children }) =>
       height: calc(${SUB_NAV_ITEM_HEIGHT}px * ${children.length});
       position: absolute;
       top: 0;
-      border-radius: ${theme.borderRadius.kilo};
+      border-radius: 1px;
     }
   `;
 
@@ -74,7 +74,7 @@ const selectedItemStyles = ({ theme, selectedChildIndex }) =>
       width: 2px;
       background: ${theme.colors.p500};
       height: ${SUB_NAV_ITEM_HEIGHT}px;
-      border-radius: ${theme.borderRadius.kilo};
+      border-radius: 1px;
       position: absolute;
       top: calc(${SUB_NAV_ITEM_HEIGHT}px * ${selectedChildIndex});
       transition: top ${theme.transitions.default};

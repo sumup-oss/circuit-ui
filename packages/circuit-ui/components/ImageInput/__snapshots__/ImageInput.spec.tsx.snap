@@ -793,11 +793,15 @@ exports[`ImageInput styles should render with default styles 1`] = `
         fill="none"
         height="16"
         role="presentation"
+        viewBox="0 0 16 16"
         width="16"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
-          fill="#fff"
+          clip-rule="evenodd"
+          d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 1 1 0-2h6V1a1 1 0 0 1 1-1z"
+          fill="currentColor"
+          fill-rule="evenodd"
         />
       </svg>
       <span
@@ -1111,11 +1115,15 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
         fill="none"
         height="16"
         role="presentation"
+        viewBox="0 0 16 16"
         width="16"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M7.99999 0c.55229 0 1 .447715 1 1v5.99999H15c.5523 0 1 .44772 1 1 0 .55229-.4477 1-1 1H8.99999V15c0 .5523-.44771 1-1 1-.55228 0-1-.4477-1-1V8.99999H1c-.552285 0-1-.44771-1-1 0-.55228.447715-1 1-1h5.99999V1c0-.552285.44772-1 1-1z"
-          fill="#fff"
+          clip-rule="evenodd"
+          d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 1 1 0-2h6V1a1 1 0 0 1 1-1z"
+          fill="currentColor"
+          fill-rule="evenodd"
         />
       </svg>
       <span
