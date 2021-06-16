@@ -171,12 +171,18 @@ describe('Style helpers', () => {
   });
 
   describe('typography', () => {
-    it('should match the snapshot', () => {
-      const { styles } = typography('one')(light);
-      expect(styles).toMatchInlineSnapshot(
-        `"font-size:16px;line-height:24px;"`,
-      );
-    });
+    type Size = keyof Theme['typography']['body'];
+    const snapshots: { size: Size; snapshot: string }[] = [
+      { size: 'one', snapshot: `"font-size:16px;line-height:24px;"` },
+      { size: 'two', snapshot: `"font-size:14px;line-height:20px;"` },
+    ];
+    it.each(snapshots)(
+      'should match the snapshot for size %#',
+      ({ size, snapshot }) => {
+        const { styles } = typography(size)(light);
+        expect(styles).toMatchInlineSnapshot(snapshot);
+      },
+    );
   });
 
   describe('disableVisually', () => {
