@@ -3,13 +3,13 @@
 exports[`Themes light should match the snapshot 1`] = `
 Object {
   "borderRadius": Object {
+    "bit": "4px",
+    "byte": "8px",
     "circle": "100%",
-    "giga": "6px",
-    "kilo": "1px",
-    "mega": "4px",
-    "peta": "12px",
+    "kilo": "12px",
+    "mega": "16px",
+    "none": "0",
     "pill": "999999px",
-    "tera": "8px",
   },
   "borderWidth": Object {
     "kilo": "1px",

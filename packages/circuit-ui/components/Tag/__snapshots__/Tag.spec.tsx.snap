@@ -19,7 +19,7 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
   line-height: 24px;
   word-break: break-word;
   border: 1px solid #CCC;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 4px 12px;
   cursor: default;
   background-color: #FFF;
@@ -79,7 +79,7 @@ exports[`Tag when is default should render with default styles 1`] = `
   line-height: 24px;
   word-break: break-word;
   border: 1px solid #CCC;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 4px 12px;
   cursor: default;
   background-color: #FFF;
@@ -117,7 +117,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   line-height: 24px;
   word-break: break-word;
   border: 1px solid #CCC;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 4px 12px;
   cursor: default;
   background-color: #FFF;
@@ -169,7 +169,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .circuit-2:focus {
@@ -268,7 +268,7 @@ exports[`Tag when is selected should change the given icon color 1`] = `
   line-height: 24px;
   word-break: break-word;
   border: 1px solid #CCC;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 4px 12px;
   cursor: default;
   background-color: #FFF;
@@ -321,7 +321,7 @@ exports[`Tag when is selected should render with selected styles 1`] = `
   line-height: 24px;
   word-break: break-word;
   border: 1px solid #CCC;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 4px 12px;
   cursor: default;
   background-color: #FFF;

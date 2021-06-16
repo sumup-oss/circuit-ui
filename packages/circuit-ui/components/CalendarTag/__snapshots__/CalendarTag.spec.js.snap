@@ -19,7 +19,7 @@ exports[`CalendarTag should render with default styles 1`] = `
   line-height: 24px;
   word-break: break-word;
   border: 1px solid #CCC;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 4px 12px;
   cursor: default;
   background-color: #FFF;
