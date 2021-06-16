@@ -84,8 +84,8 @@ const createLeftBorderStyles = (variantName: Variant) => ({
 
       &:before {
         display: inline-block;
-        border-top-right-radius: ${theme.borderRadius[size]};
-        border-bottom-right-radius: ${theme.borderRadius[size]};
+        border-top-right-radius: ${theme.borderRadius.bit};
+        border-bottom-right-radius: ${theme.borderRadius.bit};
         content: '';
         position: absolute;
         left: -${theme.spacings[size]};

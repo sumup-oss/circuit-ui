@@ -32,7 +32,7 @@ const baseStyles = ({ theme }) => css`
   min-width: 120px;
   background-color: ${theme.colors.n900};
   color: ${theme.colors.white};
-  border-radius: ${theme.borderRadius.mega};
+  border-radius: ${theme.borderRadius.bit};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
   position: absolute;
   z-index: ${theme.zIndex.tooltip};

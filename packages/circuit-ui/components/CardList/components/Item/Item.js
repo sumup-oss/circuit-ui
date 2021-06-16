@@ -29,13 +29,13 @@ const baseStyles = ({ theme }) => css`
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 
   &:first-of-type {
-    border-top-left-radius: ${theme.borderRadius.mega};
-    border-top-right-radius: ${theme.borderRadius.mega};
+    border-top-left-radius: ${theme.borderRadius.bit};
+    border-top-right-radius: ${theme.borderRadius.bit};
   }
 
   &:last-child {
-    border-bottom-left-radius: ${theme.borderRadius.mega};
-    border-bottom-right-radius: ${theme.borderRadius.mega};
+    border-bottom-left-radius: ${theme.borderRadius.bit};
+    border-bottom-right-radius: ${theme.borderRadius.bit};
     border-bottom: none;
   }
 `;
@@ -51,7 +51,7 @@ const getBorderStyles = (theme) => css`
     left: 0;
     top: 0;
     box-shadow: 0px 0px 0px ${theme.borderWidth.mega} ${theme.colors.b500};
-    border-radius: ${theme.borderRadius.mega};
+    border-radius: ${theme.borderRadius.bit};
   }
 `;
 

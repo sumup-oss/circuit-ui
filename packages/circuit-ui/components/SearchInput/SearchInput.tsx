@@ -41,7 +41,7 @@ const clearButtonStyles = ({ theme }: StyleProps) => css`
   height: calc(100% - 2px) !important;
   pointer-events: all !important;
   cursor: pointer !important;
-  border-radius: ${theme.borderRadius.giga};
+  border-radius: ${theme.borderRadius.byte};
 `;
 
 const ClearButton = styled(IconButton)(clearButtonStyles);

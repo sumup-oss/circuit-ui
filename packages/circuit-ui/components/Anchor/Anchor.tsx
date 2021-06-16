@@ -79,7 +79,7 @@ const baseStyles = (theme: Theme) => css`
 
   &:focus {
     ${focusOutline({ theme })};
-    border-radius: ${theme.borderRadius.giga};
+    border-radius: ${theme.borderRadius.byte};
   }
 `;
 

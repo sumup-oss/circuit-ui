@@ -26,7 +26,7 @@ const Box = styled('div')`
   ${({ theme, size }) => css`
     width: ${theme.spacings.tera};
     height: ${theme.spacings.tera};
-    border-radius: ${theme.borderRadius.mega};
+    border-radius: ${theme.borderRadius.bit};
     border: ${theme.borderWidth[size]} solid ${theme.colors.r500};
     background-color: ${theme.colors.r300};
     margin-right: ${theme.spacings.mega};

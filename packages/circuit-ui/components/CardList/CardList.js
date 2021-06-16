@@ -24,7 +24,7 @@ const Wrapper = styled(Card)`
   label: cardlist__wrapper;
 
   padding: 0;
-  border-radius: ${(p) => p.theme.borderRadius.mega};
+  border-radius: ${(p) => p.theme.borderRadius.bit};
   border: ${(p) => `${p.theme.borderWidth.kilo} solid ${p.theme.colors.n300}`};
 `;
 

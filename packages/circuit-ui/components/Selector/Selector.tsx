@@ -75,7 +75,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   display: block;
   cursor: pointer;
   padding: ${theme.spacings.mega} ${theme.spacings.giga};
-  border-radius: ${theme.borderRadius.giga};
+  border-radius: ${theme.borderRadius.byte};
   background-color: ${theme.colors.white};
   text-align: center;
   position: relative;
@@ -91,7 +91,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: ${theme.borderRadius.giga};
+    border-radius: ${theme.borderRadius.byte};
     border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
     transition: border 0.1s ease-in-out;
   }

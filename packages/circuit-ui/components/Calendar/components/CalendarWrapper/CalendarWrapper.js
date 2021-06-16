@@ -107,7 +107,7 @@ const dateRangePickerInput = ({ theme }) => css`
       border-width: 1px;
       border-style: solid;
       border-color: ${theme.colors.n300};
-      border-radius: ${theme.borderRadius.mega};
+      border-radius: ${theme.borderRadius.bit};
     }
 
     &.DateRangePickerInput__showClearDates {

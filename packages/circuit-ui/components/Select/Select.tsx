@@ -188,7 +188,7 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.white};
   outline: none;
   border: 0;
-  border-radius: ${theme.borderRadius.tera};
+  border-radius: ${theme.borderRadius.byte};
   box-shadow: none;
   color: ${theme.colors.n900};
   margin: 0;
