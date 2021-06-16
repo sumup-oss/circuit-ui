@@ -59,3 +59,20 @@ expect.addSnapshotSerializer(
     },
   }),
 );
+
+global.matchMedia = jest.fn().mockImplementation((query) => ({
+  matches: false,
+  media: query,
+  onchange: null,
+  /**
+   * @deprecated
+   */
+  addListener: jest.fn(),
+  /**
+   * @deprecated
+   */
+  removeListener: jest.fn(),
+  addEventListener: jest.fn(),
+  removeEventListener: jest.fn(),
+  dispatchEvent: jest.fn(),
+}));

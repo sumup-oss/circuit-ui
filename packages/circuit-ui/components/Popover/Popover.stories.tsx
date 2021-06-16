@@ -14,9 +14,18 @@
  */
 
 import React, { useState, useRef } from 'react';
-import { ThumbUp, Zap } from '@sumup/icons';
+import {
+  More,
+  ThumbUp,
+  Zap,
+  CirclePlus,
+  PenStroke,
+  Share,
+  Bin,
+} from '@sumup/icons';
 
 import Button from '../Button';
+import IconButton from '../IconButton';
 
 import { Popover, PopoverItem } from './Popover';
 
@@ -28,16 +37,24 @@ export default {
   },
 };
 
-export const Base = (args) => <PopoverItem {...args} />;
+export const PopoverItemAnchor = (args) => <PopoverItem {...args} />;
 
-Base.args = {
+PopoverItemAnchor.args = {
   onClick: () => alert('Hello'),
   href: 'https://sumup.com/',
   children: 'Label',
   icon: Zap,
 };
 
-export const Example = (args) => {
+export const PopoverItemButton = (args) => <PopoverItem {...args} />;
+
+PopoverItemButton.args = {
+  onClick: () => alert('Hello'),
+  children: 'Label',
+  icon: Zap,
+};
+
+export const PopoverBase = (args) => {
   const [isOpen, setOpen] = useState(false);
   const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 
@@ -70,7 +87,7 @@ export const Example = (args) => {
   );
 };
 
-Example.args = {
+PopoverBase.args = {
   actions: [
     {
       onClick: () => alert('Hello'),
@@ -89,6 +106,68 @@ Example.args = {
       onClick: () => alert('Hello'),
       children: 'Label',
       icon: Zap,
+      destructive: true,
+    },
+  ],
+};
+
+export const PopoverIconTrigger = (args) => {
+  const [isOpen, setOpen] = useState(false);
+  const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
+
+  const handleClick = () => {
+    setOpen((prev) => !prev);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <>
+      <IconButton
+        size="kilo"
+        onClick={handleClick}
+        label="IconButton"
+        ref={referenceElement}
+      >
+        <More />
+      </IconButton>
+      <Popover
+        {...args}
+        onClose={onClose}
+        isOpen={isOpen}
+        referenceElement={referenceElement}
+      />
+    </>
+  );
+};
+
+PopoverIconTrigger.args = {
+  actions: [
+    {
+      onClick: () => alert('Hello'),
+      href: '',
+      children: 'Add',
+      icon: CirclePlus,
+    },
+    {
+      onClick: () => alert('Hello'),
+      href: 'https://sumup.com/',
+      children: 'Edit',
+      icon: PenStroke,
+    },
+    {
+      onClick: () => alert('Hello'),
+      href: 'https://sumup.com/',
+      children: 'Upload',
+      icon: Share,
+    },
+    { type: 'divider' },
+    {
+      onClick: () => alert('Hello'),
+      children: 'Delete',
+      icon: Bin,
       destructive: true,
     },
   ],
