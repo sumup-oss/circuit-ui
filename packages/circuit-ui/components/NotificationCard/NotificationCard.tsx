@@ -26,12 +26,11 @@ export interface NotificationCardProps extends HTMLProps<HTMLDivElement> {
   children: ReactNode;
 }
 
-// FIXME: Replace border-radius with theme value in v3.
 const outerStyles = ({ theme }: StyleProps) => css`
   label: notification-banner;
   width: 100%;
   background-color: ${theme.colors.white};
-  border-radius: 16px;
+  border-radius: ${theme.borderRadius.mega};
 `;
 
 const NotificationCardOuter = styled('div')<NoTheme>(outerStyles, shadow());

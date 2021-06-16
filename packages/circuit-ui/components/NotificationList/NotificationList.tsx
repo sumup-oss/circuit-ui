@@ -52,11 +52,10 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const NotificationListWrapper = styled('ul')<NoTheme>(baseStyles);
 
-// FIXME: Replace border-radius with theme value in v3.
 const cardStyles = ({ theme }: StyleProps) => css`
   label: card;
   background-color: ${theme.colors.white};
-  border-radius: 16px;
+  border-radius: ${theme.borderRadius.mega};
   border: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
   display: flex;
   flex-direction: column;

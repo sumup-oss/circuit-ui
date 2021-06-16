@@ -62,11 +62,7 @@ const baseStyles = ({
   background-color: ${theme.colors.n300};
   border-radius: ${variant === 'identity'
     ? theme.borderRadius.circle
-    : /**
-       * @FIXME add this value to design tokens and upgrade in the next major
-       * to use it here and in the ImageInput
-       */
-      '12px'};
+    : theme.borderRadius.kilo};
   object-fit: cover;
   object-position: center;
 `;
