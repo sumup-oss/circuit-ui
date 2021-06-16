@@ -20,7 +20,6 @@ import React, {
   useState,
   FC,
   HTMLProps,
-  ReactNode,
   SVGProps,
   MouseEvent,
   Fragment,
@@ -40,25 +39,38 @@ import useClickHandler from '../../hooks/use-click-handler';
 import Hr from '../Hr';
 
 export interface BaseProps {
-  children: ReactNode;
+  children: string;
+  /**
+   * Function that's called when the button is clicked.
+   */
+  onClick?: (event: MouseEvent | KeyboardEvent) => void;
   /**
    * Display an icon in addition to the label.
    */
   icon?: FC<SVGProps<SVGSVGElement>>;
-
+  /**
+   * Destructive variant, changes the color of label and icon from blue to red to signal to the user that the action
+   * is irreversible or otherwise dangerous. Interactive states are the same for destructive variant.
+   */
   destructive?: boolean;
   /**
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
   /**
-   * The ref to the html dom element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
+   * The ref to the HTML DOM element, can be a button or an anchor.
    */
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>;
 }
 
-type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'type'>;
-type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'type'>;
+type LinkElProps = Omit<
+  HTMLProps<HTMLAnchorElement>,
+  'size' | 'type' | 'onClick'
+>;
+type ButtonElProps = Omit<
+  HTMLProps<HTMLButtonElement>,
+  'size' | 'type' | 'onClick'
+>;
 
 export type PopoverItemProps = BaseProps & LinkElProps & ButtonElProps;
 type PopoverItemWrapperProps = LinkElProps & ButtonElProps;
@@ -66,8 +78,9 @@ type PopoverItemWrapperProps = LinkElProps & ButtonElProps;
 const itemWrapperStyles = () => css`
   label: popover-item;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
 `;
 
 const PopoverItemWrapper = styled('button')<PopoverItemWrapperProps>(
@@ -95,7 +108,7 @@ export const PopoverItem = ({
   /* eslint-disable @typescript-eslint/no-unsafe-assignment */
   const Link = components.Link as any;
 
-  const handleClick = useClickHandler<MouseEvent<any>>(
+  const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
     onClick,
     tracking,
     'popover-item',
@@ -115,10 +128,6 @@ export const PopoverItem = ({
 
 const wrapperStyles = ({ theme }: StyleProps) => css`
   label: popover;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: flex-start;
   padding: ${theme.spacings.byte} 0px;
   border: 1px solid ${theme.colors.n200};
   box-sizing: border-box;
@@ -203,6 +212,16 @@ export const Popover = ({
     }),
     [theme],
   );
+
+  // The flip modifier is used if the popper has placement set to bottom, but there isn't enough space to position the popper in that direction.
+  // By default, it will change the popper placement to top. More at https://popper.js.org/docs/v2/modifiers/flip/
+  const flip = {
+    name: 'flip',
+    options: {
+      fallbackPlacements: ['top', 'right', 'left'],
+    },
+  };
+
   // Note: the usePopper hook intentionally takes the DOM node, not refs, in order to be able to update when the nodes change.
   // A callback ref is used here to permit this behaviour, and useState is an appropriate way to implement this.
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
@@ -211,18 +230,7 @@ export const Popover = ({
     popperElement,
     {
       placement,
-      modifiers: [
-        mobilePosition,
-        // The flip modifier is used if the popper has placement set to bottom, but there isn't enough space to position the popper in that direction.
-        // By default, it will change the popper placement to top. As soon as enough space is detected, the placement will be reverted to the originally defined (or preferred) one.
-        // You can also define fallback placements by providing a list of placements to try. When no space is available on the preferred placement, the modifier will test the ones provided in the list, and use the first useful one.
-        {
-          name: 'flip',
-          options: {
-            fallbackPlacements: ['top', 'right', 'left'],
-          },
-        },
-      ],
+      modifiers: [mobilePosition, flip],
     },
   );
 
