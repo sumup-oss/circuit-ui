@@ -6,7 +6,7 @@ The new semantic typography components make it clear when each should be used, a
 
 #### Headline
 
-Renamed the `Heading` component to `Headline` and mapped the styles to the new ones. These changes can be codemodded (🤖 _component-names-typography_).
+Renamed the `Heading` component to `Headline` and mapped the styles to the new ones. These changes can be codemodded (🤖 _component-names-v3_).
 The size prop has been changed to accept the new size numbers. For `Headline` component **_exa_** and **_peta_** has been changed to **_one_** with new values, **_tera_** has been changed to **_two_**, **_giga_** to **_three_**, **_mega_** and **_kilo_** to **_four_** (🤖 _typography-sizes_)
 
 Usage example:
@@ -18,11 +18,11 @@ Usage example:
 
 #### SubHeadline
 
-Renamed the `SubHeading` component to `SubHeadline` and mapped the styles to the new ones (🤖 _component-names-typography_). The `SubHeadline` component now uses only one size value (🤖 _typography-sizes_).
+Renamed the `SubHeading` component to `SubHeadline` and mapped the styles to the new ones (🤖 _component-names-v3_). The `SubHeadline` component now uses only one size value (🤖 _typography-sizes_).
 
 #### Body
 
-The `Text` component has been renamed to `Body` (🤖 _component-names-typography_). The size prop is adapted to accept the new size numbers and **_giga_** size has been removed, **_mega_** and **_kilo_** sizes have been changed to **_one_** and **_two_** respectively.
+The `Text` component has been renamed to `Body` (🤖 _component-names-v3_). The size prop is adapted to accept the new size numbers and **_giga_** size has been removed, **_mega_** and **_kilo_** sizes have been changed to **_one_** and **_two_** respectively.
 
 Usage example:
 
