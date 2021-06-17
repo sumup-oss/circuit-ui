@@ -364,14 +364,13 @@ export const listItem = (
       cursor: pointer;
     }
 
-    &:active {
-      background-color: ${theme.colors.n200};
+    &:focus {
+      ${focusOutline('inset')({ theme })};
+      z-index: ${theme.zIndex.absolute};
     }
 
-    &:focus {
-      background-color: ${theme.colors.white};
-      ${focusOutline({ theme })};
-      z-index: ${theme.zIndex.absolute};
+    &:active {
+      background-color: ${theme.colors.n200};
     }
   `;
 };

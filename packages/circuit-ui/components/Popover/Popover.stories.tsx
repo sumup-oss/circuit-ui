@@ -28,10 +28,14 @@ import Button from '../Button';
 import IconButton from '../IconButton';
 
 import { Popover, PopoverItem } from './Popover';
+import docs from './Popover.docs.mdx';
 
 export default {
   title: 'Components/Popover',
   component: Popover,
+  parameters: {
+    docs: { page: docs },
+  },
   argTypes: {
     children: { control: 'text' },
   },
