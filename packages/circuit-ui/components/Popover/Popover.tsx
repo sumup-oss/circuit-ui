@@ -33,7 +33,7 @@ import { Placement, State, Modifier } from '@popperjs/core';
 import { useTheme } from 'emotion-theming';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { listItem, textMega } from '../../styles/style-mixins';
+import { listItem, typography } from '../../styles/style-mixins';
 import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';
 import Hr from '../Hr';
@@ -86,7 +86,7 @@ const itemWrapperStyles = () => css`
 const PopoverItemWrapper = styled('button')<PopoverItemWrapperProps>(
   listItem,
   itemWrapperStyles,
-  textMega,
+  typography('one'),
 );
 
 const iconStyles = (theme: Theme) => css`
