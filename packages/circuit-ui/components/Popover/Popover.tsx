@@ -157,6 +157,7 @@ const Overlay = styled.div(
       left: 0;
       right: 0;
       background-color: ${theme.colors.overlay};
+      pointer-events: none;
     }
   `,
 );
