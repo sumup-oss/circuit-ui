@@ -24,8 +24,6 @@ import { uniqueId } from '../../util/id';
 import Selector from '../Selector';
 import { SelectorSize } from '../Selector/Selector';
 
-type GapSize = 'kilo' | 'mega';
-
 export interface SelectorGroupProps {
   /**
    * A collection of available options. Each option must have at least
@@ -57,17 +55,9 @@ export interface SelectorGroupProps {
    */
   multiple?: boolean;
   /**
-   * Whether to layout Selectors in a row or a column. Default: 'horizontal'.
-   */
-  orientation?: 'vertical' | 'horizontal';
-  /**
    * Size of the Selectors within the group. Default: 'mega'.
    */
   size?: SelectorSize;
-  /**
-   * Spacing between selectors in a group. Default: 'kilo'.
-   */
-  gapSize?: GapSize;
   /**
    * Whether the group should take the whole width available. Default: true.
    */
@@ -78,48 +68,38 @@ export interface SelectorGroupProps {
   ref?: Ref<HTMLDivElement>;
 }
 
-type ContainerProps = Pick<
-  SelectorGroupProps,
-  'orientation' | 'gapSize' | 'stretch'
->;
+type ContainerProps = Pick<SelectorGroupProps, 'stretch'>;
 
-const stretchStyles = ({ stretch = false }: StyleProps & ContainerProps) => css`
-  display: ${stretch ? 'flex' : 'inline-flex'};
-  align-items: ${stretch ? 'stretch' : 'flex-start'};
-  width: ${stretch ? '100%' : 'auto'};
-`;
+const stretchStyles = ({ stretch = false }: StyleProps & ContainerProps) => {
+  if (stretch) {
+    return css`
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+    `;
+  }
 
-const orientationStyles = ({
-  theme,
-  gapSize = 'mega',
-  orientation = 'horizontal',
-}: StyleProps & ContainerProps) => css`
-  flex-direction: ${orientation === 'vertical' ? 'column' : 'row'};
+  return css`
+    display: inline-flex;
+    align-items: flex-start;
+    width: auto;
+  `;
+};
+
+const baseStyles = ({ theme }: StyleProps) => css`
+  label: selector-group;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 
   > div {
     &:not(:last-child) {
-      margin-right: ${orientation === 'horizontal'
-        ? theme.spacings[gapSize]
-        : 0};
-      margin-bottom: ${orientation === 'vertical'
-        ? theme.spacings[gapSize]
-        : 0};
+      margin-right: ${theme.spacings.mega};
     }
   }
 `;
 
-const baseStyles = () => css`
-  label: selector-group;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
-
-const StyledSelectorGroup = styled.div(
-  baseStyles,
-  stretchStyles,
-  orientationStyles,
-);
+const StyledSelectorGroup = styled.div(baseStyles, stretchStyles);
 
 const OptionItem = styled.div`
   label: selector-group__option-item;
@@ -143,7 +123,6 @@ export const SelectorGroup = React.forwardRef(
       label,
       multiple,
       size,
-      gapSize,
       stretch,
       ...rest
     }: SelectorGroupProps,
@@ -156,7 +135,6 @@ export const SelectorGroup = React.forwardRef(
         role="group"
         aria-label={label}
         ref={ref}
-        gapSize={gapSize}
         stretch={stretch}
         {...rest}
       >

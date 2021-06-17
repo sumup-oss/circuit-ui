@@ -15,16 +15,13 @@
 
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React, { Fragment, Ref, HTMLProps, useState } from 'react';
+import React, { Fragment, Ref, HTMLProps } from 'react';
 import { css, jsx } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
+import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  hideVisually,
-  disableVisually,
-  textMega,
-} from '../../styles/style-mixins';
+import { hideVisually, disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import useClickHandler from '../../hooks/use-click-handler';
 import deprecate from '../../util/deprecate';
@@ -75,59 +72,84 @@ export interface SelectorProps
   tracking?: TrackingProps;
 }
 
-type LabelElProps = { hasFocus: boolean } & Pick<
+type LabelElProps = Pick<
   SelectorProps,
   'disabled' | 'noMargin' | 'size' | 'checked'
 >;
 
-const outlineStyles = ({
-  theme,
-  checked,
-  hasFocus,
-}: StyleProps & LabelElProps) => {
+// const outlineStyles = ({
+//   theme,
+//   checked,
+//   hasFocus,
+// }: StyleProps & LabelElProps) => {
+//   const defaultBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n300}`;
+//   const hoverBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n500}`;
+//   const activeBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n700}`;
+//   const checkedBorder = `0 0 0 ${theme.borderWidth.mega} ${theme.colors.p500}`;
+//   const focusOutline = hasFocus
+//     ? `, 0 0 0 ${checked ? '5px' : '4px'} ${theme.colors.p300}`
+//     : '';
+
+//   return css`
+//     box-shadow: ${`${checked ? checkedBorder : defaultBorder}${focusOutline}`};
+
+//     &:hover {
+//       box-shadow: ${`${checked ? checkedBorder : hoverBorder}${focusOutline}`};
+//     }
+
+//     &:active {
+//       box-shadow: ${`${checked ? checkedBorder : activeBorder}${focusOutline}`};
+//     }
+//   `;
+// };
+
+interface OutlineStyles {
+  default: string;
+  hover: string;
+  active: string;
+}
+
+const getBorderStyles = (theme: Theme, checked = false): OutlineStyles => {
   const defaultBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n300}`;
   const hoverBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n500}`;
   const activeBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n700}`;
   const checkedBorder = `0 0 0 ${theme.borderWidth.mega} ${theme.colors.p500}`;
-  const focusOutline = hasFocus
-    ? `, 0 0 0 ${checked ? '5px' : '4px'} ${theme.colors.p300}`
-    : '';
+
+  return {
+    default: checked ? checkedBorder : defaultBorder,
+    hover: checked ? checkedBorder : hoverBorder,
+    active: checked ? checkedBorder : activeBorder,
+  };
+};
+
+const baseStyles = ({ theme, checked }: StyleProps & LabelElProps) => {
+  const borderStyles = getBorderStyles(theme, checked);
 
   return css`
-    box-shadow: ${`${checked ? checkedBorder : defaultBorder}${focusOutline}`};
+    label: selector__label;
+    display: inline-block;
+    cursor: pointer;
+    padding: ${theme.spacings.mega} ${theme.spacings.giga};
+    background-color: ${checked ? theme.colors.p100 : theme.colors.white};
+    text-align: center;
+    position: relative;
+    margin-bottom: ${theme.spacings.mega};
+    border: none;
+    border-radius: ${theme.borderRadius.tera};
+    transition: box-shadow 0.1s ease-in-out;
+    box-shadow: ${borderStyles.default};
 
     &:hover {
-      box-shadow: ${`${checked ? checkedBorder : hoverBorder}${focusOutline}`};
+      background-color: ${theme.colors.n100};
+      box-shadow: ${borderStyles.hover};
     }
 
     &:active {
-      box-shadow: ${`${checked ? checkedBorder : activeBorder}${focusOutline}`};
+      background-color: ${theme.colors.n200};
+      box-shadow: ${borderStyles.active};
     }
   `;
 };
-
-const baseStyles = ({ theme, checked }: StyleProps & LabelElProps) => css`
-  label: selector__label;
-  display: inline-block;
-  cursor: pointer;
-  padding: ${theme.spacings.mega} ${theme.spacings.giga};
-  background-color: ${checked ? theme.colors.p100 : theme.colors.white};
-  text-align: center;
-  position: relative;
-  margin-bottom: ${theme.spacings.mega};
-  border: none;
-  border-radius: ${theme.borderRadius.tera};
-  transition: box-shadow 0.1s ease-in-out;
-  ${textMega({ theme })};
-
-  &:hover {
-    background-color: ${theme.colors.n100};
-  }
-
-  &:active {
-    background-color: ${theme.colors.n200};
-  }
-`;
 
 const disabledStyles = ({ disabled }: LabelElProps) =>
   disabled &&
@@ -178,16 +200,34 @@ const SelectorLabel = styled('label')<LabelElProps>(
   baseStyles,
   sizeStyles,
   disabledStyles,
-  outlineStyles,
   noMarginStyles,
 );
 
-const inputStyles = () => css`
-  label: selector__input;
-  ${hideVisually()};
-`;
+const inputStyles = ({ theme, checked }: StyleProps & LabelElProps) => {
+  const borderStyles = getBorderStyles(theme, checked);
+  const focusOutline = `0 0 0 ${checked ? '5px' : '4px'} ${theme.colors.p300}`;
 
-const SelectorInput = styled('input')<HTMLProps<HTMLInputElement>>(inputStyles);
+  return css`
+    label: selector__input;
+    ${hideVisually()};
+
+    &:focus + label {
+      box-shadow: ${borderStyles.default}, ${focusOutline};
+    }
+
+    &:focus + label:hover {
+      box-shadow: ${borderStyles.hover}, ${focusOutline};
+    }
+
+    &:focus + label:active {
+      box-shadow: ${borderStyles.active}, ${focusOutline};
+    }
+  `;
+};
+
+const SelectorInput = styled('input')<
+  HTMLProps<HTMLInputElement> & LabelElProps
+>(inputStyles);
 
 /**
  * A selector allows users to choose between several mutually-exclusive choices
@@ -213,7 +253,6 @@ export const Selector = React.forwardRef(
     }: SelectorProps,
     ref: SelectorProps['ref'],
   ) => {
-    const [hasFocus, setHasFocus] = useState(false);
     const inputId = id || uniqueId('selector_');
     const type = multiple ? 'checkbox' : 'radio';
     const handleChange = useClickHandler(onChange, tracking, 'selector');
@@ -236,8 +275,6 @@ export const Selector = React.forwardRef(
              * https://stackoverflow.com/a/5575369/4620154
              */
           }}
-          onFocus={() => setHasFocus(true)}
-          onBlur={() => setHasFocus(false)}
           ref={ref}
           {...props}
         />
@@ -245,7 +282,6 @@ export const Selector = React.forwardRef(
           htmlFor={inputId}
           disabled={disabled}
           checked={checked}
-          hasFocus={hasFocus}
           size={size}
           className={className}
           style={style}
