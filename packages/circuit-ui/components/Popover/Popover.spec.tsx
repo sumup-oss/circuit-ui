@@ -15,6 +15,7 @@
 
 import { CirclePlus, Zap } from '@sumup/icons';
 import React, { useRef } from 'react';
+import { Placement } from '@popperjs/core';
 
 import {
   create,
@@ -25,9 +26,14 @@ import {
   userEvent,
 } from '../../util/test-utils';
 
-import { PopoverItem, PopoverItemProps, Popover } from './Popover';
+import {
+  PopoverItem,
+  PopoverItemProps,
+  Popover,
+  PopoverProps,
+} from './Popover';
 
-const placements = ['auto', 'top', 'bottom', 'left', 'right'];
+const placements: Placement[] = ['auto', 'top', 'bottom', 'left', 'right'];
 
 describe('PopoverItem', () => {
   function renderPopoverItem<T>(
@@ -84,14 +90,16 @@ describe('PopoverItem', () => {
       };
       const { container } = renderPopoverItem(render, props);
       const anchorEl = container.querySelector('a');
-      userEvent.click(anchorEl);
+      if (anchorEl) {
+        userEvent.click(anchorEl);
+      }
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });
   });
 });
 
 describe('Popover', () => {
-  const Default = (props) => {
+  const Default = (props: Omit<PopoverProps, 'referenceElement'>) => {
     const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(
       null,
     );
