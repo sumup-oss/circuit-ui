@@ -17,7 +17,7 @@ import React, { ReactNode } from 'react';
 import { css, keyframes } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
-import { hideVisually, textKilo } from '../../styles/style-mixins';
+import { typography, hideVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { ReturnType } from '../../types/return-type';
 
@@ -209,7 +209,6 @@ const TimeProgress = styled('span')<TimeProgressElProps>(
 
 const labelStyles = ({ theme }: StyleProps) => css`
   label: progress-bar__label;
-  ${textKilo({ theme })};
   margin-left: ${theme.spacings.byte};
 `;
 
@@ -221,6 +220,7 @@ const labelHiddenStyles = ({ hideLabel }: LabelElProps) =>
   `;
 
 const ProgressBarLabel = styled('span')<LabelElProps>(
+  typography('two'),
   labelStyles,
   labelHiddenStyles,
 );

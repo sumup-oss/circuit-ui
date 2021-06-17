@@ -158,24 +158,6 @@ export const themePropType = PropTypes.shape({
     mega: PropTypes.string.isRequired,
   } as { [key in keyof BorderWidth]: any }).isRequired,
   typography: PropTypes.shape({
-    headings: PropTypes.shape({
-      kilo: typePropType,
-      mega: typePropType,
-      giga: typePropType,
-      tera: typePropType,
-      peta: typePropType,
-      exa: typePropType,
-      zetta: typePropType,
-    }).isRequired,
-    subHeadings: PropTypes.shape({
-      kilo: typePropType,
-      mega: typePropType,
-    }).isRequired,
-    text: PropTypes.shape({
-      kilo: typePropType,
-      mega: typePropType,
-      giga: typePropType,
-    }).isRequired,
     headline: PropTypes.shape({
       one: typePropType,
       two: typePropType,

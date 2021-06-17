@@ -27,18 +27,7 @@ import {
   shadowSingle,
   shadowDouble,
   shadowTriple,
-  headingKilo,
-  headingMega,
-  headingGiga,
-  headingTera,
-  headingExa,
-  headingPeta,
-  headingZetta,
-  subHeadingKilo,
-  subHeadingMega,
-  textKilo,
-  textMega,
-  textGiga,
+  typography,
   disableVisually,
   hideVisually,
   focusOutline,
@@ -181,148 +170,19 @@ describe('Style helpers', () => {
     });
   });
 
-  describe('headingKilo', () => {
-    it('should match the snapshot', () => {
-      const { styles } = headingKilo({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 17px;
-              line-height: 24px;
-            "
-      `);
-    });
-  });
-
-  describe('headingMega', () => {
-    it('should match the snapshot', () => {
-      const { styles } = headingMega({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 19px;
-              line-height: 24px;
-            "
-      `);
-    });
-  });
-
-  describe('headingGiga', () => {
-    it('should match the snapshot', () => {
-      const { styles } = headingGiga({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 22px;
-              line-height: 24px;
-            "
-      `);
-    });
-  });
-
-  describe('headingTera', () => {
-    it('should match the snapshot', () => {
-      const { styles } = headingTera({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 24px;
-              line-height: 32px;
-            "
-      `);
-    });
-  });
-
-  describe('headingPeta', () => {
-    it('should match the snapshot', () => {
-      const { styles } = headingPeta({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 28px;
-              line-height: 32px;
-            "
-      `);
-    });
-  });
-
-  describe('headingExa', () => {
-    it('should match the snapshot', () => {
-      const { styles } = headingExa({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 36px;
-              line-height: 44px;
-            "
-      `);
-    });
-  });
-
-  describe('headingZetta', () => {
-    it('should match the snapshot', () => {
-      const { styles } = headingZetta({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 42px;
-              line-height: 48px;
-            "
-      `);
-    });
-  });
-
-  describe('subHeadingKilo', () => {
-    it('should match the snapshot', () => {
-      const { styles } = subHeadingKilo({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 12px;
-              line-height: 20px;
-            "
-      `);
-    });
-  });
-
-  describe('subHeadingMega', () => {
-    it('should match the snapshot', () => {
-      const { styles } = subHeadingMega({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 14px;
-              line-height: 18px;
-            "
-      `);
-    });
-  });
-
-  describe('textKilo', () => {
-    it('should match the snapshot', () => {
-      const { styles } = textKilo({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 13px;
-              line-height: 20px;
-            "
-      `);
-    });
-  });
-
-  describe('textMega', () => {
-    it('should match the snapshot', () => {
-      const { styles } = textMega({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 16px;
-              line-height: 24px;
-            "
-      `);
-    });
-  });
-
-  describe('textGiga', () => {
-    it('should match the snapshot', () => {
-      const { styles } = textGiga({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-              font-size: 18px;
-              line-height: 28px;
-            "
-      `);
-    });
+  describe('typography', () => {
+    type Size = keyof Theme['typography']['body'];
+    const snapshots: { size: Size; snapshot: string }[] = [
+      { size: 'one', snapshot: `"font-size:16px;line-height:24px;"` },
+      { size: 'two', snapshot: `"font-size:14px;line-height:20px;"` },
+    ];
+    it.each(snapshots)(
+      'should match the snapshot for size %#',
+      ({ size, snapshot }) => {
+        const { styles } = typography(size)(light);
+        expect(styles).toMatchInlineSnapshot(snapshot);
+      },
+    );
   });
 
   describe('disableVisually', () => {

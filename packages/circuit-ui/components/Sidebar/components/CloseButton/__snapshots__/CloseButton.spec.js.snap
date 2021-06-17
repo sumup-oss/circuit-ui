@@ -2,6 +2,8 @@
 
 exports[`CloseButton styles should render and match snapshot when not visible 1`] = `
 .circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -18,8 +20,6 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -133,6 +133,8 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
 }
 
 .circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -149,8 +151,6 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;

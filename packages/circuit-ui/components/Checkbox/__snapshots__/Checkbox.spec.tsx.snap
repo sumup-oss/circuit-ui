@@ -97,6 +97,8 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 }
 
 .circuit-2 {
+  font-size: 14px;
+  line-height: 20px;
   display: inline-block;
   width: auto;
   max-width: 280px;
@@ -109,8 +111,6 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  font-size: 13px;
-  line-height: 20px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   left: 50%;
   left: calc(50% - (16px + 4px));

@@ -12,7 +12,7 @@ exports[`Status styles should render with default styles 1`] = `
 
 @media (max-width:479px) {
   .circuit-1 {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 20px;
   }
 }

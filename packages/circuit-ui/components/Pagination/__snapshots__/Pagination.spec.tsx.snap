@@ -19,6 +19,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -35,8 +37,6 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -107,6 +107,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -123,8 +125,6 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -174,6 +174,8 @@ li:last-child .circuit-2 {
 }
 
 .circuit-3 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -190,8 +192,6 @@ li:last-child .circuit-2 {
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -239,6 +239,8 @@ li:last-child .circuit-3 {
 }
 
 .circuit-9 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -255,8 +257,6 @@ li:last-child .circuit-3 {
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -436,6 +436,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -452,8 +454,6 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -512,6 +512,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-10 {
+  font-size: 16px;
+  line-height: 24px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -528,8 +530,6 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -575,7 +575,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-7 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
 }
@@ -587,6 +587,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-3 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -610,8 +612,6 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 

@@ -18,7 +18,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { includes } from 'lodash/fp';
 
-import { textKilo, shadowSingle } from '../../styles/style-mixins';
+import { typography, shadowSingle } from '../../styles/style-mixins';
 import {
   positionPropType,
   childrenPropType,
@@ -37,8 +37,6 @@ const baseStyles = ({ theme }) => css`
   position: absolute;
   z-index: ${theme.zIndex.tooltip};
   transition: opacity 0.3s;
-  ${textKilo({ theme })};
-  ${shadowSingle({ theme })};
 
   &::after {
     display: block;
@@ -126,7 +124,12 @@ const positionAndAlignStyles = ({
 /**
  * A Tooltip component
  */
-const Tooltip = styled('div')(baseStyles, positionAndAlignStyles);
+const Tooltip = styled('div')(
+  typography('two'),
+  baseStyles,
+  shadowSingle,
+  positionAndAlignStyles,
+);
 
 Tooltip.propTypes = {
   /**

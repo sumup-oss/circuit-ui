@@ -182,36 +182,6 @@ Object {
         "lineHeight": "20px",
       },
     },
-    "headings": Object {
-      "exa": Object {
-        "fontSize": "36px",
-        "lineHeight": "44px",
-      },
-      "giga": Object {
-        "fontSize": "22px",
-        "lineHeight": "24px",
-      },
-      "kilo": Object {
-        "fontSize": "17px",
-        "lineHeight": "24px",
-      },
-      "mega": Object {
-        "fontSize": "19px",
-        "lineHeight": "24px",
-      },
-      "peta": Object {
-        "fontSize": "28px",
-        "lineHeight": "32px",
-      },
-      "tera": Object {
-        "fontSize": "24px",
-        "lineHeight": "32px",
-      },
-      "zetta": Object {
-        "fontSize": "42px",
-        "lineHeight": "48px",
-      },
-    },
     "headline": Object {
       "four": Object {
         "fontSize": "18px",
@@ -230,33 +200,9 @@ Object {
         "lineHeight": "28px",
       },
     },
-    "subHeadings": Object {
-      "kilo": Object {
-        "fontSize": "12px",
-        "lineHeight": "20px",
-      },
-      "mega": Object {
-        "fontSize": "14px",
-        "lineHeight": "18px",
-      },
-    },
     "subHeadline": Object {
       "fontSize": "14px",
       "lineHeight": "20px",
-    },
-    "text": Object {
-      "giga": Object {
-        "fontSize": "18px",
-        "lineHeight": "28px",
-      },
-      "kilo": Object {
-        "fontSize": "13px",
-        "lineHeight": "20px",
-      },
-      "mega": Object {
-        "fontSize": "16px",
-        "lineHeight": "24px",
-      },
     },
   },
   "zIndex": Object {

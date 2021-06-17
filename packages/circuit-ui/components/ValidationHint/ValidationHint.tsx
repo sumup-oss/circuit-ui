@@ -25,7 +25,7 @@ import {
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { textKilo } from '../../styles/style-mixins';
+import { typography } from '../../styles/style-mixins';
 
 export interface ValidationHintProps extends HTMLProps<HTMLSpanElement> {
   validationHint?: string;
@@ -37,7 +37,6 @@ export interface ValidationHintProps extends HTMLProps<HTMLSpanElement> {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   label: validation-hint;
-  ${textKilo({ theme })};
   display: flex;
   align-items: flex-start;
   margin-top: ${theme.spacings.bit};
@@ -60,6 +59,7 @@ const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
   `;
 
 const Wrapper = styled('span')<ValidationHintProps>(
+  typography('two'),
   baseStyles,
   validStyles,
   invalidStyles,

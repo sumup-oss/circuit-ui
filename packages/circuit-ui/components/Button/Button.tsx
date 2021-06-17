@@ -31,7 +31,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
-  textMega,
+  typography,
   disableVisually,
   focusOutline,
 } from '../../styles/style-mixins';
@@ -125,7 +125,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
   height: auto;
   margin: 0;
   cursor: pointer;
-  ${textMega({ theme })};
   text-align: center;
   text-decoration: none;
   font-weight: ${theme.fontWeight.bold};
@@ -266,6 +265,7 @@ const iconStyles = (theme: Theme) => css`
 const StyledButton = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<ButtonProps>(
+  typography('one'),
   baseStyles,
   primaryStyles,
   secondaryStyles,

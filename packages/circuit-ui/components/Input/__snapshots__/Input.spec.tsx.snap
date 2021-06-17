@@ -6,7 +6,7 @@ exports[`Input should prioritize disabled over error styles 1`] = `
 }
 
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   opacity: 0.5;
@@ -21,6 +21,8 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -31,8 +33,6 @@ label + .circuit-2:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #999;
 }
@@ -86,7 +86,7 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
 }
 
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   opacity: 0.5;
@@ -101,6 +101,8 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -111,8 +113,6 @@ label + .circuit-2:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #999;
 }
@@ -161,7 +161,7 @@ label + .circuit-2:not(label) {
 
 exports[`Input should render with a Tooltip when passed the validationHint prop 1`] = `
 .circuit-3 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -177,6 +177,8 @@ label + .circuit-3:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -187,8 +189,6 @@ label + .circuit-3:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -229,7 +229,7 @@ label + .circuit-3:not(label) {
 }
 
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -268,7 +268,7 @@ label + .circuit-3:not(label) {
 
 exports[`Input should render with a prefix when passed the prefix prop 1`] = `
 .circuit-3 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -295,6 +295,8 @@ label + .circuit-3:not(label) {
 }
 
 .circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -305,8 +307,6 @@ label + .circuit-3:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #999;
 }
@@ -369,7 +369,7 @@ label + .circuit-3:not(label) {
 
 exports[`Input should render with a suffix when passed the suffix prop 1`] = `
 .circuit-3 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -385,6 +385,8 @@ label + .circuit-3:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -395,8 +397,6 @@ label + .circuit-3:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   padding-right: 40px;
   box-shadow: 0 0 0 1px #999;
 }
@@ -476,7 +476,7 @@ exports[`Input should render with custom styles 1`] = `
 }
 
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -489,6 +489,8 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -499,8 +501,6 @@ label + .circuit-2:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
   color: red;
 }
@@ -559,7 +559,7 @@ label + .circuit-2:not(label) {
 
 exports[`Input should render with default styles 1`] = `
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -575,6 +575,8 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -585,8 +587,6 @@ label + .circuit-2:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -648,7 +648,7 @@ exports[`Input should render with disabled styles when passed the disabled prop 
 }
 
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   opacity: 0.5;
@@ -663,6 +663,8 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -673,8 +675,6 @@ label + .circuit-2:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #999;
 }
@@ -727,6 +727,8 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -737,8 +739,6 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -779,7 +779,7 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
 }
 
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   display: inline-block;
@@ -810,7 +810,7 @@ label + .circuit-2:not(label) {
 
 exports[`Input should render with invalid styles when passed the invalid prop 1`] = `
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -826,6 +826,8 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -836,8 +838,6 @@ label + .circuit-2:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #D23F47;
 }
 
@@ -920,6 +920,8 @@ exports[`Input should render with no margin styles when passed the noMargin prop
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -930,8 +932,6 @@ exports[`Input should render with no margin styles when passed the noMargin prop
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -972,7 +972,7 @@ exports[`Input should render with no margin styles when passed the noMargin prop
 }
 
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
 }
@@ -1000,7 +1000,7 @@ label + .circuit-2:not(label) {
 
 exports[`Input should render with readonly styles when passed the readOnly prop 1`] = `
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -1016,6 +1016,8 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -1026,8 +1028,6 @@ label + .circuit-2:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   background-color: #F5F5F5;
   box-shadow: 0 0 0 1px #999;
 }
@@ -1087,7 +1087,7 @@ label + .circuit-2:not(label) {
 
 exports[`Input should render with right aligned text 1`] = `
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -1103,6 +1103,8 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -1113,8 +1115,6 @@ label + .circuit-2:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   text-align: right;
   box-shadow: 0 0 0 1px #999;
 }
@@ -1173,7 +1173,7 @@ label + .circuit-2:not(label) {
 
 exports[`Input should render with valid styles when passed the showValid prop 1`] = `
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -1189,6 +1189,8 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -1199,8 +1201,6 @@ label + .circuit-2:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -1258,7 +1258,7 @@ label + .circuit-2:not(label) {
 
 exports[`Input should render with warning styles when passed the hasWarning prop 1`] = `
 .circuit-2 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
@@ -1274,6 +1274,8 @@ label + .circuit-2:not(label) {
 }
 
 .circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -1284,8 +1286,6 @@ label + .circuit-2:not(label) {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
   box-shadow: 0 0 0 1px #F5C625;
 }
 

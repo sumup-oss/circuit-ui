@@ -17,7 +17,7 @@ import React, { HTMLProps, FC, MouseEventHandler } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
-import { focusOutline } from '../../../../styles/style-mixins';
+import { focusOutline, typography } from '../../../../styles/style-mixins';
 import SortArrow from '../SortArrow';
 import styled, { StyleProps } from '../../../../styles/styled';
 import { SortParams } from '../../types';
@@ -83,8 +83,8 @@ const colStyles = ({ theme, scope }: StyleProps & ThElProps) =>
   scope === 'col' &&
   css`
     label: table-header--col;
+    ${typography('two')(theme)};
     color: ${theme.colors.n700};
-    font-size: ${theme.typography.text.kilo.fontSize};
     font-weight: ${theme.fontWeight.bold};
     padding: ${theme.spacings.byte} ${theme.spacings.giga};
     vertical-align: middle;
@@ -123,7 +123,7 @@ const sortableStyles = ({ theme, sortable }: StyleProps & ThElProps) =>
       bottom: 0;
       left: 0;
       z-index: 1;
-      ${focusOutline({ theme })};
+      ${focusOutline(theme)};
     }
 
     &:focus-within,
@@ -150,8 +150,8 @@ const condensedStyles = ({ condensed, theme }: StyleProps & ThElProps) =>
   condensed &&
   css`
     label: table-header--condensed;
+    ${typography('two')(theme)};
     vertical-align: middle;
-    ${theme.typography.text.kilo};
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   `;
 

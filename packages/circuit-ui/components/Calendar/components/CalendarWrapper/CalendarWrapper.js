@@ -18,8 +18,7 @@ import { css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 
 import {
-  textMega,
-  textKilo,
+  typography,
   shadowTriple,
   focusOutline,
   disableVisually,
@@ -100,7 +99,7 @@ const dateRangePickerInput = ({ theme }) => css`
     padding: ${theme.spacings.byte} ${theme.spacings.kilo};
     transition: border-color ${theme.transitions.default};
     width: 100%;
-    ${textMega({ theme })};
+    ${typography('one')(theme)};
 
     &.DateRangePickerInput__withBorder,
     &.SingleDatePickerInput__withBorder {
@@ -132,7 +131,7 @@ const dateRangePickerInput = ({ theme }) => css`
 
   .DateInput_input {
     color: ${theme.colors.n900};
-    ${textMega({ theme })};
+    ${typography('one')(theme)};
     font-weight: 200;
     background-color: inherit;
     width: 100%;
@@ -231,7 +230,7 @@ const calendarWeekHeader = ({ theme }) => css`
     text-align: left;
 
     .DayPicker_weekHeader_ul {
-      ${textKilo({ theme })};
+      ${typography('two')(theme)};
     }
   }
 `;

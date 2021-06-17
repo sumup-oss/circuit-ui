@@ -22,7 +22,7 @@ import { START_DATE, END_DATE } from 'react-dates/constants';
 
 import { RangePickerController } from '../Calendar';
 import Tag from '../Tag';
-import { textKilo } from '../../styles/style-mixins';
+import { typography } from '../../styles/style-mixins';
 
 const calendarInfoBase = () => css`
   text-align: right;
@@ -36,7 +36,7 @@ const buttonBase = ({ theme, primary }) => css`
   border: none;
   background: none;
 
-  ${textKilo({ theme })};
+  ${typography('two')(theme)};
   margin-left: ${theme.spacings.kilo}};
   cursor: pointer;
   color: ${primary ? theme.colors.b500 : theme.colors.n900};

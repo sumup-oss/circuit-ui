@@ -203,24 +203,6 @@ export interface Theme {
   borderRadius: BorderRadius;
   borderWidth: BorderWidth;
   typography: {
-    headings: {
-      kilo: Typography;
-      mega: Typography;
-      giga: Typography;
-      tera: Typography;
-      peta: Typography;
-      exa: Typography;
-      zetta: Typography;
-    };
-    subHeadings: {
-      kilo: Typography;
-      mega: Typography;
-    };
-    text: {
-      kilo: Typography;
-      mega: Typography;
-      giga: Typography;
-    };
     headline: {
       one: Typography;
       two: Typography;

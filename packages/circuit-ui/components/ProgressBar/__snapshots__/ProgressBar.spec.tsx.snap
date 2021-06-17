@@ -44,7 +44,7 @@ exports[`ProgressBar step-based should render with a hidden label 1`] = `
 }
 
 .circuit-1 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   margin-left: 8px;
   border: 0;
@@ -126,7 +126,7 @@ exports[`ProgressBar step-based should render with default styles 1`] = `
 }
 
 .circuit-1 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   margin-left: 8px;
 }
@@ -176,7 +176,7 @@ exports[`ProgressBar time-based should render with a hidden label 1`] = `
 }
 
 .circuit-1 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   margin-left: 8px;
   border: 0;
@@ -272,7 +272,7 @@ exports[`ProgressBar time-based should render with default styles 1`] = `
 }
 
 .circuit-1 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   margin-left: 8px;
 }
@@ -370,7 +370,7 @@ exports[`ProgressBar time-based should render with loop styles 1`] = `
 }
 
 .circuit-1 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   margin-left: 8px;
 }
@@ -466,7 +466,7 @@ exports[`ProgressBar time-based should render with paused styles 1`] = `
 }
 
 .circuit-1 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   margin-left: 8px;
 }

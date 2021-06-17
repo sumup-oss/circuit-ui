@@ -16,7 +16,7 @@
 import { css } from '@emotion/core';
 
 import { StyleProps } from '../../styles/styled';
-import { textMega } from '../../styles/style-mixins';
+import { typography } from '../../styles/style-mixins';
 
 const FONTS_BASE_URL = 'https://static.sumup.com/fonts/latin-greek-cyrillic';
 
@@ -194,7 +194,7 @@ export const createBaseStyles = ({ theme }: StyleProps) => css`
   body {
     background-color: ${theme.colors.bodyBg};
     color: ${theme.colors.bodyColor};
-    ${textMega({ theme })};
+    ${typography('one')(theme)};
   }
 
   /**
