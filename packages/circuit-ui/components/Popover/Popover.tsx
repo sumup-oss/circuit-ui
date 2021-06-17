@@ -33,15 +33,18 @@ import { Placement, State, Modifier } from '@popperjs/core';
 import { useTheme } from 'emotion-theming';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { listItem, typography } from '../../styles/style-mixins';
+import { listItem, shadow, typography } from '../../styles/style-mixins';
 import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';
 import Hr from '../Hr';
 
 export interface BaseProps {
+  /**
+   * The Popover item label.
+   */
   children: string;
   /**
-   * Function that's called when the button is clicked.
+   * Function that's called when the item is clicked.
    */
   onClick?: (event: MouseEvent | KeyboardEvent) => void;
   /**
@@ -131,8 +134,7 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.byte} 0px;
   border: 1px solid ${theme.colors.n200};
   box-sizing: border-box;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  border-radius: ${theme.borderRadius.byte};
   background-color: ${theme.colors.white};
 
   ${theme.mq.untilKilo} {
@@ -141,7 +143,7 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const PopoverWrapper = styled('div')(wrapperStyles);
+const PopoverWrapper = styled('div')(wrapperStyles, shadow);
 
 const dividerStyles = (theme: Theme) => css`
   margin: ${theme.spacings.byte} ${theme.spacings.mega};
@@ -170,11 +172,29 @@ function isDivider(action: Action): action is Divider {
 }
 
 export interface PopoverProps {
+  /**
+   * Determine whether the Popover is opened or closed.
+   */
   isOpen: boolean;
+  /**
+   * An array of PopoverItem or Divider.
+   */
   actions: Action[];
-  referenceElement: RefObject<HTMLElement>;
+  /**
+   * The reference to the element that toggles the Popover.
+   */
+  triggerRef: RefObject<HTMLElement>;
+  /**
+   * One of the accepted placement values. Defaults to bottom.
+   */
   placement?: Placement;
+  /**
+   * The placements to fallback to when there is not enough space for the Popover. Defaults to ['top', 'right', 'left'].
+   */
   fallbackPlacements?: Placement[];
+  /**
+   * Function that is called when closing the Popover.
+   */
   onClose: (event: Event) => void;
 }
 
@@ -182,7 +202,7 @@ export const Popover = ({
   isOpen,
   onClose,
   actions,
-  referenceElement,
+  triggerRef,
   placement = 'bottom',
   fallbackPlacements = ['top', 'right', 'left'],
   ...props
@@ -228,14 +248,10 @@ export const Popover = ({
   // Note: the usePopper hook intentionally takes the DOM node, not refs, in order to be able to update when the nodes change.
   // A callback ref is used here to permit this behaviour, and useState is an appropriate way to implement this.
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const { styles, attributes } = usePopper(
-    referenceElement.current,
-    popperElement,
-    {
-      placement,
-      modifiers: [mobilePosition, flip],
-    },
-  );
+  const { styles, attributes } = usePopper(triggerRef.current, popperElement, {
+    placement,
+    modifiers: [mobilePosition, flip],
+  });
 
   // This is a performance optimization to prevent event listeners from being
   // re-attached on every render.
@@ -244,8 +260,8 @@ export const Popover = ({
   useClickAway(popperRef, (event) => {
     // The reference element has its own click handler to toggle the popover.
     if (
-      !referenceElement.current ||
-      referenceElement.current.contains(event.target as Node)
+      !triggerRef.current ||
+      triggerRef.current.contains(event.target as Node)
     ) {
       return;
     }

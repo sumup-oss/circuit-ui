@@ -14,6 +14,7 @@
  */
 
 import React, { useState, useRef } from 'react';
+import { action } from '@storybook/addon-actions';
 import {
   More,
   ThumbUp,
@@ -43,7 +44,7 @@ export default {
 
 export const PopoverBase = (args) => {
   const [isOpen, setOpen] = useState(false);
-  const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
+  const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 
   const handleClick = () => {
     setOpen((prev) => !prev);
@@ -57,9 +58,9 @@ export const PopoverBase = (args) => {
     <>
       <Button
         size="kilo"
-        variant="tertiary"
+        variant="primary"
         onClick={handleClick}
-        ref={referenceElement}
+        ref={triggerRef}
         icon={ThumbUp}
       >
         Button
@@ -68,7 +69,7 @@ export const PopoverBase = (args) => {
         {...args}
         onClose={onClose}
         isOpen={isOpen}
-        referenceElement={referenceElement}
+        triggerRef={triggerRef}
       />
     </>
   );
@@ -77,20 +78,20 @@ export const PopoverBase = (args) => {
 PopoverBase.args = {
   actions: [
     {
-      onClick: () => alert('Hello'),
+      onClick: () => action('Button Click'),
       href: '',
       children: 'Label',
       icon: Zap,
     },
     {
-      onClick: () => alert('Hello'),
+      onClick: () => action('Button Click'),
       href: 'https://sumup.com/',
       children: 'Label',
       icon: Zap,
     },
     { type: 'divider' },
     {
-      onClick: () => alert('Hello'),
+      onClick: () => action('Button Click'),
       children: 'Label',
       icon: Zap,
       destructive: true,
@@ -100,7 +101,7 @@ PopoverBase.args = {
 
 export const PopoverIconTrigger = (args) => {
   const [isOpen, setOpen] = useState(false);
-  const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
+  const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 
   const handleClick = () => {
     setOpen((prev) => !prev);
@@ -116,7 +117,7 @@ export const PopoverIconTrigger = (args) => {
         size="kilo"
         onClick={handleClick}
         label="IconButton"
-        ref={referenceElement}
+        ref={triggerRef}
       >
         <More />
       </IconButton>
@@ -124,7 +125,7 @@ export const PopoverIconTrigger = (args) => {
         {...args}
         onClose={onClose}
         isOpen={isOpen}
-        referenceElement={referenceElement}
+        triggerRef={triggerRef}
       />
     </>
   );
@@ -133,19 +134,19 @@ export const PopoverIconTrigger = (args) => {
 PopoverIconTrigger.args = {
   actions: [
     {
-      onClick: () => alert('Hello'),
+      onClick: () => action('Button Click'),
       href: '',
       children: 'Add',
       icon: CirclePlus,
     },
     {
-      onClick: () => alert('Hello'),
+      onClick: () => action('Button Click'),
       href: 'https://sumup.com/',
       children: 'Edit',
       icon: PenStroke,
     },
     {
-      onClick: () => alert('Hello'),
+      onClick: () => action('Button Click'),
       href: 'https://sumup.com/',
       children: 'Upload',
       icon: Share,
@@ -163,7 +164,7 @@ PopoverIconTrigger.args = {
 export const PopoverItemBase = (args) => <PopoverItem {...args} />;
 
 PopoverItemBase.args = {
-  onClick: () => alert('Hello'),
+  onClick: () => action('Button Click'),
   href: 'https://sumup.com/',
   children: 'Label',
   icon: Zap,

@@ -6,11 +6,9 @@ import { Popover } from '@sumup/circuit-ui';
 Popover menus are a common pattern to display a list of subsequent action options, when interacting with an actionable component.
 
 <Story id="popover-base" />
-<Story id="popover-icon-trigger" />
 <Props of={Popover} />
-<Story id="popover-item-base" />
 
-- Triggers of Popover can be primary, secondary, tertiary buttons, an overflow icons, or components with embedded buttons such as image upload component.
+- Triggers of Popover can be primary, secondary, tertiary buttons, an overflow icon, or components with embedded buttons such as the [ImageInput component](Forms/ImageInput).
 - Each Popover action item is represented by an appropriate HTML element (button or a).
 - If needed the dividing line can be used to separate Popover action items.
 - The leading icon is optional.
@@ -18,49 +16,8 @@ Popover menus are a common pattern to display a list of subsequent action option
 
 ## Usage guidelines
 
-- **Do** popover menu label should be clear, actionable, concise and understandable
+- **Do** use clear, concise and actionable labels for Popover items
 - **Do** always think about the priority of the action option to be taken and put the option order in logical order
 
-## Usage in code
-
-```js
-import React from 'react';
-import {
-  Popover,
-  Button,
-} from '@sumup/circuit-ui';
-
-  const [isOpen, setOpen] = useState(false);
-  const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
-
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
-
- const props = {
-    actions: [
-      {
-        onClick: () => alert('Hello'),
-        children: 'Add',
-        icon: CirclePlus,
-      },
-    ],
-    isOpen: true,
-    onClose: jest.fn(),
-  };
-
-  return (
-    <>
-    <Button onClick={handleClick} ref={referenceElement}>Say hello</Button>
-      <Popover
-        {...props}
-        referenceElement={referenceElement}
-      />
-    </>
-  );
-};
-```
+<Story id="popover-icon-trigger" />
+<Story id="popover-item-base" />

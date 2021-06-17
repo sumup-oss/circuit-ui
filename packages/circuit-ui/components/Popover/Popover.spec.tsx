@@ -99,15 +99,13 @@ describe('PopoverItem', () => {
 });
 
 describe('Popover', () => {
-  const Default = (props: Omit<PopoverProps, 'referenceElement'>) => {
-    const referenceElement = useRef<HTMLButtonElement & HTMLAnchorElement>(
-      null,
-    );
+  const Default = (props: Omit<PopoverProps, 'triggerRef'>) => {
+    const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 
     return (
       <>
-        <button ref={referenceElement}>Button</button>
-        <Popover referenceElement={referenceElement} {...props} />
+        <button ref={triggerRef}>Button</button>
+        <Popover triggerRef={triggerRef} {...props} />
       </>
     );
   };
