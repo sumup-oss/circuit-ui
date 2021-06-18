@@ -16,7 +16,6 @@
 // TODO: Improve types
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-/** @jsxRuntime classic */
 /** @jsx jsx */
 import {
   useState,

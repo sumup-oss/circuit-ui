@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
 /** @jsx jsx */
 import { forwardRef, Ref, FC, HTMLProps, ReactNode } from 'react';
 import { css, jsx, InterpolationWithTheme } from '@emotion/core';

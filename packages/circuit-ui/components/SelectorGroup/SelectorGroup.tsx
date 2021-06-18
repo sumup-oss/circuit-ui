@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
 /** @jsx jsx */
 import React, { ReactNode, ChangeEvent, Ref } from 'react';
 import { includes } from 'lodash/fp';
