@@ -192,9 +192,9 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   box-shadow: none;
   color: ${theme.colors.n900};
   margin: 0;
-  padding-top: calc(${theme.spacings.byte} + 1px);
-  padding-right: ${theme.spacings.tera};
-  padding-bottom: calc(${theme.spacings.byte} + 1px);
+  padding-top: ${theme.spacings.kilo};
+  padding-right: ${theme.spacings.exa};
+  padding-bottom: ${theme.spacings.kilo};
   padding-left: ${theme.spacings.kilo};
   position: relative;
   width: 100%;
@@ -231,7 +231,7 @@ const selectPrefixStyles = ({ theme, hasPrefix }: StyleProps & SelectElProps) =>
   hasPrefix &&
   css`
     label: select--prefix;
-    padding-left: ${theme.spacings.peta};
+    padding-left: ${theme.spacings.exa};
   `;
 
 const SelectElement = styled.select<SelectElProps>(
@@ -262,12 +262,10 @@ const prefixStyles = (theme: Theme) => css`
   label: select__prefix;
   display: block;
   position: absolute;
-  top: 1px;
-  left: 1px;
   z-index: ${theme.zIndex.select + 1};
-  height: ${theme.spacings.peta};
-  width: ${theme.spacings.peta};
-  padding: ${theme.spacings.kilo};
+  height: ${theme.spacings.exa};
+  width: ${theme.spacings.exa};
+  padding: ${theme.spacings.mega};
   pointer-events: none;
 `;
 
@@ -278,11 +276,11 @@ const iconBaseStyles = ({ theme }: StyleProps) => css`
   z-index: ${theme.zIndex.select + 1};
   pointer-events: none;
   position: absolute;
-  height: ${theme.spacings.peta};
-  width: ${theme.spacings.peta};
-  top: 1px;
-  right: 1px;
-  padding: ${theme.spacings.kilo};
+  height: ${theme.spacings.exa};
+  width: ${theme.spacings.exa};
+  top: 0;
+  right: 0;
+  padding: ${theme.spacings.mega};
 `;
 
 const iconActiveStyles = () => css`
