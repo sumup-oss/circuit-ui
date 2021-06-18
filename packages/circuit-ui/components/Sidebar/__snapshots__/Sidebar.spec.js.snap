@@ -115,8 +115,8 @@ HTMLCollection [
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: 8px calc(24px - 1px);
-  padding: 12px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(16px - 1px);
   border: 0;
   position: absolute;
   bottom: 16px;
@@ -280,8 +280,8 @@ HTMLCollection [
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: 8px calc(24px - 1px);
-  padding: 12px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(16px - 1px);
   border: 0;
   position: absolute;
   bottom: 16px;

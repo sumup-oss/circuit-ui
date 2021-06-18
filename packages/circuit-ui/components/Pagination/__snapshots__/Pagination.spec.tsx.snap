@@ -49,8 +49,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
-  padding: 8px calc(24px - 1px);
-  padding: 8px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(8px - 1px);
   margin-right: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -269,8 +269,8 @@ li:last-child .circuit-3 {
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
-  padding: 8px calc(24px - 1px);
-  padding: 8px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(8px - 1px);
   margin-left: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -466,8 +466,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
-  padding: 8px calc(24px - 1px);
-  padding: 8px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(8px - 1px);
   margin-right: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -542,8 +542,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
-  padding: 8px calc(24px - 1px);
-  padding: 8px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(8px - 1px);
   margin-left: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -600,9 +600,9 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
   padding-left: 12px;
   position: relative;
   width: 100%;
@@ -642,11 +642,11 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-4 {
@@ -659,11 +659,11 @@ select:active ~ .circuit-4 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-5 {

@@ -37,13 +37,11 @@ label + .circuit-4:not(label) {
   -ms-flex-pack: center;
   justify-content: center;
   position: absolute;
-  top: 1px;
-  left: 1px;
   pointer-events: none;
   color: #666;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
+  padding: 12px 16px;
+  height: 48px;
+  width: 48px;
 }
 
 .circuit-2 {
@@ -54,13 +52,13 @@ label + .circuit-4:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   text-align: right;
-  padding-left: 40px;
+  padding-left: 48px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -166,13 +164,11 @@ label + .circuit-4:not(label) {
   -ms-flex-pack: center;
   justify-content: center;
   position: absolute;
-  top: 1px;
-  left: 1px;
   pointer-events: none;
   color: #666;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
+  padding: 12px 16px;
+  height: 48px;
+  width: 48px;
 }
 
 .circuit-2 {
@@ -183,13 +179,13 @@ label + .circuit-4:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   text-align: right;
-  padding-left: 40px;
+  padding-left: 48px;
   box-shadow: 0 0 0 1px #999;
 }
 

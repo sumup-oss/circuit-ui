@@ -41,9 +41,9 @@ HTMLCollection [
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
   padding-left: 12px;
   position: relative;
   width: 100%;
@@ -83,11 +83,11 @@ HTMLCollection [
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-2 {
@@ -100,11 +100,11 @@ select:active ~ .circuit-2 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-3 {

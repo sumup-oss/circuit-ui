@@ -28,6 +28,21 @@ describe('Spinner', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render a byte spinner', () => {
+    const actual = create(<Spinner size="byte" />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render a kilo spinner', () => {
+    const actual = create(<Spinner size="kilo" />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render a giga spinner', () => {
+    const actual = create(<Spinner size="giga" />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

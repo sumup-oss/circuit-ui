@@ -46,7 +46,7 @@ exports[`LoadingButton styles should render with default styles 1`] = `
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: 8px calc(24px - 1px);
+  padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
 }
@@ -79,8 +79,6 @@ exports[`LoadingButton styles should render with default styles 1`] = `
 
 .circuit-1 {
   display: block;
-  width: 24px;
-  height: 24px;
   border-radius: 100%;
   border: 2px solid currentColor;
   border-top-color: transparent;
@@ -89,6 +87,8 @@ exports[`LoadingButton styles should render with default styles 1`] = `
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  width: 32px;
+  height: 32px;
   position: absolute;
   opacity: 0;
   visibility: hidden;
@@ -202,7 +202,7 @@ exports[`LoadingButton styles should render with loading styles 1`] = `
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: 8px calc(24px - 1px);
+  padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
 }
@@ -248,8 +248,6 @@ exports[`LoadingButton styles should render with loading styles 1`] = `
 
 .circuit-1 {
   display: block;
-  width: 24px;
-  height: 24px;
   border-radius: 100%;
   border: 2px solid currentColor;
   border-top-color: transparent;
@@ -258,6 +256,8 @@ exports[`LoadingButton styles should render with loading styles 1`] = `
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  width: 32px;
+  height: 32px;
   position: absolute;
   opacity: 0;
   visibility: hidden;

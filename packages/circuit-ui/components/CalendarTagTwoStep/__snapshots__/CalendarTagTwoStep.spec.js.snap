@@ -20,7 +20,7 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
   word-break: break-word;
   border: 1px solid #CCC;
   border-radius: 8px;
-  padding: 4px 12px;
+  padding: calc(4px - 1px) 12px;
   cursor: default;
   background-color: #FFF;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
