@@ -73,7 +73,7 @@ select:not(:active) ~ .circuit-2 {
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -201,7 +201,7 @@ label + .circuit-4 {
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -421,7 +421,7 @@ select:not(:active) ~ .circuit-3 {
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -563,7 +563,7 @@ label + .circuit-3 {
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -745,7 +745,7 @@ exports[`Select should render with a visually-hidden label 1`] = `
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -940,7 +940,7 @@ label + .circuit-3 {
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -1148,7 +1148,7 @@ select:not(:active) ~ .circuit-2 {
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -1268,7 +1268,7 @@ label + .circuit-3 {
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -1483,7 +1483,7 @@ select:not(:active) ~ .circuit-2 {
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -1615,7 +1615,7 @@ label + .circuit-3 {
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;

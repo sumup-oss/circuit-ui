@@ -195,7 +195,7 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   padding-top: ${theme.spacings.kilo};
   padding-right: ${theme.spacings.exa};
   padding-bottom: ${theme.spacings.kilo};
-  padding-left: ${theme.spacings.kilo};
+  padding-left: ${theme.spacings.mega};
   position: relative;
   width: 100%;
   z-index: ${theme.zIndex.select};

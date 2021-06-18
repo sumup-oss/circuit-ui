@@ -44,7 +44,7 @@ HTMLCollection [
   padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;

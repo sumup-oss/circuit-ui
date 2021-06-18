@@ -17,7 +17,7 @@ import React from 'react';
 
 import { create, renderToHtml, axe } from '../../util/test-utils';
 
-import { Spinner } from './Spinner';
+import { Spinner, SpinnerProps } from './Spinner';
 
 describe('Spinner', () => {
   /**
@@ -28,18 +28,9 @@ describe('Spinner', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render a byte spinner', () => {
-    const actual = create(<Spinner size="byte" />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render a kilo spinner', () => {
-    const actual = create(<Spinner size="kilo" />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render a giga spinner', () => {
-    const actual = create(<Spinner size="giga" />);
+  const sizes: SpinnerProps['size'][] = ['byte', 'kilo', 'giga'];
+  it.each(sizes)('should render a %s spinner', (size) => {
+    const actual = create(<Spinner size={size} />);
     expect(actual).toMatchSnapshot();
   });
 

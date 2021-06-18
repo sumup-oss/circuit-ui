@@ -222,6 +222,8 @@ const tertiaryStyles = ({
     background-color: transparent;
     border-color: transparent;
     color: ${theme.colors[colors.default]};
+    padding-left: 0;
+    padding-right: 0;
 
     &:hover {
       color: ${theme.colors[colors.hover]};
@@ -269,8 +271,8 @@ const StyledButton = styled('button', {
   baseStyles,
   primaryStyles,
   secondaryStyles,
-  tertiaryStyles,
   sizeStyles,
+  tertiaryStyles,
   stretchStyles,
 );
 
