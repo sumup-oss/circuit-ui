@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import React, { HTMLProps, Ref } from 'react';
-import { css, jsx } from '@emotion/core';
+import { HTMLProps, Ref, forwardRef } from 'react';
+import { css } from '@emotion/core';
 import { Check } from '@sumup/icons';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
@@ -221,7 +220,7 @@ const CheckboxTooltip = styled(Tooltip)(tooltipStyles);
 /**
  * Checkbox component for forms.
  */
-export const Checkbox = React.forwardRef(
+export const Checkbox = forwardRef(
   (
     {
       onChange,

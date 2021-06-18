@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
 import { useState } from 'react';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import {
   House,

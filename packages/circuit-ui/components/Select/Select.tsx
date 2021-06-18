@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import React, { FC, ReactNode, Ref, HTMLProps, ChangeEvent } from 'react';
-import { css, jsx } from '@emotion/core';
+import { FC, ReactNode, Ref, HTMLProps, ChangeEvent } from 'react';
+import { css } from '@emotion/core';
 import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';

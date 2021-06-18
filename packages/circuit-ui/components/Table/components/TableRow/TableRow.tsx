@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
 import { FC, MouseEvent, KeyboardEvent } from 'react';
 import styled from '@emotion/styled';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 
 import { focusOutline } from '../../../../styles/style-mixins';
 import { StyleProps } from '../../../../styles/styled';

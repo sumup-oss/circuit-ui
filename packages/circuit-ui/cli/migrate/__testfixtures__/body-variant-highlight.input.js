@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { Body, Text } from '@sumup/circuit-ui';
 

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { Download } from '@sumup/icons';
 
 import docs from '../Button/Button.docs.mdx';

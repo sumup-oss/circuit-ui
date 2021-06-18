@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 
 import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 

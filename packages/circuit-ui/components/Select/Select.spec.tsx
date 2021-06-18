@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { create, renderToHtml, axe, render } from '../../util/test-utils';
 
 import Select from '.';

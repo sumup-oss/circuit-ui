@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 /**
  * Tabpanel wrapping content being showed by tabs
  */

@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemeProvider } from 'emotion-theming';
 import { theme, Text } from '@sumup/circuit-ui';
 

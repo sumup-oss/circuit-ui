@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { create, renderToHtml, axe, RenderFn } from '../../util/test-utils';
 
 import { InlineElements, InlineElementsProps } from './InlineElements';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Children } from 'react';
+import { Children, forwardRef, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { ClassNames, css } from '@emotion/core';
@@ -60,31 +60,29 @@ const childAspectRatioStyles = (cssClassName, { aspectRatio }) =>
     z-index: 2;
   `;
 
-const AspectRatio = React.forwardRef(
-  ({ aspectRatio, children, ...props }, ref) => {
-    if (!children) {
-      return null;
-    }
+const AspectRatio = forwardRef(({ aspectRatio, children, ...props }, ref) => {
+  if (!children) {
+    return null;
+  }
 
-    const [child, ...restChildren] = Children.toArray(children);
+  const [child, ...restChildren] = Children.toArray(children);
 
-    return (
-      <Wrapper ref={ref} aspectRatio={aspectRatio} {...props}>
-        <ClassNames>
-          {({ css: cssClassName, cx }) =>
-            React.cloneElement(child, {
-              className: cx(
-                childBaseStyles(cssClassName),
-                childAspectRatioStyles(cssClassName, { aspectRatio }),
-              ),
-            })
-          }
-        </ClassNames>
-        {restChildren}
-      </Wrapper>
-    );
-  },
-);
+  return (
+    <Wrapper ref={ref} aspectRatio={aspectRatio} {...props}>
+      <ClassNames>
+        {({ css: cssClassName, cx }) =>
+          cloneElement(child, {
+            className: cx(
+              childBaseStyles(cssClassName),
+              childAspectRatioStyles(cssClassName, { aspectRatio }),
+            ),
+          })
+        }
+      </ClassNames>
+      {restChildren}
+    </Wrapper>
+  );
+});
 
 AspectRatio.displayName = 'AspectRatio';
 

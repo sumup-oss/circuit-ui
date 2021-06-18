@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import Tab from './Tab';
 
 describe('Tab', () => {

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { withTheme, ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 

@@ -16,7 +16,6 @@
 // TODO: Improve types
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-/** @jsx jsx */
 import {
   useState,
   useEffect,
@@ -26,7 +25,7 @@ import {
   ReactNode,
   KeyboardEvent,
 } from 'react';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import { TrackingElement } from '@sumup/collector';
 import { isEmpty } from 'lodash/fp';
 

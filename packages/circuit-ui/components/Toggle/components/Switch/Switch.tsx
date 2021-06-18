@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, Ref } from 'react';
+import { HTMLProps, Ref } from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 

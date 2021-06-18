@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Children, HTMLProps, ReactNode } from 'react';
+import { Children, HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';

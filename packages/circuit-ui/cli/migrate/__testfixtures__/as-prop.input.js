@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { Heading, SubHeading, Text, Input } from '@sumup/circuit-ui';
 

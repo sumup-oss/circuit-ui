@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { css } from '@emotion/core';
 import { Search, Cross } from '@sumup/icons';
 

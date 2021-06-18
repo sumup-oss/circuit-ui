@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { create, render, act, userEvent } from '../../../../util/test-utils';
 
 import { Switch } from './Switch';

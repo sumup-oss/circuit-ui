@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { TextArea, TextAreaProps } from './TextArea';
 import docs from './TextArea.docs.mdx';
 

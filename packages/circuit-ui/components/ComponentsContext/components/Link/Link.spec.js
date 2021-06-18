@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 
 import Link from './Link';
 
@@ -31,7 +31,7 @@ describe('Link', () => {
      * Should accept a working ref for button
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
+      const tref = createRef();
       const { container } = render(
         <Link {...defaultProps} ref={tref}>
           This is a link

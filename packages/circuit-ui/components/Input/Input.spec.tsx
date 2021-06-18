@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { css } from '@emotion/core';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';

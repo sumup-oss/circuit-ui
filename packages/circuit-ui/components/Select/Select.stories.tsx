@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useState, FC } from 'react';
+import { useState, FC } from 'react';
 import { FlagDe, FlagUs, FlagFr } from '@sumup/icons';
 
 import { Select, SelectProps } from './Select';

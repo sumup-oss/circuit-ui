@@ -13,13 +13,7 @@
  * limitations under the License.
  */
 
-import React, {
-  forwardRef,
-  MouseEvent,
-  KeyboardEvent,
-  Ref,
-  HTMLProps,
-} from 'react';
+import { forwardRef, MouseEvent, KeyboardEvent, Ref, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';

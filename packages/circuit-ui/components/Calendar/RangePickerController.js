@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { ArrowRight, ArrowLeft } from '@sumup/icons';
 import { DayPickerRangeController } from 'react-dates';
 import 'react-dates/initialize';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import docs from './Toggle.docs.mdx';
 import { Toggle, ToggleProps } from './Toggle';

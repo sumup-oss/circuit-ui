@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 
 import {
   create,
@@ -59,7 +59,7 @@ describe('Header', () => {
 
   describe('business logic', () => {
     it('should accept a working ref', () => {
-      const ref = React.createRef<HTMLDivElement>();
+      const ref = createRef<HTMLDivElement>();
       const { container } = renderHeader(render, { ...baseProps, ref });
       const div = container.querySelector('div');
       expect(ref.current).toBe(div);

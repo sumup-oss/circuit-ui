@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Component, createRef, HTMLProps } from 'react';
+import { Component, createRef, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import { isNil, throttle } from 'lodash/fp';
 

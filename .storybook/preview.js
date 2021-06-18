@@ -1,5 +1,4 @@
-import React from 'react';
-import { addDecorator, addParameters } from '@storybook/react';
+import { addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withPerformance } from 'storybook-addon-performance';
 import { ThemeProvider } from 'emotion-theming';

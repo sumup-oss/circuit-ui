@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import React, { Fragment, Ref, HTMLProps } from 'react';
-import { css, jsx } from '@emotion/core';
+import { Fragment, Ref, HTMLProps } from 'react';
+import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 

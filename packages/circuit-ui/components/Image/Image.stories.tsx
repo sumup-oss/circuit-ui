@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import docs from './Image.docs.mdx';
 import { Image, ImageProps } from './Image';
 

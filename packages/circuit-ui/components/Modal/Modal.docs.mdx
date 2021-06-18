@@ -54,7 +54,6 @@ may opt to create a helper higher-order component that complements the
 The benefit of using the ModalProvider is that it can be declared once at the application root, and you do not need to manage the open/closed state of the modal yourself.
 
 ```js
-import React from 'react';
 import {
   useModal,
   ModalProvider,
@@ -96,7 +95,6 @@ const Page = () => {
 If you prefer to embed the code declaratively inside the component, you can do it as such:
 
 ```js
-import React from 'react';
 import { Modal, ModalWrapper, ModalHeader, Button } from '@sumup/circuit-ui';
 
 const Page = () => {

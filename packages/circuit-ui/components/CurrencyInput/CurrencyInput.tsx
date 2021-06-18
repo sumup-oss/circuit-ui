@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Ref } from 'react';
+import { Ref, forwardRef } from 'react';
 import { resolveCurrencyFormat } from '@sumup/intl';
 import NumberFormat from 'react-number-format';
 
@@ -80,7 +80,7 @@ const CurrencyIcon = styled('span')`
  * symbols and places the symbol according to the locale. The corresponding
  * service exports a parser for formatting values automatically.
  */
-export const CurrencyInput = React.forwardRef(
+export const CurrencyInput = forwardRef(
   (
     { locale, currency, placeholder, ...props }: CurrencyInputProps,
     ref: CurrencyInputProps['ref'],

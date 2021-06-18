@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import React, { ReactNode, ChangeEvent, Ref } from 'react';
+import { ReactNode, ChangeEvent, Ref } from 'react';
 import { includes } from 'lodash/fp';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';

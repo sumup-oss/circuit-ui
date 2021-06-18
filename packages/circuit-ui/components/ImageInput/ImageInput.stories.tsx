@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
 import { useState } from 'react';
-import { jsx } from '@emotion/core';
 
 import Avatar from '../Avatar';
 

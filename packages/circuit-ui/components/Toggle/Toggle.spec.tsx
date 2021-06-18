@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
 import { Toggle } from './Toggle';

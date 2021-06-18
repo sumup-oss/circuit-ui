@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import styled from '@emotion/styled';
 import { ArrowRight, ArrowLeft, Cross } from '@sumup/icons';
 import { DateRangePicker } from 'react-dates';

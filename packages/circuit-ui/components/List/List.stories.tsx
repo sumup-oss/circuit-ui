@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import docs from './List.docs.mdx';
 import { List, ListProps } from './List';
 

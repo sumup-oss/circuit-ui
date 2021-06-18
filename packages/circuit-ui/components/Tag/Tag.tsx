@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import React, { HTMLProps, Ref, FC, SVGProps, MouseEvent } from 'react';
-import { css, jsx } from '@emotion/core';
+import { HTMLProps, Ref, FC, SVGProps, MouseEvent } from 'react';
+import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 

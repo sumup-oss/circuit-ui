@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 
 import { SearchInput, SearchInputProps } from './SearchInput';
 import docs from './SearchInput.docs.mdx';

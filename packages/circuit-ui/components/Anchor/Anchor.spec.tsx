@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
-import React from 'react';
-import { jsx, css } from '@emotion/core';
+import { createRef } from 'react';
+import { css } from '@emotion/core';
 
 import {
   create,
@@ -118,7 +116,7 @@ describe('Anchor', () => {
     });
 
     it('should accept a working ref for a button', () => {
-      const tref = React.createRef<any>();
+      const tref = createRef<any>();
       const { container } = render(
         <Anchor onClick={jest.fn()} ref={tref}>
           button
@@ -129,7 +127,7 @@ describe('Anchor', () => {
     });
 
     it('should accept a working ref for a link', () => {
-      const tref = React.createRef<any>();
+      const tref = createRef<any>();
       const { container } = render(
         <Anchor href="https://sumup.com" ref={tref}>
           link
@@ -140,7 +138,7 @@ describe('Anchor', () => {
     });
 
     it('should accept a working ref for a span', () => {
-      const tref = React.createRef<any>();
+      const tref = createRef<any>();
       const { container } = render(<Anchor ref={tref}>span</Anchor>);
       const span = container.querySelector('span');
       expect(tref.current).toBe(span);

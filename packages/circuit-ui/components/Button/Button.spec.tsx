@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 import { ThumbUp } from '@sumup/icons';
 
 import {
@@ -116,7 +116,7 @@ describe('Button', () => {
      * Should accept a working ref for button
      */
     it('should accept a working ref for a button', () => {
-      const tref = React.createRef<HTMLButtonElement & HTMLAnchorElement>();
+      const tref = createRef<HTMLButtonElement & HTMLAnchorElement>();
       const { container } = render(
         <Button ref={tref}>This is a button</Button>,
       );
@@ -128,7 +128,7 @@ describe('Button', () => {
      * Should accept a working ref for link
      */
     it('should accept a working ref for a link', () => {
-      const tref = React.createRef<HTMLButtonElement & HTMLAnchorElement>();
+      const tref = createRef<HTMLButtonElement & HTMLAnchorElement>();
       const { container } = render(
         <Button href="http://sumup.com" ref={tref}>
           Link button

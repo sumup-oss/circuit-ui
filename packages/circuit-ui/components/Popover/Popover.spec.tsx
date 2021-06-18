@@ -14,7 +14,7 @@
  */
 
 import { CirclePlus, Zap } from '@sumup/icons';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { Placement } from '@popperjs/core';
 
 import {

@@ -1,4 +1,4 @@
-import React, { useRef, Fragment } from 'react';
+import { useRef, Fragment } from 'react';
 import styled from '@emotion/styled';
 import { Input, TextArea } from '@sumup/circuit-ui';
 

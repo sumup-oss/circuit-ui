@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import React, { HTMLProps, Ref } from 'react';
-import { css, jsx } from '@emotion/core';
+import { HTMLProps, Ref } from 'react';
+import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';

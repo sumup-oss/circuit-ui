@@ -15,8 +15,7 @@
 
 /* istanbul ignore file */
 
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 

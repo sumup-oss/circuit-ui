@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import useClickHandler from '../../../../hooks/use-click-handler';

@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import React, { Children, cloneElement, ReactElement } from 'react';
-import { css, jsx, SerializedStyles } from '@emotion/core';
+import { Children, cloneElement, ReactElement, forwardRef, Ref } from 'react';
+import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
 import { hideVisually } from '../../styles/style-mixins';
@@ -54,10 +53,10 @@ const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
  * The IconButton component displays a button with a single icon
  * as its only child.
  */
-export const IconButton = React.forwardRef(
+export const IconButton = forwardRef(
   (
     { children, label, size, ...props }: IconButtonProps,
-    ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>,
+    ref?: Ref<HTMLButtonElement & HTMLAnchorElement>,
   ) => {
     const child = Children.only(children);
     const icon = cloneElement(child, { role: 'presentation' });

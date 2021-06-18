@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useCallback, FunctionComponent, ChangeEvent } from 'react';
+import { useCallback, FunctionComponent, ChangeEvent } from 'react';
 
 import styled from '../../../../styles/styled';
 import { Select, SelectProps } from '../../../Select/Select';

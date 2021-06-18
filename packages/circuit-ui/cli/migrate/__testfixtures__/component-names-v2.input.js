@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { ListView, SvgButton as SpecialButton } from '@sumup/circuit-ui';
 

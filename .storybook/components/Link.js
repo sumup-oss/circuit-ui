@@ -1,4 +1,3 @@
-import React from 'react';
 import LinkTo from '@storybook/addon-links/react';
 import { css } from '@emotion/core';
 

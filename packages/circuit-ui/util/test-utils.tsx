@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
 import { configureAxe } from 'jest-axe';

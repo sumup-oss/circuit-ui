@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { forwardRef, Ref, HTMLProps } from 'react';
+import { forwardRef, Ref, HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -33,7 +33,7 @@ export interface HeaderProps extends HTMLProps<HTMLDivElement> {
   /**
    * The child component of Header.
    */
-  children?: React.ReactNode;
+  children?: ReactNode;
   /**
    * The ref to the HTML DOM element.
    */

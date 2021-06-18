@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { identity } from 'lodash/fp';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';

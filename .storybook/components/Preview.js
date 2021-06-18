@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { Canvas } from '@storybook/addon-docs/blocks';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';

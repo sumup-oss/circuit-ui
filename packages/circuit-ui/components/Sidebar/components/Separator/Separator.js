@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { css } from '@emotion/core';
 
 import Hr from '../../../Hr';
 

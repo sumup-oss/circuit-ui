@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import React from 'react';
-import { css, jsx } from '@emotion/core';
+import { forwardRef } from 'react';
+import { css } from '@emotion/core';
 import { Cross } from '@sumup/icons';
 
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
@@ -29,7 +28,7 @@ const buttonStyles = () => css`
 /**
  * A generic close button.
  */
-export const CloseButton = React.forwardRef(
+export const CloseButton = forwardRef(
   (
     { label = 'Close', ...props }: CloseButtonProps,
     ref: CloseButtonProps['ref'],

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { Story as StorybookStory } from '@storybook/addon-docs/blocks';
 
 import Preview from './Preview';

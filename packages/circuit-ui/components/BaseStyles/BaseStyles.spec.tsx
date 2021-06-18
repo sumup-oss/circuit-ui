@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { render } from '../../util/test-utils';
 
 import { BaseStyles } from './BaseStyles';

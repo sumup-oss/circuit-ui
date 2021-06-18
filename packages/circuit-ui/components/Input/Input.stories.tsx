@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 
 import SearchInput from '../SearchInput';
 import CurrencyInput from '../CurrencyInput';

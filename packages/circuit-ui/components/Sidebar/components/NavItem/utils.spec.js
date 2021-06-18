@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { Lock } from '@sumup/icons';
 
 import { hasSelectedChild, getIcon } from './utils';

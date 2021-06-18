@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { Global } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 

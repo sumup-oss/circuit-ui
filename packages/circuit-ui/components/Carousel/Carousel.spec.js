@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import Carousel from './Carousel';
 import { SLIDES } from './__fixtures__';
 

@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import CardList from '.';
 
 const BaseList = () => (

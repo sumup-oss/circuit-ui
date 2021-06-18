@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 import { ChevronLeft, ChevronRight } from '@sumup/icons';
 import { Dispatch as TrackingProps, useClickTrigger } from '@sumup/collector';
