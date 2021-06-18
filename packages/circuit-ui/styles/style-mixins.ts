@@ -314,7 +314,6 @@ export const inputOutline = (
         focus: theme.colors.p500,
         active: theme.colors.p500,
       };
-      break;
     }
   }
 
@@ -331,6 +330,47 @@ export const inputOutline = (
 
     &:active {
       box-shadow: 0 0 0 1px ${colors.active};
+    }
+  `;
+};
+
+/**
+ * Visually communicates that the listItem (eg. Popover or Dropdown component) is hovered, active or focused.
+ */
+export const listItem = (
+  args:
+    | Theme
+    | {
+        theme: Theme;
+        destructive?: boolean;
+      },
+): SerializedStyles => {
+  const theme = getTheme(args);
+  const options = isTheme(args) ? { destructive: false } : args;
+
+  return css`
+    background-color: ${theme.colors.white};
+    padding: ${theme.spacings.kilo} ${theme.spacings.tera}
+      ${theme.spacings.kilo} ${theme.spacings.mega};
+    border: 0;
+    color: ${options.destructive
+      ? theme.colors.danger
+      : theme.colors.bodyColor};
+    text-decoration: none;
+    position: relative;
+
+    &:hover {
+      background-color: ${theme.colors.n100};
+      cursor: pointer;
+    }
+
+    &:focus {
+      ${focusOutline('inset')({ theme })};
+      z-index: ${theme.zIndex.absolute};
+    }
+
+    &:active {
+      background-color: ${theme.colors.n200};
     }
   `;
 };

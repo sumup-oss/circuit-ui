@@ -1,0 +1,685 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover styles should render popover on auto 1`] = `
+HTMLCollection [
+  <button>
+    Button
+  </button>,
+  @media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+<div
+    class="circuit-0"
+  />,
+  .circuit-1 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #1A1A1A;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+  z-index: 1;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-0 {
+  margin-right: 8px;
+}
+
+.circuit-2 {
+  padding: 8px 0px;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #FFF;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+}
+
+@media (max-width:479px) {
+  .circuit-2 {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+<div
+    class="circuit-2"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <button
+      class="circuit-1"
+    >
+      <svg
+        class="circuit-0"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+      </svg>
+      Add
+    </button>
+  </div>,
+]
+`;
+
+exports[`Popover styles should render popover on bottom 1`] = `
+HTMLCollection [
+  <button>
+    Button
+  </button>,
+  @media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+<div
+    class="circuit-0"
+  />,
+  .circuit-1 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #1A1A1A;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+  z-index: 1;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-0 {
+  margin-right: 8px;
+}
+
+.circuit-2 {
+  padding: 8px 0px;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #FFF;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+}
+
+@media (max-width:479px) {
+  .circuit-2 {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+<div
+    class="circuit-2"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <button
+      class="circuit-1"
+    >
+      <svg
+        class="circuit-0"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+      </svg>
+      Add
+    </button>
+  </div>,
+]
+`;
+
+exports[`Popover styles should render popover on left 1`] = `
+HTMLCollection [
+  <button>
+    Button
+  </button>,
+  @media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+<div
+    class="circuit-0"
+  />,
+  .circuit-1 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #1A1A1A;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+  z-index: 1;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-0 {
+  margin-right: 8px;
+}
+
+.circuit-2 {
+  padding: 8px 0px;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #FFF;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+}
+
+@media (max-width:479px) {
+  .circuit-2 {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+<div
+    class="circuit-2"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <button
+      class="circuit-1"
+    >
+      <svg
+        class="circuit-0"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+      </svg>
+      Add
+    </button>
+  </div>,
+]
+`;
+
+exports[`Popover styles should render popover on right 1`] = `
+HTMLCollection [
+  <button>
+    Button
+  </button>,
+  @media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+<div
+    class="circuit-0"
+  />,
+  .circuit-1 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #1A1A1A;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+  z-index: 1;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-0 {
+  margin-right: 8px;
+}
+
+.circuit-2 {
+  padding: 8px 0px;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #FFF;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+}
+
+@media (max-width:479px) {
+  .circuit-2 {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+<div
+    class="circuit-2"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <button
+      class="circuit-1"
+    >
+      <svg
+        class="circuit-0"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+      </svg>
+      Add
+    </button>
+  </div>,
+]
+`;
+
+exports[`Popover styles should render popover on top 1`] = `
+HTMLCollection [
+  <button>
+    Button
+  </button>,
+  @media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+<div
+    class="circuit-0"
+  />,
+  .circuit-1 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #1A1A1A;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+  z-index: 1;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-0 {
+  margin-right: 8px;
+}
+
+.circuit-2 {
+  padding: 8px 0px;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #FFF;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+}
+
+@media (max-width:479px) {
+  .circuit-2 {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+<div
+    class="circuit-2"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <button
+      class="circuit-1"
+    >
+      <svg
+        class="circuit-0"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+      </svg>
+      Add
+    </button>
+  </div>,
+]
+`;
+
+exports[`Popover styles should render with default styles 1`] = `
+HTMLCollection [
+  <button>
+    Button
+  </button>,
+  @media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+<div
+    class="circuit-0"
+  />,
+  .circuit-1 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #1A1A1A;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+  z-index: 1;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-0 {
+  margin-right: 8px;
+}
+
+.circuit-2 {
+  padding: 8px 0px;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #FFF;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+}
+
+@media (max-width:479px) {
+  .circuit-2 {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+<div
+    class="circuit-2"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <button
+      class="circuit-1"
+    >
+      <svg
+        class="circuit-0"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+      </svg>
+      Add
+    </button>
+  </div>,
+]
+`;
