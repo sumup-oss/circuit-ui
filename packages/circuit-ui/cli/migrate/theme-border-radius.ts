@@ -13,32 +13,30 @@
  * limitations under the License.
  */
 
-import { Collection, JSCodeshift, Transform } from 'jscodeshift';
+import { Transform } from 'jscodeshift';
 
 import { findProperty } from './utils';
-
-function renameFactory(
-  j: JSCodeshift,
-  root: Collection,
-  prevValue: string,
-  nextValue: string,
-): void {
-  findProperty(j, root, `theme.borderRadius.${prevValue}`).replaceWith(
-    j.identifier(`theme.borderRadius.${nextValue}`),
-  );
-}
 
 const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  findProperty(j, root, `theme.borderRadius.kilo`).replaceWith(
-    j.identifier(`'1px'`),
+  const mappings = [
+    ['theme.borderRadius.mega', 'theme.borderRadius.bit'],
+    ['theme.borderRadius.giga', 'theme.borderRadius.byte'],
+    ['theme.borderRadius.tera', 'theme.borderRadius.byte'],
+    ['theme.borderRadius.peta', 'theme.borderRadius.kilo'],
+    ['theme.borderRadius.kilo', `'1px'`],
+    ['p.theme.borderRadius.mega', 'p.theme.borderRadius.bit'],
+    ['p.theme.borderRadius.giga', 'p.theme.borderRadius.byte'],
+    ['p.theme.borderRadius.tera', 'p.theme.borderRadius.byte'],
+    ['p.theme.borderRadius.peta', 'p.theme.borderRadius.kilo'],
+    ['p.theme.borderRadius.kilo', `'1px'`],
+  ];
+
+  mappings.forEach(([prevValue, nextValue]) =>
+    findProperty(j, root, prevValue).replaceWith(j.identifier(nextValue)),
   );
-  renameFactory(j, root, 'mega', 'bit');
-  renameFactory(j, root, 'giga', 'byte');
-  renameFactory(j, root, 'tera', 'byte');
-  renameFactory(j, root, 'peta', 'kilo');
 
   return root.toSource();
 };
