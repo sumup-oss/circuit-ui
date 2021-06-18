@@ -53,10 +53,6 @@ const shadowStyles = ({ shadow }: CardProps) => {
 };
 
 const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
-  if (!spacing) {
-    // we need this for static style extraction
-    return null;
-  }
   const spacings = {
     mega: `
       ${theme.spacings.mega} ${theme.spacings.mega}

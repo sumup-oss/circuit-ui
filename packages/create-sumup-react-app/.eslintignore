@@ -3,7 +3,6 @@ build/
 dist/
 .next/
 .out/
-static/
 public/
 coverage/
 __coverage__/
