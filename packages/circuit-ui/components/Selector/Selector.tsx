@@ -77,32 +77,6 @@ type LabelElProps = Pick<
   'disabled' | 'noMargin' | 'size' | 'checked'
 >;
 
-// const outlineStyles = ({
-//   theme,
-//   checked,
-//   hasFocus,
-// }: StyleProps & LabelElProps) => {
-//   const defaultBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n300}`;
-//   const hoverBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n500}`;
-//   const activeBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n700}`;
-//   const checkedBorder = `0 0 0 ${theme.borderWidth.mega} ${theme.colors.p500}`;
-//   const focusOutline = hasFocus
-//     ? `, 0 0 0 ${checked ? '5px' : '4px'} ${theme.colors.p300}`
-//     : '';
-
-//   return css`
-//     box-shadow: ${`${checked ? checkedBorder : defaultBorder}${focusOutline}`};
-
-//     &:hover {
-//       box-shadow: ${`${checked ? checkedBorder : hoverBorder}${focusOutline}`};
-//     }
-
-//     &:active {
-//       box-shadow: ${`${checked ? checkedBorder : activeBorder}${focusOutline}`};
-//     }
-//   `;
-// };
-
 interface OutlineStyles {
   default: string;
   hover: string;
@@ -135,7 +109,7 @@ const baseStyles = ({ theme, checked }: StyleProps & LabelElProps) => {
     position: relative;
     margin-bottom: ${theme.spacings.mega};
     border: none;
-    border-radius: ${theme.borderRadius.tera};
+    border-radius: ${theme.borderRadius.byte};
     transition: box-shadow 0.1s ease-in-out;
     box-shadow: ${borderStyles.default};
 
