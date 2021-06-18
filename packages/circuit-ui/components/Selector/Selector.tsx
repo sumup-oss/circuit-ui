@@ -18,18 +18,18 @@
 import React, { Fragment, Ref, HTMLProps } from 'react';
 import { css, jsx } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
+import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  focusOutline,
-  hideVisually,
-  disableVisually,
-} from '../../styles/style-mixins';
+import { hideVisually, disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import useClickHandler from '../../hooks/use-click-handler';
 import deprecate from '../../util/deprecate';
 
-export interface SelectorProps extends HTMLProps<HTMLInputElement> {
+export type SelectorSize = 'kilo' | 'mega' | 'flexible';
+
+export interface SelectorProps
+  extends Omit<HTMLProps<HTMLInputElement>, 'size'> {
   /**
    * Value string for input.
    */
@@ -42,6 +42,10 @@ export interface SelectorProps extends HTMLProps<HTMLInputElement> {
    * The name of the selector.
    */
   name?: string;
+  /**
+   * Choose from 3 sizes. Default: 'mega'.
+   */
+  size?: SelectorSize;
   /**
    * Whether the selector is selected or not.
    */
@@ -68,50 +72,58 @@ export interface SelectorProps extends HTMLProps<HTMLInputElement> {
   tracking?: TrackingProps;
 }
 
-type LabelElProps = Pick<SelectorProps, 'disabled' | 'noMargin'>;
+type LabelElProps = Pick<
+  SelectorProps,
+  'disabled' | 'noMargin' | 'size' | 'checked'
+>;
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  label: selector__label;
-  display: block;
-  cursor: pointer;
-  padding: ${theme.spacings.mega} ${theme.spacings.giga};
-  border-radius: ${theme.borderRadius.byte};
-  background-color: ${theme.colors.white};
-  text-align: center;
-  position: relative;
-  margin-bottom: ${theme.spacings.mega};
+interface OutlineStyles {
+  default: string;
+  hover: string;
+  active: string;
+}
 
-  &::before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+const getBorderStyles = (theme: Theme, checked = false): OutlineStyles => {
+  const defaultBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n300}`;
+  const hoverBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n500}`;
+  const activeBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n700}`;
+  const checkedBorder = `0 0 0 ${theme.borderWidth.mega} ${theme.colors.p500}`;
+
+  return {
+    default: checked ? checkedBorder : defaultBorder,
+    hover: checked ? checkedBorder : hoverBorder,
+    active: checked ? checkedBorder : activeBorder,
+  };
+};
+
+const baseStyles = ({ theme, checked }: StyleProps & LabelElProps) => {
+  const borderStyles = getBorderStyles(theme, checked);
+
+  return css`
+    label: selector__label;
+    display: inline-block;
+    cursor: pointer;
+    padding: ${theme.spacings.mega} ${theme.spacings.giga};
+    background-color: ${checked ? theme.colors.p100 : theme.colors.white};
+    text-align: center;
+    position: relative;
+    margin-bottom: ${theme.spacings.mega};
+    border: none;
     border-radius: ${theme.borderRadius.byte};
-    border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
-    transition: border 0.1s ease-in-out;
-  }
+    transition: box-shadow 0.1s ease-in-out;
+    box-shadow: ${borderStyles.default};
 
-  &:hover {
-    background-color: ${theme.colors.n100};
-
-    &::before {
-      border-color: ${theme.colors.n500};
+    &:hover {
+      background-color: ${theme.colors.n100};
+      box-shadow: ${borderStyles.hover};
     }
-  }
 
-  &:active {
-    background-color: ${theme.colors.n200};
-
-    &::before {
-      border-color: ${theme.colors.n700};
+    &:active {
+      background-color: ${theme.colors.n200};
+      box-shadow: ${borderStyles.active};
     }
-  }
-`;
+  `;
+};
 
 const disabledStyles = ({ disabled }: LabelElProps) =>
   disabled &&
@@ -137,30 +149,59 @@ const noMarginStyles = ({ noMargin }: LabelElProps) => {
   `;
 };
 
+const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
+  const sizeMap = {
+    kilo: {
+      padding: `${theme.spacings.bit} ${theme.spacings.mega}`,
+    },
+    mega: {
+      // +1px is to match the height of other form components
+      // like Input or Select that also have +1px for vertical padding
+      padding: `calc(${theme.spacings.byte} + 1px) ${theme.spacings.giga}`,
+    },
+    flexible: {
+      padding: `${theme.spacings.mega} ${theme.spacings.mega}`,
+    },
+  };
+
+  return css({
+    label: `selector__label--${size}`,
+    ...sizeMap[size],
+  });
+};
+
 const SelectorLabel = styled('label')<LabelElProps>(
   baseStyles,
+  sizeStyles,
   disabledStyles,
   noMarginStyles,
 );
 
-const inputStyles = ({ theme }: StyleProps) => css`
-  label: selector__input;
-  ${hideVisually()};
+const inputStyles = ({ theme, checked }: StyleProps & LabelElProps) => {
+  const borderStyles = getBorderStyles(theme, checked);
+  const focusOutline = `0 0 0 ${checked ? '5px' : '4px'} ${theme.colors.p300}`;
 
-  &:focus + label::before {
-    ${focusOutline({ theme })};
-  }
+  return css`
+    label: selector__input;
+    ${hideVisually()};
 
-  &:checked + label {
-    background-color: ${theme.colors.p100};
-
-    &::before {
-      border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
+    &:focus + label {
+      box-shadow: ${borderStyles.default}, ${focusOutline};
     }
-  }
-`;
 
-const SelectorInput = styled('input')<SelectorProps>(inputStyles);
+    &:focus + label:hover {
+      box-shadow: ${borderStyles.hover}, ${focusOutline};
+    }
+
+    &:focus + label:active {
+      box-shadow: ${borderStyles.active}, ${focusOutline};
+    }
+  `;
+};
+
+const SelectorInput = styled('input')<
+  HTMLProps<HTMLInputElement> & LabelElProps
+>(inputStyles);
 
 /**
  * A selector allows users to choose between several mutually-exclusive choices
@@ -181,6 +222,7 @@ export const Selector = React.forwardRef(
       className,
       style,
       noMargin,
+      size,
       ...props
     }: SelectorProps,
     ref: SelectorProps['ref'],
@@ -213,6 +255,8 @@ export const Selector = React.forwardRef(
         <SelectorLabel
           htmlFor={inputId}
           disabled={disabled}
+          checked={checked}
+          size={size}
           className={className}
           style={style}
           noMargin={noMargin}

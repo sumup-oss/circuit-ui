@@ -60,7 +60,15 @@ export const Multiple = (args: SelectorGroupProps) => {
     );
   };
 
-  return <SelectorGroup {...args} value={value} onChange={handleChange} />;
+  return (
+    <SelectorGroup
+      {...args}
+      value={value}
+      onChange={handleChange}
+      orientation="horizontal"
+      stretch={false}
+    />
+  );
 };
 
 Multiple.args = { ...baseArgs, multiple: true };

@@ -17,10 +17,12 @@
 /** @jsx jsx */
 import React, { ReactNode, ChangeEvent, Ref } from 'react';
 import { includes } from 'lodash/fp';
-import { jsx } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 
+import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import Selector from '../Selector';
+import { SelectorSize } from '../Selector/Selector';
 
 export interface SelectorGroupProps {
   /**
@@ -53,10 +55,60 @@ export interface SelectorGroupProps {
    */
   multiple?: boolean;
   /**
+   * Size of the Selectors within the group. Default: 'mega'.
+   */
+  size?: SelectorSize;
+  /**
+   * Whether the group should take the whole width available. Default: true.
+   */
+  stretch?: boolean;
+  /**
    * The ref to the HTML Dom element
    */
   ref?: Ref<HTMLDivElement>;
 }
+
+type ContainerProps = Pick<SelectorGroupProps, 'stretch'>;
+
+const stretchStyles = ({ stretch = false }: StyleProps & ContainerProps) => {
+  if (stretch) {
+    return css`
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+    `;
+  }
+
+  return css`
+    display: inline-flex;
+    align-items: flex-start;
+    width: auto;
+  `;
+};
+
+const baseStyles = ({ theme }: StyleProps) => css`
+  label: selector-group;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  > div {
+    &:not(:last-child) {
+      margin-right: ${theme.spacings.mega};
+    }
+  }
+`;
+
+const StyledSelectorGroup = styled.div(baseStyles, stretchStyles);
+
+const OptionItem = styled.div`
+  label: selector-group__option-item;
+  flex-grow: 1;
+`;
+
+const StyledSelector = styled(Selector)`
+  width: 100%;
+`;
 
 /**
  * A group of Selectors.
@@ -70,26 +122,44 @@ export const SelectorGroup = React.forwardRef(
       name: customName,
       label,
       multiple,
-      ...props
+      size,
+      stretch,
+      ...rest
     }: SelectorGroupProps,
     ref: SelectorGroupProps['ref'],
   ) => {
     const name = customName || uniqueId('selector-group_');
+
     return (
-      <div role="group" aria-label={label} ref={ref} {...props}>
+      <StyledSelectorGroup
+        role="group"
+        aria-label={label}
+        ref={ref}
+        stretch={stretch}
+        {...rest}
+      >
         {options &&
-          options.map(({ children, value, ...rest }) => (
-            <Selector
-              key={value}
-              {...{ ...rest, value, name, onChange, multiple }}
-              checked={
-                multiple ? includes(value, activeValue) : value === activeValue
-              }
-            >
-              {children}
-            </Selector>
+          options.map(({ children, value, ...optionRest }) => (
+            <OptionItem key={value}>
+              <StyledSelector
+                name={name}
+                onChange={onChange}
+                multiple={multiple}
+                value={value}
+                size={size}
+                noMargin
+                checked={
+                  multiple
+                    ? includes(value, activeValue)
+                    : value === activeValue
+                }
+                {...optionRest}
+              >
+                {children}
+              </StyledSelector>
+            </OptionItem>
           ))}
-      </div>
+      </StyledSelectorGroup>
     );
   },
 );
