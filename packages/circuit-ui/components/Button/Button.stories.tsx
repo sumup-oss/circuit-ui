@@ -78,8 +78,8 @@ export const Sizes = (args: ButtonProps) => (
     <Button {...args} size="kilo">
       Kilo
     </Button>
-    <Button {...args} size="mega">
-      Mega
+    <Button {...args} size="giga">
+      Giga
     </Button>
   </Stack>
 );
