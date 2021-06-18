@@ -166,8 +166,8 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.white};
   border: none;
   outline: 0;
-  border-radius: 8px;
-  padding: calc(${theme.spacings.byte} + 1px) ${theme.spacings.kilo};
+  border-radius: ${theme.borderRadius.byte};
+  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   transition: box-shadow ${theme.transitions.default},
     padding ${theme.transitions.default};
   width: 100%;
@@ -229,18 +229,18 @@ const inputTextAlignRightStyles = ({ textAlign }: InputElProps) =>
     text-align: right;
   `;
 
-const inputPrefixStyles = ({ hasPrefix }: StyleProps & InputElProps) =>
+const inputPrefixStyles = ({ theme, hasPrefix }: StyleProps & InputElProps) =>
   hasPrefix &&
   css`
     label: input--prefix;
-    padding-left: 40px;
+    padding-left: ${theme.spacings.exa};
   `;
 
-const inputSuffixStyles = ({ hasSuffix }: StyleProps & InputElProps) =>
+const inputSuffixStyles = ({ theme, hasSuffix }: StyleProps & InputElProps) =>
   hasSuffix &&
   css`
     label: input--suffix;
-    padding-right: 40px;
+    padding-right: ${theme.spacings.exa};
   `;
 
 const InputElement = styled('input')<InputElProps>(
@@ -263,29 +263,27 @@ const InputElement = styled('input')<InputElProps>(
 const prefixStyles = (theme: Theme) => css`
   label: input__prefix;
   position: absolute;
-  top: 1px;
-  left: 1px;
   pointer-events: none;
   color: ${theme.colors.n700};
-  padding: ${theme.spacings.kilo};
-  height: ${theme.spacings.peta};
-  width: ${theme.spacings.peta};
+  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+  height: ${theme.spacings.exa};
+  width: ${theme.spacings.exa};
 `;
 
 /**
  * Used with css prop directly, so it does not require prop
  * destructuring.
  */
-const suffixStyles = (theme: Theme, hasValidationIcon = false) => css`
+const suffixStyles = (theme: Theme) => css`
   label: input__suffix;
   position: absolute;
-  top: 1px;
-  right: ${hasValidationIcon ? '29px' : '1px'};
+  top: 0;
+  right: 0;
   pointer-events: none;
   color: ${theme.colors.n700};
-  padding: ${theme.spacings.kilo};
-  height: ${theme.spacings.peta};
-  width: ${theme.spacings.peta};
+  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+  height: ${theme.spacings.exa};
+  width: ${theme.spacings.exa};
   transition: right ${theme.transitions.default};
 `;
 
