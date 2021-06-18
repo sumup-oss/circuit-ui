@@ -80,18 +80,9 @@ describe('SelectorGroup', () => {
     expect(tref.current).toBe(div);
   });
 
-  describe('Orientation', () => {
-    it('should render with horizontal layout by default', () => {
-      const actual = create(<SelectorGroup {...defaultProps} />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render with vertical layout', () => {
-      const actual = create(
-        <SelectorGroup {...defaultProps} orientation="vertical" />,
-      );
-      expect(actual).toMatchSnapshot();
-    });
+  it('should render with horizontal layout by default', () => {
+    const actual = create(<SelectorGroup {...defaultProps} />);
+    expect(actual).toMatchSnapshot();
   });
 
   /**

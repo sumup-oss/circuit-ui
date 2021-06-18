@@ -15,13 +15,16 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
-  display: block;
+.circuit-0:focus + label {
+  box-shadow: 0 0 0 2px #3063E9,0 0 0 5px #AFD0FE;
 }
 
-.circuit-0:checked + label {
-  background-color: #F0F6FF;
-  box-shadow: 0 0 0 2px #3063E9;
+.circuit-0:focus + label:hover {
+  box-shadow: 0 0 0 2px #3063E9,0 0 0 5px #AFD0FE;
+}
+
+.circuit-0:focus + label:active {
+  box-shadow: 0 0 0 2px #3063E9,0 0 0 5px #AFD0FE;
 }
 
 <input
@@ -36,46 +39,26 @@ HTMLCollection [
   display: inline-block;
   cursor: pointer;
   padding: 16px 24px;
-  background-color: #FFF;
-  font-size: 16px;
-  line-height: 24px;
+  background-color: #F0F6FF;
   text-align: center;
   position: relative;
   margin-bottom: 16px;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 0 1px #CCC;
   -webkit-transition: box-shadow 0.1s ease-in-out;
   transition: box-shadow 0.1s ease-in-out;
+  box-shadow: 0 0 0 2px #3063E9;
   padding: calc(8px + 1px) 24px;
 }
 
 .circuit-0:hover {
   background-color: #F5F5F5;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
   background-color: #E6E6E6;
-  box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-0::before {
-  display: none;
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 2px * 2);
-  height: calc(100% + 2px * 2);
-  border: 2px solid transparent;
-  border-radius: calc(8px + 2px);
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0::before::-moz-focus-inner {
-  border: 0;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 <label
@@ -102,13 +85,16 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
-  display: block;
+.circuit-0:focus + label {
+  box-shadow: 0 0 0 1px #CCC,0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:checked + label {
-  background-color: #F0F6FF;
-  box-shadow: 0 0 0 2px #3063E9;
+.circuit-0:focus + label:hover {
+  box-shadow: 0 0 0 1px #999,0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label:active {
+  box-shadow: 0 0 0 1px #666,0 0 0 4px #AFD0FE;
 }
 
 <input
@@ -123,16 +109,14 @@ HTMLCollection [
   cursor: pointer;
   padding: 16px 24px;
   background-color: #FFF;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   position: relative;
   margin-bottom: 16px;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 0 1px #CCC;
   -webkit-transition: box-shadow 0.1s ease-in-out;
   transition: box-shadow 0.1s ease-in-out;
+  box-shadow: 0 0 0 1px #CCC;
   padding: calc(8px + 1px) 24px;
 }
 
@@ -144,24 +128,6 @@ HTMLCollection [
 .circuit-0:active {
   background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-0::before {
-  display: none;
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 2px * 2);
-  height: calc(100% + 2px * 2);
-  border: 2px solid transparent;
-  border-radius: calc(8px + 2px);
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0::before::-moz-focus-inner {
-  border: 0;
 }
 
 <label
@@ -188,13 +154,16 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
-  display: block;
+.circuit-0:focus + label {
+  box-shadow: 0 0 0 1px #CCC,0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:checked + label {
-  background-color: #F0F6FF;
-  box-shadow: 0 0 0 2px #3063E9;
+.circuit-0:focus + label:hover {
+  box-shadow: 0 0 0 1px #999,0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label:active {
+  box-shadow: 0 0 0 1px #666,0 0 0 4px #AFD0FE;
 }
 
 <input
@@ -210,16 +179,14 @@ HTMLCollection [
   cursor: pointer;
   padding: 16px 24px;
   background-color: #FFF;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   position: relative;
   margin-bottom: 16px;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 0 1px #CCC;
   -webkit-transition: box-shadow 0.1s ease-in-out;
   transition: box-shadow 0.1s ease-in-out;
+  box-shadow: 0 0 0 1px #CCC;
   padding: calc(8px + 1px) 24px;
   opacity: 0.5;
   pointer-events: none;
@@ -234,24 +201,6 @@ HTMLCollection [
 .circuit-0:active {
   background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-0::before {
-  display: none;
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 2px * 2);
-  height: calc(100% + 2px * 2);
-  border: 2px solid transparent;
-  border-radius: calc(8px + 2px);
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0::before::-moz-focus-inner {
-  border: 0;
 }
 
 <label
@@ -279,13 +228,16 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
-  display: block;
+.circuit-0:focus + label {
+  box-shadow: 0 0 0 1px #CCC,0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:checked + label {
-  background-color: #F0F6FF;
-  box-shadow: 0 0 0 2px #3063E9;
+.circuit-0:focus + label:hover {
+  box-shadow: 0 0 0 1px #999,0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label:active {
+  box-shadow: 0 0 0 1px #666,0 0 0 4px #AFD0FE;
 }
 
 <input
@@ -300,16 +252,14 @@ HTMLCollection [
   cursor: pointer;
   padding: 16px 24px;
   background-color: #FFF;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   position: relative;
   margin-bottom: 16px;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 0 1px #CCC;
   -webkit-transition: box-shadow 0.1s ease-in-out;
   transition: box-shadow 0.1s ease-in-out;
+  box-shadow: 0 0 0 1px #CCC;
   padding: calc(8px + 1px) 24px;
   margin-bottom: 0;
 }
@@ -322,24 +272,6 @@ HTMLCollection [
 .circuit-0:active {
   background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-0::before {
-  display: none;
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 2px * 2);
-  height: calc(100% + 2px * 2);
-  border: 2px solid transparent;
-  border-radius: calc(8px + 2px);
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0::before::-moz-focus-inner {
-  border: 0;
 }
 
 <label
