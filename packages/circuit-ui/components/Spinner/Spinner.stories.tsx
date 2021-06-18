@@ -18,6 +18,10 @@
 import { css, jsx } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
+import { Stack } from '../../../../.storybook/components';
+
+import { SpinnerProps } from './Spinner';
+
 import Spinner from '.';
 
 export default {
@@ -36,4 +40,32 @@ export const Base = () => (
       `
     }
   />
+);
+export const Sizes = () => (
+  <Stack>
+    <Spinner
+      css={(theme: Theme) =>
+        css`
+          color: ${theme.colors.p500};
+        `
+      }
+      size="byte"
+    />
+    <Spinner
+      css={(theme: Theme) =>
+        css`
+          color: ${theme.colors.p500};
+        `
+      }
+      size="kilo"
+    />
+    <Spinner
+      css={(theme: Theme) =>
+        css`
+          color: ${theme.colors.p500};
+        `
+      }
+      size="giga"
+    />
+  </Stack>
 );

@@ -23,11 +23,18 @@ const spin = keyframes`
   100% { transform: rotate(360deg); }
 `;
 
+export type SpinnerSize = 'byte' | 'kilo' | 'giga';
+
+export interface SpinnerProps extends Omit<HTMLProps<HTMLDivElement>, 'size'> {
+  /**
+   * Choose from 3 sizes. Default: 'kilo'.
+   */
+  size?: SpinnerSize;
+}
+
 const baseStyles = ({ theme }: StyleProps) => css`
   label: spinner;
   display: block;
-  width: ${theme.iconSizes.mega};
-  height: ${theme.iconSizes.mega};
   border-radius: ${theme.borderRadius.circle};
   border: ${theme.borderWidth.mega} solid currentColor;
   border-top-color: transparent;
@@ -35,7 +42,29 @@ const baseStyles = ({ theme }: StyleProps) => css`
   transform-origin: 50% 50%;
 `;
 
+const sizeStyles = ({ theme, size = 'kilo' }: SpinnerProps & StyleProps) => {
+  const sizeMap = {
+    byte: {
+      width: `${theme.iconSizes.mega}`,
+      height: `${theme.iconSizes.mega}`,
+    },
+    kilo: {
+      width: `${theme.iconSizes.giga}`,
+      height: `${theme.iconSizes.giga}`,
+    },
+    giga: {
+      width: `${theme.iconSizes.tera}`,
+      height: `${theme.iconSizes.tera}`,
+    },
+  };
+
+  return css({
+    label: `spinner-label--${size}`,
+    ...sizeMap[size],
+  });
+};
+
 /**
  * A spinning loading icon.
  */
-export const Spinner = styled.span<HTMLProps<HTMLDivElement>>(baseStyles);
+export const Spinner = styled.span<SpinnerProps>(baseStyles, sizeStyles);
