@@ -27,8 +27,7 @@ module.exports = require('@sumup/foundry/eslint')(
       {
         files: ['packages/circuit-ui/**/*'],
         rules: {
-          // The automatic JSX runtime handles these. We will update the defaults in Foundry v5.
-          'emotion/jsx-import': 'off',
+          // The automatic JSX runtime handles the React import. We will update the defaults in Foundry v5.
           'react/react-in-jsx-scope': 'off',
         },
       },

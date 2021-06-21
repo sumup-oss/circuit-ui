@@ -14,12 +14,9 @@
  */
 
 import { renderHook, act } from '@testing-library/react-hooks';
-import { mocked } from 'ts-jest/utils';
 import * as Collector from '@sumup/collector';
 
 import useClickHandler from './use-click-handler';
-
-const mockCollector = mocked(Collector, true);
 
 jest.mock('@sumup/collector');
 
@@ -50,7 +47,9 @@ describe('useClickHandler', () => {
 
     it('should NOT call the tracking dispatch', () => {
       const dispatch = jest.fn();
-      mockCollector.useClickTrigger = jest.fn(() => dispatch);
+      // @ts-expect-error TypeScript doesn't allow assigning to the read-only
+      // useClickTrigger
+      Collector.useClickTrigger = jest.fn(() => dispatch);
 
       const onClick = jest.fn();
       const { result } = renderHook(() =>
@@ -100,7 +99,9 @@ describe('useClickHandler', () => {
 
     it('should call the tracking dispatch', () => {
       const dispatch = jest.fn();
-      mockCollector.useClickTrigger = jest.fn(() => dispatch);
+      // @ts-expect-error TypeScript doesn't allow assigning to the read-only
+      // useClickTrigger
+      Collector.useClickTrigger = jest.fn(() => dispatch);
 
       const onClick = jest.fn();
       const { result } = renderHook(() =>

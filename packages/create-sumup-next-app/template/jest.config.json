@@ -1,10 +1,4 @@
 {
-  "preset": "ts-jest",
-  "globals": {
-    "ts-jest": {
-      "babelConfig": true
-    }
-  },
   "testURL": "http://localhost",
   "moduleFileExtensions": ["js", "jsx", "ts", "tsx"],
   "testPathIgnorePatterns": ["./.next/", "./node_modules/"],
