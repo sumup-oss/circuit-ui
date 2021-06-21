@@ -23,8 +23,8 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
   padding: calc(4px - 1px) 12px;
   cursor: default;
   background-color: #FFF;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
   text-align: left;

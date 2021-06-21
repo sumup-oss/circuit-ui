@@ -332,8 +332,8 @@ exports[`Carousel styles should render with children as a function 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
@@ -907,8 +907,8 @@ exports[`Carousel styles should render with children as a node 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
@@ -1440,8 +1440,8 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
@@ -2030,8 +2030,8 @@ exports[`Carousel styles should render with default styles 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;

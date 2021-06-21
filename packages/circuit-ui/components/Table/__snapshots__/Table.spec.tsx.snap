@@ -1,38 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
-.circuit-31 {
+.circuit-35 {
   position: relative;
   border: 1px solid #CCC;
 }
 
-.circuit-30 {
+.circuit-34 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-30 {
+  .circuit-34 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-29 {
+.circuit-33 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-29 {
+  .circuit-33 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-29:after {
+  .circuit-33:after {
     content: '';
-    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -55,8 +55,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -201,8 +201,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -253,8 +253,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -264,43 +264,22 @@ tbody .circuit-12:last-child td {
   white-space: nowrap;
 }
 
-.circuit-14 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-}
-
-@media (max-width:767px) {
-  .circuit-14 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    overflow-wrap: break-word;
-  }
-}
-
 .circuit-15 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
 }
 
 @media (max-width:767px) {
   .circuit-15 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
+    left: 0;
+    top: auto;
+    position: absolute;
     width: 145px;
+    overflow-wrap: break-word;
   }
 }
 
@@ -313,22 +292,43 @@ tbody .circuit-12:last-child td {
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   overflow-wrap: break-word;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-16 {
+    display: table-cell;
+    min-width: 145px;
+    max-width: 145px;
+    width: 145px;
+  }
+}
+
+.circuit-17 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
+  vertical-align: middle;
+  overflow-wrap: break-word;
 }
 
 <div
-  class="circuit-31"
+  class="circuit-35"
 >
   <div
-    class="circuit-30"
+    class="circuit-34"
   >
     <table
-      class="circuit-29"
+      class="circuit-33"
     >
       <thead
-        class="circuit-13"
+        class="circuit-14"
       >
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
             aria-label="Sort in ascending order"
@@ -449,82 +449,82 @@ tbody .circuit-12:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             3
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             1
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             2
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Baz
           </td>
@@ -536,38 +536,38 @@ tbody .circuit-12:last-child td {
 `;
 
 exports[`Table Style tests should render "null" or "undefined" cells 1`] = `
-.circuit-15 {
+.circuit-18 {
   position: relative;
   border: 1px solid #CCC;
 }
 
-.circuit-14 {
+.circuit-17 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-14 {
+  .circuit-17 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-13 {
+.circuit-16 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-13 {
+  .circuit-16 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-13:after {
+  .circuit-16:after {
     content: '';
-    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -616,8 +616,8 @@ tbody .circuit-3:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -627,17 +627,17 @@ tbody .circuit-3:last-child td {
   white-space: nowrap;
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
 }
 
 @media (max-width:767px) {
-  .circuit-5 {
+  .circuit-6 {
     left: 0;
     top: auto;
     position: absolute;
@@ -646,7 +646,7 @@ tbody .circuit-3:last-child td {
   }
 }
 
-.circuit-6 {
+.circuit-7 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -659,7 +659,7 @@ tbody .circuit-3:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-6 {
+  .circuit-7 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -667,7 +667,7 @@ tbody .circuit-3:last-child td {
   }
 }
 
-.circuit-7 {
+.circuit-8 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -683,8 +683,8 @@ tbody .circuit-3:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -705,19 +705,19 @@ tbody .circuit-3:last-child td {
 }
 
 <div
-  class="circuit-15"
+  class="circuit-18"
 >
   <div
-    class="circuit-14"
+    class="circuit-17"
   >
     <table
-      class="circuit-13"
+      class="circuit-16"
     >
       <thead
-        class="circuit-4"
+        class="circuit-5"
       >
         <tr
-          class="circuit-3"
+          class="circuit-3 circuit-4"
         >
           <th
             class="circuit-0"
@@ -742,41 +742,41 @@ tbody .circuit-3:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-3"
+          class="circuit-3 circuit-4"
         >
           <th
-            class="circuit-5"
+            class="circuit-6"
             scope="row"
           />
           <td
             aria-hidden="true"
-            class="circuit-6"
+            class="circuit-7"
             role="presentation"
           />
           <td
-            class="circuit-7"
+            class="circuit-8"
           >
             Fruit
           </td>
         </tr>
         <tr
-          class="circuit-3"
+          class="circuit-3 circuit-4"
         >
           <th
-            class="circuit-5"
+            class="circuit-6"
             scope="row"
           >
             Broccoli
           </th>
           <td
             aria-hidden="true"
-            class="circuit-6"
+            class="circuit-7"
             role="presentation"
           >
             Broccoli
           </td>
           <td
-            class="circuit-7"
+            class="circuit-8"
           />
         </tr>
       </tbody>
@@ -786,17 +786,17 @@ tbody .circuit-3:last-child td {
 `;
 
 exports[`Table Style tests should render a collapsed table 1`] = `
-.circuit-31 {
+.circuit-35 {
   position: relative;
   border: 1px solid #CCC;
 }
 
-.circuit-30 {
+.circuit-34 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-30 {
+  .circuit-34 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
@@ -817,8 +817,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -963,8 +963,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -1015,8 +1015,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -1026,43 +1026,22 @@ tbody .circuit-12:last-child td {
   white-space: nowrap;
 }
 
-.circuit-14 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-}
-
-@media (max-width:767px) {
-  .circuit-14 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    overflow-wrap: break-word;
-  }
-}
-
 .circuit-15 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
 }
 
 @media (max-width:767px) {
   .circuit-15 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
+    left: 0;
+    top: auto;
+    position: absolute;
     width: 145px;
+    overflow-wrap: break-word;
   }
 }
 
@@ -1075,9 +1054,30 @@ tbody .circuit-12:last-child td {
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   overflow-wrap: break-word;
+  display: none;
 }
 
-.circuit-29 {
+@media (max-width:767px) {
+  .circuit-16 {
+    display: table-cell;
+    min-width: 145px;
+    max-width: 145px;
+    width: 145px;
+  }
+}
+
+.circuit-17 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
+  vertical-align: middle;
+  overflow-wrap: break-word;
+}
+
+.circuit-33 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
@@ -1085,14 +1085,14 @@ tbody .circuit-12:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-29 {
+  .circuit-33 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-29:after {
+  .circuit-33:after {
     content: '';
-    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -1102,19 +1102,19 @@ tbody .circuit-12:last-child td {
 }
 
 <div
-  class="circuit-31"
+  class="circuit-35"
 >
   <div
-    class="circuit-30"
+    class="circuit-34"
   >
     <table
-      class="circuit-29"
+      class="circuit-33"
     >
       <thead
-        class="circuit-13"
+        class="circuit-14"
       >
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
             aria-label="Sort in ascending order"
@@ -1235,82 +1235,82 @@ tbody .circuit-12:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             3
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             1
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             2
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Baz
           </td>
@@ -1322,38 +1322,38 @@ tbody .circuit-12:last-child td {
 `;
 
 exports[`Table Style tests should render a condensed table 1`] = `
-.circuit-31 {
+.circuit-35 {
   position: relative;
   border: 1px solid #CCC;
 }
 
-.circuit-30 {
+.circuit-34 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-30 {
+  .circuit-34 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-29 {
+.circuit-33 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-29 {
+  .circuit-33 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-29:after {
+  .circuit-33:after {
     content: '';
-    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -1434,8 +1434,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -1534,8 +1534,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -1591,8 +1591,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -1607,13 +1607,13 @@ tbody .circuit-12:last-child td {
   padding: 8px 16px;
 }
 
-.circuit-14 {
+.circuit-15 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   vertical-align: middle;
@@ -1621,7 +1621,7 @@ tbody .circuit-12:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-14 {
+  .circuit-15 {
     left: 0;
     top: auto;
     position: absolute;
@@ -1630,7 +1630,7 @@ tbody .circuit-12:last-child td {
   }
 }
 
-.circuit-15 {
+.circuit-16 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -1649,7 +1649,7 @@ tbody .circuit-12:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-15 {
+  .circuit-16 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -1657,7 +1657,7 @@ tbody .circuit-12:last-child td {
   }
 }
 
-.circuit-16 {
+.circuit-17 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -1672,19 +1672,19 @@ tbody .circuit-12:last-child td {
 }
 
 <div
-  class="circuit-31"
+  class="circuit-35"
 >
   <div
-    class="circuit-30"
+    class="circuit-34"
   >
     <table
-      class="circuit-29"
+      class="circuit-33"
     >
       <thead
-        class="circuit-13"
+        class="circuit-14"
       >
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
             aria-label="Sort in ascending order"
@@ -1805,82 +1805,82 @@ tbody .circuit-12:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             3
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             1
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             2
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Baz
           </td>
@@ -1964,8 +1964,8 @@ tbody .circuit-11:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -2016,8 +2016,8 @@ tbody .circuit-11:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -2027,7 +2027,7 @@ tbody .circuit-11:last-child td {
   white-space: nowrap;
 }
 
-.circuit-13 {
+.circuit-14 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -2038,44 +2038,44 @@ tbody .circuit-11:last-child td {
   overflow-wrap: break-word;
 }
 
-.circuit-27 {
+.circuit-31 {
   position: relative;
   height: 100%;
   border: 1px solid #CCC;
 }
 
 @media (max-width:767px) {
-  .circuit-27 {
+  .circuit-31 {
     height: 100%;
   }
 }
 
-.circuit-25 {
+.circuit-29 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
-.circuit-26 {
+.circuit-30 {
   height: 0px;
   overflow-y: auto;
 }
 
 <div
-  class="circuit-27"
+  class="circuit-31"
 >
   <div
-    class="circuit-26"
+    class="circuit-30"
     height="0px"
   >
     <table
-      class="circuit-25"
+      class="circuit-29"
     >
       <thead
-        class="circuit-12"
+        class="circuit-13"
       >
         <tr
-          class="circuit-11"
+          class="circuit-11 circuit-12"
         >
           <th
             aria-label="Sort in ascending order"
@@ -2189,58 +2189,58 @@ tbody .circuit-11:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-11"
+          class="circuit-11 circuit-12"
         >
           <td
-            class="circuit-13"
+            class="circuit-14"
           >
             b
           </td>
           <td
-            class="circuit-13"
+            class="circuit-14"
           >
             3
           </td>
           <td
-            class="circuit-13"
+            class="circuit-14"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-11"
+          class="circuit-11 circuit-12"
         >
           <td
-            class="circuit-13"
+            class="circuit-14"
           >
             a
           </td>
           <td
-            class="circuit-13"
+            class="circuit-14"
           >
             1
           </td>
           <td
-            class="circuit-13"
+            class="circuit-14"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-11"
+          class="circuit-11 circuit-12"
         >
           <td
-            class="circuit-13"
+            class="circuit-14"
           >
             c
           </td>
           <td
-            class="circuit-13"
+            class="circuit-14"
           >
             2
           </td>
           <td
-            class="circuit-13"
+            class="circuit-14"
           >
             Baz
           </td>
@@ -2252,38 +2252,38 @@ tbody .circuit-11:last-child td {
 `;
 
 exports[`Table Style tests should render with component cells 1`] = `
-.circuit-20 {
+.circuit-24 {
   position: relative;
   border: 1px solid #CCC;
 }
 
-.circuit-19 {
+.circuit-23 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-19 {
+  .circuit-23 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-18 {
+.circuit-22 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-18 {
+  .circuit-22 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-18:after {
+  .circuit-22:after {
     content: '';
-    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -2332,8 +2332,8 @@ tbody .circuit-3:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -2343,17 +2343,17 @@ tbody .circuit-3:last-child td {
   white-space: nowrap;
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
 }
 
 @media (max-width:767px) {
-  .circuit-5 {
+  .circuit-6 {
     left: 0;
     top: auto;
     position: absolute;
@@ -2362,7 +2362,7 @@ tbody .circuit-3:last-child td {
   }
 }
 
-.circuit-6 {
+.circuit-7 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -2375,7 +2375,7 @@ tbody .circuit-3:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-6 {
+  .circuit-7 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -2383,7 +2383,7 @@ tbody .circuit-3:last-child td {
   }
 }
 
-.circuit-7 {
+.circuit-8 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -2399,8 +2399,8 @@ tbody .circuit-3:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -2420,7 +2420,7 @@ tbody .circuit-3:last-child td {
   }
 }
 
-.circuit-15 {
+.circuit-18 {
   border-radius: 999999px;
   color: #FFF;
   display: inline-block;
@@ -2438,19 +2438,19 @@ tbody .circuit-3:last-child td {
 }
 
 <div
-  class="circuit-20"
+  class="circuit-24"
 >
   <div
-    class="circuit-19"
+    class="circuit-23"
   >
     <table
-      class="circuit-18"
+      class="circuit-22"
     >
       <thead
-        class="circuit-4"
+        class="circuit-5"
       >
         <tr
-          class="circuit-3"
+          class="circuit-3 circuit-4"
         >
           <th
             class="circuit-0"
@@ -2475,70 +2475,70 @@ tbody .circuit-3:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-3"
+          class="circuit-3 circuit-4"
         >
           <th
-            class="circuit-5"
+            class="circuit-6"
             scope="row"
           >
             Apple
           </th>
           <td
             aria-hidden="true"
-            class="circuit-6"
+            class="circuit-7"
             role="presentation"
           >
             Apple
           </td>
           <td
-            class="circuit-7"
+            class="circuit-8"
           >
             Fruit
           </td>
         </tr>
         <tr
-          class="circuit-3"
+          class="circuit-3 circuit-4"
         >
           <th
-            class="circuit-5"
+            class="circuit-6"
             scope="row"
           >
             Broccoli
           </th>
           <td
             aria-hidden="true"
-            class="circuit-6"
+            class="circuit-7"
             role="presentation"
           >
             Broccoli
           </td>
           <td
-            class="circuit-7"
+            class="circuit-8"
           >
             Vegetable
           </td>
         </tr>
         <tr
-          class="circuit-3"
+          class="circuit-3 circuit-4"
         >
           <th
-            class="circuit-5"
+            class="circuit-6"
             scope="row"
           >
             Chickpeas
           </th>
           <td
             aria-hidden="true"
-            class="circuit-6"
+            class="circuit-7"
             role="presentation"
           >
             Chickpeas
           </td>
           <td
-            class="circuit-7"
+            class="circuit-8"
           >
             <div
-              class="circuit-15"
+              class="circuit-18"
               color="warning"
             >
               Unknown
@@ -2552,38 +2552,38 @@ tbody .circuit-3:last-child td {
 `;
 
 exports[`Table Style tests should render with default styles 1`] = `
-.circuit-31 {
+.circuit-35 {
   position: relative;
   border: 1px solid #CCC;
 }
 
-.circuit-30 {
+.circuit-34 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-30 {
+  .circuit-34 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-29 {
+.circuit-33 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-29 {
+  .circuit-33 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-29:after {
+  .circuit-33:after {
     content: '';
-    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -2606,8 +2606,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -2752,8 +2752,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -2804,8 +2804,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -2815,43 +2815,22 @@ tbody .circuit-12:last-child td {
   white-space: nowrap;
 }
 
-.circuit-14 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-}
-
-@media (max-width:767px) {
-  .circuit-14 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    overflow-wrap: break-word;
-  }
-}
-
 .circuit-15 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
 }
 
 @media (max-width:767px) {
   .circuit-15 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
+    left: 0;
+    top: auto;
+    position: absolute;
     width: 145px;
+    overflow-wrap: break-word;
   }
 }
 
@@ -2864,22 +2843,43 @@ tbody .circuit-12:last-child td {
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   overflow-wrap: break-word;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-16 {
+    display: table-cell;
+    min-width: 145px;
+    max-width: 145px;
+    width: 145px;
+  }
+}
+
+.circuit-17 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
+  vertical-align: middle;
+  overflow-wrap: break-word;
 }
 
 <div
-  class="circuit-31"
+  class="circuit-35"
 >
   <div
-    class="circuit-30"
+    class="circuit-34"
   >
     <table
-      class="circuit-29"
+      class="circuit-33"
     >
       <thead
-        class="circuit-13"
+        class="circuit-14"
       >
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
             aria-label="Sort in ascending order"
@@ -3000,82 +3000,82 @@ tbody .circuit-12:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             3
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             1
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             2
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Baz
           </td>
@@ -3087,38 +3087,38 @@ tbody .circuit-12:last-child td {
 `;
 
 exports[`Table Style tests should render with rowHeader styles 1`] = `
-.circuit-31 {
+.circuit-35 {
   position: relative;
   border: 1px solid #CCC;
 }
 
-.circuit-30 {
+.circuit-34 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-30 {
+  .circuit-34 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-29 {
+.circuit-33 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-29 {
+  .circuit-33 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-29:after {
+  .circuit-33:after {
     content: '';
-    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -3141,8 +3141,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -3287,8 +3287,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -3339,8 +3339,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -3350,43 +3350,22 @@ tbody .circuit-12:last-child td {
   white-space: nowrap;
 }
 
-.circuit-14 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-}
-
-@media (max-width:767px) {
-  .circuit-14 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    overflow-wrap: break-word;
-  }
-}
-
 .circuit-15 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
 }
 
 @media (max-width:767px) {
   .circuit-15 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
+    left: 0;
+    top: auto;
+    position: absolute;
     width: 145px;
+    overflow-wrap: break-word;
   }
 }
 
@@ -3399,22 +3378,43 @@ tbody .circuit-12:last-child td {
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   overflow-wrap: break-word;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-16 {
+    display: table-cell;
+    min-width: 145px;
+    max-width: 145px;
+    width: 145px;
+  }
+}
+
+.circuit-17 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
+  vertical-align: middle;
+  overflow-wrap: break-word;
 }
 
 <div
-  class="circuit-31"
+  class="circuit-35"
 >
   <div
-    class="circuit-30"
+    class="circuit-34"
   >
     <table
-      class="circuit-29"
+      class="circuit-33"
     >
       <thead
-        class="circuit-13"
+        class="circuit-14"
       >
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
             aria-label="Sort in ascending order"
@@ -3535,82 +3535,82 @@ tbody .circuit-12:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             3
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             1
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             2
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Baz
           </td>
@@ -3622,33 +3622,33 @@ tbody .circuit-12:last-child td {
 `;
 
 exports[`Table Style tests should render without the table shadow 1`] = `
-.circuit-30 {
+.circuit-34 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-30 {
+  .circuit-34 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-29 {
+.circuit-33 {
   background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-29 {
+  .circuit-33 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-29:after {
+  .circuit-33:after {
     content: '';
-    background-image: linear-gradient( 90deg, rgba(0,0,0,0.12), transparent );
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -3671,8 +3671,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -3817,8 +3817,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -3869,8 +3869,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -3880,43 +3880,22 @@ tbody .circuit-12:last-child td {
   white-space: nowrap;
 }
 
-.circuit-14 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-}
-
-@media (max-width:767px) {
-  .circuit-14 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    overflow-wrap: break-word;
-  }
-}
-
 .circuit-15 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
 }
 
 @media (max-width:767px) {
   .circuit-15 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
+    left: 0;
+    top: auto;
+    position: absolute;
     width: 145px;
+    overflow-wrap: break-word;
   }
 }
 
@@ -3929,26 +3908,47 @@ tbody .circuit-12:last-child td {
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   overflow-wrap: break-word;
+  display: none;
 }
 
-.circuit-31 {
+@media (max-width:767px) {
+  .circuit-16 {
+    display: table-cell;
+    min-width: 145px;
+    max-width: 145px;
+    width: 145px;
+  }
+}
+
+.circuit-17 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
+  vertical-align: middle;
+  overflow-wrap: break-word;
+}
+
+.circuit-35 {
   position: relative;
 }
 
 <div
-  class="circuit-31"
+  class="circuit-35"
 >
   <div
-    class="circuit-30"
+    class="circuit-34"
   >
     <table
-      class="circuit-29"
+      class="circuit-33"
     >
       <thead
-        class="circuit-13"
+        class="circuit-14"
       >
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
             aria-label="Sort in ascending order"
@@ -4069,82 +4069,82 @@ tbody .circuit-12:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             3
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             1
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-12"
+          class="circuit-12 circuit-13"
         >
           <th
-            class="circuit-14"
+            class="circuit-15"
             scope="row"
           >
             c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-15"
+            class="circuit-16"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             2
           </td>
           <td
-            class="circuit-16"
+            class="circuit-17"
           >
             Baz
           </td>

@@ -80,8 +80,8 @@ select:not(:active) ~ .circuit-2 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -208,8 +208,8 @@ label + .circuit-4 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -428,8 +428,8 @@ select:not(:active) ~ .circuit-3 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   padding-left: 48px;
   box-shadow: 0 0 0 1px #999;
 }
@@ -570,8 +570,8 @@ label + .circuit-3 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -752,8 +752,8 @@ exports[`Select should render with a visually-hidden label 1`] = `
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -947,8 +947,8 @@ label + .circuit-3 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -1155,8 +1155,8 @@ select:not(:active) ~ .circuit-2 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -1275,8 +1275,8 @@ label + .circuit-3 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -1490,8 +1490,8 @@ select:not(:active) ~ .circuit-2 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   padding-right: 56px;
   box-shadow: 0 0 0 1px #D23F47;
 }
@@ -1622,8 +1622,8 @@ label + .circuit-3 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   box-shadow: 0 0 0 1px #999;
 }
 

@@ -51,8 +51,8 @@ HTMLCollection [
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   box-shadow: 0 0 0 1px #999;
 }
 
