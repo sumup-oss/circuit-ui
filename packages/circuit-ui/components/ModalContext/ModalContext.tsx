@@ -20,7 +20,7 @@ import {
   useMemo,
   useCallback,
   useDebugValue,
-  FC,
+  ReactNode,
   MouseEvent,
   KeyboardEvent,
 } from 'react';
@@ -64,30 +64,33 @@ export interface BaseModalProps
   tracking?: TrackingProps;
 }
 
-export type ModalComponent<T extends BaseModalProps> = ((
-  props: T,
+export type ModalComponent<TProps extends BaseModalProps = BaseModalProps> = ((
+  props: TProps,
 ) => JSX.Element) & { TIMEOUT?: number };
 
-type ModalState = Omit<BaseModalProps, 'isOpen'> &
-  StackItem & { component: ModalComponent<BaseModalProps> };
+type ModalState<TProps extends BaseModalProps> = Omit<TProps, 'isOpen'> &
+  StackItem & { component: ModalComponent<TProps> };
 
-type ModalContextValue = [ModalState[], StackDispatch<ModalState>];
+type ModalContextValue = [ModalState<any>[], StackDispatch<ModalState<any>>];
 
 const ModalContext = createContext<ModalContextValue>([[], () => {}]);
 
-export interface ModalProviderProps extends Omit<ReactModalProps, 'isOpen'> {
-  initialState?: ModalState[];
+export interface ModalProviderProps<TProps extends BaseModalProps>
+  extends Omit<ReactModalProps, 'isOpen'> {
+  initialState?: ModalState<TProps>[];
+  children: ReactNode;
 }
 
-export const ModalProvider: FC<ModalProviderProps> = ({
+export function ModalProvider<TProps extends BaseModalProps>({
   children,
   initialState,
   portalClassName = 'ReactModalPortal',
   htmlOpenClassName = 'ReactModal__Html--open',
   ...defaultModalProps
-}) => {
-  const [modals, dispatch] = useStack<ModalState>(initialState);
+}: ModalProviderProps<TProps>): JSX.Element {
+  const stack = useStack<ModalState<TProps>>(initialState);
 
+  const [modals, dispatch] = stack;
   const isOpen = modals.length > 0;
 
   useEffect(() => {
@@ -124,7 +127,7 @@ export const ModalProvider: FC<ModalProviderProps> = ({
   // }, [isOpen]);
 
   return (
-    <ModalContext.Provider value={[modals, dispatch]}>
+    <ModalContext.Provider value={stack}>
       {children}
 
       {modals.map(
@@ -136,6 +139,8 @@ export const ModalProvider: FC<ModalProviderProps> = ({
             dispatch({ type: 'remove', id, timeout: Component.TIMEOUT });
           };
           return (
+            // @ts-expect-error The props are enforced by the modal hooks,
+            // so this warning can be safely ignored.
             <Component
               {...defaultModalProps}
               {...modalProps}
@@ -169,7 +174,7 @@ export const ModalProvider: FC<ModalProviderProps> = ({
       )}
     </ModalContext.Provider>
   );
-};
+}
 
 export function createUseModal<T extends BaseModalProps>(
   component: ModalComponent<T>,
@@ -181,14 +186,15 @@ export function createUseModal<T extends BaseModalProps>(
     const id = useMemo(uniqueId, []);
     const [modals, dispatch] = useContext(ModalContext);
 
-    const modal = useMemo(() => modals.find((m) => m.id === id), [id, modals]);
+    const modal = useMemo<T | undefined>(
+      () => modals.find((m) => m.id === id),
+      [id, modals],
+    );
 
     useDebugValue(modal);
 
     const setModal = useCallback(
       (props: Omit<T, 'isOpen'>): void => {
-        // @ts-expect-error There's only the base type and one subtype,
-        // so this warning can be safely ignored.
         dispatch({ type: 'push', item: { ...props, id, component } });
       },
       [dispatch, id],
