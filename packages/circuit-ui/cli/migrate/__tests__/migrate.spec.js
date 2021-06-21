@@ -51,6 +51,7 @@ defineTest('component-names-v3');
 defineTest('typography-sizes');
 defineTest('body-variant-highlight');
 defineTest('theme-border-radius');
+defineTest('button-default-size');
 
 function defineTest(transformName, testFilePrefix, testOptions = {}) {
   const dirName = __dirname;
