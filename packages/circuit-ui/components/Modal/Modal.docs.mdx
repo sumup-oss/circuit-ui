@@ -105,7 +105,7 @@ const Page = () => {
   };
 
   return (
-    <>
+    <Fragment>
       <Button onClick={toggleModal}>Open modal</Button>
 
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
@@ -116,7 +116,7 @@ const Page = () => {
           </ModalWrapper>
         )}
       </Modal>
-    </>
+    </Fragment>
   );
 };
 ```

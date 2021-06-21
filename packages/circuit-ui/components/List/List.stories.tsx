@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Fragment } from 'react';
+
 import docs from './List.docs.mdx';
 import { List, ListProps } from './List';
 
@@ -25,10 +27,10 @@ export default {
 };
 
 const ListItems = () => (
-  <>
+  <Fragment>
     <li>This is a list</li>
     <li>A very fine list</li>
-  </>
+  </Fragment>
 );
 
 export const Base = (args: ListProps) => (

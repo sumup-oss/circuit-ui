@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 
 import docs from './Tabs.docs.mdx';
 
@@ -66,7 +66,7 @@ export const ControlledState = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <>
+    <Fragment>
       <TabList>
         {tabs.map(({ tab }, index) => (
           <Tab
@@ -79,7 +79,7 @@ export const ControlledState = () => {
         ))}
       </TabList>
       <TabPanel>{tabs[selected].content}</TabPanel>
-    </>
+    </Fragment>
   );
 };
 

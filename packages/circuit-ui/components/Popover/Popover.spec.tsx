@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
+import { useRef, Fragment } from 'react';
 import { CirclePlus, Zap } from '@sumup/icons';
-import { useRef } from 'react';
 import { Placement } from '@popperjs/core';
 
 import {
@@ -103,10 +103,10 @@ describe('Popover', () => {
     const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 
     return (
-      <>
+      <Fragment>
         <button ref={triggerRef}>Button</button>
         <Popover triggerRef={triggerRef} {...props} />
-      </>
+      </Fragment>
     );
   };
 
