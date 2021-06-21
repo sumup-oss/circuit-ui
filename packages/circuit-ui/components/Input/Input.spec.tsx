@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { createRef } from 'react';
 import { css } from '@emotion/core';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
@@ -124,7 +125,7 @@ describe('Input', () => {
      * Should accept a working ref for input
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef<HTMLInputElement & HTMLTextAreaElement>();
+      const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
       const { container } = render(<Input ref={tref} />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
@@ -134,7 +135,7 @@ describe('Input', () => {
      * Should accept a working ref for textarea
      */
     it('should accept a working ref also for textarea', () => {
-      const tref = React.createRef<HTMLInputElement & HTMLTextAreaElement>();
+      const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
       const { container } = render(<Input as="textarea" ref={tref} />);
       const textarea = container.querySelector('textarea');
       expect(tref.current).toBe(textarea);

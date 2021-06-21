@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { forwardRef } from 'react';
 import { css } from '@emotion/core';
 import { Search, Cross } from '@sumup/icons';
 
@@ -47,7 +48,7 @@ const ClearButton = styled(IconButton)(clearButtonStyles);
 /**
  * SearchInput component for forms.
  */
-export const SearchInput = React.forwardRef(
+export const SearchInput = forwardRef(
   (
     { value, onClear, clearLabel = 'Clear', ...props }: SearchInputProps,
     ref: SearchInputProps['ref'],

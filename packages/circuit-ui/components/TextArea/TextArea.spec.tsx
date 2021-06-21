@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { createRef } from 'react';
+
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
 import TextArea from '.';
@@ -103,7 +105,7 @@ describe('TextArea', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef<HTMLInputElement & HTMLTextAreaElement>();
+      const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
       const { container } = render(<TextArea ref={tref} />);
       const textarea = container.querySelector('textarea');
       expect(tref.current).toBe(textarea);

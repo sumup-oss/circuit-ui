@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { createRef } from 'react';
+
 import { create, renderToHtml, axe, render } from '../../util/test-utils';
 
 import Select from '.';
@@ -157,7 +159,7 @@ describe('Select', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef<HTMLSelectElement>();
+      const tref = createRef<HTMLSelectElement>();
       const { container } = render(<Select ref={tref} />);
       const select = container.querySelector('select');
       expect(tref.current).toBe(select);

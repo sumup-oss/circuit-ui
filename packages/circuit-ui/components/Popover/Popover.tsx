@@ -24,6 +24,7 @@ import {
   Fragment,
   useMemo,
   RefObject,
+  Ref,
 } from 'react';
 import { useClickAway, useLatest } from 'react-use';
 import { Dispatch as TrackingProps } from '@sumup/collector';
@@ -62,7 +63,7 @@ export interface BaseProps {
   /**
    * The ref to the HTML DOM element, can be a button or an anchor.
    */
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>;
+  ref?: Ref<HTMLButtonElement & HTMLAnchorElement>;
 }
 
 type LinkElProps = Omit<

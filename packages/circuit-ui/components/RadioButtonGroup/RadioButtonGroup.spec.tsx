@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { createRef } from 'react';
+
 import {
   create,
   renderToHtml,
@@ -79,7 +81,7 @@ describe('RadioButtonGroup', () => {
   });
 
   it('should accept a working ref', () => {
-    const tref = React.createRef<HTMLFieldSetElement>();
+    const tref = createRef<HTMLFieldSetElement>();
     const { container } = render(
       <RadioButtonGroup {...baseProps} ref={tref} />,
     );

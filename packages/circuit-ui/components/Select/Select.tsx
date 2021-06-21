@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC, ReactNode, Ref, HTMLProps, ChangeEvent } from 'react';
+import { FC, ReactNode, Ref, HTMLProps, ChangeEvent, forwardRef } from 'react';
 import { css } from '@emotion/core';
 import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
@@ -307,7 +307,7 @@ const IconInactive = styled(ChevronUp)<NoTheme>(
 /**
  * A native select component.
  */
-export const Select = React.forwardRef(
+export const Select = forwardRef(
   (
     {
       value,

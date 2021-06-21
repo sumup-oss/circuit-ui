@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { HTMLProps, Ref } from 'react';
+import { HTMLProps, Ref, forwardRef } from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
@@ -128,7 +128,7 @@ const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
 /**
  * A simple Switch component.
  */
-export const Switch = React.forwardRef(
+export const Switch = forwardRef(
   (
     {
       checked = false,

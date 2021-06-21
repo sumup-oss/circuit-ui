@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Ref } from 'react';
+import { Ref, forwardRef } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
@@ -111,7 +111,7 @@ const ToggleWrapper = styled('div')<WrapperElProps>(
 /**
  * A toggle component with support for labels and additional explanations.
  */
-export const Toggle = React.forwardRef(
+export const Toggle = forwardRef(
   (
     { label, explanation, noMargin, ...props }: ToggleProps,
     ref: ToggleProps['ref'],

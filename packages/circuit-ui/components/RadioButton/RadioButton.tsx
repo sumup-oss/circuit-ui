@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Fragment, HTMLProps, Ref } from 'react';
+import { Fragment, HTMLProps, Ref, forwardRef } from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
@@ -174,7 +174,7 @@ const RadioButtonInput = styled('input')<InputElProps>(
 /**
  * RadioButton component for forms.
  */
-export const RadioButton = React.forwardRef(
+export const RadioButton = forwardRef(
   (
     {
       onChange,

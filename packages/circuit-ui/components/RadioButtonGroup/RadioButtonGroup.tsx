@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { HTMLProps, Ref } from 'react';
+import { HTMLProps, Ref, forwardRef } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -73,7 +73,7 @@ const Legend = styled('legend')(legendStyles, typography('two'));
 /**
  * A group of RadioButtons.
  */
-export const RadioButtonGroup = React.forwardRef(
+export const RadioButtonGroup = forwardRef(
   (
     {
       options,

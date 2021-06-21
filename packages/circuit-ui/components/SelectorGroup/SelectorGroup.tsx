@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactNode, ChangeEvent, Ref } from 'react';
+import { ReactNode, ChangeEvent, Ref, forwardRef } from 'react';
 import { includes } from 'lodash/fp';
 import { css } from '@emotion/core';
 
@@ -111,7 +111,7 @@ const StyledSelector = styled(Selector)`
 /**
  * A group of Selectors.
  */
-export const SelectorGroup = React.forwardRef(
+export const SelectorGroup = forwardRef(
   (
     {
       options,

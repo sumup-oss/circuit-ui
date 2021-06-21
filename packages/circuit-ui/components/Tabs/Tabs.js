@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Component, Fragment } from 'react';
+import { Component, Fragment, createRef } from 'react';
 import PropTypes from 'prop-types';
 import { range } from 'lodash/fp';
 
@@ -126,7 +126,7 @@ function getIds(id) {
 }
 
 function createRefs(length) {
-  return range(0, length).map(React.createRef);
+  return range(0, length).map(createRef);
 }
 
 export default Tabs;

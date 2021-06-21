@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Component, createRef, HTMLProps } from 'react';
+import { Component, createRef, HTMLProps, UIEvent } from 'react';
 import { css } from '@emotion/core';
 import { isNil, throttle } from 'lodash/fp';
 
@@ -301,7 +301,7 @@ class Table extends Component<TableProps, TableState> {
     return [...rows].sort(sortFn(i));
   };
 
-  handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+  handleScroll = (e: UIEvent<HTMLDivElement>) => {
     this.setState({ scrollTop: e.currentTarget.scrollTop });
   };
 

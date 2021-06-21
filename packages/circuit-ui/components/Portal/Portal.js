@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
@@ -33,7 +34,7 @@ function getOwnerDocument(element) {
  * Portals provide a first-class way to render children into a DOM node
  * that exists outside the DOM hierarchy of the parent component.
  */
-class Portal extends React.Component {
+class Portal extends Component {
   componentDidMount() {
     this.setMountNode(this.props.container);
 

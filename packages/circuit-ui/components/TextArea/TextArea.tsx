@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { forwardRef } from 'react';
 import { css } from '@emotion/core';
 
 import Input from '../Input';
@@ -29,7 +30,7 @@ const textAreaStyles = css`
 /**
  * TextArea component for forms.
  */
-export const TextArea = React.forwardRef(
+export const TextArea = forwardRef(
   (props: TextAreaProps, ref: TextAreaProps['ref']) => (
     <Input {...props} inputStyles={textAreaStyles} as="textarea" ref={ref} />
   ),
