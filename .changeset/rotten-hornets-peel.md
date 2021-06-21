@@ -2,6 +2,20 @@
 '@sumup/circuit-ui': major
 ---
 
-The components height has been updated to be more consistent for the better and seamless experience.
-Input, Search, and Select component default size has been changed from **_mega_** (40px) to **_giga_** (48px).
-Tabs component size has been changed from 80px to 48px, and the Tag size from 34px to 32px.
+Aligned the heights of all form components to be consistent. The new size values are:
+
+| Size name | Value |                 Usage                 |
+| --------- | :---: | :-----------------------------------: |
+| `giga`    | 48px  |       Default for web + mobile        |
+| `kilo`    | 32px  |     Dense layout for web + mobile     |
+| `byte`    | 24px  | Extreme dense layout for web + mobile |
+
+Here's an overview of how the component heights have changed:
+
+| Component                     | Old height | New height |
+| ----------------------------- | :--------: | :--------: |
+| Button and derived components |    40px    |    48px    |
+| Input and derived components  |    40px    |    48px    |
+| Select                        |    40px    |    48px    |
+| Tabs                          |    80px    |    48px    |
+| Tag                           |    34px    |    32px    |

@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': major
 ---
 
-Button component sizes have been updated with the new values. The default **_mega_** size value has been changed to **_giga_**.
+Increased the Button sizes to match other form components and renamed the default size from `mega` to `giga`.
