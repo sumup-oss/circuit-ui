@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { css } from '@emotion/core';
 
 import Hr from '../../../Hr';
 

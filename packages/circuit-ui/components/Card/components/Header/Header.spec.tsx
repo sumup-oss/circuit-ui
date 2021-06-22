@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { fireEvent } from '@testing-library/dom';
 
 import { create, render, renderToHtml, axe } from '../../../../util/test-utils';

@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import React, { HTMLProps, Ref } from 'react';
-import { css, jsx } from '@emotion/core';
+import { HTMLProps, Ref, forwardRef } from 'react';
+import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
@@ -75,7 +73,7 @@ const Legend = styled('legend')(legendStyles, typography('two'));
 /**
  * A group of RadioButtons.
  */
-export const RadioButtonGroup = React.forwardRef(
+export const RadioButtonGroup = forwardRef(
   (
     {
       options,

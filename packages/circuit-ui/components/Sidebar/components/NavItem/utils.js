@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { isEmpty } from 'lodash/fp';
 import { Lock } from '@sumup/icons';
 

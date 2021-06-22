@@ -88,7 +88,6 @@
     "react-svg-loader": "^3.0.3",
     "react-swipeable": "^6.1.0",
     "style-loader": "^2.0.0",
-    "ts-jest": "^26.4.4",
     "ts-loader": "^9.0.0",
     "typescript": "^4.0.5"
   },

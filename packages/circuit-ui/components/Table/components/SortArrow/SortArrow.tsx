@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import { HTMLAttributes } from 'react';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../../../styles/styled';

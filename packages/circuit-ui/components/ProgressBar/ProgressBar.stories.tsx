@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import { Fragment } from 'react';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 
 import docs from './ProgressBar.docs.mdx';
 import { ProgressBar, ProgressBarProps } from './ProgressBar';

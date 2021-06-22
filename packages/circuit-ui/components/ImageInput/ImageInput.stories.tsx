@@ -13,10 +13,7 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import { useState } from 'react';
-import { jsx } from '@emotion/core';
 
 import Avatar from '../Avatar';
 

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 
 import Tab from './Tab';
 
@@ -32,7 +32,7 @@ describe('Tab', () => {
 
   describe('business logic', () => {
     it('should accept a working ref', () => {
-      const tref = React.createRef();
+      const tref = createRef();
       const { container } = render(<Tab ref={tref} />);
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);

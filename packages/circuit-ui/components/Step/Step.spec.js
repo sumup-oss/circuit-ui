@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import Step from './Step';
 import useStep from './hooks/use-step';
 

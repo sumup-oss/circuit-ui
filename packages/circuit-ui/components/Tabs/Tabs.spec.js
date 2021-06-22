@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import TabPanel from './components/TabPanel';
 import TabList from './components/TabList';
 import Tab from './components/Tab';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 import {
   InteractionTaskArgs,
@@ -116,7 +116,7 @@ Disabled.args = {
 };
 
 export const Multiple = (args: CheckboxProps) => (
-  <>
+  <Fragment>
     <CheckboxWithState {...args} value="apples" name="fruits">
       Apples
     </CheckboxWithState>
@@ -126,5 +126,5 @@ export const Multiple = (args: CheckboxProps) => (
     <CheckboxWithState {...args} value="oranges" name="fruits">
       Oranges
     </CheckboxWithState>
-  </>
+  </Fragment>
 );

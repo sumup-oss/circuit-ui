@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 
 import SearchInput from '../SearchInput';
 import CurrencyInput from '../CurrencyInput';

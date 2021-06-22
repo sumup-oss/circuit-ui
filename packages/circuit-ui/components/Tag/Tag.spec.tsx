@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 
 import {
   create,
@@ -83,7 +83,7 @@ describe('Tag', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef<HTMLButtonElement & HTMLDivElement>();
+      const tref = createRef<HTMLButtonElement & HTMLDivElement>();
       const { container } = render(<Tag ref={tref} onClick={jest.fn()} />);
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);

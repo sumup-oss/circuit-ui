@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FC, ReactNode, MouseEvent, KeyboardEvent } from 'react';
+import { FC, ReactNode, MouseEvent, KeyboardEvent } from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 

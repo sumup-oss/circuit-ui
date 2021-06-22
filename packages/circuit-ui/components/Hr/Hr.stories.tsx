@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import docs from './Hr.docs.mdx';
 import { Hr } from './Hr';
 

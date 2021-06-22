@@ -59,7 +59,7 @@ When you want to create a sidebar with a flat navigation structure, you
 can simply use something like this:
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Sidebar } from '@sumup/circuit-ui';
 
 const Navigation = () => {
@@ -111,7 +111,7 @@ To avoid keeping the logic of toggling the `Sidebar` on your application, you ca
 React's Context API. You can do that like this:
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Sidebar, SidebarContextProvider, SidebarContextConsumer } from '@sumup/circuit-ui';
 
 const Navigation = () => {

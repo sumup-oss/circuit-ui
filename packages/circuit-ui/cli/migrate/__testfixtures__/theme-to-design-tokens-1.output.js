@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 

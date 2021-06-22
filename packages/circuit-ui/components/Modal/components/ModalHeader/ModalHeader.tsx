@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FC, MouseEvent, KeyboardEvent } from 'react';
+import { FC, MouseEvent, KeyboardEvent } from 'react';
 
 import { CardHeader } from '../../../Card';
 import Headline from '../../../Headline';

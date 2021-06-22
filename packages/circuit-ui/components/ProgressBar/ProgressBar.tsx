@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { css, keyframes } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';

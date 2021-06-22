@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import styled from '@emotion/styled';
 
 import docs from '../Grid/Grid.docs.mdx';

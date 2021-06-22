@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import deprecate from '../../util/deprecate';
 import { getDisplayName } from '../../util/get-display-name';
 

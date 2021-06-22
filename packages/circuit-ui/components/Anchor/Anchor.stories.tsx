@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { Anchor, AnchorProps } from './Anchor';
 import docs from './Anchor.docs.mdx';
 

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Step from './Step';

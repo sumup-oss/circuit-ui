@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { css } from '@emotion/core';
 import { light, Theme } from '@sumup/design-tokens';
 
 import { create } from '../util/test-utils';
@@ -126,47 +124,36 @@ describe('Style helpers', () => {
   describe('shadow', () => {
     it('should match the snapshot', () => {
       const { styles } = shadow()({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-          box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-        "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"box-shadow:0 3px 8px 0 rgba(0,0,0,0.2);"`,
+      );
     });
   });
 
   describe('shadowSingle', () => {
     it('should match the snapshot', () => {
       const { styles } = shadowSingle({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-            box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
-              0 0 1px 0 rgba(12, 15, 20, 0.07), 0 2px 2px 0 rgba(12, 15, 20, 0.07);
-          "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"box-shadow:0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);"`,
+      );
     });
   });
 
   describe('shadowDouble', () => {
     it('should match the snapshot', () => {
       const { styles } = shadowDouble({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-            box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
-              0 2px 2px 0 rgba(12, 15, 20, 0.07), 0 4px 4px 0 rgba(12, 15, 20, 0.07);
-          "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"box-shadow:0 0 0 1px rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07),0 4px 4px 0 rgba(12, 15, 20, 0.07);"`,
+      );
     });
   });
 
   describe('shadowTriple', () => {
     it('should match the snapshot', () => {
       const { styles } = shadowTriple({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-            box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
-              0 4px 4px 0 rgba(12, 15, 20, 0.07), 0 8px 8px 0 rgba(12, 15, 20, 0.07);
-          "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"box-shadow:0 0 0 1px rgba(12, 15, 20, 0.07),0 4px 4px 0 rgba(12, 15, 20, 0.07),0 8px 8px 0 rgba(12, 15, 20, 0.07);"`,
+      );
     });
   });
 
@@ -188,119 +175,61 @@ describe('Style helpers', () => {
   describe('disableVisually', () => {
     it('should match the snapshot', () => {
       const { styles } = disableVisually();
-      expect(styles).toMatchInlineSnapshot(`
-        "
-          opacity: 0.5;
-          pointer-events: none;
-          box-shadow: none;
-        "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"opacity:0.5;pointer-events:none;box-shadow:none;"`,
+      );
     });
   });
 
   describe('hideVisually', () => {
     it('should match the snapshot', () => {
       const { styles } = hideVisually();
-      expect(styles).toMatchInlineSnapshot(`
-        "
-          border: 0;
-          clip: rect(0 0 0 0);
-          height: 1px;
-          margin: -1px;
-          overflow: hidden;
-          padding: 0;
-          position: absolute;
-          white-space: nowrap;
-          width: 1px;
-        "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px;"`,
+      );
     });
   });
 
   describe('focusOutline', () => {
     it('should match the snapshot', () => {
       const { styles } = focusOutline({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-            outline: 0;
-            box-shadow: 0 0 0 4px #AFD0FE;
-
-            &::-moz-focus-inner {
-              border: 0;
-            }
-          "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"outline:0;box-shadow:0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}"`,
+      );
     });
 
     it('should match the snapshot with an inset outline', () => {
       const { styles } = focusOutline('inset')({ theme: light });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-                outline: 0;
-                box-shadow: inset 0 0 0 4px #AFD0FE;
-
-                &::-moz-focus-inner {
-                  border: 0;
-                }
-              "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}"`,
+      );
     });
   });
 
   describe('clearfix', () => {
     it('should match the snapshot', () => {
       const { styles } = clearfix();
-      expect(styles).toMatchInlineSnapshot(`
-        "
-          &::before,
-          &::after {
-            content: ' ';
-            display: table;
-          }
-          &::after {
-            clear: both;
-          }
-        "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"&::before,&::after{content:' ';display:table;}&::after{clear:both;}"`,
+      );
     });
   });
 
   describe('hideScrollbar', () => {
     it('should match the snapshot', () => {
       const { styles } = hideScrollbar();
-      expect(styles).toMatchInlineSnapshot(`
-        "
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-
-          &::-webkit-scrollbar {
-            display: none;
-          }
-        "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"-ms-overflow-style:none;scrollbar-width:none;&::-webkit-scrollbar{display:none;}"`,
+      );
     });
   });
 
   describe('inputOutline', () => {
     it('should match the snapshot', () => {
       const { styles } = inputOutline(light);
-      expect(styles).toMatchInlineSnapshot(`
-        "
-            box-shadow: 0 0 0 1px #999;
-
-            &:hover {
-              box-shadow: 0 0 0 1px #666;
-            }
-
-            &:focus {
-              box-shadow: 0 0 0 2px #3063E9;
-            }
-
-            &:active {
-              box-shadow: 0 0 0 1px #3063E9;
-            }
-          "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"box-shadow:0 0 0 1px #999;&:hover{box-shadow:0 0 0 1px #666;}&:focus{box-shadow:0 0 0 2px #3063E9;}&:active{box-shadow:0 0 0 1px #3063E9;}"`,
+      );
     });
 
     it('should match the snapshot when invalid', () => {
@@ -308,23 +237,9 @@ describe('Style helpers', () => {
         theme: light,
         invalid: true,
       });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-            box-shadow: 0 0 0 1px #D23F47;
-
-            &:hover {
-              box-shadow: 0 0 0 1px #B22426;
-            }
-
-            &:focus {
-              box-shadow: 0 0 0 2px #D23F47;
-            }
-
-            &:active {
-              box-shadow: 0 0 0 1px #D23F47;
-            }
-          "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"box-shadow:0 0 0 1px #D23F47;&:hover{box-shadow:0 0 0 1px #B22426;}&:focus{box-shadow:0 0 0 2px #D23F47;}&:active{box-shadow:0 0 0 1px #D23F47;}"`,
+      );
     });
 
     it('should match the snapshot when it has a warning', () => {
@@ -332,23 +247,9 @@ describe('Style helpers', () => {
         theme: light,
         hasWarning: true,
       });
-      expect(styles).toMatchInlineSnapshot(`
-        "
-            box-shadow: 0 0 0 1px #F5C625;
-
-            &:hover {
-              box-shadow: 0 0 0 1px #AD7A14;
-            }
-
-            &:focus {
-              box-shadow: 0 0 0 2px #F5C625;
-            }
-
-            &:active {
-              box-shadow: 0 0 0 1px #F5C625;
-            }
-          "
-      `);
+      expect(styles).toMatchInlineSnapshot(
+        `"box-shadow:0 0 0 1px #F5C625;&:hover{box-shadow:0 0 0 1px #AD7A14;}&:focus{box-shadow:0 0 0 2px #F5C625;}&:active{box-shadow:0 0 0 1px #F5C625;}"`,
+      );
     });
   });
 });

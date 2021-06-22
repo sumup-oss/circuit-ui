@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { Stack } from '../../../../.storybook/components';
 
 import { Avatar, AvatarProps } from './Avatar';

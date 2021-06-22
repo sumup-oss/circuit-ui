@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import Button from '../Button';
 
 import { Spacing, SpacingProps } from './Spacing';

@@ -27,9 +27,8 @@ module.exports = require('@sumup/foundry/eslint')(
       {
         files: ['packages/circuit-ui/**/*'],
         rules: {
-          // The custom JSX pragma is required to make Emotion's css prop
-          // work with TypeScript.
-          'emotion/jsx-import': 'error',
+          // The automatic JSX runtime handles the React import. We will update the defaults in Foundry v5.
+          'react/react-in-jsx-scope': 'off',
         },
       },
       {

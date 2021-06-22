@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import { FC } from 'react';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually } from '../../styles/style-mixins';

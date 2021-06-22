@@ -15,7 +15,6 @@
 
 /* eslint-disable react/prop-types, react/display-name */
 
-import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
 import { css } from '@emotion/core';

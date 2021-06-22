@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import Avatar from '../Avatar';
 import { render, axe, userEvent, waitFor } from '../../util/test-utils';

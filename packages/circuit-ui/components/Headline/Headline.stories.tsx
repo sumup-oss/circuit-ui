@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { Headline, HeadlineProps } from './Headline';
 import docs from './Headline.docs.mdx';
 

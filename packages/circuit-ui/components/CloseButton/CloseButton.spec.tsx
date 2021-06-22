@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 
 import { create, renderToHtml, axe, render } from '../../util/test-utils';
 
@@ -33,7 +33,7 @@ describe('CloseButton', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef<HTMLButtonElement & HTMLAnchorElement>();
+      const tref = createRef<HTMLButtonElement & HTMLAnchorElement>();
       const { container } = render(<CloseButton label="Close" ref={tref} />);
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);

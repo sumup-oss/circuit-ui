@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import docs from './Pagination.docs.mdx';
 import { Pagination, PaginationProps } from './Pagination';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { ReactElement, Ref } from 'react';
+import { ReactElement, Ref, forwardRef } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -106,7 +106,7 @@ const Wrapper = styled('div')<ButtonGroupProps>(
 /**
  * Groups its Button children into a list and adds margins between.
  */
-export const ButtonGroup = React.forwardRef(
+export const ButtonGroup = forwardRef(
   ({ children, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => (
     <Wrapper {...props} ref={ref}>
       {children}

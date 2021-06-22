@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Fragment, createElement } from 'react';
+import { Fragment, createElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';

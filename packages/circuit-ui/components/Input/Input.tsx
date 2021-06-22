@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import { forwardRef, Ref, FC, HTMLProps, ReactNode } from 'react';
-import { css, jsx, InterpolationWithTheme } from '@emotion/core';
+import { css, InterpolationWithTheme } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';

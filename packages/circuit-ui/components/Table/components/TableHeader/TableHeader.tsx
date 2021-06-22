@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, FC, MouseEventHandler } from 'react';
+import { HTMLProps, FC, MouseEventHandler } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 

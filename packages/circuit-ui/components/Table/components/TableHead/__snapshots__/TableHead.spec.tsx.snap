@@ -15,8 +15,8 @@ tbody .circuit-7:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -125,8 +125,8 @@ tbody .circuit-7:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -137,10 +137,10 @@ tbody .circuit-7:last-child td {
 }
 
 <thead
-  class="circuit-8"
+  class="circuit-9"
 >
   <tr
-    class="circuit-7"
+    class="circuit-7 circuit-8"
   >
     <th
       aria-label="Sort in ascending order"
@@ -282,8 +282,8 @@ tbody .circuit-8:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -298,8 +298,8 @@ tbody .circuit-8:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -382,10 +382,10 @@ tbody .circuit-8:last-child td {
 }
 
 <thead
-  class="circuit-9"
+  class="circuit-10"
 >
   <tr
-    class="circuit-8"
+    class="circuit-8 circuit-9"
   >
     <th
       aria-label="Sort in ascending order"

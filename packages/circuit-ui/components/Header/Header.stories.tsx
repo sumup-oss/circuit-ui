@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import Hamburger from '../Hamburger';
 
 import Header from '.';

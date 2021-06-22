@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons';
 
 const renderButtons = () => (

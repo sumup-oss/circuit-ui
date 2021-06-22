@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent, ReactElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
 import { configureAxe } from 'jest-axe';
@@ -33,10 +33,7 @@ import {
   defaultComponents,
 } from '../components/ComponentsContext';
 
-export type RenderFn<T = any> = (
-  component: React.ReactElement,
-  ...rest: any
-) => T;
+export type RenderFn<T = any> = (component: ReactElement, ...rest: any) => T;
 
 const WithProviders: FunctionComponent = ({ children }) => (
   <ComponentsContext.Provider value={defaultComponents}>

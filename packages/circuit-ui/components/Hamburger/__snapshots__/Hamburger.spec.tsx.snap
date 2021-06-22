@@ -27,8 +27,8 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   border-width: 1px;
   border-style: solid;
   border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
@@ -109,9 +109,9 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   display: block;
   height: 2px;
   position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, -webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
 }
 
 .circuit-0::before,
@@ -137,9 +137,9 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 .circuit-0,
 .circuit-0::before,
 .circuit-0::after {
-  -webkit-transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s, -webkit-transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
-  -webkit-transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s, transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
-  transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s, transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
+  -webkit-transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s,-webkit-transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
+  -webkit-transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s,transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
+  transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s,transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
   width: 14px;
 }
 
@@ -204,8 +204,8 @@ exports[`Hamburger should render with default styles 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
@@ -270,9 +270,9 @@ exports[`Hamburger should render with default styles 1`] = `
   display: block;
   height: 2px;
   position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, -webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
 }
 
 .circuit-0::before,

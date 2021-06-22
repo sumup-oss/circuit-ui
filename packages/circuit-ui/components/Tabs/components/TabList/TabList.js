@@ -13,11 +13,9 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 
 import { shadowDouble, hideScrollbar } from '../../../../styles/style-mixins';
 

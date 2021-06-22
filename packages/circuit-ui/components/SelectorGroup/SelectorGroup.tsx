@@ -13,11 +13,9 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import React, { ReactNode, ChangeEvent, Ref } from 'react';
+import { ReactNode, ChangeEvent, Ref, forwardRef } from 'react';
 import { includes } from 'lodash/fp';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
@@ -113,7 +111,7 @@ const StyledSelector = styled(Selector)`
 /**
  * A group of Selectors.
  */
-export const SelectorGroup = React.forwardRef(
+export const SelectorGroup = forwardRef(
   (
     {
       options,

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 import NumberFormat from 'react-number-format';
 
 import {
@@ -48,7 +48,7 @@ describe('CurrencyInput', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef<NumberFormat>();
+      const tref = createRef<NumberFormat>();
       const { container } = render(
         <CurrencyInput
           locale="de-DE"

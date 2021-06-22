@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
@@ -45,7 +45,7 @@ describe('Toggle', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef<HTMLButtonElement>();
+      const tref = createRef<HTMLButtonElement>();
       const { container } = render(<Toggle {...defaultProps} ref={tref} />);
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);

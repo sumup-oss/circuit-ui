@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 
 import {
   create,
@@ -64,7 +64,7 @@ describe('Badge', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef<HTMLDivElement>();
+      const tref = createRef<HTMLDivElement>();
       const { container } = render(<Badge ref={tref} />);
       const div = container.querySelector('div');
       expect(tref.current).toBe(div);

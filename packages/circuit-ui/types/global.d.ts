@@ -17,3 +17,12 @@ declare module '*.mdx' {
   const MDXComponent: (props: any) => JSX.Element;
   export default MDXComponent;
 }
+
+/**
+ * FIXME the types were added in Emotion 11, so we can remove this after we
+ * migrate. See https://github.com/emotion-js/emotion/pull/2078
+ */
+declare module '@emotion/core/jsx-runtime' {
+  const NoTypes: any;
+  export default NoTypes;
+}

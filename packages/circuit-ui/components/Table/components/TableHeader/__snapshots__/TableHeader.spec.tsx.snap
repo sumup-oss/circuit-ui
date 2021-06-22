@@ -6,8 +6,8 @@ exports[`TableHeader Style tests should render with condensed styles 1`] = `
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -36,8 +36,8 @@ exports[`TableHeader Style tests should render with default styles 1`] = `
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -61,8 +61,8 @@ exports[`TableHeader Style tests should render with hovered styles 1`] = `
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   background-color: #F5F5F5;
   font-size: 14px;
   line-height: 20px;
@@ -87,8 +87,8 @@ exports[`TableHeader Style tests should render with row styles 1`] = `
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
 }
 
 <th
@@ -105,8 +105,8 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -327,8 +327,8 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;
@@ -479,8 +479,8 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
   line-height: 20px;
   color: #666;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Heading, CardList } from '@sumup/circuit-ui';
 
 const BaseHeading = () => <Heading size={Heading.KILO} />;

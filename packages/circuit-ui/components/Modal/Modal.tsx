@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FC, MouseEvent, KeyboardEvent, ReactNode } from 'react';
+import { FC, MouseEvent, KeyboardEvent, ReactNode } from 'react';
 import ReactModal, { Props } from 'react-modal';
 import { ClassNames } from '@emotion/core';
 import { useTheme } from 'emotion-theming';

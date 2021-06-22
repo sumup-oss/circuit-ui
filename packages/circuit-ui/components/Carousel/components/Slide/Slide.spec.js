@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { SLIDE_DIRECTIONS } from '../../constants';
 
 import Slide from './Slide';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { createContext } from 'react';
+import { createContext, Component } from 'react';
 import PropTypes from 'prop-types';
 
 const SidebarContext = createContext({
@@ -23,7 +23,7 @@ const SidebarContext = createContext({
 
 const SidebarContextConsumer = SidebarContext.Consumer;
 
-class SidebarContextProvider extends React.Component {
+class SidebarContextProvider extends Component {
   state = { isSidebarOpen: false };
 
   toggleSidebar = () => {

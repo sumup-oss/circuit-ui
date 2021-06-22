@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
@@ -72,7 +72,7 @@ describe('SelectorGroup', () => {
   });
 
   it('should accept a working ref', () => {
-    const tref = React.createRef<HTMLDivElement>();
+    const tref = createRef<HTMLDivElement>();
     const { container } = render(
       <SelectorGroup {...defaultProps} ref={tref} />,
     );

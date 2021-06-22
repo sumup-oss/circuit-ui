@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { css } from '@emotion/core';
 
 import TableRow from '../TableRow';

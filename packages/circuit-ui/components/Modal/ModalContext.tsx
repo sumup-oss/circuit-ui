@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, {
+import {
   createContext,
   FC,
   useState,

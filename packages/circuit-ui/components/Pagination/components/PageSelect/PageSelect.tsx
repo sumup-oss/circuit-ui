@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useCallback, FunctionComponent, ChangeEvent } from 'react';
+import { useCallback, FunctionComponent, ChangeEvent, Fragment } from 'react';
 
 import styled from '../../../../styles/styled';
 import { Select, SelectProps } from '../../../Select/Select';
@@ -49,7 +49,7 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
   );
 
   return (
-    <>
+    <Fragment>
       <Select
         {...props}
         label={label}
@@ -60,6 +60,6 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
         noMargin
       />
       {totalLabel && <TotalPages>{totalLabel(totalPages)}</TotalPages>}
-    </>
+    </Fragment>
   );
 };

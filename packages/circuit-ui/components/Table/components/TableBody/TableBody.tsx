@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 
 import { mapRowProps, mapCellProps, getCellChildren } from '../../utils';
 import { Row } from '../../types';

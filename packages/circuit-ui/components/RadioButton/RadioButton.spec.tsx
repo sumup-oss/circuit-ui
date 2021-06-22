@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 
 import {
   create,
@@ -93,7 +93,7 @@ describe('RadioButton', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef<HTMLInputElement>();
+      const tref = createRef<HTMLInputElement>();
       const { container } = render(<RadioButton ref={tref} />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);

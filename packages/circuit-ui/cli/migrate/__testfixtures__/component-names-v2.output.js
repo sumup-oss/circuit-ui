@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { CardList, IconButton as SpecialButton } from '@sumup/circuit-ui';
 

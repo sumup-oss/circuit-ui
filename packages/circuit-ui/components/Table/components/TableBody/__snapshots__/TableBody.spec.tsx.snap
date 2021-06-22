@@ -23,7 +23,7 @@ tbody .circuit-2:last-child td {
 
 <tbody>
   <tr
-    class="circuit-2"
+    class="circuit-2 circuit-3"
   >
     <td
       class="circuit-0"
@@ -65,8 +65,8 @@ tbody .circuit-3:last-child td {
   border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
 }
 
 @media (max-width:767px) {
@@ -102,7 +102,7 @@ tbody .circuit-3:last-child td {
 
 <tbody>
   <tr
-    class="circuit-3"
+    class="circuit-3 circuit-4"
   >
     <th
       class="circuit-0"
@@ -149,7 +149,7 @@ tbody .circuit-2:last-child td {
 
 <tbody>
   <tr
-    class="circuit-2"
+    class="circuit-2 circuit-3"
   >
     <td
       class="circuit-0"
@@ -200,7 +200,7 @@ tbody .circuit-2:last-child td {
 
 <tbody>
   <tr
-    class="circuit-2"
+    class="circuit-2 circuit-3"
   >
     <td
       class="circuit-0"

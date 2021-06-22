@@ -14,7 +14,6 @@
  */
 
 module.exports = {
-  preset: 'ts-jest',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   // HACK: See https://github.com/storybookjs/storybook/pull/9292
   moduleNameMapper: {
@@ -22,17 +21,9 @@ module.exports = {
       'react-syntax-highlighter/dist/cjs/$1',
   },
   transform: {
-    '^.+\\.(js|jsx)$': 'babel-jest',
-    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
     '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js',
   },
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   testURL: 'http://localhost',
-  globals: {
-    'ts-jest': {
-      tsconfig: {
-        jsx: 'react',
-      },
-    },
-  },
 };

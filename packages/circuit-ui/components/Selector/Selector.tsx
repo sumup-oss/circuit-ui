@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import React, { Fragment, Ref, HTMLProps } from 'react';
-import { css, jsx } from '@emotion/core';
+import { Fragment, Ref, HTMLProps, forwardRef } from 'react';
+import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 
@@ -207,7 +205,7 @@ const SelectorInput = styled('input')<
  * A selector allows users to choose between several mutually-exclusive choices
  * accompanied by descriptions, possibly with tabular data.
  */
-export const Selector = React.forwardRef(
+export const Selector = forwardRef(
   (
     {
       children,

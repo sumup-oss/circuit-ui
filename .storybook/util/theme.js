@@ -86,7 +86,7 @@ export const components = {
     size: TEXT_SIZE,
     css: italicStyles,
   }),
-  ul: withThemeProvider(List, { size: TEXT_SIZE }),
-  ol: withThemeProvider(List, { size: TEXT_SIZE, variant: 'ordered' }),
+  ul: withThemeProvider(List),
+  ol: withThemeProvider(List, { variant: 'ordered' }),
   a: withThemeProvider(Link, { size: TEXT_SIZE }),
 };

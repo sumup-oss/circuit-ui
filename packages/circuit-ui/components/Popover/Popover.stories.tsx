@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useState, useRef } from 'react';
+import { useState, useRef, Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 import {
   More,
@@ -45,12 +45,12 @@ export const PopoverBase = (args) => {
   const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 
   return (
-    <>
+    <Fragment>
       <Button size="kilo" variant="primary" ref={triggerRef} icon={ThumbUp}>
         Button
       </Button>
       <Popover {...args} isOpen={true} triggerRef={triggerRef} />
-    </>
+    </Fragment>
   );
 };
 
@@ -91,7 +91,7 @@ export const PopoverInteractive = (args) => {
   };
 
   return (
-    <>
+    <Fragment>
       <IconButton
         size="kilo"
         onClick={handleClick}
@@ -106,7 +106,7 @@ export const PopoverInteractive = (args) => {
         isOpen={isOpen}
         triggerRef={triggerRef}
       />
-    </>
+    </Fragment>
   );
 };
 

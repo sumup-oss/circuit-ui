@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { forwardRef, useState, useEffect } from 'react';
+import { forwardRef, useState, useEffect } from 'react';
 import NumberFormat from 'react-number-format';
 
 import styled from '../../styles/styled';

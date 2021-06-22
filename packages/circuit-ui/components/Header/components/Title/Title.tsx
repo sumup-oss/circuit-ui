@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { ReactNode } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../../../styles/styled';
@@ -21,7 +22,7 @@ export interface TitleProps {
   /**
    * The children component passed to the Title
    */
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`

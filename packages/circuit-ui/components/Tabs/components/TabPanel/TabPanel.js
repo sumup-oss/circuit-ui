@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 /**
  * Tabpanel wrapping content being showed by tabs

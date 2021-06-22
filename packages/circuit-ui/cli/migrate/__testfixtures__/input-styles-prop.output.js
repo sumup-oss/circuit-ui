@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { Input, TextArea } from '@sumup/circuit-ui';

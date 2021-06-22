@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { render, act, userEvent, waitFor } from '../../util/test-utils';
 import Button from '../Button';
 

@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import { render, axe } from '../../util/test-utils';
 
 import { Avatar, AvatarProps } from './Avatar';

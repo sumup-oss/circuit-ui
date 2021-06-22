@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 import SlideImage from './SlideImage';
 
 const image = {

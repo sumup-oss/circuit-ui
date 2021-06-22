@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import {
   useState,
   useRef,
@@ -22,7 +20,7 @@ import {
   ChangeEvent,
   Fragment,
 } from 'react';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import { Bin, Plus } from '@sumup/icons';
 
 import Label from '../Label';

@@ -90,9 +90,9 @@ HTMLCollection [
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 <label
@@ -191,9 +191,9 @@ HTMLCollection [
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 <label
@@ -296,9 +296,9 @@ HTMLCollection [
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 .circuit-0::before {
@@ -422,9 +422,9 @@ HTMLCollection [
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 .circuit-0:not(:focus)::before {

@@ -88,9 +88,9 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 <fieldset

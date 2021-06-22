@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import {
   forwardRef,
   Ref,
@@ -24,7 +22,7 @@ import {
   SVGProps,
   MouseEvent,
 } from 'react';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';

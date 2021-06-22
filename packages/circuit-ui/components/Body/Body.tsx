@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
-import { forwardRef, HTMLProps } from 'react';
-import { jsx, css } from '@emotion/core';
+import { forwardRef, HTMLProps, Ref } from 'react';
+import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -47,7 +45,7 @@ export interface BodyProps
   /**
    * The ref to the HTML DOM element.
    */
-  ref?: React.Ref<any>;
+  ref?: Ref<any>;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`

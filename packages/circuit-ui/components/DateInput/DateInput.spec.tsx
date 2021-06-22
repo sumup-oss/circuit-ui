@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { createRef } from 'react';
 
 import { render, renderToHtml, axe } from '../../util/test-utils';
 
@@ -23,7 +23,7 @@ describe('DateInput', () => {
   const baseProps = { label: 'Date' };
 
   it('should accept a working ref', () => {
-    const tref = React.createRef<HTMLInputElement & HTMLTextAreaElement>();
+    const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
     const { container } = render(<DateInput {...baseProps} ref={tref} />);
     const input = container.querySelector('input');
     expect(tref.current).toBe(input);

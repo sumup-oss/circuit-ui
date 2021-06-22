@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../../../styles/styled';
