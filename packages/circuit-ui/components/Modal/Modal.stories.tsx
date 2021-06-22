@@ -58,6 +58,7 @@ export const Base = (modal: ModalProps): JSX.Element => {
 Base.args = {
   children: 'Hello World!',
   variant: 'contextual',
+  closeButtonLabel: 'Close modal',
 };
 
 export const Variants = (modal: ModalProps): JSX.Element => {
@@ -82,6 +83,7 @@ export const Variants = (modal: ModalProps): JSX.Element => {
 
 Variants.args = {
   children: 'Hello World!',
+  closeButtonLabel: 'Close modal',
 };
 
 export const PreventClose = (modal: ModalProps): JSX.Element => {
@@ -130,6 +132,7 @@ export const InitiallyOpen = (modal: ModalProps): JSX.Element => {
 InitiallyOpen.args = {
   children: 'Hello World!',
   variant: 'contextual',
+  closeButtonLabel: 'Close modal',
 };
 
 export const CustomStyles = (modal: ModalProps): JSX.Element => {
@@ -169,4 +172,5 @@ CustomStyles.args = {
     </Fragment>
   ),
   variant: 'contextual',
+  closeButtonLabel: 'Close modal',
 };
