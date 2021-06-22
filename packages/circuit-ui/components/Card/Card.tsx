@@ -18,14 +18,8 @@ import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
-import deprecate from '../../util/deprecate';
 
 export interface CardProps {
-  /**
-   * @deprecated
-   * The shadow variations have been replaced with a single outline.
-   */
-  shadow?: 'single' | 'double' | 'triple';
   /**
    * The padding of the Card.
    */
@@ -41,16 +35,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
   flex-direction: column;
   justify-content: space-between;
 `;
-
-const shadowStyles = ({ shadow }: CardProps) => {
-  if (shadow) {
-    deprecate(
-      'The `shadow` prop of the Card component has been deprecated.',
-      'The shadow variations have been replaced with a single outline.',
-    );
-  }
-  return null;
-};
 
 const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
   const spacings = {
@@ -69,4 +53,4 @@ const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
 
 export const Card: FC<CardProps> = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
-})<CardProps>(baseStyles, shadowStyles, spacingStyles);
+})<CardProps>(baseStyles, spacingStyles);
