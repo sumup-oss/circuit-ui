@@ -16,6 +16,8 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
+import { warn } from '../util/logger';
+
 type ThemeArgs = Theme | { theme: Theme };
 
 function isTheme(args: ThemeArgs): args is Theme {
@@ -58,12 +60,10 @@ export type SpacingObject = {
 const mapSpacingValue = (theme: Theme, value: SpacingValue) => {
   if (process.env.NODE_ENV !== 'production') {
     if (typeof value === 'number' && value !== 0) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        [
-          `The number "${value as number}" was passed to the spacing mixin.`,
-          "This is not supported. Pass a spacing constant, 'auto', or 0 instead.",
-        ].join(' '),
+      warn(
+        'spacing',
+        `The number "${value as number}" was passed to the spacing mixin.`,
+        "This is not supported. Pass a spacing constant, 'auto', or 0 instead.",
       );
     }
   }
