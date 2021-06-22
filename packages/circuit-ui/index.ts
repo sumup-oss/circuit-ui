@@ -164,7 +164,6 @@ export type { AvatarProps } from './components/Avatar';
 
 export {
   ComponentsContext,
-  withComponents,
   useComponents,
 } from './components/ComponentsContext';
 
