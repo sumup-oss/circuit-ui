@@ -56,6 +56,8 @@ const transform: Transform = (file, api) => {
 
   transformFactory(j, root, 'Button');
   transformFactory(j, root, 'IconButton');
+  transformFactory(j, root, 'LoadingButton');
+  transformFactory(j, root, 'CloseButton');
 
   return root.toSource();
 };
