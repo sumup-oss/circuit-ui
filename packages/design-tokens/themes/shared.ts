@@ -44,6 +44,7 @@ export const iconSizes: IconSizes = {
   kilo: '16px',
   mega: '24px',
   giga: '32px',
+  tera: '48px',
 };
 
 export const borderRadius: BorderRadius = {

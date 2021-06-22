@@ -48,7 +48,7 @@ export interface BaseProps {
   /**
    * Choose from 2 sizes. Default: 'mega'.
    */
-  'size'?: 'kilo' | 'mega';
+  'size'?: 'kilo' | 'giga';
   /**
    * Visually and functionally disable the button.
    */
@@ -222,6 +222,8 @@ const tertiaryStyles = ({
     background-color: transparent;
     border-color: transparent;
     color: ${theme.colors[colors.default]};
+    padding-left: 0;
+    padding-right: 0;
 
     &:hover {
       color: ${theme.colors[colors.hover]};
@@ -233,13 +235,13 @@ const tertiaryStyles = ({
   `;
 };
 
-const sizeStyles = ({ theme, size = 'mega' }: ButtonProps & StyleProps) => {
+const sizeStyles = ({ theme, size = 'giga' }: ButtonProps & StyleProps) => {
   const sizeMap = {
     kilo: {
       padding: `${theme.spacings.bit} calc(${theme.spacings.mega} - ${BORDER_WIDTH})`,
     },
-    mega: {
-      padding: `${theme.spacings.byte} calc(${theme.spacings.giga} - ${BORDER_WIDTH})`,
+    giga: {
+      padding: `calc(${theme.spacings.kilo} - ${BORDER_WIDTH}) calc(${theme.spacings.giga} - ${BORDER_WIDTH})`,
     },
   };
 
@@ -269,8 +271,8 @@ const StyledButton = styled('button', {
   baseStyles,
   primaryStyles,
   secondaryStyles,
-  tertiaryStyles,
   sizeStyles,
+  tertiaryStyles,
   stretchStyles,
 );
 

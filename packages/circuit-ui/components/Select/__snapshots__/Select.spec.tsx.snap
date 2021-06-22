@@ -18,11 +18,11 @@ label + .circuit-3 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-1 {
@@ -35,11 +35,11 @@ select:active ~ .circuit-1 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-2 {
@@ -70,10 +70,10 @@ select:not(:active) ~ .circuit-2 {
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -198,10 +198,10 @@ label + .circuit-4 {
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -240,11 +240,11 @@ label + .circuit-4 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-2 {
@@ -257,11 +257,11 @@ select:active ~ .circuit-2 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-3 {
@@ -366,11 +366,11 @@ label + .circuit-4 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-2 {
@@ -383,11 +383,11 @@ select:active ~ .circuit-2 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-3 {
@@ -397,12 +397,10 @@ select:not(:active) ~ .circuit-3 {
 .circuit-0 {
   display: block;
   position: absolute;
-  top: 1px;
-  left: 1px;
   z-index: 21;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  padding: 16px;
   pointer-events: none;
 }
 
@@ -420,10 +418,10 @@ select:not(:active) ~ .circuit-3 {
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -432,7 +430,7 @@ select:not(:active) ~ .circuit-3 {
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  padding-left: 40px;
+  padding-left: 48px;
   box-shadow: 0 0 0 1px #999;
 }
 
@@ -562,10 +560,10 @@ label + .circuit-3 {
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -604,11 +602,11 @@ label + .circuit-3 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-1 {
@@ -621,11 +619,11 @@ select:active ~ .circuit-1 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-2 {
@@ -744,10 +742,10 @@ exports[`Select should render with a visually-hidden label 1`] = `
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -786,11 +784,11 @@ exports[`Select should render with a visually-hidden label 1`] = `
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-2 {
@@ -803,11 +801,11 @@ select:active ~ .circuit-2 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-3 {
@@ -939,10 +937,10 @@ label + .circuit-3 {
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -981,11 +979,11 @@ label + .circuit-3 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-1 {
@@ -998,11 +996,11 @@ select:active ~ .circuit-1 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-2 {
@@ -1095,11 +1093,11 @@ label + .circuit-3 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-1 {
@@ -1112,11 +1110,11 @@ select:active ~ .circuit-1 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-2 {
@@ -1147,10 +1145,10 @@ select:not(:active) ~ .circuit-2 {
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -1267,10 +1265,10 @@ label + .circuit-3 {
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -1309,11 +1307,11 @@ label + .circuit-3 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-1 {
@@ -1326,11 +1324,11 @@ select:active ~ .circuit-1 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-2 {
@@ -1440,11 +1438,11 @@ label + .circuit-3 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-1 {
@@ -1457,11 +1455,11 @@ select:active ~ .circuit-1 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-2 {
@@ -1482,10 +1480,10 @@ select:not(:active) ~ .circuit-2 {
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -1614,10 +1612,10 @@ label + .circuit-3 {
   box-shadow: none;
   color: #1A1A1A;
   margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   position: relative;
   width: 100%;
   z-index: 20;
@@ -1656,11 +1654,11 @@ label + .circuit-3 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:active ~ .circuit-1 {
@@ -1673,11 +1671,11 @@ select:active ~ .circuit-1 {
   z-index: 21;
   pointer-events: none;
   position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 select:not(:active) ~ .circuit-2 {

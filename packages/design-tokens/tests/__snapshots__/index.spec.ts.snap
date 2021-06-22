@@ -143,6 +143,7 @@ Object {
     "giga": "32px",
     "kilo": "16px",
     "mega": "24px",
+    "tera": "48px",
   },
   "mq": Object {
     "giga": "@media (min-width: 960px)",

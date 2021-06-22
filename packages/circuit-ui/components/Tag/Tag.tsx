@@ -77,7 +77,7 @@ const tagBaseStyles = ({ theme }: StyleProps) => css`
   word-break: break-word;
   border: ${BORDER_WIDTH} solid ${theme.colors.n300};
   border-radius: ${theme.borderRadius.byte};
-  padding: ${theme.spacings.bit} ${theme.spacings.kilo};
+  padding: calc(${theme.spacings.bit} - 1px) ${theme.spacings.kilo};
   cursor: default;
   background-color: ${theme.colors.white};
   transition: opacity ${theme.transitions.default},

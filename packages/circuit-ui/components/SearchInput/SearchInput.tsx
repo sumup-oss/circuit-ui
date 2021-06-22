@@ -38,7 +38,6 @@ const clearButtonStyles = ({ theme }: StyleProps) => css`
   border: none;
   margin: 0 !important;
   width: auto !important;
-  height: calc(100% - 2px) !important;
   pointer-events: all !important;
   cursor: pointer !important;
   border-radius: ${theme.borderRadius.byte};

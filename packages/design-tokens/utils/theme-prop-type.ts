@@ -144,6 +144,7 @@ export const themePropType = PropTypes.shape({
     kilo: PropTypes.string.isRequired,
     mega: PropTypes.string.isRequired,
     giga: PropTypes.string.isRequired,
+    tera: PropTypes.string.isRequired,
   } as { [key in keyof IconSizes]: any }).isRequired,
   borderRadius: PropTypes.shape({
     bit: PropTypes.string.isRequired,

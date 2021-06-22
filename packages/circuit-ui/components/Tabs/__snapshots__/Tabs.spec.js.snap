@@ -9,7 +9,7 @@ exports[`Tabs styles should render with default styles 1`] = `
   -ms-scrollbar-width: none;
   scrollbar-width: none;
   background: #FFF;
-  height: 80px;
+  height: 48px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -191,7 +191,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   -ms-scrollbar-width: none;
   scrollbar-width: none;
   background: #FFF;
-  height: 80px;
+  height: 48px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

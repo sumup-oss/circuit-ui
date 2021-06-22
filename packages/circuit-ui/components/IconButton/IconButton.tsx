@@ -37,17 +37,17 @@ export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
 
 const Label = styled('span')(hideVisually);
 
-const sizeStyles = (size: IconButtonProps['size'] = 'mega') => (
+const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
   theme: Theme,
 ): SerializedStyles => {
   const sizeMap = {
     kilo: theme.spacings.byte,
-    mega: theme.spacings.kilo,
+    giga: theme.spacings.mega,
   };
 
   return css({
     label: `button--${size}`,
-    padding: sizeMap[size],
+    padding: `calc(${sizeMap[size]} - 1px)`,
   });
 };
 

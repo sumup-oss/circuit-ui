@@ -17,7 +17,7 @@ import React from 'react';
 
 import { create, renderToHtml, axe } from '../../util/test-utils';
 
-import { Spinner } from './Spinner';
+import { Spinner, SpinnerProps } from './Spinner';
 
 describe('Spinner', () => {
   /**
@@ -25,6 +25,12 @@ describe('Spinner', () => {
    */
   it('should render with default styles', () => {
     const actual = create(<Spinner />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  const sizes: SpinnerProps['size'][] = ['byte', 'kilo', 'giga'];
+  it.each(sizes)('should render a %s spinner', (size) => {
+    const actual = create(<Spinner size={size} />);
     expect(actual).toMatchSnapshot();
   });
 

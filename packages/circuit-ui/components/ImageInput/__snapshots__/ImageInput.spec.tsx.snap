@@ -114,8 +114,6 @@ exports[`ImageInput styles should render a custom component 1`] = `
 
 .circuit-6 {
   display: block;
-  width: 24px;
-  height: 24px;
   border-radius: 100%;
   border: 2px solid currentColor;
   border-top-color: transparent;
@@ -124,6 +122,8 @@ exports[`ImageInput styles should render a custom component 1`] = `
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  width: 32px;
+  height: 32px;
   position: absolute;
   width: 32px;
   height: 32px;
@@ -168,8 +168,8 @@ exports[`ImageInput styles should render a custom component 1`] = `
   background-color: #D23F47;
   border-color: #D23F47;
   color: #FFF;
-  padding: 8px calc(24px - 1px);
-  padding: 8px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(8px - 1px);
   position: absolute;
   right: -4px;
   bottom: -4px;
@@ -391,8 +391,6 @@ exports[`ImageInput styles should render with an existing image 1`] = `
 
 .circuit-7 {
   display: block;
-  width: 24px;
-  height: 24px;
   border-radius: 100%;
   border: 2px solid currentColor;
   border-top-color: transparent;
@@ -401,6 +399,8 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  width: 32px;
+  height: 32px;
   position: absolute;
   width: 32px;
   height: 32px;
@@ -445,8 +445,8 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   background-color: #D23F47;
   border-color: #D23F47;
   color: #FFF;
-  padding: 8px calc(24px - 1px);
-  padding: 8px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(8px - 1px);
   position: absolute;
   right: -4px;
   bottom: -4px;
@@ -684,8 +684,8 @@ exports[`ImageInput styles should render with default styles 1`] = `
   background-color: #3063E9;
   border-color: #3063E9;
   color: #FFF;
-  padding: 8px calc(24px - 1px);
-  padding: 8px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(8px - 1px);
   position: absolute;
   right: -4px;
   bottom: -4px;
@@ -733,8 +733,6 @@ exports[`ImageInput styles should render with default styles 1`] = `
 
 .circuit-7 {
   display: block;
-  width: 24px;
-  height: 24px;
   border-radius: 100%;
   border: 2px solid currentColor;
   border-top-color: transparent;
@@ -743,6 +741,8 @@ exports[`ImageInput styles should render with default styles 1`] = `
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  width: 32px;
+  height: 32px;
   position: absolute;
   width: 32px;
   height: 32px;
@@ -919,8 +919,8 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   background-color: #3063E9;
   border-color: #3063E9;
   color: #FFF;
-  padding: 8px calc(24px - 1px);
-  padding: 8px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(8px - 1px);
   position: absolute;
   right: -4px;
   bottom: -4px;
@@ -968,8 +968,6 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 
 .circuit-7 {
   display: block;
-  width: 24px;
-  height: 24px;
   border-radius: 100%;
   border: 2px solid currentColor;
   border-top-color: transparent;
@@ -978,6 +976,8 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  width: 32px;
+  height: 32px;
   position: absolute;
   width: 32px;
   height: 32px;

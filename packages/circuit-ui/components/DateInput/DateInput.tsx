@@ -35,7 +35,7 @@ export interface DateInputProps
 }
 
 const BaseInput = styled(Input)`
-  height: 42px;
+  height: 48px;
   min-width: 8ch;
 `;
 

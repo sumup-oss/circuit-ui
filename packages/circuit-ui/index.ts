@@ -102,6 +102,7 @@ export { Tabs, TabList, TabPanel, Tab } from './components/Tabs';
 export { default as Pagination } from './components/Pagination';
 export type { PaginationProps } from './components/Pagination';
 export { default as Spinner } from './components/Spinner';
+export type { SpinnerProps } from './components/Spinner';
 export { default as Badge } from './components/Badge';
 export type { BadgeProps } from './components/Badge';
 export { default as Card, CardHeader, CardFooter } from './components/Card';

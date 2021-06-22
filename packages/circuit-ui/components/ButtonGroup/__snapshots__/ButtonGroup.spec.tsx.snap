@@ -32,7 +32,7 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: 8px calc(24px - 1px);
+  padding: calc(12px - 1px) calc(24px - 1px);
 }
 
 .circuit-0:focus {
@@ -92,7 +92,7 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
   background-color: #3063E9;
   border-color: #3063E9;
   color: #FFF;
-  padding: 8px calc(24px - 1px);
+  padding: calc(12px - 1px) calc(24px - 1px);
 }
 
 .circuit-1:focus {
@@ -217,7 +217,7 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: 8px calc(24px - 1px);
+  padding: calc(12px - 1px) calc(24px - 1px);
 }
 
 .circuit-0:focus {
@@ -277,7 +277,7 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   background-color: #3063E9;
   border-color: #3063E9;
   color: #FFF;
-  padding: 8px calc(24px - 1px);
+  padding: calc(12px - 1px) calc(24px - 1px);
 }
 
 .circuit-1:focus {
@@ -450,7 +450,7 @@ exports[`ButtonGroup should render with default styles 1`] = `
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: 8px calc(24px - 1px);
+  padding: calc(12px - 1px) calc(24px - 1px);
 }
 
 .circuit-0:focus {
@@ -510,7 +510,7 @@ exports[`ButtonGroup should render with default styles 1`] = `
   background-color: #3063E9;
   border-color: #3063E9;
   color: #FFF;
-  padding: 8px calc(24px - 1px);
+  padding: calc(12px - 1px) calc(24px - 1px);
 }
 
 .circuit-1:focus {

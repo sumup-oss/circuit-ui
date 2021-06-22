@@ -62,8 +62,8 @@ describe('Button', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render a mega button', () => {
-      const wrapper = renderButton(create, { ...baseProps, size: 'mega' });
+    it('should render a giga button', () => {
+      const wrapper = renderButton(create, { ...baseProps, size: 'giga' });
       expect(wrapper).toMatchSnapshot();
     });
 

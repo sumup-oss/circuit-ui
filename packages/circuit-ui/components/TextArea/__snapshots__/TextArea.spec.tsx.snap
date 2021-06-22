@@ -28,7 +28,7 @@ label + .circuit-2:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
@@ -109,7 +109,7 @@ label + .circuit-2:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
@@ -186,7 +186,7 @@ label + .circuit-3:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
@@ -288,13 +288,11 @@ label + .circuit-3:not(label) {
 
 .circuit-0 {
   position: absolute;
-  top: 1px;
-  left: 1px;
   pointer-events: none;
   color: #666;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
+  padding: 12px 16px;
+  height: 48px;
+  width: 48px;
 }
 
 .circuit-1 {
@@ -305,12 +303,12 @@ label + .circuit-3:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  padding-left: 40px;
+  padding-left: 48px;
   box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
@@ -396,12 +394,12 @@ label + .circuit-3:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  padding-right: 40px;
+  padding-right: 48px;
   box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
@@ -445,13 +443,13 @@ label + .circuit-3:not(label) {
 
 .circuit-1 {
   position: absolute;
-  top: 1px;
-  right: 1px;
+  top: 0;
+  right: 0;
   pointer-events: none;
   color: #666;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
+  padding: 12px 16px;
+  height: 48px;
+  width: 48px;
   -webkit-transition: right 120ms ease-in-out;
   transition: right 120ms ease-in-out;
 }
@@ -500,7 +498,7 @@ label + .circuit-2:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
@@ -589,7 +587,7 @@ label + .circuit-2:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
@@ -654,7 +652,7 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
@@ -754,7 +752,7 @@ label + .circuit-2:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
@@ -849,7 +847,7 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
@@ -946,7 +944,7 @@ label + .circuit-2:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
@@ -1034,7 +1032,7 @@ label + .circuit-2:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
@@ -1120,7 +1118,7 @@ label + .circuit-2:not(label) {
   border: none;
   outline: 0;
   border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
+  padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;

@@ -22,7 +22,7 @@ import { css, jsx } from '@emotion/core';
 import { shadowDouble, hideScrollbar } from '../../../../styles/style-mixins';
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
-const DEFAULT_HEIGHT = '80px';
+const DEFAULT_HEIGHT = '48px';
 
 const Wrapper = styled.div(
   ({ theme }) => css`

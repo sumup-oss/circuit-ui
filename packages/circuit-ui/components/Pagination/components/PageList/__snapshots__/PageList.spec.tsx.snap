@@ -108,10 +108,12 @@ li:last-child .circuit-0 {
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  padding: 4px calc(16px - 1px);
   background-color: transparent;
   border-color: transparent;
   color: #3063E9;
-  padding: 4px calc(16px - 1px);
+  padding-left: 0;
+  padding-right: 0;
   min-width: 34px;
   padding: 4px;
   margin-right: 4px;
