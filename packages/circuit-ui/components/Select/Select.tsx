@@ -20,7 +20,6 @@ import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { uniqueId } from '../../util/id';
-import deprecate from '../../util/deprecate';
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import {
   typography,
@@ -44,9 +43,8 @@ export interface SelectProps
   children?: ReactNode;
   /**
    * A clear and concise description of the select purpose.
-   * Will become required in the next major version of Circuit UI.
    */
-  label?: ReactNode;
+  label: ReactNode;
   /**
    * onChange handler, called when the selection changes.
    */
@@ -153,7 +151,9 @@ const labelInlineStyles = ({ inline }: LabelElProps) =>
 
 const SelectLabel = styled(Label)<LabelElProps>(labelInlineStyles);
 
-type SelectElProps = Omit<SelectProps, 'options'> & { hasPrefix: boolean };
+type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
+  hasPrefix: boolean;
+};
 
 const selectBaseStyles = ({ theme }: StyleProps) => css`
   label: select;
@@ -317,17 +317,6 @@ export const Select = forwardRef(
 
     const handleChange = useClickHandler(onChange, tracking, 'select');
 
-    if (!label) {
-      deprecate(
-        [
-          'The label is now built into the Select component.',
-          'Use the `label` prop to pass in the label content and',
-          'remove the Label component from your code.',
-          'The label will become required in the next major version.',
-        ].join(' '),
-      );
-    }
-
     return (
       <SelectLabel
         className={className}
@@ -335,16 +324,13 @@ export const Select = forwardRef(
         htmlFor={id}
         inline={inline}
         disabled={disabled}
-        as={label ? 'label' : 'span'}
       >
-        {label && (
-          <LabelText hideLabel={hideLabel}>
-            {label}
-            {optionalLabel && !required ? (
-              <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
-            ) : null}
-          </LabelText>
-        )}
+        <LabelText hideLabel={hideLabel}>
+          {label}
+          {optionalLabel && !required ? (
+            <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
+          ) : null}
+        </LabelText>
 
         <SelectContainer hideLabel={hideLabel}>
           {prefix}

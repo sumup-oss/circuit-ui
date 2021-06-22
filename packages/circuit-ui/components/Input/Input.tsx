@@ -27,14 +27,12 @@ import { uniqueId } from '../../util/id';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';
-import deprecate from '../../util/deprecate';
 
 export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
   /**
    * A clear and concise description of the input purpose.
-   * Will become required in the next major version of Circuit UI.
    */
-  label?: ReactNode;
+  label: ReactNode;
   /**
    * The HTML input element to render.
    */
@@ -112,18 +110,7 @@ const containerStyles = () => css`
 
 const InputContainer = styled('div')(containerStyles);
 
-const labelCustomStyles = ({ theme }: StyleProps) => css`
-  label: input__label;
-
-  label &:not(label),
-  label + &:not(label) {
-    margin-top: ${theme.spacings.bit};
-  }
-`;
-
-const InputLabel = styled(Label)(labelCustomStyles);
-
-type InputElProps = InputProps & {
+type InputElProps = Omit<InputProps, 'label'> & {
   hasPrefix: boolean;
   hasSuffix: boolean;
 };
@@ -307,17 +294,6 @@ export const Input = forwardRef(
     }: InputProps,
     ref: InputProps['ref'],
   ): ReturnType => {
-    if (!label) {
-      deprecate(
-        [
-          'The label is now built into the Input component.',
-          'Use the `label` prop to pass in the label content and',
-          'remove the Label component from your code.',
-          'The label will become required in the next major version.',
-        ].join(' '),
-      );
-    }
-
     const id = customId || uniqueId('input_');
 
     const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
@@ -327,21 +303,13 @@ export const Input = forwardRef(
     const hasSuffix = Boolean(suffix);
 
     return (
-      <InputLabel
-        htmlFor={id}
-        inline={inline}
-        disabled={disabled}
-        as={label ? 'label' : 'div'}
-        css={labelStyles}
-      >
-        {label && (
-          <LabelText hideLabel={hideLabel}>
-            {label}
-            {optionalLabel && !required ? (
-              <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
-            ) : null}
-          </LabelText>
-        )}
+      <Label htmlFor={id} inline={inline} disabled={disabled} css={labelStyles}>
+        <LabelText hideLabel={hideLabel}>
+          {label}
+          {optionalLabel && !required ? (
+            <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
+          ) : null}
+        </LabelText>
         <InputContainer>
           {prefix}
           <InputElement
@@ -368,7 +336,7 @@ export const Input = forwardRef(
           showValid={showValid}
           validationHint={validationHint}
         />
-      </InputLabel>
+      </Label>
     );
   },
 );

@@ -29,7 +29,7 @@ describe('Input', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Input />);
+    const actual = create(<Input label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -37,6 +37,7 @@ describe('Input', () => {
     const actual = create(
       <Input
         renderPrefix={({ className }) => <DummyElement {...{ className }} />}
+        label="Label"
       />,
     );
     expect(actual).toMatchSnapshot();
@@ -46,58 +47,61 @@ describe('Input', () => {
     const actual = create(
       <Input
         renderSuffix={({ className }) => <DummyElement {...{ className }} />}
+        label="Label"
       />,
     );
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with a Tooltip when passed the validationHint prop', () => {
-    const actual = create(<Input validationHint="Validation hint" />);
+    const actual = create(
+      <Input validationHint="Validation hint" label="Label" />,
+    );
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with warning styles when passed the hasWarning prop', () => {
-    const actual = create(<Input hasWarning />);
+    const actual = create(<Input hasWarning label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with invalid styles when passed the invalid prop', () => {
-    const actual = create(<Input invalid />);
+    const actual = create(<Input invalid label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with valid styles when passed the showValid prop', () => {
-    const actual = create(<Input showValid />);
+    const actual = create(<Input showValid label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with right aligned text', () => {
-    const actual = create(<Input textAlign={'right'} />);
+    const actual = create(<Input textAlign={'right'} label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with readonly styles when passed the readOnly prop', () => {
-    const actual = create(<Input readOnly />);
+    const actual = create(<Input readOnly label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styles when passed the disabled prop', () => {
-    const actual = create(<Input disabled />);
+    const actual = create(<Input disabled label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should prioritize disabled over error styles', () => {
-    const actual = create(<Input invalid disabled />);
+    const actual = create(<Input invalid disabled label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should prioritize disabled over warning styles', () => {
-    const actual = create(<Input hasWarning disabled />);
+    const actual = create(<Input hasWarning disabled label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with inline styles when passed the inline prop', () => {
-    const actual = create(<Input inline />);
+    const actual = create(<Input inline label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -110,6 +114,7 @@ describe('Input', () => {
         inputStyles={css`
           color: red;
         `}
+        label="Label"
       />,
     );
     expect(actual).toMatchSnapshot();
@@ -121,7 +126,7 @@ describe('Input', () => {
      */
     it('should accept a working ref', () => {
       const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
-      const { container } = render(<Input ref={tref} />);
+      const { container } = render(<Input ref={tref} label="Label" />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
     });
@@ -131,7 +136,9 @@ describe('Input', () => {
      */
     it('should accept a working ref also for textarea', () => {
       const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
-      const { container } = render(<Input as="textarea" ref={tref} />);
+      const { container } = render(
+        <Input as="textarea" ref={tref} label="Label" />,
+      );
       const textarea = container.querySelector('textarea');
       expect(tref.current).toBe(textarea);
     });

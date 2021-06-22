@@ -34,11 +34,6 @@ describe('Select', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Select {...{ options }} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with a label', () => {
     const actual = create(<Select {...{ options }} label="Label" />);
     expect(actual).toMatchSnapshot();
   });
@@ -49,28 +44,34 @@ describe('Select', () => {
   });
 
   it('should render with disabled styles when passed the disabled prop', () => {
-    const actual = create(<Select {...{ options }} disabled />);
+    const actual = create(<Select {...{ options }} label="Label" disabled />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with invalid styles when passed the invalid prop', () => {
-    const actual = create(<Select {...{ options }} invalid />);
+    const actual = create(<Select {...{ options }} label="Label" invalid />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should not render with invalid styles when also passed the disabled prop', () => {
-    const actual = create(<Select {...{ options }} invalid disabled />);
+    const actual = create(
+      <Select {...{ options }} label="Label" invalid disabled />,
+    );
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with inline styles when passed the inline prop', () => {
-    const actual = create(<Select {...{ options }} inline />);
+    const actual = create(<Select {...{ options }} label="Label" inline />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with a tooltip when passed a validation hint', () => {
     const actual = create(
-      <Select {...{ options }} validationHint="This field is required." />,
+      <Select
+        {...{ options }}
+        label="Label"
+        validationHint="This field is required."
+      />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -82,6 +83,7 @@ describe('Select', () => {
     const actual = create(
       <Select
         {...{ options }}
+        label="Label"
         renderPrefix={({ className }) => <DummyElement className={className} />}
       />,
     );
@@ -108,14 +110,21 @@ describe('Select', () => {
         {label}
       </option>
     ));
-    const { getAllByTestId } = render(<Select>{children}</Select>);
+    const { getAllByTestId } = render(
+      <Select label="Label">{children}</Select>,
+    );
     const optionEls = getAllByTestId('select-option');
     expect(optionEls).toHaveLength(options.length);
   });
 
   it('should be disabled when passed the disabled prop', () => {
     const { getByTestId } = render(
-      <Select options={options} data-testid="select-element" disabled />,
+      <Select
+        options={options}
+        label="Label"
+        data-testid="select-element"
+        disabled
+      />,
     );
     const selectEl = getByTestId('select-element');
     expect(selectEl).toBeDisabled();
@@ -126,6 +135,7 @@ describe('Select', () => {
     const { getByTestId } = render(
       <Select
         options={options}
+        label="Label"
         placeholder={placeholder}
         data-testid="select-element"
       />,
@@ -140,6 +150,7 @@ describe('Select', () => {
     const { getByTestId } = render(
       <Select
         options={options}
+        label="Label"
         placeholder={placeholder}
         value={value}
         data-testid="select-element"
@@ -155,7 +166,7 @@ describe('Select', () => {
      */
     it('should accept a working ref', () => {
       const tref = createRef<HTMLSelectElement>();
-      const { container } = render(<Select ref={tref} />);
+      const { container } = render(<Select ref={tref} label="Label" />);
       const select = container.querySelector('select');
       expect(tref.current).toBe(select);
     });
