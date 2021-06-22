@@ -44,9 +44,7 @@ describe('ProgressBar', () => {
      */
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(
-        <ProgressBar {...baseProps} max={1} value={0.5}>
-          children
-        </ProgressBar>,
+        <ProgressBar {...baseProps} max={1} value={0.5} />,
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

@@ -83,9 +83,7 @@ export const Variants = (args: ProgressBarProps) =>
       variant={variant}
       label={`A ${variant} progressbar`}
       css={progressBarStyles}
-    >
-      {variant}
-    </ProgressBar>
+    />
   ));
 
 Variants.args = {
@@ -101,9 +99,7 @@ export const Sizes = (args: ProgressBarProps) =>
       size={size}
       label={`A ${size} progressbar`}
       css={progressBarStyles}
-    >
-      {size}
-    </ProgressBar>
+    />
   ));
 
 Sizes.args = {
