@@ -22,17 +22,21 @@ import Input from '../Input';
 import { InputProps } from '../Input/Input';
 import IconButton from '../IconButton';
 
-export interface SearchInputProps extends InputProps {
-  /**
-   * Callback function when the user clears the field.
-   */
-  onClear?: () => void;
-  /**
-   * Visually hidden text label on the clear button for screen readers.
-   * Crucial for accessibility.
-   */
-  clearLabel?: string;
-}
+type ClearProps =
+  | { onClear?: never; clearLabel?: never }
+  | {
+      /**
+       * Callback function when the user clears the field.
+       */
+      onClear: () => void;
+      /**
+       * Visually hidden text label on the clear button for screen readers.
+       * Crucial for accessibility.
+       */
+      clearLabel: string;
+    };
+
+export type SearchInputProps = InputProps & ClearProps;
 
 const clearButtonStyles = ({ theme }: StyleProps) => css`
   border: none;
@@ -50,7 +54,7 @@ const ClearButton = styled(IconButton)(clearButtonStyles);
  */
 export const SearchInput = forwardRef(
   (
-    { value, onClear, clearLabel = 'Clear', ...props }: SearchInputProps,
+    { value, onClear, clearLabel, ...props }: SearchInputProps,
     ref: SearchInputProps['ref'],
   ) => (
     <Input
@@ -58,13 +62,8 @@ export const SearchInput = forwardRef(
       type="text"
       renderPrefix={(renderProps) => <Search {...renderProps} />}
       renderSuffix={(renderProps) =>
-        value && onClear ? (
-          <ClearButton
-            onClick={onClear}
-            label={clearLabel}
-            data-testid="input-clear"
-            {...renderProps}
-          >
+        value && onClear && clearLabel ? (
+          <ClearButton onClick={onClear} label={clearLabel} {...renderProps}>
             <Cross />
           </ClearButton>
         ) : null
