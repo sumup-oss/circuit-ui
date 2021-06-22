@@ -87,8 +87,8 @@ exports[`LoadingButton styles should render with default styles 1`] = `
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   position: absolute;
   opacity: 0;
   visibility: hidden;
@@ -256,8 +256,8 @@ exports[`LoadingButton styles should render with loading styles 1`] = `
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   position: absolute;
   opacity: 0;
   visibility: hidden;
