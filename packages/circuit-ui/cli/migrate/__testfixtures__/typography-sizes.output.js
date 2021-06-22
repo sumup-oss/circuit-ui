@@ -6,6 +6,7 @@ import {
   Headline,
   SubHeadline,
   Body,
+  List,
 } from '@sumup/circuit-ui';
 
 const HeadlineZetta = () => <Headline size="zetta">Headline</Headline>;
@@ -35,3 +36,6 @@ const BodyKilo = () => <Body size="two">Body 2</Body>;
 
 const TextMega = () => <Text size="one">Body 1</Text>;
 const TextKilo = () => <Text size="two">Body 2</Text>;
+
+const ListMega = () => <List size="one">Body 1</List>;
+const ListKilo = () => <List size="two">Body 2</List>;

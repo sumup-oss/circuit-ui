@@ -110,6 +110,11 @@ const transform: Transform = (file, api) => {
     kilo: 'two',
   });
 
+  renameFactory(j, root, 'List', {
+    mega: 'one',
+    kilo: 'two',
+  });
+
   return root.toSource();
 };
 
