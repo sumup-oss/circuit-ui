@@ -24,7 +24,7 @@ export default {
 
 export const Base = (args) => (
   <Header {...args}>
-    <Hamburger labelActive="Close menu" labelInActive="Open menu" size="kilo" />
+    <Hamburger activeLabel="Close menu" inactiveLabel="Open menu" size="kilo" />
   </Header>
 );
 

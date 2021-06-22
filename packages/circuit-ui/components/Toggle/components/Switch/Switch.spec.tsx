@@ -20,8 +20,8 @@ import { create, render, act, userEvent } from '../../../../util/test-utils';
 import { Switch } from './Switch';
 
 const defaultProps = {
-  labelChecked: 'on',
-  labelUnchecked: 'off',
+  checkedLabel: 'on',
+  uncheckedLabel: 'off',
 };
 
 describe('Switch', () => {

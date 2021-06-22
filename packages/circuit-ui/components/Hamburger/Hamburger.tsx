@@ -31,11 +31,11 @@ export interface HamburgerProps
   /**
    * Label for the 'active' state. Important for accessibility.
    */
-  labelActive: string;
+  activeLabel: string;
   /**
    * Label for the 'inactive' state. Important for accessibility.
    */
-  labelInActive: string;
+  inactiveLabel: string;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -132,13 +132,13 @@ const Layers = styled('span')<{ isActive?: boolean }>(
  */
 export const Hamburger = ({
   isActive,
-  labelActive = 'Close menu',
-  labelInActive = 'Open menu',
+  activeLabel = 'Close menu',
+  inactiveLabel = 'Open menu',
   tracking = {},
   ...props
-}: HamburgerProps) => (
+}: HamburgerProps): JSX.Element => (
   <Button
-    label={isActive ? labelActive : labelInActive}
+    label={isActive ? activeLabel : inactiveLabel}
     {...props}
     tracking={{ component: 'hamburger', ...tracking }}
     type="button"

@@ -87,7 +87,7 @@ export const WithHeader = () => (
     <Card css={cardStyles}>
       <CardHeader
         onClose={action('CloseButton clicked')}
-        labelCloseButton="Close"
+        closeButtonLabel="Close"
         tracking={{ label: 'trackingId' }}
       >
         <Header />

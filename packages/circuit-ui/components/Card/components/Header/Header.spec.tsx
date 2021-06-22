@@ -38,24 +38,24 @@ describe('CardHeader', () => {
    * Logic tests.
    */
   it('should render a close button when an onClose prop is passed', () => {
-    const labelCloseButton = 'Close';
+    const closeButtonLabel = 'Close';
 
     const { getByRole } = render(
-      <CardHeader labelCloseButton="Close" onClose={jest.fn()}>
+      <CardHeader closeButtonLabel="Close" onClose={jest.fn()}>
         {children}
       </CardHeader>,
     );
     const closeButton = getByRole('button');
 
     expect(closeButton).toBeVisible();
-    expect(closeButton).toHaveTextContent(labelCloseButton);
+    expect(closeButton).toHaveTextContent(closeButtonLabel);
   });
 
   it('should call the onClose prop when the close button is clicked', () => {
     const onClose = jest.fn();
 
     const { getByRole } = render(
-      <CardHeader labelCloseButton="Close" onClose={onClose}>
+      <CardHeader closeButtonLabel="Close" onClose={onClose}>
         {children}
       </CardHeader>,
     );
@@ -71,7 +71,7 @@ describe('CardHeader', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <CardHeader labelCloseButton="Close">{children}</CardHeader>,
+      <CardHeader closeButtonLabel="Close">{children}</CardHeader>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

@@ -23,26 +23,31 @@ import {
   CloseButtonProps,
 } from '../../../CloseButton/CloseButton';
 
-export interface CardHeaderProps {
+type CloseProps =
+  | {
+      /**
+       * Callback for the close button. If not specified, the button won't
+       * be shown.
+       */
+      onClose?: (event: MouseEvent | KeyboardEvent) => void;
+      /**
+       * Text label for the close button for screen readers.
+       * Important for accessibility.
+       */
+      closeButtonLabel?: string;
+    }
+  | { onClose?: never; closeButtonLabel?: never };
+
+export type CardHeaderProps = {
   /**
    * Headline to be shown.
    */
   children?: ReactNode;
   /**
-   * Callback for the close button. If not specified, the button won't
-   * be shown.
-   */
-  onClose?: (event: MouseEvent | KeyboardEvent) => void;
-  /**
-   * Text label for the close button for screen readers.
-   * Important for accessibility.
-   */
-  labelCloseButton?: string; // TODO rename to `closeButtonLabel` for consistency
-  /**
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
-}
+} & CloseProps;
 
 type ContainerElProps = Pick<CardHeaderProps, 'children'>;
 
@@ -84,16 +89,16 @@ const CardHeaderCloseButton = styled(CloseButton)<CloseButtonProps>(
 export const CardHeader: FC<CardHeaderProps> = ({
   onClose,
   children,
-  labelCloseButton,
+  closeButtonLabel,
   tracking = {},
   ...props
 }) => (
   <CardHeaderContainer {...props}>
     {children}
-    {onClose && labelCloseButton && (
+    {onClose && closeButtonLabel && (
       <CardHeaderCloseButton
         onClick={onClose}
-        label={labelCloseButton}
+        label={closeButtonLabel}
         tracking={{ component: 'close-button', ...tracking }}
       />
     )}

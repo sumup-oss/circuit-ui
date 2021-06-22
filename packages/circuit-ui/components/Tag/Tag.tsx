@@ -23,7 +23,7 @@ import { typography, focusOutline } from '../../styles/style-mixins';
 import useClickHandler from '../../hooks/use-click-handler';
 import { CloseButton, CloseButtonProps } from '../CloseButton/CloseButton';
 
-interface BaseProps {
+type BaseProps = {
   /**
    * Render prop that should render a leading-aligned icon or element.
    */
@@ -32,16 +32,6 @@ interface BaseProps {
    * Render prop that should render a trailing-aligned icon or element.
    */
   suffix?: FC<SVGProps<SVGSVGElement>>;
-  /**
-   * Renders a close button inside the tag and calls the provided function
-   * when the button is clicked.
-   */
-  onRemove?: (event: MouseEvent) => void;
-  /**
-   * Text label for the remove icon for screen readers.
-   * Important for accessibility.
-   */
-  labelRemoveButton?: string;
   /**
    * Triggers selected styles on the tag.
    */
@@ -54,16 +44,31 @@ interface BaseProps {
    *  The ref to the DOM element
    */
   ref?: Ref<HTMLDivElement & HTMLButtonElement>;
-}
+};
+
+type RemoveProps =
+  | {
+      /**
+       * Renders a close button inside the tag and calls the provided function
+       * when the button is clicked.
+       */
+      onRemove: (event: MouseEvent) => void;
+      /**
+       * Text label for the remove icon for screen readers.
+       * Important for accessibility.
+       */
+      removeButtonLabel: string;
+    }
+  | { onRemove?: never; removeButtonLabel?: never };
 
 type DivElProps = Omit<HTMLProps<HTMLDivElement>, 'prefix'>;
 type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'prefix'>;
 
-export type TagProps = BaseProps & DivElProps & ButtonElProps;
+export type TagProps = BaseProps & RemoveProps & DivElProps & ButtonElProps;
 
 const BORDER_WIDTH = '1px';
 
-type TagElProps = Omit<TagProps, 'prefix' | 'suffix' | 'labelRemoveButton'> & {
+type TagElProps = Omit<TagProps, 'prefix' | 'suffix' | 'removeButtonLabel'> & {
   removable: boolean;
 };
 
@@ -188,7 +193,7 @@ export const Tag = forwardRef(
       prefix: Prefix,
       suffix: Suffix,
       onRemove,
-      labelRemoveButton = 'Remove',
+      removeButtonLabel,
       selected,
       onClick,
       tracking,
@@ -199,17 +204,14 @@ export const Tag = forwardRef(
     ref: BaseProps['ref'],
   ) => {
     const as = onClick ? 'button' : 'div';
-    const handleClick = useClickHandler<MouseEvent<any>>(
-      onClick,
-      tracking,
-      'tag',
-    );
-    const removable = Boolean(onRemove);
+    const handleClick = useClickHandler<
+      MouseEvent<HTMLButtonElement & HTMLDivElement>
+    >(onClick, tracking, 'tag');
 
     return (
       <Container className={className} style={style}>
         <TagElement
-          removable={removable}
+          removable={Boolean(onRemove)}
           selected={selected}
           onClick={handleClick}
           type={onClick && 'button'}
@@ -224,12 +226,12 @@ export const Tag = forwardRef(
           {Suffix && <Suffix css={suffixStyles} />}
         </TagElement>
 
-        {removable && (
+        {onRemove && removeButtonLabel && (
           <RemoveButton
             type="button"
             variant={selected ? 'primary' : 'secondary'}
             selected={selected}
-            label={labelRemoveButton}
+            label={removeButtonLabel}
             data-testid="tag-close"
             size="kilo"
             onClick={onRemove}
