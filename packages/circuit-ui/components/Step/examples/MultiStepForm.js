@@ -26,11 +26,20 @@ import Input from '../../Input';
 import Select from '../../Select';
 import ProgressBar from '../../ProgressBar';
 import Step from '../Step';
+import { spacing } from '../../../styles/style-mixins';
 
 const FormOne = ({ onNextClick }) => (
   <section>
-    <Input label="First Name" placeholder="John" />
-    <Input label="Second Name" placeholder="Doe" />
+    <Input
+      label="First Name"
+      placeholder="John"
+      css={spacing({ bottom: 'mega' })}
+    />
+    <Input
+      label="Second Name"
+      placeholder="Doe"
+      css={spacing({ bottom: 'mega' })}
+    />
     <Button variant="primary" onClick={() => onNextClick()}>
       Next
     </Button>
@@ -42,13 +51,21 @@ FormOne.propTypes = {
 
 const FormTwo = ({ onNextClick, onBackClick }) => (
   <section>
-    <Input label="Street" placeholder="Madison Ave 5" />
-    <Select label="State">
+    <Input
+      label="Street"
+      placeholder="Madison Ave 5"
+      css={spacing({ bottom: 'mega' })}
+    />
+    <Select label="State" css={spacing({ bottom: 'mega' })}>
       <option>CA</option>
       <option>TX</option>
       <option>NY</option>
     </Select>
-    <Input label="Postal Code" placeholder="10179" />
+    <Input
+      label="Postal Code"
+      placeholder="10179"
+      css={spacing({ bottom: 'mega' })}
+    />
     <ButtonGroup align="left">
       <Button variant="primary" onClick={() => onNextClick()}>
         Submit
@@ -87,7 +104,7 @@ const MultiStepForm = () => {
 
         return (
           <Container>
-            <Headline size="three">
+            <Headline size="three" css={spacing({ bottom: 'giga' })}>
               Step {stepNumber} of {totalSteps}
             </Headline>
             <ProgressBar

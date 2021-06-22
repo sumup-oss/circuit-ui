@@ -18,6 +18,7 @@ import { css } from '@emotion/core';
 
 import Headline from '../../../Headline';
 import Image from '../../../Image';
+import { spacing } from '../../../../styles/style-mixins';
 
 import Slide from './Slide';
 
@@ -34,7 +35,10 @@ const headingStyles = css`
   left: 25px;
   z-index: 2;
 `;
-const StyledHeadline = styled(Headline)(headingStyles);
+const StyledHeadline = styled(Headline)(
+  headingStyles,
+  spacing({ bottom: 'giga' }),
+);
 
 export const OnlyImage = (args) => (
   <Slide {...args}>
