@@ -86,9 +86,9 @@ export const WithComponentRows = ({
 WithComponentRows.args = {
   headers: ['Name', 'Type'],
   rows: [
-    ['Apple', { children: <Badge color={'danger'}>Fruit</Badge> }],
-    ['Broccoli', { children: <Badge color={'success'}>Vegetable</Badge> }],
-    ['Chickpeas', { children: <Badge color={'warning'}>Legume</Badge> }],
+    ['Apple', { children: <Badge variant={'danger'}>Fruit</Badge> }],
+    ['Broccoli', { children: <Badge variant={'success'}>Vegetable</Badge> }],
+    ['Chickpeas', { children: <Badge variant={'warning'}>Legume</Badge> }],
   ],
 };
 

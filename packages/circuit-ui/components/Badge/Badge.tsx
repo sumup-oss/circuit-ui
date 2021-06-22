@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Ref, HTMLProps } from 'react';
+import { Ref, HTMLProps, forwardRef } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -108,14 +108,18 @@ const circleStyles = ({ circle = false, children }: BadgeProps) =>
     width: ${isDynamicWidth(children) ? 'auto' : '24px'};
   `;
 
-/**
- * A badge communicates the status of an element or the count of items
- * related to an element.
- */
-export const Badge = styled('div')<BadgeProps>(
+const StyledBadge = styled('div')<BadgeProps>(
   baseStyles,
   variantStyles,
   circleStyles,
 );
+
+/**
+ * A badge communicates the status of an element or the count of items
+ * related to an element.
+ */
+export const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => (
+  <StyledBadge ref={ref} {...props} />
+));
 
 Badge.displayName = 'Badge';
