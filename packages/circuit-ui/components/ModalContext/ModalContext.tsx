@@ -26,14 +26,16 @@ import {
 } from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { Global, css } from '@emotion/core';
-// import noScroll from 'no-scroll';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { useStack, StackItem, StackDispatch } from '../../hooks/useStack';
 import { uniqueId } from '../../util/id';
-// import IS_IOS from '../../util/ios';
 
-// TODO: Add explainer what this does.
+// It is important for users of screenreaders that other page content be hidden
+// (via the `aria-hidden` attribute) while the modal is open.
+// To allow react-modal to do this, Circuit UI calls `Modal.setAppElement`
+// with a query selector identifying the root of the app.
+// http://reactcommunity.org/react-modal/accessibility/#app-element
 if (typeof window !== 'undefined') {
   // These are the default app elements in Next.js and CRA.
   const appElement =
@@ -41,9 +43,17 @@ if (typeof window !== 'undefined') {
 
   if (appElement) {
     ReactModal.setAppElement(appElement);
-  } else if (process.env.NODE_ENV !== 'production') {
-    // TODO: Add error message
-    console.error('');
+  } else if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    console.error(
+      [
+        '[ModalProvider] Could not find the app root element to hide it',
+        'when a modal is open. Add an element with the id `#root`',
+        'at the root of your application to remove this error.',
+      ].join(' '),
+    );
   }
 }
 
@@ -73,12 +83,18 @@ type ModalState<TProps extends BaseModalProps> = Omit<TProps, 'isOpen'> &
 
 type ModalContextValue = [ModalState<any>[], StackDispatch<ModalState<any>>];
 
-const ModalContext = createContext<ModalContextValue>([[], () => {}]);
+export const ModalContext = createContext<ModalContextValue>([[], () => {}]);
 
 export interface ModalProviderProps<TProps extends BaseModalProps>
   extends Omit<ReactModalProps, 'isOpen'> {
-  initialState?: ModalState<TProps>[];
+  /**
+   * The ModalProvider should wrap your entire application.
+   */
   children: ReactNode;
+  /**
+   * An array of modals that should be displayed immediately, e.g. on page load.
+   */
+  initialState?: ModalState<TProps>[];
 }
 
 export function ModalProvider<TProps extends BaseModalProps>({
@@ -91,40 +107,30 @@ export function ModalProvider<TProps extends BaseModalProps>({
   const stack = useStack<ModalState<TProps>>(initialState);
 
   const [modals, dispatch] = stack;
-  const isOpen = modals.length > 0;
+  const activeModal = modals[modals.length - 1];
 
   useEffect(() => {
-    const popModal = () => {
-      dispatch({ type: 'pop' });
-    };
-
-    if (isOpen) {
-      window.onpopstate = popModal;
-    } else {
-      window.onpopstate = null;
+    if (!activeModal) {
+      return undefined;
     }
 
-    return () => {
-      window.onpopstate = null;
+    const popModal = () => {
+      if (activeModal.onClose) {
+        activeModal.onClose();
+      }
+      dispatch({
+        type: 'remove',
+        id: activeModal.id,
+        timeout: activeModal.component.TIMEOUT,
+      });
     };
-  }, [dispatch, isOpen]);
 
-  // TODO: Not sure this even works or is still needed.
-  // useEffect(() => {
-  //   if (!IS_IOS) {
-  //     return undefined;
-  //   }
+    window.addEventListener('popstate', popModal);
 
-  //   if (isOpen) {
-  //     noScroll.on();
-  //   } else {
-  //     noScroll.off();
-  //   }
-
-  //   return () => {
-  //     noScroll.off();
-  //   };
-  // }, [isOpen]);
+    return () => {
+      window.removeEventListener('popstate', popModal);
+    };
+  }, [dispatch, activeModal]);
 
   return (
     <ModalContext.Provider value={stack}>
@@ -154,7 +160,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
         },
       )}
 
-      {isOpen && (
+      {activeModal && (
         <Global
           styles={css`
             /* Remove scroll on the body when react-modal is open */
