@@ -91,8 +91,6 @@ export type { NotificationListProps } from './components/NotificationList';
 export { default as Grid } from './components/Grid';
 export { default as Row } from './components/Row';
 export { default as Col } from './components/Col';
-export { default as Spacing } from './components/Spacing';
-export type { SpacingProps } from './components/Spacing';
 export { default as InlineElements } from './components/InlineElements';
 export type { InlineElementsProps } from './components/InlineElements';
 
