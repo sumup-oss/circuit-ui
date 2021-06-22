@@ -17,7 +17,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
-
 import { Headline, Body, Card } from '@sumup/circuit-ui';
 
 // HACK: This prevents the cards from awkwardly wrapping if one of them

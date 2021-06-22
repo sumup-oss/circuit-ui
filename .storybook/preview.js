@@ -115,7 +115,6 @@ addParameters({
 
 export const decorators = [
   withThemeProvider,
-  // withStoryStyles,
   withTrackingAction,
   withPerformance,
 ];

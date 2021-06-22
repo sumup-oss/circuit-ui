@@ -19,7 +19,6 @@ import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
 import { css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
-
 import { Badge, Body } from '@sumup/circuit-ui';
 
 const variants = {

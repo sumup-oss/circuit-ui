@@ -18,7 +18,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
-
 import { Body } from '@sumup/circuit-ui';
 
 const SWATCH_WIDTH = '99px';
@@ -38,8 +37,7 @@ const Color = styled('div')`
   ${({ theme, colorName }) => css`
     width: ${SWATCH_WIDTH};
     height: ${SWATCH_HEIGHT};
-    border-top-left-radius: ${theme.borderRadius.byte};
-    border-top-right-radius: ${theme.borderRadius.byte};
+    border-radius: ${theme.borderRadius.mega};
     background-color: ${theme.colors[colorName]};
   `};
 `;
