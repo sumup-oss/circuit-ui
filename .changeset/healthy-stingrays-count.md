@@ -46,3 +46,7 @@ The `Blockquote` component has been removed and replaced by the `Body` component
 Usage example:
 
 `<Body variant="quote">quote</Body>`
+
+#### List
+
+Replaced the `List` component sizes **_mega_** and **_kilo_** with new values **_one_** and **_two_** respectively (🤖 _typography-sizes_).

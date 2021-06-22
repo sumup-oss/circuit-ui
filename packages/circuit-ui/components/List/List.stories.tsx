@@ -48,7 +48,7 @@ export const Variants = (args: ListProps) =>
     </List>
   ));
 
-const sizes: ListProps['size'][] = ['kilo', 'mega'];
+const sizes: ListProps['size'][] = ['one', 'two'];
 
 export const Sizes = (args: ListProps) =>
   sizes.map((size) => (

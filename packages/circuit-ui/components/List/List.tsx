@@ -21,7 +21,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
 import deprecate from '../../util/deprecate';
 
-type Size = 'kilo' | 'mega';
+type Size = 'one' | 'two';
 type Variant = 'ordered' | 'unordered';
 
 export interface ListProps
@@ -50,19 +50,19 @@ const baseStyles = ({ theme }: StyleProps) => css`
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const sizeStyles = ({ theme, size = 'mega' }: ListProps & StyleProps) => {
+const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
   const sizeMap = {
-    kilo: {
-      marginBottom: theme.spacings.kilo,
-      paddingLeft: theme.spacings.kilo,
-      marginLeft: theme.spacings.bit,
-      type: typography('two')(theme),
-    },
-    mega: {
+    one: {
       marginBottom: theme.spacings.byte,
       paddingLeft: theme.spacings.kilo,
       marginLeft: theme.spacings.kilo,
       type: typography('one')(theme),
+    },
+    two: {
+      marginBottom: theme.spacings.kilo,
+      paddingLeft: theme.spacings.kilo,
+      marginLeft: theme.spacings.bit,
+      type: typography('two')(theme),
     },
   };
   const { marginBottom, paddingLeft, marginLeft, type } = sizeMap[size];
