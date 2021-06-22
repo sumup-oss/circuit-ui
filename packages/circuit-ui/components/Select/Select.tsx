@@ -172,7 +172,7 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   padding-left: ${theme.spacings.mega};
   position: relative;
   width: 100%;
-  z-index: ${theme.zIndex.select};
+  z-index: ${theme.zIndex.input};
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -236,7 +236,7 @@ const prefixStyles = (theme: Theme) => css`
   label: select__prefix;
   display: block;
   position: absolute;
-  z-index: ${theme.zIndex.select + 1};
+  z-index: ${theme.zIndex.input + 1};
   height: ${theme.spacings.exa};
   width: ${theme.spacings.exa};
   padding: ${theme.spacings.mega};
@@ -247,7 +247,7 @@ const iconBaseStyles = ({ theme }: StyleProps) => css`
   label: select__icon;
   color: ${theme.colors.n700};
   display: block;
-  z-index: ${theme.zIndex.select + 1};
+  z-index: ${theme.zIndex.input + 1};
   pointer-events: none;
   position: absolute;
   height: ${theme.spacings.exa};

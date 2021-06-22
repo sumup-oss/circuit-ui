@@ -216,9 +216,6 @@ export const themePropType = PropTypes.shape({
   zIndex: PropTypes.shape({
     default: PropTypes.number.isRequired,
     absolute: PropTypes.number.isRequired,
-    drawer: PropTypes.number.isRequired,
-    // @deprecated use input value instead
-    select: PropTypes.number.isRequired,
     input: PropTypes.number.isRequired,
     popover: PropTypes.number.isRequired,
     tooltip: PropTypes.number.isRequired,

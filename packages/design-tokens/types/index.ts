@@ -180,14 +180,6 @@ export type Transitions = {
 export type ZIndex = {
   default: number;
   absolute: number;
-  /**
-   * @deprecated
-   */
-  drawer: number;
-  /**
-   * @deprecated use input value instead
-   */
-  select: number;
   input: number;
   popover: number;
   tooltip: number;
