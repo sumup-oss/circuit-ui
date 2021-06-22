@@ -13,188 +13,218 @@
  * limitations under the License.
  */
 
-import { FC, MouseEvent, KeyboardEvent, ReactNode } from 'react';
-import ReactModal, { Props } from 'react-modal';
-import { ClassNames } from '@emotion/core';
-import { useTheme } from 'emotion-theming';
+import { ReactNode } from 'react';
+import { css, ClassNames } from '@emotion/core';
+import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
-import { Dispatch as TrackingProps } from '@sumup/collector';
-import noScroll from 'no-scroll';
 
-import IS_IOS from '../../util/ios';
 import { isFunction } from '../../util/type-check';
-import useClickHandler from '../../hooks/use-click-handler';
+import { useClickHandler } from '../../hooks/useClickHandler';
+import { ModalComponent, BaseModalProps } from '../ModalContext/ModalContext';
+import CloseButton from '../CloseButton';
 
-type OnClose = (event?: MouseEvent | KeyboardEvent) => void;
+const TRANSITION_DURATION_MOBILE = 120;
+const TRANSITION_DURATION_DESKTOP = 240;
+const TRANSITION_DURATION = Math.max(
+  TRANSITION_DURATION_MOBILE,
+  TRANSITION_DURATION_DESKTOP,
+);
 
-export interface ModalProps extends Partial<Props> {
-  children: ReactNode | (({ onClose }: { onClose?: OnClose }) => ReactNode);
-  /**
-   * Determines if the modal is visible or not.
-   */
-  isOpen?: boolean;
-  /**
-   * Function to close the modal. Passed down to the children
-   * render prop.
-   */
-  onClose?: OnClose;
-  /**
-   * React Modal's accessibility string.
-   */
-  contentLabel?: string;
-  /**
-   * The element that should be used as root for the
-   * React portal used to display the modal. See
-   * http://reactcommunity.org/react-modal/accessibility/#app-element
-   */
-  appElement?: string | HTMLElement;
-  /**
-   * Additional data that is dispatched with the tracking event.
-   */
-  tracking?: TrackingProps;
-}
+const closeButtonStyles = (theme: Theme) => css`
+  position: absolute;
+  top: ${theme.spacings.byte};
+  right: ${theme.spacings.byte};
 
-export const TRANSITION_DURATION = 200;
-export const DEFAULT_APP_ELEMENT = '#root';
+  ${theme.mq.kilo} {
+    top: ${theme.spacings.mega};
+    right: ${theme.spacings.mega};
+  }
+`;
 
-const TOP_MARGIN = '10vh';
-const TRANSFORM_Y_FLOATING = '10vh';
-const FLOATING_TRANSITION = `${TRANSITION_DURATION}ms ease-in-out`;
-// eslint-disable-next-line max-len
-const FIXED_TRANSITION = `${TRANSITION_DURATION}ms cubic-bezier(0, 0.37, 0.64, 1)`;
+type PreventCloseProps =
+  | {
+      /**
+       * Text label for the close button for screen readers.
+       * Important for accessibility.
+       */
+      closeButtonLabel?: never;
+      /**
+       * Prevent users from closing the modal by clicking/tapping the overlay or
+       * pressing the escape key. Default `false`.
+       */
+      preventClose: boolean;
+    }
+  | {
+      closeButtonLabel: string;
+      preventClose?: never;
+    };
+
+export type ModalProps = BaseModalProps &
+  PreventCloseProps & {
+    /**
+     * The modal content. Use a render function when you need access to the
+     * `onClose` function.
+     */
+    children:
+      | ReactNode
+      | (({ onClose }: Pick<BaseModalProps, 'onClose'>) => ReactNode);
+    /**
+     * Use the `contextual` variant when the modal content requires the context
+     * of the page underneath to be understood, otherwise, use the `immersive`
+     * variant to focus the user's attention.
+     */
+    variant: 'contextual' | 'immersive';
+    /**
+     * Custom styles for the modal wrapper element.
+     */
+    className?: string;
+  };
 
 /**
- * Circuit UI's wrapper component for ReactModal. Uses the Card component
- * to wrap content passed as the children prop. Don't forget to set
- * the aria prop when using this.
- * http://reactcommunity.org/react-modal/accessibility/#aria
+ * The modal component displays self-contained tasks in a focused window that
+ * overlays the page content.
+ * Built on top of [`react-modal`](https://reactcommunity.org/react-modal/).
  */
-export const Modal: FC<ModalProps> = ({
+export const Modal: ModalComponent<ModalProps> = ({
   children,
   onClose,
-  contentLabel = 'Modal',
-  appElement = DEFAULT_APP_ELEMENT,
-  isOpen = true,
+  variant,
+  preventClose = false,
+  closeButtonLabel,
   tracking = {},
+  className,
   ...props
 }) => {
-  const theme: Theme = useTheme();
-  const handleClose =
-    useClickHandler(onClose, tracking, 'modal-close') || onClose;
-  ReactModal.setAppElement(appElement);
+  const handleClose = useClickHandler(onClose, tracking, 'modal-close');
   return (
-    <ClassNames>
-      {({ css }) => {
+    <ClassNames<Theme> key={variant}>
+      {({ css: cssString, cx, theme }) => {
         // React Modal styles
         // https://reactcommunity.org/react-modal/styles/classes/
 
-        const className = {
-          base: css`
-            label: modal;
-            outline: none;
-
-            ${theme.mq.untilKilo} {
-              bottom: 0;
-              max-height: 80vh;
-              -webkit-overflow-scrolling: touch;
-              overflow-y: auto;
+        const styles = {
+          base: cx(
+            cssString`
               position: fixed;
-              transform: translateY(100%);
-              transition: transform ${FIXED_TRANSITION};
-              width: 100%;
-              width: 100vw;
-            }
+              outline: none;
+              background-color: ${theme.colors.white};
 
-            ${theme.mq.kilo} {
-              transition: transform ${FLOATING_TRANSITION},
-                opacity ${FLOATING_TRANSITION};
-              margin: ${TOP_MARGIN} auto auto;
-              max-height: 90vh;
-              max-width: 90%;
-              min-width: 450px;
-              opacity: 0;
-              position: relative;
-              transform: translateY(${TRANSFORM_Y_FLOATING});
-            }
+              ${theme.mq.untilKilo} {
+                right: 0;
+                bottom: 0;
+                left: 0;
+                -webkit-overflow-scrolling: touch;
+                overflow-y: auto;
+                width: 100vw;
+                transform: translateY(100%);
+                transition: transform ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
+                padding: ${theme.spacings.mega};
+              }
 
-            ${theme.mq.mega} {
-              max-width: 720px;
-            }
-
-            ${theme.mq.giga} {
-              max-width: 800px;
-            }
-          `,
-          afterOpen: css`
+              ${theme.mq.kilo} {
+                top: 50%;
+                left: 50%;
+                padding: ${theme.spacings.giga};
+                transform: translate(-50%, -50%);
+                min-height: 320px;
+                max-height: 90vh;
+                min-width: 480px;
+                max-width: 90vw;
+                opacity: 0;
+                transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
+                border-radius: ${theme.borderRadius.mega};
+              }
+            `,
+            variant === 'immersive' &&
+              cssString`
+              ${theme.mq.untilKilo} {
+                height: 100vh;
+              }
+            `,
+            variant === 'contextual' &&
+              cssString`
+              ${theme.mq.untilKilo} {
+                max-height: calc(100vh - ${theme.spacings.mega});
+                border-top-left-radius: ${theme.borderRadius.mega};
+                border-top-right-radius: ${theme.borderRadius.mega};
+              }
+            `,
+            className,
+          ),
+          // The !important below is necessary because of some weird
+          // style specificity issues in Emotion.
+          afterOpen: cssString`
             label: modal--after-open;
+
             ${theme.mq.untilKilo} {
-              transform: translateY(0);
+              transform: translateY(0) !important;
             }
 
             ${theme.mq.kilo} {
-              opacity: 1;
-              transform: translateY(0);
+              opacity: 1 !important;
             }
           `,
-          beforeClose: css`
+          beforeClose: cssString`
             label: modal--before-close;
+
             ${theme.mq.untilKilo} {
               transform: translateY(100%);
             }
 
             ${theme.mq.kilo} {
               opacity: 0;
-              transform: translateY(${TRANSFORM_Y_FLOATING});
             }
           `,
         };
 
-        const overlayClassName = {
-          base: css`
-            label: modal__overlay;
-            background: ${theme.colors.overlay};
-            bottom: 0;
-            left: 0;
-            opacity: 0;
+        const overlayStyles = {
+          base: cssString`
             position: fixed;
-            right: 0;
             top: 0;
-            transition: opacity 200ms ease-in-out;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0;
+            transition: opacity ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
+            background: ${theme.colors.overlay};
             z-index: ${theme.zIndex.modal};
 
             ${theme.mq.kilo} {
               -webkit-overflow-scrolling: touch;
               overflow-y: auto;
+              transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
             }
           `,
-          afterOpen: css`
-            label: modal__overlay--after-open;
+          afterOpen: cssString`
             opacity: 1;
           `,
-          beforeClose: css`
-            label: modal__overlay--before-close;
+          beforeClose: cssString`
             opacity: 0;
           `,
         };
 
         const reactModalProps = {
-          isOpen,
-          className,
-          overlayClassName,
-          htmlOpenClassName: 'ReactModal__Html--open',
-          contentLabel,
-          onAfterOpen: () => IS_IOS && noScroll.on(),
-          onAfterClose: () => IS_IOS && noScroll.off(),
+          className: styles,
+          overlayClassName: overlayStyles,
           onRequestClose: handleClose,
           closeTimeoutMS: TRANSITION_DURATION,
+          shouldCloseOnOverlayClick: !preventClose,
+          shouldCloseOnEsc: !preventClose,
           ...props,
         };
+
         return (
           <ReactModal {...reactModalProps}>
+            {!preventClose && closeButtonLabel && (
+              <CloseButton
+                onClick={onClose}
+                label={closeButtonLabel}
+                css={closeButtonStyles}
+              />
+            )}
+
             {isFunction(children)
-              ? children({
-                  onClose: handleClose,
-                })
+              ? children({ onClose: handleClose })
               : children}
           </ReactModal>
         );
@@ -202,3 +232,5 @@ export const Modal: FC<ModalProps> = ({
     </ClassNames>
   );
 };
+
+Modal.TIMEOUT = TRANSITION_DURATION;

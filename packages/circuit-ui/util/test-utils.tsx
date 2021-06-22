@@ -22,6 +22,7 @@ import {
   waitFor,
   act,
   RenderResult,
+  fireEvent,
 } from '@testing-library/react';
 import { renderHook, act as actHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
@@ -67,6 +68,7 @@ export {
   act,
   actHook,
   userEvent,
+  fireEvent,
   waitFor,
   axe,
 };

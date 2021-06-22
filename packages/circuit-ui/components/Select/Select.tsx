@@ -27,7 +27,7 @@ import {
   inputOutline,
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
-import useClickHandler from '../../hooks/use-click-handler';
+import { useClickHandler } from '../../hooks/useClickHandler';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 

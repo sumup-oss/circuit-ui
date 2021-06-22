@@ -25,7 +25,7 @@ import {
   focusOutline,
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import useClickHandler from '../../hooks/use-click-handler';
+import { useClickHandler } from '../../hooks/useClickHandler';
 import Tooltip from '../Tooltip';
 
 export interface CheckboxProps extends HTMLProps<HTMLInputElement> {

@@ -15,7 +15,7 @@
 
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import useStep from './use-step';
+import { useStep } from './useStep';
 
 describe('useStep', () => {
   it('should return state based on default values', () => {

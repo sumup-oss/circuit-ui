@@ -33,7 +33,7 @@ import styled, { StyleProps } from '../../../../styles/styled';
 import SubNavList from '../SubNavList';
 import BaseNavLabel from '../NavLabel';
 import { hasSelectedChild, getIcon } from '../NavItem/utils';
-import useClickHandler from '../../../../hooks/use-click-handler';
+import { useClickHandler } from '../../../../hooks/useClickHandler';
 
 export interface AggregatorProps {
   /**

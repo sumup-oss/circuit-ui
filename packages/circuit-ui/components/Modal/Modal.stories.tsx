@@ -13,170 +13,164 @@
  * limitations under the License.
  */
 
-import { MouseEvent, KeyboardEvent } from 'react';
-import styled from '@emotion/styled';
+/* eslint-disable react/display-name */
+import { Fragment } from 'react';
 import { css } from '@emotion/core';
-import { action } from '@storybook/addon-actions';
+import { Theme } from '@sumup/design-tokens';
 
+import { Stack } from '../../../../.storybook/components';
 import Button from '../Button';
-import ButtonGroup from '../ButtonGroup';
 import Body from '../Body';
+import Image from '../Image';
+import { ModalProvider } from '../ModalContext';
+import { spacing } from '../../styles/style-mixins';
 
 import docs from './Modal.docs.mdx';
-import { ModalWrapper, ModalHeader, ModalFooter } from './components';
-import { ModalConsumer, ModalProvider } from './ModalContext';
 import { Modal, ModalProps } from './Modal';
+import { useModal } from './useModal';
 
 export default {
   title: 'Components/Modal',
   component: Modal,
+  subcomponents: { ModalProvider },
   parameters: {
     docs: { page: docs },
   },
 };
 
-/* eslint-disable react/display-name, react/prop-types */
+export const Base = (modal: ModalProps): JSX.Element => {
+  const ComponentWithModal = () => {
+    const { setModal } = useModal();
 
-const PageWithModal = (modal: ModalProps) => (
-  <ModalProvider>
-    <ModalConsumer>
-      {({ setModal }) => (
-        <Button
-          type="button"
-          onClick={() => {
-            setModal(modal);
-          }}
-        >
-          Open modal
-        </Button>
-      )}
-    </ModalConsumer>
-  </ModalProvider>
-);
-
-const defaultModal = {
-  children: () => <ModalWrapper>Hello World!</ModalWrapper>,
-  onClose: () => {},
+    return (
+      <Button type="button" onClick={() => setModal(modal)}>
+        Open modal
+      </Button>
+    );
+  };
+  return (
+    <ModalProvider>
+      <ComponentWithModal />
+    </ModalProvider>
+  );
 };
 
-export const Base = (args: ModalProps) => (
-  <PageWithModal {...args} {...defaultModal} />
-);
+Base.args = {
+  children: 'Hello World!',
+  variant: 'contextual',
+  closeButtonLabel: 'Close modal',
+};
 
-export const WithHeader = (args: ModalProps) => (
-  <PageWithModal {...args} {...defaultModal}>
-    {() => (
-      <ModalWrapper>
-        <ModalHeader title="A modal" />
-        <Body>Some text in the modal body.</Body>
-      </ModalWrapper>
-    )}
-  </PageWithModal>
-);
+export const Variants = (modal: ModalProps): JSX.Element => {
+  const ComponentWithModal = ({ variant }: Pick<ModalProps, 'variant'>) => {
+    const { setModal } = useModal();
 
-export const WithoutCloseButton = (args: ModalProps) => (
-  <PageWithModal {...args} {...defaultModal}>
-    {() => (
-      <ModalWrapper>
-        <Body>Some text in the modal body.</Body>
-      </ModalWrapper>
-    )}
-  </PageWithModal>
-);
+    return (
+      <Button type="button" onClick={() => setModal({ ...modal, variant })}>
+        Open {variant} modal
+      </Button>
+    );
+  };
+  return (
+    <ModalProvider>
+      <Stack>
+        <ComponentWithModal variant="contextual" />
+        <ComponentWithModal variant="immersive" />
+      </Stack>
+    </ModalProvider>
+  );
+};
 
-export const WithTitleAndCloseButton = (args: ModalProps) => (
-  <PageWithModal {...args} {...defaultModal}>
-    {({ onClose }) => (
-      <ModalWrapper>
-        <ModalHeader title="A modal" onClose={onClose} />
-        <Body>Some text in the modal body.</Body>
-      </ModalWrapper>
-    )}
-  </PageWithModal>
-);
+Variants.args = {
+  children: 'Hello World!',
+  closeButtonLabel: 'Close modal',
+};
 
-export const WithFooter = (args: ModalProps) => (
-  <PageWithModal {...args} {...defaultModal}>
-    {({ onClose }) => (
-      <ModalWrapper>
-        <ModalHeader title="A modal" />
-        <Body>Some text in the modal body.</Body>
-        <ModalFooter>
-          <ButtonGroup>
-            <Button
-              variant="secondary"
-              onClick={(event: MouseEvent | KeyboardEvent) => {
-                action('Cancel button clicked')(event);
-                onClose(event);
-              }}
-            >
-              Cancel
-            </Button>
-            <Button
-              variant="primary"
-              onClick={(event: MouseEvent | KeyboardEvent) => {
-                action('Confirm button clicked')(event);
-                onClose(event);
-              }}
-            >
-              Confirm
-            </Button>
-          </ButtonGroup>
-        </ModalFooter>
-      </ModalWrapper>
-    )}
-  </PageWithModal>
-);
-
-export const WithCustomStyles = (args: ModalProps) => {
-  const Container = styled('div')`
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    height: 100%;
-    background: #fff;
-  `;
-
-  const LeftColumn = styled('div')`
-    display: flex;
-    align-items: center;
-    width: 50%;
-    justify-content: center;
-    padding: 24px 18px;
-  `;
-
-  const RightColumn = styled('div')`
-    height: 100%;
-    width: 50%;
-    background: no-repeat center / cover
-      url('https://source.unsplash.com/S4W2AU0t3lw/900x1600');
-  `;
+export const PreventClose = (modal: ModalProps): JSX.Element => {
+  const ComponentWithModal = () => {
+    const { setModal } = useModal();
+    return (
+      <Button type="button" onClick={() => setModal(modal)}>
+        Open modal
+      </Button>
+    );
+  };
 
   return (
-    <PageWithModal
-      {...args}
-      {...defaultModal}
-      css={css`
-        padding: 0;
-        height: 50vh;
-      `}
-    >
-      {() => (
-        <div
-          css={css`
-            padding: 0;
-            height: 50vh;
-          `}
-        >
-          <Container>
-            <LeftColumn>
-              <Body>A nice custom modal for special cases.</Body>
-            </LeftColumn>
-            <RightColumn />
-          </Container>
-        </div>
-      )}
-    </PageWithModal>
+    <ModalProvider>
+      <ComponentWithModal />
+    </ModalProvider>
   );
+};
+
+PreventClose.args = {
+  children: ({ onClose }: { onClose: ModalProps['onClose'] }) => (
+    <Fragment>
+      <Body>
+        Users have to complete the action inside the modal to close it. The
+        close button is hidden and clicking outside the modal or pressing the
+        escape key does not close the modal either.
+      </Body>
+      <Button variant="primary" onClick={onClose}>
+        Close modal
+      </Button>
+    </Fragment>
+  ),
+  variant: 'immersive',
+  preventClose: true,
+};
+
+export const InitiallyOpen = (modal: ModalProps): JSX.Element => {
+  const initialModal = { id: 'initial', component: Modal, ...modal };
+  return (
+    <ModalProvider initialState={[initialModal]}>
+      <div />
+    </ModalProvider>
+  );
+};
+
+InitiallyOpen.args = {
+  children: 'Hello World!',
+  variant: 'contextual',
+  closeButtonLabel: 'Close modal',
+};
+
+export const CustomStyles = (modal: ModalProps): JSX.Element => {
+  const ComponentWithModal = () => {
+    const { setModal } = useModal();
+    return (
+      <Button type="button" onClick={() => setModal(modal)}>
+        Open modal
+      </Button>
+    );
+  };
+
+  return (
+    <ModalProvider>
+      <ComponentWithModal />
+    </ModalProvider>
+  );
+};
+
+CustomStyles.args = {
+  css: (theme: Theme) => css`
+    overflow: hidden;
+
+    ${theme.mq.untilKilo} {
+      padding: 0;
+    }
+    ${theme.mq.kilo} {
+      padding: 0;
+    }
+  `,
+  children: (
+    <Fragment>
+      <Image src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900" alt="" />
+      <Body css={spacing('mega')}>
+        Custom styles can be applied using the <code>css</code> prop.
+      </Body>
+    </Fragment>
+  ),
+  variant: 'contextual',
+  closeButtonLabel: 'Close modal',
 };

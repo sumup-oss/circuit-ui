@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,13 +13,8 @@
  * limitations under the License.
  */
 
-const isIos = ((): boolean => {
-  // For SSR compatibility
-  if (typeof window === 'undefined') {
-    return false;
-  }
-  const { platform } = window.navigator || {};
-  return !!platform && /iPad|iPhone|iPod/.test(platform);
-})();
+import { createUseModal } from '../ModalContext';
 
-export default isIos;
+import { Modal } from './Modal';
+
+export const useModal = createUseModal(Modal);

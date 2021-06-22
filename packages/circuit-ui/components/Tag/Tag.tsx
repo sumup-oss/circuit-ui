@@ -13,14 +13,22 @@
  * limitations under the License.
  */
 
-import { HTMLProps, Ref, FC, SVGProps, MouseEvent, forwardRef } from 'react';
+import {
+  HTMLProps,
+  Ref,
+  FC,
+  SVGProps,
+  MouseEvent,
+  KeyboardEvent,
+  forwardRef,
+} from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography, focusOutline } from '../../styles/style-mixins';
-import useClickHandler from '../../hooks/use-click-handler';
+import { useClickHandler } from '../../hooks/useClickHandler';
 import { CloseButton, CloseButtonProps } from '../CloseButton/CloseButton';
 
 type BaseProps = {
@@ -37,6 +45,10 @@ type BaseProps = {
    */
   selected?: boolean;
   /**
+   * Function that's called when the button is clicked.
+   */
+  onClick?: (event: MouseEvent | KeyboardEvent) => void;
+  /**
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
@@ -52,7 +64,7 @@ type RemoveProps =
        * Renders a close button inside the tag and calls the provided function
        * when the button is clicked.
        */
-      onRemove: (event: MouseEvent) => void;
+      onRemove: (event: MouseEvent | KeyboardEvent) => void;
       /**
        * Text label for the remove icon for screen readers.
        * Important for accessibility.
@@ -61,8 +73,8 @@ type RemoveProps =
     }
   | { onRemove?: never; removeButtonLabel?: never };
 
-type DivElProps = Omit<HTMLProps<HTMLDivElement>, 'prefix'>;
-type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'prefix'>;
+type DivElProps = Omit<HTMLProps<HTMLDivElement>, 'prefix' | 'onClick'>;
+type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'prefix' | 'onClick'>;
 
 export type TagProps = BaseProps & RemoveProps & DivElProps & ButtonElProps;
 
@@ -204,9 +216,11 @@ export const Tag = forwardRef(
     ref: BaseProps['ref'],
   ) => {
     const as = onClick ? 'button' : 'div';
-    const handleClick = useClickHandler<
-      MouseEvent<HTMLButtonElement & HTMLDivElement>
-    >(onClick, tracking, 'tag');
+    const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
+      onClick,
+      tracking,
+      'tag',
+    );
 
     return (
       <Container className={className} style={style}>

@@ -16,7 +16,7 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import * as Collector from '@sumup/collector';
 
-import useClickHandler from './use-click-handler';
+import { useClickHandler } from './useClickHandler';
 
 jest.mock('@sumup/collector');
 

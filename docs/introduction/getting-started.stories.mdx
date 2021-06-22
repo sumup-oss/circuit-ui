@@ -41,18 +41,20 @@ npm install --save @sumup/collector @sumup/design-tokens @sumup/icons react reac
 
 Finally, you need to make the theme available to Circuit UI. SumUp's default themes are part of the [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) package. In most cases, they should cover your needs. Refer to the [Theme documentation](Features/Theme) to learn how to use and customize the theme.
 
-At the root of your application, wrap the components in the `ThemeProvider` from Emotion:
+At the root of your application, wrap the components in the `ThemeProvider` from Emotion and add the `BaseStyles` component:
 
-```jsx
+```tsx
+// _app.tsx for Next.js or App.js for CRA
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
-import { Button } from '@sumup/circuit-ui';
+import { BaseStyles } from '@sumup/circuit-ui';
 
-const App = () => (
-  <ThemeProvider theme={light}>
-    <Button variant="primary">Click me</Button>
-  </ThemeProvider>
-);
-
-export default App;
+export default function App() {
+  return (
+    <ThemeProvider theme={light}>
+      <BaseStyles />
+      {/* Your content here... */}
+    </ThemeProvider>
+  );
+}
 ```

@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,30 +13,5 @@
  * limitations under the License.
  */
 
-import {
-  ModalContext,
-  ModalProvider,
-  ModalConsumer,
-  useModal,
-} from './ModalContext';
-import { Modal, DEFAULT_APP_ELEMENT } from './Modal';
-import { ModalWrapper, ModalHeader, ModalFooter } from './components';
-
-export {
-  DEFAULT_APP_ELEMENT,
-  useModal,
-  ModalContext,
-  ModalConsumer,
-  ModalProvider,
-  ModalWrapper,
-  ModalHeader,
-  ModalFooter,
-};
-
+export { useModal } from './useModal';
 export type { ModalProps } from './Modal';
-
-export type { ModalHeaderProps, ModalWrapperProps } from './components';
-
-export type { ModalContextValue } from './ModalContext';
-
-export default Modal;

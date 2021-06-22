@@ -19,7 +19,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { focusOutline, hideVisually } from '../../../../styles/style-mixins';
-import useClickHandler from '../../../../hooks/use-click-handler';
+import { useClickHandler } from '../../../../hooks/useClickHandler';
 
 export interface SwitchProps
   extends Omit<HTMLProps<HTMLButtonElement>, 'type'> {

@@ -13,25 +13,10 @@
  * limitations under the License.
  */
 
-import { create, renderToHtml, axe } from '../../../../util/test-utils';
+export { ModalProvider, createUseModal } from './ModalContext';
 
-import { ModalHeader } from './ModalHeader';
-
-describe('ModalHeader', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<ModalHeader title="Title" />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<ModalHeader title="Title" />);
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
-  });
-});
+export type {
+  ModalProviderProps,
+  BaseModalProps,
+  ModalComponent,
+} from './ModalContext';
