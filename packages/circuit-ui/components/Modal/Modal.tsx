@@ -40,35 +40,45 @@ const closeButtonStyles = (theme: Theme) => css`
     right: ${theme.spacings.mega};
   }
 `;
-export interface ModalProps extends BaseModalProps {
-  /**
-   * The modal content. Use a render function when you need access to the
-   * `onClose` function.
-   */
-  children:
-    | ReactNode
-    | (({ onClose }: Pick<BaseModalProps, 'onClose'>) => ReactNode);
-  /**
-   * Use the `contextual` variant when the modal content requires the context
-   * of the page underneath to be understood, otherwise, use the `immersive`
-   * variant to focus the user's attention.
-   */
-  variant: 'contextual' | 'immersive';
-  /**
-   * Text label for the close button for screen readers.
-   * Important for accessibility.
-   */
-  closeButtonLabel: string;
-  /**
-   * Allow user to close the modal by clicking/tapping the overlay or pressing
-   * the escape key. Default true.
-   */
-  dismissible?: boolean;
-  /**
-   * Custom styles for the modal wrapper element.
-   */
-  className?: string;
-}
+
+type PreventCloseProps =
+  | {
+      /**
+       * Text label for the close button for screen readers.
+       * Important for accessibility.
+       */
+      closeButtonLabel?: never;
+      /**
+       * Prevent users from closing the modal by clicking/tapping the overlay or
+       * pressing the escape key. Default `false`.
+       */
+      preventClose: boolean;
+    }
+  | {
+      closeButtonLabel: string;
+      preventClose?: never;
+    };
+
+export type ModalProps = BaseModalProps &
+  PreventCloseProps & {
+    /**
+     * The modal content. Use a render function when you need access to the
+     * `onClose` function.
+     */
+    children:
+      | ReactNode
+      | (({ onClose }: Pick<BaseModalProps, 'onClose'>) => ReactNode);
+    /**
+     * Use the `contextual` variant when the modal content requires the context
+     * of the page underneath to be understood, otherwise, use the `immersive`
+     * variant to focus the user's attention.
+     */
+    variant: 'contextual' | 'immersive';
+    /**
+     * Custom styles for the modal wrapper element.
+     */
+    className?: string;
+  };
 
 /**
  * The modal component displays self-contained tasks in a focused window that
@@ -79,7 +89,7 @@ export const Modal: ModalComponent<ModalProps> = ({
   children,
   onClose,
   variant,
-  dismissible = true,
+  preventClose = false,
   closeButtonLabel,
   tracking = {},
   className,
@@ -198,14 +208,14 @@ export const Modal: ModalComponent<ModalProps> = ({
           overlayClassName: overlayStyles,
           onRequestClose: handleClose,
           closeTimeoutMS: TRANSITION_DURATION,
-          shouldCloseOnOverlayClick: dismissible,
-          shouldCloseOnEsc: dismissible,
+          shouldCloseOnOverlayClick: !preventClose,
+          shouldCloseOnEsc: !preventClose,
           ...props,
         };
 
         return (
           <ReactModal {...reactModalProps}>
-            {dismissible && (
+            {!preventClose && closeButtonLabel && (
               <CloseButton
                 onClick={onClose}
                 label={closeButtonLabel}

@@ -84,7 +84,7 @@ Variants.args = {
   children: 'Hello World!',
 };
 
-export const NotDismissible = (modal: ModalProps): JSX.Element => {
+export const PreventClose = (modal: ModalProps): JSX.Element => {
   const ComponentWithModal = () => {
     const { setModal } = useModal();
     return (
@@ -101,7 +101,7 @@ export const NotDismissible = (modal: ModalProps): JSX.Element => {
   );
 };
 
-NotDismissible.args = {
+PreventClose.args = {
   children: ({ onClose }: { onClose: ModalProps['onClose'] }) => (
     <Fragment>
       <Body>
@@ -115,7 +115,7 @@ NotDismissible.args = {
     </Fragment>
   ),
   variant: 'immersive',
-  dismissible: false,
+  preventClose: true,
 };
 
 export const InitiallyOpen = (modal: ModalProps): JSX.Element => {
