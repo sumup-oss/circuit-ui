@@ -40,7 +40,7 @@ describe('List', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  const sizes: ListProps['size'][] = ['kilo', 'mega'];
+  const sizes: ListProps['size'][] = ['one', 'two'];
   it.each(sizes)('should render with size %s', (size) => {
     const actual = create(
       <List size={size}>
