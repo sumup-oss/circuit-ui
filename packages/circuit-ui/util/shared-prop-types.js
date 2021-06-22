@@ -15,10 +15,6 @@
 
 import PropTypes from 'prop-types';
 
-// TODO: figure out if we can still get these props in react-docgen
-//       when they are imported and merged into a component's
-//       propTypes.
-
 export const eitherOrPropType = (
   firstProp,
   secondProp,

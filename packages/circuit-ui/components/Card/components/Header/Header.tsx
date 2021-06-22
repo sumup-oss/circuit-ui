@@ -90,12 +90,10 @@ export const CardHeader: FC<CardHeaderProps> = ({
 }) => (
   <CardHeaderContainer {...props}>
     {children}
-    {onClose && (
+    {onClose && labelCloseButton && (
       <CardHeaderCloseButton
         onClick={onClose}
-        // TODO: The labelCloseButton should be added to the conditional
-        //       on LOC 92 in the next major version.
-        label={labelCloseButton as string}
+        label={labelCloseButton}
         data-testid="header-close"
         tracking={{ component: 'close-button', ...tracking }}
       />
