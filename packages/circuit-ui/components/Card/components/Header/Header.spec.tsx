@@ -61,7 +61,9 @@ describe('CardHeader', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <CardHeader labelCloseButton="Close">{children}</CardHeader>,
+      <CardHeader onClose={jest.fn()} labelCloseButton="Close">
+        {children}
+      </CardHeader>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
