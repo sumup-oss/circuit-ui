@@ -58,7 +58,7 @@ export interface ModalProps extends BaseModalProps {
    * Text label for the close button for screen readers.
    * Important for accessibility.
    */
-  labelCloseButton: string;
+  closeButtonLabel: string;
   /**
    * Allow user to close the modal by clicking/tapping the overlay or pressing
    * the escape key. Default true.
@@ -80,7 +80,7 @@ export const Modal: ModalComponent<ModalProps> = ({
   onClose,
   variant,
   dismissible = true,
-  labelCloseButton,
+  closeButtonLabel,
   tracking = {},
   className,
   ...props
@@ -206,7 +206,7 @@ export const Modal: ModalComponent<ModalProps> = ({
             {dismissible && (
               <CloseButton
                 onClick={onClose}
-                label={labelCloseButton}
+                label={closeButtonLabel}
                 css={closeButtonStyles}
               />
             )}

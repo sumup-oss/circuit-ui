@@ -21,7 +21,7 @@ describe('Modal', () => {
   const defaultModal: ModalProps = {
     variant: 'immersive',
     isOpen: true,
-    labelCloseButton: 'Close modal',
+    closeButtonLabel: 'Close modal',
     onClose: jest.fn(),
     // eslint-disable-next-line react/prop-types, react/display-name
     children: () => <p data-testid="children">Hello world!</p>,
