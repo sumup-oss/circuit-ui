@@ -52,15 +52,15 @@ exports[`Modal should match the snapshot 1`] = `
 
 @media (max-width:479px) {
   .circuit-3 {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: translateY(0) !important;
+    -ms-transform: translateY(0) !important;
+    transform: translateY(0) !important;
   }
 }
 
 @media (min-width:480px) {
   .circuit-3 {
-    opacity: 1;
+    opacity: 1 !important;
   }
 }
 

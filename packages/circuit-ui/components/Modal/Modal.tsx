@@ -141,15 +141,17 @@ export const Modal: ModalComponent<ModalProps> = ({
             `,
             className,
           ),
+          // The !important below is necessary because of some weird
+          // style specificity issues in Emotion.
           afterOpen: cssString`
             label: modal--after-open;
 
             ${theme.mq.untilKilo} {
-              transform: translateY(0);
+              transform: translateY(0) !important;
             }
 
             ${theme.mq.kilo} {
-              opacity: 1;
+              opacity: 1 !important;
             }
           `,
           beforeClose: cssString`
