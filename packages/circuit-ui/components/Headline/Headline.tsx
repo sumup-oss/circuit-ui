@@ -18,7 +18,6 @@ import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import deprecate from '../../util/deprecate';
 
 type Size = 'one' | 'two' | 'three' | 'four';
 
@@ -29,10 +28,6 @@ export interface HeadlineProps
    */
   size?: Size;
   /**
-   * Removes the default bottom margin from the headline.
-   */
-  noMargin?: boolean;
-  /**
    * The HTML headline element to render.
    */
   as?: string;
@@ -41,7 +36,6 @@ export interface HeadlineProps
 const baseStyles = ({ theme }: StyleProps) => css`
   label: headline;
   font-weight: ${theme.fontWeight.bold};
-  margin-bottom: ${theme.spacings.giga};
   color: ${theme.colors.black};
 `;
 
@@ -56,27 +50,10 @@ const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => {
     line-height: ${theme.typography.headline[size].lineHeight};
   `;
 };
-const noMarginStyles = ({ noMargin }: HeadlineProps) => {
-  if (!noMargin) {
-    deprecate(
-      [
-        'The default outer spacing in the Headline component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      ].join(' '),
-    );
-    return null;
-  }
-
-  return css`
-    label: headline--no-margin;
-    margin-bottom: 0;
-  `;
-};
 
 /**
  * A flexible headline component capable of rendering using any HTML headline tag.
  */
 export const Headline: FC<HeadlineProps> = styled('h2', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<HeadlineProps>(baseStyles, sizeStyles, noMarginStyles);
+})<HeadlineProps>(baseStyles, sizeStyles);

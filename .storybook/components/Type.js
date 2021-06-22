@@ -31,8 +31,10 @@ const TypePx = styled(Body)`
 `;
 
 const Type = ({ size, component, name, fontWeight, ...props }) => {
-  const typeSetting = light.typography[name][size];
-  const { fontSize, lineHeight } = typeSetting;
+  // The fontSize can be either on typography[name][size] (body, headline) or
+  // on typography[name] directly (subHeadline).
+  const { fontSize, lineHeight } =
+    light.typography[name][size] || light.typography[name];
   const weight = light.fontWeight[fontWeight];
 
   return (

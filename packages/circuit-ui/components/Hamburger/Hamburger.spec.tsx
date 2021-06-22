@@ -31,8 +31,8 @@ describe('Hamburger', () => {
   }
 
   const baseProps = {
-    labelActive: 'Close menu',
-    labelInActive: 'Open menu',
+    activeLabel: 'Close menu',
+    inactiveLabel: 'Open menu',
   };
 
   /**

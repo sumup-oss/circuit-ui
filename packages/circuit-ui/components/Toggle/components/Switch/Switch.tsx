@@ -30,11 +30,11 @@ export interface SwitchProps
   /**
    * Label for the 'on' state. Important for accessibility.
    */
-  labelChecked: string;
+  checkedLabel: string;
   /**
    * Label for the 'off' state. Important for accessibility.
    */
-  labelUnchecked: string;
+  uncheckedLabel: string;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -52,7 +52,7 @@ const ANIMATION_TIMING = '200ms ease-in-out';
 
 const knobShadow = (color: string) => `0 2px 0 0 ${color}`;
 
-type TrackElProps = Omit<SwitchProps, 'labelChecked' | 'labelUnchecked'>;
+type TrackElProps = Omit<SwitchProps, 'checkedLabel' | 'uncheckedLabel'>;
 
 const trackBaseStyles = ({ theme }: StyleProps) => css`
   label: toggle__switch;
@@ -133,8 +133,8 @@ export const Switch = forwardRef(
     {
       checked = false,
       onChange,
-      labelChecked = 'on',
-      labelUnchecked = 'off',
+      checkedLabel = 'on',
+      uncheckedLabel = 'off',
       tracking,
       ...props
     }: SwitchProps,
@@ -152,7 +152,7 @@ export const Switch = forwardRef(
         ref={ref}
       >
         <SwitchKnob checked={checked} />
-        <SwitchLabel>{checked ? labelChecked : labelUnchecked}</SwitchLabel>
+        <SwitchLabel>{checked ? checkedLabel : uncheckedLabel}</SwitchLabel>
       </SwitchTrack>
     );
   },

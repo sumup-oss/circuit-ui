@@ -13,9 +13,13 @@
  * limitations under the License.
  */
 
-import { fireEvent } from '@testing-library/dom';
-
-import { create, render, renderToHtml, axe } from '../../../../util/test-utils';
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  userEvent,
+} from '../../../../util/test-utils';
 
 import { CardHeader } from './Header';
 
@@ -34,24 +38,30 @@ describe('CardHeader', () => {
    * Logic tests.
    */
   it('should render a close button when an onClose prop is passed', () => {
-    const { getByTestId } = render(
-      <CardHeader labelCloseButton="Close" onClose={() => {}}>
+    const closeButtonLabel = 'Close';
+
+    const { getByRole } = render(
+      <CardHeader closeButtonLabel="Close" onClose={jest.fn()}>
         {children}
       </CardHeader>,
     );
-    const actual = getByTestId('header-close');
-    expect(actual).toBeVisible();
+    const closeButton = getByRole('button');
+
+    expect(closeButton).toBeVisible();
+    expect(closeButton).toHaveTextContent(closeButtonLabel);
   });
 
   it('should call the onClose prop when the close button is clicked', () => {
     const onClose = jest.fn();
-    const { getByTestId } = render(
-      <CardHeader labelCloseButton="Close" onClose={onClose}>
+
+    const { getByRole } = render(
+      <CardHeader closeButtonLabel="Close" onClose={onClose}>
         {children}
       </CardHeader>,
     );
+    const closeButton = getByRole('button');
 
-    fireEvent.click(getByTestId('header-close'));
+    userEvent.click(closeButton);
 
     expect(onClose).toHaveBeenCalledTimes(1);
   });
@@ -61,7 +71,7 @@ describe('CardHeader', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <CardHeader labelCloseButton="Close">{children}</CardHeader>,
+      <CardHeader closeButtonLabel="Close">{children}</CardHeader>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

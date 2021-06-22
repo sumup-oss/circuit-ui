@@ -17,7 +17,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
-
 import { Image as BaseImage } from '@sumup/circuit-ui';
 
 const FULL_WIDTH = 'full-width';

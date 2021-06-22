@@ -22,8 +22,8 @@ import { Toggle } from './Toggle';
 const defaultProps = {
   label: 'Label',
   explanation: 'A longer explanation',
-  labelChecked: 'on',
-  labelUnchecked: 'off',
+  checkedLabel: 'on',
+  uncheckedLabel: 'off',
 };
 
 describe('Toggle', () => {
@@ -32,11 +32,6 @@ describe('Toggle', () => {
    */
   it('should render with default styles', () => {
     const actual = create(<Toggle {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Toggle {...defaultProps} noMargin />);
     expect(actual).toMatchSnapshot();
   });
 

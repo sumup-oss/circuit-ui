@@ -19,7 +19,6 @@ import { css } from '@emotion/core';
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import deprecate from '../../util/deprecate';
 import { Body, BodyProps } from '../Body/Body';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
@@ -33,10 +32,6 @@ export interface ToggleProps extends SwitchProps {
    * Further explanation of the toggle. Can change depending on the state.
    */
   explanation?: string;
-  /**
-   * Removes the default bottom margin from the input.
-   */
-  noMargin?: boolean;
   /**
    * The ref to the html button dom element
    */
@@ -64,13 +59,12 @@ const explanationStyles = ({ theme }: StyleProps) => css`
 
 const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);
 
-type WrapperElProps = Pick<ToggleProps, 'noMargin' | 'disabled'>;
+type WrapperElProps = Pick<ToggleProps, 'disabled'>;
 
 const toggleWrapperStyles = ({ theme }: StyleProps) => css`
   label: toggle;
   display: flex;
   align-items: flex-start;
-  margin-bottom: ${theme.spacings.mega};
 
   ${theme.mq.untilKilo} {
     flex-direction: row-reverse;
@@ -85,53 +79,26 @@ const toggleWrapperDisabledStyles = ({ disabled }: WrapperElProps) =>
     ${disableVisually()};
   `;
 
-const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
-  if (!noMargin) {
-    deprecate(
-      [
-        'The default outer spacing in the Toggle component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      ].join(' '),
-    );
-    return null;
-  }
-  return css`
-    label: toggle--no-margin;
-    margin-bottom: 0;
-  `;
-};
-
 const ToggleWrapper = styled('div')<WrapperElProps>(
   toggleWrapperStyles,
   toggleWrapperDisabledStyles,
-  toggleWrapperNoMarginStyles,
 );
 
 /**
  * A toggle component with support for labels and additional explanations.
  */
 export const Toggle = forwardRef(
-  (
-    { label, explanation, noMargin, ...props }: ToggleProps,
-    ref: ToggleProps['ref'],
-  ) => {
+  ({ label, explanation, ...props }: ToggleProps, ref: ToggleProps['ref']) => {
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
     return (
-      <ToggleWrapper noMargin={noMargin} disabled={props.disabled}>
+      <ToggleWrapper disabled={props.disabled}>
         <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
         {(label || explanation) && (
           <ToggleTextWrapper id={labelId} htmlFor={switchId}>
-            {label && (
-              <Body size="one" noMargin>
-                {label}
-              </Body>
-            )}
+            {label && <Body size="one">{label}</Body>}
             {explanation && (
-              <ToggleExplanation size="two" noMargin>
-                {explanation}
-              </ToggleExplanation>
+              <ToggleExplanation size="two">{explanation}</ToggleExplanation>
             )}
           </ToggleTextWrapper>
         )}

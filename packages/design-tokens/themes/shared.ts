@@ -174,8 +174,6 @@ export const transitions = {
 export const zIndex: ZIndex = {
   default: 0,
   absolute: 1,
-  drawer: 10,
-  select: 20,
   input: 20,
   popover: 30,
   tooltip: 40,

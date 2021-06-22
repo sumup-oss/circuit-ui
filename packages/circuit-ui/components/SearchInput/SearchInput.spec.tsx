@@ -38,11 +38,18 @@ describe('SearchInput', () => {
 
   it('should display a clear icon when not empty and an onClear callback is provided', () => {
     const onClear = jest.fn(identity);
+    const clearLabel = 'Clear';
 
-    const { getByTestId } = render(
-      <SearchInput {...baseProps} value="search value" onClear={onClear} />,
+    const { getByRole } = render(
+      <SearchInput
+        {...baseProps}
+        value="search value"
+        onClear={onClear}
+        clearLabel={clearLabel}
+      />,
     );
-    expect(getByTestId('input-clear')).toBeVisible();
+    expect(getByRole('button')).toBeVisible();
+    expect(getByRole('button')).toHaveTextContent(clearLabel);
   });
 
   describe('business logic', () => {

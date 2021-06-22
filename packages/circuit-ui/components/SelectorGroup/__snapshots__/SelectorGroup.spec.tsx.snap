@@ -64,14 +64,12 @@ exports[`SelectorGroup should render with default styles 1`] = `
   background-color: #FFF;
   text-align: center;
   position: relative;
-  margin-bottom: 16px;
   border: none;
   border-radius: 8px;
   -webkit-transition: box-shadow 0.1s ease-in-out;
   transition: box-shadow 0.1s ease-in-out;
   box-shadow: 0 0 0 1px #CCC;
   padding: calc(8px + 1px) 24px;
-  margin-bottom: 0;
   width: 100%;
 }
 
@@ -208,14 +206,12 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   background-color: #FFF;
   text-align: center;
   position: relative;
-  margin-bottom: 16px;
   border: none;
   border-radius: 8px;
   -webkit-transition: box-shadow 0.1s ease-in-out;
   transition: box-shadow 0.1s ease-in-out;
   box-shadow: 0 0 0 1px #CCC;
   padding: calc(8px + 1px) 24px;
-  margin-bottom: 0;
   width: 100%;
 }
 

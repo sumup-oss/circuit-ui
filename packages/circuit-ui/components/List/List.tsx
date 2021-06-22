@@ -19,7 +19,6 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
-import deprecate from '../../util/deprecate';
 
 type Size = 'one' | 'two';
 type Variant = 'ordered' | 'unordered';
@@ -31,15 +30,11 @@ export interface ListProps
    */
   size?: Size;
   /**
-   * Whether the list should be presented as an <ol>
+   * Whether the list should be presented as an <ol> or <ul>. Defaults to <ul>.
    */
   variant?: Variant;
   /**
-   * Removes the default bottom margin from the list.
-   */
-  noMargin?: boolean;
-  /**
-   The ref to the HTML DOM element
+   The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLOListElement & HTMLUListElement>;
 }
@@ -53,26 +48,23 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
   const sizeMap = {
     one: {
-      marginBottom: theme.spacings.byte,
       paddingLeft: theme.spacings.kilo,
       marginLeft: theme.spacings.kilo,
       type: typography('one')(theme),
     },
     two: {
-      marginBottom: theme.spacings.kilo,
       paddingLeft: theme.spacings.kilo,
       marginLeft: theme.spacings.bit,
       type: typography('two')(theme),
     },
   };
-  const { marginBottom, paddingLeft, marginLeft, type } = sizeMap[size];
+  const { paddingLeft, marginLeft, type } = sizeMap[size];
   return css`
     label: ${`list--${size}`};
     padding-left: ${paddingLeft};
     ${type};
 
     li {
-      margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
     }
 
@@ -83,26 +75,9 @@ const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
   `;
 };
 
-const marginStyles = ({ noMargin }: ListProps) => {
-  if (!noMargin) {
-    deprecate(
-      [
-        'The default outer spacing in the List component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      ].join(' '),
-    );
-    return null;
-  }
-  return css`
-    label: list--no-margin;
-    margin-bottom: 0;
-  `;
-};
-
 const BaseList = styled('ol', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<ListProps>(baseStyles, sizeStyles, marginStyles);
+})<ListProps>(baseStyles, sizeStyles);
 
 /**
  * A list, which can be ordered or unordered.

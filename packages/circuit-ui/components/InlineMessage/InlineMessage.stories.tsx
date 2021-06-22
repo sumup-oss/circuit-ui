@@ -35,20 +35,19 @@ export const Base = (args: InlineMessageProps) => (
 
 Base.args = {
   variant: 'warning',
-  noMargin: true,
 };
 
 export const Variants = (args: InlineMessageProps) => (
   <Card spacing={args.size}>
-    <InlineMessage {...args} variant="success" noMargin>
+    <InlineMessage {...args} variant="success">
       Something has gone wonderfully right.
     </InlineMessage>
 
-    <InlineMessage {...args} variant="warning" noMargin>
+    <InlineMessage {...args} variant="warning">
       Something might go sideways.
     </InlineMessage>
 
-    <InlineMessage {...args} variant="danger" noMargin>
+    <InlineMessage {...args} variant="danger">
       Something has gone terribly wrong.
     </InlineMessage>
   </Card>
@@ -57,12 +56,12 @@ export const Variants = (args: InlineMessageProps) => (
 export const Sizes = (args: InlineMessageProps) => (
   <Stack>
     <Card spacing="mega">
-      <InlineMessage {...args} variant="success" size="mega" noMargin>
+      <InlineMessage {...args} variant="success" size="mega">
         Something has gone wonderfully right with a smaller card.
       </InlineMessage>
     </Card>
     <Card>
-      <InlineMessage {...args} variant="success" size="giga" noMargin>
+      <InlineMessage {...args} variant="success" size="giga">
         Something has gone wonderfully right with a larger card.
       </InlineMessage>
     </Card>

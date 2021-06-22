@@ -14,7 +14,6 @@
  */
 
 import * as sharedPropTypes from './util/shared-prop-types';
-import { styleHelpers } from './styles/style-helpers';
 
 // Typography
 export { default as Headline } from './components/Headline';
@@ -92,8 +91,6 @@ export type { NotificationListProps } from './components/NotificationList';
 export { default as Grid } from './components/Grid';
 export { default as Row } from './components/Row';
 export { default as Col } from './components/Col';
-export { default as Spacing } from './components/Spacing';
-export type { SpacingProps } from './components/Spacing';
 export { default as InlineElements } from './components/InlineElements';
 export type { InlineElementsProps } from './components/InlineElements';
 
@@ -164,7 +161,6 @@ export type { AvatarProps } from './components/Avatar';
 
 export {
   ComponentsContext,
-  withComponents,
   useComponents,
 } from './components/ComponentsContext';
 
@@ -178,5 +174,5 @@ export {
   hideScrollbar,
 } from './styles/style-mixins';
 
-export { sharedPropTypes, styleHelpers };
+export { sharedPropTypes };
 export { uniqueId } from './util/id';

@@ -3,7 +3,6 @@
 exports[`Body should render with default styles 1`] = `
 .circuit-0 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
 }
@@ -15,24 +14,9 @@ exports[`Body should render with default styles 1`] = `
 </p>
 `;
 
-exports[`Body should render with no margin styles when passed the noMargin prop 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-<p
-  class="circuit-0"
-/>
-`;
-
 exports[`Body should render with size one 1`] = `
 .circuit-0 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
 }
@@ -47,7 +31,6 @@ exports[`Body should render with size one 1`] = `
 exports[`Body should render with size two 1`] = `
 .circuit-0 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 14px;
   line-height: 20px;
 }

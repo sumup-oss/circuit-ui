@@ -29,8 +29,8 @@ describe('SubHeadline', () => {
     expect(subheading).toMatchSnapshot();
   });
 
-  it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<SubHeadline noMargin />);
+  it('should render with no margin styles when passed the prop', () => {
+    const actual = create(<SubHeadline />);
     expect(actual).toMatchSnapshot();
   });
 

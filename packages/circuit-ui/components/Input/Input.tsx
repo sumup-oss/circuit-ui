@@ -27,14 +27,12 @@ import { uniqueId } from '../../util/id';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';
-import deprecate from '../../util/deprecate';
 
 export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
   /**
    * A clear and concise description of the input purpose.
-   * Will become required in the next major version of Circuit UI.
    */
-  label?: ReactNode;
+  label: ReactNode;
   /**
    * The HTML input element to render.
    */
@@ -83,10 +81,6 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
    */
   inline?: boolean;
   /**
-   * Removes the default bottom margin from the input.
-   */
-  noMargin?: boolean;
-  /**
    * Aligns text in the input
    */
   textAlign?: 'left' | 'right';
@@ -116,44 +110,7 @@ const containerStyles = () => css`
 
 const InputContainer = styled('div')(containerStyles);
 
-type LabelElProps = Pick<InputProps, 'noMargin'>;
-
-const labelCustomStyles = ({ theme }: StyleProps) => css`
-  label: input__label;
-
-  label &:not(label),
-  label + &:not(label) {
-    margin-top: ${theme.spacings.bit};
-  }
-`;
-
-const labelNoMarginStyles = ({
-  theme,
-  noMargin,
-}: StyleProps & LabelElProps) => {
-  if (!noMargin) {
-    deprecate(
-      [
-        'The default outer spacing in the Input component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      ].join(' '),
-    );
-
-    return css`
-      label: input__label--margin;
-      margin-bottom: ${theme.spacings.mega};
-    `;
-  }
-  return null;
-};
-
-const InputLabel = styled(Label)<LabelElProps>(
-  labelCustomStyles,
-  labelNoMarginStyles,
-);
-
-type InputElProps = InputProps & {
+type InputElProps = Omit<InputProps, 'label'> & {
   hasPrefix: boolean;
   hasSuffix: boolean;
 };
@@ -325,7 +282,6 @@ export const Input = forwardRef(
       invalid,
       hasWarning,
       showValid,
-      noMargin,
       inline,
       disabled,
       labelStyles,
@@ -338,17 +294,6 @@ export const Input = forwardRef(
     }: InputProps,
     ref: InputProps['ref'],
   ): ReturnType => {
-    if (!label) {
-      deprecate(
-        [
-          'The label is now built into the Input component.',
-          'Use the `label` prop to pass in the label content and',
-          'remove the Label component from your code.',
-          'The label will become required in the next major version.',
-        ].join(' '),
-      );
-    }
-
     const id = customId || uniqueId('input_');
 
     const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
@@ -358,22 +303,13 @@ export const Input = forwardRef(
     const hasSuffix = Boolean(suffix);
 
     return (
-      <InputLabel
-        htmlFor={id}
-        inline={inline}
-        disabled={disabled}
-        noMargin={noMargin}
-        as={label ? 'label' : 'div'}
-        css={labelStyles}
-      >
-        {label && (
-          <LabelText hideLabel={hideLabel}>
-            {label}
-            {optionalLabel && !required ? (
-              <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
-            ) : null}
-          </LabelText>
-        )}
+      <Label htmlFor={id} inline={inline} disabled={disabled} css={labelStyles}>
+        <LabelText hideLabel={hideLabel}>
+          {label}
+          {optionalLabel && !required ? (
+            <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
+          ) : null}
+        </LabelText>
         <InputContainer>
           {prefix}
           <InputElement
@@ -400,7 +336,7 @@ export const Input = forwardRef(
           showValid={showValid}
           validationHint={validationHint}
         />
-      </InputLabel>
+      </Label>
     );
   },
 );

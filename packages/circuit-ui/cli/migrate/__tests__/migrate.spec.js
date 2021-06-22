@@ -52,6 +52,7 @@ defineTest('typography-sizes');
 defineTest('body-variant-highlight');
 defineTest('theme-border-radius');
 defineTest('button-default-size');
+defineTest('label-prop-names');
 
 function defineTest(transformName, testFilePrefix, testOptions = {}) {
   const dirName = __dirname;

@@ -17,7 +17,6 @@ const SORT_ORDER = {
   Introduction: {
     'Welcome': {},
     'Getting Started': {},
-    'Design Principles': {},
     'Contributing': {
       'Overview': {},
       'Code Conventions': {},
@@ -116,7 +115,6 @@ addParameters({
 
 export const decorators = [
   withThemeProvider,
-  // withStoryStyles,
   withTrackingAction,
   withPerformance,
 ];

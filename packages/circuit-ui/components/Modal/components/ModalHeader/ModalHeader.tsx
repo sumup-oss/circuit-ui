@@ -31,19 +31,15 @@ export interface ModalHeaderProps {
   /**
    * Text label for the close button for screen reader users.
    */
-  labelCloseButton?: string;
+  closeButtonLabel?: string;
 }
 
 export const ModalHeader: FC<ModalHeaderProps> = ({
   title,
   onClose,
-  labelCloseButton,
+  closeButtonLabel,
 }) => (
-  <CardHeader onClose={onClose} labelCloseButton={labelCloseButton}>
-    {title && (
-      <Headline size="four" noMargin>
-        {title}
-      </Headline>
-    )}
+  <CardHeader onClose={onClose} closeButtonLabel={closeButtonLabel}>
+    {title && <Headline size="four">{title}</Headline>}
   </CardHeader>
 );

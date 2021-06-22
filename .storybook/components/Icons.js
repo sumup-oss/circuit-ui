@@ -21,7 +21,6 @@ import { entries, includes, isEmpty, groupBy, sortBy } from 'lodash/fp';
 import { light } from '@sumup/design-tokens';
 import * as iconComponents from '@sumup/icons';
 import { icons } from '@sumup/icons/manifest.json';
-
 import {
   Headline,
   Body,

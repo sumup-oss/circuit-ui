@@ -18,8 +18,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
-
-import { Body, styleHelpers } from '@sumup/circuit-ui';
+import { Body } from '@sumup/circuit-ui';
 
 const SWATCH_WIDTH = '99px';
 const SWATCH_HEIGHT = '99px';
@@ -31,7 +30,6 @@ const ColorWrapper = styled('div')`
     margin-bottom: ${theme.spacings.kilo};
     border-bottom-left-radius: ${theme.borderRadius.byte};
     border-bottom-right-radius: ${theme.borderRadius.byte};
-    ${styleHelpers.shadowSingle({ theme })};
   `};
 `;
 
@@ -39,8 +37,7 @@ const Color = styled('div')`
   ${({ theme, colorName }) => css`
     width: ${SWATCH_WIDTH};
     height: ${SWATCH_HEIGHT};
-    border-top-left-radius: ${theme.borderRadius.byte};
-    border-top-right-radius: ${theme.borderRadius.byte};
+    border-radius: ${theme.borderRadius.mega};
     background-color: ${theme.colors[colorName]};
   `};
 `;
@@ -62,10 +59,10 @@ const Swatch = ({ colorName }) => (
     <ColorWrapper>
       <Color colorName={colorName} />
       <ColorName>
-        <Body variant="highlight" size="two" noMargin>
+        <Body variant="highlight" size="two">
           {colorName}
         </Body>
-        <ColorHex as="p" size="two" noMargin>
+        <ColorHex as="p" size="two">
           {light.colors[colorName]}
         </ColorHex>
       </ColorName>

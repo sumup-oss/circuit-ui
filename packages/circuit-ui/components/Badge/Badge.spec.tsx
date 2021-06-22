@@ -15,14 +15,7 @@
 
 import { createRef } from 'react';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  act,
-  userEvent,
-} from '../../util/test-utils';
+import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
 import { Badge } from './Badge';
 
@@ -40,17 +33,11 @@ describe('Badge', () => {
     'success',
     'warning',
     'danger',
-    'primary',
     'promo',
   ] as const;
 
   it.each(variants)('should render with %s styles', (variant) => {
     const actual = create(<Badge variant={variant} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should have hover/active styles only when the onClick handler is provided', () => {
-    const actual = create(<Badge onClick={jest.fn()} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -78,21 +65,5 @@ describe('Badge', () => {
     const wrapper = renderToHtml(<Badge />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
-  });
-
-  /**
-   * Logic tests.
-   */
-  it('should be clickable', () => {
-    const onClick = jest.fn();
-    const { getByTestId } = render(
-      <Badge onClick={onClick} data-testid="badge" />,
-    );
-
-    act(() => {
-      userEvent.click(getByTestId('badge'));
-    });
-
-    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

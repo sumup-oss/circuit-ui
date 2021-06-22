@@ -70,9 +70,11 @@ describe('Tag', () => {
     });
 
     it('should change the close icon color', () => {
-      const onRemove = jest.fn();
-
-      const component = create(<Tag {...{ onRemove, ...props }}>SomeTest</Tag>);
+      const component = create(
+        <Tag {...props} onRemove={jest.fn()} removeButtonLabel="Remove">
+          SomeTest
+        </Tag>,
+      );
 
       expect(component).toMatchSnapshot();
     });
@@ -105,6 +107,7 @@ describe('Tag', () => {
   describe('when is removable', () => {
     const props = {
       onRemove: jest.fn(),
+      removeButtonLabel: 'Remove',
     };
 
     it('should render a close button', () => {

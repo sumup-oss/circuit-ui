@@ -22,7 +22,6 @@ import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import useClickHandler from '../../hooks/use-click-handler';
-import deprecate from '../../util/deprecate';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
@@ -57,10 +56,6 @@ export interface SelectorProps
    */
   multiple?: boolean;
   /**
-   * Removes the default bottom margin from the input.
-   */
-  noMargin?: boolean;
-  /**
    * The ref to the html dom element
    */
   ref?: Ref<HTMLInputElement>;
@@ -70,10 +65,7 @@ export interface SelectorProps
   tracking?: TrackingProps;
 }
 
-type LabelElProps = Pick<
-  SelectorProps,
-  'disabled' | 'noMargin' | 'size' | 'checked'
->;
+type LabelElProps = Pick<SelectorProps, 'disabled' | 'size' | 'checked'>;
 
 interface OutlineStyles {
   default: string;
@@ -105,7 +97,6 @@ const baseStyles = ({ theme, checked }: StyleProps & LabelElProps) => {
     background-color: ${checked ? theme.colors.p100 : theme.colors.white};
     text-align: center;
     position: relative;
-    margin-bottom: ${theme.spacings.mega};
     border: none;
     border-radius: ${theme.borderRadius.byte};
     transition: box-shadow 0.1s ease-in-out;
@@ -129,23 +120,6 @@ const disabledStyles = ({ disabled }: LabelElProps) =>
     label: selector__label--disabled;
     ${disableVisually()};
   `;
-
-const noMarginStyles = ({ noMargin }: LabelElProps) => {
-  if (!noMargin) {
-    deprecate(
-      [
-        'The default outer spacing in the Selector component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      ].join(' '),
-    );
-    return null;
-  }
-  return css`
-    label: selector__label--no-margin;
-    margin-bottom: 0;
-  `;
-};
 
 const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   const sizeMap = {
@@ -172,7 +146,6 @@ const SelectorLabel = styled('label')<LabelElProps>(
   baseStyles,
   sizeStyles,
   disabledStyles,
-  noMarginStyles,
 );
 
 const inputStyles = ({ theme, checked }: StyleProps & LabelElProps) => {
@@ -219,7 +192,6 @@ export const Selector = forwardRef(
       tracking,
       className,
       style,
-      noMargin,
       size,
       ...props
     }: SelectorProps,
@@ -257,7 +229,6 @@ export const Selector = forwardRef(
           size={size}
           className={className}
           style={style}
-          noMargin={noMargin}
         >
           {children}
         </SelectorLabel>

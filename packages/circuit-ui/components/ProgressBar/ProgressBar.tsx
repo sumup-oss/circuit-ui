@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { ReactNode } from 'react';
 import { css, keyframes } from '@emotion/core';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
@@ -21,12 +20,7 @@ import { typography, hideVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { ReturnType } from '../../types/return-type';
 
-// TODO: Make the label prop required.
 interface BaseProps {
-  /**
-   * @deprecated Use the `label` prop instead.
-   */
-  children?: ReactNode;
   /**
    * Choose from 2 style variants. Default: 'primary'.
    */
@@ -38,7 +32,7 @@ interface BaseProps {
   /**
    * A descriptive label that is used by screenreaders.
    */
-  label?: string;
+  label: string;
   /**
    * Visually hide the label. It will remain accessible to screenreaders.
    */
@@ -232,7 +226,6 @@ const ProgressBarLabel = styled('span')<LabelElProps>(
 export function ProgressBar(props: BaseProps & StepProgressProps): ReturnType;
 export function ProgressBar(props: BaseProps & TimeProgressProps): ReturnType;
 export function ProgressBar({
-  children,
   max,
   value,
   size,
@@ -243,7 +236,7 @@ export function ProgressBar({
   label,
   hideLabel,
   ...props
-}: ProgressBarProps) {
+}: ProgressBarProps): JSX.Element {
   const ariaId = uniqueId('progress-bar_');
   const title = hideLabel ? label : undefined;
   return (
@@ -273,7 +266,7 @@ export function ProgressBar({
         />
       )}
       <ProgressBarLabel id={ariaId} hideLabel={hideLabel}>
-        {children || label}
+        {label}
       </ProgressBarLabel>
     </ProgressBarWrapper>
   );

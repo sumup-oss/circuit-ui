@@ -28,9 +28,8 @@ export default {
 
 const baseArgs = {
   label: 'Short label',
-  labelChecked: 'on',
-  labelUnchecked: 'off',
-  noMargin: true,
+  checkedLabel: 'on',
+  uncheckedLabel: 'off',
 };
 
 export const Base = (args: ToggleProps) => {

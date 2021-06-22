@@ -20,7 +20,6 @@ import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { uniqueId } from '../../util/id';
-import deprecate from '../../util/deprecate';
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import {
   typography,
@@ -44,9 +43,8 @@ export interface SelectProps
   children?: ReactNode;
   /**
    * A clear and concise description of the select purpose.
-   * Will become required in the next major version of Circuit UI.
    */
-  label?: ReactNode;
+  label: ReactNode;
   /**
    * onChange handler, called when the selection changes.
    */
@@ -81,10 +79,6 @@ export interface SelectProps
    * Trigger inline styles on the component.
    */
   inline?: boolean;
-  /**
-   * Removes the default bottom margin from the select.
-   */
-  noMargin?: boolean;
   /**
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
@@ -146,24 +140,7 @@ const SelectContainer = styled('div')<ContainerElProps>(
   containerHideLabelStyles,
 );
 
-type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
-
-const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
-  if (!noMargin) {
-    deprecate(
-      [
-        'The default outer spacing in the Select component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      ].join(' '),
-    );
-    return css`
-      label: input__label--margin;
-      margin-bottom: ${theme.spacings.mega};
-    `;
-  }
-  return null;
-};
+type LabelElProps = Pick<SelectProps, 'inline'>;
 
 const labelInlineStyles = ({ inline }: LabelElProps) =>
   inline &&
@@ -172,12 +149,11 @@ const labelInlineStyles = ({ inline }: LabelElProps) =>
     display: inline-block;
   `;
 
-const SelectLabel = styled(Label)<LabelElProps>(
-  labelMarginStyles,
-  labelInlineStyles,
-);
+const SelectLabel = styled(Label)<LabelElProps>(labelInlineStyles);
 
-type SelectElProps = Omit<SelectProps, 'options'> & { hasPrefix: boolean };
+type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
+  hasPrefix: boolean;
+};
 
 const selectBaseStyles = ({ theme }: StyleProps) => css`
   label: select;
@@ -196,7 +172,7 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   padding-left: ${theme.spacings.mega};
   position: relative;
   width: 100%;
-  z-index: ${theme.zIndex.select};
+  z-index: ${theme.zIndex.input};
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -260,7 +236,7 @@ const prefixStyles = (theme: Theme) => css`
   label: select__prefix;
   display: block;
   position: absolute;
-  z-index: ${theme.zIndex.select + 1};
+  z-index: ${theme.zIndex.input + 1};
   height: ${theme.spacings.exa};
   width: ${theme.spacings.exa};
   padding: ${theme.spacings.mega};
@@ -271,7 +247,7 @@ const iconBaseStyles = ({ theme }: StyleProps) => css`
   label: select__icon;
   color: ${theme.colors.n700};
   display: block;
-  z-index: ${theme.zIndex.select + 1};
+  z-index: ${theme.zIndex.input + 1};
   pointer-events: none;
   position: absolute;
   height: ${theme.spacings.exa};
@@ -313,7 +289,6 @@ export const Select = forwardRef(
       value,
       placeholder = 'Select an option',
       disabled,
-      noMargin,
       inline,
       invalid,
       required,
@@ -342,17 +317,6 @@ export const Select = forwardRef(
 
     const handleChange = useClickHandler(onChange, tracking, 'select');
 
-    if (!label) {
-      deprecate(
-        [
-          'The label is now built into the Select component.',
-          'Use the `label` prop to pass in the label content and',
-          'remove the Label component from your code.',
-          'The label will become required in the next major version.',
-        ].join(' '),
-      );
-    }
-
     return (
       <SelectLabel
         className={className}
@@ -360,17 +324,13 @@ export const Select = forwardRef(
         htmlFor={id}
         inline={inline}
         disabled={disabled}
-        noMargin={noMargin}
-        as={label ? 'label' : 'span'}
       >
-        {label && (
-          <LabelText hideLabel={hideLabel}>
-            {label}
-            {optionalLabel && !required ? (
-              <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
-            ) : null}
-          </LabelText>
-        )}
+        <LabelText hideLabel={hideLabel}>
+          {label}
+          {optionalLabel && !required ? (
+            <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
+          ) : null}
+        </LabelText>
 
         <SelectContainer hideLabel={hideLabel}>
           {prefix}

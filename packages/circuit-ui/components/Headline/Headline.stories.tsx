@@ -25,16 +25,14 @@ export default {
 };
 
 export const Base = (args: HeadlineProps) => (
-  <Headline {...args} noMargin>
-    This is a headline
-  </Headline>
+  <Headline {...args}>This is a headline</Headline>
 );
 
 const sizes = ['one', 'two', 'three', 'four'] as const;
 
 export const Sizes = (args: HeadlineProps) =>
   sizes.map((s) => (
-    <Headline key={s} {...args} size={s} noMargin>
+    <Headline key={s} {...args} size={s}>
       This is a headline {s}
     </Headline>
   ));

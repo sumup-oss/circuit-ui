@@ -38,6 +38,7 @@ const TEXT_SIZE = 'one';
 const headlineStyles = (theme) => css`
   *:not(h1):not(h2):not(h3) + & {
     margin-top: ${theme.spacings.peta};
+    margin-bottom: ${theme.spacings.giga};
   }
 `;
 
