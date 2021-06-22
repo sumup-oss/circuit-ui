@@ -68,11 +68,6 @@ describe('Select', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Select {...{ options }} noMargin />);
-    expect(actual).toMatchSnapshot();
-  });
-
   it('should render with a tooltip when passed a validation hint', () => {
     const actual = create(
       <Select {...{ options }} validationHint="This field is required." />,

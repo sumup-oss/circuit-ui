@@ -62,10 +62,10 @@ const Swatch = ({ colorName }) => (
     <ColorWrapper>
       <Color colorName={colorName} />
       <ColorName>
-        <Body variant="highlight" size="two" noMargin>
+        <Body variant="highlight" size="two">
           {colorName}
         </Body>
-        <ColorHex as="p" size="two" noMargin>
+        <ColorHex as="p" size="two">
           {light.colors[colorName]}
         </ColorHex>
       </ColorName>

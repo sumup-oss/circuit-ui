@@ -30,7 +30,7 @@ export default {
 export const Base = (args: NotificationCardProps) => (
   <NotificationCard {...args}>
     <Notification variant="success">
-      <Headline as="h4" size="four" noMargin>
+      <Headline as="h4" size="four">
         New Feature — Intelligent Reporting
       </Headline>
       <Body>

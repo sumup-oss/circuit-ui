@@ -34,7 +34,7 @@ const ListItems = () => (
 );
 
 export const Base = (args: ListProps) => (
-  <List {...args} noMargin>
+  <List {...args}>
     <ListItems />
   </List>
 );
@@ -43,7 +43,7 @@ const variants: ListProps['variant'][] = ['unordered', 'ordered'];
 
 export const Variants = (args: ListProps) =>
   variants.map((variant) => (
-    <List key={variant} {...args} variant={variant} noMargin>
+    <List key={variant} {...args} variant={variant}>
       <ListItems />
     </List>
   ));
@@ -52,13 +52,13 @@ const sizes: ListProps['size'][] = ['one', 'two'];
 
 export const Sizes = (args: ListProps) =>
   sizes.map((size) => (
-    <List key={size} {...args} size={size} noMargin>
+    <List key={size} {...args} size={size}>
       <ListItems />
     </List>
   ));
 
 export const Nested = (args: ListProps) => (
-  <List {...args} noMargin>
+  <List {...args}>
     <ListItems />
     <List {...args}>
       <li>Sometimes a nested list</li>

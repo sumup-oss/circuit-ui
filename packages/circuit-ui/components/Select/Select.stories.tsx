@@ -44,7 +44,6 @@ const baseArgs = {
       value: 'FR',
     },
   ],
-  noMargin: true,
 };
 
 const flagIconMap: { [key: string]: FC<{ className?: string }> } = {

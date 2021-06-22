@@ -18,14 +18,9 @@ import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import deprecate from '../../util/deprecate';
 
 export interface SubHeadlineProps
   extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
-  /**
-   * Removes the default bottom margin from the subheading.
-   */
-  noMargin?: boolean;
   /**
    * The HTML subheading element to render.
    */
@@ -38,26 +33,8 @@ const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.bold};
   font-size: ${theme.typography.subHeadline.fontSize};
   line-height: ${theme.typography.subHeadline.lineHeight};
-  margin-bottom: ${theme.spacings.kilo};
   color: ${theme.colors.black};
 `;
-
-const noMarginStyles = ({ noMargin }: SubHeadlineProps) => {
-  if (!noMargin) {
-    deprecate(
-      [
-        'The default outer spacing in the SubHeadline component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      ].join(' '),
-    );
-    return null;
-  }
-  return css`
-    label: sub-heading--no-margin;
-    margin-bottom: 0;
-  `;
-};
 
 /**
  * A flexible subheading component capable of rendering using any HTML heading
@@ -65,4 +42,4 @@ const noMarginStyles = ({ noMargin }: SubHeadlineProps) => {
  */
 export const SubHeadline: FC<SubHeadlineProps> = styled('h3', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<SubHeadlineProps>(baseStyles, noMarginStyles);
+})<SubHeadlineProps>(baseStyles);

@@ -58,15 +58,9 @@ const contentStyles = (theme: Theme) => css`
   height: 118px;
 `;
 
-const Header = () => (
-  <Headline size="four" noMargin>
-    Card heading
-  </Headline>
-);
+const Header = () => <Headline size="four">Card heading</Headline>;
 
-const Content = () => (
-  <Body noMargin>This is some text showing in my card</Body>
-);
+const Content = () => <Body>This is some text showing in my card</Body>;
 
 export const Base = () => <Card css={cardStyles} />;
 

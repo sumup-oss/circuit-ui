@@ -101,11 +101,6 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Input noMargin />);
-    expect(actual).toMatchSnapshot();
-  });
-
   it('should render with custom styles', () => {
     const actual = create(
       <Input

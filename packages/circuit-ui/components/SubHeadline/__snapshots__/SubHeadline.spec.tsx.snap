@@ -6,7 +6,6 @@ exports[`SubHeadline should render as h2 element 1`] = `
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 12px;
   color: #000;
 }
 
@@ -23,7 +22,6 @@ exports[`SubHeadline should render as h3 element 1`] = `
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 12px;
   color: #000;
 }
 
@@ -40,7 +38,6 @@ exports[`SubHeadline should render as h4 element 1`] = `
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 12px;
   color: #000;
 }
 
@@ -57,7 +54,6 @@ exports[`SubHeadline should render as h5 element 1`] = `
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 12px;
   color: #000;
 }
 
@@ -74,7 +70,6 @@ exports[`SubHeadline should render as h6 element 1`] = `
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 12px;
   color: #000;
 }
 
@@ -85,15 +80,13 @@ exports[`SubHeadline should render as h6 element 1`] = `
 </h6>
 `;
 
-exports[`SubHeadline should render with no margin styles when passed the noMargin prop 1`] = `
+exports[`SubHeadline should render with no margin styles when passed the prop 1`] = `
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 12px;
   color: #000;
-  margin-bottom: 0;
 }
 
 <h3

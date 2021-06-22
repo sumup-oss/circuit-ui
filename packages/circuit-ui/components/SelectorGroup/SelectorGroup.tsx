@@ -145,7 +145,6 @@ export const SelectorGroup = forwardRef(
                 multiple={multiple}
                 value={value}
                 size={size}
-                noMargin
                 checked={
                   multiple
                     ? includes(value, activeValue)

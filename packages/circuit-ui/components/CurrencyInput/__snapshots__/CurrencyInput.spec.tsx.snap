@@ -5,7 +5,6 @@ exports[`CurrencyInput should adjust input padding and suffix width to match cur
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 label .circuit-4:not(label),
@@ -132,7 +131,6 @@ exports[`CurrencyInput should render with default styles 1`] = `
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 label .circuit-4:not(label),

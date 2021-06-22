@@ -50,7 +50,7 @@ const headingStyles = (theme: Theme) =>
 
 export const Base = (args: NotificationProps) => (
   <Notification {...args}>
-    <Headline as="h4" size="four" noMargin>
+    <Headline as="h4" size="four">
       New Feature — Intelligent Reporting
     </Headline>
     <Body>
@@ -71,12 +71,12 @@ Base.args = {
 export const Variants = () => (
   <Fragment>
     <Notification variant="success" css={notificationStyles}>
-      <Headline size="four" as="h4" noMargin>
+      <Headline size="four" as="h4">
         Transaction successfully refunded
       </Headline>
     </Notification>
     <Notification variant="warning" css={notificationStyles}>
-      <Headline size="four" as="h4" noMargin>
+      <Headline size="four" as="h4">
         You need to verify your account
       </Headline>
       <Body>

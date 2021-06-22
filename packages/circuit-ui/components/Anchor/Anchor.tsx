@@ -101,7 +101,7 @@ export const Anchor = forwardRef(
     );
 
     if (!props.href && !props.onClick) {
-      return <Body as="span" {...props} ref={ref} noMargin />;
+      return <Body as="span" {...props} ref={ref} />;
     }
 
     if (props.href) {
@@ -112,7 +112,6 @@ export const Anchor = forwardRef(
           as={Link}
           ref={ref}
           onClick={handleClick}
-          noMargin
         />
       );
     }
@@ -124,7 +123,6 @@ export const Anchor = forwardRef(
         css={baseStyles}
         ref={ref}
         onClick={handleClick}
-        noMargin
       />
     );
   },

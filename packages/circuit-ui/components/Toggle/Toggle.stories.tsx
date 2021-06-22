@@ -30,7 +30,6 @@ const baseArgs = {
   label: 'Short label',
   labelChecked: 'on',
   labelUnchecked: 'off',
-  noMargin: true,
 };
 
 export const Base = (args: ToggleProps) => {

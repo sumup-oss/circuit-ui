@@ -83,10 +83,6 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
    */
   inline?: boolean;
   /**
-   * Removes the default bottom margin from the input.
-   */
-  noMargin?: boolean;
-  /**
    * Aligns text in the input
    */
   textAlign?: 'left' | 'right';
@@ -116,8 +112,6 @@ const containerStyles = () => css`
 
 const InputContainer = styled('div')(containerStyles);
 
-type LabelElProps = Pick<InputProps, 'noMargin'>;
-
 const labelCustomStyles = ({ theme }: StyleProps) => css`
   label: input__label;
 
@@ -127,31 +121,7 @@ const labelCustomStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const labelNoMarginStyles = ({
-  theme,
-  noMargin,
-}: StyleProps & LabelElProps) => {
-  if (!noMargin) {
-    deprecate(
-      [
-        'The default outer spacing in the Input component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      ].join(' '),
-    );
-
-    return css`
-      label: input__label--margin;
-      margin-bottom: ${theme.spacings.mega};
-    `;
-  }
-  return null;
-};
-
-const InputLabel = styled(Label)<LabelElProps>(
-  labelCustomStyles,
-  labelNoMarginStyles,
-);
+const InputLabel = styled(Label)(labelCustomStyles);
 
 type InputElProps = InputProps & {
   hasPrefix: boolean;
@@ -325,7 +295,6 @@ export const Input = forwardRef(
       invalid,
       hasWarning,
       showValid,
-      noMargin,
       inline,
       disabled,
       labelStyles,
@@ -362,7 +331,6 @@ export const Input = forwardRef(
         htmlFor={id}
         inline={inline}
         disabled={disabled}
-        noMargin={noMargin}
         as={label ? 'label' : 'div'}
         css={labelStyles}
       >

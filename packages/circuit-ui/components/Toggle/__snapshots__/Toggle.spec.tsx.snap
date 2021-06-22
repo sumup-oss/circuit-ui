@@ -10,7 +10,6 @@ exports[`Toggle should render with default styles 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  margin-bottom: 16px;
 }
 
 @media (max-width:479px) {
@@ -101,18 +100,14 @@ exports[`Toggle should render with default styles 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-4 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 0;
   color: #666;
 }
 
@@ -140,162 +135,6 @@ exports[`Toggle should render with default styles 1`] = `
     class="circuit-5"
     for="toggle-switch_1"
     id="toggle-label_2"
-  >
-    <p
-      class="circuit-3"
-    >
-      Label
-    </p>
-    <p
-      class="circuit-4"
-    >
-      A longer explanation
-    </p>
-  </label>
-</div>
-`;
-
-exports[`Toggle should render with no margin styles when passed the noMargin prop 1`] = `
-.circuit-2 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  background-color: #CCC;
-  border-radius: 24px;
-  position: relative;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  height: 24px;
-  width: 40px;
-  overflow: visible;
-  cursor: pointer;
-}
-
-.circuit-2:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-2:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0 {
-  display: block;
-  background-color: #FFF;
-  box-shadow: 0 2px 0 0 #999;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translate3d(4px,-50%,0);
-  -ms-transform: translate3d(4px,-50%,0);
-  transform: translate3d(4px,-50%,0);
-  -webkit-transition: box-shadow 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
-  -webkit-transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
-  height: 16px;
-  width: 16px;
-  border-radius: 16px;
-}
-
-.circuit-1 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-5 {
-  display: block;
-  margin-left: 12px;
-  cursor: pointer;
-}
-
-@media (max-width:479px) {
-  .circuit-5 {
-    margin-left: 0;
-    margin-right: 12px;
-  }
-}
-
-.circuit-3 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-.circuit-4 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 14px;
-  line-height: 20px;
-  margin-bottom: 0;
-  color: #666;
-}
-
-.circuit-6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  margin-bottom: 16px;
-  margin-bottom: 0;
-}
-
-@media (max-width:479px) {
-  .circuit-6 {
-    -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-  }
-}
-
-<div
-  class="circuit-6"
->
-  <button
-    aria-checked="false"
-    aria-labelledby="toggle-label_4"
-    class="circuit-2"
-    id="toggle-switch_3"
-    role="switch"
-    type="button"
-  >
-    <span
-      class="circuit-0"
-    />
-    <span
-      class="circuit-1"
-    >
-      off
-    </span>
-  </button>
-  <label
-    class="circuit-5"
-    for="toggle-switch_3"
-    id="toggle-label_4"
   >
     <p
       class="circuit-3"

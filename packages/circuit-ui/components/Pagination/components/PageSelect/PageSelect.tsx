@@ -57,7 +57,6 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
         options={pageOptions}
         onChange={handleChange}
         hideLabel
-        noMargin
       />
       {totalLabel && <TotalPages>{totalLabel(totalPages)}</TotalPages>}
     </Fragment>

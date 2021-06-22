@@ -21,7 +21,6 @@ describe('Body', () => {
   /**
    * Style tests.
    */
-
   it('should render with default styles', () => {
     const actual = create(<Body>Body</Body>);
     expect(actual).toMatchSnapshot();
@@ -39,11 +38,6 @@ describe('Body', () => {
   const sizes: BodyProps['size'][] = ['one', 'two'];
   it.each(sizes)('should render with size %s', (size) => {
     const actual = create(<Body size={size}>{`${size as string} text`}</Body>);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Body noMargin />);
     expect(actual).toMatchSnapshot();
   });
 

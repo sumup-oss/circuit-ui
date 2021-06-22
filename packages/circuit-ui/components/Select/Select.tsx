@@ -82,10 +82,6 @@ export interface SelectProps
    */
   inline?: boolean;
   /**
-   * Removes the default bottom margin from the select.
-   */
-  noMargin?: boolean;
-  /**
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
@@ -146,24 +142,7 @@ const SelectContainer = styled('div')<ContainerElProps>(
   containerHideLabelStyles,
 );
 
-type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
-
-const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
-  if (!noMargin) {
-    deprecate(
-      [
-        'The default outer spacing in the Select component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      ].join(' '),
-    );
-    return css`
-      label: input__label--margin;
-      margin-bottom: ${theme.spacings.mega};
-    `;
-  }
-  return null;
-};
+type LabelElProps = Pick<SelectProps, 'inline'>;
 
 const labelInlineStyles = ({ inline }: LabelElProps) =>
   inline &&
@@ -172,10 +151,7 @@ const labelInlineStyles = ({ inline }: LabelElProps) =>
     display: inline-block;
   `;
 
-const SelectLabel = styled(Label)<LabelElProps>(
-  labelMarginStyles,
-  labelInlineStyles,
-);
+const SelectLabel = styled(Label)<LabelElProps>(labelInlineStyles);
 
 type SelectElProps = Omit<SelectProps, 'options'> & { hasPrefix: boolean };
 
@@ -313,7 +289,6 @@ export const Select = forwardRef(
       value,
       placeholder = 'Select an option',
       disabled,
-      noMargin,
       inline,
       invalid,
       required,
@@ -360,7 +335,6 @@ export const Select = forwardRef(
         htmlFor={id}
         inline={inline}
         disabled={disabled}
-        noMargin={noMargin}
         as={label ? 'label' : 'span'}
       >
         {label && (
