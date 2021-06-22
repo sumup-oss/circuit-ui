@@ -61,6 +61,6 @@ export const Removable = (args: TagProps) => <Tag {...args}>Transactions</Tag>;
 
 Removable.args = {
   onRemove: action('Tag removed'),
-  labelRemoveButton: 'Remove',
+  removeButtonLabel: 'Remove',
   tracking: { label: 'trackingId' },
 };
