@@ -94,7 +94,6 @@ export const CardHeader: FC<CardHeaderProps> = ({
       <CardHeaderCloseButton
         onClick={onClose}
         label={labelCloseButton}
-        data-testid="header-close"
         tracking={{ component: 'close-button', ...tracking }}
       />
     )}
