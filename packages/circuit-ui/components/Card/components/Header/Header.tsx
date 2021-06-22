@@ -37,7 +37,7 @@ export interface CardHeaderProps {
    * Text label for the close button for screen readers.
    * Important for accessibility.
    */
-  labelCloseButton?: string;
+  labelCloseButton?: string; // TODO rename to `closeButtonLabel` for consistency
   /**
    * Additional data that is dispatched with the tracking event.
    */
