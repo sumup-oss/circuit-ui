@@ -30,6 +30,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { useStack, StackItem, StackDispatch } from '../../hooks/useStack';
 import { uniqueId } from '../../util/id';
+import { warn } from '../../util/logger';
 
 // It is important for users of screenreaders that other page content be hidden
 // (via the `aria-hidden` attribute) while the modal is open.
@@ -47,12 +48,10 @@ if (typeof window !== 'undefined') {
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
   ) {
-    console.error(
-      [
-        '[ModalProvider] Could not find the app root element to hide it',
-        'when a modal is open. Add an element with the id `#root`',
-        'at the root of your application to remove this error.',
-      ].join(' '),
+    warn(
+      'ModalProvider',
+      'Could not find the app root element to hide it when a modal is open.',
+      'Add an element with the id `#root` at the root of your application.',
     );
   }
 }
