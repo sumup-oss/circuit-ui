@@ -98,7 +98,7 @@ export const LoadingButton: FC<LoadingButtonProps> = ({
     aria-busy={isLoading}
     {...props}
   >
-    <LoadingIcon isLoading={isLoading}>
+    <LoadingIcon isLoading={isLoading} size="byte">
       <LoadingLabel>{loadingLabel}</LoadingLabel>
     </LoadingIcon>
     <Children isLoading={isLoading}>{children}</Children>
