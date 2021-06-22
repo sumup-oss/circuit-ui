@@ -40,33 +40,40 @@ const closeButtonStyles = (theme: Theme) => css`
     right: ${theme.spacings.mega};
   }
 `;
-
 export interface ModalProps extends BaseModalProps {
   /**
-   * TODO: Add description
+   * The modal content. Use a render function when you need access to the
+   * `onClose` function.
    */
   children:
     | ReactNode
-    | (({ onClose }: { onClose: BaseModalProps['onClose'] }) => ReactNode);
+    | (({ onClose }: Pick<BaseModalProps, 'onClose'>) => ReactNode);
   /**
-   * TODO: Add description
+   * Use the `contextual` variant when the modal content requires the context
+   * of the page underneath to be understood, otherwise, use the `immersive`
+   * variant to focus the user's attention.
    */
-  variant: 'immersive' | 'contextual';
+  variant: 'contextual' | 'immersive';
   /**
    * Text label for the close button for screen readers.
    * Important for accessibility.
    */
   labelCloseButton: string;
   /**
-   * TODO: Add description. Default true.
+   * Allow user to close the modal by clicking/tapping the overlay or pressing
+   * the escape key. Default true.
    */
   dismissible?: boolean;
+  /**
+   * Custom styles for the modal wrapper element.
+   */
   className?: string;
 }
 
 /**
- * Circuit UI's wrapper component for ReactModal.
- * http://reactcommunity.org/react-modal/accessibility/#aria
+ * The modal component displays self-contained tasks in a focused window that
+ * overlays the page content.
+ * Built on top of [`react-modal`](https://reactcommunity.org/react-modal/).
  */
 export const Modal: ModalComponent<ModalProps> = ({
   children,
@@ -80,16 +87,14 @@ export const Modal: ModalComponent<ModalProps> = ({
 }) => {
   const handleClose = useClickHandler(onClose, tracking, 'modal-close');
   return (
-    <ClassNames<Theme>>
+    <ClassNames<Theme> key={variant}>
       {({ css: cssString, cx, theme }) => {
         // React Modal styles
         // https://reactcommunity.org/react-modal/styles/classes/
 
-        // FIXME: Replace border-radius with theme value in v3.
         const styles = {
           base: cx(
             cssString`
-              label: modal;
               position: fixed;
               outline: none;
               background-color: ${theme.colors.white};
@@ -117,25 +122,21 @@ export const Modal: ModalComponent<ModalProps> = ({
                 max-width: 90vw;
                 opacity: 0;
                 transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
-                border-radius: 16px;
+                border-radius: ${theme.borderRadius.mega};
               }
             `,
             variant === 'immersive' &&
               cssString`
-              label: modal--immersive;
-
               ${theme.mq.untilKilo} {
                 height: 100vh;
               }
             `,
             variant === 'contextual' &&
               cssString`
-              label: modal--contextual;
-
               ${theme.mq.untilKilo} {
                 max-height: calc(100vh - ${theme.spacings.mega});
-                border-top-left-radius: 16px;
-                border-top-right-radius: 16px;
+                border-top-left-radius: ${theme.borderRadius.mega};
+                border-top-right-radius: ${theme.borderRadius.mega};
               }
             `,
             className,
@@ -166,7 +167,6 @@ export const Modal: ModalComponent<ModalProps> = ({
 
         const overlayStyles = {
           base: cssString`
-            label: modal__overlay;
             position: fixed;
             top: 0;
             left: 0;
@@ -184,11 +184,9 @@ export const Modal: ModalComponent<ModalProps> = ({
             }
           `,
           afterOpen: cssString`
-            label: modal__overlay--after-open;
             opacity: 1;
           `,
           beforeClose: cssString`
-            label: modal__overlay--before-close;
             opacity: 0;
           `,
         };

@@ -32,6 +32,7 @@ import { useModal } from './useModal';
 export default {
   title: 'Components/Modal',
   component: Modal,
+  subcomponents: { ModalProvider },
   parameters: {
     docs: { page: docs },
   },
@@ -115,6 +116,20 @@ NotDismissible.args = {
   ),
   variant: 'immersive',
   dismissible: false,
+};
+
+export const InitiallyOpen = (modal: ModalProps): JSX.Element => {
+  const initialModal = { id: 'initial', component: Modal, ...modal };
+  return (
+    <ModalProvider initialState={[initialModal]}>
+      <div />
+    </ModalProvider>
+  );
+};
+
+InitiallyOpen.args = {
+  children: 'Hello World!',
+  variant: 'contextual',
 };
 
 export const CustomStyles = (modal: ModalProps): JSX.Element => {

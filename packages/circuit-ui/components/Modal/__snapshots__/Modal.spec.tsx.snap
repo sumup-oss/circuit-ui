@@ -1,51 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Modal should match the snapshot 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: fixed;
   outline: none;
   background-color: #FFF;
-  border-radius: 16px;
-  padding: 24px;
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-2 {
     right: 0;
     bottom: 0;
     left: 0;
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
-    height: calc(100vh - 16px);
     width: 100vw;
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
-    -webkit-transition: -webkit-transform 200ms ease-in-out;
-    -webkit-transition: transform 200ms ease-in-out;
-    transition: transform 200ms ease-in-out;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    -webkit-transition: -webkit-transform 120ms ease-in-out;
+    -webkit-transition: transform 120ms ease-in-out;
+    transition: transform 120ms ease-in-out;
+    padding: 16px;
   }
 }
 
 @media (min-width:480px) {
-  .circuit-4 {
+  .circuit-2 {
     top: 50%;
     left: 50%;
+    padding: 24px;
     -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-    height: 90vh;
-    width: 90vw;
+    min-height: 320px;
+    max-height: 90vh;
+    min-width: 480px;
+    max-width: 90vw;
     opacity: 0;
-    -webkit-transition: opacity 200ms ease-in-out;
-    transition: opacity 200ms ease-in-out;
+    -webkit-transition: opacity 240ms ease-in-out;
+    transition: opacity 240ms ease-in-out;
+    border-radius: 16px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-5 {
+  .circuit-2 {
+    height: 100vh;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-3 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
@@ -53,61 +59,40 @@ exports[`Modal should match the snapshot 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-5 {
+  .circuit-3 {
     opacity: 1;
   }
 }
 
-.circuit-6 {
+.circuit-4 {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   background: rgba(0,0,0,0.4);
   z-index: 1000;
 }
 
 @media (min-width:480px) {
-  .circuit-6 {
+  .circuit-4 {
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
+    -webkit-transition: opacity 240ms ease-in-out;
+    transition: opacity 240ms ease-in-out;
   }
 }
 
-.circuit-7 {
+.circuit-5 {
   opacity: 1;
 }
 
-.circuit-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #000;
-  font-size: 18px;
+.circuit-1 {
+  font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
-}
-
-.circuit-2 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -124,8 +109,6 @@ exports[`Modal should match the snapshot 1`] = `
   height: auto;
   margin: 0;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -133,43 +116,53 @@ exports[`Modal should match the snapshot 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: 8px calc(24px - 1px);
-  padding: 12px;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(16px - 1px);
   border: 0;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 
-.circuit-2:focus {
+.circuit-1:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-1:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-2:active {
+.circuit-1:active {
   background-color: #E6E6E6;
   border-color: #333;
 }
 
-.circuit-1 {
+@media (min-width:480px) {
+  .circuit-1 {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+.circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -200,50 +193,40 @@ exports[`Modal should match the snapshot 1`] = `
     class="ReactModalPortal"
   >
     <div
-      class="circuit-6 circuit-7"
+      class="circuit-4 circuit-5"
     >
       <div
-        aria-label="Example modal"
         aria-modal="true"
-        class="circuit-4 circuit-5"
+        class="circuit-2 circuit-3"
         role="dialog"
         tabindex="-1"
       >
-        <header
-          class="circuit-3"
+        <button
+          class="circuit-1"
+          title="Close modal"
+          type="button"
         >
-          <h2
+          <svg
+            fill="none"
+            height="16"
+            role="presentation"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 3l10 10m0-10L3 13"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+          </svg>
+          <span
             class="circuit-0"
           >
-            Example modal
-          </h2>
-          <button
-            class="circuit-2"
-            title="Close modal"
-            type="button"
-          >
-            <svg
-              fill="none"
-              height="16"
-              role="presentation"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 3l10 10m0-10L3 13"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-width="2"
-              />
-            </svg>
-            <span
-              class="circuit-1"
-            >
-              Close modal
-            </span>
-          </button>
-        </header>
+            Close modal
+          </span>
+        </button>
         <p
           data-testid="children"
         >

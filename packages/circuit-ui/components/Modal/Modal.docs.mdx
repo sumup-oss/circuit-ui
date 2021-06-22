@@ -4,42 +4,63 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-Modals are floating cards which overlay the primary UI. All content in a single modal should be related to completing one single task. Modals are heavy UI elements which obscure the primary user interface — avoid them where possible.
+The modal component displays self-contained tasks in a focused window that overlays the page content.
 
 <Story id="components-modal--base" />
+<Props />
 
 ## When to use it
 
-Use it when you want the user to focus on a single and perhaps more complex task.
+Generally, use the modal component sparingly. Consider displaying more complex tasks and large amounts of information on a separate page instead.
 
-## Usage guidelines
+## Variants
 
-- **Do** use modals sparingly.
-- **Do** use modals when you want to isolate an action from the primary UI.
-- **Do not** draw a modal over another modal.
-- **Do not** fill a modal with content which has multiple end results.
-- **Do not** present a modal without a user prompting a modal (e.g. as a popup).
+<Story id="components-modal--variants" />
+
+### Contextual
+
+Use this variant when the modal content requires the context of the page underneath to be understood. On small viewports, the modal component opens up from the bottom as a bottom sheet overlay on top of the page content, dimming the uncovered area while giving a visual context of the page underneath. The height of the bottom sheet can be manually adjusted depending on the use case and the amount of content needed to be displayed.
+
+### Immersive
+
+Use this variant to focus the user's attention on the modal content. On small viewports, the modal component opens up from the bottom as a fullscreen overlay on top of the page content and covers it entirely in favor of an immersive experience.
 
 ## Usage in code
 
-The benefit of using the ModalProvider is that it can be declared once at the application root, and you do not need to manage the open/closed state of the modal yourself.
+First, wrap your application in the `ModalProvider` which keeps track of the open modals, prevents scrolling of the page when a modal is open, and ensures the accessibility of the modal.
 
-```js
-import { useModal, ModalProvider, Button, Body } from '@sumup/circuit-ui';
+```tsx
+// _app.tsx for Next.js or App.js for CRA
+import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
+import { ModalProvider, BaseStyles } from '@sumup/circuit-ui';
 
-const SayHello = ({ name }) => {
+export default function App() {
+  return (
+    <ThemeProvider theme={light}>
+      <BaseStyles />
+      <ModalProvider>{/* Your content here... */}</ModalProvider>
+    </ThemeProvider>
+  );
+}
+```
+
+Then, use the `useModal` hook to open a modal from a component:
+
+```tsx
+import { useModal, Button, Body } from '@sumup/circuit-ui';
+
+export function SayHello({ name }) {
   const { setModal } = useModal();
 
   const handleClick = () => {
-    setModal({ children: <Body>Hello {name}</Body> });
+    setModal({
+      children: <Body>Hello {name}</Body>,
+      variant: 'immersive',
+      labelCloseButton: 'Close modal',
+    });
   };
 
   return <Button onClick={handleClick}>Say hello</Button>;
-};
-
-const Page = () => (
-  <ModalProvider>
-    <SayHello name="World" />
-  </ModalProvider>
-);
+}
 ```

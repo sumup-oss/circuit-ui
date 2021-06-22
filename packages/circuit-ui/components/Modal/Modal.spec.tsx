@@ -19,6 +19,7 @@ import { Modal, ModalProps } from './Modal';
 
 describe('Modal', () => {
   const defaultModal: ModalProps = {
+    variant: 'immersive',
     isOpen: true,
     labelCloseButton: 'Close modal',
     onClose: jest.fn(),
