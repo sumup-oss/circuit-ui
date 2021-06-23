@@ -159,6 +159,8 @@ export {
   focusOutline,
   clearfix,
   hideScrollbar,
+  inputOutline,
+  typography,
 } from './styles/style-mixins';
 
 export { sharedPropTypes };

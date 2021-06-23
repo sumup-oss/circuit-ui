@@ -200,7 +200,6 @@ export const hideVisually = (): SerializedStyles => css`
 /**
  * Visually communicates to the user that an element is focused.
  */
-
 export function focusOutline(
   options: 'inset',
 ): (args: ThemeArgs) => SerializedStyles;
@@ -335,6 +334,7 @@ export const inputOutline = (
 };
 
 /**
+ * @private
  * Visually communicates that the listItem (eg. Popover or Dropdown component) is hovered, active or focused.
  */
 export const listItem = (
