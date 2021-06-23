@@ -82,6 +82,7 @@ const transform: Transform = (file, api) => {
   const root = j(file.source);
 
   renameFactory(j, root, 'Headline', {
+    zetta: 'one',
     exa: 'one',
     peta: 'one',
     tera: 'two',
@@ -90,6 +91,7 @@ const transform: Transform = (file, api) => {
     kilo: 'four',
   });
   renameFactory(j, root, 'Heading', {
+    zetta: 'one',
     exa: 'one',
     peta: 'one',
     tera: 'two',
@@ -102,15 +104,22 @@ const transform: Transform = (file, api) => {
   removeFactory(j, root, 'SubHeading');
 
   renameFactory(j, root, 'Body', {
+    giga: 'one',
     mega: 'one',
     kilo: 'two',
   });
   renameFactory(j, root, 'Text', {
+    giga: 'one',
     mega: 'one',
     kilo: 'two',
   });
-
   renameFactory(j, root, 'List', {
+    giga: 'one',
+    mega: 'one',
+    kilo: 'two',
+  });
+  renameFactory(j, root, 'Anchor', {
+    giga: 'one',
     mega: 'one',
     kilo: 'two',
   });
