@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Body, Text } from '@sumup/circuit-ui';
+import { Body, Text, Anchor } from '@sumup/circuit-ui';
 
 const BoldBody = () => (
   <>
@@ -15,6 +15,13 @@ const BoldText = () => (
   </>
 );
 
+const BoldAnchor = () => (
+  <>
+    <Anchor variant="highlight">bold</Anchor>
+    <Anchor bold={!true}>bold</Anchor>
+  </>
+);
+
 const RedBody = styled(Body)`
   color: red;
 `;
@@ -23,9 +30,14 @@ const RedText = styled(Text)`
   color: red;
 `;
 
+const RedAnchor = styled(Anchor)`
+  color: red;
+`;
+
 const Styled = () => (
   <>
     <RedBody variant="highlight">bold body</RedBody>
     <RedText variant="highlight">bold text</RedText>
+    <RedAnchor variant="highlight">bold anchor</RedAnchor>
   </>
 );
