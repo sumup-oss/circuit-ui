@@ -49,7 +49,8 @@
   #### Headline
 
   Renamed the `Heading` component to `Headline` and mapped the styles to the new ones. These changes can be codemodded (🤖 _component-names-v3_).
-  The size prop has been changed to accept the new size numbers. For `Headline` component **_exa_** and **_peta_** has been changed to **_one_** with new values, **_tera_** has been changed to **_two_**, **_giga_** to **_three_**, **_mega_** and **_kilo_** to **_four_** (🤖 _typography-sizes_)
+
+  The `size` prop has been adapted to accept the new size numbers. For the `Headline` component, **_zetta_**, **_exa_** and **_peta_** should be migrated to **_one_**, **_tera_** to **_two_**, **_giga_** to **_three_**, and **_mega_** and **_kilo_** to **_four_** (🤖 _typography-sizes_)
 
   Usage example:
 
@@ -60,11 +61,13 @@
 
   #### SubHeadline
 
-  Renamed the `SubHeading` component to `SubHeadline` and mapped the styles to the new ones (🤖 _component-names-v3_). The `SubHeadline` component now uses only one size value (🤖 _typography-sizes_).
+  Renamed the `SubHeading` component to `SubHeadline` and mapped the styles to the new ones (🤖 _component-names-v3_). The `SubHeadline` component now uses only one size value, so the `size` prop should be removed (🤖 _typography-sizes_).
 
-  #### Body
+  #### Body (and Anchor)
 
-  The `Text` component has been renamed to `Body` (🤖 _component-names-v3_). The size prop is adapted to accept the new size numbers and **_giga_** size has been removed, **_mega_** and **_kilo_** sizes have been changed to **_one_** and **_two_** respectively.
+  The `Text` component has been renamed to `Body` (🤖 _component-names-v3_).
+
+  The `size` prop has been adapted to accept the new size numbers. **_giga_** and **_mega_** should be migrated to **_one_**, and **_kilo_** to **_two_**. This also applies to `Anchor`, which uses `Body` under the hood (🤖 _typography-sizes_).
 
   Usage example:
 
@@ -73,7 +76,7 @@
   +  <Body size="one" />
   ```
 
-  The `Text` component's bold prop has been removed. Use the `Body` component `(variant="highlight")` instead (🤖 _body-variant-highlight_).
+  The `Text` component's bold prop has been removed. Use the `Body` component's `variant="highlight"` instead. This also applies to `Anchor`, which uses `Body` under the hood (🤖 _body-variant-highlight_).
 
   Usage example:
 
@@ -83,7 +86,7 @@
 
   Additionally, the new `success`, `error` and `subtle` variants are added.
 
-  The `Blockquote` component has been removed and replaced by the `Body` component with `variant="quote"`.
+  The `Blockquote` component has been removed and replaced by the `Body` component with `variant="quote"`. This should be migrated manually.
 
   Usage example:
 
@@ -91,7 +94,7 @@
 
   #### List
 
-  Replaced the `List` component sizes **_mega_** and **_kilo_** with new values **_one_** and **_two_** respectively (🤖 _typography-sizes_).
+  The `List`'s `size` prop has been adapted to accept the new size numbers. **_giga_** and **_mega_** should be migrated to **_one_**, and **_kilo_** to **_two_** (🤖 _typography-sizes_).
 
 - [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - Default `data-testid`s are no longer built into the `Table` component. They can still be passed manually. We also recommend [querying by role](https://testing-library.com/docs/queries/about/#priority) in tests, for them to resemble how users interact with the code. You can find examples in the component's specs.
 
