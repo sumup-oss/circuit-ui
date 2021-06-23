@@ -154,6 +154,7 @@ export {
 export {
   cx,
   spacing,
+  shadow,
   disableVisually,
   hideVisually,
   focusOutline,
