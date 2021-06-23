@@ -56,7 +56,7 @@
     "@emotion/stylis": "^0.8.4",
     "@sumup/collector": "^1.0.0",
     "@sumup/design-tokens": "^3.0.0",
-    "@sumup/icons": "^1.6.1",
+    "@sumup/icons": "^1.7.1",
     "@sumup/intl": "^1.0.0",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/dom": "^7.27.1",

@@ -40,25 +40,6 @@
 
 - [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - A `sortLabel` for sortable Table columns (previously optional) is now required.
 
-  For sortable Table columns (when headers have the `sortable` prop set), the `sortLabel` prop is now required. This label is fundamental for accessibility. If it is omitted, the column will not be sortable, even if the `sortable` prop is set.
-
-  Here's an example sortable column header:
-
-  ```ts
-  import { TableCell, TableSortDirection } from '@sumup/circuit-ui';
-
-  const headers: TableCell[] = [
-    {
-      children: 'Date',
-      sortable: true,
-      sortLabel: ({ direction }: { direction?: TableSortDirection }) => {
-        const order = direction === 'ascending' ? 'descending' : 'ascending';
-        return `Sort in ${order} order`;
-      },
-    },
-  ];
-  ```
-
 * [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Enforced accessible labels in several components: the `CardHeader` requires a `labelCloseButton` when it is dismissible, the `SearchInput` requires a `clearLabel` when it is clearable.
 
 - [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - For sortable `Table` columns (when headers have the `sortable` prop), the previously optional `sortLabel` prop is now enforced. This is an accessibility requirement. If a `sortLabel` is not provided, the column will not be sortable.
@@ -116,12 +97,10 @@
 
 * [#943](https://github.com/sumup-oss/circuit-ui/pull/943) [`0543719b`](https://github.com/sumup-oss/circuit-ui/commit/0543719bfceaf616829a223f9e4f306539fbcc15) Thanks [@mykolaharmash](https://github.com/mykolaharmash)! - `Selector` now has multiple `size` options. `SelectorGroup` is changed to horizontal layout and to be inline element by default with an option to stretch to full width.
 
-- [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `noMargin` prop from components. Use the `spacing` mixin to add spacing.
+- [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `noMargin` prop from the components below. Use the `spacing` mixin to add spacing.
 
-  The components with a removed noMargin prop are:
-
-  - **Typography**: Body, Headline, SubHeadline, List, InlineMessage
-  - **Forms**: Input, Select, Selector, Toggle, Checkbox
+  - **Typography**: `Body`, `Headline`, `SubHeadline`, `List`, `InlineMessage`
+  - **Forms**: `Input`, `Select`, `Selector`, `Toggle`, `Checkbox`
 
 * [#985](https://github.com/sumup-oss/circuit-ui/pull/985) [`61c15cf7`](https://github.com/sumup-oss/circuit-ui/commit/61c15cf7a5a23fb723a2d9a0b1434639bc8ae700) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the experimental static styles extraction feature.
 
@@ -129,11 +108,7 @@
 
 * [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the `ProgressBar`'s deprecated `children` prop. Use the `label` prop instead.
 
-- [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - The `TableHeader`, `TableRow` and `TableCell` components are no longer exported from Circuit.
-
-  These components are only used internally by the Table component and should not be imported directly.
-
-  Relevant Table TypeScript types (`TableProps`, `TableSortDirection` `TableCell`, `TableRow`) are newly exported.
+- [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - The `TableHeader`, `TableRow` and `TableCell` components are no longer exported from Circuit. They should only be used internally by the `Table` component.
 
 * [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `shadow` prop from the `Card`, shadows have been replaced by a single outline.
 
@@ -155,8 +130,6 @@
   | Tabs                          |    80px    |    48px    |
   | Tag                           |    34px    |    32px    |
 
-* [#984](https://github.com/sumup-oss/circuit-ui/pull/984) [`7879a990`](https://github.com/sumup-oss/circuit-ui/commit/7879a9901c06e389135e0d22697b97669c485949) Thanks [@amelako](https://github.com/amelako)! - Added a `size` prop to the Spinner component. The possible values are `byte`, `kilo` (default), and `giga`.
-
 - [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - Changed the signature of the Table's custom onSortBy method. The `nextDirection` argument moved to the third position (`(index, nextDirection, rows)` 👉 `(index, rows, nextDirection)`) and can now be `undefined` (instead of `null` in the previous implementation).
 
 * [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the `data-testid` attribute from the `CardHeader`'s close button. Use `queryByRole('button')` in your tests instead.
@@ -167,7 +140,7 @@
 
 - [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the `themePropType` export from `@sumup/circuit-ui`. Import it from `@sumup/design-tokens` instead.
 
-* [#944](https://github.com/sumup-oss/circuit-ui/pull/944) [`2628fce1`](https://github.com/sumup-oss/circuit-ui/commit/2628fce1b93dd5a1ef1fc4b05a6a29ccf5469f9d) Thanks [@amelako](https://github.com/amelako)! - Replaced the old Popover component with a new one. It uses Popper v2 and comes with a refreshed component API.
+* [#944](https://github.com/sumup-oss/circuit-ui/pull/944) [`2628fce1`](https://github.com/sumup-oss/circuit-ui/commit/2628fce1b93dd5a1ef1fc4b05a6a29ccf5469f9d) Thanks [@amelako](https://github.com/amelako)! - Rebuilt the `Popover` component. It now uses Popper v2 and comes with a refreshed component API.
 
 - [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `withComponents` HOC. Use the `useComponents` hook instead.
 
@@ -175,15 +148,15 @@
 
 - [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the `onClick` prop from the `Badge`. Badges are not meant to be interactive and should only communicate the status of an element. Use the Tag component for interactive elements instead. The `primary` variant of the Badge was also removed. Use the `neutral` variant instead.
 
+### Minor Changes
+
+- [#984](https://github.com/sumup-oss/circuit-ui/pull/984) [`7879a990`](https://github.com/sumup-oss/circuit-ui/commit/7879a9901c06e389135e0d22697b97669c485949) Thanks [@amelako](https://github.com/amelako)! - Added a `size` prop to the Spinner component. The possible values are `byte`, `kilo` (default), and `giga`.
+
 ### Patch Changes
 
 - [#980](https://github.com/sumup-oss/circuit-ui/pull/980) [`900e6bc4`](https://github.com/sumup-oss/circuit-ui/commit/900e6bc465e4f909ab000403da3d17724f2ab73e) Thanks [@robinmetral](https://github.com/robinmetral)! - Tweaked components (`Anchor`, `InlineMessage`, `SearchInput`, `Selector`, `Tag`) to use the new border radius values.
 
 * [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed a UI bug in the `Table` component where multiple words in a table header would wrap on mobile, and break row alignment.
-
-* Updated dependencies [[`900e6bc4`](https://github.com/sumup-oss/circuit-ui/commit/900e6bc465e4f909ab000403da3d17724f2ab73e), [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09), [`eb9e0b47`](https://github.com/sumup-oss/circuit-ui/commit/eb9e0b474e675f13c9876e22857a170665e9a92f), [`7879a990`](https://github.com/sumup-oss/circuit-ui/commit/7879a9901c06e389135e0d22697b97669c485949), [`900e6bc4`](https://github.com/sumup-oss/circuit-ui/commit/900e6bc465e4f909ab000403da3d17724f2ab73e)]:
-  - @sumup/icons@1.7.1
-  - @sumup/design-tokens@3.0.0
 
 ## 2.6.0
 
