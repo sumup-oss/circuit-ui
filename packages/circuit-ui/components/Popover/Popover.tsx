@@ -32,13 +32,13 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
 import { useTheme } from 'emotion-theming';
-import { uniqueId } from 'lodash';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
 import { useComponents } from '../ComponentsContext';
 import { useClickHandler } from '../../hooks/useClickHandler';
 import Hr from '../Hr';
+import { uniqueId } from '../../util/id';
 
 export interface BaseProps {
   /**
