@@ -119,7 +119,7 @@ export const spacing = (
 };
 
 /**
- * @private
+ * Adds a box-shadow to the element.
  */
 export const shadow = () => (_args: ThemeArgs): SerializedStyles => css`
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
@@ -200,7 +200,6 @@ export const hideVisually = (): SerializedStyles => css`
 /**
  * Visually communicates to the user that an element is focused.
  */
-
 export function focusOutline(
   options: 'inset',
 ): (args: ThemeArgs) => SerializedStyles;
@@ -335,6 +334,7 @@ export const inputOutline = (
 };
 
 /**
+ * @private
  * Visually communicates that the listItem (eg. Popover or Dropdown component) is hovered, active or focused.
  */
 export const listItem = (

@@ -154,11 +154,14 @@ export {
 export {
   cx,
   spacing,
+  shadow,
   disableVisually,
   hideVisually,
   focusOutline,
   clearfix,
   hideScrollbar,
+  inputOutline,
+  typography,
 } from './styles/style-mixins';
 
 export { sharedPropTypes };
