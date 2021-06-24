@@ -78,33 +78,38 @@ PopoverBase.args = {
   ],
 };
 
+// eslint-disable-next-line arrow-body-style
 export const PopoverInteractive = (args) => {
-  const [isOpen, setOpen] = useState(false);
-  const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
+  // const [isOpen, setOpen] = useState(false);
+  // const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
+  // const handleClick = () => {
+  //   setOpen((prev) => !prev);
+  // };
 
-  const onClose = () => {
-    setOpen(false);
-  };
+  // const onClose = () => {
+  //   setOpen(false);
+  // };
 
   return (
     <Fragment>
-      <IconButton
-        size="kilo"
-        onClick={handleClick}
-        label="IconButton"
-        ref={triggerRef}
-      >
-        <More />
-      </IconButton>
       <Popover
         {...args}
-        onClose={onClose}
-        isOpen={isOpen}
-        triggerRef={triggerRef}
+        // onClose={onClose}
+        // isOpen={isOpen}
+        // triggerRef={triggerRef}
+        id="custom-popoverid"
+        triggerid="custom-triggerid"
+        component={(props) => (
+          <IconButton
+            size="kilo"
+            // onClick={handleClick}
+            label="Open popover"
+            {...props}
+          >
+            <More />
+          </IconButton>
+        )}
       />
     </Fragment>
   );

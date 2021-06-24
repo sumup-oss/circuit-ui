@@ -24,14 +24,15 @@ import {
   KeyboardEvent,
   Fragment,
   useMemo,
-  RefObject,
   Ref,
+  useRef,
 } from 'react';
 import { useClickAway, useLatest } from 'react-use';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
 import { useTheme } from 'emotion-theming';
+import { uniqueId } from 'lodash';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
@@ -176,7 +177,7 @@ export interface PopoverProps {
   /**
    * Determine whether the Popover is opened or closed.
    */
-  isOpen: boolean;
+  // isOpen: boolean;
   /**
    * An array of PopoverItem or Divider.
    */
@@ -184,7 +185,7 @@ export interface PopoverProps {
   /**
    * The reference to the element that toggles the Popover.
    */
-  triggerRef: RefObject<HTMLElement>;
+  // triggerRef: Ref<HTMLElement>;
   /**
    * One of the accepted placement values. Defaults to bottom.
    */
@@ -197,19 +198,40 @@ export interface PopoverProps {
    * Function that is called when closing the Popover.
    */
   onClose: (event: Event) => void;
+  component: ({
+    onClick,
+    ref,
+    id,
+  }: {
+    onClick: () => void;
+    ref?: Ref<HTMLButtonElement & HTMLAnchorElement>;
+    id?: string;
+  }) => JSX.Element;
+  /**
+   * A unique identifier for the Popover element. If not defined, a generated id
+   * is used.
+   */
+  id?: string;
+  triggerid?: string;
 }
 
 export const Popover = ({
-  isOpen,
+  id: customId,
+  // isOpen,
   onClose,
   actions,
-  triggerRef,
+  // triggerRef,
   placement = 'bottom',
   fallbackPlacements = ['top', 'right', 'left'],
+  component: Component,
+  triggerid: customTriggerId,
   ...props
 }: PopoverProps): JSX.Element | null => {
   const theme: Theme = useTheme();
-
+  const id = customId || uniqueId('Popover_');
+  const triggerid = customTriggerId || uniqueId('Trigger_');
+  const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
+  const [isOpen, setOpen] = useState(false);
   // Popper custom modifier to apply bottom sheet for mobile.
   // The window.matchMedia() is a useful API for this, it allows you to change the styles based on a condition.
   // useMemo hook is used in order to prevent the render loop, more https://popper.js.org/react-popper/v2/faq/#why-i-get-render-loop-whenever-i-put-a-function-inside-the-popper-configuration
@@ -266,7 +288,8 @@ export const Popover = ({
     ) {
       return;
     }
-    onClose(event);
+    // onClose(event);
+    setOpen(false);
   });
 
   if (!isOpen) {
@@ -275,11 +298,20 @@ export const Popover = ({
 
   return (
     <Fragment>
+      <Component
+        ref={triggerRef}
+        id={triggerid}
+        aria-haspopup={true}
+        aria-controls={id}
+        onClick={() => setOpen(true)}
+      />
       <Overlay />
       <PopoverWrapper
+        id={id}
         {...props}
         ref={setPopperElement}
         style={styles.popper}
+        aria-labelledby={triggerid}
         {...attributes.popper}
       >
         {actions.map((action, index) =>
