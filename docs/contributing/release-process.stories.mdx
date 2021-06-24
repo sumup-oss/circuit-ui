@@ -29,3 +29,18 @@ To install the most recent version from a release channel in your project, run:
 ```sh
 yarn add @sumup/circuit-ui@<release-channel>
 ```
+
+### Prereleases
+
+Prereleases can be done for either the `next` or the `canary` release channels.
+
+To publish a prerelease version, check out on the branch for your release channel and run the changesets `pre enter` command:
+
+```bash
+git checkout next # or `canary`
+yarn changeset pre enter next # or `canary`
+```
+
+This will generate a `pre.json` file in the `.changeset` directory.
+
+Push it to the branch, then verify and merge the changesets `Version Packages` PR for your release channel. Changesets will publish the prerelease version in the CI.
