@@ -209,12 +209,12 @@ exports[`ImageInput styles should render a custom component 1`] = `
       accept="image/*"
       aria-invalid="false"
       class="circuit-0"
-      id="ImageInput_4"
+      id="image-input_4"
       type="file"
     />
     <label
       class="circuit-2"
-      for="ImageInput_4"
+      for="image-input_4"
     >
       <span
         class="circuit-1"
@@ -486,12 +486,12 @@ exports[`ImageInput styles should render with an existing image 1`] = `
       accept="image/*"
       aria-invalid="false"
       class="circuit-0"
-      id="ImageInput_2"
+      id="image-input_2"
       type="file"
     />
     <label
       class="circuit-3"
-      for="ImageInput_2"
+      for="image-input_2"
     >
       <span
         class="circuit-1"
@@ -764,12 +764,12 @@ exports[`ImageInput styles should render with default styles 1`] = `
       accept="image/*"
       aria-invalid="false"
       class="circuit-0"
-      id="ImageInput_1"
+      id="image-input_1"
       type="file"
     />
     <label
       class="circuit-3"
-      for="ImageInput_1"
+      for="image-input_1"
     >
       <span
         class="circuit-1"
@@ -1086,12 +1086,12 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
       accept="image/*"
       aria-invalid="true"
       class="circuit-0"
-      id="ImageInput_3"
+      id="image-input_3"
       type="file"
     />
     <label
       class="circuit-3"
-      for="ImageInput_3"
+      for="image-input_3"
     >
       <span
         class="circuit-1"

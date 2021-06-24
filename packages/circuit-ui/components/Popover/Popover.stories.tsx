@@ -13,22 +13,16 @@
  * limitations under the License.
  */
 
-import { useState, useRef, Fragment } from 'react';
+/* eslint-disable react/display-name */
+
+import { forwardRef, Ref } from 'react';
 import { action } from '@storybook/addon-actions';
-import {
-  More,
-  ThumbUp,
-  Zap,
-  CirclePlus,
-  PenStroke,
-  Share,
-  Bin,
-} from '@sumup/icons';
+import { More, CirclePlus, PenStroke, Bin } from '@sumup/icons';
 
 import Button from '../Button';
 import IconButton from '../IconButton';
 
-import { Popover, PopoverItem } from './Popover';
+import { Popover, PopoverProps } from './Popover';
 import docs from './Popover.docs.mdx';
 
 export default {
@@ -41,115 +35,57 @@ export default {
     children: { control: 'text' },
   },
 };
-export const PopoverBase = (args) => {
-  const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 
-  return (
-    <Fragment>
-      <Button size="kilo" variant="primary" ref={triggerRef} icon={ThumbUp}>
-        Button
-      </Button>
-      <Popover {...args} isOpen={true} triggerRef={triggerRef} />
-    </Fragment>
-  );
+const actions = [
+  {
+    onClick: action('Button Click'),
+    children: 'Add',
+    icon: CirclePlus,
+  },
+  {
+    onClick: action('Button Click'),
+    children: 'Edit',
+    icon: PenStroke,
+  },
+  { type: 'divider' },
+  {
+    onClick: action('Button Click'),
+    children: 'Delete',
+    icon: Bin,
+    destructive: true,
+  },
+];
+
+export const Base = (args: PopoverProps): JSX.Element => (
+  <Popover
+    {...args}
+    component={forwardRef<HTMLElement>((props, ref) => {
+      const buttonRef = ref as Ref<HTMLButtonElement & HTMLAnchorElement>;
+      return (
+        <Button size="kilo" variant="primary" ref={buttonRef} {...props}>
+          Open popover
+        </Button>
+      );
+    })}
+  />
+);
+
+Base.args = {
+  actions,
 };
 
-PopoverBase.args = {
-  actions: [
-    {
-      onClick: action('Button Click'),
-      href: '',
-      children: 'Label',
-      icon: Zap,
-    },
-    {
-      onClick: action('Button Click'),
-      href: 'https://sumup.com/',
-      children: 'Label',
-      icon: Zap,
-    },
-    { type: 'divider' },
-    {
-      onClick: action('Button Click'),
-      children: 'Label',
-      icon: Zap,
-      destructive: true,
-    },
-  ],
-};
+export const WithIcon = (args: PopoverProps): JSX.Element => (
+  <Popover
+    {...args}
+    component={forwardRef<HTMLElement>((props, ref) => {
+      const buttonRef = ref as Ref<HTMLButtonElement & HTMLAnchorElement>;
+      return (
+        <IconButton size="kilo" label="Open popover" ref={buttonRef} {...props}>
+          <More />
+        </IconButton>
+      );
+    })}
+  />
+);
 
-// eslint-disable-next-line arrow-body-style
-export const PopoverInteractive = (args) => {
-  // const [isOpen, setOpen] = useState(false);
-  // const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
-
-  // const handleClick = () => {
-  //   setOpen((prev) => !prev);
-  // };
-
-  // const onClose = () => {
-  //   setOpen(false);
-  // };
-
-  return (
-    <Fragment>
-      <Popover
-        {...args}
-        // onClose={onClose}
-        // isOpen={isOpen}
-        // triggerRef={triggerRef}
-        id="custom-popoverid"
-        triggerid="custom-triggerid"
-        component={(props) => (
-          <IconButton
-            size="kilo"
-            // onClick={handleClick}
-            label="Open popover"
-            {...props}
-          >
-            <More />
-          </IconButton>
-        )}
-      />
-    </Fragment>
-  );
-};
-
-PopoverInteractive.args = {
-  actions: [
-    {
-      onClick: action('Button Click'),
-      href: '',
-      children: 'Add',
-      icon: CirclePlus,
-    },
-    {
-      onClick: action('Button Click'),
-      href: 'https://sumup.com/',
-      children: 'Edit',
-      icon: PenStroke,
-    },
-    {
-      onClick: action('Button Click'),
-      href: 'https://sumup.com/',
-      children: 'Upload',
-      icon: Share,
-    },
-    { type: 'divider' },
-    {
-      onClick: action('Button Click'),
-      children: 'Delete',
-      icon: Bin,
-      destructive: true,
-    },
-  ],
-};
-
-export const PopoverItemBase = (args) => <PopoverItem {...args} />;
-
-PopoverItemBase.args = {
-  onClick: action('Button Click'),
-  href: 'https://sumup.com/',
-  children: 'Label',
-  icon: Zap,
-};
+WithIcon.args = { actions };

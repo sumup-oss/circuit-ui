@@ -175,17 +175,9 @@ function isDivider(action: Action): action is Divider {
 
 export interface PopoverProps {
   /**
-   * Determine whether the Popover is opened or closed.
-   */
-  // isOpen: boolean;
-  /**
    * An array of PopoverItem or Divider.
    */
   actions: Action[];
-  /**
-   * The reference to the element that toggles the Popover.
-   */
-  // triggerRef: Ref<HTMLElement>;
   /**
    * One of the accepted placement values. Defaults to bottom.
    */
@@ -195,43 +187,32 @@ export interface PopoverProps {
    */
   fallbackPlacements?: Placement[];
   /**
-   * Function that is called when closing the Popover.
+   * The element that toggles the Popover when clicked.
    */
-  onClose: (event: Event) => void;
   component: ({
     onClick,
     ref,
     id,
   }: {
-    onClick: () => void;
-    ref?: Ref<HTMLButtonElement & HTMLAnchorElement>;
-    id?: string;
+    onClick: (event: MouseEvent | KeyboardEvent) => void;
+    ref: Ref<HTMLElement>;
+    id: string;
   }) => JSX.Element;
-  /**
-   * A unique identifier for the Popover element. If not defined, a generated id
-   * is used.
-   */
-  id?: string;
-  triggerid?: string;
 }
 
 export const Popover = ({
-  id: customId,
-  // isOpen,
-  onClose,
   actions,
-  // triggerRef,
   placement = 'bottom',
   fallbackPlacements = ['top', 'right', 'left'],
   component: Component,
-  triggerid: customTriggerId,
   ...props
 }: PopoverProps): JSX.Element | null => {
-  const theme: Theme = useTheme();
-  const id = customId || uniqueId('Popover_');
-  const triggerid = customTriggerId || uniqueId('Trigger_');
-  const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
   const [isOpen, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLElement>(null);
+  const theme: Theme = useTheme();
+  const id = uniqueId('popover_');
+  const triggerid = uniqueId('trigger_');
+
   // Popper custom modifier to apply bottom sheet for mobile.
   // The window.matchMedia() is a useful API for this, it allows you to change the styles based on a condition.
   // useMemo hook is used in order to prevent the render loop, more https://popper.js.org/react-popper/v2/faq/#why-i-get-render-loop-whenever-i-put-a-function-inside-the-popper-configuration
@@ -288,13 +269,8 @@ export const Popover = ({
     ) {
       return;
     }
-    // onClose(event);
     setOpen(false);
   });
-
-  if (!isOpen) {
-    return null;
-  }
 
   return (
     <Fragment>
@@ -303,25 +279,29 @@ export const Popover = ({
         id={triggerid}
         aria-haspopup={true}
         aria-controls={id}
-        onClick={() => setOpen(true)}
+        onClick={() => setOpen((prev) => !prev)}
       />
-      <Overlay />
-      <PopoverWrapper
-        id={id}
-        {...props}
-        ref={setPopperElement}
-        style={styles.popper}
-        aria-labelledby={triggerid}
-        {...attributes.popper}
-      >
-        {actions.map((action, index) =>
-          isDivider(action) ? (
-            <Hr css={dividerStyles} key={index} />
-          ) : (
-            <PopoverItem key={index} {...action} />
-          ),
-        )}
-      </PopoverWrapper>
+      {isOpen && (
+        <Fragment>
+          <Overlay />
+          <PopoverWrapper
+            id={id}
+            {...props}
+            ref={setPopperElement}
+            style={styles.popper}
+            aria-labelledby={triggerid}
+            {...attributes.popper}
+          >
+            {actions.map((action, index) =>
+              isDivider(action) ? (
+                <Hr css={dividerStyles} key={index} />
+              ) : (
+                <PopoverItem key={index} {...action} />
+              ),
+            )}
+          </PopoverWrapper>
+        </Fragment>
+      )}
     </Fragment>
   );
 };
