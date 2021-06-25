@@ -77,12 +77,50 @@ function removeFactory(
   });
 }
 
+function warnFactory(
+  j: JSCodeshift,
+  root: Collection,
+  filePath: string,
+  componentName: string,
+  propName: string,
+): void {
+  const components = findLocalNames(j, root, componentName);
+
+  if (!components) {
+    return;
+  }
+
+  components.forEach((component) => {
+    const jsxElement = root.findJSXElements(component);
+    ['Literal', 'StringLiteral'].forEach((type) => {
+      const element = jsxElement.find(j.JSXAttribute, {
+        name: {
+          type: 'JSXIdentifier',
+          name: 'size',
+        },
+        value: {
+          type,
+          value: propName,
+        },
+      });
+      if (element) {
+        console.error(
+          [
+            `Cannot migrate the ${componentName} "${propName}" size automatically,`,
+            `please refer to the migration guide to migrate manually.\n  in ${filePath}`,
+          ].join(' '),
+        );
+      }
+    });
+  });
+}
+
 const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
+  const filePath = file.path;
 
   renameFactory(j, root, 'Headline', {
-    zetta: 'one',
     exa: 'one',
     peta: 'one',
     tera: 'two',
@@ -91,7 +129,6 @@ const transform: Transform = (file, api) => {
     kilo: 'four',
   });
   renameFactory(j, root, 'Heading', {
-    zetta: 'one',
     exa: 'one',
     peta: 'one',
     tera: 'two',
@@ -104,25 +141,28 @@ const transform: Transform = (file, api) => {
   removeFactory(j, root, 'SubHeading');
 
   renameFactory(j, root, 'Body', {
-    giga: 'one',
     mega: 'one',
     kilo: 'two',
   });
   renameFactory(j, root, 'Text', {
-    giga: 'one',
     mega: 'one',
     kilo: 'two',
   });
   renameFactory(j, root, 'List', {
-    giga: 'one',
     mega: 'one',
     kilo: 'two',
   });
   renameFactory(j, root, 'Anchor', {
-    giga: 'one',
     mega: 'one',
     kilo: 'two',
   });
+
+  warnFactory(j, root, filePath, 'Headline', 'zetta');
+  warnFactory(j, root, filePath, 'Heading', 'zetta');
+  warnFactory(j, root, filePath, 'Body', 'giga');
+  warnFactory(j, root, filePath, 'Text', 'giga');
+  warnFactory(j, root, filePath, 'List', 'giga');
+  warnFactory(j, root, filePath, 'Anchor', 'giga');
 
   return root.toSource();
 };
