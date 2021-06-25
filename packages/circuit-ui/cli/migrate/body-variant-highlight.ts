@@ -66,6 +66,7 @@ const transform: Transform = (file, api) => {
 
   transformFactory(j, root, filePath, 'Body');
   transformFactory(j, root, filePath, 'Text');
+  transformFactory(j, root, filePath, 'Anchor');
 
   return root.toSource();
 };
