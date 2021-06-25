@@ -38,11 +38,12 @@
   - `Tag`: `labelRemoveButton` 👉 `removeButtonLabel`
   - `Toggle`: `labelChecked` 👉 `checkedLabel`, `labelUnchecked` 👉 `uncheckedLabel`
 
-- [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - A `sortLabel` for sortable Table columns (previously optional) is now required.
+* [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Enforced accessible labels in several components. This is an accessibility requirement. If the labels are not provided, the interaction will be disabled.
 
-* [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Enforced accessible labels in several components: the `CardHeader` requires a `labelCloseButton` when it is dismissible, the `SearchInput` requires a `clearLabel` when it is clearable.
-
-- [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - For sortable `Table` columns (when headers have the `sortable` prop), the previously optional `sortLabel` prop is now enforced. This is an accessibility requirement. If a `sortLabel` is not provided, the column will not be sortable.
+  - A `SearchInput` requires a `clearLabel` when it is clearable
+  - A `Tag` requires a `removeButtonLabel` when it is removable
+  - A `CardHeader` requires a `labelCloseButton` when it is dismissible
+  - A `Table` header requires a `sortLabel` when its column is sortable
 
 * [#884](https://github.com/sumup-oss/circuit-ui/pull/884) [`eb9e0b47`](https://github.com/sumup-oss/circuit-ui/commit/eb9e0b474e675f13c9876e22857a170665e9a92f) Thanks [@amelako](https://github.com/amelako)! - The new semantic typography components make it clear when each should be used, are flexible enough to cover all use cases. To represent more semantic variations some of the sizes have been removed and new size names added.
 
