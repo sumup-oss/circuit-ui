@@ -16,21 +16,10 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 
-import {
-  render,
-  renderHook,
-  act,
-  actHook,
-  userEvent,
-  fireEvent,
-} from '../../util/test-utils';
+import { render, act, userEvent, fireEvent } from '../../util/test-utils';
 
-import {
-  ModalProvider,
-  createUseModal,
-  ModalContext,
-  ModalComponent,
-} from './ModalContext';
+import { ModalProvider } from './ModalContext';
+import type { ModalComponent } from './types';
 
 const Modal: ModalComponent = ({ onClose }) => (
   <div role="dialog">
@@ -94,65 +83,6 @@ describe('ModalContext', () => {
 
       expect(queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe('createUseModal', () => {
-    const useModal = createUseModal(Modal);
-
-    const onClose = jest.fn();
-    const dispatch = jest.fn();
-    const state = [1, 2, 3, 4].map((id) => ({
-      id: id.toString(),
-      component: Modal,
-      onClose,
-    }));
-    const wrapper = ({ children }) => (
-      <ModalContext.Provider value={[state, dispatch]}>
-        {children}
-      </ModalContext.Provider>
-    );
-
-    it('should dispatch an action when setModal is called', () => {
-      const { result } = renderHook(() => useModal(), { wrapper });
-
-      actHook(() => {
-        result.current.setModal({});
-      });
-
-      const expected = expect.objectContaining({
-        type: 'push',
-        item: expect.objectContaining({
-          component: expect.any(Function),
-          id: expect.any(String),
-        }),
-      });
-      expect(dispatch).toHaveBeenCalledWith(expected);
-    });
-
-    it('should call the onClose callback when removeModal is called', () => {
-      const { result } = renderHook(() => useModal(), { wrapper });
-
-      actHook(() => {
-        result.current.removeModal();
-      });
-
-      expect(onClose).toHaveBeenCalledTimes(1);
-    });
-
-    it('should dispatch an action when removeModal is called', () => {
-      const { result } = renderHook(() => useModal(), { wrapper });
-
-      actHook(() => {
-        result.current.removeModal();
-      });
-
-      const expected = expect.objectContaining({
-        type: 'remove',
-        id: expect.any(String),
-        timeout: 200,
-      });
-      expect(dispatch).toHaveBeenCalledWith(expected);
     });
   });
 });
