@@ -15,11 +15,14 @@
 
 /* eslint-disable react/display-name */
 import React from 'react';
+import * as Collector from '@sumup/collector';
 
 import { render, act, userEvent, fireEvent } from '../../util/test-utils';
 
 import { ModalProvider } from './ModalContext';
 import type { ModalComponent } from './types';
+
+jest.mock('@sumup/collector');
 
 const Modal: ModalComponent = ({ onClose }) => (
   <div role="dialog">
@@ -34,14 +37,27 @@ describe('ModalContext', () => {
   });
   afterAll(() => {
     jest.useRealTimers();
+    jest.resetModules();
   });
-  beforeEach(() => {
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
   describe('ModalProvider', () => {
+    const dispatch = jest.fn();
+    // @ts-expect-error TypeScript doesn't allow assigning to the read-only
+    // useClickTrigger
+    Collector.useClickTrigger = jest.fn(() => dispatch);
+
     const onClose = jest.fn();
-    const initialState = [{ id: 'initial', component: Modal, onClose }];
+    const initialState = [
+      {
+        id: 'initial',
+        component: Modal,
+        onClose,
+        tracking: { label: 'test-modal' },
+      },
+    ];
 
     it('should render the open modals', () => {
       const { getByRole } = render(
@@ -67,6 +83,7 @@ describe('ModalContext', () => {
 
       expect(queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it('should close the modal when the onClose method is called', () => {
@@ -83,6 +100,7 @@ describe('ModalContext', () => {
 
       expect(queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
   });
 });

@@ -32,20 +32,16 @@ Modal.TIMEOUT = 200;
 describe('createUseModal', () => {
   const useModal = createUseModal(Modal);
 
-  const onClose = jest.fn();
-  const dispatch = jest.fn();
-  const state = [1, 2, 3, 4].map((id) => ({
-    id: id.toString(),
-    component: Modal,
-    onClose,
-  }));
+  const setModal = jest.fn();
+  const removeModal = jest.fn();
+
   const wrapper = ({ children }) => (
-    <ModalContext.Provider value={[state, dispatch]}>
+    <ModalContext.Provider value={{ setModal, removeModal }}>
       {children}
     </ModalContext.Provider>
   );
 
-  it('should dispatch an action when setModal is called', () => {
+  it('should add the modal when setModal is called', () => {
     const { result } = renderHook(() => useModal(), { wrapper });
 
     actHook(() => {
@@ -53,38 +49,20 @@ describe('createUseModal', () => {
     });
 
     const expected = expect.objectContaining({
-      type: 'push',
-      item: expect.objectContaining({
-        component: expect.any(Function),
-
-        id: expect.any(String),
-      }),
-    });
-    expect(dispatch).toHaveBeenCalledWith(expected);
-  });
-
-  it('should call the onClose callback when removeModal is called', () => {
-    const { result } = renderHook(() => useModal(), { wrapper });
-
-    actHook(() => {
-      result.current.removeModal();
-    });
-
-    expect(onClose).toHaveBeenCalledTimes(1);
-  });
-
-  it('should dispatch an action when removeModal is called', () => {
-    const { result } = renderHook(() => useModal(), { wrapper });
-
-    actHook(() => {
-      result.current.removeModal();
-    });
-
-    const expected = expect.objectContaining({
-      type: 'remove',
+      component: expect.any(Function),
       id: expect.any(String),
-      timeout: 200,
     });
-    expect(dispatch).toHaveBeenCalledWith(expected);
+    expect(setModal).toHaveBeenCalledWith(expected);
+  });
+
+  it('should remove the modal when removeModal is called', () => {
+    const { result } = renderHook(() => useModal(), { wrapper });
+
+    actHook(() => {
+      result.current.removeModal();
+    });
+
+    const expected = expect.any(String);
+    expect(removeModal).toHaveBeenCalledWith(expected);
   });
 });

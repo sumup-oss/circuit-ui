@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useContext, useMemo, useCallback, useDebugValue } from 'react';
+import { useContext, useMemo, useCallback } from 'react';
 
 import { uniqueId } from '../../util/id';
 
@@ -28,28 +28,18 @@ export function createUseModal<T extends BaseModalProps>(
     removeModal: () => void;
   } => {
     const id = useMemo(uniqueId, []);
-    const [modals, dispatch] = useContext(ModalContext);
-
-    const modal = useMemo<T | undefined>(
-      () => modals.find((m) => m.id === id),
-      [id, modals],
-    );
-
-    useDebugValue(modal);
+    const context = useContext(ModalContext);
 
     const setModal = useCallback(
       (props: Omit<T, 'isOpen'>): void => {
-        dispatch({ type: 'push', item: { ...props, id, component } });
+        context.setModal({ ...props, id, component });
       },
-      [dispatch, id],
+      [context, id],
     );
 
     const removeModal = useCallback((): void => {
-      if (modal && modal.onClose) {
-        modal.onClose();
-      }
-      dispatch({ type: 'remove', id, timeout: component.TIMEOUT });
-    }, [dispatch, id, modal]);
+      context.removeModal(id);
+    }, [context, id]);
 
     return { setModal, removeModal };
   };
