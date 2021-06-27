@@ -20,6 +20,7 @@ import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components';
 import Button from '../Button';
+import Headline from '../Headline';
 import Body from '../Body';
 import Image from '../Image';
 import { ModalProvider } from '../ModalContext';
@@ -56,7 +57,11 @@ export const Base = (modal: ModalProps): JSX.Element => {
 };
 
 Base.args = {
-  children: 'Hello World!',
+  children: (
+    <Headline as="h2" size="three">
+      Hello World!
+    </Headline>
+  ),
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
@@ -82,7 +87,11 @@ export const Variants = (modal: ModalProps): JSX.Element => {
 };
 
 Variants.args = {
-  children: 'Hello World!',
+  children: (
+    <Headline as="h2" size="three">
+      Hello World!
+    </Headline>
+  ),
   closeButtonLabel: 'Close modal',
 };
 
@@ -106,6 +115,9 @@ export const PreventClose = (modal: ModalProps): JSX.Element => {
 PreventClose.args = {
   children: ({ onClose }: { onClose: ModalProps['onClose'] }) => (
     <Fragment>
+      <Headline as="h2" size="three">
+        Complete the action
+      </Headline>
       <Body>
         Users have to complete the action inside the modal to close it. The
         close button is hidden and clicking outside the modal or pressing the
@@ -166,6 +178,9 @@ CustomStyles.args = {
   children: (
     <Fragment>
       <Image src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900" alt="" />
+      <Headline as="h2" size="three">
+        Custom styles
+      </Headline>
       <Body css={spacing('mega')}>
         Custom styles can be applied using the <code>css</code> prop.
       </Body>
