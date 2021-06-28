@@ -8,5 +8,11 @@
     "@sumup/design-tokens": "3.0.0",
     "@sumup/icons": "1.7.1"
   },
-  "changesets": []
+  "changesets": [
+    "blue-hounds-notice",
+    "friendly-birds-fail",
+    "gentle-olives-listen",
+    "nice-kids-punch",
+    "wise-yaks-try"
+  ]
 }
