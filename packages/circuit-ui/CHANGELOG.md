@@ -1,5 +1,26 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.1
+
+### Major Changes
+
+- [#1000](https://github.com/sumup-oss/circuit-ui/pull/1000) [`8f181a6c`](https://github.com/sumup-oss/circuit-ui/commit/8f181a6cd08c113017f2afbf2e58f5e8cf08836f) Thanks [@robinmetral](https://github.com/robinmetral)! - Improved keyboard and accessibility support.
+
+  - Now the Popover can be closed using Escape key.
+  - The trigger component now accepts the `aria-haspopup` and `aria-controls` props.
+
+* [#1000](https://github.com/sumup-oss/circuit-ui/pull/1000) [`8f181a6c`](https://github.com/sumup-oss/circuit-ui/commit/8f181a6cd08c113017f2afbf2e58f5e8cf08836f) Thanks [@robinmetral](https://github.com/robinmetral)! - Extended the Popover list item state with disabled variant.
+
+### Minor Changes
+
+- [#997](https://github.com/sumup-oss/circuit-ui/pull/997) [`4e6bbfea`](https://github.com/sumup-oss/circuit-ui/commit/4e6bbfeaccacfdf558488cfd20151ea25b23560d) Thanks [@robinmetral](https://github.com/robinmetral)! - Exported the missing style mixins from Circuit.
+
+* [#998](https://github.com/sumup-oss/circuit-ui/pull/998) [`43b1403a`](https://github.com/sumup-oss/circuit-ui/commit/43b1403ad07f149c8f2daf0cb147a911419be968) Thanks [@robinmetral](https://github.com/robinmetral)! - Extended the typography-sizes codemod to transform the Anchor component and warn of any necessary manual migration.
+
+### Patch Changes
+
+- [#1007](https://github.com/sumup-oss/circuit-ui/pull/1007) [`efe0210e`](https://github.com/sumup-oss/circuit-ui/commit/efe0210e0c0b076f942a2aae83858f7dba4714e3) Thanks [@connor-baer](https://github.com/connor-baer)! - Refactored the modal components to consistently dispatch tracking events.
+
 ## 3.0.0
 
 ### Major Changes
