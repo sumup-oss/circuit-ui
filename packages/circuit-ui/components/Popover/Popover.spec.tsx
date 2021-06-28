@@ -25,6 +25,7 @@ import {
   render,
   userEvent,
   waitFor,
+  fireEvent,
 } from '../../util/test-utils';
 
 import {
@@ -169,6 +170,26 @@ describe('Popover', () => {
       });
 
       userEvent.click(popoverTrigger);
+
+      await waitFor(() => {
+        expect(queryByRole('menu')).toBeNull();
+      });
+    });
+
+    it('should close popover when clicking the ESC key', async () => {
+      const { getByRole, queryByRole } = renderPopover(baseProps);
+
+      const popoverTrigger = getByRole('button');
+
+      userEvent.click(popoverTrigger);
+
+      await waitFor(() => {
+        expect(queryByRole('menu')).toBeVisible();
+      });
+
+      fireEvent.keyDown(queryByRole('menu'), {
+        key: 'Escape',
+      });
 
       await waitFor(() => {
         expect(queryByRole('menu')).toBeNull();
