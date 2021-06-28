@@ -25,8 +25,14 @@ export const isSpacebar = (event) =>
 export const isArrowLeft = (event) =>
   'key' in event ? event.key === 'ArrowLeft' : event.keyCode === 37;
 
+export const isArrowUp = (event) =>
+  'key' in event ? event.key === 'ArrowUp' : event.keyCode === 38;
+
 export const isArrowRight = (event) =>
   'key' in event ? event.key === 'ArrowRight' : event.keyCode === 39;
 
 export const isArrowDown = (event) =>
   'key' in event ? event.key === 'ArrowDown' : event.keyCode === 40;
+
+export const isEscape = (event) =>
+  'key' in event ? event.key === 'Escape' : event.keyCode === 27;

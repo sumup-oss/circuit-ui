@@ -235,7 +235,7 @@ export const ImageInput = ({
   ...props
 }: ImageInputProps): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const id = customId || uniqueId('ImageInput_');
+  const id = customId || uniqueId('image-input_');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');
 

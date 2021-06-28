@@ -44,7 +44,7 @@ export interface BaseProps extends BodyProps {
   /**
    * The ref to the html dom element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
    */
-  ref?: Ref<HTMLButtonElement & HTMLAnchorElement>;
+  ref?: Ref<any>;
 }
 type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'onClick'>;
 type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'onClick'>;

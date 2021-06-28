@@ -24,8 +24,9 @@ import {
   KeyboardEvent,
   Fragment,
   useMemo,
-  RefObject,
   Ref,
+  useRef,
+  useEffect,
 } from 'react';
 import { useClickAway, useLatest } from 'react-use';
 import { Dispatch as TrackingProps } from '@sumup/collector';
@@ -35,9 +36,11 @@ import { useTheme } from 'emotion-theming';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
+import { isEscape } from '../../util/key-codes';
 import { useComponents } from '../ComponentsContext';
 import { useClickHandler } from '../../hooks/useClickHandler';
 import Hr from '../Hr';
+import { uniqueId } from '../../util/id';
 
 export interface BaseProps {
   /**
@@ -58,13 +61,17 @@ export interface BaseProps {
    */
   destructive?: boolean;
   /**
+   * Disabled variant. Visually and functionally disable the button.
+   */
+  disabled?: boolean;
+  /**
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
   /**
    * The ref to the HTML DOM element, can be a button or an anchor.
    */
-  ref?: Ref<HTMLButtonElement & HTMLAnchorElement>;
+  ref?: Ref<any>;
 }
 
 type LinkElProps = Omit<
@@ -122,6 +129,7 @@ export const PopoverItem = ({
     <PopoverItemWrapper
       as={props.href ? Link : 'button'}
       onClick={handleClick}
+      role="menuitem"
       {...props}
     >
       {Icon && <Icon css={iconStyles} />}
@@ -174,17 +182,9 @@ function isDivider(action: Action): action is Divider {
 
 export interface PopoverProps {
   /**
-   * Determine whether the Popover is opened or closed.
-   */
-  isOpen: boolean;
-  /**
    * An array of PopoverItem or Divider.
    */
   actions: Action[];
-  /**
-   * The reference to the element that toggles the Popover.
-   */
-  triggerRef: RefObject<HTMLElement>;
   /**
    * One of the accepted placement values. Defaults to bottom.
    */
@@ -194,21 +194,29 @@ export interface PopoverProps {
    */
   fallbackPlacements?: Placement[];
   /**
-   * Function that is called when closing the Popover.
+   * The element that toggles the Popover when clicked.
    */
-  onClose: (event: Event) => void;
+  component: (props: {
+    'onClick': (event: MouseEvent | KeyboardEvent) => void;
+    'ref': Ref<HTMLButtonElement>;
+    'id': string;
+    'aria-haspopup': boolean;
+    'aria-controls': string;
+  }) => JSX.Element;
 }
 
 export const Popover = ({
-  isOpen,
-  onClose,
   actions,
-  triggerRef,
   placement = 'bottom',
   fallbackPlacements = ['top', 'right', 'left'],
+  component: Component,
   ...props
 }: PopoverProps): JSX.Element | null => {
-  const theme: Theme = useTheme();
+  const [isOpen, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const theme = useTheme<Theme>();
+  const id = uniqueId('popover_');
+  const triggerId = uniqueId('trigger_');
 
   // Popper custom modifier to apply bottom sheet for mobile.
   // The window.matchMedia() is a useful API for this, it allows you to change the styles based on a condition.
@@ -258,6 +266,22 @@ export const Popover = ({
   // re-attached on every render.
   const popperRef = useLatest(popperElement);
 
+  useEffect(() => {
+    if (!isOpen) {
+      return undefined;
+    }
+    const handleEscapePress = (event: Event) => {
+      if (isEscape(event)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscapePress);
+    return () => {
+      document.removeEventListener('keydown', handleEscapePress);
+    };
+  }, [isOpen]);
+
   useClickAway(popperRef, (event) => {
     // The reference element has its own click handler to toggle the popover.
     if (
@@ -266,30 +290,40 @@ export const Popover = ({
     ) {
       return;
     }
-    onClose(event);
+    setOpen(false);
   });
-
-  if (!isOpen) {
-    return null;
-  }
 
   return (
     <Fragment>
-      <Overlay />
-      <PopoverWrapper
-        {...props}
-        ref={setPopperElement}
-        style={styles.popper}
-        {...attributes.popper}
-      >
-        {actions.map((action, index) =>
-          isDivider(action) ? (
-            <Hr css={dividerStyles} key={index} />
-          ) : (
-            <PopoverItem key={index} {...action} />
-          ),
-        )}
-      </PopoverWrapper>
+      <Component
+        ref={triggerRef}
+        id={triggerId}
+        aria-haspopup={true}
+        aria-controls={id}
+        onClick={() => setOpen((prev) => !prev)}
+      />
+      {isOpen && (
+        <Fragment>
+          <Overlay />
+          <PopoverWrapper
+            id={id}
+            {...props}
+            ref={setPopperElement}
+            style={styles.popper}
+            aria-labelledby={triggerId}
+            role="menu"
+            {...attributes.popper}
+          >
+            {actions.map((action, index) =>
+              isDivider(action) ? (
+                <Hr css={dividerStyles} key={index} />
+              ) : (
+                <PopoverItem key={index} {...action} />
+              ),
+            )}
+          </PopoverWrapper>
+        </Fragment>
+      )}
     </Fragment>
   );
 };

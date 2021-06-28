@@ -116,7 +116,7 @@ describe('Button', () => {
      * Should accept a working ref for button
      */
     it('should accept a working ref for a button', () => {
-      const tref = createRef<HTMLButtonElement & HTMLAnchorElement>();
+      const tref = createRef<any>();
       const { container } = render(
         <Button ref={tref}>This is a button</Button>,
       );
@@ -128,7 +128,7 @@ describe('Button', () => {
      * Should accept a working ref for link
      */
     it('should accept a working ref for a link', () => {
-      const tref = createRef<HTMLButtonElement & HTMLAnchorElement>();
+      const tref = createRef<any>();
       const { container } = render(
         <Button href="http://sumup.com" ref={tref}>
           Link button

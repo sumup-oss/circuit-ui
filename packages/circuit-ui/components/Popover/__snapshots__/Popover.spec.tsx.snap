@@ -1,26 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Popover styles should render popover on auto 1`] = `
-HTMLCollection [
-  <button>
-    Button
-  </button>,
-  @media (max-width:479px) {
-  .circuit-0 {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
-  }
-}
-
-<div
-    class="circuit-0"
-  />,
-  .circuit-1 {
+.circuit-2 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -45,30 +26,48 @@ HTMLCollection [
   line-height: 24px;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
   z-index: 1;
 }
 
-.circuit-1:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-0 {
+.circuit-2:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
   margin-right: 8px;
 }
 
-.circuit-2 {
+@media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+.circuit-4 {
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
@@ -78,21 +77,46 @@ HTMLCollection [
 }
 
 @media (max-width:479px) {
-  .circuit-2 {
+  .circuit-4 {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 }
 
-<div
-    class="circuit-2"
+.circuit-3 {
+  display: block;
+  width: 100%;
+  border: 1px solid #CCC;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin: 8px 16px;
+  width: calc(100% - 16px*2);
+}
+
+<div>
+  <button
+    aria-controls="popover_13"
+    aria-haspopup="true"
+    id="trigger_14"
+  >
+    Button
+  </button>
+  <div
+    class="circuit-0"
+  />
+  <div
+    aria-labelledby="trigger_14"
+    class="circuit-4"
+    id="popover_13"
+    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <button
-      class="circuit-1"
+      class="circuit-2"
+      role="menuitem"
     >
       <svg
-        class="circuit-0"
+        class="circuit-1"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -110,31 +134,15 @@ HTMLCollection [
       </svg>
       Add
     </button>
-  </div>,
-]
+    <hr
+      class="circuit-3"
+    />
+  </div>
+</div>
 `;
 
 exports[`Popover styles should render popover on bottom 1`] = `
-HTMLCollection [
-  <button>
-    Button
-  </button>,
-  @media (max-width:479px) {
-  .circuit-0 {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
-  }
-}
-
-<div
-    class="circuit-0"
-  />,
-  .circuit-1 {
+.circuit-2 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -159,30 +167,48 @@ HTMLCollection [
   line-height: 24px;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
   z-index: 1;
 }
 
-.circuit-1:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-0 {
+.circuit-2:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
   margin-right: 8px;
 }
 
-.circuit-2 {
+@media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+.circuit-4 {
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
@@ -192,21 +218,46 @@ HTMLCollection [
 }
 
 @media (max-width:479px) {
-  .circuit-2 {
+  .circuit-4 {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 }
 
-<div
-    class="circuit-2"
+.circuit-3 {
+  display: block;
+  width: 100%;
+  border: 1px solid #CCC;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin: 8px 16px;
+  width: calc(100% - 16px*2);
+}
+
+<div>
+  <button
+    aria-controls="popover_29"
+    aria-haspopup="true"
+    id="trigger_30"
+  >
+    Button
+  </button>
+  <div
+    class="circuit-0"
+  />
+  <div
+    aria-labelledby="trigger_30"
+    class="circuit-4"
+    id="popover_29"
+    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <button
-      class="circuit-1"
+      class="circuit-2"
+      role="menuitem"
     >
       <svg
-        class="circuit-0"
+        class="circuit-1"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -224,31 +275,15 @@ HTMLCollection [
       </svg>
       Add
     </button>
-  </div>,
-]
+    <hr
+      class="circuit-3"
+    />
+  </div>
+</div>
 `;
 
 exports[`Popover styles should render popover on left 1`] = `
-HTMLCollection [
-  <button>
-    Button
-  </button>,
-  @media (max-width:479px) {
-  .circuit-0 {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
-  }
-}
-
-<div
-    class="circuit-0"
-  />,
-  .circuit-1 {
+.circuit-2 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -273,30 +308,48 @@ HTMLCollection [
   line-height: 24px;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
   z-index: 1;
 }
 
-.circuit-1:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-0 {
+.circuit-2:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
   margin-right: 8px;
 }
 
-.circuit-2 {
+@media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+.circuit-4 {
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
@@ -306,21 +359,46 @@ HTMLCollection [
 }
 
 @media (max-width:479px) {
-  .circuit-2 {
+  .circuit-4 {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 }
 
-<div
-    class="circuit-2"
+.circuit-3 {
+  display: block;
+  width: 100%;
+  border: 1px solid #CCC;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin: 8px 16px;
+  width: calc(100% - 16px*2);
+}
+
+<div>
+  <button
+    aria-controls="popover_37"
+    aria-haspopup="true"
+    id="trigger_38"
+  >
+    Button
+  </button>
+  <div
+    class="circuit-0"
+  />
+  <div
+    aria-labelledby="trigger_38"
+    class="circuit-4"
+    id="popover_37"
+    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <button
-      class="circuit-1"
+      class="circuit-2"
+      role="menuitem"
     >
       <svg
-        class="circuit-0"
+        class="circuit-1"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -338,31 +416,15 @@ HTMLCollection [
       </svg>
       Add
     </button>
-  </div>,
-]
+    <hr
+      class="circuit-3"
+    />
+  </div>
+</div>
 `;
 
 exports[`Popover styles should render popover on right 1`] = `
-HTMLCollection [
-  <button>
-    Button
-  </button>,
-  @media (max-width:479px) {
-  .circuit-0 {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
-  }
-}
-
-<div
-    class="circuit-0"
-  />,
-  .circuit-1 {
+.circuit-2 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -387,30 +449,48 @@ HTMLCollection [
   line-height: 24px;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
   z-index: 1;
 }
 
-.circuit-1:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-0 {
+.circuit-2:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
   margin-right: 8px;
 }
 
-.circuit-2 {
+@media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+.circuit-4 {
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
@@ -420,21 +500,46 @@ HTMLCollection [
 }
 
 @media (max-width:479px) {
-  .circuit-2 {
+  .circuit-4 {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 }
 
-<div
-    class="circuit-2"
+.circuit-3 {
+  display: block;
+  width: 100%;
+  border: 1px solid #CCC;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin: 8px 16px;
+  width: calc(100% - 16px*2);
+}
+
+<div>
+  <button
+    aria-controls="popover_45"
+    aria-haspopup="true"
+    id="trigger_46"
+  >
+    Button
+  </button>
+  <div
+    class="circuit-0"
+  />
+  <div
+    aria-labelledby="trigger_46"
+    class="circuit-4"
+    id="popover_45"
+    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <button
-      class="circuit-1"
+      class="circuit-2"
+      role="menuitem"
     >
       <svg
-        class="circuit-0"
+        class="circuit-1"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -452,31 +557,15 @@ HTMLCollection [
       </svg>
       Add
     </button>
-  </div>,
-]
+    <hr
+      class="circuit-3"
+    />
+  </div>
+</div>
 `;
 
 exports[`Popover styles should render popover on top 1`] = `
-HTMLCollection [
-  <button>
-    Button
-  </button>,
-  @media (max-width:479px) {
-  .circuit-0 {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
-  }
-}
-
-<div
-    class="circuit-0"
-  />,
-  .circuit-1 {
+.circuit-2 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -501,30 +590,48 @@ HTMLCollection [
   line-height: 24px;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
   z-index: 1;
 }
 
-.circuit-1:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-0 {
+.circuit-2:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
   margin-right: 8px;
 }
 
-.circuit-2 {
+@media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+.circuit-4 {
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
@@ -534,21 +641,46 @@ HTMLCollection [
 }
 
 @media (max-width:479px) {
-  .circuit-2 {
+  .circuit-4 {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 }
 
-<div
-    class="circuit-2"
+.circuit-3 {
+  display: block;
+  width: 100%;
+  border: 1px solid #CCC;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin: 8px 16px;
+  width: calc(100% - 16px*2);
+}
+
+<div>
+  <button
+    aria-controls="popover_21"
+    aria-haspopup="true"
+    id="trigger_22"
+  >
+    Button
+  </button>
+  <div
+    class="circuit-0"
+  />
+  <div
+    aria-labelledby="trigger_22"
+    class="circuit-4"
+    id="popover_21"
+    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <button
-      class="circuit-1"
+      class="circuit-2"
+      role="menuitem"
     >
       <svg
-        class="circuit-0"
+        class="circuit-1"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -566,31 +698,15 @@ HTMLCollection [
       </svg>
       Add
     </button>
-  </div>,
-]
+    <hr
+      class="circuit-3"
+    />
+  </div>
+</div>
 `;
 
 exports[`Popover styles should render with default styles 1`] = `
-HTMLCollection [
-  <button>
-    Button
-  </button>,
-  @media (max-width:479px) {
-  .circuit-0 {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
-  }
-}
-
-<div
-    class="circuit-0"
-  />,
-  .circuit-1 {
+.circuit-2 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -615,30 +731,48 @@ HTMLCollection [
   line-height: 24px;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
   z-index: 1;
 }
 
-.circuit-1:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-0 {
+.circuit-2:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
   margin-right: 8px;
 }
 
-.circuit-2 {
+@media (max-width:479px) {
+  .circuit-0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+}
+
+.circuit-4 {
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
@@ -648,21 +782,46 @@ HTMLCollection [
 }
 
 @media (max-width:479px) {
-  .circuit-2 {
+  .circuit-4 {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 }
 
-<div
-    class="circuit-2"
+.circuit-3 {
+  display: block;
+  width: 100%;
+  border: 1px solid #CCC;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin: 8px 16px;
+  width: calc(100% - 16px*2);
+}
+
+<div>
+  <button
+    aria-controls="popover_5"
+    aria-haspopup="true"
+    id="trigger_6"
+  >
+    Button
+  </button>
+  <div
+    class="circuit-0"
+  />
+  <div
+    aria-labelledby="trigger_6"
+    class="circuit-4"
+    id="popover_5"
+    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <button
-      class="circuit-1"
+      class="circuit-2"
+      role="menuitem"
     >
       <svg
-        class="circuit-0"
+        class="circuit-1"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -680,6 +839,9 @@ HTMLCollection [
       </svg>
       Add
     </button>
-  </div>,
-]
+    <hr
+      class="circuit-3"
+    />
+  </div>
+</div>
 `;

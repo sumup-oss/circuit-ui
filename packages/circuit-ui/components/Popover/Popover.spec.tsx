@@ -13,17 +13,19 @@
  * limitations under the License.
  */
 
-import { useRef, Fragment } from 'react';
+/* eslint-disable react/display-name */
+
 import { CirclePlus, Zap } from '@sumup/icons';
 import { Placement } from '@popperjs/core';
+import { forwardRef } from 'react';
 
 import {
-  create,
-  renderToHtml,
   axe,
   RenderFn,
   render,
   userEvent,
+  waitFor,
+  fireEvent,
 } from '../../util/test-utils';
 
 import {
@@ -66,20 +68,6 @@ describe('PopoverItem', () => {
     });
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const props = {
-        ...baseProps,
-        href: 'https://sumup.com',
-        onClick: jest.fn(),
-        icon: Zap,
-      };
-      const wrapper = renderPopoverItem(renderToHtml, props);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
-  });
-
   describe('business logic', () => {
     it('should call onClick when rendered as Link', () => {
       const props = {
@@ -99,69 +87,131 @@ describe('PopoverItem', () => {
 });
 
 describe('Popover', () => {
-  const Default = (props: Omit<PopoverProps, 'triggerRef'>) => {
-    const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
-
-    return (
-      <Fragment>
-        <button ref={triggerRef}>Button</button>
-        <Popover triggerRef={triggerRef} {...props} />
-      </Fragment>
+  const renderPopover = (props: Omit<PopoverProps, 'component'>) =>
+    render(
+      <Popover
+        component={forwardRef<HTMLButtonElement>((triggerProps, ref) => (
+          <button ref={ref} {...triggerProps}>
+            Button
+          </button>
+        ))}
+        {...props}
+      />,
     );
-  };
 
-  const baseProps = {
+  const baseProps: Omit<PopoverProps, 'component'> = {
     actions: [
       {
-        onClick: () => alert('Hello'),
+        onClick: () => alert('Added'),
         children: 'Add',
         icon: CirclePlus,
       },
+      { type: 'divider' },
     ],
-    isOpen: true,
-    onClose: jest.fn(),
   };
 
   describe('styles', () => {
-    it('should render with default styles', () => {
-      const actual = create(<Default {...baseProps} />);
-      expect(actual).toMatchSnapshot();
+    it('should render with default styles', async () => {
+      const { container, getByRole } = renderPopover(baseProps);
+
+      const popoverTrigger = getByRole('button');
+
+      userEvent.click(popoverTrigger);
+
+      await waitFor(() => {
+        expect(container).toMatchSnapshot();
+      });
     });
 
-    placements.forEach((placement) => {
-      it(`should render popover on ${placement}`, () => {
-        const actual = create(<Default placement={placement} {...baseProps} />);
-        expect(actual).toMatchSnapshot();
+    it.each(placements)(`should render popover on %s`, async (placement) => {
+      const { container, getByRole } = renderPopover({
+        ...baseProps,
+        placement,
+      });
+
+      const popoverTrigger = getByRole('button');
+
+      userEvent.click(popoverTrigger);
+
+      await waitFor(() => {
+        expect(container).toMatchSnapshot();
       });
     });
   });
 
   describe('business logic', () => {
-    it('should close popover when passing a click outside', () => {
-      const { queryByText } = render(<Default {...baseProps} />);
-      expect(queryByText('Add')).not.toBeNull();
+    it('should close the popover when clicking outside', async () => {
+      const { getByRole, queryByRole } = renderPopover(baseProps);
+
+      const popoverTrigger = getByRole('button');
+
+      userEvent.click(popoverTrigger);
+
+      await waitFor(() => {
+        expect(queryByRole('menu')).toBeVisible();
+      });
 
       userEvent.click(document.body);
 
-      expect(baseProps.onClose).toHaveBeenCalledTimes(1);
+      await waitFor(() => {
+        expect(queryByRole('menu')).toBeNull();
+      });
     });
 
-    it('should close popover when passing a click to a reference element', () => {
-      const { queryByText, getAllByRole } = render(<Default {...baseProps} />);
-      expect(queryByText('Add')).not.toBeNull();
+    it('should close popover when clicking the trigger element', async () => {
+      const { getByRole, queryByRole } = renderPopover(baseProps);
 
-      userEvent.click(getAllByRole('button')[0]);
+      const popoverTrigger = getByRole('button');
 
-      expect(baseProps.onClose).toHaveBeenCalledTimes(1);
+      userEvent.click(popoverTrigger);
+
+      await waitFor(() => {
+        expect(queryByRole('menu')).toBeVisible();
+      });
+
+      userEvent.click(popoverTrigger);
+
+      await waitFor(() => {
+        expect(queryByRole('menu')).toBeNull();
+      });
     });
-  });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Default {...baseProps} />);
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
+    it('should close popover when clicking the ESC key', async () => {
+      const { getByRole, queryByRole } = renderPopover(baseProps);
+
+      const popoverTrigger = getByRole('button');
+
+      userEvent.click(popoverTrigger);
+
+      await waitFor(() => {
+        expect(queryByRole('menu')).toBeVisible();
+      });
+
+      fireEvent.keyDown(queryByRole('menu'), {
+        key: 'Escape',
+      });
+
+      await waitFor(() => {
+        expect(queryByRole('menu')).toBeNull();
+      });
+    });
+
+    /**
+     * Accessibility tests.
+     */
+    it('should meet accessibility guidelines', async () => {
+      const { container, getByRole, queryByRole } = renderPopover(baseProps);
+
+      const popoverTrigger = getByRole('button');
+
+      userEvent.click(popoverTrigger);
+
+      await waitFor(() => {
+        expect(queryByRole('menu')).toBeVisible();
+      });
+
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
   });
 });

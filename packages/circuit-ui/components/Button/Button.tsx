@@ -80,7 +80,7 @@ export interface BaseProps {
   /**
    The ref to the html dom element, it can be an anchor or a button
    */
-  'ref'?: Ref<HTMLButtonElement & HTMLAnchorElement>;
+  'ref'?: Ref<any>;
   'data-testid'?: string;
 }
 
