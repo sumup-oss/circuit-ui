@@ -15,12 +15,11 @@
 
 /* eslint-disable react/display-name */
 
-import { forwardRef, Ref } from 'react';
+import { forwardRef } from 'react';
 import { action } from '@storybook/addon-actions';
-import { More, CirclePlus, PenStroke, Bin } from '@sumup/icons';
+import { CirclePlus, PenStroke, Bin } from '@sumup/icons';
 
 import Button from '../Button';
-import IconButton from '../IconButton';
 
 import { Popover, PopoverProps } from './Popover';
 import docs from './Popover.docs.mdx';
@@ -59,33 +58,14 @@ const actions = [
 export const Base = (args: PopoverProps): JSX.Element => (
   <Popover
     {...args}
-    component={forwardRef<HTMLElement>((props, ref) => {
-      const buttonRef = ref as Ref<HTMLButtonElement & HTMLAnchorElement>;
-      return (
-        <Button size="kilo" variant="primary" ref={buttonRef} {...props}>
-          Open popover
-        </Button>
-      );
-    })}
+    component={forwardRef((props, ref) => (
+      <Button size="kilo" variant="primary" ref={ref} {...props}>
+        Open popover
+      </Button>
+    ))}
   />
 );
 
 Base.args = {
   actions,
 };
-
-export const WithIcon = (args: PopoverProps): JSX.Element => (
-  <Popover
-    {...args}
-    component={forwardRef<HTMLElement>((props, ref) => {
-      const buttonRef = ref as Ref<HTMLButtonElement & HTMLAnchorElement>;
-      return (
-        <IconButton size="kilo" label="Open popover" ref={buttonRef} {...props}>
-          <More />
-        </IconButton>
-      );
-    })}
-  />
-);
-
-WithIcon.args = { actions };

@@ -372,5 +372,8 @@ export const listItem = (
     &:active {
       background-color: ${theme.colors.n200};
     }
+    &:disabled {
+      ${disableVisually()};
+    }
   `;
 };

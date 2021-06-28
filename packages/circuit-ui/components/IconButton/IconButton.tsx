@@ -54,10 +54,7 @@ const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
  * as its only child.
  */
 export const IconButton = forwardRef(
-  (
-    { children, label, size, ...props }: IconButtonProps,
-    ref?: Ref<HTMLButtonElement & HTMLAnchorElement>,
-  ) => {
+  ({ children, label, size, ...props }: IconButtonProps, ref?: Ref<any>) => {
     const child = Children.only(children);
     const icon = cloneElement(child, { role: 'presentation' });
     return (

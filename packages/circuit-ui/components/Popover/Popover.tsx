@@ -26,6 +26,7 @@ import {
   useMemo,
   Ref,
   useRef,
+  useEffect,
 } from 'react';
 import { useClickAway, useLatest } from 'react-use';
 import { Dispatch as TrackingProps } from '@sumup/collector';
@@ -35,6 +36,7 @@ import { useTheme } from 'emotion-theming';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
+import { isEscape } from '../../util/key-codes';
 import { useComponents } from '../ComponentsContext';
 import { useClickHandler } from '../../hooks/useClickHandler';
 import Hr from '../Hr';
@@ -59,13 +61,17 @@ export interface BaseProps {
    */
   destructive?: boolean;
   /**
+   * Disabled variant. Visually and functionally disable the button.
+   */
+  disabled?: boolean;
+  /**
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
   /**
    * The ref to the HTML DOM element, can be a button or an anchor.
    */
-  ref?: Ref<HTMLButtonElement & HTMLAnchorElement>;
+  ref?: Ref<any>;
 }
 
 type LinkElProps = Omit<
@@ -123,6 +129,7 @@ export const PopoverItem = ({
     <PopoverItemWrapper
       as={props.href ? Link : 'button'}
       onClick={handleClick}
+      role="menuitem"
       {...props}
     >
       {Icon && <Icon css={iconStyles} />}
@@ -189,14 +196,12 @@ export interface PopoverProps {
   /**
    * The element that toggles the Popover when clicked.
    */
-  component: ({
-    onClick,
-    ref,
-    id,
-  }: {
-    onClick: (event: MouseEvent | KeyboardEvent) => void;
-    ref: Ref<HTMLElement>;
-    id: string;
+  component: (props: {
+    'onClick': (event: MouseEvent | KeyboardEvent) => void;
+    'ref': Ref<HTMLButtonElement>;
+    'id': string;
+    'aria-haspopup': boolean;
+    'aria-controls': string;
   }) => JSX.Element;
 }
 
@@ -208,10 +213,10 @@ export const Popover = ({
   ...props
 }: PopoverProps): JSX.Element | null => {
   const [isOpen, setOpen] = useState(false);
-  const triggerRef = useRef<HTMLElement>(null);
-  const theme: Theme = useTheme();
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const theme = useTheme<Theme>();
   const id = uniqueId('popover_');
-  const triggerid = uniqueId('trigger_');
+  const triggerId = uniqueId('trigger_');
 
   // Popper custom modifier to apply bottom sheet for mobile.
   // The window.matchMedia() is a useful API for this, it allows you to change the styles based on a condition.
@@ -261,6 +266,22 @@ export const Popover = ({
   // re-attached on every render.
   const popperRef = useLatest(popperElement);
 
+  useEffect(() => {
+    if (!isOpen) {
+      return undefined;
+    }
+    const handleEscapePress = (event: Event) => {
+      if (isEscape(event)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscapePress);
+    return () => {
+      document.removeEventListener('keydown', handleEscapePress);
+    };
+  }, [isOpen]);
+
   useClickAway(popperRef, (event) => {
     // The reference element has its own click handler to toggle the popover.
     if (
@@ -276,7 +297,7 @@ export const Popover = ({
     <Fragment>
       <Component
         ref={triggerRef}
-        id={triggerid}
+        id={triggerId}
         aria-haspopup={true}
         aria-controls={id}
         onClick={() => setOpen((prev) => !prev)}
@@ -289,7 +310,8 @@ export const Popover = ({
             {...props}
             ref={setPopperElement}
             style={styles.popper}
-            aria-labelledby={triggerid}
+            aria-labelledby={triggerId}
+            role="menu"
             {...attributes.popper}
           >
             {actions.map((action, index) =>

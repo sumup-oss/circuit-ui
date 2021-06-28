@@ -33,7 +33,7 @@ describe('CloseButton', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = createRef<HTMLButtonElement & HTMLAnchorElement>();
+      const tref = createRef<any>();
       const { container } = render(<CloseButton label="Close" ref={tref} />);
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);
