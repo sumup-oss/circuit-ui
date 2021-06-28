@@ -19,8 +19,7 @@ import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
 import { isFunction } from '../../util/type-check';
-import { useClickHandler } from '../../hooks/useClickHandler';
-import { ModalComponent, BaseModalProps } from '../ModalContext/ModalContext';
+import { ModalComponent, BaseModalProps } from '../ModalContext';
 import CloseButton from '../CloseButton';
 
 const TRANSITION_DURATION_MOBILE = 120;
@@ -91,146 +90,140 @@ export const Modal: ModalComponent<ModalProps> = ({
   variant,
   preventClose = false,
   closeButtonLabel,
-  tracking = {},
   className,
   ...props
-}) => {
-  const handleClose = useClickHandler(onClose, tracking, 'modal-close');
-  return (
-    <ClassNames<Theme> key={variant}>
-      {({ css: cssString, cx, theme }) => {
-        // React Modal styles
-        // https://reactcommunity.org/react-modal/styles/classes/
+}) => (
+  <ClassNames<Theme> key={variant}>
+    {({ css: cssString, cx, theme }) => {
+      // React Modal styles
+      // https://reactcommunity.org/react-modal/styles/classes/
 
-        const styles = {
-          base: cx(
+      const styles = {
+        base: cx(
+          cssString`
+            position: fixed;
+            outline: none;
+            background-color: ${theme.colors.white};
+
+            ${theme.mq.untilKilo} {
+              right: 0;
+              bottom: 0;
+              left: 0;
+              -webkit-overflow-scrolling: touch;
+              overflow-y: auto;
+              width: 100vw;
+              transform: translateY(100%);
+              transition: transform ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
+              padding: ${theme.spacings.mega};
+            }
+
+            ${theme.mq.kilo} {
+              top: 50%;
+              left: 50%;
+              padding: ${theme.spacings.giga};
+              transform: translate(-50%, -50%);
+              min-height: 320px;
+              max-height: 90vh;
+              min-width: 480px;
+              max-width: 90vw;
+              opacity: 0;
+              transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
+              border-radius: ${theme.borderRadius.mega};
+            }
+          `,
+          variant === 'immersive' &&
             cssString`
-              position: fixed;
-              outline: none;
-              background-color: ${theme.colors.white};
-
-              ${theme.mq.untilKilo} {
-                right: 0;
-                bottom: 0;
-                left: 0;
-                -webkit-overflow-scrolling: touch;
-                overflow-y: auto;
-                width: 100vw;
-                transform: translateY(100%);
-                transition: transform ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
-                padding: ${theme.spacings.mega};
-              }
-
-              ${theme.mq.kilo} {
-                top: 50%;
-                left: 50%;
-                padding: ${theme.spacings.giga};
-                transform: translate(-50%, -50%);
-                min-height: 320px;
-                max-height: 90vh;
-                min-width: 480px;
-                max-width: 90vw;
-                opacity: 0;
-                transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
-                border-radius: ${theme.borderRadius.mega};
-              }
-            `,
-            variant === 'immersive' &&
-              cssString`
               ${theme.mq.untilKilo} {
                 height: 100vh;
               }
             `,
-            variant === 'contextual' &&
-              cssString`
+          variant === 'contextual' &&
+            cssString`
               ${theme.mq.untilKilo} {
                 max-height: calc(100vh - ${theme.spacings.mega});
                 border-top-left-radius: ${theme.borderRadius.mega};
                 border-top-right-radius: ${theme.borderRadius.mega};
               }
             `,
-            className,
-          ),
-          // The !important below is necessary because of some weird
-          // style specificity issues in Emotion.
-          afterOpen: cssString`
-            label: modal--after-open;
+          className,
+        ),
+        // The !important below is necessary because of some weird
+        // style specificity issues in Emotion.
+        afterOpen: cssString`
+          label: modal--after-open;
 
-            ${theme.mq.untilKilo} {
-              transform: translateY(0) !important;
-            }
+          ${theme.mq.untilKilo} {
+            transform: translateY(0) !important;
+          }
 
-            ${theme.mq.kilo} {
-              opacity: 1 !important;
-            }
-          `,
-          beforeClose: cssString`
-            label: modal--before-close;
+          ${theme.mq.kilo} {
+            opacity: 1 !important;
+          }
+        `,
+        beforeClose: cssString`
+          label: modal--before-close;
 
-            ${theme.mq.untilKilo} {
-              transform: translateY(100%);
-            }
+          ${theme.mq.untilKilo} {
+            transform: translateY(100%);
+          }
 
-            ${theme.mq.kilo} {
-              opacity: 0;
-            }
-          `,
-        };
-
-        const overlayStyles = {
-          base: cssString`
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
+          ${theme.mq.kilo} {
             opacity: 0;
-            transition: opacity ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
-            background: ${theme.colors.overlay};
-            z-index: ${theme.zIndex.modal};
+          }
+        `,
+      };
 
-            ${theme.mq.kilo} {
-              -webkit-overflow-scrolling: touch;
-              overflow-y: auto;
-              transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
-            }
-          `,
-          afterOpen: cssString`
-            opacity: 1;
-          `,
-          beforeClose: cssString`
-            opacity: 0;
-          `,
-        };
+      const overlayStyles = {
+        base: cssString`
+          position: fixed;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          opacity: 0;
+          transition: opacity ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
+          background: ${theme.colors.overlay};
+          z-index: ${theme.zIndex.modal};
 
-        const reactModalProps = {
-          className: styles,
-          overlayClassName: overlayStyles,
-          onRequestClose: handleClose,
-          closeTimeoutMS: TRANSITION_DURATION,
-          shouldCloseOnOverlayClick: !preventClose,
-          shouldCloseOnEsc: !preventClose,
-          ...props,
-        };
+          ${theme.mq.kilo} {
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
+            transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
+          }
+        `,
+        afterOpen: cssString`
+          opacity: 1;
+        `,
+        beforeClose: cssString`
+          opacity: 0;
+        `,
+      };
 
-        return (
-          <ReactModal {...reactModalProps}>
-            {!preventClose && closeButtonLabel && (
-              <CloseButton
-                onClick={onClose}
-                label={closeButtonLabel}
-                css={closeButtonStyles}
-              />
-            )}
+      const reactModalProps = {
+        className: styles,
+        overlayClassName: overlayStyles,
+        onRequestClose: onClose,
+        closeTimeoutMS: TRANSITION_DURATION,
+        shouldCloseOnOverlayClick: !preventClose,
+        shouldCloseOnEsc: !preventClose,
+        ...props,
+      };
 
-            {isFunction(children)
-              ? children({ onClose: handleClose })
-              : children}
-          </ReactModal>
-        );
-      }}
-    </ClassNames>
-  );
-};
+      return (
+        <ReactModal {...reactModalProps}>
+          {!preventClose && closeButtonLabel && (
+            <CloseButton
+              onClick={onClose}
+              label={closeButtonLabel}
+              css={closeButtonStyles}
+            />
+          )}
+
+          {isFunction(children) ? children({ onClose }) : children}
+        </ReactModal>
+      );
+    }}
+  </ClassNames>
+);
 
 Modal.TIMEOUT = TRANSITION_DURATION;

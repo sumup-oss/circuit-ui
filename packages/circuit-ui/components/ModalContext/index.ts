@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-export { ModalProvider, createUseModal } from './ModalContext';
+export { ModalProvider } from './ModalContext';
+export { createUseModal } from './createUseModal';
 
-export type {
-  ModalProviderProps,
-  BaseModalProps,
-  ModalComponent,
-} from './ModalContext';
+export type { ModalProviderProps } from './ModalContext';
+
+export type { BaseModalProps, ModalComponent } from './types';

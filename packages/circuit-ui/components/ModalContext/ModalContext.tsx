@@ -13,24 +13,15 @@
  * limitations under the License.
  */
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useCallback,
-  useDebugValue,
-  ReactNode,
-  MouseEvent,
-  KeyboardEvent,
-} from 'react';
+import { createContext, useEffect, useCallback, ReactNode } from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { Global, css } from '@emotion/core';
-import { Dispatch as TrackingProps } from '@sumup/collector';
+import { useClickTrigger } from '@sumup/collector';
 
-import { useStack, StackItem, StackDispatch } from '../../hooks/useStack';
-import { uniqueId } from '../../util/id';
+import { useStack, StackItem } from '../../hooks/useStack';
 import { warn } from '../../util/logger';
+
+import { BaseModalProps, ModalComponent } from './types';
 
 // It is important for users of screenreaders that other page content be hidden
 // (via the `aria-hidden` attribute) while the modal is open.
@@ -56,33 +47,19 @@ if (typeof window !== 'undefined') {
   }
 }
 
-export type OnClose = (event?: MouseEvent | KeyboardEvent) => void;
-
-export interface BaseModalProps
-  extends Omit<
-    ReactModalProps,
-    'shouldCloseOnOverlayClick' | 'shouldCloseOnEsc'
-  > {
-  /**
-   * Callback function that is called when the modal is closed.
-   */
-  onClose?: OnClose;
-  /**
-   * Additional data that is dispatched with the tracking event.
-   */
-  tracking?: TrackingProps;
-}
-
-export type ModalComponent<TProps extends BaseModalProps = BaseModalProps> = ((
-  props: TProps,
-) => JSX.Element) & { TIMEOUT?: number };
-
 type ModalState<TProps extends BaseModalProps> = Omit<TProps, 'isOpen'> &
   StackItem & { component: ModalComponent<TProps> };
 
-type ModalContextValue = [ModalState<any>[], StackDispatch<ModalState<any>>];
+type ModalContextValue = {
+  setModal: (modal: ModalState<any>) => void;
+  removeModal: (id: StackItem['id']) => void;
+};
+// type ModalContextValue = [ModalState<any>[], StackDispatch<ModalState<any>>];
 
-export const ModalContext = createContext<ModalContextValue>([[], () => {}]);
+export const ModalContext = createContext<ModalContextValue>({
+  setModal: () => {},
+  removeModal: () => {},
+});
 
 export interface ModalProviderProps<TProps extends BaseModalProps>
   extends Omit<ReactModalProps, 'isOpen'> {
@@ -103,9 +80,40 @@ export function ModalProvider<TProps extends BaseModalProps>({
   htmlOpenClassName = 'ReactModal__Html--open',
   ...defaultModalProps
 }: ModalProviderProps<TProps>): JSX.Element {
-  const stack = useStack<ModalState<TProps>>(initialState);
+  const sendEvent = useClickTrigger();
+  const [modals, dispatch] = useStack<ModalState<TProps>>(initialState);
 
-  const [modals, dispatch] = stack;
+  const setModal = useCallback(
+    (modal: ModalState<TProps>) => {
+      if (modal.tracking) {
+        sendEvent({ component: 'modal-open', ...modal.tracking });
+      }
+      dispatch({ type: 'push', item: modal });
+    },
+    [dispatch, sendEvent],
+  );
+
+  const removeModal = useCallback(
+    (id: StackItem['id']) => {
+      const modal = modals.find((m) => m.id === id);
+      if (!modal) {
+        return;
+      }
+      if (modal.tracking) {
+        sendEvent({ component: 'modal-close', ...modal.tracking });
+      }
+      if (modal.onClose) {
+        modal?.onClose();
+      }
+      dispatch({
+        type: 'remove',
+        id: modal.id,
+        timeout: modal.component.TIMEOUT,
+      });
+    },
+    [modals, dispatch, sendEvent],
+  );
+
   const activeModal = modals[modals.length - 1];
 
   useEffect(() => {
@@ -114,14 +122,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
     }
 
     const popModal = () => {
-      if (activeModal.onClose) {
-        activeModal.onClose();
-      }
-      dispatch({
-        type: 'remove',
-        id: activeModal.id,
-        timeout: activeModal.component.TIMEOUT,
-      });
+      removeModal(activeModal.id);
     };
 
     window.addEventListener('popstate', popModal);
@@ -129,34 +130,26 @@ export function ModalProvider<TProps extends BaseModalProps>({
     return () => {
       window.removeEventListener('popstate', popModal);
     };
-  }, [dispatch, activeModal]);
+  }, [activeModal, removeModal]);
 
   return (
-    <ModalContext.Provider value={stack}>
+    <ModalContext.Provider value={{ setModal, removeModal }}>
       {children}
 
       {modals.map(
-        ({ id, onClose, timeout, component: Component, ...modalProps }) => {
-          const handleClose = (event?: MouseEvent | KeyboardEvent) => {
-            if (onClose) {
-              onClose(event);
-            }
-            dispatch({ type: 'remove', id, timeout: Component.TIMEOUT });
-          };
-          return (
-            // @ts-expect-error The props are enforced by the modal hooks,
-            // so this warning can be safely ignored.
-            <Component
-              {...defaultModalProps}
-              {...modalProps}
-              key={id}
-              isOpen={!timeout}
-              onClose={handleClose}
-              portalClassName={portalClassName}
-              htmlOpenClassName={htmlOpenClassName}
-            />
-          );
-        },
+        ({ id, onClose, timeout, component: Component, ...modalProps }) => (
+          // @ts-expect-error The props are enforced by the modal hooks,
+          // so this warning can be safely ignored.
+          <Component
+            {...defaultModalProps}
+            {...modalProps}
+            key={id}
+            isOpen={!timeout}
+            onClose={() => removeModal(id)}
+            portalClassName={portalClassName}
+            htmlOpenClassName={htmlOpenClassName}
+          />
+        ),
       )}
 
       {activeModal && (
@@ -179,39 +172,4 @@ export function ModalProvider<TProps extends BaseModalProps>({
       )}
     </ModalContext.Provider>
   );
-}
-
-export function createUseModal<T extends BaseModalProps>(
-  component: ModalComponent<T>,
-) {
-  return (): {
-    setModal: (props: Omit<T, 'isOpen'>) => void;
-    removeModal: () => void;
-  } => {
-    const id = useMemo(uniqueId, []);
-    const [modals, dispatch] = useContext(ModalContext);
-
-    const modal = useMemo<T | undefined>(
-      () => modals.find((m) => m.id === id),
-      [id, modals],
-    );
-
-    useDebugValue(modal);
-
-    const setModal = useCallback(
-      (props: Omit<T, 'isOpen'>): void => {
-        dispatch({ type: 'push', item: { ...props, id, component } });
-      },
-      [dispatch, id],
-    );
-
-    const removeModal = useCallback((): void => {
-      if (modal && modal.onClose) {
-        modal.onClose();
-      }
-      dispatch({ type: 'remove', id, timeout: component.TIMEOUT });
-    }, [dispatch, id, modal]);
-
-    return { setModal, removeModal };
-  };
 }

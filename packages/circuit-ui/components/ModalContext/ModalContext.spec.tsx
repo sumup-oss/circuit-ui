@@ -14,23 +14,15 @@
  */
 
 /* eslint-disable react/display-name */
-import React from 'react';
+import React, { useContext } from 'react';
+import * as Collector from '@sumup/collector';
 
-import {
-  render,
-  renderHook,
-  act,
-  actHook,
-  userEvent,
-  fireEvent,
-} from '../../util/test-utils';
+import { render, act, userEvent, fireEvent } from '../../util/test-utils';
 
-import {
-  ModalProvider,
-  createUseModal,
-  ModalContext,
-  ModalComponent,
-} from './ModalContext';
+import { ModalProvider, ModalContext } from './ModalContext';
+import type { ModalComponent } from './types';
+
+jest.mock('@sumup/collector');
 
 const Modal: ModalComponent = ({ onClose }) => (
   <div role="dialog">
@@ -45,16 +37,28 @@ describe('ModalContext', () => {
   });
   afterAll(() => {
     jest.useRealTimers();
+    jest.resetModules();
   });
-  beforeEach(() => {
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
   describe('ModalProvider', () => {
-    const onClose = jest.fn();
-    const initialState = [{ id: 'initial', component: Modal, onClose }];
+    const dispatch = jest.fn();
+    // @ts-expect-error TypeScript doesn't allow assigning to the read-only
+    // useClickTrigger
+    Collector.useClickTrigger = jest.fn(() => dispatch);
 
-    it('should render the open modals', () => {
+    const onClose = jest.fn();
+    const modal = {
+      id: 'initial',
+      component: Modal,
+      onClose,
+      tracking: { label: 'test-modal' },
+    };
+    const initialState = [modal];
+
+    it('should render the initial modals', () => {
       const { getByRole } = render(
         <ModalProvider initialState={initialState} ariaHideApp={false}>
           <div />
@@ -62,6 +66,37 @@ describe('ModalContext', () => {
       );
 
       expect(getByRole('dialog')).toBeVisible();
+    });
+
+    it('should open and close a modal when the context functions are called', () => {
+      const Trigger = () => {
+        const { setModal, removeModal } = useContext(ModalContext);
+        return (
+          <>
+            <button onClick={() => setModal(modal)}>Open modal</button>
+            <button onClick={() => removeModal(modal.id)}>Close modal</button>
+          </>
+        );
+      };
+
+      const { getByRole, queryByRole, getByText } = render(
+        <ModalProvider ariaHideApp={false}>
+          <Trigger />
+        </ModalProvider>,
+      );
+
+      act(() => {
+        fireEvent.click(getByText('Open modal'));
+      });
+
+      expect(getByRole('dialog')).toBeVisible();
+
+      act(() => {
+        fireEvent.click(getByText('Close modal'));
+        jest.runAllTimers();
+      });
+
+      expect(queryByRole('dialog')).toBeNull();
     });
 
     it('should close the modal when the user navigates back', () => {
@@ -78,6 +113,7 @@ describe('ModalContext', () => {
 
       expect(queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it('should close the modal when the onClose method is called', () => {
@@ -94,65 +130,7 @@ describe('ModalContext', () => {
 
       expect(queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe('createUseModal', () => {
-    const useModal = createUseModal(Modal);
-
-    const onClose = jest.fn();
-    const dispatch = jest.fn();
-    const state = [1, 2, 3, 4].map((id) => ({
-      id: id.toString(),
-      component: Modal,
-      onClose,
-    }));
-    const wrapper = ({ children }) => (
-      <ModalContext.Provider value={[state, dispatch]}>
-        {children}
-      </ModalContext.Provider>
-    );
-
-    it('should dispatch an action when setModal is called', () => {
-      const { result } = renderHook(() => useModal(), { wrapper });
-
-      actHook(() => {
-        result.current.setModal({});
-      });
-
-      const expected = expect.objectContaining({
-        type: 'push',
-        item: expect.objectContaining({
-          component: expect.any(Function),
-          id: expect.any(String),
-        }),
-      });
-      expect(dispatch).toHaveBeenCalledWith(expected);
-    });
-
-    it('should call the onClose callback when removeModal is called', () => {
-      const { result } = renderHook(() => useModal(), { wrapper });
-
-      actHook(() => {
-        result.current.removeModal();
-      });
-
-      expect(onClose).toHaveBeenCalledTimes(1);
-    });
-
-    it('should dispatch an action when removeModal is called', () => {
-      const { result } = renderHook(() => useModal(), { wrapper });
-
-      actHook(() => {
-        result.current.removeModal();
-      });
-
-      const expected = expect.objectContaining({
-        type: 'remove',
-        id: expect.any(String),
-        timeout: 200,
-      });
-      expect(dispatch).toHaveBeenCalledWith(expected);
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
   });
 });
