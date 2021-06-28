@@ -14,12 +14,12 @@
  */
 
 /* eslint-disable react/display-name */
-import React from 'react';
+import React, { useContext } from 'react';
 import * as Collector from '@sumup/collector';
 
 import { render, act, userEvent, fireEvent } from '../../util/test-utils';
 
-import { ModalProvider } from './ModalContext';
+import { ModalProvider, ModalContext } from './ModalContext';
 import type { ModalComponent } from './types';
 
 jest.mock('@sumup/collector');
@@ -50,16 +50,15 @@ describe('ModalContext', () => {
     Collector.useClickTrigger = jest.fn(() => dispatch);
 
     const onClose = jest.fn();
-    const initialState = [
-      {
-        id: 'initial',
-        component: Modal,
-        onClose,
-        tracking: { label: 'test-modal' },
-      },
-    ];
+    const modal = {
+      id: 'initial',
+      component: Modal,
+      onClose,
+      tracking: { label: 'test-modal' },
+    };
+    const initialState = [modal];
 
-    it('should render the open modals', () => {
+    it('should render the initial modals', () => {
       const { getByRole } = render(
         <ModalProvider initialState={initialState} ariaHideApp={false}>
           <div />
@@ -67,6 +66,37 @@ describe('ModalContext', () => {
       );
 
       expect(getByRole('dialog')).toBeVisible();
+    });
+
+    it('should open and close a modal when the context functions are called', () => {
+      const Trigger = () => {
+        const { setModal, removeModal } = useContext(ModalContext);
+        return (
+          <>
+            <button onClick={() => setModal(modal)}>Open modal</button>
+            <button onClick={() => removeModal(modal.id)}>Close modal</button>
+          </>
+        );
+      };
+
+      const { getByRole, queryByRole, getByText } = render(
+        <ModalProvider ariaHideApp={false}>
+          <Trigger />
+        </ModalProvider>,
+      );
+
+      act(() => {
+        fireEvent.click(getByText('Open modal'));
+      });
+
+      expect(getByRole('dialog')).toBeVisible();
+
+      act(() => {
+        fireEvent.click(getByText('Close modal'));
+        jest.runAllTimers();
+      });
+
+      expect(queryByRole('dialog')).toBeNull();
     });
 
     it('should close the modal when the user navigates back', () => {
