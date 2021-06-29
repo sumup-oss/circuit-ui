@@ -19,7 +19,7 @@ import docs from './Pagination.docs.mdx';
 import { Pagination, PaginationProps } from './Pagination';
 
 export default {
-  title: 'Components/Pagination',
+  title: 'Navigation/Pagination',
   component: Pagination,
   parameters: {
     docs: { page: docs },
