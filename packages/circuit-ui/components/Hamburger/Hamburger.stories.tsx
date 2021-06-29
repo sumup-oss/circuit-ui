@@ -18,7 +18,7 @@ import { useState } from 'react';
 import { Hamburger, HamburgerProps } from './Hamburger';
 
 export default {
-  title: 'Components/Hamburger',
+  title: 'Navigation/Hamburger',
   component: Hamburger,
 };
 
