@@ -13,6 +13,5 @@
  * limitations under the License.
  */
 
-import Link from './Link';
-
-export { Link };
+export { Link } from './Link';
+export type { LinkProps } from './Link';

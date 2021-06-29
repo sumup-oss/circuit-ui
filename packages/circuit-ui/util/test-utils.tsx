@@ -32,7 +32,7 @@ import { light } from '@sumup/design-tokens';
 import {
   ComponentsContext,
   defaultComponents,
-} from '../components/ComponentsContext';
+} from '../components/ComponentsContext/ComponentsContext';
 
 export type RenderFn<T = any> = (component: ReactElement, ...rest: any) => T;
 
