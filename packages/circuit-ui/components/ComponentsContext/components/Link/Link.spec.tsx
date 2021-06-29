@@ -15,7 +15,9 @@
 
 import { createRef } from 'react';
 
-import Link from './Link';
+import { render, renderToHtml, axe } from '../../../../util/test-utils';
+
+import { Link } from './Link';
 
 describe('Link', () => {
   const defaultProps = {
@@ -31,7 +33,7 @@ describe('Link', () => {
      * Should accept a working ref for button
      */
     it('should accept a working ref', () => {
-      const tref = createRef();
+      const tref = createRef<HTMLAnchorElement>();
       const { container } = render(
         <Link {...defaultProps} ref={tref}>
           This is a link

@@ -151,6 +151,7 @@ export {
   ComponentsContext,
   useComponents,
 } from './components/ComponentsContext';
+export type { ComponentsContextType } from './components/ComponentsContext';
 
 export {
   cx,

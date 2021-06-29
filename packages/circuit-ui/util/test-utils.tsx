@@ -26,7 +26,7 @@ import { light } from '@sumup/design-tokens';
 import {
   ComponentsContext,
   defaultComponents,
-} from '../components/ComponentsContext';
+} from '../components/ComponentsContext/ComponentsContext';
 
 export * from '@testing-library/react';
 

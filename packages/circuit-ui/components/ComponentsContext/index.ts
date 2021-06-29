@@ -13,10 +13,7 @@
  * limitations under the License.
  */
 
-import { createContext } from 'react';
+export { ComponentsContext } from './ComponentsContext';
+export { useComponents } from './useComponents';
 
-import * as defaultComponents from './components';
-
-const ComponentsContext = createContext(defaultComponents);
-
-export default ComponentsContext;
+export type { ComponentsContextType } from './ComponentsContext';
