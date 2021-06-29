@@ -315,6 +315,7 @@ export const Select = React.forwardRef(
   (
     {
       value,
+      defaultValue,
       placeholder = 'Select an option',
       disabled,
       noMargin,
@@ -390,7 +391,7 @@ export const Select = React.forwardRef(
             {...props}
             onChange={handleChange}
           >
-            {!value && (
+            {!value && !defaultValue && (
               <option key="placeholder" value="">
                 {placeholder}
               </option>

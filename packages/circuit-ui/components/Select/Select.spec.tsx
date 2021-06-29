@@ -127,7 +127,7 @@ describe('Select', () => {
     expect(selectEl).toBeDisabled();
   });
 
-  it('should show the placeholder when no value is passed', () => {
+  it('should show the placeholder when no value or defaultValue is passed', () => {
     const placeholder = 'Placeholder';
     const { getByTestId } = render(
       <Select
@@ -138,6 +138,21 @@ describe('Select', () => {
     );
     const selectEl = getByTestId('select-element');
     expect(selectEl.firstChild).toHaveTextContent(placeholder);
+  });
+
+  it('should not show the placeholder when a defaultValue is set', () => {
+    const placeholder = 'Placeholder';
+    const defaultValue = 2;
+    const { getByTestId } = render(
+      <Select
+        options={options}
+        placeholder={placeholder}
+        defaultValue={defaultValue}
+        data-testid="select-element"
+      />,
+    );
+    const selectEl = getByTestId('select-element');
+    expect(selectEl.firstChild).not.toHaveTextContent(placeholder);
   });
 
   it('should not show the placeholder when a value is selected', () => {
