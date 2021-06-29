@@ -28,9 +28,11 @@ export interface HeadlineProps
    */
   size?: Size;
   /**
-   * The HTML headline element to render.
+   * The HTML heading element to render. Headings should be nested sequentially
+   * without skipping any levels. Learn more at
+   * https://www.w3.org/WAI/tutorials/page-structure/headings/.
    */
-  as?: string;
+  as: string;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`

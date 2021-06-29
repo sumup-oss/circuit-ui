@@ -30,7 +30,7 @@ describe('SubHeadline', () => {
   });
 
   it('should render with no margin styles when passed the prop', () => {
-    const actual = create(<SubHeadline />);
+    const actual = create(<SubHeadline as="h3" />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -38,7 +38,7 @@ describe('SubHeadline', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<SubHeadline>Subheading</SubHeadline>);
+    const wrapper = renderToHtml(<SubHeadline as="h3">Subheading</SubHeadline>);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
