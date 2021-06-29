@@ -4,13 +4,20 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-Subheadings help users break through larger related contents in the same section.
-They are usually used to separate sections within a card.
+Subheadlines help to break up larger related chunks of content in the same section. They are usually used to separate sections within a card.
 
 <Story id="typography-subheadline--base" />
 <Props />
 
 ## Usage guidelines
 
-- **Do** use subheadings to break complex and longer contents in a page or card
-- **Do not** use a subheading without a heading title for the same section
+- **Do** use subheadlines to break complex and longer chunks of content in a page or card
+- **Do not** use a subheadline without a heading title for the same section
+
+## Content guidelines
+
+Nest headings by their rank (or level). The most important heading has rank 1 (`h1`), the least important heading rank 6 (`h6`). Headings with an equal or higher rank start a new section, headings with a lower rank start new subsections that are part of the higher-ranked section.
+
+Skipping heading ranks can be confusing and should be avoided where possible: Ensure that an `h2` is not followed directly by an `h4`, for example. It is ok to skip ranks when closing subsections, for instance, an `h2` beginning a new section can follow an `h4` as it closes the previous section.
+
+[Learn more about a proper page structure](https://www.w3.org/WAI/tutorials/page-structure/headings/).

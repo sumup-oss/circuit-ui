@@ -32,7 +32,7 @@ describe('Headline', () => {
   const sizes = ['one', 'two', 'three', 'four'] as const;
   it.each(sizes)(`should render with size %s`, (size) => {
     const headline = create(
-      <Headline {...{ size }}>{`${size} headline`}</Headline>,
+      <Headline as="h2" {...{ size }}>{`${size} headline`}</Headline>,
     );
     expect(headline).toMatchSnapshot();
   });
@@ -41,7 +41,7 @@ describe('Headline', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Headline>Headline</Headline>);
+    const wrapper = renderToHtml(<Headline as="h2">Headline</Headline>);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
