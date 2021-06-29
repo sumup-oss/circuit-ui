@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Do not render placeholder in Select when defaultValue is passed
+Do not render a placeholder in the `Select` component when a `defaultValue` is passed.
