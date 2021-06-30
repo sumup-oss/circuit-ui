@@ -181,6 +181,8 @@ function isDivider(action: Action): action is Divider {
 }
 
 export interface PopoverProps {
+  isOpen: boolean;
+  toggleOpen: (open: boolean | ((prevOpen: boolean) => boolean)) => void;
   /**
    * An array of PopoverItem or Divider.
    */
@@ -205,13 +207,14 @@ export interface PopoverProps {
 }
 
 export const Popover = ({
+  isOpen = false,
+  toggleOpen,
   actions,
   placement = 'bottom',
   fallbackPlacements = ['top', 'right', 'left'],
   component: Component,
   ...props
 }: PopoverProps): JSX.Element | null => {
-  const [isOpen, setOpen] = useState(false);
   const triggerRef = useRef<HTMLDivElement>(null);
   const theme = useTheme<Theme>();
   const id = uniqueId('popover_');
@@ -271,7 +274,7 @@ export const Popover = ({
     }
     const handleEscapePress = (event: Event) => {
       if (isEscape(event)) {
-        setOpen(false);
+        toggleOpen(false);
       }
     };
 
@@ -279,7 +282,7 @@ export const Popover = ({
     return () => {
       document.removeEventListener('keydown', handleEscapePress);
     };
-  }, [isOpen]);
+  }, [isOpen, toggleOpen]);
 
   useClickAway(popperRef, (event) => {
     // The reference element has its own click handler to toggle the popover.
@@ -289,7 +292,7 @@ export const Popover = ({
     ) {
       return;
     }
-    setOpen(false);
+    toggleOpen(false);
   });
 
   return (
@@ -299,7 +302,7 @@ export const Popover = ({
           id={triggerId}
           aria-haspopup={true}
           aria-controls={id}
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={() => toggleOpen((prev) => !prev)}
         />
       </div>
       {isOpen && (
