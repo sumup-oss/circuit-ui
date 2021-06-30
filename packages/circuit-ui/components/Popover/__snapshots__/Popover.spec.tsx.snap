@@ -94,13 +94,15 @@ exports[`Popover styles should render popover on auto 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_13"
-    aria-haspopup="true"
-    id="trigger_14"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_13"
+      aria-haspopup="true"
+      id="trigger_14"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
@@ -235,13 +237,15 @@ exports[`Popover styles should render popover on bottom 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_29"
-    aria-haspopup="true"
-    id="trigger_30"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_29"
+      aria-haspopup="true"
+      id="trigger_30"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
@@ -376,13 +380,15 @@ exports[`Popover styles should render popover on left 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_37"
-    aria-haspopup="true"
-    id="trigger_38"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_37"
+      aria-haspopup="true"
+      id="trigger_38"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
@@ -517,13 +523,15 @@ exports[`Popover styles should render popover on right 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_45"
-    aria-haspopup="true"
-    id="trigger_46"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_45"
+      aria-haspopup="true"
+      id="trigger_46"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
@@ -658,13 +666,15 @@ exports[`Popover styles should render popover on top 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_21"
-    aria-haspopup="true"
-    id="trigger_22"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_21"
+      aria-haspopup="true"
+      id="trigger_22"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
@@ -799,13 +809,15 @@ exports[`Popover styles should render with default styles 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_5"
-    aria-haspopup="true"
-    id="trigger_6"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_5"
+      aria-haspopup="true"
+      id="trigger_6"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />

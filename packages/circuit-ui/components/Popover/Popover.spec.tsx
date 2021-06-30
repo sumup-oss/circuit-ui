@@ -17,7 +17,6 @@
 
 import { CirclePlus, Zap } from '@sumup/icons';
 import { Placement } from '@popperjs/core';
-import { forwardRef } from 'react';
 
 import {
   axe,
@@ -90,11 +89,7 @@ describe('Popover', () => {
   const renderPopover = (props: Omit<PopoverProps, 'component'>) =>
     render(
       <Popover
-        component={forwardRef<HTMLButtonElement>((triggerProps, ref) => (
-          <button ref={ref} {...triggerProps}>
-            Button
-          </button>
-        ))}
+        component={(triggerProps) => <button {...triggerProps}>Button</button>}
         {...props}
       />,
     );

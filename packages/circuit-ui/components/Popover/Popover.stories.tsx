@@ -15,7 +15,6 @@
 
 /* eslint-disable react/display-name */
 
-import { forwardRef } from 'react';
 import { action } from '@storybook/addon-actions';
 import { CirclePlus, PenStroke, Bin } from '@sumup/icons';
 
@@ -58,11 +57,11 @@ const actions = [
 export const Base = (args: PopoverProps): JSX.Element => (
   <Popover
     {...args}
-    component={forwardRef((props, ref) => (
-      <Button size="kilo" variant="primary" ref={ref} {...props}>
+    component={(props) => (
+      <Button size="kilo" variant="primary" {...props}>
         Open popover
       </Button>
-    ))}
+    )}
   />
 );
 

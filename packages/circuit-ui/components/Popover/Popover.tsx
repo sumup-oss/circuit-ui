@@ -198,7 +198,6 @@ export interface PopoverProps {
    */
   component: (props: {
     'onClick': (event: MouseEvent | KeyboardEvent) => void;
-    'ref': Ref<HTMLButtonElement>;
     'id': string;
     'aria-haspopup': boolean;
     'aria-controls': string;
@@ -213,7 +212,7 @@ export const Popover = ({
   ...props
 }: PopoverProps): JSX.Element | null => {
   const [isOpen, setOpen] = useState(false);
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
   const theme = useTheme<Theme>();
   const id = uniqueId('popover_');
   const triggerId = uniqueId('trigger_');
@@ -295,13 +294,14 @@ export const Popover = ({
 
   return (
     <Fragment>
-      <Component
-        ref={triggerRef}
-        id={triggerId}
-        aria-haspopup={true}
-        aria-controls={id}
-        onClick={() => setOpen((prev) => !prev)}
-      />
+      <div ref={triggerRef}>
+        <Component
+          id={triggerId}
+          aria-haspopup={true}
+          aria-controls={id}
+          onClick={() => setOpen((prev) => !prev)}
+        />
+      </div>
       {isOpen && (
         <Fragment>
           <Overlay />
