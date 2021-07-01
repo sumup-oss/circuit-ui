@@ -59,7 +59,6 @@ const boxStyles = ({ theme }: StyleProps) => css`
   justify-content: center;
   width: ${theme.iconSizes.mega};
   height: ${theme.iconSizes.mega};
-  transform: translateY(-1px);
 `;
 
 const Box = styled.span<HTMLProps<HTMLSpanElement>>(boxStyles);
@@ -88,12 +87,12 @@ const layersBaseStyles = () => css`
   }
 
   &::before {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     width: ${HAMBURGER_WIDTH};
   }
 
   &::after {
-    transform: translateY(5px);
+    transform: translateY(4px);
     width: ${HAMBURGER_WIDTH};
   }
 `;
@@ -128,7 +127,10 @@ const Layers = styled('span')<{ isActive?: boolean }>(
 );
 
 /**
- * A hamburger button for menus. Morphs into a close icon when active.
+ * @deprecated
+ *
+ * A hamburger button for menus. Now built into the TopNavigation component,
+ * use that component instead.
  */
 export const Hamburger = ({
   isActive,

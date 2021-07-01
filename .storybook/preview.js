@@ -42,7 +42,6 @@ const SORT_ORDER = {
     Pagination: {},
     Tabs: {},
     Sidebar: {},
-    Hamburger: {},
   },
   Components: {},
   Hooks: {},
