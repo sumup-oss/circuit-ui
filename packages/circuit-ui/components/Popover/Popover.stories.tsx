@@ -56,16 +56,13 @@ const actions = [
 ];
 
 export const Base = (args: PopoverProps): JSX.Element => {
-  const [isOpen, setOpen] = useState(false);
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
+  const [isOpen, setOpen] = useState(true);
 
   return (
     <Popover
       {...args}
       isOpen={isOpen}
-      toggleOpen={handleClick}
+      onToggle={setOpen}
       component={(props) => (
         <Button size="kilo" variant="primary" {...props}>
           Open popover

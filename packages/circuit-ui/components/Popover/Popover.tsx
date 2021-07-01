@@ -188,7 +188,7 @@ export interface PopoverProps {
   /**
    * Function that is called when toggles the Popover.
    */
-  toggleOpen: (open: boolean | ((prevOpen: boolean) => boolean)) => void;
+  onToggle: (open: boolean | ((prevOpen: boolean) => boolean)) => void;
   /**
    * An array of PopoverItem or Divider.
    */
@@ -221,7 +221,7 @@ export interface PopoverProps {
 
 export const Popover = ({
   isOpen = false,
-  toggleOpen,
+  onToggle,
   actions,
   placement = 'bottom',
   fallbackPlacements = ['top', 'right', 'left'],
@@ -288,7 +288,7 @@ export const Popover = ({
     }
     const handleEscapePress = (event: Event) => {
       if (isEscape(event)) {
-        toggleOpen(false);
+        onToggle(false);
       }
     };
 
@@ -296,7 +296,7 @@ export const Popover = ({
     return () => {
       document.removeEventListener('keydown', handleEscapePress);
     };
-  }, [isOpen, toggleOpen]);
+  }, [isOpen, onToggle]);
 
   useClickAway(popperRef, (event) => {
     // The reference element has its own click handler to toggle the popover.
@@ -306,7 +306,7 @@ export const Popover = ({
     ) {
       return;
     }
-    toggleOpen(false);
+    onToggle(false);
   });
 
   return (
@@ -317,7 +317,7 @@ export const Popover = ({
           aria-haspopup={true}
           aria-controls={id}
           aria-expanded={isOpen}
-          onClick={() => toggleOpen((prev) => !prev)}
+          onClick={() => onToggle((prev) => !prev)}
         />
       </div>
       {isOpen && (

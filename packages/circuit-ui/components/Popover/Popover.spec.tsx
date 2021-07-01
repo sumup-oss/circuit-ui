@@ -86,6 +86,10 @@ describe('PopoverItem', () => {
 });
 
 describe('Popover', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   const renderPopover = (props: Omit<PopoverProps, 'component'>) =>
     render(
       <Popover
@@ -104,7 +108,7 @@ describe('Popover', () => {
       { type: 'divider' },
     ],
     isOpen: true,
-    toggleOpen: jest.fn(),
+    onToggle: jest.fn(),
   };
 
   describe('styles', () => {
@@ -144,7 +148,7 @@ describe('Popover', () => {
 
       userEvent.click(document.body);
 
-      expect(baseProps.toggleOpen).toHaveBeenCalled();
+      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
     it('should close popover when clicking the trigger element', async () => {
@@ -158,7 +162,7 @@ describe('Popover', () => {
 
       userEvent.click(popoverTrigger);
 
-      expect(baseProps.toggleOpen).toHaveBeenCalled();
+      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
     it('should close popover when clicking the ESC key', async () => {
@@ -172,7 +176,7 @@ describe('Popover', () => {
         key: 'Escape',
       });
 
-      expect(baseProps.toggleOpen).toHaveBeenCalled();
+      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
     /**
