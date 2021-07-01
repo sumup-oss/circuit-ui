@@ -182,11 +182,11 @@ function isDivider(action: Action): action is Divider {
 
 export interface PopoverProps {
   /**
-   * Determine whether the Popover is opened or closed.
+   * Determines whether the Popover is opened or closed.
    */
   isOpen: boolean;
   /**
-   * Function that is called when closing the Popover.
+   * Function that is called when toggles the Popover.
    */
   toggleOpen: (open: boolean | ((prevOpen: boolean) => boolean)) => void;
   /**
@@ -201,6 +201,8 @@ export interface PopoverProps {
    * The placements to fallback to when there is not enough space for the Popover. Defaults to ['top', 'right', 'left'].
    */
   fallbackPlacements?: Placement[];
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  modifiers?: Modifier<string, object>[];
   /**
    * The element that toggles the Popover when clicked.
    */
@@ -220,6 +222,7 @@ export const Popover = ({
   placement = 'bottom',
   fallbackPlacements = ['top', 'right', 'left'],
   component: Component,
+  modifiers = [],
   ...props
 }: PopoverProps): JSX.Element | null => {
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -268,7 +271,7 @@ export const Popover = ({
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
   const { styles, attributes } = usePopper(triggerRef.current, popperElement, {
     placement,
-    modifiers: [mobilePosition, flip],
+    modifiers: [mobilePosition, flip, ...modifiers],
   });
 
   // This is a performance optimization to prevent event listeners from being

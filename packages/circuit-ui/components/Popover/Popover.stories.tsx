@@ -17,7 +17,6 @@
 
 import { action } from '@storybook/addon-actions';
 import { CirclePlus, PenStroke, Bin } from '@sumup/icons';
-import { JSXElement } from 'jscodeshift';
 import { useState } from 'react';
 
 import Button from '../Button';
@@ -56,9 +55,8 @@ const actions = [
   },
 ];
 
-export const Base = (args: PopoverProps): JSXElement => {
+export const Base = (args: PopoverProps): JSX.Element => {
   const [isOpen, setOpen] = useState(false);
-
   const handleClick = () => {
     setOpen((prev) => !prev);
   };
