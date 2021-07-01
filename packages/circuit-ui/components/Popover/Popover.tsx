@@ -198,11 +198,15 @@ export interface PopoverProps {
    */
   placement?: Placement;
   /**
-   * The placements to fallback to when there is not enough space for the Popover. Defaults to ['top', 'right', 'left'].
+   * The placements to fallback to when there is not enough space for the
+   * Popover. Defaults to ['top', 'right', 'left'].
    */
   fallbackPlacements?: Placement[];
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  modifiers?: Modifier<string, object>[];
+  /**
+   * Modifiers are plugins for Popper.js to modify its default behavior.
+   * [Read the docs](https://popper.js.org/docs/v2/modifiers/).
+   */
+  modifiers?: Partial<Modifier<string, Record<string, unknown>>>[];
   /**
    * The element that toggles the Popover when clicked.
    */
