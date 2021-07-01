@@ -103,6 +103,8 @@ describe('Popover', () => {
       },
       { type: 'divider' },
     ],
+    isOpen: true,
+    toggleOpen: jest.fn(),
   };
 
   describe('styles', () => {
@@ -135,22 +137,14 @@ describe('Popover', () => {
   });
 
   describe('business logic', () => {
-    it('should close the popover when clicking outside', async () => {
-      const { getByRole, queryByRole } = renderPopover(baseProps);
+    it('should close the popover when clicking outside', () => {
+      const { queryByRole } = renderPopover(baseProps);
 
-      const popoverTrigger = getByRole('button');
-
-      userEvent.click(popoverTrigger);
-
-      await waitFor(() => {
-        expect(queryByRole('menu')).toBeVisible();
-      });
+      expect(queryByRole('menu')).toBeVisible();
 
       userEvent.click(document.body);
 
-      await waitFor(() => {
-        expect(queryByRole('menu')).toBeNull();
-      });
+      expect(baseProps.toggleOpen).toHaveBeenCalled();
     });
 
     it('should close popover when clicking the trigger element', async () => {
@@ -158,25 +152,17 @@ describe('Popover', () => {
 
       const popoverTrigger = getByRole('button');
 
-      userEvent.click(popoverTrigger);
-
       await waitFor(() => {
         expect(queryByRole('menu')).toBeVisible();
       });
 
       userEvent.click(popoverTrigger);
 
-      await waitFor(() => {
-        expect(queryByRole('menu')).toBeNull();
-      });
+      expect(baseProps.toggleOpen).toHaveBeenCalled();
     });
 
     it('should close popover when clicking the ESC key', async () => {
-      const { getByRole, queryByRole } = renderPopover(baseProps);
-
-      const popoverTrigger = getByRole('button');
-
-      userEvent.click(popoverTrigger);
+      const { queryByRole } = renderPopover(baseProps);
 
       await waitFor(() => {
         expect(queryByRole('menu')).toBeVisible();
@@ -186,9 +172,7 @@ describe('Popover', () => {
         key: 'Escape',
       });
 
-      await waitFor(() => {
-        expect(queryByRole('menu')).toBeNull();
-      });
+      expect(baseProps.toggleOpen).toHaveBeenCalled();
     });
 
     /**

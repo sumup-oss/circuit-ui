@@ -181,7 +181,13 @@ function isDivider(action: Action): action is Divider {
 }
 
 export interface PopoverProps {
+  /**
+   * Determine whether the Popover is opened or closed.
+   */
   isOpen: boolean;
+  /**
+   * Function that is called when closing the Popover.
+   */
   toggleOpen: (open: boolean | ((prevOpen: boolean) => boolean)) => void;
   /**
    * An array of PopoverItem or Divider.
@@ -203,6 +209,7 @@ export interface PopoverProps {
     'id': string;
     'aria-haspopup': boolean;
     'aria-controls': string;
+    'aria-expanded': boolean;
   }) => JSX.Element;
 }
 
@@ -302,6 +309,7 @@ export const Popover = ({
           id={triggerId}
           aria-haspopup={true}
           aria-controls={id}
+          aria-expanded={isOpen}
           onClick={() => toggleOpen((prev) => !prev)}
         />
       </div>

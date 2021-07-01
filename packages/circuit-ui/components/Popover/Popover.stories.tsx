@@ -17,6 +17,8 @@
 
 import { action } from '@storybook/addon-actions';
 import { CirclePlus, PenStroke, Bin } from '@sumup/icons';
+import { JSXElement } from 'jscodeshift';
+import { useState } from 'react';
 
 import Button from '../Button';
 
@@ -54,16 +56,26 @@ const actions = [
   },
 ];
 
-export const Base = (args: PopoverProps): JSX.Element => (
-  <Popover
-    {...args}
-    component={(props) => (
-      <Button size="kilo" variant="primary" {...props}>
-        Open popover
-      </Button>
-    )}
-  />
-);
+export const Base = (args: PopoverProps): JSXElement => {
+  const [isOpen, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen((prev) => !prev);
+  };
+
+  return (
+    <Popover
+      {...args}
+      isOpen={isOpen}
+      toggleOpen={handleClick}
+      component={(props) => (
+        <Button size="kilo" variant="primary" {...props}>
+          Open popover
+        </Button>
+      )}
+    />
+  );
+};
 
 Base.args = {
   actions,

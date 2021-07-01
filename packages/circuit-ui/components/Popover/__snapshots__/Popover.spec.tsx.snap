@@ -96,9 +96,10 @@ exports[`Popover styles should render popover on auto 1`] = `
 <div>
   <div>
     <button
-      aria-controls="popover_13"
+      aria-controls="popover_9"
+      aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_14"
+      id="trigger_10"
     >
       Button
     </button>
@@ -107,9 +108,9 @@ exports[`Popover styles should render popover on auto 1`] = `
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_14"
+    aria-labelledby="trigger_10"
     class="circuit-4"
-    id="popover_13"
+    id="popover_9"
     role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
@@ -239,9 +240,10 @@ exports[`Popover styles should render popover on bottom 1`] = `
 <div>
   <div>
     <button
-      aria-controls="popover_29"
+      aria-controls="popover_21"
+      aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_30"
+      id="trigger_22"
     >
       Button
     </button>
@@ -250,9 +252,9 @@ exports[`Popover styles should render popover on bottom 1`] = `
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_30"
+    aria-labelledby="trigger_22"
     class="circuit-4"
-    id="popover_29"
+    id="popover_21"
     role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
@@ -382,9 +384,10 @@ exports[`Popover styles should render popover on left 1`] = `
 <div>
   <div>
     <button
-      aria-controls="popover_37"
+      aria-controls="popover_27"
+      aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_38"
+      id="trigger_28"
     >
       Button
     </button>
@@ -393,9 +396,9 @@ exports[`Popover styles should render popover on left 1`] = `
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_38"
+    aria-labelledby="trigger_28"
     class="circuit-4"
-    id="popover_37"
+    id="popover_27"
     role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
@@ -525,9 +528,10 @@ exports[`Popover styles should render popover on right 1`] = `
 <div>
   <div>
     <button
-      aria-controls="popover_45"
+      aria-controls="popover_33"
+      aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_46"
+      id="trigger_34"
     >
       Button
     </button>
@@ -536,9 +540,9 @@ exports[`Popover styles should render popover on right 1`] = `
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_46"
+    aria-labelledby="trigger_34"
     class="circuit-4"
-    id="popover_45"
+    id="popover_33"
     role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
@@ -668,9 +672,10 @@ exports[`Popover styles should render popover on top 1`] = `
 <div>
   <div>
     <button
-      aria-controls="popover_21"
+      aria-controls="popover_15"
+      aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_22"
+      id="trigger_16"
     >
       Button
     </button>
@@ -679,9 +684,9 @@ exports[`Popover styles should render popover on top 1`] = `
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_22"
+    aria-labelledby="trigger_16"
     class="circuit-4"
-    id="popover_21"
+    id="popover_15"
     role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
@@ -811,9 +816,10 @@ exports[`Popover styles should render with default styles 1`] = `
 <div>
   <div>
     <button
-      aria-controls="popover_5"
+      aria-controls="popover_3"
+      aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_6"
+      id="trigger_4"
     >
       Button
     </button>
@@ -822,9 +828,9 @@ exports[`Popover styles should render with default styles 1`] = `
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_6"
+    aria-labelledby="trigger_4"
     class="circuit-4"
-    id="popover_5"
+    id="popover_3"
     role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
