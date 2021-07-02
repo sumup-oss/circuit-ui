@@ -87,7 +87,6 @@ export type PopoverItemProps = BaseProps & LinkElProps & ButtonElProps;
 type PopoverItemWrapperProps = LinkElProps & ButtonElProps;
 
 const itemWrapperStyles = () => css`
-  label: popover-item;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -101,7 +100,6 @@ const PopoverItemWrapper = styled('button')<PopoverItemWrapperProps>(
 );
 
 const iconStyles = (theme: Theme) => css`
-  label: popover__icon;
   margin-right: ${theme.spacings.byte};
 `;
 
@@ -138,40 +136,72 @@ export const PopoverItem = ({
   );
 };
 
-const wrapperStyles = ({ theme }: StyleProps) => css`
-  label: popover;
+const wrapperBaseStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.byte} 0px;
   border: 1px solid ${theme.colors.n200};
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.byte};
   background-color: ${theme.colors.white};
+  visibility: hidden;
 
   ${theme.mq.untilKilo} {
+    transform: translateY(100%);
+    transition: transform ${theme.transitions.default},
+      visibility ${theme.transitions.default};
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 `;
 
-const PopoverWrapper = styled('div')(wrapperStyles, shadow);
+type OpenProps = { isOpen: boolean };
+
+const wrapperOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
+  isOpen &&
+  css`
+    visibility: visible;
+
+    ${theme.mq.untilKilo} {
+      transform: translateY(0);
+    }
+  `;
+
+const PopoverWrapper = styled('div')<OpenProps>(
+  shadow,
+  wrapperBaseStyles,
+  wrapperOpenStyles,
+);
 
 const dividerStyles = (theme: Theme) => css`
   margin: ${theme.spacings.byte} ${theme.spacings.mega};
   width: calc(100% - ${theme.spacings.mega}*2);
 `;
 
-const Overlay = styled.div(
-  ({ theme }: StyleProps) => css`
+const overlayStyles = ({ theme }: StyleProps) => css`
+  ${theme.mq.untilKilo} {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: ${theme.colors.overlay};
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity ${theme.transitions.default},
+      visibility ${theme.transitions.default};
+  }
+`;
+
+const overlayOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
+  isOpen &&
+  css`
     ${theme.mq.untilKilo} {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: ${theme.colors.overlay};
-      pointer-events: none;
+      visibility: visible;
+      opacity: 1;
     }
-  `,
-);
+  `;
+
+const Overlay = styled.div<OpenProps>(overlayStyles, overlayOpenStyles);
 
 type Divider = { type: 'divider' };
 type Action = PopoverItemProps | Divider;
@@ -182,7 +212,7 @@ function isDivider(action: Action): action is Divider {
 
 export interface PopoverProps {
   /**
-   * Determines whether the Popover is opened or closed.
+   * Determines whether the Popover is open or closed.
    */
   isOpen: boolean;
   /**
@@ -320,28 +350,28 @@ export const Popover = ({
           onClick={() => onToggle((prev) => !prev)}
         />
       </div>
-      {isOpen && (
-        <Fragment>
-          <Overlay />
-          <PopoverWrapper
-            id={id}
-            {...props}
-            ref={setPopperElement}
-            style={styles.popper}
-            aria-labelledby={triggerId}
-            role="menu"
-            {...attributes.popper}
-          >
-            {actions.map((action, index) =>
-              isDivider(action) ? (
-                <Hr css={dividerStyles} key={index} />
-              ) : (
-                <PopoverItem key={index} {...action} />
-              ),
-            )}
-          </PopoverWrapper>
-        </Fragment>
-      )}
+      <Overlay isOpen={isOpen} />
+      <div
+        {...props}
+        ref={setPopperElement}
+        style={styles.popper}
+        {...attributes.popper}
+      >
+        <PopoverWrapper
+          id={id}
+          isOpen={isOpen}
+          aria-labelledby={triggerId}
+          role="menu"
+        >
+          {actions.map((action, index) =>
+            isDivider(action) ? (
+              <Hr css={dividerStyles} key={index} />
+            ) : (
+              <PopoverItem key={index} {...action} />
+            ),
+          )}
+        </PopoverWrapper>
+      </div>
     </Fragment>
   );
 };
