@@ -32,7 +32,7 @@ export interface HeadlineProps
    * without skipping any levels. Learn more at
    * https://www.w3.org/WAI/tutorials/page-structure/headings/.
    */
-  as: string;
+  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
