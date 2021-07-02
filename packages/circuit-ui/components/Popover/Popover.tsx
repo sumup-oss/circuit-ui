@@ -142,6 +142,7 @@ const wrapperBaseStyles = ({ theme }: StyleProps) => css`
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.byte};
   background-color: ${theme.colors.white};
+  z-index: ${theme.zIndex.popover};
   visibility: hidden;
 
   ${theme.mq.untilKilo} {
@@ -184,6 +185,7 @@ const overlayStyles = ({ theme }: StyleProps) => css`
     left: 0;
     right: 0;
     background-color: ${theme.colors.overlay};
+    z-index: ${theme.zIndex.popover}-1;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
