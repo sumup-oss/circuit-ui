@@ -58,12 +58,12 @@ exports[`Popover styles should render popover on auto 1`] = `
 @media (max-width:479px) {
   .circuit-0 {
     position: fixed;
+    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    z-index: 29;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -86,7 +86,6 @@ exports[`Popover styles should render popover on auto 1`] = `
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  z-index: 30;
   visibility: hidden;
   visibility: visible;
 }
@@ -234,12 +233,12 @@ exports[`Popover styles should render popover on bottom 1`] = `
 @media (max-width:479px) {
   .circuit-0 {
     position: fixed;
+    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    z-index: 29;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -262,7 +261,6 @@ exports[`Popover styles should render popover on bottom 1`] = `
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  z-index: 30;
   visibility: hidden;
   visibility: visible;
 }
@@ -410,12 +408,12 @@ exports[`Popover styles should render popover on left 1`] = `
 @media (max-width:479px) {
   .circuit-0 {
     position: fixed;
+    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    z-index: 29;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -438,7 +436,6 @@ exports[`Popover styles should render popover on left 1`] = `
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  z-index: 30;
   visibility: hidden;
   visibility: visible;
 }
@@ -586,12 +583,12 @@ exports[`Popover styles should render popover on right 1`] = `
 @media (max-width:479px) {
   .circuit-0 {
     position: fixed;
+    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    z-index: 29;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -614,7 +611,6 @@ exports[`Popover styles should render popover on right 1`] = `
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  z-index: 30;
   visibility: hidden;
   visibility: visible;
 }
@@ -762,12 +758,12 @@ exports[`Popover styles should render popover on top 1`] = `
 @media (max-width:479px) {
   .circuit-0 {
     position: fixed;
+    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    z-index: 29;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -790,7 +786,6 @@ exports[`Popover styles should render popover on top 1`] = `
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  z-index: 30;
   visibility: hidden;
   visibility: visible;
 }
@@ -938,12 +933,12 @@ exports[`Popover styles should render with default styles 1`] = `
 @media (max-width:479px) {
   .circuit-0 {
     position: fixed;
+    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    z-index: 29;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -966,7 +961,6 @@ exports[`Popover styles should render with default styles 1`] = `
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  z-index: 30;
   visibility: hidden;
   visibility: visible;
 }
