@@ -141,6 +141,28 @@ describe('Popover', () => {
   });
 
   describe('business logic', () => {
+    it('should open the popover when clicking the trigger element', () => {
+      const popoverProps: Omit<PopoverProps, 'component'> = {
+        actions: [
+          {
+            onClick: () => alert('Added'),
+            children: 'Add',
+            icon: CirclePlus,
+          },
+          { type: 'divider' },
+        ],
+        isOpen: false,
+        onToggle: jest.fn(),
+      };
+      const { getByRole } = renderPopover(popoverProps);
+
+      const popoverTrigger = getByRole('button');
+
+      userEvent.click(popoverTrigger);
+
+      expect(popoverProps.onToggle).toHaveBeenCalledTimes(1);
+    });
+
     it('should close the popover when clicking outside', () => {
       const { queryByRole } = renderPopover(baseProps);
 
