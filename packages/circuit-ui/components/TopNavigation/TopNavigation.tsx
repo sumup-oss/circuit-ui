@@ -56,8 +56,8 @@ const logoStyles = ({ theme }: StyleProps) => css`
   }
 
   svg {
-    color: black;
-    max-height: 100%;
+    color: ${theme.colors.black};
+    height: 100%;
   }
 
   ${theme.mq.mega} {
