@@ -87,7 +87,6 @@ export type PopoverItemProps = BaseProps & LinkElProps & ButtonElProps;
 type PopoverItemWrapperProps = LinkElProps & ButtonElProps;
 
 const itemWrapperStyles = () => css`
-  label: popover-item;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -101,7 +100,6 @@ const PopoverItemWrapper = styled('button')<PopoverItemWrapperProps>(
 );
 
 const iconStyles = (theme: Theme) => css`
-  label: popover__icon;
   margin-right: ${theme.spacings.byte};
 `;
 
@@ -138,40 +136,74 @@ export const PopoverItem = ({
   );
 };
 
-const wrapperStyles = ({ theme }: StyleProps) => css`
-  label: popover;
+const wrapperBaseStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.byte} 0px;
   border: 1px solid ${theme.colors.n200};
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.byte};
   background-color: ${theme.colors.white};
+  z-index: ${theme.zIndex.popover};
+  visibility: hidden;
 
   ${theme.mq.untilKilo} {
+    transform: translateY(100%);
+    transition: transform ${theme.transitions.default},
+      visibility ${theme.transitions.default};
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 `;
 
-const PopoverWrapper = styled('div')(wrapperStyles, shadow);
+type OpenProps = { isOpen: boolean };
+
+const wrapperOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
+  isOpen &&
+  css`
+    visibility: visible;
+
+    ${theme.mq.untilKilo} {
+      transform: translateY(0);
+    }
+  `;
+
+const PopoverWrapper = styled('div')<OpenProps>(
+  shadow,
+  wrapperBaseStyles,
+  wrapperOpenStyles,
+);
 
 const dividerStyles = (theme: Theme) => css`
   margin: ${theme.spacings.byte} ${theme.spacings.mega};
   width: calc(100% - ${theme.spacings.mega}*2);
 `;
 
-const Overlay = styled.div(
-  ({ theme }: StyleProps) => css`
+const overlayStyles = ({ theme }: StyleProps) => css`
+  ${theme.mq.untilKilo} {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: ${theme.colors.overlay};
+    z-index: ${theme.zIndex.popover - 1};
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity ${theme.transitions.default},
+      visibility ${theme.transitions.default};
+  }
+`;
+
+const overlayOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
+  isOpen &&
+  css`
     ${theme.mq.untilKilo} {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: ${theme.colors.overlay};
-      pointer-events: none;
+      visibility: visible;
+      opacity: 1;
     }
-  `,
-);
+  `;
+
+const Overlay = styled.div<OpenProps>(overlayStyles, overlayOpenStyles);
 
 type Divider = { type: 'divider' };
 type Action = PopoverItemProps | Divider;
@@ -182,6 +214,14 @@ function isDivider(action: Action): action is Divider {
 
 export interface PopoverProps {
   /**
+   * Determines whether the Popover is open or closed.
+   */
+  isOpen: boolean;
+  /**
+   * Function that is called when toggles the Popover.
+   */
+  onToggle: (open: boolean | ((prevOpen: boolean) => boolean)) => void;
+  /**
    * An array of PopoverItem or Divider.
    */
   actions: Action[];
@@ -190,30 +230,38 @@ export interface PopoverProps {
    */
   placement?: Placement;
   /**
-   * The placements to fallback to when there is not enough space for the Popover. Defaults to ['top', 'right', 'left'].
+   * The placements to fallback to when there is not enough space for the
+   * Popover. Defaults to ['top', 'right', 'left'].
    */
   fallbackPlacements?: Placement[];
+  /**
+   * Modifiers are plugins for Popper.js to modify its default behavior.
+   * [Read the docs](https://popper.js.org/docs/v2/modifiers/).
+   */
+  modifiers?: Partial<Modifier<string, Record<string, unknown>>>[];
   /**
    * The element that toggles the Popover when clicked.
    */
   component: (props: {
     'onClick': (event: MouseEvent | KeyboardEvent) => void;
-    'ref': Ref<HTMLButtonElement>;
     'id': string;
     'aria-haspopup': boolean;
     'aria-controls': string;
+    'aria-expanded': boolean;
   }) => JSX.Element;
 }
 
 export const Popover = ({
+  isOpen = false,
+  onToggle,
   actions,
   placement = 'bottom',
   fallbackPlacements = ['top', 'right', 'left'],
   component: Component,
+  modifiers = [],
   ...props
 }: PopoverProps): JSX.Element | null => {
-  const [isOpen, setOpen] = useState(false);
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
   const theme = useTheme<Theme>();
   const id = uniqueId('popover_');
   const triggerId = uniqueId('trigger_');
@@ -259,7 +307,7 @@ export const Popover = ({
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
   const { styles, attributes } = usePopper(triggerRef.current, popperElement, {
     placement,
-    modifiers: [mobilePosition, flip],
+    modifiers: [mobilePosition, flip, ...modifiers],
   });
 
   // This is a performance optimization to prevent event listeners from being
@@ -272,7 +320,7 @@ export const Popover = ({
     }
     const handleEscapePress = (event: Event) => {
       if (isEscape(event)) {
-        setOpen(false);
+        onToggle(false);
       }
     };
 
@@ -280,7 +328,7 @@ export const Popover = ({
     return () => {
       document.removeEventListener('keydown', handleEscapePress);
     };
-  }, [isOpen]);
+  }, [isOpen, onToggle]);
 
   useClickAway(popperRef, (event) => {
     // The reference element has its own click handler to toggle the popover.
@@ -290,40 +338,42 @@ export const Popover = ({
     ) {
       return;
     }
-    setOpen(false);
+    onToggle(false);
   });
 
   return (
     <Fragment>
-      <Component
-        ref={triggerRef}
-        id={triggerId}
-        aria-haspopup={true}
-        aria-controls={id}
-        onClick={() => setOpen((prev) => !prev)}
-      />
-      {isOpen && (
-        <Fragment>
-          <Overlay />
-          <PopoverWrapper
-            id={id}
-            {...props}
-            ref={setPopperElement}
-            style={styles.popper}
-            aria-labelledby={triggerId}
-            role="menu"
-            {...attributes.popper}
-          >
-            {actions.map((action, index) =>
-              isDivider(action) ? (
-                <Hr css={dividerStyles} key={index} />
-              ) : (
-                <PopoverItem key={index} {...action} />
-              ),
-            )}
-          </PopoverWrapper>
-        </Fragment>
-      )}
+      <div ref={triggerRef}>
+        <Component
+          id={triggerId}
+          aria-haspopup={true}
+          aria-controls={id}
+          aria-expanded={isOpen}
+          onClick={() => onToggle((prev) => !prev)}
+        />
+      </div>
+      <Overlay isOpen={isOpen} />
+      <div
+        {...props}
+        ref={setPopperElement}
+        style={styles.popper}
+        {...attributes.popper}
+      >
+        <PopoverWrapper
+          id={id}
+          isOpen={isOpen}
+          aria-labelledby={triggerId}
+          role="menu"
+        >
+          {actions.map((action, index) =>
+            isDivider(action) ? (
+              <Hr css={dividerStyles} key={index} />
+            ) : (
+              <PopoverItem key={index} {...action} />
+            ),
+          )}
+        </PopoverWrapper>
+      </div>
     </Fragment>
   );
 };

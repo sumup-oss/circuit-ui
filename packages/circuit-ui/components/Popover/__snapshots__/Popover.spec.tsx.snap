@@ -63,23 +63,52 @@ exports[`Popover styles should render popover on auto 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
+    z-index: 29;
     pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
 .circuit-4 {
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+  z-index: 30;
+  visibility: hidden;
+  visibility: visible;
 }
 
 @media (max-width:479px) {
   .circuit-4 {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    -webkit-transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-4 {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -94,49 +123,55 @@ exports[`Popover styles should render popover on auto 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_13"
-    aria-haspopup="true"
-    id="trigger_14"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_9"
+      aria-expanded="true"
+      aria-haspopup="true"
+      id="trigger_10"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_14"
-    class="circuit-4"
-    id="popover_13"
-    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
-    <button
-      class="circuit-2"
-      role="menuitem"
+    <div
+      aria-labelledby="trigger_10"
+      class="circuit-4"
+      id="popover_9"
+      role="menu"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <button
+        class="circuit-2"
+        role="menuitem"
       >
-        <g>
-          <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </g>
-      </svg>
-      Add
-    </button>
-    <hr
-      class="circuit-3"
-    />
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+        Add
+      </button>
+      <hr
+        class="circuit-3"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -204,23 +239,52 @@ exports[`Popover styles should render popover on bottom 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
+    z-index: 29;
     pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
 .circuit-4 {
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+  z-index: 30;
+  visibility: hidden;
+  visibility: visible;
 }
 
 @media (max-width:479px) {
   .circuit-4 {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    -webkit-transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-4 {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -235,49 +299,55 @@ exports[`Popover styles should render popover on bottom 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_29"
-    aria-haspopup="true"
-    id="trigger_30"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_21"
+      aria-expanded="true"
+      aria-haspopup="true"
+      id="trigger_22"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_30"
-    class="circuit-4"
-    id="popover_29"
-    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
-    <button
-      class="circuit-2"
-      role="menuitem"
+    <div
+      aria-labelledby="trigger_22"
+      class="circuit-4"
+      id="popover_21"
+      role="menu"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <button
+        class="circuit-2"
+        role="menuitem"
       >
-        <g>
-          <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </g>
-      </svg>
-      Add
-    </button>
-    <hr
-      class="circuit-3"
-    />
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+        Add
+      </button>
+      <hr
+        class="circuit-3"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -345,23 +415,52 @@ exports[`Popover styles should render popover on left 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
+    z-index: 29;
     pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
 .circuit-4 {
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+  z-index: 30;
+  visibility: hidden;
+  visibility: visible;
 }
 
 @media (max-width:479px) {
   .circuit-4 {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    -webkit-transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-4 {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -376,49 +475,55 @@ exports[`Popover styles should render popover on left 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_37"
-    aria-haspopup="true"
-    id="trigger_38"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_27"
+      aria-expanded="true"
+      aria-haspopup="true"
+      id="trigger_28"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_38"
-    class="circuit-4"
-    id="popover_37"
-    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
-    <button
-      class="circuit-2"
-      role="menuitem"
+    <div
+      aria-labelledby="trigger_28"
+      class="circuit-4"
+      id="popover_27"
+      role="menu"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <button
+        class="circuit-2"
+        role="menuitem"
       >
-        <g>
-          <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </g>
-      </svg>
-      Add
-    </button>
-    <hr
-      class="circuit-3"
-    />
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+        Add
+      </button>
+      <hr
+        class="circuit-3"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -486,23 +591,52 @@ exports[`Popover styles should render popover on right 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
+    z-index: 29;
     pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
 .circuit-4 {
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+  z-index: 30;
+  visibility: hidden;
+  visibility: visible;
 }
 
 @media (max-width:479px) {
   .circuit-4 {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    -webkit-transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-4 {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -517,49 +651,55 @@ exports[`Popover styles should render popover on right 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_45"
-    aria-haspopup="true"
-    id="trigger_46"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_33"
+      aria-expanded="true"
+      aria-haspopup="true"
+      id="trigger_34"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_46"
-    class="circuit-4"
-    id="popover_45"
-    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
-    <button
-      class="circuit-2"
-      role="menuitem"
+    <div
+      aria-labelledby="trigger_34"
+      class="circuit-4"
+      id="popover_33"
+      role="menu"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <button
+        class="circuit-2"
+        role="menuitem"
       >
-        <g>
-          <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </g>
-      </svg>
-      Add
-    </button>
-    <hr
-      class="circuit-3"
-    />
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+        Add
+      </button>
+      <hr
+        class="circuit-3"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -627,23 +767,52 @@ exports[`Popover styles should render popover on top 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
+    z-index: 29;
     pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
 .circuit-4 {
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+  z-index: 30;
+  visibility: hidden;
+  visibility: visible;
 }
 
 @media (max-width:479px) {
   .circuit-4 {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    -webkit-transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-4 {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -658,49 +827,55 @@ exports[`Popover styles should render popover on top 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_21"
-    aria-haspopup="true"
-    id="trigger_22"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_15"
+      aria-expanded="true"
+      aria-haspopup="true"
+      id="trigger_16"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_22"
-    class="circuit-4"
-    id="popover_21"
-    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
-    <button
-      class="circuit-2"
-      role="menuitem"
+    <div
+      aria-labelledby="trigger_16"
+      class="circuit-4"
+      id="popover_15"
+      role="menu"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <button
+        class="circuit-2"
+        role="menuitem"
       >
-        <g>
-          <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </g>
-      </svg>
-      Add
-    </button>
-    <hr
-      class="circuit-3"
-    />
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+        Add
+      </button>
+      <hr
+        class="circuit-3"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -768,23 +943,52 @@ exports[`Popover styles should render with default styles 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
+    z-index: 29;
     pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
 .circuit-4 {
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+  z-index: 30;
+  visibility: hidden;
+  visibility: visible;
 }
 
 @media (max-width:479px) {
   .circuit-4 {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    -webkit-transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-4 {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -799,49 +1003,55 @@ exports[`Popover styles should render with default styles 1`] = `
 }
 
 <div>
-  <button
-    aria-controls="popover_5"
-    aria-haspopup="true"
-    id="trigger_6"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      aria-controls="popover_3"
+      aria-expanded="true"
+      aria-haspopup="true"
+      id="trigger_4"
+    >
+      Button
+    </button>
+  </div>
   <div
     class="circuit-0"
   />
   <div
-    aria-labelledby="trigger_6"
-    class="circuit-4"
-    id="popover_5"
-    role="menu"
     style="position: absolute; left: 0px; top: 0px;"
   >
-    <button
-      class="circuit-2"
-      role="menuitem"
+    <div
+      aria-labelledby="trigger_4"
+      class="circuit-4"
+      id="popover_3"
+      role="menu"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <button
+        class="circuit-2"
+        role="menuitem"
       >
-        <g>
-          <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </g>
-      </svg>
-      Add
-    </button>
-    <hr
-      class="circuit-3"
-    />
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 5a1 1 0 10-2 0v2H5a1 1 0 100 2h2v2a1 1 0 002 0V9h2a1 1 0 100-2H9V5z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+        Add
+      </button>
+      <hr
+        class="circuit-3"
+      />
+    </div>
   </div>
 </div>
 `;
