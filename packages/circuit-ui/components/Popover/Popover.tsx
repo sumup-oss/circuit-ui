@@ -185,7 +185,7 @@ const overlayStyles = ({ theme }: StyleProps) => css`
     left: 0;
     right: 0;
     background-color: ${theme.colors.overlay};
-    z-index: ${theme.zIndex.popover}-1;
+    z-index: ${theme.zIndex.popover - 1};
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
