@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TopNavigation styles should match the snapshot 1`] = `
-.circuit-17 {
+.circuit-23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21,7 +21,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 }
 
 @media (min-width:768px) {
-  .circuit-17 {
+  .circuit-23 {
     height: 64px;
   }
 }
@@ -169,7 +169,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   }
 }
 
-.circuit-16 {
+.circuit-22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -178,7 +178,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 }
 
 @media (min-width:768px) {
-  .circuit-16 {
+  .circuit-22 {
     margin-right: 16px;
   }
 }
@@ -420,9 +420,160 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   }
 }
 
+@media (max-width:479px) {
+  .circuit-16 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 29;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  }
+}
+
+.circuit-21 {
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+  padding: 8px 0px;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #FFF;
+  z-index: 30;
+  visibility: hidden;
+}
+
+@media (max-width:479px) {
+  .circuit-21 {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    -webkit-transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.circuit-17 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #1A1A1A;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-17:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-17:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+  z-index: 1;
+}
+
+.circuit-17:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-17:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-17:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-19 {
+  display: block;
+  width: 100%;
+  border: 1px solid #CCC;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin: 8px 16px;
+  width: calc(100% - 16px*2);
+}
+
+.circuit-20 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #D23F47;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-20:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-20:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+  z-index: 1;
+}
+
+.circuit-20:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-20:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-20:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
 <div>
   <header
-    class="circuit-17"
+    class="circuit-23"
     role="banner"
   >
     <div
@@ -493,7 +644,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
       </div>
     </div>
     <div
-      class="circuit-16"
+      class="circuit-22"
     >
       <div
         class="circuit-9"
@@ -527,12 +678,12 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
       </div>
       <div>
         <button
-          aria-controls="popover_1"
+          aria-controls="popover_3"
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Open profile menu"
           class="circuit-15"
-          id="trigger_2"
+          id="trigger_4"
           title="Open profile menu"
           type="button"
         >
@@ -572,6 +723,41 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
             />
           </svg>
         </button>
+      </div>
+      <div
+        class="circuit-16"
+      />
+      <div
+        style="position: absolute; left: 0px; top: 0px;"
+      >
+        <div
+          aria-labelledby="trigger_4"
+          class="circuit-21"
+          id="popover_3"
+          role="menu"
+        >
+          <button
+            class="circuit-17"
+            role="menuitem"
+          >
+            View profile
+          </button>
+          <button
+            class="circuit-17"
+            role="menuitem"
+          >
+            Settings
+          </button>
+          <hr
+            class="circuit-19"
+          />
+          <button
+            class="circuit-20"
+            role="menuitem"
+          >
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   </header>
