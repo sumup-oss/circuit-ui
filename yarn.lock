@@ -4011,9 +4011,9 @@
     store2 "^2.12.0"
 
 "@sumup/collector@^1.0.0":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@sumup/collector/-/collector-1.1.1.tgz#3215a0f5593cb8ac26b6cd29cc0bc706630678bd"
-  integrity sha512-Pytus817i40/84SMsAYHfldpwP6rflDHfepHCDu/cyZY6zIjWr3bGffoq9dNxXaQOh4DK5x9ijnd8m8li17qtA==
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@sumup/collector/-/collector-1.2.0.tgz#c0ec1517e4610faae8be6c5d5f7caf69bfb3d6a1"
+  integrity sha512-X0l5xETWka1Ip7DdIoPOZ5Li08pqRbz7KdDDOybgUC2Hlj3Tr+4xMy14Ik8iq4vjXn6smUupKNS7nunKfmfXIg==
   dependencies:
     tti-polyfill "^0.2.2"
 
