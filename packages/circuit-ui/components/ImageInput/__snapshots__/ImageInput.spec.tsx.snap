@@ -43,6 +43,10 @@ exports[`ImageInput styles should render a custom component 1`] = `
   border: 0;
 }
 
+.circuit-0:focus:not(:focus-visible) + label {
+  box-shadow: none;
+}
+
 .circuit-2 {
   font-size: 14px;
   line-height: 20px;
@@ -311,6 +315,10 @@ exports[`ImageInput styles should render with an existing image 1`] = `
 
 .circuit-0:focus + label::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) + label {
+  box-shadow: none;
 }
 
 .circuit-3 {
@@ -594,6 +602,10 @@ exports[`ImageInput styles should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-0:focus:not(:focus-visible) + label {
+  box-shadow: none;
+}
+
 .circuit-3 {
   font-size: 14px;
   line-height: 20px;
@@ -874,6 +886,10 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 
 .circuit-0:focus + label::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) + label {
+  box-shadow: none;
 }
 
 .circuit-1 {

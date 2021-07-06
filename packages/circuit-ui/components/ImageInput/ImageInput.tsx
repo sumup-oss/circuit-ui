@@ -87,7 +87,11 @@ const HiddenInput = styled.input(
   ({ theme }) => css`
     ${hideVisually()};
     &:focus + label {
-      ${focusOutline({ theme })};
+      ${focusOutline(theme)};
+    }
+
+    &:focus:not(:focus-visible) + label {
+      box-shadow: none;
     }
   `,
 );
