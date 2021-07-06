@@ -95,16 +95,18 @@ clearfix(): SerializedStyles;
 
 <Story id="features-style-mixins--clearfix" />
 
-## `focusOutline`
+## `focusVisible`
 
 Visually communicates to the user that an element is focused.
 
 ```ts
-focusOutline(theme: Theme | { theme: Theme }): SerializedStyles;
-focusOutline('inset'): (theme: Theme | { theme: Theme }) => SerializedStyles;
+focusVisible(theme: Theme | { theme: Theme }): SerializedStyles;
+focusVisible('inset'): (theme: Theme | { theme: Theme }) => SerializedStyles;
 ```
 
-<Story id="features-style-mixins--focus-outline" />
+<Story id="features-style-mixins--focus-visible" />
+
+In cases where the focus outline is needed for conditions other than the focus state, use the `focusOutline` style mixin instead. It has the same API.
 
 ## `disableVisually`
 

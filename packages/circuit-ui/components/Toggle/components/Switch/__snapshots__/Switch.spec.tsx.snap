@@ -32,6 +32,10 @@ exports[`Switch should have the correct default styles 1`] = `
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-0 {
   display: block;
   background-color: #FFF;
@@ -123,6 +127,10 @@ exports[`Switch should have the correct on styles 1`] = `
 
 .circuit-2:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-0 {

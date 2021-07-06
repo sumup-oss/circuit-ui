@@ -20,7 +20,7 @@ import { withTheme } from 'emotion-theming';
 import {
   typography,
   shadowTriple,
-  focusOutline,
+  focusVisible,
   disableVisually,
 } from '../../../../styles/style-mixins';
 
@@ -178,9 +178,7 @@ const navButtons = ({ theme }) => css`
       border-color: ${theme.colors.n800};
     }
 
-    &:focus {
-      ${focusOutline({ theme })};
-    }
+    ${focusVisible(theme)};
 
     &:disabled,
     &[disabled] {

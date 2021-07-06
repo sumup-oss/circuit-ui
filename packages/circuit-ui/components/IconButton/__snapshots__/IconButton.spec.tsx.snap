@@ -45,6 +45,10 @@ exports[`IconButton should render with the default styles 1`] = `
   border: 0;
 }
 
+.circuit-1:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-1:disabled,
 .circuit-1[disabled] {
   opacity: 0.5;

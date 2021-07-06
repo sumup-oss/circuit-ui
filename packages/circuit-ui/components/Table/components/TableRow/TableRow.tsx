@@ -53,17 +53,19 @@ const clickableStyles = ({ theme, onClick }: StyleProps & TableRowProps) =>
     &:focus {
       z-index: 1;
       transform: translate(0, 0);
-      ${focusOutline({ theme })};
+      ${focusOutline(theme)};
     }
 
-    tbody & {
-      &:focus,
-      &:hover {
-        td,
-        th {
-          color: ${theme.colors.p500};
-          background-color: ${theme.colors.n100};
-        }
+    &:focus:not(:focus-visible) {
+      box-shadow: none;
+    }
+
+    tbody &:focus,
+    tbody &:hover {
+      td,
+      th {
+        color: ${theme.colors.p500};
+        background-color: ${theme.colors.n100};
       }
     }
   `;

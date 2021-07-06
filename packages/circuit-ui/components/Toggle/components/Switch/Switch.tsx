@@ -18,7 +18,7 @@ import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
-import { focusOutline, hideVisually } from '../../../../styles/style-mixins';
+import { focusVisible, hideVisually } from '../../../../styles/style-mixins';
 import { useClickHandler } from '../../../../hooks/useClickHandler';
 
 export interface SwitchProps
@@ -70,10 +70,6 @@ const trackBaseStyles = ({ theme }: StyleProps) => css`
   width: ${TRACK_WIDTH};
   overflow: visible;
   cursor: pointer;
-
-  &:focus {
-    ${focusOutline({ theme })};
-  }
 `;
 
 const trackOnStyles = ({ theme, checked }: StyleProps & TrackElProps) =>
@@ -84,6 +80,7 @@ const trackOnStyles = ({ theme, checked }: StyleProps & TrackElProps) =>
   `;
 
 const SwitchTrack = styled('button')<TrackElProps>(
+  focusVisible,
   trackBaseStyles,
   trackOnStyles,
 );

@@ -32,14 +32,6 @@ exports[`Tab styles should render with default styles 1`] = `
   outline: none;
 }
 
-.circuit-0:hover {
-  background-color: #F5F5F5;
-}
-
-.circuit-0:active {
-  background-color: #E6E6E6;
-}
-
 .circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -47,6 +39,18 @@ exports[`Tab styles should render with default styles 1`] = `
 
 .circuit-0:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-0:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-0:active {
+  background-color: #E6E6E6;
 }
 
 <button
@@ -93,14 +97,6 @@ exports[`Tab styles should render with selected styles 1`] = `
   color: #1A1A1A;
 }
 
-.circuit-0:hover {
-  background-color: #F5F5F5;
-}
-
-.circuit-0:active {
-  background-color: #E6E6E6;
-}
-
 .circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -108,6 +104,18 @@ exports[`Tab styles should render with selected styles 1`] = `
 
 .circuit-0:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-0:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-0:active {
+  background-color: #E6E6E6;
 }
 
 .circuit-0::after {

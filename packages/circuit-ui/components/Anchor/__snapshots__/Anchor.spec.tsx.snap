@@ -18,6 +18,7 @@ exports[`Anchor styles should render with custom styles 1`] = `
   margin-left: 0;
   margin-right: 0;
   color: #3063E9;
+  border-radius: 8px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   color: rebeccapurple;
@@ -44,11 +45,14 @@ exports[`Anchor styles should render with custom styles 1`] = `
 .circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
-  border-radius: 8px;
 }
 
 .circuit-0:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 <a
@@ -77,6 +81,7 @@ exports[`Anchor styles should render with default styles 1`] = `
   margin-left: 0;
   margin-right: 0;
   color: #3063E9;
+  border-radius: 8px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
 }
@@ -102,11 +107,14 @@ exports[`Anchor styles should render with default styles 1`] = `
 .circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
-  border-radius: 8px;
 }
 
 .circuit-0:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 <a

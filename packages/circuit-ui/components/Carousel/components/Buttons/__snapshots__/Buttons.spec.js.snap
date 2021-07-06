@@ -61,6 +61,10 @@ exports[`Buttons styles should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-2:disabled,
 .circuit-2[disabled] {
   opacity: 0.5;

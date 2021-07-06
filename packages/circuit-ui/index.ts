@@ -159,6 +159,7 @@ export {
   disableVisually,
   hideVisually,
   focusOutline,
+  focusVisible,
   clearfix,
   hideScrollbar,
   inputOutline,

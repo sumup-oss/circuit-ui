@@ -29,6 +29,15 @@ HTMLCollection [
   border: 0;
 }
 
+.circuit-0:focus:not(:focus-visible) + label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-0:checked:focus:not(:focus-visible) + label::before {
+  border-color: #3063E9;
+}
+
 .circuit-0:checked + label::before {
   border-color: #3063E9;
 }
@@ -131,6 +140,15 @@ HTMLCollection [
   border: 0;
 }
 
+.circuit-0:focus:not(:focus-visible) + label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-0:checked:focus:not(:focus-visible) + label::before {
+  border-color: #3063E9;
+}
+
 .circuit-0:checked + label::before {
   border-color: #3063E9;
 }
@@ -230,6 +248,15 @@ HTMLCollection [
 
 .circuit-0:focus + label::before::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) + label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-0:checked:focus:not(:focus-visible) + label::before {
+  border-color: #3063E9;
 }
 
 .circuit-0:checked + label::before {
@@ -351,6 +378,15 @@ HTMLCollection [
 
 .circuit-0:focus + label::before::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) + label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-0:checked:focus:not(:focus-visible) + label::before {
+  border-color: #3063E9;
 }
 
 .circuit-0:checked + label::before {

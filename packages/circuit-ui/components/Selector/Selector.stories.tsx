@@ -61,6 +61,7 @@ Disabled.args = {
   name: 'disabled',
   disabled: true,
 };
+
 export const Sizes = (args: SelectorProps) => (
   <Stack>
     <Selector {...args} size="kilo">

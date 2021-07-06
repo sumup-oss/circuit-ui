@@ -16,10 +16,13 @@
 import { Fragment, Ref, HTMLProps, forwardRef } from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
-import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { hideVisually, disableVisually } from '../../styles/style-mixins';
+import {
+  hideVisually,
+  disableVisually,
+  focusOutline,
+} from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickHandler } from '../../hooks/useClickHandler';
 
@@ -65,61 +68,52 @@ export interface SelectorProps
   tracking?: TrackingProps;
 }
 
-type LabelElProps = Pick<SelectorProps, 'disabled' | 'size' | 'checked'>;
+type LabelElProps = Pick<SelectorProps, 'disabled' | 'size'>;
 
-interface OutlineStyles {
-  default: string;
-  hover: string;
-  active: string;
-}
+const baseStyles = ({ theme }: StyleProps) => css`
+  display: inline-block;
+  cursor: pointer;
+  background-color: ${theme.colors.white};
+  text-align: center;
+  position: relative;
+  border: none;
+  border-radius: ${theme.borderRadius.byte};
+  transition: box-shadow ${theme.transitions.default};
 
-const getBorderStyles = (theme: Theme, checked = false): OutlineStyles => {
-  const defaultBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n300}`;
-  const hoverBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n500}`;
-  const activeBorder = `0 0 0 ${theme.borderWidth.kilo} ${theme.colors.n700}`;
-  const checkedBorder = `0 0 0 ${theme.borderWidth.mega} ${theme.colors.p500}`;
-
-  return {
-    default: checked ? checkedBorder : defaultBorder,
-    hover: checked ? checkedBorder : hoverBorder,
-    active: checked ? checkedBorder : activeBorder,
-  };
-};
-
-const baseStyles = ({ theme, checked }: StyleProps & LabelElProps) => {
-  const borderStyles = getBorderStyles(theme, checked);
-
-  return css`
-    label: selector__label;
-    display: inline-block;
-    cursor: pointer;
-    padding: ${theme.spacings.mega} ${theme.spacings.giga};
-    background-color: ${checked ? theme.colors.p100 : theme.colors.white};
-    text-align: center;
-    position: relative;
-    border: none;
+  &::before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: ${theme.borderRadius.byte};
-    transition: box-shadow 0.1s ease-in-out;
-    box-shadow: ${borderStyles.default};
+    border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+    transition: border ${theme.transitions.default};
+  }
 
-    &:hover {
-      background-color: ${theme.colors.n100};
-      box-shadow: ${borderStyles.hover};
-    }
+  &:hover {
+    background-color: ${theme.colors.n100};
 
-    &:active {
-      background-color: ${theme.colors.n200};
-      box-shadow: ${borderStyles.active};
+    &::before {
+      border-color: ${theme.colors.n500};
     }
-  `;
-};
+  }
+
+  &:active {
+    background-color: ${theme.colors.n200};
+
+    &::before {
+      border-color: ${theme.colors.n700};
+    }
+  }
+`;
 
 const disabledStyles = ({ disabled }: LabelElProps) =>
-  disabled &&
-  css`
-    label: selector__label--disabled;
-    ${disableVisually()};
-  `;
+  disabled && css(disableVisually());
 
 const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   const sizeMap = {
@@ -127,19 +121,14 @@ const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
       padding: `${theme.spacings.bit} ${theme.spacings.mega}`,
     },
     mega: {
-      // +1px is to match the height of other form components
-      // like Input or Select that also have +1px for vertical padding
-      padding: `calc(${theme.spacings.byte} + 1px) ${theme.spacings.giga}`,
+      padding: `calc(${theme.spacings.kilo}) ${theme.spacings.giga}`,
     },
     flexible: {
       padding: `${theme.spacings.mega} ${theme.spacings.mega}`,
     },
   };
 
-  return css({
-    label: `selector__label--${size}`,
-    ...sizeMap[size],
-  });
+  return css(sizeMap[size]);
 };
 
 const SelectorLabel = styled('label')<LabelElProps>(
@@ -148,31 +137,27 @@ const SelectorLabel = styled('label')<LabelElProps>(
   disabledStyles,
 );
 
-const inputStyles = ({ theme, checked }: StyleProps & LabelElProps) => {
-  const borderStyles = getBorderStyles(theme, checked);
-  const focusOutline = `0 0 0 ${checked ? '5px' : '4px'} ${theme.colors.p300}`;
+const inputStyles = ({ theme }: StyleProps) => css`
+  ${hideVisually()};
 
-  return css`
-    label: selector__input;
-    ${hideVisually()};
+  &:focus + label::before {
+    ${focusOutline(theme)};
+  }
 
-    &:focus + label {
-      box-shadow: ${borderStyles.default}, ${focusOutline};
+  &:focus:not(:focus-visible) + label::before {
+    box-shadow: none;
+  }
+
+  &:checked + label {
+    background-color: ${theme.colors.p100};
+
+    &::before {
+      border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
     }
+  }
+`;
 
-    &:focus + label:hover {
-      box-shadow: ${borderStyles.hover}, ${focusOutline};
-    }
-
-    &:focus + label:active {
-      box-shadow: ${borderStyles.active}, ${focusOutline};
-    }
-  `;
-};
-
-const SelectorInput = styled('input')<
-  HTMLProps<HTMLInputElement> & LabelElProps
->(inputStyles);
+const SelectorInput = styled('input')(inputStyles);
 
 /**
  * A selector allows users to choose between several mutually-exclusive choices
@@ -187,7 +172,6 @@ export const Selector = forwardRef(
       name,
       disabled,
       multiple,
-      checked,
       onChange,
       tracking,
       className,
@@ -208,7 +192,6 @@ export const Selector = forwardRef(
           id={inputId}
           name={name}
           value={value}
-          checked={checked}
           disabled={disabled}
           onClick={handleChange}
           onChange={() => {
@@ -225,7 +208,6 @@ export const Selector = forwardRef(
         <SelectorLabel
           htmlFor={inputId}
           disabled={disabled}
-          checked={checked}
           size={size}
           className={className}
           style={style}

@@ -48,6 +48,10 @@ exports[`CalendarTag should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 <div>
   <div
     class="circuit-1"

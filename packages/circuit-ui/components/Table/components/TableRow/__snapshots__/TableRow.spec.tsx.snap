@@ -25,6 +25,10 @@ tbody .circuit-0:last-child td {
   border: 0;
 }
 
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 tbody .circuit-0:focus td,
 tbody .circuit-0:hover td,
 tbody .circuit-0:focus th,

@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { typography, focusOutline } from '../../../../styles/style-mixins';
+import { typography, focusVisible } from '../../../../styles/style-mixins';
 
 const defaultTabStyles = ({ theme }) => css`
   label: tab;
@@ -43,10 +43,6 @@ const defaultTabStyles = ({ theme }) => css`
 
   &:active {
     background-color: ${theme.colors.n200};
-  }
-
-  &:focus {
-    ${focusOutline({ theme })};
   }
 `;
 
@@ -73,6 +69,7 @@ const tabIndex = (selected) => (selected ? undefined : '-1');
 
 const StyledTab = styled('button')(
   typography('one'),
+  focusVisible,
   defaultTabStyles,
   selectedTabStyles,
 );
