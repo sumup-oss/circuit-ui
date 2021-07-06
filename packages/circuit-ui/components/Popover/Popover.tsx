@@ -27,7 +27,7 @@ import {
   Ref,
   useRef,
 } from 'react';
-import { useLatest } from 'react-use';
+import useLatest from 'use-latest';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
