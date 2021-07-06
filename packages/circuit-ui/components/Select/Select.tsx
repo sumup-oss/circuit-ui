@@ -287,6 +287,7 @@ export const Select = forwardRef(
   (
     {
       value,
+      defaultValue,
       placeholder = 'Select an option',
       disabled,
       inline,
@@ -343,10 +344,11 @@ export const Select = forwardRef(
             required={required}
             disabled={disabled}
             hasPrefix={hasPrefix}
+            defaultValue={defaultValue}
             {...props}
             onChange={handleChange}
           >
-            {!value && (
+            {!value && !defaultValue && (
               <option key="placeholder" value="">
                 {placeholder}
               </option>
