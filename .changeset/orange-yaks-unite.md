@@ -1,5 +1,5 @@
 ---
-'@sumup/circuit-ui': major
+'@sumup/circuit-ui': patch
 ---
 
-Fixed a bug in the Popover component by applying z-index to the Popper element.
+Fixed a bug in the Popover component to correctly stack the popover content on top of the overlay on mobile.
