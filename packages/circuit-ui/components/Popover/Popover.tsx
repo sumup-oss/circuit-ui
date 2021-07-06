@@ -142,7 +142,6 @@ const wrapperBaseStyles = ({ theme }: StyleProps) => css`
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.byte};
   background-color: ${theme.colors.white};
-  z-index: ${theme.zIndex.popover};
   visibility: hidden;
 
   ${theme.mq.untilKilo} {
@@ -180,12 +179,12 @@ const dividerStyles = (theme: Theme) => css`
 const overlayStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilKilo} {
     position: fixed;
+    z-index: ${theme.zIndex.popover};
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: ${theme.colors.overlay};
-    z-index: ${theme.zIndex.popover - 1};
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -283,10 +282,13 @@ export const Popover = ({
             right: '0px',
             bottom: '0px',
             position: 'fixed',
+            zIndex: theme.zIndex.popover.toString(),
           };
         } else {
           // eslint-disable-next-line no-param-reassign
           state.styles.popper.width = 'auto';
+          // eslint-disable-next-line no-param-reassign
+          state.styles.popper.zIndex = theme.zIndex.popover.toString();
         }
       },
     }),
