@@ -15,16 +15,25 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label {
-  box-shadow: 0 0 0 2px #3063E9,0 0 0 5px #AFD0FE;
+.circuit-0:focus + label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label:hover {
-  box-shadow: 0 0 0 2px #3063E9,0 0 0 5px #AFD0FE;
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-0:focus + label:active {
-  box-shadow: 0 0 0 2px #3063E9,0 0 0 5px #AFD0FE;
+.circuit-0:focus:not(:focus-visible) + label::before {
+  box-shadow: none;
+}
+
+.circuit-0:checked + label {
+  background-color: #F0F6FF;
+}
+
+.circuit-0:checked + label::before {
+  border: 2px solid #3063E9;
 }
 
 <input
@@ -38,26 +47,46 @@ HTMLCollection [
   .circuit-0 {
   display: inline-block;
   cursor: pointer;
-  padding: 16px 24px;
-  background-color: #F0F6FF;
+  background-color: #FFF;
   text-align: center;
   position: relative;
   border: none;
   border-radius: 8px;
-  -webkit-transition: box-shadow 0.1s ease-in-out;
-  transition: box-shadow 0.1s ease-in-out;
-  box-shadow: 0 0 0 2px #3063E9;
-  padding: calc(8px + 1px) 24px;
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+  padding: calc(12px) 24px;
+}
+
+.circuit-0::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid #CCC;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
 }
 
 .circuit-0:hover {
   background-color: #F5F5F5;
-  box-shadow: 0 0 0 2px #3063E9;
+}
+
+.circuit-0:hover::before {
+  border-color: #999;
 }
 
 .circuit-0:active {
   background-color: #E6E6E6;
-  box-shadow: 0 0 0 2px #3063E9;
+}
+
+.circuit-0:active::before {
+  border-color: #666;
 }
 
 <label
@@ -84,16 +113,25 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label {
-  box-shadow: 0 0 0 1px #CCC,0 0 0 4px #AFD0FE;
+.circuit-0:focus + label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label:hover {
-  box-shadow: 0 0 0 1px #999,0 0 0 4px #AFD0FE;
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-0:focus + label:active {
-  box-shadow: 0 0 0 1px #666,0 0 0 4px #AFD0FE;
+.circuit-0:focus:not(:focus-visible) + label::before {
+  box-shadow: none;
+}
+
+.circuit-0:checked + label {
+  background-color: #F0F6FF;
+}
+
+.circuit-0:checked + label::before {
+  border: 2px solid #3063E9;
 }
 
 <input
@@ -106,26 +144,46 @@ HTMLCollection [
   .circuit-0 {
   display: inline-block;
   cursor: pointer;
-  padding: 16px 24px;
   background-color: #FFF;
   text-align: center;
   position: relative;
   border: none;
   border-radius: 8px;
-  -webkit-transition: box-shadow 0.1s ease-in-out;
-  transition: box-shadow 0.1s ease-in-out;
-  box-shadow: 0 0 0 1px #CCC;
-  padding: calc(8px + 1px) 24px;
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+  padding: calc(12px) 24px;
+}
+
+.circuit-0::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid #CCC;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
 }
 
 .circuit-0:hover {
   background-color: #F5F5F5;
-  box-shadow: 0 0 0 1px #999;
+}
+
+.circuit-0:hover::before {
+  border-color: #999;
 }
 
 .circuit-0:active {
   background-color: #E6E6E6;
-  box-shadow: 0 0 0 1px #666;
+}
+
+.circuit-0:active::before {
+  border-color: #666;
 }
 
 <label
@@ -152,16 +210,25 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label {
-  box-shadow: 0 0 0 1px #CCC,0 0 0 4px #AFD0FE;
+.circuit-0:focus + label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label:hover {
-  box-shadow: 0 0 0 1px #999,0 0 0 4px #AFD0FE;
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-0:focus + label:active {
-  box-shadow: 0 0 0 1px #666,0 0 0 4px #AFD0FE;
+.circuit-0:focus:not(:focus-visible) + label::before {
+  box-shadow: none;
+}
+
+.circuit-0:checked + label {
+  background-color: #F0F6FF;
+}
+
+.circuit-0:checked + label::before {
+  border: 2px solid #3063E9;
 }
 
 <input
@@ -175,29 +242,49 @@ HTMLCollection [
   .circuit-0 {
   display: inline-block;
   cursor: pointer;
-  padding: 16px 24px;
   background-color: #FFF;
   text-align: center;
   position: relative;
   border: none;
   border-radius: 8px;
-  -webkit-transition: box-shadow 0.1s ease-in-out;
-  transition: box-shadow 0.1s ease-in-out;
-  box-shadow: 0 0 0 1px #CCC;
-  padding: calc(8px + 1px) 24px;
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+  padding: calc(12px) 24px;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
+.circuit-0::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid #CCC;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
+}
+
 .circuit-0:hover {
   background-color: #F5F5F5;
-  box-shadow: 0 0 0 1px #999;
+}
+
+.circuit-0:hover::before {
+  border-color: #999;
 }
 
 .circuit-0:active {
   background-color: #E6E6E6;
-  box-shadow: 0 0 0 1px #666;
+}
+
+.circuit-0:active::before {
+  border-color: #666;
 }
 
 <label
