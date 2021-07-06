@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import { renderHook, act } from '@testing-library/react-hooks';
 import * as Collector from '@sumup/collector';
+
+import { renderHook, actHook } from '../util/test-utils';
 
 import { useClickEvent } from './useClickEvent';
 
@@ -35,7 +36,7 @@ describe('useClickEvent', () => {
       );
 
       const event = new MouseEvent('click');
-      act(() => {
+      actHook(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -57,7 +58,7 @@ describe('useClickEvent', () => {
       );
 
       const event = new MouseEvent('click');
-      act(() => {
+      actHook(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -87,7 +88,7 @@ describe('useClickEvent', () => {
       );
 
       const event = new MouseEvent('click');
-      act(() => {
+      actHook(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -109,7 +110,7 @@ describe('useClickEvent', () => {
       );
 
       const event = new MouseEvent('click');
-      act(() => {
+      actHook(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
