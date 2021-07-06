@@ -17,15 +17,9 @@
 
 import { CirclePlus, Zap } from '@sumup/icons';
 import { Placement } from '@popperjs/core';
+import { KeyboardEvent, MouseEvent } from 'react';
 
-import {
-  axe,
-  RenderFn,
-  render,
-  userEvent,
-  waitFor,
-  fireEvent,
-} from '../../util/test-utils';
+import { act, axe, RenderFn, render, userEvent } from '../../util/test-utils';
 
 import {
   PopoverItem,
@@ -72,7 +66,9 @@ describe('PopoverItem', () => {
       const props = {
         ...baseProps,
         href: 'https://sumup.com',
-        onClick: jest.fn(),
+        onClick: jest.fn((event: KeyboardEvent | MouseEvent) => {
+          event.preventDefault();
+        }),
         icon: Zap,
       };
       const { container } = renderPopoverItem(render, props);
@@ -112,31 +108,18 @@ describe('Popover', () => {
   };
 
   describe('styles', () => {
-    it('should render with default styles', async () => {
-      const { container, getByRole } = renderPopover(baseProps);
-
-      const popoverTrigger = getByRole('button');
-
-      userEvent.click(popoverTrigger);
-
-      await waitFor(() => {
-        expect(container).toMatchSnapshot();
-      });
+    it('should render with default styles', () => {
+      const { container } = renderPopover(baseProps);
+      expect(container).toMatchSnapshot();
     });
 
-    it.each(placements)(`should render popover on %s`, async (placement) => {
-      const { container, getByRole } = renderPopover({
+    it.each(placements)(`should render popover on %s`, (placement) => {
+      const { container } = renderPopover({
         ...baseProps,
         placement,
       });
 
-      const popoverTrigger = getByRole('button');
-
-      userEvent.click(popoverTrigger);
-
-      await waitFor(() => {
-        expect(container).toMatchSnapshot();
-      });
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -158,44 +141,40 @@ describe('Popover', () => {
 
       const popoverTrigger = getByRole('button');
 
-      userEvent.click(popoverTrigger);
+      act(() => {
+        userEvent.click(popoverTrigger);
+      });
 
       expect(popoverProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
     it('should close the popover when clicking outside', () => {
-      const { queryByRole } = renderPopover(baseProps);
+      renderPopover(baseProps);
 
-      expect(queryByRole('menu')).toBeVisible();
-
-      userEvent.click(document.body);
+      act(() => {
+        userEvent.click(document.body);
+      });
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
-    it('should close popover when clicking the trigger element', async () => {
-      const { getByRole, queryByRole } = renderPopover(baseProps);
+    it('should close popover when clicking the trigger element', () => {
+      const { getByRole } = renderPopover(baseProps);
 
       const popoverTrigger = getByRole('button');
 
-      await waitFor(() => {
-        expect(queryByRole('menu')).toBeVisible();
+      act(() => {
+        userEvent.click(popoverTrigger);
       });
-
-      userEvent.click(popoverTrigger);
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
-    it('should close popover when clicking the ESC key', async () => {
-      const { queryByRole } = renderPopover(baseProps);
+    it('should close popover when clicking the ESC key', () => {
+      renderPopover(baseProps);
 
-      await waitFor(() => {
-        expect(queryByRole('menu')).toBeVisible();
-      });
-
-      fireEvent.keyDown(queryByRole('menu'), {
-        key: 'Escape',
+      act(() => {
+        userEvent.keyboard('{escape}');
       });
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
@@ -205,15 +184,7 @@ describe('Popover', () => {
      * Accessibility tests.
      */
     it('should meet accessibility guidelines', async () => {
-      const { container, getByRole, queryByRole } = renderPopover(baseProps);
-
-      const popoverTrigger = getByRole('button');
-
-      userEvent.click(popoverTrigger);
-
-      await waitFor(() => {
-        expect(queryByRole('menu')).toBeVisible();
-      });
+      const { container } = renderPopover(baseProps);
 
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();

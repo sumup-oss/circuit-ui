@@ -26,7 +26,6 @@ import {
   useMemo,
   Ref,
   useRef,
-  useEffect,
 } from 'react';
 import { useClickAway, useLatest } from 'react-use';
 import { Dispatch as TrackingProps } from '@sumup/collector';
@@ -36,11 +35,11 @@ import { useTheme } from 'emotion-theming';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
-import { isEscape } from '../../util/key-codes';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent } from '../../hooks/useClickEvent';
 import Hr from '../Hr';
 import { uniqueId } from '../../util/id';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
 
 export interface BaseProps {
   /**
@@ -312,21 +311,7 @@ export const Popover = ({
   // re-attached on every render.
   const popperRef = useLatest(popperElement);
 
-  useEffect(() => {
-    if (!isOpen) {
-      return undefined;
-    }
-    const handleEscapePress = (event: Event) => {
-      if (isEscape(event)) {
-        onToggle(false);
-      }
-    };
-
-    document.addEventListener('keydown', handleEscapePress);
-    return () => {
-      document.removeEventListener('keydown', handleEscapePress);
-    };
-  }, [isOpen, onToggle]);
+  useEscapeKey(() => onToggle(false), isOpen);
 
   useClickAway(popperRef, (event) => {
     // The reference element has its own click handler to toggle the popover.
