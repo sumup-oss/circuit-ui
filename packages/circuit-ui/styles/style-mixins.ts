@@ -413,15 +413,14 @@ export const listItem = (
       cursor: pointer;
     }
 
-    &:focus {
-      ${focusOutline('inset')({ theme })};
-      z-index: ${theme.zIndex.absolute};
-    }
+    ${focusVisible('inset')(theme)};
 
     &:active {
       background-color: ${theme.colors.n200};
     }
-    &:disabled {
+
+    &:disabled,
+    &[disabled] {
       ${disableVisually()};
     }
   `;

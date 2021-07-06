@@ -153,11 +153,6 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     border-color: ${theme.colors.p500};
   }
 
-  &:focus-visible + label::before {
-    ${focusOutline(theme)};
-    border-color: ${theme.colors.p500};
-  }
-
   &:checked + label > svg {
     transform: translateY(-50%) scale(1, 1);
     opacity: 1;

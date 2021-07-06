@@ -148,11 +148,6 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     border-color: ${theme.colors.p500};
   }
 
-  &:focus-visible + label::before {
-    ${focusOutline(theme)};
-    border-color: ${theme.colors.p500};
-  }
-
   &:checked + label {
     &::before {
       border-color: ${theme.colors.p500};

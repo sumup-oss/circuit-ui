@@ -41,16 +41,6 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   border-color: #3063E9;
 }
 
-.circuit-0:focus-visible + label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
-}
-
-.circuit-0:focus-visible + label::before::-moz-focus-inner {
-  border: 0;
-}
-
 .circuit-0:checked + label > svg {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
@@ -232,16 +222,6 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   border-color: #3063E9;
 }
 
-.circuit-0:focus-visible + label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
-}
-
-.circuit-0:focus-visible + label::before::-moz-focus-inner {
-  border: 0;
-}
-
 .circuit-0:checked + label > svg {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
@@ -378,16 +358,6 @@ exports[`Checkbox should render with default styles 1`] = `
   border-color: #3063E9;
 }
 
-.circuit-0:focus-visible + label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
-}
-
-.circuit-0:focus-visible + label::before::-moz-focus-inner {
-  border: 0;
-}
-
 .circuit-0:checked + label > svg {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
@@ -521,16 +491,6 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 
 .circuit-0:checked:focus:not(:focus-visible) + label::before {
   border-color: #3063E9;
-}
-
-.circuit-0:focus-visible + label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
-}
-
-.circuit-0:focus-visible + label::before::-moz-focus-inner {
-  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -679,16 +639,6 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 
 .circuit-0:checked:focus:not(:focus-visible) + label::before {
   border-color: #3063E9;
-}
-
-.circuit-0:focus-visible + label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
-}
-
-.circuit-0:focus-visible + label::before::-moz-focus-inner {
-  border: 0;
 }
 
 .circuit-0:checked + label > svg {

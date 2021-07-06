@@ -34,18 +34,22 @@ exports[`Popover styles should render popover on auto 1`] = `
 .circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
-  z-index: 1;
 }
 
 .circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -209,18 +213,22 @@ exports[`Popover styles should render popover on bottom 1`] = `
 .circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
-  z-index: 1;
 }
 
 .circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -384,18 +392,22 @@ exports[`Popover styles should render popover on left 1`] = `
 .circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
-  z-index: 1;
 }
 
 .circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -559,18 +571,22 @@ exports[`Popover styles should render popover on right 1`] = `
 .circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
-  z-index: 1;
 }
 
 .circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -734,18 +750,22 @@ exports[`Popover styles should render popover on top 1`] = `
 .circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
-  z-index: 1;
 }
 
 .circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -909,18 +929,22 @@ exports[`Popover styles should render with default styles 1`] = `
 .circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
-  z-index: 1;
 }
 
 .circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
