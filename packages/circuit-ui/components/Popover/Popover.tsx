@@ -27,7 +27,7 @@ import {
   Ref,
   useRef,
 } from 'react';
-import { useClickAway, useLatest } from 'react-use';
+import { useLatest } from 'react-use';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
@@ -40,6 +40,7 @@ import { useClickEvent } from '../../hooks/useClickEvent';
 import Hr from '../Hr';
 import { uniqueId } from '../../util/id';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
+import { useClickOutside } from '../../hooks/useClickOutside';
 
 export interface BaseProps {
   /**
@@ -312,17 +313,14 @@ export const Popover = ({
   const popperRef = useLatest(popperElement);
 
   useEscapeKey(() => onToggle(false), isOpen);
+  useClickOutside(popperRef, () => onToggle(false), isOpen);
 
-  useClickAway(popperRef, (event) => {
-    // The reference element has its own click handler to toggle the popover.
-    if (
-      !triggerRef.current ||
-      triggerRef.current.contains(event.target as Node)
-    ) {
-      return;
-    }
-    onToggle(false);
-  });
+  const handleClick = (event: MouseEvent | KeyboardEvent) => {
+    // This prevents the event from bubbling which would trigger the
+    // useClickOutside above and would prevent the popover from closing.
+    event.stopPropagation();
+    onToggle((prev) => !prev);
+  };
 
   return (
     <Fragment>
@@ -332,7 +330,7 @@ export const Popover = ({
           aria-haspopup={true}
           aria-controls={id}
           aria-expanded={isOpen}
-          onClick={() => onToggle((prev) => !prev)}
+          onClick={handleClick}
         />
       </div>
       <Overlay isOpen={isOpen} />
