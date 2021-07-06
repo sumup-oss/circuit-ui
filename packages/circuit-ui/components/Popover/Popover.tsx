@@ -38,7 +38,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
 import { isEscape } from '../../util/key-codes';
 import { useComponents } from '../ComponentsContext';
-import { useClickHandler } from '../../hooks/useClickHandler';
+import { useClickEvent } from '../../hooks/useClickEvent';
 import Hr from '../Hr';
 import { uniqueId } from '../../util/id';
 
@@ -117,11 +117,7 @@ export const PopoverItem = ({
   /* eslint-disable @typescript-eslint/no-unsafe-assignment */
   const Link = components.Link as any;
 
-  const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
-    onClick,
-    tracking,
-    'popover-item',
-  );
+  const handleClick = useClickEvent(onClick, tracking, 'popover-item');
 
   return (
     <PopoverItemWrapper

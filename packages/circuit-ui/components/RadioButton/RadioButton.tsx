@@ -24,7 +24,7 @@ import {
   focusOutline,
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import { useClickHandler } from '../../hooks/useClickHandler';
+import { useClickEvent } from '../../hooks/useClickEvent';
 
 export interface RadioButtonProps extends HTMLProps<HTMLInputElement> {
   /**
@@ -203,7 +203,7 @@ export const RadioButton = forwardRef(
     ref: RadioButtonProps['ref'],
   ) => {
     const id = customId || uniqueId('radio-button_');
-    const handleChange = useClickHandler(onChange, tracking, 'radio-button');
+    const handleChange = useClickEvent(onChange, tracking, 'radio-button');
 
     return (
       <Fragment>

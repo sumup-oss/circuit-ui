@@ -24,7 +24,7 @@ import {
   focusOutline,
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import { useClickHandler } from '../../hooks/useClickHandler';
+import { useClickEvent } from '../../hooks/useClickEvent';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
@@ -183,7 +183,7 @@ export const Selector = forwardRef(
   ) => {
     const inputId = id || uniqueId('selector_');
     const type = multiple ? 'checkbox' : 'radio';
-    const handleChange = useClickHandler(onChange, tracking, 'selector');
+    const handleChange = useClickEvent(onChange, tracking, 'selector');
 
     return (
       <Fragment>

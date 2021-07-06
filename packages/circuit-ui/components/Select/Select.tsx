@@ -27,7 +27,7 @@ import {
   inputOutline,
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
-import { useClickHandler } from '../../hooks/useClickHandler';
+import { useClickEvent } from '../../hooks/useClickEvent';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 
@@ -316,7 +316,7 @@ export const Select = forwardRef(
     );
     const hasPrefix = Boolean(prefix);
 
-    const handleChange = useClickHandler(onChange, tracking, 'select');
+    const handleChange = useClickEvent(onChange, tracking, 'select');
 
     return (
       <SelectLabel

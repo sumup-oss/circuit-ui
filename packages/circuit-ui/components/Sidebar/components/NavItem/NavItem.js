@@ -18,7 +18,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
-import { useClickHandler } from '../../../../hooks/useClickHandler';
+import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { useComponents } from '../../../ComponentsContext';
 import NavLabel from '../NavLabel';
 
@@ -91,7 +91,7 @@ const NavItem = ({
   ...props
 }) => {
   const { Link } = useComponents();
-  const handleClick = useClickHandler(onClick, tracking, 'sidebar-nav-item');
+  const handleClick = useClickEvent(onClick, tracking, 'sidebar-nav-item');
 
   const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
 

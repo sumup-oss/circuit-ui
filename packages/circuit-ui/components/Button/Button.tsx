@@ -36,7 +36,7 @@ import {
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { useComponents } from '../ComponentsContext';
-import { useClickHandler } from '../../hooks/useClickHandler';
+import { useClickEvent } from '../../hooks/useClickEvent';
 
 export interface BaseProps {
   'children': ReactNode;
@@ -292,11 +292,7 @@ export const Button = forwardRef(
     /* eslint-disable @typescript-eslint/no-unsafe-assignment */
     const Link = components.Link as any;
 
-    const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
-      props.onClick,
-      tracking,
-      'button',
-    );
+    const handleClick = useClickEvent(props.onClick, tracking, 'button');
 
     return (
       <StyledButton

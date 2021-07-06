@@ -29,7 +29,7 @@ import { focusVisible } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { Body, BodyProps } from '../Body/Body';
 import { useComponents } from '../ComponentsContext';
-import { useClickHandler } from '../../hooks/useClickHandler';
+import { useClickEvent } from '../../hooks/useClickEvent';
 
 export interface BaseProps extends BodyProps {
   children: ReactNode;
@@ -103,11 +103,7 @@ export const Anchor = forwardRef(
     /* eslint-disable @typescript-eslint/no-unsafe-assignment */
     const Link = components.Link as any;
 
-    const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
-      props.onClick,
-      tracking,
-      'anchor',
-    );
+    const handleClick = useClickEvent(props.onClick, tracking, 'anchor');
 
     if (!props.href && !props.onClick) {
       return <Body as="span" {...props} ref={ref} />;

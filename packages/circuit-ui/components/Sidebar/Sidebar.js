@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { TrackingElement } from '@sumup/collector';
 
-import { useClickHandler } from '../../hooks/useClickHandler';
+import { useClickEvent } from '../../hooks/useClickEvent';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -71,7 +71,7 @@ const Sidebar = ({
   tracking,
   ...props
 }) => {
-  const handleClose = useClickHandler(onClose, tracking, 'sidebar-close');
+  const handleClose = useClickEvent(onClose, tracking, 'sidebar-close');
 
   return (
     <Fragment>

@@ -33,7 +33,7 @@ import styled, { StyleProps } from '../../../../styles/styled';
 import SubNavList from '../SubNavList';
 import BaseNavLabel from '../NavLabel';
 import { hasSelectedChild, getIcon } from '../NavItem/utils';
-import { useClickHandler } from '../../../../hooks/useClickHandler';
+import { useClickEvent } from '../../../../hooks/useClickEvent';
 
 export interface AggregatorProps {
   /**
@@ -158,7 +158,7 @@ const Aggregator = ({
 
     setIsOpen((open) => !open);
   };
-  const handleClick = useClickHandler(
+  const handleClick = useClickEvent(
     baseHandleClick,
     tracking,
     'sidebar-nav-aggregator',
