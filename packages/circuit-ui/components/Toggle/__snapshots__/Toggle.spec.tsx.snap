@@ -55,6 +55,10 @@ exports[`Toggle should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-0 {
   display: block;
   background-color: #FFF;

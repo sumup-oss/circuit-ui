@@ -25,7 +25,7 @@ import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 
-import { focusOutline } from '../../styles/style-mixins';
+import { focusVisible } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { Body, BodyProps } from '../Body/Body';
 import { useComponents } from '../ComponentsContext';
@@ -51,7 +51,7 @@ type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'onClick'>;
 
 export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
 
-const baseStyles = (theme: Theme) => css`
+const anchorStyles = (theme: Theme) => css`
   display: inline-block;
   text-decoration: underline;
   text-decoration-skip-ink: auto;
@@ -63,6 +63,7 @@ const baseStyles = (theme: Theme) => css`
   margin-left: 0;
   margin-right: 0;
   color: ${theme.colors.p500};
+  border-radius: ${theme.borderRadius.byte};
   transition: opacity ${theme.transitions.default},
     color ${theme.transitions.default},
     background-color ${theme.transitions.default},
@@ -86,10 +87,7 @@ const baseStyles = (theme: Theme) => css`
     }
   }
 
-  &:focus {
-    ${focusOutline({ theme })};
-    border-radius: ${theme.borderRadius.byte};
-  }
+  ${focusVisible(theme)};
 `;
 
 /**
@@ -119,7 +117,7 @@ export const Anchor = forwardRef(
       return (
         <Body
           {...props}
-          css={baseStyles}
+          css={anchorStyles}
           as={Link}
           ref={ref}
           onClick={handleClick}
@@ -131,7 +129,7 @@ export const Anchor = forwardRef(
       <Body
         as="button"
         {...props}
-        css={baseStyles}
+        css={anchorStyles}
         ref={ref}
         onClick={handleClick}
       />

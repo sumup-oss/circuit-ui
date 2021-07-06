@@ -34,6 +34,25 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-1:focus:not(:focus-visible) + label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-1:checked:focus:not(:focus-visible) + label::before {
+  border-color: #3063E9;
+}
+
+.circuit-1:focus-visible + label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+  border-color: #3063E9;
+}
+
+.circuit-1:focus-visible + label::before::-moz-focus-inner {
+  border: 0;
+}
+
 .circuit-1:checked + label::before {
   border-color: #3063E9;
 }

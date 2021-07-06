@@ -44,6 +44,10 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
   border: 0;
 }
 
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-0:disabled,
 .circuit-0[disabled] {
   opacity: 0.5;
@@ -102,6 +106,10 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
 
 .circuit-1:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-1:disabled,
@@ -229,6 +237,10 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   border: 0;
 }
 
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-0:disabled,
 .circuit-0[disabled] {
   opacity: 0.5;
@@ -287,6 +299,10 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
 
 .circuit-1:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-1:disabled,
@@ -462,6 +478,10 @@ exports[`ButtonGroup should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-0:disabled,
 .circuit-0[disabled] {
   opacity: 0.5;
@@ -520,6 +540,10 @@ exports[`ButtonGroup should render with default styles 1`] = `
 
 .circuit-1:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-1:disabled,

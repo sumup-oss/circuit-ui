@@ -32,7 +32,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import {
   typography,
   disableVisually,
-  focusOutline,
+  focusVisible,
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { useComponents } from '../ComponentsContext';
@@ -138,10 +138,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
     color ${theme.transitions.default},
     background-color ${theme.transitions.default},
     border-color ${theme.transitions.default};
-
-  &:focus {
-    ${focusOutline({ theme })};
-  }
 
   &:disabled,
   &[disabled] {
@@ -271,6 +267,7 @@ const StyledButton = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<ButtonProps>(
   typography('one'),
+  focusVisible,
   baseStyles,
   primaryStyles,
   secondaryStyles,

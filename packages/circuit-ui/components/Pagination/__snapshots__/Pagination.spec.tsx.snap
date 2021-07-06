@@ -68,6 +68,10 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-1:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-1:disabled,
 .circuit-1[disabled] {
   opacity: 0.5;
@@ -154,6 +158,10 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-2:disabled,
 .circuit-2[disabled] {
   opacity: 0.5;
@@ -223,6 +231,10 @@ li:last-child .circuit-2 {
   border: 0;
 }
 
+.circuit-3:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-3:disabled,
 .circuit-3[disabled] {
   opacity: 0.5;
@@ -290,6 +302,10 @@ li:last-child .circuit-3 {
 
 .circuit-9:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-9:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-9:disabled,
@@ -491,6 +507,10 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   border: 0;
 }
 
+.circuit-1:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-1:disabled,
 .circuit-1[disabled] {
   opacity: 0.5;
@@ -567,6 +587,10 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 
 .circuit-10:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-10:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-10:disabled,

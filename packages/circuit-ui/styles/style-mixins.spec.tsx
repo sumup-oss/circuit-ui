@@ -29,6 +29,7 @@ import {
   disableVisually,
   hideVisually,
   focusOutline,
+  focusVisible,
   clearfix,
   hideScrollbar,
   inputOutline,
@@ -202,6 +203,22 @@ describe('Style helpers', () => {
       const { styles } = focusOutline('inset')({ theme: light });
       expect(styles).toMatchInlineSnapshot(
         `"outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}"`,
+      );
+    });
+  });
+
+  describe('focusVisible', () => {
+    it('should match the snapshot', () => {
+      const { styles } = focusVisible({ theme: light });
+      expect(styles).toMatchInlineSnapshot(
+        `"&:focus{outline:0;box-shadow:0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;}"`,
+      );
+    });
+
+    it('should match the snapshot with an inset outline', () => {
+      const { styles } = focusVisible('inset')({ theme: light });
+      expect(styles).toMatchInlineSnapshot(
+        `"&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;}"`,
       );
     });
   });

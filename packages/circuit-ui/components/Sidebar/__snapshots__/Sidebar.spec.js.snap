@@ -139,6 +139,10 @@ HTMLCollection [
   border: 0;
 }
 
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-2:disabled,
 .circuit-2[disabled] {
   opacity: 0.5;
@@ -300,6 +304,10 @@ HTMLCollection [
 
 .circuit-2:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-2:disabled,

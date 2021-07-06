@@ -233,6 +233,55 @@ export function focusOutline(
 }
 
 /**
+ * Visually communicates to the user that an element is focused when
+ * the user agent determines via heuristics that the focus should be
+ * made evident on the element.
+ */
+export function focusVisible(
+  options: 'inset',
+): (args: ThemeArgs) => SerializedStyles;
+export function focusVisible(args: ThemeArgs): SerializedStyles;
+export function focusVisible(
+  argsOrOptions: ThemeArgs | 'inset',
+): SerializedStyles | ((args: ThemeArgs) => SerializedStyles) {
+  if (typeof argsOrOptions === 'string') {
+    return (args: ThemeArgs): SerializedStyles => {
+      const theme = getTheme(args);
+      return css`
+        &:focus {
+          outline: 0;
+          box-shadow: inset 0 0 0 4px ${theme.colors.p300};
+
+          &::-moz-focus-inner {
+            border: 0;
+          }
+        }
+
+        &:focus:not(:focus-visible) {
+          box-shadow: none;
+        }
+      `;
+    };
+  }
+
+  const theme = getTheme(argsOrOptions);
+  return css`
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 4px ${theme.colors.p300};
+
+      &::-moz-focus-inner {
+        border: 0;
+      }
+    }
+
+    &:focus:not(:focus-visible) {
+      box-shadow: none;
+    }
+  `;
+}
+
+/**
  * Forces an element to self-clear its floated children.
  * Taken from [CSS Tricks](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/).
  */

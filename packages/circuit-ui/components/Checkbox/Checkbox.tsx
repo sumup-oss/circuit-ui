@@ -140,7 +140,21 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   }
 
   &:focus + label::before {
-    ${focusOutline({ theme })};
+    ${focusOutline(theme)};
+    border-color: ${theme.colors.p500};
+  }
+
+  &:focus:not(:focus-visible) + label::before {
+    box-shadow: none;
+    border-color: ${theme.colors.n500};
+  }
+
+  &:checked:focus:not(:focus-visible) + label::before {
+    border-color: ${theme.colors.p500};
+  }
+
+  &:focus-visible + label::before {
+    ${focusOutline(theme)};
     border-color: ${theme.colors.p500};
   }
 

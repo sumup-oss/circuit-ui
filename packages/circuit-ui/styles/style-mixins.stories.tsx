@@ -21,7 +21,7 @@ import Button from '../components/Button';
 import docs from './style-mixins.docs.mdx';
 import {
   spacing,
-  focusOutline,
+  focusVisible,
   disableVisually,
   clearfix,
   hideVisually,
@@ -127,10 +127,10 @@ const Focused = styled.div`
   background-color: white;
 `;
 
-export const FocusOutline = () => (
+export const FocusVisible = () => (
   <Stack>
-    <Focused css={focusOutline} />
-    <Focused css={focusOutline('inset')} />
+    <Focused css={focusVisible} />
+    <Focused css={focusVisible('inset')} />
   </Stack>
 );
 

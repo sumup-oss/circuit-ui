@@ -59,6 +59,10 @@ exports[`PageList styles should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-0:disabled,
 .circuit-0[disabled] {
   opacity: 0.5;
@@ -126,6 +130,10 @@ li:last-child .circuit-0 {
 
 .circuit-1:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-1:disabled,

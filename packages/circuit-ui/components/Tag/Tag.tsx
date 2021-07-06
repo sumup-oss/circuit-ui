@@ -27,7 +27,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { typography, focusOutline } from '../../styles/style-mixins';
+import { typography, focusVisible } from '../../styles/style-mixins';
 import { useClickHandler } from '../../hooks/useClickHandler';
 import { CloseButton, CloseButtonProps } from '../CloseButton/CloseButton';
 
@@ -125,9 +125,7 @@ const tagClickableStyles = ({ theme, onClick }: StyleProps & TagElProps) =>
       border-color: ${theme.colors.n500};
     }
 
-    &:focus {
-      ${focusOutline({ theme })};
-    }
+    ${focusVisible(theme)};
   `;
 
 const tagSelectedStyles = ({ theme, selected }: StyleProps & TagElProps) =>

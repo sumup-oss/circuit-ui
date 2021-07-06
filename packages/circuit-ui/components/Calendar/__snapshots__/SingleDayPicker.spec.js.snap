@@ -1265,6 +1265,10 @@ exports[`SingleDayPicker should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-0 .DayPickerNavigation_button__horizontal:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-0 .DayPickerNavigation_button__horizontal:disabled,
 .circuit-0 .DayPickerNavigation_button__horizontal[disabled] {
   opacity: 0.5;

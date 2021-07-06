@@ -184,6 +184,10 @@ exports[`ImageInput styles should render a custom component 1`] = `
   border: 0;
 }
 
+.circuit-4:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-4:disabled,
 .circuit-4[disabled] {
   opacity: 0.5;
@@ -461,6 +465,10 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   border: 0;
 }
 
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-5:disabled,
 .circuit-5[disabled] {
   opacity: 0.5;
@@ -701,6 +709,10 @@ exports[`ImageInput styles should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-5:disabled,
 .circuit-5[disabled] {
   opacity: 0.5;
@@ -934,6 +946,10 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 
 .circuit-5:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-5:disabled,
