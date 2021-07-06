@@ -1,5 +1,23 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.2
+
+### Major Changes
+
+- [#1008](https://github.com/sumup-oss/circuit-ui/pull/1008) [`e76f2d03`](https://github.com/sumup-oss/circuit-ui/commit/e76f2d03e2525c0ddcae9e5590f7ee086e7520f7) Thanks [@connor-baer](https://github.com/connor-baer)! - Made the `as` prop required in the `Headline` and `SubHeadline` components. Intentionally setting the heading level ensures a consistent and accessible page structure.
+
+* [#1014](https://github.com/sumup-oss/circuit-ui/pull/1014) [`2e0e4381`](https://github.com/sumup-oss/circuit-ui/commit/2e0e43816bbb15281cd4afdc5aca6c0d89d6e669) Thanks [@connor-baer](https://github.com/connor-baer)! - Restricted the `Headline`'s and `SubHeadline`'s `as` prop to heading elements.
+
+### Minor Changes
+
+- [#1022](https://github.com/sumup-oss/circuit-ui/pull/1022) [`afb2eb29`](https://github.com/sumup-oss/circuit-ui/commit/afb2eb29c41753caf6c3d797087629907bdba9bc) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `focusVisible` style mixin that shows a focus outline only when the user agent determines via heuristics that the focus should be made evident on the element (see [`:focus-visible`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)).
+
+### Patch Changes
+
+- [#1013](https://github.com/sumup-oss/circuit-ui/pull/1013) [`d5e528bf`](https://github.com/sumup-oss/circuit-ui/commit/d5e528bfb12bd998f33629cf9cc1a865cda1862f) Thanks [@amelako](https://github.com/amelako)! - Extended the Popover component to accept custom [modifiers](https://popper.js.org/docs/v2/modifiers/), moved the open state outside of the component, and improved accessibility features.
+
+* [#1020](https://github.com/sumup-oss/circuit-ui/pull/1020) [`cee2c0c4`](https://github.com/sumup-oss/circuit-ui/commit/cee2c0c4011f12d3c5bb3ad9633183ba477cb7b3) Thanks [@amelako](https://github.com/amelako)! - Fixed a bug in the Popover component to correctly stack the popover content on top of the overlay on mobile.
+
 ## 3.0.0-next.1
 
 ### Major Changes
