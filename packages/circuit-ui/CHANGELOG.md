@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 2.6.1
+
+### Patch Changes
+
+- [#1010](https://github.com/sumup-oss/circuit-ui/pull/1010) [`9127352d`](https://github.com/sumup-oss/circuit-ui/commit/9127352d2234b175bbabefa49f23a71d269f356d) Thanks [@felixjung](https://github.com/felixjung)! - Do not render a placeholder in the `Select` component when a `defaultValue` is passed.
+
 ## 2.6.0
 
 ### Minor Changes
