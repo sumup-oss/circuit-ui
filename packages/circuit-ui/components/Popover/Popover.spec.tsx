@@ -15,7 +15,7 @@
 
 /* eslint-disable react/display-name */
 
-import { CirclePlus, Zap } from '@sumup/icons';
+import { Bin, CirclePlus, Zap } from '@sumup/icons';
 import { Placement } from '@popperjs/core';
 import { KeyboardEvent, MouseEvent } from 'react';
 
@@ -97,11 +97,17 @@ describe('Popover', () => {
   const baseProps: Omit<PopoverProps, 'component'> = {
     actions: [
       {
-        onClick: () => alert('Added'),
+        onClick: jest.fn(),
         children: 'Add',
         icon: CirclePlus,
       },
       { type: 'divider' },
+      {
+        onClick: jest.fn(),
+        children: 'Remove',
+        icon: Bin,
+        destructive: true,
+      },
     ],
     isOpen: true,
     onToggle: jest.fn(),
@@ -125,19 +131,7 @@ describe('Popover', () => {
 
   describe('business logic', () => {
     it('should open the popover when clicking the trigger element', () => {
-      const popoverProps: Omit<PopoverProps, 'component'> = {
-        actions: [
-          {
-            onClick: () => alert('Added'),
-            children: 'Add',
-            icon: CirclePlus,
-          },
-          { type: 'divider' },
-        ],
-        isOpen: false,
-        onToggle: jest.fn(),
-      };
-      const { getByRole } = renderPopover(popoverProps);
+      const { getByRole } = renderPopover({ ...baseProps, isOpen: false });
 
       const popoverTrigger = getByRole('button');
 
@@ -145,8 +139,29 @@ describe('Popover', () => {
         userEvent.click(popoverTrigger);
       });
 
-      expect(popoverProps.onToggle).toHaveBeenCalledTimes(1);
+      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
+
+    it.each([
+      ['space', '{space}'],
+      ['enter', '{enter}'],
+      ['arrow down', '{arrowDown}'],
+      ['arrow up', '{arrowUp}'],
+    ])(
+      'should open the popover when pressing the %s key on the trigger element',
+      (_, key) => {
+        const { getByRole } = renderPopover({ ...baseProps, isOpen: false });
+
+        const popoverTrigger = getByRole('button');
+
+        act(() => {
+          popoverTrigger.focus();
+          userEvent.keyboard(key);
+        });
+
+        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      },
+    );
 
     it('should close the popover when clicking outside', () => {
       renderPopover(baseProps);
@@ -158,7 +173,7 @@ describe('Popover', () => {
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
-    it('should close popover when clicking the trigger element', () => {
+    it('should close the popover when clicking the trigger element', () => {
       const { getByRole } = renderPopover(baseProps);
 
       const popoverTrigger = getByRole('button');
@@ -170,7 +185,27 @@ describe('Popover', () => {
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
-    it('should close popover when clicking the ESC key', () => {
+    it.each([
+      ['space', '{space}'],
+      ['enter', '{enter}'],
+      ['arrow up', '{arrowUp}'],
+    ])(
+      'should close the popover when pressing the %s key on the trigger element',
+      (_, key) => {
+        const { getByRole } = renderPopover(baseProps);
+
+        const popoverTrigger = getByRole('button');
+
+        act(() => {
+          popoverTrigger.focus();
+          userEvent.keyboard(key);
+        });
+
+        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      },
+    );
+
+    it('should close the popover when clicking the escape key', () => {
       renderPopover(baseProps);
 
       act(() => {

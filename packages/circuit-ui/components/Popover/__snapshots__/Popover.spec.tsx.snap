@@ -83,7 +83,7 @@ exports[`Popover styles should render popover on auto 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-6 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -95,7 +95,7 @@ exports[`Popover styles should render popover on auto 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -108,7 +108,7 @@ exports[`Popover styles should render popover on auto 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
@@ -125,13 +125,67 @@ exports[`Popover styles should render popover on auto 1`] = `
   width: calc(100% - 16px*2);
 }
 
+.circuit-5 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #D23F47;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-5:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
 <div>
   <div>
     <button
-      aria-controls="popover_9"
+      aria-controls="popover_14"
       aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_10"
+      id="trigger_13"
     >
       Button
     </button>
@@ -143,13 +197,14 @@ exports[`Popover styles should render popover on auto 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_10"
-      class="circuit-4"
-      id="popover_9"
+      aria-labelledby="trigger_13"
+      class="circuit-6"
+      id="popover_14"
       role="menu"
     >
       <button
         class="circuit-2"
+        data-focus-list="12"
         role="menuitem"
       >
         <svg
@@ -174,6 +229,28 @@ exports[`Popover styles should render popover on auto 1`] = `
       <hr
         class="circuit-3"
       />
+      <button
+        class="circuit-5"
+        data-focus-list="12"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M6.2 0c-.665 0-1.243.332-1.63.815A2.707 2.707 0 004 2.5V3H1a1 1 0 000 2h1v8.9c0 .56.225 1.095.622 1.489.397.392.932.611 1.49.611h7.777c.557 0 1.092-.219 1.49-.611.396-.394.621-.929.621-1.489V5h1a1 1 0 100-2h-3v-.5c0-.6-.189-1.208-.57-1.685C11.042.332 10.464 0 9.8 0H6.2zM10 3v-.5a.715.715 0 00-.132-.436.23.23 0 00-.069-.062L9.795 2h-3.59l-.004.002a.23.23 0 00-.069.062A.715.715 0 006 2.5V3h4zM5 5H4v8.9c0 .023.01.048.029.067.02.02.05.033.082.033h7.778a.117.117 0 00.082-.033A.094.094 0 0012 13.9V5H5zm1.5 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zm4 1a1 1 0 10-2 0v4a1 1 0 102 0v-4z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Remove
+      </button>
     </div>
   </div>
 </div>
@@ -262,7 +339,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-6 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -274,7 +351,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -287,7 +364,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
@@ -304,13 +381,67 @@ exports[`Popover styles should render popover on bottom 1`] = `
   width: calc(100% - 16px*2);
 }
 
+.circuit-5 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #D23F47;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-5:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
 <div>
   <div>
     <button
-      aria-controls="popover_21"
+      aria-controls="popover_32"
       aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_22"
+      id="trigger_31"
     >
       Button
     </button>
@@ -322,13 +453,14 @@ exports[`Popover styles should render popover on bottom 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_22"
-      class="circuit-4"
-      id="popover_21"
+      aria-labelledby="trigger_31"
+      class="circuit-6"
+      id="popover_32"
       role="menu"
     >
       <button
         class="circuit-2"
+        data-focus-list="30"
         role="menuitem"
       >
         <svg
@@ -353,6 +485,28 @@ exports[`Popover styles should render popover on bottom 1`] = `
       <hr
         class="circuit-3"
       />
+      <button
+        class="circuit-5"
+        data-focus-list="30"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M6.2 0c-.665 0-1.243.332-1.63.815A2.707 2.707 0 004 2.5V3H1a1 1 0 000 2h1v8.9c0 .56.225 1.095.622 1.489.397.392.932.611 1.49.611h7.777c.557 0 1.092-.219 1.49-.611.396-.394.621-.929.621-1.489V5h1a1 1 0 100-2h-3v-.5c0-.6-.189-1.208-.57-1.685C11.042.332 10.464 0 9.8 0H6.2zM10 3v-.5a.715.715 0 00-.132-.436.23.23 0 00-.069-.062L9.795 2h-3.59l-.004.002a.23.23 0 00-.069.062A.715.715 0 006 2.5V3h4zM5 5H4v8.9c0 .023.01.048.029.067.02.02.05.033.082.033h7.778a.117.117 0 00.082-.033A.094.094 0 0012 13.9V5H5zm1.5 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zm4 1a1 1 0 10-2 0v4a1 1 0 102 0v-4z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Remove
+      </button>
     </div>
   </div>
 </div>
@@ -441,7 +595,7 @@ exports[`Popover styles should render popover on left 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-6 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -453,7 +607,7 @@ exports[`Popover styles should render popover on left 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -466,7 +620,7 @@ exports[`Popover styles should render popover on left 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
@@ -483,13 +637,67 @@ exports[`Popover styles should render popover on left 1`] = `
   width: calc(100% - 16px*2);
 }
 
+.circuit-5 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #D23F47;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-5:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
 <div>
   <div>
     <button
-      aria-controls="popover_27"
+      aria-controls="popover_41"
       aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_28"
+      id="trigger_40"
     >
       Button
     </button>
@@ -501,13 +709,14 @@ exports[`Popover styles should render popover on left 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_28"
-      class="circuit-4"
-      id="popover_27"
+      aria-labelledby="trigger_40"
+      class="circuit-6"
+      id="popover_41"
       role="menu"
     >
       <button
         class="circuit-2"
+        data-focus-list="39"
         role="menuitem"
       >
         <svg
@@ -532,6 +741,28 @@ exports[`Popover styles should render popover on left 1`] = `
       <hr
         class="circuit-3"
       />
+      <button
+        class="circuit-5"
+        data-focus-list="39"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M6.2 0c-.665 0-1.243.332-1.63.815A2.707 2.707 0 004 2.5V3H1a1 1 0 000 2h1v8.9c0 .56.225 1.095.622 1.489.397.392.932.611 1.49.611h7.777c.557 0 1.092-.219 1.49-.611.396-.394.621-.929.621-1.489V5h1a1 1 0 100-2h-3v-.5c0-.6-.189-1.208-.57-1.685C11.042.332 10.464 0 9.8 0H6.2zM10 3v-.5a.715.715 0 00-.132-.436.23.23 0 00-.069-.062L9.795 2h-3.59l-.004.002a.23.23 0 00-.069.062A.715.715 0 006 2.5V3h4zM5 5H4v8.9c0 .023.01.048.029.067.02.02.05.033.082.033h7.778a.117.117 0 00.082-.033A.094.094 0 0012 13.9V5H5zm1.5 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zm4 1a1 1 0 10-2 0v4a1 1 0 102 0v-4z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Remove
+      </button>
     </div>
   </div>
 </div>
@@ -620,7 +851,7 @@ exports[`Popover styles should render popover on right 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-6 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -632,7 +863,7 @@ exports[`Popover styles should render popover on right 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -645,7 +876,7 @@ exports[`Popover styles should render popover on right 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
@@ -662,13 +893,67 @@ exports[`Popover styles should render popover on right 1`] = `
   width: calc(100% - 16px*2);
 }
 
+.circuit-5 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #D23F47;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-5:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
 <div>
   <div>
     <button
-      aria-controls="popover_33"
+      aria-controls="popover_50"
       aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_34"
+      id="trigger_49"
     >
       Button
     </button>
@@ -680,13 +965,14 @@ exports[`Popover styles should render popover on right 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_34"
-      class="circuit-4"
-      id="popover_33"
+      aria-labelledby="trigger_49"
+      class="circuit-6"
+      id="popover_50"
       role="menu"
     >
       <button
         class="circuit-2"
+        data-focus-list="48"
         role="menuitem"
       >
         <svg
@@ -711,6 +997,28 @@ exports[`Popover styles should render popover on right 1`] = `
       <hr
         class="circuit-3"
       />
+      <button
+        class="circuit-5"
+        data-focus-list="48"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M6.2 0c-.665 0-1.243.332-1.63.815A2.707 2.707 0 004 2.5V3H1a1 1 0 000 2h1v8.9c0 .56.225 1.095.622 1.489.397.392.932.611 1.49.611h7.777c.557 0 1.092-.219 1.49-.611.396-.394.621-.929.621-1.489V5h1a1 1 0 100-2h-3v-.5c0-.6-.189-1.208-.57-1.685C11.042.332 10.464 0 9.8 0H6.2zM10 3v-.5a.715.715 0 00-.132-.436.23.23 0 00-.069-.062L9.795 2h-3.59l-.004.002a.23.23 0 00-.069.062A.715.715 0 006 2.5V3h4zM5 5H4v8.9c0 .023.01.048.029.067.02.02.05.033.082.033h7.778a.117.117 0 00.082-.033A.094.094 0 0012 13.9V5H5zm1.5 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zm4 1a1 1 0 10-2 0v4a1 1 0 102 0v-4z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Remove
+      </button>
     </div>
   </div>
 </div>
@@ -799,7 +1107,7 @@ exports[`Popover styles should render popover on top 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-6 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -811,7 +1119,7 @@ exports[`Popover styles should render popover on top 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -824,7 +1132,7 @@ exports[`Popover styles should render popover on top 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
@@ -841,13 +1149,67 @@ exports[`Popover styles should render popover on top 1`] = `
   width: calc(100% - 16px*2);
 }
 
+.circuit-5 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #D23F47;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-5:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
 <div>
   <div>
     <button
-      aria-controls="popover_15"
+      aria-controls="popover_23"
       aria-expanded="true"
       aria-haspopup="true"
-      id="trigger_16"
+      id="trigger_22"
     >
       Button
     </button>
@@ -859,13 +1221,14 @@ exports[`Popover styles should render popover on top 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_16"
-      class="circuit-4"
-      id="popover_15"
+      aria-labelledby="trigger_22"
+      class="circuit-6"
+      id="popover_23"
       role="menu"
     >
       <button
         class="circuit-2"
+        data-focus-list="21"
         role="menuitem"
       >
         <svg
@@ -890,6 +1253,28 @@ exports[`Popover styles should render popover on top 1`] = `
       <hr
         class="circuit-3"
       />
+      <button
+        class="circuit-5"
+        data-focus-list="21"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M6.2 0c-.665 0-1.243.332-1.63.815A2.707 2.707 0 004 2.5V3H1a1 1 0 000 2h1v8.9c0 .56.225 1.095.622 1.489.397.392.932.611 1.49.611h7.777c.557 0 1.092-.219 1.49-.611.396-.394.621-.929.621-1.489V5h1a1 1 0 100-2h-3v-.5c0-.6-.189-1.208-.57-1.685C11.042.332 10.464 0 9.8 0H6.2zM10 3v-.5a.715.715 0 00-.132-.436.23.23 0 00-.069-.062L9.795 2h-3.59l-.004.002a.23.23 0 00-.069.062A.715.715 0 006 2.5V3h4zM5 5H4v8.9c0 .023.01.048.029.067.02.02.05.033.082.033h7.778a.117.117 0 00.082-.033A.094.094 0 0012 13.9V5H5zm1.5 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zm4 1a1 1 0 10-2 0v4a1 1 0 102 0v-4z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Remove
+      </button>
     </div>
   </div>
 </div>
@@ -978,7 +1363,7 @@ exports[`Popover styles should render with default styles 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-6 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -990,7 +1375,7 @@ exports[`Popover styles should render with default styles 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -1003,7 +1388,7 @@ exports[`Popover styles should render with default styles 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-4 {
+  .circuit-6 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
@@ -1020,10 +1405,64 @@ exports[`Popover styles should render with default styles 1`] = `
   width: calc(100% - 16px*2);
 }
 
+.circuit-5 {
+  background-color: #FFF;
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: #D23F47;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-5:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
 <div>
   <div>
     <button
-      aria-controls="popover_3"
+      aria-controls="popover_5"
       aria-expanded="true"
       aria-haspopup="true"
       id="trigger_4"
@@ -1039,12 +1478,13 @@ exports[`Popover styles should render with default styles 1`] = `
   >
     <div
       aria-labelledby="trigger_4"
-      class="circuit-4"
-      id="popover_3"
+      class="circuit-6"
+      id="popover_5"
       role="menu"
     >
       <button
         class="circuit-2"
+        data-focus-list="3"
         role="menuitem"
       >
         <svg
@@ -1069,6 +1509,28 @@ exports[`Popover styles should render with default styles 1`] = `
       <hr
         class="circuit-3"
       />
+      <button
+        class="circuit-5"
+        data-focus-list="3"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-1"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M6.2 0c-.665 0-1.243.332-1.63.815A2.707 2.707 0 004 2.5V3H1a1 1 0 000 2h1v8.9c0 .56.225 1.095.622 1.489.397.392.932.611 1.49.611h7.777c.557 0 1.092-.219 1.49-.611.396-.394.621-.929.621-1.489V5h1a1 1 0 100-2h-3v-.5c0-.6-.189-1.208-.57-1.685C11.042.332 10.464 0 9.8 0H6.2zM10 3v-.5a.715.715 0 00-.132-.436.23.23 0 00-.069-.062L9.795 2h-3.59l-.004.002a.23.23 0 00-.069.062A.715.715 0 006 2.5V3h4zM5 5H4v8.9c0 .023.01.048.029.067.02.02.05.033.082.033h7.778a.117.117 0 00.082-.033A.094.094 0 0012 13.9V5H5zm1.5 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zm4 1a1 1 0 10-2 0v4a1 1 0 102 0v-4z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Remove
+      </button>
     </div>
   </div>
 </div>
