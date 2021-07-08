@@ -103,7 +103,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
         sendEvent({ component: 'modal-close', ...modal.tracking });
       }
       if (modal.onClose) {
-        modal?.onClose();
+        modal.onClose();
       }
       dispatch({
         type: 'remove',
