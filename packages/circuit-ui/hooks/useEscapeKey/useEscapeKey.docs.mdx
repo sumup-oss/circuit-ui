@@ -1,0 +1,20 @@
+import { Status, Story } from '../../../../.storybook/components';
+
+# useEscapeKey()
+
+<Status.Stable />
+
+Calls a function when the escape key is pressed.
+
+<Story id="hooks-useescapekey--example" />
+
+```ts
+useEscapeKey(
+  callback: (event: KeyboardEvent) => void,
+  active = true,
+): void;
+```
+
+## Usage
+
+Application menus, modals, and other components with an "open" state should be dismissable by pressing the escape key. This hook enables this behaviour. Its event listener can be deactivated when the component isn't active (i.e. closed) to improve performance.

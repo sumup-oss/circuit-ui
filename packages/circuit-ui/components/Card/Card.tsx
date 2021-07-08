@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
+import { FC, Ref } from 'react';
 import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/core';
 
@@ -24,6 +24,7 @@ export interface CardProps {
    * The padding of the Card.
    */
   spacing?: 'mega' | 'giga';
+  ref: Ref<HTMLDivElement>;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`

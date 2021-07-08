@@ -1,0 +1,20 @@
+import { Status, Story } from '../../../../.storybook/components';
+
+# useFocusList()
+
+<Status.Stable />
+
+Enables keyboard navigation for a list of focusable elements.
+
+<Story id="hooks-usefocuslist--example" />
+
+```ts
+useFocusList(): {
+  'data-focus-list': string;
+  'onKeyDown': (event: KeyboardEvent) => void;
+};
+```
+
+## Usage
+
+Application menus such as popover menus, custom select dropdowns, and navigation lists should be [navigatable by keyboard](https://inclusive-components.design/menus-menu-buttons/#keyboardandfocusbehavior). This hook enables users to navigate between menu items using the arrow up/down keys. It does not manage focus when opening/closing a menu, make sure to implement this as well.

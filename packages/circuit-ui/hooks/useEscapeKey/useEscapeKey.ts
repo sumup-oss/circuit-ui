@@ -17,6 +17,10 @@ import { useEffect } from 'react';
 
 import { isEscape } from '../../util/key-codes';
 
+/**
+ * Calls a function when the escape key is pressed.
+ * Deactivate it when not used to improve performance.
+ */
 export function useEscapeKey(
   callback: (event: KeyboardEvent) => void,
   active = true,

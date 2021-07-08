@@ -1,0 +1,21 @@
+import { Status, Story } from '../../../../.storybook/components';
+
+# useClickOutside()
+
+<Status.Stable />
+
+Calls a function when clicking outside an element.
+
+<Story id="hooks-useclickoutside--example" />
+
+```ts
+useClickOutside(
+  ref: RefObject<HTMLElement>,
+  callback: (event: KeyboardEvent) => void,
+  active = true,
+): void;
+```
+
+## Usage
+
+Application menus, modals, and other components with an "open" state should be dismissable by clicking outside. This hook enables this behaviour. Its event listener can be deactivated when the component isn't active (i.e. closed) to improve performance.

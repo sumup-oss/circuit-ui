@@ -168,3 +168,8 @@ export {
 
 export { sharedPropTypes };
 export { uniqueId } from './util/id';
+
+// Hooks
+export { useClickOutside } from './hooks/useClickOutside';
+export { useEscapeKey } from './hooks/useEscapeKey';
+export { useFocusList } from './hooks/useFocusList';
