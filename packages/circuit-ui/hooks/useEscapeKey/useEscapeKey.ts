@@ -15,7 +15,7 @@
 
 import { useEffect } from 'react';
 
-import { isEscape } from '../util/key-codes';
+import { isEscape } from '../../util/key-codes';
 
 export function useEscapeKey(
   callback: (event: KeyboardEvent) => void,

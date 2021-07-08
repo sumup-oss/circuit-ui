@@ -15,7 +15,7 @@
 
 import * as Collector from '@sumup/collector';
 
-import { renderHook, actHook } from '../util/test-utils';
+import { renderHook, actHook } from '../../util/test-utils';
 
 import { useClickEvent } from './useClickEvent';
 

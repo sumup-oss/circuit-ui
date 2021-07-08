@@ -15,8 +15,8 @@
 
 import { KeyboardEvent, useCallback, useRef } from 'react';
 
-import { uniqueId } from '../util/id';
-import { isArrowDown, isArrowUp } from '../util/key-codes';
+import { uniqueId } from '../../util/id';
+import { isArrowDown, isArrowUp } from '../../util/key-codes';
 
 type FocusProps = {
   'data-focus-list': string;
@@ -24,7 +24,7 @@ type FocusProps = {
 };
 
 /**
- * Enables keyboard navigation for a list of elements.
+ * Enables keyboard navigation for a list of focusable elements.
  * Spread the props returned by the hook onto each list item.
  */
 export function useFocusList(): FocusProps {

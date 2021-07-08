@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { renderHook, actHook, userEvent } from '../util/test-utils';
+import { renderHook, actHook, userEvent } from '../../util/test-utils';
 
 import { useEscapeKey } from './useEscapeKey';
 

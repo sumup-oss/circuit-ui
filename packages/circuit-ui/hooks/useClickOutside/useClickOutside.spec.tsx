@@ -15,7 +15,7 @@
 
 import { useRef } from 'react';
 
-import { render, act, userEvent } from '../util/test-utils';
+import { render, act, userEvent } from '../../util/test-utils';
 
 import { useClickOutside } from './useClickOutside';
 
