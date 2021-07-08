@@ -108,7 +108,7 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
   /**
    * The ref to the html dom element
    */
-  ref?: Ref<HTMLInputElement & HTMLTextAreaElement>;
+  ref?: Ref<HTMLInputElement | HTMLTextAreaElement>;
 }
 
 const containerStyles = () => css`
