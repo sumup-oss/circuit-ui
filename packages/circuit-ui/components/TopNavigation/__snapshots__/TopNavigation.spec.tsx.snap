@@ -423,12 +423,12 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 @media (max-width:479px) {
   .circuit-16 {
     position: fixed;
+    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    z-index: 29;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -444,7 +444,6 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  z-index: 30;
   visibility: hidden;
 }
 
@@ -494,18 +493,22 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 .circuit-17:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
-  z-index: 1;
 }
 
 .circuit-17:focus::-moz-focus-inner {
   border: 0;
 }
 
+.circuit-17:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-17:active {
   background-color: #E6E6E6;
 }
 
-.circuit-17:disabled {
+.circuit-17:disabled,
+.circuit-17[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -554,18 +557,22 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 .circuit-20:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
-  z-index: 1;
 }
 
 .circuit-20:focus::-moz-focus-inner {
   border: 0;
 }
 
+.circuit-20:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-20:active {
   background-color: #E6E6E6;
 }
 
-.circuit-20:disabled {
+.circuit-20:disabled,
+.circuit-20[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -678,7 +685,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
       </div>
       <div>
         <button
-          aria-controls="popover_3"
+          aria-controls="popover_5"
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Open profile menu"
@@ -733,17 +740,19 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
         <div
           aria-labelledby="trigger_4"
           class="circuit-21"
-          id="popover_3"
+          id="popover_5"
           role="menu"
         >
           <button
             class="circuit-17"
+            data-focus-list="3"
             role="menuitem"
           >
             View profile
           </button>
           <button
             class="circuit-17"
+            data-focus-list="3"
             role="menuitem"
           >
             Settings
@@ -753,6 +762,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
           />
           <button
             class="circuit-20"
+            data-focus-list="3"
             role="menuitem"
           >
             Logout

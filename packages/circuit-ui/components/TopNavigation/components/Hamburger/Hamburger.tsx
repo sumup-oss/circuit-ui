@@ -19,7 +19,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { focusOutline, hideVisually } from '../../../../styles/style-mixins';
-import { useClickHandler } from '../../../../hooks/useClickHandler';
+import { useClickEvent } from '../../../../hooks/useClickEvent';
 
 const HAMBURGER_WIDTH = '14px';
 const LAYER_HEIGHT = '2px';
@@ -166,7 +166,7 @@ export function Hamburger({
   tracking = {},
   ...props
 }: HamburgerProps): JSX.Element {
-  const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
+  const handleClick = useClickEvent(
     onToggle,
     tracking,
     `hamburger-${isOpen ? 'open' : 'closed'}`,

@@ -131,12 +131,12 @@ exports[`ProfileMenu styles should match the snapshot 1`] = `
 @media (max-width:479px) {
   .circuit-6 {
     position: fixed;
+    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    z-index: 29;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -152,7 +152,6 @@ exports[`ProfileMenu styles should match the snapshot 1`] = `
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #FFF;
-  z-index: 30;
   visibility: hidden;
 }
 
@@ -202,18 +201,22 @@ exports[`ProfileMenu styles should match the snapshot 1`] = `
 .circuit-7:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
-  z-index: 1;
 }
 
 .circuit-7:focus::-moz-focus-inner {
   border: 0;
 }
 
+.circuit-7:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-7:active {
   background-color: #E6E6E6;
 }
 
-.circuit-7:disabled {
+.circuit-7:disabled,
+.circuit-7[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -262,18 +265,22 @@ exports[`ProfileMenu styles should match the snapshot 1`] = `
 .circuit-10:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
-  z-index: 1;
 }
 
 .circuit-10:focus::-moz-focus-inner {
   border: 0;
 }
 
+.circuit-10:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .circuit-10:active {
   background-color: #E6E6E6;
 }
 
-.circuit-10:disabled {
+.circuit-10:disabled,
+.circuit-10[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -282,7 +289,7 @@ exports[`ProfileMenu styles should match the snapshot 1`] = `
 <div>
   <div>
     <button
-      aria-controls="popover_3"
+      aria-controls="popover_5"
       aria-expanded="false"
       aria-haspopup="true"
       aria-label="Open profile menu"
@@ -335,17 +342,19 @@ exports[`ProfileMenu styles should match the snapshot 1`] = `
     <div
       aria-labelledby="trigger_4"
       class="circuit-11"
-      id="popover_3"
+      id="popover_5"
       role="menu"
     >
       <button
         class="circuit-7"
+        data-focus-list="3"
         role="menuitem"
       >
         View profile
       </button>
       <button
         class="circuit-7"
+        data-focus-list="3"
         role="menuitem"
       >
         Settings
@@ -355,6 +364,7 @@ exports[`ProfileMenu styles should match the snapshot 1`] = `
       />
       <button
         class="circuit-10"
+        data-focus-list="3"
         role="menuitem"
       >
         Logout
