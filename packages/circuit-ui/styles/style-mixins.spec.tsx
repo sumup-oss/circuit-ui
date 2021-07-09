@@ -308,7 +308,7 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = listItem(light);
       expect(styles).toMatchInlineSnapshot(
-        `"background-color:#FFF;padding:12px 32px 12px 16px;border:0;color:#1A1A1A;text-decoration:none;position:relative;&:hover{background-color:#F5F5F5;cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;};;z-index:1;}&:active{background-color:#E6E6E6;}&:disabled{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
+        `"background-color:#FFF;padding:12px 32px 12px 16px;border:0;color:#1A1A1A;text-decoration:none;position:relative;&:hover{background-color:#F5F5F5;cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};;&:active{background-color:#E6E6E6;}&:disabled,&[disabled]{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
       );
     });
 
@@ -318,7 +318,7 @@ describe('Style helpers', () => {
         destructive: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        `"background-color:#FFF;padding:12px 32px 12px 16px;border:0;color:#D23F47;text-decoration:none;position:relative;&:hover{background-color:#F5F5F5;cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;};;z-index:1;}&:active{background-color:#E6E6E6;}&:disabled{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
+        `"background-color:#FFF;padding:12px 32px 12px 16px;border:0;color:#D23F47;text-decoration:none;position:relative;&:hover{background-color:#F5F5F5;cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};;&:active{background-color:#E6E6E6;}&:disabled,&[disabled]{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
       );
     });
   });

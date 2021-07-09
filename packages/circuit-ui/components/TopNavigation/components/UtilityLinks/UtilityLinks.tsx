@@ -20,7 +20,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
-import { useClickHandler } from '../../../../hooks/useClickHandler';
+import { useClickEvent } from '../../../../hooks/useClickEvent';
 import Body from '../../../Body';
 
 const anchorStyles = ({ theme }: StyleProps) => css`
@@ -88,11 +88,7 @@ function UtilityLink({
   tracking,
   ...props
 }: UtilityLinkProps) {
-  const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
-    onClick,
-    tracking,
-    'utility-link',
-  );
+  const handleClick = useClickEvent(onClick, tracking, 'utility-link');
 
   return (
     <UtilityAnchor {...props} onClick={handleClick}>
