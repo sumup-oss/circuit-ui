@@ -18,4 +18,6 @@ useClickOutside(
 
 ## Usage
 
-Application menus, modals, and other components with an "open" state should be dismissable by clicking outside. This hook enables this behaviour. Its event listener can be deactivated when the component isn't active (i.e. closed) to improve performance.
+Application menus, modals, and other components with an "open" state should be dismissable by clicking outside. Whenever possible, use standard Circuit UI components since they have this and other accessibility features built-in by default.
+
+In the rare case when you need to build a custom component, you can use this hook to enable users to dismiss it by clicking outside. The hook's event listener can be deactivated when the component isn't active (i.e. closed) to improve performance.
