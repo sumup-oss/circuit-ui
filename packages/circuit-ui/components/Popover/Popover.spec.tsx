@@ -15,17 +15,11 @@
 
 /* eslint-disable react/display-name */
 
-import { CirclePlus, Zap } from '@sumup/icons';
+import { Bin, CirclePlus, Zap } from '@sumup/icons';
 import { Placement } from '@popperjs/core';
+import { KeyboardEvent, MouseEvent } from 'react';
 
-import {
-  axe,
-  RenderFn,
-  render,
-  userEvent,
-  waitFor,
-  fireEvent,
-} from '../../util/test-utils';
+import { act, axe, RenderFn, render, userEvent } from '../../util/test-utils';
 
 import {
   PopoverItem,
@@ -72,7 +66,9 @@ describe('PopoverItem', () => {
       const props = {
         ...baseProps,
         href: 'https://sumup.com',
-        onClick: jest.fn(),
+        onClick: jest.fn((event: KeyboardEvent | MouseEvent) => {
+          event.preventDefault();
+        }),
         icon: Zap,
       };
       const { container } = renderPopoverItem(render, props);
@@ -101,101 +97,119 @@ describe('Popover', () => {
   const baseProps: Omit<PopoverProps, 'component'> = {
     actions: [
       {
-        onClick: () => alert('Added'),
+        onClick: jest.fn(),
         children: 'Add',
         icon: CirclePlus,
       },
       { type: 'divider' },
+      {
+        onClick: jest.fn(),
+        children: 'Remove',
+        icon: Bin,
+        destructive: true,
+      },
     ],
     isOpen: true,
     onToggle: jest.fn(),
   };
 
   describe('styles', () => {
-    it('should render with default styles', async () => {
-      const { container, getByRole } = renderPopover(baseProps);
-
-      const popoverTrigger = getByRole('button');
-
-      userEvent.click(popoverTrigger);
-
-      await waitFor(() => {
-        expect(container).toMatchSnapshot();
-      });
+    it('should render with default styles', () => {
+      const { container } = renderPopover(baseProps);
+      expect(container).toMatchSnapshot();
     });
 
-    it.each(placements)(`should render popover on %s`, async (placement) => {
-      const { container, getByRole } = renderPopover({
+    it.each(placements)(`should render popover on %s`, (placement) => {
+      const { container } = renderPopover({
         ...baseProps,
         placement,
       });
 
-      const popoverTrigger = getByRole('button');
-
-      userEvent.click(popoverTrigger);
-
-      await waitFor(() => {
-        expect(container).toMatchSnapshot();
-      });
+      expect(container).toMatchSnapshot();
     });
   });
 
   describe('business logic', () => {
     it('should open the popover when clicking the trigger element', () => {
-      const popoverProps: Omit<PopoverProps, 'component'> = {
-        actions: [
-          {
-            onClick: () => alert('Added'),
-            children: 'Add',
-            icon: CirclePlus,
-          },
-          { type: 'divider' },
-        ],
-        isOpen: false,
-        onToggle: jest.fn(),
-      };
-      const { getByRole } = renderPopover(popoverProps);
+      const { getByRole } = renderPopover({ ...baseProps, isOpen: false });
 
       const popoverTrigger = getByRole('button');
 
-      userEvent.click(popoverTrigger);
+      act(() => {
+        userEvent.click(popoverTrigger);
+      });
 
-      expect(popoverProps.onToggle).toHaveBeenCalledTimes(1);
+      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
+
+    it.each([
+      ['space', '{space}'],
+      ['enter', '{enter}'],
+      ['arrow down', '{arrowDown}'],
+      ['arrow up', '{arrowUp}'],
+    ])(
+      'should open the popover when pressing the %s key on the trigger element',
+      (_, key) => {
+        const { getByRole } = renderPopover({ ...baseProps, isOpen: false });
+
+        const popoverTrigger = getByRole('button');
+
+        act(() => {
+          popoverTrigger.focus();
+          userEvent.keyboard(key);
+        });
+
+        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      },
+    );
 
     it('should close the popover when clicking outside', () => {
-      const { queryByRole } = renderPopover(baseProps);
+      renderPopover(baseProps);
 
-      expect(queryByRole('menu')).toBeVisible();
-
-      userEvent.click(document.body);
+      act(() => {
+        userEvent.click(document.body);
+      });
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
-    it('should close popover when clicking the trigger element', async () => {
-      const { getByRole, queryByRole } = renderPopover(baseProps);
+    it('should close the popover when clicking the trigger element', () => {
+      const { getByRole } = renderPopover(baseProps);
 
       const popoverTrigger = getByRole('button');
 
-      await waitFor(() => {
-        expect(queryByRole('menu')).toBeVisible();
+      act(() => {
+        userEvent.click(popoverTrigger);
       });
-
-      userEvent.click(popoverTrigger);
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
-    it('should close popover when clicking the ESC key', async () => {
-      const { queryByRole } = renderPopover(baseProps);
+    it.each([
+      ['space', '{space}'],
+      ['enter', '{enter}'],
+      ['arrow up', '{arrowUp}'],
+    ])(
+      'should close the popover when pressing the %s key on the trigger element',
+      (_, key) => {
+        const { getByRole } = renderPopover(baseProps);
 
-      await waitFor(() => {
-        expect(queryByRole('menu')).toBeVisible();
-      });
+        const popoverTrigger = getByRole('button');
 
-      fireEvent.keyDown(queryByRole('menu'), {
-        key: 'Escape',
+        act(() => {
+          popoverTrigger.focus();
+          userEvent.keyboard(key);
+        });
+
+        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      },
+    );
+
+    it('should close the popover when clicking the escape key', () => {
+      renderPopover(baseProps);
+
+      act(() => {
+        userEvent.keyboard('{escape}');
       });
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
@@ -205,15 +219,7 @@ describe('Popover', () => {
      * Accessibility tests.
      */
     it('should meet accessibility guidelines', async () => {
-      const { container, getByRole, queryByRole } = renderPopover(baseProps);
-
-      const popoverTrigger = getByRole('button');
-
-      userEvent.click(popoverTrigger);
-
-      await waitFor(() => {
-        expect(queryByRole('menu')).toBeVisible();
-      });
+      const { container } = renderPopover(baseProps);
 
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();

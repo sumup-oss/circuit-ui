@@ -28,7 +28,7 @@ import {
   useRef,
   useEffect,
 } from 'react';
-import { useClickAway, useLatest } from 'react-use';
+import useLatest from 'use-latest';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
@@ -36,11 +36,14 @@ import { useTheme } from 'emotion-theming';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
-import { isEscape } from '../../util/key-codes';
 import { useComponents } from '../ComponentsContext';
-import { useClickHandler } from '../../hooks/useClickHandler';
+import { useClickEvent } from '../../hooks/useClickEvent';
 import Hr from '../Hr';
 import { uniqueId } from '../../util/id';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
+import { useClickOutside } from '../../hooks/useClickOutside';
+import { useFocusList } from '../../hooks/useFocusList';
+import { isArrowDown, isArrowUp } from '../../util/key-codes';
 
 export interface BaseProps {
   /**
@@ -117,11 +120,7 @@ export const PopoverItem = ({
   /* eslint-disable @typescript-eslint/no-unsafe-assignment */
   const Link = components.Link as any;
 
-  const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
-    onClick,
-    tracking,
-    'popover-item',
-  );
+  const handleClick = useClickEvent(onClick, tracking, 'popover-item');
 
   return (
     <PopoverItemWrapper
@@ -243,12 +242,15 @@ export interface PopoverProps {
    */
   component: (props: {
     'onClick': (event: MouseEvent | KeyboardEvent) => void;
+    'onKeyDown': (event: KeyboardEvent) => void;
     'id': string;
     'aria-haspopup': boolean;
     'aria-controls': string;
     'aria-expanded': boolean;
   }) => JSX.Element;
 }
+
+type TriggerKey = 'ArrowUp' | 'ArrowDown';
 
 export const Popover = ({
   isOpen = false,
@@ -260,10 +262,12 @@ export const Popover = ({
   modifiers = [],
   ...props
 }: PopoverProps): JSX.Element | null => {
-  const triggerRef = useRef<HTMLDivElement>(null);
   const theme = useTheme<Theme>();
-  const id = uniqueId('popover_');
+  const triggerKey = useRef<TriggerKey | null>(null);
+  const triggerEl = useRef<HTMLDivElement>(null);
+  const wrapperEl = useRef<HTMLDivElement>(null);
   const triggerId = uniqueId('trigger_');
+  const wrapperId = uniqueId('popover_');
 
   // Popper custom modifier to apply bottom sheet for mobile.
   // The window.matchMedia() is a useful API for this, it allows you to change the styles based on a condition.
@@ -307,7 +311,7 @@ export const Popover = ({
   // Note: the usePopper hook intentionally takes the DOM node, not refs, in order to be able to update when the nodes change.
   // A callback ref is used here to permit this behaviour, and useState is an appropriate way to implement this.
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const { styles, attributes } = usePopper(triggerRef.current, popperElement, {
+  const { styles, attributes } = usePopper(triggerEl.current, popperElement, {
     placement,
     modifiers: [mobilePosition, flip, ...modifiers],
   });
@@ -316,42 +320,55 @@ export const Popover = ({
   // re-attached on every render.
   const popperRef = useLatest(popperElement);
 
+  useEscapeKey(() => onToggle(false), isOpen);
+  useClickOutside(popperRef, () => onToggle(false), isOpen);
+
   useEffect(() => {
-    if (!isOpen) {
-      return undefined;
+    // Focus the first or last element when opening
+    if (isOpen) {
+      const element = (triggerKey.current && triggerKey.current === 'ArrowUp'
+        ? wrapperEl.current?.lastElementChild
+        : wrapperEl.current?.firstElementChild) as HTMLElement;
+      element.focus();
+    } else {
+      // Focus the trigger button when closing
+      const triggerButton = triggerEl.current?.firstElementChild as HTMLElement;
+      triggerButton.focus();
     }
-    const handleEscapePress = (event: Event) => {
-      if (isEscape(event)) {
-        onToggle(false);
-      }
-    };
 
-    document.addEventListener('keydown', handleEscapePress);
-    return () => {
-      document.removeEventListener('keydown', handleEscapePress);
-    };
-  }, [isOpen, onToggle]);
+    triggerKey.current = null;
+  }, [isOpen]);
 
-  useClickAway(popperRef, (event) => {
-    // The reference element has its own click handler to toggle the popover.
-    if (
-      !triggerRef.current ||
-      triggerRef.current.contains(event.target as Node)
-    ) {
-      return;
+  const focusProps = useFocusList();
+
+  const handleTriggerClick = (event: MouseEvent | KeyboardEvent) => {
+    // This prevents the event from bubbling which would trigger the
+    // useClickOutside above and would prevent the popover from closing.
+    event.stopPropagation();
+    onToggle((prev) => !prev);
+  };
+
+  const handleTriggerKeyDown = (event: KeyboardEvent) => {
+    if (isArrowDown(event)) {
+      triggerKey.current = 'ArrowDown';
+      onToggle(true);
     }
-    onToggle(false);
-  });
+    if (isArrowUp(event)) {
+      triggerKey.current = 'ArrowUp';
+      onToggle((prev) => !prev);
+    }
+  };
 
   return (
     <Fragment>
-      <div ref={triggerRef}>
+      <div ref={triggerEl}>
         <Component
           id={triggerId}
           aria-haspopup={true}
-          aria-controls={id}
+          aria-controls={wrapperId}
           aria-expanded={isOpen}
-          onClick={() => onToggle((prev) => !prev)}
+          onClick={handleTriggerClick}
+          onKeyDown={handleTriggerKeyDown}
         />
       </div>
       <Overlay isOpen={isOpen} />
@@ -362,7 +379,8 @@ export const Popover = ({
         {...attributes.popper}
       >
         <PopoverWrapper
-          id={id}
+          id={wrapperId}
+          ref={wrapperEl}
           isOpen={isOpen}
           aria-labelledby={triggerId}
           role="menu"
@@ -371,7 +389,7 @@ export const Popover = ({
             isDivider(action) ? (
               <Hr css={dividerStyles} key={index} />
             ) : (
-              <PopoverItem key={index} {...action} />
+              <PopoverItem key={index} {...action} {...focusProps} />
             ),
           )}
         </PopoverWrapper>

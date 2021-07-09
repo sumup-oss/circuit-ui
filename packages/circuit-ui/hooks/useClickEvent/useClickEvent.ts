@@ -15,7 +15,7 @@
 
 import { useClickTrigger, Dispatch } from '@sumup/collector';
 
-export function useClickHandler<Event>(
+export function useClickEvent<Event>(
   onClick?: (event: Event) => void,
   tracking?: Dispatch,
   defaultComponentName?: string,

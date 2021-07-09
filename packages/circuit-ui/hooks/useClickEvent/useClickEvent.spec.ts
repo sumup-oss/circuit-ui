@@ -13,14 +13,15 @@
  * limitations under the License.
  */
 
-import { renderHook, act } from '@testing-library/react-hooks';
 import * as Collector from '@sumup/collector';
 
-import { useClickHandler } from './useClickHandler';
+import { renderHook, actHook } from '../../util/test-utils';
+
+import { useClickEvent } from './useClickEvent';
 
 jest.mock('@sumup/collector');
 
-describe('useClickHandler', () => {
+describe('useClickEvent', () => {
   afterEach(jest.clearAllMocks);
   afterAll(jest.resetModules);
 
@@ -31,11 +32,11 @@ describe('useClickHandler', () => {
     it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickHandler(onClick, tracking, defaultComponentName),
+        useClickEvent(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
-      act(() => {
+      actHook(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -53,11 +54,11 @@ describe('useClickHandler', () => {
 
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickHandler(onClick, tracking, defaultComponentName),
+        useClickEvent(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
-      act(() => {
+      actHook(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -69,7 +70,7 @@ describe('useClickHandler', () => {
     it('should return undefined if there is no onClick callback', () => {
       const onClick = undefined;
       const { result } = renderHook(() =>
-        useClickHandler(onClick, tracking, defaultComponentName),
+        useClickEvent(onClick, tracking, defaultComponentName),
       );
 
       expect(result.current).toBeUndefined();
@@ -83,11 +84,11 @@ describe('useClickHandler', () => {
     it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickHandler(onClick, tracking, defaultComponentName),
+        useClickEvent(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
-      act(() => {
+      actHook(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -105,11 +106,11 @@ describe('useClickHandler', () => {
 
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickHandler(onClick, tracking, defaultComponentName),
+        useClickEvent(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
-      act(() => {
+      actHook(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);

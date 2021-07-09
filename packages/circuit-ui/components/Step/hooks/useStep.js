@@ -17,7 +17,7 @@ import { useReducer, useEffect, useRef } from 'react';
 import { isFunction } from 'lodash/fp';
 
 import * as StepService from '../StepService';
-import { useClickHandler } from '../../../hooks/useClickHandler';
+import { useClickEvent } from '../../../hooks/useClickEvent';
 
 export function useStep(props = {}) {
   if (
@@ -50,22 +50,22 @@ export function useStep(props = {}) {
   const playingInterval = useRef(null);
   const animationEndCallback = useRef(null);
   const { onNext, onPrevious, onPause, onPlay, tracking } = props;
-  const handleNext = useClickHandler(
+  const handleNext = useClickEvent(
     onNext,
     { label: 'next', ...tracking },
     'carousel',
   );
-  const handlePrevious = useClickHandler(
+  const handlePrevious = useClickEvent(
     onPrevious,
     { label: 'previous', ...tracking },
     'carousel',
   );
-  const handlePause = useClickHandler(
+  const handlePause = useClickEvent(
     onPause,
     { label: 'pause', ...tracking },
     'carousel',
   );
-  const handlePlay = useClickHandler(
+  const handlePlay = useClickEvent(
     onPlay,
     { label: 'play', ...tracking },
     'carousel',

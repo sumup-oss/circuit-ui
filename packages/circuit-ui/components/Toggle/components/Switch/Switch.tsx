@@ -19,7 +19,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { focusVisible, hideVisually } from '../../../../styles/style-mixins';
-import { useClickHandler } from '../../../../hooks/useClickHandler';
+import { useClickEvent } from '../../../../hooks/useClickEvent';
 
 export interface SwitchProps
   extends Omit<HTMLProps<HTMLButtonElement>, 'type'> {
@@ -137,7 +137,7 @@ export const Switch = forwardRef(
     }: SwitchProps,
     ref: SwitchProps['ref'],
   ) => {
-    const handleChange = useClickHandler(onChange, tracking, 'toggle');
+    const handleChange = useClickEvent(onChange, tracking, 'toggle');
     return (
       <SwitchTrack
         type="button"

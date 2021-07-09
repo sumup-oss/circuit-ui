@@ -28,7 +28,7 @@ import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography, focusVisible } from '../../styles/style-mixins';
-import { useClickHandler } from '../../hooks/useClickHandler';
+import { useClickEvent } from '../../hooks/useClickEvent';
 import { CloseButton, CloseButtonProps } from '../CloseButton/CloseButton';
 
 type BaseProps = {
@@ -214,11 +214,7 @@ export const Tag = forwardRef(
     ref: BaseProps['ref'],
   ) => {
     const as = onClick ? 'button' : 'div';
-    const handleClick = useClickHandler<MouseEvent | KeyboardEvent>(
-      onClick,
-      tracking,
-      'tag',
-    );
+    const handleClick = useClickEvent(onClick, tracking, 'tag');
 
     return (
       <Container className={className} style={style}>

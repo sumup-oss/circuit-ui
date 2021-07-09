@@ -25,7 +25,7 @@ import {
   focusOutline,
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import { useClickHandler } from '../../hooks/useClickHandler';
+import { useClickEvent } from '../../hooks/useClickEvent';
 import Tooltip from '../Tooltip';
 
 export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
@@ -214,7 +214,7 @@ export const Checkbox = forwardRef(
     ref: CheckboxProps['ref'],
   ) => {
     const id = customId || uniqueId('checkbox_');
-    const handleChange = useClickHandler(onChange, tracking, 'checkbox');
+    const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
     return (
       <CheckboxWrapper className={className} style={style}>

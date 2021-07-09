@@ -101,7 +101,7 @@ export const Pagination = ({
   tracking = {},
   ...props
 }: PaginationProps) => {
-  // Can't use our custom useClickHandler here because it doesn't allow us
+  // Can't use our custom useClickEvent here because it doesn't allow us
   // to add the page number as label. So we implement it from scratch:
   const dispatch = useClickTrigger();
   const handleChange = (pageNumber: number): void => {
