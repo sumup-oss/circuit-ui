@@ -141,7 +141,7 @@ const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
 
 const overlayLabelStyles = ({ theme, isLoading }: StyledLabelProps) => css`
   &::before {
-    // @FIXME replace with a brightness filter when we drop IE support
+    /* FIXME: Replace with a brightness filter when we drop IE support */
     content: '';
     position: absolute;
     top: 0;

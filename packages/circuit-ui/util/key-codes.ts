@@ -20,6 +20,7 @@ import React from 'react';
  * not all browsers implement it yet.
  * TypeScript assumes that `event.key` is always available, so it complains
  * about `event.keyCode` never being available.
+ * FIXME: Clean up when we drop support for IE.
  */
 
 export const isEnter = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
