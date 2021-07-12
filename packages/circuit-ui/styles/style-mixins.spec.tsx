@@ -54,6 +54,9 @@ describe('Style helpers', () => {
   const green = (theme: Theme) => css`
     color: ${theme.colors.g500};
   `;
+  const purple = css`
+    color: rebeccapurple;
+  `;
 
   describe('cx', () => {
     it('should call each style function with the theme', () => {
@@ -63,6 +66,20 @@ describe('Style helpers', () => {
         .circuit-0 {
           color: #D23F47;
           color: #8CC13F;
+        }
+
+        <div
+          class="circuit-0"
+        />
+      `);
+    });
+
+    it('should support style objects', () => {
+      const actual = create(<div css={cx(purple)} />);
+
+      expect(actual).toMatchInlineSnapshot(`
+        .circuit-0 {
+          color: rebeccapurple;
         }
 
         <div
