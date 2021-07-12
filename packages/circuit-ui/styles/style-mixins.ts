@@ -16,6 +16,8 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
+import { isFunction } from '../util/type-check';
+
 type ThemeArgs = Theme | { theme: Theme };
 
 function isTheme(args: ThemeArgs): args is Theme {
@@ -31,6 +33,7 @@ const getTheme = (args: ThemeArgs): Theme =>
 type StyleFn =
   | ((theme: Theme) => SerializedStyles)
   | ((args: ThemeArgs) => SerializedStyles)
+  | SerializedStyles
   | false
   | null
   | undefined;
@@ -42,7 +45,7 @@ type StyleFn =
 export const cx = (...styleFns: StyleFn[]) => (
   theme: Theme,
 ): (SerializedStyles | false | null | undefined)[] =>
-  styleFns.map((styleFn) => styleFn && styleFn(theme));
+  styleFns.map((styleFn) => (isFunction(styleFn) ? styleFn(theme) : styleFn));
 
 type Spacing = keyof Theme['spacings'];
 
