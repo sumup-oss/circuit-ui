@@ -24,6 +24,7 @@ import Button from '../components/Button';
 import docs from './style-mixins.docs.mdx';
 import {
   spacing,
+  shadow,
   focusOutline,
   disableVisually,
   clearfix,
@@ -100,6 +101,16 @@ Spacing.argTypes = {
   left: spaceOptions,
 };
 
+const Box = styled.div`
+  display: inline-block;
+  height: 96px;
+  width: 240px;
+  max-width: 100%;
+  background-color: white;
+`;
+
+export const Shadow = () => <Box css={shadow} />;
+
 const Parent = styled.div`
   width: 100%;
   padding: 0.5rem;
@@ -122,18 +133,10 @@ export const Clearfix = () => (
   </Parent>
 );
 
-const Focused = styled.div`
-  display: inline-block;
-  height: 48px;
-  width: 480px;
-  max-width: 100%;
-  background-color: white;
-`;
-
 export const FocusOutline = () => (
   <Stack>
-    <Focused css={focusOutline} />
-    <Focused css={focusOutline('inset')} />
+    <Box css={focusOutline} />
+    <Box css={focusOutline('inset')} />
   </Stack>
 );
 

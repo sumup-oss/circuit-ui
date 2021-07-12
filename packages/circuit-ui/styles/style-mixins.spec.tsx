@@ -153,11 +153,20 @@ describe('Style helpers', () => {
 
   describe('shadow', () => {
     it('should match the snapshot', () => {
+      const { styles } = shadow({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+            box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+          "
+      `);
+    });
+
+    it('should match the snapshot with options', () => {
       const { styles } = shadow()({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
-          box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-        "
+              box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+            "
       `);
     });
   });

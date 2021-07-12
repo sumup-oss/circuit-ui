@@ -22,6 +22,7 @@ type StyleMixins = typeof styleMixins;
 const PUBLIC_STYLE_MIXINS: { [key: string]: boolean } = {
   cx: true,
   spacing: true,
+  shadow: true,
   disableVisually: true,
   hideVisually: true,
   focusOutline: true,
@@ -49,6 +50,7 @@ export const styleHelpers: StyleMixins =
           }
           // @ts-expect-error TypeScript isn't smart enough to infer the types here
           // and I'm too lazy to explicitly define them. — @connor-baer
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-return
           return fn(...args);
         };
         return acc;
