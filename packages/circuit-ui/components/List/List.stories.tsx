@@ -15,6 +15,8 @@
 
 import { Fragment } from 'react';
 
+import { spacing } from '../../styles/style-mixins';
+
 import docs from './List.docs.mdx';
 import { List, ListProps } from './List';
 
@@ -43,7 +45,13 @@ const variants: ListProps['variant'][] = ['unordered', 'ordered'];
 
 export const Variants = (args: ListProps) =>
   variants.map((variant) => (
-    <List key={variant} {...args} variant={variant} noMargin>
+    <List
+      key={variant}
+      {...args}
+      variant={variant}
+      noMargin
+      css={spacing({ bottom: 'giga' })}
+    >
       <ListItems />
     </List>
   ));
@@ -52,7 +60,13 @@ const sizes: ListProps['size'][] = ['one', 'two'];
 
 export const Sizes = (args: ListProps) =>
   sizes.map((size) => (
-    <List key={size} {...args} size={size} noMargin>
+    <List
+      key={size}
+      {...args}
+      size={size}
+      noMargin
+      css={spacing({ bottom: 'giga' })}
+    >
       <ListItems />
     </List>
   ));
