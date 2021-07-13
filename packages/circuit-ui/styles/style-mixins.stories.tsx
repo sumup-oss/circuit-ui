@@ -103,9 +103,10 @@ Spacing.argTypes = {
 
 const Box = styled.div`
   display: inline-block;
-  height: 96px;
-  width: 240px;
+  height: 5rem;
+  width: 15rem;
   max-width: 100%;
+  margin: 1rem;
   background-color: white;
 `;
 
