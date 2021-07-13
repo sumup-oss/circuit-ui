@@ -23,6 +23,7 @@ import Body from '../Body';
 import Button from '../Button';
 import NotificationList from '../NotificationList';
 import NotificationCard from '../NotificationCard';
+import { spacing, cx } from '../../styles/style-mixins';
 
 import docs from './Notification.docs.mdx';
 import { Notification, NotificationProps } from './Notification';
@@ -53,7 +54,7 @@ export const Base = (args: NotificationProps) => (
     <Headline as="h4" size="four" noMargin>
       New Feature — Intelligent Reporting
     </Headline>
-    <Body>
+    <Body noMargin css={spacing({ bottom: 'mega' })}>
       Get automatic insights into your business statistics with one click.
     </Body>
     <Button size="kilo" onClick={action('Action clicked')}>
@@ -79,7 +80,7 @@ export const Variants = () => (
       <Headline size="four" as="h4" noMargin>
         You need to verify your account
       </Headline>
-      <Body>
+      <Body noMargin css={spacing({ bottom: 'mega' })}>
         We need to verify your identity before you can continue transacting.
       </Body>
       <Button size="kilo" onClick={action('Button clicked')}>
@@ -87,7 +88,11 @@ export const Variants = () => (
       </Button>
     </Notification>
     <Notification variant="error" css={notificationStyles}>
-      <Headline size="four" as="h4" css={headingStyles}>
+      <Headline
+        size="four"
+        as="h4"
+        css={cx(headingStyles, spacing({ bottom: 'mega' }))}
+      >
         We failed to process your transaction
       </Headline>
       <Button size="kilo" onClick={action('Button clicked')}>

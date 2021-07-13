@@ -80,4 +80,4 @@ export const Sizes = (args: SelectorProps) => (
   </Stack>
 );
 
-Disabled.args = { ...baseArgs, disabled: true };
+Sizes.args = { ...baseArgs, name: 'sizes' };

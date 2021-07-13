@@ -19,6 +19,7 @@ import Headline from '../Headline';
 import Body from '../Body';
 import Button from '../Button';
 import Notification from '../Notification';
+import { spacing } from '../../styles/style-mixins';
 
 import { NotificationList, NotificationListProps } from './NotificationList';
 
@@ -33,7 +34,7 @@ export const Base = (args: NotificationListProps) => (
       <Headline as="h4" size="four" noMargin>
         New Feature — Intelligent Reporting
       </Headline>
-      <Body>
+      <Body noMargin css={spacing({ bottom: 'mega' })}>
         Get automatic insights into your business statistics with one click.
       </Body>
       <Button size="kilo" onClick={action('Action clicked')}>
