@@ -21,12 +21,13 @@ const baseStyles = ({ theme }: StyleProps) => css`
   label: hr;
   display: block;
   width: 100%;
-  border: 1px solid ${theme.colors.n300};
+  border: 0;
+  border-top: 1px solid ${theme.colors.n300};
   margin-top: ${theme.spacings.mega};
   margin-bottom: ${theme.spacings.mega};
 `;
 
 /**
- * A horizontal rule to visually and semantically separate text.
+ * A horizontal rule to visually and semantically separate content.
  */
 export const Hr = styled('hr')<NoTheme>(baseStyles);
