@@ -78,6 +78,7 @@ const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
 
     ul,
     ol {
+      margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
     }
   `;

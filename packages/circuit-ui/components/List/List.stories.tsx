@@ -74,8 +74,9 @@ export const Sizes = (args: ListProps) =>
 export const Nested = (args: ListProps) => (
   <List {...args} noMargin>
     <ListItems />
-    <List {...args}>
+    <List {...args} noMargin>
       <li>Sometimes a nested list</li>
     </List>
+    <li>And the list goes on</li>
   </List>
 );
