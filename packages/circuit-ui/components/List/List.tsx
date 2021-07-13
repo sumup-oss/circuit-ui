@@ -80,6 +80,9 @@ const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
     ol {
       margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   `;
 };
