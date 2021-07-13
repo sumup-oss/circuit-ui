@@ -172,6 +172,7 @@ export {
   focusOutline,
   clearfix,
   hideScrollbar,
+  shadow,
 } from './styles/style-mixins';
 
 export { sharedPropTypes, styleHelpers };
