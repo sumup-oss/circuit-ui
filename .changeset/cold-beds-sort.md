@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': minor
 ---
 
-Visually communicates to the user that an element is hovered, focused, or active; including for the disabled, invalid and warning states.
+Added the `inputOutline` style mixin. It can be used to communicates to the user that an element is hovered, focused, or active; including for the disabled, invalid and warning states.
