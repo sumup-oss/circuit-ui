@@ -26,6 +26,7 @@ import {
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent } from '../../hooks/useClickEvent';
+import { deprecate } from '../../util/logger';
 import Tooltip from '../Tooltip';
 
 export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
@@ -37,6 +38,10 @@ export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
    * Warning or error message, displayed in a tooltip.
    */
   validationHint?: string;
+  /**
+   * Removes the default bottom margin from the input.
+   */
+  noMargin?: boolean;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -122,12 +127,40 @@ const CheckboxLabel = styled('label')<LabelElProps>(
   labelInvalidStyles,
 );
 
-const wrapperBaseStyles = () => css`
+type WrapperElProps = Pick<CheckboxProps, 'noMargin'>;
+
+const wrapperBaseStyles = ({ theme }: StyleProps) => css`
   label: checkbox;
   position: relative;
+
+  &:last-of-type {
+    margin-bottom: ${theme.spacings.mega};
+  }
 `;
 
-const CheckboxWrapper = styled('div')(wrapperBaseStyles);
+const wrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
+  if (!noMargin) {
+    deprecate(
+      'Checkbox',
+      'The default outer spacing in the Checkbox component is deprecated.',
+      'Use the `noMargin` prop to silence this warning.',
+      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+    );
+
+    return null;
+  }
+  return css`
+    label: checkbox--no-margin;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  `;
+};
+
+const CheckboxWrapper = styled('div')<WrapperElProps>(
+  wrapperBaseStyles,
+  wrapperNoMarginStyles,
+);
 
 type InputElProps = Omit<CheckboxProps, 'tracking'>;
 
@@ -208,6 +241,7 @@ export const Checkbox = forwardRef(
       className,
       style,
       invalid,
+      noMargin,
       tracking,
       ...props
     }: CheckboxProps,
@@ -217,7 +251,7 @@ export const Checkbox = forwardRef(
     const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
     return (
-      <CheckboxWrapper className={className} style={style}>
+      <CheckboxWrapper className={className} style={style} noMargin={noMargin}>
         <CheckboxInput
           {...props}
           id={id}

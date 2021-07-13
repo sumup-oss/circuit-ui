@@ -25,6 +25,7 @@ import {
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent } from '../../hooks/useClickEvent';
+import { deprecate } from '../../util/logger';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
@@ -59,6 +60,10 @@ export interface SelectorProps
    */
   multiple?: boolean;
   /**
+   * Removes the default bottom margin from the input.
+   */
+  noMargin?: boolean;
+  /**
    * The ref to the html dom element
    */
   ref?: Ref<HTMLInputElement>;
@@ -68,7 +73,7 @@ export interface SelectorProps
   tracking?: TrackingProps;
 }
 
-type LabelElProps = Pick<SelectorProps, 'disabled' | 'size'>;
+type LabelElProps = Pick<SelectorProps, 'disabled' | 'size' | 'noMargin'>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-block;
@@ -115,6 +120,22 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const disabledStyles = ({ disabled }: LabelElProps) =>
   disabled && css(disableVisually());
 
+const noMarginStyles = ({ noMargin }: LabelElProps) => {
+  if (!noMargin) {
+    deprecate(
+      'Selector',
+      'The default outer spacing in the Selector component is deprecated.',
+      'Use the `noMargin` prop to silence this warning.',
+      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+    );
+    return null;
+  }
+  return css`
+    label: selector__label--no-margin;
+    margin-bottom: 0;
+  `;
+};
+
 const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   const sizeMap = {
     kilo: {
@@ -135,6 +156,7 @@ const SelectorLabel = styled('label')<LabelElProps>(
   baseStyles,
   sizeStyles,
   disabledStyles,
+  noMarginStyles,
 );
 
 const inputStyles = ({ theme }: StyleProps) => css`
@@ -176,6 +198,7 @@ export const Selector = forwardRef(
       tracking,
       className,
       style,
+      noMargin,
       size,
       ...props
     }: SelectorProps,
@@ -211,6 +234,7 @@ export const Selector = forwardRef(
           size={size}
           className={className}
           style={style}
+          noMargin={noMargin}
         >
           {children}
         </SelectorLabel>

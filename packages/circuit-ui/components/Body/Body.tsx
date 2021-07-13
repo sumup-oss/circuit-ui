@@ -18,6 +18,7 @@ import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { deprecate } from '../../util/logger';
 
 type Size = 'one' | 'two';
 type Variant = 'highlight' | 'quote' | 'success' | 'error' | 'subtle';
@@ -33,6 +34,11 @@ export interface BodyProps
    */
   variant?: Variant;
   /**
+   /**
+    * Remove the default margin below the text.
+    */
+  noMargin?: boolean;
+  /**
    * Render the text using any HTML element.
    */
   as?: string;
@@ -45,6 +51,7 @@ export interface BodyProps
 const baseStyles = ({ theme }: StyleProps) => css`
   label: body;
   font-weight: ${theme.fontWeight.regular};
+  margin-bottom: ${theme.spacings.mega};
 `;
 
 const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => {
@@ -99,9 +106,26 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
   }
 };
 
+const marginStyles = ({ noMargin }: BodyProps & StyleProps) => {
+  if (!noMargin) {
+    deprecate(
+      'Body',
+      'The default outer spacing in the Body component is deprecated.',
+      'Use the `noMargin` prop to silence this warning.',
+      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+    );
+    return null;
+  }
+
+  return css`
+    label: text--no-margin;
+    margin-bottom: 0;
+  `;
+};
+
 const StyledBody = styled('p', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<BodyProps>(baseStyles, sizeStyles, variantStyles);
+})<BodyProps>(baseStyles, sizeStyles, marginStyles, variantStyles);
 
 function getHTMLElement(variant?: Variant): string {
   if (variant === 'highlight') {

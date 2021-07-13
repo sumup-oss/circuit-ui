@@ -41,6 +41,11 @@ describe('Body', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(<Body noMargin />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

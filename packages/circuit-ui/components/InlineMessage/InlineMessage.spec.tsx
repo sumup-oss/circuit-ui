@@ -41,6 +41,11 @@ describe('InlineMessage', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(<InlineMessage variant="danger" noMargin />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

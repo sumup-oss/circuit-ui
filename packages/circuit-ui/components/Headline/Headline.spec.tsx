@@ -37,6 +37,11 @@ describe('Headline', () => {
     expect(headline).toMatchSnapshot();
   });
 
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(<Headline noMargin />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

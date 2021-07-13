@@ -17,6 +17,12 @@ exports[`Input should prioritize disabled over error styles 1`] = `
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
+  margin-bottom: 16px;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-1 {
@@ -101,6 +107,12 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
+  margin-bottom: 16px;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-1 {
@@ -172,6 +184,12 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
+}
+
+label .circuit-4:not(label),
+label + .circuit-4:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -283,6 +301,12 @@ exports[`Input should render with a prefix when passed the prefix prop 1`] = `
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
+}
+
+label .circuit-4:not(label),
+label + .circuit-4:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -386,6 +410,12 @@ exports[`Input should render with a suffix when passed the suffix prop 1`] = `
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
+}
+
+label .circuit-4:not(label),
+label + .circuit-4:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -502,7 +532,13 @@ exports[`Input should render with custom styles 1`] = `
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
   border: 1px solid red;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-1 {
@@ -560,7 +596,7 @@ exports[`Input should render with custom styles 1`] = `
 
 <label
   class="circuit-3"
-  for="input_14"
+  for="input_15"
 >
   <span
     class="circuit-0"
@@ -572,7 +608,7 @@ exports[`Input should render with custom styles 1`] = `
   >
     <input
       class="circuit-1"
-      id="input_14"
+      id="input_15"
       value=""
     />
   </div>
@@ -584,6 +620,12 @@ exports[`Input should render with default styles 1`] = `
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -685,6 +727,12 @@ exports[`Input should render with disabled styles when passed the disabled prop 
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
+  margin-bottom: 16px;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-1 {
@@ -819,6 +867,12 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   display: block;
   display: inline-block;
   margin-right: 16px;
+  margin-bottom: 16px;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 <label
@@ -847,6 +901,12 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -952,11 +1012,109 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
 </label>
 `;
 
+exports[`Input should render with no margin styles when passed the noMargin prop 1`] = `
+.circuit-0 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.circuit-2 {
+  position: relative;
+}
+
+.circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-appearance: none;
+  background-color: #FFF;
+  border: none;
+  outline: 0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  box-shadow: 0 0 0 1px #999;
+}
+
+.circuit-1::-webkit-input-placeholder {
+  color: #999;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1::-moz-placeholder {
+  color: #999;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1:-ms-input-placeholder {
+  color: #999;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1::placeholder {
+  color: #999;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #666;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3063E9;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3063E9;
+}
+
+.circuit-3 {
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
+}
+
+<label
+  class="circuit-3"
+  for="input_14"
+>
+  <span
+    class="circuit-0"
+  />
+  <div
+    class="circuit-2"
+  >
+    <input
+      class="circuit-1"
+      id="input_14"
+      value=""
+    />
+  </div>
+</label>
+`;
+
 exports[`Input should render with readonly styles when passed the readOnly prop 1`] = `
 .circuit-3 {
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -1048,6 +1206,12 @@ exports[`Input should render with right aligned text 1`] = `
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -1138,6 +1302,12 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -1227,6 +1397,12 @@ exports[`Input should render with warning styles when passed the hasWarning prop
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
+}
+
+label .circuit-3:not(label),
+label + .circuit-3:not(label) {
+  margin-top: 4px;
 }
 
 .circuit-0 {

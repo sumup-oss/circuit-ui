@@ -10,6 +10,7 @@ exports[`List should render a nested list 1`] = `
 }
 
 .circuit-0 li {
+  margin-bottom: 8px;
   margin-left: 12px;
 }
 
@@ -44,6 +45,7 @@ exports[`List should render the ordered variant 1`] = `
 }
 
 .circuit-0 li {
+  margin-bottom: 8px;
   margin-left: 12px;
 }
 
@@ -71,6 +73,7 @@ exports[`List should render the unordered variant 1`] = `
 }
 
 .circuit-0 li {
+  margin-bottom: 8px;
   margin-left: 12px;
 }
 
@@ -98,6 +101,7 @@ exports[`List should render with default styles 1`] = `
 }
 
 .circuit-0 li {
+  margin-bottom: 8px;
   margin-left: 12px;
 }
 
@@ -115,6 +119,35 @@ exports[`List should render with default styles 1`] = `
 </ul>
 `;
 
+exports[`List should render with no margin styles when passed the noMargin prop 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  class="circuit-0"
+>
+  <li>
+    no margin
+  </li>
+</ul>
+`;
+
 exports[`List should render with size one 1`] = `
 .circuit-0 {
   font-weight: 400;
@@ -125,6 +158,7 @@ exports[`List should render with size one 1`] = `
 }
 
 .circuit-0 li {
+  margin-bottom: 8px;
   margin-left: 12px;
 }
 
@@ -152,6 +186,7 @@ exports[`List should render with size two 1`] = `
 }
 
 .circuit-0 li {
+  margin-bottom: 12px;
   margin-left: 4px;
 }
 

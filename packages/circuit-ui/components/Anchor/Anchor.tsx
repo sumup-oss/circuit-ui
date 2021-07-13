@@ -106,7 +106,7 @@ export const Anchor = forwardRef(
     const handleClick = useClickEvent(props.onClick, tracking, 'anchor');
 
     if (!props.href && !props.onClick) {
-      return <Body as="span" {...props} ref={ref} />;
+      return <Body as="span" {...props} ref={ref} noMargin />;
     }
 
     if (props.href) {
@@ -117,6 +117,7 @@ export const Anchor = forwardRef(
           as={Link}
           ref={ref}
           onClick={handleClick}
+          noMargin
         />
       );
     }
@@ -128,6 +129,7 @@ export const Anchor = forwardRef(
         css={anchorStyles}
         ref={ref}
         onClick={handleClick}
+        noMargin
       />
     );
   },

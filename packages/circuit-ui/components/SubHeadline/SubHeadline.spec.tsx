@@ -21,7 +21,7 @@ describe('SubHeadline', () => {
   /**
    * Style tests.
    */
-  const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
+  const elements = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
   it.each(elements)(`should render as %s element`, (element) => {
     const subheading = create(
       <SubHeadline as={element}>{`${element} subheading`}</SubHeadline>,
@@ -29,8 +29,8 @@ describe('SubHeadline', () => {
     expect(subheading).toMatchSnapshot();
   });
 
-  it('should render with no margin styles when passed the prop', () => {
-    const actual = create(<SubHeadline as="h3" />);
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(<SubHeadline as="h3" noMargin />);
     expect(actual).toMatchSnapshot();
   });
 
