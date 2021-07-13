@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
+import { FC, HTMLProps } from 'react';
 import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import deprecate from '../../util/deprecate';
 
-export interface CardProps {
+export interface CardProps extends HTMLProps<HTMLDivElement> {
   /**
    * @deprecated
    * The shadow variations have been replaced with a single outline.
