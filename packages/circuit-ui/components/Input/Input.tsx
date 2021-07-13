@@ -117,15 +117,6 @@ const InputContainer = styled('div')(containerStyles);
 
 type LabelElProps = Pick<InputProps, 'noMargin'>;
 
-const labelCustomStyles = ({ theme }: StyleProps) => css`
-  label: input__label;
-
-  label &:not(label),
-  label + &:not(label) {
-    margin-top: ${theme.spacings.bit};
-  }
-`;
-
 const labelNoMarginStyles = ({
   theme,
   noMargin,
@@ -146,10 +137,7 @@ const labelNoMarginStyles = ({
   return null;
 };
 
-const InputLabel = styled(Label)<LabelElProps>(
-  labelCustomStyles,
-  labelNoMarginStyles,
-);
+const InputLabel = styled(Label)<LabelElProps>(labelNoMarginStyles);
 
 type InputElProps = Omit<InputProps, 'label'> & {
   hasPrefix: boolean;

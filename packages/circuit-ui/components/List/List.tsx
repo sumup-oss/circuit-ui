@@ -31,7 +31,7 @@ export interface ListProps
    */
   size?: Size;
   /**
-   * Whether the list should be presented as an <ol>
+   * Whether the list should be presented as an <ol> or <ul>. Defaults to <ul>.
    */
   variant?: Variant;
   /**

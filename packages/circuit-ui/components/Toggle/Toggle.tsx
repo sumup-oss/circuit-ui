@@ -34,7 +34,7 @@ export interface ToggleProps extends SwitchProps {
    */
   explanation?: string;
   /**
-   * Removes the default bottom margin from the input.
+   * Removes the default bottom margin from the Toggle.
    */
   noMargin?: boolean;
   /**

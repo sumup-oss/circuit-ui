@@ -54,6 +54,7 @@ HTMLCollection [
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
+  margin-bottom: 16px;
   padding: calc(12px) 24px;
 }
 
@@ -151,6 +152,7 @@ HTMLCollection [
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
+  margin-bottom: 16px;
   padding: calc(12px) 24px;
 }
 
@@ -249,6 +251,7 @@ HTMLCollection [
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
+  margin-bottom: 16px;
   padding: calc(12px) 24px;
   opacity: 0.5;
   pointer-events: none;
@@ -350,6 +353,7 @@ HTMLCollection [
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
+  margin-bottom: 16px;
   padding: calc(12px) 24px;
   margin-bottom: 0;
 }

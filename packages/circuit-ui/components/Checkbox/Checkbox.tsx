@@ -39,7 +39,7 @@ export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
    */
   validationHint?: string;
   /**
-   * Removes the default bottom margin from the input.
+   * Removes the default bottom margin from the Checkbox.
    */
   noMargin?: boolean;
   /**

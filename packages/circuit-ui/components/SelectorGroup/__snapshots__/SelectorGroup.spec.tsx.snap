@@ -76,6 +76,7 @@ exports[`SelectorGroup should render with default styles 1`] = `
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
+  margin-bottom: 16px;
   padding: calc(12px) 24px;
   margin-bottom: 0;
   width: 100%;
@@ -248,6 +249,7 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
+  margin-bottom: 16px;
   padding: calc(12px) 24px;
   margin-bottom: 0;
   width: 100%;

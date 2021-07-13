@@ -60,7 +60,7 @@ export interface SelectorProps
    */
   multiple?: boolean;
   /**
-   * Removes the default bottom margin from the input.
+   * Removes the default bottom margin from the Selector.
    */
   noMargin?: boolean;
   /**
@@ -84,6 +84,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   border: none;
   border-radius: ${theme.borderRadius.byte};
   transition: box-shadow ${theme.transitions.default};
+  margin-bottom: ${theme.spacings.mega};
 
   &::before {
     display: block;

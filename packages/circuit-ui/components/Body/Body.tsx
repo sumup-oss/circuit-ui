@@ -34,9 +34,8 @@ export interface BodyProps
    */
   variant?: Variant;
   /**
-   /**
-    * Remove the default margin below the text.
-    */
+   * Remove the default margin below the text.
+   */
   noMargin?: boolean;
   /**
    * Render the text using any HTML element.
