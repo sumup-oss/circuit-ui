@@ -80,9 +80,6 @@ const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
     ol {
       margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
   `;
 };
@@ -101,6 +98,10 @@ const marginStyles = ({ noMargin }: ListProps) => {
     label: list--no-margin;
     margin-bottom: 0;
     li:last-child {
+      margin-bottom: 0;
+    }
+    ul:last-child,
+    ol:last-child {
       margin-bottom: 0;
     }
   `;
