@@ -173,6 +173,7 @@ export {
   clearfix,
   hideScrollbar,
   shadow,
+  inputOutline,
 } from './styles/style-mixins';
 
 export { sharedPropTypes, styleHelpers };

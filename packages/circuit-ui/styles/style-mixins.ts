@@ -273,7 +273,6 @@ export const hideVisually = (): SerializedStyles => css`
 /**
  * Visually communicates to the user that an element is focused.
  */
-
 export function focusOutline(
   options: 'inset',
 ): (args: ThemeArgs) => SerializedStyles;
@@ -334,17 +333,33 @@ export const hideScrollbar = (): SerializedStyles => css`
 `;
 
 /**
- * Visually communicates to the user that an input is hovered, focused,
- * or active.
+ * Visually communicates to the user that an element hovered, focused, or
+ * active; and optionally adds disabled, invalid or warning styles.
  */
 export const inputOutline = (
   args:
     | Theme
     | {
+        /**
+         * The Theme object.
+         */
         theme: Theme;
+        /**
+         * Adds disabled styles.
+         */
         disabled?: boolean;
+        /**
+         * Adds invalid styles.
+         */
         invalid?: boolean;
+        /**
+         * Adds warning styles.
+         */
         hasWarning?: boolean;
+        /**
+         * @deprecated
+         * Has no effect, kept for legacy reasons.
+         */
         showValid?: boolean;
       },
 ): SerializedStyles => {

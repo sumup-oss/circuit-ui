@@ -117,6 +117,25 @@ function focusOutline('inset'): (theme: Theme | { theme: Theme }) => SerializedS
 
 <Story id="features-style-mixins--focus-outline" />
 
+## `inputOutline`
+
+Visually communicates to the user that an element hovered, focused, or active; and optionally adds disabled, invalid or warning styles.
+
+```ts
+function inputOutline(
+  theme:
+    | Theme
+    | {
+        theme: Theme;
+        disabled?: boolean;
+        invalid?: boolean;
+        hasWarning?: boolean;
+      },
+): SerializedStyles;
+```
+
+<Story id="features-style-mixins--input-outline" />
+
 ## `disableVisually`
 
 Visually communicates to the user that an element is disabled and prevents user interactions.
