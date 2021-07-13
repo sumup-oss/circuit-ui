@@ -139,6 +139,10 @@ exports[`List should render with no margin styles when passed the noMargin prop 
   margin-left: 12px;
 }
 
+.circuit-0 li:last-child {
+  margin-bottom: 0;
+}
+
 <ul
   class="circuit-0"
 >

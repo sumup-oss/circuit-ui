@@ -96,6 +96,9 @@ const marginStyles = ({ noMargin }: ListProps) => {
   return css`
     label: list--no-margin;
     margin-bottom: 0;
+    li:last-child {
+      margin-bottom: 0;
+    }
   `;
 };
 
