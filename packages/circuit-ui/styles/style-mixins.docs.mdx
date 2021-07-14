@@ -119,6 +119,25 @@ function focusVisible('inset'): (theme: Theme | { theme: Theme }) => SerializedS
 
 In cases where the focus outline is needed for conditions other than the focus state, use the `focusOutline` style mixin instead. It has the same API.
 
+## `inputOutline`
+
+Visually communicates to the user that an element is hovered, focused, or active in the disabled, invalid, and warning states.
+
+```ts
+function inputOutline(
+  theme:
+    | Theme
+    | {
+        theme: Theme;
+        disabled?: boolean;
+        invalid?: boolean;
+        hasWarning?: boolean;
+      },
+): SerializedStyles;
+```
+
+<Story id="features-style-mixins--input-outline" />
+
 ## `disableVisually`
 
 Visually communicates to the user that an element is disabled and prevents user interactions.

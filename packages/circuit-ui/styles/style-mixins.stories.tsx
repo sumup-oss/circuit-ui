@@ -14,6 +14,7 @@
  */
 
 import styled from '@emotion/styled';
+import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../.storybook/components';
 import Button from '../components/Button';
@@ -23,6 +24,7 @@ import {
   spacing,
   shadow,
   focusVisible,
+  inputOutline,
   disableVisually,
   clearfix,
   hideVisually,
@@ -135,6 +137,15 @@ export const FocusVisible = () => (
   <Stack>
     <Box css={focusVisible} />
     <Box css={focusVisible('inset')} />
+  </Stack>
+);
+
+export const InputOutline = () => (
+  <Stack>
+    <Box css={inputOutline} />
+    <Box css={(theme: Theme) => inputOutline({ theme, disabled: true })} />
+    <Box css={(theme: Theme) => inputOutline({ theme, invalid: true })} />
+    <Box css={(theme: Theme) => inputOutline({ theme, hasWarning: true })} />
   </Stack>
 );
 

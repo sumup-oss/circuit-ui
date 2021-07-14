@@ -201,6 +201,22 @@
 
 * [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed a UI bug in the `Table` component where multiple words in a table header would wrap on mobile, and break row alignment.
 
+## 2.7.0
+
+### Minor Changes
+
+- [#1037](https://github.com/sumup-oss/circuit-ui/pull/1037) [`275eef7a`](https://github.com/sumup-oss/circuit-ui/commit/275eef7a1b45a21a4663b4108db9098a2f8ec5d4) Thanks [@robinmetral](https://github.com/robinmetral)! - Added the `inputOutline` style mixin. It can be used to communicate to the user that an element is hovered, focused, or active in the disabled, invalid, and warning states.
+
+* [#1032](https://github.com/sumup-oss/circuit-ui/pull/1032) [`7ece6261`](https://github.com/sumup-oss/circuit-ui/commit/7ece6261748f069a0303658653f2832151dfd0a4) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for style objects to the `cx` style mixin.
+
+- [#1034](https://github.com/sumup-oss/circuit-ui/pull/1034) [`d9ac0f99`](https://github.com/sumup-oss/circuit-ui/commit/d9ac0f99d6a2c946c1e4beb326b5a961f910df68) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `shadow` style mixin which can be used to visually elevate an element above the surrounding content.
+
+* [#1036](https://github.com/sumup-oss/circuit-ui/pull/1036) [`0a17a448`](https://github.com/sumup-oss/circuit-ui/commit/0a17a4486d24af15d76f1e82d2063ee4588769cb) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the thickness of the Hr (horizontal rule) component.
+
+### Patch Changes
+
+- [#1038](https://github.com/sumup-oss/circuit-ui/pull/1038) [`fd5f1663`](https://github.com/sumup-oss/circuit-ui/commit/fd5f1663eff7381e9575c57f74b4678087f9d2c0) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved CardProps interface to allow all default HTML attributes.
+
 ## 2.6.1
 
 ### Patch Changes
