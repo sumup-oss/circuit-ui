@@ -95,6 +95,11 @@ describe('TextArea', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(<TextArea noMargin />);
+    expect(actual).toMatchSnapshot();
+  });
+
   describe('business logic', () => {
     /**
      * Should accept a working ref

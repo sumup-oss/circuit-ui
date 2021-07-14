@@ -34,11 +34,13 @@ const FormOne = ({ onNextClick }) => (
       label="First Name"
       placeholder="John"
       css={spacing({ bottom: 'mega' })}
+      noMargin
     />
     <Input
       label="Second Name"
       placeholder="Doe"
       css={spacing({ bottom: 'mega' })}
+      noMargin
     />
     <Button variant="primary" onClick={() => onNextClick()}>
       Next
@@ -55,8 +57,9 @@ const FormTwo = ({ onNextClick, onBackClick }) => (
       label="Street"
       placeholder="Madison Ave 5"
       css={spacing({ bottom: 'mega' })}
+      noMargin
     />
-    <Select label="State" css={spacing({ bottom: 'mega' })}>
+    <Select label="State" css={spacing({ bottom: 'mega' })} noMargin>
       <option>CA</option>
       <option>TX</option>
       <option>NY</option>
@@ -65,6 +68,7 @@ const FormTwo = ({ onNextClick, onBackClick }) => (
       label="Postal Code"
       placeholder="10179"
       css={spacing({ bottom: 'mega' })}
+      noMargin
     />
     <ButtonGroup align="left">
       <Button variant="primary" onClick={() => onNextClick()}>
@@ -81,7 +85,7 @@ FormTwo.propTypes = {
 
 const Thanks = () => (
   <section>
-    <Headline>Thanks!</Headline>
+    <Headline noMargin>Thanks!</Headline>
   </section>
 );
 
@@ -104,7 +108,7 @@ const MultiStepForm = () => {
 
         return (
           <Container>
-            <Headline size="three" css={spacing({ bottom: 'giga' })}>
+            <Headline size="three" noMargin css={spacing({ bottom: 'giga' })}>
               Step {stepNumber} of {totalSteps}
             </Headline>
             <ProgressBar

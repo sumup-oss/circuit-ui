@@ -16,6 +16,7 @@
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { deprecate } from '../../util/logger';
 
 type Variant = 'danger' | 'success' | 'warning';
 
@@ -28,11 +29,32 @@ export interface InlineMessageProps {
    * Should correspond to the size provided to the surrounding Card component.
    */
   size?: 'mega' | 'giga';
+  /**
+   * Removes the default bottom margin from the text.
+   */
+  noMargin?: boolean;
 }
 
 const baseStyles = css`
   label: inline-message;
 `;
+
+const marginStyles = ({ noMargin }: InlineMessageProps) => {
+  if (!noMargin) {
+    deprecate(
+      'InlineMessage',
+      'The default outer spacing in the InlineMessage component is deprecated.',
+      'Use the `noMargin` prop to silence this warning.',
+      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+    );
+    return null;
+  }
+
+  return css`
+    label: text--no-margin;
+    margin-bottom: 0;
+  `;
+};
 
 const createLeftBorderStyles = (variantName: Variant) => ({
   theme,
@@ -57,6 +79,7 @@ const createLeftBorderStyles = (variantName: Variant) => ({
       label: ${`inline-message--${variant}`};
       color: ${textColors[variant]};
       position: relative;
+      margin-bottom: ${theme.spacings.mega};
 
       &:before {
         display: inline-block;
@@ -86,4 +109,5 @@ export const InlineMessage = styled('p')<InlineMessageProps>(
   dangerStyles,
   successStyles,
   warningStyles,
+  marginStyles,
 );

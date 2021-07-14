@@ -138,11 +138,6 @@
 
 * [#943](https://github.com/sumup-oss/circuit-ui/pull/943) [`0543719b`](https://github.com/sumup-oss/circuit-ui/commit/0543719bfceaf616829a223f9e4f306539fbcc15) Thanks [@mykolaharmash](https://github.com/mykolaharmash)! - `Selector` now has multiple `size` options. `SelectorGroup` is changed to horizontal layout and to be inline element by default with an option to stretch to full width.
 
-- [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `noMargin` prop from the components below. Use the `spacing` mixin to add spacing.
-
-  - **Typography**: `Body`, `Headline`, `SubHeadline`, `List`, `InlineMessage`
-  - **Forms**: `Input`, `Select`, `Selector`, `Toggle`, `Checkbox`
-
 * [#985](https://github.com/sumup-oss/circuit-ui/pull/985) [`61c15cf7`](https://github.com/sumup-oss/circuit-ui/commit/61c15cf7a5a23fb723a2d9a0b1434639bc8ae700) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the experimental static styles extraction feature.
 
 - [#995](https://github.com/sumup-oss/circuit-ui/pull/995) [`bd234296`](https://github.com/sumup-oss/circuit-ui/commit/bd23429679f2644ccfdc3fe3ebbad190e9948f09) Thanks [@robinmetral](https://github.com/robinmetral)! - Enforced the `Input` and `Select`'s built-in `label` prop. Do not use the `Label` component separately and pass the label as a prop instead.

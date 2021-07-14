@@ -35,6 +35,11 @@ describe('Toggle', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(<Toggle {...defaultProps} noMargin />);
+    expect(actual).toMatchSnapshot();
+  });
+
   describe('business logic', () => {
     /**
      * Should accept a working ref

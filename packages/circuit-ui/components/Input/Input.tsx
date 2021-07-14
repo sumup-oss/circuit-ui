@@ -27,6 +27,7 @@ import { uniqueId } from '../../util/id';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';
+import { deprecate } from '../../util/logger';
 
 export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
   /**
@@ -81,6 +82,10 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
    */
   inline?: boolean;
   /**
+   * Removes the default bottom margin from the input.
+   */
+  noMargin?: boolean;
+  /**
    * Aligns text in the input
    */
   textAlign?: 'left' | 'right';
@@ -109,6 +114,30 @@ const containerStyles = () => css`
 `;
 
 const InputContainer = styled('div')(containerStyles);
+
+type LabelElProps = Pick<InputProps, 'noMargin'>;
+
+const labelNoMarginStyles = ({
+  theme,
+  noMargin,
+}: StyleProps & LabelElProps) => {
+  if (!noMargin) {
+    deprecate(
+      'Input',
+      'The default outer spacing in the Input component is deprecated.',
+      'Use the `noMargin` prop to silence this warning.',
+      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+    );
+
+    return css`
+      label: input__label--margin;
+      margin-bottom: ${theme.spacings.mega};
+    `;
+  }
+  return null;
+};
+
+const InputLabel = styled(Label)<LabelElProps>(labelNoMarginStyles);
 
 type InputElProps = Omit<InputProps, 'label'> & {
   hasPrefix: boolean;
@@ -282,6 +311,7 @@ export const Input = forwardRef(
       invalid,
       hasWarning,
       showValid,
+      noMargin,
       inline,
       disabled,
       labelStyles,
@@ -303,7 +333,13 @@ export const Input = forwardRef(
     const hasSuffix = Boolean(suffix);
 
     return (
-      <Label htmlFor={id} inline={inline} disabled={disabled} css={labelStyles}>
+      <InputLabel
+        htmlFor={id}
+        inline={inline}
+        disabled={disabled}
+        noMargin={noMargin}
+        css={labelStyles}
+      >
         <LabelText hideLabel={hideLabel}>
           {label}
           {optionalLabel && !required ? (
@@ -336,7 +372,7 @@ export const Input = forwardRef(
           showValid={showValid}
           validationHint={validationHint}
         />
-      </Label>
+      </InputLabel>
     );
   },
 );

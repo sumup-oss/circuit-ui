@@ -15,6 +15,8 @@
 
 import { Fragment } from 'react';
 
+import { spacing } from '../../styles/style-mixins';
+
 import docs from './List.docs.mdx';
 import { List, ListProps } from './List';
 
@@ -34,7 +36,7 @@ const ListItems = () => (
 );
 
 export const Base = (args: ListProps) => (
-  <List {...args}>
+  <List {...args} noMargin>
     <ListItems />
   </List>
 );
@@ -43,7 +45,13 @@ const variants: ListProps['variant'][] = ['unordered', 'ordered'];
 
 export const Variants = (args: ListProps) =>
   variants.map((variant) => (
-    <List key={variant} {...args} variant={variant}>
+    <List
+      key={variant}
+      {...args}
+      variant={variant}
+      noMargin
+      css={spacing({ bottom: 'giga' })}
+    >
       <ListItems />
     </List>
   ));
@@ -52,16 +60,23 @@ const sizes: ListProps['size'][] = ['one', 'two'];
 
 export const Sizes = (args: ListProps) =>
   sizes.map((size) => (
-    <List key={size} {...args} size={size}>
+    <List
+      key={size}
+      {...args}
+      size={size}
+      noMargin
+      css={spacing({ bottom: 'giga' })}
+    >
       <ListItems />
     </List>
   ));
 
 export const Nested = (args: ListProps) => (
-  <List {...args}>
+  <List {...args} noMargin>
     <ListItems />
-    <List {...args}>
+    <List {...args} noMargin>
       <li>Sometimes a nested list</li>
     </List>
+    <li>And the list goes on</li>
   </List>
 );

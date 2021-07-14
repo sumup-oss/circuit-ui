@@ -26,9 +26,9 @@ const baseArgs = {
   name: 'selector-group',
   label: 'Choose your favourite fruit',
   options: [
-    { children: 'Apple', value: 'apple' },
-    { children: 'Banana', value: 'banana' },
-    { children: 'Mango', value: 'mango' },
+    { children: 'Apple', value: 'apple', noMargin: true },
+    { children: 'Banana', value: 'banana', noMargin: true },
+    { children: 'Mango', value: 'mango', noMargin: true },
   ],
 };
 

@@ -26,6 +26,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
+  margin-bottom: 16px;
 }
 
 .circuit-2 {
@@ -115,6 +116,7 @@ exports[`SearchInput should render with default styles 1`] = `
   font-size: 14px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
 }
 
 .circuit-0 {

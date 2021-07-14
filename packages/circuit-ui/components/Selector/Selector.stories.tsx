@@ -31,6 +31,7 @@ export default {
 
 const baseArgs = {
   value: 'default',
+  noMargin: true,
 };
 
 export const Base = (args: SelectorProps) => (
@@ -71,10 +72,12 @@ export const Sizes = (args: SelectorProps) => (
       Mega
     </Selector>
     <Selector {...args} size="flexible">
-      <Body variant="highlight">Flexible</Body>
-      <Body>Hello World!</Body>
+      <Body variant="highlight" noMargin>
+        Flexible
+      </Body>
+      <Body noMargin>Hello World!</Body>
     </Selector>
   </Stack>
 );
 
-Disabled.args = { ...baseArgs, disabled: true };
+Sizes.args = { ...baseArgs, name: 'sizes' };

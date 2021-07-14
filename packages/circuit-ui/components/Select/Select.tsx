@@ -30,6 +30,7 @@ import { ReturnType } from '../../types/return-type';
 import { useClickEvent } from '../../hooks/useClickEvent';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
+import { deprecate } from '../../util/logger';
 
 export type SelectOption = {
   value: string | number;
@@ -79,6 +80,10 @@ export interface SelectProps
    * Trigger inline styles on the component.
    */
   inline?: boolean;
+  /**
+   * Removes the default bottom margin from the select.
+   */
+  noMargin?: boolean;
   /**
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
@@ -140,7 +145,23 @@ const SelectContainer = styled('div')<ContainerElProps>(
   containerHideLabelStyles,
 );
 
-type LabelElProps = Pick<SelectProps, 'inline'>;
+type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
+
+const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
+  if (!noMargin) {
+    deprecate(
+      'Select',
+      'The default outer spacing in the Select component is deprecated.',
+      'Use the `noMargin` prop to silence this warning.',
+      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+    );
+    return css`
+      label: input__label--margin;
+      margin-bottom: ${theme.spacings.mega};
+    `;
+  }
+  return null;
+};
 
 const labelInlineStyles = ({ inline }: LabelElProps) =>
   inline &&
@@ -149,7 +170,10 @@ const labelInlineStyles = ({ inline }: LabelElProps) =>
     display: inline-block;
   `;
 
-const SelectLabel = styled(Label)<LabelElProps>(labelInlineStyles);
+const SelectLabel = styled(Label)<LabelElProps>(
+  labelMarginStyles,
+  labelInlineStyles,
+);
 
 type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
   hasPrefix: boolean;
@@ -290,6 +314,7 @@ export const Select = forwardRef(
       defaultValue,
       placeholder = 'Select an option',
       disabled,
+      noMargin,
       inline,
       invalid,
       required,
@@ -325,6 +350,7 @@ export const Select = forwardRef(
         htmlFor={id}
         inline={inline}
         disabled={disabled}
+        noMargin={noMargin}
       >
         <LabelText hideLabel={hideLabel}>
           {label}

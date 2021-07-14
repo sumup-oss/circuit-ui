@@ -4,6 +4,7 @@ exports[`InlineMessage should render with danger styles 1`] = `
 .circuit-0 {
   color: #D23F47;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-0:before {
@@ -28,6 +29,7 @@ exports[`InlineMessage should render with giga spacing 1`] = `
 .circuit-0 {
   color: #D23F47;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-0:before {
@@ -48,10 +50,37 @@ exports[`InlineMessage should render with giga spacing 1`] = `
 />
 `;
 
+exports[`InlineMessage should render with no margin styles when passed the noMargin prop 1`] = `
+.circuit-0 {
+  color: #D23F47;
+  position: relative;
+  margin-bottom: 16px;
+  margin-bottom: 0;
+}
+
+.circuit-0:before {
+  display: inline-block;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  height: 100%;
+  background-color: #D23F47;
+  width: 3px;
+}
+
+<p
+  class="circuit-0"
+/>
+`;
+
 exports[`InlineMessage should render with success styles 1`] = `
 .circuit-0 {
   color: #000;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-0:before {
@@ -76,6 +105,7 @@ exports[`InlineMessage should render with warning styles 1`] = `
 .circuit-0 {
   color: #000;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-0:before {

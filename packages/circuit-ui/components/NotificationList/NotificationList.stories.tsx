@@ -19,6 +19,7 @@ import Headline from '../Headline';
 import Body from '../Body';
 import Button from '../Button';
 import Notification from '../Notification';
+import { spacing } from '../../styles/style-mixins';
 
 import { NotificationList, NotificationListProps } from './NotificationList';
 
@@ -30,10 +31,10 @@ export default {
 export const Base = (args: NotificationListProps) => (
   <NotificationList {...args}>
     <Notification variant="success">
-      <Headline as="h4" size="four">
+      <Headline as="h4" size="four" noMargin>
         New Feature — Intelligent Reporting
       </Headline>
-      <Body>
+      <Body noMargin css={spacing({ bottom: 'mega' })}>
         Get automatic insights into your business statistics with one click.
       </Body>
       <Button size="kilo" onClick={action('Action clicked')}>
@@ -45,7 +46,7 @@ export const Base = (args: NotificationListProps) => (
       onClose={action('Notification dismissed')}
       closeLabel="Close"
     >
-      <Headline as="h4" size="four">
+      <Headline as="h4" size="four" noMargin>
         We failed to process your transaction
       </Headline>
     </Notification>
