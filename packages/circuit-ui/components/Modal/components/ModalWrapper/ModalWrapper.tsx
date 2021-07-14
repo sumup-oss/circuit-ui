@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 import styled, { StyleProps } from '../../../../styles/styled';
 import { Card, CardProps } from '../../../Card/Card';
 
-export type ModalWrapperProps = CardProps;
+export type ModalWrapperProps = Omit<CardProps, 'ref'>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   width: 100%;
