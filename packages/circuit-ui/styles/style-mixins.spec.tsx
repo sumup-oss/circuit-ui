@@ -469,6 +469,18 @@ describe('Style helpers', () => {
       `);
     });
 
+    it('should match the snapshot when disabled', () => {
+      const { styles } = inputOutline({
+        theme: light,
+        disabled: true,
+      });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              box-shadow: 0 0 0 1px #999;
+            "
+      `);
+    });
+
     it('should match the snapshot when invalid', () => {
       const { styles } = inputOutline({
         theme: light,
