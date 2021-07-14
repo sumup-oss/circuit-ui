@@ -334,31 +334,18 @@ export const hideScrollbar = (): SerializedStyles => css`
 
 /**
  * Visually communicates to the user that an element is hovered, focused, or
- * active; including for the disabled, invalid and warning states.
+ * active in the disabled, invalid, and warning states.
  */
 export const inputOutline = (
   args:
     | Theme
     | {
-        /**
-         * The Theme object.
-         */
         theme: Theme;
-        /**
-         * Adds disabled styles.
-         */
         disabled?: boolean;
-        /**
-         * Adds invalid styles.
-         */
         invalid?: boolean;
-        /**
-         * Adds warning styles.
-         */
         hasWarning?: boolean;
         /**
          * @deprecated
-         * Has no effect, kept for legacy reasons.
          */
         showValid?: boolean;
       },
