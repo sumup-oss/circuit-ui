@@ -17,6 +17,7 @@ import { css, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
 import { warn } from '../util/logger';
+import { isFunction } from '../util/type-check';
 
 type ThemeArgs = Theme | { theme: Theme };
 
@@ -33,6 +34,7 @@ const getTheme = (args: ThemeArgs): Theme =>
 type StyleFn =
   | ((theme: Theme) => SerializedStyles)
   | ((args: ThemeArgs) => SerializedStyles)
+  | SerializedStyles
   | false
   | null
   | undefined;
@@ -44,7 +46,7 @@ type StyleFn =
 export const cx = (...styleFns: StyleFn[]) => (
   theme: Theme,
 ): (SerializedStyles | false | null | undefined)[] =>
-  styleFns.map((styleFn) => styleFn && styleFn(theme));
+  styleFns.map((styleFn) => (isFunction(styleFn) ? styleFn(theme) : styleFn));
 
 type Spacing = keyof Theme['spacings'];
 
@@ -119,14 +121,27 @@ export const spacing = (
 };
 
 /**
- * Adds a box-shadow to the element.
+ * Adds a drop shadow to an element to visually elevate it above the
+ * surrounding content.
  */
-export const shadow = () => (_args: ThemeArgs): SerializedStyles => css`
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-`;
+export function shadow(options?: never): (args: ThemeArgs) => SerializedStyles;
+export function shadow(args: ThemeArgs): SerializedStyles;
+export function shadow(
+  argsOrOptions?: ThemeArgs | never,
+): SerializedStyles | ((args: ThemeArgs) => SerializedStyles) {
+  if (!argsOrOptions) {
+    return (): SerializedStyles => css`
+      box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+    `;
+  }
+
+  return css`
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+  `;
+}
 
 /**
- * @private
+ * @deprecated Use the `shadow` style mixin instead.
  */
 export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
@@ -137,7 +152,7 @@ export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
 };
 
 /**
- * @private
+ * @deprecated Use the `shadow` style mixin instead.
  */
 export const shadowDouble = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
@@ -148,7 +163,7 @@ export const shadowDouble = (args: ThemeArgs): SerializedStyles => {
 };
 
 /**
- * @private
+ * @deprecated Use the `shadow` style mixin instead.
  */
 export const shadowTriple = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);

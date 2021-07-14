@@ -42,6 +42,9 @@ describe('Style helpers', () => {
   const green = (theme: Theme) => css`
     color: ${theme.colors.g500};
   `;
+  const purple = css`
+    color: rebeccapurple;
+  `;
 
   describe('cx', () => {
     it('should call each style function with the theme', () => {
@@ -51,6 +54,20 @@ describe('Style helpers', () => {
         .circuit-0 {
           color: #D23F47;
           color: #8CC13F;
+        }
+
+        <div
+          class="circuit-0"
+        />
+      `);
+    });
+
+    it('should support style objects', () => {
+      const actual = create(<div css={cx(purple)} />);
+
+      expect(actual).toMatchInlineSnapshot(`
+        .circuit-0 {
+          color: rebeccapurple;
         }
 
         <div
@@ -124,6 +141,13 @@ describe('Style helpers', () => {
 
   describe('shadow', () => {
     it('should match the snapshot', () => {
+      const { styles } = shadow({ theme: light });
+      expect(styles).toMatchInlineSnapshot(
+        `"box-shadow:0 3px 8px 0 rgba(0,0,0,0.2);"`,
+      );
+    });
+
+    it('should match the snapshot with options', () => {
       const { styles } = shadow()({ theme: light });
       expect(styles).toMatchInlineSnapshot(
         `"box-shadow:0 3px 8px 0 rgba(0,0,0,0.2);"`,

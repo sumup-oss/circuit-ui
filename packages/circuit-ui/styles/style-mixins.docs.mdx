@@ -53,12 +53,12 @@ const Conditional = ({ disabled }) => (
 
 ## `spacing`
 
-Applies consistent outer spacing to an element. For the supported values have a look at the "Spacing" section on the [Theme](Features/Theme) page.
+Adds margin to one or more sides of an element. For an overview of the supported values, have a look at the "Spacing" section on the [Theme](Features/Theme) page.
 
 ```ts
 type Spacing = 0 | 'auto' | keyof Theme['spacings'];
 
-spacing(
+function spacing(
   size:
     | Spacing
     | { top?: Spacing; left?: Spacing; bottom?: Spacing; right?: Spacing },
@@ -85,12 +85,22 @@ const HorizontallyCentered = () => (
 
 <Story id="features-style-mixins--spacing" />
 
+## `shadow`
+
+Adds a drop shadow to an element to visually elevate it above the surrounding content.
+
+```ts
+function shadow(theme: Theme | { theme: Theme }): SerializedStyles;
+```
+
+<Story id="features-style-mixins--shadow" />
+
 ## `clearfix`
 
 Forces an element to self-clear its floated children. Taken from [CSS Tricks](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/).
 
 ```ts
-clearfix(): SerializedStyles;
+function clearfix(): SerializedStyles;
 ```
 
 <Story id="features-style-mixins--clearfix" />
@@ -100,8 +110,9 @@ clearfix(): SerializedStyles;
 Visually communicates to the user that an element is focused.
 
 ```ts
-focusVisible(theme: Theme | { theme: Theme }): SerializedStyles;
-focusVisible('inset'): (theme: Theme | { theme: Theme }) => SerializedStyles;
+function focusVisible(theme: Theme | { theme: Theme }): SerializedStyles;
+// or
+function focusVisible('inset'): (theme: Theme | { theme: Theme }) => SerializedStyles;
 ```
 
 <Story id="features-style-mixins--focus-visible" />
@@ -113,7 +124,7 @@ In cases where the focus outline is needed for conditions other than the focus s
 Visually communicates to the user that an element is disabled and prevents user interactions.
 
 ```ts
-disableVisually(): SerializedStyles;
+function disableVisually(): SerializedStyles;
 ```
 
 <Story id="features-style-mixins--disable-visually" />
@@ -123,17 +134,17 @@ disableVisually(): SerializedStyles;
 Visually hides an element while keeping it accessible to users who rely on a screen reader.
 
 ```ts
-hideVisually(): SerializedStyles;
+function hideVisually(): SerializedStyles;
 ```
 
 <Story id="features-style-mixins--hide-visually" />
 
 ## `hideScrollbar`
 
-Hides the browser scrollbar on a scrollable element, e.g. with overflow.
+Hides the browser scrollbar on a scrollable element, e.g. one with overflow.
 
 ```ts
-hideScrollbar(): SerializedStyles;
+function hideScrollbar(): SerializedStyles;
 ```
 
 <Story id="features-style-mixins--hide-scrollbar" />

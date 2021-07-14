@@ -118,7 +118,8 @@ exports[`Popover styles should render popover on auto 1`] = `
 .circuit-3 {
   display: block;
   width: 100%;
-  border: 1px solid #CCC;
+  border: 0;
+  border-top: 1px solid #CCC;
   margin-top: 16px;
   margin-bottom: 16px;
   margin: 8px 16px;
@@ -374,7 +375,8 @@ exports[`Popover styles should render popover on bottom 1`] = `
 .circuit-3 {
   display: block;
   width: 100%;
-  border: 1px solid #CCC;
+  border: 0;
+  border-top: 1px solid #CCC;
   margin-top: 16px;
   margin-bottom: 16px;
   margin: 8px 16px;
@@ -630,7 +632,8 @@ exports[`Popover styles should render popover on left 1`] = `
 .circuit-3 {
   display: block;
   width: 100%;
-  border: 1px solid #CCC;
+  border: 0;
+  border-top: 1px solid #CCC;
   margin-top: 16px;
   margin-bottom: 16px;
   margin: 8px 16px;
@@ -886,7 +889,8 @@ exports[`Popover styles should render popover on right 1`] = `
 .circuit-3 {
   display: block;
   width: 100%;
-  border: 1px solid #CCC;
+  border: 0;
+  border-top: 1px solid #CCC;
   margin-top: 16px;
   margin-bottom: 16px;
   margin: 8px 16px;
@@ -1142,7 +1146,8 @@ exports[`Popover styles should render popover on top 1`] = `
 .circuit-3 {
   display: block;
   width: 100%;
-  border: 1px solid #CCC;
+  border: 0;
+  border-top: 1px solid #CCC;
   margin-top: 16px;
   margin-bottom: 16px;
   margin: 8px 16px;
@@ -1398,7 +1403,8 @@ exports[`Popover styles should render with default styles 1`] = `
 .circuit-3 {
   display: block;
   width: 100%;
-  border: 1px solid #CCC;
+  border: 0;
+  border-top: 1px solid #CCC;
   margin-top: 16px;
   margin-bottom: 16px;
   margin: 8px 16px;
