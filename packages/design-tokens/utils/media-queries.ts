@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import { Breakpoint, Breakpoints, MediaQueries } from '../types';
+import { Breakpoints, MediaQueries } from '../types';
 
 export function createMediaQueries(breakpoints: Breakpoints): MediaQueries {
   return Object.keys(breakpoints).reduce((allMediaQueries, breakpoint) => {
-    const typedBreakpoint = breakpoint as Breakpoint;
+    const typedBreakpoint = breakpoint as keyof Breakpoints;
     const value = breakpoints[typedBreakpoint];
 
     // eslint-disable-next-line no-param-reassign

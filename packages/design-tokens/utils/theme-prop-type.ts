@@ -182,8 +182,10 @@ export const themePropType = PropTypes.shape({
     untilMega: PropTypes.string.isRequired,
     megaToGiga: PropTypes.string.isRequired,
     giga: PropTypes.string.isRequired,
+    untilGiga: PropTypes.string.isRequired,
     gigaToTera: PropTypes.string.isRequired,
     tera: PropTypes.string.isRequired,
+    untilTera: PropTypes.string.isRequired,
   } as { [key in keyof Breakpoints]: any }).isRequired,
   mq: PropTypes.shape({
     untilKilo: PropTypes.string.isRequired,
