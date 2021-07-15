@@ -1,5 +1,16 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.3
+
+### Minor Changes
+
+- [#1023](https://github.com/sumup-oss/circuit-ui/pull/1023) [`07614c5f`](https://github.com/sumup-oss/circuit-ui/commit/07614c5f618a6904df66fb149fb44856756e0d80) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `useClickOutside`, `useEscapeKey`, and `useFocusList` hooks which can be used to make custom components more keyboard accessible.
+
+### Patch Changes
+
+- Updated dependencies [[`9a35c9a7`](https://github.com/sumup-oss/circuit-ui/commit/9a35c9a7d9c281a5a5a035ca04c52e5712f89821), [`9a35c9a7`](https://github.com/sumup-oss/circuit-ui/commit/9a35c9a7d9c281a5a5a035ca04c52e5712f89821)]:
+  - @sumup/design-tokens@3.0.0-next.1
+
 ## 3.0.0-next.2
 
 ### Major Changes
