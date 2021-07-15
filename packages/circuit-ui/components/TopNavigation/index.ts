@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,24 +13,6 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
+export { TopNavigation } from './TopNavigation';
 
-import { Hamburger, HamburgerProps } from './Hamburger';
-
-export default {
-  title: 'Components/Hamburger',
-  component: Hamburger,
-};
-
-export const Base = (args: HamburgerProps) => {
-  const [active, setActive] = useState(false);
-  const handleClick = () => {
-    setActive((prev) => !prev);
-  };
-  return <Hamburger isActive={active} onClick={handleClick} {...args} />;
-};
-
-Base.args = {
-  activeLabel: 'Close menu',
-  inactiveLabel: 'Open menu',
-};
+export type { TopNavigationProps } from './TopNavigation';

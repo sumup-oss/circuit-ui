@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Link from './Link';
+export { UtilityLinks } from './UtilityLinks';
 
-export { Link };
+export type { UtilityLinksProps } from './UtilityLinks';

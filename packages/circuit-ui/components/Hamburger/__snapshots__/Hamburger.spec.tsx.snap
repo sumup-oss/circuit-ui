@@ -79,9 +79,6 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   justify-content: center;
   width: 24px;
   height: 24px;
-  -webkit-transform: translateY(-1px);
-  -ms-transform: translateY(-1px);
-  transform: translateY(-1px);
 }
 
 .circuit-2 {
@@ -125,16 +122,16 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 }
 
 .circuit-0::before {
-  -webkit-transform: translateY(-5px);
-  -ms-transform: translateY(-5px);
-  transform: translateY(-5px);
+  -webkit-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  transform: translateY(-4px);
   width: 14px;
 }
 
 .circuit-0::after {
-  -webkit-transform: translateY(5px);
-  -ms-transform: translateY(5px);
-  transform: translateY(5px);
+  -webkit-transform: translateY(4px);
+  -ms-transform: translateY(4px);
+  transform: translateY(4px);
   width: 14px;
 }
 
@@ -260,9 +257,6 @@ exports[`Hamburger should render with default styles 1`] = `
   justify-content: center;
   width: 24px;
   height: 24px;
-  -webkit-transform: translateY(-1px);
-  -ms-transform: translateY(-1px);
-  transform: translateY(-1px);
 }
 
 .circuit-0 {
@@ -290,16 +284,16 @@ exports[`Hamburger should render with default styles 1`] = `
 }
 
 .circuit-0::before {
-  -webkit-transform: translateY(-5px);
-  -ms-transform: translateY(-5px);
-  transform: translateY(-5px);
+  -webkit-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  transform: translateY(-4px);
   width: 14px;
 }
 
 .circuit-0::after {
-  -webkit-transform: translateY(5px);
-  -ms-transform: translateY(5px);
-  transform: translateY(5px);
+  -webkit-transform: translateY(4px);
+  -ms-transform: translateY(4px);
+  transform: translateY(4px);
   width: 14px;
 }
 

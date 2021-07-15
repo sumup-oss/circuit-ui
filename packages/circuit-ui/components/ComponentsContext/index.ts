@@ -13,22 +13,7 @@
  * limitations under the License.
  */
 
-import Hamburger from '../Hamburger';
+export { ComponentsContext } from './ComponentsContext';
+export { useComponents } from './useComponents';
 
-import Header from '.';
-
-export default {
-  title: 'Navigation/Header',
-  component: Header,
-};
-
-export const Base = (args) => (
-  <Header {...args}>
-    <Hamburger activeLabel="Close menu" inactiveLabel="Open menu" size="kilo" />
-  </Header>
-);
-
-Base.args = {
-  title: 'Title',
-  mobileOnly: false,
-};
+export type { ComponentsContextType } from './ComponentsContext';

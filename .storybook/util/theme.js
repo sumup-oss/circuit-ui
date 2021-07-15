@@ -9,6 +9,7 @@ import {
   SubHeadline,
   Body,
   List,
+  spacing,
 } from '@sumup/circuit-ui';
 
 import { Link } from '../components';
@@ -36,14 +37,12 @@ const withThemeProvider = (Component, baseProps = {}) => (props = {}) => (
 const TEXT_SIZE = 'one';
 
 const headlineStyles = (theme) => css`
+  margin-bottom: ${theme.spacings.mega};
+
   *:not(h1):not(h2):not(h3) + & {
     margin-top: ${theme.spacings.peta};
-    margin-bottom: ${theme.spacings.giga};
+    margin-bottom: ${theme.spacings.mega};
   }
-`;
-
-const subHeadlineStyles = (theme) => css`
-  margin-top: ${theme.spacings.giga};
 `;
 
 const italicStyles = css`
@@ -69,13 +68,17 @@ export const components = {
   h4: withThemeProvider(Headline, {
     as: 'h4',
     size: 'four',
-    css: subHeadlineStyles,
+    css: spacing({ top: 'giga' }),
   }),
-  subheadline: withThemeProvider(SubHeadline, {
-    as: 'subheadline',
-    css: subHeadlineStyles,
+  h5: withThemeProvider(SubHeadline, {
+    as: 'h5',
+    css: spacing({ top: 'giga' }),
   }),
-  p: withThemeProvider(Body, { as: 'p', size: TEXT_SIZE }),
+  p: withThemeProvider(Body, {
+    as: 'p',
+    size: TEXT_SIZE,
+    css: spacing({ bottom: 'kilo' }),
+  }),
   li: withThemeProvider(Body, { as: 'li', size: TEXT_SIZE }),
   strong: withThemeProvider(Body, {
     as: 'strong',
