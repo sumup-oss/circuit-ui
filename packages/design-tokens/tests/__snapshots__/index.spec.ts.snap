@@ -22,8 +22,10 @@ Object {
     "mega": "(min-width: 768px)",
     "megaToGiga": "(min-width: 768px) and (max-width: 959px)",
     "tera": "(min-width: 1280px)",
+    "untilGiga": "(max-width: 959px)",
     "untilKilo": "(max-width: 479px)",
     "untilMega": "(max-width: 767px)",
+    "untilTera": "(max-width: 1279px)",
   },
   "colors": Object {
     "b100": "#F0F6FF",
@@ -153,8 +155,10 @@ Object {
     "mega": "@media (min-width: 768px)",
     "megaToGiga": "@media (min-width: 768px) and (max-width: 959px)",
     "tera": "@media (min-width: 1280px)",
+    "untilGiga": "@media (max-width: 959px)",
     "untilKilo": "@media (max-width: 479px)",
     "untilMega": "@media (max-width: 767px)",
+    "untilTera": "@media (max-width: 1279px)",
   },
   "spacings": Object {
     "bit": "4px",
