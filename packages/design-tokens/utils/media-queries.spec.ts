@@ -19,16 +19,7 @@ import { createMediaQueries } from './media-queries';
 
 describe('Utils', () => {
   describe('createMediaQueries', () => {
-    it('should turn numeric breakpoints into min-width media queries', () => {
-      const breakpoints = { mega: 1000 } as Breakpoints;
-      const actual = createMediaQueries(breakpoints);
-      const expected = expect.objectContaining({
-        mega: '@media (min-width: 1000px)',
-      });
-      expect(actual).toEqual(expected);
-    });
-
-    it('should turn string expressions into media queries', () => {
+    it('should prefix the media queries with @media', () => {
       const breakpoints = { untilMega: '(max-width: 1000px)' } as Breakpoints;
       const actual = createMediaQueries(breakpoints);
       const expected = expect.objectContaining({

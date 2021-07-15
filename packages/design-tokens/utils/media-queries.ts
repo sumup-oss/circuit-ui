@@ -13,19 +13,15 @@
  * limitations under the License.
  */
 
-import { Breakpoint, Breakpoints, MediaQueries } from '../types';
+import { Breakpoints, MediaQueries } from '../types';
 
 export function createMediaQueries(breakpoints: Breakpoints): MediaQueries {
   return Object.keys(breakpoints).reduce((allMediaQueries, breakpoint) => {
-    const typedBreakpoint = breakpoint as Breakpoint;
+    const typedBreakpoint = breakpoint as keyof Breakpoints;
     const value = breakpoints[typedBreakpoint];
-    const { prefix = '', suffix = '' } =
-      typeof value === 'string'
-        ? {}
-        : { prefix: '(min-width: ', suffix: 'px)' };
 
     // eslint-disable-next-line no-param-reassign
-    allMediaQueries[typedBreakpoint] = `@media ${prefix}${value}${suffix}`;
+    allMediaQueries[typedBreakpoint] = `@media ${value}`;
 
     return allMediaQueries;
   }, {} as MediaQueries);

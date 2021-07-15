@@ -133,29 +133,29 @@ export type FontWeight = {
   bold: string;
 };
 
-export enum Breakpoint {
-  untilKilo = 'untilKilo',
-  kilo = 'kilo',
-  kiloToMega = 'kiloToMega',
-  mega = 'mega',
-  untilMega = 'untilMega',
-  megaToGiga = 'megaToGiga',
-  giga = 'giga',
-  gigaToTera = 'gigaToTera',
-  tera = 'tera',
-}
+type Breakpoint =
+  | 'untilKilo'
+  | 'kilo'
+  | 'kiloToMega'
+  | 'mega'
+  | 'untilMega'
+  | 'megaToGiga'
+  | 'giga'
+  | 'untilGiga'
+  | 'gigaToTera'
+  | 'tera'
+  | 'untilTera';
 
-export enum GridBreakpoint {
-  default = 'default',
-  untilKilo = 'untilKilo',
-  kilo = 'kilo',
-  mega = 'mega',
-  giga = 'giga',
-  tera = 'tera',
-}
+type GridBreakpoint =
+  | 'default'
+  | 'untilKilo'
+  | 'kilo'
+  | 'mega'
+  | 'giga'
+  | 'tera';
 
 export type Breakpoints = {
-  [key in Breakpoint]: string | number;
+  [key in Breakpoint]: string;
 };
 
 export type MediaQueries = {
