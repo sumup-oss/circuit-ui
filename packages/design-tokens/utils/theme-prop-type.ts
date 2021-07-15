@@ -37,11 +37,6 @@ const typePropType = PropTypes.shape({
   lineHeight: PropTypes.string,
 } as { [key in keyof Typography]: any }).isRequired;
 
-const breakpointPropType = PropTypes.oneOfType([
-  PropTypes.string,
-  PropTypes.number,
-]).isRequired;
-
 const gridPropType = PropTypes.shape({
   priority: PropTypes.number.isRequired,
   breakpoint: PropTypes.oneOf([
@@ -180,15 +175,15 @@ export const themePropType = PropTypes.shape({
     bold: PropTypes.string.isRequired,
   } as { [key in keyof FontWeight]: any }).isRequired,
   breakpoints: PropTypes.shape({
-    untilKilo: breakpointPropType,
-    kilo: breakpointPropType,
-    kiloToMega: breakpointPropType,
-    mega: breakpointPropType,
-    untilMega: breakpointPropType,
-    megaToGiga: breakpointPropType,
-    giga: breakpointPropType,
-    gigaToTera: breakpointPropType,
-    tera: breakpointPropType,
+    untilKilo: PropTypes.string.isRequired,
+    kilo: PropTypes.string.isRequired,
+    kiloToMega: PropTypes.string.isRequired,
+    mega: PropTypes.string.isRequired,
+    untilMega: PropTypes.string.isRequired,
+    megaToGiga: PropTypes.string.isRequired,
+    giga: PropTypes.string.isRequired,
+    gigaToTera: PropTypes.string.isRequired,
+    tera: PropTypes.string.isRequired,
   } as { [key in keyof Breakpoints]: any }).isRequired,
   mq: PropTypes.shape({
     untilKilo: PropTypes.string.isRequired,

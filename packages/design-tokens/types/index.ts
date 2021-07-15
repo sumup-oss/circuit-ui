@@ -155,7 +155,7 @@ export enum GridBreakpoint {
 }
 
 export type Breakpoints = {
-  [key in Breakpoint]: string | number;
+  [key in Breakpoint]: string;
 };
 
 export type MediaQueries = {

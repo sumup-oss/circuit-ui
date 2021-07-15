@@ -154,14 +154,14 @@ export const grid: Grid = {
 
 export const breakpoints: Breakpoints = {
   untilKilo: '(max-width: 479px)',
-  kilo: 480,
+  kilo: '(min-width: 480px)',
   kiloToMega: '(min-width: 480px) and (max-width: 767px)',
-  mega: 768,
+  mega: '(min-width: 768px)',
   untilMega: '(max-width: 767px)',
   megaToGiga: '(min-width: 768px) and (max-width: 959px)',
-  giga: 960,
+  giga: '(min-width: 960px)',
   gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
-  tera: 1280,
+  tera: '(min-width: 1280px)',
 };
 
 export const mq: MediaQueries = createMediaQueries(breakpoints);
