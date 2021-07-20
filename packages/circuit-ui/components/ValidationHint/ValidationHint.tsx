@@ -38,8 +38,7 @@ export interface ValidationHintProps extends HTMLProps<HTMLSpanElement> {
 const baseStyles = ({ theme }: StyleProps) => css`
   label: validation-hint;
   ${textKilo({ theme })};
-  display: flex;
-  align-items: flex-start;
+  display: block;
   margin-top: ${theme.spacings.bit};
   color: ${theme.colors.n700};
   transition: color ${theme.transitions.default};
@@ -69,10 +68,10 @@ const iconStyles = (color: 'danger' | 'warning' | 'success') => (
   theme: Theme,
 ) => css`
   label: ${`validation-hint__icon--${color}`};
-  flex-shrink: 0;
+  display: inline-block;
   width: ${theme.iconSizes.kilo};
   height: ${theme.iconSizes.kilo};
-  margin-top: 0.15em;
+  vertical-align: text-top;
   margin-right: ${theme.spacings.bit};
   color: ${theme.colors[color]};
 `;
@@ -112,7 +111,7 @@ const getIcon = (state: ValidationHintProps) => {
 export const ValidationHint = ({
   validationHint,
   ...props
-}: ValidationHintProps) => {
+}: ValidationHintProps): JSX.Element | null => {
   if (!validationHint) {
     return null;
   }
