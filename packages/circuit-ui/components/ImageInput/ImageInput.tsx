@@ -26,6 +26,7 @@ import {
 } from 'react';
 import { css, jsx } from '@emotion/core';
 import { Bin } from '@sumup/icons';
+import { Theme } from '@sumup/design-tokens';
 
 import Label from '../Label';
 import IconButton from '../IconButton';
@@ -79,6 +80,10 @@ export interface ImageInputProps
    * An information or error message, displayed below the input.
    */
   validationHint?: string;
+  /**
+   * The border-radius of the image component. Default `peta`.
+   */
+  borderRadius?: keyof Theme['borderRadius'];
 }
 
 const InputWrapper = styled.div`
@@ -96,10 +101,14 @@ const HiddenInput = styled.input(
   `,
 );
 
-type StyledLabelProps = StyleProps & { isLoading: boolean; invalid: boolean };
+type StyledLabelProps = StyleProps & {
+  isLoading: boolean;
+  invalid: boolean;
+  borderRadius: keyof Theme['borderRadius'];
+};
 
-const baseLabelStyles = css`
-  border-radius: 12px;
+const baseLabelStyles = ({ theme, borderRadius }: StyledLabelProps) => css`
+  border-radius: ${theme.borderRadius[borderRadius]};
   overflow: hidden;
   &:hover {
     cursor: pointer;
@@ -121,7 +130,11 @@ const addButtonStyles = ({ theme }: StyledLabelProps) => css`
   }
 `;
 
-const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
+const invalidLabelStyles = ({
+  theme,
+  invalid,
+  borderRadius,
+}: StyledLabelProps) =>
   invalid &&
   css`
     &::after {
@@ -131,7 +144,7 @@ const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
       left: 0%;
       width: 100%;
       height: 100%;
-      border-radius: 12px;
+      border-radius: ${theme.borderRadius[borderRadius]};
       box-shadow: inset 0 0 0 2px ${theme.colors.danger};
     }
     &:hover::after {
@@ -139,16 +152,20 @@ const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
     }
   `;
 
-const overlayLabelStyles = ({ theme, isLoading }: StyledLabelProps) => css`
+const overlayLabelStyles = ({
+  theme,
+  isLoading,
+  borderRadius,
+}: StyledLabelProps) => css`
   &::before {
-    // @FIXME replace with a brightness filter when we drop IE support
+    /* FIXME: replace with a brightness filter when we drop IE support */
     content: '';
     position: absolute;
     top: 0;
     left: 0%;
     width: 100%;
     height: 100%;
-    border-radius: 12px;
+    border-radius: ${theme.borderRadius[borderRadius]};
     background-color: ${theme.colors.black};
     opacity: 0;
     pointer-events: none;
@@ -236,6 +253,7 @@ export const ImageInput = ({
   invalid = false,
   loadingLabel,
   component: Component,
+  borderRadius = 'peta',
   ...props
 }: ImageInputProps): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -292,7 +310,12 @@ export const ImageInput = ({
           aria-invalid={invalid}
           {...props}
         />
-        <StyledLabel isLoading={isLoading} invalid={invalid} htmlFor={id}>
+        <StyledLabel
+          isLoading={isLoading}
+          invalid={invalid}
+          htmlFor={id}
+          borderRadius={borderRadius}
+        >
           <span css={hideVisually()}>{label}</span>
           <Component src={src || previewImage} alt={alt || ''} />
         </StyledLabel>
