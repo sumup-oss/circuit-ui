@@ -17,13 +17,7 @@ import { FunctionComponent, ReactElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
 import { configureAxe } from 'jest-axe';
-import {
-  render as renderTest,
-  waitFor,
-  act,
-  RenderResult,
-  fireEvent,
-} from '@testing-library/react';
+import { render as renderTest, RenderResult } from '@testing-library/react';
 import { renderHook, act as actHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from 'emotion-theming';
@@ -33,6 +27,8 @@ import {
   ComponentsContext,
   defaultComponents,
 } from '../components/ComponentsContext';
+
+export * from '@testing-library/react';
 
 export type RenderFn<T = any> = (component: ReactElement, ...rest: any) => T;
 
@@ -60,15 +56,4 @@ const axe = configureAxe({
   },
 });
 
-export {
-  create,
-  render,
-  renderToHtml,
-  renderHook,
-  act,
-  actHook,
-  userEvent,
-  fireEvent,
-  waitFor,
-  axe,
-};
+export { create, render, renderToHtml, renderHook, actHook, userEvent, axe };
