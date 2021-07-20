@@ -63,6 +63,10 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   border: 0;
 }
 
+.circuit-3:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 @media (min-width:768px) {
   .circuit-3 {
     display: none;
@@ -155,6 +159,11 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 .circuit-4 a:focus::-moz-focus-inner,
 .circuit-4 button:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-4 a:focus:not(:focus-visible),
+.circuit-4 button:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-4 svg {
@@ -274,8 +283,10 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 .circuit-7 {
   font-weight: 400;
+  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
+  margin-bottom: 0;
 }
 
 @media (max-width:767px) {
@@ -388,8 +399,10 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 .circuit-11 {
   font-weight: 400;
+  margin-bottom: 16px;
   font-size: 14px;
   line-height: 20px;
+  margin-bottom: 0;
   font-weight: 700;
   display: block;
   max-width: 132px;
@@ -400,8 +413,10 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 .circuit-12 {
   font-weight: 400;
+  margin-bottom: 16px;
   font-size: 14px;
   line-height: 20px;
+  margin-bottom: 0;
 }
 
 .circuit-14 {
@@ -517,7 +532,8 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 .circuit-19 {
   display: block;
   width: 100%;
-  border: 1px solid #CCC;
+  border: 0;
+  border-top: 1px solid #CCC;
   margin-top: 16px;
   margin-bottom: 16px;
   margin: 8px 16px;

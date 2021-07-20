@@ -124,10 +124,12 @@ function Profile({
     >
       <ProfileAvatar {...userAvatar} variant="identity" />
       <ProfileName>
-        <UserName size="two" variant="highlight">
+        <UserName size="two" variant="highlight" noMargin>
           {userName}
         </UserName>
-        <Body size="two">{userId}</Body>
+        <Body size="two" noMargin>
+          {userId}
+        </Body>
       </ProfileName>
       <Chevron />
     </ProfileWrapper>

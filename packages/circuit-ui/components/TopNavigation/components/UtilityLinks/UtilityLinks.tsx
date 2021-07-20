@@ -96,6 +96,7 @@ function UtilityLink({
       <UtilityLabel
         size="one"
         variant={props.isActive ? 'highlight' : undefined}
+        noMargin
       >
         {label}
       </UtilityLabel>

@@ -30,6 +30,10 @@ exports[`Hamburger styles should render with closed styles 1`] = `
   border: 0;
 }
 
+.circuit-3:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 @media (min-width:768px) {
   .circuit-3 {
     display: none;
@@ -181,6 +185,10 @@ exports[`Hamburger styles should render with open styles 1`] = `
 
 .circuit-3:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-3:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 @media (min-width:768px) {

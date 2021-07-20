@@ -92,8 +92,10 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
 
 .circuit-1 {
   font-weight: 400;
+  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
+  margin-bottom: 0;
 }
 
 @media (max-width:767px) {

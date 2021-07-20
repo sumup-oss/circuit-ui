@@ -18,7 +18,7 @@ import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
-import { focusOutline, hideVisually } from '../../../../styles/style-mixins';
+import { focusVisible, hideVisually } from '../../../../styles/style-mixins';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 
 const HAMBURGER_WIDTH = '14px';
@@ -43,9 +43,7 @@ const buttonBaseStyles = ({ theme }: StyleProps) => css`
     background-color: ${theme.colors.n100};
   }
 
-  &:focus {
-    ${focusOutline('inset')(theme)};
-  }
+  ${focusVisible('inset')(theme)};
 
   ${theme.mq.mega} {
     display: none;

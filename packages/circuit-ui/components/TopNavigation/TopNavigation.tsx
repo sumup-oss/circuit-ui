@@ -17,7 +17,7 @@ import { ReactNode } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { focusOutline } from '../../styles/style-mixins';
+import { focusVisible } from '../../styles/style-mixins';
 
 import { ProfileMenu, ProfileMenuProps } from './components/ProfileMenu';
 import { UtilityLinks, UtilityLinksProps } from './components/UtilityLinks';
@@ -50,9 +50,7 @@ const logoStyles = ({ theme }: StyleProps) => css`
     line-height: 0;
     border-radius: ${theme.borderRadius.bit};
 
-    &:focus {
-      ${focusOutline(theme)};
-    }
+    ${focusVisible(theme)};
   }
 
   svg {
