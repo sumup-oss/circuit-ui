@@ -222,7 +222,7 @@ describe('Popover', () => {
 
       const popoverItems = getAllByRole('menuitem');
 
-      expect(document.activeElement).toEqual(popoverItems[0]);
+      expect(popoverItems[0]).toHaveFocus();
     });
 
     it('should move focus to the trigger element after closing', () => {
@@ -234,7 +234,7 @@ describe('Popover', () => {
 
       const popoverTrigger = getByRole('button');
 
-      expect(document.activeElement).toEqual(popoverTrigger);
+      expect(popoverTrigger).toHaveFocus();
     });
   });
 
