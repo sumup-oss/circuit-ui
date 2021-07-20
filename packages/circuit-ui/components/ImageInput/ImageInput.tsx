@@ -20,6 +20,8 @@ import {
   useRef,
   InputHTMLAttributes,
   ChangeEvent,
+  MouseEvent,
+  KeyboardEvent,
   Fragment,
 } from 'react';
 import { css, jsx } from '@emotion/core';
@@ -51,7 +53,7 @@ export interface ImageInputProps
   /**
    * A callback function to call when the input is cleared.
    */
-  onClear: () => void;
+  onClear: (event: MouseEvent | KeyboardEvent) => void;
   /**
    * An accessible label for the "clear" icon button.
    */
@@ -262,10 +264,10 @@ export const ImageInput = ({
     }
   };
 
-  const handleClear = () => {
+  const handleClear = (event: MouseEvent | KeyboardEvent) => {
     clearInputElement();
     setPreviewImage('');
-    onClear();
+    onClear(event);
   };
 
   /**
