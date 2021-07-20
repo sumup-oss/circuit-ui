@@ -131,7 +131,6 @@ export const CustomComponentImg = (): JSX.Element => (
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     loadingLabel="Uploading"
-    borderRadius="pill"
     component={({ src }) => (
       <img
         style={{
@@ -141,7 +140,6 @@ export const CustomComponentImg = (): JSX.Element => (
           backgroundColor: 'lightgrey',
           objectFit: 'cover',
           objectPosition: 'cover',
-          borderRadius: '9999999px',
         }}
         src={
           src || // we add a transparent svg placeholder to avoid a broken image icon

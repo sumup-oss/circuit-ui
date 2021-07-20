@@ -34,12 +34,12 @@ exports[`ImageInput styles should render a custom component 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label {
+.circuit-0:focus + label > *:last-child {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::-moz-focus-inner {
+.circuit-0:focus + label > *:last-child::-moz-focus-inner {
   border: 0;
 }
 
@@ -47,22 +47,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.circuit-2:hover {
   cursor: pointer;
-}
-
-.circuit-2:hover > button {
-  background-color: #234BC3;
-  border-color: #234BC3;
-}
-
-.circuit-2:active > button {
-  background-color: #1A368E;
-  border-color: #1A368E;
 }
 
 .circuit-2::before {
@@ -73,9 +58,27 @@ exports[`ImageInput styles should render a custom component 1`] = `
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  pointer-events: none;
   background-color: #000;
   opacity: 0;
-  pointer-events: none;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
+}
+
+.circuit-2 > *:last-child {
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+}
+
+@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
+  .circuit-2 {
+    -webkit-transition: filter 120ms ease-in-out;
+    transition: filter 120ms ease-in-out;
+  }
+
+  .circuit-2::before {
+    content: none;
+  }
 }
 
 .circuit-2:hover::before {
@@ -84,6 +87,28 @@ exports[`ImageInput styles should render a custom component 1`] = `
 
 .circuit-2:active::before {
   opacity: 0.2;
+}
+
+@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
+  .circuit-2:hover {
+    -webkit-filter: brightness(0.9);
+    filter: brightness(0.9);
+  }
+
+  .circuit-2:active {
+    -webkit-filter: brightness(0.8);
+    filter: brightness(0.8);
+  }
+}
+
+.circuit-2:hover > button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-2:active > button {
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 .circuit-1 {
@@ -300,12 +325,12 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label {
+.circuit-0:focus + label > *:last-child {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::-moz-focus-inner {
+.circuit-0:focus + label > *:last-child::-moz-focus-inner {
   border: 0;
 }
 
@@ -313,22 +338,7 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.circuit-3:hover {
   cursor: pointer;
-}
-
-.circuit-3:hover > button {
-  background-color: #234BC3;
-  border-color: #234BC3;
-}
-
-.circuit-3:active > button {
-  background-color: #1A368E;
-  border-color: #1A368E;
 }
 
 .circuit-3::before {
@@ -339,9 +349,27 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  pointer-events: none;
   background-color: #000;
   opacity: 0;
-  pointer-events: none;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
+}
+
+.circuit-3 > *:last-child {
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+}
+
+@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
+  .circuit-3 {
+    -webkit-transition: filter 120ms ease-in-out;
+    transition: filter 120ms ease-in-out;
+  }
+
+  .circuit-3::before {
+    content: none;
+  }
 }
 
 .circuit-3:hover::before {
@@ -350,6 +378,28 @@ exports[`ImageInput styles should render with an existing image 1`] = `
 
 .circuit-3:active::before {
   opacity: 0.2;
+}
+
+@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
+  .circuit-3:hover {
+    -webkit-filter: brightness(0.9);
+    filter: brightness(0.9);
+  }
+
+  .circuit-3:active {
+    -webkit-filter: brightness(0.8);
+    filter: brightness(0.8);
+  }
+}
+
+.circuit-3:hover > button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-3:active > button {
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 .circuit-1 {
@@ -577,12 +627,12 @@ exports[`ImageInput styles should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label {
+.circuit-0:focus + label > *:last-child {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::-moz-focus-inner {
+.circuit-0:focus + label > *:last-child::-moz-focus-inner {
   border: 0;
 }
 
@@ -590,22 +640,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.circuit-3:hover {
   cursor: pointer;
-}
-
-.circuit-3:hover > button {
-  background-color: #234BC3;
-  border-color: #234BC3;
-}
-
-.circuit-3:active > button {
-  background-color: #1A368E;
-  border-color: #1A368E;
 }
 
 .circuit-3::before {
@@ -616,9 +651,27 @@ exports[`ImageInput styles should render with default styles 1`] = `
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  pointer-events: none;
   background-color: #000;
   opacity: 0;
-  pointer-events: none;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
+}
+
+.circuit-3 > *:last-child {
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+}
+
+@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
+  .circuit-3 {
+    -webkit-transition: filter 120ms ease-in-out;
+    transition: filter 120ms ease-in-out;
+  }
+
+  .circuit-3::before {
+    content: none;
+  }
 }
 
 .circuit-3:hover::before {
@@ -627,6 +680,28 @@ exports[`ImageInput styles should render with default styles 1`] = `
 
 .circuit-3:active::before {
   opacity: 0.2;
+}
+
+@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
+  .circuit-3:hover {
+    -webkit-filter: brightness(0.9);
+    filter: brightness(0.9);
+  }
+
+  .circuit-3:active {
+    -webkit-filter: brightness(0.8);
+    filter: brightness(0.8);
+  }
+}
+
+.circuit-3:hover > button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-3:active > button {
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 .circuit-1 {
@@ -851,12 +926,12 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label {
+.circuit-0:focus + label > *:last-child {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::-moz-focus-inner {
+.circuit-0:focus + label > *:last-child::-moz-focus-inner {
   border: 0;
 }
 
@@ -991,12 +1066,66 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-  border-radius: 12px;
-  overflow: hidden;
+  cursor: pointer;
 }
 
-.circuit-3:hover {
-  cursor: pointer;
+.circuit-3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  pointer-events: none;
+  background-color: #000;
+  opacity: 0;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
+}
+
+.circuit-3 > *:last-child {
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+}
+
+@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
+  .circuit-3 {
+    -webkit-transition: filter 120ms ease-in-out;
+    transition: filter 120ms ease-in-out;
+  }
+
+  .circuit-3::before {
+    content: none;
+  }
+}
+
+.circuit-3 > *:last-child {
+  box-shadow: 0 0 0 2px #D23F47;
+}
+
+.circuit-3:hover > *:last-child {
+  box-shadow: 0 0 0 2px #B22426;
+}
+
+.circuit-3:hover::before {
+  opacity: 0.1;
+}
+
+.circuit-3:active::before {
+  opacity: 0.2;
+}
+
+@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
+  .circuit-3:hover {
+    -webkit-filter: brightness(0.9);
+    filter: brightness(0.9);
+  }
+
+  .circuit-3:active {
+    -webkit-filter: brightness(0.8);
+    filter: brightness(0.8);
+  }
 }
 
 .circuit-3:hover > button {
@@ -1009,53 +1138,10 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   border-color: #1A368E;
 }
 
-.circuit-3::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  box-shadow: inset 0 0 0 2px #D23F47;
-}
-
-.circuit-3:hover::after {
-  box-shadow: inset 0 0 0 2px #B22426;
-}
-
-.circuit-3::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  background-color: #000;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.circuit-3:hover::before {
-  opacity: 0.1;
-}
-
-.circuit-3:active::before {
-  opacity: 0.2;
-}
-
 .circuit-10 {
   font-size: 13px;
   line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  display: block;
   margin-top: 4px;
   color: #666;
   -webkit-transition: color 120ms ease-in-out;
@@ -1064,12 +1150,10 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 }
 
 .circuit-9 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
+  display: inline-block;
   width: 16px;
   height: 16px;
-  margin-top: 0.15em;
+  vertical-align: text-top;
   margin-right: 4px;
   color: #D23F47;
 }

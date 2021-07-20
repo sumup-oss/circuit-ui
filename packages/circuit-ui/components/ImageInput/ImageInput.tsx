@@ -26,7 +26,6 @@ import {
 } from 'react';
 import { css, jsx } from '@emotion/core';
 import { Bin } from '@sumup/icons';
-import { Theme } from '@sumup/design-tokens';
 
 import Label from '../Label';
 import IconButton from '../IconButton';
@@ -80,10 +79,6 @@ export interface ImageInputProps
    * An information or error message, displayed below the input.
    */
   validationHint?: string;
-  /**
-   * The border-radius of the image component. Default `peta`.
-   */
-  borderRadius?: keyof Theme['borderRadius'];
 }
 
 const InputWrapper = styled.div`
@@ -95,25 +90,86 @@ const InputWrapper = styled.div`
 const HiddenInput = styled.input(
   ({ theme }) => css`
     ${hideVisually()};
-    &:focus + label {
+    &:focus + label > *:last-child {
       ${focusOutline({ theme })};
     }
   `,
 );
 
-type StyledLabelProps = StyleProps & {
-  isLoading: boolean;
-  invalid: boolean;
-  borderRadius: keyof Theme['borderRadius'];
-};
+type StyledLabelProps = StyleProps & { isLoading: boolean; invalid: boolean };
 
-const baseLabelStyles = ({ theme, borderRadius }: StyledLabelProps) => css`
-  border-radius: ${theme.borderRadius[borderRadius]};
-  overflow: hidden;
-  &:hover {
-    cursor: pointer;
+const baseLabelStyles = ({ theme }: StyleProps) => css`
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    pointer-events: none;
+    background-color: ${theme.colors.black};
+    opacity: 0;
+    transition: opacity ${theme.transitions.default};
+  }
+
+  > *:last-child {
+    transition: box-shadow ${theme.transitions.default};
+  }
+
+  @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+    transition: filter ${theme.transitions.default};
+
+    &::before {
+      content: none;
+    }
   }
 `;
+
+const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
+  invalid &&
+  css`
+    > *:last-child {
+      box-shadow: 0 0 0 2px ${theme.colors.danger};
+    }
+    &:hover > *:last-child {
+      box-shadow: 0 0 0 2px ${theme.colors.r700};
+    }
+  `;
+
+const loadingLabelStyles = ({ isLoading }: StyledLabelProps) => {
+  if (isLoading) {
+    return css`
+      &::before {
+        opacity: 0.4;
+      }
+
+      @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+        filter: brightness(0.6);
+      }
+    `;
+  }
+
+  return css`
+    &:hover::before {
+      opacity: 0.1;
+    }
+    &:active::before {
+      opacity: 0.2;
+    }
+
+    @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+      &:hover {
+        filter: brightness(0.9);
+      }
+      &:active {
+        filter: brightness(0.8);
+      }
+    }
+  `;
+};
 
 const addButtonStyles = ({ theme }: StyledLabelProps) => css`
   &:hover {
@@ -130,69 +186,11 @@ const addButtonStyles = ({ theme }: StyledLabelProps) => css`
   }
 `;
 
-const invalidLabelStyles = ({
-  theme,
-  invalid,
-  borderRadius,
-}: StyledLabelProps) =>
-  invalid &&
-  css`
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0%;
-      width: 100%;
-      height: 100%;
-      border-radius: ${theme.borderRadius[borderRadius]};
-      box-shadow: inset 0 0 0 2px ${theme.colors.danger};
-    }
-    &:hover::after {
-      box-shadow: inset 0 0 0 2px ${theme.colors.r700};
-    }
-  `;
-
-const overlayLabelStyles = ({
-  theme,
-  isLoading,
-  borderRadius,
-}: StyledLabelProps) => css`
-  &::before {
-    /* FIXME: replace with a brightness filter when we drop IE support */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    border-radius: ${theme.borderRadius[borderRadius]};
-    background-color: ${theme.colors.black};
-    opacity: 0;
-    pointer-events: none;
-    ${isLoading &&
-    css`
-      opacity: 0.4;
-    `}
-  }
-  &:hover::before {
-    ${!isLoading &&
-    css`
-      opacity: 0.1;
-    `}
-  }
-  &:active::before {
-    ${!isLoading &&
-    css`
-      opacity: 0.2;
-    `}
-  }
-`;
-
 const StyledLabel = styled(Label)<StyledLabelProps>(
   baseLabelStyles,
-  addButtonStyles,
   invalidLabelStyles,
-  overlayLabelStyles,
+  loadingLabelStyles,
+  addButtonStyles,
 );
 
 const ActionButton = styled(IconButton)(
@@ -253,7 +251,6 @@ export const ImageInput = ({
   invalid = false,
   loadingLabel,
   component: Component,
-  borderRadius = 'peta',
   ...props
 }: ImageInputProps): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -310,12 +307,7 @@ export const ImageInput = ({
           aria-invalid={invalid}
           {...props}
         />
-        <StyledLabel
-          isLoading={isLoading}
-          invalid={invalid}
-          htmlFor={id}
-          borderRadius={borderRadius}
-        >
+        <StyledLabel isLoading={isLoading} invalid={invalid} htmlFor={id}>
           <span css={hideVisually()}>{label}</span>
           <Component src={src || previewImage} alt={alt || ''} />
         </StyledLabel>
