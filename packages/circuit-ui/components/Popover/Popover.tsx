@@ -29,6 +29,7 @@ import {
   useEffect,
 } from 'react';
 import useLatest from 'use-latest';
+import usePrevious from 'use-previous';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
@@ -323,21 +324,25 @@ export const Popover = ({
   useEscapeKey(() => onToggle(false), isOpen);
   useClickOutside(popperRef, () => onToggle(false), isOpen);
 
+  const prevOpen = usePrevious(isOpen);
+
   useEffect(() => {
-    // Focus the first or last element when opening
-    if (isOpen) {
+    // Focus the first or last element after opening
+    if (!prevOpen && isOpen) {
       const element = (triggerKey.current && triggerKey.current === 'ArrowUp'
         ? wrapperEl.current?.lastElementChild
         : wrapperEl.current?.firstElementChild) as HTMLElement;
       element.focus();
-    } else {
-      // Focus the trigger button when closing
+    }
+
+    // Focus the trigger button after closing
+    if (prevOpen && !isOpen) {
       const triggerButton = triggerEl.current?.firstElementChild as HTMLElement;
       triggerButton.focus();
     }
 
     triggerKey.current = null;
-  }, [isOpen]);
+  }, [isOpen, prevOpen]);
 
   const focusProps = useFocusList();
 

@@ -86,15 +86,10 @@ describe('Popover', () => {
     jest.clearAllMocks();
   });
 
-  const renderPopover = (props: Omit<PopoverProps, 'component'>) =>
-    render(
-      <Popover
-        component={(triggerProps) => <button {...triggerProps}>Button</button>}
-        {...props}
-      />,
-    );
+  const renderPopover = (props: PopoverProps) => render(<Popover {...props} />);
 
-  const baseProps: Omit<PopoverProps, 'component'> = {
+  const baseProps: PopoverProps = {
+    component: (triggerProps) => <button {...triggerProps}>Button</button>,
     actions: [
       {
         onClick: jest.fn(),
@@ -215,9 +210,35 @@ describe('Popover', () => {
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
-    /**
-     * Accessibility tests.
-     */
+    it('should move focus to the first popover item after opening', () => {
+      const { getAllByRole, rerender } = renderPopover({
+        ...baseProps,
+        isOpen: false,
+      });
+
+      act(() => {
+        rerender(<Popover {...baseProps} isOpen />);
+      });
+
+      const popoverItems = getAllByRole('menuitem');
+
+      expect(popoverItems[0]).toHaveFocus();
+    });
+
+    it('should move focus to the trigger element after closing', () => {
+      const { getByRole, rerender } = renderPopover(baseProps);
+
+      act(() => {
+        rerender(<Popover {...baseProps} isOpen={false} />);
+      });
+
+      const popoverTrigger = getByRole('button');
+
+      expect(popoverTrigger).toHaveFocus();
+    });
+  });
+
+  describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const { container } = renderPopover(baseProps);
 
