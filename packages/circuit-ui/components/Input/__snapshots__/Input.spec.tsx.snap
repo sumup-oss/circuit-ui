@@ -241,14 +241,7 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
 .circuit-3 {
   font-size: 14px;
   line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  display: block;
   margin-top: 4px;
   color: #666;
   -webkit-transition: color 120ms ease-in-out;

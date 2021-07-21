@@ -18,6 +18,8 @@ import {
   useRef,
   InputHTMLAttributes,
   ChangeEvent,
+  MouseEvent,
+  KeyboardEvent,
   Fragment,
 } from 'react';
 import { css } from '@emotion/core';
@@ -45,11 +47,11 @@ export interface ImageInputProps
   /**
    * A callback function to call when the user has selected an image.
    */
-  onChange: (event: File) => Promise<void>;
+  onChange: (event: File) => void | Promise<void>;
   /**
    * A callback function to call when the input is cleared.
    */
-  onClear: () => void;
+  onClear: (event: MouseEvent | KeyboardEvent) => void;
   /**
    * An accessible label for the "clear" icon button.
    */
@@ -86,11 +88,11 @@ const InputWrapper = styled.div`
 const HiddenInput = styled.input(
   ({ theme }) => css`
     ${hideVisually()};
-    &:focus + label {
+    &:focus + label > *:last-child {
       ${focusOutline(theme)};
     }
 
-    &:focus:not(:focus-visible) + label {
+    &:focus:not(:focus-visible) + label > *:last-child {
       box-shadow: none;
     }
   `,
@@ -98,13 +100,78 @@ const HiddenInput = styled.input(
 
 type StyledLabelProps = StyleProps & { isLoading: boolean; invalid: boolean };
 
-const baseLabelStyles = css`
-  border-radius: 12px;
-  overflow: hidden;
-  &:hover {
-    cursor: pointer;
+const baseLabelStyles = ({ theme }: StyleProps) => css`
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    pointer-events: none;
+    background-color: ${theme.colors.black};
+    opacity: 0;
+    transition: opacity ${theme.transitions.default};
+  }
+
+  > *:last-child {
+    transition: box-shadow ${theme.transitions.default};
+  }
+
+  @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+    transition: filter ${theme.transitions.default};
+
+    &::before {
+      content: none;
+    }
   }
 `;
+
+const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
+  invalid &&
+  css`
+    > *:last-child {
+      box-shadow: 0 0 0 2px ${theme.colors.danger};
+    }
+    &:hover > *:last-child {
+      box-shadow: 0 0 0 2px ${theme.colors.r700};
+    }
+  `;
+
+const loadingLabelStyles = ({ isLoading }: StyledLabelProps) => {
+  if (isLoading) {
+    return css`
+      &::before {
+        opacity: 0.4;
+      }
+
+      @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+        filter: brightness(0.6);
+      }
+    `;
+  }
+
+  return css`
+    &:hover::before {
+      opacity: 0.1;
+    }
+    &:active::before {
+      opacity: 0.2;
+    }
+
+    @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+      &:hover {
+        filter: brightness(0.9);
+      }
+      &:active {
+        filter: brightness(0.8);
+      }
+    }
+  `;
+};
 
 const addButtonStyles = ({ theme }: StyledLabelProps) => css`
   &:hover {
@@ -121,61 +188,11 @@ const addButtonStyles = ({ theme }: StyledLabelProps) => css`
   }
 `;
 
-const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
-  invalid &&
-  css`
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0%;
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      box-shadow: inset 0 0 0 2px ${theme.colors.danger};
-    }
-    &:hover::after {
-      box-shadow: inset 0 0 0 2px ${theme.colors.r700};
-    }
-  `;
-
-const overlayLabelStyles = ({ theme, isLoading }: StyledLabelProps) => css`
-  &::before {
-    /* FIXME: Replace with a brightness filter when we drop IE support */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    background-color: ${theme.colors.black};
-    opacity: 0;
-    pointer-events: none;
-    ${isLoading &&
-    css`
-      opacity: 0.4;
-    `}
-  }
-  &:hover::before {
-    ${!isLoading &&
-    css`
-      opacity: 0.1;
-    `}
-  }
-  &:active::before {
-    ${!isLoading &&
-    css`
-      opacity: 0.2;
-    `}
-  }
-`;
-
 const StyledLabel = styled(Label)<StyledLabelProps>(
   baseLabelStyles,
-  addButtonStyles,
   invalidLabelStyles,
-  overlayLabelStyles,
+  loadingLabelStyles,
+  addButtonStyles,
 );
 
 const ActionButton = styled(IconButton)(
@@ -253,7 +270,7 @@ export const ImageInput = ({
     // URL.createObjectURL is not supported in Node, but the handleChange will only run client-side
     // eslint-disable-next-line node/no-unsupported-features/node-builtins
     setPreviewImage(URL.createObjectURL(file));
-    onChange(file)
+    Promise.resolve(onChange(file))
       .then(() => setIsLoading(false))
       .catch(() => setIsLoading(false));
   };
@@ -264,10 +281,10 @@ export const ImageInput = ({
     }
   };
 
-  const handleClear = () => {
+  const handleClear = (event: MouseEvent | KeyboardEvent) => {
     clearInputElement();
     setPreviewImage('');
-    onClear();
+    onClear(event);
   };
 
   /**

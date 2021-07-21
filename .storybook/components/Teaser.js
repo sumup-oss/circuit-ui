@@ -34,6 +34,10 @@ const Wrapper = styled(Card)(
       margin-right: ${theme.spacings.giga};
       min-height: ${CARD_HEIGHT};
     }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
   `,
 );
 
