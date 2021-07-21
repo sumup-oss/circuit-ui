@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 2.7.1
+
+### Patch Changes
+
+- [#1047](https://github.com/sumup-oss/circuit-ui/pull/1047) [`19fa9c29`](https://github.com/sumup-oss/circuit-ui/commit/19fa9c29c8a6768f590a0427cf5d2bc67bcc6dbe) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the alignment of the icon next to a validation hint when the text is center-aligned.
+
+* [#1047](https://github.com/sumup-oss/circuit-ui/pull/1047) [`19fa9c29`](https://github.com/sumup-oss/circuit-ui/commit/19fa9c29c8a6768f590a0427cf5d2bc67bcc6dbe) Thanks [@connor-baer](https://github.com/connor-baer)! - Passed the click event to the `onClear` prop of the ImageInput.
+
+- [#1047](https://github.com/sumup-oss/circuit-ui/pull/1047) [`19fa9c29`](https://github.com/sumup-oss/circuit-ui/commit/19fa9c29c8a6768f590a0427cf5d2bc67bcc6dbe) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the ImageInput to work with images with arbitrary border-radii.
+
 ## 2.7.0
 
 ### Minor Changes
