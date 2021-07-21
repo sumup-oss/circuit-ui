@@ -27,7 +27,6 @@ import {
   Heading,
   Text,
   InlineElements,
-  Label,
   SearchInput,
   Select,
 } from '../../packages/circuit-ui';
@@ -125,35 +124,24 @@ const Icons = () => {
   return (
     <ThemeProvider theme={light}>
       <Filters>
-        <Label htmlFor="search-icon">
-          Filter icons by name
-          <SearchInput
-            id="search-icon"
-            placeholder="Search..."
-            value={search}
-            onChange={handleSearch}
-          />
-        </Label>
-
-        <Label htmlFor="select-size">
-          Select icon size
-          <Select
-            id="select-size"
-            options={sizeOptions}
-            value={size}
-            onChange={handleSizeChange}
-          />
-        </Label>
-
-        <Label htmlFor="select-color">
-          Select icon color
-          <Select
-            id="select-color"
-            options={colorOptions}
-            value={color}
-            onChange={handleColorChange}
-          />
-        </Label>
+        <SearchInput
+          label="Filter icons by name"
+          placeholder="Search..."
+          value={search}
+          onChange={handleSearch}
+        />
+        <Select
+          label="Select icon sizeSelect icon size"
+          options={sizeOptions}
+          value={size}
+          onChange={handleSizeChange}
+        />
+        <Select
+          label="Select icon color"
+          options={colorOptions}
+          value={color}
+          onChange={handleColorChange}
+        />
       </Filters>
 
       {isEmpty(activeIcons) ? (
