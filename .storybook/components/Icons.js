@@ -14,11 +14,10 @@
  */
 
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import { keys, entries, includes, isEmpty, groupBy, sortBy } from 'lodash/fp';
+import { entries, includes, isEmpty, groupBy, sortBy } from 'lodash/fp';
 import { light } from '@sumup/design-tokens';
 import * as iconComponents from '@sumup/icons';
 import { icons } from '@sumup/icons/manifest.json';
@@ -29,6 +28,7 @@ import {
   InlineElements,
   SearchInput,
   Select,
+  Label,
 } from '../../packages/circuit-ui';
 
 function group(key, collection) {
