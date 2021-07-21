@@ -49,7 +49,7 @@ export interface ImageInputProps
   /**
    * A callback function to call when the user has selected an image.
    */
-  onChange: (event: File) => Promise<void>;
+  onChange: (event: File) => void | Promise<void>;
   /**
    * A callback function to call when the input is cleared.
    */
@@ -268,7 +268,7 @@ export const ImageInput = ({
     // URL.createObjectURL is not supported in Node, but the handleChange will only run client-side
     // eslint-disable-next-line node/no-unsupported-features/node-builtins
     setPreviewImage(URL.createObjectURL(file));
-    onChange(file)
+    Promise.resolve(onChange(file))
       .then(() => setIsLoading(false))
       .catch(() => setIsLoading(false));
   };
