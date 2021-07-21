@@ -1,6 +1,6 @@
 {
   "name": "@sumup/circuit-ui",
-  "version": "3.0.0",
+  "version": "2.7.1",
   "description": "SumUp's React UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -100,7 +100,7 @@
     "@emotion/stylis": "0.8.x",
     "@sumup/collector": "1.x",
     "@sumup/design-tokens": ">=1.0.0 <3.0.0",
-    "@sumup/icons": "1.8.0",
+    "@sumup/icons": "1.x",
     "@sumup/intl": "1.x",
     "emotion-theming": "10.x",
     "react": ">=16.8.0 <18.0.0",
