@@ -821,6 +821,11 @@
       "size": "small"
     },
     {
+      "name": "minus",
+      "category": "Action",
+      "size": "small"
+    },
+    {
       "name": "refresh",
       "category": "Action",
       "size": "small"
