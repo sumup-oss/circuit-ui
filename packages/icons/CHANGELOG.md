@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 1.8.1
+
+### Patch Changes
+
+- [#1049](https://github.com/sumup-oss/circuit-ui/pull/1049) [`1fb10698`](https://github.com/sumup-oss/circuit-ui/commit/1fb10698f624a5682a849964a926179ea0e425c9) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the minus icon to the icons manifest.
+
 ## 1.8.0
 
 ### Minor Changes
