@@ -4,14 +4,7 @@ exports[`ValidationHint styles should render with default styles 1`] = `
 .circuit-0 {
   font-size: 13px;
   line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  display: block;
   margin-top: 4px;
   color: #666;
   -webkit-transition: color 120ms ease-in-out;
@@ -29,14 +22,7 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
 .circuit-1 {
   font-size: 13px;
   line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  display: block;
   margin-top: 4px;
   color: #666;
   -webkit-transition: color 120ms ease-in-out;
@@ -45,12 +31,10 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
 }
 
 .circuit-0 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
+  display: inline-block;
   width: 16px;
   height: 16px;
-  margin-top: 0.15em;
+  vertical-align: text-top;
   margin-right: 4px;
   color: #D23F47;
 }
@@ -82,14 +66,7 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
 .circuit-1 {
   font-size: 13px;
   line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  display: block;
   margin-top: 4px;
   color: #666;
   -webkit-transition: color 120ms ease-in-out;
@@ -98,12 +75,10 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
 }
 
 .circuit-0 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
+  display: inline-block;
   width: 16px;
   height: 16px;
-  margin-top: 0.15em;
+  vertical-align: text-top;
   margin-right: 4px;
   color: #138849;
 }
@@ -135,14 +110,7 @@ exports[`ValidationHint styles should render with warning styles 1`] = `
 .circuit-1 {
   font-size: 13px;
   line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  display: block;
   margin-top: 4px;
   color: #666;
   -webkit-transition: color 120ms ease-in-out;
@@ -150,12 +118,10 @@ exports[`ValidationHint styles should render with warning styles 1`] = `
 }
 
 .circuit-0 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
+  display: inline-block;
   width: 16px;
   height: 16px;
-  margin-top: 0.15em;
+  vertical-align: text-top;
   margin-right: 4px;
   color: #F5C625;
 }
