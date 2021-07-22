@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.4
+
+### Patch Changes
+
+- [#1051](https://github.com/sumup-oss/circuit-ui/pull/1051) [`9234ebc3`](https://github.com/sumup-oss/circuit-ui/commit/9234ebc3dd322e6d57eb36b6315d0344339dd1d5) Thanks [@robinmetral](https://github.com/robinmetral)! - Tweaked the Card component interface to support any optional ref.
+
 ## 3.0.0-next.3
 
 ### Minor Changes
