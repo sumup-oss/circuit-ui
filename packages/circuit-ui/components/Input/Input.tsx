@@ -103,7 +103,7 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
    */
   labelStyles?: InterpolationWithTheme<Theme>;
   /**
-   * The ref to the html dom element
+   * The ref to the HTML DOM element
    */
   ref?: Ref<HTMLInputElement & HTMLTextAreaElement>;
 }

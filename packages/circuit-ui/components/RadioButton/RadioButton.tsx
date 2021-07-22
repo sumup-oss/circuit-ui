@@ -32,7 +32,7 @@ export interface RadioButtonProps extends HTMLProps<HTMLInputElement> {
    */
   invalid?: boolean;
   /**
-   * The ref to the HTML Dom element
+   * The ref to the HTML DOM element
    */
   ref?: Ref<HTMLInputElement>;
   /**

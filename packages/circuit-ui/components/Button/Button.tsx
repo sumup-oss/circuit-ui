@@ -78,7 +78,7 @@ export interface BaseProps {
    */
   'tracking'?: TrackingProps;
   /**
-   The ref to the html dom element, it can be an anchor or a button
+   The ref to the HTML DOM element
    */
   'ref'?: Ref<any>;
   'data-testid'?: string;

@@ -108,7 +108,7 @@ export interface SelectProps
    */
   id?: string;
   /**
-   * The ref to the html dom element
+   * The ref to the HTML DOM element
    */
   ref?: Ref<HTMLSelectElement>;
   /**

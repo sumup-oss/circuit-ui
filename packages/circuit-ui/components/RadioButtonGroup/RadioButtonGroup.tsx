@@ -42,7 +42,7 @@ export interface RadioButtonGroupProps
    */
   value?: RadioButtonProps['value'];
   /**
-   * The ref to the HTML Dom element
+   * The ref to the HTML DOM element
    */
   ref?: Ref<HTMLFieldSetElement>;
   /**

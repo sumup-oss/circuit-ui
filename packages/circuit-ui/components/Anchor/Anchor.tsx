@@ -42,7 +42,7 @@ export interface BaseProps extends BodyProps {
    */
   tracking?: TrackingProps;
   /**
-   * The ref to the html dom element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
+   * The ref to the HTML DOM element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
    */
   ref?: Ref<any>;
 }
