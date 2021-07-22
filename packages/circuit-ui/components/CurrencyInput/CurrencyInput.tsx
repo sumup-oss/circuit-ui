@@ -45,7 +45,7 @@ export interface CurrencyInputProps
    */
   placeholder?: string | number;
   /**
-   * The ref to the html dom element.
+   * The ref to the HTML DOM element.
    */
   ref?: Ref<NumberFormat>;
   /**

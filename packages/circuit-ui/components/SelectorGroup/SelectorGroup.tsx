@@ -61,7 +61,7 @@ export interface SelectorGroupProps {
    */
   stretch?: boolean;
   /**
-   * The ref to the HTML Dom element
+   * The ref to the HTML DOM element
    */
   ref?: Ref<HTMLDivElement>;
 }

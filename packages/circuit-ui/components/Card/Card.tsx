@@ -24,7 +24,10 @@ export interface CardProps extends HTMLProps<HTMLDivElement> {
    * The padding of the Card.
    */
   spacing?: 'mega' | 'giga';
-  ref: Ref<HTMLDivElement>;
+  /**
+   * The ref to the HTML DOM element.
+   */
+  ref?: Ref<any>;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`

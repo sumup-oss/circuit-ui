@@ -38,7 +38,7 @@ export interface ToggleProps extends SwitchProps {
    */
   noMargin?: boolean;
   /**
-   * The ref to the html button dom element
+   * The ref to the HTML DOM button element
    */
   ref?: Ref<HTMLButtonElement>;
 }
