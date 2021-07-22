@@ -53,7 +53,7 @@ export interface ImageInputProps
   /**
    * A callback function to call when the input is cleared.
    */
-  onClear: (event: MouseEvent | KeyboardEvent) => void;
+  onClear: (event: MouseEvent | KeyboardEvent) => void | Promise<void>;
   /**
    * An accessible label for the "clear" icon button.
    */
@@ -280,9 +280,15 @@ export const ImageInput = ({
   };
 
   const handleClear = (event: MouseEvent | KeyboardEvent) => {
-    clearInputElement();
-    setPreviewImage('');
-    onClear(event);
+    Promise.resolve(onClear(event))
+      .then(() => {
+        clearInputElement();
+        setPreviewImage('');
+      })
+      .catch(() => {
+        clearInputElement();
+        setPreviewImage('');
+      });
   };
 
   /**
