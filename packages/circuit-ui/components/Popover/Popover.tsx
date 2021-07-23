@@ -330,14 +330,16 @@ export const Popover = ({
     // Focus the first or last element after opening
     if (!prevOpen && isOpen) {
       const element = (triggerKey.current && triggerKey.current === 'ArrowUp'
-        ? wrapperEl.current?.lastElementChild
-        : wrapperEl.current?.firstElementChild) as HTMLElement;
+        ? wrapperEl.current && wrapperEl.current.lastElementChild
+        : wrapperEl.current &&
+          wrapperEl.current.firstElementChild) as HTMLElement;
       element.focus();
     }
 
     // Focus the trigger button after closing
     if (prevOpen && !isOpen) {
-      const triggerButton = triggerEl.current?.firstElementChild as HTMLElement;
+      const triggerButton = (triggerEl.current &&
+        triggerEl.current.firstElementChild) as HTMLElement;
       triggerButton.focus();
     }
 
