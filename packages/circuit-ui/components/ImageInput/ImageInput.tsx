@@ -354,7 +354,7 @@ export const ImageInput = ({
 
   const handleDrop = (event: DragEvent) => {
     handleDragLeave(event);
-    const files = event.dataTransfer?.files;
+    const files = event.dataTransfer && event.dataTransfer.files;
     handleChange(files);
 
     if (inputRef.current && files) {
