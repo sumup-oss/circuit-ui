@@ -215,6 +215,12 @@
 
 * [#960](https://github.com/sumup-oss/circuit-ui/pull/960) [`1a1a3646`](https://github.com/sumup-oss/circuit-ui/commit/1a1a36466e096c20b0dd19dc468359d65341e0fe) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed a UI bug in the `Table` component where multiple words in a table header would wrap on mobile, and break row alignment.
 
+## 2.8.0
+
+### Minor Changes
+
+- [#1053](https://github.com/sumup-oss/circuit-ui/pull/1053) [`ad7d6c8a`](https://github.com/sumup-oss/circuit-ui/commit/ad7d6c8aa43f362b9591e2f758316ff94da6dd0b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for drag'n'drop and paste to the ImageInput.
+
 ## 2.7.1
 
 ### Patch Changes
