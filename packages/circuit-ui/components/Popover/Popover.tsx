@@ -136,7 +136,7 @@ export const PopoverItem = ({
   );
 };
 
-const wrapperBaseStyles = ({ theme }: StyleProps) => css`
+const menuBaseStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.byte} 0px;
   border: 1px solid ${theme.colors.n200};
   box-sizing: border-box;
@@ -155,7 +155,7 @@ const wrapperBaseStyles = ({ theme }: StyleProps) => css`
 
 type OpenProps = { isOpen: boolean };
 
-const wrapperOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
+const menuOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
   isOpen &&
   css`
     visibility: visible;
@@ -165,10 +165,10 @@ const wrapperOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
     }
   `;
 
-const PopoverWrapper = styled('div')<OpenProps>(
+const PopoverMenu = styled('div')<OpenProps>(
   shadow,
-  wrapperBaseStyles,
-  wrapperOpenStyles,
+  menuBaseStyles,
+  menuOpenStyles,
 );
 
 const dividerStyles = (theme: Theme) => css`
@@ -203,6 +203,12 @@ const overlayOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
   `;
 
 const Overlay = styled.div<OpenProps>(overlayStyles, overlayOpenStyles);
+
+const popperStyles = ({ isOpen }: OpenProps) => css`
+  pointer-events: ${isOpen ? 'all' : 'none'};
+`;
+
+const Popper = styled.div<OpenProps>(popperStyles);
 
 type Divider = { type: 'divider' };
 type Action = PopoverItemProps | Divider;
@@ -266,9 +272,9 @@ export const Popover = ({
   const theme = useTheme<Theme>();
   const triggerKey = useRef<TriggerKey | null>(null);
   const triggerEl = useRef<HTMLDivElement>(null);
-  const wrapperEl = useRef<HTMLDivElement>(null);
+  const menuEl = useRef<HTMLDivElement>(null);
   const triggerId = uniqueId('trigger_');
-  const wrapperId = uniqueId('popover_');
+  const menuId = uniqueId('popover_');
 
   // Popper custom modifier to apply bottom sheet for mobile.
   // The window.matchMedia() is a useful API for this, it allows you to change the styles based on a condition.
@@ -330,9 +336,8 @@ export const Popover = ({
     // Focus the first or last element after opening
     if (!prevOpen && isOpen) {
       const element = (triggerKey.current && triggerKey.current === 'ArrowUp'
-        ? wrapperEl.current && wrapperEl.current.lastElementChild
-        : wrapperEl.current &&
-          wrapperEl.current.firstElementChild) as HTMLElement;
+        ? menuEl.current && menuEl.current.lastElementChild
+        : menuEl.current && menuEl.current.firstElementChild) as HTMLElement;
       element.focus();
     }
 
@@ -372,22 +377,23 @@ export const Popover = ({
         <Component
           id={triggerId}
           aria-haspopup={true}
-          aria-controls={wrapperId}
+          aria-controls={menuId}
           aria-expanded={isOpen}
           onClick={handleTriggerClick}
           onKeyDown={handleTriggerKeyDown}
         />
       </div>
       <Overlay isOpen={isOpen} />
-      <div
+      <Popper
         {...props}
         ref={setPopperElement}
+        isOpen={isOpen}
         style={styles.popper}
         {...attributes.popper}
       >
-        <PopoverWrapper
-          id={wrapperId}
-          ref={wrapperEl}
+        <PopoverMenu
+          id={menuId}
+          ref={menuEl}
           isOpen={isOpen}
           aria-labelledby={triggerId}
           role="menu"
@@ -399,8 +405,8 @@ export const Popover = ({
               <PopoverItem key={index} {...action} {...focusProps} />
             ),
           )}
-        </PopoverWrapper>
-      </div>
+        </PopoverMenu>
+      </Popper>
     </Fragment>
   );
 };
