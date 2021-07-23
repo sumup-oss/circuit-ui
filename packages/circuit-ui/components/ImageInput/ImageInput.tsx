@@ -20,6 +20,7 @@ import {
   useRef,
   InputHTMLAttributes,
   ChangeEvent,
+  DragEvent,
   MouseEvent,
   KeyboardEvent,
   Fragment,
@@ -96,7 +97,11 @@ const HiddenInput = styled.input(
   `,
 );
 
-type StyledLabelProps = StyleProps & { isLoading: boolean; invalid: boolean };
+type StyledLabelProps = StyleProps & {
+  isLoading: boolean;
+  isDragging: boolean;
+  invalid: boolean;
+};
 
 const baseLabelStyles = ({ theme }: StyleProps) => css`
   cursor: pointer;
@@ -171,6 +176,22 @@ const loadingLabelStyles = ({ isLoading }: StyledLabelProps) => {
   `;
 };
 
+const draggingLabelStyles = ({ theme, isDragging }: StyledLabelProps) =>
+  isDragging &&
+  css`
+    *:last-child {
+      ${focusOutline(theme)};
+    }
+
+    &::before {
+      opacity: 0.1;
+    }
+
+    @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+      filter: brightness(0.9);
+    }
+  `;
+
 const addButtonStyles = ({ theme }: StyledLabelProps) => css`
   &:hover {
     & > button {
@@ -190,6 +211,7 @@ const StyledLabel = styled(Label)<StyledLabelProps>(
   baseLabelStyles,
   invalidLabelStyles,
   loadingLabelStyles,
+  draggingLabelStyles,
   addButtonStyles,
 );
 
@@ -256,10 +278,11 @@ export const ImageInput = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const id = customId || uniqueId('ImageInput_');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isDragging, setDragging] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files && event.target.files[0];
+  const handleChange = (files?: FileList | null) => {
+    const file = files && files[0];
     if (!file) {
       return;
     }
@@ -272,6 +295,9 @@ export const ImageInput = ({
       .then(() => setIsLoading(false))
       .catch(() => setIsLoading(false));
   };
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) =>
+    handleChange(event.target.files);
 
   const clearInputElement = () => {
     if (inputRef.current) {
@@ -299,6 +325,33 @@ export const ImageInput = ({
     clearInputElement();
   };
 
+  const handleDragging = (event: DragEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setDragging(true);
+  };
+
+  const handleDragLeave = (event: DragEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setDragging(false);
+  };
+
+  const handleDrop = (event: DragEvent) => {
+    handleDragLeave(event);
+    const files = event.dataTransfer?.files;
+    handleChange(files);
+
+    if (inputRef.current && files) {
+      // An error is thrown when trying to assign anything but a FileList here.
+      // For security reasons, it's not possible to simulate a FileList object.
+      // That's why this code has to be disabled during testing.
+      if (process.env.NODE_ENV !== 'test') {
+        inputRef.current.files = files;
+      }
+    }
+  };
+
   return (
     <Fragment>
       <InputWrapper>
@@ -307,13 +360,22 @@ export const ImageInput = ({
           id={id}
           type="file"
           accept="image/*"
-          onChange={handleChange}
+          onChange={handleInputChange}
           onClick={handleClick}
           disabled={disabled || isLoading}
           aria-invalid={invalid}
           {...props}
         />
-        <StyledLabel isLoading={isLoading} invalid={invalid} htmlFor={id}>
+        <StyledLabel
+          isLoading={isLoading}
+          isDragging={isDragging}
+          invalid={invalid}
+          htmlFor={id}
+          onDragEnter={handleDragging}
+          onDragOver={handleDragging}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+        >
           <span css={hideVisually()}>{label}</span>
           <Component src={src || previewImage} alt={alt || ''} />
         </StyledLabel>

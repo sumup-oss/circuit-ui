@@ -16,7 +16,13 @@
 import React, { useState } from 'react';
 
 import Avatar from '../Avatar';
-import { render, axe, userEvent, waitFor } from '../../util/test-utils';
+import {
+  render,
+  axe,
+  userEvent,
+  fireEvent,
+  waitFor,
+} from '../../util/test-utils';
 
 import { ImageInput, ImageInputProps } from './ImageInput';
 
@@ -139,6 +145,17 @@ describe('ImageInput', () => {
       await waitFor(() => {
         expect(inputEl.files && inputEl.files[0]).toEqual(file);
         expect(inputEl.files).toHaveLength(1);
+        expect(mockUploadFn).toHaveBeenCalledWith(file);
+      });
+    });
+
+    it('should support drag and drop', async () => {
+      const { getByText } = render(<StatefulInput />);
+      const inputEl = getByText(defaultProps.label) as HTMLInputElement;
+
+      fireEvent.drop(inputEl, { dataTransfer: { files: [file] } });
+
+      await waitFor(() => {
         expect(mockUploadFn).toHaveBeenCalledWith(file);
       });
     });
