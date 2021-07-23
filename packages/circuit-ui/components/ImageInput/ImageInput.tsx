@@ -20,6 +20,7 @@ import {
   useRef,
   InputHTMLAttributes,
   ChangeEvent,
+  ClipboardEvent,
   DragEvent,
   MouseEvent,
   KeyboardEvent,
@@ -325,6 +326,20 @@ export const ImageInput = ({
     clearInputElement();
   };
 
+  const handlePaste = (event: ClipboardEvent) => {
+    const { files } = event.clipboardData;
+    handleChange(files);
+
+    if (inputRef.current && files) {
+      // An error is thrown when trying to assign anything but a FileList here.
+      // For security reasons, it's not possible to simulate a FileList object.
+      // That's why this code has to be disabled during testing.
+      if (process.env.NODE_ENV !== 'test') {
+        inputRef.current.files = files;
+      }
+    }
+  };
+
   const handleDragging = (event: DragEvent) => {
     event.preventDefault();
     event.stopPropagation();
@@ -354,7 +369,7 @@ export const ImageInput = ({
 
   return (
     <Fragment>
-      <InputWrapper>
+      <InputWrapper onPaste={handlePaste}>
         <HiddenInput
           ref={inputRef}
           id={id}

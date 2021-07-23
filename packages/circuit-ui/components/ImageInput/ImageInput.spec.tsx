@@ -22,6 +22,7 @@ import {
   userEvent,
   fireEvent,
   waitFor,
+  createEvent,
 } from '../../util/test-utils';
 
 import { ImageInput, ImageInputProps } from './ImageInput';
@@ -149,11 +150,26 @@ describe('ImageInput', () => {
       });
     });
 
-    it('should support drag and drop', async () => {
+    it('should support dragging and dropping an image', async () => {
       const { getByText } = render(<StatefulInput />);
-      const inputEl = getByText(defaultProps.label) as HTMLInputElement;
+      const labelEl = getByText(defaultProps.label);
 
-      fireEvent.drop(inputEl, { dataTransfer: { files: [file] } });
+      fireEvent.drop(labelEl, { dataTransfer: { files: [file] } });
+
+      await waitFor(() => {
+        expect(mockUploadFn).toHaveBeenCalledWith(file);
+      });
+    });
+
+    it('should support pasting an image', async () => {
+      const { getByLabelText } = render(<StatefulInput />);
+      const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
+
+      const paste = createEvent.paste(inputEl, {
+        clipboardData: { files: [file] },
+      });
+
+      fireEvent(inputEl, paste);
 
       await waitFor(() => {
         expect(mockUploadFn).toHaveBeenCalledWith(file);
