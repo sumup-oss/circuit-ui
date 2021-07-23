@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 2.8.0
+
+### Minor Changes
+
+- [#1053](https://github.com/sumup-oss/circuit-ui/pull/1053) [`ad7d6c8a`](https://github.com/sumup-oss/circuit-ui/commit/ad7d6c8aa43f362b9591e2f758316ff94da6dd0b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for drag'n'drop and paste to the ImageInput.
+
 ## 2.7.1
 
 ### Patch Changes
