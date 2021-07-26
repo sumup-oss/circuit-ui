@@ -6615,9 +6615,9 @@ chownr@^2.0.0:
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
 chromatic@^5.1.0:
-  version "5.8.3"
-  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-5.8.3.tgz#9dcce827be5e87760afb7574bc4e7b388db4ae91"
-  integrity sha512-zTLQGhlGO/bz7LNbEv2qXtarE93aG7vz5CnYNPukhyE1LK2LZaPdzTgaWU5Ah+7ZFPQGFMMAmJ6I6fU4WCUnYA==
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-5.9.2.tgz#2a9ad2c2f2e5f98be9cf3e4707d43808cbc450df"
+  integrity sha512-h7+LPo5j2yHUaQIpaJzM7SXfkdEE9I7/rI6TWSeURwCrUggptVjj/+T4X2rmuqD5TfCp9HyHvtRObRl4PVWfNw==
   dependencies:
     "@actions/core" "^1.2.4"
     "@actions/github" "^4.0.0"
@@ -6633,6 +6633,7 @@ chromatic@^5.1.0:
     execa "^5.0.0"
     fake-tag "^2.0.0"
     fs-extra "^9.1.0"
+    https-proxy-agent "^5.0.0"
     jsonfile "^6.0.1"
     junit-report-builder "2.1.0"
     listr "0.14.3"
