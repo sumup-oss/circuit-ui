@@ -76,7 +76,7 @@
     "@types/react-modal": "^3.10.5",
     "component-playground": "^3.2.1",
     "cross-env": "^7.0.2",
-    "css-loader": "^5.0.1",
+    "css-loader": "^6.2.0",
     "emotion-theming": "^10.0.19",
     "fork-ts-checker-webpack-plugin": "^6.0.3",
     "jest-axe": "^4.1.0",
