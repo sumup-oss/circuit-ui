@@ -115,8 +115,8 @@ describe('Popover', () => {
     });
 
     it('should render with closed styles', () => {
-      const { container } = renderPopover({ ...baseProps, isOpen: false });
-      expect(container).toMatchSnapshot();
+      const { baseElement } = renderPopover({ ...baseProps, isOpen: false });
+      expect(baseElement).toMatchSnapshot();
     });
 
     it.each(placements)(`should render popover on %s`, (placement) => {
