@@ -110,8 +110,8 @@ describe('Popover', () => {
 
   describe('styles', () => {
     it('should render with default styles', () => {
-      const { container } = renderPopover(baseProps);
-      expect(container).toMatchSnapshot();
+      const { baseElement } = renderPopover(baseProps);
+      expect(baseElement).toMatchSnapshot();
     });
 
     it('should render with closed styles', () => {
@@ -120,12 +120,9 @@ describe('Popover', () => {
     });
 
     it.each(placements)(`should render popover on %s`, (placement) => {
-      const { container } = renderPopover({
-        ...baseProps,
-        placement,
-      });
+      const { baseElement } = renderPopover({ ...baseProps, placement });
 
-      expect(container).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 
