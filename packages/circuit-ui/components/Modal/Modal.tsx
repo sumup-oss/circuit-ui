@@ -21,6 +21,7 @@ import { Theme } from '@sumup/design-tokens';
 import { isFunction } from '../../util/type-check';
 import { ModalComponent, BaseModalProps } from '../ModalContext';
 import CloseButton from '../CloseButton';
+import { StackContext } from '../StackContext';
 
 const TRANSITION_DURATION_MOBILE = 120;
 const TRANSITION_DURATION_DESKTOP = 240;
@@ -209,17 +210,19 @@ export const Modal: ModalComponent<ModalProps> = ({
       };
 
       return (
-        <ReactModal {...reactModalProps}>
-          {!preventClose && closeButtonLabel && (
-            <CloseButton
-              onClick={onClose}
-              label={closeButtonLabel}
-              css={closeButtonStyles}
-            />
-          )}
+        <StackContext.Provider value={theme.zIndex.modal}>
+          <ReactModal {...reactModalProps}>
+            {!preventClose && closeButtonLabel && (
+              <CloseButton
+                onClick={onClose}
+                label={closeButtonLabel}
+                css={closeButtonStyles}
+              />
+            )}
 
-          {isFunction(children) ? children({ onClose }) : children}
-        </ReactModal>
+            {isFunction(children) ? children({ onClose }) : children}
+          </ReactModal>
+        </StackContext.Provider>
       );
     }}
   </ClassNames>
