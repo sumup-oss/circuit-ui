@@ -184,16 +184,18 @@ exports[`Popover styles should render popover on auto 1`] = `
   box-shadow: none;
 }
 
-<div>
+<body>
   <div>
-    <button
-      aria-controls="popover_23"
-      aria-expanded="true"
-      aria-haspopup="true"
-      id="trigger_22"
-    >
-      Button
-    </button>
+    <div>
+      <button
+        aria-controls="popover_12"
+        aria-expanded="true"
+        aria-haspopup="true"
+        id="trigger_11"
+      >
+        Button
+      </button>
+    </div>
   </div>
   <div
     class="circuit-0"
@@ -203,14 +205,14 @@ exports[`Popover styles should render popover on auto 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_22"
+      aria-labelledby="trigger_11"
       class="circuit-6"
-      id="popover_23"
+      id="popover_12"
       role="menu"
     >
       <button
         class="circuit-2"
-        data-focus-list="21"
+        data-focus-list="13"
         role="menuitem"
       >
         <svg
@@ -237,7 +239,7 @@ exports[`Popover styles should render popover on auto 1`] = `
       />
       <button
         class="circuit-5"
-        data-focus-list="21"
+        data-focus-list="13"
         role="menuitem"
       >
         <svg
@@ -259,7 +261,7 @@ exports[`Popover styles should render popover on auto 1`] = `
       </button>
     </div>
   </div>
-</div>
+</body>
 `;
 
 exports[`Popover styles should render popover on bottom 1`] = `
@@ -446,16 +448,18 @@ exports[`Popover styles should render popover on bottom 1`] = `
   box-shadow: none;
 }
 
-<div>
+<body>
   <div>
-    <button
-      aria-controls="popover_41"
-      aria-expanded="true"
-      aria-haspopup="true"
-      id="trigger_40"
-    >
-      Button
-    </button>
+    <div>
+      <button
+        aria-controls="popover_22"
+        aria-expanded="true"
+        aria-haspopup="true"
+        id="trigger_21"
+      >
+        Button
+      </button>
+    </div>
   </div>
   <div
     class="circuit-0"
@@ -465,14 +469,14 @@ exports[`Popover styles should render popover on bottom 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_40"
+      aria-labelledby="trigger_21"
       class="circuit-6"
-      id="popover_41"
+      id="popover_22"
       role="menu"
     >
       <button
         class="circuit-2"
-        data-focus-list="39"
+        data-focus-list="23"
         role="menuitem"
       >
         <svg
@@ -499,7 +503,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
       />
       <button
         class="circuit-5"
-        data-focus-list="39"
+        data-focus-list="23"
         role="menuitem"
       >
         <svg
@@ -521,7 +525,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
       </button>
     </div>
   </div>
-</div>
+</body>
 `;
 
 exports[`Popover styles should render popover on left 1`] = `
@@ -708,16 +712,18 @@ exports[`Popover styles should render popover on left 1`] = `
   box-shadow: none;
 }
 
-<div>
+<body>
   <div>
-    <button
-      aria-controls="popover_50"
-      aria-expanded="true"
-      aria-haspopup="true"
-      id="trigger_49"
-    >
-      Button
-    </button>
+    <div>
+      <button
+        aria-controls="popover_27"
+        aria-expanded="true"
+        aria-haspopup="true"
+        id="trigger_26"
+      >
+        Button
+      </button>
+    </div>
   </div>
   <div
     class="circuit-0"
@@ -727,14 +733,14 @@ exports[`Popover styles should render popover on left 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_49"
+      aria-labelledby="trigger_26"
       class="circuit-6"
-      id="popover_50"
+      id="popover_27"
       role="menu"
     >
       <button
         class="circuit-2"
-        data-focus-list="48"
+        data-focus-list="28"
         role="menuitem"
       >
         <svg
@@ -761,7 +767,7 @@ exports[`Popover styles should render popover on left 1`] = `
       />
       <button
         class="circuit-5"
-        data-focus-list="48"
+        data-focus-list="28"
         role="menuitem"
       >
         <svg
@@ -783,7 +789,7 @@ exports[`Popover styles should render popover on left 1`] = `
       </button>
     </div>
   </div>
-</div>
+</body>
 `;
 
 exports[`Popover styles should render popover on right 1`] = `
@@ -970,16 +976,18 @@ exports[`Popover styles should render popover on right 1`] = `
   box-shadow: none;
 }
 
-<div>
+<body>
   <div>
-    <button
-      aria-controls="popover_59"
-      aria-expanded="true"
-      aria-haspopup="true"
-      id="trigger_58"
-    >
-      Button
-    </button>
+    <div>
+      <button
+        aria-controls="popover_32"
+        aria-expanded="true"
+        aria-haspopup="true"
+        id="trigger_31"
+      >
+        Button
+      </button>
+    </div>
   </div>
   <div
     class="circuit-0"
@@ -989,14 +997,14 @@ exports[`Popover styles should render popover on right 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_58"
+      aria-labelledby="trigger_31"
       class="circuit-6"
-      id="popover_59"
+      id="popover_32"
       role="menu"
     >
       <button
         class="circuit-2"
-        data-focus-list="57"
+        data-focus-list="33"
         role="menuitem"
       >
         <svg
@@ -1023,7 +1031,7 @@ exports[`Popover styles should render popover on right 1`] = `
       />
       <button
         class="circuit-5"
-        data-focus-list="57"
+        data-focus-list="33"
         role="menuitem"
       >
         <svg
@@ -1045,7 +1053,7 @@ exports[`Popover styles should render popover on right 1`] = `
       </button>
     </div>
   </div>
-</div>
+</body>
 `;
 
 exports[`Popover styles should render popover on top 1`] = `
@@ -1232,16 +1240,18 @@ exports[`Popover styles should render popover on top 1`] = `
   box-shadow: none;
 }
 
-<div>
+<body>
   <div>
-    <button
-      aria-controls="popover_32"
-      aria-expanded="true"
-      aria-haspopup="true"
-      id="trigger_31"
-    >
-      Button
-    </button>
+    <div>
+      <button
+        aria-controls="popover_17"
+        aria-expanded="true"
+        aria-haspopup="true"
+        id="trigger_16"
+      >
+        Button
+      </button>
+    </div>
   </div>
   <div
     class="circuit-0"
@@ -1251,14 +1261,14 @@ exports[`Popover styles should render popover on top 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_31"
+      aria-labelledby="trigger_16"
       class="circuit-6"
-      id="popover_32"
+      id="popover_17"
       role="menu"
     >
       <button
         class="circuit-2"
-        data-focus-list="30"
+        data-focus-list="18"
         role="menuitem"
       >
         <svg
@@ -1285,7 +1295,7 @@ exports[`Popover styles should render popover on top 1`] = `
       />
       <button
         class="circuit-5"
-        data-focus-list="30"
+        data-focus-list="18"
         role="menuitem"
       >
         <svg
@@ -1307,7 +1317,7 @@ exports[`Popover styles should render popover on top 1`] = `
       </button>
     </div>
   </div>
-</div>
+</body>
 `;
 
 exports[`Popover styles should render with closed styles 1`] = `
@@ -1478,16 +1488,18 @@ exports[`Popover styles should render with closed styles 1`] = `
   }
 }
 
-<div>
+<body>
   <div>
-    <button
-      aria-controls="popover_14"
-      aria-expanded="false"
-      aria-haspopup="true"
-      id="trigger_13"
-    >
-      Button
-    </button>
+    <div>
+      <button
+        aria-controls="popover_7"
+        aria-expanded="false"
+        aria-haspopup="true"
+        id="trigger_6"
+      >
+        Button
+      </button>
+    </div>
   </div>
   <div
     class="circuit-0"
@@ -1497,14 +1509,14 @@ exports[`Popover styles should render with closed styles 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_13"
+      aria-labelledby="trigger_6"
       class="circuit-6"
-      id="popover_14"
+      id="popover_7"
       role="menu"
     >
       <button
         class="circuit-2"
-        data-focus-list="12"
+        data-focus-list="8"
         role="menuitem"
       >
         <svg
@@ -1531,7 +1543,7 @@ exports[`Popover styles should render with closed styles 1`] = `
       />
       <button
         class="circuit-5"
-        data-focus-list="12"
+        data-focus-list="8"
         role="menuitem"
       >
         <svg
@@ -1553,7 +1565,7 @@ exports[`Popover styles should render with closed styles 1`] = `
       </button>
     </div>
   </div>
-</div>
+</body>
 `;
 
 exports[`Popover styles should render with default styles 1`] = `
@@ -1740,16 +1752,18 @@ exports[`Popover styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-<div>
+<body>
   <div>
-    <button
-      aria-controls="popover_5"
-      aria-expanded="true"
-      aria-haspopup="true"
-      id="trigger_4"
-    >
-      Button
-    </button>
+    <div>
+      <button
+        aria-controls="popover_2"
+        aria-expanded="true"
+        aria-haspopup="true"
+        id="trigger_1"
+      >
+        Button
+      </button>
+    </div>
   </div>
   <div
     class="circuit-0"
@@ -1759,9 +1773,9 @@ exports[`Popover styles should render with default styles 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      aria-labelledby="trigger_4"
+      aria-labelledby="trigger_1"
       class="circuit-6"
-      id="popover_5"
+      id="popover_2"
       role="menu"
     >
       <button
@@ -1815,5 +1829,5 @@ exports[`Popover styles should render with default styles 1`] = `
       </button>
     </div>
   </div>
-</div>
+</body>
 `;

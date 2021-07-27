@@ -16,17 +16,17 @@
 import { css } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 import {
-  useState,
   FC,
-  HTMLProps,
-  SVGProps,
-  MouseEvent,
-  KeyboardEvent,
   Fragment,
-  useMemo,
+  HTMLProps,
+  KeyboardEvent,
+  MouseEvent,
   Ref,
-  useRef,
+  SVGProps,
   useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from 'react';
 import useLatest from 'use-latest';
 import usePrevious from 'use-previous';
@@ -39,12 +39,13 @@ import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent } from '../../hooks/useClickEvent';
-import Hr from '../Hr';
 import { uniqueId } from '../../util/id';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { useFocusList } from '../../hooks/useFocusList';
 import { isArrowDown, isArrowUp } from '../../util/key-codes';
+import Portal from '../Portal';
+import Hr from '../Hr';
 
 export interface BaseProps {
   /**
@@ -273,8 +274,8 @@ export const Popover = ({
   const triggerKey = useRef<TriggerKey | null>(null);
   const triggerEl = useRef<HTMLDivElement>(null);
   const menuEl = useRef<HTMLDivElement>(null);
-  const triggerId = uniqueId('trigger_');
-  const menuId = uniqueId('popover_');
+  const triggerId = useMemo(() => uniqueId('trigger_'), []);
+  const menuId = useMemo(() => uniqueId('popover_'), []);
 
   // Popper custom modifier to apply bottom sheet for mobile.
   // The window.matchMedia() is a useful API for this, it allows you to change the styles based on a condition.
@@ -338,7 +339,9 @@ export const Popover = ({
       const element = (triggerKey.current && triggerKey.current === 'ArrowUp'
         ? menuEl.current && menuEl.current.lastElementChild
         : menuEl.current && menuEl.current.firstElementChild) as HTMLElement;
-      element.focus();
+      if (element) {
+        element.focus();
+      }
     }
 
     // Focus the trigger button after closing
@@ -383,30 +386,32 @@ export const Popover = ({
           onKeyDown={handleTriggerKeyDown}
         />
       </div>
-      <Overlay isOpen={isOpen} />
-      <Popper
-        {...props}
-        ref={setPopperElement}
-        isOpen={isOpen}
-        style={styles.popper}
-        {...attributes.popper}
-      >
-        <PopoverMenu
-          id={menuId}
-          ref={menuEl}
+      <Portal>
+        <Overlay isOpen={isOpen} />
+        <Popper
+          {...props}
+          ref={setPopperElement}
           isOpen={isOpen}
-          aria-labelledby={triggerId}
-          role="menu"
+          style={styles.popper}
+          {...attributes.popper}
         >
-          {actions.map((action, index) =>
-            isDivider(action) ? (
-              <Hr css={dividerStyles} key={index} />
-            ) : (
-              <PopoverItem key={index} {...action} {...focusProps} />
-            ),
-          )}
-        </PopoverMenu>
-      </Popper>
+          <PopoverMenu
+            id={menuId}
+            ref={menuEl}
+            isOpen={isOpen}
+            aria-labelledby={triggerId}
+            role="menu"
+          >
+            {actions.map((action, index) =>
+              isDivider(action) ? (
+                <Hr css={dividerStyles} key={index} />
+              ) : (
+                <PopoverItem key={index} {...action} {...focusProps} />
+              ),
+            )}
+          </PopoverMenu>
+        </Popper>
+      </Portal>
     </Fragment>
   );
 };
