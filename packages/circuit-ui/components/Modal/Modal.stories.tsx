@@ -178,7 +178,7 @@ CustomStyles.args = {
   children: (
     <Fragment>
       <Image src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900" alt="" />
-      <Headline as="h2" size="three">
+      <Headline as="h2" size="three" css={spacing('mega')}>
         Custom styles
       </Headline>
       <Body css={spacing('mega')}>

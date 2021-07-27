@@ -46,6 +46,7 @@ import { useFocusList } from '../../hooks/useFocusList';
 import { isArrowDown, isArrowUp } from '../../util/key-codes';
 import Portal from '../Portal';
 import Hr from '../Hr';
+import { useStackContext } from '../StackContext';
 
 export interface BaseProps {
   /**
@@ -137,6 +138,10 @@ export const PopoverItem = ({
   );
 };
 
+const TriggerElement = styled.div`
+  display: inline-block;
+`;
+
 const menuBaseStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.byte} 0px;
   border: 1px solid ${theme.colors.n200};
@@ -180,7 +185,6 @@ const dividerStyles = (theme: Theme) => css`
 const overlayStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilKilo} {
     position: fixed;
-    z-index: ${theme.zIndex.popover};
     top: 0;
     bottom: 0;
     left: 0;
@@ -271,6 +275,7 @@ export const Popover = ({
   ...props
 }: PopoverProps): JSX.Element | null => {
   const theme = useTheme<Theme>();
+  const zIndex = useStackContext();
   const triggerKey = useRef<TriggerKey | null>(null);
   const triggerEl = useRef<HTMLDivElement>(null);
   const menuEl = useRef<HTMLDivElement>(null);
@@ -294,17 +299,19 @@ export const Popover = ({
             right: '0px',
             bottom: '0px',
             position: 'fixed',
-            zIndex: theme.zIndex.popover.toString(),
+            zIndex: (zIndex || theme.zIndex.popover).toString(),
           };
         } else {
           // eslint-disable-next-line no-param-reassign
           state.styles.popper.width = 'auto';
           // eslint-disable-next-line no-param-reassign
-          state.styles.popper.zIndex = theme.zIndex.popover.toString();
+          state.styles.popper.zIndex = (
+            zIndex || theme.zIndex.popover
+          ).toString();
         }
       },
     }),
-    [theme],
+    [theme, zIndex],
   );
 
   // The flip modifier is used if the popper has placement set to bottom, but there isn't enough space to position the popper in that direction.
@@ -376,7 +383,7 @@ export const Popover = ({
 
   return (
     <Fragment>
-      <div ref={triggerEl}>
+      <TriggerElement ref={triggerEl}>
         <Component
           id={triggerId}
           aria-haspopup={true}
@@ -385,9 +392,12 @@ export const Popover = ({
           onClick={handleTriggerClick}
           onKeyDown={handleTriggerKeyDown}
         />
-      </div>
+      </TriggerElement>
       <Portal>
-        <Overlay isOpen={isOpen} />
+        <Overlay
+          isOpen={isOpen}
+          style={{ zIndex: zIndex || theme.zIndex.popover }}
+        />
         <Popper
           {...props}
           ref={setPopperElement}

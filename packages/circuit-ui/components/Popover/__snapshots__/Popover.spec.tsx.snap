@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Popover styles should render popover on auto 1`] = `
-.circuit-2 {
+.circuit-3 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -26,43 +26,46 @@ exports[`Popover styles should render popover on auto 1`] = `
   line-height: 24px;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-2:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-3:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:active {
+.circuit-3:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1 {
+.circuit-2 {
   margin-right: 8px;
 }
 
+.circuit-0 {
+  display: inline-block;
+}
+
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     position: fixed;
-    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
@@ -77,17 +80,17 @@ exports[`Popover styles should render popover on auto 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     visibility: visible;
     opacity: 1;
   }
 }
 
-.circuit-7 {
+.circuit-8 {
   pointer-events: all;
 }
 
-.circuit-6 {
+.circuit-7 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -99,7 +102,7 @@ exports[`Popover styles should render popover on auto 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -112,14 +115,14 @@ exports[`Popover styles should render popover on auto 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
   }
 }
 
-.circuit-3 {
+.circuit-4 {
   display: block;
   width: 100%;
   border: 0;
@@ -130,7 +133,7 @@ exports[`Popover styles should render popover on auto 1`] = `
   width: calc(100% - 16px*2);
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -155,30 +158,30 @@ exports[`Popover styles should render popover on auto 1`] = `
   line-height: 24px;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:active {
+.circuit-6:active {
   background-color: #E6E6E6;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -186,7 +189,9 @@ exports[`Popover styles should render popover on auto 1`] = `
 
 <body>
   <div>
-    <div>
+    <div
+      class="circuit-0"
+    >
       <button
         aria-controls="popover_12"
         aria-expanded="true"
@@ -198,25 +203,26 @@ exports[`Popover styles should render popover on auto 1`] = `
     </div>
   </div>
   <div
-    class="circuit-0"
+    class="circuit-1"
+    style="z-index: 30;"
   />
   <div
-    class="circuit-7"
+    class="circuit-8"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_11"
-      class="circuit-6"
+      class="circuit-7"
       id="popover_12"
       role="menu"
     >
       <button
-        class="circuit-2"
+        class="circuit-3"
         data-focus-list="13"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -235,15 +241,15 @@ exports[`Popover styles should render popover on auto 1`] = `
         Add
       </button>
       <hr
-        class="circuit-3"
+        class="circuit-4"
       />
       <button
-        class="circuit-5"
+        class="circuit-6"
         data-focus-list="13"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -265,7 +271,7 @@ exports[`Popover styles should render popover on auto 1`] = `
 `;
 
 exports[`Popover styles should render popover on bottom 1`] = `
-.circuit-2 {
+.circuit-3 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -290,43 +296,46 @@ exports[`Popover styles should render popover on bottom 1`] = `
   line-height: 24px;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-2:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-3:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:active {
+.circuit-3:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1 {
+.circuit-2 {
   margin-right: 8px;
 }
 
+.circuit-0 {
+  display: inline-block;
+}
+
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     position: fixed;
-    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
@@ -341,17 +350,17 @@ exports[`Popover styles should render popover on bottom 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     visibility: visible;
     opacity: 1;
   }
 }
 
-.circuit-7 {
+.circuit-8 {
   pointer-events: all;
 }
 
-.circuit-6 {
+.circuit-7 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -363,7 +372,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -376,14 +385,14 @@ exports[`Popover styles should render popover on bottom 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
   }
 }
 
-.circuit-3 {
+.circuit-4 {
   display: block;
   width: 100%;
   border: 0;
@@ -394,7 +403,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
   width: calc(100% - 16px*2);
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -419,30 +428,30 @@ exports[`Popover styles should render popover on bottom 1`] = `
   line-height: 24px;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:active {
+.circuit-6:active {
   background-color: #E6E6E6;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -450,7 +459,9 @@ exports[`Popover styles should render popover on bottom 1`] = `
 
 <body>
   <div>
-    <div>
+    <div
+      class="circuit-0"
+    >
       <button
         aria-controls="popover_22"
         aria-expanded="true"
@@ -462,25 +473,26 @@ exports[`Popover styles should render popover on bottom 1`] = `
     </div>
   </div>
   <div
-    class="circuit-0"
+    class="circuit-1"
+    style="z-index: 30;"
   />
   <div
-    class="circuit-7"
+    class="circuit-8"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_21"
-      class="circuit-6"
+      class="circuit-7"
       id="popover_22"
       role="menu"
     >
       <button
-        class="circuit-2"
+        class="circuit-3"
         data-focus-list="23"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -499,15 +511,15 @@ exports[`Popover styles should render popover on bottom 1`] = `
         Add
       </button>
       <hr
-        class="circuit-3"
+        class="circuit-4"
       />
       <button
-        class="circuit-5"
+        class="circuit-6"
         data-focus-list="23"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -529,7 +541,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
 `;
 
 exports[`Popover styles should render popover on left 1`] = `
-.circuit-2 {
+.circuit-3 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -554,43 +566,46 @@ exports[`Popover styles should render popover on left 1`] = `
   line-height: 24px;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-2:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-3:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:active {
+.circuit-3:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1 {
+.circuit-2 {
   margin-right: 8px;
 }
 
+.circuit-0 {
+  display: inline-block;
+}
+
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     position: fixed;
-    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
@@ -605,17 +620,17 @@ exports[`Popover styles should render popover on left 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     visibility: visible;
     opacity: 1;
   }
 }
 
-.circuit-7 {
+.circuit-8 {
   pointer-events: all;
 }
 
-.circuit-6 {
+.circuit-7 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -627,7 +642,7 @@ exports[`Popover styles should render popover on left 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -640,14 +655,14 @@ exports[`Popover styles should render popover on left 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
   }
 }
 
-.circuit-3 {
+.circuit-4 {
   display: block;
   width: 100%;
   border: 0;
@@ -658,7 +673,7 @@ exports[`Popover styles should render popover on left 1`] = `
   width: calc(100% - 16px*2);
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -683,30 +698,30 @@ exports[`Popover styles should render popover on left 1`] = `
   line-height: 24px;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:active {
+.circuit-6:active {
   background-color: #E6E6E6;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -714,7 +729,9 @@ exports[`Popover styles should render popover on left 1`] = `
 
 <body>
   <div>
-    <div>
+    <div
+      class="circuit-0"
+    >
       <button
         aria-controls="popover_27"
         aria-expanded="true"
@@ -726,25 +743,26 @@ exports[`Popover styles should render popover on left 1`] = `
     </div>
   </div>
   <div
-    class="circuit-0"
+    class="circuit-1"
+    style="z-index: 30;"
   />
   <div
-    class="circuit-7"
+    class="circuit-8"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_26"
-      class="circuit-6"
+      class="circuit-7"
       id="popover_27"
       role="menu"
     >
       <button
-        class="circuit-2"
+        class="circuit-3"
         data-focus-list="28"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -763,15 +781,15 @@ exports[`Popover styles should render popover on left 1`] = `
         Add
       </button>
       <hr
-        class="circuit-3"
+        class="circuit-4"
       />
       <button
-        class="circuit-5"
+        class="circuit-6"
         data-focus-list="28"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -793,7 +811,7 @@ exports[`Popover styles should render popover on left 1`] = `
 `;
 
 exports[`Popover styles should render popover on right 1`] = `
-.circuit-2 {
+.circuit-3 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -818,43 +836,46 @@ exports[`Popover styles should render popover on right 1`] = `
   line-height: 24px;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-2:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-3:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:active {
+.circuit-3:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1 {
+.circuit-2 {
   margin-right: 8px;
 }
 
+.circuit-0 {
+  display: inline-block;
+}
+
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     position: fixed;
-    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
@@ -869,17 +890,17 @@ exports[`Popover styles should render popover on right 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     visibility: visible;
     opacity: 1;
   }
 }
 
-.circuit-7 {
+.circuit-8 {
   pointer-events: all;
 }
 
-.circuit-6 {
+.circuit-7 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -891,7 +912,7 @@ exports[`Popover styles should render popover on right 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -904,14 +925,14 @@ exports[`Popover styles should render popover on right 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
   }
 }
 
-.circuit-3 {
+.circuit-4 {
   display: block;
   width: 100%;
   border: 0;
@@ -922,7 +943,7 @@ exports[`Popover styles should render popover on right 1`] = `
   width: calc(100% - 16px*2);
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -947,30 +968,30 @@ exports[`Popover styles should render popover on right 1`] = `
   line-height: 24px;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:active {
+.circuit-6:active {
   background-color: #E6E6E6;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -978,7 +999,9 @@ exports[`Popover styles should render popover on right 1`] = `
 
 <body>
   <div>
-    <div>
+    <div
+      class="circuit-0"
+    >
       <button
         aria-controls="popover_32"
         aria-expanded="true"
@@ -990,25 +1013,26 @@ exports[`Popover styles should render popover on right 1`] = `
     </div>
   </div>
   <div
-    class="circuit-0"
+    class="circuit-1"
+    style="z-index: 30;"
   />
   <div
-    class="circuit-7"
+    class="circuit-8"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_31"
-      class="circuit-6"
+      class="circuit-7"
       id="popover_32"
       role="menu"
     >
       <button
-        class="circuit-2"
+        class="circuit-3"
         data-focus-list="33"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1027,15 +1051,15 @@ exports[`Popover styles should render popover on right 1`] = `
         Add
       </button>
       <hr
-        class="circuit-3"
+        class="circuit-4"
       />
       <button
-        class="circuit-5"
+        class="circuit-6"
         data-focus-list="33"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1057,7 +1081,7 @@ exports[`Popover styles should render popover on right 1`] = `
 `;
 
 exports[`Popover styles should render popover on top 1`] = `
-.circuit-2 {
+.circuit-3 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -1082,43 +1106,46 @@ exports[`Popover styles should render popover on top 1`] = `
   line-height: 24px;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-2:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-3:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:active {
+.circuit-3:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1 {
+.circuit-2 {
   margin-right: 8px;
 }
 
+.circuit-0 {
+  display: inline-block;
+}
+
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     position: fixed;
-    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
@@ -1133,17 +1160,17 @@ exports[`Popover styles should render popover on top 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     visibility: visible;
     opacity: 1;
   }
 }
 
-.circuit-7 {
+.circuit-8 {
   pointer-events: all;
 }
 
-.circuit-6 {
+.circuit-7 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -1155,7 +1182,7 @@ exports[`Popover styles should render popover on top 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -1168,14 +1195,14 @@ exports[`Popover styles should render popover on top 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
   }
 }
 
-.circuit-3 {
+.circuit-4 {
   display: block;
   width: 100%;
   border: 0;
@@ -1186,7 +1213,7 @@ exports[`Popover styles should render popover on top 1`] = `
   width: calc(100% - 16px*2);
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -1211,30 +1238,30 @@ exports[`Popover styles should render popover on top 1`] = `
   line-height: 24px;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:active {
+.circuit-6:active {
   background-color: #E6E6E6;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -1242,7 +1269,9 @@ exports[`Popover styles should render popover on top 1`] = `
 
 <body>
   <div>
-    <div>
+    <div
+      class="circuit-0"
+    >
       <button
         aria-controls="popover_17"
         aria-expanded="true"
@@ -1254,25 +1283,26 @@ exports[`Popover styles should render popover on top 1`] = `
     </div>
   </div>
   <div
-    class="circuit-0"
+    class="circuit-1"
+    style="z-index: 30;"
   />
   <div
-    class="circuit-7"
+    class="circuit-8"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_16"
-      class="circuit-6"
+      class="circuit-7"
       id="popover_17"
       role="menu"
     >
       <button
-        class="circuit-2"
+        class="circuit-3"
         data-focus-list="18"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1291,15 +1321,15 @@ exports[`Popover styles should render popover on top 1`] = `
         Add
       </button>
       <hr
-        class="circuit-3"
+        class="circuit-4"
       />
       <button
-        class="circuit-5"
+        class="circuit-6"
         data-focus-list="18"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1321,7 +1351,7 @@ exports[`Popover styles should render popover on top 1`] = `
 `;
 
 exports[`Popover styles should render with closed styles 1`] = `
-.circuit-2 {
+.circuit-3 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -1346,40 +1376,44 @@ exports[`Popover styles should render with closed styles 1`] = `
   line-height: 24px;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-2:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-3:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:active {
+.circuit-3:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1 {
+.circuit-2 {
   margin-right: 8px;
 }
 
-.circuit-3 {
+.circuit-0 {
+  display: inline-block;
+}
+
+.circuit-4 {
   display: block;
   width: 100%;
   border: 0;
@@ -1390,7 +1424,7 @@ exports[`Popover styles should render with closed styles 1`] = `
   width: calc(100% - 16px*2);
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -1415,39 +1449,38 @@ exports[`Popover styles should render with closed styles 1`] = `
   line-height: 24px;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:active {
+.circuit-6:active {
   background-color: #E6E6E6;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     position: fixed;
-    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
@@ -1461,11 +1494,11 @@ exports[`Popover styles should render with closed styles 1`] = `
   }
 }
 
-.circuit-7 {
+.circuit-8 {
   pointer-events: none;
 }
 
-.circuit-6 {
+.circuit-7 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -1476,7 +1509,7 @@ exports[`Popover styles should render with closed styles 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -1490,7 +1523,9 @@ exports[`Popover styles should render with closed styles 1`] = `
 
 <body>
   <div>
-    <div>
+    <div
+      class="circuit-0"
+    >
       <button
         aria-controls="popover_7"
         aria-expanded="false"
@@ -1502,25 +1537,26 @@ exports[`Popover styles should render with closed styles 1`] = `
     </div>
   </div>
   <div
-    class="circuit-0"
+    class="circuit-1"
+    style="z-index: 30;"
   />
   <div
-    class="circuit-7"
+    class="circuit-8"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_6"
-      class="circuit-6"
+      class="circuit-7"
       id="popover_7"
       role="menu"
     >
       <button
-        class="circuit-2"
+        class="circuit-3"
         data-focus-list="8"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1539,15 +1575,15 @@ exports[`Popover styles should render with closed styles 1`] = `
         Add
       </button>
       <hr
-        class="circuit-3"
+        class="circuit-4"
       />
       <button
-        class="circuit-5"
+        class="circuit-6"
         data-focus-list="8"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1569,7 +1605,7 @@ exports[`Popover styles should render with closed styles 1`] = `
 `;
 
 exports[`Popover styles should render with default styles 1`] = `
-.circuit-2 {
+.circuit-3 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -1594,43 +1630,46 @@ exports[`Popover styles should render with default styles 1`] = `
   line-height: 24px;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-2:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-3:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:active {
+.circuit-3:active {
   background-color: #E6E6E6;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1 {
+.circuit-2 {
   margin-right: 8px;
 }
 
+.circuit-0 {
+  display: inline-block;
+}
+
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     position: fixed;
-    z-index: 30;
     top: 0;
     bottom: 0;
     left: 0;
@@ -1645,17 +1684,17 @@ exports[`Popover styles should render with default styles 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-0 {
+  .circuit-1 {
     visibility: visible;
     opacity: 1;
   }
 }
 
-.circuit-7 {
+.circuit-8 {
   pointer-events: all;
 }
 
-.circuit-6 {
+.circuit-7 {
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
   padding: 8px 0px;
   border: 1px solid #E6E6E6;
@@ -1667,7 +1706,7 @@ exports[`Popover styles should render with default styles 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -1680,14 +1719,14 @@ exports[`Popover styles should render with default styles 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-7 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
   }
 }
 
-.circuit-3 {
+.circuit-4 {
   display: block;
   width: 100%;
   border: 0;
@@ -1698,7 +1737,7 @@ exports[`Popover styles should render with default styles 1`] = `
   width: calc(100% - 16px*2);
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
@@ -1723,30 +1762,30 @@ exports[`Popover styles should render with default styles 1`] = `
   line-height: 24px;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:active {
+.circuit-6:active {
   background-color: #E6E6E6;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -1754,7 +1793,9 @@ exports[`Popover styles should render with default styles 1`] = `
 
 <body>
   <div>
-    <div>
+    <div
+      class="circuit-0"
+    >
       <button
         aria-controls="popover_2"
         aria-expanded="true"
@@ -1766,25 +1807,26 @@ exports[`Popover styles should render with default styles 1`] = `
     </div>
   </div>
   <div
-    class="circuit-0"
+    class="circuit-1"
+    style="z-index: 30;"
   />
   <div
-    class="circuit-7"
+    class="circuit-8"
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_1"
-      class="circuit-6"
+      class="circuit-7"
       id="popover_2"
       role="menu"
     >
       <button
-        class="circuit-2"
+        class="circuit-3"
         data-focus-list="3"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1803,15 +1845,15 @@ exports[`Popover styles should render with default styles 1`] = `
         Add
       </button>
       <hr
-        class="circuit-3"
+        class="circuit-4"
       />
       <button
-        class="circuit-5"
+        class="circuit-6"
         data-focus-list="3"
         role="menuitem"
       >
         <svg
-          class="circuit-1"
+          class="circuit-2"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
