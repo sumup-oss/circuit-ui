@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 1.8.2
+
+### Patch Changes
+
+- [#1063](https://github.com/sumup-oss/circuit-ui/pull/1063) [`e48f5713`](https://github.com/sumup-oss/circuit-ui/commit/e48f57135a8c129049d2b614efa2ed936fa63e42) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the Plus icon's fill to inherit the currentColor.
+
 ## 1.8.1
 
 ### Patch Changes
