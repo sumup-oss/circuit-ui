@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.6
+
+### Patch Changes
+
+- [#1067](https://github.com/sumup-oss/circuit-ui/pull/1067) [`aa40cd8d`](https://github.com/sumup-oss/circuit-ui/commit/aa40cd8da9adf0ebda2c25d2892e2eb2c4d586a9) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the scrolling behaviour when the content overflows a Modal.
+
+* [#1065](https://github.com/sumup-oss/circuit-ui/pull/1065) [`8322bd64`](https://github.com/sumup-oss/circuit-ui/commit/8322bd647583de510ab12f3bba25b60233dbe8fd) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the stacking order of a Popover inside a Modal.
+
 ## 3.0.0-next.5
 
 ### Patch Changes
