@@ -128,6 +128,8 @@ const Icons = () => {
           placeholder="Search..."
           value={search}
           onChange={handleSearch}
+          onClear={() => setSearch('')}
+          clearLabel="Clear"
         />
         <Select
           label="Select icon sizeSelect icon size"

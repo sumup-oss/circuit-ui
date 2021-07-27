@@ -34,15 +34,19 @@ const baseArgs = {
   label: 'Search',
 };
 
-export const Base = (args: SearchInputProps) => <SearchInput {...args} />;
+export const Base = (args: SearchInputProps): JSX.Element => (
+  <SearchInput {...args} />
+);
 
 Base.args = baseArgs;
 
-export const Disabled = (args: SearchInputProps) => <SearchInput {...args} />;
+export const Disabled = (args: SearchInputProps): JSX.Element => (
+  <SearchInput {...args} />
+);
 
 Disabled.args = { ...baseArgs, disabled: true };
 
-export const Clearable = (args: SearchInputProps) => {
+export const Clearable = (args: SearchInputProps): JSX.Element => {
   const [value, setValue] = useState('');
 
   const handleChange = ({
@@ -61,6 +65,7 @@ export const Clearable = (args: SearchInputProps) => {
       value={value}
       onClear={handleClear}
       onChange={handleChange}
+      clearLabel="Clear"
     />
   );
 };
