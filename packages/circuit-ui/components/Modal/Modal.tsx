@@ -22,6 +22,7 @@ import { isFunction } from '../../util/type-check';
 import { ModalComponent, BaseModalProps } from '../ModalContext';
 import CloseButton from '../CloseButton';
 import { StackContext } from '../StackContext';
+import styled, { StyleProps } from '../../styles/styled';
 
 const TRANSITION_DURATION_MOBILE = 120;
 const TRANSITION_DURATION_DESKTOP = 240;
@@ -29,18 +30,6 @@ const TRANSITION_DURATION = Math.max(
   TRANSITION_DURATION_MOBILE,
   TRANSITION_DURATION_DESKTOP,
 );
-
-const closeButtonStyles = (theme: Theme) => css`
-  position: absolute;
-  top: ${theme.spacings.byte};
-  right: ${theme.spacings.byte};
-
-  ${theme.mq.kilo} {
-    top: ${theme.spacings.mega};
-    right: ${theme.spacings.mega};
-  }
-`;
-
 type PreventCloseProps =
   | {
       /**
@@ -80,6 +69,53 @@ export type ModalProps = BaseModalProps &
     className?: string;
   };
 
+const closeButtonStyles = (theme: Theme) => css`
+  position: absolute;
+  top: ${theme.spacings.byte};
+  right: ${theme.spacings.byte};
+
+  ${theme.mq.kilo} {
+    top: ${theme.spacings.mega};
+    right: ${theme.spacings.mega};
+  }
+`;
+
+type ContentProps = Pick<ModalProps, 'variant'>;
+
+const contentStyles = ({ theme }: StyleProps) => css`
+  overflow-y: scroll;
+
+  ${theme.mq.untilKilo} {
+    -webkit-overflow-scrolling: touch;
+    padding: ${theme.spacings.mega};
+    height: 100vh;
+    width: 100vw;
+  }
+
+  ${theme.mq.kilo} {
+    padding: ${theme.spacings.giga};
+    max-height: 90vh;
+    min-width: 480px;
+    max-width: 90vw;
+  }
+`;
+
+const contentVariantStyles = ({
+  variant,
+  theme,
+}: StyleProps & ContentProps) => {
+  if (variant === 'contextual') {
+    return css`
+      ${theme.mq.untilKilo} {
+        max-height: calc(100vh - ${theme.spacings.mega});
+      }
+    `;
+  }
+  return null;
+};
+
+const Content = styled.div<ContentProps>(contentStyles, contentVariantStyles);
+
 /**
  * The modal component displays self-contained tasks in a focused window that
  * overlays the page content.
@@ -105,42 +141,46 @@ export const Modal: ModalComponent<ModalProps> = ({
             position: fixed;
             outline: none;
             background-color: ${theme.colors.white};
+            overflow: hidden;
+
+            &::after {
+              position: fixed;
+              content: '';
+              display: block;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.66), rgba(255,255,255,1));
+            }
 
             ${theme.mq.untilKilo} {
               right: 0;
               bottom: 0;
               left: 0;
-              -webkit-overflow-scrolling: touch;
-              overflow-y: auto;
-              width: 100vw;
               transform: translateY(100%);
               transition: transform ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
-              padding: ${theme.spacings.mega};
+
+              &::after {
+                height: ${theme.spacings.mega};
+              }
             }
 
             ${theme.mq.kilo} {
               top: 50%;
               left: 50%;
-              padding: ${theme.spacings.giga};
               transform: translate(-50%, -50%);
-              max-height: 90vh;
-              min-width: 480px;
-              max-width: 90vw;
               opacity: 0;
               transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
               border-radius: ${theme.borderRadius.mega};
+
+              &::after {
+                height: ${theme.spacings.giga};
+              }
             }
           `,
-          variant === 'immersive' &&
-            cssString`
-              ${theme.mq.untilKilo} {
-                height: 100vh;
-              }
-            `,
           variant === 'contextual' &&
             cssString`
               ${theme.mq.untilKilo} {
-                max-height: calc(100vh - ${theme.spacings.mega});
                 border-top-left-radius: ${theme.borderRadius.mega};
                 border-top-right-radius: ${theme.borderRadius.mega};
               }
@@ -212,15 +252,17 @@ export const Modal: ModalComponent<ModalProps> = ({
       return (
         <StackContext.Provider value={theme.zIndex.modal}>
           <ReactModal {...reactModalProps}>
-            {!preventClose && closeButtonLabel && (
-              <CloseButton
-                onClick={onClose}
-                label={closeButtonLabel}
-                css={closeButtonStyles}
-              />
-            )}
+            <Content variant={variant}>
+              {!preventClose && closeButtonLabel && (
+                <CloseButton
+                  onClick={onClose}
+                  label={closeButtonLabel}
+                  css={closeButtonStyles}
+                />
+              )}
 
-            {isFunction(children) ? children({ onClose }) : children}
+              {isFunction(children) ? children({ onClose }) : children}
+            </Content>
           </ReactModal>
         </StackContext.Provider>
       );
