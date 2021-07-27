@@ -1,5 +1,17 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.5
+
+### Patch Changes
+
+- [#1059](https://github.com/sumup-oss/circuit-ui/pull/1059) [`a76a5954`](https://github.com/sumup-oss/circuit-ui/commit/a76a5954c61b27dd6a4fb61337eef8bcea28036e) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a layout bug when a Popover was rendered inside a Modal.
+
+* [#1061](https://github.com/sumup-oss/circuit-ui/pull/1061) [`37a4950f`](https://github.com/sumup-oss/circuit-ui/commit/37a4950f569b41a31f17a8633808c22ab64b45ed) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the Modal's min-height to support modals with little content.
+
+- [#1062](https://github.com/sumup-oss/circuit-ui/pull/1062) [`6a6e1f06`](https://github.com/sumup-oss/circuit-ui/commit/6a6e1f06ffe635cf8eafa04b2621fa99f7bcfd2a) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the JSX runtime import source for Circuit UI package.
+
+* [#1055](https://github.com/sumup-oss/circuit-ui/pull/1055) [`a4a514fd`](https://github.com/sumup-oss/circuit-ui/commit/a4a514fd41e70095ed4722faf6a41cfcb80fa828) Thanks [@connor-baer](https://github.com/connor-baer)! - Prevented pointer events when the Popover is closed. Previously, it would obstruct the content behind it.
+
 ## 3.0.0-next.4
 
 ### Patch Changes
