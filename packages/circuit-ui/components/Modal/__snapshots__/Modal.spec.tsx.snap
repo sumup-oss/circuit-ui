@@ -1,56 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Modal should match the snapshot 1`] = `
-.circuit-2 {
+.circuit-3 {
   position: fixed;
   outline: none;
   background-color: #FFF;
+  overflow: hidden;
+}
+
+.circuit-3::after {
+  position: fixed;
+  content: '';
+  display: block;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0.66),rgba(255,255,255,1));
 }
 
 @media (max-width:479px) {
-  .circuit-2 {
+  .circuit-3 {
     right: 0;
     bottom: 0;
     left: 0;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-    width: 100vw;
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
     -webkit-transition: -webkit-transform 120ms ease-in-out;
     -webkit-transition: transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
-    padding: 16px;
+  }
+
+  .circuit-3::after {
+    height: 16px;
   }
 }
 
 @media (min-width:480px) {
-  .circuit-2 {
+  .circuit-3 {
     top: 50%;
     left: 50%;
-    padding: 24px;
     -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-    max-height: 90vh;
-    min-width: 480px;
-    max-width: 90vw;
     opacity: 0;
     -webkit-transition: opacity 240ms ease-in-out;
     transition: opacity 240ms ease-in-out;
     border-radius: 16px;
   }
-}
 
-@media (max-width:479px) {
-  .circuit-2 {
-    height: 100vh;
+  .circuit-3::after {
+    height: 24px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-3 {
+  .circuit-4 {
     -webkit-transform: translateY(0) !important;
     -ms-transform: translateY(0) !important;
     transform: translateY(0) !important;
@@ -58,12 +63,12 @@ exports[`Modal should match the snapshot 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-3 {
+  .circuit-4 {
     opacity: 1 !important;
   }
 }
 
-.circuit-4 {
+.circuit-5 {
   position: fixed;
   top: 0;
   left: 0;
@@ -77,7 +82,7 @@ exports[`Modal should match the snapshot 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-4 {
+  .circuit-5 {
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     -webkit-transition: opacity 240ms ease-in-out;
@@ -85,8 +90,30 @@ exports[`Modal should match the snapshot 1`] = `
   }
 }
 
-.circuit-5 {
+.circuit-6 {
   opacity: 1;
+}
+
+.circuit-2 {
+  overflow-y: scroll;
+}
+
+@media (max-width:479px) {
+  .circuit-2 {
+    -webkit-overflow-scrolling: touch;
+    padding: 16px;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    padding: 24px;
+    max-height: 90vh;
+    min-width: 480px;
+    max-width: 90vw;
+  }
 }
 
 .circuit-1 {
@@ -196,45 +223,49 @@ exports[`Modal should match the snapshot 1`] = `
     class="ReactModalPortal"
   >
     <div
-      class="circuit-4 circuit-5"
+      class="circuit-5 circuit-6"
     >
       <div
         aria-modal="true"
-        class="circuit-2 circuit-3"
+        class="circuit-3 circuit-4"
         role="dialog"
         tabindex="-1"
       >
-        <button
-          class="circuit-1"
-          title="Close modal"
-          type="button"
+        <div
+          class="circuit-2"
         >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            class="circuit-1"
+            title="Close modal"
+            type="button"
           >
-            <path
-              d="M3 3l10 10m0-10L3 13"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-width="2"
-            />
-          </svg>
-          <span
-            class="circuit-0"
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 3l10 10m0-10L3 13"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-width="2"
+              />
+            </svg>
+            <span
+              class="circuit-0"
+            >
+              Close modal
+            </span>
+          </button>
+          <p
+            data-testid="children"
           >
-            Close modal
-          </span>
-        </button>
-        <p
-          data-testid="children"
-        >
-          Hello world!
-        </p>
+            Hello world!
+          </p>
+        </div>
       </div>
     </div>
   </div>
