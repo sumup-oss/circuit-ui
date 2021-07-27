@@ -88,7 +88,6 @@ const contentStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilKilo} {
     -webkit-overflow-scrolling: touch;
     padding: ${theme.spacings.mega};
-    height: 100vh;
     width: 100vw;
   }
 
@@ -111,7 +110,11 @@ const contentVariantStyles = ({
       }
     `;
   }
-  return null;
+  return css`
+    ${theme.mq.untilKilo} {
+      height: 100vh;
+    }
+  `;
 };
 
 const Content = styled.div<ContentProps>(contentStyles, contentVariantStyles);
