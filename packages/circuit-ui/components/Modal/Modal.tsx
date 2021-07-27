@@ -122,7 +122,6 @@ export const Modal: ModalComponent<ModalProps> = ({
               left: 50%;
               padding: ${theme.spacings.giga};
               transform: translate(-50%, -50%);
-              min-height: 320px;
               max-height: 90vh;
               min-width: 480px;
               max-width: 90vw;
