@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.7
+
+### Patch Changes
+
+- [#1068](https://github.com/sumup-oss/circuit-ui/pull/1068) [`3f06e091`](https://github.com/sumup-oss/circuit-ui/commit/3f06e09184706d7ee6646cc879b5ffc03d4560cd) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the contextual modal heights to match content height instead of 90vh.
+
 ## 3.0.0-next.6
 
 ### Patch Changes
