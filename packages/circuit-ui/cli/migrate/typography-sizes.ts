@@ -93,24 +93,28 @@ function warnFactory(
   components.forEach((component) => {
     const jsxElement = root.findJSXElements(component);
     ['Literal', 'StringLiteral'].forEach((type) => {
-      const element = jsxElement.find(j.JSXAttribute, {
-        name: {
-          type: 'JSXIdentifier',
-          name: 'size',
-        },
-        value: {
-          type,
-          value: propName,
-        },
-      });
-      if (element) {
-        console.error(
-          [
-            `Cannot migrate the ${componentName} "${propName}" size automatically,`,
-            `please refer to the migration guide to migrate manually.\n  in ${filePath}`,
-          ].join(' '),
-        );
-      }
+      jsxElement
+        .find(j.JSXAttribute, {
+          name: {
+            type: 'JSXIdentifier',
+            name: 'size',
+          },
+          value: {
+            type,
+            value: propName,
+          },
+        })
+        .forEach((nodePath) => {
+          const hasValue = Boolean(nodePath.value.value);
+          if (hasValue) {
+            console.error(
+              [
+                `Cannot migrate the ${componentName} "${propName}" size automatically,`,
+                `please refer to the migration guide to migrate manually.\n in ${filePath}`,
+              ].join(' '),
+            );
+          }
+        });
     });
   });
 }
