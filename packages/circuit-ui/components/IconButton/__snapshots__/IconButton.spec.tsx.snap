@@ -61,7 +61,9 @@ exports[`IconButton should render with the default styles 1`] = `
   border-color: #666;
 }
 
-.circuit-1:active {
+.circuit-1:active,
+.circuit-1[aria-expanded='true'],
+.circuit-1[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }

@@ -60,7 +60,9 @@ exports[`Button styles should render a button with icon 1`] = `
   border-color: #666;
 }
 
-.circuit-1:active {
+.circuit-1:active,
+.circuit-1[aria-expanded='true'],
+.circuit-1[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -157,7 +159,9 @@ exports[`Button styles should render a disabled button 1`] = `
   border-color: #666;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -230,7 +234,9 @@ exports[`Button styles should render a giga button 1`] = `
   border-color: #666;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -302,7 +308,9 @@ exports[`Button styles should render a kilo button 1`] = `
   border-color: #666;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -374,7 +382,9 @@ exports[`Button styles should render a primary button by default 1`] = `
   border-color: #666;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -446,7 +456,9 @@ exports[`Button styles should render a secondary button 1`] = `
   border-color: #666;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -519,7 +531,9 @@ exports[`Button styles should render a stretched button 1`] = `
   border-color: #666;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -592,7 +606,9 @@ exports[`Button styles should render a tertiary button 1`] = `
   color: #234BC3;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   color: #1A368E;
 }
 

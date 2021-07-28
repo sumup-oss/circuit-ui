@@ -60,7 +60,9 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
   border-color: #666;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -124,7 +126,9 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
   border-color: #234BC3;
 }
 
-.circuit-1:active {
+.circuit-1:active,
+.circuit-1[aria-expanded='true'],
+.circuit-1[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
@@ -253,7 +257,9 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   border-color: #666;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -317,7 +323,9 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   border-color: #234BC3;
 }
 
-.circuit-1:active {
+.circuit-1:active,
+.circuit-1[aria-expanded='true'],
+.circuit-1[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
@@ -494,7 +502,9 @@ exports[`ButtonGroup should render with default styles 1`] = `
   border-color: #666;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -558,7 +568,9 @@ exports[`ButtonGroup should render with default styles 1`] = `
   border-color: #234BC3;
 }
 
-.circuit-1:active {
+.circuit-1:active,
+.circuit-1[aria-expanded='true'],
+.circuit-1[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }

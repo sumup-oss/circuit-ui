@@ -62,7 +62,9 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   border-color: #666;
 }
 
-.circuit-3:active {
+.circuit-3:active,
+.circuit-3[aria-expanded='true'],
+.circuit-3[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -243,7 +245,9 @@ exports[`Hamburger should render with default styles 1`] = `
   border-color: #666;
 }
 
-.circuit-3:active {
+.circuit-3:active,
+.circuit-3[aria-expanded='true'],
+.circuit-3[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }

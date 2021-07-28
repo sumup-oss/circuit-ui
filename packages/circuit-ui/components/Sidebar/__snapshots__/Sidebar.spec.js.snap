@@ -155,7 +155,9 @@ HTMLCollection [
   border-color: #666;
 }
 
-.circuit-2:active {
+.circuit-2:active,
+.circuit-2[aria-expanded='true'],
+.circuit-2[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -322,7 +324,9 @@ HTMLCollection [
   border-color: #666;
 }
 
-.circuit-2:active {
+.circuit-2:active,
+.circuit-2[aria-expanded='true'],
+.circuit-2[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
