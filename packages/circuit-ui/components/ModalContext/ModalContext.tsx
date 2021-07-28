@@ -97,6 +97,9 @@ export function ModalProvider<TProps extends BaseModalProps>({
     (id: StackItem['id']) => {
       const modal = modals.find((m) => m.id === id);
       if (!modal) {
+        // FIXME: `modals` is empty when `removeModal` is called from the
+        // `useModal` hook. We don't yet know why. This is a temporary fix.
+        dispatch({ type: 'remove', id });
         return;
       }
       if (modal.tracking) {

@@ -83,7 +83,7 @@ const closeButtonStyles = (theme: Theme) => css`
 type ContentProps = Pick<ModalProps, 'variant'>;
 
 const contentStyles = ({ theme }: StyleProps) => css`
-  overflow-y: scroll;
+  overflow-y: auto;
 
   ${theme.mq.untilKilo} {
     -webkit-overflow-scrolling: touch;
@@ -108,13 +108,32 @@ const contentVariantStyles = ({
       ${theme.mq.untilKilo} {
         max-height: calc(100vh - ${theme.spacings.mega});
       }
+
+      /* iOS viewport bug fix */
+      /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+      @supports (max-height: -webkit-fill-available) {
+        ${theme.mq.untilKilo} {
+          max-height: 80vh;
+        }
+      }
     `;
   }
-  return css`
-    ${theme.mq.untilKilo} {
-      height: 100vh;
-    }
-  `;
+  if (variant === 'immersive') {
+    return css`
+      ${theme.mq.untilKilo} {
+        height: 100vh;
+      }
+
+      /* iOS viewport bug fix */
+      /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+      @supports (max-height: -webkit-fill-available) {
+        ${theme.mq.untilKilo} {
+          height: 80vh;
+        }
+      }
+    `;
+  }
+  return null;
 };
 
 const Content = styled.div<ContentProps>(contentStyles, contentVariantStyles);
@@ -127,7 +146,7 @@ const Content = styled.div<ContentProps>(contentStyles, contentVariantStyles);
 export const Modal: ModalComponent<ModalProps> = ({
   children,
   onClose,
-  variant,
+  variant = 'contextual',
   preventClose = false,
   closeButtonLabel,
   className,
@@ -153,7 +172,11 @@ export const Modal: ModalComponent<ModalProps> = ({
               right: 0;
               bottom: 0;
               left: 0;
-              background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.66), rgba(255,255,255,1));
+              background: linear-gradient(
+                rgba(255,255,255,0),
+                rgba(255,255,255,0.66),
+                rgba(255,255,255,1)
+              );
             }
 
             ${theme.mq.untilKilo} {
@@ -178,6 +201,8 @@ export const Modal: ModalComponent<ModalProps> = ({
 
               &::after {
                 height: ${theme.spacings.giga};
+                border-bottom-left-radius: ${theme.borderRadius.mega};
+                border-bottom-right-radius: ${theme.borderRadius.mega};
               }
             }
           `,
@@ -186,6 +211,17 @@ export const Modal: ModalComponent<ModalProps> = ({
               ${theme.mq.untilKilo} {
                 border-top-left-radius: ${theme.borderRadius.mega};
                 border-top-right-radius: ${theme.borderRadius.mega};
+              }
+            `,
+          variant === 'immersive' &&
+            cssString`
+              /* iOS viewport bug fix */
+              /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+              @supports (max-height: -webkit-fill-available) {
+                ${theme.mq.untilKilo} {
+                  border-top-left-radius: ${theme.borderRadius.mega};
+                  border-top-right-radius: ${theme.borderRadius.mega};
+                }
               }
             `,
           className,
@@ -229,8 +265,6 @@ export const Modal: ModalComponent<ModalProps> = ({
           z-index: ${theme.zIndex.modal};
 
           ${theme.mq.kilo} {
-            -webkit-overflow-scrolling: touch;
-            overflow-y: auto;
             transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
           }
         `,

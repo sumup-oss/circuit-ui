@@ -15,7 +15,7 @@ exports[`Modal should match the snapshot 1`] = `
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0.66),rgba(255,255,255,1));
+  background: linear-gradient( rgba(255,255,255,0), rgba(255,255,255,0.66), rgba(255,255,255,1) );
 }
 
 @media (max-width:479px) {
@@ -51,7 +51,18 @@ exports[`Modal should match the snapshot 1`] = `
 
   .circuit-3::after {
     height: 24px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
+}
+
+@supports (max-height:-webkit-fill-available) {
+@media (max-width:479px) {
+    .circuit-3 {
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+}
 }
 
 @media (max-width:479px) {
@@ -83,8 +94,6 @@ exports[`Modal should match the snapshot 1`] = `
 
 @media (min-width:480px) {
   .circuit-5 {
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
     -webkit-transition: opacity 240ms ease-in-out;
     transition: opacity 240ms ease-in-out;
   }
@@ -95,7 +104,7 @@ exports[`Modal should match the snapshot 1`] = `
 }
 
 .circuit-2 {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 @media (max-width:479px) {
@@ -119,6 +128,14 @@ exports[`Modal should match the snapshot 1`] = `
   .circuit-2 {
     height: 100vh;
   }
+}
+
+@supports (max-height:-webkit-fill-available) {
+@media (max-width:479px) {
+    .circuit-2 {
+      height: 80vh;
+    }
+}
 }
 
 .circuit-1 {
