@@ -172,7 +172,11 @@ export const Modal: ModalComponent<ModalProps> = ({
               right: 0;
               bottom: 0;
               left: 0;
-              background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.66), rgba(255,255,255,1));
+              background: linear-gradient(
+                rgba(255,255,255,0),
+                rgba(255,255,255,0.66),
+                rgba(255,255,255,1)
+              );
             }
 
             ${theme.mq.untilKilo} {
@@ -197,6 +201,8 @@ export const Modal: ModalComponent<ModalProps> = ({
 
               &::after {
                 height: ${theme.spacings.giga};
+                border-bottom-left-radius: ${theme.borderRadius.mega};
+                border-bottom-right-radius: ${theme.borderRadius.mega};
               }
             }
           `,
