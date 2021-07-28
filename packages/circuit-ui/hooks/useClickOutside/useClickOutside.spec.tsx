@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
-import { render, act, userEvent } from '../../util/test-utils';
+import { render, userEvent } from '../../util/test-utils';
 
 import { useClickOutside } from './useClickOutside';
 
@@ -31,10 +31,7 @@ describe('useClickOutside', () => {
   it('should call the callback when clicking outside the element', () => {
     const onClickOutside = jest.fn();
     render(<MockComponent onClickOutside={onClickOutside} />);
-
-    act(() => {
-      userEvent.click(document.body);
-    });
+    userEvent.click(document.body);
 
     expect(onClickOutside).toHaveBeenCalledTimes(1);
   });
@@ -45,9 +42,33 @@ describe('useClickOutside', () => {
       <MockComponent onClickOutside={onClickOutside} />,
     );
 
-    act(() => {
-      userEvent.click(getByRole('button'));
-    });
+    userEvent.click(getByRole('button'));
+
+    expect(onClickOutside).not.toHaveBeenCalled();
+  });
+
+  it('should not call the callback when clicking inside the element and the target element is removed', () => {
+    function MockRemoveComponent({ onClickOutside, isActive = true }) {
+      const ref = useRef<HTMLDivElement>(null);
+      const [open, setOpen] = useState(true);
+
+      useClickOutside(ref, onClickOutside, isActive);
+
+      return (
+        <div ref={ref}>
+          {open && (
+            <button onClick={() => setOpen(false)}>Click outside</button>
+          )}
+        </div>
+      );
+    }
+
+    const onClickOutside = jest.fn();
+    const { getByRole } = render(
+      <MockRemoveComponent onClickOutside={onClickOutside} />,
+    );
+
+    userEvent.click(getByRole('button'));
 
     expect(onClickOutside).not.toHaveBeenCalled();
   });
@@ -56,9 +77,7 @@ describe('useClickOutside', () => {
     const onClickOutside = jest.fn();
     render(<MockComponent onClickOutside={onClickOutside} isActive={false} />);
 
-    act(() => {
-      userEvent.click(document.body);
-    });
+    userEvent.click(document.body);
 
     expect(onClickOutside).not.toHaveBeenCalled();
   });
