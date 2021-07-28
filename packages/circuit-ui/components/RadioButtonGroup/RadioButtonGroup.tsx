@@ -17,7 +17,7 @@ import { HTMLProps, Ref, forwardRef } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { typography } from '../../styles/style-mixins';
+import { hideVisually, typography } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
 import ValidationHint from '../ValidationHint';
@@ -61,14 +61,27 @@ export interface RadioButtonGroupProps
    * Triggers valid message below the radio buttons.
    */
   showValid?: boolean;
+  /**
+   * Visually hide the label. This should only be used in rare cases and only if the
+   * purpose of the field can be inferred from other context.
+   */
+  hideLabel?: boolean;
 }
 
+type LegendProps = Pick<RadioButtonGroupProps, 'hideLabel'>;
+
 const legendStyles = ({ theme }: StyleProps) => css`
-  label: radio-button-group__legend;
   margin-bottom: ${theme.spacings.bit};
 `;
 
-const Legend = styled('legend')(legendStyles, typography('two'));
+const legendHiddenStyles = ({ hideLabel }: LegendProps) =>
+  hideLabel && hideVisually();
+
+const Legend = styled('legend')<LegendProps>(
+  typography('two'),
+  legendStyles,
+  legendHiddenStyles,
+);
 
 /**
  * A group of RadioButtons.
@@ -86,6 +99,7 @@ export const RadioButtonGroup = forwardRef(
       showValid,
       disabled,
       hasWarning,
+      hideLabel,
       ...props
     }: RadioButtonGroupProps,
     ref: RadioButtonGroupProps['ref'],
@@ -93,7 +107,7 @@ export const RadioButtonGroup = forwardRef(
     const name = customName || uniqueId('radio-button-group_');
     return (
       <fieldset name={name} ref={ref} {...props}>
-        {label && <Legend>{label}</Legend>}
+        {label && <Legend hideLabel={hideLabel}>{label}</Legend>}
         {options &&
           options.map(({ children, value, className, style, ...rest }) => (
             <div
