@@ -65,7 +65,6 @@ export const Multiple = (args: SelectorGroupProps) => {
       {...args}
       value={value}
       onChange={handleChange}
-      orientation="horizontal"
       stretch={false}
     />
   );

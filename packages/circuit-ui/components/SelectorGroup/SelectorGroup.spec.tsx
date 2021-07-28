@@ -72,12 +72,12 @@ describe('SelectorGroup', () => {
   });
 
   it('should accept a working ref', () => {
-    const tref = createRef<HTMLDivElement>();
+    const tref = createRef<HTMLFieldSetElement>();
     const { container } = render(
       <SelectorGroup {...defaultProps} ref={tref} />,
     );
-    const div = container.querySelector('div');
-    expect(tref.current).toBe(div);
+    const fieldset = container.querySelector('fieldset');
+    expect(tref.current).toBe(fieldset);
   });
 
   it('should render with horizontal layout by default', () => {
