@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.8
+
+### Patch Changes
+
+- [#1070](https://github.com/sumup-oss/circuit-ui/pull/1070) [`94fee802`](https://github.com/sumup-oss/circuit-ui/commit/94fee802c607005501b87148a93703c15530cf2f) Thanks [@connor-baer](https://github.com/connor-baer)! - Implemented a temporary fix for the `removeModal` method.
+
+* [#1070](https://github.com/sumup-oss/circuit-ui/pull/1070) [`94fee802`](https://github.com/sumup-oss/circuit-ui/commit/94fee802c607005501b87148a93703c15530cf2f) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the overflow behavior of Modals, including an iOS-specific issue.
+
 ## 3.0.0-next.7
 
 ### Patch Changes
