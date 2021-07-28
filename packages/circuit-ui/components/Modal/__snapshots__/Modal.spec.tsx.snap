@@ -83,8 +83,6 @@ exports[`Modal should match the snapshot 1`] = `
 
 @media (min-width:480px) {
   .circuit-5 {
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
     -webkit-transition: opacity 240ms ease-in-out;
     transition: opacity 240ms ease-in-out;
   }
@@ -95,7 +93,7 @@ exports[`Modal should match the snapshot 1`] = `
 }
 
 .circuit-2 {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 @media (max-width:479px) {
@@ -118,6 +116,7 @@ exports[`Modal should match the snapshot 1`] = `
 @media (max-width:479px) {
   .circuit-2 {
     height: 100vh;
+    height: -webkit-fill-available;
   }
 }
 

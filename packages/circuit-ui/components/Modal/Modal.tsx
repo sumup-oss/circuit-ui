@@ -83,7 +83,7 @@ const closeButtonStyles = (theme: Theme) => css`
 type ContentProps = Pick<ModalProps, 'variant'>;
 
 const contentStyles = ({ theme }: StyleProps) => css`
-  overflow-y: scroll;
+  overflow-y: auto;
 
   ${theme.mq.untilKilo} {
     -webkit-overflow-scrolling: touch;
@@ -108,13 +108,32 @@ const contentVariantStyles = ({
       ${theme.mq.untilKilo} {
         max-height: calc(100vh - ${theme.spacings.mega});
       }
+
+      /* iOS viewport bug fix */
+      /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+      @supports (max-height: -webkit-fill-available) {
+        ${theme.mq.untilKilo} {
+          max-height: 80vh;
+        }
+      }
     `;
   }
-  return css`
-    ${theme.mq.untilKilo} {
-      height: 100vh;
-    }
-  `;
+  if (variant === 'immersive') {
+    return css`
+      ${theme.mq.untilKilo} {
+        height: 100vh;
+      }
+
+      /* iOS viewport bug fix */
+      /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+      @supports (max-height: -webkit-fill-available) {
+        ${theme.mq.untilKilo} {
+          height: 80vh;
+        }
+      }
+    `;
+  }
+  return null;
 };
 
 const Content = styled.div<ContentProps>(contentStyles, contentVariantStyles);
@@ -127,7 +146,7 @@ const Content = styled.div<ContentProps>(contentStyles, contentVariantStyles);
 export const Modal: ModalComponent<ModalProps> = ({
   children,
   onClose,
-  variant,
+  variant = 'contextual',
   preventClose = false,
   closeButtonLabel,
   className,
@@ -188,6 +207,17 @@ export const Modal: ModalComponent<ModalProps> = ({
                 border-top-right-radius: ${theme.borderRadius.mega};
               }
             `,
+          variant === 'immersive' &&
+            cssString`
+              /* iOS viewport bug fix */
+              /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+              @supports (max-height: -webkit-fill-available) {
+                ${theme.mq.untilKilo} {
+                  border-top-left-radius: ${theme.borderRadius.mega};
+                  border-top-right-radius: ${theme.borderRadius.mega};
+                }
+              }
+            `,
           className,
         ),
         // The !important below is necessary because of some weird
@@ -229,8 +259,6 @@ export const Modal: ModalComponent<ModalProps> = ({
           z-index: ${theme.zIndex.modal};
 
           ${theme.mq.kilo} {
-            -webkit-overflow-scrolling: touch;
-            overflow-y: auto;
             transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
           }
         `,
