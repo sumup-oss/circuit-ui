@@ -167,7 +167,9 @@ const primaryStyles = ({
       border-color: ${theme.colors[colors.hover]};
     }
 
-    &:active {
+    &:active,
+    &[aria-expanded='true'],
+    &[aria-pressed='true'] {
       background-color: ${theme.colors[colors.active]};
       border-color: ${theme.colors[colors.active]};
     }
@@ -198,7 +200,9 @@ const secondaryStyles = ({
       border-color: ${theme.colors[colors.hover]};
     }
 
-    &:active {
+    &:active,
+    &[aria-expanded='true'],
+    &[aria-pressed='true'] {
       background-color: ${theme.colors.n200};
       border-color: ${theme.colors[colors.active]};
     }
@@ -228,7 +232,9 @@ const tertiaryStyles = ({
       color: ${theme.colors[colors.hover]};
     }
 
-    &:active {
+    &:active,
+    &[aria-expanded='true'],
+    &[aria-pressed='true'] {
       color: ${theme.colors[colors.active]};
     }
   `;

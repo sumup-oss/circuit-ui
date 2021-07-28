@@ -83,7 +83,9 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   color: #234BC3;
 }
 
-.circuit-1:active {
+.circuit-1:active,
+.circuit-1[aria-expanded='true'],
+.circuit-1[aria-pressed='true'] {
   color: #1A368E;
 }
 
@@ -174,7 +176,9 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   border-color: #234BC3;
 }
 
-.circuit-2:active {
+.circuit-2:active,
+.circuit-2[aria-expanded='true'],
+.circuit-2[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
@@ -246,7 +250,9 @@ li:last-child .circuit-2 {
   color: #234BC3;
 }
 
-.circuit-3:active {
+.circuit-3:active,
+.circuit-3[aria-expanded='true'],
+.circuit-3[aria-pressed='true'] {
   color: #1A368E;
 }
 
@@ -319,7 +325,9 @@ li:last-child .circuit-3 {
   color: #234BC3;
 }
 
-.circuit-9:active {
+.circuit-9:active,
+.circuit-9[aria-expanded='true'],
+.circuit-9[aria-pressed='true'] {
   color: #1A368E;
 }
 
@@ -522,7 +530,9 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   color: #234BC3;
 }
 
-.circuit-1:active {
+.circuit-1:active,
+.circuit-1[aria-expanded='true'],
+.circuit-1[aria-pressed='true'] {
   color: #1A368E;
 }
 
@@ -604,7 +614,9 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   color: #234BC3;
 }
 
-.circuit-10:active {
+.circuit-10:active,
+.circuit-10[aria-expanded='true'],
+.circuit-10[aria-pressed='true'] {
   color: #1A368E;
 }
 

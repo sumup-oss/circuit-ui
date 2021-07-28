@@ -367,7 +367,9 @@ exports[`Carousel styles should render with children as a function 1`] = `
   border-color: #666;
 }
 
-.circuit-44:active {
+.circuit-44:active,
+.circuit-44[aria-expanded='true'],
+.circuit-44[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -946,7 +948,9 @@ exports[`Carousel styles should render with children as a node 1`] = `
   border-color: #666;
 }
 
-.circuit-44:active {
+.circuit-44:active,
+.circuit-44[aria-expanded='true'],
+.circuit-44[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -1483,7 +1487,9 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   border-color: #666;
 }
 
-.circuit-44:active {
+.circuit-44:active,
+.circuit-44[aria-expanded='true'],
+.circuit-44[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -2077,7 +2083,9 @@ exports[`Carousel styles should render with default styles 1`] = `
   border-color: #666;
 }
 
-.circuit-44:active {
+.circuit-44:active,
+.circuit-44[aria-expanded='true'],
+.circuit-44[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }

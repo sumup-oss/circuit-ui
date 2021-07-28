@@ -229,7 +229,9 @@ exports[`ImageInput styles should render a custom component 1`] = `
   border-color: #B22426;
 }
 
-.circuit-4:active {
+.circuit-4:active,
+.circuit-4[aria-expanded='true'],
+.circuit-4[aria-pressed='true'] {
   background-color: #941618;
   border-color: #941618;
 }
@@ -539,7 +541,9 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   border-color: #B22426;
 }
 
-.circuit-5:active {
+.circuit-5:active,
+.circuit-5[aria-expanded='true'],
+.circuit-5[aria-pressed='true'] {
   background-color: #941618;
   border-color: #941618;
 }
@@ -812,7 +816,9 @@ exports[`ImageInput styles should render with default styles 1`] = `
   border-color: #234BC3;
 }
 
-.circuit-5:active {
+.circuit-5:active,
+.circuit-5[aria-expanded='true'],
+.circuit-5[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
@@ -1055,7 +1061,9 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   border-color: #234BC3;
 }
 
-.circuit-5:active {
+.circuit-5:active,
+.circuit-5[aria-expanded='true'],
+.circuit-5[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }

@@ -75,7 +75,9 @@ exports[`PageList styles should render with default styles 1`] = `
   border-color: #234BC3;
 }
 
-.circuit-0:active {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
@@ -147,7 +149,9 @@ li:last-child .circuit-0 {
   color: #234BC3;
 }
 
-.circuit-1:active {
+.circuit-1:active,
+.circuit-1[aria-expanded='true'],
+.circuit-1[aria-pressed='true'] {
   color: #1A368E;
 }
 
