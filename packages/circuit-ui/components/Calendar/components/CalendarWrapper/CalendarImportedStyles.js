@@ -15,7 +15,7 @@
 
 import { css } from '@emotion/core';
 
-const CalendarInheritStyles = () => css`
+const calendarInheritStyles = () => css`
   .PresetDateRangePicker_panel {
     padding: 0 22px 11px;
   }
@@ -905,4 +905,4 @@ const CalendarInheritStyles = () => css`
   }
 `;
 
-export default CalendarInheritStyles;
+export default calendarInheritStyles;
