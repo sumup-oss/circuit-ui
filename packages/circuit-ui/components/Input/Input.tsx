@@ -324,6 +324,16 @@ export const Input = forwardRef(
     }: InputProps,
     ref: InputProps['ref'],
   ): ReturnType => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      throw new Error(
+        'The Input component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` to hide the label visually.',
+      );
+    }
+
     const id = customId || uniqueId('input_');
 
     const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
