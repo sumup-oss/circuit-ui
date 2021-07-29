@@ -14,7 +14,6 @@
  */
 
 import { css, Global } from '@emotion/core';
-import { Fragment } from 'react';
 
 import {
   typography,
@@ -245,7 +244,7 @@ const withPortal = (theme) => css`
  * Describe your component here.
  */
 const CalendarWrapper = ({ children }) => (
-  <Fragment>
+  <div>
     <Global
       styles={cx(
         calendarInheritStyles,
@@ -261,7 +260,7 @@ const CalendarWrapper = ({ children }) => (
       )}
     />
     {children}
-  </Fragment>
+  </div>
 );
 
 /**
