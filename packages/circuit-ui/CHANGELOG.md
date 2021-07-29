@@ -1,5 +1,25 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.9
+
+### Major Changes
+
+- [#1073](https://github.com/sumup-oss/circuit-ui/pull/1073) [`5eaa9520`](https://github.com/sumup-oss/circuit-ui/commit/5eaa9520acde4345dda01383ba28bde540c2cf40) Thanks [@connor-baer](https://github.com/connor-baer)! - Made the label of the SelectorGroup visible by default. It can be hidden with the `hideLabel` prop, but this should only be done in rare cases and only if the purpose of the field can be inferred from context.
+
+* [#1077](https://github.com/sumup-oss/circuit-ui/pull/1077) [`4166e2ea`](https://github.com/sumup-oss/circuit-ui/commit/4166e2ea1bacadfba8bb0a41648c4692031684ee) Thanks [@connor-baer](https://github.com/connor-baer)! - Aligned the Calendar styles with other input components and injected the styles as global styles. Previously, they were scoped to a parent classname which prevented the use of the `withPortal` prop.
+
+### Minor Changes
+
+- [#1074](https://github.com/sumup-oss/circuit-ui/pull/1074) [`1869c218`](https://github.com/sumup-oss/circuit-ui/commit/1869c21810c10182e6ace038e096c0e1d68a489c) Thanks [@connor-baer](https://github.com/connor-baer)! - Persisted the active state of the Button when it is pressed or an associated menu is expanded.
+
+* [#1073](https://github.com/sumup-oss/circuit-ui/pull/1073) [`5eaa9520`](https://github.com/sumup-oss/circuit-ui/commit/5eaa9520acde4345dda01383ba28bde540c2cf40) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a `hideLabel` prop to the RadioButtonGroup to visually hide the label. This should only be used in rare cases and only if the purpose of the field can be inferred from context.
+
+### Patch Changes
+
+- [#1077](https://github.com/sumup-oss/circuit-ui/pull/1077) [`4166e2ea`](https://github.com/sumup-oss/circuit-ui/commit/4166e2ea1bacadfba8bb0a41648c4692031684ee) Thanks [@connor-baer](https://github.com/connor-baer)! - Allowed content to overflow the Modal.
+
+* [#1072](https://github.com/sumup-oss/circuit-ui/pull/1072) [`35a6048c`](https://github.com/sumup-oss/circuit-ui/commit/35a6048cb16c29deb22270ded6769d020b1be346) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `useClickOutside` hook when the clicked element is inside the container and removed from the DOM immediately after the click.
+
 ## 3.0.0-next.8
 
 ### Patch Changes
