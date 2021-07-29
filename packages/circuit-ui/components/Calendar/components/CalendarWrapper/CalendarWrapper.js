@@ -13,24 +13,18 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-import { withTheme } from 'emotion-theming';
+import { css, Global } from '@emotion/core';
 
 import {
   typography,
-  shadowTriple,
   focusVisible,
   disableVisually,
+  cx,
 } from '../../../../styles/style-mixins';
 
-import CalendarInheritStyles from './CalendarImportedStyles';
+import calendarInheritStyles from './CalendarImportedStyles';
 
-const baseStyles = (/* { theme } */) => css`
-  label: calendar;
-`;
-
-const dayDefault = ({ theme }) => css`
+const dayDefault = (theme) => css`
   .CalendarDay__default {
     border: 1px solid ${theme.colors.n300};
     color: ${theme.colors.n900};
@@ -58,7 +52,7 @@ const dayDefault = ({ theme }) => css`
   }
 `;
 
-const daySelection = ({ theme }) => css`
+const daySelection = (theme) => css`
   .CalendarDay__selected_span {
     background: ${theme.colors.p100};
     border: 1px solid ${theme.colors.p300};
@@ -81,7 +75,7 @@ const daySelection = ({ theme }) => css`
   }
 `;
 
-const blockedOutOfRange = ({ theme }) => css`
+const blockedOutOfRange = (theme) => css`
   .CalendarDay__blocked_out_of_range,
   .CalendarDay__blocked_out_of_range:active,
   .CalendarDay__blocked_out_of_range:hover {
@@ -91,22 +85,28 @@ const blockedOutOfRange = ({ theme }) => css`
   }
 `;
 
-const dateRangePickerInput = ({ theme }) => css`
+const dateRangePickerInput = (theme) => css`
   .DateRangePickerInput,
   .SingleDatePickerInput {
-    label: input__calendar;
     background-color: ${theme.colors.white};
-    padding: ${theme.spacings.byte} ${theme.spacings.kilo};
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
     transition: border-color ${theme.transitions.default};
     width: 100%;
     ${typography('one')(theme)};
 
     &.DateRangePickerInput__withBorder,
     &.SingleDatePickerInput__withBorder {
-      border-width: 1px;
-      border-style: solid;
-      border-color: ${theme.colors.n300};
-      border-radius: ${theme.borderRadius.bit};
+      border: none;
+      border-radius: ${theme.borderRadius.byte};
+      transition: box-shadow ${theme.transitions.default};
+      box-shadow: 0 0 0 1px ${theme.colors.n500};
+
+      &:hover {
+        box-shadow: 0 0 0 1px ${theme.colors.n700};
+      }
+      &:focus-within {
+        box-shadow: 0 0 0 2px ${theme.colors.p500};
+      }
     }
 
     &.DateRangePickerInput__showClearDates {
@@ -149,7 +149,7 @@ const dateRangePickerInput = ({ theme }) => css`
   }
 `;
 
-const navButtons = ({ theme }) => css`
+const navButtons = (theme) => css`
   .DayPickerNavigation_button__horizontal {
     display: flex;
     align-items: center;
@@ -198,7 +198,7 @@ const navButtons = ({ theme }) => css`
   }
 `;
 
-const closeButton = ({ theme }) => css`
+const closeButton = (theme) => css`
   .DateRangePickerInput_clearDates {
     margin: 0;
     width: ${theme.spacings.tera};
@@ -207,7 +207,7 @@ const closeButton = ({ theme }) => css`
   }
 `;
 
-const calendarCaption = ({ theme }) => css`
+const calendarCaption = (theme) => css`
   .CalendarMonth_caption {
     color: ${theme.colors.n900};
     font-size: 18px;
@@ -218,7 +218,7 @@ const calendarCaption = ({ theme }) => css`
   }
 `;
 
-const calendarWeekHeader = ({ theme }) => css`
+const calendarWeekHeader = (theme) => css`
   .DayPicker_weekHeader {
     color: ${theme.colors.n900};
     position: absolute;
@@ -233,37 +233,37 @@ const calendarWeekHeader = ({ theme }) => css`
   }
 `;
 
-const wrapShadow = ({ theme }) => css`
-  .DayPicker {
-    /**
-      * Rollback to using their own shadow
-      * as it looks better with the tip they provide
-      */
-    /* ${shadowTriple({ theme })}; */
+const withPortal = (theme) => css`
+  .DateRangePicker_picker,
+  .SingleDatePicker_picker {
+    z-index: ${theme.zIndex.modal};
   }
 `;
 
 /**
  * Describe your component here.
  */
-const CalendarWrapper = styled('div')`
-  ${baseStyles};
-
-  & {
-    ${CalendarInheritStyles};
-    ${dayDefault};
-    ${daySelection};
-    ${blockedOutOfRange};
-    ${dateRangePickerInput};
-    ${navButtons};
-    ${closeButton};
-    ${calendarCaption};
-    ${calendarWeekHeader};
-    ${wrapShadow};
-  }
-`;
+const CalendarWrapper = ({ children }) => (
+  <div>
+    <Global
+      styles={cx(
+        calendarInheritStyles,
+        dayDefault,
+        daySelection,
+        blockedOutOfRange,
+        dateRangePickerInput,
+        navButtons,
+        closeButton,
+        calendarCaption,
+        calendarWeekHeader,
+        withPortal,
+      )}
+    />
+    {children}
+  </div>
+);
 
 /**
  * @component
  */
-export default withTheme(CalendarWrapper);
+export default CalendarWrapper;
