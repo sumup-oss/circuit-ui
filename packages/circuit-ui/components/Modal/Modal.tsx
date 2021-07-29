@@ -223,7 +223,6 @@ export const Modal: ModalComponent<ModalProps> = ({
                 }
               }
             `,
-          className,
         ),
         // The !important below is necessary because of some weird
         // style specificity issues in Emotion.
@@ -288,7 +287,7 @@ export const Modal: ModalComponent<ModalProps> = ({
       return (
         <StackContext.Provider value={theme.zIndex.modal}>
           <ReactModal {...reactModalProps}>
-            <Content variant={variant}>
+            <Content variant={variant} className={className}>
               {!preventClose && closeButtonLabel && (
                 <CloseButton
                   onClick={onClose}
