@@ -100,8 +100,11 @@ const dateRangePickerInput = (theme) => css`
       border: none;
       border-radius: ${theme.borderRadius.byte};
       transition: box-shadow ${theme.transitions.default};
-      box-shadow: 0 0 0 1px ${theme.colors.n700};
+      box-shadow: 0 0 0 1px ${theme.colors.n500};
 
+      &:hover {
+        box-shadow: 0 0 0 1px ${theme.colors.n700};
+      }
       &:focus-within {
         box-shadow: 0 0 0 2px ${theme.colors.p500};
       }
