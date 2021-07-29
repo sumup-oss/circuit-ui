@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SelectorGroup should render with default styles 1`] = `
-.circuit-9 {
+.circuit-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21,18 +21,23 @@ exports[`SelectorGroup should render with default styles 1`] = `
   width: auto;
 }
 
-.circuit-9 > div:not(:last-child) {
+.circuit-10 > div:not(:last-child) {
   margin-right: 16px;
 }
 
-.circuit-2 {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
+.circuit-0 {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 4px;
 }
 
-.circuit-0 {
+.circuit-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -45,28 +50,28 @@ exports[`SelectorGroup should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
+.circuit-1:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-1:focus + label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-1:focus:not(:focus-visible) + label::before {
   box-shadow: none;
 }
 
-.circuit-0:checked + label {
+.circuit-1:checked + label {
   background-color: #F0F6FF;
 }
 
-.circuit-0:checked + label::before {
+.circuit-1:checked + label::before {
   border: 2px solid #3063E9;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: inline-block;
   cursor: pointer;
   background-color: #FFF;
@@ -82,7 +87,7 @@ exports[`SelectorGroup should render with default styles 1`] = `
   width: 100%;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   display: block;
   content: '';
   position: absolute;
@@ -98,83 +103,86 @@ exports[`SelectorGroup should render with default styles 1`] = `
   transition: border 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-1:hover::before {
+.circuit-2:hover::before {
   border-color: #999;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-1:active::before {
+.circuit-2:active::before {
   border-color: #666;
 }
 
-<div
-  aria-label="Choose an option"
-  class="circuit-9"
-  role="group"
+<fieldset
+  class="circuit-10"
 >
+  <legend
+    class="circuit-0"
+  >
+    Choose an option
+  </legend>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <input
-      class="circuit-0"
+      class="circuit-1"
       id="selector_2"
       name="selector-group_1"
       type="radio"
       value="first"
     />
     <label
-      class="circuit-1"
+      class="circuit-2"
       for="selector_2"
     >
       Option 1
     </label>
   </div>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <input
-      class="circuit-0"
+      class="circuit-1"
       id="selector_3"
       name="selector-group_1"
       type="radio"
       value="second"
     />
     <label
-      class="circuit-1"
+      class="circuit-2"
       for="selector_3"
     >
       Option 2
     </label>
   </div>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <input
-      class="circuit-0"
+      class="circuit-1"
       id="selector_4"
       name="selector-group_1"
       type="radio"
       value="third"
     />
     <label
-      class="circuit-1"
+      class="circuit-2"
       for="selector_4"
     >
       Option 3
     </label>
   </div>
-</div>
+</fieldset>
 `;
 
 exports[`SelectorGroup should render with horizontal layout by default 1`] = `
-.circuit-9 {
+.circuit-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -194,18 +202,23 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   width: auto;
 }
 
-.circuit-9 > div:not(:last-child) {
+.circuit-10 > div:not(:last-child) {
   margin-right: 16px;
 }
 
-.circuit-2 {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
+.circuit-0 {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 4px;
 }
 
-.circuit-0 {
+.circuit-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -218,28 +231,28 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
+.circuit-1:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-1:focus + label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-1:focus:not(:focus-visible) + label::before {
   box-shadow: none;
 }
 
-.circuit-0:checked + label {
+.circuit-1:checked + label {
   background-color: #F0F6FF;
 }
 
-.circuit-0:checked + label::before {
+.circuit-1:checked + label::before {
   border: 2px solid #3063E9;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: inline-block;
   cursor: pointer;
   background-color: #FFF;
@@ -255,7 +268,7 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   width: 100%;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   display: block;
   content: '';
   position: absolute;
@@ -271,77 +284,80 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   transition: border 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-1:hover::before {
+.circuit-2:hover::before {
   border-color: #999;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-1:active::before {
+.circuit-2:active::before {
   border-color: #666;
 }
 
-<div
-  aria-label="Choose an option"
-  class="circuit-9"
-  role="group"
+<fieldset
+  class="circuit-10"
 >
+  <legend
+    class="circuit-0"
+  >
+    Choose an option
+  </legend>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <input
-      class="circuit-0"
+      class="circuit-1"
       id="selector_18"
       name="selector-group_17"
       type="radio"
       value="first"
     />
     <label
-      class="circuit-1"
+      class="circuit-2"
       for="selector_18"
     >
       Option 1
     </label>
   </div>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <input
-      class="circuit-0"
+      class="circuit-1"
       id="selector_19"
       name="selector-group_17"
       type="radio"
       value="second"
     />
     <label
-      class="circuit-1"
+      class="circuit-2"
       for="selector_19"
     >
       Option 2
     </label>
   </div>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <input
-      class="circuit-0"
+      class="circuit-1"
       id="selector_20"
       name="selector-group_17"
       type="radio"
       value="third"
     />
     <label
-      class="circuit-1"
+      class="circuit-2"
       for="selector_20"
     >
       Option 3
     </label>
   </div>
-</div>
+</fieldset>
 `;

@@ -21,6 +21,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import Selector from '../Selector';
 import { SelectorSize } from '../Selector/Selector';
+import { hideVisually, typography } from '../../styles/style-mixins';
 
 export interface SelectorGroupProps {
   /**
@@ -61,9 +62,14 @@ export interface SelectorGroupProps {
    */
   stretch?: boolean;
   /**
+   * Visually hide the label. This should only be used in rare cases and only if the
+   * purpose of the field can be inferred from other context.
+   */
+  hideLabel?: boolean;
+  /**
    * The ref to the HTML DOM element
    */
-  ref?: Ref<HTMLDivElement>;
+  ref?: Ref<HTMLFieldSetElement>;
 }
 
 type ContainerProps = Pick<SelectorGroupProps, 'stretch'>;
@@ -85,27 +91,34 @@ const stretchStyles = ({ stretch = false }: StyleProps & ContainerProps) => {
 };
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: selector-group;
   display: flex;
   flex-direction: row;
   width: 100%;
 
-  > div {
-    &:not(:last-child) {
-      margin-right: ${theme.spacings.mega};
-    }
+  > div:not(:last-child) {
+    margin-right: ${theme.spacings.mega};
   }
 `;
 
-const StyledSelectorGroup = styled.div(baseStyles, stretchStyles);
+const Fieldset = styled.fieldset(baseStyles, stretchStyles);
 
-const OptionItem = styled.div`
-  label: selector-group__option-item;
-  flex-grow: 1;
+type LegendProps = Pick<SelectorGroupProps, 'hideLabel'>;
+
+const legendStyles = ({ theme }: StyleProps) => css`
+  margin-bottom: ${theme.spacings.bit};
 `;
 
-const StyledSelector = styled(Selector)`
-  width: 100%;
+const legendHiddenStyles = ({ hideLabel }: LegendProps) =>
+  hideLabel && hideVisually();
+
+const Legend = styled('legend')<LegendProps>(
+  typography('two'),
+  legendStyles,
+  legendHiddenStyles,
+);
+
+const OptionItem = styled.div`
+  flex: 1;
 `;
 
 /**
@@ -122,42 +135,42 @@ export const SelectorGroup = forwardRef(
       multiple,
       size,
       stretch,
+      hideLabel,
       ...rest
     }: SelectorGroupProps,
     ref: SelectorGroupProps['ref'],
   ) => {
     const name = customName || uniqueId('selector-group_');
 
+    if (!options) {
+      return null;
+    }
+
     return (
-      <StyledSelectorGroup
-        role="group"
-        aria-label={label}
-        ref={ref}
-        stretch={stretch}
-        {...rest}
-      >
-        {options &&
-          options.map(({ children, value, ...optionRest }) => (
-            <OptionItem key={value}>
-              <StyledSelector
-                name={name}
-                onChange={onChange}
-                multiple={multiple}
-                value={value}
-                size={size}
-                noMargin
-                checked={
-                  multiple
-                    ? includes(value, activeValue)
-                    : value === activeValue
-                }
-                {...optionRest}
-              >
-                {children}
-              </StyledSelector>
-            </OptionItem>
-          ))}
-      </StyledSelectorGroup>
+      <Fieldset ref={ref} stretch={stretch} {...rest}>
+        {label && <Legend hideLabel={hideLabel}>{label}</Legend>}
+        {options.map(({ children, value, ...optionRest }) => (
+          <OptionItem key={value}>
+            <Selector
+              name={name}
+              onChange={onChange}
+              multiple={multiple}
+              value={value}
+              size={size}
+              css={css`
+                width: 100%;
+              `}
+              checked={
+                multiple ? includes(value, activeValue) : value === activeValue
+              }
+              noMargin
+              {...optionRest}
+            >
+              {children}
+            </Selector>
+          </OptionItem>
+        ))}
+      </Fieldset>
     );
   },
 );
