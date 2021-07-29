@@ -103,7 +103,7 @@ const dateRangePickerInput = (theme) => css`
       box-shadow: 0 0 0 1px ${theme.colors.n700};
 
       &:focus-within {
-        box-shadow: 0 0 0 2px ${theme.colors.p700};
+        box-shadow: 0 0 0 2px ${theme.colors.p500};
       }
     }
 
