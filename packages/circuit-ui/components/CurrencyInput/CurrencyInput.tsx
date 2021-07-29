@@ -68,7 +68,6 @@ const DEFAULT_FORMAT = {
 };
 
 const CurrencyIcon = styled('span')`
-  label: simple-currency-input__symbol;
   line-height: ${({ theme }) => theme.spacings.mega};
   display: flex;
   align-items: center;

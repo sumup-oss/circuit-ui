@@ -23,7 +23,6 @@ import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants';
 import * as SlideService from './SlideService';
 
 const baseStyles = ({ index, stackOrder, width }) => css`
-  label: carousel__slide;
   width: 100%;
   flex-grow: 0;
   flex-shrink: 0;

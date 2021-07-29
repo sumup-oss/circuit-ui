@@ -120,7 +120,6 @@ const SECONDARY_COLOR_MAP = {
 } as const;
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: button;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -157,7 +156,6 @@ const primaryStyles = ({
   const colors = destructive ? COLOR_MAP.destructive : COLOR_MAP.default;
 
   return css`
-    label: button--primary;
     background-color: ${theme.colors[colors.default]};
     border-color: ${theme.colors[colors.default]};
     color: ${theme.colors.white};
@@ -190,7 +188,6 @@ const secondaryStyles = ({
     : SECONDARY_COLOR_MAP.default;
 
   return css`
-    label: button--secondary;
     background-color: ${theme.colors.white};
     border-color: ${theme.colors[colors.default]};
     color: ${theme.colors[colors.text]};
@@ -221,7 +218,6 @@ const tertiaryStyles = ({
   const colors = destructive ? COLOR_MAP.destructive : COLOR_MAP.default;
 
   return css`
-    label: button--tertiary;
     background-color: transparent;
     border-color: transparent;
     color: ${theme.colors[colors.default]};
@@ -251,7 +247,6 @@ const sizeStyles = ({ theme, size = 'giga' }: ButtonProps & StyleProps) => {
   };
 
   return css({
-    label: `button--${size}`,
     ...sizeMap[size],
   });
 };
@@ -259,12 +254,10 @@ const sizeStyles = ({ theme, size = 'giga' }: ButtonProps & StyleProps) => {
 const stretchStyles = ({ stretch }: ButtonProps) =>
   stretch &&
   css`
-    label: button--stretch;
     width: 100%;
   `;
 
 const iconStyles = (theme: Theme) => css`
-  label: button__icon;
   flex-shrink: 0;
   margin-right: ${theme.spacings.byte};
 `;

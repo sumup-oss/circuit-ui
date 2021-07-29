@@ -46,14 +46,12 @@ const LAYER_HEIGHT = '2px';
 const HAMBURGER_WIDTH = '14px';
 
 const buttonStyles = () => css`
-  label: hamburger;
   border: 0;
 `;
 
 const Button = styled(IconButton)<IconButtonProps>(buttonStyles);
 
 const boxStyles = ({ theme }: StyleProps) => css`
-  label: hamburger__box;
   position: relative;
   display: flex;
   justify-content: center;
@@ -65,7 +63,6 @@ const boxStyles = ({ theme }: StyleProps) => css`
 const Box = styled.span<HTMLProps<HTMLSpanElement>>(boxStyles);
 
 const layersBaseStyles = () => css`
-  label: hamburger__layers;
   top: 50%;
   width: ${HAMBURGER_WIDTH};
 
@@ -101,7 +98,6 @@ const layersBaseStyles = () => css`
 const layersActiveStyles = ({ isActive }: { isActive?: boolean }) =>
   isActive &&
   css`
-    label: hamburger__layers--active;
     transform: rotate(225deg);
 
     &,

@@ -17,7 +17,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
-  label: carousel__controls;
   width: 100%;
   display: flex;
   align-items: center;

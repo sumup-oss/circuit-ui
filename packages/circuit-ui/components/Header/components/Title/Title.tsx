@@ -26,7 +26,6 @@ export interface TitleProps {
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: header__title;
   font-size: ${theme.typography.headline.four.fontSize};
   line-height: ${theme.typography.headline.four.lineHeight};
   font-weight: ${theme.fontWeight.bold};
