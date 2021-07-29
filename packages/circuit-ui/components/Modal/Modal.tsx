@@ -163,7 +163,6 @@ export const Modal: ModalComponent<ModalProps> = ({
             position: fixed;
             outline: none;
             background-color: ${theme.colors.white};
-            overflow: hidden;
 
             &::after {
               position: fixed;

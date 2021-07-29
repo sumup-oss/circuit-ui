@@ -5,7 +5,6 @@ exports[`Modal should match the snapshot 1`] = `
   position: fixed;
   outline: none;
   background-color: #FFF;
-  overflow: hidden;
 }
 
 .circuit-3::after {
