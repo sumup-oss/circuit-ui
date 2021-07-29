@@ -90,17 +90,21 @@ const dateRangePickerInput = (theme) => css`
   .DateRangePickerInput,
   .SingleDatePickerInput {
     background-color: ${theme.colors.white};
-    padding: ${theme.spacings.byte} ${theme.spacings.kilo};
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
     transition: border-color ${theme.transitions.default};
     width: 100%;
     ${typography('one')(theme)};
 
     &.DateRangePickerInput__withBorder,
     &.SingleDatePickerInput__withBorder {
-      border-width: 1px;
-      border-style: solid;
-      border-color: ${theme.colors.n300};
-      border-radius: ${theme.borderRadius.bit};
+      border: none;
+      border-radius: ${theme.borderRadius.byte};
+      transition: box-shadow ${theme.transitions.default};
+      box-shadow: 0 0 0 1px ${theme.colors.n700};
+
+      &:focus-within {
+        box-shadow: 0 0 0 2px ${theme.colors.p700};
+      }
     }
 
     &.DateRangePickerInput__showClearDates {
@@ -227,7 +231,8 @@ const calendarWeekHeader = (theme) => css`
   }
 `;
 
-const singleDayPicker = (theme) => css`
+const withPortal = (theme) => css`
+  .DateRangePicker_picker,
   .SingleDatePicker_picker {
     z-index: ${theme.zIndex.modal};
   }
@@ -249,7 +254,7 @@ const CalendarWrapper = ({ children }) => (
         closeButton,
         calendarCaption,
         calendarWeekHeader,
-        singleDayPicker,
+        withPortal,
       )}
     />
     {children}
