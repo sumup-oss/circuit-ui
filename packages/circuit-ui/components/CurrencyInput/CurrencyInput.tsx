@@ -67,6 +67,8 @@ const DEFAULT_FORMAT = {
   groupDelimiter: ',',
 };
 
+const DUMMY_DELIMITER = '?';
+
 const CurrencyIcon = styled('span')`
   label: simple-currency-input__symbol;
   line-height: ${({ theme }) => theme.spacings.mega};
@@ -120,7 +122,9 @@ export const CurrencyInput = forwardRef(
       <NumberFormat
         // NumberFormat props
         thousandSeparator={groupDelimiter}
-        decimalSeparator={decimalDelimiter}
+        decimalSeparator={
+          maximumFractionDigits > 0 ? decimalDelimiter : DUMMY_DELIMITER
+        }
         decimalScale={maximumFractionDigits}
         customInput={Input}
         getInputRef={ref}
