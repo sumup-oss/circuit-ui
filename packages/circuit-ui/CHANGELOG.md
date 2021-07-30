@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.10
+
+### Patch Changes
+
+- [#1078](https://github.com/sumup-oss/circuit-ui/pull/1078) [`ee1446a3`](https://github.com/sumup-oss/circuit-ui/commit/ee1446a31a7c82f69711233a83c638958d0e09a4) Thanks [@amelako](https://github.com/amelako)! - Fixed the CurrencyInput bug for Chile locale where shouldn’t be any fraction digits in the input.
+
 ## 3.0.0-next.9
 
 ### Major Changes
