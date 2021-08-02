@@ -43,10 +43,11 @@ export interface HamburgerProps
 }
 
 const LAYER_HEIGHT = '2px';
-const HAMBURGER_WIDTH = '14px';
+const HAMBURGER_WIDTH = '22px';
 
-const buttonStyles = () => css`
+const buttonStyles = ({ theme }: StyleProps) => css`
   border: 0;
+  padding: ${theme.spacings.kilo};
 `;
 
 const Button = styled(IconButton)<IconButtonProps>(buttonStyles);
@@ -85,13 +86,13 @@ const layersBaseStyles = () => css`
   }
 
   &::before {
-    transform: translateY(-5px);
-    width: ${HAMBURGER_WIDTH};
+    transform: translateY(-7px);
+    width: calc(${HAMBURGER_WIDTH} * 0.64);
   }
 
   &::after {
-    transform: translateY(5px);
-    width: ${HAMBURGER_WIDTH};
+    transform: translateY(7px);
+    width: calc(${HAMBURGER_WIDTH} * 0.82);
   }
 `;
 
@@ -103,7 +104,7 @@ const layersActiveStyles = ({ isActive }: { isActive?: boolean }) =>
     &,
     &::before,
     &::after {
-      transition: width 0.2s ease-out, opacity 0.1s ease-out 0.15s,
+      transition: width 0.2s ease-out 0.15s, opacity 0.1s ease-out 0.15s,
         transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
       width: ${HAMBURGER_WIDTH};
     }

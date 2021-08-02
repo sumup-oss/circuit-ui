@@ -23,11 +23,11 @@ export default {
 };
 
 export const Base = (args: HamburgerProps) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(args.isActive);
   const handleClick = () => {
     setActive((prev) => !prev);
   };
-  return <Hamburger isActive={active} onClick={handleClick} {...args} />;
+  return <Hamburger {...args} isActive={active} onClick={handleClick} />;
 };
 
 Base.args = {
