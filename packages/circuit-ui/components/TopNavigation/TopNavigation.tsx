@@ -15,13 +15,14 @@
 
 import { ReactNode } from 'react';
 import { css } from '@emotion/core';
+import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { focusVisible } from '../../styles/style-mixins';
+import Hamburger, { HamburgerProps } from '../Hamburger';
 
 import { ProfileMenu, ProfileMenuProps } from './components/ProfileMenu';
 import { UtilityLinks, UtilityLinksProps } from './components/UtilityLinks';
-import { Hamburger, HamburgerProps } from './components/Hamburger';
 
 const headerStyles = ({ theme }: StyleProps) => css`
   display: flex;
@@ -34,6 +35,17 @@ const headerStyles = ({ theme }: StyleProps) => css`
 `;
 
 const Header = styled.header(headerStyles);
+
+const hamburgerStyles = (theme: Theme) => css`
+  ${focusVisible('inset')(theme)};
+
+  border-radius: 0;
+  border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n200} !important;
+
+  ${theme.mq.mega} {
+    display: none;
+  }
+`;
 
 const logoStyles = ({ theme }: StyleProps) => css`
   height: ${theme.iconSizes.tera};
@@ -84,7 +96,7 @@ export function TopNavigation({
   return (
     <Header role="banner" {...props}>
       <Wrapper>
-        {hamburger && <Hamburger {...hamburger} />}
+        {hamburger && <Hamburger {...hamburger} css={hamburgerStyles} />}
         <Logo>{logo}</Logo>
       </Wrapper>
       <Wrapper>

@@ -28,7 +28,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.kilo};
   border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
 
-  ${theme.mq.mega} {
+  ${theme.mq.kilo} {
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   }
 `;
@@ -40,13 +40,13 @@ const iconStyles = (theme: Theme) => css`
   width: ${theme.iconSizes.mega};
   height: ${theme.iconSizes.mega};
 
-  ${theme.mq.mega} {
+  ${theme.mq.kilo} {
     margin-right: ${theme.spacings.byte};
   }
 `;
 
 const labelStyles = ({ theme }: StyleProps) => css`
-  ${theme.mq.untilMega} {
+  ${theme.mq.untilKilo} {
     ${hideVisually()};
   }
 `;

@@ -81,8 +81,8 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
   const [isSideNavigationOpen, setSideNavigationOpen] = useState(false);
   const hamburger = {
     ...args.hamburger,
-    isOpen: isSideNavigationOpen,
-    onToggle: () => setSideNavigationOpen((prev) => !prev),
+    isActive: isSideNavigationOpen,
+    onClick: () => setSideNavigationOpen((prev) => !prev),
   };
   return <TopNavigation {...args} hamburger={hamburger} />;
 };
@@ -90,8 +90,9 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
 WithSideNavigation.storyName = 'With SideNavigation';
 WithSideNavigation.args = {
   ...baseArgs,
+  pageTitle: 'Home',
   hamburger: {
-    openLabel: 'Close side navigation',
-    closedLabel: 'Open side navigation',
+    activeLabel: 'Close side navigation',
+    inactiveLabel: 'Open side navigation',
   },
 };
