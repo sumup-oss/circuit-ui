@@ -467,7 +467,6 @@ export const navigationItem = (
     align-items: center;
     border: none;
     outline: none;
-    border-radius: ${theme.borderRadius.byte};
     color: ${options.isActive ? theme.colors.p500 : theme.colors.bodyColor};
     background-color: ${options.isActive
       ? theme.colors.p100
@@ -487,9 +486,7 @@ export const navigationItem = (
       background-color: ${theme.colors.n200};
     }
 
-    &:focus {
-      ${focusOutline('inset')(theme)};
-    }
+    ${focusVisible('inset')(theme)};
 
     &:disabled {
       ${disableVisually()};

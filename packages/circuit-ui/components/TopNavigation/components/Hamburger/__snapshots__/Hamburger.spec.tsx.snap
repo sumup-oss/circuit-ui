@@ -5,8 +5,7 @@ exports[`Hamburger styles should render with closed styles 1`] = `
   background: #FFF;
   outline: none;
   border: none;
-  border-right: 1px solid #CCC;
-  border-bottom: 1px solid #CCC;
+  border-right: 1px solid #E6E6E6;
   margin: 0;
   padding: 12px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
@@ -162,8 +161,7 @@ exports[`Hamburger styles should render with open styles 1`] = `
   background: #FFF;
   outline: none;
   border: none;
-  border-right: 1px solid #CCC;
-  border-bottom: 1px solid #CCC;
+  border-right: 1px solid #E6E6E6;
   margin: 0;
   padding: 12px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;

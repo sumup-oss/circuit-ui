@@ -28,61 +28,40 @@ const headerStyles = ({ theme }: StyleProps) => css`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 48px;
+  height: 49px; /* height + border-bottom */
   background-color: ${theme.colors.bodyBg};
-  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
-
-  ${theme.mq.mega} {
-    height: 64px;
-  }
+  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
 `;
 
 const Header = styled.header(headerStyles);
 
 const logoStyles = ({ theme }: StyleProps) => css`
-  height: ${theme.iconSizes.mega};
-  margin-left: ${theme.spacings.kilo};
+  height: ${theme.iconSizes.tera};
 
-  a,
-  button {
+  > * {
     display: block;
     height: inherit;
     line-height: 0;
-    border-radius: ${theme.borderRadius.bit};
+    padding: ${theme.spacings.kilo};
+  }
 
-    ${focusVisible(theme)};
+  a,
+  button {
+    ${focusVisible('inset')(theme)};
   }
 
   svg {
     color: ${theme.colors.black};
     height: 100%;
   }
-
-  ${theme.mq.mega} {
-    height: ${theme.iconSizes.giga};
-    margin-left: 20px;
-  }
 `;
 
 const Logo = styled.div(logoStyles);
 
-const startAreaStyles = css`
+const Wrapper = styled.div`
   display: flex;
   align-items: center;
 `;
-
-const StartArea = styled.div(startAreaStyles);
-
-const endAreaStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  margin-right: ${theme.spacings.bit};
-
-  ${theme.mq.mega} {
-    margin-right: ${theme.spacings.mega};
-  }
-`;
-
-const EndArea = styled.div(endAreaStyles);
 
 export interface TopNavigationProps
   extends ProfileMenuProps,
@@ -104,11 +83,11 @@ export function TopNavigation({
 }: TopNavigationProps): JSX.Element {
   return (
     <Header role="banner" {...props}>
-      <StartArea>
+      <Wrapper>
         {hamburger && <Hamburger {...hamburger} />}
         <Logo>{logo}</Logo>
-      </StartArea>
-      <EndArea>
+      </Wrapper>
+      <Wrapper>
         {links && <UtilityLinks links={links} />}
         <ProfileMenu
           userAvatar={userAvatar}
@@ -117,7 +96,7 @@ export function TopNavigation({
           profileLabel={profileLabel}
           profileActions={profileActions}
         />
-      </EndArea>
+      </Wrapper>
     </Header>
   );
 }

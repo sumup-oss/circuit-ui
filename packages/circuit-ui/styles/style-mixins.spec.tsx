@@ -327,7 +327,7 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = navigationItem(light);
       expect(styles).toMatchInlineSnapshot(
-        `"display:flex;align-items:center;border:none;outline:none;border-radius:8px;color:#1A1A1A;background-color:#FFF;text-align:left;cursor:pointer;transition:color 120ms ease-in-out,background-color 120ms ease-in-out;&:hover{background-color:#F5F5F5;}&:active{background-color:#E6E6E6;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;};;}&:disabled{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
+        `"display:flex;align-items:center;border:none;outline:none;color:#1A1A1A;background-color:#FFF;text-align:left;cursor:pointer;transition:color 120ms ease-in-out,background-color 120ms ease-in-out;&:hover{background-color:#F5F5F5;}&:active{background-color:#E6E6E6;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};;&:disabled{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
       );
     });
 
@@ -337,7 +337,7 @@ describe('Style helpers', () => {
         isActive: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        `"display:flex;align-items:center;border:none;outline:none;border-radius:8px;color:#3063E9;background-color:#F0F6FF;text-align:left;cursor:pointer;transition:color 120ms ease-in-out,background-color 120ms ease-in-out;&:hover{background-color:#F0F6FF;}&:active{background-color:#E6E6E6;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;};;}&:disabled{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
+        `"display:flex;align-items:center;border:none;outline:none;color:#3063E9;background-color:#F0F6FF;text-align:left;cursor:pointer;transition:color 120ms ease-in-out,background-color 120ms ease-in-out;&:hover{background-color:#F0F6FF;}&:active{background-color:#E6E6E6;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};;&:disabled{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
       );
     });
   });

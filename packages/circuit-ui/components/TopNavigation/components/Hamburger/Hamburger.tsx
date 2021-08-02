@@ -30,8 +30,7 @@ const buttonBaseStyles = ({ theme }: StyleProps) => css`
   background: ${theme.colors.white};
   outline: none;
   border: none;
-  border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
-  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
   margin: 0;
   padding: ${theme.spacings.kilo};
   transition: color ${theme.transitions.default},

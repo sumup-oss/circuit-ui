@@ -24,7 +24,8 @@ import Body from '../../../Body';
 import Popover, { PopoverProps } from '../../../Popover';
 
 const profileWrapperStyles = ({ theme }: StyleProps) => css`
-  padding: ${theme.spacings.byte};
+  padding: ${theme.spacings.kilo};
+  border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
 
   ${theme.mq.mega} {
     padding: ${theme.spacings.bit} ${theme.spacings.mega};

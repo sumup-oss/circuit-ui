@@ -12,17 +12,6 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
   align-items: center;
 }
 
-@media (max-width:767px) {
-  .circuit-3::after {
-    content: '';
-    display: block;
-    height: 20px;
-    width: 1px;
-    margin-right: 4px;
-    background-color: #CCC;
-  }
-}
-
 .circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -34,7 +23,6 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
   align-items: center;
   border: none;
   outline: none;
-  border-radius: 8px;
   color: #1A1A1A;
   background-color: #FFF;
   text-align: left;
@@ -43,8 +31,8 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   -webkit-text-decoration: none;
   text-decoration: none;
-  margin-right: 4px;
-  padding: 8px;
+  padding: 12px;
+  border-left: 1px solid #E6E6E6;
 }
 
 .circuit-2:hover {
@@ -62,6 +50,10 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
 
 .circuit-2:focus::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .circuit-2:disabled {

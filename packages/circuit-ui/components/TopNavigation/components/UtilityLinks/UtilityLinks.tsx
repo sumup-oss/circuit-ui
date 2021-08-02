@@ -25,8 +25,8 @@ import Body from '../../../Body';
 
 const anchorStyles = ({ theme }: StyleProps) => css`
   text-decoration: none;
-  margin-right: ${theme.spacings.bit};
-  padding: ${theme.spacings.byte};
+  padding: ${theme.spacings.kilo};
+  border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
 
   ${theme.mq.mega} {
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
@@ -104,23 +104,10 @@ function UtilityLink({
   );
 }
 
-const wrapperStyles = ({ theme }: StyleProps) => css`
+const UtilityLinksWrapper = styled.div`
   display: flex;
   align-items: center;
-
-  ${theme.mq.untilMega} {
-    &::after {
-      content: '';
-      display: block;
-      height: 20px;
-      width: ${theme.borderWidth.kilo};
-      margin-right: ${theme.spacings.bit};
-      background-color: ${theme.colors.n300};
-    }
-  }
 `;
-
-const UtilityLinksWrapper = styled.div(wrapperStyles);
 
 export interface UtilityLinksProps {
   links: UtilityLinkProps[];
