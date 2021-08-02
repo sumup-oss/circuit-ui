@@ -89,6 +89,7 @@ export function TopNavigation({
   userId,
   profileLabel,
   profileActions,
+  profileIsActive,
   links,
   hamburger,
   ...props
@@ -107,6 +108,7 @@ export function TopNavigation({
           userId={userId}
           profileLabel={profileLabel}
           profileActions={profileActions}
+          profileIsActive={profileIsActive}
         />
       </Wrapper>
     </Header>

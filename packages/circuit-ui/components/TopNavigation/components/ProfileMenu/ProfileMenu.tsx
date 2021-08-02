@@ -105,6 +105,10 @@ interface ProfileProps extends HTMLProps<HTMLButtonElement> {
    * Whether the associated popover is open.
    */
   isOpen?: boolean;
+  /**
+   * Whether the profile page is the currently active page.
+   */
+  profileIsActive?: boolean;
 }
 
 function Profile({
@@ -112,6 +116,7 @@ function Profile({
   userName,
   userId,
   profileLabel,
+  profileIsActive,
   isOpen,
   ...props
 }: ProfileProps) {
@@ -121,7 +126,7 @@ function Profile({
       type="button"
       aria-label={profileLabel}
       title={profileLabel}
-      isActive={isOpen}
+      isActive={isOpen || profileIsActive}
     >
       <ProfileAvatar {...userAvatar} variant="identity" />
       <ProfileName>
@@ -151,9 +156,10 @@ export function ProfileMenu({
   userId,
   profileLabel,
   profileActions,
+  profileIsActive,
 }: ProfileMenuProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
-  const offsetModifier = { name: 'offset', options: { offset: [0, 16] } };
+  const offsetModifier = { name: 'offset', options: { offset: [-16, 8] } };
 
   return (
     <Popover
@@ -167,6 +173,7 @@ export function ProfileMenu({
           userAvatar={userAvatar}
           userName={userName}
           userId={userId}
+          profileIsActive={profileIsActive}
         />
       )}
       actions={profileActions}
