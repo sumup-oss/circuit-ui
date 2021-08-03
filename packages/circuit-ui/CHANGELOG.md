@@ -1,5 +1,17 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.11
+
+### Major Changes
+
+- [#1082](https://github.com/sumup-oss/circuit-ui/pull/1082) [`00ee3ffb`](https://github.com/sumup-oss/circuit-ui/commit/00ee3ffba760af3e9721e479a0f263d9a2f2c2e1) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the Hamburger design and aligned its height with the Button component.
+
+* [#1080](https://github.com/sumup-oss/circuit-ui/pull/1080) [`91324688`](https://github.com/sumup-oss/circuit-ui/commit/9132468817078649c91d032ed837ede494ee6da1) Thanks [@robinmetral](https://github.com/robinmetral)! - Added a development-only check for required label props that throws a runtime error if any is missing.
+
+### Patch Changes
+
+- [#1082](https://github.com/sumup-oss/circuit-ui/pull/1082) [`00ee3ffb`](https://github.com/sumup-oss/circuit-ui/commit/00ee3ffba760af3e9721e479a0f263d9a2f2c2e1) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the height of the Button's `kilo` size from 34px to 32px to align it with the other components.
+
 ## 3.0.0-next.10
 
 ### Patch Changes
