@@ -34,8 +34,6 @@ const getBreakPointStyles = (theme, breakpoint) => {
 };
 
 const baseStyles = ({ theme }) => css`
-  label: row;
-
   position: relative;
   ${clearfix()};
 

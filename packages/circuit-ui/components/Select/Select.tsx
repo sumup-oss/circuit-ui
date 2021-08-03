@@ -118,7 +118,6 @@ export interface SelectProps
 }
 
 const containerBaseStyles = ({ theme }: StyleProps) => css`
-  label: select__container;
   color: ${theme.colors.n900};
   display: block;
   position: relative;
@@ -132,8 +131,6 @@ const containerHideLabelStyles = ({
 }: StyleProps & ContainerElProps) =>
   !hideLabel &&
   css`
-    label: select__container--hide-label;
-
     label &,
     label + & {
       margin-top: ${theme.spacings.bit};
@@ -156,7 +153,6 @@ const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
       'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
     );
     return css`
-      label: input__label--margin;
       margin-bottom: ${theme.spacings.mega};
     `;
   }
@@ -166,7 +162,6 @@ const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
 const labelInlineStyles = ({ inline }: LabelElProps) =>
   inline &&
   css`
-    label: input__label--inline;
     display: inline-block;
   `;
 
@@ -180,7 +175,6 @@ type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
 };
 
 const selectBaseStyles = ({ theme }: StyleProps) => css`
-  label: select;
   appearance: none;
   cursor: pointer;
   background-color: ${theme.colors.white};
@@ -221,14 +215,12 @@ const selectInvalidStyles = ({
   invalid &&
   !disabled &&
   css`
-    label: select--invalid;
     padding-right: ${theme.spacings.zetta};
   `;
 
 const selectPrefixStyles = ({ theme, hasPrefix }: StyleProps & SelectElProps) =>
   hasPrefix &&
   css`
-    label: select--prefix;
     padding-left: ${theme.spacings.exa};
   `;
 
@@ -246,7 +238,6 @@ const labelTextStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
 const LabelText = styled('span')(labelTextStyles);
 
 const optionalLabelStyles = ({ theme }: StyleProps) => css`
-  label: input__optional-label;
   color: ${theme.colors.n700};
 `;
 
@@ -257,7 +248,6 @@ const OptionalLabel = styled('span')(optionalLabelStyles);
  * destructuring.
  */
 const prefixStyles = (theme: Theme) => css`
-  label: select__prefix;
   display: block;
   position: absolute;
   z-index: ${theme.zIndex.input + 1};
@@ -268,7 +258,6 @@ const prefixStyles = (theme: Theme) => css`
 `;
 
 const iconBaseStyles = ({ theme }: StyleProps) => css`
-  label: select__icon;
   color: ${theme.colors.n700};
   display: block;
   z-index: ${theme.zIndex.input + 1};
@@ -282,14 +271,12 @@ const iconBaseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const iconActiveStyles = () => css`
-  label: select__icon-active;
   select:active ~ & {
     display: none;
   }
 `;
 
 const iconInactiveStyles = () => css`
-  label: select__icon-inactive;
   select:not(:active) ~ & {
     display: none;
   }

@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { ReactNode } from 'react';
 import { css } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 import { ChevronLeft, ChevronRight } from '@sumup/icons';
@@ -100,7 +101,7 @@ export const Pagination = ({
   totalLabel,
   tracking = {},
   ...props
-}: PaginationProps) => {
+}: PaginationProps): ReactNode => {
   // Can't use our custom useClickEvent here because it doesn't allow us
   // to add the page number as label. So we implement it from scratch:
   const dispatch = useClickTrigger();

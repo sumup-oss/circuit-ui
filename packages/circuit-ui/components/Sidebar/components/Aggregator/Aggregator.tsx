@@ -76,7 +76,6 @@ type Disabled = { disabled: boolean };
 type Selected = { selected: boolean };
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: nav-aggregator;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -101,7 +100,6 @@ const hoverStyles = ({
   !disabled &&
   !selected &&
   css`
-    label: nav-aggregator--hover;
     &:hover,
     &:focus {
       color: ${theme.colors.n100};
@@ -111,14 +109,12 @@ const hoverStyles = ({
 const selectedStyles = ({ theme, selected }: StyleProps & Selected) =>
   selected &&
   css`
-    label: nav-aggregator--active;
     color: ${theme.colors.white};
   `;
 
 const disabledStyles = ({ theme, disabled }: StyleProps & Disabled) =>
   disabled &&
   css`
-    label: nav-item--disabled;
     cursor: not-allowed;
     color: ${theme.colors.n500};
   `;
@@ -144,7 +140,7 @@ const Aggregator = ({
   onClick,
   tracking,
   ...props
-}: AggregatorProps) => {
+}: AggregatorProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const selectedChild = hasSelectedChild(children);
   const baseHandleClick = (event: MouseEvent | KeyboardEvent) => {

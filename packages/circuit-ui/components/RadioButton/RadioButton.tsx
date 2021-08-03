@@ -44,7 +44,6 @@ export interface RadioButtonProps extends HTMLProps<HTMLInputElement> {
 type LabelElProps = Pick<RadioButtonProps, 'invalid' | 'disabled'>;
 
 const labelBaseStyles = ({ theme }: StyleProps) => css`
-  label: radio-button__label;
   color: ${theme.colors.bodyColor};
   display: inline-block;
   padding-left: 26px;
@@ -89,7 +88,6 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
 const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
   invalid &&
   css`
-    label: radio-button--error;
     &:not(:focus)::before {
       border-color: ${theme.colors.danger};
       background-color: ${theme.colors.r100};
@@ -103,7 +101,6 @@ const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
 const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
   disabled &&
   css`
-    label: radio-button--disabled;
     ${disableVisually()};
 
     &::before {
@@ -127,7 +124,6 @@ const RadioButtonLabel = styled('label')<LabelElProps>(
 type InputElProps = Omit<RadioButtonProps, 'tracking'>;
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
-  label: radio-button__input;
   ${hideVisually()};
 
   &:hover + label::before {
@@ -163,8 +159,6 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
 const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
   invalid &&
   css`
-    label: radio-button__input--invalid;
-
     &:hover + label::before,
     &:focus + label::before {
       border-color: ${theme.colors.r700};

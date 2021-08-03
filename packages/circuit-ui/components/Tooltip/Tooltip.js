@@ -25,7 +25,6 @@ import {
 } from '../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
-  label: tooltip;
   display: inline-block;
   width: auto;
   max-width: 280px;
@@ -116,7 +115,6 @@ const positionAndAlignStyles = ({
   position = 'right',
   align = 'center',
 }) => css`
-  label: ${`tooltip--${position}-${align}`};
   ${getAlignmentStyles({ theme, position, align })};
   ${getPositionStyles({ theme, position })};
 `;

@@ -44,7 +44,6 @@ const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
   };
 
   return css({
-    label: `button--${size}`,
     padding: `calc(${sizeMap[size]} - 1px)`,
   });
 };

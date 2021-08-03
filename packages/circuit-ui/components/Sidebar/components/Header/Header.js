@@ -18,7 +18,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
-  label: sidebar-header;
   display: flex;
   align-self: flex-start;
   align-items: center;

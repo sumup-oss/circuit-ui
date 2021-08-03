@@ -227,8 +227,6 @@ export const Modal: ModalComponent<ModalProps> = ({
         // The !important below is necessary because of some weird
         // style specificity issues in Emotion.
         afterOpen: cssString`
-          label: modal--after-open;
-
           ${theme.mq.untilKilo} {
             transform: translateY(0) !important;
           }
@@ -238,8 +236,6 @@ export const Modal: ModalComponent<ModalProps> = ({
           }
         `,
         beforeClose: cssString`
-          label: modal--before-close;
-
           ${theme.mq.untilKilo} {
             transform: translateY(100%);
           }

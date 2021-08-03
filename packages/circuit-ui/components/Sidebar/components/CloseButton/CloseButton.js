@@ -20,7 +20,6 @@ import { css } from '@emotion/core';
 import BaseButton from '../../../CloseButton';
 
 const baseStyles = ({ theme }) => css`
-  label: sidebar-close-button;
   position: absolute;
   bottom: ${theme.spacings.mega};
   right: ${theme.spacings.mega};
@@ -36,7 +35,6 @@ const baseStyles = ({ theme }) => css`
 const visibleStyles = ({ visible }) =>
   visible &&
   css`
-    label: close-button--visible;
     visibility: visible;
     opacity: 1;
   `;

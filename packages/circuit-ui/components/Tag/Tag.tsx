@@ -85,7 +85,6 @@ type TagElProps = Omit<TagProps, 'prefix' | 'suffix' | 'removeButtonLabel'> & {
 };
 
 const tagBaseStyles = ({ theme }: StyleProps) => css`
-  label: tag;
   display: inline-flex;
   align-items: center;
   margin: 0;
@@ -104,14 +103,12 @@ const tagBaseStyles = ({ theme }: StyleProps) => css`
 const tagRemovableStyles = ({ theme, removable }: StyleProps & TagElProps) =>
   removable &&
   css`
-    label: tag--removable;
     padding-right: calc(${theme.spacings.bit} + ${theme.spacings.tera});
   `;
 
 const tagClickableStyles = ({ theme, onClick }: StyleProps & TagElProps) =>
   onClick &&
   css`
-    label: tag--clickable;
     cursor: pointer;
     outline: 0;
     text-align: left;
@@ -131,7 +128,6 @@ const tagClickableStyles = ({ theme, onClick }: StyleProps & TagElProps) =>
 const tagSelectedStyles = ({ theme, selected }: StyleProps & TagElProps) =>
   selected &&
   css`
-    label: tag--selected;
     background-color: ${theme.colors.p500};
     border-color: ${theme.colors.p700};
     color: ${theme.colors.white};
@@ -145,8 +141,6 @@ const tagSelectedClickableStyles = ({
   selected &&
   onClick &&
   css`
-    label: tag--selected--clickable;
-
     &:active {
       color: ${theme.colors.white};
     }
@@ -167,21 +161,18 @@ const TagElement = styled('div')<TagElProps>(
 );
 
 const prefixStyles = (theme: Theme) => css`
-  label: tag__prefix;
   flex-shrink: 0;
   margin-left: -${theme.spacings.bit};
   margin-right: ${theme.spacings.bit};
 `;
 
 const suffixStyles = (theme: Theme) => css`
-  label: tag__suffix;
   flex-shrink: 0;
   margin-left: ${theme.spacings.bit};
   margin-right: -${theme.spacings.bit};
 `;
 
 const closeButtonStyles = ({ theme }: StyleProps) => css`
-  label: tag__close-button;
   position: absolute;
   top: 50%;
   right: ${BORDER_WIDTH};
@@ -192,7 +183,6 @@ const closeButtonStyles = ({ theme }: StyleProps) => css`
 const RemoveButton = styled(CloseButton)<CloseButtonProps>(closeButtonStyles);
 
 const Container = styled.div`
-  label: tag__container;
   position: relative;
 `;
 

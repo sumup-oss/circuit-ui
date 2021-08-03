@@ -25,7 +25,6 @@ import NavLabel from '../NavLabel';
 import { getIcon } from './utils';
 
 const baseStyles = ({ theme }) => css`
-  label: nav-item;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -41,7 +40,6 @@ const baseStyles = ({ theme }) => css`
 const secondaryStyles = ({ theme, secondary }) =>
   secondary &&
   css`
-    label: nav-item--secondary;
     margin: 0px ${theme.spacings.giga};
     padding: ${theme.spacings.bit} 0px;
     transition: color ${theme.transitions.default},
@@ -52,7 +50,6 @@ const hoverStyles = ({ theme, selected, disabled }) =>
   !disabled &&
   !selected &&
   css`
-    label: nav-item--hover;
     &:hover {
       color: ${theme.colors.n100};
     }
@@ -61,7 +58,6 @@ const hoverStyles = ({ theme, selected, disabled }) =>
 const selectedStyles = ({ theme, selected }) =>
   selected &&
   css`
-    label: nav-item--active;
     font-weight: ${theme.fontWeight.bold};
     color: ${theme.colors.white};
   `;
@@ -69,7 +65,6 @@ const selectedStyles = ({ theme, selected }) =>
 const disabledStyles = ({ theme, disabled }) =>
   disabled &&
   css`
-    label: nav-item--disabled;
     cursor: not-allowed;
     color: ${theme.colors.n500};
   `;

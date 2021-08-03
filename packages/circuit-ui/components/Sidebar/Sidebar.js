@@ -33,7 +33,6 @@ import Separator from './components/Separator';
 const SIDEBAR_WIDTH = 256;
 
 const baseStyles = ({ theme }) => css`
-  label: sidebar;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -52,7 +51,6 @@ const baseStyles = ({ theme }) => css`
 const openStyles = ({ theme, open }) =>
   open &&
   css`
-    label: sidebar--open;
     transform: translateX(0);
     ${theme.mq.giga} {
       transform: translateX(0);

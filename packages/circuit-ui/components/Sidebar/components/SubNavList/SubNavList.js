@@ -25,7 +25,6 @@ const SUB_NAV_ITEM_HEIGHT = 32;
 
 /* eslint-disable max-len */
 const baseStyles = ({ theme }) => css`
-  label: sub-nav-list;
   margin: -${theme.spacings.byte} 0 ${theme.spacings.byte} ${theme.spacings.tera};
   list-style: none;
   height: 0;
@@ -39,7 +38,6 @@ const baseStyles = ({ theme }) => css`
 const visibleStyles = ({ theme, visible, children }) =>
   visible &&
   css`
-    label: sub-nav-list--visible;
     height: calc(${SUB_NAV_ITEM_HEIGHT}px * ${children.length});
     position: relative;
     opacity: 1;
@@ -52,7 +50,6 @@ const visibleStyles = ({ theme, visible, children }) =>
 const listStyles = ({ theme, children }) =>
   children &&
   css`
-    label: sub-nav-list__children;
     &::before {
       content: '';
       width: 2px;
@@ -67,7 +64,6 @@ const listStyles = ({ theme, children }) =>
 const selectedItemStyles = ({ theme, selectedChildIndex }) =>
   selectedChildIndex >= 0 &&
   css`
-    label: sub-nav-list--selected;
     &::after {
       content: '';
       width: 2px;

@@ -82,7 +82,6 @@ const wrapperStyles = () => css`
 const ProgressBarWrapper = styled('div')<NoTheme>(wrapperStyles);
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: progress-bar;
   background-color: ${theme.colors.n200};
   border-radius: ${theme.borderRadius.pill};
   position: relative;
@@ -164,8 +163,6 @@ const variantStyles = ({
     secondary: theme.colors.n900,
   };
   return css`
-    label: ${`progress-bar--${variant}`};
-
     &::after {
       background-color: ${variantMap[variant]};
     }
@@ -182,7 +179,6 @@ const sizeStyles = ({
     mega: theme.spacings.mega,
   };
   return css({
-    label: `progress-bar--${size}`,
     height: sizeMap[size],
   });
 };
@@ -202,14 +198,12 @@ const TimeProgress = styled('span')<TimeProgressElProps>(
 );
 
 const labelStyles = ({ theme }: StyleProps) => css`
-  label: progress-bar__label;
   margin-left: ${theme.spacings.byte};
 `;
 
 const labelHiddenStyles = ({ hideLabel }: LabelElProps) =>
   hideLabel &&
   css`
-    label: progress-bar__label--hidden;
     ${hideVisually()};
   `;
 

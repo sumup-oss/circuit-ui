@@ -22,7 +22,6 @@ import { InputProps } from '../Input/Input';
 export type TextAreaProps = InputProps;
 
 const textAreaStyles = css`
-  label: text-area;
   overflow: auto;
   resize: vertical;
 `;

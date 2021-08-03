@@ -35,7 +35,6 @@ export interface SubHeadlineProps
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: sub-headline;
   text-transform: uppercase;
   font-weight: ${theme.fontWeight.bold};
   font-size: ${theme.typography.subHeadline.fontSize};
@@ -55,7 +54,6 @@ const noMarginStyles = ({ noMargin }: SubHeadlineProps) => {
     return null;
   }
   return css`
-    label: sub-heading--no-margin;
     margin-bottom: 0;
   `;
 };

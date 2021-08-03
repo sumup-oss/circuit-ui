@@ -27,7 +27,6 @@ type TableRowProps = {
 };
 
 const baseStyles = () => css`
-  label: table-row;
   vertical-align: middle;
 
   tbody & {
@@ -46,7 +45,6 @@ const baseStyles = () => css`
 const clickableStyles = ({ theme, onClick }: StyleProps & TableRowProps) =>
   onClick &&
   css`
-    label: table-row--clickable;
     cursor: pointer;
     position: relative;
 

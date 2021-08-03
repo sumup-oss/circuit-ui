@@ -34,7 +34,6 @@ export interface ValidationHintProps extends HTMLProps<HTMLSpanElement> {
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: validation-hint;
   display: block;
   margin-top: ${theme.spacings.bit};
   color: ${theme.colors.n700};
@@ -44,14 +43,12 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const validStyles = ({ theme, showValid }: StyleProps & ValidationHintProps) =>
   showValid &&
   css`
-    label: validation-hint--valid;
     color: ${theme.colors.success};
   `;
 
 const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
   invalid &&
   css`
-    label: validation-hint--invalid;
     color: ${theme.colors.danger};
   `;
 
@@ -65,7 +62,6 @@ const Wrapper = styled('span')<ValidationHintProps>(
 const iconStyles = (color: 'danger' | 'warning' | 'success') => (
   theme: Theme,
 ) => css`
-  label: ${`validation-hint__icon--${color}`};
   display: inline-block;
   width: ${theme.iconSizes.kilo};
   height: ${theme.iconSizes.kilo};

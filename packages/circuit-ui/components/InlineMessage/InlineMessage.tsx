@@ -35,10 +35,6 @@ export interface InlineMessageProps {
   noMargin?: boolean;
 }
 
-const baseStyles = css`
-  label: inline-message;
-`;
-
 const marginStyles = ({ noMargin }: InlineMessageProps) => {
   if (!noMargin) {
     deprecate(
@@ -51,7 +47,6 @@ const marginStyles = ({ noMargin }: InlineMessageProps) => {
   }
 
   return css`
-    label: text--no-margin;
     margin-bottom: 0;
   `;
 };
@@ -76,7 +71,6 @@ const createLeftBorderStyles = (variantName: Variant) => ({
   return (
     variant === variantName &&
     css`
-      label: ${`inline-message--${variant}`};
       color: ${textColors[variant]};
       position: relative;
       margin-bottom: ${theme.spacings.mega};
@@ -105,7 +99,6 @@ const dangerStyles = createLeftBorderStyles('danger');
  * An inline message displayed inside a Card.
  */
 export const InlineMessage = styled('p')<InlineMessageProps>(
-  baseStyles,
   dangerStyles,
   successStyles,
   warningStyles,

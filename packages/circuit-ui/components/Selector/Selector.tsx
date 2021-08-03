@@ -132,7 +132,6 @@ const noMarginStyles = ({ noMargin }: LabelElProps) => {
     return null;
   }
   return css`
-    label: selector__label--no-margin;
     margin-bottom: 0;
   `;
 };
