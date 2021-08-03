@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
@@ -43,69 +42,103 @@ export interface HamburgerProps
 }
 
 const LAYER_HEIGHT = '2px';
-const HAMBURGER_WIDTH = '14px';
 
-const buttonStyles = () => css`
+const buttonStyles = ({ theme, size }: StyleProps & IconButtonProps) => css`
   border: 0;
+  padding: ${size === 'giga' ? theme.spacings.kilo : theme.spacings.byte};
 `;
 
 const Button = styled(IconButton)<IconButtonProps>(buttonStyles);
 
-const boxStyles = ({ theme }: StyleProps) => css`
+type BoxProps = Required<Pick<HamburgerProps, 'size'>>;
+const boxStyles = css`
   position: relative;
   display: flex;
   justify-content: center;
-  width: ${theme.iconSizes.mega};
-  height: ${theme.iconSizes.mega};
   transform: translateY(-1px);
 `;
 
-const Box = styled.span<HTMLProps<HTMLSpanElement>>(boxStyles);
+const boxSizeStyles = ({ theme, size }: StyleProps & BoxProps) => {
+  const iconSizeMap = {
+    giga: 'mega',
+    kilo: 'kilo',
+  } as const;
+  const iconSize = iconSizeMap[size];
 
-const layersBaseStyles = () => css`
-  top: 50%;
-  width: ${HAMBURGER_WIDTH};
+  return css`
+    width: ${theme.iconSizes[iconSize]};
+    height: ${theme.iconSizes[iconSize]};
+  `;
+};
 
-  &,
-  &::after,
-  &::before {
-    background-color: currentColor;
-    border-radius: 1px;
-    display: block;
-    height: ${LAYER_HEIGHT};
-    position: absolute;
-    transition: width 0.2s ease-out 0.15s, opacity 0.1s ease-in,
-      transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+const Box = styled.span<BoxProps>(boxStyles, boxSizeStyles);
+
+type LayerProps = Required<Pick<HamburgerProps, 'size' | 'isActive'>>;
+
+const widthMap = {
+  kilo: '14px',
+  giga: '22px',
+} as const;
+
+const offsetMap = {
+  kilo: '5px',
+  giga: '7px',
+} as const;
+
+const layersBaseStyles = ({ size }: LayerProps) => {
+  const width = widthMap[size];
+  const offset = offsetMap[size];
+
+  return css`
+    top: 50%;
+    width: ${width};
+
+    &,
+    &::after,
+    &::before {
+      background-color: currentColor;
+      border-radius: 1px;
+      display: block;
+      height: ${LAYER_HEIGHT};
+      position: absolute;
+      transition: width 0.2s ease-out 0.15s, opacity 0.1s ease-in,
+        transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    &::before,
+    &::after {
+      top: 0;
+      content: '';
+    }
+
+    &::before {
+      transform: translateY(-${offset});
+      width: calc(${width} * 0.64);
+    }
+
+    &::after {
+      transform: translateY(${offset});
+      width: calc(${width} * 0.82);
+    }
+  `;
+};
+
+const layersActiveStyles = ({ isActive, size }: LayerProps) => {
+  if (!isActive) {
+    return null;
   }
 
-  &::before,
-  &::after {
-    top: 0;
-    content: '';
-  }
+  const width = widthMap[size];
 
-  &::before {
-    transform: translateY(-5px);
-    width: ${HAMBURGER_WIDTH};
-  }
-
-  &::after {
-    transform: translateY(5px);
-    width: ${HAMBURGER_WIDTH};
-  }
-`;
-
-const layersActiveStyles = ({ isActive }: { isActive?: boolean }) =>
-  isActive &&
-  css`
+  return css`
     transform: rotate(225deg);
 
     &,
     &::before,
     &::after {
-      transition: width 0.2s ease-out, opacity 0.1s ease-out 0.15s,
+      transition: width 0.2s ease-out 0.15s, opacity 0.1s ease-out 0.15s,
         transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
-      width: ${HAMBURGER_WIDTH};
+      width: ${width};
     }
 
     &::before {
@@ -117,19 +150,18 @@ const layersActiveStyles = ({ isActive }: { isActive?: boolean }) =>
       transform: translateY(0) rotate(-90deg);
     }
   `;
+};
 
-const Layers = styled('span')<{ isActive?: boolean }>(
-  layersBaseStyles,
-  layersActiveStyles,
-);
+const Layers = styled('span')<LayerProps>(layersBaseStyles, layersActiveStyles);
 
 /**
  * A hamburger button for menus. Morphs into a close icon when active.
  */
 export const Hamburger = ({
-  isActive,
+  isActive = false,
   activeLabel,
   inactiveLabel,
+  size = 'giga',
   tracking = {},
   ...props
 }: HamburgerProps): JSX.Element => {
@@ -145,13 +177,14 @@ export const Hamburger = ({
 
   return (
     <Button
-      label={isActive ? activeLabel : inactiveLabel}
       {...props}
+      size={size}
+      label={isActive ? activeLabel : inactiveLabel}
       tracking={{ component: 'hamburger', ...tracking }}
       type="button"
     >
-      <Box>
-        <Layers isActive={isActive} />
+      <Box size={size}>
+        <Layers isActive={isActive} size={size} />
       </Box>
     </Button>
   );

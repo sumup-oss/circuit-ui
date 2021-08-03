@@ -280,7 +280,7 @@ exports[`Button styles should render a kilo button 1`] = `
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: 4px calc(16px - 1px);
+  padding: calc(4px - 1px) calc(16px - 1px);
 }
 
 .circuit-0:focus {

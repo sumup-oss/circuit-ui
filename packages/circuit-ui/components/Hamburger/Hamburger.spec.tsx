@@ -48,6 +48,13 @@ describe('Hamburger', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  const sizes: HamburgerProps['size'][] = ['kilo', 'giga'];
+
+  it.each(sizes)('should render with %s styles', (size) => {
+    const actual = renderHamburger(create, { ...baseProps, size });
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Logic tests.
    */
