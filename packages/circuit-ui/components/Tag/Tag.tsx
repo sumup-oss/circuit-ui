@@ -210,7 +210,7 @@ export const Tag = forwardRef(
       !removeButtonLabel
     ) {
       throw new Error(
-        'The Tag component is missing a `removeButtonLabel` prop. This is an accessibility requirement. Do not pass `onRemove` to disable the removing functionality.',
+        'The Tag component is missing a `removeButtonLabel` prop. This is an accessibility requirement. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
       );
     }
     const as = onClick ? 'button' : 'div';

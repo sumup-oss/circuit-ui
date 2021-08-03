@@ -64,7 +64,7 @@ export const SearchInput = forwardRef(
       !clearLabel
     ) {
       throw new Error(
-        'The SearchInput component is missing a `clearLabel` prop. This is an accessibility requirement. Do not pass `onClear` to disable the clearing functionality.',
+        'The SearchInput component is missing a `clearLabel` prop. This is an accessibility requirement. Omit the `onClear` prop if you intend to disable the input clearing functionality.',
       );
     }
     return (

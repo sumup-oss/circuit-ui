@@ -159,7 +159,7 @@ export const Modal: ModalComponent<ModalProps> = ({
     !closeButtonLabel
   ) {
     throw new Error(
-      'The Modal is missing a `closeButtonLabel` prop. This is an accessibility requirement. Pass `preventClose` to hide the close button.',
+      "The modal is missing a `closeButtonLabel` prop. This is an accessibility requirement. Pass it in `setModal`, or pass `preventClose` if you intend to hide the modal's close button.",
     );
   }
   return (

@@ -110,7 +110,7 @@ export const RadioButtonGroup = forwardRef(
       !label
     ) {
       throw new Error(
-        'The RadioButtonGroup component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` to hide the label visually.',
+        'The RadioButtonGroup component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
     const name = customName || uniqueId('radio-button-group_');

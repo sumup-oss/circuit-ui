@@ -327,7 +327,7 @@ export const Select = forwardRef(
       !label
     ) {
       throw new Error(
-        'The Select component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` to hide the label visually.',
+        'The Select component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
     const id = customId || uniqueId('select_');

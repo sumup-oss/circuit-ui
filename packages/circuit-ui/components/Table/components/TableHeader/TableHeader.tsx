@@ -194,7 +194,7 @@ const TableHeader: FC<TableHeaderProps> = ({
     !sortParams.sortLabel
   ) {
     throw new Error(
-      'The Table component is missing a `sortLabel` prop. This is an accessibility requirement. Do not pass `sortable` to disable the row sorting functionality.',
+      'The Table component is missing a `sortLabel` prop. This is an accessibility requirement. Omit the `sortable` prop if you intend to disable the row sorting functionality.',
     );
   }
   return (

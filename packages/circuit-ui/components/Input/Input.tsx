@@ -315,7 +315,7 @@ export const Input = forwardRef(
       !label
     ) {
       throw new Error(
-        'The Input component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` to hide the label visually.',
+        'The Input component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
 
