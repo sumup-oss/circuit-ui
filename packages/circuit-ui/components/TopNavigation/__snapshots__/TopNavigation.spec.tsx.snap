@@ -131,11 +131,11 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
   -webkit-transform: translateY(-1px);
   -ms-transform: translateY(-1px);
   transform: translateY(-1px);
+  width: 24px;
+  height: 24px;
 }
 
 .circuit-0 {

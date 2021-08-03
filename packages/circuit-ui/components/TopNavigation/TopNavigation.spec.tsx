@@ -18,10 +18,10 @@ import { ShoppingCart, SumUpLogo } from '@sumup/icons';
 import { axe, render, renderToHtml } from '../../util/test-utils';
 import { PopoverProps } from '../Popover';
 
-import { TopNavigation } from './TopNavigation';
+import { TopNavigation, TopNavigationProps } from './TopNavigation';
 
 describe('TopNavigation', () => {
-  const baseProps = {
+  const baseProps: TopNavigationProps = {
     logo: (
       <a
         href="https://sumup.com"
@@ -33,10 +33,10 @@ describe('TopNavigation', () => {
       </a>
     ),
     hamburger: {
-      isOpen: false,
-      onToggle: jest.fn(),
-      openLabel: 'Close menu',
-      closedLabel: 'Open menu',
+      isActive: false,
+      onClick: jest.fn(),
+      activeLabel: 'Close menu',
+      inactiveLabel: 'Open menu',
     },
     userName: 'Jane Doe',
     userId: 'ID: AC3YULT8',
