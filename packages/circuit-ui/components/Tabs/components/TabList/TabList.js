@@ -34,7 +34,6 @@ const Wrapper = styled.div(
 );
 
 const navigationBaseStyles = css`
-  label: tablist;
   display: flex;
   flex-wrap: nowrap;
 `;

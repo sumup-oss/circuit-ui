@@ -44,7 +44,6 @@ export interface ToggleProps extends SwitchProps {
 }
 
 const textWrapperStyles = ({ theme }: StyleProps) => css`
-  label: toggle__text-wrapper;
   display: block;
   margin-left: ${theme.spacings.kilo};
   cursor: pointer;
@@ -58,7 +57,6 @@ const textWrapperStyles = ({ theme }: StyleProps) => css`
 const ToggleTextWrapper = styled('label')<NoTheme>(textWrapperStyles);
 
 const explanationStyles = ({ theme }: StyleProps) => css`
-  label: toggle__explanation;
   color: ${theme.colors.n700};
 `;
 
@@ -67,7 +65,6 @@ const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);
 type WrapperElProps = Pick<ToggleProps, 'noMargin' | 'disabled'>;
 
 const toggleWrapperStyles = ({ theme }: StyleProps) => css`
-  label: toggle;
   display: flex;
   align-items: flex-start;
   margin-bottom: ${theme.spacings.mega};
@@ -81,7 +78,6 @@ const toggleWrapperStyles = ({ theme }: StyleProps) => css`
 const toggleWrapperDisabledStyles = ({ disabled }: WrapperElProps) =>
   disabled &&
   css`
-    label: toggle--disabled;
     ${disableVisually()};
   `;
 
@@ -96,7 +92,6 @@ const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
     return null;
   }
   return css`
-    label: toggle--no-margin;
     margin-bottom: 0;
   `;
 };
@@ -115,25 +110,30 @@ export const Toggle = forwardRef(
     { label, explanation, noMargin, ...props }: ToggleProps,
     ref: ToggleProps['ref'],
   ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      throw new Error(
+        'The Toggle component is missing a `label` prop. This is an accessibility requirement.',
+      );
+    }
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
     return (
       <ToggleWrapper noMargin={noMargin} disabled={props.disabled}>
         <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
-        {(label || explanation) && (
-          <ToggleTextWrapper id={labelId} htmlFor={switchId}>
-            {label && (
-              <Body size="one" noMargin>
-                {label}
-              </Body>
-            )}
-            {explanation && (
-              <ToggleExplanation size="two" noMargin>
-                {explanation}
-              </ToggleExplanation>
-            )}
-          </ToggleTextWrapper>
-        )}
+        <ToggleTextWrapper id={labelId} htmlFor={switchId}>
+          <Body size="one" noMargin>
+            {label}
+          </Body>
+          {explanation && (
+            <ToggleExplanation size="two" noMargin>
+              {explanation}
+            </ToggleExplanation>
+          )}
+        </ToggleTextWrapper>
       </ToggleWrapper>
     );
   },

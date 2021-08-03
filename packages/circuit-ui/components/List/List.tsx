@@ -45,7 +45,6 @@ export interface ListProps
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: list;
   font-weight: ${theme.fontWeight.regular};
   margin-bottom: ${theme.spacings.mega};
 `;
@@ -67,7 +66,6 @@ const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
   };
   const { marginBottom, paddingLeft, marginLeft, type } = sizeMap[size];
   return css`
-    label: ${`list--${size}`};
     padding-left: ${paddingLeft};
     ${type};
 
@@ -95,7 +93,6 @@ const marginStyles = ({ noMargin }: ListProps) => {
     return null;
   }
   return css`
-    label: list--no-margin;
     margin-bottom: 0;
     li:last-child {
       margin-bottom: 0;

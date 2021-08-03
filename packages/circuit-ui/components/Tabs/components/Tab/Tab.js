@@ -21,7 +21,6 @@ import { css } from '@emotion/core';
 import { typography, focusVisible } from '../../../../styles/style-mixins';
 
 const defaultTabStyles = ({ theme }) => css`
-  label: tab;
   padding: ${theme.spacings.kilo} ${theme.spacings.tera};
   color: ${theme.colors.n700};
   text-decoration: none;
@@ -49,7 +48,6 @@ const defaultTabStyles = ({ theme }) => css`
 const selectedTabStyles = ({ theme, selected }) =>
   selected &&
   css`
-    label: tab--selected;
     position: relative;
     color: ${theme.colors.n900};
 

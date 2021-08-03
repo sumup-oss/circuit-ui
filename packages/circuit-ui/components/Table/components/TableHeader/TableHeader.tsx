@@ -63,7 +63,6 @@ type ThElProps = Omit<TableHeaderProps, 'sortParams'> & {
 };
 
 const baseStyles = ({ theme, align }: StyleProps & ThElProps) => css`
-  label: table-header;
   background-color: ${theme.colors.white};
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   padding: ${theme.spacings.giga};
@@ -75,14 +74,12 @@ const baseStyles = ({ theme, align }: StyleProps & ThElProps) => css`
 const hoveredStyles = ({ theme, isHovered }: StyleProps & ThElProps) =>
   isHovered &&
   css`
-    label: table-cell--hover;
     background-color: ${theme.colors.n100};
   `;
 
 const colStyles = ({ theme, scope }: StyleProps & ThElProps) =>
   scope === 'col' &&
   css`
-    label: table-header--col;
     ${typography('two')(theme)};
     color: ${theme.colors.n700};
     font-weight: ${theme.fontWeight.bold};
@@ -94,7 +91,6 @@ const colStyles = ({ theme, scope }: StyleProps & ThElProps) =>
 const fixedStyles = ({ theme, fixed }: StyleProps & ThElProps) =>
   fixed &&
   css`
-    label: table-header--fixed;
     ${theme.mq.untilMega} {
       left: 0;
       top: auto;
@@ -107,7 +103,6 @@ const fixedStyles = ({ theme, fixed }: StyleProps & ThElProps) =>
 const sortableStyles = ({ theme, sortable }: StyleProps & ThElProps) =>
   sortable &&
   css`
-    label: table-header--sortable;
     cursor: pointer;
     position: relative;
     user-select: none;
@@ -149,7 +144,6 @@ const sortableActiveStyles = ({ sortable, isSorted }: ThElProps) =>
 const condensedStyles = ({ condensed, theme }: StyleProps & ThElProps) =>
   condensed &&
   css`
-    label: table-header--condensed;
     ${typography('two')(theme)};
     vertical-align: middle;
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
@@ -163,7 +157,6 @@ const condensedColStyles = ({
   condensed &&
   scope === 'col' &&
   css`
-    label: table-header-condensed--col;
     padding: ${theme.spacings.byte} ${theme.spacings.mega};
   `;
 
@@ -193,31 +186,43 @@ const TableHeader: FC<TableHeaderProps> = ({
   sortParams = { sortable: false },
   onClick,
   ...props
-}) => (
-  <StyledHeader
-    condensed={condensed}
-    align={align}
-    scope={scope}
-    fixed={fixed}
-    isHovered={isHovered}
-    sortable={sortParams.sortable}
-    isSorted={!!sortParams.isSorted}
-    aria-label={sortParams.sortLabel}
-    aria-sort={
-      sortParams.sortable ? sortParams.sortDirection || 'none' : undefined
-    }
-    onClick={onClick}
-    {...props}
-  >
-    {sortParams.sortable && (
-      <SortArrow
-        label={sortParams.sortLabel}
-        direction={sortParams.sortDirection}
-        onClick={onClick}
-      />
-    )}
-    {children}
-  </StyledHeader>
-);
+}) => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    sortParams.sortable &&
+    !sortParams.sortLabel
+  ) {
+    throw new Error(
+      'The Table component is missing a `sortLabel` prop. This is an accessibility requirement. Omit the `sortable` prop if you intend to disable the row sorting functionality.',
+    );
+  }
+  return (
+    <StyledHeader
+      condensed={condensed}
+      align={align}
+      scope={scope}
+      fixed={fixed}
+      isHovered={isHovered}
+      sortable={sortParams.sortable}
+      isSorted={!!sortParams.isSorted}
+      aria-label={sortParams.sortLabel}
+      aria-sort={
+        sortParams.sortable ? sortParams.sortDirection || 'none' : undefined
+      }
+      onClick={onClick}
+      {...props}
+    >
+      {sortParams.sortable && (
+        <SortArrow
+          label={sortParams.sortLabel}
+          direction={sortParams.sortDirection}
+          onClick={onClick}
+        />
+      )}
+      {children}
+    </StyledHeader>
+  );
+};
 
 export default TableHeader;

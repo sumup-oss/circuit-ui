@@ -22,13 +22,11 @@ import AspectRatio from '../../../AspectRatio';
 import { ASPECT_RATIO } from '../../constants';
 
 const backgroundStyles = ({ theme }) => css`
-  label: carousel__slideimage;
   background: ${theme.colors.n100};
 `;
 const StyledAspectRatio = styled(AspectRatio)(backgroundStyles);
 
 const imageStyles = css`
-  label: carousel__image;
   img {
     object-fit: cover;
   }

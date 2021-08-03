@@ -42,7 +42,6 @@ const baseStyles = ({
   theme,
   align = 'left',
 }: TableCellProps & StyleProps) => css`
-  label: table-cell;
   background-color: ${theme.colors.white};
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   padding: ${theme.spacings.giga};
@@ -59,7 +58,6 @@ const presentationStyles = ({
 }: TableCellProps & StyleProps) =>
   role === PRESENTATION &&
   css`
-    label: table-cell--presentation;
     display: none;
 
     ${header &&
@@ -84,14 +82,12 @@ const hoverStyles = ({
 }: TableCellProps & StyleProps) =>
   isHovered &&
   css`
-    label: table-cell--hover;
     background-color: ${theme.colors.n100};
   `;
 
 const condensedStyles = ({ condensed, theme }: TableCellProps & StyleProps) =>
   condensed &&
   css`
-    label: table-cell--condensed;
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
     ${typography('two')(theme)};
   `;
@@ -105,7 +101,6 @@ const condensedPresentationStyles = ({
   condensed &&
   role === PRESENTATION &&
   css`
-    label: table-cell-presentation--condensed;
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
     ${typography('two')(theme)};
 

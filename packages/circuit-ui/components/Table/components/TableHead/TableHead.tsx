@@ -85,7 +85,6 @@ const fixedStyles = ({
   scrollable &&
   top && // we need this check despite the TS types
   css`
-    label: table-head--fixed;
     transform: translateY(${top}px);
 
     ${theme.mq.untilMega} {

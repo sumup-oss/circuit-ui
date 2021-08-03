@@ -21,8 +21,6 @@ import Card from '../Card';
  * Component that wraps a list of CardList.Item components
  */
 const Wrapper = styled(Card)`
-  label: cardlist__wrapper;
-
   padding: 0;
   border-radius: ${(p) => p.theme.borderRadius.bit};
   border: ${(p) => `${p.theme.borderWidth.kilo} solid ${p.theme.colors.n300}`};

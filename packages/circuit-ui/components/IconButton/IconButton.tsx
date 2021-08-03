@@ -44,7 +44,6 @@ const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
   };
 
   return css({
-    label: `button--${size}`,
     padding: `calc(${sizeMap[size]} - 1px)`,
   });
 };
@@ -57,6 +56,15 @@ export const IconButton = forwardRef(
   ({ children, label, size, ...props }: IconButtonProps, ref?: Ref<any>) => {
     const child = Children.only(children);
     const icon = cloneElement(child, { role: 'presentation' });
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      throw new Error(
+        'The IconButton component is missing a `label` prop. This is an accessibility requirement.',
+      );
+    }
     return (
       <Button title={label} css={sizeStyles(size)} {...props} ref={ref}>
         {icon}

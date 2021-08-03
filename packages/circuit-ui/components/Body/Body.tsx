@@ -48,7 +48,6 @@ export interface BodyProps
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: body;
   font-weight: ${theme.fontWeight.regular};
   margin-bottom: ${theme.spacings.mega};
 `;
@@ -59,7 +58,6 @@ const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => {
   }
 
   return css`
-    label: ${`body-${size}`};
     font-size: ${theme.typography.body[size].fontSize};
     line-height: ${theme.typography.body[size].lineHeight};
   `;
@@ -72,13 +70,11 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
     }
     case 'highlight': {
       return css`
-        label: body--highlight;
         font-weight: ${theme.fontWeight.bold};
       `;
     }
     case 'quote': {
       return css`
-        label: body--quote;
         font-style: italic;
         padding-left: ${theme.spacings.kilo};
         border-left: ${theme.borderWidth.mega} solid ${theme.colors.p500};
@@ -86,19 +82,16 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
     }
     case 'success': {
       return css`
-        label: body--success;
         color: ${theme.colors.success};
       `;
     }
     case 'error': {
       return css`
-        label: body--error;
         color: ${theme.colors.danger};
       `;
     }
     case 'subtle': {
       return css`
-        label: body--subtle;
         color: ${theme.colors.n700};
       `;
     }
@@ -117,7 +110,6 @@ const marginStyles = ({ noMargin }: BodyProps & StyleProps) => {
   }
 
   return css`
-    label: text--no-margin;
     margin-bottom: 0;
   `;
 };

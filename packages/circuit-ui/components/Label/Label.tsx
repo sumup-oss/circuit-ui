@@ -44,21 +44,18 @@ export interface LabelProps extends HTMLProps<HTMLLabelElement> {
 }
 
 const baseStyles = () => css`
-  label: label;
   display: block;
 `;
 
 const visuallyHiddenStyles = ({ visuallyHidden }: LabelProps) =>
   visuallyHidden &&
   css`
-    label: label--hidden;
     ${hideVisually()};
   `;
 
 const inlineStyles = ({ theme, inline }: StyleProps & LabelProps) =>
   inline &&
   css`
-    label: label--inline;
     display: inline-block;
     margin-right: ${theme.spacings.mega};
   `;
@@ -66,7 +63,6 @@ const inlineStyles = ({ theme, inline }: StyleProps & LabelProps) =>
 const disabledStyles = ({ disabled }: LabelProps) =>
   disabled &&
   css`
-    label: input__label--disabled;
     ${disableVisually()};
   `;
 

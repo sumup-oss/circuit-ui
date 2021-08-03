@@ -52,7 +52,6 @@ export type CardHeaderProps = {
 type ContainerElProps = Pick<CardHeaderProps, 'children'>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: card__header;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -63,7 +62,6 @@ const noHeadlineStyles = ({ children }: ContainerElProps) =>
   Array.isArray(children) &&
   !children[0] &&
   css`
-    label: card__header--no-heading;
     justify-content: flex-end;
   `;
 

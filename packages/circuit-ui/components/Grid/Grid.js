@@ -31,8 +31,6 @@ const getBreakPointStyles = (theme, breakpoint) => {
 };
 
 const baseStyles = ({ theme }) => css`
-  label: grid;
-
   margin: 0 auto;
   width: 100%;
 

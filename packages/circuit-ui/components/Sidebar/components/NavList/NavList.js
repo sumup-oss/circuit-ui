@@ -19,7 +19,6 @@ import { css } from '@emotion/core';
 import { TrackingElement } from '@sumup/collector';
 
 const baseStyles = () => css`
-  label: nav-list;
   height: auto;
   justify-self: flex-start;
   overflow-y: auto;

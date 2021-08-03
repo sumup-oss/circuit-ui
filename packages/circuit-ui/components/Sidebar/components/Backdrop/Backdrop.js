@@ -18,7 +18,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
-  label: sidebar-backdrop;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -36,7 +35,6 @@ const baseStyles = ({ theme }) => css`
 const visibleStyles = ({ visible }) =>
   visible &&
   css`
-    label: sidebar-backdrop--visible;
     visibility: visible;
     opacity: 0.56;
   `;

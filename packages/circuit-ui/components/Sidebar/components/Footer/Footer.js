@@ -18,7 +18,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
-  label: sidebar-footer;
   margin-top: auto;
   padding: ${theme.spacings.giga};
   background-color: ${theme.colors.n900};

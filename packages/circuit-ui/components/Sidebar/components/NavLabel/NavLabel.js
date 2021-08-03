@@ -18,7 +18,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
-  label: nav-label;
   display: block;
   margin-left: ${theme.spacings.kilo};
 `;
@@ -26,7 +25,6 @@ const baseStyles = ({ theme }) => css`
 const secondaryStyles = ({ theme, secondary }) =>
   secondary &&
   css`
-    label: nav-label--secondary;
     margin-left: 0px;
     margin-top: -${theme.spacings.kilo};
     transition: margin-top ${theme.transitions.slow};
@@ -36,7 +34,6 @@ const secondaryVisibleStyles = ({ secondary, visible }) =>
   secondary &&
   visible &&
   css`
-    label: nav-label--secondary--visible;
     margin-top: 0px;
   `;
 

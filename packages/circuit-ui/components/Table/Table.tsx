@@ -83,7 +83,6 @@ type TableContainerElProps = Pick<
 >;
 
 const tableContainerBaseStyles = () => css`
-  label: table-container;
   position: relative;
 `;
 
@@ -106,7 +105,6 @@ const shadowStyles = ({
 }: TableContainerElProps & StyleProps) =>
   !noShadow &&
   css`
-    label: table-container--shadow;
     border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   `;
 
@@ -128,7 +126,6 @@ const containerStyles = ({
 }: ScrollContainerElElProps & StyleProps) =>
   rowHeaders &&
   css`
-    label: table-container;
     border-radius: ${theme.borderRadius.bit};
     ${theme.mq.untilMega} {
       height: unset;
@@ -155,7 +152,6 @@ const ScrollContainer = styled.div<ScrollContainerElElProps>`
 type TableElProps = Pick<TableProps, 'borderCollapsed' | 'rowHeaders'>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: table;
   background-color: ${theme.colors.white};
   border-collapse: separate;
   width: 100%;
@@ -164,7 +160,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const responsiveStyles = ({ theme, rowHeaders }: TableElProps & StyleProps) =>
   rowHeaders &&
   css`
-    label: table--responsive;
     ${theme.mq.untilMega} {
       margin-left: -145px;
       width: calc(100% + 145px);

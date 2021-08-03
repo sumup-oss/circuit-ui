@@ -21,8 +21,6 @@ import isPropValid from '@emotion/is-prop-valid';
 import { getSpanStyles, getSkipStyles, getBreakPointStyles } from './utils';
 
 const baseStyles = ({ theme, span, skip }) => css`
-  label: col;
-
   box-sizing: border-box;
   float: left;
 

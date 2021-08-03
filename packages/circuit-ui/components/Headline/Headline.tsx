@@ -41,7 +41,6 @@ export interface HeadlineProps
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: headline;
   font-weight: ${theme.fontWeight.bold};
   margin-bottom: ${theme.spacings.giga};
   color: ${theme.colors.black};
@@ -53,7 +52,6 @@ const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => {
   }
 
   return css`
-    label: ${`headline-${size}`};
     font-size: ${theme.typography.headline[size].fontSize};
     line-height: ${theme.typography.headline[size].lineHeight};
   `;
@@ -70,7 +68,6 @@ const noMarginStyles = ({ noMargin }: HeadlineProps) => {
   }
 
   return css`
-    label: headline--no-margin;
     margin-bottom: 0;
   `;
 };

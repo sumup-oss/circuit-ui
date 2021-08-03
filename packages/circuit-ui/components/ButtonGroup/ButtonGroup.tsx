@@ -52,7 +52,6 @@ const getInlineStyles = ({ theme }: StyleProps) => css`
 `;
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: button-group;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -78,14 +77,9 @@ const alignmentMap = {
   right: 'flex-end',
 } as const;
 
-const alignmentStyles = ({ align = 'right' }: ButtonGroupProps) => {
-  const label = `button-group--${align}`;
-
-  return css`
-    label: ${label};
-    justify-content: ${alignmentMap[align]};
-  `;
-};
+const alignmentStyles = ({ align = 'right' }: ButtonGroupProps) => css`
+  justify-content: ${alignmentMap[align]};
+`;
 
 const inlineMobileStyles = ({
   theme,
@@ -93,7 +87,6 @@ const inlineMobileStyles = ({
 }: StyleProps & ButtonGroupProps) =>
   inlineMobile &&
   css`
-    label: button-group--inline-mobile;
     ${getInlineStyles({ theme })}
   `;
 

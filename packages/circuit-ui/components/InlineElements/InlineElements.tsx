@@ -45,7 +45,6 @@ const fallbackBaseStyles = ({
   }) / ${childrenCount}`;
 
   return css`
-    label: inline-elements--fallback;
     > * {
       display: block;
       width: 100%;
@@ -79,7 +78,6 @@ const baseStyles = ({
     ).join('\n');
 
   return css`
-    label: inline-elements;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -125,7 +123,6 @@ const fallbackInlineMobileStyles = ({
   }) / ${childrenCount}`;
 
   return css`
-    label: inline-elements--inline-mobile-fallback;
     ${theme.mq.untilKilo} {
       > * {
         float: left;
@@ -143,8 +140,6 @@ const inlineMobileStyles = ({
 }: StyleProps & InlineElementsProps) =>
   inlineMobile &&
   css`
-    label: inline-elements--inline-mobile;
-
     ${theme.mq.untilKilo} {
       flex-direction: row;
       flex-grow: 1;

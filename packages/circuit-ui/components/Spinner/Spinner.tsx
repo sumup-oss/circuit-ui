@@ -33,7 +33,6 @@ export interface SpinnerProps extends Omit<HTMLProps<HTMLDivElement>, 'size'> {
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: spinner;
   display: block;
   border-radius: ${theme.borderRadius.circle};
   border: ${theme.borderWidth.mega} solid currentColor;
@@ -59,7 +58,6 @@ const sizeStyles = ({ theme, size = 'kilo' }: SpinnerProps & StyleProps) => {
   };
 
   return css({
-    label: `spinner-label--${size}`,
     ...sizeMap[size],
   });
 };

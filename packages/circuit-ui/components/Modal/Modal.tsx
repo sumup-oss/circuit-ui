@@ -151,15 +151,26 @@ export const Modal: ModalComponent<ModalProps> = ({
   closeButtonLabel,
   className,
   ...props
-}) => (
-  <ClassNames<Theme> key={variant}>
-    {({ css: cssString, cx, theme }) => {
-      // React Modal styles
-      // https://reactcommunity.org/react-modal/styles/classes/
+}) => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !preventClose &&
+    !closeButtonLabel
+  ) {
+    throw new Error(
+      "The modal is missing a `closeButtonLabel` prop. This is an accessibility requirement. Pass it in `setModal`, or pass `preventClose` if you intend to hide the modal's close button.",
+    );
+  }
+  return (
+    <ClassNames<Theme> key={variant}>
+      {({ css: cssString, cx, theme }) => {
+        // React Modal styles
+        // https://reactcommunity.org/react-modal/styles/classes/
 
-      const styles = {
-        base: cx(
-          cssString`
+        const styles = {
+          base: cx(
+            cssString`
             position: fixed;
             outline: none;
             background-color: ${theme.colors.white};
@@ -205,15 +216,15 @@ export const Modal: ModalComponent<ModalProps> = ({
               }
             }
           `,
-          variant === 'contextual' &&
-            cssString`
+            variant === 'contextual' &&
+              cssString`
               ${theme.mq.untilKilo} {
                 border-top-left-radius: ${theme.borderRadius.mega};
                 border-top-right-radius: ${theme.borderRadius.mega};
               }
             `,
-          variant === 'immersive' &&
-            cssString`
+            variant === 'immersive' &&
+              cssString`
               /* iOS viewport bug fix */
               /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
               @supports (max-height: -webkit-fill-available) {
@@ -223,12 +234,10 @@ export const Modal: ModalComponent<ModalProps> = ({
                 }
               }
             `,
-        ),
-        // The !important below is necessary because of some weird
-        // style specificity issues in Emotion.
-        afterOpen: cssString`
-          label: modal--after-open;
-
+          ),
+          // The !important below is necessary because of some weird
+          // style specificity issues in Emotion.
+          afterOpen: cssString`
           ${theme.mq.untilKilo} {
             transform: translateY(0) !important;
           }
@@ -237,9 +246,7 @@ export const Modal: ModalComponent<ModalProps> = ({
             opacity: 1 !important;
           }
         `,
-        beforeClose: cssString`
-          label: modal--before-close;
-
+          beforeClose: cssString`
           ${theme.mq.untilKilo} {
             transform: translateY(100%);
           }
@@ -248,10 +255,10 @@ export const Modal: ModalComponent<ModalProps> = ({
             opacity: 0;
           }
         `,
-      };
+        };
 
-      const overlayStyles = {
-        base: cssString`
+        const overlayStyles = {
+          base: cssString`
           position: fixed;
           top: 0;
           left: 0;
@@ -266,43 +273,44 @@ export const Modal: ModalComponent<ModalProps> = ({
             transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
           }
         `,
-        afterOpen: cssString`
+          afterOpen: cssString`
           opacity: 1;
         `,
-        beforeClose: cssString`
+          beforeClose: cssString`
           opacity: 0;
         `,
-      };
+        };
 
-      const reactModalProps = {
-        className: styles,
-        overlayClassName: overlayStyles,
-        onRequestClose: onClose,
-        closeTimeoutMS: TRANSITION_DURATION,
-        shouldCloseOnOverlayClick: !preventClose,
-        shouldCloseOnEsc: !preventClose,
-        ...props,
-      };
+        const reactModalProps = {
+          className: styles,
+          overlayClassName: overlayStyles,
+          onRequestClose: onClose,
+          closeTimeoutMS: TRANSITION_DURATION,
+          shouldCloseOnOverlayClick: !preventClose,
+          shouldCloseOnEsc: !preventClose,
+          ...props,
+        };
 
-      return (
-        <StackContext.Provider value={theme.zIndex.modal}>
-          <ReactModal {...reactModalProps}>
-            <Content variant={variant} className={className}>
-              {!preventClose && closeButtonLabel && (
-                <CloseButton
-                  onClick={onClose}
-                  label={closeButtonLabel}
-                  css={closeButtonStyles}
-                />
-              )}
+        return (
+          <StackContext.Provider value={theme.zIndex.modal}>
+            <ReactModal {...reactModalProps}>
+              <Content variant={variant} className={className}>
+                {!preventClose && closeButtonLabel && (
+                  <CloseButton
+                    onClick={onClose}
+                    label={closeButtonLabel}
+                    css={closeButtonStyles}
+                  />
+                )}
 
-              {isFunction(children) ? children({ onClose }) : children}
-            </Content>
-          </ReactModal>
-        </StackContext.Provider>
-      );
-    }}
-  </ClassNames>
-);
+                {isFunction(children) ? children({ onClose }) : children}
+              </Content>
+            </ReactModal>
+          </StackContext.Provider>
+        );
+      }}
+    </ClassNames>
+  );
+};
 
 Modal.TIMEOUT = TRANSITION_DURATION;

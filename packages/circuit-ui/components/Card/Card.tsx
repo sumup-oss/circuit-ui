@@ -31,7 +31,6 @@ export interface CardProps extends HTMLProps<HTMLDivElement> {
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: card;
   background-color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.mega};
   border: ${theme.borderWidth.mega} solid ${theme.colors.n200};
@@ -50,7 +49,6 @@ const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
     `,
   };
   return css`
-    label: ${`card--spacing-${spacing}`};
     padding: ${spacings[spacing]};
   `;
 };

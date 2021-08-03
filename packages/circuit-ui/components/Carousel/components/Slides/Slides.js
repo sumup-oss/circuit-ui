@@ -17,7 +17,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const baseStyles = css`
-  label: carousel__slides;
   display: flex;
   align-items: center;
   overflow: hidden;

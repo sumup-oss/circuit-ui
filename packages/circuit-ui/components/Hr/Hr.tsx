@@ -18,7 +18,6 @@ import { css } from '@emotion/core';
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: hr;
   display: block;
   width: 100%;
   border: 0;

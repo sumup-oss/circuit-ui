@@ -55,7 +55,6 @@ const knobShadow = (color: string) => `0 2px 0 0 ${color}`;
 type TrackElProps = Omit<SwitchProps, 'checkedLabel' | 'uncheckedLabel'>;
 
 const trackBaseStyles = ({ theme }: StyleProps) => css`
-  label: toggle__switch;
   margin: 0;
   padding: 0;
   border: 0;
@@ -75,7 +74,6 @@ const trackBaseStyles = ({ theme }: StyleProps) => css`
 const trackOnStyles = ({ theme, checked }: StyleProps & TrackElProps) =>
   checked &&
   css`
-    label: toggle__switch--checked;
     background-color: ${theme.colors.p500};
   `;
 
@@ -88,7 +86,6 @@ const SwitchTrack = styled('button')<TrackElProps>(
 type KnobElProps = Pick<SwitchProps, 'checked'>;
 
 const knobBaseStyles = ({ theme }: StyleProps) => css`
-  label: toggle__switch-knob;
   display: block;
   background-color: ${theme.colors.white};
   box-shadow: ${knobShadow(theme.colors.n500)};
@@ -104,7 +101,6 @@ const knobBaseStyles = ({ theme }: StyleProps) => css`
 const knobOnStyles = ({ theme, checked }: StyleProps & KnobElProps) =>
   checked &&
   css`
-    label: toggle__switch-knob--checked;
     box-shadow: ${knobShadow(theme.colors.p700)};
     transform: translate3d(
       calc(${TRACK_WIDTH} - ${KNOB_SIZE} - ${theme.spacings.bit}),
@@ -113,14 +109,10 @@ const knobOnStyles = ({ theme, checked }: StyleProps & KnobElProps) =>
     );
   `;
 
-const labelBaseStyles = () => css`
-  label: toggle__switch-label;
-`;
-
 const SwitchKnob = styled('span')<KnobElProps>(knobBaseStyles, knobOnStyles);
 
 // Important for accessibility
-const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
+const SwitchLabel = styled('span')(hideVisually);
 
 /**
  * A simple Switch component.
@@ -130,13 +122,22 @@ export const Switch = forwardRef(
     {
       checked = false,
       onChange,
-      checkedLabel = 'on',
-      uncheckedLabel = 'off',
+      checkedLabel,
+      uncheckedLabel,
       tracking,
       ...props
     }: SwitchProps,
     ref: SwitchProps['ref'],
   ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      (!checkedLabel || !uncheckedLabel)
+    ) {
+      throw new Error(
+        'The Switch component is missing a `checkedLabel` and/or an `uncheckedLabel` prop. This is an accessibility requirement.',
+      );
+    }
     const handleChange = useClickEvent(onChange, tracking, 'toggle');
     return (
       <SwitchTrack

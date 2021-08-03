@@ -21,7 +21,6 @@ import { ChevronLeft, ChevronRight, Pause, Play } from '@sumup/icons';
 import IconButton from '../../../IconButton';
 
 const buttonListStyles = css`
-  label: carousel__buttonlist;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +29,6 @@ const buttonListStyles = css`
 export const ButtonList = styled('div')(buttonListStyles);
 
 const buttonStyles = ({ theme }) => css`
-  label: carousel__button;
   margin-left: ${theme.spacings.byte};
 
   &:first-of-type {

@@ -27,7 +27,6 @@ export interface NotificationCardProps extends HTMLProps<HTMLDivElement> {
 }
 
 const outerStyles = ({ theme }: StyleProps) => css`
-  label: notification-banner;
   width: 100%;
   background-color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.mega};
@@ -36,7 +35,6 @@ const outerStyles = ({ theme }: StyleProps) => css`
 const NotificationCardOuter = styled('div')<NoTheme>(outerStyles, shadow());
 
 const innerStyles = ({ theme }: StyleProps) => css`
-  label: notification-banner__inner;
   padding: ${theme.spacings.mega} ${theme.spacings.giga};
 `;
 
@@ -48,7 +46,7 @@ const NotificationCardInner = styled('div')<NoTheme>(innerStyles);
 export const NotificationCard = ({
   children,
   ...props
-}: NotificationCardProps) => (
+}: NotificationCardProps): JSX.Element => (
   <NotificationCardOuter {...props} aria-live="polite" role="status">
     <NotificationCardInner>{children}</NotificationCardInner>
   </NotificationCardOuter>

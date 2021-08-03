@@ -36,7 +36,6 @@ export interface NotificationProps {
 }
 
 const containerStyles = () => css`
-  label: notification;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -47,7 +46,6 @@ const containerStyles = () => css`
 const Container = styled('div')<NoTheme>(containerStyles);
 
 const contentStyles = () => css`
-  label: notification__content;
   width: 100%;
 `;
 
@@ -67,7 +65,6 @@ const iconMap = {
 
 const iconStyles = (variant: Variant) => (theme: Theme) =>
   css`
-    label: notification__icon;
     display: block;
     margin-right: ${theme.spacings.kilo};
     flex-grow: 0;
@@ -77,7 +74,6 @@ const iconStyles = (variant: Variant) => (theme: Theme) =>
   `;
 
 const closeButtonStyles = ({ theme }: StyleProps) => css`
-  label: notification__close-button;
   flex-grow: 0;
   flex-shrink: 0;
   align-self: flex-start;
@@ -100,7 +96,7 @@ export const Notification = ({
   onClose,
   closeLabel,
   ...props
-}: NotificationProps) => {
+}: NotificationProps): JSX.Element => {
   const Icon = icon || iconMap[variant];
 
   return (

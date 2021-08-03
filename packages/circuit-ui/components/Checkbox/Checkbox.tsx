@@ -55,7 +55,6 @@ export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
 type LabelElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
 
 const labelBaseStyles = ({ theme }: StyleProps) => css`
-  label: checkbox__label;
   color: ${theme.colors.bodyColor};
   display: inline-block;
   padding-left: 26px;
@@ -101,7 +100,6 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
 const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
   invalid &&
   css`
-    label: checkbox--error;
     &:not(:focus)::before {
       border-color: ${theme.colors.danger};
       background-color: ${theme.colors.r100};
@@ -111,7 +109,6 @@ const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
 const labelDisabledStyles = ({ disabled, theme }: StyleProps & LabelElProps) =>
   disabled &&
   css`
-    label: checkbox--disabled;
     ${disableVisually()};
 
     &::before {
@@ -130,7 +127,6 @@ const CheckboxLabel = styled('label')<LabelElProps>(
 type WrapperElProps = Pick<CheckboxProps, 'noMargin'>;
 
 const wrapperBaseStyles = ({ theme }: StyleProps) => css`
-  label: checkbox;
   position: relative;
 
   &:last-of-type {
@@ -150,7 +146,6 @@ const wrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
     return null;
   }
   return css`
-    label: checkbox--no-margin;
     &:last-of-type {
       margin-bottom: 0;
     }
@@ -165,7 +160,6 @@ const CheckboxWrapper = styled('div')<WrapperElProps>(
 type InputElProps = Omit<CheckboxProps, 'tracking'>;
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
-  label: checkbox__input;
   ${hideVisually()};
 
   &:hover + label::before {
@@ -200,8 +194,6 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
 const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
   invalid &&
   css`
-    label: checkbox__input--invalid;
-
     &:hover + label::before,
     &:focus + label::before {
       border-color: ${theme.colors.r700};
@@ -219,7 +211,6 @@ const CheckboxInput = styled('input')<InputElProps>(
 );
 
 const tooltipStyles = ({ theme }: StyleProps) => css`
-  label: checkbox__tooltip;
   left: -${theme.spacings.kilo};
 `;
 

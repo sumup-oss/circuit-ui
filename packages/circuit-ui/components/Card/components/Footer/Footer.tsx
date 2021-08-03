@@ -28,7 +28,6 @@ export interface CardFooterProps {
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: card__footer;
   display: block;
   width: 100%;
   margin-top: ${theme.spacings.giga};
@@ -46,7 +45,6 @@ const alignmentStyles = ({
 }: StyleProps & CardFooterProps) =>
   align === 'right' &&
   css`
-    label: card__footer--right;
     ${theme.mq.kilo} {
       justify-content: flex-end;
     }

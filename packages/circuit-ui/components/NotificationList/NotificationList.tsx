@@ -29,7 +29,6 @@ export interface NotificationListProps extends HTMLProps<HTMLUListElement> {
 // The first max-width rule is a fallback for old versions of Android
 // that don't support calc()
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: notification-list;
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -53,7 +52,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const NotificationListWrapper = styled('ul')<NoTheme>(baseStyles);
 
 const cardStyles = ({ theme }: StyleProps) => css`
-  label: card;
   background-color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.mega};
   border: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
@@ -71,7 +69,7 @@ const NotificationListCard = styled('li')(cardStyles, shadow());
 export const NotificationList = ({
   children,
   ...props
-}: NotificationListProps) => (
+}: NotificationListProps): JSX.Element => (
   <NotificationListWrapper {...props} aria-live="polite">
     {Children.map(children, (child, i) => (
       <NotificationListCard key={i}>{child}</NotificationListCard>

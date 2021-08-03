@@ -62,7 +62,6 @@ const COLOR_MAP = {
 } as const;
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: badge;
   border-radius: ${theme.borderRadius.pill};
   color: ${theme.colors.white};
   display: inline-block;
@@ -83,7 +82,6 @@ const variantStyles = ({
     return null;
   }
   return css`
-    label: ${`badge--${variant}`};
     background-color: ${theme.colors[currentColor.default]};
     color: ${theme.colors[currentColor.text]};
   `;
@@ -99,7 +97,6 @@ const isDynamicWidth = (children: BadgeProps['children']) => {
 const circleStyles = ({ circle = false, children }: BadgeProps) =>
   circle &&
   css`
-    label: badge--circle;
     display: flex;
     align-items: center;
     justify-content: center;

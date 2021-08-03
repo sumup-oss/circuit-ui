@@ -43,7 +43,6 @@ export interface HeaderProps extends HTMLProps<HTMLDivElement> {
 type HeaderElProps = Pick<HeaderProps, 'mobileOnly'>;
 
 const containerStyles = ({ theme }: StyleProps) => css`
-  label: header;
   width: 100%;
   display: flex;
   align-items: center;

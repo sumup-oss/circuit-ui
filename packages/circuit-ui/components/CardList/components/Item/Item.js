@@ -20,8 +20,6 @@ import { css } from '@emotion/core';
 import { isEnter, isSpacebar } from '../../../../util/key-codes';
 
 const baseStyles = ({ theme }) => css`
-  label: cardlist__item;
-
   align-items: center;
   position: relative;
   cursor: pointer;
@@ -63,8 +61,6 @@ const paddingStyles = ({ theme, padding }) =>
 const selectedStyles = ({ theme, selected }) =>
   selected &&
   css`
-    label: cardlist__item--selected;
-
     background: ${theme.colors.p100};
 
     ${getBorderStyles(theme)};

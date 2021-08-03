@@ -109,7 +109,6 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
 }
 
 const containerStyles = () => css`
-  label: input__container;
   position: relative;
 `;
 
@@ -130,7 +129,6 @@ const labelNoMarginStyles = ({
     );
 
     return css`
-      label: input__label--margin;
       margin-bottom: ${theme.spacings.mega};
     `;
   }
@@ -145,7 +143,6 @@ type InputElProps = Omit<InputProps, 'label'> & {
 };
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
-  label: input;
   -webkit-appearance: none;
   background-color: ${theme.colors.white};
   border: none;
@@ -171,7 +168,6 @@ const inputWarningStyles = ({
   !disabled &&
   hasWarning &&
   css`
-    label: input--warning;
     &:not(:focus)::placeholder {
       color: ${theme.colors.warning};
     }
@@ -185,7 +181,6 @@ const inputInvalidStyles = ({
   !disabled &&
   invalid &&
   css`
-    label: input--error;
     &:not(:focus)::placeholder {
       color: ${theme.colors.danger};
       opacity: 0.5;
@@ -195,35 +190,30 @@ const inputInvalidStyles = ({
 const inputReadonlyStyles = ({ theme, readOnly }: StyleProps & InputElProps) =>
   readOnly &&
   css`
-    label: input--readonly;
     background-color: ${theme.colors.n100};
   `;
 
 const inputDisabledStyles = ({ theme, disabled }: StyleProps & InputElProps) =>
   disabled &&
   css`
-    label: input--disabled;
     background-color: ${theme.colors.n200};
   `;
 
 const inputTextAlignRightStyles = ({ textAlign }: InputElProps) =>
   textAlign === 'right' &&
   css`
-    label: input--right;
     text-align: right;
   `;
 
 const inputPrefixStyles = ({ theme, hasPrefix }: StyleProps & InputElProps) =>
   hasPrefix &&
   css`
-    label: input--prefix;
     padding-left: ${theme.spacings.exa};
   `;
 
 const inputSuffixStyles = ({ theme, hasSuffix }: StyleProps & InputElProps) =>
   hasSuffix &&
   css`
-    label: input--suffix;
     padding-right: ${theme.spacings.exa};
   `;
 
@@ -245,7 +235,6 @@ const InputElement = styled('input')<InputElProps>(
  * destructuring.
  */
 const prefixStyles = (theme: Theme) => css`
-  label: input__prefix;
   position: absolute;
   pointer-events: none;
   color: ${theme.colors.n700};
@@ -259,7 +248,6 @@ const prefixStyles = (theme: Theme) => css`
  * destructuring.
  */
 const suffixStyles = (theme: Theme) => css`
-  label: input__suffix;
   position: absolute;
   top: 0;
   right: 0;
@@ -272,7 +260,6 @@ const suffixStyles = (theme: Theme) => css`
 `;
 
 const labelTextStyles = ({ theme }: StyleProps) => css`
-  label: input__label-text;
   display: inline-block;
   margin-bottom: ${theme.spacings.bit};
 `;
@@ -280,7 +267,6 @@ const labelTextStyles = ({ theme }: StyleProps) => css`
 const labelTextHiddenStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
   hideLabel &&
   css`
-    label: input__label-text--hidden;
     ${hideVisually()};
   `;
 
@@ -290,7 +276,6 @@ const LabelText = styled('span')<{ hideLabel?: boolean }>(
 );
 
 const optionalLabelStyles = ({ theme }: StyleProps) => css`
-  label: input__optional-label;
   color: ${theme.colors.n700};
 `;
 
@@ -324,6 +309,16 @@ export const Input = forwardRef(
     }: InputProps,
     ref: InputProps['ref'],
   ): ReturnType => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      throw new Error(
+        'The Input component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
+      );
+    }
+
     const id = customId || uniqueId('input_');
 
     const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;

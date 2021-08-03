@@ -30,11 +30,11 @@ interface BaseProps {
    */
   size?: 'byte' | 'kilo' | 'mega';
   /**
-   * A descriptive label that is used by screenreaders.
+   * A descriptive label that is used by screen readers.
    */
   label: string;
   /**
-   * Visually hide the label. It will remain accessible to screenreaders.
+   * Visually hide the label. It will remain accessible to screen readers.
    */
   hideLabel?: boolean;
 }
@@ -82,7 +82,6 @@ const wrapperStyles = () => css`
 const ProgressBarWrapper = styled('div')<NoTheme>(wrapperStyles);
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  label: progress-bar;
   background-color: ${theme.colors.n200};
   border-radius: ${theme.borderRadius.pill};
   position: relative;
@@ -164,8 +163,6 @@ const variantStyles = ({
     secondary: theme.colors.n900,
   };
   return css`
-    label: ${`progress-bar--${variant}`};
-
     &::after {
       background-color: ${variantMap[variant]};
     }
@@ -182,7 +179,6 @@ const sizeStyles = ({
     mega: theme.spacings.mega,
   };
   return css({
-    label: `progress-bar--${size}`,
     height: sizeMap[size],
   });
 };
@@ -202,14 +198,12 @@ const TimeProgress = styled('span')<TimeProgressElProps>(
 );
 
 const labelStyles = ({ theme }: StyleProps) => css`
-  label: progress-bar__label;
   margin-left: ${theme.spacings.byte};
 `;
 
 const labelHiddenStyles = ({ hideLabel }: LabelElProps) =>
   hideLabel &&
   css`
-    label: progress-bar__label--hidden;
     ${hideVisually()};
   `;
 
@@ -237,6 +231,15 @@ export function ProgressBar({
   hideLabel,
   ...props
 }: ProgressBarProps): JSX.Element {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !label
+  ) {
+    throw new Error(
+      'The ProgressBar component is missing a `label` prop. This is an accessibility requirement.',
+    );
+  }
   const ariaId = uniqueId('progress-bar_');
   const title = hideLabel ? label : undefined;
   return (
