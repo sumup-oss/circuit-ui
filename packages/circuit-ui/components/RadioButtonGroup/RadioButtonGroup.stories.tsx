@@ -49,23 +49,6 @@ Base.args = {
   ],
 };
 
-export const NoLabel = (args: RadioButtonGroupProps) => {
-  const [value, setValue] = useState<string>();
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
-  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
-};
-
-NoLabel.args = {
-  name: 'radio-button-group',
-  options: [
-    { children: 'Apple', value: 'apple' },
-    { children: 'Banana', value: 'banana' },
-    { children: 'Mango', value: 'mango' },
-  ],
-};
-
 export const Invalid = (args: RadioButtonGroupProps) => {
   const [value, setValue] = useState<string>();
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
