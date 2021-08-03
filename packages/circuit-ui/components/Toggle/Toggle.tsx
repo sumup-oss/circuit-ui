@@ -126,9 +126,7 @@ export const Toggle = forwardRef(
       <ToggleWrapper noMargin={noMargin} disabled={props.disabled}>
         <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
         <ToggleTextWrapper id={labelId} htmlFor={switchId}>
-          <Body size="one" noMargin>
-            {label}
-          </Body>
+          <Body noMargin>{label}</Body>
           {explanation && (
             <ToggleExplanation size="two" noMargin>
               {explanation}

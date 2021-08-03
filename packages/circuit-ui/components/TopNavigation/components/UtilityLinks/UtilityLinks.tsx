@@ -93,11 +93,7 @@ function UtilityLink({
   return (
     <UtilityAnchor {...props} onClick={handleClick}>
       <Icon css={iconStyles} role="presentation" />
-      <UtilityLabel
-        size="one"
-        variant={props.isActive ? 'highlight' : undefined}
-        noMargin
-      >
+      <UtilityLabel variant={props.isActive ? 'highlight' : undefined} noMargin>
         {label}
       </UtilityLabel>
     </UtilityAnchor>
