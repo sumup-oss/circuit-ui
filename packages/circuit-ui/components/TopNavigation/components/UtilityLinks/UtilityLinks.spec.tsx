@@ -14,8 +14,14 @@
  */
 
 import { CircleMore } from '@sumup/icons';
+import { KeyboardEvent, MouseEvent } from 'react';
 
-import { axe, render, renderToHtml } from '../../../../util/test-utils';
+import {
+  axe,
+  render,
+  renderToHtml,
+  userEvent,
+} from '../../../../util/test-utils';
 
 import { UtilityLinks } from './UtilityLinks';
 
@@ -26,7 +32,9 @@ describe('UtilityLinks', () => {
         icon: CircleMore,
         label: 'More',
         href: '/more',
-        onClick: jest.fn(),
+        onClick: jest.fn((event: MouseEvent | KeyboardEvent) => {
+          event.preventDefault();
+        }),
       },
     ],
   };
@@ -36,6 +44,18 @@ describe('UtilityLinks', () => {
       const { container } = render(<UtilityLinks {...baseProps} />);
 
       expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe('business logic', () => {
+    it('should call the onClick handler of a link', () => {
+      const { getByText } = render(<UtilityLinks {...baseProps} />);
+
+      const link = baseProps.links[0];
+
+      userEvent.click(getByText(link.label));
+
+      expect(link.onClick).toHaveBeenCalledTimes(1);
     });
   });
 
