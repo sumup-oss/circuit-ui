@@ -128,19 +128,31 @@ const Layers = styled('span')<{ isActive?: boolean }>(
  */
 export const Hamburger = ({
   isActive,
-  activeLabel = 'Close menu',
-  inactiveLabel = 'Open menu',
+  activeLabel,
+  inactiveLabel,
   tracking = {},
   ...props
-}: HamburgerProps): JSX.Element => (
-  <Button
-    label={isActive ? activeLabel : inactiveLabel}
-    {...props}
-    tracking={{ component: 'hamburger', ...tracking }}
-    type="button"
-  >
-    <Box>
-      <Layers isActive={isActive} />
-    </Box>
-  </Button>
-);
+}: HamburgerProps): JSX.Element => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    (!activeLabel || !inactiveLabel)
+  ) {
+    throw new Error(
+      'The Hamburger component is missing an `activeLabel` and/or an `inactiveLabel` prop. This is an accessibility requirement.',
+    );
+  }
+
+  return (
+    <Button
+      label={isActive ? activeLabel : inactiveLabel}
+      {...props}
+      tracking={{ component: 'hamburger', ...tracking }}
+      type="button"
+    >
+      <Box>
+        <Layers isActive={isActive} />
+      </Box>
+    </Button>
+  );
+};

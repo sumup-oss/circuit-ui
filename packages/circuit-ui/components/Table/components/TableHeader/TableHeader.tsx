@@ -186,31 +186,43 @@ const TableHeader: FC<TableHeaderProps> = ({
   sortParams = { sortable: false },
   onClick,
   ...props
-}) => (
-  <StyledHeader
-    condensed={condensed}
-    align={align}
-    scope={scope}
-    fixed={fixed}
-    isHovered={isHovered}
-    sortable={sortParams.sortable}
-    isSorted={!!sortParams.isSorted}
-    aria-label={sortParams.sortLabel}
-    aria-sort={
-      sortParams.sortable ? sortParams.sortDirection || 'none' : undefined
-    }
-    onClick={onClick}
-    {...props}
-  >
-    {sortParams.sortable && (
-      <SortArrow
-        label={sortParams.sortLabel}
-        direction={sortParams.sortDirection}
-        onClick={onClick}
-      />
-    )}
-    {children}
-  </StyledHeader>
-);
+}) => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    sortParams.sortable &&
+    !sortParams.sortLabel
+  ) {
+    throw new Error(
+      'The Table component is missing a `sortLabel` prop. This is an accessibility requirement. Do not pass `sortable` to disable the row sorting functionality.',
+    );
+  }
+  return (
+    <StyledHeader
+      condensed={condensed}
+      align={align}
+      scope={scope}
+      fixed={fixed}
+      isHovered={isHovered}
+      sortable={sortParams.sortable}
+      isSorted={!!sortParams.isSorted}
+      aria-label={sortParams.sortLabel}
+      aria-sort={
+        sortParams.sortable ? sortParams.sortDirection || 'none' : undefined
+      }
+      onClick={onClick}
+      {...props}
+    >
+      {sortParams.sortable && (
+        <SortArrow
+          label={sortParams.sortLabel}
+          direction={sortParams.sortDirection}
+          onClick={onClick}
+        />
+      )}
+      {children}
+    </StyledHeader>
+  );
+};
 
 export default TableHeader;

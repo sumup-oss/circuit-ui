@@ -122,13 +122,22 @@ export const Switch = forwardRef(
     {
       checked = false,
       onChange,
-      checkedLabel = 'on',
-      uncheckedLabel = 'off',
+      checkedLabel,
+      uncheckedLabel,
       tracking,
       ...props
     }: SwitchProps,
     ref: SwitchProps['ref'],
   ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      (!checkedLabel || !uncheckedLabel)
+    ) {
+      throw new Error(
+        'The Switch component is missing a `checkedLabel` and/or an `uncheckedLabel` prop. This is an accessibility requirement.',
+      );
+    }
     const handleChange = useClickEvent(onChange, tracking, 'toggle');
     return (
       <SwitchTrack

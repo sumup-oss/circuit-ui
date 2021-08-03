@@ -56,22 +56,34 @@ export const SearchInput = forwardRef(
   (
     { value, onClear, clearLabel, ...props }: SearchInputProps,
     ref: SearchInputProps['ref'],
-  ) => (
-    <Input
-      value={value}
-      type="text"
-      renderPrefix={(renderProps) => <Search {...renderProps} />}
-      renderSuffix={(renderProps) =>
-        value && onClear && clearLabel ? (
-          <ClearButton onClick={onClear} label={clearLabel} {...renderProps}>
-            <Cross />
-          </ClearButton>
-        ) : null
-      }
-      {...props}
-      ref={ref}
-    />
-  ),
+  ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      onClear &&
+      !clearLabel
+    ) {
+      throw new Error(
+        'The SearchInput component is missing a `clearLabel` prop. This is an accessibility requirement. Do not pass `onClear` to disable the clearing functionality.',
+      );
+    }
+    return (
+      <Input
+        value={value}
+        type="text"
+        renderPrefix={(renderProps) => <Search {...renderProps} />}
+        renderSuffix={(renderProps) =>
+          value && onClear && clearLabel ? (
+            <ClearButton onClick={onClear} label={clearLabel} {...renderProps}>
+              <Cross />
+            </ClearButton>
+          ) : null
+        }
+        {...props}
+        ref={ref}
+      />
+    );
+  },
 );
 
 SearchInput.displayName = 'SearchInput';

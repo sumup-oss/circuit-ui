@@ -321,6 +321,15 @@ export const Select = forwardRef(
     }: SelectProps,
     ref?: SelectProps['ref'],
   ): ReturnType => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      throw new Error(
+        'The Select component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` to hide the label visually.',
+      );
+    }
     const id = customId || uniqueId('select_');
 
     const prefix = RenderPrefix && (

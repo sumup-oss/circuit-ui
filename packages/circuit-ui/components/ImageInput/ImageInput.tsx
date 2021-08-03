@@ -278,6 +278,16 @@ export const ImageInput = ({
   component: Component,
   ...props
 }: ImageInputProps): JSX.Element => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    (!label || !clearButtonLabel || !loadingLabel)
+  ) {
+    throw new Error(
+      'The ImageInput component is missing a `label`, a `clearButtonLabel` and/or a `loadingLabel` prop. This is an accessibility requirement.',
+    );
+  }
+
   const inputRef = useRef<HTMLInputElement>(null);
   const id = customId || uniqueId('image-input_');
   const [isLoading, setIsLoading] = useState<boolean>(false);

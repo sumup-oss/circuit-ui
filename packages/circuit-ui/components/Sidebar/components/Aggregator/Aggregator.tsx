@@ -141,6 +141,15 @@ const Aggregator = ({
   tracking,
   ...props
 }: AggregatorProps): JSX.Element => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !label
+  ) {
+    throw new Error(
+      'The Aggregator component is missing a `label` prop. This is an accessibility requirement.',
+    );
+  }
   const [isOpen, setIsOpen] = useState(false);
   const selectedChild = hasSelectedChild(children);
   const baseHandleClick = (event: MouseEvent | KeyboardEvent) => {

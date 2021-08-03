@@ -86,19 +86,31 @@ const Children = styled.span<{ isLoading: boolean }>(
 export const LoadingButton: FC<LoadingButtonProps> = ({
   children,
   isLoading = false,
-  loadingLabel = 'Loading',
+  loadingLabel,
   ...props
-}) => (
-  <Button
-    css={buttonStyles}
-    disabled={isLoading}
-    aria-live="polite"
-    aria-busy={isLoading}
-    {...props}
-  >
-    <LoadingIcon isLoading={isLoading} size="byte">
-      <LoadingLabel>{loadingLabel}</LoadingLabel>
-    </LoadingIcon>
-    <Children isLoading={isLoading}>{children}</Children>
-  </Button>
-);
+}) => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !loadingLabel
+  ) {
+    throw new Error(
+      'The LoadingButton component is missing a `loadingLabel` prop. This is an accessibility requirement.',
+    );
+  }
+
+  return (
+    <Button
+      css={buttonStyles}
+      disabled={isLoading}
+      aria-live="polite"
+      aria-busy={isLoading}
+      {...props}
+    >
+      <LoadingIcon isLoading={isLoading} size="byte">
+        <LoadingLabel>{loadingLabel}</LoadingLabel>
+      </LoadingIcon>
+      <Children isLoading={isLoading}>{children}</Children>
+    </Button>
+  );
+};

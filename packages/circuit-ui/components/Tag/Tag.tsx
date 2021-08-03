@@ -203,6 +203,16 @@ export const Tag = forwardRef(
     }: TagProps,
     ref: BaseProps['ref'],
   ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      onRemove &&
+      !removeButtonLabel
+    ) {
+      throw new Error(
+        'The Tag component is missing a `removeButtonLabel` prop. This is an accessibility requirement. Do not pass `onRemove` to disable the removing functionality.',
+      );
+    }
     const as = onClick ? 'button' : 'div';
     const handleClick = useClickEvent(onClick, tracking, 'tag');
 

@@ -30,11 +30,11 @@ interface BaseProps {
    */
   size?: 'byte' | 'kilo' | 'mega';
   /**
-   * A descriptive label that is used by screenreaders.
+   * A descriptive label that is used by screen readers.
    */
   label: string;
   /**
-   * Visually hide the label. It will remain accessible to screenreaders.
+   * Visually hide the label. It will remain accessible to screen readers.
    */
   hideLabel?: boolean;
 }
@@ -231,6 +231,15 @@ export function ProgressBar({
   hideLabel,
   ...props
 }: ProgressBarProps): JSX.Element {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !label
+  ) {
+    throw new Error(
+      'The ProgressBar component is missing a `label` prop. This is an accessibility requirement.',
+    );
+  }
   const ariaId = uniqueId('progress-bar_');
   const title = hideLabel ? label : undefined;
   return (

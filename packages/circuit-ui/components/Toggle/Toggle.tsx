@@ -110,25 +110,30 @@ export const Toggle = forwardRef(
     { label, explanation, noMargin, ...props }: ToggleProps,
     ref: ToggleProps['ref'],
   ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      throw new Error(
+        'The Toggle component is missing a `label` prop. This is an accessibility requirement.',
+      );
+    }
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
     return (
       <ToggleWrapper noMargin={noMargin} disabled={props.disabled}>
         <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
-        {(label || explanation) && (
-          <ToggleTextWrapper id={labelId} htmlFor={switchId}>
-            {label && (
-              <Body size="one" noMargin>
-                {label}
-              </Body>
-            )}
-            {explanation && (
-              <ToggleExplanation size="two" noMargin>
-                {explanation}
-              </ToggleExplanation>
-            )}
-          </ToggleTextWrapper>
-        )}
+        <ToggleTextWrapper id={labelId} htmlFor={switchId}>
+          <Body size="one" noMargin>
+            {label}
+          </Body>
+          {explanation && (
+            <ToggleExplanation size="two" noMargin>
+              {explanation}
+            </ToggleExplanation>
+          )}
+        </ToggleTextWrapper>
       </ToggleWrapper>
     );
   },

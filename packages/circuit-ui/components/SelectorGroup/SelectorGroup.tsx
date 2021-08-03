@@ -140,6 +140,15 @@ export const SelectorGroup = forwardRef(
     }: SelectorGroupProps,
     ref: SelectorGroupProps['ref'],
   ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      throw new Error(
+        'The SelectorGroup component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` to hide the label visually.',
+      );
+    }
     const name = customName || uniqueId('selector-group_');
 
     if (!options) {
@@ -148,7 +157,7 @@ export const SelectorGroup = forwardRef(
 
     return (
       <Fieldset ref={ref} stretch={stretch} {...rest}>
-        {label && <Legend hideLabel={hideLabel}>{label}</Legend>}
+        <Legend hideLabel={hideLabel}>{label}</Legend>
         {options.map(({ children, value, ...optionRest }) => (
           <OptionItem key={value}>
             <Selector

@@ -104,10 +104,19 @@ export const RadioButtonGroup = forwardRef(
     }: RadioButtonGroupProps,
     ref: RadioButtonGroupProps['ref'],
   ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      throw new Error(
+        'The RadioButtonGroup component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` to hide the label visually.',
+      );
+    }
     const name = customName || uniqueId('radio-button-group_');
     return (
       <fieldset name={name} ref={ref} {...props}>
-        {label && <Legend hideLabel={hideLabel}>{label}</Legend>}
+        <Legend hideLabel={hideLabel}>{label}</Legend>
         {options &&
           options.map(({ children, value, className, style, ...rest }) => (
             <div
