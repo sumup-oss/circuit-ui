@@ -34,7 +34,7 @@ const profileWrapperStyles = ({ theme }: StyleProps) => css`
 
 const ProfileWrapper = styled.button(navigationItem, profileWrapperStyles);
 
-const profileAvatarStyles = ({ theme }: StyleProps) => css`
+const userAvatarStyles = ({ theme }: StyleProps) => css`
   width: ${theme.iconSizes.mega};
   height: ${theme.iconSizes.mega};
 
@@ -44,9 +44,9 @@ const profileAvatarStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const ProfileAvatar = styled(Avatar)(profileAvatarStyles);
+const UserAvatar = styled(Avatar)(userAvatarStyles);
 
-const profileNameStyles = ({ theme }: StyleProps) => css`
+const userDetailsStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilMega} {
     ${hideVisually()};
   }
@@ -58,17 +58,15 @@ const profileNameStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const ProfileName = styled.div(profileNameStyles);
+const UserDetails = styled.div(userDetailsStyles);
 
-const userNameStyles = css`
+const truncateStyles = css`
   display: block;
   max-width: 132px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
-
-const UserName = styled(Body)(userNameStyles);
 
 const chevronStyles = ({ theme }: StyleProps) => css`
   display: none;
@@ -128,15 +126,15 @@ function Profile({
       title={profileLabel}
       isActive={isOpen || profileIsActive}
     >
-      <ProfileAvatar {...userAvatar} variant="identity" />
-      <ProfileName>
-        <UserName size="two" variant="highlight" noMargin>
+      <UserAvatar {...userAvatar} variant="identity" />
+      <UserDetails>
+        <Body size="two" css={truncateStyles} variant="highlight" noMargin>
           {userName}
-        </UserName>
-        <Body size="two" noMargin>
+        </Body>
+        <Body size="two" css={truncateStyles} noMargin>
           {userId}
         </Body>
-      </ProfileName>
+      </UserDetails>
       <Chevron />
     </ProfileWrapper>
   );

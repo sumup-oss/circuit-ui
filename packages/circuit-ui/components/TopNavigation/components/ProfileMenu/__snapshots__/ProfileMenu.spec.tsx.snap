@@ -122,6 +122,11 @@ exports[`ProfileMenu styles should match the snapshot 1`] = `
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 0;
+  display: block;
+  max-width: 132px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-4 {

@@ -40,6 +40,7 @@ const hamburgerStyles = (theme: Theme) => css`
   ${focusVisible('inset')(theme)};
 
   border-radius: 0;
+  /* Need to use !important here to override the default hover styles */
   border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n200} !important;
 
   ${theme.mq.mega} {
