@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   stories: [
     '../packages/**/*.stories.@(js|ts|tsx|mdx)',
@@ -20,12 +22,12 @@ module.exports = {
   features: {
     postcss: false,
   },
-  webpackFinal: transpileModules,
-  managerWebpack: transpileModules,
+  webpackFinal: createWebpackConfig,
+  managerWebpack: createWebpackConfig,
 };
 
-// Transpile all node_modules under the @sumup/* namespace.
-function transpileModules(config) {
+function createWebpackConfig(config) {
+  // Transpile all node_modules under the @sumup/* namespace.
   config.module.rules = config.module.rules.map((rule) => {
     // Modify all rules that apply to story files.
     if (
@@ -40,5 +42,14 @@ function transpileModules(config) {
     }
     return rule;
   });
+  // Expose environment variables to Storybook
+  config.plugins = [
+    ...config.plugins,
+    new webpack.DefinePlugin({
+      'process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS': JSON.stringify(
+        process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS,
+      ),
+    }),
+  ];
   return config;
 }

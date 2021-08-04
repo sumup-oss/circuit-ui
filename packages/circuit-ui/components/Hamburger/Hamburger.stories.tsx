@@ -31,6 +31,6 @@ export const Base = (args: HamburgerProps) => {
 };
 
 Base.args = {
-  activeLabel: 'Close menu',
+  // activeLabel: 'Close menu',
   inactiveLabel: 'Open menu',
 };
