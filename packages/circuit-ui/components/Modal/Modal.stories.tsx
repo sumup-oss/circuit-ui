@@ -58,7 +58,7 @@ export const Base = (modal: ModalProps): JSX.Element => {
 
 Base.args = {
   children: (
-    <Headline as="h2" size="four">
+    <Headline as="h2" size="four" noMargin>
       Hello World!
     </Headline>
   ),
@@ -88,7 +88,7 @@ export const Variants = (modal: ModalProps): JSX.Element => {
 
 Variants.args = {
   children: (
-    <Headline as="h2" size="four">
+    <Headline as="h2" size="four" noMargin>
       Hello World!
     </Headline>
   ),
@@ -115,7 +115,7 @@ export const PreventClose = (modal: ModalProps): JSX.Element => {
 PreventClose.args = {
   children: ({ onClose }: { onClose: ModalProps['onClose'] }) => (
     <Fragment>
-      <Headline as="h2" size="four">
+      <Headline as="h2" size="four" noMargin>
         Complete the action
       </Headline>
       <Body>
@@ -178,10 +178,10 @@ CustomStyles.args = {
   children: (
     <Fragment>
       <Image src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900" alt="" />
-      <Headline as="h2" size="four" css={spacing('mega')}>
+      <Headline as="h2" size="four" css={spacing('mega')} noMargin>
         Custom styles
       </Headline>
-      <Body css={spacing('mega')}>
+      <Body css={spacing('mega')} noMargin>
         Custom styles can be applied using the <code>css</code> prop.
       </Body>
     </Fragment>

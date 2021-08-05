@@ -88,11 +88,13 @@ const contentStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilKilo} {
     -webkit-overflow-scrolling: touch;
     padding: ${theme.spacings.mega};
+    padding-bottom: calc(env(safe-area-inset-bottom) + ${theme.spacings.mega});
     width: 100vw;
   }
 
   ${theme.mq.kilo} {
     padding: ${theme.spacings.giga};
+    padding-bottom: calc(env(safe-area-inset-bottom) + ${theme.spacings.giga});
     max-height: 90vh;
     min-width: 480px;
     max-width: 90vw;
@@ -121,15 +123,7 @@ const contentVariantStyles = ({
   if (variant === 'immersive') {
     return css`
       ${theme.mq.untilKilo} {
-        height: 100vh;
-      }
-
-      /* iOS viewport bug fix */
-      /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
-      @supports (max-height: -webkit-fill-available) {
-        ${theme.mq.untilKilo} {
-          height: 80vh;
-        }
+        height: 100%;
       }
     `;
   }
@@ -171,113 +165,106 @@ export const Modal: ModalComponent<ModalProps> = ({
         const styles = {
           base: cx(
             cssString`
-            position: fixed;
-            outline: none;
-            background-color: ${theme.colors.white};
-
-            &::after {
               position: fixed;
-              content: '';
-              display: block;
-              right: 0;
-              bottom: 0;
-              left: 0;
-              background: linear-gradient(
-                rgba(255,255,255,0),
-                rgba(255,255,255,0.66),
-                rgba(255,255,255,1)
-              );
-            }
-
-            ${theme.mq.untilKilo} {
-              right: 0;
-              bottom: 0;
-              left: 0;
-              transform: translateY(100%);
-              transition: transform ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
+              outline: none;
+              background-color: ${theme.colors.white};
 
               &::after {
-                height: ${theme.spacings.mega};
+                position: fixed;
+                content: '';
+                display: block;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(
+                  rgba(255,255,255,0),
+                  rgba(255,255,255,0.66),
+                  rgba(255,255,255,1)
+                );
               }
-            }
 
-            ${theme.mq.kilo} {
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              opacity: 0;
-              transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
-              border-radius: ${theme.borderRadius.mega};
+              ${theme.mq.untilKilo} {
+                right: 0;
+                bottom: 0;
+                left: 0;
+                transform: translateY(100%);
+                transition: transform ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
 
-              &::after {
-                height: ${theme.spacings.giga};
-                border-bottom-left-radius: ${theme.borderRadius.mega};
-                border-bottom-right-radius: ${theme.borderRadius.mega};
+                &::after {
+                  height: ${theme.spacings.mega};
+                }
               }
-            }
+
+              ${theme.mq.kilo} {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
+                border-radius: ${theme.borderRadius.mega};
+
+                &::after {
+                  height: ${theme.spacings.giga};
+                  border-bottom-left-radius: ${theme.borderRadius.mega};
+                  border-bottom-right-radius: ${theme.borderRadius.mega};
+                }
+              }
           `,
             variant === 'contextual' &&
               cssString`
-              ${theme.mq.untilKilo} {
-                border-top-left-radius: ${theme.borderRadius.mega};
-                border-top-right-radius: ${theme.borderRadius.mega};
-              }
-            `,
-            variant === 'immersive' &&
-              cssString`
-              /* iOS viewport bug fix */
-              /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
-              @supports (max-height: -webkit-fill-available) {
                 ${theme.mq.untilKilo} {
                   border-top-left-radius: ${theme.borderRadius.mega};
                   border-top-right-radius: ${theme.borderRadius.mega};
                 }
-              }
+            `,
+            variant === 'immersive' &&
+              cssString`
+                top: 0;
             `,
           ),
           // The !important below is necessary because of some weird
           // style specificity issues in Emotion.
           afterOpen: cssString`
-          ${theme.mq.untilKilo} {
-            transform: translateY(0) !important;
-          }
+            ${theme.mq.untilKilo} {
+              transform: translateY(0) !important;
+            }
 
-          ${theme.mq.kilo} {
-            opacity: 1 !important;
-          }
-        `,
+            ${theme.mq.kilo} {
+              opacity: 1 !important;
+            }
+          `,
           beforeClose: cssString`
-          ${theme.mq.untilKilo} {
-            transform: translateY(100%);
-          }
+            ${theme.mq.untilKilo} {
+              transform: translateY(100%) !important;
+            }
 
-          ${theme.mq.kilo} {
-            opacity: 0;
-          }
+            ${theme.mq.kilo} {
+              opacity: 0 !important;
+            }
         `,
         };
 
         const overlayStyles = {
           base: cssString`
-          position: fixed;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          opacity: 0;
-          transition: opacity ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
-          background: ${theme.colors.overlay};
-          z-index: ${theme.zIndex.modal};
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0;
+            transition: opacity ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
+            background: ${theme.colors.overlay};
+            z-index: ${theme.zIndex.modal};
 
-          ${theme.mq.kilo} {
-            transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
-          }
+            ${theme.mq.kilo} {
+              transition: opacity ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
+            }
         `,
           afterOpen: cssString`
-          opacity: 1;
+            opacity: 1;
         `,
           beforeClose: cssString`
-          opacity: 0;
+            opacity: 0;
         `,
         };
 
