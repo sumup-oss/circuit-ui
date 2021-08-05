@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.13
+
+### Patch Changes
+
+- [`be99e904`](https://github.com/sumup-oss/circuit-ui/commit/be99e9049f366070cf2c99fe4af5193d05546089) Thanks [@robinmetral](https://github.com/robinmetral)! - Passed a dummy label to the `ImageInput`'s presentational `AddButton` to prevent it from throwing because of a missing label.
+
 ## 3.0.0-next.12
 
 ### Minor Changes
