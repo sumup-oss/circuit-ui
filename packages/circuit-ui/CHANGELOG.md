@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.14
+
+### Patch Changes
+
+- [#1087](https://github.com/sumup-oss/circuit-ui/pull/1087) [`9ac7aa8f`](https://github.com/sumup-oss/circuit-ui/commit/9ac7aa8f26e60ad6fa82abd92cb153474eadde99) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved fullscreen display of immersive Modals on iOS and added bottom padding to the Modal content to clear any browser chrome overlays.
+
 ## 3.0.0-next.13
 
 ### Patch Changes
