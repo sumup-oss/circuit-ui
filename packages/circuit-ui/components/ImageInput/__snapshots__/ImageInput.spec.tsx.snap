@@ -891,7 +891,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
       aria-hidden="true"
       class="circuit-5"
       tabindex="-1"
-      title=""
+      title="-"
       type="button"
     >
       <svg
@@ -911,7 +911,9 @@ exports[`ImageInput styles should render with default styles 1`] = `
       </svg>
       <span
         class="circuit-4"
-      />
+      >
+        -
+      </span>
     </button>
     <span
       class="circuit-7"
@@ -1232,7 +1234,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
       aria-hidden="true"
       class="circuit-5"
       tabindex="-1"
-      title=""
+      title="-"
       type="button"
     >
       <svg
@@ -1252,7 +1254,9 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
       </svg>
       <span
         class="circuit-4"
-      />
+      >
+        -
+      </span>
     </button>
     <span
       class="circuit-7"
