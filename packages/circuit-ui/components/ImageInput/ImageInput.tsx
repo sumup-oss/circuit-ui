@@ -426,7 +426,7 @@ export const ImageInput = ({
             variant="primary"
             aria-hidden="true"
             tabIndex={-1}
-            label=""
+            label={label} // We need to pass a label here to prevent IconButton from throwing
             disabled={isLoading}
           >
             <Plus />
