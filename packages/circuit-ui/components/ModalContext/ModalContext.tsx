@@ -36,6 +36,7 @@ if (typeof window !== 'undefined') {
   if (appElement) {
     ReactModal.setAppElement(appElement);
   } else if (
+    process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
   ) {
