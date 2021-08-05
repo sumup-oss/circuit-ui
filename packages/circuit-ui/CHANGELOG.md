@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.0.0-next.12
+
+### Minor Changes
+
+- [#1083](https://github.com/sumup-oss/circuit-ui/pull/1083) [`3513326a`](https://github.com/sumup-oss/circuit-ui/commit/3513326aa70e43b8f1314869dcede8555adf5110) Thanks [@robinmetral](https://github.com/robinmetral)! - Added an escape hatch to silence accessibility errors in development when the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable is set to `true`.
+
 ## 3.0.0-next.11
 
 ### Major Changes
