@@ -173,3 +173,4 @@ export { uniqueId } from './util/id';
 export { useClickOutside } from './hooks/useClickOutside';
 export { useEscapeKey } from './hooks/useEscapeKey';
 export { useFocusList } from './hooks/useFocusList';
+export { useCollapsible } from './hooks/useCollapsible';
