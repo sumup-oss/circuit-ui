@@ -25,6 +25,7 @@ import {
   useMemo,
   useRef,
   useState,
+  KeyboardEvent,
 } from 'react';
 import useLatest from 'use-latest';
 import usePrevious from 'use-previous';
