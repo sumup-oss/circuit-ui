@@ -72,18 +72,16 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
   duration = 300,
   id,
 }: CollapsibleOptions = {}): Collapsible<T> {
-  const detailElement = useRef<T>(null);
+  const contentId = id || uniqueId('collapsible_');
+  const contentElement = useRef<T>(null);
   const [isOpen, setOpen] = useState(initialOpen);
-  const [height, setHeight] = useState(getHeight(detailElement));
+  const [height, setHeight] = useState(getHeight(contentElement));
   const [, setAnimating] = useAnimation();
-
-  const detailId = id || uniqueId('collapsible_');
-
   const toggleOpen = useCallback(() => {
     setAnimating({
       duration,
       onStart: () => {
-        setHeight(getHeight(detailElement));
+        setHeight(getHeight(contentElement));
         if (!isOpen) {
           setOpen(true);
         }
@@ -95,7 +93,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
         setHeight(DEFAULT_HEIGHT);
       },
     });
-  }, [isOpen, detailElement, setAnimating, duration]);
+  }, [isOpen, setAnimating, duration]);
 
   return {
     isOpen,
@@ -108,12 +106,12 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
         toggleOpen();
       },
       'tabIndex': 0,
-      'aria-controls': detailId,
+      'aria-controls': contentId,
       'aria-expanded': isOpen ? 'true' : 'false',
     }),
     getContentProps: (props = {}) => ({
-      'ref': detailElement,
-      'id': detailId,
+      'ref': contentElement,
+      'id': contentId,
       'style': {
         overflow: 'hidden',
         willChange: 'height',
