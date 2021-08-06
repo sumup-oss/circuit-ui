@@ -1,7 +1,17 @@
 # Migration
 
 - [🤖 Codemods](#-codemods)
-- [From v1.x to v2](#from-v1.x-to-v2)
+- [From v2.x to v3](#from-v2x-to-v3)
+  - [JSX runtime](#jsx-runtime)
+  - [Typography XXX](#typography-xxx)
+    - [Typography component names](#typography-component-names)
+    - [Typography component variants](#typography-component-variants)
+    - [New sizes](#new-sizes)
+    - [Headline `as` props](#headline-as-props)
+  - [Modal improvements](#modal-improvements)
+  - [Accessibility](#accessibility)
+  - [Other changes](#other-changes)
+- [From v1.x to v2](#from-v1x-to-v2)
   - [Library format](#library-format)
   - [Peer dependencies](#peer-dependencies)
   - [Font loading](#font-loading)
@@ -34,6 +44,88 @@ Options:
 You can only run one codemod at a time and we encourage you to apply the transforms incrementally and review the changes before continuing. The codemods don't cover all edge cases, so further manual changes might be necessary.
 
 Tip: Provide the `--transform`/`-t` argument at the end of the command, so that as you run further codemods you can easily replace the last argument and reuse the command to run the next codemod.
+
+> ⚠️ If you run into `'node\r': No such file or directory` when running the codemods with yarn, run them with node directly instead (this is a [known issue](https://github.com/facebook/jscodeshift/issues/424)).
+>
+> ```sh
+> ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
+> ```
+
+## From v2.x to v3
+
+(intro)
+
+### JSX runtime
+
+(...)
+
+### Typography XXX
+
+Before v3, typography components were general purpose and flexible. There were no guidelines on when to use a certain typography style. This has led to inconsistent usage in our apps.
+
+The new version introduces new, semantic typography components that make it clear when each should be used, are flexible enough to cover all use cases, and for the first time include semantic colors as well.
+
+#### Typography component names
+
+The core typography components were renamed:
+
+| v2           | v3                                                     |
+| ------------ | ------------------------------------------------------ |
+| `Text`       | `Body`                                                 |
+| `Heading`    | `Headline`                                             |
+| `SubHeading` | `SubHeadline`                                          |
+| `Blockquote` | See the [next section](#typography-component-variants) |
+
+(🤖 _component-names-v3_.)
+
+> _Note: this codemod also transforms other renamed components (see [Other Changes](#other-changes)._
+
+#### Typography component variants
+
+The `Body` (formerly `Text`) component's variants were changed:
+
+| v2              | v3                           |
+| --------------- | ---------------------------- |
+| `<Text bold>`   | `<Body variant="highlight">` |
+| `<Text italic>` | Use custom styles            |
+| `<Text strike>` | Use custom styles            |
+| `<Blockquote>`  | `<Body variant="quote">`     |
+
+Use 🤖 _body-variant-highlight_ to migrate `bold` to `variant="highlight"`. Note that this will transform your `<p>` elements into inline `<strong>` elements: you might also need to pass `as="p"` if you need a block-level element.
+
+> Bonus: the new `Body` component also supports the `success`, `error` and `subtle` semantic variants. Have a look at the [story](https://circuit.sumup.com/?path=/story/typography-body--variants) to get started.
+
+#### New sizes
+
+(...)
+
+- Components: the `size` prop has been changed to accept the new size numbers for **Headline**, **SubHeadline**, **Body**. For **Headline** component **_exa_** and **_peta_** has been changed to **_one_** with new values, **_tera_** has been changed to **_two_**, **_giga_** to **_three_**, **_mega_** and **_kilo_** to **_four_**. For **Body** component **_giga_** size has been removed, and **_mega_** and **_kilo_** sizes have been changed to **_one_** and **_two_** respectively. The **SubHeadline** component now uses only one size value (🤖 _typography-sizes_).
+- Theme: (...)
+- Mixins: the deprecated `text[Kilo|Mega|Giga]` style mixins were replaced by a single `typography` mixin, and the deprecated `heading[Kilo|Mega|Giga|Tera|Peta|Exa|Zetta]` and `subHeading[Kilo|Mega]` style mixins were removed.
+
+#### Headline `as` props
+
+The **Headline** and **SubHeadline** components' `as` prop is now required.
+
+(...)
+
+### Modal improvements
+
+(...)
+
+### Accessibility
+
+- enforced labels
+- throwing errors + escape hatch
+- as prop in headlines (also mentioned in typography)
+
+### Other changes
+
+- The **NotificationBanner** component has been renamed to **NotificationCard**. (🤖 _component-names-v3_)
+- The **TableRow**, **TableHeader** and **TableCell** components are not exported anymore. Use the **Table** component instead.
+- The **Button**, **IconButton**, (...) and **Hamburger** components' dimensions have been harmonized.
+- The **SelectorGroup**'s `label` is now visible by default, pass `hideLabel` to hide it visually.
+- (...)
 
 ## From v1.x to v2
 
@@ -156,7 +248,7 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 
 ### Utilities
 
-- The `currencyAmountUtils` have been removed. There is not replacement, we suggest you copy the [old implementation](https://github.com/sumup-oss/circuit-ui/blob/b3d89f43ac54ef1f7c0c2ff6f4edce92e2bd937d/src/components/CurrencyInput/CurrencyInputService.js) to your application.
+- The `currencyAmountUtils` have been removed. There is no replacement, we suggest you copy the [old implementation](https://github.com/sumup-oss/circuit-ui/blob/b3d89f43ac54ef1f7c0c2ff6f4edce92e2bd937d/src/components/CurrencyInput/CurrencyInputService.js) to your application.
 - The `currencyUtils` have been removed. Use [@sumup/intl](https://www.npmjs.com/package/@sumup/intl) instead (🤖 _currency-utils_)
 - The `textTera` style helper has been removed. Use the `textGiga` style helper instead.
 - The `shadowGround` and `shadowBorder` style helpers have been removed. Use the [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) CSS property instead.
@@ -167,27 +259,3 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The themes have been moved to [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens). Import them from there instead (🤖 _theme-to-design-tokens_)
 - The `iconSizes.byte` theme value has been removed. Use `iconSizes.kilo` instead (🤖 _theme-icon-sizes_)
 - The `grid.afterTera` theme value has been renamed to `grid.tera` (🤖 _theme-grid-tera_)
-
-## From v2.x to v3
-
-### Typography refresh
-
-The new semantic typography components make it clear when each should be used, are flexible enough to cover all use cases, and for the first time include semantic colors as well.
-The existing sizes are adapted to the new ones. This means some of sizes have been removed and new size names have been added that represent more semantic variations.
-
-### Removed components
-
-- The **Blockquote** component has been removed. Use the **Body** component **(variant="quote")** instead.
-- The **Text** component's bold prop has been removed. Use the **Body** component **(variant="highlight")** instead (🤖 body-variant-highlight).
-- The **Text** component's italic and strike props has been removed. Use the custom styles instead.
-
-### Renamed components
-
-- The **Heading** component has been renamed to **Headline** (🤖 _component-names-typography_)
-- The **SubHeading** component has been renamed to **SubHeadline** (🤖 _component-names-typography_)
-- The **Text** component has been renamed to **Body** (🤖 _component-names-typography_)
-
-### Changed components
-
-- The size prop has been changed to accept the new size numbers for **Headline**, **SubHeadline**, **Body**. For **Headline** component **_exa_** and **_peta_** has been changed to **_one_** with new values, **_tera_** has been changed to **_two_**, **_giga_** to **_three_**, **_mega_** and **_kilo_** to **_four_**. For **Body** component **_giga_** size has been removed, and **_mega_** and **_kilo_** sizes have been changed to **_one_** and **_two_** respectively. The **SubHeadline** component now uses only one size value (🤖 _typography-sizes_).
-- The **Body** component's **success** and **error** variants have been added.
