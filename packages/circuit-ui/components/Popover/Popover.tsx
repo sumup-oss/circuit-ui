@@ -19,8 +19,6 @@ import {
   FC,
   Fragment,
   HTMLProps,
-  KeyboardEvent,
-  MouseEvent,
   Ref,
   SVGProps,
   useEffect,
@@ -35,15 +33,16 @@ import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
 import { useTheme } from 'emotion-theming';
 
+import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
-import { useComponents } from '../ComponentsContext';
-import { useClickEvent } from '../../hooks/useClickEvent';
 import { uniqueId } from '../../util/id';
+import { useClickEvent } from '../../hooks/useClickEvent';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { useFocusList } from '../../hooks/useFocusList';
 import { isArrowDown, isArrowUp } from '../../util/key-codes';
+import { useComponents } from '../ComponentsContext';
 import Portal from '../Portal';
 import Hr from '../Hr';
 import { useStackContext } from '../StackContext';
@@ -56,7 +55,7 @@ export interface BaseProps {
   /**
    * Function that's called when the item is clicked.
    */
-  onClick?: (event: MouseEvent | KeyboardEvent) => void;
+  onClick?: (event: ClickEvent) => void;
   /**
    * Display an icon in addition to the label.
    */
@@ -253,7 +252,7 @@ export interface PopoverProps {
    * The element that toggles the Popover when clicked.
    */
   component: (props: {
-    'onClick': (event: MouseEvent | KeyboardEvent) => void;
+    'onClick': (event: ClickEvent) => void;
     'onKeyDown': (event: KeyboardEvent) => void;
     'id': string;
     'aria-haspopup': boolean;
@@ -363,7 +362,7 @@ export const Popover = ({
 
   const focusProps = useFocusList();
 
-  const handleTriggerClick = (event: MouseEvent | KeyboardEvent) => {
+  const handleTriggerClick = (event: ClickEvent) => {
     // This prevents the event from bubbling which would trigger the
     // useClickOutside above and would prevent the popover from closing.
     event.stopPropagation();

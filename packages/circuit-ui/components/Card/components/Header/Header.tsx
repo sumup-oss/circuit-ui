@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import { FC, ReactNode, MouseEvent, KeyboardEvent } from 'react';
+import { FC, ReactNode } from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
+import { ClickEvent } from '../../../../types/events';
 import styled, { StyleProps } from '../../../../styles/styled';
 import {
   CloseButton,
@@ -29,7 +30,7 @@ type CloseProps =
        * Callback for the close button. If not specified, the button won't
        * be shown.
        */
-      onClose?: (event: MouseEvent | KeyboardEvent) => void;
+      onClose?: (event: ClickEvent) => void;
       /**
        * Text label for the close button for screen readers.
        * Important for accessibility.

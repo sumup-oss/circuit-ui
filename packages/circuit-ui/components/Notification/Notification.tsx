@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC, SVGProps, ReactNode, MouseEvent, KeyboardEvent } from 'react';
+import { FC, SVGProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 import {
   CircleCheckmarkFilled,
@@ -22,8 +22,9 @@ import {
 } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
+import { ClickEvent } from '../../types/events';
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
-import { CloseButton, CloseButtonProps } from '../CloseButton/CloseButton';
+import CloseButton, { CloseButtonProps } from '../CloseButton';
 
 type Variant = 'success' | 'error' | 'warning';
 
@@ -31,7 +32,7 @@ export interface NotificationProps {
   variant: Variant;
   children: ReactNode;
   icon?: FC<SVGProps<SVGSVGElement>>;
-  onClose?: (event: MouseEvent | KeyboardEvent) => void;
+  onClose?: (event: ClickEvent) => void;
   closeLabel?: string;
 }
 

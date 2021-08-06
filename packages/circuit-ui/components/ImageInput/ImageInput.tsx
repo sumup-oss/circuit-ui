@@ -20,20 +20,19 @@ import {
   ChangeEvent,
   ClipboardEvent,
   DragEvent,
-  MouseEvent,
-  KeyboardEvent,
   Fragment,
 } from 'react';
 import { css } from '@emotion/core';
 import { Bin, Plus } from '@sumup/icons';
 
+import { ClickEvent } from '../../types/events';
+import styled, { StyleProps } from '../../styles/styled';
+import { uniqueId } from '../../util/id';
+import { focusOutline, hideVisually } from '../../styles/style-mixins';
 import Label from '../Label';
 import IconButton from '../IconButton';
 import Spinner from '../Spinner';
 import ValidationHint from '../ValidationHint';
-import styled, { StyleProps } from '../../styles/styled';
-import { uniqueId } from '../../util/id';
-import { focusOutline, hideVisually } from '../../styles/style-mixins';
 
 export interface ImageInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
@@ -53,7 +52,7 @@ export interface ImageInputProps
   /**
    * A callback function to call when the input is cleared.
    */
-  onClear: (event: MouseEvent | KeyboardEvent) => void | Promise<void>;
+  onClear: (event: ClickEvent) => void | Promise<void>;
   /**
    * An accessible label for the "clear" icon button.
    */
@@ -319,7 +318,7 @@ export const ImageInput = ({
     }
   };
 
-  const handleClear = (event: MouseEvent | KeyboardEvent) => {
+  const handleClear = (event: ClickEvent) => {
     Promise.resolve(onClear(event))
       .then(() => {
         clearInputElement();

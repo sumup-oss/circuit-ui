@@ -13,17 +13,16 @@
  * limitations under the License.
  */
 
-import { FC, MouseEvent, KeyboardEvent } from 'react';
+import { FC } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { focusOutline } from '../../../../styles/style-mixins';
 import { StyleProps } from '../../../../styles/styled';
+import { ClickEvent } from '../../../../types/events';
 
 type TableRowProps = {
-  onClick?: (
-    event: MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>,
-  ) => void;
+  onClick?: (event: ClickEvent<HTMLTableRowElement>) => void;
 };
 
 const baseStyles = () => css`
