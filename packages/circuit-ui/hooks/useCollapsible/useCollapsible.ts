@@ -13,15 +13,9 @@
  * limitations under the License.
  */
 
-import {
-  useState,
-  useRef,
-  useCallback,
-  RefObject,
-  KeyboardEvent,
-  MouseEvent,
-} from 'react';
+import { useState, useRef, useCallback, RefObject } from 'react';
 
+import { ClickEvent } from '../../types/events';
 import { uniqueId } from '../../util/id';
 import { useAnimation } from '../useAnimation';
 
@@ -34,7 +28,7 @@ export type CollapsibleOptions = {
 };
 
 type ButtonProps = {
-  'onClick': (event: MouseEvent | KeyboardEvent) => void;
+  'onClick': (event: ClickEvent) => void;
   'tabIndex': number;
   'aria-controls': string;
   'aria-expanded': 'true' | 'false';
@@ -56,7 +50,7 @@ type Collapsible<T> = {
   isOpen: boolean;
   toggleOpen: () => void;
   getButtonProps: (props?: {
-    onClick?: (event: MouseEvent | KeyboardEvent) => void;
+    onClick?: (event: ClickEvent) => void;
   }) => ButtonProps;
   getContentProps: (props?: {
     style?: Record<string, string>;
@@ -99,7 +93,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
     isOpen,
     toggleOpen,
     getButtonProps: (props = {}) => ({
-      'onClick': (event: MouseEvent | KeyboardEvent) => {
+      'onClick': (event: ClickEvent) => {
         if (props.onClick) {
           props.onClick(event);
         }

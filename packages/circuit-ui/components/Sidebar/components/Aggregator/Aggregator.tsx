@@ -16,24 +16,17 @@
 // TODO: Improve types
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-import {
-  useState,
-  useEffect,
-  FC,
-  SVGProps,
-  MouseEvent,
-  ReactNode,
-  KeyboardEvent,
-} from 'react';
+import { useState, useEffect, FC, SVGProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 import { TrackingElement } from '@sumup/collector';
 import { isEmpty } from 'lodash/fp';
 
+import { ClickEvent } from '../../../../types/events';
 import styled, { StyleProps } from '../../../../styles/styled';
+import { useClickEvent } from '../../../../hooks/useClickEvent';
 import SubNavList from '../SubNavList';
 import BaseNavLabel from '../NavLabel';
 import { hasSelectedChild, getIcon } from '../NavItem/utils';
-import { useClickEvent } from '../../../../hooks/useClickEvent';
 
 export interface AggregatorProps {
   /**
@@ -59,7 +52,7 @@ export interface AggregatorProps {
   /**
    * The onClick method to handle the click event on the NavAggregator
    */
-  onClick?: (event: MouseEvent | KeyboardEvent) => void;
+  onClick?: (event: ClickEvent) => void;
   /**
    * Additional data that is dispatched with click tracking event.
    */
@@ -153,7 +146,7 @@ const Aggregator = ({
   }
   const [isOpen, setIsOpen] = useState(false);
   const selectedChild = hasSelectedChild(children);
-  const baseHandleClick = (event: MouseEvent | KeyboardEvent) => {
+  const baseHandleClick = (event: ClickEvent) => {
     if (onClick) {
       onClick(event);
     }

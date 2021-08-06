@@ -13,23 +13,16 @@
  * limitations under the License.
  */
 
-import {
-  HTMLProps,
-  Ref,
-  FC,
-  SVGProps,
-  MouseEvent,
-  KeyboardEvent,
-  forwardRef,
-} from 'react';
+import { HTMLProps, Ref, FC, SVGProps, forwardRef } from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 
+import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
 import { typography, focusVisible } from '../../styles/style-mixins';
 import { useClickEvent } from '../../hooks/useClickEvent';
-import { CloseButton, CloseButtonProps } from '../CloseButton/CloseButton';
+import CloseButton, { CloseButtonProps } from '../CloseButton';
 
 type BaseProps = {
   /**
@@ -47,7 +40,7 @@ type BaseProps = {
   /**
    * Function that's called when the button is clicked.
    */
-  onClick?: (event: MouseEvent | KeyboardEvent) => void;
+  onClick?: (event: ClickEvent) => void;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -64,7 +57,7 @@ type RemoveProps =
        * Renders a close button inside the tag and calls the provided function
        * when the button is clicked.
        */
-      onRemove: (event: MouseEvent | KeyboardEvent) => void;
+      onRemove: (event: ClickEvent) => void;
       /**
        * Text label for the remove icon for screen readers.
        * Important for accessibility.

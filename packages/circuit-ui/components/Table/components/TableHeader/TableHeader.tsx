@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { HTMLProps, FC, MouseEventHandler } from 'react';
+import { HTMLProps, FC } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -21,6 +21,7 @@ import { focusOutline, typography } from '../../../../styles/style-mixins';
 import SortArrow from '../SortArrow';
 import styled, { StyleProps } from '../../../../styles/styled';
 import { SortParams } from '../../types';
+import { ClickEvent } from '../../../../types/events';
 
 export interface TableHeaderProps
   extends Omit<HTMLProps<HTMLTableHeaderCellElement>, 'onClick'> {
@@ -47,7 +48,9 @@ export interface TableHeaderProps
   /**
    * Props related to table sorting. Defaults to not sortable.
    */
-  onClick?: MouseEventHandler<HTMLTableHeaderCellElement | HTMLButtonElement>;
+  onClick?: (
+    event: ClickEvent<HTMLTableHeaderCellElement | HTMLButtonElement>,
+  ) => void;
   /**
    * Props related to table sorting. Defaults to not sortable.
    */

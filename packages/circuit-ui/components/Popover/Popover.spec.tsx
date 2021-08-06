@@ -17,9 +17,9 @@
 
 import { Bin, CirclePlus, Zap } from '@sumup/icons';
 import { Placement } from '@popperjs/core';
-import { KeyboardEvent, MouseEvent } from 'react';
 
 import { act, axe, RenderFn, render, userEvent } from '../../util/test-utils';
+import { ClickEvent } from '../../types/events';
 
 import {
   PopoverItem,
@@ -66,7 +66,7 @@ describe('PopoverItem', () => {
       const props = {
         ...baseProps,
         href: 'https://sumup.com',
-        onClick: jest.fn((event: KeyboardEvent | MouseEvent) => {
+        onClick: jest.fn((event: ClickEvent) => {
           event.preventDefault();
         }),
         icon: Zap,

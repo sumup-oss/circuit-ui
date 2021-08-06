@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
-import { MouseEvent, KeyboardEvent } from 'react';
 import { Props as ReactModalProps } from 'react-modal';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
-type OnClose = (event?: MouseEvent | KeyboardEvent) => void;
+import { ClickEvent } from '../../types/events';
+
+type OnClose = (event?: ClickEvent) => void;
 
 export interface BaseModalProps
   extends Omit<

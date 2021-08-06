@@ -13,16 +13,7 @@
  * limitations under the License.
  */
 
-import {
-  forwardRef,
-  Ref,
-  HTMLProps,
-  ReactNode,
-  FC,
-  SVGProps,
-  MouseEvent,
-  KeyboardEvent,
-} from 'react';
+import { forwardRef, Ref, HTMLProps, ReactNode, FC, SVGProps } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
@@ -35,6 +26,7 @@ import {
   focusVisible,
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
+import { ClickEvent } from '../../types/events';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent } from '../../hooks/useClickEvent';
 
@@ -72,7 +64,7 @@ export interface BaseProps {
   /**
    * Function that's called when the button is clicked.
    */
-  'onClick'?: (event: MouseEvent | KeyboardEvent) => void;
+  'onClick'?: (event: ClickEvent) => void;
   /**
    * Additional data that is dispatched with the tracking event.
    */
