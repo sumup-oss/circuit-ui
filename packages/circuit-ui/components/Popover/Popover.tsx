@@ -25,6 +25,7 @@ import {
   useMemo,
   useRef,
   useState,
+  KeyboardEvent,
 } from 'react';
 import useLatest from 'use-latest';
 import usePrevious from 'use-previous';
@@ -117,10 +118,9 @@ export const PopoverItem = ({
 }: PopoverItemProps): JSX.Element => {
   const components = useComponents();
 
-  // Need to typecast here because the PopoverItemWrapper expects a button-like
-  // component for its `as` prop. It's safe to ignore that constraint here.
-  /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-  const Link = components.Link as any;
+  // Need to typecast here because the styled component types restrict the
+  // `as` prop to a string. It's safe to ignore that constraint here.
+  const Link = (components.Link as unknown) as string;
 
   const handleClick = useClickEvent(onClick, tracking, 'popover-item');
 

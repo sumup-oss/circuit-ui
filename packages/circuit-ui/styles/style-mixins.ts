@@ -402,7 +402,8 @@ export const inputOutline = (
 
 /**
  * @private
- * Visually communicates that the listItem (eg. Popover or Dropdown component) is hovered, active or focused.
+ *
+ * Common styles for list items (e.g. in the Popover component).
  */
 export const listItem = (
   args:
@@ -439,6 +440,55 @@ export const listItem = (
 
     &:disabled,
     &[disabled] {
+      ${disableVisually()};
+    }
+  `;
+};
+
+/**
+ * @private
+ *
+ * Common styles for navigation items (e.g. in the TopNavigation and
+ * SideNavigation components).
+ */
+export const navigationItem = (
+  args:
+    | Theme
+    | {
+        theme: Theme;
+        isActive?: boolean;
+      },
+): SerializedStyles => {
+  const theme = getTheme(args);
+  const options = isTheme(args) ? { isActive: false } : args;
+
+  return css`
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    color: ${options.isActive ? theme.colors.p500 : theme.colors.bodyColor};
+    background-color: ${options.isActive
+      ? theme.colors.p100
+      : theme.colors.white};
+    text-align: left;
+    cursor: pointer;
+    transition: color ${theme.transitions.default},
+      background-color ${theme.transitions.default};
+
+    &:hover {
+      background-color: ${options.isActive
+        ? theme.colors.p100
+        : theme.colors.n100};
+    }
+
+    &:active {
+      background-color: ${theme.colors.n200};
+    }
+
+    ${focusVisible('inset')(theme)};
+
+    &:disabled {
       ${disableVisually()};
     }
   `;

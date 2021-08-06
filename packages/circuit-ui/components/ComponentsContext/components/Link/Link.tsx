@@ -13,6 +13,21 @@
  * limitations under the License.
  */
 
-import Link from './Link';
+import { forwardRef, HTMLProps, Ref } from 'react';
 
-export { Link };
+export interface LinkProps extends HTMLProps<HTMLAnchorElement> {
+  ref?: Ref<HTMLAnchorElement>;
+}
+
+/**
+ * A barebones Link component that's basically just an `<a>` tag
+ */
+export const Link = forwardRef(
+  ({ children, ...props }: LinkProps, ref: LinkProps['ref']) => (
+    <a {...props} ref={ref}>
+      {children}
+    </a>
+  ),
+);
+
+Link.displayName = 'Link';

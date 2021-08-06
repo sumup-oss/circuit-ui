@@ -25,7 +25,7 @@ type Size = 'one' | 'two' | 'three' | 'four';
 export interface HeadlineProps
   extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
   /**
-   * A Circuit UI headline size.
+   * A Circuit UI headline size. Default `one`.
    */
   size?: Size;
   /**

@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileMenu styles should match the snapshot 1`] = `
+.circuit-6 {
+  display: inline-block;
+}
+
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: #1A1A1A;
+  background-color: #FFF;
+  text-align: left;
+  cursor: pointer;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  padding: 12px;
+  border-left: 1px solid #E6E6E6;
+}
+
+.circuit-5:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-5:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+@media (min-width:768px) {
+  .circuit-5 {
+    padding: 4px 16px;
+  }
+}
+
+.circuit-0 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width:768px) {
+  .circuit-0 {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width:767px) {
+  .circuit-3 {
+    border: 0;
+    -webkit-clip: rect(0 0 0 0);
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+@media (min-width:768px) {
+  .circuit-3 {
+    margin: 0 12px;
+    max-width: 20ch;
+    text-overflow: ellipsis;
+  }
+}
+
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+  font-weight: 700;
+  display: block;
+  max-width: 132px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-2 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+  display: block;
+  max-width: 132px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-4 {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .circuit-4 {
+    display: block;
+  }
+
+  button[aria-expanded='true'] .circuit-4 {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+<div>
+  <div
+    class="circuit-6"
+  >
+    <button
+      aria-controls="popover_2"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open profile menu"
+      class="circuit-5"
+      id="trigger_1"
+      title="Open profile menu"
+      type="button"
+    >
+      <img
+        alt=""
+        class="circuit-0"
+        src="data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" fill=\\"none\\" viewBox=\\"0 0 96 96\\"><path fill=\\"white\\" d=\\"M48 18c-7.732 0-14 6.268-14 14s6.268 14 14 14 14-6.268 14-14-6.268-14-14-14zM47.9998 88C61.53 88 73.4913 81.2822 80.73 71c-7.2387-10.2822-19.2-17-32.7303-17-13.5302 0-25.4914 6.7178-32.7302 17 7.2388 10.2822 19.2 17 32.7303 17z\\"/></svg>"
+      />
+      <div
+        class="circuit-3"
+      >
+        <strong
+          class="circuit-1"
+        >
+          Jane Doe
+        </strong>
+        <p
+          class="circuit-2"
+        />
+      </div>
+      <svg
+        class="circuit-4"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;

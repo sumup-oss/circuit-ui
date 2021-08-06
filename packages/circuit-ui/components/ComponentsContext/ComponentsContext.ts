@@ -13,20 +13,16 @@
  * limitations under the License.
  */
 
-import { useContext } from 'react';
+import { createContext, ReactNode } from 'react';
 
-import ComponentsContext from './ComponentsContext';
-import * as defaultComponents from './components';
+import { Link, LinkProps } from './components/Link';
 
-/**
- * Subscribe to the components context with a hook.
- */
-const useComponents = () => {
-  const components = useContext(ComponentsContext) || {};
-  return { ...defaultComponents, ...components };
+export const defaultComponents = { Link };
+
+export type ComponentsContextType = {
+  Link: (props: LinkProps) => ReactNode;
 };
 
-/**
- * @component
- */
-export default useComponents;
+export const ComponentsContext = createContext<ComponentsContextType>(
+  defaultComponents,
+);

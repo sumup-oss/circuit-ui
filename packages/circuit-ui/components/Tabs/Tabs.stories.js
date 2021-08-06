@@ -20,7 +20,7 @@ import docs from './Tabs.docs.mdx';
 import { Tabs, TabList, TabPanel, Tab } from '.';
 
 export default {
-  title: 'Components/Tabs',
+  title: 'Navigation/Tabs',
   component: Tabs,
   subcomponents: { TabList, TabPanel, Tab },
   parameters: {

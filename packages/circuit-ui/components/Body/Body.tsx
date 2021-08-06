@@ -26,7 +26,7 @@ type Variant = 'highlight' | 'quote' | 'success' | 'error' | 'subtle';
 export interface BodyProps
   extends Omit<HTMLProps<HTMLParagraphElement>, 'size'> {
   /**
-   * Choose from 2 font sizes.
+   * Choose from 2 font sizes. Default `one`.
    */
   size?: Size;
   /**

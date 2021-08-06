@@ -6,6 +6,7 @@
       "@emotion/babel-preset-css-prop",
       {
         "autoLabel": false,
+        "sourceMap": false,
         "labelFormat": "[filename]--[local]"
       }
     ]

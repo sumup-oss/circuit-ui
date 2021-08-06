@@ -13,31 +13,5 @@
  * limitations under the License.
  */
 
-import { forwardRef } from 'react';
-import PropTypes from 'prop-types';
-
-import { childrenPropType } from '../../../../util/shared-prop-types';
-
-/**
- * A barebones Link component that's basically just an `<a>` tag
- */
-const Link = forwardRef(({ children, ...props }, ref) => (
-  <a {...props} ref={ref}>
-    {children}
-  </a>
-));
-
-Link.displayName = 'Link';
-
-Link.propTypes = {
-  children: childrenPropType,
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any }),
-  ]),
-};
-
-/**
- * @component
- */
-export default Link;
+export { Link } from './Link';
+export type { LinkProps } from './Link';

@@ -135,6 +135,8 @@ export type {
   TableRow,
 } from './components/Table';
 
+export { TopNavigation } from './components/TopNavigation';
+export type { TopNavigationProps } from './components/TopNavigation';
 export { default as Sidebar } from './components/Sidebar';
 export {
   SidebarContextProvider,
@@ -151,6 +153,7 @@ export {
   ComponentsContext,
   useComponents,
 } from './components/ComponentsContext';
+export type { ComponentsContextType } from './components/ComponentsContext';
 
 export {
   cx,

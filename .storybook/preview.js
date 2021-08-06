@@ -36,6 +36,14 @@ const SORT_ORDER = {
   Typography: { Headline: {}, SubHeadline: {}, Body: {} },
   Layout: {},
   Forms: {},
+  Navigation: {
+    TopNavigation: {},
+    SideNavigation: {},
+    Pagination: {},
+    Tabs: {},
+    Sidebar: {},
+    Hamburger: {},
+  },
   Components: {},
   Hooks: {},
   Packages: {

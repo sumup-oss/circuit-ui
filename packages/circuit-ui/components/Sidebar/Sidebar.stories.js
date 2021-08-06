@@ -35,7 +35,7 @@ import Separator from './components/Separator';
 import Sidebar from '.';
 
 export default {
-  title: 'Components/Sidebar',
+  title: 'Navigation/Sidebar',
   component: Sidebar,
   subcomponents: {
     Header: Sidebar.Header,
