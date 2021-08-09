@@ -87,7 +87,6 @@ describe('useCollapsible', () => {
       const actual = getButtonProps();
       const expected = expect.objectContaining({
         'onClick': expect.any(Function),
-        'tabIndex': 0,
         'aria-controls': expect.any(String),
         'aria-expanded': 'false',
       });
@@ -108,7 +107,7 @@ describe('useCollapsible', () => {
           willChange: 'height',
           opacity: 0,
           height: 0,
-          transition: 'all 300ms ease-in-out',
+          transition: 'all 200ms ease-in-out',
           visibility: 'hidden',
         },
         'aria-hidden': 'true',
@@ -128,7 +127,6 @@ describe('useCollapsible', () => {
       const actual = getButtonProps();
       const expected = expect.objectContaining({
         'onClick': expect.any(Function),
-        'tabIndex': 0,
         'aria-controls': expect.any(String),
         'aria-expanded': 'true',
       });
@@ -149,7 +147,7 @@ describe('useCollapsible', () => {
           willChange: 'height',
           opacity: 1,
           height: 'auto',
-          transition: 'all 300ms ease-in-out',
+          transition: 'all 200ms ease-in-out',
           visibility: 'visible',
         },
         'aria-hidden': null,
