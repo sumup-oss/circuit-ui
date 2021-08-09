@@ -18,7 +18,7 @@ import { KeyboardEvent, useCallback, useRef } from 'react';
 import { uniqueId } from '../../util/id';
 import { isArrowDown, isArrowUp } from '../../util/key-codes';
 
-type FocusProps = {
+export type FocusProps = {
   'data-focus-list': string;
   'onKeyDown': (event: KeyboardEvent) => void;
 };
@@ -34,6 +34,8 @@ export function useFocusList(): FocusProps {
     if (!isArrowUp(event) && !isArrowDown(event)) {
       return;
     }
+
+    event.preventDefault();
 
     const items = document.querySelectorAll<HTMLElement>(
       `[data-focus-list="${name.current}"]`,
