@@ -19,7 +19,11 @@ import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
 import { isFunction } from '../../util/type-check';
-import { ModalComponent, BaseModalProps } from '../ModalContext';
+import {
+  ModalComponent,
+  BaseModalProps,
+  createUseModal,
+} from '../ModalContext';
 import CloseButton from '../CloseButton';
 import { StackContext } from '../StackContext';
 import styled, { StyleProps } from '../../styles/styled';
@@ -30,6 +34,7 @@ const TRANSITION_DURATION = Math.max(
   TRANSITION_DURATION_MOBILE,
   TRANSITION_DURATION_DESKTOP,
 );
+
 type PreventCloseProps =
   | {
       /**
@@ -302,3 +307,5 @@ export const Modal: ModalComponent<ModalProps> = ({
 };
 
 Modal.TIMEOUT = TRANSITION_DURATION;
+
+export const useModal = createUseModal(Modal);

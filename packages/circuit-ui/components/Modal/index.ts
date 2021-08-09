@@ -13,5 +13,6 @@
  * limitations under the License.
  */
 
-export { useModal } from './useModal';
+export { useModal } from './Modal';
+
 export type { ModalProps } from './Modal';
