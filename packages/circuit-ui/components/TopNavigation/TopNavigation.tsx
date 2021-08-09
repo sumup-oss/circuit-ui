@@ -24,14 +24,22 @@ import Hamburger, { HamburgerProps } from '../Hamburger';
 import { ProfileMenu, ProfileMenuProps } from './components/ProfileMenu';
 import { UtilityLinks, UtilityLinksProps } from './components/UtilityLinks';
 
+export const TOP_NAVIGATION_HEIGHT = '49px'; /* height - border-bottom */
+
 const headerStyles = ({ theme }: StyleProps) => css`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 49px; /* height + border-bottom */
+  height: ${TOP_NAVIGATION_HEIGHT};
   background-color: ${theme.colors.bodyBg};
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
+
+  ${theme.mq.kilo} {
+    position: sticky;
+    top: 0;
+    z-index: ${theme.zIndex.navigation};
+  }
 `;
 
 const Header = styled.header(headerStyles);
@@ -40,7 +48,7 @@ const hamburgerStyles = (theme: Theme) => css`
   ${focusVisible('inset')(theme)};
 
   border-radius: 0;
-  /* Need to use !important here to override the default hover styles */
+  /* The !important below is necessary to override the default hover styles. */
   border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n200} !important;
 
   ${theme.mq.mega} {

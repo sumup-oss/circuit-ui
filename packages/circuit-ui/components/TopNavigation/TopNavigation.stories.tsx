@@ -13,9 +13,14 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { ShoppingCart, SumUpLogo } from '@sumup/icons';
+import { css } from '@emotion/core';
+
+import { SideNavigation } from '../SideNavigation';
+import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories';
+import { ModalProvider } from '../ModalContext';
 
 import { TopNavigation, TopNavigationProps } from './TopNavigation';
 import docs from './TopNavigation.docs.mdx';
@@ -26,9 +31,6 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
-  },
-  argTypes: {
-    children: { control: 'text' },
   },
 };
 
@@ -84,7 +86,31 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
     isActive: isSideNavigationOpen,
     onClick: () => setSideNavigationOpen((prev) => !prev),
   };
-  return <TopNavigation {...args} hamburger={hamburger} />;
+  return (
+    <ModalProvider>
+      <TopNavigation {...args} hamburger={hamburger} />
+      <div
+        css={css`
+          display: flex;
+        `}
+      >
+        <SideNavigation
+          {...sideNavigationProps}
+          isOpen={isSideNavigationOpen}
+          onClose={() => setSideNavigationOpen(false)}
+        />
+        <div
+          css={css`
+            background-color: lightgrey;
+            width: 100%;
+            height: 200vh;
+            margin: 1.5rem;
+            border-radius: 1rem;
+          `}
+        />
+      </div>
+    </ModalProvider>
+  );
 };
 
 WithSideNavigation.storyName = 'With SideNavigation';
