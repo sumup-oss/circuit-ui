@@ -171,6 +171,7 @@ const closeButtonStyles = ({ theme }: StyleProps) => css`
   right: ${BORDER_WIDTH};
   transform: translateY(-50%);
   border-radius: ${theme.borderRadius.byte};
+  border: 0;
 `;
 
 const RemoveButton = styled(CloseButton)<CloseButtonProps>(closeButtonStyles);

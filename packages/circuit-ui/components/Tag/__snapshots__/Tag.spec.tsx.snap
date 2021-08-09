@@ -166,7 +166,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
   padding: calc(8px - 1px);
-  border: 0;
+  border-color: transparent !important;
   position: absolute;
   top: 50%;
   right: 1px;
@@ -174,6 +174,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   border-radius: 8px;
+  border: 0;
 }
 
 .circuit-2:focus {

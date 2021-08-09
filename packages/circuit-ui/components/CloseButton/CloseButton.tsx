@@ -21,8 +21,9 @@ import { IconButton, IconButtonProps } from '../IconButton/IconButton';
 
 export type CloseButtonProps = Omit<IconButtonProps, 'children'>;
 
+// The !important below is necessary to override the default hover styles.
 const buttonStyles = () => css`
-  border: 0;
+  border-color: transparent !important;
 `;
 
 /**
