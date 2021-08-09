@@ -1,27 +1,31 @@
 # Migration
 
-- [🤖 Codemods](#-codemods)
-- [From v2.x to v3](#from-v2x-to-v3)
-  - [JSX runtime](#jsx-runtime)
-  - [Typography XXX](#typography-xxx)
-    - [Typography component names](#typography-component-names)
-    - [Typography component variants](#typography-component-variants)
-    - [New sizes](#new-sizes)
-    - [Headline `as` props](#headline-as-props)
-  - [Modal improvements](#modal-improvements)
-  - [Accessibility](#accessibility)
-  - [Other changes](#other-changes)
-- [From v1.x to v2](#from-v1x-to-v2)
-  - [Library format](#library-format)
-  - [Peer dependencies](#peer-dependencies)
-  - [Font loading](#font-loading)
-  - [Forward custom props and refs](#forward-custom-props-and-refs)
-  - [Component static properties](#component-static-properties)
-  - [Removed components](#removed-components)
-  - [Renamed components](#renamed-components)
-  - [Changed components](#changed-components)
-  - [Utilities](#utilities)
-  - [Theme changes](#theme-changes)
+- [Migration](#migration)
+  - [🤖 Codemods](#-codemods)
+  - [From v2.x to v3](#from-v2x-to-v3)
+    - [New JSX transform](#new-jsx-transform)
+    - [Typography](#typography)
+      - [Typography component names](#typography-component-names)
+      - [Typography component variants](#typography-component-variants)
+      - [New sizes](#new-sizes)
+        - [Typography components `size` prop](#typography-components-size-prop)
+        - [Typography sizes mixins](#typography-sizes-mixins)
+      - [Heading `as` props](#heading-as-props)
+      - [Typography design tokens](#typography-design-tokens)
+    - [Modal improvements](#modal-improvements)
+    - [Accessibility](#accessibility)
+    - [Other changes](#other-changes)
+  - [From v1.x to v2](#from-v1x-to-v2)
+    - [Library format](#library-format)
+    - [Peer dependencies](#peer-dependencies)
+    - [Font loading](#font-loading)
+    - [Forward custom props and refs](#forward-custom-props-and-refs)
+    - [Component static properties](#component-static-properties)
+    - [Removed components](#removed-components)
+    - [Renamed components](#renamed-components)
+    - [Changed components](#changed-components)
+    - [Utilities](#utilities)
+    - [Theme changes](#theme-changes)
 
 ## 🤖 Codemods
 
@@ -55,11 +59,32 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 
 (intro)
 
-### JSX runtime
+### New JSX transform
 
-(...)
+Circuit v3 improves compatibility with the [new JSX transfors](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) (introduced inReact v17).
 
-### Typography XXX
+Applications on Next.js and Emotion 10 (Emotion 11 is not yet supported by Circuit UI) can now use the following Babel config:
+
+```json
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-react": {
+          "runtime": "automatic",
+          "importSource": "@emotion/core"
+        }
+      }
+    ]
+  ],
+  "plugins": [["babel-plugin-emotion", { "cssPropOptimization": true }]]
+}
+```
+
+See the [Emotion 10 docs](https://5faaafd0bd0f3f0008469537--emotion.netlify.app/docs/css-prop#babel-preset) for more details on the required config.
+
+### Typography
 
 Before v3, typography components were general purpose and flexible. There were no guidelines on when to use a certain typography style. This has led to inconsistent usage in our apps.
 
