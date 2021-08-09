@@ -1,31 +1,34 @@
 # Migration
 
-- [Migration](#migration)
-  - [🤖 Codemods](#-codemods)
-  - [From v2.x to v3](#from-v2x-to-v3)
-    - [New JSX transform](#new-jsx-transform)
-    - [Typography](#typography)
-      - [Typography component names](#typography-component-names)
-      - [Typography component variants](#typography-component-variants)
-      - [New sizes](#new-sizes)
-        - [Typography components `size` prop](#typography-components-size-prop)
-        - [Typography sizes mixins](#typography-sizes-mixins)
-      - [Heading `as` props](#heading-as-props)
-      - [Typography design tokens](#typography-design-tokens)
-    - [Modal improvements](#modal-improvements)
-    - [Accessibility](#accessibility)
-    - [Other changes](#other-changes)
-  - [From v1.x to v2](#from-v1x-to-v2)
-    - [Library format](#library-format)
-    - [Peer dependencies](#peer-dependencies)
-    - [Font loading](#font-loading)
-    - [Forward custom props and refs](#forward-custom-props-and-refs)
-    - [Component static properties](#component-static-properties)
-    - [Removed components](#removed-components)
-    - [Renamed components](#renamed-components)
-    - [Changed components](#changed-components)
-    - [Utilities](#utilities)
-    - [Theme changes](#theme-changes)
+- [🤖 Codemods](#-codemods)
+- [From v2.x to v3](#from-v2x-to-v3)
+  - [Accessibility](#accessibility)
+  - [New JSX transform](#new-jsx-transform)
+  - [Typography](#typography)
+    - [Typography component names](#typography-component-names)
+    - [Typography component variants](#typography-component-variants)
+    - [New sizes](#new-sizes)
+      - [Typography components `size` prop](#typography-components-size-prop)
+      - [Typography sizes mixins](#typography-sizes-mixins)
+    - [Heading `as` props](#heading-as-props)
+    - [Typography design tokens](#typography-design-tokens)
+  - [Consolidated modals and popovers](#consolidated-modals-and-popovers)
+    - [Modals](#modals)
+    - [Popovers](#popovers)
+  - [Component heights](#component-heights)
+  - [Other changes](#other-changes)
+  - [Cleaning up](#cleaning-up)
+- [From v1.x to v2](#from-v1x-to-v2)
+  - [Library format](#library-format)
+  - [Peer dependencies](#peer-dependencies)
+  - [Font loading](#font-loading)
+  - [Forward custom props and refs](#forward-custom-props-and-refs)
+  - [Component static properties](#component-static-properties)
+  - [Removed components](#removed-components)
+  - [Renamed components](#renamed-components)
+  - [Changed components](#changed-components)
+  - [Utilities](#utilities)
+  - [Theme changes](#theme-changes)
 
 ## 🤖 Codemods
 
@@ -57,7 +60,32 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 
 ## From v2.x to v3
 
-(intro)
+Circuit v3 is a large major release, including long-awaited changes from the full year that passed since v2. This guide will help you upgrade your application. Don't hesitate to contact the [maintainers](https://github.com/sumup-oss/circuit-ui#maintainers) if you have any further questions.
+
+### Accessibility
+
+Any accessible label props that were previously optional are now required and enforced in all components.
+
+To help identify places where accessible labels are missing (even if an app is built with TypeScript, some configurations will not break the build if required props are missing in JavaScript files), components will throw runtime errors in development at missing labels. Production and testing builds are not affected.
+
+During the migration and while the missing labels are still being added, you can use an escape hatch to continue running the app in development without throwing accessibility errors.
+
+In your app, expose the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable. You can use the [Webpack `DefinePlugin`](https://webpack.js.org/plugins/define-plugin/) ([here's an example](https://github.com/sumup-oss/circuit-ui/blob/main/.storybook/main.js#L45-L53) in the Circuit UI Storybook config) or, if your app uses Next.js, you can declare the variable in your `next.config.js` ([here's an example](https://github.com/sumup/ze-dashboard/blob/master/next.config.js#L78) in the SumUp merchant dashboard).
+
+Now, if you want to turn off the accessibility errors temporarily, run the development app with the environment variable set to `true`:
+
+```sh
+UNSAFE_DISABLE_ACCESSIBILITY_ERRORS=true yarn dev # or yarn start
+```
+
+Keep in mind that this escape hatch is not meant as a way to permanently avoid the errors, but as a temporary workaround while the missing labels are being written, localized and added to the relevant components.
+
+> Note: for the `Input` and `Select` components, use the built-in `label` prop instead of using the `Label` component separately.
+
+Other accessibility improvements include:
+
+- Accessible modals and popovers, see [the dedicated section](#consolidated-modals-and-popovers)
+- Semantic heading elements, see [the typography section](#heading-as-props)
 
 ### New JSX transform
 
@@ -116,6 +144,8 @@ The `Body` (formerly `Text`) component's variants were changed:
 | `<Text strike>` | Use custom styles            |
 | `<Blockquote>`  | `<Body variant="quote">`     |
 
+> ⚠️ These changes also apply to the `Anchor` component, which extends `Body`.
+
 Use 🤖 _body-variant-highlight_ to migrate `bold` to `variant="highlight"`. Note that this will transform your `<p>` elements into inline `<strong>` elements: you might also need to pass `as="p"` if you need a block-level element.
 
 > Bonus: the new `Body` component also supports the `success`, `error` and `subtle` semantic variants. Have a look at the [story](https://circuit.sumup.com/?path=/story/typography-body--variants) to get started.
@@ -143,6 +173,8 @@ The number of sizes was reduced in v3, here's the desired mapping from v2:
 | `<Text size="mega">`       | `<Body size="one">`                                              |
 | `<Text size="giga">`       | Migrate manually to `size="one"` or use custom styles (1.125rem) |
 
+> ⚠️ The `Body` size changes also apply to the `Anchor` and `List` components.
+
 Most of these changes can be automated using the 🤖 _typography-sizes_ codemod.
 
 The codemod will also warn about occurrences of `<Heading size="zetta">` and `<Text size="giga">`. These should be manually migrated to `size="one"` if possible, or alternatively to custom size styles (recommendation from design: 2.625rem for the `Headline` and 1.125rem for the `Body`).
@@ -155,7 +187,7 @@ The deprecated `text[Kilo|Mega|Giga]` style mixins were replaced by a single `ty
 
 #### Heading `as` props
 
-The `as` prop is now required in both the **Headline** and the **SubHeadline** components, and restricted to HTML heading elements. This makes heading structure explicit, and ensures that heading components render semantic heading elements.
+The `as` prop is now required in both the **Headline** and the **SubHeadline** components. Intentionally setting the heading level ensures a consistent and accessible page structure. The `as` prop values was also restricted to HTML heading elements to ensures that heading components render semantic heading elements.
 
 | Component            | Allowed `as` prop values           |
 | -------------------- | ---------------------------------- |
@@ -172,23 +204,80 @@ There is no codemod for these changes, migrate manually through search and repla
 
 > Generally, avoid using typography size tokens. Instead, use typography components directly.
 
-### Modal improvements
+### Consolidated modals and popovers
 
-(...)
+The `Modal` and `Popover` components were refactored to consolidate their APIs and to improve their accessibility.
 
-### Accessibility
+#### Modals
 
-- enforced labels
-- throwing errors + escape hatch
-- as prop in headlines (also mentioned in typography)
+The `Modal`, `ModalWrapper`, `ModalHeader`, `ModalFooter`, `ModalContext`, and `ModalConsumer` components are no longer exported. Instead, use the `useModal` hook to render modals instead.
+
+Modals in Circuit v3 are accessible by default, have a streamlined UI and behavior (dimensions, click outside, etc.) and handle edge cases like modal and popover stacking.
+
+Refer to [the Modal stories](https://circuit.sumup.com/?path=/story/components-modal--base) for usage examples.
+
+#### Popovers
+
+The `Popover` component was rebuilt in Circuit v3. It now uses [Popper v2](https://popper.js.org/) under the hood and comes with a refreshed component API.
+
+More importantly, the Circuit v3 Popover is opinionated when it comes to its usage pattern. It no longer accepts custom children, unlike v2, but rather a list of actions (links and/or buttons).
+
+To migrate, separate the popovers in your application into two types.
+
+Start by migrating any popover resembling a dropdown menu to the new Circuit v3 Popover. Refer to [the Popover story](https://circuit.sumup.com/?path=/story/components-popover--base) for a usage example.
+
+Most of the remaining popovers with custom children should gradually be migrated to use different UI patterns (for example modals). In the meantime, we recommend creating a local copy of the Circuit v3 Popover in your application that accepts custom children instead of an array of actions. You'll find [an example](https://github.com/sumup/ze-dashboard/blob/master/src/components/Popover/Popover.tsx) in the SumUp merchant dashboard (private repository).
+
+### Component heights
+
+The heights of all form components were aligned for consistency. The new size values are:
+
+| Size name | Value |                 Usage                 |
+| --------- | :---: | :-----------------------------------: |
+| `giga`    | 48px  |       Default for web + mobile        |
+| `kilo`    | 32px  |     Dense layout for web + mobile     |
+| `byte`    | 24px  | Extreme dense layout for web + mobile |
+
+Here's an overview of how the component heights have changed:
+
+| Component                     | Old default height | New default height |
+| ----------------------------- | :----------------: | :----------------: |
+| Button and derived components |        40px        |        48px        |
+| Input and derived components  |        40px        |        48px        |
+| Select                        |        40px        |        48px        |
+| Tabs                          |        80px        |        48px        |
+| Tag                           |        34px        |        32px        |
+
+We recommend verifying these changes visually at the end of the migration.
+
+In addition to its increased height, the `Button`'s default size was renamed from `mega` to `giga` to align it with the new size values (see the table above). (🤖 button-default-size)
 
 ### Other changes
 
 - The **NotificationBanner** component has been renamed to **NotificationCard**. (🤖 _component-names-v3_)
-- The **TableRow**, **TableHeader** and **TableCell** components are not exported anymore. Use the **Table** component instead.
-- The **Button**, **IconButton**, (...) and **Hamburger** components' dimensions have been harmonized.
-- The **SelectorGroup**'s `label` is now visible by default, pass `hideLabel` to hide it visually.
-- (...)
+- Label prop names across components were harmonized to follow the _actionLabel_ pattern. (🤖 label-prop-names)
+  - **CardHeader**: `labelCloseButton` 👉 `closeButtonLabel`
+  - **Hamburger**: `labelActive` 👉 `activeLabel`, `labelInActive` 👉 `inactiveLabel`
+  - **Tag**: `labelRemoveButton` 👉 `removeButtonLabel`
+  - **Toggle**: `labelChecked` 👉 `checkedLabel`, `labelUnchecked` 👉 `uncheckedLabel`
+- The **TableRow**, **TableHeader** and **TableCell** components are no longer exported. Use the **Table** component instead.
+- The **Table**'s custom `onSortBy` method signature has been changed. The `nextDirection` argument moved to the third position (`(index, nextDirection, rows)` 👉 `(index, rows, nextDirection)`) and is now optional (i.e. it can be `undefined` instead of `null` in the previous implementation).
+- The **SelectorGroup**'s `label` is now visible by default, pass `hideLabel` to hide it visually. Its children are now also rendered horizontally by default.
+- Default `data-testids` are no longer built into the **Table** and **CardHeader** components. We recommend [querying by role](https://testing-library.com/docs/queries/about/#priority) in tests instead, for them to resemble how users interact with our applications.
+
+### Cleaning up
+
+Finally, Circuit v3 removes previously deprecated and/or unused features and props. These breaking changes may not affect your application if you've already addressed the deprecation warnings in Circuit v2 minors, but we still recommend going through the list of changes below.
+
+- The deprecated **Spacing** component has been removed. Use the **spacing** style mixin instead.
+- The **ProgressBar**'s deprecated `children` prop has been removed. Use the label prop instead.
+- The **Card**'s deprecated `shadow` prop has been removed. Shadows have been replaced by a single outline in an earlier minor version.
+- The deprecated `styleHelpers` aggregate is no longer exported. Import each style mixin directly instead.
+- The `themePropType` is no longer exported from `@sumup/circuit-ui`. Import it from `@sumup/design-tokens` instead.
+- The deprecated **withComponents** HOC has been removed. Use the **useComponents** hook instead.
+- The **Badge**'s deprecated `onClick` prop has been removed. Badges are not meant to be interactive and should only communicate the status of an element. Use the Tag component for interactive elements instead.
+- The **Badge**'s deprecated `primary` variant has been removed. Use the `neutral` variant instead.
+- The experimental static styles extraction feature has been removed.
 
 ## From v1.x to v2
 
