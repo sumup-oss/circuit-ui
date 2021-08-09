@@ -185,7 +185,11 @@ export type ZIndex = {
   tooltip: number;
   header: number;
   backdrop: number;
+  /**
+   * @deprecated Use `theme.zIndex.navigation` instead.
+   */
   sidebar: number;
+  navigation: number;
   modal: number;
 };
 
