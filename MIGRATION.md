@@ -78,7 +78,7 @@ The core typography components were renamed:
 
 (🤖 _component-names-v3_.)
 
-> _Note: this codemod also transforms other renamed components (see [Other Changes](#other-changes)._
+> Note that the codemod will also transform other renamed components (see [Other Changes](#other-changes).
 
 #### Typography component variants
 
@@ -97,17 +97,55 @@ Use 🤖 _body-variant-highlight_ to migrate `bold` to `variant="highlight"`. No
 
 #### New sizes
 
-(...)
+The number of available sizes was reduced, and size names were changed from the metric prefix scale (`kilo`, `mega` etc.) to numbers (`one`, `two` etc.).
 
-- Components: the `size` prop has been changed to accept the new size numbers for **Headline**, **SubHeadline**, **Body**. For **Headline** component **_exa_** and **_peta_** has been changed to **_one_** with new values, **_tera_** has been changed to **_two_**, **_giga_** to **_three_**, **_mega_** and **_kilo_** to **_four_**. For **Body** component **_giga_** size has been removed, and **_mega_** and **_kilo_** sizes have been changed to **_one_** and **_two_** respectively. The **SubHeadline** component now uses only one size value (🤖 _typography-sizes_).
-- Theme: (...)
-- Mixins: the deprecated `text[Kilo|Mega|Giga]` style mixins were replaced by a single `typography` mixin, and the deprecated `heading[Kilo|Mega|Giga|Tera|Peta|Exa|Zetta]` and `subHeading[Kilo|Mega]` style mixins were removed.
+##### Typography components `size` prop
 
-#### Headline `as` props
+The number of sizes was reduced in v3, here's the desired mapping from v2:
 
-The **Headline** and **SubHeadline** components' `as` prop is now required.
+| v2                         | v3                                                               |
+| -------------------------- | ---------------------------------------------------------------- |
+| `<Heading size="kilo">`    | `<Headline size="four">`                                         |
+| `<Heading size="mega">`    | `<Headline size="four">`                                         |
+| `<Heading size="giga">`    | `<Headline size="three">`                                        |
+| `<Heading size="tera">`    | `<Headline size="two">`                                          |
+| `<Heading size="peta">`    | `<Headline size="one">`                                          |
+| `<Heading size="exa">`     | `<Headline size="one">`                                          |
+| `<Heading size="zetta">`   | Migrate manually to `size="one"` or use custom styles (2.625rem) |
+| `<SubHeading size="kilo">` | `<SubHeadline>` (the sizes were removed)                         |
+| `<SubHeading size="mega">` | `<SubHeadline>` (the sizes were removed)                         |
+| `<Text size="kilo">`       | `<Body size="two">`                                              |
+| `<Text size="mega">`       | `<Body size="one">`                                              |
+| `<Text size="giga">`       | Migrate manually to `size="one"` or use custom styles (1.125rem) |
 
-(...)
+Most of these changes can be automated using the 🤖 _typography-sizes_ codemod.
+
+The codemod will also warn about occurrences of `<Heading size="zetta">` and `<Text size="giga">`. These should be manually migrated to `size="one"` if possible, or alternatively to custom size styles (recommendation from design: 2.625rem for the `Headline` and 1.125rem for the `Body`).
+
+##### Typography sizes mixins
+
+The deprecated `text[Kilo|Mega|Giga]` style mixins were replaced by a single `typography` mixin, and the deprecated `heading[Kilo|Mega|Giga|Tera|Peta|Exa|Zetta]` and `subHeading[Kilo|Mega]` style mixins were removed.
+
+> Generally, avoid using typography style mixins. Instead, use typography components directly.
+
+#### Heading `as` props
+
+The `as` prop is now required in both the **Headline** and the **SubHeadline** components, and restricted to HTML heading elements. This makes heading structure explicit, and ensures that heading components render semantic heading elements.
+
+| Component            | Allowed `as` prop values           |
+| -------------------- | ---------------------------------- |
+| `Headline`           | `h1`, `h2`, `h3`, `h4`, `h5`, `h6` |
+| `SubHeadlineeadline` | `h2`, `h3`, `h4`, `h5`, `h6`       |
+
+> Note that the `Headline` and `SubHeadline` will still fall back to `h2` and `h3`, respectively, but omitting the `as` prop will start throwing errors in the next major version.
+
+#### Typography design tokens
+
+The typography size values in `@sumup/design-tokens` were also updated to reflect the changes in `@sumup/circuit-ui`.
+
+There is no codemod for these changes, migrate manually through search and replace (e.g. `typography.text.mega` 👉 `typography.body.one`). Refer to the tables in [Typography component names](#typography-component-names) and [Typography components `size` prop](#typography-components-size-prop) for the correct mappings.
+
+> Generally, avoid using typography size tokens. Instead, use typography components directly.
 
 ### Modal improvements
 
