@@ -91,7 +91,7 @@ Other accessibility improvements include:
 
 Circuit v3 improves compatibility with the [new JSX transforms](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) (introduced in React v17).
 
-Applications on Next.js and Emotion 10 (Emotion 11 is not yet supported by Circuit UI) can now use the following Babel config:
+We recommend the following Babel config for applications on Next.js and Emotion 10 (Emotion 11 is not yet supported by Circuit UI). It also includes support for Emotion's [`css` prop](https://emotion.sh/docs/css-prop).
 
 ```json
 {
@@ -109,8 +109,6 @@ Applications on Next.js and Emotion 10 (Emotion 11 is not yet supported by Circu
   "plugins": [["babel-plugin-emotion", { "cssPropOptimization": true }]]
 }
 ```
-
-See the [Emotion 10 docs](https://5faaafd0bd0f3f0008469537--emotion.netlify.app/docs/css-prop#babel-preset) for more details on the required config.
 
 ### Typography
 
