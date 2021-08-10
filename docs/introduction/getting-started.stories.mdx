@@ -61,7 +61,7 @@ export default function App() {
 
 ### Configuring the viewport
 
-For Circuit UI to render as expected on iOS devices, make sure that the viewport meta tag is set to `cover`, and that your app has padding for iOS safe area insets:
+Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and that your app has the right padding to render inside [CSS safe areas](https://developer.mozilla.org/en-US/docs/Web/CSS/env()):
 
 ```tsx
 // _app.tsx for Next.js or App.js for CRA
@@ -91,5 +91,3 @@ export default function App() {
   );
 }
 ```
-
-This ensures that the UI covers the entire screen, while Circuit UI modals and navigation are still rendered within iOS safe areas.

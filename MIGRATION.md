@@ -1,4 +1,4 @@
-# Migration
+# Migration <!-- omit in toc -->
 
 - [🤖 Codemods](#-codemods)
 - [From v2.x to v3](#from-v2x-to-v3)
@@ -214,7 +214,7 @@ Modals in Circuit v3 are accessible by default, have a streamlined UI and behavi
 
 Refer to [the Modal stories](https://circuit.sumup.com/?path=/story/components-modal--base) for usage examples.
 
-> ⚠️ You might notice iOS UI obscuring the bottom part of modals on mobile viewports. Your application needs to ensure its content stays within iOS safe areas using [CSS `env`](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>). See [Getting started](https://circuit.sumup.com/?path=/docs/introduction-getting-started--page) for help with configuring the viewport.
+> ⚠️ You might notice browser UI obscuring parts of your application on mobile viewports. Your application needs to ensure its content stays within CSS safe areas using [CSS `env`](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>). See [Getting started](https://circuit.sumup.com/?path=/docs/introduction-getting-started--page) for help with configuring the viewport.
 
 #### Popover
 
