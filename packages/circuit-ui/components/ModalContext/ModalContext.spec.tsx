@@ -74,7 +74,7 @@ describe('ModalContext', () => {
         return (
           <>
             <button onClick={() => setModal(modal)}>Open modal</button>
-            <button onClick={() => removeModal(modal.id)}>Close modal</button>
+            <button onClick={() => removeModal(modal)}>Close modal</button>
           </>
         );
       };

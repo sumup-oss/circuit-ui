@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import { createContext, useEffect, useCallback, ReactNode } from 'react';
+import {
+  createContext,
+  useEffect,
+  useCallback,
+  ReactNode,
+  useMemo,
+} from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { Global, css } from '@emotion/core';
 import { useClickTrigger } from '@sumup/collector';
@@ -23,7 +29,7 @@ import { warn } from '../../util/logger';
 
 import { BaseModalProps, ModalComponent } from './types';
 
-// It is important for users of screenreaders that other page content be hidden
+// It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the modal is open.
 // To allow react-modal to do this, Circuit UI calls `Modal.setAppElement`
 // with a query selector identifying the root of the app.
@@ -53,9 +59,8 @@ type ModalState<TProps extends BaseModalProps> = Omit<TProps, 'isOpen'> &
 
 type ModalContextValue = {
   setModal: (modal: ModalState<any>) => void;
-  removeModal: (id: StackItem['id']) => void;
+  removeModal: (modal: ModalState<any>) => void;
 };
-// type ModalContextValue = [ModalState<any>[], StackDispatch<ModalState<any>>];
 
 export const ModalContext = createContext<ModalContextValue>({
   setModal: () => {},
@@ -95,14 +100,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
   );
 
   const removeModal = useCallback(
-    (id: StackItem['id']) => {
-      const modal = modals.find((m) => m.id === id);
-      if (!modal) {
-        // FIXME: `modals` is empty when `removeModal` is called from the
-        // `useModal` hook. We don't yet know why. This is a temporary fix.
-        dispatch({ type: 'remove', id });
-        return;
-      }
+    (modal: ModalState<TProps>) => {
       if (modal.tracking) {
         sendEvent({ component: 'modal-close', ...modal.tracking });
       }
@@ -115,7 +113,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
         timeout: modal.component.TIMEOUT,
       });
     },
-    [modals, dispatch, sendEvent],
+    [dispatch, sendEvent],
   );
 
   const activeModal = modals[modals.length - 1];
@@ -126,7 +124,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
     }
 
     const popModal = () => {
-      removeModal(activeModal.id);
+      removeModal(activeModal);
     };
 
     window.addEventListener('popstate', popModal);
@@ -136,12 +134,24 @@ export function ModalProvider<TProps extends BaseModalProps>({
     };
   }, [activeModal, removeModal]);
 
+  const context = useMemo(() => ({ setModal, removeModal }), [
+    setModal,
+    removeModal,
+  ]);
+
   return (
-    <ModalContext.Provider value={{ setModal, removeModal }}>
+    <ModalContext.Provider value={context}>
       {children}
 
-      {modals.map(
-        ({ id, onClose, timeout, component: Component, ...modalProps }) => (
+      {modals.map((modal) => {
+        const {
+          id,
+          onClose,
+          timeout,
+          component: Component,
+          ...modalProps
+        } = modal;
+        return (
           // @ts-expect-error The props are enforced by the modal hooks,
           // so this warning can be safely ignored.
           <Component
@@ -149,12 +159,12 @@ export function ModalProvider<TProps extends BaseModalProps>({
             {...modalProps}
             key={id}
             isOpen={!timeout}
-            onClose={() => removeModal(id)}
+            onClose={() => removeModal(modal)}
             portalClassName={portalClassName}
             htmlOpenClassName={htmlOpenClassName}
           />
-        ),
-      )}
+        );
+      })}
 
       {activeModal && (
         <Global
