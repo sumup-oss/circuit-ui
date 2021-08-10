@@ -1,5 +1,91 @@
 # @sumup/circuit-ui
 
+## 3.0.0
+
+### Major Changes
+
+- [#1008](https://github.com/sumup-oss/circuit-ui/pull/1008) [`e76f2d03`](https://github.com/sumup-oss/circuit-ui/commit/e76f2d03e2525c0ddcae9e5590f7ee086e7520f7) Thanks [@connor-baer](https://github.com/connor-baer)! - Made the `as` prop required in the `Headline` and `SubHeadline` components. Intentionally setting the heading level ensures a consistent and accessible page structure.
+
+* [#1082](https://github.com/sumup-oss/circuit-ui/pull/1082) [`00ee3ffb`](https://github.com/sumup-oss/circuit-ui/commit/00ee3ffba760af3e9721e479a0f263d9a2f2c2e1) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the Hamburger design and aligned its height with the Button component.
+
+- [#1000](https://github.com/sumup-oss/circuit-ui/pull/1000) [`8f181a6c`](https://github.com/sumup-oss/circuit-ui/commit/8f181a6cd08c113017f2afbf2e58f5e8cf08836f) Thanks [@robinmetral](https://github.com/robinmetral)! - Improved keyboard and accessibility support.
+
+  - Now the Popover can be closed using Escape key.
+  - The trigger component now accepts the `aria-haspopup` and `aria-controls` props.
+
+* [#1080](https://github.com/sumup-oss/circuit-ui/pull/1080) [`91324688`](https://github.com/sumup-oss/circuit-ui/commit/9132468817078649c91d032ed837ede494ee6da1) Thanks [@robinmetral](https://github.com/robinmetral)! - Added a development-only check for required label props that throws a runtime error if any is missing.
+
+- [#1014](https://github.com/sumup-oss/circuit-ui/pull/1014) [`2e0e4381`](https://github.com/sumup-oss/circuit-ui/commit/2e0e43816bbb15281cd4afdc5aca6c0d89d6e669) Thanks [@connor-baer](https://github.com/connor-baer)! - Restricted the `Headline`'s and `SubHeadline`'s `as` prop to heading elements.
+
+* [#1073](https://github.com/sumup-oss/circuit-ui/pull/1073) [`5eaa9520`](https://github.com/sumup-oss/circuit-ui/commit/5eaa9520acde4345dda01383ba28bde540c2cf40) Thanks [@connor-baer](https://github.com/connor-baer)! - Made the label of the SelectorGroup visible by default. It can be hidden with the `hideLabel` prop, but this should only be done in rare cases and only if the purpose of the field can be inferred from context.
+
+- [#1077](https://github.com/sumup-oss/circuit-ui/pull/1077) [`4166e2ea`](https://github.com/sumup-oss/circuit-ui/commit/4166e2ea1bacadfba8bb0a41648c4692031684ee) Thanks [@connor-baer](https://github.com/connor-baer)! - Aligned the Calendar styles with other input components and injected the styles as global styles. Previously, they were scoped to a parent classname which prevented the use of the `withPortal` prop.
+
+* [#1000](https://github.com/sumup-oss/circuit-ui/pull/1000) [`8f181a6c`](https://github.com/sumup-oss/circuit-ui/commit/8f181a6cd08c113017f2afbf2e58f5e8cf08836f) Thanks [@robinmetral](https://github.com/robinmetral)! - Extended the Popover list item state with disabled variant.
+
+### Minor Changes
+
+- [#1089](https://github.com/sumup-oss/circuit-ui/pull/1089) [`2d216980`](https://github.com/sumup-oss/circuit-ui/commit/2d2169805eddc54f2b54d42ed151b078f59711b3) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a `useCollapsible` hook to build accessible and smoothly animated collapsible sections.
+
+* [#1023](https://github.com/sumup-oss/circuit-ui/pull/1023) [`07614c5f`](https://github.com/sumup-oss/circuit-ui/commit/07614c5f618a6904df66fb149fb44856756e0d80) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `useClickOutside`, `useEscapeKey`, and `useFocusList` hooks which can be used to make custom components more keyboard accessible.
+
+- [#997](https://github.com/sumup-oss/circuit-ui/pull/997) [`4e6bbfea`](https://github.com/sumup-oss/circuit-ui/commit/4e6bbfeaccacfdf558488cfd20151ea25b23560d) Thanks [@robinmetral](https://github.com/robinmetral)! - Exported the missing style mixins from Circuit.
+
+* [#1083](https://github.com/sumup-oss/circuit-ui/pull/1083) [`3513326a`](https://github.com/sumup-oss/circuit-ui/commit/3513326aa70e43b8f1314869dcede8555adf5110) Thanks [@robinmetral](https://github.com/robinmetral)! - Added an escape hatch to silence accessibility errors in development when the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable is set to `true`.
+
+- [#998](https://github.com/sumup-oss/circuit-ui/pull/998) [`43b1403a`](https://github.com/sumup-oss/circuit-ui/commit/43b1403ad07f149c8f2daf0cb147a911419be968) Thanks [@robinmetral](https://github.com/robinmetral)! - Extended the typography-sizes codemod to transform the Anchor component and warn of any necessary manual migration.
+
+* [#1074](https://github.com/sumup-oss/circuit-ui/pull/1074) [`1869c218`](https://github.com/sumup-oss/circuit-ui/commit/1869c21810c10182e6ace038e096c0e1d68a489c) Thanks [@connor-baer](https://github.com/connor-baer)! - Persisted the active state of the Button when it is pressed or an associated menu is expanded.
+
+- [#1022](https://github.com/sumup-oss/circuit-ui/pull/1022) [`afb2eb29`](https://github.com/sumup-oss/circuit-ui/commit/afb2eb29c41753caf6c3d797087629907bdba9bc) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `focusVisible` style mixin that shows a focus outline only when the user agent determines via heuristics that the focus should be made evident on the element (see [`:focus-visible`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)).
+
+* [#1073](https://github.com/sumup-oss/circuit-ui/pull/1073) [`5eaa9520`](https://github.com/sumup-oss/circuit-ui/commit/5eaa9520acde4345dda01383ba28bde540c2cf40) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a `hideLabel` prop to the RadioButtonGroup to visually hide the label. This should only be used in rare cases and only if the purpose of the field can be inferred from context.
+
+### Patch Changes
+
+- [#1007](https://github.com/sumup-oss/circuit-ui/pull/1007) [`efe0210e`](https://github.com/sumup-oss/circuit-ui/commit/efe0210e0c0b076f942a2aae83858f7dba4714e3) Thanks [@connor-baer](https://github.com/connor-baer)! - Refactored the modal components to consistently dispatch tracking events.
+
+* [#1013](https://github.com/sumup-oss/circuit-ui/pull/1013) [`d5e528bf`](https://github.com/sumup-oss/circuit-ui/commit/d5e528bfb12bd998f33629cf9cc1a865cda1862f) Thanks [@amelako](https://github.com/amelako)! - Extended the Popover component to accept custom [modifiers](https://popper.js.org/docs/v2/modifiers/), moved the open state outside of the component, and improved accessibility features.
+
+- [`be99e904`](https://github.com/sumup-oss/circuit-ui/commit/be99e9049f366070cf2c99fe4af5193d05546089) Thanks [@robinmetral](https://github.com/robinmetral)! - Passed a dummy label to the `ImageInput`'s presentational `AddButton` to prevent it from throwing because of a missing label.
+
+* [#1059](https://github.com/sumup-oss/circuit-ui/pull/1059) [`a76a5954`](https://github.com/sumup-oss/circuit-ui/commit/a76a5954c61b27dd6a4fb61337eef8bcea28036e) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a layout bug when a Popover was rendered inside a Modal.
+
+- [#1061](https://github.com/sumup-oss/circuit-ui/pull/1061) [`37a4950f`](https://github.com/sumup-oss/circuit-ui/commit/37a4950f569b41a31f17a8633808c22ab64b45ed) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the Modal's min-height to support modals with little content.
+
+* [#1067](https://github.com/sumup-oss/circuit-ui/pull/1067) [`aa40cd8d`](https://github.com/sumup-oss/circuit-ui/commit/aa40cd8da9adf0ebda2c25d2892e2eb2c4d586a9) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the scrolling behaviour when the content overflows a Modal.
+
+- [#1070](https://github.com/sumup-oss/circuit-ui/pull/1070) [`94fee802`](https://github.com/sumup-oss/circuit-ui/commit/94fee802c607005501b87148a93703c15530cf2f) Thanks [@connor-baer](https://github.com/connor-baer)! - Implemented a temporary fix for the `removeModal` method.
+
+* [#1070](https://github.com/sumup-oss/circuit-ui/pull/1070) [`94fee802`](https://github.com/sumup-oss/circuit-ui/commit/94fee802c607005501b87148a93703c15530cf2f) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the overflow behavior of Modals, including an iOS-specific issue.
+
+- [#1051](https://github.com/sumup-oss/circuit-ui/pull/1051) [`9234ebc3`](https://github.com/sumup-oss/circuit-ui/commit/9234ebc3dd322e6d57eb36b6315d0344339dd1d5) Thanks [@robinmetral](https://github.com/robinmetral)! - Tweaked the Card component interface to support any optional ref.
+
+* [#1020](https://github.com/sumup-oss/circuit-ui/pull/1020) [`cee2c0c4`](https://github.com/sumup-oss/circuit-ui/commit/cee2c0c4011f12d3c5bb3ad9633183ba477cb7b3) Thanks [@amelako](https://github.com/amelako)! - Fixed a bug in the Popover component to correctly stack the popover content on top of the overlay on mobile.
+
+- [#1078](https://github.com/sumup-oss/circuit-ui/pull/1078) [`ee1446a3`](https://github.com/sumup-oss/circuit-ui/commit/ee1446a31a7c82f69711233a83c638958d0e09a4) Thanks [@amelako](https://github.com/amelako)! - Fixed the CurrencyInput bug for Chile locale where shouldn’t be any fraction digits in the input.
+
+* [#1062](https://github.com/sumup-oss/circuit-ui/pull/1062) [`6a6e1f06`](https://github.com/sumup-oss/circuit-ui/commit/6a6e1f06ffe635cf8eafa04b2621fa99f7bcfd2a) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the JSX runtime import source for Circuit UI package.
+
+- [#1065](https://github.com/sumup-oss/circuit-ui/pull/1065) [`8322bd64`](https://github.com/sumup-oss/circuit-ui/commit/8322bd647583de510ab12f3bba25b60233dbe8fd) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the stacking order of a Popover inside a Modal.
+
+* [#1077](https://github.com/sumup-oss/circuit-ui/pull/1077) [`4166e2ea`](https://github.com/sumup-oss/circuit-ui/commit/4166e2ea1bacadfba8bb0a41648c4692031684ee) Thanks [@connor-baer](https://github.com/connor-baer)! - Allowed content to overflow the Modal.
+
+- [#1055](https://github.com/sumup-oss/circuit-ui/pull/1055) [`a4a514fd`](https://github.com/sumup-oss/circuit-ui/commit/a4a514fd41e70095ed4722faf6a41cfcb80fa828) Thanks [@connor-baer](https://github.com/connor-baer)! - Prevented pointer events when the Popover is closed. Previously, it would obstruct the content behind it.
+
+* [#1082](https://github.com/sumup-oss/circuit-ui/pull/1082) [`00ee3ffb`](https://github.com/sumup-oss/circuit-ui/commit/00ee3ffba760af3e9721e479a0f263d9a2f2c2e1) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the height of the Button's `kilo` size from 34px to 32px to align it with the other components.
+
+- [#1046](https://github.com/sumup-oss/circuit-ui/pull/1046) [`a39ee223`](https://github.com/sumup-oss/circuit-ui/commit/a39ee22339bd7f9db365ebf6d9cbcb481bf40486) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the Popover's focus handling to prevent it from hijacking the focus on render.
+
+* [#1072](https://github.com/sumup-oss/circuit-ui/pull/1072) [`35a6048c`](https://github.com/sumup-oss/circuit-ui/commit/35a6048cb16c29deb22270ded6769d020b1be346) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `useClickOutside` hook when the clicked element is inside the container and removed from the DOM immediately after the click.
+
+- [#1087](https://github.com/sumup-oss/circuit-ui/pull/1087) [`9ac7aa8f`](https://github.com/sumup-oss/circuit-ui/commit/9ac7aa8f26e60ad6fa82abd92cb153474eadde99) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved fullscreen display of immersive Modals on iOS and added bottom padding to the Modal content to clear any browser chrome overlays.
+
+* [#1068](https://github.com/sumup-oss/circuit-ui/pull/1068) [`3f06e091`](https://github.com/sumup-oss/circuit-ui/commit/3f06e09184706d7ee6646cc879b5ffc03d4560cd) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the contextual modal heights to match content height instead of 90vh.
+
+* Updated dependencies [[`9a35c9a7`](https://github.com/sumup-oss/circuit-ui/commit/9a35c9a7d9c281a5a5a035ca04c52e5712f89821), [`9a35c9a7`](https://github.com/sumup-oss/circuit-ui/commit/9a35c9a7d9c281a5a5a035ca04c52e5712f89821)]:
+  - @sumup/design-tokens@3.0.0
+
 ## 3.0.0-next.14
 
 ### Patch Changes
