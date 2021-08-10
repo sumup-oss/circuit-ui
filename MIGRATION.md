@@ -12,9 +12,9 @@
       - [Typography sizes mixins](#typography-sizes-mixins)
     - [Heading `as` props](#heading-as-props)
     - [Typography design tokens](#typography-design-tokens)
-  - [Consolidated modals and popovers](#consolidated-modals-and-popovers)
-    - [Modals](#modals)
-    - [Popovers](#popovers)
+  - [New modal and popover APIs](#new-modal-and-popover-apis)
+    - [Modal](#modal)
+    - [Popover](#popover)
   - [Component heights](#component-heights)
   - [Other changes](#other-changes)
   - [Cleaning up](#cleaning-up)
@@ -66,11 +66,11 @@ Circuit v3 is a large major release, including long-awaited changes from the ful
 
 Any accessible label props that were previously optional are now required and enforced in all components.
 
-To help identify places where accessible labels are missing (even if an app is built with TypeScript, some configurations will not break the build if required props are missing in JavaScript files), components will throw runtime errors in development at missing labels. Production and testing builds are not affected.
+To help identify places where accessible labels are missing, components throw runtime errors in development at missing labels. Production and testing builds are not affected.
 
 During the migration and while the missing labels are still being added, you can use an escape hatch to continue running the app in development without throwing accessibility errors.
 
-In your app, expose the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable. You can use the [Webpack `DefinePlugin`](https://webpack.js.org/plugins/define-plugin/) ([here's an example](https://github.com/sumup-oss/circuit-ui/blob/main/.storybook/main.js#L45-L53) in the Circuit UI Storybook config) or, if your app uses Next.js, you can declare the variable in your `next.config.js` ([here's an example](https://github.com/sumup/ze-dashboard/blob/master/next.config.js#L78) in the SumUp merchant dashboard).
+In your app, expose the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable. You can use the [Webpack `DefinePlugin`](https://webpack.js.org/plugins/define-plugin/) ([here's an example](https://github.com/sumup-oss/circuit-ui/blob/main/.storybook/main.js#L45-L53) in the Circuit UI Storybook config) or, if your app uses Next.js, you can declare the variable in your `next.config.js` ([Next.js documentation](https://nextjs.org/docs/api-reference/next.config.js/environment-variables)).
 
 Now, if you want to turn off the accessibility errors temporarily, run the development app with the environment variable set to `true`:
 
@@ -80,7 +80,7 @@ UNSAFE_DISABLE_ACCESSIBILITY_ERRORS=true yarn dev # or yarn start
 
 Keep in mind that this escape hatch is not meant as a way to permanently avoid the errors, but as a temporary workaround while the missing labels are being written, localized and added to the relevant components.
 
-> Note: for the `Input` and `Select` components, use the built-in `label` prop instead of using the `Label` component separately.
+> Reminder: For the `Input` and `Select` components, use the built-in `label` prop instead of using the `Label` component separately.
 
 Other accessibility improvements include:
 
@@ -89,7 +89,7 @@ Other accessibility improvements include:
 
 ### New JSX transform
 
-Circuit v3 improves compatibility with the [new JSX transfors](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) (introduced inReact v17).
+Circuit v3 improves compatibility with the [new JSX transforms](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) (introduced in React v17).
 
 Applications on Next.js and Emotion 10 (Emotion 11 is not yet supported by Circuit UI) can now use the following Babel config:
 
@@ -187,12 +187,12 @@ The deprecated `text[Kilo|Mega|Giga]` style mixins were replaced by a single `ty
 
 #### Heading `as` props
 
-The `as` prop is now required in both the **Headline** and the **SubHeadline** components. Intentionally setting the heading level ensures a consistent and accessible page structure. The `as` prop values was also restricted to HTML heading elements to ensures that heading components render semantic heading elements.
+The `as` prop is now required in both the **Headline** and the **SubHeadline** components. Intentionally setting the heading level ensures a consistent and accessible page structure. The `as` prop values were also restricted to HTML heading elements to ensure that heading components render semantic heading elements.
 
-| Component            | Allowed `as` prop values           |
-| -------------------- | ---------------------------------- |
-| `Headline`           | `h1`, `h2`, `h3`, `h4`, `h5`, `h6` |
-| `SubHeadlineeadline` | `h2`, `h3`, `h4`, `h5`, `h6`       |
+| Component     | Allowed `as` prop values           |
+| ------------- | ---------------------------------- |
+| `Headline`    | `h1`, `h2`, `h3`, `h4`, `h5`, `h6` |
+| `SubHeadline` | `h2`, `h3`, `h4`, `h5`, `h6`       |
 
 > Note that the `Headline` and `SubHeadline` will still fall back to `h2` and `h3`, respectively, but omitting the `as` prop will start throwing errors in the next major version.
 
@@ -204,11 +204,11 @@ There is no codemod for these changes, migrate manually through search and repla
 
 > Generally, avoid using typography size tokens. Instead, use typography components directly.
 
-### Consolidated modals and popovers
+### New modal and popover APIs
 
 The `Modal` and `Popover` components were refactored to consolidate their APIs and to improve their accessibility.
 
-#### Modals
+#### Modal
 
 The `Modal`, `ModalWrapper`, `ModalHeader`, `ModalFooter`, `ModalContext`, and `ModalConsumer` components are no longer exported. Instead, use the `useModal` hook to render modals instead.
 
@@ -216,7 +216,7 @@ Modals in Circuit v3 are accessible by default, have a streamlined UI and behavi
 
 Refer to [the Modal stories](https://circuit.sumup.com/?path=/story/components-modal--base) for usage examples.
 
-#### Popovers
+#### Popover
 
 The `Popover` component was rebuilt in Circuit v3. It now uses [Popper v2](https://popper.js.org/) under the hood and comes with a refreshed component API.
 
@@ -250,27 +250,27 @@ Here's an overview of how the component heights have changed:
 
 We recommend verifying these changes visually at the end of the migration.
 
-In addition to its increased height, the `Button`'s default size was renamed from `mega` to `giga` to align it with the new size values (see the table above). (🤖 button-default-size)
+In addition to its increased height, the `Button`'s default size was renamed from `mega` to `giga` to align it with the new size values (see the table above). (_🤖 \_button-default-size_)
 
 ### Other changes
 
 - The **NotificationBanner** component has been renamed to **NotificationCard**. (🤖 _component-names-v3_)
-- Label prop names across components were harmonized to follow the _actionLabel_ pattern. (🤖 label-prop-names)
+- Label prop names across components were harmonized to follow the _<description>Label_ pattern. (🤖 _label-prop-names_)
   - **CardHeader**: `labelCloseButton` 👉 `closeButtonLabel`
   - **Hamburger**: `labelActive` 👉 `activeLabel`, `labelInActive` 👉 `inactiveLabel`
   - **Tag**: `labelRemoveButton` 👉 `removeButtonLabel`
   - **Toggle**: `labelChecked` 👉 `checkedLabel`, `labelUnchecked` 👉 `uncheckedLabel`
 - The **TableRow**, **TableHeader** and **TableCell** components are no longer exported. Use the **Table** component instead.
 - The **Table**'s custom `onSortBy` method signature has been changed. The `nextDirection` argument moved to the third position (`(index, nextDirection, rows)` 👉 `(index, rows, nextDirection)`) and is now optional (i.e. it can be `undefined` instead of `null` in the previous implementation).
-- The **SelectorGroup**'s `label` is now visible by default, pass `hideLabel` to hide it visually. Its children are now also rendered horizontally by default.
-- Default `data-testids` are no longer built into the **Table** and **CardHeader** components. We recommend [querying by role](https://testing-library.com/docs/queries/about/#priority) in tests instead, for them to resemble how users interact with our applications.
+- The **SelectorGroup**'s `label` is now visible by default, pass `hideLabel` to hide it visually. Its children are now rendered horizontally by default.
+- Default `data-testids` are no longer built into the **Table** and **CardHeader** components. We recommend [querying by role](https://testing-library.com/docs/queries/about/#priority) in tests instead to imitate how users interact with our applications.
 
 ### Cleaning up
 
 Finally, Circuit v3 removes previously deprecated and/or unused features and props. These breaking changes may not affect your application if you've already addressed the deprecation warnings in Circuit v2 minors, but we still recommend going through the list of changes below.
 
 - The deprecated **Spacing** component has been removed. Use the **spacing** style mixin instead.
-- The **ProgressBar**'s deprecated `children` prop has been removed. Use the label prop instead.
+- The **ProgressBar**'s deprecated `children` prop has been removed. Use the `label` prop instead.
 - The **Card**'s deprecated `shadow` prop has been removed. Shadows have been replaced by a single outline in an earlier minor version.
 - The deprecated `styleHelpers` aggregate is no longer exported. Import each style mixin directly instead.
 - The `themePropType` is no longer exported from `@sumup/circuit-ui`. Import it from `@sumup/design-tokens` instead.
