@@ -463,7 +463,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
             >
               <li>
                 <button
-                  aria-controls="collapsible_3"
+                  aria-controls="collapsible_2"
                   aria-current="page"
                   aria-expanded="false"
                   class="circuit-6"
@@ -519,7 +519,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                 <ul
                   aria-hidden="true"
                   class="circuit-13"
-                  id="collapsible_3"
+                  id="collapsible_2"
                   role="list"
                   style="overflow: hidden; will-change: height; opacity: 0; height: 0px; visibility: hidden; transition: all 200ms ease-in-out;"
                 >
@@ -536,7 +536,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                       <li>
                         <a
                           class="circuit-9"
-                          data-focus-list="4"
+                          data-focus-list="3"
                           href="/shop/toys"
                         >
                           <p
@@ -549,7 +549,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                       <li>
                         <a
                           class="circuit-9"
-                          data-focus-list="4"
+                          data-focus-list="3"
                           href="/shop/books"
                         >
                           <p
@@ -914,7 +914,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
               <li>
                 <a
                   class="circuit-5"
-                  data-focus-list="5"
+                  data-focus-list="4"
                   href="/"
                 >
                   <div

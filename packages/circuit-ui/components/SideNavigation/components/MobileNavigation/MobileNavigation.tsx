@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 import ReactModal from 'react-modal';
 import { ClassNames, css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
-import { useTheme } from 'emotion-theming';
 import { Theme } from '@sumup/design-tokens';
 import { ChevronDown } from '@sumup/icons';
 
@@ -31,7 +30,6 @@ import { StackContext } from '../../../StackContext';
 import CloseButton from '../../../CloseButton';
 import { useCollapsible } from '../../../../hooks/useCollapsible';
 import { useFocusList } from '../../../../hooks/useFocusList';
-import { useMedia } from '../../../../hooks/useMedia';
 import { PrimaryLinkProps } from '../../types';
 import { PrimaryLink } from '../PrimaryLink';
 import { SecondaryLinks } from '../SecondaryLinks';
@@ -156,32 +154,11 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
   primaryNavigationLabel,
   ...props
 }) => {
-  const theme = useTheme<Theme>();
-  const isMobile = useMedia(theme.breakpoints.untilGiga, true);
-
   const focusProps = useFocusList();
-
-  // Closes the modal when the user resizes the window.
-  useEffect(() => {
-    if (!isMobile && onClose) {
-      onClose();
-    }
-  }, [isMobile, onClose]);
-
-  if (
-    process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    !closeButtonLabel
-  ) {
-    throw new Error(
-      'The SideNavigation component is missing a `closeButtonLabel` prop. This is an accessibility requirement.',
-    );
-  }
 
   return (
     <ClassNames<Theme>>
-      {({ css: cssString }) => {
+      {({ css: cssString, theme }) => {
         // React Modal styles
         // https://reactcommunity.org/react-modal/styles/classes/
         const styles = {

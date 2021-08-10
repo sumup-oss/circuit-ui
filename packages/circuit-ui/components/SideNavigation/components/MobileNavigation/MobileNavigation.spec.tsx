@@ -99,7 +99,7 @@ describe('MobileNavigation', () => {
   });
 
   describe('business logic', () => {
-    it('should should toggle the secondary navigation', async () => {
+    it('should toggle the secondary navigation', async () => {
       const { getByRole, getByText } = renderMobileNavigation(
         render,
         defaultProps,

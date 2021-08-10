@@ -15,6 +15,10 @@
 
 import { useEffect } from 'react';
 import usePrevious from 'use-previous';
+import { useTheme } from 'emotion-theming';
+import { Theme } from '@sumup/design-tokens';
+
+import { useMedia } from '../../hooks/useMedia';
 
 import { DesktopNavigation } from './components/DesktopNavigation';
 import { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation';
@@ -49,12 +53,15 @@ export function SideNavigation({
     );
   }
 
-  const { setModal } = useMobileNavigation();
+  const theme = useTheme<Theme>();
+  const isMobile = useMedia(theme.breakpoints.untilGiga, true);
+
+  const { setModal, removeModal } = useMobileNavigation();
 
   const prevOpen = usePrevious(isOpen);
 
   useEffect(() => {
-    if (isOpen && !prevOpen) {
+    if (!prevOpen && isOpen && isMobile) {
       setModal({
         onClose,
         primaryLinks,
@@ -63,14 +70,22 @@ export function SideNavigation({
       });
     }
   }, [
-    isOpen,
     prevOpen,
+    isOpen,
+    isMobile,
     setModal,
     primaryLinks,
     onClose,
     closeButtonLabel,
     primaryNavigationLabel,
   ]);
+
+  // Close the modal when the user resizes the window.
+  useEffect(() => {
+    if (!isMobile) {
+      removeModal();
+    }
+  }, [isMobile, removeModal]);
 
   return (
     <DesktopNavigation
