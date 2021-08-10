@@ -36,6 +36,7 @@ If you feel another member of the community violated our CoC or you are experien
 
 - [Connor Bär](mailto:connor.baer@sumup.com)
 - [Amela Kodzic](mailto:amela.kodzic@sumup.com)
+- [Robin Metral](mailto: robin.metral@sumup.com)
 
 ## Contributing
 
