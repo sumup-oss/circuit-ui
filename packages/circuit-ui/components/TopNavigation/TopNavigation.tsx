@@ -24,7 +24,7 @@ import Hamburger, { HamburgerProps } from '../Hamburger';
 import { ProfileMenu, ProfileMenuProps } from './components/ProfileMenu';
 import { UtilityLinks, UtilityLinksProps } from './components/UtilityLinks';
 
-export const TOP_NAVIGATION_HEIGHT = '49px'; /* height - border-bottom */
+export const TOP_NAVIGATION_HEIGHT = '49px'; /* height + border-bottom */
 
 const headerStyles = ({ theme }: StyleProps) => css`
   display: flex;
@@ -38,7 +38,9 @@ const headerStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.kilo} {
     position: sticky;
     top: 0;
-    z-index: ${theme.zIndex.navigation};
+    /* The +1 is necessary to ensure that the primary navigation doesn't */
+    /* overlap the top navigation on hover. */
+    z-index: ${theme.zIndex.navigation + 1};
   }
 `;
 
@@ -51,7 +53,7 @@ const hamburgerStyles = (theme: Theme) => css`
   /* The !important below is necessary to override the default hover styles. */
   border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n200} !important;
 
-  ${theme.mq.mega} {
+  ${theme.mq.giga} {
     display: none;
   }
 `;

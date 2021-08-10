@@ -17,6 +17,7 @@
 
 import { css } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
+import { find } from 'lodash/fp';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { shadow, hideScrollbar } from '../../../../styles/style-mixins';
@@ -54,7 +55,7 @@ const Wrapper = styled.div(wrapperStyles);
 
 const primaryWrapperStyles = ({ theme }: StyleProps) => css`
   position: fixed;
-  z-index: ${theme.zIndex.navigation + 2};
+  z-index: ${theme.zIndex.navigation};
   top: ${TOP_NAVIGATION_HEIGHT};
   bottom: 0;
   left: 0;
@@ -112,8 +113,10 @@ export function DesktopNavigation({
 }: DesktopNavigationProps): JSX.Element {
   const focusProps = useFocusList();
 
-  // TODO: Make IE 11 compatible
-  const activePrimaryLink = primaryLinks.find((link) => link.isActive);
+  const activePrimaryLink = find(
+    (link) => link.isActive,
+    primaryLinks,
+  ) as PrimaryLinkProps;
   const secondaryGroups =
     activePrimaryLink && activePrimaryLink.secondaryGroups;
 

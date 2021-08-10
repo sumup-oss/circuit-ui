@@ -2,6 +2,7 @@
 
 exports[`PrimaryLink styles should render with active styles 1`] = `
 .circuit-0 {
+  position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -132,24 +133,27 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
   class="circuit-2"
   href="/url"
 >
-  <svg
+  <div
     class="circuit-0"
-    fill="none"
-    height="16"
-    role="presentation"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      clip-rule="evenodd"
-      d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
   <span
     class="circuit-1"
   >
@@ -159,40 +163,6 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
 `;
 
 exports[`PrimaryLink styles should render with badge styles 1`] = `
-.circuit-0 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  margin-right: 12px;
-}
-
-.circuit-1 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-  max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-@media (max-width:959px) {
-  .circuit-1 {
-    font-size: 24px;
-    line-height: 48px;
-  }
-}
-
-@media (min-width:960px) {
-  .circuit-1 {
-    max-width: 160px;
-  }
-}
-
 .circuit-3 {
   position: relative;
   display: -webkit-box;
@@ -270,23 +240,51 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   }
 }
 
-.circuit-3::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 14px;
-  left: 47px;
-  background-color: #CA58FF;
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width:959px) {
+  .circuit-1 {
+    font-size: 24px;
+    line-height: 48px;
+  }
 }
 
 @media (min-width:960px) {
-  .circuit-3::before {
-    top: 6px;
-    left: 32px;
+  .circuit-1 {
+    max-width: 160px;
   }
+}
+
+.circuit-0 {
+  position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.circuit-0::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 10px;
+  height: 10px;
+  background-color: #CA58FF;
+  border-radius: 100%;
 }
 
 .circuit-2 {
@@ -306,24 +304,27 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   class="circuit-3"
   href="/url"
 >
-  <svg
+  <div
     class="circuit-0"
-    fill="none"
-    height="16"
-    role="presentation"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      clip-rule="evenodd"
-      d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
   <span
     aria-describedby="1"
     class="circuit-1"
@@ -418,6 +419,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
 }
 
 .circuit-0 {
+  position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -455,24 +457,27 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
   class="circuit-2"
   href="/url"
 >
-  <svg
+  <div
     class="circuit-0"
-    fill="none"
-    height="16"
-    role="presentation"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      clip-rule="evenodd"
-      d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
   <span
     class="circuit-1"
   >
@@ -483,6 +488,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
 
 exports[`PrimaryLink styles should render with open styles 1`] = `
 .circuit-0 {
+  position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -606,24 +612,27 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
   class="circuit-2"
   href="/url"
 >
-  <svg
+  <div
     class="circuit-0"
-    fill="none"
-    height="16"
-    role="presentation"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      clip-rule="evenodd"
-      d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
   <span
     class="circuit-1"
   >

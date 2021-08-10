@@ -31,16 +31,14 @@ import { useComponents } from '../../../ComponentsContext';
 import Body from '../../../Body';
 import { PrimaryLinkProps as PrimaryLinkType } from '../../types';
 import { ClickEvent } from '../../../../types/events';
-import { uniqueId } from '../../../..';
+import { uniqueId } from '../../../../util/id';
 
 export interface PrimaryLinkProps extends PrimaryLinkType {
   isOpen?: boolean;
   suffix?: FC<{ className?: string; role?: string }>;
 }
 
-type AnchorProps = Pick<PrimaryLinkProps, 'isActive' | 'isOpen'> & {
-  hasBadge: boolean;
-};
+type AnchorProps = Pick<PrimaryLinkProps, 'isActive' | 'isOpen'>;
 
 const anchorStyles = ({ theme }: StyleProps) => css`
   position: relative;
@@ -122,29 +120,6 @@ const anchorOpenStyles = ({ theme, isOpen }: StyleProps & AnchorProps) =>
     }
   `;
 
-const anchorBadgeStyles = ({ theme, hasBadge }: StyleProps & AnchorProps) =>
-  hasBadge &&
-  css`
-    &::before {
-      display: block;
-      content: '';
-      position: absolute;
-      top: 14px;
-      left: 47px;
-      background-color: ${theme.colors.v500};
-      width: 10px;
-      height: 10px;
-      border-radius: ${theme.borderRadius.circle};
-    }
-
-    ${theme.mq.giga} {
-      &::before {
-        top: 6px;
-        left: 32px;
-      }
-    }
-  `;
-
 const Anchor = styled('a', {
   shouldForwardProp: (prop) => isPropValid(prop),
 })<AnchorProps>(
@@ -152,15 +127,38 @@ const Anchor = styled('a', {
   anchorStyles,
   anchorActiveStyles,
   anchorOpenStyles,
-  anchorBadgeStyles,
 );
 
-const iconStyles = (theme: Theme) => css`
+const iconContainerStyles = ({ theme }: StyleProps) => css`
+  position: relative;
   flex-shrink: 0;
   width: ${theme.iconSizes.mega};
   height: ${theme.iconSizes.mega};
   margin-right: ${theme.spacings.kilo};
 `;
+
+const iconContainerWithBadgeStyles = ({
+  theme,
+  hasBadge,
+}: StyleProps & { hasBadge: boolean }) =>
+  hasBadge &&
+  css`
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 10px;
+      height: 10px;
+      background-color: ${theme.colors.v500};
+      border-radius: ${theme.borderRadius.circle};
+    }
+  `;
+
+const IconContainer = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<{ hasBadge: boolean }>(iconContainerStyles, iconContainerWithBadgeStyles);
 
 const suffixStyles = (theme: Theme) => css`
   flex-shrink: 0;
@@ -223,12 +221,13 @@ export function PrimaryLink({
       onClick={handleClick}
       isActive={isActive}
       isOpen={isOpen}
-      hasBadge={Boolean(badge)}
       aria-current={isActive ? 'page' : undefined}
       // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
       as={props.href ? Link : 'button'}
     >
-      <Icon css={iconStyles} role="presentation" />
+      <IconContainer hasBadge={Boolean(badge)}>
+        <Icon role="presentation" />
+      </IconContainer>
       <Label
         variant={isActive || isOpen ? 'highlight' : undefined}
         aria-describedby={badgeId}

@@ -57,6 +57,11 @@ export interface MobileNavigationProps extends BaseModalProps {
 
 type ChevronProps = { isOpen: boolean };
 
+const chevronStyles = ({ theme }: StyleProps) => css`
+  transform: rotate(0deg);
+  transition: transform ${theme.transitions.default};
+`;
+
 const chevronOpenStyles = ({ theme, isOpen }: StyleProps & ChevronProps) =>
   isOpen &&
   css`
@@ -66,7 +71,7 @@ const chevronOpenStyles = ({ theme, isOpen }: StyleProps & ChevronProps) =>
 
 const Chevron = styled(ChevronDown, {
   shouldForwardProp: (prop) => isPropValid(prop),
-})<ChevronProps>(chevronOpenStyles);
+})<ChevronProps>(chevronStyles, chevronOpenStyles);
 
 const groupStyles = (theme: Theme) => css`
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
