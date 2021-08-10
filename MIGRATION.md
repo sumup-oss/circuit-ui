@@ -2,6 +2,7 @@
 
 - [🤖 Codemods](#-codemods)
 - [From v2.x to v3](#from-v2x-to-v3)
+  - [Dependencies](#dependencies)
   - [Accessibility](#accessibility)
   - [New JSX transform](#new-jsx-transform)
   - [Typography](#typography)
@@ -61,6 +62,14 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 ## From v2.x to v3
 
 Circuit v3 is a large major release, including long-awaited changes from the full year that passed since v2. This guide will help you upgrade your application. Don't hesitate to contact the [maintainers](https://github.com/sumup-oss/circuit-ui#maintainers) if you have any further questions.
+
+### Dependencies
+
+Start by upgrading `@sumup/circuit-ui` and its peer dependencies:
+
+```sh
+yarn upgrade @sumup/circuit-ui @sumup/design-tokens @sumup/icons --latest
+```
 
 ### Accessibility
 
