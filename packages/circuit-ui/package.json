@@ -60,7 +60,7 @@
     "@sumup/icons": "^1.8.2",
     "@sumup/intl": "^1.0.0",
     "@svgr/webpack": "^5.5.0",
-    "@testing-library/dom": "^7.27.1",
+    "@testing-library/dom": "^8.1.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^12.0.0",
     "@testing-library/react-hooks": "^7.0.0",
