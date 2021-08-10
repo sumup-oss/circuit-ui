@@ -59,10 +59,14 @@ describe('createUseModal', () => {
     const { result } = renderHook(() => useModal(), { wrapper });
 
     actHook(() => {
+      result.current.setModal({});
+    });
+
+    actHook(() => {
       result.current.removeModal();
     });
 
-    const expected = expect.any(String);
+    const expected = expect.any(Object);
     expect(removeModal).toHaveBeenCalledWith(expected);
   });
 });
