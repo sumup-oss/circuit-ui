@@ -214,6 +214,8 @@ Modals in Circuit v3 are accessible by default, have a streamlined UI and behavi
 
 Refer to [the Modal stories](https://circuit.sumup.com/?path=/story/components-modal--base) for usage examples.
 
+> ⚠️ You might notice iOS UI obscuring the bottom part of modals on mobile viewports. Your application needs to ensure its content stays within iOS safe areas using [CSS `env`](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>). See [Getting started](https://circuit.sumup.com/?path=/docs/introduction-getting-started--page) for help with configuring the viewport.
+
 #### Popover
 
 The `Popover` component was rebuilt in Circuit v3. It now uses [Popper v2](https://popper.js.org/) under the hood and comes with a refreshed component API.
