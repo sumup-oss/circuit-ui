@@ -39,6 +39,15 @@ export default {
   },
 };
 
+const defaultModalChildren = () => (
+  <Fragment>
+    <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
+      Hello World!
+    </Headline>
+    <Body noMargin>I am a modal.</Body>
+  </Fragment>
+);
+
 export const Base = (modal: ModalProps): JSX.Element => {
   const ComponentWithModal = () => {
     const { setModal } = useModal();
@@ -57,14 +66,7 @@ export const Base = (modal: ModalProps): JSX.Element => {
 };
 
 Base.args = {
-  children: () => (
-    <Fragment>
-      <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
-        Hello World!
-      </Headline>
-      <Body noMargin>I am a modal.</Body>
-    </Fragment>
-  ),
+  children: defaultModalChildren,
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
@@ -90,14 +92,7 @@ export const Variants = (modal: ModalProps): JSX.Element => {
 };
 
 Variants.args = {
-  children: () => (
-    <Fragment>
-      <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
-        Hello World!
-      </Headline>
-      <Body noMargin>I am a modal.</Body>
-    </Fragment>
-  ),
+  children: defaultModalChildren,
   closeButtonLabel: 'Close modal',
 };
 
@@ -148,14 +143,7 @@ export const InitiallyOpen = (modal: ModalProps): JSX.Element => {
 };
 
 InitiallyOpen.args = {
-  children: () => (
-    <Fragment>
-      <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
-        Hello World!
-      </Headline>
-      <Body noMargin>I am a modal.</Body>
-    </Fragment>
-  ),
+  children: defaultModalChildren,
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
