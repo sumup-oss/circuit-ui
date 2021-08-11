@@ -180,6 +180,10 @@ export const zIndex: ZIndex = {
   tooltip: 40,
   header: 600,
   backdrop: 700,
+  /**
+   * @deprecated Use `theme.zIndex.navigation` instead.
+   */
   sidebar: 800,
+  navigation: 800,
   modal: 1000,
 };

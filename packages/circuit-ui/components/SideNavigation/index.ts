@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { useFocusList } from './useFocusList';
+export { SideNavigation } from './SideNavigation';
 
-export type { FocusProps } from './useFocusList';
+export type { SideNavigationProps } from './SideNavigation';

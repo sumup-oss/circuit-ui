@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-export { useFocusList } from './useFocusList';
-
-export type { FocusProps } from './useFocusList';
+export { PrimaryLink } from './PrimaryLink';

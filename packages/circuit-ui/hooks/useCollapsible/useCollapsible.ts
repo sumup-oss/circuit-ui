@@ -29,7 +29,6 @@ export type CollapsibleOptions = {
 
 type ButtonProps = {
   'onClick': (event: ClickEvent) => void;
-  'tabIndex': number;
   'aria-controls': string;
   'aria-expanded': 'true' | 'false';
 };
@@ -63,7 +62,7 @@ type Collapsible<T> = {
  */
 export function useCollapsible<T extends HTMLElement = HTMLElement>({
   initialOpen = false,
-  duration = 300,
+  duration = 200,
   id,
 }: CollapsibleOptions = {}): Collapsible<T> {
   const contentId = id || uniqueId('collapsible_');
@@ -71,6 +70,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
   const [isOpen, setOpen] = useState(initialOpen);
   const [height, setHeight] = useState(getHeight(contentElement));
   const [, setAnimating] = useAnimation();
+
   const toggleOpen = useCallback(() => {
     setAnimating({
       duration,
@@ -99,7 +99,6 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
         }
         toggleOpen();
       },
-      'tabIndex': 0,
       'aria-controls': contentId,
       'aria-expanded': isOpen ? 'true' : 'false',
     }),

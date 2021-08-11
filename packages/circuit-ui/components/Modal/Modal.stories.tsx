@@ -27,8 +27,7 @@ import { ModalProvider } from '../ModalContext';
 import { spacing } from '../../styles/style-mixins';
 
 import docs from './Modal.docs.mdx';
-import { Modal, ModalProps } from './Modal';
-import { useModal } from './useModal';
+import { Modal, ModalProps, useModal } from './Modal';
 
 export default {
   title: 'Components/Modal',

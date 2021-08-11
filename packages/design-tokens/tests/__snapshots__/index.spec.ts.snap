@@ -217,6 +217,7 @@ Object {
     "header": 600,
     "input": 20,
     "modal": 1000,
+    "navigation": 800,
     "popover": 30,
     "sidebar": 800,
     "tooltip": 40,

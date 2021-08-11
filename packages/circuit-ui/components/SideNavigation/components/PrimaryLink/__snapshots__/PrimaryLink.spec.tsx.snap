@@ -1,0 +1,642 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrimaryLink styles should render with active styles 1`] = `
+.circuit-0 {
+  position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.circuit-2 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #000;
+  padding: 12px 24px;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-2:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-2:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+@media (max-width:959px) {
+  .circuit-2 {
+    margin-bottom: 1px;
+  }
+
+  .circuit-2::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 24px;
+    left: 24px;
+    width: calc(100% - 2 * 24px);
+    border-bottom: 1px solid #E6E6E6;
+    -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
+    transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-2 {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+.circuit-2 svg {
+  color: #3063E9;
+}
+
+@media (min-width:960px) {
+  .circuit-2 {
+    color: #3063E9;
+  }
+
+  .circuit-2:hover {
+    background-color: #F0F6FF;
+  }
+}
+
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-weight: 700;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width:959px) {
+  .circuit-1 {
+    font-size: 24px;
+    line-height: 48px;
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-1 {
+    max-width: 160px;
+  }
+}
+
+<a
+  aria-current="page"
+  class="circuit-2"
+  href="/url"
+>
+  <div
+    class="circuit-0"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+  <span
+    class="circuit-1"
+  >
+    Label
+  </span>
+</a>
+`;
+
+exports[`PrimaryLink styles should render with badge styles 1`] = `
+.circuit-3 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #000;
+  padding: 12px 24px;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-3:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-3:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-3:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-3:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-3:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+@media (max-width:959px) {
+  .circuit-3 {
+    margin-bottom: 1px;
+  }
+
+  .circuit-3::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 24px;
+    left: 24px;
+    width: calc(100% - 2 * 24px);
+    border-bottom: 1px solid #E6E6E6;
+    -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
+    transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-3 {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width:959px) {
+  .circuit-1 {
+    font-size: 24px;
+    line-height: 48px;
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-1 {
+    max-width: 160px;
+  }
+}
+
+.circuit-0 {
+  position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.circuit-0::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 10px;
+  height: 10px;
+  background-color: #CA58FF;
+  border-radius: 100%;
+}
+
+.circuit-2 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<a
+  class="circuit-3"
+  href="/url"
+>
+  <div
+    class="circuit-0"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+  <span
+    aria-describedby="1"
+    class="circuit-1"
+  >
+    Label
+  </span>
+  <div
+    class="circuit-2"
+    id="1"
+  >
+    Badge
+  </div>
+</a>
+`;
+
+exports[`PrimaryLink styles should render with default styles 1`] = `
+.circuit-2 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #000;
+  padding: 12px 24px;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-2:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-2:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+@media (max-width:959px) {
+  .circuit-2 {
+    margin-bottom: 1px;
+  }
+
+  .circuit-2::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 24px;
+    left: 24px;
+    width: calc(100% - 2 * 24px);
+    border-bottom: 1px solid #E6E6E6;
+    -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
+    transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-2 {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+.circuit-0 {
+  position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width:959px) {
+  .circuit-1 {
+    font-size: 24px;
+    line-height: 48px;
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-1 {
+    max-width: 160px;
+  }
+}
+
+<a
+  class="circuit-2"
+  href="/url"
+>
+  <div
+    class="circuit-0"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+  <span
+    class="circuit-1"
+  >
+    Label
+  </span>
+</a>
+`;
+
+exports[`PrimaryLink styles should render with open styles 1`] = `
+.circuit-0 {
+  position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-weight: 700;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width:959px) {
+  .circuit-1 {
+    font-size: 24px;
+    line-height: 48px;
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-1 {
+    max-width: 160px;
+  }
+}
+
+.circuit-2 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #000;
+  padding: 12px 24px;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-2:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-2:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+@media (max-width:959px) {
+  .circuit-2 {
+    margin-bottom: 1px;
+  }
+
+  .circuit-2::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 24px;
+    left: 24px;
+    width: calc(100% - 2 * 24px);
+    border-bottom: 1px solid #E6E6E6;
+    -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
+    transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-2 {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width:959px) {
+  .circuit-2::after {
+    right: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+<a
+  class="circuit-2"
+  href="/url"
+>
+  <div
+    class="circuit-0"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+  <span
+    class="circuit-1"
+  >
+    Label
+  </span>
+</a>
+`;

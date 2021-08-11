@@ -20,6 +20,15 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   border-bottom: 1px solid #E6E6E6;
 }
 
+@media (min-width:480px) {
+  .circuit-18 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 801;
+  }
+}
+
 .circuit-5 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -115,7 +124,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   box-shadow: none;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .circuit-3 {
     display: none;
   }

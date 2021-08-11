@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SecondaryLinks styles should render with default styles 1`] = `
+.circuit-13 {
+  list-style: none;
+}
+
+.circuit-6 {
+  list-style: none;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: #1A1A1A;
+  background-color: #FFF;
+  text-align: left;
+  cursor: pointer;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 16px 24px;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-1:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-1:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+@media (min-width:768px) {
+  .circuit-1 {
+    padding: 12px 24px;
+  }
+}
+
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: #3063E9;
+  background-color: #F0F6FF;
+  text-align: left;
+  cursor: pointer;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 16px 24px;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.circuit-5:hover {
+  background-color: #F0F6FF;
+}
+
+.circuit-5:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+@media (min-width:768px) {
+  .circuit-5 {
+    padding: 12px 24px;
+  }
+}
+
+.circuit-4 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.circuit-7 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 12px;
+  color: #000;
+  margin-bottom: 0;
+  padding: 32px 24px 8px;
+}
+
+<ul
+  class="circuit-13"
+  role="list"
+>
+  <li>
+    <ul
+      class="circuit-6"
+      role="list"
+    >
+      <li>
+        <a
+          class="circuit-1"
+          data-focus-list="1"
+          href="/shop/shirts"
+        >
+          <p
+            class="circuit-0"
+          >
+            Shirts
+          </p>
+        </a>
+      </li>
+      <li>
+        <a
+          class="circuit-1"
+          data-focus-list="1"
+          href="/shop/pants"
+        >
+          <p
+            class="circuit-0"
+          >
+            Pants
+          </p>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current="page"
+          class="circuit-5"
+          data-focus-list="1"
+          href="/shop/socks"
+        >
+          <strong
+            class="circuit-4"
+          >
+            Socks
+          </strong>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3
+      class="circuit-7"
+    >
+      For Kids
+    </h3>
+    <ul
+      class="circuit-6"
+      role="list"
+    >
+      <li>
+        <a
+          class="circuit-1"
+          data-focus-list="1"
+          href="/shop/toys"
+        >
+          <p
+            class="circuit-0"
+          >
+            Toys
+          </p>
+        </a>
+      </li>
+      <li>
+        <a
+          class="circuit-1"
+          data-focus-list="1"
+          href="/shop/books"
+        >
+          <p
+            class="circuit-0"
+          >
+            Books
+          </p>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
