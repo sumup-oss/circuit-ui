@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.1
+
+### Patch Changes
+
+- [`c7c3f417`](https://github.com/sumup-oss/circuit-ui/commit/c7c3f4174601cd26b9f3b98228d406cf0531ec47) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the missing export for the SideNavigation component.
+
 ## 3.1.0-canary.0
 
 ### Minor Changes
