@@ -73,6 +73,7 @@ const Chevron = styled(ChevronDown, {
 
 const groupStyles = (theme: Theme) => css`
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
+  margin-bottom: -1px;
 
   > *:last-child {
     padding-bottom: ${theme.spacings.giga};
@@ -109,8 +110,10 @@ function Group({
 
 const contentStyles = ({ theme }: StyleProps) => css`
   height: 100%;
+  max-width: 480px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  margin: 0 auto;
   padding-top: ${HEADER_HEIGHT}px;
   padding-bottom: calc(env(safe-area-inset-bottom) + ${theme.spacings.tera});
 `;
@@ -120,6 +123,8 @@ const Content = styled.div(contentStyles);
 const headerStyles = ({ theme }: StyleProps) => css`
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   z-index: ${theme.zIndex.absolute};
   padding: ${theme.spacings.bit};

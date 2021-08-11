@@ -58,8 +58,10 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-15 {
   height: 100%;
+  max-width: 480px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  margin: 0 auto;
   padding-top: 56px;
   padding-bottom: calc(env(safe-area-inset-bottom) + 32px);
 }
@@ -67,6 +69,8 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 .circuit-2 {
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   z-index: 1;
   padding: 4px;
@@ -178,9 +182,10 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: #000;
-  padding: 12px 24px;
+  padding: 24px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  color: #3063E9;
 }
 
 .circuit-6:focus {
@@ -236,18 +241,8 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   }
 }
 
-.circuit-6 svg {
-  color: #3063E9;
-}
-
-@media (min-width:960px) {
-  .circuit-6 {
-    color: #3063E9;
-  }
-
-  .circuit-6:hover {
-    background-color: #F0F6FF;
-  }
+.circuit-6:hover {
+  background-color: #F0F6FF;
 }
 
 .circuit-3 {
@@ -276,7 +271,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 @media (max-width:959px) {
   .circuit-4 {
     font-size: 24px;
-    line-height: 48px;
+    line-height: 28px;
   }
 }
 
@@ -307,6 +302,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 .circuit-13 {
   list-style: none;
   border-bottom: 1px solid #E6E6E6;
+  margin-bottom: -1px;
 }
 
 .circuit-13 > *:last-child {
@@ -321,7 +317,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   margin-bottom: 12px;
   color: #000;
   margin-bottom: 0;
-  padding: 32px 24px 8px;
+  padding: 32px 16px 8px;
 }
 
 .circuit-12 {
@@ -382,9 +378,9 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   box-shadow: none;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .circuit-9 {
-    padding: 12px 24px;
+    padding: 12px 20px;
   }
 }
 
@@ -630,8 +626,10 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 
 .circuit-7 {
   height: 100%;
+  max-width: 480px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  margin: 0 auto;
   padding-top: 56px;
   padding-bottom: calc(env(safe-area-inset-bottom) + 32px);
 }
@@ -639,6 +637,8 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 .circuit-2 {
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   z-index: 1;
   padding: 4px;
@@ -760,7 +760,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: #000;
-  padding: 12px 24px;
+  padding: 24px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
 }
@@ -833,7 +833,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 @media (max-width:959px) {
   .circuit-4 {
     font-size: 24px;
-    line-height: 48px;
+    line-height: 28px;
   }
 }
 

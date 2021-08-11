@@ -68,9 +68,10 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: #000;
-  padding: 12px 24px;
+  padding: 24px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  color: #3063E9;
 }
 
 .circuit-2:focus {
@@ -126,18 +127,8 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   }
 }
 
-.circuit-2 svg {
-  color: #3063E9;
-}
-
-@media (min-width:960px) {
-  .circuit-2 {
-    color: #3063E9;
-  }
-
-  .circuit-2:hover {
-    background-color: #F0F6FF;
-  }
+.circuit-2:hover {
+  background-color: #F0F6FF;
 }
 
 .circuit-0 {
@@ -166,7 +157,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 @media (max-width:959px) {
   .circuit-1 {
     font-size: 24px;
-    line-height: 48px;
+    line-height: 28px;
   }
 }
 
@@ -202,7 +193,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 0;
-  padding: 24px 24px 12px;
+  padding: 24px 16px 12px;
 }
 
 .circuit-12 {
@@ -217,7 +208,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   margin-bottom: 12px;
   color: #000;
   margin-bottom: 0;
-  padding: 32px 24px 8px;
+  padding: 32px 16px 8px;
 }
 
 .circuit-11 {
@@ -278,9 +269,9 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   box-shadow: none;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .circuit-8 {
-    padding: 12px 24px;
+    padding: 12px 20px;
   }
 }
 
@@ -477,7 +468,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: #000;
-  padding: 12px 24px;
+  padding: 24px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
 }
@@ -550,7 +541,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
 @media (max-width:959px) {
   .circuit-1 {
     font-size: 24px;
-    line-height: 48px;
+    line-height: 28px;
   }
 }
 

@@ -63,9 +63,9 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .circuit-1 {
-    padding: 12px 24px;
+    padding: 12px 20px;
   }
 }
 
@@ -131,9 +131,9 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .circuit-5 {
-    padding: 12px 24px;
+    padding: 12px 20px;
   }
 }
 
@@ -154,7 +154,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   margin-bottom: 12px;
   color: #000;
   margin-bottom: 0;
-  padding: 32px 24px 8px;
+  padding: 32px 16px 8px;
 }
 
 <ul
