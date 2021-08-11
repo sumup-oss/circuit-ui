@@ -57,10 +57,13 @@ export const Base = (modal: ModalProps): JSX.Element => {
 };
 
 Base.args = {
-  children: (
-    <Headline as="h2" size="four" noMargin>
-      Hello World!
-    </Headline>
+  children: () => (
+    <Fragment>
+      <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
+        Hello World!
+      </Headline>
+      <Body noMargin>I am a modal.</Body>
+    </Fragment>
   ),
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
@@ -87,10 +90,13 @@ export const Variants = (modal: ModalProps): JSX.Element => {
 };
 
 Variants.args = {
-  children: (
-    <Headline as="h2" size="four" noMargin>
-      Hello World!
-    </Headline>
+  children: () => (
+    <Fragment>
+      <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
+        Hello World!
+      </Headline>
+      <Body noMargin>I am a modal.</Body>
+    </Fragment>
   ),
   closeButtonLabel: 'Close modal',
 };
@@ -115,10 +121,10 @@ export const PreventClose = (modal: ModalProps): JSX.Element => {
 PreventClose.args = {
   children: ({ onClose }: { onClose: ModalProps['onClose'] }) => (
     <Fragment>
-      <Headline as="h2" size="four" noMargin>
+      <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
         Complete the action
       </Headline>
-      <Body>
+      <Body noMargin css={spacing({ bottom: 'giga' })}>
         Users have to complete the action inside the modal to close it. The
         close button is hidden and clicking outside the modal or pressing the
         escape key does not close the modal either.
@@ -142,7 +148,14 @@ export const InitiallyOpen = (modal: ModalProps): JSX.Element => {
 };
 
 InitiallyOpen.args = {
-  children: 'Hello World!',
+  children: () => (
+    <Fragment>
+      <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
+        Hello World!
+      </Headline>
+      <Body noMargin>I am a modal.</Body>
+    </Fragment>
+  ),
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
@@ -165,9 +178,27 @@ export const CustomStyles = (modal: ModalProps): JSX.Element => {
 };
 
 CustomStyles.args = {
+  children: () => (
+    <Fragment>
+      <Image
+        src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
+        alt=""
+        css={(theme: Theme) =>
+          css`
+            border-top-left-radius: ${theme.borderRadius.mega};
+            border-top-right-radius: ${theme.borderRadius.mega};
+          `
+        }
+      />
+      <Headline as="h2" size="four" css={spacing('giga')} noMargin>
+        Custom styles
+      </Headline>
+      <Body css={spacing('giga')} noMargin>
+        Custom styles can be applied using the <code>css</code> prop.
+      </Body>
+    </Fragment>
+  ),
   css: (theme: Theme) => css`
-    overflow: hidden;
-
     ${theme.mq.untilKilo} {
       padding: 0;
     }
@@ -175,17 +206,6 @@ CustomStyles.args = {
       padding: 0;
     }
   `,
-  children: (
-    <Fragment>
-      <Image src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900" alt="" />
-      <Headline as="h2" size="four" css={spacing('mega')} noMargin>
-        Custom styles
-      </Headline>
-      <Body css={spacing('mega')} noMargin>
-        Custom styles can be applied using the <code>css</code> prop.
-      </Body>
-    </Fragment>
-  ),
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
