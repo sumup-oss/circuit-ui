@@ -93,8 +93,8 @@ Keep in mind that this escape hatch is not meant as a way to permanently avoid t
 
 Other accessibility improvements include:
 
-- Accessible modals and popovers, see [the dedicated section](#consolidated-modals-and-popovers)
-- Semantic heading elements, see [the typography section](#heading-as-props)
+- Accessible modals and popovers: see the [New modal and popover APIs](#new-modal-and-popover-apis).
+- Semantic heading elements: see [Typography: Heading `as` props](#heading-as-props).
 
 ### New JSX transform
 
