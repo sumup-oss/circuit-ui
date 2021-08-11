@@ -41,7 +41,18 @@ describe('ProfileMenu', () => {
   };
 
   describe('styles', () => {
-    it('should match the snapshot', () => {
+    it('should render with a profile picture', () => {
+      const { container } = render(
+        <ProfileMenu
+          {...baseProps}
+          userAvatar={{ src: 'profile.png', alt: '' }}
+        />,
+      );
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render without a profile picture', () => {
       const { container } = render(<ProfileMenu {...baseProps} />);
 
       expect(container).toMatchSnapshot();
