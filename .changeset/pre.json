@@ -8,5 +8,9 @@
     "@sumup/design-tokens": "3.0.1",
     "@sumup/icons": "1.8.2"
   },
-  "changesets": []
+  "changesets": [
+    "eighty-cows-rescue",
+    "spotty-adults-melt",
+    "tough-bulldogs-sing"
+  ]
 }

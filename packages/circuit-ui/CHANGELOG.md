@@ -1,5 +1,18 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.0
+
+### Minor Changes
+
+- [#1092](https://github.com/sumup-oss/circuit-ui/pull/1092) [`7ad912fd`](https://github.com/sumup-oss/circuit-ui/commit/7ad912fd08976d2496f03ea7eeeb994413a82de7) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new SideNavigation component. It is part of the [application shell](https://developers.google.com/web/fundamentals/architecture/app-shell) and contains the primary and secondary navigation links.
+
+* [#1104](https://github.com/sumup-oss/circuit-ui/pull/1104) [`12ef7cf6`](https://github.com/sumup-oss/circuit-ui/commit/12ef7cf6c147e73b265139237751ecfa4fe37804) Thanks [@github-actions](https://github.com/apps/github-actions)! - Added a new TopNavigation component. It is part of the [application shell](https://developers.google.com/web/fundamentals/architecture/app-shell) and contains the branding, page links, and the user profile menu.
+
+### Patch Changes
+
+- Updated dependencies [[`12ef7cf6`](https://github.com/sumup-oss/circuit-ui/commit/12ef7cf6c147e73b265139237751ecfa4fe37804)]:
+  - @sumup/icons@1.9.0-canary.0
+
 ## 3.0.1
 
 ### Patch Changes
