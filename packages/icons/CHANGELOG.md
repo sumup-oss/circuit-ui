@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 1.9.0-canary.0
+
+### Minor Changes
+
+- [#1104](https://github.com/sumup-oss/circuit-ui/pull/1104) [`12ef7cf6`](https://github.com/sumup-oss/circuit-ui/commit/12ef7cf6c147e73b265139237751ecfa4fe37804) Thanks [@github-actions](https://github.com/apps/github-actions)! - Added classnames to parts of the SumUp logo so they can be targeted for individual styling.
+
 ## 1.8.2
 
 ### Patch Changes
