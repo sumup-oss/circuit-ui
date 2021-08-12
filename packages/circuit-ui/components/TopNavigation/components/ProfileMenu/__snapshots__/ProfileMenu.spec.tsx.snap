@@ -345,6 +345,7 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
       <svg
         fill="none"
         height="24"
+        role="presentation"
         width="24"
         xmlns="http://www.w3.org/2000/svg"
       >
