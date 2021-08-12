@@ -1,5 +1,12 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.2
+
+### Patch Changes
+
+- Updated dependencies [[`c077b900`](https://github.com/sumup-oss/circuit-ui/commit/c077b90056aa9113910640ff7ebd93b0ff02b8ae)]:
+  - @sumup/design-tokens@3.1.0-canary.0
+
 ## 3.1.0-canary.1
 
 ### Patch Changes
