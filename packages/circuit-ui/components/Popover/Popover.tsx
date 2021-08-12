@@ -188,7 +188,6 @@ const overlayStyles = ({ theme }: StyleProps) => css`
     left: 0;
     right: 0;
     background-color: ${theme.colors.overlay};
-    pointer-events: none;
     visibility: hidden;
     opacity: 0;
     transition: opacity ${theme.transitions.default},
