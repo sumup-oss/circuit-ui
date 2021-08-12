@@ -324,10 +324,14 @@ export const Popover = ({
   // Note: the usePopper hook intentionally takes the DOM node, not refs, in order to be able to update when the nodes change.
   // A callback ref is used here to permit this behaviour, and useState is an appropriate way to implement this.
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const { styles, attributes } = usePopper(triggerEl.current, popperElement, {
-    placement,
-    modifiers: [mobilePosition, flip, ...modifiers],
-  });
+  const { styles, attributes, update } = usePopper(
+    triggerEl.current,
+    popperElement,
+    {
+      placement,
+      modifiers: [mobilePosition, flip, ...modifiers],
+    },
+  );
 
   // This is a performance optimization to prevent event listeners from being
   // re-attached on every render.
@@ -339,6 +343,11 @@ export const Popover = ({
   const prevOpen = usePrevious(isOpen);
 
   useEffect(() => {
+    if (update) {
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      update();
+    }
+
     // Focus the first or last element after opening
     if (!prevOpen && isOpen) {
       const element = (triggerKey.current && triggerKey.current === 'ArrowUp'
@@ -357,7 +366,7 @@ export const Popover = ({
     }
 
     triggerKey.current = null;
-  }, [isOpen, prevOpen]);
+  }, [isOpen, prevOpen, update]);
 
   const focusProps = useFocusList();
 
