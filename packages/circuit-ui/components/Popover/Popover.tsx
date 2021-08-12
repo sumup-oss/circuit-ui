@@ -33,6 +33,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
 import { useTheme } from 'emotion-theming';
+import isPropValid from '@emotion/is-prop-valid';
 
 import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
@@ -99,11 +100,9 @@ const itemWrapperStyles = () => css`
   width: 100%;
 `;
 
-const PopoverItemWrapper = styled('button')<PopoverItemWrapperProps>(
-  listItem,
-  itemWrapperStyles,
-  typography('one'),
-);
+const PopoverItemWrapper = styled('button', {
+  shouldForwardProp: isPropValid,
+})<PopoverItemWrapperProps>(listItem, itemWrapperStyles, typography('one'));
 
 const iconStyles = (theme: Theme) => css`
   margin-right: ${theme.spacings.byte};
