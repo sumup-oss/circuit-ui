@@ -33,8 +33,8 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   word-break: break-word;
   hyphens: auto;
 
-  ${theme.mq.mega} {
-    padding: ${theme.spacings.kilo} ${theme.spacings.giga};
+  ${theme.mq.giga} {
+    padding: ${theme.spacings.kilo} 20px;
   }
 `;
 
@@ -76,7 +76,7 @@ function SecondaryLink({
 }
 
 const subHeadlineStyles = (theme: Theme) => css`
-  padding: ${theme.spacings.tera} ${theme.spacings.giga} ${theme.spacings.byte};
+  padding: ${theme.spacings.tera} ${theme.spacings.mega} ${theme.spacings.byte};
 `;
 
 function SecondaryGroup({

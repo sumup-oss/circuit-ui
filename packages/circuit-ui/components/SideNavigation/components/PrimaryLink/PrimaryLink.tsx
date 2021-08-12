@@ -52,7 +52,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   cursor: pointer;
   text-decoration: none;
   color: ${theme.colors.black};
-  padding: ${theme.spacings.kilo} ${theme.spacings.giga};
+  padding: ${theme.spacings.giga};
   transition: color ${theme.transitions.default},
     background-color ${theme.transitions.default};
 
@@ -69,8 +69,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   }
 
   ${theme.mq.untilGiga} {
-    /* Prevent the border from being obscured by the sub navigation  */
-    margin-bottom: 1px;
+    margin-bottom: ${theme.borderWidth.kilo};
 
     &::after {
       content: '';
@@ -95,16 +94,10 @@ const anchorStyles = ({ theme }: StyleProps) => css`
 const anchorActiveStyles = ({ theme, isActive }: StyleProps & AnchorProps) =>
   isActive &&
   css`
-    svg {
-      color: ${theme.colors.p500};
-    }
+    color: ${theme.colors.p500};
 
-    ${theme.mq.giga} {
-      color: ${theme.colors.p500};
-
-      &:hover {
-        background-color: ${theme.colors.p100};
-      }
+    &:hover {
+      background-color: ${theme.colors.p100};
     }
   `;
 
@@ -179,8 +172,8 @@ const labelStyles = ({ theme }: StyleProps) => css`
   overflow: hidden;
 
   ${theme.mq.untilGiga} {
-    font-size: 24px;
-    line-height: 48px;
+    font-size: ${theme.typography.headline.two.fontSize};
+    line-height: ${theme.typography.headline.two.lineHeight};
   }
 
   ${theme.mq.giga} {

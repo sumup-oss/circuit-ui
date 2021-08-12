@@ -102,7 +102,7 @@ const listStyles = css`
 `;
 
 const headlineStyles = (theme: Theme) => css`
-  padding: ${theme.spacings.giga} ${theme.spacings.giga} ${theme.spacings.kilo};
+  padding: ${theme.spacings.giga} ${theme.spacings.mega} ${theme.spacings.kilo};
 `;
 
 export function DesktopNavigation({
