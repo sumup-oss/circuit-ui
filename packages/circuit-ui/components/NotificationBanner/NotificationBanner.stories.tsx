@@ -34,11 +34,11 @@ Base.args = {
   body: 'There is updated firmware available for your card reader',
   action: {
     onClick: () => alert('Heloooo'),
-    text: 'Update',
+    children: 'Update',
     variant: 'primary',
   },
   src: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
-  alt: 'Aerial photo of turbulent blue ocean waves',
+  alt: 'Cup of coffee',
   onClose: action('Notification closed'),
-  closeButtonLabel: 'Notification close label',
+  closeButtonLabel: 'Close notification',
 };

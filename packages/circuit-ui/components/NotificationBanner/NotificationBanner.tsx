@@ -20,18 +20,15 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import Button, { ButtonProps } from '../Button';
 import styled, { StyleProps } from '../../styles/styled';
-import { shadow, spacing } from '../../styles/style-mixins';
+import { spacing } from '../../styles/style-mixins';
 import Headline from '../Headline';
 import Body from '../Body';
 import Image from '../Image';
 import CloseButton from '../CloseButton';
+import { BUTTON_BORDER_WIDTH } from '../Button/Button';
 
-type Action = {
-  onClick?: (event: MouseEvent | KeyboardEvent) => void;
-  href?: string;
-  text: string;
+type Action = ButtonProps & {
   variant: 'primary' | 'tertiary';
-  size: ButtonProps['size'];
 };
 
 type CloseProps =
@@ -95,20 +92,64 @@ const bannerWrapperStyles = ({
   background-color: ${variant === 'system'
     ? theme.colors.p100
     : theme.colors.n100};
-  max-width: 420px;
+  overflow: hidden;
 `;
 
-const NotificationBannerWrapper = styled('div')(bannerWrapperStyles, shadow());
+const NotificationBannerWrapper = styled('div')(bannerWrapperStyles);
 
 const contentStyles = ({ theme }: StyleProps) => css`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: ${theme.spacings.giga} ${theme.spacings.byte} ${theme.spacings.giga}
-    ${theme.spacings.giga};
+  padding: ${theme.spacings.giga};
+  padding-right: ${theme.spacings.byte};
+  max-width: 420px;
 `;
 
 const Content = styled('div')(contentStyles);
+
+const headlineStyles = ({ theme }: StyleProps) => css`
+  font-size: ${theme.typography.headline.four.fontSize};
+  line-height: ${theme.typography.headline.four.lineHeight};
+
+  ${theme.mq.mega} {
+    font-size: ${theme.typography.headline.three.fontSize};
+    line-height: ${theme.typography.headline.three.lineHeight};
+  }
+`;
+
+const ResponsiveHeadline = styled(Headline)(
+  headlineStyles,
+  spacing({ bottom: 'byte' }),
+);
+
+const bodyStyles = ({ theme }: StyleProps) => css`
+  font-size: ${theme.typography.body.two.fontSize};
+  line-height: ${theme.typography.body.two.lineHeight};
+
+  ${theme.mq.mega} {
+    font-size: ${theme.typography.body.one.fontSize};
+    line-height: ${theme.typography.body.one.lineHeight};
+  }
+`;
+
+const ResponsiveBody = styled(Body)(bodyStyles, spacing({ bottom: 'byte' }));
+
+const buttonStyles = ({ theme, size = 'giga' }: StyleProps & Action) => css`
+  padding-top: calc(${theme.spacings.bit} - ${BUTTON_BORDER_WIDTH});
+  padding-bottom: calc(${theme.spacings.bit} - ${BUTTON_BORDER_WIDTH});
+  ${theme.mq.mega} {
+    padding-top: ${size === 'giga'
+      ? `calc(${theme.spacings.kilo} - ${BUTTON_BORDER_WIDTH})`
+      : `calc(${theme.spacings.bit} - ${BUTTON_BORDER_WIDTH})`};
+
+    padding-bottom: ${size === 'giga'
+      ? `calc(${theme.spacings.kilo} - ${BUTTON_BORDER_WIDTH})`
+      : `calc(${theme.spacings.bit} - ${BUTTON_BORDER_WIDTH})`};
+  }
+`;
+
+const ResponsiveButton = styled(Button)(buttonStyles);
 
 const imageStyles = ({ theme }: StyleProps) => css`
   border-radius: 0 ${theme.borderRadius.mega} ${theme.borderRadius.mega} 0;
@@ -117,7 +158,6 @@ const StyledImage = styled(Image)(imageStyles);
 
 const closeButtonStyles = (theme: Theme) => css`
   position: absolute;
-  background-color: transparent;
   top: ${theme.spacings.byte};
   right: ${theme.spacings.byte};
 `;
@@ -128,13 +168,7 @@ const closeButtonStyles = (theme: Theme) => css`
 export const NotificationBanner = ({
   headline,
   body,
-  action: {
-    variant: actionVariant = 'tertiary',
-    text,
-    onClick,
-    href,
-    size = 'giga',
-  },
+  action,
   variant = 'system',
   src,
   alt,
@@ -145,24 +179,19 @@ export const NotificationBanner = ({
 }: NotificationBannerProps): JSX.Element => (
   <NotificationBannerWrapper variant={variant} {...props}>
     <Content>
-      <Headline size="three" as="h3" css={spacing({ bottom: 'byte' })}>
+      <ResponsiveHeadline as="h2" noMargin>
         {headline}
-      </Headline>
-      <Body css={spacing({ bottom: 'byte' })}>{body}</Body>
-      <Button
-        onClick={onClick}
-        variant={actionVariant}
-        size={size}
-        href={href}
-        tracking={{
-          label: 'track-button',
-          customParameters: { key: 'value' },
-        }}
-      >
-        {text}
-      </Button>
+      </ResponsiveHeadline>
+      <ResponsiveBody noMargin>{body}</ResponsiveBody>
+      <ResponsiveButton {...action} />
     </Content>
-    {src && <StyledImage alt={alt || ''} src={src}></StyledImage>}
+    {src && (
+      <StyledImage
+        onClick={action.onClick}
+        alt={alt || ''}
+        src={src}
+      ></StyledImage>
+    )}
     {onClose && closeButtonLabel && (
       <CloseButton
         label={closeButtonLabel}
