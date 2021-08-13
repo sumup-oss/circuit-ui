@@ -22,6 +22,7 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  height: 100%;
   padding: 12px;
   border-left: 1px solid #E6E6E6;
 }
@@ -222,6 +223,7 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  height: 100%;
   padding: 12px;
   border-left: 1px solid #E6E6E6;
 }

@@ -34,10 +34,10 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
 }
 
 .circuit-3 {
@@ -230,6 +230,17 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   height: 100%;
 }
 
+.circuit-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .circuit-8 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -344,6 +355,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  height: 100%;
   padding: 12px;
   border-left: 1px solid #E6E6E6;
 }
@@ -533,7 +545,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
       class="circuit-5"
     >
       <div
-        class="circuit-5"
+        class="circuit-9"
       >
         <a
           class="circuit-8"
