@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationBanner styles should render with default styles 1`] = `
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  position: relative;
+  border-radius: 16px;
+  background-color: #F0F6FF;
+  overflow: hidden;
+}
+
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  padding: 24px;
+  padding-right: 8px;
+  max-width: 420px;
+}
+
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #000;
+  font-size: 32px;
+  line-height: 36px;
+  margin-bottom: 0;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+@media (min-width:768px) {
+  .circuit-0 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+
+@media (min-width:768px) {
+  .circuit-1 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  padding-top: calc(4px - 1px);
+  padding-bottom: calc(4px - 1px);
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-2:active,
+.circuit-2[aria-expanded='true'],
+.circuit-2[aria-pressed='true'] {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+@media (min-width:768px) {
+  .circuit-2 {
+    padding-top: calc(12px - 1px);
+    padding-bottom: calc(12px - 1px);
+  }
+}
+
+.circuit-4 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  border-radius: 0 16px 16px 0;
+}
+
+<div>
+  <div
+    class="circuit-5"
+  >
+    <div
+      class="circuit-3"
+    >
+      <h2
+        class="circuit-0"
+      >
+        Test
+      </h2>
+      <p
+        class="circuit-1"
+      >
+        There is updated firmware available for your card reader
+      </p>
+      <button
+        class="circuit-2"
+      >
+        Update
+      </button>
+    </div>
+    <img
+      alt="Cup of coffee"
+      class="circuit-4"
+      src="https://source.unsplash.com/EcWFOYOpkpY/100x100"
+    />
+  </div>
+</div>
+`;
