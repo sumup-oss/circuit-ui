@@ -38,16 +38,27 @@ const AvatarPlaceholder = () => (
   </svg>
 );
 
-const profileWrapperStyles = ({ theme }: StyleProps) => css`
+const profileWrapperStyles = ({
+  theme,
+  hasUserId,
+}: StyleProps & { hasUserId?: boolean }) => css`
   padding: ${theme.spacings.kilo};
   border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
 
-  ${theme.mq.mega} {
-    padding: ${theme.spacings.bit} ${theme.spacings.mega};
-  }
+  ${hasUserId &&
+  css`
+    ${theme.mq.mega} {
+      padding: ${theme.spacings.bit} ${theme.spacings.mega};
+    }
+  `}
 `;
 
-const ProfileWrapper = styled.button(navigationItem, profileWrapperStyles);
+type ProfileWrapperProps = { isActive?: boolean; hasUserId: boolean };
+
+const ProfileWrapper = styled.button<ProfileWrapperProps>(
+  navigationItem,
+  profileWrapperStyles,
+);
 
 const userAvatarStyles = ({ theme }: StyleProps) => css`
   width: ${theme.iconSizes.mega};
@@ -141,6 +152,7 @@ function Profile({
       aria-label={profileLabel}
       title={profileLabel}
       isActive={isOpen || profileIsActive}
+      hasUserId={!!userId}
     >
       {userAvatar ? (
         <UserAvatar {...userAvatar} variant="identity" />
