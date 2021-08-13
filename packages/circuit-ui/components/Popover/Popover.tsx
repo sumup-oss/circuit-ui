@@ -115,16 +115,13 @@ export const PopoverItem = ({
   tracking,
   ...props
 }: PopoverItemProps): JSX.Element => {
-  const components = useComponents();
-
-  // Need to typecast here because the styled component types restrict the
-  // `as` prop to a string. It's safe to ignore that constraint here.
-  const Link = (components.Link as unknown) as string;
+  const { Link } = useComponents();
 
   const handleClick = useClickEvent(onClick, tracking, 'popover-item');
 
   return (
     <PopoverItemWrapper
+      // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
       as={props.href ? Link : 'button'}
       onClick={handleClick}
       role="menuitem"
