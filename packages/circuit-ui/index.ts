@@ -103,7 +103,12 @@ export type { PaginationProps } from './components/Pagination';
 export { TopNavigation } from './components/TopNavigation';
 export type { TopNavigationProps } from './components/TopNavigation';
 export { SideNavigation } from './components/SideNavigation';
-export type { SideNavigationProps } from './components/SideNavigation';
+export type {
+  SideNavigationProps,
+  PrimaryLinkProps,
+  SecondaryGroupProps,
+  SecondaryLinkProps,
+} from './components/SideNavigation';
 export { Tabs, TabList, TabPanel, Tab } from './components/Tabs';
 export { default as Sidebar } from './components/Sidebar';
 export {

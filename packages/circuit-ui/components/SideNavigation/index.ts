@@ -16,3 +16,9 @@
 export { SideNavigation } from './SideNavigation';
 
 export type { SideNavigationProps } from './SideNavigation';
+
+export type {
+  PrimaryLinkProps,
+  SecondaryGroupProps,
+  SecondaryLinkProps,
+} from './types';
