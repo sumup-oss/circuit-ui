@@ -38,10 +38,12 @@ const AvatarPlaceholder = () => (
   </svg>
 );
 
+type ProfileWrapperProps = { isActive?: boolean; hasUserId: boolean };
+
 const profileWrapperStyles = ({
   theme,
   hasUserId,
-}: StyleProps & { hasUserId?: boolean }) => css`
+}: StyleProps & ProfileWrapperProps) => css`
   padding: ${theme.spacings.kilo};
   border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
 
@@ -51,8 +53,6 @@ const profileWrapperStyles = ({
       : `${theme.spacings.kilo} ${theme.spacings.mega}`};
   }
 `;
-
-type ProfileWrapperProps = { isActive?: boolean; hasUserId: boolean };
 
 const ProfileWrapper = styled.button<ProfileWrapperProps>(
   navigationItem,
