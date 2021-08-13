@@ -45,12 +45,11 @@ const profileWrapperStyles = ({
   padding: ${theme.spacings.kilo};
   border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
 
-  ${hasUserId &&
-  css`
-    ${theme.mq.mega} {
-      padding: ${theme.spacings.bit} ${theme.spacings.mega};
-    }
-  `}
+  ${theme.mq.mega} {
+    padding: ${hasUserId
+      ? `${theme.spacings.bit} ${theme.spacings.mega}`
+      : `${theme.spacings.kilo} ${theme.spacings.mega}`};
+  }
 `;
 
 type ProfileWrapperProps = { isActive?: boolean; hasUserId: boolean };
