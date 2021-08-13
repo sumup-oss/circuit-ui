@@ -517,7 +517,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                   class="circuit-13"
                   id="collapsible_2"
                   role="list"
-                  style="overflow: hidden; will-change: height; opacity: 0; height: 0px; visibility: hidden; transition: all 200ms ease-in-out;"
+                  style="overflow-y: hidden; will-change: height; opacity: 0; height: 0px; visibility: hidden; transition: all 200ms ease-in-out;"
                 >
                   <li>
                     <h3

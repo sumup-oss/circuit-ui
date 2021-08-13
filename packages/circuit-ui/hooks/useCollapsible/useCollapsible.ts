@@ -37,7 +37,7 @@ type ContentProps<T> = {
   'ref': RefObject<T>;
   'id': string;
   'style': {
-    overflow: 'hidden';
+    overflowY: 'hidden';
     willChange: 'height';
     opacity: 1 | 0;
     height: string | 0;
@@ -106,7 +106,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       'ref': contentElement,
       'id': contentId,
       'style': {
-        overflow: 'hidden',
+        overflowY: 'hidden',
         willChange: 'height',
         opacity: isOpen ? 1 : 0,
         height: isOpen ? height : 0,
