@@ -1,6 +1,6 @@
 # @sumup/circuit-ui
 
-## 4.0.0-canary.3
+## 3.1.0-canary.3
 
 ### Patch Changes
 
