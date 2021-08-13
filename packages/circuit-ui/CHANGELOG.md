@@ -1,5 +1,20 @@
 # @sumup/circuit-ui
 
+## 4.0.0-canary.3
+
+### Patch Changes
+
+- [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the styles returned by the `useCollapsible` hook to only hide vertical overflow, fixing a compatibility issue with the form components.
+
+* [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a number of issues in the navigation components, including adding a min-width when the secondary nav is hidden, closing the mobile navigation modal when a link is clicked, and exporting additional navigation types.
+
+- [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Prevented interactions with content behind the Popover overlay.
+
+* [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `TopNavigation`'s profile menu alignment when no `userId` is provided.
+
+* Updated dependencies [[`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e)]:
+  - @sumup/icons@1.9.0-canary.1
+
 ## 3.1.0-canary.2
 
 ### Patch Changes

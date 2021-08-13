@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 1.9.0-canary.1
+
+### Minor Changes
+
+- [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Exported the `IconProps` interface publicly.
+
 ## 1.9.0-canary.0
 
 ### Minor Changes
