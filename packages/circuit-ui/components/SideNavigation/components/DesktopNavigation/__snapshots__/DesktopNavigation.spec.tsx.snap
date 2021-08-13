@@ -7,6 +7,15 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   }
 }
 
+@media (min-width:960px) {
+  .circuit-14 {
+    min-width: 48px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+}
+
 .circuit-4 {
   position: fixed;
   z-index: 800;
@@ -394,6 +403,15 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
 @media (max-width:959px) {
   .circuit-5 {
     display: none;
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-5 {
+    min-width: 48px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
   }
 }
 

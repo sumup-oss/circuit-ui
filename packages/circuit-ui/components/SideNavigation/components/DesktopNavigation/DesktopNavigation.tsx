@@ -49,6 +49,10 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilGiga} {
     display: none;
   }
+  ${theme.mq.giga} {
+    min-width: ${PRIMARY_NAVIGATION_WIDTH};
+    flex-shrink: 0;
+  }
 `;
 
 const Wrapper = styled.div(wrapperStyles);
