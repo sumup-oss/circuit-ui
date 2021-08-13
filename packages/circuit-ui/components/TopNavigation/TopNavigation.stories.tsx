@@ -66,8 +66,7 @@ const baseArgs = {
   ],
   links: [
     {
-      // eslint-disable-next-line react/display-name
-      icon: (props) => <ShoppingCart {...props} size="large" />,
+      icon: ShoppingCart,
       label: 'Shop',
       href: '/shop',
       onClick: action('Shop'),

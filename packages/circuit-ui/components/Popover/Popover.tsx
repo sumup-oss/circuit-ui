@@ -20,7 +20,6 @@ import {
   Fragment,
   HTMLProps,
   Ref,
-  SVGProps,
   useEffect,
   useMemo,
   useRef,
@@ -34,6 +33,7 @@ import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
 import { useTheme } from 'emotion-theming';
 import isPropValid from '@emotion/is-prop-valid';
+import { IconProps } from '@sumup/icons';
 
 import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
@@ -61,7 +61,7 @@ export interface BaseProps {
   /**
    * Display an icon in addition to the label.
    */
-  icon?: FC<SVGProps<SVGSVGElement>>;
+  icon?: FC<IconProps>;
   /**
    * Destructive variant, changes the color of label and icon from blue to red to signal to the user that the action
    * is irreversible or otherwise dangerous. Interactive states are the same for destructive variant.
@@ -130,7 +130,7 @@ export const PopoverItem = ({
       role="menuitem"
       {...props}
     >
-      {Icon && <Icon css={iconStyles} />}
+      {Icon && <Icon css={iconStyles} size="large" />}
       {children}
     </PopoverItemWrapper>
   );

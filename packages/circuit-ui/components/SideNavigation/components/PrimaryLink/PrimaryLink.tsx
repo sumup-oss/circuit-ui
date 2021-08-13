@@ -219,7 +219,7 @@ export function PrimaryLink({
       as={props.href ? Link : 'button'}
     >
       <IconContainer hasBadge={Boolean(badge)}>
-        <Icon role="presentation" />
+        <Icon role="presentation" size="large" />
       </IconContainer>
       <Label
         variant={isActive || isOpen ? 'highlight' : undefined}

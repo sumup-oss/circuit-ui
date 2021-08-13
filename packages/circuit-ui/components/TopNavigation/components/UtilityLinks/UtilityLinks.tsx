@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import { MouseEvent, KeyboardEvent, FC, SVGProps, HTMLProps } from 'react';
+import { MouseEvent, KeyboardEvent, FC, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';
+import { IconProps } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
@@ -58,7 +59,7 @@ export interface UtilityLinkProps extends HTMLProps<HTMLAnchorElement> {
    * Display an icon in addition to the text to help to identify the link.
    * On narrow viewports, only the icon is displayed.
    */
-  icon: FC<SVGProps<SVGSVGElement>>;
+  icon: FC<IconProps>;
   /**
    * Short label to describe the target of the link.
    */
@@ -92,7 +93,7 @@ function UtilityLink({
 
   return (
     <UtilityAnchor {...props} onClick={handleClick}>
-      <Icon css={iconStyles} role="presentation" />
+      <Icon css={iconStyles} role="presentation" size="large" />
       <UtilityLabel variant={props.isActive ? 'highlight' : undefined} noMargin>
         {label}
       </UtilityLabel>
