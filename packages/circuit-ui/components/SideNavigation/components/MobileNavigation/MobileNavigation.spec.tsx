@@ -41,6 +41,7 @@ describe('MobileNavigation', () => {
     // http://reactcommunity.org/react-modal/accessibility/#app-element
     ariaHideApp: false,
     isOpen: true,
+    onClose: jest.fn(),
     closeButtonLabel: 'Close navigation modal',
     primaryNavigationLabel: 'Primary',
   };
@@ -74,6 +75,10 @@ describe('MobileNavigation', () => {
       },
     ],
   };
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
   describe('styles', () => {
     it('should render with secondary links', () => {
@@ -127,6 +132,76 @@ describe('MobileNavigation', () => {
         },
         { timeout: 300 },
       );
+    });
+
+    it('should close the modal when clicking a primary link', () => {
+      const onClick = jest.fn();
+      const props = {
+        ...baseProps,
+        primaryLinks: [
+          {
+            icon: (iconProps) => <House {...iconProps} size="large" />,
+            label: 'Home',
+            href: '/',
+            onClick,
+          },
+        ],
+      };
+      const { getByRole } = renderMobileNavigation(render, props);
+
+      const primaryLinkEl = getByRole('link', { name: /home/i });
+
+      userEvent.click(primaryLinkEl);
+
+      expect(baseProps.onClose).toHaveBeenCalledTimes(1);
+      expect(onClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('should close the modal when clicking a secondary link', async () => {
+      const onClick = jest.fn();
+      const props = {
+        ...baseProps,
+        primaryLinks: [
+          {
+            icon: (iconProps) => <ShoppingBag {...iconProps} size="large" />,
+            label: 'Shop',
+            href: '/shop',
+            onClick: jest.fn(),
+            isActive: true,
+            secondaryGroups: [
+              {
+                secondaryLinks: [
+                  {
+                    label: 'Toys',
+                    href: '/shop/toys',
+                    onClick,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      };
+      const { getByRole, getByText } = renderMobileNavigation(render, props);
+
+      const primaryLinkEl = getByRole('button', { name: /shop/i });
+      const secondaryLinkEl = getByText(/toys/i);
+
+      expect(secondaryLinkEl).not.toBeVisible();
+
+      userEvent.click(primaryLinkEl);
+
+      await waitFor(
+        () => {
+          expect(secondaryLinkEl).toBeVisible();
+        },
+        { timeout: 300 },
+      );
+
+      userEvent.click(secondaryLinkEl);
+
+      expect(baseProps.onClose).toHaveBeenCalledTimes(1);
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
   });
 
