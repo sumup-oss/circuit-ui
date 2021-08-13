@@ -83,7 +83,7 @@ const Logo = styled.div(logoStyles);
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: stretch;
 `;
 
 export interface TopNavigationProps

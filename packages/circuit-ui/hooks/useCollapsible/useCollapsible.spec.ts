@@ -103,7 +103,7 @@ describe('useCollapsible', () => {
         'ref': { current: null },
         'id': expect.any(String),
         'style': {
-          overflow: 'hidden',
+          overflowY: 'hidden',
           willChange: 'height',
           opacity: 0,
           height: 0,
@@ -143,7 +143,7 @@ describe('useCollapsible', () => {
         'ref': { current: null },
         'id': expect.any(String),
         'style': {
-          overflow: 'hidden',
+          overflowY: 'hidden',
           willChange: 'height',
           opacity: 1,
           height: 'auto',

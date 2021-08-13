@@ -32,7 +32,6 @@ export default {
   excludeStories: /.*Args$/,
 };
 
-/* eslint-disable react/display-name */
 export const baseArgs = {
   isOpen: true,
   closeButtonLabel: 'Close navigation',
@@ -40,13 +39,13 @@ export const baseArgs = {
   secondaryNavigationLabel: 'Secondary',
   primaryLinks: [
     {
-      icon: (props) => <House {...props} size="large" />,
+      icon: House,
       label: 'Home',
       href: '/',
       onClick: action('Home'),
     },
     {
-      icon: (props) => <ShoppingBag {...props} size="large" />,
+      icon: ShoppingBag,
       label: 'Shop',
       href: '/shop',
       onClick: action('Shop'),
@@ -90,20 +89,20 @@ export const baseArgs = {
       ],
     },
     {
-      icon: (props) => <Package {...props} size="large" />,
+      icon: Package,
       label: 'Orders',
       href: '/orders',
       onClick: action('Orders'),
-      badge: { label: 'new ' },
+      badge: { label: 'new' },
     },
     {
-      icon: (props) => <Heart {...props} size="large" />,
+      icon: Heart,
       label: 'Wishlist',
       href: '/wishlist',
       onClick: action('Wishlist'),
     },
     {
-      icon: (props) => <LiveChat {...props} size="large" />,
+      icon: LiveChat,
       label: 'Support',
       href: 'https://support.example.com',
       onClick: action('Support'),

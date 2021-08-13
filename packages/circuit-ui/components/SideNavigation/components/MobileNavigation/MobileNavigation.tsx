@@ -34,6 +34,7 @@ import { PrimaryLinkProps } from '../../types';
 import { PrimaryLink } from '../PrimaryLink';
 import { SecondaryLinks } from '../SecondaryLinks';
 import { Require } from '../../../../types/util';
+import { ClickEvent } from '../../../../types/events';
 
 const TRANSITION_DURATION = 120;
 const HEADER_HEIGHT = 56;
@@ -51,6 +52,18 @@ export interface MobileNavigationProps extends BaseModalProps {
    * TODO: Add description
    */
   primaryNavigationLabel: string;
+}
+
+function combineClickHandlers(
+  ...fns: (undefined | ((event: ClickEvent) => void))[]
+) {
+  return (event: ClickEvent) => {
+    fns.forEach((fn) => {
+      if (fn) {
+        fn(event);
+      }
+    });
+  };
 }
 
 type ChevronProps = { isOpen: boolean };
@@ -83,13 +96,26 @@ const groupStyles = (theme: Theme) => css`
 function Group({
   secondaryGroups,
   href,
+  onClose,
   ...props
-}: Require<PrimaryLinkProps, 'secondaryGroups'>): JSX.Element {
+}: Require<PrimaryLinkProps, 'secondaryGroups'> & {
+  onClose: BaseModalProps['onClose'];
+}): JSX.Element {
   const {
     isOpen,
     getButtonProps,
     getContentProps,
   } = useCollapsible<HTMLUListElement>();
+
+  const mappedSecondaryGroups = secondaryGroups.map(
+    ({ secondaryLinks, ...group }) => ({
+      ...group,
+      secondaryLinks: secondaryLinks.map(({ onClick, ...link }) => ({
+        ...link,
+        onClick: combineClickHandlers(onClick, onClose),
+      })),
+    }),
+  );
 
   return (
     <Fragment>
@@ -102,7 +128,7 @@ function Group({
       <SecondaryLinks
         {...getContentProps()}
         css={groupStyles}
-        secondaryGroups={secondaryGroups}
+        secondaryGroups={mappedSecondaryGroups}
       />
     </Fragment>
   );
@@ -254,19 +280,26 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
 
                 <nav aria-label={primaryNavigationLabel}>
                   <ul css={listStyles}>
-                    {primaryLinks.map(({ secondaryGroups, ...link }) => (
-                      <li key={link.label}>
-                        {secondaryGroups ? (
-                          <Group
-                            {...link}
-                            secondaryGroups={secondaryGroups}
-                            {...focusProps}
-                          />
-                        ) : (
-                          <PrimaryLink {...link} {...focusProps} />
-                        )}
-                      </li>
-                    ))}
+                    {primaryLinks.map(
+                      ({ secondaryGroups, onClick, ...link }) => (
+                        <li key={link.label}>
+                          {secondaryGroups && secondaryGroups.length > 0 ? (
+                            <Group
+                              {...link}
+                              secondaryGroups={secondaryGroups}
+                              onClose={onClose}
+                              {...focusProps}
+                            />
+                          ) : (
+                            <PrimaryLink
+                              {...link}
+                              {...focusProps}
+                              onClick={combineClickHandlers(onClick, onClose)}
+                            />
+                          )}
+                        </li>
+                      ),
+                    )}
                   </ul>
                 </nav>
               </Content>

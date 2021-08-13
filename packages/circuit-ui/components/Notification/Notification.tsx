@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
-import { FC, SVGProps, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { css } from '@emotion/core';
 import {
   CircleCheckmarkFilled,
   CircleCrossFilled,
   CircleWarningFilled,
+  IconProps,
 } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
@@ -31,7 +32,7 @@ type Variant = 'success' | 'error' | 'warning';
 export interface NotificationProps {
   variant: Variant;
   children: ReactNode;
-  icon?: FC<SVGProps<SVGSVGElement>>;
+  icon?: FC<IconProps>;
   onClose?: (event: ClickEvent) => void;
   closeLabel?: string;
 }

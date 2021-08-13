@@ -13,15 +13,16 @@
  * limitations under the License.
  */
 
-import { HTMLProps, FC, SVGProps, MouseEvent, KeyboardEvent } from 'react';
+import { HTMLProps, FC, MouseEvent, KeyboardEvent } from 'react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
+import { IconProps } from '@sumup/icons';
 
 export interface PrimaryLinkProps extends HTMLProps<HTMLAnchorElement> {
   /**
    * Display an icon in addition to the text to help to identify the link.
    * On narrow viewports, only the icon is displayed.
    */
-  icon: FC<SVGProps<SVGSVGElement>>;
+  icon: FC<IconProps>;
   /**
    * Short label to describe the target of the link.
    */

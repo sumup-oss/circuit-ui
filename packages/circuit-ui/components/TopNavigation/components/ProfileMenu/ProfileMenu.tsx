@@ -39,6 +39,7 @@ const AvatarPlaceholder = () => (
 );
 
 const profileWrapperStyles = ({ theme }: StyleProps) => css`
+  height: 100%;
   padding: ${theme.spacings.kilo};
   border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
 

@@ -20,7 +20,6 @@ import {
   Fragment,
   HTMLProps,
   Ref,
-  SVGProps,
   useEffect,
   useMemo,
   useRef,
@@ -33,6 +32,8 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
 import { useTheme } from 'emotion-theming';
+import isPropValid from '@emotion/is-prop-valid';
+import { IconProps } from '@sumup/icons';
 
 import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
@@ -60,7 +61,7 @@ export interface BaseProps {
   /**
    * Display an icon in addition to the label.
    */
-  icon?: FC<SVGProps<SVGSVGElement>>;
+  icon?: FC<IconProps>;
   /**
    * Destructive variant, changes the color of label and icon from blue to red to signal to the user that the action
    * is irreversible or otherwise dangerous. Interactive states are the same for destructive variant.
@@ -99,11 +100,9 @@ const itemWrapperStyles = () => css`
   width: 100%;
 `;
 
-const PopoverItemWrapper = styled('button')<PopoverItemWrapperProps>(
-  listItem,
-  itemWrapperStyles,
-  typography('one'),
-);
+const PopoverItemWrapper = styled('button', {
+  shouldForwardProp: isPropValid,
+})<PopoverItemWrapperProps>(listItem, itemWrapperStyles, typography('one'));
 
 const iconStyles = (theme: Theme) => css`
   margin-right: ${theme.spacings.byte};
@@ -116,22 +115,19 @@ export const PopoverItem = ({
   tracking,
   ...props
 }: PopoverItemProps): JSX.Element => {
-  const components = useComponents();
-
-  // Need to typecast here because the styled component types restrict the
-  // `as` prop to a string. It's safe to ignore that constraint here.
-  const Link = (components.Link as unknown) as string;
+  const { Link } = useComponents();
 
   const handleClick = useClickEvent(onClick, tracking, 'popover-item');
 
   return (
     <PopoverItemWrapper
+      // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
       as={props.href ? Link : 'button'}
       onClick={handleClick}
       role="menuitem"
       {...props}
     >
-      {Icon && <Icon css={iconStyles} />}
+      {Icon && <Icon css={iconStyles} size="large" />}
       {children}
     </PopoverItemWrapper>
   );
@@ -189,7 +185,6 @@ const overlayStyles = ({ theme }: StyleProps) => css`
     left: 0;
     right: 0;
     background-color: ${theme.colors.overlay};
-    pointer-events: none;
     visibility: hidden;
     opacity: 0;
     transition: opacity ${theme.transitions.default},
@@ -325,10 +320,14 @@ export const Popover = ({
   // Note: the usePopper hook intentionally takes the DOM node, not refs, in order to be able to update when the nodes change.
   // A callback ref is used here to permit this behaviour, and useState is an appropriate way to implement this.
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const { styles, attributes } = usePopper(triggerEl.current, popperElement, {
-    placement,
-    modifiers: [mobilePosition, flip, ...modifiers],
-  });
+  const { styles, attributes, update } = usePopper(
+    triggerEl.current,
+    popperElement,
+    {
+      placement,
+      modifiers: [mobilePosition, flip, ...modifiers],
+    },
+  );
 
   // This is a performance optimization to prevent event listeners from being
   // re-attached on every render.
@@ -340,6 +339,11 @@ export const Popover = ({
   const prevOpen = usePrevious(isOpen);
 
   useEffect(() => {
+    if (update) {
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      update();
+    }
+
     // Focus the first or last element after opening
     if (!prevOpen && isOpen) {
       const element = (triggerKey.current && triggerKey.current === 'ArrowUp'
@@ -358,7 +362,7 @@ export const Popover = ({
     }
 
     triggerKey.current = null;
-  }, [isOpen, prevOpen]);
+  }, [isOpen, prevOpen, update]);
 
   const focusProps = useFocusList();
 

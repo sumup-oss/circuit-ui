@@ -25,6 +25,7 @@ import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { useFocusList, FocusProps } from '../../../../hooks/useFocusList';
 import SubHeadline from '../../../SubHeadline';
 import Body from '../../../Body';
+import { useComponents } from '../../../ComponentsContext';
 import { SecondaryGroupProps, SecondaryLinkProps } from '../../types';
 
 const anchorStyles = ({ theme }: StyleProps) => css`
@@ -50,6 +51,8 @@ function SecondaryLink({
   tracking,
   ...props
 }: SecondaryLinkProps) {
+  const { Link } = useComponents();
+
   const handleClick = useClickEvent<MouseEvent | KeyboardEvent>(
     onClick,
     tracking,
@@ -62,6 +65,8 @@ function SecondaryLink({
         {...props}
         onClick={handleClick}
         aria-current={props.isActive ? 'page' : undefined}
+        // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
+        as={props.href ? Link : 'button'}
       >
         <Body
           size="one"
