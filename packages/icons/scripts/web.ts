@@ -108,7 +108,10 @@ function buildDeclarationFile(components: Component[]): string {
   return dedent`
     import { FC, SVGProps } from 'react';
 
-    interface IconProps extends React.SVGProps<SVGSVGElement> {
+    export interface IconProps extends React.SVGProps<SVGSVGElement> {
+      /**
+       * Choose between the small (16px) or large (24px) size. Default \`small\`.
+       */
       size?: 'small' | 'large';
     }
 
