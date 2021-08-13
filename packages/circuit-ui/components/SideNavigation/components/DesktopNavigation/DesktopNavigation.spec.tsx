@@ -65,8 +65,15 @@ describe('DesktopNavigation', () => {
 
   describe('styles', () => {
     it('should render with secondary links', () => {
-      const wrapper = renderDesktopNavigation(create, defaultProps);
-      expect(wrapper).toMatchSnapshot();
+      const { container, getAllByRole } = renderDesktopNavigation(
+        render,
+        defaultProps,
+      );
+
+      const lists = getAllByRole('list');
+
+      expect(lists).toHaveLength(3);
+      expect(container).toMatchSnapshot();
     });
 
     it('should render without secondary links', () => {
@@ -78,11 +85,19 @@ describe('DesktopNavigation', () => {
             label: 'Home',
             href: '/',
             onClick: jest.fn(),
+            secondaryGroups: [],
           },
         ],
       };
-      const wrapper = renderDesktopNavigation(create, props);
-      expect(wrapper).toMatchSnapshot();
+      const { container, getAllByRole } = renderDesktopNavigation(
+        render,
+        props,
+      );
+
+      const lists = getAllByRole('list');
+
+      expect(lists).toHaveLength(1);
+      expect(container).toMatchSnapshot();
     });
   });
 

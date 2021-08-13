@@ -283,7 +283,7 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
                     {primaryLinks.map(
                       ({ secondaryGroups, onClick, ...link }) => (
                         <li key={link.label}>
-                          {secondaryGroups ? (
+                          {secondaryGroups && secondaryGroups.length > 0 ? (
                             <Group
                               {...link}
                               secondaryGroups={secondaryGroups}

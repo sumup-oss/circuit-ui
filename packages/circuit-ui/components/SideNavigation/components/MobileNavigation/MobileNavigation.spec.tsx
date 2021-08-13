@@ -95,6 +95,7 @@ describe('MobileNavigation', () => {
             label: 'Home',
             href: '/',
             onClick: jest.fn(),
+            secondaryGroups: [],
           },
         ],
       };

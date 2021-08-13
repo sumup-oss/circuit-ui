@@ -135,7 +135,7 @@ export function DesktopNavigation({
           ))}
         </ul>
       </PrimaryNavigationWrapper>
-      {secondaryGroups && (
+      {secondaryGroups && secondaryGroups.length > 0 && (
         <SecondaryNavigationWrapper
           {...props}
           aria-label={secondaryNavigationLabel}
