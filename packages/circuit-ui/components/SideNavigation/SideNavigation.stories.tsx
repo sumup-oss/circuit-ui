@@ -33,6 +33,7 @@ export default {
 };
 
 export const baseArgs = {
+  isLoading: false,
   isOpen: true,
   closeButtonLabel: 'Close navigation',
   primaryNavigationLabel: 'Primary',

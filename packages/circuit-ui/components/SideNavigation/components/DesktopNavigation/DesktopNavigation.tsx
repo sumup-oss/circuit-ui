@@ -24,11 +24,16 @@ import { shadow, hideScrollbar } from '../../../../styles/style-mixins';
 import { useFocusList } from '../../../../hooks/useFocusList';
 import { TOP_NAVIGATION_HEIGHT } from '../../../TopNavigation/TopNavigation';
 import Headline from '../../../Headline';
+import { Skeleton, SkeletonContainer } from '../../../Skeleton';
 import { PrimaryLinkProps } from '../../types';
 import { SecondaryLinks } from '../SecondaryLinks';
 import { PrimaryLink } from '../PrimaryLink';
 
 export interface DesktopNavigationProps {
+  /**
+   * TODO: Add description
+   */
+  isLoading?: boolean;
   /**
    * TODO: Add description
    */
@@ -55,7 +60,7 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const Wrapper = styled.div(wrapperStyles);
+const Wrapper = styled(SkeletonContainer)(wrapperStyles);
 
 const primaryWrapperStyles = ({ theme }: StyleProps) => css`
   position: fixed;
@@ -106,10 +111,11 @@ const listStyles = css`
 `;
 
 const headlineStyles = (theme: Theme) => css`
-  padding: ${theme.spacings.giga} ${theme.spacings.mega} ${theme.spacings.kilo};
+  margin: ${theme.spacings.giga} ${theme.spacings.mega} ${theme.spacings.kilo};
 `;
 
 export function DesktopNavigation({
+  isLoading,
   primaryLinks,
   primaryNavigationLabel,
   secondaryNavigationLabel,
@@ -125,7 +131,7 @@ export function DesktopNavigation({
     activePrimaryLink && activePrimaryLink.secondaryGroups;
 
   return (
-    <Wrapper>
+    <Wrapper isLoading={Boolean(isLoading)}>
       <PrimaryNavigationWrapper {...props} aria-label={primaryNavigationLabel}>
         <ul role="list" css={listStyles}>
           {primaryLinks.map((link) => (
@@ -140,9 +146,11 @@ export function DesktopNavigation({
           {...props}
           aria-label={secondaryNavigationLabel}
         >
-          <Headline as="h2" size="four" css={headlineStyles} noMargin>
-            {activePrimaryLink && activePrimaryLink.label}
-          </Headline>
+          <Skeleton css={headlineStyles}>
+            <Headline as="h2" size="four" noMargin>
+              {activePrimaryLink && activePrimaryLink.label}
+            </Headline>
+          </Skeleton>
           <SecondaryLinks secondaryGroups={secondaryGroups} />
         </SecondaryNavigationWrapper>
       )}

@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SecondaryLinks styles should render with default styles 1`] = `
-.circuit-13 {
+.circuit-19 {
   list-style: none;
 }
 
-.circuit-6 {
+.circuit-9 {
   list-style: none;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -36,37 +36,42 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   hyphens: auto;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   background-color: #E6E6E6;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-1:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:focus:not(:focus-visible) {
+.circuit-2:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-1:disabled {
+.circuit-2:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
 @media (min-width:960px) {
-  .circuit-1 {
+  .circuit-2 {
     padding: 12px 20px;
   }
+}
+
+.circuit-1 {
+  display: inline-block;
+  line-height: 1;
 }
 
 .circuit-0 {
@@ -77,7 +82,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   margin-bottom: 0;
 }
 
-.circuit-5 {
+.circuit-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -104,40 +109,40 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   hyphens: auto;
 }
 
-.circuit-5:hover {
+.circuit-8:hover {
   background-color: #F0F6FF;
 }
 
-.circuit-5:active {
+.circuit-8:active {
   background-color: #E6E6E6;
 }
 
-.circuit-5:focus {
+.circuit-8:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-8:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-8:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:disabled {
+.circuit-8:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
 @media (min-width:960px) {
-  .circuit-5 {
+  .circuit-8 {
     padding: 12px 20px;
   }
 }
 
-.circuit-4 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -146,7 +151,13 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   font-weight: 700;
 }
 
-.circuit-7 {
+.circuit-11 {
+  display: inline-block;
+  line-height: 1;
+  margin: 32px 16px 8px;
+}
+
+.circuit-10 {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
@@ -154,94 +165,117 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   margin-bottom: 12px;
   color: #000;
   margin-bottom: 0;
-  padding: 32px 16px 8px;
 }
 
 <ul
-  class="circuit-13"
+  class="circuit-19"
   role="list"
 >
   <li>
     <ul
-      class="circuit-6"
+      class="circuit-9"
       role="list"
     >
       <li>
         <a
-          class="circuit-1"
+          class="circuit-2"
           data-focus-list="1"
           href="/shop/shirts"
         >
-          <p
-            class="circuit-0"
+          <span
+            class="circuit-1"
           >
-            Shirts
-          </p>
+            <p
+              class="circuit-0"
+            >
+              Shirts
+            </p>
+          </span>
         </a>
       </li>
       <li>
         <a
-          class="circuit-1"
+          class="circuit-2"
           data-focus-list="1"
           href="/shop/pants"
         >
-          <p
-            class="circuit-0"
+          <span
+            class="circuit-1"
           >
-            Pants
-          </p>
+            <p
+              class="circuit-0"
+            >
+              Pants
+            </p>
+          </span>
         </a>
       </li>
       <li>
         <a
           aria-current="page"
-          class="circuit-5"
+          class="circuit-8"
           data-focus-list="1"
           href="/shop/socks"
         >
-          <strong
-            class="circuit-4"
+          <span
+            class="circuit-1"
           >
-            Socks
-          </strong>
+            <strong
+              class="circuit-6"
+            >
+              Socks
+            </strong>
+          </span>
         </a>
       </li>
     </ul>
   </li>
   <li>
-    <h3
-      class="circuit-7"
+    <span
+      class="circuit-11"
     >
-      For Kids
-    </h3>
+      <h3
+        class="circuit-10"
+      >
+        For Kids
+      </h3>
+    </span>
     <ul
-      class="circuit-6"
+      class="circuit-9"
       role="list"
     >
       <li>
         <a
-          class="circuit-1"
+          class="circuit-2"
           data-focus-list="1"
           href="/shop/toys"
         >
-          <p
-            class="circuit-0"
+          <span
+            class="circuit-1"
           >
-            Toys
-          </p>
+            <p
+              class="circuit-0"
+            >
+              Toys
+            </p>
+          </span>
         </a>
       </li>
       <li>
         <a
-          class="circuit-1"
+          class="circuit-2"
           data-focus-list="1"
           href="/shop/books"
         >
-          <p
-            class="circuit-0"
+          <span
+            class="circuit-1"
           >
-            Books
-          </p>
+            <p
+              class="circuit-0"
+            >
+              Books
+            </p>
+          </span>
         </a>
       </li>
     </ul>
