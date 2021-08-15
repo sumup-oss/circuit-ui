@@ -52,8 +52,7 @@ const Container = styled('div', {
 
 /**
  * The SkeletonContainer wraps a section that's loading. It disables user
- * interactions within and signals to screen readers that content is being
- * loaded.
+ * interactions and signals to screen readers that content is being loaded.
  */
 export const SkeletonContainer = forwardRef(
   (
