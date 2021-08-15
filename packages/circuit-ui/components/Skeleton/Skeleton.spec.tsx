@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -43,6 +43,11 @@ describe('Skeleton', () => {
   describe('styles', () => {
     it('should render with loading styles', () => {
       const wrapper = renderSkeleton(create, baseProps);
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render with circular styles', () => {
+      const wrapper = renderSkeleton(create, { ...baseProps, circle: true });
       expect(wrapper).toMatchSnapshot();
     });
   });
