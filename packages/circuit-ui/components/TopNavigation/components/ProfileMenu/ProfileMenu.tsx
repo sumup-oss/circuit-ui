@@ -22,6 +22,7 @@ import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
 import Avatar, { AvatarProps } from '../../../Avatar';
 import Body from '../../../Body';
 import Popover, { PopoverProps } from '../../../Popover';
+import { Skeleton } from '../../../Skeleton';
 
 const AvatarPlaceholder = () => (
   <svg
@@ -70,7 +71,6 @@ const userDetailsStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.mega} {
     margin: 0 ${theme.spacings.kilo};
     max-width: 20ch;
-    text-overflow: ellipsis;
   }
 `;
 
@@ -78,7 +78,6 @@ const UserDetails = styled.div(userDetailsStyles);
 
 const truncateStyles = css`
   display: block;
-  max-width: 132px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -143,18 +142,26 @@ function Profile({
       title={profileLabel}
       isActive={isOpen || profileIsActive}
     >
-      {userAvatar ? (
-        <UserAvatar {...userAvatar} variant="identity" />
-      ) : (
-        <AvatarPlaceholder />
-      )}
+      <Skeleton circle>
+        {userAvatar ? (
+          <UserAvatar {...userAvatar} variant="identity" />
+        ) : (
+          <AvatarPlaceholder />
+        )}
+      </Skeleton>
       <UserDetails>
-        <Body size="two" css={truncateStyles} variant="highlight" noMargin>
-          {userName}
-        </Body>
-        <Body size="two" css={truncateStyles} noMargin>
-          {userId}
-        </Body>
+        <Skeleton css={truncateStyles}>
+          <Body size="two" variant="highlight" noMargin>
+            {userName}
+          </Body>
+        </Skeleton>
+        {userId && (
+          <Skeleton css={truncateStyles}>
+            <Body size="two" noMargin>
+              {userId}
+            </Body>
+          </Skeleton>
+        )}
       </UserDetails>
       <Chevron />
     </ProfileWrapper>

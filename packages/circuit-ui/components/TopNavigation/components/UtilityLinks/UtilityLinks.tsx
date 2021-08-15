@@ -24,6 +24,7 @@ import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 import Body from '../../../Body';
 import { useComponents } from '../../../ComponentsContext';
+import { Skeleton } from '../../../Skeleton';
 
 const anchorStyles = ({ theme }: StyleProps) => css`
   text-decoration: none;
@@ -101,10 +102,17 @@ function UtilityLink({
       // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
       as={props.href ? Link : 'button'}
     >
-      <Icon css={iconStyles} role="presentation" size="large" />
-      <UtilityLabel variant={props.isActive ? 'highlight' : undefined} noMargin>
-        {label}
-      </UtilityLabel>
+      <Skeleton css={iconStyles}>
+        <Icon role="presentation" size="large" />
+      </Skeleton>
+      <Skeleton>
+        <UtilityLabel
+          variant={props.isActive ? 'highlight' : undefined}
+          noMargin
+        >
+          {label}
+        </UtilityLabel>
+      </Skeleton>
     </UtilityAnchor>
   );
 }

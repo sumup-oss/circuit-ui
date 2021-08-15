@@ -35,6 +35,7 @@ export default {
 };
 
 const baseArgs = {
+  isLoading: false,
   logo: (
     <a
       href="https://sumup.com"
