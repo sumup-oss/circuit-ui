@@ -51,6 +51,7 @@ export const baseArgs = {
       href: '/shop',
       onClick: action('Shop'),
       isActive: true,
+      badge: true,
       secondaryGroups: [
         {
           secondaryLinks: [
@@ -58,6 +59,7 @@ export const baseArgs = {
               label: 'Shirts',
               href: '/shop/shirts',
               onClick: action('Shop → Shirts'),
+              badge: { label: 'New' },
             },
             {
               label: 'Pants',
@@ -94,7 +96,6 @@ export const baseArgs = {
       label: 'Orders',
       href: '/orders',
       onClick: action('Orders'),
-      badge: { label: 'new' },
     },
     {
       icon: Heart,
