@@ -212,6 +212,18 @@ describe('Popover', () => {
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
+    it('should close the popover when clicking a popover item', () => {
+      const { getAllByRole } = renderPopover(baseProps);
+
+      const popoverItems = getAllByRole('menuitem');
+
+      act(() => {
+        userEvent.click(popoverItems[0]);
+      });
+
+      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+    });
+
     it('should move focus to the first popover item after opening', () => {
       const { getAllByRole, rerender } = renderPopover({
         ...baseProps,

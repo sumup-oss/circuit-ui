@@ -384,6 +384,16 @@ export const Popover = ({
     }
   };
 
+  const handlePopoverItemClick = (
+    event: ClickEvent,
+    onClick: BaseProps['onClick'],
+  ) => {
+    if (onClick) {
+      onClick(event);
+      onToggle(false);
+    }
+  };
+
   return (
     <Fragment>
       <TriggerElement ref={triggerEl}>
@@ -419,7 +429,14 @@ export const Popover = ({
               isDivider(action) ? (
                 <Hr css={dividerStyles} key={index} />
               ) : (
-                <PopoverItem key={index} {...action} {...focusProps} />
+                <PopoverItem
+                  key={index}
+                  {...action}
+                  {...focusProps}
+                  onClick={(event) =>
+                    handlePopoverItemClick(event, action.onClick)
+                  }
+                />
               ),
             )}
           </PopoverMenu>
