@@ -160,6 +160,7 @@ exports[`Modal should match the snapshot 1`] = `
   position: absolute;
   top: 8px;
   right: 8px;
+  z-index: 1;
 }
 
 .circuit-1:focus {
