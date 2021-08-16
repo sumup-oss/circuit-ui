@@ -70,7 +70,7 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
 
 .circuit-0 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -86,7 +86,7 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
 
 .circuit-2 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
 }
 
 .circuit-1 {

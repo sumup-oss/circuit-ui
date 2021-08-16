@@ -102,7 +102,7 @@ const pulse = keyframes`
 
 const baseStyles = css`
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
 `;
 
 const placeholderStyles = ({

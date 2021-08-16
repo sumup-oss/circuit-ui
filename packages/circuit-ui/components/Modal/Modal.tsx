@@ -78,6 +78,7 @@ const closeButtonStyles = (theme: Theme) => css`
   position: absolute;
   top: ${theme.spacings.byte};
   right: ${theme.spacings.byte};
+  z-index: ${theme.zIndex.absolute};
 
   ${theme.mq.kilo} {
     top: ${theme.spacings.mega};

@@ -36,7 +36,7 @@ const headerStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.bodyBg};
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
 
-  ${theme.mq.kilo} {
+  ${theme.mq.giga} {
     position: sticky;
     top: 0;
     /* The +1 is necessary to ensure that the primary navigation doesn't */
@@ -111,7 +111,11 @@ export function TopNavigation({
   return (
     <Header role="banner" {...props}>
       <div css={wrapperStyles}>
-        {hamburger && <Hamburger {...hamburger} css={hamburgerStyles} />}
+        {hamburger && (
+          <SkeletonContainer isLoading={Boolean(isLoading)}>
+            <Hamburger {...hamburger} css={hamburgerStyles} />
+          </SkeletonContainer>
+        )}
         <Logo>{logo}</Logo>
       </div>
       <SkeletonContainer css={wrapperStyles} isLoading={Boolean(isLoading)}>

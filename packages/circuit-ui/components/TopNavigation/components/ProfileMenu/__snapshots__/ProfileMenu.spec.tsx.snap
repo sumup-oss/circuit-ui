@@ -62,7 +62,7 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
 
 .circuit-1 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
 }
 
 .circuit-0 {
@@ -109,7 +109,7 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
 
 .circuit-3 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
   display: block;
   overflow: hidden;
   white-space: nowrap;
@@ -263,7 +263,7 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
 
 .circuit-0 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
 }
 
 @media (max-width:767px) {
@@ -290,7 +290,7 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
 
 .circuit-2 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
   display: block;
   overflow: hidden;
   white-space: nowrap;
