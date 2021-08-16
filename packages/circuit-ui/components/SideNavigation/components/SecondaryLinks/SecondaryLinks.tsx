@@ -27,6 +27,7 @@ import SubHeadline from '../../../SubHeadline';
 import Body from '../../../Body';
 import { useComponents } from '../../../ComponentsContext';
 import { SecondaryGroupProps, SecondaryLinkProps } from '../../types';
+import { Skeleton } from '../../../Skeleton';
 
 const anchorStyles = ({ theme }: StyleProps) => css`
   text-decoration: none;
@@ -68,20 +69,22 @@ function SecondaryLink({
         // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
         as={props.href ? Link : 'button'}
       >
-        <Body
-          size="one"
-          variant={props.isActive ? 'highlight' : undefined}
-          noMargin
-        >
-          {label}
-        </Body>
+        <Skeleton>
+          <Body
+            size="one"
+            variant={props.isActive ? 'highlight' : undefined}
+            noMargin
+          >
+            {label}
+          </Body>
+        </Skeleton>
       </SecondaryAnchor>
     </li>
   );
 }
 
 const subHeadlineStyles = (theme: Theme) => css`
-  padding: ${theme.spacings.tera} ${theme.spacings.mega} ${theme.spacings.byte};
+  margin: ${theme.spacings.tera} ${theme.spacings.mega} ${theme.spacings.byte};
 `;
 
 function SecondaryGroup({
@@ -92,9 +95,11 @@ function SecondaryGroup({
   return (
     <li>
       {label && (
-        <SubHeadline as="h3" css={subHeadlineStyles} noMargin>
-          {label}
-        </SubHeadline>
+        <Skeleton css={subHeadlineStyles}>
+          <SubHeadline as="h3" noMargin>
+            {label}
+          </SubHeadline>
+        </Skeleton>
       )}
       <ul role="list" css={listStyles}>
         {secondaryLinks.map((link) => (

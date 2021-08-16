@@ -20,6 +20,7 @@ import { Theme } from '@sumup/design-tokens';
 import styled, { StyleProps } from '../../styles/styled';
 import { focusVisible } from '../../styles/style-mixins';
 import Hamburger, { HamburgerProps } from '../Hamburger';
+import { SkeletonContainer } from '../Skeleton';
 
 import { ProfileMenu, ProfileMenuProps } from './components/ProfileMenu';
 import { UtilityLinks, UtilityLinksProps } from './components/UtilityLinks';
@@ -81,7 +82,7 @@ const logoStyles = ({ theme }: StyleProps) => css`
 
 const Logo = styled.div(logoStyles);
 
-const Wrapper = styled.div`
+const wrapperStyles = css`
   display: flex;
   align-items: stretch;
 `;
@@ -91,6 +92,7 @@ export interface TopNavigationProps
     Partial<UtilityLinksProps> {
   logo: ReactNode;
   hamburger?: HamburgerProps;
+  isLoading?: boolean;
 }
 
 export function TopNavigation({
@@ -103,15 +105,16 @@ export function TopNavigation({
   profileIsActive,
   links,
   hamburger,
+  isLoading,
   ...props
 }: TopNavigationProps): JSX.Element {
   return (
     <Header role="banner" {...props}>
-      <Wrapper>
+      <div css={wrapperStyles}>
         {hamburger && <Hamburger {...hamburger} css={hamburgerStyles} />}
         <Logo>{logo}</Logo>
-      </Wrapper>
-      <Wrapper>
+      </div>
+      <SkeletonContainer css={wrapperStyles} isLoading={Boolean(isLoading)}>
         {links && <UtilityLinks links={links} />}
         <ProfileMenu
           userAvatar={userAvatar}
@@ -121,7 +124,7 @@ export function TopNavigation({
           profileActions={profileActions}
           profileIsActive={profileIsActive}
         />
-      </Wrapper>
+      </SkeletonContainer>
     </Header>
   );
 }

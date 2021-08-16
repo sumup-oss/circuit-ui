@@ -16,7 +16,7 @@
 /* eslint-disable react/display-name */
 import { House, ShoppingBag } from '@sumup/icons';
 
-import { create, render, axe, RenderFn } from '../../../../util/test-utils';
+import { render, axe, RenderFn } from '../../../../util/test-utils';
 
 import { DesktopNavigation, DesktopNavigationProps } from './DesktopNavigation';
 

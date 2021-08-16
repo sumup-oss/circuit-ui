@@ -35,6 +35,7 @@ export interface SideNavigationProps
 }
 
 export function SideNavigation({
+  isLoading,
   isOpen,
   onClose,
   primaryLinks,
@@ -89,6 +90,7 @@ export function SideNavigation({
 
   return (
     <DesktopNavigation
+      isLoading={isLoading}
       primaryLinks={primaryLinks}
       primaryNavigationLabel={primaryNavigationLabel}
       secondaryNavigationLabel={secondaryNavigationLabel}

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TopNavigation styles should match the snapshot 1`] = `
-.circuit-17 {
+.circuit-21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21,7 +21,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-17 {
+  .circuit-21 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -230,7 +230,26 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   height: 100%;
 }
 
-.circuit-9 {
+.circuit-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.circuit-20[aria-busy='true'] {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -241,7 +260,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   align-items: center;
 }
 
-.circuit-8 {
+.circuit-9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -264,40 +283,42 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   border-left: 1px solid #E6E6E6;
 }
 
-.circuit-8:hover {
+.circuit-9:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-8:active {
+.circuit-9:active {
   background-color: #E6E6E6;
 }
 
-.circuit-8:focus {
+.circuit-9:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-8:focus::-moz-focus-inner {
+.circuit-9:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-8:focus:not(:focus-visible) {
+.circuit-9:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-8:disabled {
+.circuit-9:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
 @media (min-width:480px) {
-  .circuit-8 {
+  .circuit-9 {
     padding: 12px 16px;
   }
 }
 
 .circuit-6 {
+  display: inline-block;
+  line-height: 1;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -309,6 +330,11 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   .circuit-6 {
     margin-right: 8px;
   }
+}
+
+.circuit-8 {
+  display: inline-block;
+  line-height: 1;
 }
 
 .circuit-7 {
@@ -334,11 +360,11 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   }
 }
 
-.circuit-15 {
+.circuit-19 {
   display: inline-block;
 }
 
-.circuit-14 {
+.circuit-18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -360,41 +386,41 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   border-left: 1px solid #E6E6E6;
 }
 
-.circuit-14:hover {
+.circuit-18:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-14:active {
+.circuit-18:active {
   background-color: #E6E6E6;
 }
 
-.circuit-14:focus {
+.circuit-18:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-14:focus::-moz-focus-inner {
+.circuit-18:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-14:focus:not(:focus-visible) {
+.circuit-18:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-14:disabled {
+.circuit-18:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
 @media (min-width:768px) {
-  .circuit-14 {
+  .circuit-18 {
     padding: 4px 16px;
   }
 }
 
 @media (max-width:767px) {
-  .circuit-12 {
+  .circuit-16 {
     border: 0;
     -webkit-clip: rect(0 0 0 0);
     clip: rect(0 0 0 0);
@@ -409,53 +435,51 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 }
 
 @media (min-width:768px) {
-  .circuit-12 {
+  .circuit-16 {
     margin: 0 12px;
     max-width: 20ch;
-    text-overflow: ellipsis;
   }
 }
 
-.circuit-10 {
+.circuit-13 {
+  display: inline-block;
+  line-height: 1;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-12 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 0;
   font-weight: 700;
-  display: block;
-  max-width: 132px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
-.circuit-11 {
+.circuit-14 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 0;
-  display: block;
-  max-width: 132px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
-.circuit-13 {
+.circuit-17 {
   display: none;
 }
 
 @media (min-width:768px) {
-  .circuit-13 {
+  .circuit-17 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
     -webkit-transition: transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-13 {
+  button[aria-expanded='true'] .circuit-17 {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
@@ -464,7 +488,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 <div>
   <header
-    class="circuit-17"
+    class="circuit-21"
     role="banner"
   >
     <div
@@ -542,85 +566,105 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
       </div>
     </div>
     <div
-      class="circuit-5"
+      aria-busy="false"
+      class="circuit-20"
     >
       <div
-        class="circuit-9"
+        class="circuit-10"
       >
         <a
-          class="circuit-8"
+          class="circuit-9"
           href="/shop"
         >
-          <svg
+          <span
             class="circuit-6"
-            fill="none"
-            height="24"
-            role="presentation"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              clip-rule="evenodd"
-              d="M5.46 3.719A1 1 0 004.5 3H3a1 1 0 100 2h.751l3.29 11.219a1 1 0 00.959.718h9a1 1 0 100-2H8.749L5.459 3.72zM9.25 18a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm6.5 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-            <path
-              clip-rule="evenodd"
-              d="M20.811 5.415A1 1 0 0020 5H6a1 1 0 000 2h12.613l-1.334 4H7v2h11a1 1 0 00.949-.684l2-6a1 1 0 00-.138-.9z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-          <p
-            class="circuit-7"
+            <svg
+              fill="none"
+              height="24"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.46 3.719A1 1 0 004.5 3H3a1 1 0 100 2h.751l3.29 11.219a1 1 0 00.959.718h9a1 1 0 100-2H8.749L5.459 3.72zM9.25 18a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm6.5 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M20.811 5.415A1 1 0 0020 5H6a1 1 0 000 2h12.613l-1.334 4H7v2h11a1 1 0 00.949-.684l2-6a1 1 0 00-.138-.9z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="circuit-8"
           >
-            Shop
-          </p>
+            <p
+              class="circuit-7"
+            >
+              Shop
+            </p>
+          </span>
         </a>
       </div>
       <div
-        class="circuit-15"
+        class="circuit-19"
       >
         <button
           aria-controls="popover_2"
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Open profile menu"
-          class="circuit-14"
+          class="circuit-18"
           id="trigger_1"
           title="Open profile menu"
           type="button"
         >
-          <svg
-            fill="none"
-            height="24"
-            role="presentation"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="circuit-8"
           >
-            <path
-              d="M22.981 21.22A11.074 11.074 0 0012.001 12a11.074 11.074 0 00-10.982 9.22A1.576 1.576 0 002.6 23h18.8a1.577 1.577 0 001.581-1.78zm-10.98-1.72a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm4.5-14a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"
-              fill="currentColor"
-            />
-          </svg>
+            <svg
+              fill="none"
+              height="24"
+              role="presentation"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22.981 21.22A11.074 11.074 0 0012.001 12a11.074 11.074 0 00-10.982 9.22A1.576 1.576 0 002.6 23h18.8a1.577 1.577 0 001.581-1.78zm-10.98-1.72a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm4.5-14a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
           <div
-            class="circuit-12"
+            class="circuit-16"
           >
-            <strong
-              class="circuit-10"
+            <span
+              class="circuit-13"
             >
-              Jane Doe
-            </strong>
-            <p
-              class="circuit-11"
+              <strong
+                class="circuit-12"
+              >
+                Jane Doe
+              </strong>
+            </span>
+            <span
+              class="circuit-13"
             >
-              ID: AC3YULT8
-            </p>
+              <p
+                class="circuit-14"
+              >
+                ID: AC3YULT8
+              </p>
+            </span>
           </div>
           <svg
-            class="circuit-13"
+            class="circuit-17"
             fill="none"
             height="16"
             viewBox="0 0 16 16"

@@ -27,11 +27,12 @@ import {
   cx,
 } from '../../../../styles/style-mixins';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
-import { useComponents } from '../../../ComponentsContext';
-import Body from '../../../Body';
-import { PrimaryLinkProps as PrimaryLinkType } from '../../types';
 import { ClickEvent } from '../../../../types/events';
 import { uniqueId } from '../../../../util/id';
+import { useComponents } from '../../../ComponentsContext';
+import Body from '../../../Body';
+import { Skeleton } from '../../../Skeleton';
+import { PrimaryLinkProps as PrimaryLinkType } from '../../types';
 
 export interface PrimaryLinkProps extends PrimaryLinkType {
   isOpen?: boolean;
@@ -122,7 +123,7 @@ const Anchor = styled('a', {
   anchorOpenStyles,
 );
 
-const iconContainerStyles = ({ theme }: StyleProps) => css`
+const iconStyles = (theme: Theme) => css`
   position: relative;
   flex-shrink: 0;
   width: ${theme.iconSizes.mega};
@@ -130,28 +131,19 @@ const iconContainerStyles = ({ theme }: StyleProps) => css`
   margin-right: ${theme.spacings.kilo};
 `;
 
-const iconContainerWithBadgeStyles = ({
-  theme,
-  hasBadge,
-}: StyleProps & { hasBadge: boolean }) =>
-  hasBadge &&
-  css`
-    &::before {
-      display: block;
-      content: '';
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      width: 10px;
-      height: 10px;
-      background-color: ${theme.colors.v500};
-      border-radius: ${theme.borderRadius.circle};
-    }
-  `;
-
-const IconContainer = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop),
-})<{ hasBadge: boolean }>(iconContainerStyles, iconContainerWithBadgeStyles);
+const iconWithBadgeStyles = (theme: Theme) => css`
+  &::before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 10px;
+    height: 10px;
+    background-color: ${theme.colors.v500};
+    border-radius: ${theme.borderRadius.circle};
+  }
+`;
 
 const suffixStyles = (theme: Theme) => css`
   flex-shrink: 0;
@@ -208,6 +200,8 @@ export function PrimaryLink({
   const suffix = Suffix && <Suffix css={suffixStyles} role="presentation" />;
   const isExternalLink = isExternal || props.target === '_blank';
 
+  const hasBadge = Boolean(badge);
+
   return (
     <Anchor
       {...props}
@@ -218,17 +212,19 @@ export function PrimaryLink({
       // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
       as={props.href ? Link : 'button'}
     >
-      <IconContainer hasBadge={Boolean(badge)}>
+      <Skeleton css={cx(iconStyles, hasBadge && iconWithBadgeStyles)}>
         <Icon role="presentation" size="large" />
-      </IconContainer>
-      <Label
-        variant={isActive || isOpen ? 'highlight' : undefined}
-        aria-describedby={badgeId}
-        as="span"
-        noMargin
-      >
-        {label}
-      </Label>
+      </Skeleton>
+      <Skeleton>
+        <Label
+          variant={isActive || isOpen ? 'highlight' : undefined}
+          aria-describedby={badgeId}
+          as="span"
+          noMargin
+        >
+          {label}
+        </Label>
+      </Skeleton>
       {badge && (
         <div id={badgeId} css={hideVisually}>
           {badge.label}
