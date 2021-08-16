@@ -390,8 +390,8 @@ export const Popover = ({
   ) => {
     if (onClick) {
       onClick(event);
-      onToggle(false);
     }
+    onToggle(false);
   };
 
   return (
