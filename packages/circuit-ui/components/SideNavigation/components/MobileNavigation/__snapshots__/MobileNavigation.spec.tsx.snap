@@ -247,7 +247,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-3 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
   position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -259,7 +259,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-5 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
 }
 
 .circuit-4 {
@@ -318,7 +318,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-9 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
   margin: 32px 16px 8px;
 }
 
@@ -761,7 +761,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 
 .circuit-3 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
   position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -773,7 +773,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 
 .circuit-5 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
 }
 
 .circuit-6 {

@@ -36,7 +36,7 @@ const headerStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.bodyBg};
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
 
-  ${theme.mq.kilo} {
+  ${theme.mq.giga} {
     position: sticky;
     top: 0;
     /* The +1 is necessary to ensure that the primary navigation doesn't */

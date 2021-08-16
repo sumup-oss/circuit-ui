@@ -39,7 +39,7 @@ exports[`Skeleton styles should render with circular styles 1`] = `
 
 .circuit-0 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
   border-radius: 100%;
   background-color: #E6E6E6;
   background-image: linear-gradient( 90deg,#E6E6E6,#F5F5F5,#E6E6E6 );
@@ -99,7 +99,7 @@ exports[`Skeleton styles should render with loading styles 1`] = `
 
 .circuit-0 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
   border-radius: 8px;
   background-color: #E6E6E6;
   background-image: linear-gradient( 90deg,#E6E6E6,#F5F5F5,#E6E6E6 );

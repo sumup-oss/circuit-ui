@@ -20,7 +20,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   border-bottom: 1px solid #E6E6E6;
 }
 
-@media (min-width:480px) {
+@media (min-width:960px) {
   .circuit-21 {
     position: -webkit-sticky;
     position: sticky;
@@ -318,7 +318,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 .circuit-6 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -334,7 +334,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 .circuit-8 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
 }
 
 .circuit-7 {
@@ -443,7 +443,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 .circuit-13 {
   display: inline-block;
-  line-height: 1;
+  line-height: 0;
   display: block;
   overflow: hidden;
   white-space: nowrap;
