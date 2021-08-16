@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.8
+
+### Patch Changes
+
+- [#1130](https://github.com/sumup-oss/circuit-ui/pull/1130) [`7b4b5d88`](https://github.com/sumup-oss/circuit-ui/commit/7b4b5d886057583a32459e8986a95e313f57193a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a loading state to the Hamburger.
+
+* [#1130](https://github.com/sumup-oss/circuit-ui/pull/1130) [`7b4b5d88`](https://github.com/sumup-oss/circuit-ui/commit/7b4b5d886057583a32459e8986a95e313f57193a) Thanks [@connor-baer](https://github.com/connor-baer)! - Aligned the TopNavigation breakpoint with the other navigation components.
+
+- [#1130](https://github.com/sumup-oss/circuit-ui/pull/1130) [`7b4b5d88`](https://github.com/sumup-oss/circuit-ui/commit/7b4b5d886057583a32459e8986a95e313f57193a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a z-index to the Modal's close button.
+
 ## 3.1.0-canary.7
 
 ### Patch Changes
