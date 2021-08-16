@@ -46,6 +46,7 @@ describe('SecondaryLinks', () => {
             label: 'Pants',
             href: '/shop/pants',
             onClick: jest.fn(),
+            badge: { label: 'New' },
           },
           {
             label: 'Socks',

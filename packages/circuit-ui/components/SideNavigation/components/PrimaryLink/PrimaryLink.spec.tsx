@@ -67,7 +67,7 @@ describe('PrimaryLink', () => {
     it('should render with badge styles', () => {
       const wrapper = renderPrimaryLink(create, {
         ...baseProps,
-        badge: { label: 'Badge' },
+        badge: true,
       });
       expect(wrapper).toMatchSnapshot();
     });

@@ -25,6 +25,7 @@ import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { useFocusList, FocusProps } from '../../../../hooks/useFocusList';
 import SubHeadline from '../../../SubHeadline';
 import Body from '../../../Body';
+import Badge from '../../../Badge';
 import { useComponents } from '../../../ComponentsContext';
 import { SecondaryGroupProps, SecondaryLinkProps } from '../../types';
 import { Skeleton } from '../../../Skeleton';
@@ -46,10 +47,15 @@ const listStyles = css`
   list-style: none;
 `;
 
+const badgeStyles = (theme: Theme) => css`
+  margin-left: ${theme.spacings.byte};
+`;
+
 function SecondaryLink({
   label,
   onClick,
   tracking,
+  badge,
   ...props
 }: SecondaryLinkProps) {
   const { Link } = useComponents();
@@ -78,6 +84,11 @@ function SecondaryLink({
             {label}
           </Body>
         </Skeleton>
+        {badge && (
+          <Badge variant="promo" as="span" css={badgeStyles}>
+            {badge.label}
+          </Badge>
+        )}
       </SecondaryAnchor>
     </li>
   );

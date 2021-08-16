@@ -23,12 +23,10 @@ import styled, { StyleProps } from '../../../../styles/styled';
 import {
   focusVisible,
   disableVisually,
-  hideVisually,
   cx,
 } from '../../../../styles/style-mixins';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { ClickEvent } from '../../../../types/events';
-import { uniqueId } from '../../../../util/id';
 import { useComponents } from '../../../ComponentsContext';
 import Body from '../../../Body';
 import { Skeleton } from '../../../Skeleton';
@@ -196,11 +194,8 @@ export function PrimaryLink({
     'primary-link',
   );
 
-  const badgeId = badge && uniqueId();
   const suffix = Suffix && <Suffix css={suffixStyles} role="presentation" />;
   const isExternalLink = isExternal || props.target === '_blank';
-
-  const hasBadge = Boolean(badge);
 
   return (
     <Anchor
@@ -212,24 +207,18 @@ export function PrimaryLink({
       // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
       as={props.href ? Link : 'button'}
     >
-      <Skeleton css={cx(iconStyles, hasBadge && iconWithBadgeStyles)}>
+      <Skeleton css={cx(iconStyles, badge && iconWithBadgeStyles)}>
         <Icon role="presentation" size="large" />
       </Skeleton>
       <Skeleton>
         <Label
           variant={isActive || isOpen ? 'highlight' : undefined}
-          aria-describedby={badgeId}
           as="span"
           noMargin
         >
           {label}
         </Label>
       </Skeleton>
-      {badge && (
-        <div id={badgeId} css={hideVisually}>
-          {badge.label}
-        </div>
-      )}
       {/* TODO: Make this accessible to screen readers */}
       {isExternalLink && (
         <ArrowRight

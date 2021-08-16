@@ -42,9 +42,7 @@ export interface PrimaryLinkProps extends HTMLProps<HTMLAnchorElement> {
   /**
    * TODO: Add description
    */
-  badge?: {
-    label: string;
-  };
+  badge?: boolean;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -87,4 +85,10 @@ export interface SecondaryLinkProps {
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
+  /**
+   * TODO: Add description
+   */
+  badge?: {
+    label: string;
+  };
 }
