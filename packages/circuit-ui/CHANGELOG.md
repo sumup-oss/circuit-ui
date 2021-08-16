@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.5
+
+### Patch Changes
+
+- [#1124](https://github.com/sumup-oss/circuit-ui/pull/1124) [`785878d9`](https://github.com/sumup-oss/circuit-ui/commit/785878d9936accf490850bb13dac6a09fa730b43) Thanks [@robinmetral](https://github.com/robinmetral)! - Changed the Popover behavior to close when one of the items is clicked.
+
 ## 3.1.0-canary.4
 
 ### Minor Changes
