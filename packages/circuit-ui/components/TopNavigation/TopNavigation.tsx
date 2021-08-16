@@ -111,7 +111,11 @@ export function TopNavigation({
   return (
     <Header role="banner" {...props}>
       <div css={wrapperStyles}>
-        {hamburger && <Hamburger {...hamburger} css={hamburgerStyles} />}
+        {hamburger && (
+          <SkeletonContainer isLoading={Boolean(isLoading)}>
+            <Hamburger {...hamburger} css={hamburgerStyles} />
+          </SkeletonContainer>
+        )}
         <Logo>{logo}</Logo>
       </div>
       <SkeletonContainer css={wrapperStyles} isLoading={Boolean(isLoading)}>
