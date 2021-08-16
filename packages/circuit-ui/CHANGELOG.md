@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.6
+
+### Minor Changes
+
+- [#1126](https://github.com/sumup-oss/circuit-ui/pull/1126) [`08b95cc6`](https://github.com/sumup-oss/circuit-ui/commit/08b95cc6a5f3c12c829bc3df8e36feac3a897915) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the option to display a badge next to a secondary navigation link.
+
 ## 3.1.0-canary.5
 
 ### Patch Changes
