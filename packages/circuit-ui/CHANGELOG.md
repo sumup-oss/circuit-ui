@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.4
+
+### Minor Changes
+
+- [#1117](https://github.com/sumup-oss/circuit-ui/pull/1117) [`e878a6e6`](https://github.com/sumup-oss/circuit-ui/commit/e878a6e6986fc6ca31781cd916eee63df41c0d30) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a skeleton loading UI to the TopNavigation and SideNavigation components.
+
 ## 3.1.0-canary.3
 
 ### Patch Changes
