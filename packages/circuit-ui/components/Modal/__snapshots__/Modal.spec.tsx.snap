@@ -56,21 +56,7 @@ exports[`Modal should match the snapshot 1`] = `
   }
 }
 
-@media (max-width:479px) {
-  .circuit-4 {
-    -webkit-transform: translateY(0) !important;
-    -ms-transform: translateY(0) !important;
-    transform: translateY(0) !important;
-  }
-}
-
-@media (min-width:480px) {
-  .circuit-4 {
-    opacity: 1 !important;
-  }
-}
-
-.circuit-5 {
+.circuit-4 {
   position: fixed;
   top: 0;
   left: 0;
@@ -84,14 +70,10 @@ exports[`Modal should match the snapshot 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-5 {
+  .circuit-4 {
     -webkit-transition: opacity 240ms ease-in-out;
     transition: opacity 240ms ease-in-out;
   }
-}
-
-.circuit-6 {
-  opacity: 1;
 }
 
 .circuit-2 {
@@ -232,11 +214,11 @@ exports[`Modal should match the snapshot 1`] = `
     class="ReactModalPortal"
   >
     <div
-      class="circuit-5 circuit-6"
+      class="circuit-4"
     >
       <div
         aria-modal="true"
-        class="circuit-3 circuit-4"
+        class="circuit-3"
         role="dialog"
         tabindex="-1"
       >

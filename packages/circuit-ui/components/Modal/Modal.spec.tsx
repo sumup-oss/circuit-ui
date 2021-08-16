@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { render, act, userEvent, axe } from '../../util/test-utils';
+import { render, act, userEvent, axe, waitFor } from '../../util/test-utils';
 
 import { Modal, ModalProps } from './Modal';
 
@@ -37,9 +37,12 @@ describe('Modal', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should render the modal', () => {
+  it('should render the modal', async () => {
     const { getByRole } = render(<Modal {...defaultModal} />);
-    expect(getByRole('dialog')).toBeVisible();
+
+    await waitFor(() => {
+      expect(getByRole('dialog')).toBeVisible();
+    });
   });
 
   it('should call the onClose callback', () => {
