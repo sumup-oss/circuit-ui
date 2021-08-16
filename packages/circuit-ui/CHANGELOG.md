@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.7
+
+### Patch Changes
+
+- [#1128](https://github.com/sumup-oss/circuit-ui/pull/1128) [`fdc0575e`](https://github.com/sumup-oss/circuit-ui/commit/fdc0575e728ba2e25596a97c48e4b35b78991082) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the click handler to close the Popover when a PopoverItem doesn't have an onClick.
+
 ## 3.1.0-canary.6
 
 ### Minor Changes
