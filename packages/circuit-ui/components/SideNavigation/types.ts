@@ -47,13 +47,13 @@ export interface PrimaryLinkProps extends HTMLProps<HTMLAnchorElement> {
    */
   badge?: boolean;
   /**
-   * Additional data that is dispatched with the tracking event.
-   */
-  tracking?: TrackingProps;
-  /**
    * A collection of secondary groups with nested secondary navigation links.
    */
   secondaryGroups?: SecondaryGroupProps[];
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
 }
 
 export interface SecondaryGroupProps {
@@ -66,6 +66,11 @@ export interface SecondaryGroupProps {
    * A collection of secondary navigation links.
    */
   secondaryLinks: SecondaryLinkProps[];
+  /**
+   * An optional label that is added to the element tree when clicking a nested
+   * secondary navigation link.
+   */
+  trackingLabel?: string;
 }
 
 export interface SecondaryLinkProps {

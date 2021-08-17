@@ -18,6 +18,7 @@
 import { css } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 import { find } from 'lodash/fp';
+import { TrackingElement } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { shadow, hideScrollbar } from '../../../../styles/style-mixins';
@@ -26,6 +27,7 @@ import { TOP_NAVIGATION_HEIGHT } from '../../../TopNavigation/TopNavigation';
 import Headline from '../../../Headline';
 import { Skeleton, SkeletonContainer } from '../../../Skeleton';
 import { PrimaryLinkProps } from '../../types';
+import { TRACKING_ELEMENTS } from '../../constants';
 import { SecondaryLinks } from '../SecondaryLinks';
 import { PrimaryLink } from '../PrimaryLink';
 
@@ -133,29 +135,39 @@ export function DesktopNavigation({
     activePrimaryLink && activePrimaryLink.secondaryGroups;
 
   return (
-    <Wrapper isLoading={Boolean(isLoading)}>
-      <PrimaryNavigationWrapper {...props} aria-label={primaryNavigationLabel}>
-        <ul role="list" css={listStyles}>
-          {primaryLinks.map((link) => (
-            <li key={link.label}>
-              <PrimaryLink {...link} {...focusProps} />
-            </li>
-          ))}
-        </ul>
-      </PrimaryNavigationWrapper>
-      {secondaryGroups && secondaryGroups.length > 0 && (
-        <SecondaryNavigationWrapper
+    <TrackingElement name={TRACKING_ELEMENTS.SIDE_NAVIGATION}>
+      <Wrapper isLoading={Boolean(isLoading)}>
+        <PrimaryNavigationWrapper
           {...props}
-          aria-label={secondaryNavigationLabel}
+          aria-label={primaryNavigationLabel}
         >
-          <Skeleton css={headlineStyles}>
-            <Headline as="h2" size="four" noMargin>
-              {activePrimaryLink && activePrimaryLink.label}
-            </Headline>
-          </Skeleton>
-          <SecondaryLinks secondaryGroups={secondaryGroups} />
-        </SecondaryNavigationWrapper>
-      )}
-    </Wrapper>
+          <ul role="list" css={listStyles}>
+            {primaryLinks.map((link) => (
+              <li key={link.label}>
+                <PrimaryLink {...link} {...focusProps} />
+              </li>
+            ))}
+          </ul>
+        </PrimaryNavigationWrapper>
+        {secondaryGroups && secondaryGroups.length > 0 && (
+          <SecondaryNavigationWrapper
+            {...props}
+            aria-label={secondaryNavigationLabel}
+          >
+            <Skeleton css={headlineStyles}>
+              <Headline as="h2" size="four" noMargin>
+                {activePrimaryLink && activePrimaryLink.label}
+              </Headline>
+            </Skeleton>
+            <SecondaryLinks
+              secondaryGroups={secondaryGroups}
+              trackingLabel={
+                activePrimaryLink.tracking && activePrimaryLink.tracking.label
+              }
+            />
+          </SecondaryNavigationWrapper>
+        )}
+      </Wrapper>
+    </TrackingElement>
   );
 }
