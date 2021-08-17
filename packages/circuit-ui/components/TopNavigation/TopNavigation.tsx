@@ -16,6 +16,7 @@
 import { ReactNode } from 'react';
 import { css } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
+import { TrackingElement } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { focusVisible } from '../../styles/style-mixins';
@@ -24,6 +25,7 @@ import { SkeletonContainer } from '../Skeleton';
 
 import { ProfileMenu, ProfileMenuProps } from './components/ProfileMenu';
 import { UtilityLinks, UtilityLinksProps } from './components/UtilityLinks';
+import { TRACKING_ELEMENTS } from './constants';
 
 export const TOP_NAVIGATION_HEIGHT = '49px'; /* height + border-bottom */
 
@@ -103,32 +105,36 @@ export function TopNavigation({
   profileLabel,
   profileActions,
   profileIsActive,
+  profileTrackingLabel,
   links,
   hamburger,
   isLoading,
   ...props
 }: TopNavigationProps): JSX.Element {
   return (
-    <Header role="banner" {...props}>
-      <div css={wrapperStyles}>
-        {hamburger && (
-          <SkeletonContainer isLoading={Boolean(isLoading)}>
-            <Hamburger {...hamburger} css={hamburgerStyles} />
-          </SkeletonContainer>
-        )}
-        <Logo>{logo}</Logo>
-      </div>
-      <SkeletonContainer css={wrapperStyles} isLoading={Boolean(isLoading)}>
-        {links && <UtilityLinks links={links} />}
-        <ProfileMenu
-          userAvatar={userAvatar}
-          userName={userName}
-          userId={userId}
-          profileLabel={profileLabel}
-          profileActions={profileActions}
-          profileIsActive={profileIsActive}
-        />
-      </SkeletonContainer>
-    </Header>
+    <TrackingElement name={TRACKING_ELEMENTS.TOP_NAVIGATION}>
+      <Header role="banner" {...props}>
+        <div css={wrapperStyles}>
+          {hamburger && (
+            <SkeletonContainer isLoading={Boolean(isLoading)}>
+              <Hamburger {...hamburger} css={hamburgerStyles} />
+            </SkeletonContainer>
+          )}
+          <Logo>{logo}</Logo>
+        </div>
+        <SkeletonContainer css={wrapperStyles} isLoading={Boolean(isLoading)}>
+          {links && <UtilityLinks links={links} />}
+          <ProfileMenu
+            userAvatar={userAvatar}
+            userName={userName}
+            userId={userId}
+            profileLabel={profileLabel}
+            profileActions={profileActions}
+            profileIsActive={profileIsActive}
+            profileTrackingLabel={profileTrackingLabel}
+          />
+        </SkeletonContainer>
+      </Header>
+    </TrackingElement>
   );
 }

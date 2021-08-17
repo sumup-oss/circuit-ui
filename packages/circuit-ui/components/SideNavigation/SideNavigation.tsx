@@ -42,6 +42,7 @@ export function SideNavigation({
   closeButtonLabel,
   primaryNavigationLabel,
   secondaryNavigationLabel,
+  UNSAFE_components,
 }: SideNavigationProps): JSX.Element {
   if (
     process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
@@ -68,6 +69,7 @@ export function SideNavigation({
         primaryLinks,
         closeButtonLabel,
         primaryNavigationLabel,
+        UNSAFE_components,
       });
     }
   }, [
@@ -79,6 +81,7 @@ export function SideNavigation({
     onClose,
     closeButtonLabel,
     primaryNavigationLabel,
+    UNSAFE_components,
   ]);
 
   // Close the modal when the user resizes the window.

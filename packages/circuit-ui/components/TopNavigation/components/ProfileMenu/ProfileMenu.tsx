@@ -16,6 +16,7 @@
 import { useState, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import { ChevronDown } from '@sumup/icons';
+import { TrackingElement } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
@@ -23,6 +24,7 @@ import Avatar, { AvatarProps } from '../../../Avatar';
 import Body from '../../../Body';
 import Popover, { PopoverProps } from '../../../Popover';
 import { Skeleton } from '../../../Skeleton';
+import { TRACKING_ELEMENTS } from '../../constants';
 
 const AvatarPlaceholder = () => (
   <svg
@@ -174,6 +176,11 @@ export interface ProfileMenuProps extends ProfileProps {
    * Same API as the Popover actions.
    */
   profileActions: PopoverProps['actions'];
+  /**
+   * An optional label that is added to the element tree when clicking
+   * a profile action.
+   */
+  profileTrackingLabel?: string;
 }
 
 export function ProfileMenu({
@@ -183,28 +190,34 @@ export function ProfileMenu({
   profileLabel,
   profileActions,
   profileIsActive,
+  profileTrackingLabel,
 }: ProfileMenuProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
   const offsetModifier = { name: 'offset', options: { offset: [-16, 8] } };
 
   return (
-    <Popover
-      isOpen={isOpen}
-      onToggle={setOpen}
-      component={(popoverProps) => (
-        <Profile
-          {...popoverProps}
-          isOpen={isOpen}
-          profileLabel={profileLabel}
-          userAvatar={userAvatar}
-          userName={userName}
-          userId={userId}
-          profileIsActive={profileIsActive}
-        />
-      )}
-      actions={profileActions}
-      placement="bottom-end"
-      modifiers={[offsetModifier]}
-    />
+    <TrackingElement
+      name={TRACKING_ELEMENTS.PROFILE_SECTION}
+      label={profileTrackingLabel}
+    >
+      <Popover
+        isOpen={isOpen}
+        onToggle={setOpen}
+        component={(popoverProps) => (
+          <Profile
+            {...popoverProps}
+            isOpen={isOpen}
+            profileLabel={profileLabel}
+            userAvatar={userAvatar}
+            userName={userName}
+            userId={userId}
+            profileIsActive={profileIsActive}
+          />
+        )}
+        actions={profileActions}
+        placement="bottom-end"
+        modifiers={[offsetModifier]}
+      />
+    </TrackingElement>
   );
 }

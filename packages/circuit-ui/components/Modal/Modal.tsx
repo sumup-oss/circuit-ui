@@ -79,11 +79,6 @@ const closeButtonStyles = (theme: Theme) => css`
   top: ${theme.spacings.byte};
   right: ${theme.spacings.byte};
   z-index: ${theme.zIndex.absolute};
-
-  ${theme.mq.kilo} {
-    top: ${theme.spacings.mega};
-    right: ${theme.spacings.mega};
-  }
 `;
 
 type ContentProps = Pick<ModalProps, 'variant'>;
