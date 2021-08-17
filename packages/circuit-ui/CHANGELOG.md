@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.9
+
+### Minor Changes
+
+- [#1132](https://github.com/sumup-oss/circuit-ui/pull/1132) [`5647889b`](https://github.com/sumup-oss/circuit-ui/commit/5647889b9edc0b55358f4a35552a535fc53de319) Thanks [@connor-baer](https://github.com/connor-baer)! - Added tracking to the TopNavigation and SideNavigation components.
+
 ## 3.1.0-canary.8
 
 ### Patch Changes
