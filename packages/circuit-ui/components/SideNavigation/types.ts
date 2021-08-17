@@ -17,6 +17,8 @@ import { HTMLProps, FC, MouseEvent, KeyboardEvent } from 'react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { IconProps } from '@sumup/icons';
 
+import { BadgeProps } from '../Badge';
+
 export interface PrimaryLinkProps extends HTMLProps<HTMLAnchorElement> {
   /**
    * Display an icon in addition to the text to help to identify the link.
@@ -40,7 +42,8 @@ export interface PrimaryLinkProps extends HTMLProps<HTMLAnchorElement> {
    */
   isExternal?: boolean;
   /**
-   * TODO: Add description
+   * Whether to show a small circular badge to indicate that a nested secondary
+   * link has a badge.
    */
   badge?: boolean;
   /**
@@ -48,18 +51,19 @@ export interface PrimaryLinkProps extends HTMLProps<HTMLAnchorElement> {
    */
   tracking?: TrackingProps;
   /**
-   * TODO: Add description
+   * A collection of secondary groups with nested secondary navigation links.
    */
   secondaryGroups?: SecondaryGroupProps[];
 }
 
 export interface SecondaryGroupProps {
   /**
-   * TODO: Add description
+   * A label that is displayed above the secondary navigation. Only optional
+   * for the first group.
    */
   label?: string;
   /**
-   * TODO: Add description
+   * A collection of secondary navigation links.
    */
   secondaryLinks: SecondaryLinkProps[];
 }
@@ -86,9 +90,8 @@ export interface SecondaryLinkProps {
    */
   tracking?: TrackingProps;
   /**
-   * TODO: Add description
+   * An optional badge to highlight the secondary link, e.g. to promote
+   * a new link or to indicate new content.
    */
-  badge?: {
-    label: string;
-  };
+  badge?: BadgeProps;
 }

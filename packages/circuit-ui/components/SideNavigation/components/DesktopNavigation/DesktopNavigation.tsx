@@ -31,19 +31,21 @@ import { PrimaryLink } from '../PrimaryLink';
 
 export interface DesktopNavigationProps {
   /**
-   * TODO: Add description
+   * Whether the navigation data is loading.
    */
   isLoading?: boolean;
   /**
-   * TODO: Add description
+   * A collection of links with nested secondary groups.
    */
   primaryLinks: PrimaryLinkProps[];
   /**
-   * TODO: Add description
+   * Text label for the primary navigation for screen readers.
+   * Important for accessibility.
    */
   primaryNavigationLabel: string;
   /**
-   * TODO: Add description
+   * Text label for the secondary navigation for screen readers.
+   * Important for accessibility.
    */
   secondaryNavigationLabel: string;
 }

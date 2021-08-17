@@ -46,15 +46,17 @@ const HEADER_HEIGHT = 56;
 
 export interface MobileNavigationProps extends BaseModalProps {
   /**
-   * TODO: Add description
+   * A collection of links with nested secondary groups.
    */
   primaryLinks: PrimaryLinkProps[];
   /**
-   * TODO: Add description
+   * Text label for the close button for screen readers.
+   * Important for accessibility.
    */
   closeButtonLabel: string;
   /**
-   * TODO: Add description
+   * Text label for the primary navigation for screen readers.
+   * Important for accessibility.
    */
   primaryNavigationLabel: string;
   /**
@@ -62,7 +64,7 @@ export interface MobileNavigationProps extends BaseModalProps {
    *
    * **DO NOT USE.** This prop is not stable and can be removed at any time.
    */
-  UNSAFE_components: ComponentsContextType;
+  UNSAFE_components?: ComponentsContextType;
 }
 
 function combineClickHandlers(
