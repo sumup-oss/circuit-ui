@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.10
+
+### Patch Changes
+
+- [#1134](https://github.com/sumup-oss/circuit-ui/pull/1134) [`daec52cb`](https://github.com/sumup-oss/circuit-ui/commit/daec52cbb13bc34f83cd16a07b72d1370a790715) Thanks [@connor-baer](https://github.com/connor-baer)! - Aligned the navigation components' border color with other Circuit UI components.
+
 ## 3.1.0-canary.9
 
 ### Minor Changes
