@@ -36,7 +36,7 @@ const headerStyles = ({ theme }: StyleProps) => css`
   width: 100%;
   height: ${TOP_NAVIGATION_HEIGHT};
   background-color: ${theme.colors.bodyBg};
-  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
+  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 
   ${theme.mq.giga} {
     position: sticky;
@@ -54,7 +54,7 @@ const hamburgerStyles = (theme: Theme) => css`
 
   border-radius: 0;
   /* The !important below is necessary to override the default hover styles. */
-  border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n200} !important;
+  border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n300} !important;
 
   ${theme.mq.giga} {
     display: none;

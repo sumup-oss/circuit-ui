@@ -78,7 +78,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
       right: ${theme.spacings.giga};
       left: ${theme.spacings.giga};
       width: calc(100% - 2 * ${theme.spacings.giga});
-      border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
+      border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
       transition: width ${theme.transitions.default},
         right ${theme.transitions.default}, left ${theme.transitions.default};
     }

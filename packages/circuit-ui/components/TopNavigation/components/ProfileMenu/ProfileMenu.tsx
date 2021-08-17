@@ -44,7 +44,7 @@ const AvatarPlaceholder = () => (
 const profileWrapperStyles = ({ theme }: StyleProps) => css`
   height: 100%;
   padding: ${theme.spacings.kilo};
-  border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
+  border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 
   ${theme.mq.mega} {
     padding: ${theme.spacings.bit} ${theme.spacings.mega};

@@ -83,7 +83,7 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid #CCC;
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }
@@ -229,7 +229,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid #CCC;
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }
@@ -398,7 +398,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid #CCC;
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }
@@ -598,7 +598,7 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid #CCC;
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }

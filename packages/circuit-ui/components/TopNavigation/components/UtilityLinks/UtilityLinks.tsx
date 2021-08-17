@@ -29,7 +29,7 @@ import { Skeleton } from '../../../Skeleton';
 const anchorStyles = ({ theme }: StyleProps) => css`
   text-decoration: none;
   padding: ${theme.spacings.kilo};
-  border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
+  border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 
   ${theme.mq.kilo} {
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
