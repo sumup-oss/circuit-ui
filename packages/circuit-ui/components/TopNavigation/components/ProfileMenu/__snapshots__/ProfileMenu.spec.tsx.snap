@@ -24,7 +24,7 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   height: 100%;
   padding: 12px;
-  border-left: 1px solid #E6E6E6;
+  border-left: 1px solid #CCC;
 }
 
 .circuit-6:hover {
@@ -225,7 +225,7 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   height: 100%;
   padding: 12px;
-  border-left: 1px solid #E6E6E6;
+  border-left: 1px solid #CCC;
 }
 
 .circuit-5:hover {

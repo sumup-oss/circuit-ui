@@ -42,7 +42,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   background-color: #FFF;
   padding-top: 12px;
   overflow-y: auto;
-  box-shadow: 1px 0 #E6E6E6;
+  box-shadow: 1px 0 #CCC;
   -webkit-transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   -ms-overflow-style: none;
@@ -131,7 +131,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid #CCC;
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }
@@ -207,7 +207,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   margin-left: 48px;
   height: calc(100vh - 49px);
   width: 200px;
-  border-right: 1px solid #E6E6E6;
+  border-right: 1px solid #CCC;
 }
 
 .circuit-7 {
@@ -489,7 +489,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   background-color: #FFF;
   padding-top: 12px;
   overflow-y: auto;
-  box-shadow: 1px 0 #E6E6E6;
+  box-shadow: 1px 0 #CCC;
   -webkit-transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   -ms-overflow-style: none;
@@ -594,7 +594,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid #CCC;
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }

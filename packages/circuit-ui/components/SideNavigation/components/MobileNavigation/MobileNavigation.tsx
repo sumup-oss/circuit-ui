@@ -100,7 +100,7 @@ const Chevron = styled(ChevronDown, {
 })<ChevronProps>(chevronStyles, chevronOpenStyles);
 
 const groupStyles = (theme: Theme) => css`
-  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
+  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   margin-bottom: -1px;
 
   > *:last-child {

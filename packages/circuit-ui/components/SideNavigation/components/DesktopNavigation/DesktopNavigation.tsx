@@ -79,7 +79,7 @@ const primaryWrapperStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.bodyBg};
   padding-top: ${theme.spacings.kilo};
   overflow-y: auto;
-  box-shadow: 1px 0 ${theme.colors.n200};
+  box-shadow: 1px 0 ${theme.colors.n300};
   transition: width ${theme.transitions.default},
     box-shadow ${theme.transitions.default};
 
@@ -105,7 +105,7 @@ const secondaryWrapperStyles = ({ theme }: StyleProps) => css`
   margin-left: ${PRIMARY_NAVIGATION_WIDTH};
   height: calc(100vh - ${TOP_NAVIGATION_HEIGHT});
   width: 200px;
-  border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
+  border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 `;
 
 const SecondaryNavigationWrapper = styled.nav(secondaryWrapperStyles);
