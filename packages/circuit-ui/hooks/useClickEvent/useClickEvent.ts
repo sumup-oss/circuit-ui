@@ -24,6 +24,9 @@ export function useClickEvent<Event>(
   const { label, component = defaultComponentName, customParameters } =
     tracking || {};
 
+  /**
+   * FIXME tracking should also work if onClick is falsy, e.g. if it's a link. This will be a breaking change.
+   */
   return onClick && label
     ? (event: Event): void => {
         dispatch({ label, component, customParameters });

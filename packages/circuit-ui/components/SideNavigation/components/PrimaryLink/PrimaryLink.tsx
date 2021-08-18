@@ -176,7 +176,7 @@ const Label = styled(Body)(labelStyles);
 export function PrimaryLink({
   icon: Icon,
   label,
-  onClick,
+  onClick = () => {}, // Can't be undefined in order to trigger useClickEvent
   isActive,
   isOpen,
   isExternal,
