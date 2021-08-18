@@ -87,7 +87,7 @@ export interface UtilityLinkProps extends HTMLProps<HTMLAnchorElement> {
 function UtilityLink({
   icon: Icon,
   label,
-  onClick,
+  onClick = () => {}, // Can't de undefined in order to trigger useClickEvent
   tracking,
   ...props
 }: UtilityLinkProps) {

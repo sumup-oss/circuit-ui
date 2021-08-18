@@ -55,7 +55,7 @@ const badgeStyles = (theme: Theme) => css`
 
 function SecondaryLink({
   label,
-  onClick,
+  onClick = () => {}, // Can't de undefined in order to trigger useClickEvent
   tracking,
   badge,
   ...props
