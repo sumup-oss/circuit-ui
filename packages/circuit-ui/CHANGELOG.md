@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.11
+
+### Patch Changes
+
+- [#1136](https://github.com/sumup-oss/circuit-ui/pull/1136) [`9dfda4e9`](https://github.com/sumup-oss/circuit-ui/commit/9dfda4e99c08e00d81d7d8d788729c6e1fde26ae) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the nav tracking by passing a defaut noop as onClick. This will be fixed in collector in the next major.
+
 ## 3.1.0-canary.10
 
 ### Patch Changes
