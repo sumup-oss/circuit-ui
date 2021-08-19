@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.12
+
+### Patch Changes
+
+- [#1138](https://github.com/sumup-oss/circuit-ui/pull/1138) [`6c9fe3b2`](https://github.com/sumup-oss/circuit-ui/commit/6c9fe3b24290f2f63575b63fad179cd66f9a6e05) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the useMedia hook (used in the navigation components) for Safari <14.
+
 ## 3.1.0-canary.11
 
 ### Patch Changes
