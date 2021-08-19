@@ -34,10 +34,14 @@ export function useMedia(query: string, initialState = false): boolean {
       setMatch(mqList.matches);
     };
 
-    mqList.addEventListener('change', onChange);
+    /**
+     * We are using the deprecated addListener here because Safari <14 doesn't
+     * support addEventListener for MediaQueryLists.
+     */
+    mqList.addListener(onChange);
 
     return () => {
-      mqList.removeEventListener('change', onChange);
+      mqList.removeListener(onChange);
     };
   }, [query]);
 
