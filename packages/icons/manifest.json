@@ -1,37 +1,102 @@
 {
   "icons": [
     {
-      "name": "add_item_filled",
+      "name": "add",
       "category": "Action",
       "size": "24"
     },
     {
-      "name": "add_item",
+      "name": "add_employees",
       "category": "Action",
       "size": "24"
     },
     {
-      "name": "add_person_filled",
+      "name": "add_items",
       "category": "Action",
       "size": "24"
     },
     {
-      "name": "add_person",
+      "name": "chevron_down",
       "category": "Action",
       "size": "24"
     },
     {
-      "name": "circle_more",
+      "name": "chevron_left",
       "category": "Action",
       "size": "24"
     },
     {
-      "name": "cross",
+      "name": "chevron_right",
       "category": "Action",
       "size": "24"
     },
     {
-      "name": "log_out",
+      "name": "chevron_up",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "more",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "close",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "crop",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "delete",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "download",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "download_cloud",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "edit",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "hide",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "link",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "login",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "logout",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "minus",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "pause",
       "category": "Action",
       "size": "24"
     },
@@ -41,12 +106,47 @@
       "size": "24"
     },
     {
+      "name": "play",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "refresh",
       "category": "Action",
       "size": "24"
     },
     {
+      "name": "remove",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "search",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "send",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "share",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "upload",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "upload_cloud",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "view",
       "category": "Action",
       "size": "24"
     },
@@ -426,11 +526,6 @@
       "size": "24"
     },
     {
-      "name": "cloud_download",
-      "category": "File",
-      "size": "24"
-    },
-    {
       "name": "file",
       "category": "File",
       "size": "24"
@@ -586,11 +681,6 @@
       "size": "24"
     },
     {
-      "name": "paper_plane",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
       "name": "person_filled",
       "category": "Miscellaneous",
       "size": "24"
@@ -661,43 +751,38 @@
       "size": "24"
     },
     {
-      "name": "circle_checkmark_filled",
+      "name": "hamburger",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "confirm",
       "category": "Notification",
       "size": "24"
     },
     {
-      "name": "circle_checkmark",
+      "name": "alert",
       "category": "Notification",
       "size": "24"
     },
     {
-      "name": "circle_cross_filled",
+      "name": "help",
       "category": "Notification",
       "size": "24"
     },
     {
-      "name": "circle_cross",
+      "name": "notify",
       "category": "Notification",
       "size": "24"
     },
     {
-      "name": "circle_help_filled",
+      "name": "info",
       "category": "Notification",
       "size": "24"
     },
     {
-      "name": "circle_help",
-      "category": "Notification",
-      "size": "24"
-    },
-    {
-      "name": "circle_warning_filled",
-      "category": "Notification",
-      "size": "24"
-    },
-    {
-      "name": "circle_warning",
-      "category": "Notification",
+      "name": "account",
+      "category": "Product and feature",
       "size": "24"
     },
     {
@@ -736,82 +821,12 @@
       "size": "24"
     },
     {
-      "name": "bin",
+      "name": "close",
       "category": "Action",
       "size": "16"
     },
     {
-      "name": "check",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "chevron_down",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "chevron_left",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "chevron_right",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "chevron_up",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "circle_plus",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "cross",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "download",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "filter_funnel",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "hamburger",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "link",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "more",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "pause",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "pen_stroke",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "play",
+      "name": "edit",
       "category": "Action",
       "size": "16"
     },
@@ -822,36 +837,6 @@
     },
     {
       "name": "minus",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "refresh",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "rename",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "search",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "select_collapse",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "select_expand",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "share",
       "category": "Action",
       "size": "16"
     },
@@ -872,6 +857,11 @@
     },
     {
       "name": "calendar",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "checkmark",
       "category": "Miscellaneous",
       "size": "16"
     },
@@ -946,52 +936,27 @@
       "size": "16"
     },
     {
-      "name": "circle_help",
+      "name": "confirm",
       "category": "Notification",
       "size": "16"
     },
     {
-      "name": "circle_checkmark",
+      "name": "alert",
       "category": "Notification",
       "size": "16"
     },
     {
-      "name": "circle_checkmark_filled",
+      "name": "help",
       "category": "Notification",
       "size": "16"
     },
     {
-      "name": "circle_cross",
+      "name": "info",
       "category": "Notification",
       "size": "16"
     },
     {
-      "name": "circle_cross_filled",
-      "category": "Notification",
-      "size": "16"
-    },
-    {
-      "name": "circle_help_filled",
-      "category": "Notification",
-      "size": "16"
-    },
-    {
-      "name": "circle_info",
-      "category": "Notification",
-      "size": "16"
-    },
-    {
-      "name": "circle_info_filled",
-      "category": "Notification",
-      "size": "16"
-    },
-    {
-      "name": "circle_warning",
-      "category": "Notification",
-      "size": "16"
-    },
-    {
-      "name": "circle_warning_filled",
+      "name": "notify",
       "category": "Notification",
       "size": "16"
     },
