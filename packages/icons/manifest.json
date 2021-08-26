@@ -486,12 +486,12 @@
       "size": "24"
     },
     {
-      "name": "file",
+      "name": "attachment",
       "category": "File",
       "size": "24"
     },
     {
-      "name": "file_zip",
+      "name": "file",
       "category": "File",
       "size": "24"
     },
@@ -501,7 +501,17 @@
       "size": "24"
     },
     {
-      "name": "wallet",
+      "name": "image",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "zip_file",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "atm",
       "category": "Finance",
       "size": "24"
     },
@@ -511,22 +521,7 @@
       "size": "24"
     },
     {
-      "name": "company",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "card",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
       "name": "card_unknown",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "cash_atm",
       "category": "Finance",
       "size": "24"
     },
@@ -541,36 +536,6 @@
       "size": "24"
     },
     {
-      "name": "fallback",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "receipt",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "transactions_filled",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "transactions",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "wallet_filled",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "image",
-      "category": "File",
-      "size": "24"
-    },
-    {
       "name": "barcode",
       "category": "Miscellaneous",
       "size": "24"
@@ -582,6 +547,11 @@
     },
     {
       "name": "browser_secure",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "company",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -766,7 +736,32 @@
       "size": "24"
     },
     {
+      "name": "payouts",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "receipt",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "sales",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "sum_up_card",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "support",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "tipping",
       "category": "Product and feature",
       "size": "24"
     },
@@ -888,21 +883,6 @@
     {
       "name": "thumb_up",
       "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "file",
-      "category": "File",
-      "size": "16"
-    },
-    {
-      "name": "file_zip",
-      "category": "File",
-      "size": "16"
-    },
-    {
-      "name": "folder",
-      "category": "File",
       "size": "16"
     },
     {
