@@ -286,17 +286,7 @@
       "size": "24"
     },
     {
-      "name": "flag_ar",
-      "category": "Country flag",
-      "size": "16"
-    },
-    {
       "name": "flag_at",
-      "category": "Country flag",
-      "size": "16"
-    },
-    {
-      "name": "flag_au",
       "category": "Country flag",
       "size": "16"
     },
@@ -316,22 +306,12 @@
       "size": "16"
     },
     {
-      "name": "flag_ca",
-      "category": "Country flag",
-      "size": "16"
-    },
-    {
       "name": "flag_ch",
       "category": "Country flag",
       "size": "16"
     },
     {
       "name": "flag_cl",
-      "category": "Country flag",
-      "size": "16"
-    },
-    {
-      "name": "flag_co",
       "category": "Country flag",
       "size": "16"
     },
@@ -386,11 +366,6 @@
       "size": "16"
     },
     {
-      "name": "flag_hr",
-      "category": "Country flag",
-      "size": "16"
-    },
-    {
       "name": "flag_hu",
       "category": "Country flag",
       "size": "16"
@@ -402,11 +377,6 @@
     },
     {
       "name": "flag_it",
-      "category": "Country flag",
-      "size": "16"
-    },
-    {
-      "name": "flag_lt",
       "category": "Country flag",
       "size": "16"
     },
@@ -436,22 +406,12 @@
       "size": "16"
     },
     {
-      "name": "flag_pe",
-      "category": "Country flag",
-      "size": "16"
-    },
-    {
       "name": "flag_pl",
       "category": "Country flag",
       "size": "16"
     },
     {
       "name": "flag_pt",
-      "category": "Country flag",
-      "size": "16"
-    },
-    {
-      "name": "flag_ro",
       "category": "Country flag",
       "size": "16"
     },
@@ -467,11 +427,6 @@
     },
     {
       "name": "flag_sk",
-      "category": "Country flag",
-      "size": "16"
-    },
-    {
-      "name": "flag_sl",
       "category": "Country flag",
       "size": "16"
     },
