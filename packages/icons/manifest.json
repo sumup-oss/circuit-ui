@@ -151,27 +151,17 @@
       "size": "24"
     },
     {
-      "name": "live_chat_filled",
-      "category": "Communication",
-      "size": "24"
-    },
-    {
       "name": "live_chat",
       "category": "Communication",
       "size": "24"
     },
     {
-      "name": "mail",
+      "name": "email_chat",
       "category": "Communication",
       "size": "24"
     },
     {
-      "name": "support_filled",
-      "category": "Communication",
-      "size": "24"
-    },
-    {
-      "name": "support",
+      "name": "phone_chat",
       "category": "Communication",
       "size": "24"
     },
@@ -436,22 +426,17 @@
       "size": "16"
     },
     {
-      "name": "wifi",
-      "category": "Device",
-      "size": "24"
-    },
-    {
       "name": "calculator_filled",
       "category": "Device",
       "size": "24"
     },
     {
-      "name": "calculator",
+      "name": "card_reader_air",
       "category": "Device",
       "size": "24"
     },
     {
-      "name": "card_reader",
+      "name": "card_reader_solo",
       "category": "Device",
       "size": "24"
     },
@@ -461,17 +446,22 @@
       "size": "24"
     },
     {
+      "name": "mobile_phone",
+      "category": "Device",
+      "size": "24"
+    },
+    {
       "name": "nfc",
       "category": "Device",
       "size": "24"
     },
     {
-      "name": "terminal_filled",
+      "name": "printer",
       "category": "Device",
       "size": "24"
     },
     {
-      "name": "terminal",
+      "name": "wifi",
       "category": "Device",
       "size": "24"
     },
@@ -737,6 +727,21 @@
     },
     {
       "name": "account",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "fee_calculator",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "support",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "virtual_terminal",
       "category": "Product and feature",
       "size": "24"
     },
