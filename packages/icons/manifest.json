@@ -167,112 +167,127 @@
     },
     {
       "name": "american_express",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "apple_pay",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "banco_estado",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "bitcoin",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "dankort",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "diners_club",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "discover",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "ec",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "elo",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "elv",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "google_pay",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "hiper",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "hipercard",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "jcb",
-      "category": "Card scheme",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "klarna",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "maestro",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "mastercard",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "red_compra",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "samsung_pay",
-      "category": "Card scheme",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "sepa",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "sofort",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "union_pay",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "visa_electron",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "visa",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
       "name": "vpay",
-      "category": "Card scheme",
+      "category": "Payment method",
       "size": "24"
     },
     {
@@ -691,6 +706,21 @@
       "size": "24"
     },
     {
+      "name": "arrow_up",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "arrow_right",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "arrow_bottom",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
       "name": "arrow_left",
       "category": "Navigation",
       "size": "24"
@@ -858,26 +888,6 @@
     {
       "name": "thumb_up",
       "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "arrow_down",
-      "category": "Navigation",
-      "size": "16"
-    },
-    {
-      "name": "arrow_left",
-      "category": "Navigation",
-      "size": "16"
-    },
-    {
-      "name": "arrow_right",
-      "category": "Navigation",
-      "size": "16"
-    },
-    {
-      "name": "arrow_up",
-      "category": "Navigation",
       "size": "16"
     },
     {
