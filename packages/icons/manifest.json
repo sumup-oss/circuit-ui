@@ -446,11 +446,6 @@
       "size": "16"
     },
     {
-      "name": "calculator_filled",
-      "category": "Device",
-      "size": "24"
-    },
-    {
       "name": "card_reader_air",
       "category": "Device",
       "size": "24"
@@ -631,7 +626,7 @@
       "size": "24"
     },
     {
-      "name": "arrow_bottom",
+      "name": "arrow_down",
       "category": "Navigation",
       "size": "24"
     },
@@ -861,62 +856,7 @@
       "size": "16"
     },
     {
-      "name": "bank",
-      "category": "Finance",
-      "size": "16"
-    },
-    {
-      "name": "card",
-      "category": "Finance",
-      "size": "16"
-    },
-    {
-      "name": "receipt",
-      "category": "Finance",
-      "size": "16"
-    },
-    {
-      "name": "calendar",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
       "name": "checkmark",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "globe",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "location",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "shopping_cart",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "spinner",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "table",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "thumb_down",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "thumb_up",
       "category": "Miscellaneous",
       "size": "16"
     },
