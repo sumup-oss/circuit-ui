@@ -541,7 +541,7 @@
       "size": "24"
     },
     {
-      "name": "battery_charging",
+      "name": "battery",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -556,42 +556,17 @@
       "size": "24"
     },
     {
-      "name": "clock",
+      "name": "favorite",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
-      "name": "dashboard_filled",
+      "name": "legal",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
-      "name": "dashboard",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "gift_filled",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "gift",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "heart",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "house_filled",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "house",
+      "name": "like",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -601,7 +576,7 @@
       "size": "24"
     },
     {
-      "name": "lock",
+      "name": "secure_payments",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -611,12 +586,7 @@
       "size": "24"
     },
     {
-      "name": "person_filled",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "person",
+      "name": "profile",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -626,52 +596,22 @@
       "size": "24"
     },
     {
-      "name": "settings_filled",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
       "name": "settings",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
-      "name": "shopping_bag",
+      "name": "simcard",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
-      "name": "shopping_cart_filled",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "shopping_cart",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "sim_card",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "store_filled",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "store",
+      "name": "time",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
       "name": "truck",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "zap",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -731,7 +671,17 @@
       "size": "24"
     },
     {
+      "name": "checkout",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "fee_calculator",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "home",
       "category": "Product and feature",
       "size": "24"
     },
@@ -746,8 +696,23 @@
       "size": "24"
     },
     {
+      "name": "refer",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "reports",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "sales",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "shop",
+      "category": "Miscellaneous",
       "size": "24"
     },
     {
