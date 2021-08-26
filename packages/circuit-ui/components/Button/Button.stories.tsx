@@ -14,7 +14,7 @@
  */
 
 import { action } from '@storybook/addon-actions';
-import { ThumbUp } from '@sumup/icons';
+import { Download } from '@sumup/icons';
 
 import { Stack } from '../../../../.storybook/components';
 import ButtonGroup from '../ButtonGroup';
@@ -84,7 +84,7 @@ export const Sizes = (args: ButtonProps) => (
 );
 
 export const WithIcon = (args: ButtonProps) => (
-  <Button {...args} icon={ThumbUp}>
+  <Button {...args} icon={Download}>
     Like
   </Button>
 );

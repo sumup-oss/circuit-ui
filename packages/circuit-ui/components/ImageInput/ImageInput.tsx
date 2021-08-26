@@ -23,7 +23,7 @@ import {
   Fragment,
 } from 'react';
 import { css } from '@emotion/core';
-import { Bin, Plus } from '@sumup/icons';
+import { Delete, Plus } from '@sumup/icons';
 
 import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
@@ -416,7 +416,7 @@ export const ImageInput = ({
             onClick={handleClear}
             disabled={isLoading}
           >
-            <Bin />
+            <Delete />
           </ActionButton>
         ) : (
           <AddButton

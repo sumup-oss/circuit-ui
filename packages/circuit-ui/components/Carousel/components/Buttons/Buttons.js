@@ -44,13 +44,13 @@ Button.defaultProps = {
 
 export const NextButton = (props) => (
   <Button label="Next" {...props}>
-    <ChevronRight />
+    <ChevronRight size="16" />
   </Button>
 );
 
 export const PrevButton = (props) => (
   <Button label="Previous" {...props}>
-    <ChevronLeft />
+    <ChevronLeft size="16" />
   </Button>
 );
 

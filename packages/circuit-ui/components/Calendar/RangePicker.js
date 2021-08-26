@@ -14,7 +14,7 @@
  */
 
 import styled from '@emotion/styled';
-import { ArrowRight, ArrowLeft, Cross } from '@sumup/icons';
+import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 
@@ -24,7 +24,7 @@ const CustomArrow = styled(ArrowRight)`
   color: ${({ theme }) => theme.colors.p500};
 `;
 
-const CustomCloseIcon = styled(Cross)`
+const CustomCloseIcon = styled(Close)`
   color: ${({ theme }) => theme.colors.n700};
 `;
 

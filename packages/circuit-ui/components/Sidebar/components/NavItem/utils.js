@@ -14,7 +14,7 @@
  */
 
 import { isEmpty } from 'lodash/fp';
-import { Lock } from '@sumup/icons';
+import { SecurePayments } from '@sumup/icons';
 
 import { isArray } from '../../../../util/type-check';
 
@@ -28,7 +28,7 @@ export const hasSelectedChild = (children) => {
 };
 
 export const getIcon = ({ defaultIcon, selected, selectedIcon, disabled }) => {
-  const disabledIcon = <Lock size="large" />;
+  const disabledIcon = <SecurePayments size="large" />;
   const hasIcon = !!defaultIcon;
 
   if (hasIcon && disabled) {

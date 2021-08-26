@@ -15,7 +15,7 @@
 
 import { forwardRef } from 'react';
 import { css } from '@emotion/core';
-import { Search, Cross } from '@sumup/icons';
+import { Search, Close } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import Input from '../Input';
@@ -76,7 +76,7 @@ export const SearchInput = forwardRef(
         renderSuffix={(renderProps) =>
           value && onClear && clearLabel ? (
             <ClearButton onClick={onClear} label={clearLabel} {...renderProps}>
-              <Cross />
+              <Close />
             </ClearButton>
           ) : null
         }

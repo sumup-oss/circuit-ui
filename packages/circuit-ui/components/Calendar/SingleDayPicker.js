@@ -14,13 +14,13 @@
  */
 
 import styled from '@emotion/styled';
-import { ArrowRight, ArrowLeft, Cross } from '@sumup/icons';
+import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/initialize';
 
 import { CalendarWrapper } from './components';
 
-const CustomCloseIcon = styled(Cross)`
+const CustomCloseIcon = styled(Close)`
   color: ${({ theme }) => theme.colors.n700};
 `;
 

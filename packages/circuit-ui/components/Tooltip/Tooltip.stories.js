@@ -14,7 +14,7 @@
  */
 
 import styled from '@emotion/styled';
-import { CircleInfo } from '@sumup/icons';
+import { Info } from '@sumup/icons';
 
 import docs from './Tooltip.docs.mdx';
 import Tooltip from './Tooltip';
@@ -55,7 +55,7 @@ const TooltipContainer = styled('div')`
 export const Base = (args) => (
   <TooltipContainer>
     <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <CircleInfo />
+    <Info />
   </TooltipContainer>
 );
 
@@ -67,7 +67,7 @@ Base.args = {
 export const TopLeft = (args) => (
   <TooltipContainer>
     <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <CircleInfo />
+    <Info />
   </TooltipContainer>
 );
 
@@ -79,7 +79,7 @@ TopLeft.args = {
 export const BottomRight = (args) => (
   <TooltipContainer>
     <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <CircleInfo />
+    <Info />
   </TooltipContainer>
 );
 
@@ -91,7 +91,7 @@ BottomRight.args = {
 export const LeftCenter = (args) => (
   <TooltipContainer>
     <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <CircleInfo />
+    <Info />
   </TooltipContainer>
 );
 

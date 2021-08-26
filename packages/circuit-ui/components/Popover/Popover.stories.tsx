@@ -16,7 +16,7 @@
 /* eslint-disable react/display-name */
 
 import { action } from '@storybook/addon-actions';
-import { CirclePlus, PenStroke, Bin } from '@sumup/icons';
+import { Add, Edit, Delete } from '@sumup/icons';
 import { useState } from 'react';
 
 import Button from '../Button';
@@ -39,18 +39,18 @@ const actions = [
   {
     onClick: action('Button Click'),
     children: 'Add',
-    icon: CirclePlus,
+    icon: Add,
   },
   {
     onClick: action('Button Click'),
     children: 'Edit',
-    icon: PenStroke,
+    icon: Edit,
   },
   { type: 'divider' },
   {
     onClick: action('Button Click'),
     children: 'Delete',
-    icon: Bin,
+    icon: Delete,
     destructive: true,
   },
 ];
