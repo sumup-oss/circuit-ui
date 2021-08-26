@@ -386,6 +386,11 @@
       "size": "16"
     },
     {
+      "name": "flag_lt",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
       "name": "flag_lu",
       "category": "Country flag",
       "size": "16"
@@ -636,7 +641,7 @@
       "size": "24"
     },
     {
-      "name": "hamburger",
+      "name": "hamburger_menu",
       "category": "Navigation",
       "size": "24"
     },
@@ -671,12 +676,42 @@
       "size": "24"
     },
     {
+      "name": "card_security",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "cash_advance",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "challenge",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "checkout",
-      "category": "Miscellaneous",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "discount",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "employees",
+      "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "fee_calculator",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "gift_card",
       "category": "Product and feature",
       "size": "24"
     },
@@ -686,7 +721,37 @@
       "size": "24"
     },
     {
+      "name": "invoice",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "items",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "notification_center",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "online_store",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "payment_methods",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "payouts",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "qr_code",
       "category": "Product and feature",
       "size": "24"
     },
@@ -712,7 +777,7 @@
     },
     {
       "name": "shop",
-      "category": "Miscellaneous",
+      "category": "Product and feature",
       "size": "24"
     },
     {
@@ -722,6 +787,11 @@
     },
     {
       "name": "support",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "taxes",
       "category": "Product and feature",
       "size": "24"
     },
