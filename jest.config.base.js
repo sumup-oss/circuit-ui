@@ -24,6 +24,7 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
     '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js',
   },
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   testURL: 'http://localhost',
 };
