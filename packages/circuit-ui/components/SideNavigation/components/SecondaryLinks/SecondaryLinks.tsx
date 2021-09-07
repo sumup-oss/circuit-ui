@@ -50,6 +50,7 @@ const listStyles = css`
 `;
 
 const badgeStyles = (theme: Theme) => css`
+  flex-shrink: 0;
   margin-left: ${theme.spacings.byte};
 `;
 
