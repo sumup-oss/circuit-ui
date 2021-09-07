@@ -26,6 +26,9 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-text-decoration: none;
   text-decoration: none;
   padding: 16px 24px;
@@ -65,13 +68,15 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
 
 @media (min-width:960px) {
   .circuit-2 {
-    padding: 12px 20px;
+    padding: 12px;
+    padding-left: 20px;
   }
 }
 
 .circuit-1 {
   display: inline-block;
   line-height: 0;
+  margin-right: 8px;
 }
 
 .circuit-0 {
@@ -97,10 +102,6 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   letter-spacing: 0.25px;
   background-color: #CA58FF;
   color: #FFF;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  margin-left: 8px;
 }
 
 .circuit-9 {
@@ -120,6 +121,9 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-text-decoration: none;
   text-decoration: none;
   padding: 16px 24px;
@@ -159,7 +163,8 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
 
 @media (min-width:960px) {
   .circuit-9 {
-    padding: 12px 20px;
+    padding: 12px;
+    padding-left: 20px;
   }
 }
 
