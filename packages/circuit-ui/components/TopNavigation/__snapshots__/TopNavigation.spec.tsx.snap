@@ -289,7 +289,8 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   -webkit-text-decoration: none;
   text-decoration: none;
-  padding: 12px;
+  height: 100%;
+  padding: 0 12px;
   border-left: 1px solid #CCC;
 }
 
@@ -322,7 +323,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 @media (min-width:480px) {
   .circuit-10 {
-    padding: 12px 16px;
+    padding: 0 16px;
   }
 }
 
@@ -619,11 +620,11 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
           <span
             class="circuit-9"
           >
-            <p
+            <span
               class="circuit-8"
             >
               Shop
-            </p>
+            </span>
           </span>
         </a>
       </div>

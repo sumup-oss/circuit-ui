@@ -28,6 +28,7 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  height: 80px;
   width: 100%;
   background: none;
   border: none;
@@ -91,6 +92,8 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
 
 @media (min-width:960px) {
   .circuit-3 {
+    height: 48px;
+    width: 220px;
     padding: 12px;
     margin-bottom: 12px;
   }
@@ -107,22 +110,12 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
   line-height: 24px;
   margin-bottom: 0;
   font-weight: 700;
-  max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 @media (max-width:959px) {
   .circuit-1 {
     font-size: 24px;
     line-height: 28px;
-  }
-}
-
-@media (min-width:960px) {
-  .circuit-1 {
-    max-width: 160px;
   }
 }
 
@@ -175,6 +168,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  height: 80px;
   width: 100%;
   background: none;
   border: none;
@@ -237,6 +231,8 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
 
 @media (min-width:960px) {
   .circuit-3 {
+    height: 48px;
+    width: 220px;
     padding: 12px;
     margin-bottom: 12px;
   }
@@ -253,22 +249,12 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
-  max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 @media (max-width:959px) {
   .circuit-1 {
     font-size: 24px;
     line-height: 28px;
-  }
-}
-
-@media (min-width:960px) {
-  .circuit-1 {
-    max-width: 160px;
   }
 }
 
@@ -344,6 +330,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  height: 80px;
   width: 100%;
   background: none;
   border: none;
@@ -406,6 +393,8 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
 
 @media (min-width:960px) {
   .circuit-3 {
+    height: 48px;
+    width: 220px;
     padding: 12px;
     margin-bottom: 12px;
   }
@@ -434,22 +423,12 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
-  max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 @media (max-width:959px) {
   .circuit-1 {
     font-size: 24px;
     line-height: 28px;
-  }
-}
-
-@media (min-width:960px) {
-  .circuit-1 {
-    max-width: 160px;
   }
 }
 
@@ -515,22 +494,12 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
   line-height: 24px;
   margin-bottom: 0;
   font-weight: 700;
-  max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 @media (max-width:959px) {
   .circuit-1 {
     font-size: 24px;
     line-height: 28px;
-  }
-}
-
-@media (min-width:960px) {
-  .circuit-1 {
-    max-width: 160px;
   }
 }
 
@@ -544,6 +513,7 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  height: 80px;
   width: 100%;
   background: none;
   border: none;
@@ -606,6 +576,8 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
 
 @media (min-width:960px) {
   .circuit-3 {
+    height: 48px;
+    width: 220px;
     padding: 12px;
     margin-bottom: 12px;
   }
