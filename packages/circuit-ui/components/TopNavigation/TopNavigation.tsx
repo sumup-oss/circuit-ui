@@ -27,7 +27,9 @@ import { ProfileMenu, ProfileMenuProps } from './components/ProfileMenu';
 import { UtilityLinks, UtilityLinksProps } from './components/UtilityLinks';
 import { TRACKING_ELEMENTS } from './constants';
 
-export const TOP_NAVIGATION_HEIGHT = '49px'; /* height + border-bottom */
+const CONTENT_HEIGHT = '56px';
+export const TOP_NAVIGATION_HEIGHT =
+  '57px'; /* content height + border-bottom */
 
 const headerStyles = ({ theme }: StyleProps) => css`
   display: flex;
@@ -62,13 +64,13 @@ const hamburgerStyles = (theme: Theme) => css`
 `;
 
 const logoStyles = ({ theme }: StyleProps) => css`
-  height: ${theme.iconSizes.tera};
+  height: ${CONTENT_HEIGHT};
 
   > * {
     display: block;
     height: inherit;
     line-height: 0;
-    padding: ${theme.spacings.kilo};
+    padding: ${theme.spacings.mega};
   }
 
   a,
@@ -87,6 +89,7 @@ const Logo = styled.div(logoStyles);
 const wrapperStyles = css`
   display: flex;
   align-items: stretch;
+  height: 100%;
 `;
 
 export interface TopNavigationProps
