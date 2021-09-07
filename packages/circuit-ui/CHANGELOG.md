@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.13
+
+### Patch Changes
+
+- [#1156](https://github.com/sumup-oss/circuit-ui/pull/1156) [`5c865e15`](https://github.com/sumup-oss/circuit-ui/commit/5c865e15df7c249fc99d7cc4c0625e2eab126d5d) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the display of long strings in the primary, secondary, and utility navigation.
+
 ## 3.1.0-canary.12
 
 ### Patch Changes
