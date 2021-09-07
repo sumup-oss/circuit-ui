@@ -43,6 +43,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   position: relative;
   display: flex;
   align-items: center;
+  height: 80px;
   width: 100%;
   background: none;
   border: none;
@@ -85,6 +86,8 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   }
 
   ${theme.mq.giga} {
+    height: 48px;
+    width: 220px;
     padding: ${theme.spacings.kilo};
     margin-bottom: ${theme.spacings.kilo};
   }
@@ -156,18 +159,9 @@ const externalIconStyles = css`
 `;
 
 const labelStyles = ({ theme }: StyleProps) => css`
-  max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-
   ${theme.mq.untilGiga} {
     font-size: ${theme.typography.headline.two.fontSize};
     line-height: ${theme.typography.headline.two.lineHeight};
-  }
-
-  ${theme.mq.giga} {
-    max-width: 160px; /* max-width - icon-width - margin-right */
   }
 `;
 
