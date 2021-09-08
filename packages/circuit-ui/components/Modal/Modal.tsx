@@ -109,7 +109,7 @@ const contentVariantStyles = ({
   if (variant === 'contextual') {
     return css`
       ${theme.mq.untilKilo} {
-        max-height: calc(100vh - ${theme.spacings.mega});
+        max-height: calc(100vh - ${theme.spacings.giga});
       }
 
       /* iOS viewport bug fix */
