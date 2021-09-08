@@ -29,12 +29,8 @@ import { Skeleton } from '../../../Skeleton';
 const anchorStyles = ({ theme }: StyleProps) => css`
   text-decoration: none;
   height: 100%;
-  padding: 0 ${theme.spacings.kilo};
+  padding: 0 ${theme.spacings.mega};
   border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
-
-  ${theme.mq.kilo} {
-    padding: 0 ${theme.spacings.mega};
-  }
 `;
 
 const UtilityAnchor = styled.a(navigationItem, anchorStyles);

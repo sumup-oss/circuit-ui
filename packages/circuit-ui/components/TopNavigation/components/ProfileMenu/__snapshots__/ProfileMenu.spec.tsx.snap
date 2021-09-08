@@ -23,7 +23,7 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   height: 100%;
-  padding: 12px;
+  padding: 0 16px;
   border-left: 1px solid #CCC;
 }
 
@@ -52,12 +52,6 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-}
-
-@media (min-width:768px) {
-  .circuit-6 {
-    padding: 4px 16px;
-  }
 }
 
 .circuit-1 {
@@ -224,7 +218,7 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   height: 100%;
-  padding: 12px;
+  padding: 0 16px;
   border-left: 1px solid #CCC;
 }
 
@@ -253,12 +247,6 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-}
-
-@media (min-width:768px) {
-  .circuit-5 {
-    padding: 4px 16px;
-  }
 }
 
 .circuit-0 {

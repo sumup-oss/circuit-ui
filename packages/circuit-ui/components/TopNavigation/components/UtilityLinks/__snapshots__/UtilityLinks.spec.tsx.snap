@@ -32,7 +32,7 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   height: 100%;
-  padding: 0 12px;
+  padding: 0 16px;
   border-left: 1px solid #CCC;
 }
 
@@ -61,12 +61,6 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-}
-
-@media (min-width:480px) {
-  .circuit-3 {
-    padding: 0 16px;
-  }
 }
 
 .circuit-0 {

@@ -27,10 +27,10 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 .circuit-5 {
   position: fixed;
   z-index: 800;
-  top: 49px;
+  top: 57px;
   bottom: 0;
   left: 0;
-  height: calc(100vh - 49px);
+  height: calc(100vh - 57px);
   width: 48px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -187,7 +187,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 .circuit-18 {
   position: -webkit-sticky;
   position: sticky;
-  top: 49px;
+  top: 57px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -198,7 +198,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   overflow-y: auto;
   background-color: #FFF;
   margin-left: 48px;
-  height: calc(100vh - 49px);
+  height: calc(100vh - 57px);
   width: 200px;
   border-right: 1px solid #CCC;
 }
@@ -259,6 +259,9 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-text-decoration: none;
   text-decoration: none;
   padding: 16px 24px;
@@ -298,8 +301,15 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 
 @media (min-width:960px) {
   .circuit-12 {
-    padding: 12px 20px;
+    padding: 12px;
+    padding-left: 20px;
   }
+}
+
+.circuit-11 {
+  display: inline-block;
+  line-height: 0;
+  margin-right: 8px;
 }
 
 .circuit-10 {
@@ -405,7 +415,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
                 href="/shop/toys"
               >
                 <span
-                  class="circuit-2"
+                  class="circuit-11"
                 >
                   <p
                     class="circuit-10"
@@ -422,7 +432,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
                 href="/shop/books"
               >
                 <span
-                  class="circuit-2"
+                  class="circuit-11"
                 >
                   <p
                     class="circuit-10"
@@ -467,10 +477,10 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
 .circuit-5 {
   position: fixed;
   z-index: 800;
-  top: 49px;
+  top: 57px;
   bottom: 0;
   left: 0;
-  height: calc(100vh - 49px);
+  height: calc(100vh - 57px);
   width: 48px;
   display: -webkit-box;
   display: -webkit-flex;

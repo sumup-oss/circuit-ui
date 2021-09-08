@@ -346,6 +346,9 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-text-decoration: none;
   text-decoration: none;
   padding: 16px 24px;
@@ -385,8 +388,15 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 @media (min-width:960px) {
   .circuit-12 {
-    padding: 12px 20px;
+    padding: 12px;
+    padding-left: 20px;
   }
+}
+
+.circuit-11 {
+  display: inline-block;
+  line-height: 0;
+  margin-right: 8px;
 }
 
 .circuit-10 {
@@ -549,7 +559,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                           href="/shop/toys"
                         >
                           <span
-                            class="circuit-5"
+                            class="circuit-11"
                           >
                             <p
                               class="circuit-10"
@@ -566,7 +576,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                           href="/shop/books"
                         >
                           <span
-                            class="circuit-5"
+                            class="circuit-11"
                           >
                             <p
                               class="circuit-10"

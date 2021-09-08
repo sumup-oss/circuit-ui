@@ -33,13 +33,15 @@ import { SecondaryGroupProps, SecondaryLinkProps } from '../../types';
 import { TRACKING_ELEMENTS } from '../../constants';
 
 const anchorStyles = ({ theme }: StyleProps) => css`
+  flex-wrap: wrap;
   text-decoration: none;
   padding: ${theme.spacings.mega} ${theme.spacings.giga};
   word-break: break-word;
   hyphens: auto;
 
   ${theme.mq.giga} {
-    padding: ${theme.spacings.kilo} 20px;
+    padding: ${theme.spacings.kilo};
+    padding-left: 20px;
   }
 `;
 
@@ -49,9 +51,8 @@ const listStyles = css`
   list-style: none;
 `;
 
-const badgeStyles = (theme: Theme) => css`
-  flex-shrink: 0;
-  margin-left: ${theme.spacings.byte};
+const labelStyles = (theme: Theme) => css`
+  margin-right: ${theme.spacings.byte};
 `;
 
 function SecondaryLink({
@@ -78,7 +79,7 @@ function SecondaryLink({
         // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
         as={props.href ? Link : 'button'}
       >
-        <Skeleton>
+        <Skeleton css={labelStyles}>
           <Body
             size="one"
             variant={props.isActive ? 'highlight' : undefined}
@@ -88,7 +89,7 @@ function SecondaryLink({
           </Body>
         </Skeleton>
         {badge && (
-          <Badge variant="promo" as="span" css={badgeStyles}>
+          <Badge variant="promo" as="span">
             {badge.label}
           </Badge>
         )}
