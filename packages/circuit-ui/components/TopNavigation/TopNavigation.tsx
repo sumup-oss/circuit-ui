@@ -80,7 +80,7 @@ const logoStyles = ({ theme }: StyleProps) => css`
 
   svg {
     color: ${theme.colors.black};
-    height: 100%;
+    height: ${theme.iconSizes.mega};
   }
 `;
 
