@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.14
+
+### Patch Changes
+
+- [#1158](https://github.com/sumup-oss/circuit-ui/pull/1158) [`e2ba00b0`](https://github.com/sumup-oss/circuit-ui/commit/e2ba00b047624929860f0d681d21fe14ac81ea87) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked a few styles of the new navigation.
+
 ## 3.1.0-canary.13
 
 ### Patch Changes
