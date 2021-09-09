@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.15
+
+### Patch Changes
+
+- [#1160](https://github.com/sumup-oss/circuit-ui/pull/1160) [`2808ed54`](https://github.com/sumup-oss/circuit-ui/commit/2808ed54423e2207b142a3b013fe6263a3066560) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the hamburger size to match the increased navigation height.
+
 ## 3.1.0-canary.14
 
 ### Patch Changes
