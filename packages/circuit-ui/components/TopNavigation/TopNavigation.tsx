@@ -52,6 +52,7 @@ const headerStyles = ({ theme }: StyleProps) => css`
 const Header = styled.header(headerStyles);
 
 const hamburgerStyles = (theme: Theme) => css`
+  padding: ${theme.spacings.mega};
   ${focusVisible('inset')(theme)};
 
   border-radius: 0;

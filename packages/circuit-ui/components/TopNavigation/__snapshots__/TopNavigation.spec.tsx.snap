@@ -84,6 +84,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   padding: calc(16px - 1px);
   border: 0;
   padding: 12px;
+  padding: 16px;
   border-radius: 0;
   border-right: 1px solid #CCC !important;
 }
