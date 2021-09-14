@@ -76,18 +76,18 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       duration,
       onStart: () => {
         setHeight(getHeight(contentElement));
-        if (!isOpen) {
-          setOpen(true);
-        }
+        // The timeout forces the state update into the next animation frame.
+        // This ensures that the browsers renders the new height
+        // before the state is toggled.
+        setTimeout(() => {
+          setOpen((prev) => !prev);
+        });
       },
       onEnd: () => {
-        if (isOpen) {
-          setOpen(false);
-        }
         setHeight(DEFAULT_HEIGHT);
       },
     });
-  }, [isOpen, setAnimating, duration]);
+  }, [setAnimating, duration]);
 
   return {
     isOpen,
