@@ -15,9 +15,12 @@
 
 import { ReactElement, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
+import { Theme } from '@sumup/design-tokens';
+import { useTheme } from 'emotion-theming';
 
 import styled, { StyleProps } from '../../styles/styled';
 import Button, { ButtonProps } from '../Button';
+import { useMedia } from '../../hooks/useMedia';
 
 type Action = Omit<ButtonProps, 'variant'>;
 
@@ -145,11 +148,14 @@ export const ButtonGroup = forwardRef(
     { children, action, ...props }: ButtonGroupProps,
     ref: ButtonGroupProps['ref'],
   ) => {
+    const theme = useTheme<Theme>();
+    const isMobile = useMedia(theme.breakpoints.untilKilo, true);
+
     if (action) {
       return (
         <ActionsWrapper {...props}>
           <Button
-            variant="secondary"
+            variant={isMobile ? 'tertiary' : 'secondary'}
             onClick={action.secondary.onClick}
             href={action.secondary.href}
           >
