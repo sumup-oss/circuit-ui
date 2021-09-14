@@ -101,8 +101,8 @@ const Icons = () => {
 
   const sizeOptions = [
     { label: 'All sizes', value: 'all' },
-    { label: 'Small', value: 'small' },
-    { label: 'Large', value: 'large' },
+    { label: '16', value: '16' },
+    { label: '24', value: '24' },
   ];
 
   const colorOptions = [

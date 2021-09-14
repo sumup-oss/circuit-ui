@@ -32,6 +32,7 @@ export default {
 const baseArgs = {
   placeholder: 'Type a word...',
   label: 'Search',
+  onClear: null, // by default on* functions send Storybook actions, and trigger accessibility errors
 };
 
 export const Base = (args: SearchInputProps): JSX.Element => (
