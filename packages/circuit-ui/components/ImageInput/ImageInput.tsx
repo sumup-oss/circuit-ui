@@ -428,7 +428,7 @@ export const ImageInput = ({
             label="-" // We need to pass a label here to prevent IconButton from throwing
             disabled={isLoading}
           >
-            <Plus />
+            <Plus size="16" />
           </AddButton>
         )}
         <LoadingIcon isLoading={isLoading}>
