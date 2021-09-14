@@ -15,7 +15,7 @@
 
 import { MouseEvent } from 'react';
 
-import { renderHook, actHook } from '../../util/test-utils';
+import { renderHook, actHook, waitFor } from '../../util/test-utils';
 
 import { useCollapsible, getHeight } from './useCollapsible';
 
@@ -158,7 +158,7 @@ describe('useCollapsible', () => {
   });
 
   describe('toggling', () => {
-    it('should toggle the open state when the button is clicked', () => {
+    it('should toggle the open state when the button is clicked', async () => {
       const event = ({ fizz: 'buzz' } as unknown) as MouseEvent;
       const { result } = renderHook(() => useCollapsible());
       const { getButtonProps } = result.current;
@@ -169,10 +169,12 @@ describe('useCollapsible', () => {
         getButtonProps().onClick(event);
       });
 
-      expect(result.current.isOpen).toBeTruthy();
+      await waitFor(() => {
+        expect(result.current.isOpen).toBeTruthy();
+      });
     });
 
-    it('should toggle the open state when the callback is called', () => {
+    it('should toggle the open state when the callback is called', async () => {
       const { result } = renderHook(() => useCollapsible());
 
       expect(result.current.isOpen).toBeFalsy();
@@ -181,7 +183,9 @@ describe('useCollapsible', () => {
         result.current.toggleOpen();
       });
 
-      expect(result.current.isOpen).toBeTruthy();
+      await waitFor(() => {
+        expect(result.current.isOpen).toBeTruthy();
+      });
     });
   });
 
