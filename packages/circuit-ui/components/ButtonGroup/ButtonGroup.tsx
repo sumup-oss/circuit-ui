@@ -17,7 +17,9 @@ import { ReactElement, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { ButtonProps } from '../Button/Button';
+import Button, { ButtonProps } from '../Button';
+
+type Action = Omit<ButtonProps, 'variant'>;
 
 export interface ButtonGroupProps {
   /**
@@ -36,6 +38,13 @@ export interface ButtonGroupProps {
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLDivElement>;
+  /**
+   * Action Buttons
+   */
+  action?: {
+    primary: Action;
+    secondary: Action;
+  };
 }
 
 const getInlineStyles = ({ theme }: StyleProps) => css`
@@ -90,21 +99,78 @@ const inlineMobileStyles = ({
     ${getInlineStyles({ theme })}
   `;
 
+const actionStyles = ({ theme }: StyleProps) => css`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+
+  > button,
+  > a {
+    width: auto;
+
+    &:not(:last-child) {
+      margin-right: ${theme.spacings.mega};
+      margin-bottom: 0;
+    }
+  }
+
+  ${theme.mq.untilKilo} {
+    flex-direction: column-reverse;
+
+    > button,
+    > a {
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: ${theme.spacings.mega};
+      }
+    }
+  }
+`;
+
 const Wrapper = styled('div')<ButtonGroupProps>(
   baseStyles,
   alignmentStyles,
   inlineMobileStyles,
 );
 
+const ActionsWrapper = styled('div')<ButtonGroupProps>(actionStyles);
+
 /**
  * Groups its Button children into a list and adds margins between.
  */
 export const ButtonGroup = forwardRef(
-  ({ children, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => (
-    <Wrapper {...props} ref={ref}>
-      {children}
-    </Wrapper>
-  ),
+  (
+    { children, action, ...props }: ButtonGroupProps,
+    ref: ButtonGroupProps['ref'],
+  ) => {
+    if (action) {
+      return (
+        <ActionsWrapper {...props}>
+          <Button
+            variant="secondary"
+            onClick={action.secondary.onClick}
+            href={action.secondary.href}
+          >
+            {action.secondary.children}
+          </Button>
+          <Button
+            variant="primary"
+            onClick={action.primary.onClick}
+            href={action.primary.href}
+          >
+            {action.primary.children}
+          </Button>
+        </ActionsWrapper>
+      );
+    }
+    return (
+      <Wrapper {...props} ref={ref}>
+        {children}
+      </Wrapper>
+    );
+  },
 );
 
 ButtonGroup.displayName = 'ButtonGroup';

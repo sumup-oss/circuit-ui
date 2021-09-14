@@ -28,3 +28,20 @@ export const Base = (args: ButtonGroupProps) => (
     <Button variant="primary">Confirm</Button>
   </ButtonGroup>
 );
+
+export const Action = (args: ButtonGroupProps): JSX.Element => (
+  <ButtonGroup {...args} />
+);
+
+Action.args = {
+  action: {
+    primary: {
+      children: 'Look again',
+      onClick: () => console.log("It's still empty."),
+    },
+    secondary: {
+      children: 'Go elsewhere',
+      href: 'https://sumup.com',
+    },
+  },
+};
