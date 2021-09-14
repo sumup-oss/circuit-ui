@@ -34,7 +34,7 @@ const RangePicker = (props) => (
       customArrowIcon={<CustomArrow />}
       navNext={<ArrowRight />}
       navPrev={<ArrowLeft />}
-      customCloseIcon={<CustomCloseIcon />}
+      customCloseIcon={<CustomCloseIcon size="16" />}
       numberOfMonths={1}
       hideKeyboardShortcutsPanel
       {...props}

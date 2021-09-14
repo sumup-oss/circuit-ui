@@ -41,7 +41,7 @@ export const CloseButton = forwardRef(
       {...props}
       ref={ref}
     >
-      <Close />
+      <Close size="16" />
     </IconButton>
   ),
 );

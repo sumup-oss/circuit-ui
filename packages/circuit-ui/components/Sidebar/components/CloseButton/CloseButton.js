@@ -44,6 +44,10 @@ const CloseButton = styled(BaseButton)`
   ${visibleStyles};
 `;
 
+CloseButton.defaultProps = {
+  size: '16',
+};
+
 CloseButton.propTypes = {
   /**
    * Tells if the CloseButton is visible

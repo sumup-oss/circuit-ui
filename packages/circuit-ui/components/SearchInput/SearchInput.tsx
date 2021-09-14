@@ -76,7 +76,7 @@ export const SearchInput = forwardRef(
         renderSuffix={(renderProps) =>
           value && onClear && clearLabel ? (
             <ClearButton onClick={onClear} label={clearLabel} {...renderProps}>
-              <Close />
+              <Close size="16" />
             </ClearButton>
           ) : null
         }
