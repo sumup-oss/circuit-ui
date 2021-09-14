@@ -103,9 +103,8 @@ const inlineMobileStyles = ({
   `;
 
 const actionStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
 
   > button,
@@ -119,13 +118,14 @@ const actionStyles = ({ theme }: StyleProps) => css`
   }
 
   ${theme.mq.untilKilo} {
-    flex-direction: column-reverse;
+    grid-template-columns: 1fr;
 
     > button,
     > a {
       width: 100%;
 
       &:last-child {
+        grid-row: 1;
         margin-bottom: ${theme.spacings.mega};
       }
     }
