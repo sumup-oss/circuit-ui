@@ -78,7 +78,7 @@ const iconStyles = (color, size) => (theme) => css`
   padding: ${size === 'small' ? '0.5rem' : '0'};
   color: ${theme.colors[color]};
   background-color: ${color === 'white'
-    ? theme.colors.n900
+    ? theme.colors.black
     : theme.colors.bodyBg};
 `;
 
@@ -106,7 +106,7 @@ const Icons = () => {
   ];
 
   const colorOptions = [
-    { label: 'Dark gray', value: 'n900' },
+    { label: 'Black', value: 'black' },
     { label: 'Gray', value: 'n500' },
     { label: 'White', value: 'white' },
     { label: 'Primary', value: 'p500' },
