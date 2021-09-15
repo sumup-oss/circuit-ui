@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Fixed the useMedia hook (used in the navigation components) for Safari <14.
+Fixed compatibility of the useMedia hook with older versions of Safari.
