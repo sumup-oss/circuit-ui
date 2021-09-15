@@ -76,10 +76,9 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       duration,
       onStart: () => {
         setHeight(getHeight(contentElement));
-        // The timeout forces the state update into the next animation frame.
-        // This ensures that the browsers renders the new height
-        // before the state is toggled.
-        setTimeout(() => {
+        // Delaying the state update until the next animation frame ensures that
+        // the browsers renders the new height before the animation starts.
+        window.requestAnimationFrame(() => {
           setOpen((prev) => !prev);
         });
       },
