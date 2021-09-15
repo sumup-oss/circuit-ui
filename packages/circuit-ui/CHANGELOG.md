@@ -1,5 +1,39 @@
 # @sumup/circuit-ui
 
+## 4.0.0
+
+### Minor Changes
+
+- [#1092](https://github.com/sumup-oss/circuit-ui/pull/1092) [`7ad912fd`](https://github.com/sumup-oss/circuit-ui/commit/7ad912fd08976d2496f03ea7eeeb994413a82de7) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new SideNavigation component. It is part of the [application shell](https://developers.google.com/web/fundamentals/architecture/app-shell) and contains the primary and secondary navigation links.
+
+* [#1117](https://github.com/sumup-oss/circuit-ui/pull/1117) [`e878a6e6`](https://github.com/sumup-oss/circuit-ui/commit/e878a6e6986fc6ca31781cd916eee63df41c0d30) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a skeleton loading UI to the TopNavigation and SideNavigation components.
+
+- [#1169](https://github.com/sumup-oss/circuit-ui/pull/1169) [`0c7416cf`](https://github.com/sumup-oss/circuit-ui/commit/0c7416cf60e57c4d22ead4628527f3fd03aea0f1) Thanks [@connor-baer](https://github.com/connor-baer)! - Exposed the `isAnimating` state from the useCollapsible hook.
+
+* [`12ef7cf6`](https://github.com/sumup-oss/circuit-ui/commit/12ef7cf6c147e73b265139237751ecfa4fe37804) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new TopNavigation component. It is part of the [application shell](https://developers.google.com/web/fundamentals/architecture/app-shell) and contains the branding, page links, and the user profile menu.
+
+### Patch Changes
+
+- [#1130](https://github.com/sumup-oss/circuit-ui/pull/1130) [`7b4b5d88`](https://github.com/sumup-oss/circuit-ui/commit/7b4b5d886057583a32459e8986a95e313f57193a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a loading state to the Hamburger.
+
+* [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the styles returned by the `useCollapsible` hook to only hide vertical overflow, fixing a compatibility issue with the form components.
+
+- [#1128](https://github.com/sumup-oss/circuit-ui/pull/1128) [`fdc0575e`](https://github.com/sumup-oss/circuit-ui/commit/fdc0575e728ba2e25596a97c48e4b35b78991082) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the click handler to close the Popover when a PopoverItem doesn't have an onClick.
+
+* [#1124](https://github.com/sumup-oss/circuit-ui/pull/1124) [`785878d9`](https://github.com/sumup-oss/circuit-ui/commit/785878d9936accf490850bb13dac6a09fa730b43) Thanks [@robinmetral](https://github.com/robinmetral)! - Changed the Popover behavior to close when one of the items is clicked.
+
+- [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Prevented interactions with content behind the Popover overlay.
+
+* [#1138](https://github.com/sumup-oss/circuit-ui/pull/1138) [`6c9fe3b2`](https://github.com/sumup-oss/circuit-ui/commit/6c9fe3b24290f2f63575b63fad179cd66f9a6e05) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed compatibility of the useMedia hook with older versions of Safari.
+
+- [#1130](https://github.com/sumup-oss/circuit-ui/pull/1130) [`7b4b5d88`](https://github.com/sumup-oss/circuit-ui/commit/7b4b5d886057583a32459e8986a95e313f57193a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a z-index to the Modal's close button.
+
+* [#1169](https://github.com/sumup-oss/circuit-ui/pull/1169) [`0c7416cf`](https://github.com/sumup-oss/circuit-ui/commit/0c7416cf60e57c4d22ead4628527f3fd03aea0f1) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a bug in the `useCollapsible` hook to start the closing animation immediately.
+
+* Updated dependencies [[`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e), [`12ef7cf6`](https://github.com/sumup-oss/circuit-ui/commit/12ef7cf6c147e73b265139237751ecfa4fe37804), [`c077b900`](https://github.com/sumup-oss/circuit-ui/commit/c077b90056aa9113910640ff7ebd93b0ff02b8ae)]:
+  - @sumup/icons@1.9.0
+  - @sumup/design-tokens@3.1.0
+
 ## 3.1.0-canary.16
 
 ### Minor Changes
