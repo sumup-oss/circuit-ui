@@ -25,6 +25,7 @@ import {
   act,
   userEvent,
 } from '../../util/test-utils';
+import { ClickEvent } from '../../types/events';
 
 import { Anchor, AnchorProps } from './Anchor';
 
@@ -85,8 +86,7 @@ describe('Anchor', () => {
       const props = {
         ...baseProps,
         'href': 'https://sumup.com',
-        'onClick': jest.fn((event) => {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+        'onClick': jest.fn((event: ClickEvent) => {
           event.preventDefault();
         }),
         'data-testid': 'anchor',

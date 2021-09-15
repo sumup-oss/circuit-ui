@@ -16,6 +16,7 @@
 /* eslint-disable react/display-name */
 import { House, ShoppingBag } from '@sumup/icons';
 
+import { ClickEvent } from '../../../../types/events';
 import {
   render,
   axe,
@@ -136,7 +137,9 @@ describe('MobileNavigation', () => {
     });
 
     it('should close the modal when clicking a primary link', () => {
-      const onClick = jest.fn();
+      const onClick = jest.fn((event: ClickEvent) => {
+        event.preventDefault();
+      });
       const props = {
         ...baseProps,
         primaryLinks: [
@@ -159,7 +162,9 @@ describe('MobileNavigation', () => {
     });
 
     it('should close the modal when clicking a secondary link', async () => {
-      const onClick = jest.fn();
+      const onClick = jest.fn((event: ClickEvent) => {
+        event.preventDefault();
+      });
       const props = {
         ...baseProps,
         primaryLinks: [

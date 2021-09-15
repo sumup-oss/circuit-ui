@@ -16,7 +16,7 @@
 /* eslint-disable react/display-name */
 import { ShoppingBag } from '@sumup/icons';
 
-import { render, axe, RenderFn } from '../../util/test-utils';
+import { render, axe, RenderFn, waitFor } from '../../util/test-utils';
 import { ModalProvider } from '../ModalContext';
 
 import { SideNavigation, SideNavigationProps } from './SideNavigation';
@@ -92,7 +92,7 @@ describe('SideNavigation', () => {
       setMediaMatches(true);
     });
 
-    it('should open the mobile navigation', () => {
+    it('should open the mobile navigation', async () => {
       const { queryByRole, rerender } = renderSideNavigation(
         render,
         defaultProps,
@@ -102,7 +102,9 @@ describe('SideNavigation', () => {
 
       renderSideNavigation(rerender, { ...defaultProps, isOpen: true });
 
-      expect(queryByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(queryByRole('dialog')).toBeVisible();
+      });
     });
   });
 
