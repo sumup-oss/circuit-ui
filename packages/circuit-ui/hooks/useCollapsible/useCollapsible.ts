@@ -48,6 +48,7 @@ type ContentProps<T> = {
 type Collapsible<T> = {
   isOpen: boolean;
   toggleOpen: () => void;
+  isAnimating: boolean;
   getButtonProps: (props?: {
     onClick?: (event: ClickEvent) => void;
   }) => ButtonProps;
@@ -69,29 +70,29 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
   const contentElement = useRef<T>(null);
   const [isOpen, setOpen] = useState(initialOpen);
   const [height, setHeight] = useState(getHeight(contentElement));
-  const [, setAnimating] = useAnimation();
+  const [isAnimating, setAnimating] = useAnimation();
 
   const toggleOpen = useCallback(() => {
     setAnimating({
       duration,
       onStart: () => {
         setHeight(getHeight(contentElement));
-        if (!isOpen) {
-          setOpen(true);
-        }
+        // Delaying the state update until the next animation frame ensures that
+        // the browsers renders the new height before the animation starts.
+        window.requestAnimationFrame(() => {
+          setOpen((prev) => !prev);
+        });
       },
       onEnd: () => {
-        if (isOpen) {
-          setOpen(false);
-        }
         setHeight(DEFAULT_HEIGHT);
       },
     });
-  }, [isOpen, setAnimating, duration]);
+  }, [setAnimating, duration]);
 
   return {
     isOpen,
     toggleOpen,
+    isAnimating,
     getButtonProps: (props = {}) => ({
       'onClick': (event: ClickEvent) => {
         if (props.onClick) {
