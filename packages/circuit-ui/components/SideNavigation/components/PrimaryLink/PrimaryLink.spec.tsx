@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ThumbUp } from '@sumup/icons';
+import { Plus } from '@sumup/icons';
 
 import { ClickEvent } from '../../../../types/events';
 import {
@@ -36,7 +36,7 @@ describe('PrimaryLink', () => {
   }
 
   const baseProps = {
-    icon: ThumbUp,
+    icon: Plus,
     label: 'Label',
     href: '/url',
     onClick: jest.fn(),

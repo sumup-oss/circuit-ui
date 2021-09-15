@@ -161,7 +161,7 @@ function Profile({
           </Skeleton>
         )}
       </UserDetails>
-      <Chevron />
+      <Chevron size="16" />
     </ProfileWrapper>
   );
 }

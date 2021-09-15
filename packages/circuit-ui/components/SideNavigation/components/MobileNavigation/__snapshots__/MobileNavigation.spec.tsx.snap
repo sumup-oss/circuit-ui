@@ -98,7 +98,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  padding: calc(16px - 1px);
+  padding: calc(12px - 1px);
   border-color: transparent !important;
   background-color: transparent;
 }
@@ -442,10 +442,10 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M3 3l10 10m0-10L3 13"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
+                  clip-rule="evenodd"
+                  d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
                 />
               </svg>
               <span
@@ -476,20 +476,16 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                       fill="none"
                       height="24"
                       role="presentation"
+                      size="24"
                       viewBox="0 0 24 24"
                       width="24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M4.5 7h15m-15 0L3.119 19.893A1 1 0 004.113 21h15.774a1 1 0 00.994-1.107L19.5 7m-15 0l3.201-3.659A1 1 0 018.454 3h7.092a1 1 0 01.753.341L19.5 7"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <path
-                        d="M16 11a4 4 0 01-8 0"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-width="2"
+                        clip-rule="evenodd"
+                        d="M7 23a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm14-3a3 3 0 1 0-5.999 0A3 3 0 0 0 21 20zm0-16H5.114a2 2 0 0 1-1.921-1.445L2.92 1.61a1 1 0 0 0-1.9.59l3.24 11.35A2 2 0 0 0 6.18 15H19a2 2 0 0 0 1.92-1.45l2-7c.052-.179.08-.364.08-.55a2.006 2.006 0 0 0-2-2z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
                       />
                     </svg>
                   </span>
@@ -512,11 +508,8 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M4 6l4 4 4-4"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                      fill="currentColor"
                     />
                   </svg>
                 </button>
@@ -686,7 +679,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  padding: calc(16px - 1px);
+  padding: calc(12px - 1px);
   border-color: transparent !important;
   background-color: transparent;
 }
@@ -901,10 +894,10 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M3 3l10 10m0-10L3 13"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
+                  clip-rule="evenodd"
+                  d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
                 />
               </svg>
               <span
@@ -933,15 +926,14 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
                       fill="none"
                       height="24"
                       role="presentation"
+                      size="24"
                       viewBox="0 0 24 24"
                       width="24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M12 4.271l8 5.714v8.765c0 .69-.56 1.25-1.25 1.25H13v-6h-2v6H5.25C4.56 20 4 19.44 4 18.75V9.985l8-5.714zm-6 6.744V18h3v-6h6v6h3v-6.985l-6-4.286-6 4.286z"
+                        d="M23 9a1 1 0 0 1-1.57.82l-1.43-1V20.5a2.5 2.5 0 0 1-2.5 2.5H15a1 1 0 0 1-1-1v-5a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v5a1 1 0 0 1-1 1H6.5A2.5 2.5 0 0 1 4 20.5V8.82l-1.43 1A1.011 1.011 0 0 1 2 10a1 1 0 0 1-.57-1.82l10-7a.992.992 0 0 1 1.14 0l10 7A.999.999 0 0 1 23 9z"
                         fill="currentColor"
-                        fill-rule="evenodd"
                       />
                     </svg>
                   </span>

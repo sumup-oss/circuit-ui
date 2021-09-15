@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { CircleMore } from '@sumup/icons';
+import { More } from '@sumup/icons';
 import { KeyboardEvent, MouseEvent } from 'react';
 
 import {
@@ -29,7 +29,7 @@ describe('UtilityLinks', () => {
   const baseProps = {
     links: [
       {
-        icon: CircleMore,
+        icon: More,
         label: 'More',
         href: '/more',
         onClick: jest.fn((event: MouseEvent | KeyboardEvent) => {

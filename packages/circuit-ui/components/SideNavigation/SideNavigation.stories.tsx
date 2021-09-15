@@ -14,7 +14,7 @@
  */
 
 import { action } from '@storybook/addon-actions';
-import { Heart, House, LiveChat, Package, ShoppingBag } from '@sumup/icons';
+import { Like, Home, LiveChat, Package, Shop } from '@sumup/icons';
 
 import { ModalProvider } from '../ModalContext';
 import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation';
@@ -40,13 +40,13 @@ export const baseArgs = {
   secondaryNavigationLabel: 'Secondary',
   primaryLinks: [
     {
-      icon: House,
+      icon: Home,
       label: 'Home',
       href: '/',
       onClick: action('Home'),
     },
     {
-      icon: ShoppingBag,
+      icon: Shop,
       label: 'Shop',
       href: '/shop',
       onClick: action('Shop'),
@@ -98,7 +98,7 @@ export const baseArgs = {
       onClick: action('Orders'),
     },
     {
-      icon: Heart,
+      icon: Like,
       label: 'Wishlist',
       href: '/wishlist',
       onClick: action('Wishlist'),

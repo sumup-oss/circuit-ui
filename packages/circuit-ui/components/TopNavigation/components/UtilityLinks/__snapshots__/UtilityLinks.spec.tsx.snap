@@ -122,55 +122,14 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
           fill="none"
           height="24"
           role="presentation"
+          size="24"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 21a9 9 0 100-18 9 9 0 000 18z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-          <circle
-            cx="12"
-            cy="11.5"
-            r=".5"
-            stroke="currentColor"
-            stroke-miterlimit="16"
-          />
-          <circle
-            r="1"
-            stroke="currentColor"
-            stroke-miterlimit="16"
-            transform="matrix(-1 0 0 1 12 12)"
-          />
-          <circle
-            cx="16"
-            cy="11.5"
-            r=".5"
-            stroke="currentColor"
-            stroke-miterlimit="16"
-          />
-          <circle
-            r="1"
-            stroke="currentColor"
-            stroke-miterlimit="16"
-            transform="matrix(-1 0 0 1 16 12)"
-          />
-          <circle
-            cx="8"
-            cy="11.5"
-            r=".5"
-            stroke="currentColor"
-            stroke-miterlimit="16"
-          />
-          <circle
-            r="1"
-            stroke="currentColor"
-            stroke-miterlimit="16"
-            transform="matrix(-1 0 0 1 8 12)"
+            d="M12 7c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm2 5c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm0 7c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2z"
+            fill="currentColor"
           />
         </svg>
       </span>

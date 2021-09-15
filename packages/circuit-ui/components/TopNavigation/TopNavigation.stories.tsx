@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { ShoppingCart, SumUpLogo } from '@sumup/icons';
+import { Shop, SumUpLogo } from '@sumup/icons';
 import { css } from '@emotion/core';
 
 import { SideNavigation } from '../SideNavigation';
@@ -67,7 +67,7 @@ const baseArgs = {
   ],
   links: [
     {
-      icon: ShoppingCart,
+      icon: Shop,
       label: 'Shop',
       href: '/shop',
       onClick: action('Shop'),

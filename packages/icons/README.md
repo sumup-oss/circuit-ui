@@ -44,7 +44,7 @@ import { CircleCheckmark } from '@sumup/icons';
 
 const SuccessMessage = ({ description }) => (
   <div>
-    <CircleCheckmark size="large" />
+    <CircleCheckmark size="24" />
     <span>{description}</span>
   </div>
 );

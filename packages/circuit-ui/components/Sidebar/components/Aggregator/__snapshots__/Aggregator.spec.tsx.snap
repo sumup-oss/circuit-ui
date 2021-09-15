@@ -245,16 +245,14 @@ exports[`Aggregator styles should render with disabled state styles and match th
       <svg
         fill="none"
         height="24"
+        size="24"
         viewBox="0 0 24 24"
         width="24"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M8 10V7c0-1.031.421-2.132 1.172-2.861A4.059 4.059 0 0112 3c1.06 0 2.078.41 2.828 1.139C15.578 4.869 16 5.969 16 7v3M5 11h14v10H5z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          d="M18 9V7.207a6.137 6.137 0 0 0-5.214-6.156A6.006 6.006 0 0 0 6 7v2a2.006 2.006 0 0 0-2 2v9a3.01 3.01 0 0 0 3 3h10a3.01 3.01 0 0 0 3-3v-9a2.006 2.006 0 0 0-2-2zm-5 7.73V18a1 1 0 0 1-2 0v-1.27a2 2 0 1 1 2 0zM16 9H8V7a4 4 0 1 1 8 0v2z"
+          fill="currentColor"
         />
       </svg>
       <span

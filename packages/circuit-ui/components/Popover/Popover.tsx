@@ -127,7 +127,7 @@ export const PopoverItem = ({
       role="menuitem"
       {...props}
     >
-      {Icon && <Icon css={iconStyles} size="large" />}
+      {Icon && <Icon css={iconStyles} size="24" />}
       {children}
     </PopoverItemWrapper>
   );

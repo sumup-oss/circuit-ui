@@ -28,7 +28,7 @@ export const hasSelectedChild = (children) => {
 };
 
 export const getIcon = ({ defaultIcon, selected, selectedIcon, disabled }) => {
-  const disabledIcon = <SecurePayments size="large" />;
+  const disabledIcon = <SecurePayments size="24" />;
   const hasIcon = !!defaultIcon;
 
   if (hasIcon && disabled) {
