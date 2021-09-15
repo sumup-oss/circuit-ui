@@ -48,6 +48,7 @@ type ContentProps<T> = {
 type Collapsible<T> = {
   isOpen: boolean;
   toggleOpen: () => void;
+  isAnimating: boolean;
   getButtonProps: (props?: {
     onClick?: (event: ClickEvent) => void;
   }) => ButtonProps;
@@ -69,7 +70,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
   const contentElement = useRef<T>(null);
   const [isOpen, setOpen] = useState(initialOpen);
   const [height, setHeight] = useState(getHeight(contentElement));
-  const [, setAnimating] = useAnimation();
+  const [isAnimating, setAnimating] = useAnimation();
 
   const toggleOpen = useCallback(() => {
     setAnimating({
@@ -91,6 +92,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
   return {
     isOpen,
     toggleOpen,
+    isAnimating,
     getButtonProps: (props = {}) => ({
       'onClick': (event: ClickEvent) => {
         if (props.onClick) {
