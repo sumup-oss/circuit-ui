@@ -43,3 +43,7 @@ export const Base = (args: LoadingButtonProps) => {
     </LoadingButton>
   );
 };
+
+Base.args = {
+  loadingLabel: 'Loading...',
+};

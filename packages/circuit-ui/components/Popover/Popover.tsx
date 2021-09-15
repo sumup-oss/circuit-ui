@@ -105,7 +105,7 @@ const PopoverItemWrapper = styled('button', {
 })<PopoverItemWrapperProps>(listItem, itemWrapperStyles, typography('one'));
 
 const iconStyles = (theme: Theme) => css`
-  margin-right: ${theme.spacings.mega};
+  margin-right: ${theme.spacings.kilo};
 `;
 
 export const PopoverItem = ({

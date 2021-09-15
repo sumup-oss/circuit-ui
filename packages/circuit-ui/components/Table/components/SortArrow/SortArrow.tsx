@@ -73,8 +73,8 @@ const SortArrow = ({
   ...props
 }: SortArrowProps): JSX.Element => (
   <Wrapper role="button" title={label} {...props}>
-    {direction !== 'ascending' && <ChevronUp css={iconStyles} />}
-    {direction !== 'descending' && <ChevronDown css={iconStyles} />}
+    {direction !== 'ascending' && <ChevronUp size="16" css={iconStyles} />}
+    {direction !== 'descending' && <ChevronDown size="16" css={iconStyles} />}
     <Label>{label}</Label>
   </Wrapper>
 );

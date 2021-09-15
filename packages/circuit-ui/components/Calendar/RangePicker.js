@@ -20,21 +20,21 @@ import 'react-dates/initialize';
 
 import { CalendarWrapper } from './components';
 
-const CustomArrow = styled(ArrowRight)`
+const ArrowIcon = styled(ArrowRight)`
   color: ${({ theme }) => theme.colors.p500};
 `;
 
-const CustomCloseIcon = styled(Close)`
+const CloseIcon = styled(Close)`
   color: ${({ theme }) => theme.colors.n700};
 `;
 
 const RangePicker = (props) => (
   <CalendarWrapper>
     <DateRangePicker
-      customArrowIcon={<CustomArrow />}
-      navNext={<ArrowRight />}
-      navPrev={<ArrowLeft />}
-      customCloseIcon={<CustomCloseIcon size="16" />}
+      customArrowIcon={<ArrowIcon />}
+      navNext={<ArrowRight size="16" />}
+      navPrev={<ArrowLeft size="16" />}
+      customCloseIcon={<CloseIcon size="16" />}
       numberOfMonths={1}
       hideKeyboardShortcutsPanel
       {...props}

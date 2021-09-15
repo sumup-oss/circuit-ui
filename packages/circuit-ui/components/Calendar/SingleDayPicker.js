@@ -20,16 +20,16 @@ import 'react-dates/initialize';
 
 import { CalendarWrapper } from './components';
 
-const CustomCloseIcon = styled(Close)`
+const CloseIcon = styled(Close)`
   color: ${({ theme }) => theme.colors.n700};
 `;
 
 const SingleDayPicker = (props) => (
   <CalendarWrapper>
     <SingleDatePicker
-      navNext={<ArrowRight />}
-      navPrev={<ArrowLeft />}
-      customCloseIcon={<CustomCloseIcon size="16" />}
+      navNext={<ArrowRight size="16" />}
+      navPrev={<ArrowLeft size="16" />}
+      customCloseIcon={<CloseIcon size="16" />}
       numberOfMonths={1}
       hideKeyboardShortcutsPanel
       {...props}

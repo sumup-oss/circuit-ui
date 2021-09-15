@@ -384,8 +384,8 @@ export const Select = forwardRef(
                   </option>
                 )))}
           </SelectElement>
-          <IconActive />
-          <IconInactive />
+          <IconActive size="16" />
+          <IconInactive size="16" />
         </SelectContainer>
 
         <ValidationHint

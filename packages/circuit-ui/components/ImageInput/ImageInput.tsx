@@ -416,7 +416,7 @@ export const ImageInput = ({
             onClick={handleClear}
             disabled={isLoading}
           >
-            <Delete />
+            <Delete size="16" />
           </ActionButton>
         ) : (
           <AddButton

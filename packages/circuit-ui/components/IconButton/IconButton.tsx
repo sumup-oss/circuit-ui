@@ -40,7 +40,7 @@ const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
 ): SerializedStyles => {
   const sizeMap = {
     kilo: theme.spacings.byte,
-    giga: theme.spacings.mega,
+    giga: theme.spacings.kilo,
   };
 
   return css({

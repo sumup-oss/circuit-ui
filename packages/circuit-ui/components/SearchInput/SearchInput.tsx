@@ -72,7 +72,7 @@ export const SearchInput = forwardRef(
       <Input
         value={value}
         type="text"
-        renderPrefix={(renderProps) => <Search {...renderProps} />}
+        renderPrefix={(renderProps) => <Search size="16" {...renderProps} />}
         renderSuffix={(renderProps) =>
           value && onClear && clearLabel ? (
             <ClearButton onClick={onClear} label={clearLabel} {...renderProps}>

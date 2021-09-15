@@ -132,7 +132,7 @@ const Icons = () => {
           clearLabel="Clear"
         />
         <Select
-          label="Select icon sizeSelect icon size"
+          label="Select icon size"
           options={sizeOptions}
           value={size}
           onChange={handleSizeChange}
