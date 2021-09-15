@@ -14,6 +14,7 @@
  */
 
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
@@ -24,9 +25,12 @@ const ArrowIcon = styled(ArrowRight)`
   color: ${({ theme }) => theme.colors.p500};
 `;
 
-const CloseIcon = styled(Close)`
-  color: ${({ theme }) => theme.colors.n700};
-`;
+const CloseIcon = styled(Close)(
+  ({ theme }) => css`
+    color: ${theme.colors.n700};
+    margin: ${theme.spacings.bit} ${theme.spacings.bit} 0 0; /* Adjust spacing to fit in the 32px customArrowIcon container */
+  `,
+);
 
 const RangePicker = (props) => (
   <CalendarWrapper>
