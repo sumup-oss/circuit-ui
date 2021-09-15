@@ -33,6 +33,8 @@ import {
   clearfix,
   hideScrollbar,
   inputOutline,
+  listItem,
+  navigationItem,
 } from './style-mixins';
 
 describe('Style helpers', () => {
@@ -298,6 +300,44 @@ describe('Style helpers', () => {
       });
       expect(styles).toMatchInlineSnapshot(
         `"box-shadow:0 0 0 1px #F5C625;&:hover{box-shadow:0 0 0 1px #AD7A14;}&:focus{box-shadow:0 0 0 2px #F5C625;}&:active{box-shadow:0 0 0 1px #F5C625;}"`,
+      );
+    });
+  });
+
+  describe('listItem', () => {
+    it('should match the snapshot', () => {
+      const { styles } = listItem(light);
+      expect(styles).toMatchInlineSnapshot(
+        `"background-color:#FFF;padding:12px 32px 12px 16px;border:0;color:#1A1A1A;text-decoration:none;position:relative;&:hover{background-color:#F5F5F5;cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};;&:active{background-color:#E6E6E6;}&:disabled,&[disabled]{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
+      );
+    });
+
+    it('should match the snapshot when it is destructive', () => {
+      const { styles } = listItem({
+        theme: light,
+        destructive: true,
+      });
+      expect(styles).toMatchInlineSnapshot(
+        `"background-color:#FFF;padding:12px 32px 12px 16px;border:0;color:#D23F47;text-decoration:none;position:relative;&:hover{background-color:#F5F5F5;cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};;&:active{background-color:#E6E6E6;}&:disabled,&[disabled]{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
+      );
+    });
+  });
+
+  describe('navigationItem', () => {
+    it('should match the snapshot', () => {
+      const { styles } = navigationItem(light);
+      expect(styles).toMatchInlineSnapshot(
+        `"display:flex;align-items:center;border:none;outline:none;color:#1A1A1A;background-color:#FFF;text-align:left;cursor:pointer;transition:color 120ms ease-in-out,background-color 120ms ease-in-out;&:hover{background-color:#F5F5F5;}&:active{background-color:#E6E6E6;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};;&:disabled{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
+      );
+    });
+
+    it('should match the snapshot when it is active', () => {
+      const { styles } = navigationItem({
+        theme: light,
+        isActive: true,
+      });
+      expect(styles).toMatchInlineSnapshot(
+        `"display:flex;align-items:center;border:none;outline:none;color:#3063E9;background-color:#F0F6FF;text-align:left;cursor:pointer;transition:color 120ms ease-in-out,background-color 120ms ease-in-out;&:hover{background-color:#F0F6FF;}&:active{background-color:#E6E6E6;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};;&:disabled{opacity:0.5;pointer-events:none;box-shadow:none;;;}"`,
       );
     });
   });

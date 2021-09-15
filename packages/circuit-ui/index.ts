@@ -94,10 +94,29 @@ export { default as Col } from './components/Col';
 export { default as InlineElements } from './components/InlineElements';
 export type { InlineElementsProps } from './components/InlineElements';
 
-// Misc
-export { Tabs, TabList, TabPanel, Tab } from './components/Tabs';
+// Navigation
+export { default as Hamburger } from './components/Hamburger';
+export type { HamburgerProps } from './components/Hamburger';
+export { default as Header } from './components/Header';
 export { default as Pagination } from './components/Pagination';
 export type { PaginationProps } from './components/Pagination';
+export { TopNavigation } from './components/TopNavigation';
+export type { TopNavigationProps } from './components/TopNavigation';
+export { SideNavigation } from './components/SideNavigation';
+export type {
+  SideNavigationProps,
+  PrimaryLinkProps,
+  SecondaryGroupProps,
+  SecondaryLinkProps,
+} from './components/SideNavigation';
+export { Tabs, TabList, TabPanel, Tab } from './components/Tabs';
+export { default as Sidebar } from './components/Sidebar';
+export {
+  SidebarContextProvider,
+  SidebarContextConsumer,
+} from './components/Sidebar';
+
+// Misc
 export { default as Spinner } from './components/Spinner';
 export type { SpinnerProps } from './components/Spinner';
 export { default as Badge } from './components/Badge';
@@ -109,8 +128,6 @@ export type {
   CardFooterProps,
 } from './components/Card';
 export { default as CardList } from './components/CardList';
-export { default as Hamburger } from './components/Hamburger';
-export type { HamburgerProps } from './components/Hamburger';
 export { default as Hr } from './components/Hr';
 export { default as Image } from './components/Image';
 export type { ImageProps } from './components/Image';
@@ -135,12 +152,6 @@ export type {
   TableRow,
 } from './components/Table';
 
-export { default as Sidebar } from './components/Sidebar';
-export {
-  SidebarContextProvider,
-  SidebarContextConsumer,
-} from './components/Sidebar';
-export { default as Header } from './components/Header';
 export { default as Step, useStep } from './components/Step';
 export { default as AspectRatio } from './components/AspectRatio';
 export { default as Carousel, CarouselComposer } from './components/Carousel';
@@ -151,6 +162,7 @@ export {
   ComponentsContext,
   useComponents,
 } from './components/ComponentsContext';
+export type { ComponentsContextType } from './components/ComponentsContext';
 
 export {
   cx,

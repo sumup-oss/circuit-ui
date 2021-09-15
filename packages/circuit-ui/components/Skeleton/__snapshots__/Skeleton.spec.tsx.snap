@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Skeleton styles should render with circular styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    background-position: -8rem 0;
+  }
+
+  50% {
+    background-position: calc(8rem + 100%) 0;
+  }
+
+  100% {
+    background-position: calc(8rem + 100%) 0;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    background-position: -8rem 0;
+  }
+
+  50% {
+    background-position: calc(8rem + 100%) 0;
+  }
+
+  100% {
+    background-position: calc(8rem + 100%) 0;
+  }
+}
+
+.circuit-1[aria-busy='true'] {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-0 {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 100%;
+  background-color: #E6E6E6;
+  background-image: linear-gradient( 90deg,#E6E6E6,#F5F5F5,#E6E6E6 );
+  background-size: 8rem 100%;
+  background-repeat: no-repeat;
+  -webkit-animation: animation-0 3s ease-in-out infinite;
+  animation: animation-0 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .circuit-0 {
+    -webkit-animation: none;
+    animation: none;
+  }
+}
+
+.circuit-0 > * {
+  visibility: hidden !important;
+}
+
+<div
+  aria-busy="true"
+  class="circuit-1"
+>
+  <span
+    class="circuit-0"
+  >
+    <p>
+      content
+    </p>
+  </span>
+</div>
+`;
+
+exports[`Skeleton styles should render with loading styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    background-position: -8rem 0;
+  }
+
+  50% {
+    background-position: calc(8rem + 100%) 0;
+  }
+
+  100% {
+    background-position: calc(8rem + 100%) 0;
+  }
+}
+
+.circuit-1[aria-busy='true'] {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-0 {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 8px;
+  background-color: #E6E6E6;
+  background-image: linear-gradient( 90deg,#E6E6E6,#F5F5F5,#E6E6E6 );
+  background-size: 8rem 100%;
+  background-repeat: no-repeat;
+  -webkit-animation: animation-0 3s ease-in-out infinite;
+  animation: animation-0 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .circuit-0 {
+    -webkit-animation: none;
+    animation: none;
+  }
+}
+
+.circuit-0 > * {
+  visibility: hidden !important;
+}
+
+<div
+  aria-busy="true"
+  class="circuit-1"
+>
+  <span
+    class="circuit-0"
+  >
+    <p>
+      content
+    </p>
+  </span>
+</div>
+`;

@@ -1,5 +1,132 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.16
+
+### Minor Changes
+
+- [#1169](https://github.com/sumup-oss/circuit-ui/pull/1169) [`0c7416cf`](https://github.com/sumup-oss/circuit-ui/commit/0c7416cf60e57c4d22ead4628527f3fd03aea0f1) Thanks [@connor-baer](https://github.com/connor-baer)! - Exposed the `isAnimating` state from the useCollapsible hook.
+
+### Patch Changes
+
+- [#1169](https://github.com/sumup-oss/circuit-ui/pull/1169) [`0c7416cf`](https://github.com/sumup-oss/circuit-ui/commit/0c7416cf60e57c4d22ead4628527f3fd03aea0f1) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a bug in the `useCollapsible` hook to start the closing animation immediately.
+
+## 3.1.0-canary.15
+
+### Patch Changes
+
+- [#1160](https://github.com/sumup-oss/circuit-ui/pull/1160) [`2808ed54`](https://github.com/sumup-oss/circuit-ui/commit/2808ed54423e2207b142a3b013fe6263a3066560) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the hamburger size to match the increased navigation height.
+
+## 3.1.0-canary.14
+
+### Patch Changes
+
+- [#1158](https://github.com/sumup-oss/circuit-ui/pull/1158) [`e2ba00b0`](https://github.com/sumup-oss/circuit-ui/commit/e2ba00b047624929860f0d681d21fe14ac81ea87) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked a few styles of the new navigation.
+
+## 3.1.0-canary.13
+
+### Patch Changes
+
+- [#1156](https://github.com/sumup-oss/circuit-ui/pull/1156) [`5c865e15`](https://github.com/sumup-oss/circuit-ui/commit/5c865e15df7c249fc99d7cc4c0625e2eab126d5d) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the display of long strings in the primary, secondary, and utility navigation.
+
+## 3.1.0-canary.12
+
+### Patch Changes
+
+- [#1138](https://github.com/sumup-oss/circuit-ui/pull/1138) [`6c9fe3b2`](https://github.com/sumup-oss/circuit-ui/commit/6c9fe3b24290f2f63575b63fad179cd66f9a6e05) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the useMedia hook (used in the navigation components) for Safari <14.
+
+## 3.1.0-canary.11
+
+### Patch Changes
+
+- [#1136](https://github.com/sumup-oss/circuit-ui/pull/1136) [`9dfda4e9`](https://github.com/sumup-oss/circuit-ui/commit/9dfda4e99c08e00d81d7d8d788729c6e1fde26ae) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the nav tracking by passing a defaut noop as onClick. This will be fixed in collector in the next major.
+
+## 3.1.0-canary.10
+
+### Patch Changes
+
+- [#1134](https://github.com/sumup-oss/circuit-ui/pull/1134) [`daec52cb`](https://github.com/sumup-oss/circuit-ui/commit/daec52cbb13bc34f83cd16a07b72d1370a790715) Thanks [@connor-baer](https://github.com/connor-baer)! - Aligned the navigation components' border color with other Circuit UI components.
+
+## 3.1.0-canary.9
+
+### Minor Changes
+
+- [#1132](https://github.com/sumup-oss/circuit-ui/pull/1132) [`5647889b`](https://github.com/sumup-oss/circuit-ui/commit/5647889b9edc0b55358f4a35552a535fc53de319) Thanks [@connor-baer](https://github.com/connor-baer)! - Added tracking to the TopNavigation and SideNavigation components.
+
+## 3.1.0-canary.8
+
+### Patch Changes
+
+- [#1130](https://github.com/sumup-oss/circuit-ui/pull/1130) [`7b4b5d88`](https://github.com/sumup-oss/circuit-ui/commit/7b4b5d886057583a32459e8986a95e313f57193a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a loading state to the Hamburger.
+
+* [#1130](https://github.com/sumup-oss/circuit-ui/pull/1130) [`7b4b5d88`](https://github.com/sumup-oss/circuit-ui/commit/7b4b5d886057583a32459e8986a95e313f57193a) Thanks [@connor-baer](https://github.com/connor-baer)! - Aligned the TopNavigation breakpoint with the other navigation components.
+
+- [#1130](https://github.com/sumup-oss/circuit-ui/pull/1130) [`7b4b5d88`](https://github.com/sumup-oss/circuit-ui/commit/7b4b5d886057583a32459e8986a95e313f57193a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a z-index to the Modal's close button.
+
+## 3.1.0-canary.7
+
+### Patch Changes
+
+- [#1128](https://github.com/sumup-oss/circuit-ui/pull/1128) [`fdc0575e`](https://github.com/sumup-oss/circuit-ui/commit/fdc0575e728ba2e25596a97c48e4b35b78991082) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the click handler to close the Popover when a PopoverItem doesn't have an onClick.
+
+## 3.1.0-canary.6
+
+### Minor Changes
+
+- [#1126](https://github.com/sumup-oss/circuit-ui/pull/1126) [`08b95cc6`](https://github.com/sumup-oss/circuit-ui/commit/08b95cc6a5f3c12c829bc3df8e36feac3a897915) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the option to display a badge next to a secondary navigation link.
+
+## 3.1.0-canary.5
+
+### Patch Changes
+
+- [#1124](https://github.com/sumup-oss/circuit-ui/pull/1124) [`785878d9`](https://github.com/sumup-oss/circuit-ui/commit/785878d9936accf490850bb13dac6a09fa730b43) Thanks [@robinmetral](https://github.com/robinmetral)! - Changed the Popover behavior to close when one of the items is clicked.
+
+## 3.1.0-canary.4
+
+### Minor Changes
+
+- [#1117](https://github.com/sumup-oss/circuit-ui/pull/1117) [`e878a6e6`](https://github.com/sumup-oss/circuit-ui/commit/e878a6e6986fc6ca31781cd916eee63df41c0d30) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a skeleton loading UI to the TopNavigation and SideNavigation components.
+
+## 3.1.0-canary.3
+
+### Patch Changes
+
+- [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the styles returned by the `useCollapsible` hook to only hide vertical overflow, fixing a compatibility issue with the form components.
+
+* [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a number of issues in the navigation components, including adding a min-width when the secondary nav is hidden, closing the mobile navigation modal when a link is clicked, and exporting additional navigation types.
+
+- [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Prevented interactions with content behind the Popover overlay.
+
+* [#1114](https://github.com/sumup-oss/circuit-ui/pull/1114) [`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `TopNavigation`'s profile menu alignment when no `userId` is provided.
+
+* Updated dependencies [[`159bd7ad`](https://github.com/sumup-oss/circuit-ui/commit/159bd7ad9f7aa6fd73528b209377e073c498e40e)]:
+  - @sumup/icons@1.9.0-canary.1
+
+## 3.1.0-canary.2
+
+### Patch Changes
+
+- Updated dependencies [[`c077b900`](https://github.com/sumup-oss/circuit-ui/commit/c077b90056aa9113910640ff7ebd93b0ff02b8ae)]:
+  - @sumup/design-tokens@3.1.0-canary.0
+
+## 3.1.0-canary.1
+
+### Patch Changes
+
+- [`c7c3f417`](https://github.com/sumup-oss/circuit-ui/commit/c7c3f4174601cd26b9f3b98228d406cf0531ec47) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the missing export for the SideNavigation component.
+
+## 3.1.0-canary.0
+
+### Minor Changes
+
+- [#1092](https://github.com/sumup-oss/circuit-ui/pull/1092) [`7ad912fd`](https://github.com/sumup-oss/circuit-ui/commit/7ad912fd08976d2496f03ea7eeeb994413a82de7) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new SideNavigation component. It is part of the [application shell](https://developers.google.com/web/fundamentals/architecture/app-shell) and contains the primary and secondary navigation links.
+
+* [#1104](https://github.com/sumup-oss/circuit-ui/pull/1104) [`12ef7cf6`](https://github.com/sumup-oss/circuit-ui/commit/12ef7cf6c147e73b265139237751ecfa4fe37804) Thanks [@github-actions](https://github.com/apps/github-actions)! - Added a new TopNavigation component. It is part of the [application shell](https://developers.google.com/web/fundamentals/architecture/app-shell) and contains the branding, page links, and the user profile menu.
+
+### Patch Changes
+
+- Updated dependencies [[`12ef7cf6`](https://github.com/sumup-oss/circuit-ui/commit/12ef7cf6c147e73b265139237751ecfa4fe37804)]:
+  - @sumup/icons@1.9.0-canary.0
+
 ## 3.0.1
 
 ### Patch Changes

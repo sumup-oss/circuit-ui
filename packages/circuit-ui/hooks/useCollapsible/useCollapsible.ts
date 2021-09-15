@@ -29,7 +29,6 @@ export type CollapsibleOptions = {
 
 type ButtonProps = {
   'onClick': (event: ClickEvent) => void;
-  'tabIndex': number;
   'aria-controls': string;
   'aria-expanded': 'true' | 'false';
 };
@@ -38,7 +37,7 @@ type ContentProps<T> = {
   'ref': RefObject<T>;
   'id': string;
   'style': {
-    overflow: 'hidden';
+    overflowY: 'hidden';
     willChange: 'height';
     opacity: 1 | 0;
     height: string | 0;
@@ -49,6 +48,7 @@ type ContentProps<T> = {
 type Collapsible<T> = {
   isOpen: boolean;
   toggleOpen: () => void;
+  isAnimating: boolean;
   getButtonProps: (props?: {
     onClick?: (event: ClickEvent) => void;
   }) => ButtonProps;
@@ -63,35 +63,36 @@ type Collapsible<T> = {
  */
 export function useCollapsible<T extends HTMLElement = HTMLElement>({
   initialOpen = false,
-  duration = 300,
+  duration = 200,
   id,
 }: CollapsibleOptions = {}): Collapsible<T> {
   const contentId = id || uniqueId('collapsible_');
   const contentElement = useRef<T>(null);
   const [isOpen, setOpen] = useState(initialOpen);
   const [height, setHeight] = useState(getHeight(contentElement));
-  const [, setAnimating] = useAnimation();
+  const [isAnimating, setAnimating] = useAnimation();
+
   const toggleOpen = useCallback(() => {
     setAnimating({
       duration,
       onStart: () => {
         setHeight(getHeight(contentElement));
-        if (!isOpen) {
-          setOpen(true);
-        }
+        // Delaying the state update until the next animation frame ensures that
+        // the browsers renders the new height before the animation starts.
+        window.requestAnimationFrame(() => {
+          setOpen((prev) => !prev);
+        });
       },
       onEnd: () => {
-        if (isOpen) {
-          setOpen(false);
-        }
         setHeight(DEFAULT_HEIGHT);
       },
     });
-  }, [isOpen, setAnimating, duration]);
+  }, [setAnimating, duration]);
 
   return {
     isOpen,
     toggleOpen,
+    isAnimating,
     getButtonProps: (props = {}) => ({
       'onClick': (event: ClickEvent) => {
         if (props.onClick) {
@@ -99,7 +100,6 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
         }
         toggleOpen();
       },
-      'tabIndex': 0,
       'aria-controls': contentId,
       'aria-expanded': isOpen ? 'true' : 'false',
     }),
@@ -107,7 +107,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       'ref': contentElement,
       'id': contentId,
       'style': {
-        overflow: 'hidden',
+        overflowY: 'hidden',
         willChange: 'height',
         opacity: isOpen ? 1 : 0,
         height: isOpen ? height : 0,

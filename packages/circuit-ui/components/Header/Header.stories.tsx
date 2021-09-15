@@ -18,7 +18,7 @@ import Hamburger from '../Hamburger';
 import Header from '.';
 
 export default {
-  title: 'Components/Header',
+  title: 'Navigation/Header',
   component: Header,
 };
 

@@ -71,7 +71,6 @@ exports[`Popover styles should render popover on auto 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -341,7 +340,6 @@ exports[`Popover styles should render popover on bottom 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -611,7 +609,6 @@ exports[`Popover styles should render popover on left 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -881,7 +878,6 @@ exports[`Popover styles should render popover on right 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -1151,7 +1147,6 @@ exports[`Popover styles should render popover on top 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -1486,7 +1481,6 @@ exports[`Popover styles should render with closed styles 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -1675,7 +1669,6 @@ exports[`Popover styles should render with default styles 1`] = `
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.4);
-    pointer-events: none;
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;

@@ -13,31 +13,18 @@
  * limitations under the License.
  */
 
-import { forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
 
-import { childrenPropType } from '../../../../util/shared-prop-types';
+import {
+  ComponentsContext,
+  ComponentsContextType,
+  defaultComponents,
+} from './ComponentsContext';
 
 /**
- * A barebones Link component that's basically just an `<a>` tag
+ * Subscribe to the components context with a hook.
  */
-const Link = forwardRef(({ children, ...props }, ref) => (
-  <a {...props} ref={ref}>
-    {children}
-  </a>
-));
-
-Link.displayName = 'Link';
-
-Link.propTypes = {
-  children: childrenPropType,
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any }),
-  ]),
+export const useComponents = (): ComponentsContextType => {
+  const components = useContext(ComponentsContext) || {};
+  return { ...defaultComponents, ...components };
 };
-
-/**
- * @component
- */
-export default Link;

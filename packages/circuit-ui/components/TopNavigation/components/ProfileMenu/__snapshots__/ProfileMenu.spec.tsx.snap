@@ -1,0 +1,378 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileMenu styles should render with a profile picture 1`] = `
+.circuit-7 {
+  display: inline-block;
+}
+
+.circuit-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: #1A1A1A;
+  background-color: #FFF;
+  text-align: left;
+  cursor: pointer;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  height: 100%;
+  padding: 0 16px;
+  border-left: 1px solid #CCC;
+}
+
+.circuit-6:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-6:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-6:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-6:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-6:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-6:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.circuit-0 {
+  display: block;
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  background-color: #CCC;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width:768px) {
+  .circuit-0 {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width:767px) {
+  .circuit-4 {
+    border: 0;
+    -webkit-clip: rect(0 0 0 0);
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+@media (min-width:768px) {
+  .circuit-4 {
+    margin: 0 12px;
+    max-width: 20ch;
+  }
+}
+
+.circuit-3 {
+  display: inline-block;
+  line-height: 0;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-2 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.circuit-5 {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .circuit-5 {
+    display: block;
+    -webkit-transition: -webkit-transform 120ms ease-in-out;
+    -webkit-transition: transform 120ms ease-in-out;
+    transition: transform 120ms ease-in-out;
+  }
+
+  button[aria-expanded='true'] .circuit-5 {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+<div>
+  <div
+    class="circuit-7"
+  >
+    <button
+      aria-controls="popover_2"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open profile menu"
+      class="circuit-6"
+      id="trigger_1"
+      title="Open profile menu"
+      type="button"
+    >
+      <span
+        class="circuit-1"
+      >
+        <img
+          alt=""
+          class="circuit-0"
+          src="profile.png"
+        />
+      </span>
+      <div
+        class="circuit-4"
+      >
+        <span
+          class="circuit-3"
+        >
+          <strong
+            class="circuit-2"
+          >
+            Jane Doe
+          </strong>
+        </span>
+      </div>
+      <svg
+        class="circuit-5"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ProfileMenu styles should render without a profile picture 1`] = `
+.circuit-6 {
+  display: inline-block;
+}
+
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: #1A1A1A;
+  background-color: #FFF;
+  text-align: left;
+  cursor: pointer;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  height: 100%;
+  padding: 0 16px;
+  border-left: 1px solid #CCC;
+}
+
+.circuit-5:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-5:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-0 {
+  display: inline-block;
+  line-height: 0;
+}
+
+@media (max-width:767px) {
+  .circuit-3 {
+    border: 0;
+    -webkit-clip: rect(0 0 0 0);
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+@media (min-width:768px) {
+  .circuit-3 {
+    margin: 0 12px;
+    max-width: 20ch;
+  }
+}
+
+.circuit-2 {
+  display: inline-block;
+  line-height: 0;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.circuit-4 {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .circuit-4 {
+    display: block;
+    -webkit-transition: -webkit-transform 120ms ease-in-out;
+    -webkit-transition: transform 120ms ease-in-out;
+    transition: transform 120ms ease-in-out;
+  }
+
+  button[aria-expanded='true'] .circuit-4 {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+<div>
+  <div
+    class="circuit-6"
+  >
+    <button
+      aria-controls="popover_7"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open profile menu"
+      class="circuit-5"
+      id="trigger_6"
+      title="Open profile menu"
+      type="button"
+    >
+      <span
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="24"
+          role="presentation"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M22.981 21.22A11.074 11.074 0 0012.001 12a11.074 11.074 0 00-10.982 9.22A1.576 1.576 0 002.6 23h18.8a1.577 1.577 0 001.581-1.78zm-10.98-1.72a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm4.5-14a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-3"
+      >
+        <span
+          class="circuit-2"
+        >
+          <strong
+            class="circuit-1"
+          >
+            Jane Doe
+          </strong>
+        </span>
+      </div>
+      <svg
+        class="circuit-4"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;

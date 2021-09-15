@@ -278,10 +278,9 @@ export const Button = forwardRef(
   ): ReturnType => {
     const components = useComponents();
 
-    // Need to typecast here because the StyledButton expects a button-like
-    // component for its `as` prop. It's safe to ignore that constraint here.
-    /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-    const Link = components.Link as any;
+    // Need to typecast here because the styled component types restrict the
+    // `as` prop to a string. It's safe to ignore that constraint here.
+    const Link = (components.Link as unknown) as string;
 
     const handleClick = useClickEvent(props.onClick, tracking, 'button');
 

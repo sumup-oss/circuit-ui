@@ -14,3 +14,5 @@
  */
 
 export { useFocusList } from './useFocusList';
+
+export type { FocusProps } from './useFocusList';

@@ -13,20 +13,21 @@
  * limitations under the License.
  */
 
-import { useContext } from 'react';
+import { forwardRef, HTMLProps, Ref } from 'react';
 
-import ComponentsContext from './ComponentsContext';
-import * as defaultComponents from './components';
-
-/**
- * Subscribe to the components context with a hook.
- */
-const useComponents = () => {
-  const components = useContext(ComponentsContext) || {};
-  return { ...defaultComponents, ...components };
-};
+export interface LinkProps extends HTMLProps<HTMLAnchorElement> {
+  ref?: Ref<HTMLAnchorElement>;
+}
 
 /**
- * @component
+ * A barebones Link component that's basically just an `<a>` tag
  */
-export default useComponents;
+export const Link = forwardRef(
+  ({ children, ...props }: LinkProps, ref: LinkProps['ref']) => (
+    <a {...props} ref={ref}>
+      {children}
+    </a>
+  ),
+);
+
+Link.displayName = 'Link';

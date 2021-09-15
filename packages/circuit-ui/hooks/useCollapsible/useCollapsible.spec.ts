@@ -15,7 +15,7 @@
 
 import { MouseEvent } from 'react';
 
-import { renderHook, actHook } from '../../util/test-utils';
+import { renderHook, actHook, waitFor } from '../../util/test-utils';
 
 import { useCollapsible, getHeight } from './useCollapsible';
 
@@ -87,7 +87,6 @@ describe('useCollapsible', () => {
       const actual = getButtonProps();
       const expected = expect.objectContaining({
         'onClick': expect.any(Function),
-        'tabIndex': 0,
         'aria-controls': expect.any(String),
         'aria-expanded': 'false',
       });
@@ -104,11 +103,11 @@ describe('useCollapsible', () => {
         'ref': { current: null },
         'id': expect.any(String),
         'style': {
-          overflow: 'hidden',
+          overflowY: 'hidden',
           willChange: 'height',
           opacity: 0,
           height: 0,
-          transition: 'all 300ms ease-in-out',
+          transition: 'all 200ms ease-in-out',
           visibility: 'hidden',
         },
         'aria-hidden': 'true',
@@ -128,7 +127,6 @@ describe('useCollapsible', () => {
       const actual = getButtonProps();
       const expected = expect.objectContaining({
         'onClick': expect.any(Function),
-        'tabIndex': 0,
         'aria-controls': expect.any(String),
         'aria-expanded': 'true',
       });
@@ -145,11 +143,11 @@ describe('useCollapsible', () => {
         'ref': { current: null },
         'id': expect.any(String),
         'style': {
-          overflow: 'hidden',
+          overflowY: 'hidden',
           willChange: 'height',
           opacity: 1,
           height: 'auto',
-          transition: 'all 300ms ease-in-out',
+          transition: 'all 200ms ease-in-out',
           visibility: 'visible',
         },
         'aria-hidden': null,
@@ -160,7 +158,7 @@ describe('useCollapsible', () => {
   });
 
   describe('toggling', () => {
-    it('should toggle the open state when the button is clicked', () => {
+    it('should toggle the open state when the button is clicked', async () => {
       const event = ({ fizz: 'buzz' } as unknown) as MouseEvent;
       const { result } = renderHook(() => useCollapsible());
       const { getButtonProps } = result.current;
@@ -171,10 +169,12 @@ describe('useCollapsible', () => {
         getButtonProps().onClick(event);
       });
 
-      expect(result.current.isOpen).toBeTruthy();
+      await waitFor(() => {
+        expect(result.current.isOpen).toBeTruthy();
+      });
     });
 
-    it('should toggle the open state when the callback is called', () => {
+    it('should toggle the open state when the callback is called', async () => {
       const { result } = renderHook(() => useCollapsible());
 
       expect(result.current.isOpen).toBeFalsy();
@@ -183,7 +183,9 @@ describe('useCollapsible', () => {
         result.current.toggleOpen();
       });
 
-      expect(result.current.isOpen).toBeTruthy();
+      await waitFor(() => {
+        expect(result.current.isOpen).toBeTruthy();
+      });
     });
   });
 

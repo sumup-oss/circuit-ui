@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { createUseModal } from '../ModalContext';
+export { UtilityLinks } from './UtilityLinks';
 
-import { Modal } from './Modal';
-
-export const useModal = createUseModal(Modal);
+export type { UtilityLinksProps } from './UtilityLinks';

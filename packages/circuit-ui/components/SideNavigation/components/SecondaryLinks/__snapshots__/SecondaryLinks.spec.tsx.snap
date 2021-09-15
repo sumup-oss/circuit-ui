@@ -1,0 +1,315 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SecondaryLinks styles should render with default styles 1`] = `
+.circuit-20 {
+  list-style: none;
+}
+
+.circuit-10 {
+  list-style: none;
+}
+
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: #1A1A1A;
+  background-color: #FFF;
+  text-align: left;
+  cursor: pointer;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 16px 24px;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.circuit-2:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-2:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-2:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+@media (min-width:960px) {
+  .circuit-2 {
+    padding: 12px;
+    padding-left: 20px;
+  }
+}
+
+.circuit-1 {
+  display: inline-block;
+  line-height: 0;
+  margin-right: 8px;
+}
+
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+.circuit-5 {
+  border-radius: 999999px;
+  color: #FFF;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #CA58FF;
+  color: #FFF;
+}
+
+.circuit-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: #3063E9;
+  background-color: #F0F6FF;
+  text-align: left;
+  cursor: pointer;
+  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 16px 24px;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.circuit-9:hover {
+  background-color: #F0F6FF;
+}
+
+.circuit-9:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-9:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px #AFD0FE;
+}
+
+.circuit-9:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-9:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-9:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+@media (min-width:960px) {
+  .circuit-9 {
+    padding: 12px;
+    padding-left: 20px;
+  }
+}
+
+.circuit-7 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.circuit-12 {
+  display: inline-block;
+  line-height: 0;
+  margin: 32px 16px 8px;
+}
+
+.circuit-11 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 12px;
+  color: #000;
+  margin-bottom: 0;
+}
+
+<ul
+  class="circuit-20"
+  role="list"
+>
+  <li>
+    <ul
+      class="circuit-10"
+      role="list"
+    >
+      <li>
+        <a
+          class="circuit-2"
+          data-focus-list="1"
+          href="/shop/shirts"
+        >
+          <span
+            class="circuit-1"
+          >
+            <p
+              class="circuit-0"
+            >
+              Shirts
+            </p>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          class="circuit-2"
+          data-focus-list="1"
+          href="/shop/pants"
+        >
+          <span
+            class="circuit-1"
+          >
+            <p
+              class="circuit-0"
+            >
+              Pants
+            </p>
+          </span>
+          <span
+            class="circuit-5"
+          >
+            New
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current="page"
+          class="circuit-9"
+          data-focus-list="1"
+          href="/shop/socks"
+        >
+          <span
+            class="circuit-1"
+          >
+            <strong
+              class="circuit-7"
+            >
+              Socks
+            </strong>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span
+      class="circuit-12"
+    >
+      <h3
+        class="circuit-11"
+      >
+        For Kids
+      </h3>
+    </span>
+    <ul
+      class="circuit-10"
+      role="list"
+    >
+      <li>
+        <a
+          class="circuit-2"
+          data-focus-list="1"
+          href="/shop/toys"
+        >
+          <span
+            class="circuit-1"
+          >
+            <p
+              class="circuit-0"
+            >
+              Toys
+            </p>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          class="circuit-2"
+          data-focus-list="1"
+          href="/shop/books"
+        >
+          <span
+            class="circuit-1"
+          >
+            <p
+              class="circuit-0"
+            >
+              Books
+            </p>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;

@@ -19,7 +19,11 @@ import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
 import { isFunction } from '../../util/type-check';
-import { ModalComponent, BaseModalProps } from '../ModalContext';
+import {
+  ModalComponent,
+  BaseModalProps,
+  createUseModal,
+} from '../ModalContext';
 import CloseButton from '../CloseButton';
 import { StackContext } from '../StackContext';
 import styled, { StyleProps } from '../../styles/styled';
@@ -30,6 +34,7 @@ const TRANSITION_DURATION = Math.max(
   TRANSITION_DURATION_MOBILE,
   TRANSITION_DURATION_DESKTOP,
 );
+
 type PreventCloseProps =
   | {
       /**
@@ -73,11 +78,7 @@ const closeButtonStyles = (theme: Theme) => css`
   position: absolute;
   top: ${theme.spacings.byte};
   right: ${theme.spacings.byte};
-
-  ${theme.mq.kilo} {
-    top: ${theme.spacings.mega};
-    right: ${theme.spacings.mega};
-  }
+  z-index: ${theme.zIndex.absolute};
 `;
 
 type ContentProps = Pick<ModalProps, 'variant'>;
@@ -108,7 +109,7 @@ const contentVariantStyles = ({
   if (variant === 'contextual') {
     return css`
       ${theme.mq.untilKilo} {
-        max-height: calc(100vh - ${theme.spacings.mega});
+        max-height: calc(100vh - ${theme.spacings.giga});
       }
 
       /* iOS viewport bug fix */
@@ -302,3 +303,5 @@ export const Modal: ModalComponent<ModalProps> = ({
 };
 
 Modal.TIMEOUT = TRANSITION_DURATION;
+
+export const useModal = createUseModal(Modal);

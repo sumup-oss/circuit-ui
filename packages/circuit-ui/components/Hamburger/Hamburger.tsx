@@ -18,6 +18,7 @@ import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
+import { Skeleton } from '../Skeleton';
 
 export type HamburgerRef = HTMLButtonElement;
 
@@ -51,6 +52,7 @@ const buttonStyles = ({ theme, size }: StyleProps & IconButtonProps) => css`
 const Button = styled(IconButton)<IconButtonProps>(buttonStyles);
 
 type BoxProps = Required<Pick<HamburgerProps, 'size'>>;
+
 const boxStyles = css`
   position: relative;
   display: flex;
@@ -71,7 +73,7 @@ const boxSizeStyles = ({ theme, size }: StyleProps & BoxProps) => {
   `;
 };
 
-const Box = styled.span<BoxProps>(boxStyles, boxSizeStyles);
+const Box = styled(Skeleton)<BoxProps>(boxStyles, boxSizeStyles);
 
 type LayerProps = Required<Pick<HamburgerProps, 'size' | 'isActive'>>;
 
