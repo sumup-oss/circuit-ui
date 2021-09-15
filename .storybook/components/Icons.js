@@ -71,11 +71,15 @@ const Size = styled.p`
   font-style: italic;
 `;
 
+const IconWrapper = styled.div`
+  height: 48px; /* 2 * 24px icon */
+`;
+
 const iconStyles = (color, size) => (theme) => css`
-  height: 3rem;
+  height: ${size * 2}px;
   width: auto;
   max-width: 6rem;
-  padding: ${size === 'small' ? '0.5rem' : '0'};
+  margin: ${size === '16' ? theme.spacings.byte : '0'}; /* Center 16px icons */
   color: ${theme.colors[color]};
   background-color: ${color === 'white'
     ? theme.colors.black
@@ -160,11 +164,13 @@ const Icons = () => {
                 const Icon = iconComponents[componentName];
                 return (
                   <Wrapper key={id}>
-                    <Icon
-                      id={id}
-                      size={icon.size}
-                      css={iconStyles(color, icon.size)}
-                    />
+                    <IconWrapper>
+                      <Icon
+                        id={id}
+                        size={icon.size}
+                        css={iconStyles(color, icon.size)}
+                      />
+                    </IconWrapper>
                     <Label htmlFor="id">
                       {icon.name}
                       {size === 'all' && <Size>{icon.size}</Size>}
