@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 3.1.0-canary.16
+
+### Minor Changes
+
+- [#1169](https://github.com/sumup-oss/circuit-ui/pull/1169) [`0c7416cf`](https://github.com/sumup-oss/circuit-ui/commit/0c7416cf60e57c4d22ead4628527f3fd03aea0f1) Thanks [@connor-baer](https://github.com/connor-baer)! - Exposed the `isAnimating` state from the useCollapsible hook.
+
+### Patch Changes
+
+- [#1169](https://github.com/sumup-oss/circuit-ui/pull/1169) [`0c7416cf`](https://github.com/sumup-oss/circuit-ui/commit/0c7416cf60e57c4d22ead4628527f3fd03aea0f1) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a bug in the `useCollapsible` hook to start the closing animation immediately.
+
 ## 3.1.0-canary.15
 
 ### Patch Changes
