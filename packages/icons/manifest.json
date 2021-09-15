@@ -641,6 +641,16 @@
       "size": "24"
     },
     {
+      "name": "arrow_right",
+      "category": "Navigation",
+      "size": "16"
+    },
+    {
+      "name": "arrow_left",
+      "category": "Navigation",
+      "size": "16"
+    },
+    {
       "name": "confirm",
       "category": "Notification",
       "size": "24"
@@ -836,12 +846,52 @@
       "size": "24"
     },
     {
+      "name": "chevron_up",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "chevron_right",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "chevron_down",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "chevron_left",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "close",
       "category": "Action",
       "size": "16"
     },
     {
       "name": "edit",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "delete",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "search",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "pause",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "play",
       "category": "Action",
       "size": "16"
     },
