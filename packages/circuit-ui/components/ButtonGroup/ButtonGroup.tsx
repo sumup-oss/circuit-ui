@@ -15,12 +15,9 @@
 
 import { ReactElement, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
-import { useTheme } from 'emotion-theming';
 
 import styled, { StyleProps } from '../../styles/styled';
 import Button, { ButtonProps } from '../Button';
-import { useMedia } from '../../hooks/useMedia';
 
 type Action = Omit<ButtonProps, 'variant'>;
 
@@ -102,35 +99,44 @@ const inlineMobileStyles = ({
     ${getInlineStyles({ theme })}
   `;
 
-const actionStyles = ({ theme }: StyleProps) => css`
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr;
+const actionWrapperStyles = ({ theme }: StyleProps) => css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 
-  > button,
-  > a {
-    width: auto;
-
-    &:not(:last-child) {
-      margin-right: ${theme.spacings.mega};
-      margin-bottom: 0;
-    }
-  }
-
-  ${theme.mq.untilKilo} {
-    grid-template-columns: 1fr;
-
-    > button,
-    > a {
-      width: 100%;
-
-      &:last-child {
-        grid-row: 1;
-        margin-bottom: ${theme.spacings.mega};
-      }
-    }
+  ${theme.mq.kilo} {
+    flex-direction: row;
   }
 `;
+
+const buttonStyles = ({ theme }: StyleProps) => css`
+  width: 100%;
+
+  ${theme.mq.kilo} {
+    width: auto;
+  }
+`;
+
+const PrimaryButton = styled(Button)(buttonStyles);
+
+const secondaryButtonStyles = ({ theme }: StyleProps) => css`
+  margin-right: ${theme.spacings.mega};
+  ${theme.mq.untilKilo} {
+    display: none;
+  }
+`;
+
+const SecondaryButton = styled(Button)(secondaryButtonStyles, buttonStyles);
+
+const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
+  margin-top: ${theme.spacings.mega};
+  ${theme.mq.kilo} {
+    display: none;
+  }
+`;
+
+const TertiaryButton = styled(Button)(tertiaryButtonStyles, buttonStyles);
 
 const Wrapper = styled('div')<ButtonGroupProps>(
   baseStyles,
@@ -138,7 +144,7 @@ const Wrapper = styled('div')<ButtonGroupProps>(
   inlineMobileStyles,
 );
 
-const ActionsWrapper = styled('div')<ButtonGroupProps>(actionStyles);
+const ActionsWrapper = styled('div')<ButtonGroupProps>(actionWrapperStyles);
 
 /**
  * Groups its Button children into a list and adds margins between.
@@ -148,26 +154,30 @@ export const ButtonGroup = forwardRef(
     { children, action, ...props }: ButtonGroupProps,
     ref: ButtonGroupProps['ref'],
   ) => {
-    const theme = useTheme<Theme>();
-    const isMobile = useMedia(theme.breakpoints.untilKilo, true);
-
     if (action) {
       return (
         <ActionsWrapper {...props}>
-          <Button
-            variant={isMobile ? 'tertiary' : 'secondary'}
+          <SecondaryButton
+            variant="secondary"
             onClick={action.secondary.onClick}
             href={action.secondary.href}
           >
             {action.secondary.children}
-          </Button>
-          <Button
+          </SecondaryButton>
+          <PrimaryButton
             variant="primary"
             onClick={action.primary.onClick}
             href={action.primary.href}
           >
             {action.primary.children}
-          </Button>
+          </PrimaryButton>
+          <TertiaryButton
+            variant="tertiary"
+            onClick={action.secondary.onClick}
+            href={action.secondary.href}
+          >
+            {action.secondary.children}
+          </TertiaryButton>
         </ActionsWrapper>
       );
     }
