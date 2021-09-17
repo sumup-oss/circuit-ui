@@ -59,6 +59,7 @@ const SliderImage = styled(Image)(
   slideImageTransformStyles,
 );
 
+// eslint-disable-next-line react/prop-types
 const Swipeable = ({ children, ...props }) => {
   const handlers = useSwipeable(props);
   return <div {...handlers}>{children}</div>;

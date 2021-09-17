@@ -15,6 +15,7 @@
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { forwardRef } from 'react';
 
 import { clearfix } from '../../styles/style-mixins';
 
@@ -44,14 +45,14 @@ const baseStyles = ({ theme }) => css`
   ${getBreakPointStyles(theme, 'tera')};
 `;
 
+const StyledRow = styled('div')(baseStyles);
+
 /**
  * Row wrapping for the Col component.
  */
-const StyledRow = styled('div')(baseStyles);
+const Row = forwardRef((props, ref) => <StyledRow {...props} ref={ref} />);
 
-function Row({ children, ...props }) {
-  return <StyledRow {...props}>{children}</StyledRow>;
-}
+Row.displayName = 'Row';
 
 /**
  * @component

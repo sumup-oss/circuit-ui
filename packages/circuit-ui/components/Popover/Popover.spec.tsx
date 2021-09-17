@@ -119,7 +119,7 @@ describe('Popover', () => {
       expect(baseElement).toMatchSnapshot();
     });
 
-    it.each(placements)(`should render popover on %s`, (placement) => {
+    it.each(placements)('should render popover on %s', (placement) => {
       const { baseElement } = renderPopover({ ...baseProps, placement });
 
       expect(baseElement).toMatchSnapshot();

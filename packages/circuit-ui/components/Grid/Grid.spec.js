@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { createRef } from 'react';
+
 import Grid from '.';
 
 describe('Grid', () => {
@@ -22,6 +24,13 @@ describe('Grid', () => {
   it('should render with default styles', () => {
     const actual = create(<Grid />);
     expect(actual).toMatchSnapshot();
+  });
+
+  it('should forward a ref', () => {
+    const ref = createRef();
+    const { container } = render(<Grid ref={ref} />);
+    const element = container.querySelector('div');
+    expect(ref.current).toBe(element);
   });
 
   /**

@@ -69,7 +69,7 @@ const Page: NextPage = () => (
             support (incl. babel plugin)
           </li>
           <li>
-            {`SumUp's default tooling provided by `}
+            {"SumUp's default tooling provided by "}
             <Anchor
               href="https://github.com/sumup-oss/foundry"
               target="_blank"

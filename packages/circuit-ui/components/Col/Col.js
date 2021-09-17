@@ -17,6 +17,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
+import { forwardRef } from 'react';
 
 import { getSpanStyles, getSkipStyles, getBreakPointStyles } from './utils';
 
@@ -28,18 +29,15 @@ const baseStyles = ({ theme, span, skip }) => css`
   ${getSpanStyles(theme, span)};
   ${getSkipStyles(theme, skip)};
 `;
+const StyledCol = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'span',
+})(baseStyles);
 
 /**
  * Content wrapping for the Grid component. Allows sizing based on provided
  * props.
  */
-const StyledCol = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'span',
-})(baseStyles);
-
-function Col({ children, ...props }) {
-  return <StyledCol {...props}>{children}</StyledCol>;
-}
+const Col = forwardRef((props, ref) => <StyledCol {...props} ref={ref} />);
 
 const sizingProp = PropTypes.oneOfType([
   PropTypes.object,
@@ -65,6 +63,8 @@ Col.propTypes = {
    */
   span: sizingProp,
 };
+
+Col.displayName = 'Col';
 
 /**
  * @component

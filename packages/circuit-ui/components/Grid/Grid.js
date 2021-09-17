@@ -15,6 +15,7 @@
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { forwardRef } from 'react';
 
 const getBreakPointStyles = (theme, breakpoint) => {
   const config = theme.grid[breakpoint];
@@ -41,14 +42,14 @@ const baseStyles = ({ theme }) => css`
   ${getBreakPointStyles(theme, 'tera')};
 `;
 
+const StyledGrid = styled('div')(baseStyles);
+
 /**
  * A basic 12-column grid component.
  */
-const StyledGrid = styled('div')(baseStyles);
+const Grid = forwardRef((props, ref) => <StyledGrid {...props} ref={ref} />);
 
-function Grid({ children, ...props }) {
-  return <StyledGrid {...props}>{children}</StyledGrid>;
-}
+Grid.displayName = 'Grid';
 
 /**
  * @component

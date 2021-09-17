@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { createRef } from 'react';
+
 import Row from '.';
 
 describe('Row', () => {
@@ -22,6 +24,13 @@ describe('Row', () => {
   it('should render with default styles', () => {
     const actual = create(<Row />);
     expect(actual).toMatchSnapshot();
+  });
+
+  it('should forward a ref', () => {
+    const ref = createRef();
+    const { container } = render(<Row ref={ref} />);
+    const element = container.querySelector('div');
+    expect(ref.current).toBe(element);
   });
 
   /**
