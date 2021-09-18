@@ -54,7 +54,11 @@ const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
  * as its only child.
  */
 export const IconButton = forwardRef(
-  ({ children, label, size, ...props }: IconButtonProps, ref?: Ref<any>) => {
+  (
+    { children, label, size, ...props }: IconButtonProps,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ref?: Ref<any>,
+  ) => {
     const child = Children.only(children);
     const iconSize = size === 'kilo' ? '16' : '24';
     const icon = cloneElement(child, {

@@ -58,6 +58,7 @@ yargs
   .help()
   .version().argv;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function execute(command: CommandType, args: any): void {
   const commands = { migrate };
   const commandFn = commands[command];

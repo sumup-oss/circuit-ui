@@ -42,7 +42,9 @@ const render: RenderFn<RenderResult> = (component, options) =>
   renderTest(component, { wrapper: WithProviders, ...options });
 const renderToHtml: RenderFn<string> = (component) =>
   renderToStaticMarkup(<WithProviders>{component}</WithProviders>);
-const create = (...args: Parameters<RenderFn<RenderResult>>) => {
+const create = (
+  ...args: Parameters<RenderFn<RenderResult>>
+): ChildNode | HTMLCollection | null => {
   const { container } = render(...args);
   return container.children.length > 1
     ? container.children

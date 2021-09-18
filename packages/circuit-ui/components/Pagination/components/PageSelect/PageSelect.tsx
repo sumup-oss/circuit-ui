@@ -24,7 +24,7 @@ export interface PageSelectProps extends Omit<SelectProps, 'onChange'> {
   currentPage: number;
   totalPages: number;
   totalLabel?: (totalPages: number) => string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const TotalPages = styled('span')`

@@ -14,12 +14,14 @@
  */
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export const isFunction = (value?: any): value is Function =>
+export const isFunction = (value?: unknown): value is Function =>
   typeof value === 'function';
 
-export const isString = (value?: any): value is string =>
+export const isString = (value?: unknown): value is string =>
   typeof value === 'string';
 
-export const isArray = (value?: any): value is [] =>
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  Boolean(value) && typeof value === 'object' && value.constructor === Array;
+export const isArray = (value?: unknown): value is [] =>
+  Boolean(value) &&
+  typeof value === 'object' &&
+  value !== null &&
+  value.constructor === Array;
