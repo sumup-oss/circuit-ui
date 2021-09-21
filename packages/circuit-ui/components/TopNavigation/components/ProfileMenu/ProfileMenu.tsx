@@ -129,7 +129,7 @@ function Profile({
         {userAvatar ? (
           <UserAvatar {...userAvatar} variant="identity" />
         ) : (
-          <ProfileIcon />
+          <ProfileIcon role="presentation" />
         )}
       </Skeleton>
       <UserDetails>
