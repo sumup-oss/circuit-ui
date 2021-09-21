@@ -55,7 +55,7 @@ const TooltipContainer = styled('div')`
 export const Base = (args) => (
   <TooltipContainer>
     <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info />
+    <Info size="16" />
   </TooltipContainer>
 );
 
@@ -67,7 +67,7 @@ Base.args = {
 export const TopLeft = (args) => (
   <TooltipContainer>
     <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info />
+    <Info size="16" />
   </TooltipContainer>
 );
 
@@ -79,7 +79,7 @@ TopLeft.args = {
 export const BottomRight = (args) => (
   <TooltipContainer>
     <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info />
+    <Info size="16" />
   </TooltipContainer>
 );
 
@@ -91,7 +91,7 @@ BottomRight.args = {
 export const LeftCenter = (args) => (
   <TooltipContainer>
     <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info />
+    <Info size="16" />
   </TooltipContainer>
 );
 
