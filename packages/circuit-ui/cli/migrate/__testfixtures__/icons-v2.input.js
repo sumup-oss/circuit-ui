@@ -1,5 +1,12 @@
 import styled from '@emotion/styled';
-import { Heart, GiftFilled, Zap, Spinner, Cross } from '@sumup/icons';
+import {
+  Heart, // Prevent line wrapping
+  GiftFilled,
+  Zap,
+  Spinner,
+  Cross,
+  ShoppingCart,
+} from '@sumup/icons';
 
 /**
  * Icon sizes
@@ -24,8 +31,20 @@ const RedHeart = styled(Heart)`
 `;
 
 /**
- * Removed icons (print error)
+ * Removed icons (prints error)
  */
 
 const ComponentWithZap = () => <Zap />;
 const ComponentWithSpinner = () => <Spinner />; // Verify the custom console error
+
+/**
+ * Removed icon size (prints error)
+ */
+
+const ComponentWithShoppingCart = () => (
+  <>
+    <ShoppingCart size="large" />
+    <ShoppingCart size="small" />
+    <ShoppingCart />
+  </>
+);

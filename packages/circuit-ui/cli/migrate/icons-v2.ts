@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import { Transform, JSCodeshift, Collection } from 'jscodeshift';
+import {
+  Transform,
+  JSCodeshift,
+  Collection,
+  JSXAttribute,
+  StringLiteral,
+} from 'jscodeshift';
 
 import { findImportsByPath, findStyledComponentNames } from './utils';
 
@@ -99,24 +105,24 @@ const REMOVED_ICONS = [
 ];
 
 const REMOVED_SMALL_ICON = [
-  ['CirclePlus', 'Add'],
-  'Download',
-  'Link',
-  'Pause',
-  'Play',
-  'Refresh',
-  'Search',
-  'Share',
-  'ArrowUp',
-  'ArrowDown',
-  'File',
-  ['FileZip', 'ZipFile'],
-  'Bank',
+  ['ArrowDown'],
+  ['ArrowUp'],
+  ['Bank'],
   ['Card', 'SumUpCard'],
-  'Receipt',
-  'Location',
+  ['CirclePlus', 'Add'],
+  ['Download'],
+  ['File'],
+  ['FileZip', 'ZipFile'],
+  ['Link'],
+  ['Location'],
+  ['More'],
+  ['Pause'],
+  ['Play'],
+  ['Receipt'],
+  ['Refresh'],
+  ['Search'],
+  ['Share'],
   ['ShoppingCart', 'Checkout'],
-  'More',
 ];
 
 function handleIconSizeRenamed(j: JSCodeshift, root: Collection): void {
@@ -171,6 +177,7 @@ function handleIconSizeRenamed(j: JSCodeshift, root: Collection): void {
 function handleIconRenamed(
   j: JSCodeshift,
   root: Collection,
+  filePath: string,
   oldIconName: string,
   newIconName: string,
   productName?: string,
@@ -194,6 +201,7 @@ function handleIconRenamed(
             `and should only be used in the context of the ${productName}`,
             `product/feature from now on.`,
             `If you have doubts about your use of the icon, contact #design-system.`,
+            `\nin ${filePath}`,
           ].join(' '),
         );
       }
@@ -205,6 +213,7 @@ function handleIconRenamed(
 function handleIconRemoved(
   j: JSCodeshift,
   root: Collection,
+  filePath: string,
   oldIconName: string,
   customMessage?: string,
 ): void {
@@ -225,6 +234,49 @@ function handleIconRemoved(
         [
           `The "${oldIconName}" icon has been removed.`,
           customMessage || defaultMessage,
+          `\nin ${filePath}`,
+        ].join(' '),
+      );
+    }
+    return false;
+  });
+}
+
+function handleIconSizeRemoved(
+  root: Collection,
+  filePath: string,
+  oldIconName: string,
+  newIconName?: string,
+): void {
+  root.findJSXElements(oldIconName).forEach((jsxElement) => {
+    const attributes = jsxElement.node.openingElement
+      .attributes as JSXAttribute[];
+    const sizeAttribute = attributes.find((a) => a.name.name === 'size');
+    const hasSizeSmall =
+      (sizeAttribute?.value as StringLiteral)?.value === 'small';
+    const hasImplicitSizeSmall = !sizeAttribute;
+
+    if (hasSizeSmall) {
+      console.error(
+        [
+          `The 16px size of the ${oldIconName} icon has been removed.`,
+          `If possible, migrate it manually to the 24px`,
+          `${newIconName || oldIconName} icon.`,
+          `Otherwise, copy it locally to finish the migration,`,
+          `and request the 16px icon size in #design-system.`,
+          `\nin ${filePath}`,
+        ].join(' '),
+      );
+    } else if (hasImplicitSizeSmall) {
+      console.error(
+        [
+          `The ${oldIconName} icon's default size changed from`,
+          `16px to 24px.`,
+          `If possible, migrate it manually to the 24px`,
+          `${newIconName || oldIconName} icon`,
+          `Otherwise, copy it locally to finish the migration,`,
+          `and request the 16px icon size in #design-system.`,
+          `\nin ${filePath}`,
         ].join(' '),
       );
     }
@@ -235,19 +287,21 @@ function handleIconRemoved(
 const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
+  const filePath = file.path;
 
-  handleIconSizeRenamed(j, root);
-
-  RENAMED_ICONS.forEach(([oldIconName, newIconName, productName]) => {
-    handleIconRenamed(j, root, oldIconName, newIconName, productName);
+  REMOVED_SMALL_ICON.forEach(([oldIconName, newIconName]) => {
+    handleIconSizeRemoved(root, filePath, oldIconName, newIconName);
   });
 
   REMOVED_ICONS.forEach(([oldIconName, customMessage]) => {
-    handleIconRemoved(j, root, oldIconName, customMessage);
+    handleIconRemoved(j, root, filePath, oldIconName, customMessage);
   });
 
-  // TODO iterate through REMOVED_SMALL_ICON and warn if the size was "small" or undefined
-  console.log(REMOVED_SMALL_ICON);
+  RENAMED_ICONS.forEach(([oldIconName, newIconName, productName]) => {
+    handleIconRenamed(j, root, filePath, oldIconName, newIconName, productName);
+  });
+
+  handleIconSizeRenamed(j, root);
 
   return root.toSource();
 };

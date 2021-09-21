@@ -1,5 +1,12 @@
 import styled from '@emotion/styled';
-import { Like, Refer, Zap, Spinner, Close } from '@sumup/icons';
+import {
+  Like, // Prevent line wrapping
+  Refer,
+  Zap,
+  Spinner,
+  Close,
+  Checkout,
+} from '@sumup/icons';
 
 /**
  * Icon sizes
@@ -24,8 +31,20 @@ const RedHeart = styled(Like)`
 `;
 
 /**
- * Removed icons (print error)
+ * Removed icons (prints error)
  */
 
 const ComponentWithZap = () => <Zap />;
 const ComponentWithSpinner = () => <Spinner />; // Verify the custom console error
+
+/**
+ * Removed icon size (prints error)
+ */
+
+const ComponentWithShoppingCart = () => (
+  <>
+    <Checkout size="24" />
+    <Checkout size="16" />
+    <Checkout />
+  </>
+);
