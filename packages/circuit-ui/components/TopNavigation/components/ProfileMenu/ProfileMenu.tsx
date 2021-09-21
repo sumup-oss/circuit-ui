@@ -15,7 +15,7 @@
 
 import { useState, HTMLProps } from 'react';
 import { css } from '@emotion/core';
-import { ChevronDown } from '@sumup/icons';
+import { ChevronDown, Profile as ProfileIcon } from '@sumup/icons';
 import { TrackingElement } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
@@ -25,21 +25,6 @@ import Body from '../../../Body';
 import Popover, { PopoverProps } from '../../../Popover';
 import { Skeleton } from '../../../Skeleton';
 import { TRACKING_ELEMENTS } from '../../constants';
-
-const AvatarPlaceholder = () => (
-  <svg
-    width="24"
-    height="24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    role="presentation"
-  >
-    <path
-      d="M22.981 21.22A11.074 11.074 0 0012.001 12a11.074 11.074 0 00-10.982 9.22A1.576 1.576 0 002.6 23h18.8a1.577 1.577 0 001.581-1.78zm-10.98-1.72a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm4.5-14a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"
-      fill="currentColor"
-    />
-  </svg>
-);
 
 const profileWrapperStyles = ({ theme }: StyleProps) => css`
   height: 100%;
@@ -144,7 +129,7 @@ function Profile({
         {userAvatar ? (
           <UserAvatar {...userAvatar} variant="identity" />
         ) : (
-          <AvatarPlaceholder />
+          <ProfileIcon />
         )}
       </Skeleton>
       <UserDetails>
