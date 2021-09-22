@@ -55,7 +55,8 @@ const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
 export const IconButton = forwardRef(
   ({ children, label, size, ...props }: IconButtonProps, ref?: Ref<any>) => {
     const child = Children.only(children);
-    const icon = cloneElement(child, { role: 'presentation' });
+    const iconSize = size === 'kilo' ? 16 : 24;
+    const icon = cloneElement(child, { role: 'presentation', size: iconSize });
     if (
       process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&

@@ -29,7 +29,7 @@ export default {
 
 export const Base = (args: IconButtonProps) => (
   <IconButton {...args}>
-    <Plus size={args.size === 'kilo' ? '16' : '24'} />
+    <Plus />
   </IconButton>
 );
 
