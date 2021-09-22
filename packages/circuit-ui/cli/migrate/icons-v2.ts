@@ -187,29 +187,30 @@ function handleIconRenamed(
 ): void {
   const imports = findImportsByPath(j, root, '@sumup/icons');
 
-  const componentImport = imports.find((i) => i.name === oldIconName);
+  const legacyIconImport = imports.find((i) => i.name === oldIconName);
 
-  if (!componentImport) {
+  if (!legacyIconImport) {
     return;
+  }
+
+  if (productName) {
+    console.warn(
+      [
+        `The "${oldIconName}" icon has been renamed to "${newIconName}",`,
+        `and should only be used in the context of the ${productName}`,
+        `product/feature.`,
+        `If you have doubts about your use of the icon, file an issue or`,
+        `contact the Design System team.`,
+        `\nin ${filePath}`,
+      ].join(' '),
+    );
   }
 
   root
     .find(j.Identifier)
     .filter((nodePath) => {
-      const hasLegacyIconName = nodePath.node.name === oldIconName;
-      if (hasLegacyIconName && productName) {
-        console.warn(
-          [
-            `The "${oldIconName}" icon has been renamed to "${newIconName}",`,
-            `and should only be used in the context of the ${productName}`,
-            `product/feature from now on.`,
-            `If you have doubts about your use of the icon, file an issue or`,
-            `contact the Design System team`,
-            `\nin ${filePath}`,
-          ].join(' '),
-        );
-      }
-      return hasLegacyIconName;
+      const isLegacyIconName = nodePath.node.name === oldIconName;
+      return isLegacyIconName;
     })
     .replaceWith(j.identifier(newIconName));
 }
@@ -223,27 +224,19 @@ function handleIconRemoved(
 ): void {
   const imports = findImportsByPath(j, root, '@sumup/icons');
 
-  const componentImport = imports.find((i) => i.name === oldIconName);
+  const legacyIconImport = imports.find((i) => i.name === oldIconName);
 
-  if (!componentImport) {
-    return;
+  if (legacyIconImport) {
+    const defaultMessage =
+      'Copy it locally to finish the migration, and request a new icon from the Design System team.';
+    console.error(
+      [
+        `The "${oldIconName}" icon has been removed.`,
+        customMessage || defaultMessage,
+        `\nin ${filePath}`,
+      ].join(' '),
+    );
   }
-
-  root.find(j.Identifier).filter((nodePath) => {
-    const hasLegacyIconName = nodePath.node.name === oldIconName;
-    if (hasLegacyIconName) {
-      const defaultMessage =
-        'Copy it locally to finish the migration, and request a new icon from the Design System team.';
-      console.error(
-        [
-          `The "${oldIconName}" icon has been removed.`,
-          customMessage || defaultMessage,
-          `\nin ${filePath}`,
-        ].join(' '),
-      );
-    }
-    return false;
-  });
 }
 
 function handleIconSizeRemoved(
@@ -255,51 +248,45 @@ function handleIconSizeRemoved(
 ): void {
   const imports = findImportsByPath(j, root, '@sumup/icons');
 
-  if (imports.length < 1) {
+  const legacyIconImport = imports.find((i) => i.name === oldIconName);
+
+  if (!legacyIconImport) {
     return;
   }
 
-  const components = imports.reduce<string[]>((acc, cur) => {
-    const localName = cur.local;
-    const styledComponents = findStyledComponentNames(j, root, localName);
-    return [...acc, localName, ...styledComponents];
-  }, []);
+  root.findJSXElements(legacyIconImport.local).forEach((jsxElement) => {
+    const attributes = jsxElement.node.openingElement
+      .attributes as JSXAttribute[];
+    const sizeAttribute = attributes.find((a) => a.name.name === 'size');
+    const hasSizeSmall =
+      (sizeAttribute?.value as StringLiteral)?.value === 'small';
+    const hasImplicitSizeSmall = !sizeAttribute;
 
-  components.forEach((component) => {
-    root.findJSXElements(component).forEach((jsxElement) => {
-      const attributes = jsxElement.node.openingElement
-        .attributes as JSXAttribute[];
-      const sizeAttribute = attributes.find((a) => a.name.name === 'size');
-      const hasSizeSmall =
-        (sizeAttribute?.value as StringLiteral)?.value === 'small';
-      const hasImplicitSizeSmall = !sizeAttribute;
+    const actionMessage = [
+      `If possible, migrate it manually to the 24px`,
+      `${newIconName || oldIconName} icon.`,
+      `Otherwise, copy it locally to finish the migration,`,
+      `and request the 16px ${newIconName || oldIconName} icon`,
+      `from the Design System team.`,
+      `\nin ${filePath}`,
+    ];
 
-      const actionMessage = [
-        `If possible, migrate it manually to the 24px`,
-        `${newIconName || oldIconName} icon.`,
-        `Otherwise, copy it locally to finish the migration,`,
-        `and request the 16px ${newIconName || oldIconName} icon`,
-        `from the Design System team.`,
-        `\nin ${filePath}`,
-      ];
-
-      if (hasSizeSmall) {
-        console.error(
-          [
-            `The 16px size of the ${oldIconName} icon has been removed.`,
-            ...actionMessage,
-          ].join(' '),
-        );
-      } else if (hasImplicitSizeSmall) {
-        console.error(
-          [
-            `The ${oldIconName} icon's default size changed from 16px to 24px.`,
-            ...actionMessage,
-          ].join(' '),
-        );
-      }
-      return false;
-    });
+    if (hasSizeSmall) {
+      console.error(
+        [
+          `The 16px size of the ${oldIconName} icon has been removed.`,
+          ...actionMessage,
+        ].join(' '),
+      );
+    } else if (hasImplicitSizeSmall) {
+      console.error(
+        [
+          `The ${oldIconName} icon's default size changed from 16px to 24px.`,
+          ...actionMessage,
+        ].join(' '),
+      );
+    }
+    return false;
   });
 }
 
