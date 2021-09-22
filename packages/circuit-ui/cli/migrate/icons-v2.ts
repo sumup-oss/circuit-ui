@@ -247,44 +247,59 @@ function handleIconRemoved(
 }
 
 function handleIconSizeRemoved(
+  j: JSCodeshift,
   root: Collection,
   filePath: string,
   oldIconName: string,
   newIconName?: string,
 ): void {
-  root.findJSXElements(oldIconName).forEach((jsxElement) => {
-    const attributes = jsxElement.node.openingElement
-      .attributes as JSXAttribute[];
-    const sizeAttribute = attributes.find((a) => a.name.name === 'size');
-    const hasSizeSmall =
-      (sizeAttribute?.value as StringLiteral)?.value === 'small';
-    const hasImplicitSizeSmall = !sizeAttribute;
+  const imports = findImportsByPath(j, root, '@sumup/icons');
 
-    const actionMessage = [
-      `If possible, migrate it manually to the 24px`,
-      `${newIconName || oldIconName} icon.`,
-      `Otherwise, copy it locally to finish the migration,`,
-      `and request the 16px ${newIconName || oldIconName} icon`,
-      `from the Design System team.`,
-      `\nin ${filePath}`,
-    ];
+  if (imports.length < 1) {
+    return;
+  }
 
-    if (hasSizeSmall) {
-      console.error(
-        [
-          `The 16px size of the ${oldIconName} icon has been removed.`,
-          ...actionMessage,
-        ].join(' '),
-      );
-    } else if (hasImplicitSizeSmall) {
-      console.error(
-        [
-          `The ${oldIconName} icon's default size changed from 16px to 24px.`,
-          ...actionMessage,
-        ].join(' '),
-      );
-    }
-    return false;
+  const components = imports.reduce<string[]>((acc, cur) => {
+    const localName = cur.local;
+    const styledComponents = findStyledComponentNames(j, root, localName);
+    return [...acc, localName, ...styledComponents];
+  }, []);
+
+  components.forEach((component) => {
+    root.findJSXElements(component).forEach((jsxElement) => {
+      const attributes = jsxElement.node.openingElement
+        .attributes as JSXAttribute[];
+      const sizeAttribute = attributes.find((a) => a.name.name === 'size');
+      const hasSizeSmall =
+        (sizeAttribute?.value as StringLiteral)?.value === 'small';
+      const hasImplicitSizeSmall = !sizeAttribute;
+
+      const actionMessage = [
+        `If possible, migrate it manually to the 24px`,
+        `${newIconName || oldIconName} icon.`,
+        `Otherwise, copy it locally to finish the migration,`,
+        `and request the 16px ${newIconName || oldIconName} icon`,
+        `from the Design System team.`,
+        `\nin ${filePath}`,
+      ];
+
+      if (hasSizeSmall) {
+        console.error(
+          [
+            `The 16px size of the ${oldIconName} icon has been removed.`,
+            ...actionMessage,
+          ].join(' '),
+        );
+      } else if (hasImplicitSizeSmall) {
+        console.error(
+          [
+            `The ${oldIconName} icon's default size changed from 16px to 24px.`,
+            ...actionMessage,
+          ].join(' '),
+        );
+      }
+      return false;
+    });
   });
 }
 
@@ -294,7 +309,7 @@ const transform: Transform = (file, api) => {
   const filePath = file.path;
 
   REMOVED_SMALL_ICON.forEach(([oldIconName, newIconName]) => {
-    handleIconSizeRemoved(root, filePath, oldIconName, newIconName);
+    handleIconSizeRemoved(j, root, filePath, oldIconName, newIconName);
   });
 
   REMOVED_ICONS.forEach(([oldIconName, customMessage]) => {
