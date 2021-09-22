@@ -245,7 +245,6 @@ exports[`Aggregator styles should render with disabled state styles and match th
       <svg
         fill="none"
         height="24"
-        size="24"
         viewBox="0 0 24 24"
         width="24"
         xmlns="http://www.w3.org/2000/svg"

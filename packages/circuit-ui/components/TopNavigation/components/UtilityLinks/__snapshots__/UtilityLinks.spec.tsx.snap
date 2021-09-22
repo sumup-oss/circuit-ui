@@ -122,7 +122,6 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
           fill="none"
           height="24"
           role="presentation"
-          size="24"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"

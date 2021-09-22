@@ -66,9 +66,13 @@ function buildComponentFile(component: Component): string {
   if (icons.length === 1) {
     const icon = icons[0];
     return dedent`
-      import { ReactComponent as ${component.name} } from '${icon.filePath}';
+      import React from 'react';
 
-      export { ${component.name} };
+      import { ReactComponent as ${icon.name} } from '${icon.filePath}';
+
+      export const ${component.name} = ({ size, ...props }) => (
+        <${icon.name} {...props} />
+      );
     `;
   }
 
