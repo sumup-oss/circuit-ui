@@ -5,14 +5,14 @@ import {
   Zap,
   Spinner,
   Cross,
-  ShoppingCart,
+  CircleHelp,
 } from '@sumup/icons';
 
 /**
- * Icon sizes
+ * Renamed icon sizes
  */
 
-const ComponentWithClose = () => (
+const ComponentWithCross = () => (
   <>
     <Cross size="small" />
     <Cross size="large" />
@@ -38,13 +38,13 @@ const ComponentWithZap = () => <Zap />;
 const ComponentWithSpinner = () => <Spinner />; // Verify the custom console error
 
 /**
- * Removed icon size (prints error)
+ * Changed default size (prints error)
  */
 
-const ComponentWithShoppingCart = () => (
+const ComponentWithHelp = () => (
   <>
-    <ShoppingCart size="large" />
-    <ShoppingCart size="small" />
-    <ShoppingCart />
+    <CircleHelp size="large" />
+    <CircleHelp size="small" />
+    <CircleHelp />
   </>
 );
