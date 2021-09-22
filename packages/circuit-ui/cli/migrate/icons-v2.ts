@@ -23,6 +23,7 @@ import {
 
 import { findImportsByPath, findStyledComponentNames } from './utils';
 
+// [old icon name, new icon name, product name (optional)]
 const RENAMED_ICONS = [
   ['AddItem', 'AddItems', 'Item Catalog'],
   ['AddItemFilled', 'AddItems', 'Item Catalog'],
@@ -77,6 +78,7 @@ const RENAMED_ICONS = [
   ['WalletFilled', 'Payouts', 'Payouts'],
 ];
 
+// [old icon name, custom error message (optional)]
 const REMOVED_ICONS = [
   [
     'Calendar',
@@ -104,6 +106,7 @@ const REMOVED_ICONS = [
   ['Zap'],
 ];
 
+// [old icon name, new icon name (optional, only if also renamed)]
 const REMOVED_SMALL_ICON = [
   ['ArrowDown'],
   ['ArrowUp'],
@@ -200,7 +203,8 @@ function handleIconRenamed(
             `The "${oldIconName}" icon has been renamed to "${newIconName}",`,
             `and should only be used in the context of the ${productName}`,
             `product/feature from now on.`,
-            `If you have doubts about your use of the icon, contact #design-system.`,
+            `If you have doubts about your use of the icon, file an issue or`,
+            `contact the Design System team`,
             `\nin ${filePath}`,
           ].join(' '),
         );
@@ -229,7 +233,7 @@ function handleIconRemoved(
     const hasLegacyIconName = nodePath.node.name === oldIconName;
     if (hasLegacyIconName) {
       const defaultMessage =
-        'Copy it locally to finish the migration, and request a new icon for your use case in #design-system.';
+        'Copy it locally to finish the migration, and request a new icon from the Design System team.';
       console.error(
         [
           `The "${oldIconName}" icon has been removed.`,
@@ -256,27 +260,27 @@ function handleIconSizeRemoved(
       (sizeAttribute?.value as StringLiteral)?.value === 'small';
     const hasImplicitSizeSmall = !sizeAttribute;
 
+    const actionMessage = [
+      `If possible, migrate it manually to the 24px`,
+      `${newIconName || oldIconName} icon.`,
+      `Otherwise, copy it locally to finish the migration,`,
+      `and request the 16px ${newIconName || oldIconName} icon`,
+      `from the Design System team.`,
+      `\nin ${filePath}`,
+    ];
+
     if (hasSizeSmall) {
       console.error(
         [
           `The 16px size of the ${oldIconName} icon has been removed.`,
-          `If possible, migrate it manually to the 24px`,
-          `${newIconName || oldIconName} icon.`,
-          `Otherwise, copy it locally to finish the migration,`,
-          `and request the 16px icon size in #design-system.`,
-          `\nin ${filePath}`,
+          ...actionMessage,
         ].join(' '),
       );
     } else if (hasImplicitSizeSmall) {
       console.error(
         [
-          `The ${oldIconName} icon's default size changed from`,
-          `16px to 24px.`,
-          `If possible, migrate it manually to the 24px`,
-          `${newIconName || oldIconName} icon`,
-          `Otherwise, copy it locally to finish the migration,`,
-          `and request the 16px icon size in #design-system.`,
-          `\nin ${filePath}`,
+          `The ${oldIconName} icon's default size changed from 16px to 24px.`,
+          ...actionMessage,
         ].join(' '),
       );
     }
