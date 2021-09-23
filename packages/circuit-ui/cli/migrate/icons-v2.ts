@@ -21,6 +21,7 @@ import {
   StringLiteral,
   JSXIdentifier,
 } from 'jscodeshift';
+import chalk from 'chalk';
 
 import { findImportsByPath, findStyledComponentNames } from './utils';
 
@@ -47,6 +48,7 @@ const RENAMED_ICONS = [
   ['CircleInfo', 'Info'],
   ['CircleInfoFilled', 'Info'],
   ['CircleMore', 'More'],
+  ['CirclePlus', 'Plus'],
   ['CircleWarning', 'Notify'],
   ['CircleWarningFilled', 'Notify'],
   ['Clock', 'Time'],
@@ -280,15 +282,17 @@ function handleIconRenamed(
   }
 
   if (productName) {
-    console.warn(
-      [
-        `The "${oldIconName}" icon has been renamed to "${newIconName}",`,
-        `and should only be used in the context of the ${productName}`,
-        `product/feature.`,
-        `If you have doubts about your use of the icon, file an issue or`,
-        `contact the Design System team.`,
-        `\nin ${filePath}`,
-      ].join(' '),
+    console.log(
+      chalk.yellow(
+        [
+          `The "${oldIconName}" icon has been renamed to "${newIconName}",`,
+          `and should only be used in the context of the ${productName}`,
+          `product/feature.`,
+          `If you have doubts about your use of the icon, file an issue or`,
+          `contact the Design System team.`,
+          `\nin ${filePath}`,
+        ].join(' '),
+      ),
     );
   }
 
@@ -315,12 +319,14 @@ function handleIconRemoved(
   if (legacyIconImport) {
     const defaultMessage =
       'Copy it locally to finish the migration, and request a new icon from the Design System team.';
-    console.error(
-      [
-        `The "${oldIconName}" icon has been removed.`,
-        customMessage || defaultMessage,
-        `\nin ${filePath}`,
-      ].join(' '),
+    console.log(
+      chalk.red(
+        [
+          `The "${oldIconName}" icon has been removed.`,
+          customMessage || defaultMessage,
+          `\nin ${filePath}`,
+        ].join(' '),
+      ),
     );
   }
 }
@@ -361,26 +367,29 @@ function handleIconDefaultSize(
           }
 
           const actionMessage = [
-            `If possible, migrate it manually to the 24px "${i.local}" icon.`,
-            `Otherwise, copy the 16px size locally to finish the migration,`,
-            `and contact the Design System team to add it to "@sumup/icons"`,
+            `Verify your page with the 24px icon size, and request a new 16px size`,
+            `from the Design System team if needed.`,
             `\nin ${filePath}`,
           ];
 
           if (hasSize16 && !hasSmallIcon) {
-            console.error(
-              [
-                `The 16px size of the "${i.local}" icon has been removed.`,
-                ...actionMessage,
-              ].join(' '),
+            console.log(
+              chalk.red(
+                [
+                  `The 16px size of the "${i.local}" icon has been removed.`,
+                  ...actionMessage,
+                ].join(' '),
+              ),
             );
           }
           if (hasImplicitSize16 && !hasSmallIcon) {
-            console.error(
-              [
-                `The default size of the "${i.local}" icon changed from 16px to 24px.`,
-                ...actionMessage,
-              ].join(' '),
+            console.log(
+              chalk.red(
+                [
+                  `The default size of the "${i.local}" icon changed from 16px to 24px.`,
+                  ...actionMessage,
+                ].join(' '),
+              ),
             );
           }
           return false;
