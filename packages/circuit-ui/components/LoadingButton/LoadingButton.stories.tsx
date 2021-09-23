@@ -38,7 +38,12 @@ export const Base = (args: LoadingButtonProps) => {
   };
 
   return (
-    <LoadingButton isLoading={loading} onClick={handleClick} {...args}>
+    <LoadingButton
+      isLoading={loading}
+      loadingLabel="Loading"
+      onClick={handleClick}
+      {...args}
+    >
       Things take time
     </LoadingButton>
   );

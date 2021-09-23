@@ -15,6 +15,7 @@
 
 import { action } from '@storybook/addon-actions';
 import { Plus } from '@sumup/icons';
+import { useState } from 'react';
 
 import { Stack } from '../../../../.storybook/components';
 import ButtonGroup from '../ButtonGroup';
@@ -106,3 +107,25 @@ export const Tracking = (args: ButtonProps) => (
     Track me
   </Button>
 );
+
+export const Loading = (args: ButtonProps) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+
+  return (
+    <LoadingButton
+      isLoading={loading}
+      loadingLabel="Loading"
+      onClick={handleClick}
+      {...args}
+    >
+      Things take time
+    </LoadingButton>
+  );
+};

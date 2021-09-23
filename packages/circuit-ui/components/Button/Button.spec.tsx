@@ -83,6 +83,15 @@ describe('Button', () => {
     });
   });
 
+  it('should render with loading styles', () => {
+    const wrapper = renderButton(create, {
+      ...baseProps,
+      isLoading: true,
+      loadingLabel: 'Loading',
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('business logic', () => {
     it('should render as a link when passed the href prop', () => {
       const props = {
