@@ -8,5 +8,10 @@
     "@sumup/design-tokens": "3.1.0",
     "@sumup/icons": "1.9.0"
   },
-  "changesets": []
+  "changesets": [
+    "breezy-baboons-brush",
+    "cyan-rivers-sleep",
+    "late-melons-build",
+    "orange-hornets-live"
+  ]
 }
