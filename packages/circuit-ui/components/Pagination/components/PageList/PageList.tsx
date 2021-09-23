@@ -17,7 +17,7 @@ import { FC, OlHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../../../styles/styled';
-import Button from '../../../Button';
+import Button, { ButtonProps } from '../../../Button';
 
 export interface PageListProps
   extends Omit<OlHTMLAttributes<HTMLOListElement>, 'onChange'> {
@@ -43,7 +43,7 @@ const buttonStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const PageButton = styled(Button)(buttonStyles);
+const PageButton = styled(Button)<ButtonProps>(buttonStyles);
 
 export const PageList: FC<PageListProps> = ({
   onChange,

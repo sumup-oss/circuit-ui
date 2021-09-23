@@ -118,7 +118,7 @@ const buttonStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const PrimaryButton = styled(Button)(buttonStyles);
+const PrimaryButton = styled(Button)<ButtonProps>(buttonStyles);
 
 const secondaryButtonStyles = ({ theme }: StyleProps) => css`
   margin-right: ${theme.spacings.mega};
@@ -127,7 +127,10 @@ const secondaryButtonStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const SecondaryButton = styled(Button)(secondaryButtonStyles, buttonStyles);
+const SecondaryButton = styled(Button)<ButtonProps>(
+  secondaryButtonStyles,
+  buttonStyles,
+);
 
 const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
   margin-top: ${theme.spacings.mega};
@@ -136,7 +139,10 @@ const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const TertiaryButton = styled(Button)(tertiaryButtonStyles, buttonStyles);
+const TertiaryButton = styled(Button)<ButtonProps>(
+  tertiaryButtonStyles,
+  buttonStyles,
+);
 
 const Wrapper = styled('div')<ButtonGroupProps>(
   baseStyles,
