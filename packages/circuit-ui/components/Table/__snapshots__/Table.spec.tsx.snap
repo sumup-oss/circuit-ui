@@ -350,11 +350,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -366,11 +363,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -408,11 +402,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -424,11 +415,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -1136,11 +1124,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -1152,11 +1137,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -1194,11 +1176,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -1210,11 +1189,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -1706,11 +1682,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -1722,11 +1695,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -1764,11 +1734,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -1780,11 +1747,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -2097,11 +2061,8 @@ tbody .circuit-11:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -2113,11 +2074,8 @@ tbody .circuit-11:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -2148,11 +2106,8 @@ tbody .circuit-11:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -2164,11 +2119,8 @@ tbody .circuit-11:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -2901,11 +2853,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -2917,11 +2866,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -2959,11 +2905,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -2975,11 +2918,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -3436,11 +3376,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -3452,11 +3389,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -3494,11 +3428,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -3510,11 +3441,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -3970,11 +3898,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -3986,11 +3911,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span
@@ -4028,11 +3950,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+                  fill="currentColor"
                 />
               </svg>
               <svg
@@ -4044,11 +3963,8 @@ tbody .circuit-12:last-child td {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+                  fill="currentColor"
                 />
               </svg>
               <span

@@ -14,7 +14,7 @@
  */
 
 /* eslint-disable react/display-name */
-import { ShoppingBag } from '@sumup/icons';
+import { Shop } from '@sumup/icons';
 
 import { render, axe, RenderFn, waitFor } from '../../util/test-utils';
 import { ModalProvider } from '../ModalContext';
@@ -61,7 +61,7 @@ describe('SideNavigation', () => {
     ...baseProps,
     primaryLinks: [
       {
-        icon: (iconProps) => <ShoppingBag {...iconProps} size="large" />,
+        icon: (iconProps) => <Shop {...iconProps} size="24" />,
         label: 'Shop',
         href: '/shop',
         onClick: jest.fn(),

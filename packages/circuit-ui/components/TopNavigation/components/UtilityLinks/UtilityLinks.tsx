@@ -100,7 +100,7 @@ function UtilityLink({
       as={props.href ? Link : 'button'}
     >
       <Skeleton css={iconStyles}>
-        <Icon role="presentation" size="large" />
+        <Icon role="presentation" size="24" />
       </Skeleton>
       <Skeleton>
         <UtilityLabel

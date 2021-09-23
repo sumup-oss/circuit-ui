@@ -59,7 +59,7 @@ export interface BaseProps {
    */
   onClick?: (event: ClickEvent) => void;
   /**
-   * Display an icon in addition to the label.
+   * Display an icon in addition to the label. Designed for 24px icons from `@sumup/icons`.
    */
   icon?: FC<IconProps>;
   /**
@@ -105,7 +105,7 @@ const PopoverItemWrapper = styled('button', {
 })<PopoverItemWrapperProps>(listItem, itemWrapperStyles, typography('one'));
 
 const iconStyles = (theme: Theme) => css`
-  margin-right: ${theme.spacings.byte};
+  margin-right: ${theme.spacings.kilo};
 `;
 
 export const PopoverItem = ({
@@ -127,7 +127,7 @@ export const PopoverItem = ({
       role="menuitem"
       {...props}
     >
-      {Icon && <Icon css={iconStyles} size="large" />}
+      {Icon && <Icon css={iconStyles} size="24" />}
       {children}
     </PopoverItemWrapper>
   );

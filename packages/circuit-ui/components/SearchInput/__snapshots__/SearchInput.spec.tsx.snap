@@ -95,7 +95,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
     >
       <path
         clip-rule="evenodd"
-        d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
+        d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0zm-.81 5.608a7 7 0 1 1 1.418-1.418l3.102 3.103c.186.189.29.443.29.709a.999.999 0 0 1-.998.998c-.266 0-.52-.104-.71-.29l-3.102-3.102zM14 5.238v-.472c.004.157.004.315 0 .472z"
         fill="currentColor"
         fill-rule="evenodd"
       />
@@ -213,7 +213,7 @@ exports[`SearchInput should render with default styles 1`] = `
     >
       <path
         clip-rule="evenodd"
-        d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
+        d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0zm-.81 5.608a7 7 0 1 1 1.418-1.418l3.102 3.103c.186.189.29.443.29.709a.999.999 0 0 1-.998.998c-.266 0-.52-.104-.71-.29l-3.102-3.102zM14 5.238v-.472c.004.157.004.315 0 .472z"
         fill="currentColor"
         fill-rule="evenodd"
       />

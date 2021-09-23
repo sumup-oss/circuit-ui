@@ -147,7 +147,7 @@ export const Pagination = ({
         onClick={() => handleChange(currentPage - 1)}
         css={prevButtonStyles}
       >
-        <ChevronLeft />
+        <ChevronLeft size="16" />
       </IconButton>
 
       {showList ? (
@@ -176,7 +176,7 @@ export const Pagination = ({
         onClick={() => handleChange(currentPage + 1)}
         css={nextButtonStyles}
       >
-        <ChevronRight />
+        <ChevronRight size="16" />
       </IconButton>
     </Nav>
   );

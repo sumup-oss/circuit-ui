@@ -71,14 +71,18 @@ const Size = styled.p`
   font-style: italic;
 `;
 
+const IconWrapper = styled.div`
+  height: 48px; /* 2 * 24px icon */
+`;
+
 const iconStyles = (color, size) => (theme) => css`
-  height: 3rem;
+  height: ${size * 2}px;
   width: auto;
   max-width: 6rem;
-  padding: ${size === 'small' ? '0.5rem' : '0'};
+  margin: ${size === '16' ? theme.spacings.byte : '0'}; /* Center 16px icons */
   color: ${theme.colors[color]};
   background-color: ${color === 'white'
-    ? theme.colors.n900
+    ? theme.colors.black
     : theme.colors.bodyBg};
 `;
 
@@ -101,12 +105,12 @@ const Icons = () => {
 
   const sizeOptions = [
     { label: 'All sizes', value: 'all' },
-    { label: 'Small', value: 'small' },
-    { label: 'Large', value: 'large' },
+    { label: '16', value: '16' },
+    { label: '24', value: '24' },
   ];
 
   const colorOptions = [
-    { label: 'Dark gray', value: 'n900' },
+    { label: 'Black', value: 'black' },
     { label: 'Gray', value: 'n500' },
     { label: 'White', value: 'white' },
     { label: 'Primary', value: 'p500' },
@@ -132,7 +136,7 @@ const Icons = () => {
           clearLabel="Clear"
         />
         <Select
-          label="Select icon sizeSelect icon size"
+          label="Select icon size"
           options={sizeOptions}
           value={size}
           onChange={handleSizeChange}
@@ -160,11 +164,13 @@ const Icons = () => {
                 const Icon = iconComponents[componentName];
                 return (
                   <Wrapper key={id}>
-                    <Icon
-                      id={id}
-                      size={icon.size}
-                      css={iconStyles(color, icon.size)}
-                    />
+                    <IconWrapper>
+                      <Icon
+                        id={id}
+                        size={icon.size}
+                        css={iconStyles(color, icon.size)}
+                      />
+                    </IconWrapper>
                     <Label htmlFor="id">
                       {icon.name}
                       {size === 'all' && <Size>{icon.size}</Size>}

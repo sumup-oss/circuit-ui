@@ -44,19 +44,19 @@ Button.defaultProps = {
 
 export const NextButton = (props) => (
   <Button label="Next" {...props}>
-    <ChevronRight />
+    <ChevronRight size="16" />
   </Button>
 );
 
 export const PrevButton = (props) => (
   <Button label="Previous" {...props}>
-    <ChevronLeft />
+    <ChevronLeft size="16" />
   </Button>
 );
 
 export const PlayButton = ({ paused, ...props }) => (
   <Button label={paused ? 'Play' : 'Pause'} {...props}>
-    {paused ? <Play /> : <Pause />}
+    {paused ? <Play size="16" /> : <Pause size="16" />}
   </Button>
 );
 

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Close } from '@sumup/icons';
+
 import { create, renderToHtml, axe } from '../../util/test-utils';
 
 import { IconButton } from './IconButton';
@@ -23,8 +25,8 @@ describe('IconButton', () => {
    */
   it('should render with the default styles', () => {
     const actual = create(
-      <IconButton label="A fake SVG">
-        <div>SVG here</div>
+      <IconButton label="Close">
+        <Close />
       </IconButton>,
     );
     expect(actual).toMatchSnapshot();
@@ -35,8 +37,8 @@ describe('IconButton', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <IconButton label="A fake SVG">
-        <div>SVG here</div>
+      <IconButton label="Close">
+        <Close />
       </IconButton>,
     );
     const actual = await axe(wrapper);

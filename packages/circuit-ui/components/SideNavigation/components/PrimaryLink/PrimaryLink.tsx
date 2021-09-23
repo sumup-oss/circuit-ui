@@ -202,7 +202,7 @@ export function PrimaryLink({
       as={props.href ? Link : 'button'}
     >
       <Skeleton css={cx(iconStyles, badge && iconWithBadgeStyles)}>
-        <Icon role="presentation" size="large" />
+        <Icon role="presentation" size="24" />
       </Skeleton>
       <Skeleton>
         <Label
@@ -216,6 +216,7 @@ export function PrimaryLink({
       {/* TODO: Make this accessible to screen readers */}
       {isExternalLink && (
         <ArrowRight
+          size="16"
           role="presentation"
           css={cx(suffixStyles, externalIconStyles)}
         />

@@ -15,7 +15,7 @@
 
 /* eslint-disable react/display-name */
 
-import { Bin, CirclePlus, Zap } from '@sumup/icons';
+import { Delete, Add, Download } from '@sumup/icons';
 import { Placement } from '@popperjs/core';
 
 import { act, axe, RenderFn, render, userEvent } from '../../util/test-utils';
@@ -46,7 +46,7 @@ describe('PopoverItem', () => {
         ...baseProps,
         href: 'https://sumup.com',
         onClick: jest.fn(),
-        icon: Zap,
+        icon: Download,
       };
       const { container } = renderPopoverItem(render, props);
       const anchorEl = container.querySelector('a');
@@ -54,7 +54,7 @@ describe('PopoverItem', () => {
     });
 
     it('should render as a `button` when an onClick is passed', () => {
-      const props = { ...baseProps, onClick: jest.fn(), icon: Zap };
+      const props = { ...baseProps, onClick: jest.fn(), icon: Download };
       const { container } = renderPopoverItem(render, props);
       const buttonEl = container.querySelector('button');
       expect(buttonEl).toBeVisible();
@@ -69,7 +69,7 @@ describe('PopoverItem', () => {
         onClick: jest.fn((event: ClickEvent) => {
           event.preventDefault();
         }),
-        icon: Zap,
+        icon: Download,
       };
       const { container } = renderPopoverItem(render, props);
       const anchorEl = container.querySelector('a');
@@ -94,13 +94,13 @@ describe('Popover', () => {
       {
         onClick: jest.fn(),
         children: 'Add',
-        icon: CirclePlus,
+        icon: Add,
       },
       { type: 'divider' },
       {
         onClick: jest.fn(),
         children: 'Remove',
-        icon: Bin,
+        icon: Delete,
         destructive: true,
       },
     ],

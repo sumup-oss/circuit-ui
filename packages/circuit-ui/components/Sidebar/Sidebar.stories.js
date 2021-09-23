@@ -16,16 +16,7 @@
 import { useState } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import {
-  House,
-  HouseFilled,
-  Person,
-  PersonFilled,
-  Transactions,
-  TransactionsFilled,
-  ShoppingCart,
-  ShoppingCartFilled,
-} from '@sumup/icons';
+import { Home, Profile, Sales, Shop } from '@sumup/icons';
 
 import Button from '../Button';
 
@@ -80,16 +71,16 @@ export const Base = (args) => {
             label="Home"
             selected={selected === 1}
             onClick={() => setSelected(1)}
-            defaultIcon={<House size="large" />}
-            selectedIcon={<HouseFilled size="large" />}
+            defaultIcon={<Home />}
+            selectedIcon={<Home />}
             tracking={{ label: 'trackingId-home' }}
           />
           <Sidebar.Aggregator
             key="list"
             selected={selected === 2}
             label="List"
-            defaultIcon={<Transactions size="large" />}
-            selectedIcon={<TransactionsFilled size="large" />}
+            defaultIcon={<Sales />}
+            selectedIcon={<Sales />}
           >
             <Sidebar.NavItem
               label="First"
@@ -112,8 +103,8 @@ export const Base = (args) => {
             label="Shop"
             disabled
             selected={selected === 3}
-            defaultIcon={<ShoppingCart size="large" />}
-            selectedIcon={<ShoppingCartFilled size="large" />}
+            defaultIcon={<Shop />}
+            selectedIcon={<Shop />}
             onClick={() => setSelected(3)}
           />
           <Separator key="separator" />
@@ -121,8 +112,8 @@ export const Base = (args) => {
             key="me"
             label="Me"
             selected={selected === 4}
-            defaultIcon={<Person size="large" />}
-            selectedIcon={<PersonFilled size="large" />}
+            defaultIcon={<Profile />}
+            selectedIcon={<Profile />}
             onClick={() => setSelected(4)}
           />
         </Sidebar.NavList>

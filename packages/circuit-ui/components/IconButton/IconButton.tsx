@@ -20,12 +20,13 @@ import { Theme } from '@sumup/design-tokens';
 import { hideVisually } from '../../styles/style-mixins';
 import styled from '../../styles/styled';
 import { Button, ButtonProps } from '../Button/Button';
+import { IconProps } from '../../../icons/dist';
 
 export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
   /**
    * A single icon element.
    */
-  children: ReactElement;
+  children: ReactElement<IconProps>;
   /**
    * Short label to describe the function of the button. Displayed as title
    * on hover, and accessible to screen readers.
@@ -40,7 +41,7 @@ const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
 ): SerializedStyles => {
   const sizeMap = {
     kilo: theme.spacings.byte,
-    giga: theme.spacings.mega,
+    giga: theme.spacings.kilo,
   };
 
   return css({
@@ -55,7 +56,11 @@ const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
 export const IconButton = forwardRef(
   ({ children, label, size, ...props }: IconButtonProps, ref?: Ref<any>) => {
     const child = Children.only(children);
-    const icon = cloneElement(child, { role: 'presentation' });
+    const iconSize = size === 'kilo' ? '16' : '24';
+    const icon = cloneElement(child, {
+      role: 'presentation',
+      size: child.props.size || iconSize,
+    });
     if (
       process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&

@@ -54,6 +54,9 @@ defineTest('theme-border-radius');
 defineTest('button-default-size');
 defineTest('label-prop-names');
 
+// v4
+defineTest('icons-v2');
+
 function defineTest(transformName, testFilePrefix, testOptions = {}) {
   const dirName = __dirname;
   const fixtureDir = path.join(dirName, '..', '__testfixtures__');

@@ -14,7 +14,7 @@
  */
 
 import { createRef } from 'react';
-import { ThumbUp } from '@sumup/icons';
+import { Download } from '@sumup/icons';
 
 import {
   create,
@@ -78,7 +78,7 @@ describe('Button', () => {
     });
 
     it('should render a button with icon', () => {
-      const wrapper = renderButton(create, { ...baseProps, icon: ThumbUp });
+      const wrapper = renderButton(create, { ...baseProps, icon: Download });
       expect(wrapper).toMatchSnapshot();
     });
   });

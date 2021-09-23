@@ -15,7 +15,7 @@
 
 import { HTMLProps, Ref, forwardRef } from 'react';
 import { css } from '@emotion/core';
-import { Check } from '@sumup/icons';
+import { Checkmark } from '@sumup/icons';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -264,7 +264,7 @@ export const Checkbox = forwardRef(
         />
         <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
           {children}
-          <Check aria-hidden="true" />
+          <Checkmark aria-hidden="true" />
         </CheckboxLabel>
         {!disabled && validationHint && (
           // TODO: Reenable typechecks once Tooltip has been migrated to TypeScript.

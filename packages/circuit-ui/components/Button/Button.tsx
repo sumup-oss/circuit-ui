@@ -37,7 +37,7 @@ export interface BaseProps {
    */
   'variant'?: 'primary' | 'secondary' | 'tertiary';
   /**
-   * Choose from 2 sizes. Default: 'mega'.
+   * Choose from 2 sizes. Default: 'giga'.
    */
   'size'?: 'kilo' | 'giga';
   /**

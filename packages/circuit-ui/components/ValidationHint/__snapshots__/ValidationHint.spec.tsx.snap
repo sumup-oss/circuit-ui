@@ -45,17 +45,15 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
   <svg
     class="circuit-0"
     fill="none"
-    height="16"
+    height="24"
     role="presentation"
-    viewBox="0 0 16 16"
-    width="16"
+    viewBox="0 0 24 24"
+    width="24"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      clip-rule="evenodd"
-      d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+      d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm4.71 14.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29l-3.29-3.29-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71l3.29-3.29-3.29-3.29a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l3.29 3.29 3.29-3.29c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L13.408 12l3.29 3.29z"
       fill="currentColor"
-      fill-rule="evenodd"
     />
   </svg>
   This field is required
@@ -89,17 +87,15 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
   <svg
     class="circuit-0"
     fill="none"
-    height="16"
+    height="24"
     role="presentation"
-    viewBox="0 0 16 16"
-    width="16"
+    viewBox="0 0 24 24"
+    width="24"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      clip-rule="evenodd"
-      d="M16 8A8 8 0 110 8a8 8 0 0116 0zm-4.101-1.914a1 1 0 00-1.562-1.25L6.921 9.108 5.654 7.84a1 1 0 10-1.415 1.414l2.057 2.057a1 1 0 001.488-.082L11.9 6.086z"
+      d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm5.77 7.64-7 8a1.008 1.008 0 0 1-1.48.07l-3-3a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l2.22 2.23 6.3-7.16a1 1 0 1 1 1.54 1.28z"
       fill="currentColor"
-      fill-rule="evenodd"
     />
   </svg>
   This field is required
@@ -132,15 +128,15 @@ exports[`ValidationHint styles should render with warning styles 1`] = `
   <svg
     class="circuit-0"
     fill="none"
-    height="16"
+    height="24"
     role="presentation"
-    viewBox="0 0 16 16"
-    width="16"
+    viewBox="0 0 24 24"
+    width="24"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
       clip-rule="evenodd"
-      d="M16 8A8 8 0 110 8a8 8 0 0116 0zM9 4a1 1 0 10-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
+      d="M14.544 3.481c-1.13-1.975-3.958-1.975-5.088 0L1.398 17.556C.268 19.53 1.681 22 3.942 22h16.116c2.261 0 3.675-2.47 2.544-4.444L14.544 3.48zM11 8a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0V8zm1 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
       fill="currentColor"
       fill-rule="evenodd"
     />

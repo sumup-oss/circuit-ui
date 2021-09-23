@@ -1,1004 +1,944 @@
 {
   "icons": [
     {
-      "name": "add_item_filled",
+      "name": "add",
       "category": "Action",
-      "size": "large"
+      "size": "24"
     },
     {
-      "name": "add_item",
+      "name": "add_employees",
       "category": "Action",
-      "size": "large"
+      "size": "24"
     },
     {
-      "name": "add_person_filled",
+      "name": "add_items",
       "category": "Action",
-      "size": "large"
-    },
-    {
-      "name": "add_person",
-      "category": "Action",
-      "size": "large"
-    },
-    {
-      "name": "circle_more",
-      "category": "Action",
-      "size": "large"
-    },
-    {
-      "name": "cross",
-      "category": "Action",
-      "size": "large"
-    },
-    {
-      "name": "log_out",
-      "category": "Action",
-      "size": "large"
-    },
-    {
-      "name": "plus",
-      "category": "Action",
-      "size": "large"
-    },
-    {
-      "name": "refresh",
-      "category": "Action",
-      "size": "large"
-    },
-    {
-      "name": "search",
-      "category": "Action",
-      "size": "large"
-    },
-    {
-      "name": "live_chat_filled",
-      "category": "Communication",
-      "size": "large"
-    },
-    {
-      "name": "live_chat",
-      "category": "Communication",
-      "size": "large"
-    },
-    {
-      "name": "mail",
-      "category": "Communication",
-      "size": "large"
-    },
-    {
-      "name": "support_filled",
-      "category": "Communication",
-      "size": "large"
-    },
-    {
-      "name": "support",
-      "category": "Communication",
-      "size": "large"
-    },
-    {
-      "name": "american_express",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "apple_pay",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "banco_estado",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "bitcoin",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "dankort",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "diners_club",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "discover",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "ec",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "elo",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "elv",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "google_pay",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "hiper",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "hipercard",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "jcb",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "maestro",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "mastercard",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "red_compra",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "samsung_pay",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "union_pay",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "visa_electron",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "visa",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "vpay",
-      "category": "Card scheme",
-      "size": "large"
-    },
-    {
-      "name": "flag_ar",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_at",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_au",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_be",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_bg",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_br",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_ca",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_ch",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_cl",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_co",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_cy",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_cz",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_de",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_dk",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_ee",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_es",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_fi",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_fr",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_gb",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_gr",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_hr",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_hu",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_ie",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_it",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_lt",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_lu",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_lv",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_mt",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_nl",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_no",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_pe",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_pl",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_pt",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_ro",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_se",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_si",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_sk",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_sl",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "flag_us",
-      "category": "Country flag",
-      "size": "small"
-    },
-    {
-      "name": "wifi",
-      "category": "Device",
-      "size": "large"
-    },
-    {
-      "name": "calculator_filled",
-      "category": "Device",
-      "size": "large"
-    },
-    {
-      "name": "calculator",
-      "category": "Device",
-      "size": "large"
-    },
-    {
-      "name": "card_reader",
-      "category": "Device",
-      "size": "large"
-    },
-    {
-      "name": "laptop",
-      "category": "Device",
-      "size": "large"
-    },
-    {
-      "name": "nfc",
-      "category": "Device",
-      "size": "large"
-    },
-    {
-      "name": "terminal_filled",
-      "category": "Device",
-      "size": "large"
-    },
-    {
-      "name": "terminal",
-      "category": "Device",
-      "size": "large"
-    },
-    {
-      "name": "archive",
-      "category": "File",
-      "size": "large"
-    },
-    {
-      "name": "cloud_download",
-      "category": "File",
-      "size": "large"
-    },
-    {
-      "name": "file",
-      "category": "File",
-      "size": "large"
-    },
-    {
-      "name": "file_zip",
-      "category": "File",
-      "size": "large"
-    },
-    {
-      "name": "history",
-      "category": "File",
-      "size": "large"
-    },
-    {
-      "name": "wallet",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "bank",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "company",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "card",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "card_unknown",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "cash_atm",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "cash",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "cash_stack",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "fallback",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "receipt",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "transactions_filled",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "transactions",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "wallet_filled",
-      "category": "Finance",
-      "size": "large"
-    },
-    {
-      "name": "image",
-      "category": "File",
-      "size": "large"
-    },
-    {
-      "name": "barcode",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "battery_charging",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "browser_secure",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "clock",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "dashboard_filled",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "dashboard",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "gift_filled",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "gift",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "heart",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "house_filled",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "house",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "location",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "lock",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "package",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "paper_plane",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "person_filled",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "person",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "secure",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "settings_filled",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "settings",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "shopping_bag",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "shopping_cart_filled",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "shopping_cart",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "sim_card",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "store_filled",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "store",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "truck",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "zap",
-      "category": "Miscellaneous",
-      "size": "large"
-    },
-    {
-      "name": "arrow_left",
-      "category": "Navigation",
-      "size": "large"
-    },
-    {
-      "name": "circle_checkmark_filled",
-      "category": "Notification",
-      "size": "large"
-    },
-    {
-      "name": "circle_checkmark",
-      "category": "Notification",
-      "size": "large"
-    },
-    {
-      "name": "circle_cross_filled",
-      "category": "Notification",
-      "size": "large"
-    },
-    {
-      "name": "circle_cross",
-      "category": "Notification",
-      "size": "large"
-    },
-    {
-      "name": "circle_help_filled",
-      "category": "Notification",
-      "size": "large"
-    },
-    {
-      "name": "circle_help",
-      "category": "Notification",
-      "size": "large"
-    },
-    {
-      "name": "circle_warning_filled",
-      "category": "Notification",
-      "size": "large"
-    },
-    {
-      "name": "circle_warning",
-      "category": "Notification",
-      "size": "large"
-    },
-    {
-      "name": "messenger",
-      "category": "Social media",
-      "size": "large"
-    },
-    {
-      "name": "facebook",
-      "category": "Social media",
-      "size": "large"
-    },
-    {
-      "name": "instagram",
-      "category": "Social media",
-      "size": "large"
-    },
-    {
-      "name": "linkedin",
-      "category": "Social media",
-      "size": "large"
-    },
-    {
-      "name": "pinterest",
-      "category": "Social media",
-      "size": "large"
-    },
-    {
-      "name": "twitter",
-      "category": "Social media",
-      "size": "large"
-    },
-    {
-      "name": "youtube",
-      "category": "Social media",
-      "size": "large"
-    },
-    {
-      "name": "bin",
-      "category": "Action",
-      "size": "small"
-    },
-    {
-      "name": "check",
-      "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
       "name": "chevron_down",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
       "name": "chevron_left",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
       "name": "chevron_right",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
       "name": "chevron_up",
       "category": "Action",
-      "size": "small"
-    },
-    {
-      "name": "circle_plus",
-      "category": "Action",
-      "size": "small"
-    },
-    {
-      "name": "cross",
-      "category": "Action",
-      "size": "small"
-    },
-    {
-      "name": "download",
-      "category": "Action",
-      "size": "small"
-    },
-    {
-      "name": "filter_funnel",
-      "category": "Action",
-      "size": "small"
-    },
-    {
-      "name": "hamburger",
-      "category": "Action",
-      "size": "small"
-    },
-    {
-      "name": "link",
-      "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
       "name": "more",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
-      "name": "pause",
+      "name": "close",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
-      "name": "pen_stroke",
+      "name": "crop",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
-      "name": "play",
+      "name": "delete",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
-      "name": "plus",
+      "name": "download",
       "category": "Action",
-      "size": "small"
+      "size": "24"
+    },
+    {
+      "name": "download_cloud",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "edit",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "hide",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "link",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "login",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "logout",
+      "category": "Action",
+      "size": "24"
     },
     {
       "name": "minus",
       "category": "Action",
-      "size": "small"
+      "size": "24"
+    },
+    {
+      "name": "pause",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "plus",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "play",
+      "category": "Action",
+      "size": "24"
     },
     {
       "name": "refresh",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
-      "name": "rename",
+      "name": "remove",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
       "name": "search",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
-      "name": "select_collapse",
+      "name": "send",
       "category": "Action",
-      "size": "small"
-    },
-    {
-      "name": "select_expand",
-      "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
       "name": "share",
       "category": "Action",
-      "size": "small"
+      "size": "24"
     },
     {
-      "name": "bank",
-      "category": "Finance",
-      "size": "small"
+      "name": "upload",
+      "category": "Action",
+      "size": "24"
     },
     {
-      "name": "card",
-      "category": "Finance",
-      "size": "small"
+      "name": "upload_cloud",
+      "category": "Action",
+      "size": "24"
     },
     {
-      "name": "receipt",
-      "category": "Finance",
-      "size": "small"
+      "name": "view",
+      "category": "Action",
+      "size": "24"
     },
     {
-      "name": "calendar",
-      "category": "Miscellaneous",
-      "size": "small"
+      "name": "live_chat",
+      "category": "Communication",
+      "size": "24"
     },
     {
-      "name": "globe",
-      "category": "Miscellaneous",
-      "size": "small"
+      "name": "email_chat",
+      "category": "Communication",
+      "size": "24"
     },
     {
-      "name": "location",
-      "category": "Miscellaneous",
-      "size": "small"
+      "name": "phone_chat",
+      "category": "Communication",
+      "size": "24"
     },
     {
-      "name": "shopping_cart",
-      "category": "Miscellaneous",
-      "size": "small"
+      "name": "american_express",
+      "category": "Payment method",
+      "size": "24"
     },
     {
-      "name": "spinner",
-      "category": "Miscellaneous",
-      "size": "small"
+      "name": "apple_pay",
+      "category": "Payment method",
+      "size": "24"
     },
     {
-      "name": "table",
-      "category": "Miscellaneous",
-      "size": "small"
+      "name": "banco_estado",
+      "category": "Payment method",
+      "size": "24"
     },
     {
-      "name": "thumb_down",
-      "category": "Miscellaneous",
-      "size": "small"
+      "name": "bitcoin",
+      "category": "Payment method",
+      "size": "24"
     },
     {
-      "name": "thumb_up",
-      "category": "Miscellaneous",
-      "size": "small"
+      "name": "dankort",
+      "category": "Payment method",
+      "size": "24"
     },
     {
-      "name": "arrow_down",
-      "category": "Navigation",
-      "size": "small"
+      "name": "diners_club",
+      "category": "Payment method",
+      "size": "24"
     },
     {
-      "name": "arrow_left",
-      "category": "Navigation",
-      "size": "small"
+      "name": "discover",
+      "category": "Payment method",
+      "size": "24"
     },
     {
-      "name": "arrow_right",
-      "category": "Navigation",
-      "size": "small"
+      "name": "ec",
+      "category": "Payment method",
+      "size": "24"
     },
     {
-      "name": "arrow_up",
-      "category": "Navigation",
-      "size": "small"
+      "name": "elo",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "elv",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "google_pay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "hiper",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "hipercard",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "jcb",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "klarna",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "maestro",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "mastercard",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "red_compra",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "samsung_pay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "sepa",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "sofort",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "union_pay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "visa_electron",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "visa",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "vpay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "flag_at",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_be",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_bg",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_br",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_ch",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_cl",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_cy",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_cz",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_de",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_dk",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_ee",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_es",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_fi",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_fr",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_gb",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_gr",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_hu",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_ie",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_it",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_lt",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_lu",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_lv",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_mt",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_nl",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_no",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_pl",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_pt",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_se",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_si",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_sk",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "flag_us",
+      "category": "Country flag",
+      "size": "16"
+    },
+    {
+      "name": "card_reader_air",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "card_reader_solo",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "laptop",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "mobile_phone",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "nfc",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "printer",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "wifi",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "archive",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "attachment",
+      "category": "File",
+      "size": "24"
     },
     {
       "name": "file",
       "category": "File",
-      "size": "small"
+      "size": "24"
     },
     {
-      "name": "file_zip",
+      "name": "history",
       "category": "File",
-      "size": "small"
+      "size": "24"
     },
     {
-      "name": "folder",
+      "name": "image",
       "category": "File",
-      "size": "small"
+      "size": "24"
     },
     {
-      "name": "circle_help",
-      "category": "Notification",
-      "size": "small"
+      "name": "zip_file",
+      "category": "File",
+      "size": "24"
     },
     {
-      "name": "circle_checkmark",
-      "category": "Notification",
-      "size": "small"
+      "name": "atm",
+      "category": "Finance",
+      "size": "24"
     },
     {
-      "name": "circle_checkmark_filled",
-      "category": "Notification",
-      "size": "small"
+      "name": "bank",
+      "category": "Finance",
+      "size": "24"
     },
     {
-      "name": "circle_cross",
-      "category": "Notification",
-      "size": "small"
+      "name": "card_unknown",
+      "category": "Finance",
+      "size": "24"
     },
     {
-      "name": "circle_cross_filled",
-      "category": "Notification",
-      "size": "small"
+      "name": "cash",
+      "category": "Finance",
+      "size": "24"
     },
     {
-      "name": "circle_help_filled",
-      "category": "Notification",
-      "size": "small"
+      "name": "cash_stack",
+      "category": "Finance",
+      "size": "24"
     },
     {
-      "name": "circle_info",
-      "category": "Notification",
-      "size": "small"
+      "name": "barcode",
+      "category": "Miscellaneous",
+      "size": "24"
     },
     {
-      "name": "circle_info_filled",
-      "category": "Notification",
-      "size": "small"
+      "name": "battery",
+      "category": "Miscellaneous",
+      "size": "24"
     },
     {
-      "name": "circle_warning",
-      "category": "Notification",
-      "size": "small"
+      "name": "browser_secure",
+      "category": "Miscellaneous",
+      "size": "24"
     },
     {
-      "name": "circle_warning_filled",
+      "name": "company",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "favorite",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "legal",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "like",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "location",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "secure_payments",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "package",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "profile",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "secure",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "settings",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "sim_card",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "time",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "truck",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "arrow_up",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "arrow_right",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "arrow_down",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "arrow_left",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "hamburger_menu",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "arrow_right",
+      "category": "Navigation",
+      "size": "16"
+    },
+    {
+      "name": "arrow_left",
+      "category": "Navigation",
+      "size": "16"
+    },
+    {
+      "name": "confirm",
       "category": "Notification",
-      "size": "small"
+      "size": "24"
+    },
+    {
+      "name": "alert",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "help",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "notify",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "info",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "account",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "card_security",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "cash_advance",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "challenge",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "checkout",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "discount",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "employees",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "fee_calculator",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "gift_card",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "home",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "invoice",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "items",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "notification_center",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "online_store",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "payment_methods",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "payouts",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "qr_code",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "receipt",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "refer",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "reports",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "sales",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "shop",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "sum_up_card",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "support",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "taxes",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "tipping",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "virtual_terminal",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "messenger",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
+      "name": "facebook",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
+      "name": "instagram",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
+      "name": "linkedin",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
+      "name": "pinterest",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
+      "name": "twitter",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
+      "name": "youtube",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
+      "name": "chevron_up",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "chevron_right",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "chevron_down",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "chevron_left",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "close",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "edit",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "delete",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "search",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "pause",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "play",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "plus",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "minus",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "checkmark",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "confirm",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "alert",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "help",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "info",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "notify",
+      "category": "Notification",
+      "size": "16"
     },
     {
       "name": "sum_up_logo",
       "category": "Brand",
-      "size": "large"
+      "size": "24"
     }
   ]
 }

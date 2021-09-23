@@ -80,19 +80,15 @@ exports[`Button styles should render a button with icon 1`] = `
   <svg
     class="circuit-0"
     fill="none"
-    height="16"
+    height="24"
     role="presentation"
-    viewBox="0 0 16 16"
-    width="16"
+    viewBox="0 0 24 24"
+    width="24"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      clip-rule="evenodd"
-      d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      d="M12 23a10.994 10.994 0 1 0-.012 0H12zM7 11c.266 0 .52.104.71.29l3.29 3.3V7a1 1 0 0 1 2 0v7.59l3.29-3.3c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .265-.104.52-.29.71l-5 5a1.014 1.014 0 0 1-1.42 0l-5-5A1.013 1.013 0 0 1 6 12a1 1 0 0 1 1-1z"
+      fill="currentColor"
     />
   </svg>
   Button

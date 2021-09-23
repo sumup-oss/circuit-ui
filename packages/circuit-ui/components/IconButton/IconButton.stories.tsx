@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Download } from '@sumup/icons';
+import { Plus } from '@sumup/icons';
 
 import docs from '../Button/Button.docs.mdx';
 
@@ -27,9 +27,12 @@ export default {
   },
 };
 
-export const Base = (args: IconButtonProps) => <IconButton {...args} />;
+export const Base = (args: IconButtonProps) => (
+  <IconButton {...args}>
+    <Plus />
+  </IconButton>
+);
 
 Base.args = {
-  children: <Download />,
-  label: 'Download',
+  label: 'Add',
 };

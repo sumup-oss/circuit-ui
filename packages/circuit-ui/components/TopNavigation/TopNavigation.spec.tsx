@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ShoppingCart, SumUpLogo } from '@sumup/icons';
+import { Shop, SumUpLogo } from '@sumup/icons';
 
 import { axe, render, renderToHtml } from '../../util/test-utils';
 import { PopoverProps } from '../Popover';
@@ -59,7 +59,7 @@ describe('TopNavigation', () => {
     ] as PopoverProps['actions'],
     links: [
       {
-        icon: ShoppingCart,
+        icon: Shop,
         label: 'Shop',
         href: '/shop',
         onClick: jest.fn(),

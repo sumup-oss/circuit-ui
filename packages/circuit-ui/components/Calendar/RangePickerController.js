@@ -22,8 +22,8 @@ import { CalendarWrapper } from './components';
 const RangePickerController = (props) => (
   <CalendarWrapper>
     <DayPickerRangeController
-      navNext={<ArrowRight />}
-      navPrev={<ArrowLeft />}
+      navNext={<ArrowRight size="16" />}
+      navPrev={<ArrowLeft size="16" />}
       numberOfMonths={1}
       hideKeyboardShortcutsPanel
       {...props}

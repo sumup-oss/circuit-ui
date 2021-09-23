@@ -15,7 +15,7 @@
 
 import { forwardRef } from 'react';
 import { css } from '@emotion/core';
-import { Cross } from '@sumup/icons';
+import { Close } from '@sumup/icons';
 
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
 
@@ -41,7 +41,7 @@ export const CloseButton = forwardRef(
       {...props}
       ref={ref}
     >
-      <Cross />
+      <Close size="16" />
     </IconButton>
   ),
 );

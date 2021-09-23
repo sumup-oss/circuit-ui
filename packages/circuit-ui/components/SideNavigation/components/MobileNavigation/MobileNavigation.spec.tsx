@@ -14,7 +14,7 @@
  */
 
 /* eslint-disable react/display-name */
-import { House, ShoppingBag } from '@sumup/icons';
+import { Home, Shop } from '@sumup/icons';
 
 import { ClickEvent } from '../../../../types/events';
 import {
@@ -51,7 +51,7 @@ describe('MobileNavigation', () => {
     ...baseProps,
     primaryLinks: [
       {
-        icon: (iconProps) => <ShoppingBag {...iconProps} size="large" />,
+        icon: (iconProps) => <Shop {...iconProps} size="24" />,
         label: 'Shop',
         href: '/shop',
         onClick: jest.fn(),
@@ -92,7 +92,7 @@ describe('MobileNavigation', () => {
         ...baseProps,
         primaryLinks: [
           {
-            icon: (iconProps) => <House {...iconProps} size="large" />,
+            icon: (iconProps) => <Home {...iconProps} size="24" />,
             label: 'Home',
             href: '/',
             onClick: jest.fn(),
@@ -144,7 +144,7 @@ describe('MobileNavigation', () => {
         ...baseProps,
         primaryLinks: [
           {
-            icon: (iconProps) => <House {...iconProps} size="large" />,
+            icon: (iconProps) => <Home {...iconProps} size="24" />,
             label: 'Home',
             href: '/',
             onClick,
@@ -169,7 +169,7 @@ describe('MobileNavigation', () => {
         ...baseProps,
         primaryLinks: [
           {
-            icon: (iconProps) => <ShoppingBag {...iconProps} size="large" />,
+            icon: (iconProps) => <Shop {...iconProps} size="24" />,
             label: 'Shop',
             href: '/shop',
             onClick: jest.fn(),

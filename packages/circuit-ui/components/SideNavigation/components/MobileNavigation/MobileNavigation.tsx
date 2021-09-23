@@ -138,7 +138,9 @@ function Group({
         {...props}
         {...getButtonProps()}
         isOpen={isOpen}
-        suffix={(suffixProps) => <Chevron {...suffixProps} isOpen={isOpen} />}
+        suffix={(suffixProps) => (
+          <Chevron {...suffixProps} isOpen={isOpen} size="16" />
+        )}
       />
       <SecondaryLinks
         {...getContentProps()}

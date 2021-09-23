@@ -44,7 +44,7 @@ import { CircleCheckmark } from '@sumup/icons';
 
 const SuccessMessage = ({ description }) => (
   <div>
-    <CircleCheckmark size="large" />
+    <CircleCheckmark size="24" />
     <span>{description}</span>
   </div>
 );
@@ -87,15 +87,18 @@ It is not possible to change the color of an external SVG using the `css` color 
 
 ### Load from a URL
 
-The latest version of the icon library is [automatically deployed](https://circuit.sumup.com/icons/v1) to [Vercel](https://vercel.com/). The files are hosted behind a global CDN, so they load quickly for all users. You can load the icons from `https://circuit.sumup.com/icons/v1/<name>_<size>.svg`. Below are some examples:
+The latest version of the icon library is [automatically deployed](https://circuit.sumup.com/icons/v2) to [Vercel](https://vercel.com/). The files are hosted behind a global CDN, so they load quickly for all users. You can load the icons from `https://circuit.sumup.com/icons/v2/<name>_<size>.svg`. Below are some examples:
 
 ```html
-<img src="https://circuit.sumup.com/icons/v1/check_small.svg" alt="checkmark" />
+<img
+  src="https://circuit.sumup.com/icons/v2/checkmark_16.svg"
+  alt="checkmark"
+/>
 ```
 
 ```css
 .icon {
-  background-image: url('https://circuit.sumup.com/icons/v1/circle_checkmark_filled_large.svg');
+  background-image: url('https://circuit.sumup.com/icons/v2/checkmark_16.svg');
 }
 ```
 

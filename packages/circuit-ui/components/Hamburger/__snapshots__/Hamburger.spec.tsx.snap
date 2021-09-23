@@ -33,7 +33,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  padding: calc(16px - 1px);
+  padding: calc(12px - 1px);
   border: 0;
   padding: 12px;
 }
@@ -219,7 +219,7 @@ exports[`Hamburger should render with default styles 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  padding: calc(16px - 1px);
+  padding: calc(12px - 1px);
   border: 0;
   padding: 12px;
 }
@@ -380,7 +380,7 @@ exports[`Hamburger should render with giga styles 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  padding: calc(16px - 1px);
+  padding: calc(12px - 1px);
   border: 0;
   padding: 12px;
 }

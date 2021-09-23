@@ -14,27 +14,31 @@
  */
 
 import styled from '@emotion/styled';
-import { ArrowRight, ArrowLeft, Cross } from '@sumup/icons';
+import { css } from '@emotion/core';
+import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 
 import { CalendarWrapper } from './components';
 
-const CustomArrow = styled(ArrowRight)`
+const ArrowIcon = styled(ArrowRight)`
   color: ${({ theme }) => theme.colors.p500};
 `;
 
-const CustomCloseIcon = styled(Cross)`
-  color: ${({ theme }) => theme.colors.n700};
-`;
+const CloseIcon = styled(Close)(
+  ({ theme }) => css`
+    color: ${theme.colors.n700};
+    margin: ${theme.spacings.bit} ${theme.spacings.bit} 0 0; /* Adjust spacing to fit in the 32px customArrowIcon container */
+  `,
+);
 
 const RangePicker = (props) => (
   <CalendarWrapper>
     <DateRangePicker
-      customArrowIcon={<CustomArrow />}
-      navNext={<ArrowRight />}
-      navPrev={<ArrowLeft />}
-      customCloseIcon={<CustomCloseIcon />}
+      customArrowIcon={<ArrowIcon />}
+      navNext={<ArrowRight size="16" />}
+      navPrev={<ArrowLeft size="16" />}
+      customCloseIcon={<CloseIcon size="16" />}
       numberOfMonths={1}
       hideKeyboardShortcutsPanel
       {...props}

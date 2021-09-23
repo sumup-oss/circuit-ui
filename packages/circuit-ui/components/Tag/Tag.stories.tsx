@@ -14,7 +14,7 @@
  */
 
 import { action } from '@storybook/addon-actions';
-import { Check } from '@sumup/icons';
+import { Checkmark } from '@sumup/icons';
 
 import docs from './Tag.docs.mdx';
 import { Tag, TagProps } from './Tag';
@@ -40,13 +40,13 @@ export const WithPrefix = ({ onRemove, ...args }: TagProps) => (
   <Tag {...args}>Transactions</Tag>
 );
 
-WithPrefix.args = { prefix: Check };
+WithPrefix.args = { prefix: Checkmark };
 
 export const WithSuffix = ({ onRemove, ...args }: TagProps) => (
   <Tag {...args}>Transactions</Tag>
 );
 
-WithSuffix.args = { suffix: Check };
+WithSuffix.args = { suffix: Checkmark };
 
 export const Clickable = ({ onRemove, ...args }: TagProps) => (
   <Tag {...args}>Transactions</Tag>
