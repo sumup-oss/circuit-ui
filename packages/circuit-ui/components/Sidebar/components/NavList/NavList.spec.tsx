@@ -13,4 +13,23 @@
  * limitations under the License.
  */
 
-export { Aggregator } from './Aggregator';
+import { create, renderToHtml, axe } from '../../../../util/test-utils';
+
+import { NavList } from './NavList';
+
+describe('NavList', () => {
+  describe('styles', () => {
+    it('should render with default styles', () => {
+      const actual = create(<NavList>Child</NavList>);
+      expect(actual).toMatchSnapshot();
+    });
+  });
+
+  describe('accessibility', () => {
+    it('should meet accessibility guidelines', async () => {
+      const wrapper = renderToHtml(<NavList />);
+      const actual = await axe(wrapper);
+      expect(actual).toHaveNoViolations();
+    });
+  });
+});

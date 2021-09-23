@@ -13,4 +13,6 @@
  * limitations under the License.
  */
 
-export { Aggregator } from './Aggregator';
+export { Backdrop } from './Backdrop';
+
+export type { BackdropProps } from './Backdrop';

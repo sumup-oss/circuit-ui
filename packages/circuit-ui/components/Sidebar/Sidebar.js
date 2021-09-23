@@ -21,14 +21,14 @@ import { TrackingElement } from '@sumup/collector';
 
 import { useClickEvent } from '../../hooks/useClickEvent';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import NavList from './components/NavList';
-import NavItem from './components/NavItem';
-import Backdrop from './components/Backdrop';
-import CloseButton from './components/CloseButton';
-import Aggregator from './components/Aggregator';
-import Separator from './components/Separator';
+import { Aggregator } from './components/Aggregator';
+import { Backdrop } from './components/Backdrop';
+import { CloseButton } from './components/CloseButton';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+import { NavItem } from './components/NavItem';
+import { NavList } from './components/NavList';
+import { Separator } from './components/Separator';
 
 const SIDEBAR_WIDTH = 256;
 

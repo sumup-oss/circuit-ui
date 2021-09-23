@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Aggregator } from './Aggregator';
+export { Separator } from './Separator';

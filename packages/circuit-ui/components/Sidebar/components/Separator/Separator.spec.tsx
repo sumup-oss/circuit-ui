@@ -13,4 +13,25 @@
  * limitations under the License.
  */
 
-export { Aggregator } from './Aggregator';
+import { create, renderToHtml, axe } from '../../../../util/test-utils';
+
+import { Separator } from './Separator';
+
+describe('Separator', () => {
+  /**
+   * Style tests.
+   */
+  it('should render with default styles', () => {
+    const actual = create(<Separator />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<Separator />);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+});

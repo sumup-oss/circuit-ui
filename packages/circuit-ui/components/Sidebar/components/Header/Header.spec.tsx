@@ -13,4 +13,23 @@
  * limitations under the License.
  */
 
-export { Aggregator } from './Aggregator';
+import { create, renderToHtml, axe } from '../../../../util/test-utils';
+
+import { Header } from './Header';
+
+describe('Header', () => {
+  describe('styles', () => {
+    it('should render with default styles', () => {
+      const actual = create(<Header>Child</Header>);
+      expect(actual).toMatchSnapshot();
+    });
+  });
+
+  describe('accessibility', () => {
+    it('should meet accessibility guidelines', async () => {
+      const wrapper = renderToHtml(<Header />);
+      const actual = await axe(wrapper);
+      expect(actual).toHaveNoViolations();
+    });
+  });
+});

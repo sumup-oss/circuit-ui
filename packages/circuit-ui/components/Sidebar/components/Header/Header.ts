@@ -13,4 +13,20 @@
  * limitations under the License.
  */
 
-export { Aggregator } from './Aggregator';
+import { css } from '@emotion/react';
+
+import styled, { StyleProps } from '../../../../styles/styled';
+
+const baseStyles = ({ theme }: StyleProps) => css`
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 64px;
+  width: 100%;
+  padding: ${theme.spacings.mega};
+  background-color: ${theme.colors.black};
+  color: ${theme.colors.n100};
+`;
+
+export const Header = styled('header')(baseStyles);

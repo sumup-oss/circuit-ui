@@ -13,4 +13,15 @@
  * limitations under the License.
  */
 
-export { Aggregator } from './Aggregator';
+import { css } from '@emotion/react';
+
+import styled, { StyleProps } from '../../../../styles/styled';
+
+const baseStyles = ({ theme }: StyleProps) => css`
+  margin-top: auto;
+  padding: ${theme.spacings.giga};
+  background-color: ${theme.colors.n900};
+  color: ${theme.colors.n100};
+`;
+
+export const Footer = styled('footer')(baseStyles);

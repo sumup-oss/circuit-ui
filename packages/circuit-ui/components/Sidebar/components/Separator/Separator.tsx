@@ -13,4 +13,22 @@
  * limitations under the License.
  */
 
-export { Aggregator } from './Aggregator';
+import { css } from '@emotion/react';
+import { Theme } from '@sumup/design-tokens';
+
+import Hr from '../../../Hr';
+
+const hrStyles = (theme: Theme) => css`
+  border: 1px solid ${theme.colors.n700};
+`;
+
+/**
+ * A separator for the Sidebar. Extends the Hr component.
+ */
+export function Separator(): JSX.Element {
+  return (
+    <li role="presentation">
+      <Hr css={hrStyles} />
+    </li>
+  );
+}

@@ -21,7 +21,7 @@ import { Home, Profile, Sales, Shop } from '@sumup/icons';
 import Button from '../Button';
 
 import docs from './Sidebar.docs.mdx';
-import Separator from './components/Separator';
+import { Separator } from './components/Separator';
 
 import Sidebar from '.';
 

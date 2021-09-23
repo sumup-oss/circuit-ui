@@ -13,4 +13,6 @@
  * limitations under the License.
  */
 
-export { Aggregator } from './Aggregator';
+export { NavLabel } from './NavLabel';
+
+export type { NavLabelProps } from './NavLabel';

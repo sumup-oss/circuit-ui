@@ -38,7 +38,7 @@ HTMLCollection [
   margin-left: 12px;
 }
 
-.circuit-3 {
+.circuit-2 {
   margin: -8px 0 8px 32px;
   list-style: none;
   height: 0;
@@ -46,7 +46,7 @@ HTMLCollection [
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
-  height: calc(32px * );
+  height: calc(32px * 1);
   position: relative;
   opacity: 1;
   visibility: visible;
@@ -54,23 +54,11 @@ HTMLCollection [
   transition: height 120ms ease-in-out,opacity 120ms ease-in-out 100ms,visibility 120ms ease-in-out 100ms;
 }
 
-.circuit-3::after {
-  content: '';
-  width: 2px;
-  background: #3063E9;
-  height: 32px;
-  border-radius: 1px;
-  position: absolute;
-  top: calc(32px * 0);
-  -webkit-transition: top 120ms ease-in-out;
-  transition: top 120ms ease-in-out;
-}
-
-.circuit-3::before {
+.circuit-2::before {
   content: '';
   width: 2px;
   background: #999;
-  height: calc(32px * );
+  height: calc(32px * 1);
   position: absolute;
   top: 0;
   border-radius: 1px;
@@ -83,15 +71,17 @@ HTMLCollection [
         class="circuit-0"
         data-testid="aggregator"
       >
-        default-icon
+        <svg
+          id="default-icon"
+        />
         <span
-          class="circuit-1 circuit-2"
+          class="circuit-1"
         >
           Aggregator
         </span>
       </button>
       <ul
-        class="circuit-3 circuit-4"
+        class="circuit-2"
       >
         <div
           data-testid="child"
@@ -141,7 +131,7 @@ exports[`Aggregator styles should render with default styles 1`] = `
   margin-left: 12px;
 }
 
-.circuit-3 {
+.circuit-2 {
   margin: -8px 0 8px 32px;
   list-style: none;
   height: 0;
@@ -151,23 +141,11 @@ exports[`Aggregator styles should render with default styles 1`] = `
   overflow: hidden;
 }
 
-.circuit-3::after {
-  content: '';
-  width: 2px;
-  background: #3063E9;
-  height: 32px;
-  border-radius: 1px;
-  position: absolute;
-  top: calc(32px * 0);
-  -webkit-transition: top 120ms ease-in-out;
-  transition: top 120ms ease-in-out;
-}
-
-.circuit-3::before {
+.circuit-2::before {
   content: '';
   width: 2px;
   background: #999;
-  height: calc(32px * );
+  height: calc(32px * 1);
   position: absolute;
   top: 0;
   border-radius: 1px;
@@ -180,15 +158,17 @@ exports[`Aggregator styles should render with default styles 1`] = `
       class="circuit-0"
       data-testid="aggregator"
     >
-      default-icon
+      <svg
+        id="default-icon"
+      />
       <span
-        class="circuit-1 circuit-2"
+        class="circuit-1"
       >
         Aggregator
       </span>
     </button>
     <ul
-      class="circuit-3 circuit-4"
+      class="circuit-2"
     >
       <div
         data-testid="child"
@@ -255,7 +235,7 @@ exports[`Aggregator styles should render with disabled state styles and match th
         />
       </svg>
       <span
-        class="circuit-1 circuit-2"
+        class="circuit-1"
       >
         Aggregator
       </span>
