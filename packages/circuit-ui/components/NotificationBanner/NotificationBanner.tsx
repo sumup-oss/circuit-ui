@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,7 +15,6 @@
 
 import { HTMLProps, MouseEvent, KeyboardEvent } from 'react';
 import { css } from '@emotion/core';
-import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import Button, { ButtonProps } from '../Button';
@@ -29,6 +28,23 @@ import { BUTTON_BORDER_WIDTH } from '../Button/Button';
 
 type Action = ButtonProps & {
   variant: 'primary' | 'tertiary';
+};
+
+type NotificationVariant = 'system' | 'promotional';
+
+type ImageType = {
+  /**
+   * The source URL of the image.
+   */
+  src: string;
+  /**
+   * Alt text for the image.
+   */
+  alt: string;
+  /**
+   * Custom image width.
+   */
+  width: string;
 };
 
 type CloseProps =
@@ -52,15 +68,11 @@ interface BaseProps extends Omit<HTMLProps<HTMLDivElement>, 'action'> {
    * otherwise, use the `promotional`
    * variant for promotional notification use cases.
    */
-  variant?: 'system' | 'promotional';
+  variant?: NotificationVariant;
   /**
-   * The source URL of the image.
+   * TODO desc
    */
-  src?: string;
-  /**
-   * Alt text for the image.
-   */
-  alt?: string;
+  image?: ImageType;
   /**
    * A notification headline.
    */
@@ -151,58 +163,79 @@ const buttonStyles = ({ theme, size = 'giga' }: StyleProps & Action) => css`
 
 const ResponsiveButton = styled(Button)(buttonStyles);
 
-const imageStyles = ({ theme }: StyleProps) => css`
+const imageStyles = ({
+  theme,
+  image,
+}: { image: ImageType } & StyleProps) => css`
   border-radius: 0 ${theme.borderRadius.mega} ${theme.borderRadius.mega} 0;
+  min-width: 0;
+  width: ${image.width || '200'}px;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom;
 `;
+
 const StyledImage = styled(Image)(imageStyles);
 
-const closeButtonStyles = (theme: Theme) => css`
+const closeButtonStyles = ({
+  theme,
+  notificationVariant,
+}: StyleProps & {
+  notificationVariant: NotificationVariant;
+}) => css`
   position: absolute;
   top: ${theme.spacings.byte};
   right: ${theme.spacings.byte};
+  background-color: ${notificationVariant === 'system'
+    ? theme.colors.p100
+    : theme.colors.n100};
 `;
+
+const StyledCloseButton = styled(CloseButton)(closeButtonStyles);
 
 /**
  * NotificationBanner displays a persistent Notification.
  */
-export const NotificationBanner = ({
+export function NotificationBanner({
   headline,
   body,
   action,
   variant = 'system',
-  src,
-  alt,
+  image,
   onClose,
   closeButtonLabel,
   tracking,
   ...props
-}: NotificationBannerProps): JSX.Element => (
-  <NotificationBannerWrapper variant={variant} {...props}>
-    <Content>
-      <ResponsiveHeadline as="h2" noMargin>
-        {headline}
-      </ResponsiveHeadline>
-      <ResponsiveBody noMargin>{body}</ResponsiveBody>
-      <ResponsiveButton {...action} />
-    </Content>
-    {src && (
-      <StyledImage
-        onClick={action.onClick}
-        alt={alt || ''}
-        src={src}
-      ></StyledImage>
-    )}
-    {onClose && closeButtonLabel && (
-      <CloseButton
-        label={closeButtonLabel}
-        size="kilo"
-        onClick={onClose}
-        css={closeButtonStyles}
-        tracking={{
-          component: 'notification-close',
-          ...tracking,
-        }}
-      />
-    )}
-  </NotificationBannerWrapper>
-);
+}: NotificationBannerProps): JSX.Element {
+  return (
+    <NotificationBannerWrapper variant={variant} {...props}>
+      <Content>
+        <ResponsiveHeadline as="h2" noMargin>
+          {headline}
+        </ResponsiveHeadline>
+        <ResponsiveBody noMargin>{body}</ResponsiveBody>
+        <ResponsiveButton {...action} />
+      </Content>
+      {image && image.src && (
+        <StyledImage
+          onClick={action.onClick}
+          alt={image.alt}
+          src={image.src}
+          image={image}
+        ></StyledImage>
+      )}
+      {onClose && closeButtonLabel && (
+        <StyledCloseButton
+          notificationVariant={variant}
+          label={closeButtonLabel}
+          size="kilo"
+          onClick={onClose}
+          tracking={{
+            component: 'notification-close',
+            ...tracking,
+          }}
+        />
+      )}
+    </NotificationBannerWrapper>
+  );
+}

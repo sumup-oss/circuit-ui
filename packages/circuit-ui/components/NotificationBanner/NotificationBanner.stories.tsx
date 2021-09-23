@@ -30,15 +30,18 @@ export const Base = (args: NotificationBannerProps) => (
 );
 
 Base.args = {
-  headline: 'Test',
+  headline: 'Software update',
   body: 'There is updated firmware available for your card reader',
   action: {
-    onClick: () => alert('Heloooo'),
+    onClick: () => alert('Helloooo'),
     children: 'Update',
     variant: 'primary',
   },
-  src: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
-  alt: 'Cup of coffee',
+  image: {
+    src: 'https://source.unsplash.com/EcWFOYOpkpY',
+    alt: 'Cup of coffee',
+    width: '200',
+  },
   onClose: action('Notification closed'),
   closeButtonLabel: 'Close notification',
 };

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotificationBanner styles should render with default styles 1`] = `
-.circuit-5 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -144,17 +144,11 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   }
 }
 
-.circuit-4 {
-  display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
-  border-radius: 0 16px 16px 0;
-}
-
 <div>
   <div
-    class="circuit-5"
+    alt="Cup of coffee"
+    class="circuit-4"
+    src="https://source.unsplash.com/EcWFOYOpkpY/100x100"
   >
     <div
       class="circuit-3"
@@ -175,11 +169,6 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
         Update
       </button>
     </div>
-    <img
-      alt="Cup of coffee"
-      class="circuit-4"
-      src="https://source.unsplash.com/EcWFOYOpkpY/100x100"
-    />
   </div>
 </div>
 `;
