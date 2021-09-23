@@ -20,7 +20,7 @@ const ComponentWithCross = () => (
 );
 
 /**
- * Renamed icons (codemodded)
+ * Renamed icons
  */
 
 const ComponentWithHeart = () => <Heart />;
@@ -31,14 +31,14 @@ const RedHeart = styled(Heart)`
 `;
 
 /**
- * Removed icons (prints error)
+ * Removed icons
  */
 
 const ComponentWithZap = () => <Zap />;
 const ComponentWithSpinner = () => <Spinner />; // Verify the custom console error
 
 /**
- * Changed default size (prints error)
+ * Changed default size
  */
 
 const ComponentWithHelp = () => (

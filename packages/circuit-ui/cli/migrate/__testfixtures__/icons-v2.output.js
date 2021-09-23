@@ -20,7 +20,7 @@ const ComponentWithCross = () => (
 );
 
 /**
- * Renamed icons (codemodded)
+ * Renamed icons
  */
 
 const ComponentWithHeart = () => <Like />;
@@ -31,20 +31,20 @@ const RedHeart = styled(Like)`
 `;
 
 /**
- * Removed icons (prints error)
+ * Removed icons
  */
 
 const ComponentWithZap = () => <Zap />;
 const ComponentWithSpinner = () => <Spinner />; // Verify the custom console error
 
 /**
- * Changed default size (prints error)
+ * Changed default size
  */
 
 const ComponentWithHelp = () => (
   <>
     <Help size="24" />
     <Help size="16" />
-    <Help />
+    <Help size="16" />
   </>
 );

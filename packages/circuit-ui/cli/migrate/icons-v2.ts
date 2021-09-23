@@ -19,6 +19,7 @@ import {
   Collection,
   JSXAttribute,
   StringLiteral,
+  JSXIdentifier,
 } from 'jscodeshift';
 
 import { findImportsByPath, findStyledComponentNames } from './utils';
@@ -110,6 +111,29 @@ const REMOVED_ICONS = [
   ['ThumbDown'],
   ['ThumbUp'],
   ['Zap'],
+];
+
+const SMALL_ICONS = [
+  'ArrowLeft',
+  'ArrowRight',
+  'ChevronDown',
+  'ChevronLeft',
+  'ChevronRight',
+  'ChevronUp',
+  'Close',
+  'Delete',
+  'Edit',
+  'Minus',
+  'Pause',
+  'Play',
+  'Plus',
+  'Search',
+  'Checkmark',
+  'Alert',
+  'Confirm',
+  'Help',
+  'Info',
+  'Notify',
 ];
 
 const LARGE_ONLY_LEGACY_ICONS = [
@@ -321,38 +345,60 @@ function handleIconDefaultSize(
         !LARGE_ONLY_LEGACY_ICONS.includes(i.local), // These icons were only 24px in v1, so the default was already 24
     )
     .forEach((i) => {
-      root.findJSXElements(i.local).forEach((jsxElement) => {
-        const attributes = jsxElement.node.openingElement
-          .attributes as JSXAttribute[];
-        const sizeAttribute = attributes.find((a) => a.name.name === 'size');
-        const hasSize16 =
-          (sizeAttribute?.value as StringLiteral)?.value === '16';
-        const hasImplicitSize16 = !sizeAttribute;
+      root
+        .findJSXElements(i.local)
+        .filter((jsxElement) => {
+          const hasSmallIcon = SMALL_ICONS.includes(i.local);
+          const attributes = jsxElement.node.openingElement
+            .attributes as JSXAttribute[];
+          const sizeAttribute = attributes.find((a) => a.name.name === 'size');
+          const hasSize16 =
+            (sizeAttribute?.value as StringLiteral)?.value === '16';
+          const hasImplicitSize16 = !sizeAttribute;
 
-        const actionMessage = [
-          `If possible, migrate it manually to the 24px "${i.local}" icon.`,
-          `Otherwise, copy the 16px size locally to finish the migration,`,
-          `and contact the Design System team to add it to "@sumup/icons"`,
-          `\nin ${filePath}`,
-        ];
+          if (hasImplicitSize16 && hasSmallIcon) {
+            return true; // we will add the new size
+          }
 
-        if (hasSize16) {
-          console.error(
-            [
-              `The 16px size of the "${i.local}" icon has been removed.`,
-              ...actionMessage,
-            ].join(' '),
+          const actionMessage = [
+            `If possible, migrate it manually to the 24px "${i.local}" icon.`,
+            `Otherwise, copy the 16px size locally to finish the migration,`,
+            `and contact the Design System team to add it to "@sumup/icons"`,
+            `\nin ${filePath}`,
+          ];
+
+          if (hasSize16 && !hasSmallIcon) {
+            console.error(
+              [
+                `The 16px size of the "${i.local}" icon has been removed.`,
+                ...actionMessage,
+              ].join(' '),
+            );
+          }
+          if (hasImplicitSize16 && !hasSmallIcon) {
+            console.error(
+              [
+                `The default size of the "${i.local}" icon changed from 16px to 24px.`,
+                ...actionMessage,
+              ].join(' '),
+            );
+          }
+          return false;
+        })
+        .replaceWith(({ node }) => {
+          const attributes = node.openingElement.attributes || [];
+          return j.jsxElement(
+            j.jsxOpeningElement(
+              j.jsxIdentifier((node.openingElement.name as JSXIdentifier).name),
+              attributes.concat(
+                j.jsxAttribute(j.jsxIdentifier('size'), j.stringLiteral('16')),
+              ),
+              node.openingElement.selfClosing,
+            ),
+            node.closingElement,
+            node.children,
           );
-        } else if (hasImplicitSize16) {
-          console.error(
-            [
-              `The default size of the "${i.local}" icon changed from 16px to 24px.`,
-              ...actionMessage,
-            ].join(' '),
-          );
-        }
-        return false;
-      });
+        });
     });
 }
 
