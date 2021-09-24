@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Fragment, Ref, HTMLProps, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import { Fragment, Ref, InputHTMLAttributes, forwardRef } from 'react';
+import { css } from '@emotion/react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -30,7 +30,7 @@ import { deprecate } from '../../util/logger';
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
 export interface SelectorProps
-  extends Omit<HTMLProps<HTMLInputElement>, 'size'> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
    * Value string for input.
    */
@@ -216,6 +216,7 @@ export const Selector = forwardRef(
           name={name}
           value={value}
           disabled={disabled}
+          // @ts-expect-error TODO handler clash
           onClick={handleChange}
           onChange={() => {
             /**

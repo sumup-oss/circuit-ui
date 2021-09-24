@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import { FC, Ref, HTMLProps } from 'react';
+import { FC, Ref, HTMLAttributes } from 'react';
 import isPropValid from '@emotion/is-prop-valid';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 
-export interface CardProps extends HTMLProps<HTMLDivElement> {
+export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The padding of the Card.
    */

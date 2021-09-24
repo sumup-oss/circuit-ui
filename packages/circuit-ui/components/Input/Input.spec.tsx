@@ -14,7 +14,7 @@
  */
 
 import { createRef } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
@@ -106,7 +106,7 @@ describe('Input', () => {
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Input noMargin />);
+    const actual = create(<Input noMargin label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 

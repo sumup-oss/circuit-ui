@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';

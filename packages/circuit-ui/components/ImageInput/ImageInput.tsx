@@ -22,7 +22,7 @@ import {
   DragEvent,
   Fragment,
 } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Delete, Plus } from '@sumup/icons';
 
 import { ClickEvent } from '../../types/events';
@@ -99,7 +99,7 @@ const HiddenInput = styled.input(
   `,
 );
 
-type StyledLabelProps = StyleProps & {
+type StyledLabelProps = {
   isLoading: boolean;
   isDragging: boolean;
   invalid: boolean;
@@ -135,7 +135,10 @@ const baseLabelStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const invalidLabelStyles = ({ theme, invalid }: StyledLabelProps) =>
+const invalidLabelStyles = ({
+  theme,
+  invalid,
+}: StyledLabelProps & StyleProps) =>
   invalid &&
   css`
     > *:last-child {
@@ -178,7 +181,10 @@ const loadingLabelStyles = ({ isLoading }: StyledLabelProps) => {
   `;
 };
 
-const draggingLabelStyles = ({ theme, isDragging }: StyledLabelProps) =>
+const draggingLabelStyles = ({
+  theme,
+  isDragging,
+}: StyledLabelProps & StyleProps) =>
   isDragging &&
   css`
     *:last-child {
@@ -194,7 +200,7 @@ const draggingLabelStyles = ({ theme, isDragging }: StyledLabelProps) =>
     }
   `;
 
-const addButtonStyles = ({ theme }: StyledLabelProps) => css`
+const addButtonStyles = ({ theme }: StyleProps) => css`
   &:hover {
     & > button {
       background-color: ${theme.colors.p700};
@@ -229,9 +235,9 @@ const AddButton = styled(ActionButton)`
   pointer-events: none;
 `;
 
-type LoadingIconProps = StyleProps & { isLoading: boolean };
+type LoadingIconProps = { isLoading: boolean };
 
-const spinnerBaseStyles = ({ theme }: LoadingIconProps) => css`
+const spinnerBaseStyles = ({ theme }: LoadingIconProps & StyleProps) => css`
   position: absolute;
   width: ${theme.iconSizes.giga};
   height: ${theme.iconSizes.giga};

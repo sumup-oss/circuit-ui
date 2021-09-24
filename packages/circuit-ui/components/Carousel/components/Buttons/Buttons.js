@@ -15,7 +15,7 @@
 
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { ChevronLeft, ChevronRight, Pause, Play } from '@sumup/icons';
 
 import IconButton from '../../../IconButton';

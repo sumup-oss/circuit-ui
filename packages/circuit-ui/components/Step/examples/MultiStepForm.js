@@ -15,7 +15,7 @@
 
 /* istanbul ignore file */
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 

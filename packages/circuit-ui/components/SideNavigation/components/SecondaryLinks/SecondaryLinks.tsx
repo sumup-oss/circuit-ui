@@ -16,7 +16,7 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
 import { forwardRef, KeyboardEvent, MouseEvent, Ref } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import { TrackingElement } from '@sumup/collector';
 
@@ -76,7 +76,7 @@ function SecondaryLink({
         {...props}
         onClick={handleClick}
         aria-current={props.isActive ? 'page' : undefined}
-        // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
+        // @ts-expect-error TODO as prop clash
         as={props.href ? Link : 'button'}
       >
         <Skeleton css={labelStyles}>
@@ -89,6 +89,7 @@ function SecondaryLink({
           </Body>
         </Skeleton>
         {badge && (
+          // @ts-expect-error TODO as prop clash
           <Badge variant="promo" as="span">
             {badge.label}
           </Badge>

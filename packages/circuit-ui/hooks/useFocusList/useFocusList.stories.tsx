@@ -14,7 +14,7 @@
  */
 
 /* eslint-disable jsx-a11y/no-redundant-roles */
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { action } from '@storybook/addon-actions';
 
 import { listItem } from '../../styles/style-mixins';

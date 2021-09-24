@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { css, SerializedStyles } from '@emotion/core';
+import { css, SerializedStyles } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import { warn } from '../util/logger';

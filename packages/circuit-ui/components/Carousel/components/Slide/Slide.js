@@ -15,7 +15,7 @@
 
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/core';
+import { css, keyframes } from '@emotion/react';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { light, Theme } from '@sumup/design-tokens';
 
 import { create } from '../util/test-utils';

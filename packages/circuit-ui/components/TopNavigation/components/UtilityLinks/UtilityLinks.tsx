@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { MouseEvent, KeyboardEvent, FC, HTMLProps } from 'react';
-import { css } from '@emotion/core';
+import { MouseEvent, KeyboardEvent, FC, AnchorHTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { IconProps } from '@sumup/icons';
@@ -53,7 +53,8 @@ const labelStyles = ({ theme }: StyleProps) => css`
 
 const UtilityLabel = styled(Body)(labelStyles);
 
-export interface UtilityLinkProps extends HTMLProps<HTMLAnchorElement> {
+export interface UtilityLinkProps
+  extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * Display an icon in addition to the text to help to identify the link.
    * On narrow viewports, only the icon is displayed.
@@ -96,7 +97,7 @@ function UtilityLink({
     <UtilityAnchor
       {...props}
       onClick={handleClick}
-      // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
+      // @ts-expect-error TODO as prop clash
       as={props.href ? Link : 'button'}
     >
       <Skeleton css={iconStyles}>

@@ -14,7 +14,7 @@
  */
 
 import { FC, ReactNode } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { ClickEvent } from '../../../../types/events';

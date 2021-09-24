@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-import { HTMLProps } from 'react';
-import { css } from '@emotion/core';
+import { HTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 import { Confirm, Notify, Alert } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
 
-export interface ValidationHintProps extends HTMLProps<HTMLSpanElement> {
+export interface ValidationHintProps extends HTMLAttributes<HTMLSpanElement> {
   validationHint?: string;
   disabled?: boolean;
   invalid?: boolean;

@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { HTMLProps } from 'react';
-import { css } from '@emotion/core';
+import { ImgHTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 
 import styled from '../../styles/styled';
 
-export interface ImageProps
-  extends Omit<HTMLProps<HTMLImageElement>, 'size' | 'crossOrigin'> {
+export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * Specifies the source URL of an image
    */

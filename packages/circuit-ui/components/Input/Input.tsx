@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { forwardRef, Ref, FC, HTMLProps, ReactNode } from 'react';
-import { css, InterpolationWithTheme } from '@emotion/core';
+import { forwardRef, Ref, FC, InputHTMLAttributes, ReactNode } from 'react';
+import { css, Interpolation } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -29,7 +29,7 @@ import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';
 import { deprecate } from '../../util/logger';
 
-export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * A clear and concise description of the input purpose.
    */
@@ -97,11 +97,11 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
   /**
    * Emotion style object to overwrite the input element styles.
    */
-  inputStyles?: InterpolationWithTheme<Theme>;
+  inputStyles?: Interpolation<Theme>;
   /**
    * Emotion style object to overwrite the input label element styles.
    */
-  labelStyles?: InterpolationWithTheme<Theme>;
+  labelStyles?: Interpolation<Theme>;
   /**
    * The ref to the HTML DOM element
    */

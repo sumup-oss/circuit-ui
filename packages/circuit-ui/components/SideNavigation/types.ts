@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import { HTMLProps, FC, MouseEvent, KeyboardEvent } from 'react';
+import { FC, MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { IconProps } from '@sumup/icons';
 
 import { BadgeProps } from '../Badge';
 
-export interface PrimaryLinkProps extends HTMLProps<HTMLAnchorElement> {
+export interface PrimaryLinkProps
+  extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * Display an icon in addition to the text to help to identify the link.
    * On narrow viewports, only the icon is displayed.

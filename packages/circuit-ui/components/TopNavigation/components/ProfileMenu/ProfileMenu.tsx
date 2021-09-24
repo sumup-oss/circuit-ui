@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { useState, HTMLProps } from 'react';
-import { css } from '@emotion/core';
+import { useState, ButtonHTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 import { ChevronDown, Profile as ProfileIcon } from '@sumup/icons';
 import { TrackingElement } from '@sumup/collector';
 
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
 import Avatar, { AvatarProps } from '../../../Avatar';
 import Body from '../../../Body';
@@ -32,7 +32,10 @@ const profileWrapperStyles = ({ theme }: StyleProps) => css`
   border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 `;
 
-const ProfileWrapper = styled.button(navigationItem, profileWrapperStyles);
+const ProfileWrapper = styled.button<NoTheme>(
+  navigationItem,
+  profileWrapperStyles,
+);
 
 const userAvatarStyles = ({ theme }: StyleProps) => css`
   width: ${theme.iconSizes.mega};
@@ -81,7 +84,7 @@ const chevronStyles = ({ theme }: StyleProps) => css`
 
 const Chevron = styled(ChevronDown)(chevronStyles);
 
-interface ProfileProps extends HTMLProps<HTMLButtonElement> {
+interface ProfileProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * A description of the button which opens the profile menu.
    */

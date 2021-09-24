@@ -14,7 +14,7 @@
  */
 
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';

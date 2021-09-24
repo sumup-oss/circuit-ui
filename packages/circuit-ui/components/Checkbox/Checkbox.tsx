@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { HTMLProps, Ref, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import { InputHTMLAttributes, Ref, forwardRef } from 'react';
+import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
@@ -29,7 +29,7 @@ import { useClickEvent } from '../../hooks/useClickEvent';
 import { deprecate } from '../../util/logger';
 import Tooltip from '../Tooltip';
 
-export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
+export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * Triggers error styles on the component.
    */
@@ -252,6 +252,7 @@ export const Checkbox = forwardRef(
           disabled={disabled}
           invalid={invalid}
           ref={ref}
+          // @ts-expect-error TODO handler clash
           onClick={handleChange}
           onChange={() => {
             /**
@@ -267,9 +268,7 @@ export const Checkbox = forwardRef(
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>
         {!disabled && validationHint && (
-          // TODO: Reenable typechecks once Tooltip has been migrated to TypeScript.
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
+          // @ts-expect-error Reenable typechecks once Tooltip has been migrated to TypeScript
           <CheckboxTooltip position={'top'} align={'right'}>
             {validationHint}
           </CheckboxTooltip>

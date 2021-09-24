@@ -16,8 +16,8 @@
 /* eslint-disable react/prop-types, react/display-name */
 
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'emotion-theming';
-import { css } from '@emotion/core';
+import { ThemeProvider } from '@emotion/react';
+import { css } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { Badge, Body } from '@sumup/circuit-ui';
 

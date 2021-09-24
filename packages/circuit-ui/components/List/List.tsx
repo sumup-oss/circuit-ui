@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { forwardRef, Ref, HTMLProps } from 'react';
-import { css } from '@emotion/core';
+import { forwardRef, Ref, OlHTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -24,8 +24,7 @@ import { deprecate } from '../../util/logger';
 type Size = 'one' | 'two';
 type Variant = 'ordered' | 'unordered';
 
-export interface ListProps
-  extends Omit<HTMLProps<HTMLOListElement>, 'size' | 'type'> {
+export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
   /**
    * A Circuit UI body text size.
    */

@@ -13,8 +13,14 @@
  * limitations under the License.
  */
 
-import { forwardRef, HTMLProps, ReactNode, Ref } from 'react';
-import { css } from '@emotion/core';
+import {
+  forwardRef,
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ReactNode,
+  Ref,
+} from 'react';
+import { css } from '@emotion/react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 
@@ -40,8 +46,8 @@ export interface BaseProps extends BodyProps {
    */
   ref?: Ref<any>;
 }
-type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'onClick'>;
-type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'onClick'>;
+type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
+type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
 

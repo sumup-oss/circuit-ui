@@ -13,16 +13,15 @@
  * limitations under the License.
  */
 
-import { HTMLProps, Ref, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import { ButtonHTMLAttributes, Ref, forwardRef } from 'react';
+import { css } from '@emotion/react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { focusVisible, hideVisually } from '../../../../styles/style-mixins';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 
-export interface SwitchProps
-  extends Omit<HTMLProps<HTMLButtonElement>, 'type'> {
+export interface SwitchProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Is the Switch on?
    */

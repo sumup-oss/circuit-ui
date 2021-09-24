@@ -13,25 +13,25 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/core';
+import { css, useTheme } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import {
   FC,
   Fragment,
-  HTMLProps,
   Ref,
   useEffect,
   useMemo,
   useRef,
   useState,
   KeyboardEvent,
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
 } from 'react';
 import useLatest from 'use-latest';
 import usePrevious from 'use-previous';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
-import { useTheme } from 'emotion-theming';
 import isPropValid from '@emotion/is-prop-valid';
 import { IconProps } from '@sumup/icons';
 
@@ -81,14 +81,8 @@ export interface BaseProps {
   ref?: Ref<any>;
 }
 
-type LinkElProps = Omit<
-  HTMLProps<HTMLAnchorElement>,
-  'size' | 'type' | 'onClick'
->;
-type ButtonElProps = Omit<
-  HTMLProps<HTMLButtonElement>,
-  'size' | 'type' | 'onClick'
->;
+type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
+type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type PopoverItemProps = BaseProps & LinkElProps & ButtonElProps;
 type PopoverItemWrapperProps = LinkElProps & ButtonElProps;
@@ -121,7 +115,7 @@ export const PopoverItem = ({
 
   return (
     <PopoverItemWrapper
-      // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
+      // @ts-expect-error TODO as prop clash
       as={props.href ? Link : 'button'}
       onClick={handleClick}
       role="menuitem"
@@ -268,7 +262,7 @@ export const Popover = ({
   modifiers = [],
   ...props
 }: PopoverProps): JSX.Element | null => {
-  const theme = useTheme<Theme>();
+  const theme = useTheme();
   const zIndex = useStackContext();
   const triggerKey = useRef<TriggerKey | null>(null);
   const triggerEl = useRef<HTMLDivElement>(null);

@@ -13,8 +13,14 @@
  * limitations under the License.
  */
 
-import { Fragment, HTMLProps, Ref, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import {
+  Fragment,
+  InputHTMLAttributes,
+  Ref,
+  forwardRef,
+  ReactNode,
+} from 'react';
+import { css } from '@emotion/react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -26,7 +32,17 @@ import {
 import { uniqueId } from '../../util/id';
 import { useClickEvent } from '../../hooks/useClickEvent';
 
-export interface RadioButtonProps extends HTMLProps<HTMLInputElement> {
+export interface RadioButtonProps
+  extends InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * @deprecated
+   * Use the label prop instead.
+   */
+  children?: ReactNode;
+  /**
+   * A clear and concise description of the input purpose.
+   */
+  label: ReactNode;
   /**
    * Triggers error styles on the component.
    */
@@ -210,6 +226,7 @@ export const RadioButton = forwardRef(
           invalid={invalid}
           disabled={disabled}
           checked={checked}
+          // @ts-expect-error TODO handler clash
           onClick={handleChange}
           onChange={() => {
             /**

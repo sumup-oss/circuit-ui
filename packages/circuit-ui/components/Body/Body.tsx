@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { forwardRef, HTMLProps, Ref } from 'react';
-import { css } from '@emotion/core';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -23,8 +23,7 @@ import { deprecate } from '../../util/logger';
 type Size = 'one' | 'two';
 type Variant = 'highlight' | 'quote' | 'success' | 'error' | 'subtle';
 
-export interface BodyProps
-  extends Omit<HTMLProps<HTMLParagraphElement>, 'size'> {
+export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
    * Choose from 2 font sizes. Default `one`.
    */
@@ -134,6 +133,7 @@ function getHTMLElement(variant?: Variant): string {
  */
 export const Body = forwardRef((props: BodyProps, ref?: BodyProps['ref']) => {
   const as = props.as || getHTMLElement(props.variant);
+  // @ts-expect-error TODO as prop clash
   return <StyledBody {...props} ref={ref} as={as} />;
 });
 

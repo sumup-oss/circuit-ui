@@ -15,7 +15,7 @@
 
 /* eslint-disable react/display-name */
 import { Fragment } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components';

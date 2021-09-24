@@ -14,7 +14,7 @@
  */
 
 import { FC } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { ArrowRight } from '@sumup/icons';
@@ -198,7 +198,7 @@ export function PrimaryLink({
       isActive={isActive}
       isOpen={isOpen}
       aria-current={isActive ? 'page' : undefined}
-      // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
+      // @ts-expect-error TODO as prop clash
       as={props.href ? Link : 'button'}
     >
       <Skeleton css={cx(iconStyles, badge && iconWithBadgeStyles)}>

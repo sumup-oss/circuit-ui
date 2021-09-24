@@ -14,9 +14,7 @@
  */
 
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-
-import { StyleProps } from '../../styles/styled';
+import { css } from '@emotion/react';
 
 import { InlineElements } from './InlineElements';
 
@@ -28,22 +26,24 @@ export default {
   },
 };
 
-const Box = styled('div')`
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 24px;
-  height: 48px;
-  padding: 12px;
+const Box = styled.div(
+  ({ theme }) => css`
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    height: 48px;
+    padding: 12px;
 
-  &:nth-of-type(n) {
-    background-color: ${({ theme }: StyleProps) => theme.colors.n300};
-  }
+    &:nth-of-type(n) {
+      background-color: ${theme.colors.n300};
+    }
 
-  &:nth-of-type(2n) {
-    background-color: ${({ theme }: StyleProps) => theme.colors.n100};
-  }
-`;
+    &:nth-of-type(2n) {
+      background-color: ${theme.colors.n100};
+    }
+  `,
+);
 
 const inlineElementsStyles = css`
   width: 95vw;

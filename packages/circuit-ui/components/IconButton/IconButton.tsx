@@ -14,7 +14,7 @@
  */
 
 import { Children, cloneElement, ReactElement, forwardRef, Ref } from 'react';
-import { css, SerializedStyles } from '@emotion/core';
+import { css, SerializedStyles } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import { hideVisually } from '../../styles/style-mixins';

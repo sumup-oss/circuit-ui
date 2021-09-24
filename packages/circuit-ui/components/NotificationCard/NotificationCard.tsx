@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import { HTMLProps, ReactNode } from 'react';
-import { css } from '@emotion/core';
+import { HTMLAttributes, ReactNode } from 'react';
+import { css } from '@emotion/react';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { shadow } from '../../styles/style-mixins';
 
-export interface NotificationCardProps extends HTMLProps<HTMLDivElement> {
+export interface NotificationCardProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * A single Notification.
    */
@@ -38,7 +38,7 @@ const innerStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.mega} ${theme.spacings.giga};
 `;
 
-const NotificationCardInner = styled('div')<NoTheme>(innerStyles);
+const NotificationCardInner = styled('div')(innerStyles);
 
 /**
  * NotificationCard displays a persistent Notification.

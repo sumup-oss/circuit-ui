@@ -15,7 +15,7 @@
 
 import { ReactNode, ChangeEvent, Ref, forwardRef } from 'react';
 import { includes } from 'lodash/fp';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';

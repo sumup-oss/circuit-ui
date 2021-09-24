@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { HTMLProps, Ref, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import { FieldsetHTMLAttributes, Ref, forwardRef } from 'react';
+import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, typography } from '../../styles/style-mixins';
@@ -23,7 +23,7 @@ import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
 import ValidationHint from '../ValidationHint';
 
 export interface RadioButtonGroupProps
-  extends Omit<HTMLProps<HTMLFieldSetElement>, 'onChange'> {
+  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
    * A collection of available options. Each option must have at least
    * a value and children.
@@ -128,9 +128,8 @@ export const RadioButtonGroup = forwardRef(
               <RadioButton
                 {...{ ...rest, value, name, onChange }}
                 checked={value === activeValue}
-              >
-                {children}
-              </RadioButton>
+                label={children}
+              />
             </div>
           ))}
         <ValidationHint

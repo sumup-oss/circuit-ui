@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { HTMLProps } from 'react';
-import { css } from '@emotion/core';
+import { LabelHTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -23,7 +23,7 @@ import {
   disableVisually,
 } from '../../styles/style-mixins';
 
-export interface LabelProps extends HTMLProps<HTMLLabelElement> {
+export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /**
    * The identifier of the corresponding form element.
    */

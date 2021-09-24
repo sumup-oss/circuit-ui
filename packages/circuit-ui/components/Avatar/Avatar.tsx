@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes } from 'react';
-import { css } from '@emotion/core';
+import { ImgHTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 
-export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
+export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * The source URL of the Avatar image.
    * Defaults to a placeholder illustration.

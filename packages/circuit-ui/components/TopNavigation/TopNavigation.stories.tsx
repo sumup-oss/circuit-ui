@@ -16,7 +16,7 @@
 import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Shop, SumUpLogo } from '@sumup/icons';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import { SideNavigation } from '../SideNavigation';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories';

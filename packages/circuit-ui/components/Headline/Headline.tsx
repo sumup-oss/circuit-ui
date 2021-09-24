@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { FC, HTMLProps } from 'react';
-import { css } from '@emotion/core';
+import { FC, HTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -22,8 +22,7 @@ import { deprecate } from '../../util/logger';
 
 type Size = 'one' | 'two' | 'three' | 'four';
 
-export interface HeadlineProps
-  extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
+export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
    * A Circuit UI headline size. Default `one`.
    */

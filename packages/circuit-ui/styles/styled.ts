@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import styled, { CreateStyled } from '@emotion/styled';
+import styled from '@emotion/styled';
 import { Theme } from '@sumup/design-tokens';
 
-export default styled as CreateStyled<Theme>;
+export default styled;
 
 export interface StyleProps {
   theme: Theme;

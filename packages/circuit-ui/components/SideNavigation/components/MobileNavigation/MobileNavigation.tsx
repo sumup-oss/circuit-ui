@@ -15,7 +15,7 @@
 
 import { Fragment } from 'react';
 import ReactModal from 'react-modal';
-import { ClassNames, css } from '@emotion/core';
+import { ClassNames, css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { ChevronDown } from '@sumup/icons';
@@ -209,7 +209,7 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
   return (
     <ComponentsContext.Provider value={UNSAFE_components}>
       <TrackingElement name={TRACKING_ELEMENTS.SIDE_NAVIGATION}>
-        <ClassNames<Theme>>
+        <ClassNames>
           {({ css: cssString, theme }) => {
             // React Modal styles
             // https://reactcommunity.org/react-modal/styles/classes/

@@ -14,7 +14,7 @@
  */
 
 import { FunctionComponent } from 'react';
-import { Global } from '@emotion/core';
+import { Global } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import { createBaseStyles } from './BaseStylesService';

@@ -16,7 +16,7 @@
 import { Children, forwardRef, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { ClassNames, css } from '@emotion/core';
+import { ClassNames, css } from '@emotion/react';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 

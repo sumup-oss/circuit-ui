@@ -13,12 +13,16 @@
  * limitations under the License.
  */
 
-import { Ref, HTMLProps, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import { Ref, forwardRef, HTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 
-export interface BadgeProps extends HTMLProps<HTMLDivElement> {
+export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * The badge's label
+   */
+  label: string;
   /**
    * Choose from 4 style variants. Default: 'neutral'.
    */

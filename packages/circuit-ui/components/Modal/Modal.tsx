@@ -14,7 +14,7 @@
  */
 
 import { ReactNode } from 'react';
-import { css, ClassNames } from '@emotion/core';
+import { css, ClassNames } from '@emotion/react';
 import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
@@ -159,7 +159,7 @@ export const Modal: ModalComponent<ModalProps> = ({
     );
   }
   return (
-    <ClassNames<Theme> key={variant}>
+    <ClassNames key={variant}>
       {({ css: cssString, cx, theme }) => {
         // React Modal styles
         // https://reactcommunity.org/react-modal/styles/classes/

@@ -14,7 +14,7 @@
  */
 
 import { Canvas } from '@storybook/addon-docs/blocks';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 
 // eslint-disable-next-line react/prop-types

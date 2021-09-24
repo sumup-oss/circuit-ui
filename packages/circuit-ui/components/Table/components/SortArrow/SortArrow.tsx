@@ -14,7 +14,7 @@
  */
 
 import { HTMLAttributes } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../../../styles/styled';

@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { HTMLProps, FC } from 'react';
-import { css } from '@emotion/core';
+import { ThHTMLAttributes, FC } from 'react';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import { focusOutline, typography } from '../../../../styles/style-mixins';
@@ -24,7 +24,7 @@ import { SortParams } from '../../types';
 import { ClickEvent } from '../../../../types/events';
 
 export interface TableHeaderProps
-  extends Omit<HTMLProps<HTMLTableHeaderCellElement>, 'onClick'> {
+  extends ThHTMLAttributes<HTMLTableHeaderCellElement> {
   /**
    * Aligns the content of the Header with text-align.
    */

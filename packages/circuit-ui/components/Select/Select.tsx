@@ -13,14 +13,21 @@
  * limitations under the License.
  */
 
-import { FC, ReactNode, Ref, HTMLProps, ChangeEvent, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import {
+  FC,
+  ReactNode,
+  Ref,
+  SelectHTMLAttributes,
+  ChangeEvent,
+  forwardRef,
+} from 'react';
+import { css } from '@emotion/react';
 import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { uniqueId } from '../../util/id';
-import styled, { NoTheme, StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled';
 import {
   typography,
   hideVisually,
@@ -39,8 +46,7 @@ export type SelectOption = {
   [key: string]: any;
 };
 
-export interface SelectProps
-  extends Omit<HTMLProps<HTMLSelectElement>, 'label'> {
+export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   children?: ReactNode;
   /**
    * A clear and concise description of the select purpose.
@@ -282,14 +288,8 @@ const iconInactiveStyles = () => css`
   }
 `;
 
-const IconActive = styled(ChevronDown)<NoTheme>(
-  iconBaseStyles,
-  iconActiveStyles,
-);
-const IconInactive = styled(ChevronUp)<NoTheme>(
-  iconBaseStyles,
-  iconInactiveStyles,
-);
+const IconActive = styled(ChevronDown)(iconBaseStyles, iconActiveStyles);
+const IconInactive = styled(ChevronUp)(iconBaseStyles, iconInactiveStyles);
 
 /**
  * A native select component.

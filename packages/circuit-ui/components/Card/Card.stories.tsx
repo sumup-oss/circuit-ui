@@ -15,7 +15,7 @@
 
 import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components';
@@ -59,7 +59,7 @@ const contentStyles = (theme: Theme) => css`
 `;
 
 const Header = () => (
-  <Headline size="four" noMargin>
+  <Headline size="four" as="h2" noMargin>
     Card heading
   </Headline>
 );
