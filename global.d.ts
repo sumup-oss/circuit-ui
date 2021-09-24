@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,10 +13,7 @@
  * limitations under the License.
  */
 
-import { Theme as CircuitTheme } from '@sumup/design-tokens';
-import {} from '@emotion/react/types/css-prop'; // See https://github.com/emotion-js/emotion/pull/1941
-
-declare module '@emotion/react' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface Theme extends CircuitTheme {}
+declare module '*.mdx' {
+  const content: string;
+  export default content;
 }

@@ -12,7 +12,7 @@ module.exports = {
       name: '@storybook/preset-typescript',
       options: { transpileManager: true },
     },
-    '@storybook/addon-docs/',
+    '@storybook/addon-docs',
     '@storybook/addon-storysource',
     '@storybook/addon-controls',
     '@storybook/addon-actions',

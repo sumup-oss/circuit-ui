@@ -39,5 +39,5 @@
     "**/*.spec.*",
     "**/*.stories.*"
   ],
-  "typeRoots": ["./node_modules/@types"]
+  "typeRoots": ["./node_modules/@types", "./global.d.ts"]
 }
