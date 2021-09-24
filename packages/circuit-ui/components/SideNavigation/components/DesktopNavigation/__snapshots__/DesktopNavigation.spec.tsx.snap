@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DesktopNavigation styles should render with secondary links 1`] = `
-.circuit-19[aria-busy='true'] {
+.circuit-0[aria-busy='true'] {
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -9,14 +9,14 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   user-select: none;
 }
 
-@media (max-width:959px) {
-  .circuit-19 {
+@media (max-width: 959px) {
+  .circuit-0 {
     display: none;
   }
 }
 
-@media (min-width:960px) {
-  .circuit-19 {
+@media (min-width: 960px) {
+  .circuit-0 {
     min-width: 48px;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
@@ -24,7 +24,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   }
 }
 
-.circuit-5 {
+.circuit-1 {
   position: fixed;
   z-index: 800;
   top: 57px;
@@ -46,23 +46,20 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   -webkit-transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   -ms-overflow-style: none;
-  -webkit-scrollbar-width: none;
-  -moz-scrollbar-width: none;
-  -ms-scrollbar-width: none;
   scrollbar-width: none;
 }
 
-.circuit-5:hover,
-.circuit-5:focus-within {
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+.circuit-1:hover,
+.circuit-1:focus-within {
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   width: 220px;
 }
 
-.circuit-5::-webkit-scrollbar {
+.circuit-1::-webkit-scrollbar {
   display: none;
 }
 
-.circuit-4 {
+.circuit-2 {
   list-style: none;
 }
 
@@ -119,7 +116,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   box-shadow: none;
 }
 
-@media (max-width:959px) {
+@media (max-width: 959px) {
   .circuit-3 {
     margin-bottom: 1px;
   }
@@ -138,7 +135,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   }
 }
 
-@media (min-width:960px) {
+@media (min-width: 960px) {
   .circuit-3 {
     height: 48px;
     width: 220px;
@@ -151,7 +148,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   background-color: #F0F6FF;
 }
 
-.circuit-0 {
+.circuit-4 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -163,12 +160,12 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   margin-right: 12px;
 }
 
-.circuit-2 {
+.circuit-5 {
   display: inline-block;
   line-height: 0;
 }
 
-.circuit-1 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -177,14 +174,14 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   font-weight: 700;
 }
 
-@media (max-width:959px) {
-  .circuit-1 {
+@media (max-width: 959px) {
+  .circuit-6 {
     font-size: 24px;
     line-height: 28px;
   }
 }
 
-.circuit-18 {
+.circuit-7 {
   position: -webkit-sticky;
   position: sticky;
   top: 57px;
@@ -203,13 +200,13 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   border-right: 1px solid #CCC;
 }
 
-.circuit-7 {
+.circuit-8 {
   display: inline-block;
   line-height: 0;
   margin: 24px 16px 12px;
 }
 
-.circuit-6 {
+.circuit-9 {
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
@@ -218,17 +215,13 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   margin-bottom: 0;
 }
 
-.circuit-17 {
-  list-style: none;
-}
-
-.circuit-9 {
+.circuit-11 {
   display: inline-block;
   line-height: 0;
   margin: 32px 16px 8px;
 }
 
-.circuit-8 {
+.circuit-12 {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
@@ -238,11 +231,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   margin-bottom: 0;
 }
 
-.circuit-16 {
-  list-style: none;
-}
-
-.circuit-12 {
+.circuit-14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -259,6 +248,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -272,47 +262,47 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   hyphens: auto;
 }
 
-.circuit-12:hover {
+.circuit-14:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-12:active {
+.circuit-14:active {
   background-color: #E6E6E6;
 }
 
-.circuit-12:focus {
+.circuit-14:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-12:focus::-moz-focus-inner {
+.circuit-14:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-12:focus:not(:focus-visible) {
+.circuit-14:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-12:disabled {
+.circuit-14:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-@media (min-width:960px) {
-  .circuit-12 {
+@media (min-width: 960px) {
+  .circuit-14 {
     padding: 12px;
     padding-left: 20px;
   }
 }
 
-.circuit-11 {
+.circuit-15 {
   display: inline-block;
   line-height: 0;
   margin-right: 8px;
 }
 
-.circuit-10 {
+.circuit-16 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -323,14 +313,14 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 <div>
   <div
     aria-busy="false"
-    class="circuit-19"
+    class="circuit-0"
   >
     <nav
       aria-label="Primary"
-      class="circuit-5"
+      class="circuit-1"
     >
       <ul
-        class="circuit-4"
+        class="circuit-2"
         role="list"
       >
         <li>
@@ -341,7 +331,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
             href="/shop"
           >
             <span
-              class="circuit-0"
+              class="circuit-4"
             >
               <svg
                 fill="none"
@@ -360,10 +350,10 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
               </svg>
             </span>
             <span
-              class="circuit-2"
+              class="circuit-5"
             >
               <span
-                class="circuit-1"
+                class="circuit-6"
               >
                 Shop
               </span>
@@ -374,46 +364,46 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
     </nav>
     <nav
       aria-label="Secondary"
-      class="circuit-18"
+      class="circuit-7"
     >
       <span
-        class="circuit-7"
+        class="circuit-8"
       >
         <h2
-          class="circuit-6"
+          class="circuit-9"
         >
           Shop
         </h2>
       </span>
       <ul
-        class="circuit-17"
+        class="circuit-2"
         role="list"
       >
         <li>
           <span
-            class="circuit-9"
+            class="circuit-11"
           >
             <h3
-              class="circuit-8"
+              class="circuit-12"
             >
               For Kids
             </h3>
           </span>
           <ul
-            class="circuit-16"
+            class="circuit-2"
             role="list"
           >
             <li>
               <a
-                class="circuit-12"
+                class="circuit-14"
                 data-focus-list="2"
                 href="/shop/toys"
               >
                 <span
-                  class="circuit-11"
+                  class="circuit-15"
                 >
                   <p
-                    class="circuit-10"
+                    class="circuit-16"
                   >
                     Toys
                   </p>
@@ -422,15 +412,15 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
             </li>
             <li>
               <a
-                class="circuit-12"
+                class="circuit-14"
                 data-focus-list="2"
                 href="/shop/books"
               >
                 <span
-                  class="circuit-11"
+                  class="circuit-15"
                 >
                   <p
-                    class="circuit-10"
+                    class="circuit-16"
                   >
                     Books
                   </p>
@@ -446,7 +436,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 `;
 
 exports[`DesktopNavigation styles should render without secondary links 1`] = `
-.circuit-6[aria-busy='true'] {
+.circuit-0[aria-busy='true'] {
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -454,14 +444,14 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   user-select: none;
 }
 
-@media (max-width:959px) {
-  .circuit-6 {
+@media (max-width: 959px) {
+  .circuit-0 {
     display: none;
   }
 }
 
-@media (min-width:960px) {
-  .circuit-6 {
+@media (min-width: 960px) {
+  .circuit-0 {
     min-width: 48px;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
@@ -469,7 +459,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   }
 }
 
-.circuit-5 {
+.circuit-1 {
   position: fixed;
   z-index: 800;
   top: 57px;
@@ -491,41 +481,21 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   -webkit-transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   -ms-overflow-style: none;
-  -webkit-scrollbar-width: none;
-  -moz-scrollbar-width: none;
-  -ms-scrollbar-width: none;
   scrollbar-width: none;
 }
 
-.circuit-5:hover,
-.circuit-5:focus-within {
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+.circuit-1:hover,
+.circuit-1:focus-within {
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   width: 220px;
 }
 
-.circuit-5::-webkit-scrollbar {
+.circuit-1::-webkit-scrollbar {
   display: none;
 }
 
-.circuit-4 {
-  list-style: none;
-}
-
-.circuit-0 {
-  display: inline-block;
-  line-height: 0;
-  position: relative;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  margin-right: 12px;
-}
-
 .circuit-2 {
-  display: inline-block;
-  line-height: 0;
+  list-style: none;
 }
 
 .circuit-3 {
@@ -580,7 +550,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   box-shadow: none;
 }
 
-@media (max-width:959px) {
+@media (max-width: 959px) {
   .circuit-3 {
     margin-bottom: 1px;
   }
@@ -599,7 +569,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   }
 }
 
-@media (min-width:960px) {
+@media (min-width: 960px) {
   .circuit-3 {
     height: 48px;
     width: 220px;
@@ -608,7 +578,24 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   }
 }
 
-.circuit-1 {
+.circuit-4 {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.circuit-5 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -616,8 +603,8 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   margin-bottom: 0;
 }
 
-@media (max-width:959px) {
-  .circuit-1 {
+@media (max-width: 959px) {
+  .circuit-6 {
     font-size: 24px;
     line-height: 28px;
   }
@@ -626,14 +613,14 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
 <div>
   <div
     aria-busy="false"
-    class="circuit-6"
+    class="circuit-0"
   >
     <nav
       aria-label="Primary"
-      class="circuit-5"
+      class="circuit-1"
     >
       <ul
-        class="circuit-4"
+        class="circuit-2"
         role="list"
       >
         <li>
@@ -643,7 +630,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
             href="/"
           >
             <span
-              class="circuit-0"
+              class="circuit-4"
             >
               <svg
                 fill="none"
@@ -660,10 +647,10 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
               </svg>
             </span>
             <span
-              class="circuit-2"
+              class="circuit-5"
             >
               <span
-                class="circuit-1"
+                class="circuit-6"
               >
                 Home
               </span>

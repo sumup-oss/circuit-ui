@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProfileMenu styles should render with a profile picture 1`] = `
-.circuit-7 {
+.circuit-0 {
   display: inline-block;
 }
 
-.circuit-6 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -27,43 +27,43 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   border-left: 1px solid #CCC;
 }
 
-.circuit-6:hover {
+.circuit-1:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-6:active {
+.circuit-1:active {
   background-color: #E6E6E6;
 }
 
-.circuit-6:focus {
+.circuit-1:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-6:focus::-moz-focus-inner {
+.circuit-1:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-6:focus:not(:focus-visible) {
+.circuit-1:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-6:disabled {
+.circuit-1:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: inline-block;
   line-height: 0;
 }
 
-.circuit-0 {
+.circuit-3 {
   display: block;
   width: 96px;
   height: 96px;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
   border-radius: 100%;
   object-fit: cover;
@@ -72,17 +72,16 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   height: 24px;
 }
 
-@media (min-width:768px) {
-  .circuit-0 {
+@media (min-width: 768px) {
+  .circuit-3 {
     width: 32px;
     height: 32px;
   }
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .circuit-4 {
     border: 0;
-    -webkit-clip: rect(0 0 0 0);
     clip: rect(0 0 0 0);
     height: 1px;
     margin: -1px;
@@ -94,14 +93,14 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .circuit-4 {
     margin: 0 12px;
     max-width: 20ch;
   }
 }
 
-.circuit-3 {
+.circuit-5 {
   display: inline-block;
   line-height: 0;
   display: block;
@@ -110,7 +109,7 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   text-overflow: ellipsis;
 }
 
-.circuit-2 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
@@ -119,20 +118,20 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   font-weight: 700;
 }
 
-.circuit-5 {
+.circuit-7 {
   display: none;
 }
 
-@media (min-width:768px) {
-  .circuit-5 {
+@media (min-width: 768px) {
+  .circuit-7 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
-    -webkit-transition: transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-5 {
+  button[aria-expanded='true'] .circuit-7 {
     -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
   }
@@ -140,24 +139,24 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
 
 <div>
   <div
-    class="circuit-7"
+    class="circuit-0"
   >
     <button
       aria-controls="popover_2"
       aria-expanded="false"
       aria-haspopup="true"
       aria-label="Open profile menu"
-      class="circuit-6"
+      class="circuit-1"
       id="trigger_1"
       title="Open profile menu"
       type="button"
     >
       <span
-        class="circuit-1"
+        class="circuit-2"
       >
         <img
           alt=""
-          class="circuit-0"
+          class="circuit-3"
           src="profile.png"
         />
       </span>
@@ -165,17 +164,17 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
         class="circuit-4"
       >
         <span
-          class="circuit-3"
+          class="circuit-5"
         >
           <strong
-            class="circuit-2"
+            class="circuit-6"
           >
             Jane Doe
           </strong>
         </span>
       </div>
       <svg
-        class="circuit-5"
+        class="circuit-7"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -193,11 +192,11 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
 `;
 
 exports[`ProfileMenu styles should render without a profile picture 1`] = `
-.circuit-6 {
+.circuit-0 {
   display: inline-block;
 }
 
-.circuit-5 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -219,42 +218,41 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
   border-left: 1px solid #CCC;
 }
 
-.circuit-5:hover {
+.circuit-1:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-5:active {
+.circuit-1:active {
   background-color: #E6E6E6;
 }
 
-.circuit-5:focus {
+.circuit-1:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-1:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-1:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:disabled {
+.circuit-1:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-0 {
+.circuit-2 {
   display: inline-block;
   line-height: 0;
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .circuit-3 {
     border: 0;
-    -webkit-clip: rect(0 0 0 0);
     clip: rect(0 0 0 0);
     height: 1px;
     margin: -1px;
@@ -266,14 +264,14 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
   }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .circuit-3 {
     margin: 0 12px;
     max-width: 20ch;
   }
 }
 
-.circuit-2 {
+.circuit-4 {
   display: inline-block;
   line-height: 0;
   display: block;
@@ -282,7 +280,7 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
   text-overflow: ellipsis;
 }
 
-.circuit-1 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
@@ -291,20 +289,20 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
   font-weight: 700;
 }
 
-.circuit-4 {
+.circuit-6 {
   display: none;
 }
 
-@media (min-width:768px) {
-  .circuit-4 {
+@media (min-width: 768px) {
+  .circuit-6 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
-    -webkit-transition: transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-4 {
+  button[aria-expanded='true'] .circuit-6 {
     -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
   }
@@ -312,20 +310,20 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
 
 <div>
   <div
-    class="circuit-6"
+    class="circuit-0"
   >
     <button
       aria-controls="popover_7"
       aria-expanded="false"
       aria-haspopup="true"
       aria-label="Open profile menu"
-      class="circuit-5"
+      class="circuit-1"
       id="trigger_6"
       title="Open profile menu"
       type="button"
     >
       <span
-        class="circuit-0"
+        class="circuit-2"
       >
         <svg
           fill="none"
@@ -345,17 +343,17 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
         class="circuit-3"
       >
         <span
-          class="circuit-2"
+          class="circuit-4"
         >
           <strong
-            class="circuit-1"
+            class="circuit-5"
           >
             Jane Doe
           </strong>
         </span>
       </div>
       <svg
-        class="circuit-4"
+        class="circuit-6"
         fill="none"
         height="16"
         viewBox="0 0 16 16"

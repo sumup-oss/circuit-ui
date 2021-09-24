@@ -4,12 +4,14 @@ exports[`Spinner should render a byte spinner 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -18,12 +20,14 @@ exports[`Spinner should render a byte spinner 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -36,8 +40,6 @@ exports[`Spinner should render a byte spinner 1`] = `
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
@@ -52,12 +54,14 @@ exports[`Spinner should render a giga spinner 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -66,12 +70,14 @@ exports[`Spinner should render a giga spinner 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -80,12 +86,14 @@ exports[`Spinner should render a giga spinner 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -98,8 +106,6 @@ exports[`Spinner should render a giga spinner 1`] = `
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   width: 48px;
   height: 48px;
@@ -114,12 +120,14 @@ exports[`Spinner should render a kilo spinner 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -128,12 +136,14 @@ exports[`Spinner should render a kilo spinner 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -146,8 +156,6 @@ exports[`Spinner should render a kilo spinner 1`] = `
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   width: 32px;
   height: 32px;
@@ -162,12 +170,14 @@ exports[`Spinner should render with default styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -180,8 +190,6 @@ exports[`Spinner should render with default styles 1`] = `
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   width: 32px;
   height: 32px;

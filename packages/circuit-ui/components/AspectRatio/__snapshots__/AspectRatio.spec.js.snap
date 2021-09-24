@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AspectRatio should render with default styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   display: block;
   position: relative;
   overflow: hidden;
@@ -9,7 +9,7 @@ exports[`AspectRatio should render with default styles 1`] = `
   width: 100%;
 }
 
-.circuit-0 {
+.circuit-2 {
   display: block;
   height: auto;
   max-height: 100%;
@@ -17,16 +17,16 @@ exports[`AspectRatio should render with default styles 1`] = `
 }
 
 <div
-  class="circuit-1 circuit-2"
+  class="circuit-0 circuit-1"
 >
   <div
-    class="circuit-0"
+    class="circuit-2"
   />
 </div>
 `;
 
 exports[`AspectRatio should render with fixed aspect ratio styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   display: block;
   position: relative;
   overflow: hidden;
@@ -37,7 +37,7 @@ exports[`AspectRatio should render with fixed aspect ratio styles 1`] = `
   padding-top: 62%;
 }
 
-.circuit-0 {
+.circuit-2 {
   display: block;
   height: auto;
   max-height: 100%;
@@ -55,10 +55,10 @@ exports[`AspectRatio should render with fixed aspect ratio styles 1`] = `
 }
 
 <div
-  class="circuit-1 circuit-2"
+  class="circuit-0 circuit-1"
 >
   <div
-    class="circuit-0"
+    class="circuit-2"
   />
 </div>
 `;

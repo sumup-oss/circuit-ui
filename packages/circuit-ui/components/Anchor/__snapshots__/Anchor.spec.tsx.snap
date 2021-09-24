@@ -10,7 +10,6 @@ exports[`Anchor styles should render with custom styles 1`] = `
   display: inline-block;
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  -webkit-text-decoration-skip-ink: auto;
   text-decoration-skip-ink: auto;
   border: 0;
   outline: none;
@@ -75,7 +74,6 @@ exports[`Anchor styles should render with default styles 1`] = `
   display: inline-block;
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  -webkit-text-decoration-skip-ink: auto;
   text-decoration-skip-ink: auto;
   border: 0;
   outline: none;

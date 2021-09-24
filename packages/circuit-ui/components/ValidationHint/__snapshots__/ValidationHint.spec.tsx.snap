@@ -19,7 +19,7 @@ exports[`ValidationHint styles should render with default styles 1`] = `
 `;
 
 exports[`ValidationHint styles should render with invalid styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
@@ -30,7 +30,7 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
   color: #D23F47;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -40,10 +40,10 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
 }
 
 <span
-  class="circuit-1"
+  class="circuit-0"
 >
   <svg
-    class="circuit-0"
+    class="circuit-1"
     fill="none"
     height="24"
     role="presentation"
@@ -61,7 +61,7 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
 `;
 
 exports[`ValidationHint styles should render with valid styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
@@ -72,7 +72,7 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
   color: #138849;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -82,10 +82,10 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
 }
 
 <span
-  class="circuit-1"
+  class="circuit-0"
 >
   <svg
-    class="circuit-0"
+    class="circuit-1"
     fill="none"
     height="24"
     role="presentation"
@@ -103,7 +103,7 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
 `;
 
 exports[`ValidationHint styles should render with warning styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
@@ -113,7 +113,7 @@ exports[`ValidationHint styles should render with warning styles 1`] = `
   transition: color 120ms ease-in-out;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -123,10 +123,10 @@ exports[`ValidationHint styles should render with warning styles 1`] = `
 }
 
 <span
-  class="circuit-1"
+  class="circuit-0"
 >
   <svg
-    class="circuit-0"
+    class="circuit-1"
     fill="none"
     height="24"
     role="presentation"

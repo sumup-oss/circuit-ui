@@ -57,7 +57,6 @@ exports[`Label should render with visually-hidden styles 1`] = `
   line-height: 20px;
   display: block;
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;

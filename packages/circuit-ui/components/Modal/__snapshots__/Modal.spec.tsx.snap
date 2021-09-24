@@ -1,62 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Modal should match the snapshot 1`] = `
-.circuit-3 {
-  position: fixed;
-  outline: none;
-  background-color: #FFF;
-  top: 0;
-}
-
-.circuit-3::after {
-  position: fixed;
-  content: '';
-  display: block;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient( rgba(255,255,255,0), rgba(255,255,255,0.66), rgba(255,255,255,1) );
-}
-
-@media (max-width:479px) {
-  .circuit-3 {
-    right: 0;
-    bottom: 0;
-    left: 0;
-    -webkit-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%);
-    -webkit-transition: -webkit-transform 120ms ease-in-out;
-    -webkit-transition: transform 120ms ease-in-out;
-    transition: transform 120ms ease-in-out;
-  }
-
-  .circuit-3::after {
-    height: 16px;
-  }
-}
-
-@media (min-width:480px) {
-  .circuit-3 {
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    opacity: 0;
-    -webkit-transition: opacity 240ms ease-in-out;
-    transition: opacity 240ms ease-in-out;
-    border-radius: 16px;
-  }
-
-  .circuit-3::after {
-    height: 24px;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-  }
-}
-
-.circuit-4 {
+.circuit-0 {
   position: fixed;
   top: 0;
   left: 0;
@@ -65,14 +10,74 @@ exports[`Modal should match the snapshot 1`] = `
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1000;
 }
 
-@media (min-width:480px) {
-  .circuit-4 {
+@media (min-width: 480px) {
+  .circuit-0 {
     -webkit-transition: opacity 240ms ease-in-out;
     transition: opacity 240ms ease-in-out;
+  }
+}
+
+.circuit-1 {
+  position: fixed;
+  outline: none;
+  background-color: #FFF;
+  top: 0;
+}
+
+.circuit-1::after {
+  position: fixed;
+  content: '';
+  display: block;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+                    rgba(255,255,255,0),
+                    rgba(255,255,255,0.66),
+                    rgba(255,255,255,1)
+                  );
+}
+
+@media (max-width: 479px) {
+  .circuit-1 {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out;
+    transition: transform 120ms ease-in-out;
+  }
+
+  .circuit-1::after {
+    height: 16px;
+  }
+}
+
+@media (min-width: 480px) {
+  .circuit-1 {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    -webkit-transition: opacity 240ms ease-in-out;
+    transition: opacity 240ms ease-in-out;
+    border-radius: 16px;
+  }
+
+  .circuit-1::after {
+    height: 24px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
 }
 
@@ -80,7 +85,7 @@ exports[`Modal should match the snapshot 1`] = `
   overflow-y: auto;
 }
 
-@media (max-width:479px) {
+@media (max-width: 479px) {
   .circuit-2 {
     -webkit-overflow-scrolling: touch;
     padding: 16px;
@@ -89,7 +94,7 @@ exports[`Modal should match the snapshot 1`] = `
   }
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
   .circuit-2 {
     padding: 24px;
     padding-bottom: calc(env(safe-area-inset-bottom) + 24px);
@@ -99,13 +104,13 @@ exports[`Modal should match the snapshot 1`] = `
   }
 }
 
-@media (max-width:479px) {
+@media (max-width: 479px) {
   .circuit-2 {
     height: 100%;
   }
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -117,8 +122,8 @@ exports[`Modal should match the snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -138,48 +143,47 @@ exports[`Modal should match the snapshot 1`] = `
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
   padding: calc(12px - 1px);
-  border-color: transparent !important;
+  border-color: transparent!important;
   position: absolute;
   top: 8px;
   right: 8px;
   z-index: 1;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-1:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:focus:not(:focus-visible) {
+.circuit-3:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-1:disabled,
-.circuit-1[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-1:active,
-.circuit-1[aria-expanded='true'],
-.circuit-1[aria-pressed='true'] {
+.circuit-3:active,
+.circuit-3[aria-expanded='true'],
+.circuit-3[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
 
-.circuit-0 {
+.circuit-4 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -208,11 +212,11 @@ exports[`Modal should match the snapshot 1`] = `
     class="ReactModalPortal"
   >
     <div
-      class="circuit-4"
+      class="circuit-0"
     >
       <div
         aria-modal="true"
-        class="circuit-3"
+        class="circuit-1"
         role="dialog"
         tabindex="-1"
       >
@@ -220,7 +224,7 @@ exports[`Modal should match the snapshot 1`] = `
           class="circuit-2"
         >
           <button
-            class="circuit-1"
+            class="circuit-3"
             title="Close modal"
             type="button"
           >
@@ -240,7 +244,7 @@ exports[`Modal should match the snapshot 1`] = `
               />
             </svg>
             <span
-              class="circuit-0"
+              class="circuit-4"
             >
               Close modal
             </span>

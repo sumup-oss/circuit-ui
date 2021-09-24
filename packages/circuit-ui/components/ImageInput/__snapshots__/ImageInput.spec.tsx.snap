@@ -4,26 +4,27 @@ exports[`ImageInput styles should render a custom component 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 
-.circuit-7 {
+.circuit-0 {
   display: inline-block;
   position: relative;
   text-align: center;
 }
 
-.circuit-0 {
+.circuit-1 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -34,16 +35,16 @@ exports[`ImageInput styles should render a custom component 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label > *:last-child {
+.circuit-1:focus+label>*:last-child {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label > *:last-child::-moz-focus-inner {
+.circuit-1:focus+label>*:last-child::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label > *:last-child {
+.circuit-1:focus:not(:focus-visible)+label>*:last-child {
   box-shadow: none;
 }
 
@@ -69,12 +70,12 @@ exports[`ImageInput styles should render a custom component 1`] = `
   transition: opacity 120ms ease-in-out;
 }
 
-.circuit-2 > *:last-child {
+.circuit-2>*:last-child {
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
 }
 
-@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
   .circuit-2 {
     -webkit-transition: filter 120ms ease-in-out;
     transition: filter 120ms ease-in-out;
@@ -93,7 +94,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
   opacity: 0.2;
 }
 
-@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
   .circuit-2:hover {
     -webkit-filter: brightness(0.9);
     filter: brightness(0.9);
@@ -105,32 +106,18 @@ exports[`ImageInput styles should render a custom component 1`] = `
   }
 }
 
-.circuit-2:hover > button {
+.circuit-2:hover>button {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-2:active > button {
+.circuit-2:active>button {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-1 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 .circuit-3 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -139,31 +126,6 @@ exports[`ImageInput styles should render a custom component 1`] = `
   position: absolute;
   white-space: nowrap;
   width: 1px;
-}
-
-.circuit-6 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  top: calc(50% - 16px);
-  left: calc(50% - 16px);
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
-  pointer-events: none;
 }
 
 .circuit-4 {
@@ -178,8 +140,8 @@ exports[`ImageInput styles should render a custom component 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -236,14 +198,49 @@ exports[`ImageInput styles should render a custom component 1`] = `
   border-color: #941618;
 }
 
+.circuit-5 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-6 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  color: #FFF;
+  pointer-events: none;
+}
+
 <div>
   <div
-    class="circuit-7"
+    class="circuit-0"
   >
     <input
       accept="image/*"
       aria-invalid="false"
-      class="circuit-0"
+      class="circuit-1"
       id="image-input_4"
       type="file"
     />
@@ -252,7 +249,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
       for="image-input_4"
     >
       <span
-        class="circuit-1"
+        class="circuit-3"
       >
         Upload an image
       </span>
@@ -287,7 +284,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
         />
       </svg>
       <span
-        class="circuit-3"
+        class="circuit-5"
       >
         Clear
       </span>
@@ -296,7 +293,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
       class="circuit-6"
     >
       <span
-        class="circuit-3"
+        class="circuit-5"
       >
         Uploading
       </span>
@@ -309,26 +306,27 @@ exports[`ImageInput styles should render with an existing image 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 
-.circuit-8 {
+.circuit-0 {
   display: inline-block;
   position: relative;
   text-align: center;
 }
 
-.circuit-0 {
+.circuit-1 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -339,27 +337,27 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label > *:last-child {
+.circuit-1:focus+label>*:last-child {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label > *:last-child::-moz-focus-inner {
+.circuit-1:focus+label>*:last-child::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label > *:last-child {
+.circuit-1:focus:not(:focus-visible)+label>*:last-child {
   box-shadow: none;
 }
 
-.circuit-3 {
+.circuit-2 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   cursor: pointer;
 }
 
-.circuit-3::before {
+.circuit-2::before {
   content: '';
   position: absolute;
   top: 0;
@@ -374,55 +372,54 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   transition: opacity 120ms ease-in-out;
 }
 
-.circuit-3 > *:last-child {
+.circuit-2>*:last-child {
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
 }
 
-@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
-  .circuit-3 {
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+  .circuit-2 {
     -webkit-transition: filter 120ms ease-in-out;
     transition: filter 120ms ease-in-out;
   }
 
-  .circuit-3::before {
+  .circuit-2::before {
     content: none;
   }
 }
 
-.circuit-3:hover::before {
+.circuit-2:hover::before {
   opacity: 0.1;
 }
 
-.circuit-3:active::before {
+.circuit-2:active::before {
   opacity: 0.2;
 }
 
-@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
-  .circuit-3:hover {
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+  .circuit-2:hover {
     -webkit-filter: brightness(0.9);
     filter: brightness(0.9);
   }
 
-  .circuit-3:active {
+  .circuit-2:active {
     -webkit-filter: brightness(0.8);
     filter: brightness(0.8);
   }
 }
 
-.circuit-3:hover > button {
+.circuit-2:hover>button {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-3:active > button {
+.circuit-2:active>button {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-1 {
+.circuit-3 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -433,53 +430,15 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   width: 1px;
 }
 
-.circuit-2 {
+.circuit-4 {
   display: block;
   width: 96px;
   height: 96px;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
   border-radius: 12px;
   object-fit: cover;
   object-position: center;
-}
-
-.circuit-4 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  top: calc(50% - 16px);
-  left: calc(50% - 16px);
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
-  pointer-events: none;
 }
 
 .circuit-5 {
@@ -494,8 +453,8 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -552,29 +511,64 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   border-color: #941618;
 }
 
+.circuit-6 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  color: #FFF;
+  pointer-events: none;
+}
+
 <div>
   <div
-    class="circuit-8"
+    class="circuit-0"
   >
     <input
       accept="image/*"
       aria-invalid="false"
-      class="circuit-0"
+      class="circuit-1"
       id="image-input_2"
       type="file"
     />
     <label
-      class="circuit-3"
+      class="circuit-2"
       for="image-input_2"
     >
       <span
-        class="circuit-1"
+        class="circuit-3"
       >
         Upload an image
       </span>
       <img
         alt=""
-        class="circuit-2"
+        class="circuit-4"
         src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
       />
     </label>
@@ -603,7 +597,7 @@ exports[`ImageInput styles should render with an existing image 1`] = `
         />
       </svg>
       <span
-        class="circuit-4"
+        class="circuit-6"
       >
         Clear
       </span>
@@ -612,7 +606,7 @@ exports[`ImageInput styles should render with an existing image 1`] = `
       class="circuit-7"
     >
       <span
-        class="circuit-4"
+        class="circuit-6"
       >
         Uploading
       </span>
@@ -625,26 +619,27 @@ exports[`ImageInput styles should render with default styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 
-.circuit-8 {
+.circuit-0 {
   display: inline-block;
   position: relative;
   text-align: center;
 }
 
-.circuit-0 {
+.circuit-1 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -655,27 +650,27 @@ exports[`ImageInput styles should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label > *:last-child {
+.circuit-1:focus+label>*:last-child {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label > *:last-child::-moz-focus-inner {
+.circuit-1:focus+label>*:last-child::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label > *:last-child {
+.circuit-1:focus:not(:focus-visible)+label>*:last-child {
   box-shadow: none;
 }
 
-.circuit-3 {
+.circuit-2 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   cursor: pointer;
 }
 
-.circuit-3::before {
+.circuit-2::before {
   content: '';
   position: absolute;
   top: 0;
@@ -690,55 +685,54 @@ exports[`ImageInput styles should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out;
 }
 
-.circuit-3 > *:last-child {
+.circuit-2>*:last-child {
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
 }
 
-@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
-  .circuit-3 {
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+  .circuit-2 {
     -webkit-transition: filter 120ms ease-in-out;
     transition: filter 120ms ease-in-out;
   }
 
-  .circuit-3::before {
+  .circuit-2::before {
     content: none;
   }
 }
 
-.circuit-3:hover::before {
+.circuit-2:hover::before {
   opacity: 0.1;
 }
 
-.circuit-3:active::before {
+.circuit-2:active::before {
   opacity: 0.2;
 }
 
-@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
-  .circuit-3:hover {
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+  .circuit-2:hover {
     -webkit-filter: brightness(0.9);
     filter: brightness(0.9);
   }
 
-  .circuit-3:active {
+  .circuit-2:active {
     -webkit-filter: brightness(0.8);
     filter: brightness(0.8);
   }
 }
 
-.circuit-3:hover > button {
+.circuit-2:hover>button {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-3:active > button {
+.circuit-2:active>button {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-1 {
+.circuit-3 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -749,11 +743,11 @@ exports[`ImageInput styles should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-2 {
+.circuit-4 {
   display: block;
   width: 96px;
   height: 96px;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
   border-radius: 12px;
   object-fit: cover;
@@ -772,8 +766,8 @@ exports[`ImageInput styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -831,9 +825,8 @@ exports[`ImageInput styles should render with default styles 1`] = `
   border-color: #1A368E;
 }
 
-.circuit-4 {
+.circuit-6 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -851,8 +844,6 @@ exports[`ImageInput styles should render with default styles 1`] = `
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   width: 32px;
   height: 32px;
@@ -871,27 +862,27 @@ exports[`ImageInput styles should render with default styles 1`] = `
 
 <div>
   <div
-    class="circuit-8"
+    class="circuit-0"
   >
     <input
       accept="image/*"
       aria-invalid="false"
-      class="circuit-0"
+      class="circuit-1"
       id="image-input_1"
       type="file"
     />
     <label
-      class="circuit-3"
+      class="circuit-2"
       for="image-input_1"
     >
       <span
-        class="circuit-1"
+        class="circuit-3"
       >
         Upload an image
       </span>
       <img
         alt=""
-        class="circuit-2"
+        class="circuit-4"
         src="data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" fill=\\"none\\" viewBox=\\"0 0 96 96\\"><path fill=\\"white\\" d=\\"M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z\\"/></svg>"
       />
     </label>
@@ -916,7 +907,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
         />
       </svg>
       <span
-        class="circuit-4"
+        class="circuit-6"
       >
         -
       </span>
@@ -925,7 +916,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
       class="circuit-7"
     >
       <span
-        class="circuit-4"
+        class="circuit-6"
       >
         Uploading
       </span>
@@ -938,26 +929,27 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 
-.circuit-8 {
+.circuit-0 {
   display: inline-block;
   position: relative;
   text-align: center;
 }
 
-.circuit-0 {
+.circuit-1 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -968,22 +960,97 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:focus + label > *:last-child {
+.circuit-1:focus+label>*:last-child {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label > *:last-child::-moz-focus-inner {
+.circuit-1:focus+label>*:last-child::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label > *:last-child {
+.circuit-1:focus:not(:focus-visible)+label>*:last-child {
   box-shadow: none;
 }
 
-.circuit-1 {
+.circuit-2 {
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+  cursor: pointer;
+}
+
+.circuit-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  pointer-events: none;
+  background-color: #000;
+  opacity: 0;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
+}
+
+.circuit-2>*:last-child {
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+}
+
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+  .circuit-2 {
+    -webkit-transition: filter 120ms ease-in-out;
+    transition: filter 120ms ease-in-out;
+  }
+
+  .circuit-2::before {
+    content: none;
+  }
+}
+
+.circuit-2>*:last-child {
+  box-shadow: 0 0 0 2px #D23F47;
+}
+
+.circuit-2:hover>*:last-child {
+  box-shadow: 0 0 0 2px #B22426;
+}
+
+.circuit-2:hover::before {
+  opacity: 0.1;
+}
+
+.circuit-2:active::before {
+  opacity: 0.2;
+}
+
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+  .circuit-2:hover {
+    -webkit-filter: brightness(0.9);
+    filter: brightness(0.9);
+  }
+
+  .circuit-2:active {
+    -webkit-filter: brightness(0.8);
+    filter: brightness(0.8);
+  }
+}
+
+.circuit-2:hover>button {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-2:active>button {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-3 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -994,11 +1061,11 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   width: 1px;
 }
 
-.circuit-2 {
+.circuit-4 {
   display: block;
   width: 96px;
   height: 96px;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
   border-radius: 12px;
   object-fit: cover;
@@ -1017,8 +1084,8 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -1076,9 +1143,8 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   border-color: #1A368E;
 }
 
-.circuit-4 {
+.circuit-6 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -1096,8 +1162,6 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   width: 32px;
   height: 32px;
@@ -1114,83 +1178,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-3 {
-  font-size: 14px;
-  line-height: 20px;
-  display: block;
-  cursor: pointer;
-}
-
-.circuit-3::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  pointer-events: none;
-  background-color: #000;
-  opacity: 0;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
-}
-
-.circuit-3 > *:last-child {
-  -webkit-transition: box-shadow 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out;
-}
-
-@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
-  .circuit-3 {
-    -webkit-transition: filter 120ms ease-in-out;
-    transition: filter 120ms ease-in-out;
-  }
-
-  .circuit-3::before {
-    content: none;
-  }
-}
-
-.circuit-3 > *:last-child {
-  box-shadow: 0 0 0 2px #D23F47;
-}
-
-.circuit-3:hover > *:last-child {
-  box-shadow: 0 0 0 2px #B22426;
-}
-
-.circuit-3:hover::before {
-  opacity: 0.1;
-}
-
-.circuit-3:active::before {
-  opacity: 0.2;
-}
-
-@supports (-webkit-filter:brightness(1)) or (filter:brightness(1)) {
-  .circuit-3:hover {
-    -webkit-filter: brightness(0.9);
-    filter: brightness(0.9);
-  }
-
-  .circuit-3:active {
-    -webkit-filter: brightness(0.8);
-    filter: brightness(0.8);
-  }
-}
-
-.circuit-3:hover > button {
-  background-color: #234BC3;
-  border-color: #234BC3;
-}
-
-.circuit-3:active > button {
-  background-color: #1A368E;
-  border-color: #1A368E;
-}
-
-.circuit-10 {
+.circuit-9 {
   font-size: 14px;
   line-height: 20px;
   display: block;
@@ -1201,7 +1189,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   color: #D23F47;
 }
 
-.circuit-9 {
+.circuit-10 {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -1212,27 +1200,27 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 
 <div>
   <div
-    class="circuit-8"
+    class="circuit-0"
   >
     <input
       accept="image/*"
       aria-invalid="true"
-      class="circuit-0"
+      class="circuit-1"
       id="image-input_3"
       type="file"
     />
     <label
-      class="circuit-3"
+      class="circuit-2"
       for="image-input_3"
     >
       <span
-        class="circuit-1"
+        class="circuit-3"
       >
         Upload an image
       </span>
       <img
         alt=""
-        class="circuit-2"
+        class="circuit-4"
         src="data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" fill=\\"none\\" viewBox=\\"0 0 96 96\\"><path fill=\\"white\\" d=\\"M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z\\"/></svg>"
       />
     </label>
@@ -1257,7 +1245,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
         />
       </svg>
       <span
-        class="circuit-4"
+        class="circuit-6"
       >
         -
       </span>
@@ -1266,17 +1254,17 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
       class="circuit-7"
     >
       <span
-        class="circuit-4"
+        class="circuit-6"
       >
         Uploading
       </span>
     </span>
   </div>
   <span
-    class="circuit-10"
+    class="circuit-9"
   >
     <svg
-      class="circuit-9"
+      class="circuit-10"
       fill="none"
       height="24"
       role="presentation"

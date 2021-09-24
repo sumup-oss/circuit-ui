@@ -2,15 +2,6 @@
 
 exports[`Input should prioritize disabled over error styles 1`] = `
 .circuit-0 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-.circuit-2 {
-  position: relative;
-}
-
-.circuit-3 {
   font-size: 14px;
   line-height: 20px;
   display: block;
@@ -21,6 +12,15 @@ exports[`Input should prioritize disabled over error styles 1`] = `
 }
 
 .circuit-1 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.circuit-2 {
+  position: relative;
+}
+
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -37,37 +37,37 @@ exports[`Input should prioritize disabled over error styles 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-0"
   disabled=""
   for="input_11"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -76,7 +76,7 @@ exports[`Input should prioritize disabled over error styles 1`] = `
   >
     <input
       aria-invalid="true"
-      class="circuit-1"
+      class="circuit-3"
       disabled=""
       id="input_11"
       value=""
@@ -87,15 +87,6 @@ exports[`Input should prioritize disabled over error styles 1`] = `
 
 exports[`Input should prioritize disabled over warning styles 1`] = `
 .circuit-0 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-.circuit-2 {
-  position: relative;
-}
-
-.circuit-3 {
   font-size: 14px;
   line-height: 20px;
   display: block;
@@ -106,6 +97,15 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
 }
 
 .circuit-1 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.circuit-2 {
+  position: relative;
+}
+
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -122,37 +122,37 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-0"
   disabled=""
   for="input_12"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -160,7 +160,7 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       disabled=""
       id="input_12"
       value=""
@@ -170,14 +170,14 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
 `;
 
 exports[`Input should render with a Tooltip when passed the validationHint prop 1`] = `
-.circuit-4 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -186,7 +186,7 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -202,43 +202,43 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
-.circuit-3 {
+.circuit-4 {
   font-size: 14px;
   line-height: 20px;
   display: block;
@@ -249,11 +249,11 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
 }
 
 <label
-  class="circuit-4"
+  class="circuit-0"
   for="input_4"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -261,13 +261,13 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       id="input_4"
       value=""
     />
   </div>
   <span
-    class="circuit-3"
+    class="circuit-4"
   >
     Validation hint
   </span>
@@ -275,23 +275,23 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
 `;
 
 exports[`Input should render with a prefix when passed the prefix prop 1`] = `
-.circuit-4 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
 
-.circuit-3 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   position: absolute;
   pointer-events: none;
   color: #666;
@@ -300,7 +300,7 @@ exports[`Input should render with a prefix when passed the prefix prop 1`] = `
   width: 48px;
 }
 
-.circuit-2 {
+.circuit-4 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -317,60 +317,60 @@ exports[`Input should render with a prefix when passed the prefix prop 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-2::-webkit-input-placeholder {
+.circuit-4::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-4::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-4:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-4::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-4:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-2:focus {
+.circuit-4:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-2:active {
+.circuit-4:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
 <label
-  class="circuit-4"
+  class="circuit-0"
   for="input_2"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <div
-      class="circuit-1"
+      class="circuit-3"
       style="width: 24px; height: 24px;"
     />
     <input
-      class="circuit-2"
+      class="circuit-4"
       id="input_2"
       value=""
     />
@@ -379,23 +379,23 @@ exports[`Input should render with a prefix when passed the prefix prop 1`] = `
 `;
 
 exports[`Input should render with a suffix when passed the suffix prop 1`] = `
-.circuit-4 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
 
-.circuit-3 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -412,43 +412,43 @@ exports[`Input should render with a suffix when passed the suffix prop 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
-.circuit-2 {
+.circuit-4 {
   position: absolute;
   top: 0;
   right: 0;
@@ -462,24 +462,24 @@ exports[`Input should render with a suffix when passed the suffix prop 1`] = `
 }
 
 <label
-  class="circuit-4"
+  class="circuit-0"
   for="input_3"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       id="input_3"
       value=""
     />
     <div
-      class="circuit-2"
+      class="circuit-4"
       style="width: 24px; height: 24px;"
     />
   </div>
@@ -488,6 +488,14 @@ exports[`Input should render with a suffix when passed the suffix prop 1`] = `
 
 exports[`Input should render with custom styles 1`] = `
 .circuit-0 {
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+  margin-bottom: 16px;
+  border: 1px solid red;
+}
+
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -497,14 +505,6 @@ exports[`Input should render with custom styles 1`] = `
 }
 
 .circuit-3 {
-  font-size: 14px;
-  line-height: 20px;
-  display: block;
-  margin-bottom: 16px;
-  border: 1px solid red;
-}
-
-.circuit-1 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -521,48 +521,48 @@ exports[`Input should render with custom styles 1`] = `
   color: red;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-0"
   for="input_15"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -570,7 +570,7 @@ exports[`Input should render with custom styles 1`] = `
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       id="input_15"
       value=""
     />
@@ -579,14 +579,14 @@ exports[`Input should render with custom styles 1`] = `
 `;
 
 exports[`Input should render with default styles 1`] = `
-.circuit-3 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -595,7 +595,7 @@ exports[`Input should render with default styles 1`] = `
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -611,48 +611,48 @@ exports[`Input should render with default styles 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-0"
   for="input_1"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -660,7 +660,7 @@ exports[`Input should render with default styles 1`] = `
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       id="input_1"
       value=""
     />
@@ -670,15 +670,6 @@ exports[`Input should render with default styles 1`] = `
 
 exports[`Input should render with disabled styles when passed the disabled prop 1`] = `
 .circuit-0 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-.circuit-2 {
-  position: relative;
-}
-
-.circuit-3 {
   font-size: 14px;
   line-height: 20px;
   display: block;
@@ -689,6 +680,15 @@ exports[`Input should render with disabled styles when passed the disabled prop 
 }
 
 .circuit-1 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.circuit-2 {
+  position: relative;
+}
+
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -705,37 +705,37 @@ exports[`Input should render with disabled styles when passed the disabled prop 
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-0"
   disabled=""
   for="input_10"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -743,7 +743,7 @@ exports[`Input should render with disabled styles when passed the disabled prop 
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       disabled=""
       id="input_10"
       value=""
@@ -754,6 +754,15 @@ exports[`Input should render with disabled styles when passed the disabled prop 
 
 exports[`Input should render with inline styles when passed the inline prop 1`] = `
 .circuit-0 {
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -762,7 +771,7 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -778,57 +787,48 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
-.circuit-3 {
-  font-size: 14px;
-  line-height: 20px;
-  display: block;
-  display: inline-block;
-  margin-right: 16px;
-  margin-bottom: 16px;
-}
-
 <label
-  class="circuit-3"
+  class="circuit-0"
   for="input_13"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -836,7 +836,7 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       id="input_13"
       value=""
     />
@@ -845,14 +845,14 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
 `;
 
 exports[`Input should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-3 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -861,7 +861,7 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -877,68 +877,68 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   box-shadow: 0 0 0 1px #D23F47;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:not(:focus)::-webkit-input-placeholder {
+.circuit-3:not(:focus)::-webkit-input-placeholder {
   color: #D23F47;
   opacity: 0.5;
 }
 
-.circuit-1:not(:focus)::-moz-placeholder {
+.circuit-3:not(:focus)::-moz-placeholder {
   color: #D23F47;
   opacity: 0.5;
 }
 
-.circuit-1:not(:focus):-ms-input-placeholder {
+.circuit-3:not(:focus):-ms-input-placeholder {
   color: #D23F47;
   opacity: 0.5;
 }
 
-.circuit-1:not(:focus)::placeholder {
+.circuit-3:not(:focus)::placeholder {
   color: #D23F47;
   opacity: 0.5;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #B22426;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #D23F47;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #D23F47;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-0"
   for="input_6"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -947,7 +947,7 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   >
     <input
       aria-invalid="true"
-      class="circuit-1"
+      class="circuit-3"
       id="input_6"
       value=""
     />
@@ -957,6 +957,12 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
 
 exports[`Input should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -965,7 +971,7 @@ exports[`Input should render with no margin styles when passed the noMargin prop
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -981,60 +987,56 @@ exports[`Input should render with no margin styles when passed the noMargin prop
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
-.circuit-3 {
-  font-size: 14px;
-  line-height: 20px;
-  display: block;
-}
-
 <label
-  class="circuit-3"
+  class="circuit-0"
   for="input_14"
 >
   <span
-    class="circuit-0"
-  />
+    class="circuit-1"
+  >
+    Label
+  </span>
   <div
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       id="input_14"
       value=""
     />
@@ -1043,14 +1045,14 @@ exports[`Input should render with no margin styles when passed the noMargin prop
 `;
 
 exports[`Input should render with readonly styles when passed the readOnly prop 1`] = `
-.circuit-3 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -1059,7 +1061,7 @@ exports[`Input should render with readonly styles when passed the readOnly prop 
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -1076,48 +1078,48 @@ exports[`Input should render with readonly styles when passed the readOnly prop 
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-0"
   for="input_9"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -1125,7 +1127,7 @@ exports[`Input should render with readonly styles when passed the readOnly prop 
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       id="input_9"
       readonly=""
       value=""
@@ -1135,14 +1137,14 @@ exports[`Input should render with readonly styles when passed the readOnly prop 
 `;
 
 exports[`Input should render with right aligned text 1`] = `
-.circuit-3 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -1151,7 +1153,7 @@ exports[`Input should render with right aligned text 1`] = `
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -1168,48 +1170,48 @@ exports[`Input should render with right aligned text 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-0"
   for="input_8"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -1217,7 +1219,7 @@ exports[`Input should render with right aligned text 1`] = `
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       id="input_8"
       value=""
     />
@@ -1226,14 +1228,14 @@ exports[`Input should render with right aligned text 1`] = `
 `;
 
 exports[`Input should render with valid styles when passed the showValid prop 1`] = `
-.circuit-3 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -1242,7 +1244,7 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -1258,48 +1260,48 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-0"
   for="input_7"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -1307,7 +1309,7 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       id="input_7"
       value=""
     />
@@ -1316,14 +1318,14 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
 `;
 
 exports[`Input should render with warning styles when passed the hasWarning prop 1`] = `
-.circuit-3 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -1332,7 +1334,7 @@ exports[`Input should render with warning styles when passed the hasWarning prop
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -1348,64 +1350,64 @@ exports[`Input should render with warning styles when passed the hasWarning prop
   box-shadow: 0 0 0 1px #F5C625;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-3::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-3::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-3:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-3::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:not(:focus)::-webkit-input-placeholder {
+.circuit-3:not(:focus)::-webkit-input-placeholder {
   color: #F5C625;
 }
 
-.circuit-1:not(:focus)::-moz-placeholder {
+.circuit-3:not(:focus)::-moz-placeholder {
   color: #F5C625;
 }
 
-.circuit-1:not(:focus):-ms-input-placeholder {
+.circuit-3:not(:focus):-ms-input-placeholder {
   color: #F5C625;
 }
 
-.circuit-1:not(:focus)::placeholder {
+.circuit-3:not(:focus)::placeholder {
   color: #F5C625;
 }
 
-.circuit-1:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px #AD7A14;
 }
 
-.circuit-1:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px #F5C625;
 }
 
-.circuit-1:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px #F5C625;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-0"
   for="input_5"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Label
   </span>
@@ -1413,7 +1415,7 @@ exports[`Input should render with warning styles when passed the hasWarning prop
     class="circuit-2"
   >
     <input
-      class="circuit-1"
+      class="circuit-3"
       id="input_5"
       value=""
     />

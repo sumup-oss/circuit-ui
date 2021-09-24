@@ -2,23 +2,6 @@
 
 exports[`PrimaryLink styles should render with active styles 1`] = `
 .circuit-0 {
-  display: inline-block;
-  line-height: 0;
-  position: relative;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  margin-right: 12px;
-}
-
-.circuit-2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.circuit-3 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -44,39 +27,39 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
   color: #3063E9;
 }
 
-.circuit-3:focus {
+.circuit-0:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-0:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible) {
+.circuit-0:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-0:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-3:active {
+.circuit-0:active {
   background-color: #E6E6E6;
 }
 
-.circuit-3:disabled {
+.circuit-0:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-@media (max-width:959px) {
-  .circuit-3 {
+@media (max-width: 959px) {
+  .circuit-0 {
     margin-bottom: 1px;
   }
 
-  .circuit-3::after {
+  .circuit-0::after {
     content: '';
     display: block;
     position: absolute;
@@ -90,8 +73,8 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
   }
 }
 
-@media (min-width:960px) {
-  .circuit-3 {
+@media (min-width: 960px) {
+  .circuit-0 {
     height: 48px;
     width: 220px;
     padding: 12px;
@@ -99,11 +82,28 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
   }
 }
 
-.circuit-3:hover {
+.circuit-0:hover {
   background-color: #F0F6FF;
 }
 
 .circuit-1 {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.circuit-2 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.circuit-3 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -112,8 +112,8 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
   font-weight: 700;
 }
 
-@media (max-width:959px) {
-  .circuit-1 {
+@media (max-width: 959px) {
+  .circuit-3 {
     font-size: 24px;
     line-height: 28px;
   }
@@ -121,11 +121,11 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
 
 <a
   aria-current="page"
-  class="circuit-3"
+  class="circuit-0"
   href="/url"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     <svg
       fill="none"
@@ -145,7 +145,7 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
     class="circuit-2"
   >
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       Label
     </span>
@@ -154,7 +154,7 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
 `;
 
 exports[`PrimaryLink styles should render with badge styles 1`] = `
-.circuit-3 {
+.circuit-0 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -179,39 +179,39 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-3:focus {
+.circuit-0:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-0:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible) {
+.circuit-0:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-0:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-3:active {
+.circuit-0:active {
   background-color: #E6E6E6;
 }
 
-.circuit-3:disabled {
+.circuit-0:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-@media (max-width:959px) {
-  .circuit-3 {
+@media (max-width: 959px) {
+  .circuit-0 {
     margin-bottom: 1px;
   }
 
-  .circuit-3::after {
+  .circuit-0::after {
     content: '';
     display: block;
     position: absolute;
@@ -225,8 +225,8 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   }
 }
 
-@media (min-width:960px) {
-  .circuit-3 {
+@media (min-width: 960px) {
+  .circuit-0 {
     height: 48px;
     width: 220px;
     padding: 12px;
@@ -234,27 +234,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   }
 }
 
-.circuit-2 {
-  display: inline-block;
-  line-height: 0;
-}
-
 .circuit-1 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (max-width:959px) {
-  .circuit-1 {
-    font-size: 24px;
-    line-height: 28px;
-  }
-}
-
-.circuit-0 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -266,7 +246,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   margin-right: 12px;
 }
 
-.circuit-0::before {
+.circuit-1::before {
   display: block;
   content: '';
   position: absolute;
@@ -278,12 +258,32 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   border-radius: 100%;
 }
 
+.circuit-2 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 959px) {
+  .circuit-3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
 <a
-  class="circuit-3"
+  class="circuit-0"
   href="/url"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     <svg
       fill="none"
@@ -303,7 +303,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
     class="circuit-2"
   >
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       Label
     </span>
@@ -312,7 +312,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
 `;
 
 exports[`PrimaryLink styles should render with default styles 1`] = `
-.circuit-3 {
+.circuit-0 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -337,39 +337,39 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-3:focus {
+.circuit-0:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-0:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible) {
+.circuit-0:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-0:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-3:active {
+.circuit-0:active {
   background-color: #E6E6E6;
 }
 
-.circuit-3:disabled {
+.circuit-0:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-@media (max-width:959px) {
-  .circuit-3 {
+@media (max-width: 959px) {
+  .circuit-0 {
     margin-bottom: 1px;
   }
 
-  .circuit-3::after {
+  .circuit-0::after {
     content: '';
     display: block;
     position: absolute;
@@ -383,8 +383,8 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
   }
 }
 
-@media (min-width:960px) {
-  .circuit-3 {
+@media (min-width: 960px) {
+  .circuit-0 {
     height: 48px;
     width: 220px;
     padding: 12px;
@@ -392,7 +392,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
   }
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -409,7 +409,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
   line-height: 0;
 }
 
-.circuit-1 {
+.circuit-3 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -417,19 +417,19 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
   margin-bottom: 0;
 }
 
-@media (max-width:959px) {
-  .circuit-1 {
+@media (max-width: 959px) {
+  .circuit-3 {
     font-size: 24px;
     line-height: 28px;
   }
 }
 
 <a
-  class="circuit-3"
+  class="circuit-0"
   href="/url"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     <svg
       fill="none"
@@ -449,7 +449,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
     class="circuit-2"
   >
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       Label
     </span>
@@ -459,39 +459,6 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
 
 exports[`PrimaryLink styles should render with open styles 1`] = `
 .circuit-0 {
-  display: inline-block;
-  line-height: 0;
-  position: relative;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  margin-right: 12px;
-}
-
-.circuit-2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.circuit-1 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-  font-weight: 700;
-}
-
-@media (max-width:959px) {
-  .circuit-1 {
-    font-size: 24px;
-    line-height: 28px;
-  }
-}
-
-.circuit-3 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -516,39 +483,39 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-3:focus {
+.circuit-0:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-0:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible) {
+.circuit-0:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-0:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-3:active {
+.circuit-0:active {
   background-color: #E6E6E6;
 }
 
-.circuit-3:disabled {
+.circuit-0:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-@media (max-width:959px) {
-  .circuit-3 {
+@media (max-width: 959px) {
+  .circuit-0 {
     margin-bottom: 1px;
   }
 
-  .circuit-3::after {
+  .circuit-0::after {
     content: '';
     display: block;
     position: absolute;
@@ -562,8 +529,8 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
   }
 }
 
-@media (min-width:960px) {
-  .circuit-3 {
+@media (min-width: 960px) {
+  .circuit-0 {
     height: 48px;
     width: 220px;
     padding: 12px;
@@ -571,20 +538,53 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
   }
 }
 
-@media (max-width:959px) {
-  .circuit-3::after {
+@media (max-width: 959px) {
+  .circuit-0::after {
     right: 0;
     left: 0;
     width: 100%;
   }
 }
 
+.circuit-1 {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.circuit-2 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+@media (max-width: 959px) {
+  .circuit-3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
 <a
-  class="circuit-3"
+  class="circuit-0"
   href="/url"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     <svg
       fill="none"
@@ -604,7 +604,7 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
     class="circuit-2"
   >
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       Label
     </span>

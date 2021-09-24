@@ -1,23 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CurrencyInput should adjust input padding and suffix width to match currency symbol width 1`] = `
-.circuit-4 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
 
-.circuit-3 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   line-height: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -28,8 +28,8 @@ exports[`CurrencyInput should adjust input padding and suffix width to match cur
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: absolute;
   pointer-events: none;
@@ -39,7 +39,7 @@ exports[`CurrencyInput should adjust input padding and suffix width to match cur
   width: 48px;
 }
 
-.circuit-2 {
+.circuit-4 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -57,61 +57,61 @@ exports[`CurrencyInput should adjust input padding and suffix width to match cur
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-2::-webkit-input-placeholder {
+.circuit-4::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-4::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-4:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-4::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-4:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-2:focus {
+.circuit-4:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-2:active {
+.circuit-4:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
 <label
-  class="circuit-4"
+  class="circuit-0"
   for="input_4"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Amount
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       CHF
     </span>
     <input
-      class="circuit-2"
+      class="circuit-4"
       id="input_4"
       inputmode="decimal"
       placeholder="123,45"
@@ -123,23 +123,23 @@ exports[`CurrencyInput should adjust input padding and suffix width to match cur
 `;
 
 exports[`CurrencyInput should render with default styles 1`] = `
-.circuit-4 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
 
-.circuit-3 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   line-height: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -150,8 +150,8 @@ exports[`CurrencyInput should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: absolute;
   pointer-events: none;
@@ -161,7 +161,7 @@ exports[`CurrencyInput should render with default styles 1`] = `
   width: 48px;
 }
 
-.circuit-2 {
+.circuit-4 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -179,61 +179,61 @@ exports[`CurrencyInput should render with default styles 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-2::-webkit-input-placeholder {
+.circuit-4::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-4::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-4:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-4::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-4:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-2:focus {
+.circuit-4:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-2:active {
+.circuit-4:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
 <label
-  class="circuit-4"
+  class="circuit-0"
   for="input_2"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Amount
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       €
     </span>
     <input
-      class="circuit-2"
+      class="circuit-4"
       id="input_2"
       inputmode="decimal"
       type="text"

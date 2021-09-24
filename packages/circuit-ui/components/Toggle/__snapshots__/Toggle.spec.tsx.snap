@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toggle should render with default styles 1`] = `
-.circuit-6 {
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -13,25 +13,25 @@ exports[`Toggle should render with default styles 1`] = `
   margin-bottom: 16px;
 }
 
-@media (max-width:479px) {
-  .circuit-6 {
+@media (max-width: 479px) {
+  .circuit-0 {
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
     justify-content: space-between;
   }
 }
 
-.circuit-2 {
+.circuit-1 {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
@@ -47,39 +47,38 @@ exports[`Toggle should render with default styles 1`] = `
   cursor: pointer;
 }
 
-.circuit-2:focus {
+.circuit-1:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-1:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-1:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-0 {
+.circuit-2 {
   display: block;
   background-color: #FFF;
   box-shadow: 0 2px 0 0 #999;
   position: absolute;
   top: 50%;
-  -webkit-transform: translate3d(4px,-50%,0);
-  -ms-transform: translate3d(4px,-50%,0);
-  transform: translate3d(4px,-50%,0);
+  -webkit-transform: translate3d(4px, -50%, 0);
+  -moz-transform: translate3d(4px, -50%, 0);
+  -ms-transform: translate3d(4px, -50%, 0);
+  transform: translate3d(4px, -50%, 0);
   -webkit-transition: box-shadow 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
-  -webkit-transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
   height: 16px;
   width: 16px;
   border-radius: 16px;
 }
 
-.circuit-1 {
+.circuit-3 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -90,20 +89,20 @@ exports[`Toggle should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-5 {
+.circuit-4 {
   display: block;
   margin-left: 12px;
   cursor: pointer;
 }
 
-@media (max-width:479px) {
-  .circuit-5 {
+@media (max-width: 479px) {
+  .circuit-4 {
     margin-left: 0;
     margin-right: 12px;
   }
 }
 
-.circuit-3 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -111,7 +110,7 @@ exports[`Toggle should render with default styles 1`] = `
   margin-bottom: 0;
 }
 
-.circuit-4 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
@@ -121,37 +120,37 @@ exports[`Toggle should render with default styles 1`] = `
 }
 
 <div
-  class="circuit-6"
+  class="circuit-0"
 >
   <button
     aria-checked="false"
     aria-labelledby="toggle-label_2"
-    class="circuit-2"
+    class="circuit-1"
     id="toggle-switch_1"
     role="switch"
     type="button"
   >
     <span
-      class="circuit-0"
+      class="circuit-2"
     />
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       off
     </span>
   </button>
   <label
-    class="circuit-5"
+    class="circuit-4"
     for="toggle-switch_1"
     id="toggle-label_2"
   >
     <p
-      class="circuit-3"
+      class="circuit-5"
     >
       Label
     </p>
     <p
-      class="circuit-4"
+      class="circuit-6"
     >
       A longer explanation
     </p>
@@ -160,13 +159,38 @@ exports[`Toggle should render with default styles 1`] = `
 `;
 
 exports[`Toggle should render with no margin styles when passed the noMargin prop 1`] = `
-.circuit-2 {
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 479px) {
+  .circuit-0 {
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+
+.circuit-1 {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
@@ -182,39 +206,38 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   cursor: pointer;
 }
 
-.circuit-2:focus {
+.circuit-1:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-1:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-1:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-0 {
+.circuit-2 {
   display: block;
   background-color: #FFF;
   box-shadow: 0 2px 0 0 #999;
   position: absolute;
   top: 50%;
-  -webkit-transform: translate3d(4px,-50%,0);
-  -ms-transform: translate3d(4px,-50%,0);
-  transform: translate3d(4px,-50%,0);
+  -webkit-transform: translate3d(4px, -50%, 0);
+  -moz-transform: translate3d(4px, -50%, 0);
+  -ms-transform: translate3d(4px, -50%, 0);
+  transform: translate3d(4px, -50%, 0);
   -webkit-transition: box-shadow 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
-  -webkit-transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
   height: 16px;
   width: 16px;
   border-radius: 16px;
 }
 
-.circuit-1 {
+.circuit-3 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -225,20 +248,20 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   width: 1px;
 }
 
-.circuit-5 {
+.circuit-4 {
   display: block;
   margin-left: 12px;
   cursor: pointer;
 }
 
-@media (max-width:479px) {
-  .circuit-5 {
+@media (max-width: 479px) {
+  .circuit-4 {
     margin-left: 0;
     margin-right: 12px;
   }
 }
 
-.circuit-3 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -246,7 +269,7 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   margin-bottom: 0;
 }
 
-.circuit-4 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
@@ -255,63 +278,38 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   color: #666;
 }
 
-.circuit-6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  margin-bottom: 16px;
-  margin-bottom: 0;
-}
-
-@media (max-width:479px) {
-  .circuit-6 {
-    -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-  }
-}
-
 <div
-  class="circuit-6"
+  class="circuit-0"
 >
   <button
     aria-checked="false"
     aria-labelledby="toggle-label_4"
-    class="circuit-2"
+    class="circuit-1"
     id="toggle-switch_3"
     role="switch"
     type="button"
   >
     <span
-      class="circuit-0"
+      class="circuit-2"
     />
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       off
     </span>
   </button>
   <label
-    class="circuit-5"
+    class="circuit-4"
     for="toggle-switch_3"
     id="toggle-label_4"
   >
     <p
-      class="circuit-3"
+      class="circuit-5"
     >
       Label
     </p>
     <p
-      class="circuit-4"
+      class="circuit-6"
     >
       A longer explanation
     </p>

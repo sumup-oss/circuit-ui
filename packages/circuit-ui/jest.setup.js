@@ -14,7 +14,7 @@
  */
 
 import '@testing-library/jest-dom/extend-expect';
-import { createSerializer } from 'jest-emotion';
+import { createSerializer } from '@emotion/jest';
 import { toHaveNoViolations } from 'jest-axe';
 import { fireEvent } from '@testing-library/react';
 

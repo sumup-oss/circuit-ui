@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotificationList should render with default styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14,22 +14,22 @@ exports[`NotificationList should render with default styles 1`] = `
   max-width: calc(100vw - (24px * 2));
 }
 
-.circuit-1 > * {
+.circuit-0>* {
   margin-top: 16px;
 }
 
-.circuit-1 > *:first-child {
+.circuit-0>*:first-child {
   margin-top: 0;
 }
 
-@media (max-width:767px) {
-  .circuit-1 {
+@media (max-width: 767px) {
+  .circuit-0 {
     max-width: none;
     width: 100%;
   }
 }
 
-.circuit-0 {
+.circuit-1 {
   background-color: #FFF;
   border-radius: 16px;
   border: 1px solid #E6E6E6;
@@ -42,18 +42,17 @@ exports[`NotificationList should render with default styles 1`] = `
   flex-direction: column;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 16px 16px;
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 <ul
   aria-live="polite"
-  class="circuit-1"
+  class="circuit-0"
 >
   <li
-    class="circuit-0"
+    class="circuit-1"
   >
     <p>
       This is a notification.

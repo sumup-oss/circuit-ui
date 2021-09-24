@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tag when is clickable should render with clickable styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-0 {
+.circuit-1 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -30,33 +30,33 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
   text-align: left;
 }
 
-.circuit-0:active {
+.circuit-1:active {
   color: #1A1A1A;
 }
 
-.circuit-0:hover {
+.circuit-1:hover {
   background-color: #E6E6E6;
   border-color: #999;
 }
 
-.circuit-0:focus {
+.circuit-1:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus::-moz-focus-inner {
+.circuit-1:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) {
+.circuit-1:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
 <div
-  class="circuit-1"
+  class="circuit-0"
 >
   <button
-    class="circuit-0"
+    class="circuit-1"
     type="button"
   >
     SomeTest
@@ -65,11 +65,11 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
 `;
 
 exports[`Tag when is default should render with default styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-0 {
+.circuit-1 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -92,10 +92,10 @@ exports[`Tag when is default should render with default styles 1`] = `
 }
 
 <div
-  class="circuit-1"
+  class="circuit-0"
 >
   <div
-    class="circuit-0"
+    class="circuit-1"
   >
     SomeTest
   </div>
@@ -103,11 +103,11 @@ exports[`Tag when is default should render with default styles 1`] = `
 `;
 
 exports[`Tag when is selected should change the close icon color 1`] = `
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-0 {
+.circuit-1 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -145,8 +145,8 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -166,11 +166,12 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
   padding: calc(8px - 1px);
-  border-color: transparent !important;
+  border-color: transparent!important;
   position: absolute;
   top: 50%;
   right: 1px;
   -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   border-radius: 8px;
@@ -209,9 +210,8 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   border-color: #1A368E;
 }
 
-.circuit-1 {
+.circuit-3 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -223,10 +223,10 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 }
 
 <div
-  class="circuit-3"
+  class="circuit-0"
 >
   <div
-    class="circuit-0"
+    class="circuit-1"
   >
     SomeTest
   </div>
@@ -252,7 +252,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
       />
     </svg>
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       Remove
     </span>
@@ -261,7 +261,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 `;
 
 exports[`Tag when is selected should change the given icon color 1`] = `
-.circuit-2 {
+.circuit-0 {
   position: relative;
 }
 
@@ -290,7 +290,7 @@ exports[`Tag when is selected should change the given icon color 1`] = `
   color: #FFF;
 }
 
-.circuit-0 {
+.circuit-2 {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -299,13 +299,13 @@ exports[`Tag when is selected should change the given icon color 1`] = `
 }
 
 <div
-  class="circuit-2"
+  class="circuit-0"
 >
   <div
     class="circuit-1"
   >
     <div
-      class="circuit-0"
+      class="circuit-2"
       data-testid="tag-icon"
     />
     SomeTest
@@ -314,11 +314,11 @@ exports[`Tag when is selected should change the given icon color 1`] = `
 `;
 
 exports[`Tag when is selected should render with selected styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-0 {
+.circuit-1 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -344,10 +344,10 @@ exports[`Tag when is selected should render with selected styles 1`] = `
 }
 
 <div
-  class="circuit-1"
+  class="circuit-0"
 >
   <div
-    class="circuit-0"
+    class="circuit-1"
   >
     SomeTest
   </div>

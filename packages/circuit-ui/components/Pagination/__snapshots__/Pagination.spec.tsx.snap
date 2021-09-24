@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
-.circuit-10 {
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11,8 +11,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: 100%;
   padding: 12px;
@@ -30,8 +30,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -89,9 +89,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   color: #1A368E;
 }
 
-.circuit-0 {
+.circuit-2 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -102,19 +101,19 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-7 {
+.circuit-3 {
   list-style: none;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
 }
 
-.circuit-2 {
+.circuit-4 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -126,8 +125,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -151,43 +150,43 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   margin-right: 4px;
 }
 
-.circuit-2:focus {
+.circuit-4:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-4:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-4:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-2:hover {
+.circuit-4:hover {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-2:active,
-.circuit-2[aria-expanded='true'],
-.circuit-2[aria-pressed='true'] {
+.circuit-4:active,
+.circuit-4[aria-expanded='true'],
+.circuit-4[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-li:last-child .circuit-2 {
+li:last-child .circuit-4 {
   margin-right: 0;
 }
 
-.circuit-3 {
+.circuit-5 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -199,8 +198,8 @@ li:last-child .circuit-2 {
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -226,37 +225,37 @@ li:last-child .circuit-2 {
   margin-right: 4px;
 }
 
-.circuit-3:focus {
+.circuit-5:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-5:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible) {
+.circuit-5:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-3:disabled,
-.circuit-3[disabled] {
+.circuit-5:disabled,
+.circuit-5[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-5:hover {
   color: #234BC3;
 }
 
-.circuit-3:active,
-.circuit-3[aria-expanded='true'],
-.circuit-3[aria-pressed='true'] {
+.circuit-5:active,
+.circuit-5[aria-expanded='true'],
+.circuit-5[aria-pressed='true'] {
   color: #1A368E;
 }
 
-li:last-child .circuit-3 {
+li:last-child .circuit-5 {
   margin-right: 0;
 }
 
@@ -272,8 +271,8 @@ li:last-child .circuit-3 {
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -333,7 +332,7 @@ li:last-child .circuit-3 {
 
 <nav
   aria-label="Pagination"
-  class="circuit-10"
+  class="circuit-0"
   role="navigation"
 >
   <button
@@ -355,20 +354,20 @@ li:last-child .circuit-3 {
       />
     </svg>
     <span
-      class="circuit-0"
+      class="circuit-2"
     >
       Previous
     </span>
   </button>
   <ol
-    class="circuit-7"
+    class="circuit-3"
     role="list"
   >
     <li>
       <button
         aria-current="true"
         aria-label="Go to page 1"
-        class="circuit-2"
+        class="circuit-4"
         title="Go to page 1"
       >
         1
@@ -378,7 +377,7 @@ li:last-child .circuit-3 {
       <button
         aria-current="false"
         aria-label="Go to page 2"
-        class="circuit-3"
+        class="circuit-5"
         title="Go to page 2"
       >
         2
@@ -388,7 +387,7 @@ li:last-child .circuit-3 {
       <button
         aria-current="false"
         aria-label="Go to page 3"
-        class="circuit-3"
+        class="circuit-5"
         title="Go to page 3"
       >
         3
@@ -398,7 +397,7 @@ li:last-child .circuit-3 {
       <button
         aria-current="false"
         aria-label="Go to page 4"
-        class="circuit-3"
+        class="circuit-5"
         title="Go to page 4"
       >
         4
@@ -408,7 +407,7 @@ li:last-child .circuit-3 {
       <button
         aria-current="false"
         aria-label="Go to page 5"
-        class="circuit-3"
+        class="circuit-5"
         title="Go to page 5"
       >
         5
@@ -433,7 +432,7 @@ li:last-child .circuit-3 {
       />
     </svg>
     <span
-      class="circuit-0"
+      class="circuit-2"
     >
       Next
     </span>
@@ -442,7 +441,7 @@ li:last-child .circuit-3 {
 `;
 
 exports[`Pagination with more than 5 pages should render with default styles 1`] = `
-.circuit-11 {
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -452,8 +451,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: 100%;
   padding: 12px;
@@ -471,8 +470,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -530,9 +529,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   color: #1A368E;
 }
 
-.circuit-0 {
+.circuit-2 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -541,6 +539,107 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.circuit-3 {
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-5 {
+  color: #1A1A1A;
+  display: block;
+  position: relative;
+}
+
+.circuit-6 {
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #1A1A1A;
+  margin: 0;
+  padding-top: 12px;
+  padding-right: 48px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
+  box-shadow: 0 0 0 1px #999;
+}
+
+.circuit-6:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-6::-ms-expand {
+  display: none;
+}
+
+.circuit-6:hover {
+  box-shadow: 0 0 0 1px #666;
+}
+
+.circuit-6:focus {
+  box-shadow: 0 0 0 2px #3063E9;
+}
+
+.circuit-6:active {
+  box-shadow: 0 0 0 1px #3063E9;
+}
+
+.circuit-7 {
+  color: #666;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+select:active~.circuit-7 {
+  display: none;
+}
+
+.circuit-8 {
+  color: #666;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+select:not(:active)~.circuit-8 {
+  display: none;
+}
+
+.circuit-9 {
+  margin-left: 12px;
 }
 
 .circuit-10 {
@@ -555,8 +654,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -614,109 +713,9 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   color: #1A368E;
 }
 
-.circuit-7 {
-  font-size: 14px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-6 {
-  color: #1A1A1A;
-  display: block;
-  position: relative;
-}
-
-.circuit-3 {
-  font-size: 16px;
-  line-height: 24px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  background-color: #FFF;
-  outline: none;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: none;
-  color: #1A1A1A;
-  margin: 0;
-  padding-top: 12px;
-  padding-right: 48px;
-  padding-bottom: 12px;
-  padding-left: 16px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px #999;
-}
-
-.circuit-3:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-.circuit-3::-ms-expand {
-  display: none;
-}
-
-.circuit-3:hover {
-  box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-3:focus {
-  box-shadow: 0 0 0 2px #3063E9;
-}
-
-.circuit-3:active {
-  box-shadow: 0 0 0 1px #3063E9;
-}
-
-.circuit-4 {
-  color: #666;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:active ~ .circuit-4 {
-  display: none;
-}
-
-.circuit-5 {
-  color: #666;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:not(:active) ~ .circuit-5 {
-  display: none;
-}
-
-.circuit-8 {
-  margin-left: 12px;
-}
-
 <nav
   aria-label="Pagination"
-  class="circuit-11"
+  class="circuit-0"
   role="navigation"
 >
   <button
@@ -738,25 +737,25 @@ select:not(:active) ~ .circuit-5 {
       />
     </svg>
     <span
-      class="circuit-0"
+      class="circuit-2"
     >
       Previous
     </span>
   </button>
   <label
-    class="circuit-7"
+    class="circuit-3"
     for="select_1"
   >
     <span
-      class="circuit-0"
+      class="circuit-2"
     >
       Pagination
     </span>
     <div
-      class="circuit-6"
+      class="circuit-5"
     >
       <select
-        class="circuit-3"
+        class="circuit-6"
         id="select_1"
       >
         <option
@@ -811,7 +810,7 @@ select:not(:active) ~ .circuit-5 {
         </option>
       </select>
       <svg
-        class="circuit-4"
+        class="circuit-7"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -824,7 +823,7 @@ select:not(:active) ~ .circuit-5 {
         />
       </svg>
       <svg
-        class="circuit-5"
+        class="circuit-8"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -839,7 +838,7 @@ select:not(:active) ~ .circuit-5 {
     </div>
   </label>
   <span
-    class="circuit-8"
+    class="circuit-9"
   >
     of 10
   </span>
@@ -861,7 +860,7 @@ select:not(:active) ~ .circuit-5 {
       />
     </svg>
     <span
-      class="circuit-0"
+      class="circuit-2"
     >
       Next
     </span>

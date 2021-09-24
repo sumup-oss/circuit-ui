@@ -23,7 +23,7 @@ exports[`Item should render with all paddings 1`] = `
   border-bottom: none;
 }
 
-@media (hover:hover) {
+@media (hover: hover) {
   .circuit-0:hover {
     outline: none;
   }
@@ -87,7 +87,7 @@ exports[`Item should render with all paddings 2`] = `
   border-bottom: none;
 }
 
-@media (hover:hover) {
+@media (hover: hover) {
   .circuit-0:hover {
     outline: none;
   }
@@ -151,7 +151,7 @@ exports[`Item should render with all paddings 3`] = `
   border-bottom: none;
 }
 
-@media (hover:hover) {
+@media (hover: hover) {
   .circuit-0:hover {
     outline: none;
   }
@@ -215,7 +215,7 @@ exports[`Item should render with default styles 1`] = `
   border-bottom: none;
 }
 
-@media (hover:hover) {
+@media (hover: hover) {
   .circuit-0:hover {
     outline: none;
   }
@@ -279,7 +279,7 @@ exports[`Item should render with selected styles 1`] = `
   border-bottom: none;
 }
 
-@media (hover:hover) {
+@media (hover: hover) {
   .circuit-0:hover {
     outline: none;
   }

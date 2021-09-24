@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CardList should render with default styles 1`] = `
-.circuit-8 {
+.circuit-0 {
   background-color: #FFF;
   border-radius: 16px;
   border: 2px solid #E6E6E6;
@@ -14,66 +14,11 @@ exports[`CardList should render with default styles 1`] = `
   flex-direction: column;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 16px 24px;
   padding: 0;
   border-radius: 4px;
   border: 1px solid #CCC;
-}
-
-.circuit-0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
-  border-bottom: 1px solid #CCC;
-  padding: 24px;
-}
-
-.circuit-0:first-of-type {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.circuit-0:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-bottom: none;
-}
-
-@media (hover:hover) {
-  .circuit-0:hover {
-    outline: none;
-  }
-
-  .circuit-0:hover::after {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    box-shadow: 0px 0px 0px 2px #3063E9;
-    border-radius: 4px;
-  }
-}
-
-.circuit-0:focus {
-  outline: none;
-}
-
-.circuit-0:focus::after {
-  content: ' ';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  box-shadow: 0px 0px 0px 2px #3063E9;
-  border-radius: 4px;
 }
 
 .circuit-2 {
@@ -85,8 +30,6 @@ exports[`CardList should render with default styles 1`] = `
   cursor: pointer;
   border-bottom: 1px solid #CCC;
   padding: 24px;
-  background: #F0F6FF;
-  outline: none;
 }
 
 .circuit-2:first-of-type {
@@ -100,18 +43,7 @@ exports[`CardList should render with default styles 1`] = `
   border-bottom: none;
 }
 
-.circuit-2::after {
-  content: ' ';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  box-shadow: 0px 0px 0px 2px #3063E9;
-  border-radius: 4px;
-}
-
-@media (hover:hover) {
+@media (hover: hover) {
   .circuit-2:hover {
     outline: none;
   }
@@ -143,33 +75,100 @@ exports[`CardList should render with default styles 1`] = `
   border-radius: 4px;
 }
 
+.circuit-4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  background: #F0F6FF;
+  outline: none;
+}
+
+.circuit-4:first-of-type {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-4:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom: none;
+}
+
+.circuit-4::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0px 0px 0px 2px #3063E9;
+  border-radius: 4px;
+}
+
+@media (hover: hover) {
+  .circuit-4:hover {
+    outline: none;
+  }
+
+  .circuit-4:hover::after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    box-shadow: 0px 0px 0px 2px #3063E9;
+    border-radius: 4px;
+  }
+}
+
+.circuit-4:focus {
+  outline: none;
+}
+
+.circuit-4:focus::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0px 0px 0px 2px #3063E9;
+  border-radius: 4px;
+}
+
 <div
-  class="circuit-8 circuit-9"
+  class="circuit-0 circuit-1"
 >
   <div
     aria-selected="false"
-    class="circuit-0 circuit-1"
+    class="circuit-2 circuit-3"
     tabindex="0"
   >
     List item 1
   </div>
   <div
     aria-selected="true"
-    class="circuit-2 circuit-1"
+    class="circuit-4 circuit-3"
     tabindex="0"
   >
     List item 2
   </div>
   <div
     aria-selected="false"
-    class="circuit-0 circuit-1"
+    class="circuit-2 circuit-3"
     tabindex="0"
   >
     List item 3
   </div>
   <div
     aria-selected="false"
-    class="circuit-0 circuit-1"
+    class="circuit-2 circuit-3"
     tabindex="0"
   >
     List item 4

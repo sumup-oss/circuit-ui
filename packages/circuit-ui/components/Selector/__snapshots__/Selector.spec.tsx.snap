@@ -4,7 +4,6 @@ exports[`Selector should render a checked selector 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -15,24 +14,24 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
+.circuit-0:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-0:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-0:focus:not(:focus-visible)+label::before {
   box-shadow: none;
 }
 
-.circuit-0:checked + label {
+.circuit-0:checked+label {
   background-color: #F0F6FF;
 }
 
-.circuit-0:checked + label::before {
+.circuit-0:checked+label::before {
   border: 2px solid #3063E9;
 }
 
@@ -103,7 +102,6 @@ exports[`Selector should render a default selector 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -114,24 +112,24 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
+.circuit-0:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-0:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-0:focus:not(:focus-visible)+label::before {
   box-shadow: none;
 }
 
-.circuit-0:checked + label {
+.circuit-0:checked+label {
   background-color: #F0F6FF;
 }
 
-.circuit-0:checked + label::before {
+.circuit-0:checked+label::before {
   border: 2px solid #3063E9;
 }
 
@@ -201,7 +199,6 @@ exports[`Selector should render a disabled selector 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -212,24 +209,24 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
+.circuit-0:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-0:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-0:focus:not(:focus-visible)+label::before {
   box-shadow: none;
 }
 
-.circuit-0:checked + label {
+.circuit-0:checked+label {
   background-color: #F0F6FF;
 }
 
-.circuit-0:checked + label::before {
+.circuit-0:checked+label::before {
   border: 2px solid #3063E9;
 }
 
@@ -304,7 +301,6 @@ exports[`Selector should render a noMargin selector 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -315,24 +311,24 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-0:focus + label::before {
+.circuit-0:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-0:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-0:focus:not(:focus-visible)+label::before {
   box-shadow: none;
 }
 
-.circuit-0:checked + label {
+.circuit-0:checked+label {
   background-color: #F0F6FF;
 }
 
-.circuit-0:checked + label::before {
+.circuit-0:checked+label::before {
   border: 2px solid #3063E9;
 }
 

@@ -1,17 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox should render with a tooltip when passed a validation hint 1`] = `
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-3:last-of-type {
+.circuit-0:last-of-type {
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -22,42 +21,43 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   width: 1px;
 }
 
-.circuit-0:hover + label::before {
+.circuit-1:hover+label::before {
   border-color: #666;
 }
 
-.circuit-0:focus + label::before {
+.circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
   border-color: #3063E9;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-1:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: #999;
 }
 
-.circuit-0:checked:focus:not(:focus-visible) + label::before {
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
   border-color: #3063E9;
 }
 
-.circuit-0:checked + label > svg {
-  -webkit-transform: translateY(-50%) scale(1,1);
-  -ms-transform: translateY(-50%) scale(1,1);
-  transform: translateY(-50%) scale(1,1);
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
   opacity: 1;
 }
 
-.circuit-0:checked + label::before {
+.circuit-1:checked+label::before {
   border-color: #3063E9;
   background-color: #3063E9;
 }
 
-.circuit-1 {
+.circuit-2 {
   color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
@@ -65,7 +65,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   cursor: pointer;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   height: 18px;
   width: 18px;
   box-sizing: border-box;
@@ -79,13 +79,14 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   top: 12px;
   left: 0;
   -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-1 svg {
+.circuit-2 svg {
   height: 18px;
   width: 18px;
   padding: 2px;
@@ -97,15 +98,15 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   position: absolute;
   top: 12px;
   left: 0;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
   -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-3 {
   font-size: 14px;
   line-height: 20px;
   display: inline-block;
@@ -120,7 +121,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07),0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
   left: 50%;
   left: calc(50% - (16px + 4px));
   bottom: 100%;
@@ -128,7 +129,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   left: -12px;
 }
 
-.circuit-2::after {
+.circuit-3::after {
   display: block;
   content: '';
   width: 0;
@@ -137,27 +138,27 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   border: 8px solid transparent;
 }
 
-.circuit-2::after {
+.circuit-3::after {
   left: 12px;
 }
 
-.circuit-2::after {
+.circuit-3::after {
   top: 100%;
   border-top-color: #1A1A1A;
 }
 
 <div
-  class="circuit-3"
+  class="circuit-0"
 >
   <input
-    class="circuit-0"
+    class="circuit-1"
     id="checkbox_6"
     name="name"
     type="checkbox"
     value=""
   />
   <label
-    class="circuit-1"
+    class="circuit-2"
     for="checkbox_6"
   >
     <svg
@@ -175,7 +176,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
     </svg>
   </label>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     This field is required.
   </div>
@@ -183,17 +184,16 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 `;
 
 exports[`Checkbox should render with checked styles when passed the checked prop 1`] = `
-.circuit-2 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-2:last-of-type {
+.circuit-0:last-of-type {
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -204,42 +204,43 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   width: 1px;
 }
 
-.circuit-0:hover + label::before {
+.circuit-1:hover+label::before {
   border-color: #666;
 }
 
-.circuit-0:focus + label::before {
+.circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
   border-color: #3063E9;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-1:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: #999;
 }
 
-.circuit-0:checked:focus:not(:focus-visible) + label::before {
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
   border-color: #3063E9;
 }
 
-.circuit-0:checked + label > svg {
-  -webkit-transform: translateY(-50%) scale(1,1);
-  -ms-transform: translateY(-50%) scale(1,1);
-  transform: translateY(-50%) scale(1,1);
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
   opacity: 1;
 }
 
-.circuit-0:checked + label::before {
+.circuit-1:checked+label::before {
   border-color: #3063E9;
   background-color: #3063E9;
 }
 
-.circuit-1 {
+.circuit-2 {
   color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
@@ -247,7 +248,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   cursor: pointer;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   height: 18px;
   width: 18px;
   box-sizing: border-box;
@@ -261,13 +262,14 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   top: 12px;
   left: 0;
   -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-1 svg {
+.circuit-2 svg {
   height: 18px;
   width: 18px;
   padding: 2px;
@@ -279,27 +281,27 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   position: absolute;
   top: 12px;
   left: 0;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
   -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 <div
-  class="circuit-2"
+  class="circuit-0"
 >
   <input
     checked=""
-    class="circuit-0"
+    class="circuit-1"
     id="checkbox_2"
     name="name"
     type="checkbox"
     value=""
   />
   <label
-    class="circuit-1"
+    class="circuit-2"
     for="checkbox_2"
   >
     <svg
@@ -320,17 +322,16 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 `;
 
 exports[`Checkbox should render with default styles 1`] = `
-.circuit-2 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-2:last-of-type {
+.circuit-0:last-of-type {
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -341,42 +342,43 @@ exports[`Checkbox should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:hover + label::before {
+.circuit-1:hover+label::before {
   border-color: #666;
 }
 
-.circuit-0:focus + label::before {
+.circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
   border-color: #3063E9;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-1:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: #999;
 }
 
-.circuit-0:checked:focus:not(:focus-visible) + label::before {
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
   border-color: #3063E9;
 }
 
-.circuit-0:checked + label > svg {
-  -webkit-transform: translateY(-50%) scale(1,1);
-  -ms-transform: translateY(-50%) scale(1,1);
-  transform: translateY(-50%) scale(1,1);
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
   opacity: 1;
 }
 
-.circuit-0:checked + label::before {
+.circuit-1:checked+label::before {
   border-color: #3063E9;
   background-color: #3063E9;
 }
 
-.circuit-1 {
+.circuit-2 {
   color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
@@ -384,7 +386,7 @@ exports[`Checkbox should render with default styles 1`] = `
   cursor: pointer;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   height: 18px;
   width: 18px;
   box-sizing: border-box;
@@ -398,13 +400,14 @@ exports[`Checkbox should render with default styles 1`] = `
   top: 12px;
   left: 0;
   -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-1 svg {
+.circuit-2 svg {
   height: 18px;
   width: 18px;
   padding: 2px;
@@ -416,26 +419,26 @@ exports[`Checkbox should render with default styles 1`] = `
   position: absolute;
   top: 12px;
   left: 0;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
   -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 <div
-  class="circuit-2"
+  class="circuit-0"
 >
   <input
-    class="circuit-0"
+    class="circuit-1"
     id="checkbox_1"
     name="name"
     type="checkbox"
     value=""
   />
   <label
-    class="circuit-1"
+    class="circuit-2"
     for="checkbox_1"
   >
     <svg
@@ -456,17 +459,16 @@ exports[`Checkbox should render with default styles 1`] = `
 `;
 
 exports[`Checkbox should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-2 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-2:last-of-type {
+.circuit-0:last-of-type {
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -477,42 +479,43 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   width: 1px;
 }
 
-.circuit-0:hover + label::before {
+.circuit-1:hover+label::before {
   border-color: #666;
 }
 
-.circuit-0:focus + label::before {
+.circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
   border-color: #3063E9;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-1:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: #999;
 }
 
-.circuit-0:checked:focus:not(:focus-visible) + label::before {
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
   border-color: #3063E9;
 }
 
-.circuit-0:checked + label > svg {
-  -webkit-transform: translateY(-50%) scale(1,1);
-  -ms-transform: translateY(-50%) scale(1,1);
-  transform: translateY(-50%) scale(1,1);
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
   opacity: 1;
 }
 
-.circuit-0:checked + label::before {
+.circuit-1:checked+label::before {
   border-color: #3063E9;
   background-color: #3063E9;
 }
 
-.circuit-1 {
+.circuit-2 {
   color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
@@ -523,7 +526,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   box-shadow: none;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   height: 18px;
   width: 18px;
   box-sizing: border-box;
@@ -537,13 +540,14 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   top: 12px;
   left: 0;
   -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-1 svg {
+.circuit-2 svg {
   height: 18px;
   width: 18px;
   padding: 2px;
@@ -555,15 +559,15 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   position: absolute;
   top: 12px;
   left: 0;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
   -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -572,10 +576,10 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 }
 
 <div
-  class="circuit-2"
+  class="circuit-0"
 >
   <input
-    class="circuit-0"
+    class="circuit-1"
     disabled=""
     id="checkbox_3"
     name="name"
@@ -583,7 +587,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
     value=""
   />
   <label
-    class="circuit-1"
+    class="circuit-2"
     disabled=""
     for="checkbox_3"
   >
@@ -605,17 +609,16 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 `;
 
 exports[`Checkbox should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-2 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-2:last-of-type {
+.circuit-0:last-of-type {
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -626,52 +629,53 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   width: 1px;
 }
 
-.circuit-0:hover + label::before {
+.circuit-1:hover+label::before {
   border-color: #666;
 }
 
-.circuit-0:focus + label::before {
+.circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
   border-color: #3063E9;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-1:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: #999;
 }
 
-.circuit-0:checked:focus:not(:focus-visible) + label::before {
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
   border-color: #3063E9;
 }
 
-.circuit-0:checked + label > svg {
-  -webkit-transform: translateY(-50%) scale(1,1);
-  -ms-transform: translateY(-50%) scale(1,1);
-  transform: translateY(-50%) scale(1,1);
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
   opacity: 1;
 }
 
-.circuit-0:checked + label::before {
+.circuit-1:checked+label::before {
   border-color: #3063E9;
   background-color: #3063E9;
 }
 
-.circuit-0:hover + label::before,
-.circuit-0:focus + label::before {
+.circuit-1:hover+label::before,
+.circuit-1:focus+label::before {
   border-color: #B22426;
 }
 
-.circuit-0:checked + label::before {
+.circuit-1:checked+label::before {
   border-color: #D23F47;
   background-color: #D23F47;
 }
 
-.circuit-1 {
+.circuit-2 {
   color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
@@ -679,7 +683,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   cursor: pointer;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   height: 18px;
   width: 18px;
   box-sizing: border-box;
@@ -693,13 +697,14 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   top: 12px;
   left: 0;
   -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-1 svg {
+.circuit-2 svg {
   height: 18px;
   width: 18px;
   padding: 2px;
@@ -711,31 +716,31 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   position: absolute;
   top: 12px;
   left: 0;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
   -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
-.circuit-1:not(:focus)::before {
+.circuit-2:not(:focus)::before {
   border-color: #D23F47;
   background-color: #F4CBCB;
 }
 
 <div
-  class="circuit-2"
+  class="circuit-0"
 >
   <input
-    class="circuit-0"
+    class="circuit-1"
     id="checkbox_4"
     name="name"
     type="checkbox"
     value=""
   />
   <label
-    class="circuit-1"
+    class="circuit-2"
     for="checkbox_4"
   >
     <svg
@@ -757,8 +762,19 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 
 exports[`Checkbox should render with noMargin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
+  position: relative;
+}
+
+.circuit-0:last-of-type {
+  margin-bottom: 16px;
+}
+
+.circuit-0:last-of-type {
+  margin-bottom: 0;
+}
+
+.circuit-1 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -769,42 +785,43 @@ exports[`Checkbox should render with noMargin styles when passed the noMargin pr
   width: 1px;
 }
 
-.circuit-0:hover + label::before {
+.circuit-1:hover+label::before {
   border-color: #666;
 }
 
-.circuit-0:focus + label::before {
+.circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
   border-color: #3063E9;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-1:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) + label::before {
+.circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: #999;
 }
 
-.circuit-0:checked:focus:not(:focus-visible) + label::before {
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
   border-color: #3063E9;
 }
 
-.circuit-0:checked + label > svg {
-  -webkit-transform: translateY(-50%) scale(1,1);
-  -ms-transform: translateY(-50%) scale(1,1);
-  transform: translateY(-50%) scale(1,1);
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
   opacity: 1;
 }
 
-.circuit-0:checked + label::before {
+.circuit-1:checked+label::before {
   border-color: #3063E9;
   background-color: #3063E9;
 }
 
-.circuit-1 {
+.circuit-2 {
   color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
@@ -812,7 +829,7 @@ exports[`Checkbox should render with noMargin styles when passed the noMargin pr
   cursor: pointer;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   height: 18px;
   width: 18px;
   box-sizing: border-box;
@@ -826,13 +843,14 @@ exports[`Checkbox should render with noMargin styles when passed the noMargin pr
   top: 12px;
   left: 0;
   -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-1 svg {
+.circuit-2 svg {
   height: 18px;
   width: 18px;
   padding: 2px;
@@ -844,38 +862,26 @@ exports[`Checkbox should render with noMargin styles when passed the noMargin pr
   position: absolute;
   top: 12px;
   left: 0;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
   -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  -webkit-transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
-.circuit-2 {
-  position: relative;
-}
-
-.circuit-2:last-of-type {
-  margin-bottom: 16px;
-}
-
-.circuit-2:last-of-type {
-  margin-bottom: 0;
-}
-
 <div
-  class="circuit-2"
+  class="circuit-0"
 >
   <input
-    class="circuit-0"
+    class="circuit-1"
     id="checkbox_5"
     name="name"
     type="checkbox"
     value=""
   />
   <label
-    class="circuit-1"
+    class="circuit-2"
     for="checkbox_5"
   >
     <svg

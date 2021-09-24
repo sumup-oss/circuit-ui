@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Hamburger should render with active styles when passed the isActive prop 1`] = `
-.circuit-3 {
+.circuit-0 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -13,8 +13,8 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -38,34 +38,34 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   padding: 12px;
 }
 
-.circuit-3:focus {
+.circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-0:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible) {
+.circuit-0:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-3:disabled,
-.circuit-3[disabled] {
+.circuit-0:disabled,
+.circuit-0[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-0:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-3:active,
-.circuit-3[aria-expanded='true'],
-.circuit-3[aria-pressed='true'] {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -79,10 +79,11 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
   -ms-transform: translateY(-1px);
   transform: translateY(-1px);
   width: 24px;
@@ -90,8 +91,73 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 }
 
 .circuit-2 {
+  top: 50%;
+  width: 22px;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+.circuit-2,
+.circuit-2::after,
+.circuit-2::before {
+  background-color: currentColor;
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  position: absolute;
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.circuit-2::before,
+.circuit-2::after {
+  top: 0;
+  content: '';
+}
+
+.circuit-2::before {
+  -webkit-transform: translateY(-7px);
+  -moz-transform: translateY(-7px);
+  -ms-transform: translateY(-7px);
+  transform: translateY(-7px);
+  width: calc(22px * 0.64);
+}
+
+.circuit-2::after {
+  -webkit-transform: translateY(7px);
+  -moz-transform: translateY(7px);
+  -ms-transform: translateY(7px);
+  transform: translateY(7px);
+  width: calc(22px * 0.82);
+}
+
+.circuit-2,
+.circuit-2::before,
+.circuit-2::after {
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-out 0.15s,-webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-out 0.15s,transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
+  width: 22px;
+}
+
+.circuit-2::before {
+  opacity: 0;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.circuit-2::after {
+  -webkit-transform: translateY(0) rotate(-90deg);
+  -moz-transform: translateY(0) rotate(-90deg);
+  -ms-transform: translateY(0) rotate(-90deg);
+  transform: translateY(0) rotate(-90deg);
+}
+
+.circuit-3 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -102,71 +168,8 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   width: 1px;
 }
 
-.circuit-0 {
-  top: 50%;
-  width: 22px;
-  -webkit-transform: rotate(225deg);
-  -ms-transform: rotate(225deg);
-  transform: rotate(225deg);
-}
-
-.circuit-0,
-.circuit-0::after,
-.circuit-0::before {
-  background-color: currentColor;
-  border-radius: 1px;
-  display: block;
-  height: 2px;
-  position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-}
-
-.circuit-0::before,
-.circuit-0::after {
-  top: 0;
-  content: '';
-}
-
-.circuit-0::before {
-  -webkit-transform: translateY(-7px);
-  -ms-transform: translateY(-7px);
-  transform: translateY(-7px);
-  width: calc(22px * 0.64);
-}
-
-.circuit-0::after {
-  -webkit-transform: translateY(7px);
-  -ms-transform: translateY(7px);
-  transform: translateY(7px);
-  width: calc(22px * 0.82);
-}
-
-.circuit-0,
-.circuit-0::before,
-.circuit-0::after {
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-out 0.15s,-webkit-transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-out 0.15s,transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
-  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-out 0.15s,transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
-  width: 22px;
-}
-
-.circuit-0::before {
-  opacity: 0;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-}
-
-.circuit-0::after {
-  -webkit-transform: translateY(0) rotate(-90deg);
-  -ms-transform: translateY(0) rotate(-90deg);
-  transform: translateY(0) rotate(-90deg);
-}
-
 <button
-  class="circuit-3"
+  class="circuit-0"
   title="Close menu"
   type="button"
 >
@@ -175,11 +178,11 @@ exports[`Hamburger should render with active styles when passed the isActive pro
     role="presentation"
   >
     <span
-      class="circuit-0"
+      class="circuit-2"
     />
   </span>
   <span
-    class="circuit-2"
+    class="circuit-3"
   >
     Close menu
   </span>
@@ -187,7 +190,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 `;
 
 exports[`Hamburger should render with default styles 1`] = `
-.circuit-3 {
+.circuit-0 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -199,8 +202,8 @@ exports[`Hamburger should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -224,34 +227,34 @@ exports[`Hamburger should render with default styles 1`] = `
   padding: 12px;
 }
 
-.circuit-3:focus {
+.circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-0:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible) {
+.circuit-0:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-3:disabled,
-.circuit-3[disabled] {
+.circuit-0:disabled,
+.circuit-0[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-0:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-3:active,
-.circuit-3[aria-expanded='true'],
-.circuit-3[aria-pressed='true'] {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -265,57 +268,58 @@ exports[`Hamburger should render with default styles 1`] = `
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
   -ms-transform: translateY(-1px);
   transform: translateY(-1px);
   width: 24px;
   height: 24px;
 }
 
-.circuit-0 {
+.circuit-2 {
   top: 50%;
   width: 22px;
 }
 
-.circuit-0,
-.circuit-0::after,
-.circuit-0::before {
+.circuit-2,
+.circuit-2::after,
+.circuit-2::before {
   background-color: currentColor;
   border-radius: 1px;
   display: block;
   height: 2px;
   position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.circuit-0::before,
-.circuit-0::after {
+.circuit-2::before,
+.circuit-2::after {
   top: 0;
   content: '';
 }
 
-.circuit-0::before {
+.circuit-2::before {
   -webkit-transform: translateY(-7px);
+  -moz-transform: translateY(-7px);
   -ms-transform: translateY(-7px);
   transform: translateY(-7px);
   width: calc(22px * 0.64);
 }
 
-.circuit-0::after {
+.circuit-2::after {
   -webkit-transform: translateY(7px);
+  -moz-transform: translateY(7px);
   -ms-transform: translateY(7px);
   transform: translateY(7px);
   width: calc(22px * 0.82);
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -327,7 +331,7 @@ exports[`Hamburger should render with default styles 1`] = `
 }
 
 <button
-  class="circuit-3"
+  class="circuit-0"
   title="Open menu"
   type="button"
 >
@@ -336,11 +340,11 @@ exports[`Hamburger should render with default styles 1`] = `
     role="presentation"
   >
     <span
-      class="circuit-0"
+      class="circuit-2"
     />
   </span>
   <span
-    class="circuit-2"
+    class="circuit-3"
   >
     Open menu
   </span>
@@ -348,7 +352,7 @@ exports[`Hamburger should render with default styles 1`] = `
 `;
 
 exports[`Hamburger should render with giga styles 1`] = `
-.circuit-3 {
+.circuit-0 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -360,8 +364,8 @@ exports[`Hamburger should render with giga styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -385,34 +389,34 @@ exports[`Hamburger should render with giga styles 1`] = `
   padding: 12px;
 }
 
-.circuit-3:focus {
+.circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-0:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible) {
+.circuit-0:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-3:disabled,
-.circuit-3[disabled] {
+.circuit-0:disabled,
+.circuit-0[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-0:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-3:active,
-.circuit-3[aria-expanded='true'],
-.circuit-3[aria-pressed='true'] {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -426,57 +430,58 @@ exports[`Hamburger should render with giga styles 1`] = `
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
   -ms-transform: translateY(-1px);
   transform: translateY(-1px);
   width: 24px;
   height: 24px;
 }
 
-.circuit-0 {
+.circuit-2 {
   top: 50%;
   width: 22px;
 }
 
-.circuit-0,
-.circuit-0::after,
-.circuit-0::before {
+.circuit-2,
+.circuit-2::after,
+.circuit-2::before {
   background-color: currentColor;
   border-radius: 1px;
   display: block;
   height: 2px;
   position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.circuit-0::before,
-.circuit-0::after {
+.circuit-2::before,
+.circuit-2::after {
   top: 0;
   content: '';
 }
 
-.circuit-0::before {
+.circuit-2::before {
   -webkit-transform: translateY(-7px);
+  -moz-transform: translateY(-7px);
   -ms-transform: translateY(-7px);
   transform: translateY(-7px);
   width: calc(22px * 0.64);
 }
 
-.circuit-0::after {
+.circuit-2::after {
   -webkit-transform: translateY(7px);
+  -moz-transform: translateY(7px);
   -ms-transform: translateY(7px);
   transform: translateY(7px);
   width: calc(22px * 0.82);
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -488,7 +493,7 @@ exports[`Hamburger should render with giga styles 1`] = `
 }
 
 <button
-  class="circuit-3"
+  class="circuit-0"
   title="Open menu"
   type="button"
 >
@@ -497,11 +502,11 @@ exports[`Hamburger should render with giga styles 1`] = `
     role="presentation"
   >
     <span
-      class="circuit-0"
+      class="circuit-2"
     />
   </span>
   <span
-    class="circuit-2"
+    class="circuit-3"
   >
     Open menu
   </span>
@@ -509,20 +514,7 @@ exports[`Hamburger should render with giga styles 1`] = `
 `;
 
 exports[`Hamburger should render with kilo styles 1`] = `
-.circuit-2 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3 {
+.circuit-0 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -534,8 +526,8 @@ exports[`Hamburger should render with kilo styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -559,34 +551,34 @@ exports[`Hamburger should render with kilo styles 1`] = `
   padding: 8px;
 }
 
-.circuit-3:focus {
+.circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-0:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible) {
+.circuit-0:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-3:disabled,
-.circuit-3[disabled] {
+.circuit-0:disabled,
+.circuit-0[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-0:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-3:active,
-.circuit-3[aria-expanded='true'],
-.circuit-3[aria-pressed='true'] {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
@@ -600,56 +592,70 @@ exports[`Hamburger should render with kilo styles 1`] = `
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
   -ms-transform: translateY(-1px);
   transform: translateY(-1px);
   width: 16px;
   height: 16px;
 }
 
-.circuit-0 {
+.circuit-2 {
   top: 50%;
   width: 14px;
 }
 
-.circuit-0,
-.circuit-0::after,
-.circuit-0::before {
+.circuit-2,
+.circuit-2::after,
+.circuit-2::before {
   background-color: currentColor;
   border-radius: 1px;
   display: block;
   height: 2px;
   position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.circuit-0::before,
-.circuit-0::after {
+.circuit-2::before,
+.circuit-2::after {
   top: 0;
   content: '';
 }
 
-.circuit-0::before {
+.circuit-2::before {
   -webkit-transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
   -ms-transform: translateY(-5px);
   transform: translateY(-5px);
   width: calc(14px * 0.64);
 }
 
-.circuit-0::after {
+.circuit-2::after {
   -webkit-transform: translateY(5px);
+  -moz-transform: translateY(5px);
   -ms-transform: translateY(5px);
   transform: translateY(5px);
   width: calc(14px * 0.82);
 }
 
+.circuit-3 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 <button
-  class="circuit-3"
+  class="circuit-0"
   title="Open menu"
   type="button"
 >
@@ -658,11 +664,11 @@ exports[`Hamburger should render with kilo styles 1`] = `
     role="presentation"
   >
     <span
-      class="circuit-0"
+      class="circuit-2"
     />
   </span>
   <span
-    class="circuit-2"
+    class="circuit-3"
   >
     Open menu
   </span>
