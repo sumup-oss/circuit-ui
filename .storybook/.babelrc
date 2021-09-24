@@ -1,14 +1,12 @@
 {
   "plugins": [
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
-    "lodash",
-    "@emotion/babel-plugin"
+    "lodash"
   ],
   "presets": [
     ["@babel/preset-env", { "loose": true }],
-    [
-      "@babel/preset-react",
-      { "runtime": "automatic", "importSource": "@emotion/react" }
-    ]
+    // We need to stay on `@emotion/babel-preset-css-prop` while Storybook
+    // doesn't support Emotion 11 out-of-the-box.
+    "@emotion/babel-preset-css-prop"
   ]
 }
