@@ -15,8 +15,7 @@
 
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { ThemeProvider } from '@emotion/react';
+import { css, ThemeProvider } from '@emotion/react';
 import { entries, includes, isEmpty, groupBy, sortBy } from 'lodash/fp';
 import { light } from '@sumup/design-tokens';
 import * as iconComponents from '@sumup/icons';

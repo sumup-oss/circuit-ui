@@ -14,8 +14,7 @@
  */
 
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { ThemeProvider } from '@emotion/react';
+import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { Headline, Body, Card } from '@sumup/circuit-ui';
 

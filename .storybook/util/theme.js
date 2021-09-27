@@ -1,6 +1,5 @@
 import { create } from '@storybook/theming';
-import { css } from '@emotion/react';
-import { ThemeProvider } from '@emotion/react';
+import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 
 import {
