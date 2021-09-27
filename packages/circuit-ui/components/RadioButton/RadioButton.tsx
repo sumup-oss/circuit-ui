@@ -40,9 +40,9 @@ export interface RadioButtonProps
    */
   children?: ReactNode;
   /**
-   * A clear and concise description of the input purpose.
+   * A clear and concise description of the option's purpose.
    */
-  label: ReactNode;
+  label?: ReactNode;
   /**
    * Triggers error styles on the component.
    */

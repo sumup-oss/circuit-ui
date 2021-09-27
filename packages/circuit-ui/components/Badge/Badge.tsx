@@ -20,10 +20,6 @@ import styled, { StyleProps } from '../../styles/styled';
 
 export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * The badge's label
-   */
-  label: string;
-  /**
    * Choose from 4 style variants. Default: 'neutral'.
    */
   variant?: 'neutral' | 'success' | 'warning' | 'danger' | 'promo';

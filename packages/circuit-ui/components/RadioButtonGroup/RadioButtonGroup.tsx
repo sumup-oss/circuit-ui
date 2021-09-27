@@ -26,7 +26,7 @@ export interface RadioButtonGroupProps
   extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
    * A collection of available options. Each option must have at least
-   * a value and children.
+   * a value and a label.
    */
   options: Omit<RadioButtonProps, 'onChange'>[];
   /**

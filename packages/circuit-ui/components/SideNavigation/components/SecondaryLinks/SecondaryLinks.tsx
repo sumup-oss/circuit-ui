@@ -90,9 +90,7 @@ function SecondaryLink({
         </Skeleton>
         {badge && (
           // @ts-expect-error TODO as prop clash
-          <Badge variant="promo" as="span">
-            {badge.label}
-          </Badge>
+          <Badge variant="promo" as="span" {...badge} />
         )}
       </SecondaryAnchor>
     </li>
