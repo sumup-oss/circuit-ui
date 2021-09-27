@@ -32,10 +32,11 @@ export default {
   excludeStories: /.*Args$/,
 };
 
-export const baseArgs = {
+export const baseArgs: SideNavigationProps = {
   isLoading: false,
   isOpen: true,
   closeButtonLabel: 'Close navigation',
+  onClose: action('Close'),
   primaryNavigationLabel: 'Primary',
   secondaryNavigationLabel: 'Secondary',
   primaryLinks: [
@@ -59,7 +60,7 @@ export const baseArgs = {
               label: 'Shirts',
               href: '/shop/shirts',
               onClick: action('Shop → Shirts'),
-              badge: { label: 'New' },
+              badge: { children: 'New' },
             },
             {
               label: 'Pants',
