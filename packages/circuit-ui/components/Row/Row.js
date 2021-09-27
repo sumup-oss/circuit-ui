@@ -47,7 +47,11 @@ const baseStyles = ({ theme }) => css`
 /**
  * Row wrapping for the Col component.
  */
-const Row = styled('div')(baseStyles);
+const StyledRow = styled('div')(baseStyles);
+
+function Row({ children, ...props }) {
+  return <StyledRow {...props}>{children}</StyledRow>;
+}
 
 /**
  * @component

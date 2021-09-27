@@ -33,9 +33,13 @@ const baseStyles = ({ theme, span, skip }) => css`
  * Content wrapping for the Grid component. Allows sizing based on provided
  * props.
  */
-const Col = styled('div', {
+const StyledCol = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'span',
 })(baseStyles);
+
+function Col({ children, ...props }) {
+  return <StyledCol {...props}>{children}</StyledCol>;
+}
 
 const sizingProp = PropTypes.oneOfType([
   PropTypes.object,

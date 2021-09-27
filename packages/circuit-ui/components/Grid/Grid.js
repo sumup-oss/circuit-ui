@@ -44,7 +44,11 @@ const baseStyles = ({ theme }) => css`
 /**
  * A basic 12-column grid component.
  */
-const Grid = styled('div')(baseStyles);
+const StyledGrid = styled('div')(baseStyles);
+
+function Grid({ children, ...props }) {
+  return <StyledGrid {...props}>{children}</StyledGrid>;
+}
 
 /**
  * @component
