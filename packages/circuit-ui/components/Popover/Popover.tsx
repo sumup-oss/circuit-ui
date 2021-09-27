@@ -36,6 +36,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import { IconProps } from '@sumup/icons';
 
 import { ClickEvent } from '../../types/events';
+import { AsPropType } from '../../types/prop-types';
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
@@ -109,13 +110,13 @@ export const PopoverItem = ({
   tracking,
   ...props
 }: PopoverItemProps): JSX.Element => {
-  const { Link } = useComponents();
+  const components = useComponents();
+  const Link = components.Link as AsPropType;
 
   const handleClick = useClickEvent(onClick, tracking, 'popover-item');
 
   return (
     <PopoverItemWrapper
-      // @ts-expect-error TODO as prop clash
       as={props.href ? Link : 'button'}
       onClick={handleClick}
       role="menuitem"

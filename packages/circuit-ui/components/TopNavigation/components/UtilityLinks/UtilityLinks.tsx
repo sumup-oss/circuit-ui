@@ -19,8 +19,9 @@ import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { IconProps } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
+import { AsPropType } from '../../../../types/prop-types';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 import Body from '../../../Body';
 import { useComponents } from '../../../ComponentsContext';
@@ -33,7 +34,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 `;
 
-const UtilityAnchor = styled.a(navigationItem, anchorStyles);
+const UtilityAnchor = styled.a<NoTheme>(navigationItem, anchorStyles);
 
 const iconStyles = (theme: Theme) => css`
   flex-shrink: 0;
@@ -89,7 +90,8 @@ function UtilityLink({
   tracking,
   ...props
 }: UtilityLinkProps) {
-  const { Link } = useComponents();
+  const components = useComponents();
+  const Link = components.Link as AsPropType;
 
   const handleClick = useClickEvent(onClick, tracking, 'utility-link');
 
@@ -97,7 +99,6 @@ function UtilityLink({
     <UtilityAnchor
       {...props}
       onClick={handleClick}
-      // @ts-expect-error TODO as prop clash
       as={props.href ? Link : 'button'}
     >
       <Skeleton css={iconStyles}>

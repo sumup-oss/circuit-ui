@@ -20,8 +20,9 @@ import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import { TrackingElement } from '@sumup/collector';
 
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { StyleProps, NoTheme } from '../../../../styles/styled';
 import { navigationItem } from '../../../../styles/style-mixins';
+import { AsPropType } from '../../../../types/prop-types';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { useFocusList, FocusProps } from '../../../../hooks/useFocusList';
 import SubHeadline from '../../../SubHeadline';
@@ -45,7 +46,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const SecondaryAnchor = styled.a(navigationItem, anchorStyles);
+const SecondaryAnchor = styled.a<NoTheme>(navigationItem, anchorStyles);
 
 const listStyles = css`
   list-style: none;
@@ -62,7 +63,8 @@ function SecondaryLink({
   badge,
   ...props
 }: SecondaryLinkProps) {
-  const { Link } = useComponents();
+  const components = useComponents();
+  const Link = components.Link as AsPropType;
 
   const handleClick = useClickEvent<MouseEvent | KeyboardEvent>(
     onClick,
@@ -76,7 +78,6 @@ function SecondaryLink({
         {...props}
         onClick={handleClick}
         aria-current={props.isActive ? 'page' : undefined}
-        // @ts-expect-error TODO as prop clash
         as={props.href ? Link : 'button'}
       >
         <Skeleton css={labelStyles}>
@@ -89,7 +90,7 @@ function SecondaryLink({
           </Body>
         </Skeleton>
         {badge && (
-          // @ts-expect-error TODO as prop clash
+          // @ts-expect-error The as prop isn't typed here, safe to ignore
           <Badge variant="promo" as="span" {...badge} />
         )}
       </SecondaryAnchor>

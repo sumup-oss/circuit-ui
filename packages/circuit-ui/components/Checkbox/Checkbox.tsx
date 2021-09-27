@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { InputHTMLAttributes, Ref, forwardRef } from 'react';
+import { InputHTMLAttributes, Ref, forwardRef, MouseEventHandler } from 'react';
 import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 import { Dispatch as TrackingProps } from '@sumup/collector';
@@ -29,7 +29,8 @@ import { useClickEvent } from '../../hooks/useClickEvent';
 import { deprecate } from '../../util/logger';
 import Tooltip from '../Tooltip';
 
-export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   /**
    * Triggers error styles on the component.
    */
@@ -47,9 +48,13 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   tracking?: TrackingProps;
   /**
-   * The ref to the HTML Dom element
+   * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLInputElement>;
+  /**
+   * The function to call when a controlled input's value changes.
+   */
+  onChange?: MouseEventHandler<HTMLInputElement>;
 }
 
 type LabelElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
@@ -252,7 +257,6 @@ export const Checkbox = forwardRef(
           disabled={disabled}
           invalid={invalid}
           ref={ref}
-          // @ts-expect-error TODO handler clash
           onClick={handleChange}
           onChange={() => {
             /**

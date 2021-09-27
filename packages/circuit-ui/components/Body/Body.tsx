@@ -19,6 +19,7 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { deprecate } from '../../util/logger';
+import { AsPropType } from '../../types/prop-types';
 
 type Size = 'one' | 'two';
 type Variant = 'highlight' | 'quote' | 'success' | 'error' | 'subtle';
@@ -39,7 +40,7 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
    * Render the text using any HTML element.
    */
-  as?: string;
+  as?: AsPropType;
   /**
    * The ref to the HTML DOM element.
    */
@@ -117,7 +118,7 @@ const StyledBody = styled('p', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<BodyProps>(baseStyles, sizeStyles, marginStyles, variantStyles);
 
-function getHTMLElement(variant?: Variant): string {
+function getHTMLElement(variant?: Variant): AsPropType {
   if (variant === 'highlight') {
     return 'strong';
   }
@@ -133,7 +134,6 @@ function getHTMLElement(variant?: Variant): string {
  */
 export const Body = forwardRef((props: BodyProps, ref?: BodyProps['ref']) => {
   const as = props.as || getHTMLElement(props.variant);
-  // @ts-expect-error TODO as prop clash
   return <StyledBody {...props} ref={ref} as={as} />;
 });
 

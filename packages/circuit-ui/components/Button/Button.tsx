@@ -35,6 +35,7 @@ import {
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
+import { AsPropType } from '../../types/prop-types';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent } from '../../hooks/useClickEvent';
 
@@ -284,7 +285,8 @@ export const Button = forwardRef(
     { children, icon: Icon, tracking, ...props }: ButtonProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
-    const { Link } = useComponents();
+    const components = useComponents();
+    const Link = components.Link as AsPropType;
 
     const handleClick = useClickEvent(props.onClick, tracking, 'button');
 
@@ -292,7 +294,6 @@ export const Button = forwardRef(
       <StyledButton
         {...props}
         ref={ref}
-        // @ts-expect-error TODO as prop clash
         as={props.href ? Link : 'button'}
         onClick={handleClick}
       >
