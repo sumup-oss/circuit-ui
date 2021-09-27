@@ -36,7 +36,7 @@ export default {
 
 const RadioButtonWithState = ({
   checked: initial,
-  children,
+  label,
   ...props
 }: RadioButtonProps) => {
   const [checked, setChecked] = useState(initial);
@@ -44,9 +44,12 @@ const RadioButtonWithState = ({
     setChecked((prev) => !prev);
   };
   return (
-    <RadioButton {...props} checked={checked} onChange={handleChange}>
-      {children || (checked ? 'Checked' : 'Unchecked')}
-    </RadioButton>
+    <RadioButton
+      {...props}
+      checked={checked}
+      onChange={handleChange}
+      label={label || (checked ? 'Checked' : 'Unchecked')}
+    />
   );
 };
 
