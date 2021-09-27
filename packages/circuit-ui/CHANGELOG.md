@@ -1,5 +1,20 @@
 # @sumup/circuit-ui
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#1168](https://github.com/sumup-oss/circuit-ui/pull/1168) [`ca74d320`](https://github.com/sumup-oss/circuit-ui/commit/ca74d320168aba1285e23691ca6651a1d12f9d27) Thanks [@robinmetral](https://github.com/robinmetral)! - Upgraded icons to the new brand icons in all components.
+
+### Patch Changes
+
+- [#1168](https://github.com/sumup-oss/circuit-ui/pull/1168) [`ca74d320`](https://github.com/sumup-oss/circuit-ui/commit/ca74d320168aba1285e23691ca6651a1d12f9d27) Thanks [@robinmetral](https://github.com/robinmetral)! - Forwarded the icon size from an IconButton down to its Icon child.
+
+* [#1168](https://github.com/sumup-oss/circuit-ui/pull/1168) [`ca74d320`](https://github.com/sumup-oss/circuit-ui/commit/ca74d320168aba1285e23691ca6651a1d12f9d27) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the spacing between a PopoverItem's label and (optional) icon. Since the items should receive 24px icons, the component looks more balanced with a 16px spacing.
+
+* Updated dependencies [[`ca74d320`](https://github.com/sumup-oss/circuit-ui/commit/ca74d320168aba1285e23691ca6651a1d12f9d27)]:
+  - @sumup/icons@2.0.0-next.0
+
 ## 3.1.0
 
 ### Minor Changes
