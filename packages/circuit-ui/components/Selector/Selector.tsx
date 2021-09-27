@@ -13,13 +13,7 @@
  * limitations under the License.
  */
 
-import {
-  Fragment,
-  Ref,
-  InputHTMLAttributes,
-  forwardRef,
-  MouseEventHandler,
-} from 'react';
+import { Fragment, Ref, InputHTMLAttributes, forwardRef } from 'react';
 import { css } from '@emotion/react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
@@ -36,7 +30,7 @@ import { deprecate } from '../../util/logger';
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
 export interface SelectorProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
    * Value string for input.
    */
@@ -69,10 +63,6 @@ export interface SelectorProps
    * Removes the default bottom margin from the Selector.
    */
   noMargin?: boolean;
-  /**
-   * The function to call when a controlled input's value changes.
-   */
-  onChange?: MouseEventHandler<HTMLInputElement>;
   /**
    * The ref to the HTML DOM element
    */
@@ -226,15 +216,10 @@ export const Selector = forwardRef(
           name={name}
           value={value}
           disabled={disabled}
+          // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
           onClick={handleChange}
-          onChange={() => {
-            /**
-             * Noop to silence React warning:
-             * https://github.com/facebook/react/issues/3070#issuecomment-73311114
-             * Change is handled by onClick which has better browser support:
-             * https://stackoverflow.com/a/5575369/4620154
-             */
-          }}
+          // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
+          onChange={() => {}}
           ref={ref}
           {...props}
         />

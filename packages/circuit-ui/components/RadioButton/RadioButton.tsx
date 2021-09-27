@@ -19,7 +19,6 @@ import {
   Ref,
   forwardRef,
   ReactNode,
-  MouseEventHandler,
 } from 'react';
 import { css } from '@emotion/react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
@@ -34,7 +33,7 @@ import { uniqueId } from '../../util/id';
 import { useClickEvent } from '../../hooks/useClickEvent';
 
 export interface RadioButtonProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+  extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * @deprecated
    * Use the label prop instead.
@@ -48,10 +47,6 @@ export interface RadioButtonProps
    * Triggers error styles on the component.
    */
   invalid?: boolean;
-  /**
-   * The function to call when a controlled input's value changes.
-   */
-  onChange?: MouseEventHandler<HTMLInputElement>;
   /**
    * The ref to the HTML DOM element
    */
@@ -231,15 +226,10 @@ export const RadioButton = forwardRef(
           invalid={invalid}
           disabled={disabled}
           checked={checked}
+          // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
           onClick={handleChange}
-          onChange={() => {
-            /**
-             * Noop to silence React warning:
-             * https://github.com/facebook/react/issues/3070#issuecomment-73311114
-             * Change is handled by onClick which has better browser support:
-             * https://stackoverflow.com/a/5575369/4620154
-             */
-          }}
+          // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
+          onChange={() => {}}
           ref={ref}
         />
         <RadioButtonLabel

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { InputHTMLAttributes, Ref, forwardRef, MouseEventHandler } from 'react';
+import { InputHTMLAttributes, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 import { Dispatch as TrackingProps } from '@sumup/collector';
@@ -29,8 +29,7 @@ import { useClickEvent } from '../../hooks/useClickEvent';
 import { deprecate } from '../../util/logger';
 import Tooltip from '../Tooltip';
 
-export interface CheckboxProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * Triggers error styles on the component.
    */
@@ -51,10 +50,6 @@ export interface CheckboxProps
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLInputElement>;
-  /**
-   * The function to call when a controlled input's value changes.
-   */
-  onChange?: MouseEventHandler<HTMLInputElement>;
 }
 
 type LabelElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
@@ -257,15 +252,10 @@ export const Checkbox = forwardRef(
           disabled={disabled}
           invalid={invalid}
           ref={ref}
+          // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
           onClick={handleChange}
-          onChange={() => {
-            /**
-             * Noop to silence React warning:
-             * https://github.com/facebook/react/issues/3070#issuecomment-73311114
-             * Change is handled by onClick which has better browser support:
-             * https://stackoverflow.com/a/5575369/4620154
-             */
-          }}
+          // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
+          onChange={() => {}}
         />
         <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
           {children}

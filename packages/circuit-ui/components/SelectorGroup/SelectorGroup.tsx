@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactNode, Ref, forwardRef, MouseEventHandler } from 'react';
+import { ReactNode, Ref, forwardRef, ChangeEventHandler } from 'react';
 import { includes } from 'lodash/fp';
 import { css } from '@emotion/react';
 
@@ -36,7 +36,7 @@ export interface SelectorGroupProps {
   /**
    * Controls/Toggles the checked state. Passed on to the Selectors.
    */
-  onChange: MouseEventHandler<HTMLInputElement>;
+  onChange: ChangeEventHandler<HTMLInputElement>;
   /**
    * The value of the currently checked Selector.
    */

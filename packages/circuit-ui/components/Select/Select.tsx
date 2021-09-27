@@ -13,14 +13,7 @@
  * limitations under the License.
  */
 
-import {
-  FC,
-  ReactNode,
-  Ref,
-  SelectHTMLAttributes,
-  ChangeEvent,
-  forwardRef,
-} from 'react';
+import { FC, ReactNode, Ref, SelectHTMLAttributes, forwardRef } from 'react';
 import { css } from '@emotion/react';
 import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
@@ -52,10 +45,6 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    * A clear and concise description of the select purpose.
    */
   label: ReactNode;
-  /**
-   * onChange handler, called when the selection changes.
-   */
-  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
   /**
    * Name of the select form element.
    */
