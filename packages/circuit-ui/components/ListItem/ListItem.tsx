@@ -185,6 +185,7 @@ const IconContainer = styled.div(iconContainerStyles);
 const contentContainerStyles = css`
   flex: auto;
   display: flex;
+  min-width: 0;
 `;
 
 const ContentContainer = styled.div(contentContainerStyles);
@@ -194,6 +195,7 @@ const mainContainerStyles = css`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  min-width: 0;
 `;
 
 const MainContainer = styled.div(mainContainerStyles);
