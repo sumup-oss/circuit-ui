@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 4.0.0-next.1
+
+### Major Changes
+
+- [#1176](https://github.com/sumup-oss/circuit-ui/pull/1176) [`c7483f0b`](https://github.com/sumup-oss/circuit-ui/commit/c7483f0bbc206b80c693e6b5f856464e012683f7) Thanks [@robinmetral](https://github.com/robinmetral)! - Migrated to Emotion 11.
+
+### Patch Changes
+
+- [#1176](https://github.com/sumup-oss/circuit-ui/pull/1176) [`c7483f0b`](https://github.com/sumup-oss/circuit-ui/commit/c7483f0bbc206b80c693e6b5f856464e012683f7) Thanks [@robinmetral](https://github.com/robinmetral)! - Switched all component interfaces to extend `*HTMLAttributes<HTML*Element>` instead of the less accurate `HTMLProps`.
+
 ## 4.0.0-next.0
 
 ### Major Changes
