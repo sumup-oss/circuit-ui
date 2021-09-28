@@ -131,12 +131,12 @@ const interactiveStyles = ({ theme, as }: StyleProps & RootProps) =>
     cursor: pointer;
 
     &:hover {
-      background-color: ${theme.colors.n200};
+      background-color: ${theme.colors.n100};
     }
 
     &:active {
-      background-color: ${theme.colors.n300};
-      border-color: ${theme.colors.n300};
+      background-color: ${theme.colors.n200};
+      border-color: ${theme.colors.n200};
     }
   `;
 
