@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -225,7 +225,6 @@ export const ListItem = forwardRef(
       label,
       status,
       suffix,
-      selected,
       tracking,
       ...props
     }: ListItemProps,
@@ -256,8 +255,7 @@ export const ListItem = forwardRef(
         role="listitem"
         ref={ref}
         as={as}
-        selected={selected}
-        data-selected={selected}
+        data-selected={props.selected}
         onClick={handleClick}
       >
         {Icon && (

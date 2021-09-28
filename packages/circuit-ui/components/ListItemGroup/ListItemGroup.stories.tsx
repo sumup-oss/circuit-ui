@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -104,7 +104,7 @@ const Status = ({ item }: { item: Item }) => (
 );
 
 const failedSuffixStyles = (theme: Theme) => css`
-  color: ${theme.colors.n500};
+  color: ${theme.colors.n700};
   text-decoration-line: line-through;
 `;
 
@@ -129,6 +129,7 @@ const baseArgs = {
       €26.20
     </Body>
   ),
+  immersive: false,
   css: { width: 500 },
 };
 

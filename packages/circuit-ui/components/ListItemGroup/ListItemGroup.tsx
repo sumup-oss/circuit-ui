@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,6 +33,10 @@ interface BaseProps {
    * Display a secondary label for this group of list items.
    */
   suffix?: ReactNode;
+  /**
+   * Make the list item group suitable for full-width presentation on smaller resolutions.
+   */
+  immersive?: boolean;
   /**
    The ref to the HTML DOM element
    */
@@ -71,7 +75,7 @@ const suffixContainerStyles = ({ theme }: StyleProps) => css`
 
 const SuffixContainer = styled.div(suffixContainerStyles);
 
-const itemsContainerStyles = ({ theme }: StyleProps) => css`
+const itemsContainerBaseStyles = ({ theme }: StyleProps) => css`
   flex: auto;
   display: flex;
   flex-direction: column;
@@ -89,7 +93,7 @@ const itemsContainerStyles = ({ theme }: StyleProps) => css`
         content: '';
         position: absolute;
         top: -${theme.spacings.kilo};
-        left: 0; // TODO: handle items without icon
+        left: 0;
         right: -${theme.spacings.mega};
         border-top: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
       }
@@ -110,14 +114,34 @@ const itemsContainerStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const ItemsContainer = styled.div(itemsContainerStyles);
+const itemsContainerImmersiveStyles = ({
+  theme,
+  immersive,
+}: StyleProps & ListItemGroupProps) =>
+  immersive &&
+  css`
+    border-width: ${theme.borderWidth.kilo} 0;
+    border-radius: 0;
+
+    & > [role='listitem'][data-selected='true']:after {
+      top: -${theme.borderWidth.kilo};
+      bottom: -${theme.borderWidth.kilo};
+      left: 0;
+      right: 0;
+    }
+  `;
+
+const ItemsContainer = styled.div(
+  itemsContainerBaseStyles,
+  itemsContainerImmersiveStyles,
+);
 
 /**
  * The ListItemGroup component enables the user to render a named list of ListItem components.
  */
 export const ListItemGroup = forwardRef(
   (
-    { children, title, suffix, ...props }: ListItemGroupProps,
+    { children, title, suffix, immersive, ...props }: ListItemGroupProps,
     ref?: BaseProps['ref'],
   ): ReturnType => (
     <StyledListItemGroup {...props} ref={ref}>
@@ -127,7 +151,9 @@ export const ListItemGroup = forwardRef(
           {suffix && <SuffixContainer>{suffix}</SuffixContainer>}
         </HeaderContainer>
       )}
-      <ItemsContainer role="list">{children}</ItemsContainer>
+      <ItemsContainer immersive={immersive} role="list">
+        {children}
+      </ItemsContainer>
     </StyledListItemGroup>
   ),
 );
