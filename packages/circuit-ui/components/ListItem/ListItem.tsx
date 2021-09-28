@@ -109,12 +109,13 @@ const baseStyles = ({ theme }: StyleProps) => css`
   display: flex;
   align-items: center;
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+  margin: 0;
   width: 100%;
   text-align: left;
   text-decoration: none;
   position: relative;
 
-  &:focus-visible {
+  &:focus {
     border-color: transparent;
     z-index: 2;
   }
@@ -144,6 +145,11 @@ const selectedStyles = ({ theme, selected }: StyleProps & RootProps) =>
   selected &&
   css`
     background-color: ${theme.colors.b100};
+
+    &:hover,
+    &:active {
+      background-color: ${theme.colors.b100};
+    }
 
     &:after {
       content: '';

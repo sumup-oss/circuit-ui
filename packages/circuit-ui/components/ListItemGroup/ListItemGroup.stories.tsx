@@ -111,6 +111,7 @@ const failedSuffixStyles = (theme: Theme) => css`
 const Suffix = ({ item }: { item: Item }) => (
   <Body
     size="one"
+    variant="highlight"
     noMargin
     css={item.status === 'Failed' && failedSuffixStyles}
   >

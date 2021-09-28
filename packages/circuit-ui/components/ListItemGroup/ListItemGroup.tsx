@@ -105,8 +105,8 @@ const itemsContainerBaseStyles = ({ theme }: StyleProps) => css`
     &:active + [role='listitem'],
     &[data-selected='true'],
     &[data-selected='true'] + [role='listitem'],
-    &:focus-visible,
-    &:focus-visible + [role='listitem'] {
+    &:focus,
+    &:focus + [role='listitem'] {
       & > div:last-of-type:before {
         border-top: none;
       }
