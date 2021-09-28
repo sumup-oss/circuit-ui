@@ -1,5 +1,5 @@
 import LinkTo from '@storybook/addon-links/react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import { isStoryName, splitStoryName } from '../util/story-helpers';
 

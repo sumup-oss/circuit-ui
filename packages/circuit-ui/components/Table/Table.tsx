@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Component, createRef, HTMLProps, UIEvent } from 'react';
-import { css } from '@emotion/core';
+import { Component, createRef, HTMLAttributes, UIEvent } from 'react';
+import { css } from '@emotion/react';
 import { isNil, throttle } from 'lodash/fp';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -24,8 +24,7 @@ import TableBody from './components/TableBody';
 import { getSortDirection, ascendingSort, descendingSort } from './utils';
 import { Direction, Row, Cell } from './types';
 
-export interface TableProps
-  extends Omit<HTMLProps<HTMLDivElement>, 'headers' | 'rows'> {
+export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * An array of header cells for the table.
    */
@@ -108,7 +107,7 @@ const shadowStyles = ({
     border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   `;
 
-const TableContainer = styled.div<TableContainerElProps & StyleProps>`
+const TableContainer = styled.div<TableContainerElProps>`
   ${tableContainerBaseStyles};
   ${tableContainerScrollableStyles};
   ${shadowStyles};
@@ -117,13 +116,14 @@ const TableContainer = styled.div<TableContainerElProps & StyleProps>`
 /**
  * Scroll container styles.
  */
-type ScrollContainerElElProps = Pick<TableProps, 'scrollable' | 'rowHeaders'> &
-  HTMLProps<HTMLDivElement>;
+type ScrollContainerElProps = Pick<TableProps, 'scrollable' | 'rowHeaders'> & {
+  height?: string;
+};
 
 const containerStyles = ({
   theme,
   rowHeaders,
-}: ScrollContainerElElProps & StyleProps) =>
+}: ScrollContainerElProps & StyleProps) =>
   rowHeaders &&
   css`
     border-radius: ${theme.borderRadius.bit};
@@ -134,14 +134,14 @@ const containerStyles = ({
     }
   `;
 
-const scrollableStyles = ({ scrollable, height }: ScrollContainerElElProps) =>
+const scrollableStyles = ({ scrollable, height }: ScrollContainerElProps) =>
   scrollable &&
   css`
     height: ${height || '100%'};
     overflow-y: auto;
   `;
 
-const ScrollContainer = styled.div<ScrollContainerElElProps>`
+const ScrollContainer = styled.div<ScrollContainerElProps>`
   ${containerStyles};
   ${scrollableStyles};
 `;
@@ -214,13 +214,13 @@ class Table extends Component<TableProps, TableState> {
 
   private tableRef = createRef<HTMLDivElement>();
 
-  componentDidMount() {
+  componentDidMount(): void {
     if (this.props.scrollable) {
       this.addVerticalScroll();
     }
   }
 
-  componentDidUpdate(prevProps: TableProps) {
+  componentDidUpdate(prevProps: TableProps): void {
     if (!prevProps.scrollable && this.props.scrollable) {
       this.addVerticalScroll();
     }
@@ -230,13 +230,13 @@ class Table extends Component<TableProps, TableState> {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     if (this.props.scrollable) {
       this.removeVerticalScroll();
     }
   }
 
-  addVerticalScroll = () => {
+  addVerticalScroll = (): void => {
     this.calculateTableBodyHeight();
 
     window.addEventListener(
@@ -245,11 +245,11 @@ class Table extends Component<TableProps, TableState> {
     );
   };
 
-  removeVerticalScroll = () => {
+  removeVerticalScroll = (): void => {
     window.removeEventListener('resize', this.calculateTableBodyHeight);
   };
 
-  calculateTableBodyHeight = () => {
+  calculateTableBodyHeight = (): void => {
     this.setState({
       tableBodyHeight:
         isNil(this.tableRef.current) ||
@@ -259,11 +259,11 @@ class Table extends Component<TableProps, TableState> {
     });
   };
 
-  onSortEnter = (i: number) => this.setState({ sortHover: i });
+  onSortEnter = (i: number): void => this.setState({ sortHover: i });
 
-  onSortLeave = () => this.setState({ sortHover: undefined });
+  onSortLeave = (): void => this.setState({ sortHover: undefined });
 
-  onSortBy = (i: number) => {
+  onSortBy = (i: number): void => {
     const { sortedRow, sortDirection } = this.state;
     const isActive = i === sortedRow;
     const nextDirection = getSortDirection(isActive, sortDirection);
@@ -271,7 +271,7 @@ class Table extends Component<TableProps, TableState> {
     this.updateSort(i, nextDirection);
   };
 
-  getSortedRows = () => {
+  getSortedRows = (): Row[] => {
     const { rows, onSortBy } = this.props;
     const { sortDirection, sortedRow } = this.state;
 
@@ -284,23 +284,23 @@ class Table extends Component<TableProps, TableState> {
       : this.defaultSortBy(sortedRow, rows, sortDirection);
   };
 
-  updateSort = (i: number, nextDirection: Direction) =>
+  updateSort = (i: number, nextDirection: Direction): void =>
     this.setState({
       sortedRow: i,
       sortDirection: nextDirection,
     });
 
-  defaultSortBy = (i: number, rows: Row[], direction?: Direction) => {
+  defaultSortBy = (i: number, rows: Row[], direction?: Direction): Row[] => {
     const sortFn = direction === 'ascending' ? ascendingSort : descendingSort;
 
     return [...rows].sort(sortFn(i));
   };
 
-  handleScroll = (e: UIEvent<HTMLDivElement>) => {
+  handleScroll = (e: UIEvent<HTMLDivElement>): void => {
     this.setState({ scrollTop: e.currentTarget.scrollTop });
   };
 
-  render() {
+  render(): JSX.Element {
     const {
       rowHeaders = true,
       headers = [],

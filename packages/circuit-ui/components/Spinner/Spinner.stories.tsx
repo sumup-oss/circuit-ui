@@ -13,12 +13,10 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components';
-
-import { SpinnerProps } from './Spinner';
 
 import Spinner from '.';
 

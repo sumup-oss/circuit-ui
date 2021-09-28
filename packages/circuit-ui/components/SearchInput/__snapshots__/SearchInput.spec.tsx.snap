@@ -2,24 +2,6 @@
 
 exports[`SearchInput should grey out icon when disabled 1`] = `
 .circuit-0 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-.circuit-3 {
-  position: relative;
-}
-
-.circuit-1 {
-  position: absolute;
-  pointer-events: none;
-  color: #666;
-  padding: 12px 16px;
-  height: 48px;
-  width: 48px;
-}
-
-.circuit-4 {
   font-size: 14px;
   line-height: 20px;
   display: block;
@@ -29,7 +11,25 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   margin-bottom: 16px;
 }
 
+.circuit-1 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
 .circuit-2 {
+  position: relative;
+}
+
+.circuit-3 {
+  position: absolute;
+  pointer-events: none;
+  color: #666;
+  padding: 12px 16px;
+  height: 48px;
+  width: 48px;
+}
+
+.circuit-4 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -48,45 +48,45 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-2::-webkit-input-placeholder {
+.circuit-4::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-4::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-4:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-4::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 <label
-  class="circuit-4"
+  class="circuit-0"
   disabled=""
   for="input_2"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Search
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <svg
-      class="circuit-1"
+      class="circuit-3"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -101,7 +101,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
       />
     </svg>
     <input
-      class="circuit-2"
+      class="circuit-4"
       disabled=""
       id="input_2"
       type="text"
@@ -112,23 +112,23 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 `;
 
 exports[`SearchInput should render with default styles 1`] = `
-.circuit-4 {
+.circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: inline-block;
   margin-bottom: 4px;
 }
 
-.circuit-3 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   position: absolute;
   pointer-events: none;
   color: #666;
@@ -137,7 +137,7 @@ exports[`SearchInput should render with default styles 1`] = `
   width: 48px;
 }
 
-.circuit-2 {
+.circuit-4 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -155,56 +155,56 @@ exports[`SearchInput should render with default styles 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-2::-webkit-input-placeholder {
+.circuit-4::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-4::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-4:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-4::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-4:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-2:focus {
+.circuit-4:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-2:active {
+.circuit-4:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
 <label
-  class="circuit-4"
+  class="circuit-0"
   for="input_1"
 >
   <span
-    class="circuit-0"
+    class="circuit-1"
   >
     Search
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <svg
-      class="circuit-1"
+      class="circuit-3"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -219,7 +219,7 @@ exports[`SearchInput should render with default styles 1`] = `
       />
     </svg>
     <input
-      class="circuit-2"
+      class="circuit-4"
       id="input_1"
       type="text"
       value=""

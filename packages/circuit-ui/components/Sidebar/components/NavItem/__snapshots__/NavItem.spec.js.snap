@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavItem styles should render with default styles and match the snapshot 1`] = `
-.circuit-4 {
+.circuit-0 {
   display: block;
 }
 
-.circuit-2 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15,8 +15,8 @@ exports[`NavItem styles should render with default styles and match the snapshot
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
   height: auto;
   margin: 16px;
@@ -29,34 +29,34 @@ exports[`NavItem styles should render with default styles and match the snapshot
   transition: color 120ms ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   color: #F5F5F5;
 }
 
-.circuit-0 {
+.circuit-3 {
   display: block;
   margin-left: 12px;
 }
 
 <li
-  class="circuit-4"
+  class="circuit-0"
 >
   <a
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-3 circuit-4"
     />
   </a>
 </li>
 `;
 
 exports[`NavItem styles should render with default styles and match the snapshot for a secondary NavItem 1`] = `
-.circuit-4 {
+.circuit-0 {
   display: block;
 }
 
-.circuit-2 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -66,8 +66,8 @@ exports[`NavItem styles should render with default styles and match the snapshot
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
   height: auto;
   margin: 16px;
@@ -84,11 +84,11 @@ exports[`NavItem styles should render with default styles and match the snapshot
   transition: color 120ms ease-in-out,top 120ms ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   color: #F5F5F5;
 }
 
-.circuit-0 {
+.circuit-3 {
   display: block;
   margin-left: 12px;
   margin-left: 0px;
@@ -99,29 +99,24 @@ exports[`NavItem styles should render with default styles and match the snapshot
 }
 
 <li
-  class="circuit-4"
+  class="circuit-0"
 >
   <a
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-3 circuit-4"
     />
   </a>
 </li>
 `;
 
 exports[`NavItem styles should render with disabled state styles and match the snapshot 1`] = `
-.circuit-4 {
-  display: block;
-}
-
 .circuit-0 {
   display: block;
-  margin-left: 12px;
 }
 
-.circuit-2 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -131,8 +126,8 @@ exports[`NavItem styles should render with disabled state styles and match the s
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
   height: auto;
   margin: 16px;
@@ -147,31 +142,31 @@ exports[`NavItem styles should render with disabled state styles and match the s
   color: #999;
 }
 
+.circuit-3 {
+  display: block;
+  margin-left: 12px;
+}
+
 <li
-  class="circuit-4"
+  class="circuit-0"
 >
   <a
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
     disabled=""
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-3 circuit-4"
     />
   </a>
 </li>
 `;
 
 exports[`NavItem styles should render with selected state styles and match the snapshot 1`] = `
-.circuit-4 {
-  display: block;
-}
-
 .circuit-0 {
   display: block;
-  margin-left: 12px;
 }
 
-.circuit-2 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -181,8 +176,8 @@ exports[`NavItem styles should render with selected state styles and match the s
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
   height: auto;
   margin: 16px;
@@ -197,14 +192,19 @@ exports[`NavItem styles should render with selected state styles and match the s
   color: #FFF;
 }
 
+.circuit-3 {
+  display: block;
+  margin-left: 12px;
+}
+
 <li
-  class="circuit-4"
+  class="circuit-0"
 >
   <a
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-3 circuit-4"
     />
   </a>
 </li>

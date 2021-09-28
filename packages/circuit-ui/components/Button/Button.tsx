@@ -13,8 +13,16 @@
  * limitations under the License.
  */
 
-import { forwardRef, Ref, HTMLProps, ReactNode, FC, SVGProps } from 'react';
-import { css } from '@emotion/core';
+import {
+  forwardRef,
+  Ref,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+  ReactNode,
+  FC,
+  SVGProps,
+} from 'react';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { Dispatch as TrackingProps } from '@sumup/collector';
@@ -27,6 +35,7 @@ import {
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
+import { AsPropType } from '../../types/prop-types';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent } from '../../hooks/useClickEvent';
 
@@ -76,8 +85,8 @@ export interface BaseProps {
   'data-testid'?: string;
 }
 
-type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'onClick'>;
-type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'onClick'>;
+type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
+type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
@@ -277,10 +286,7 @@ export const Button = forwardRef(
     ref?: BaseProps['ref'],
   ): ReturnType => {
     const components = useComponents();
-
-    // Need to typecast here because the styled component types restrict the
-    // `as` prop to a string. It's safe to ignore that constraint here.
-    const Link = (components.Link as unknown) as string;
+    const Link = components.Link as AsPropType;
 
     const handleClick = useClickEvent(props.onClick, tracking, 'button');
 

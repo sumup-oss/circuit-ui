@@ -17,7 +17,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 import { useState, useEffect, FC, SVGProps, ReactNode } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { TrackingElement } from '@sumup/collector';
 import { isEmpty } from 'lodash/fp';
 

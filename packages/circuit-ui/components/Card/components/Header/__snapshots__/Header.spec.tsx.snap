@@ -12,7 +12,6 @@ exports[`CardHeader should render with default styles 1`] = `
   display: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   margin-bottom: 24px;
 }

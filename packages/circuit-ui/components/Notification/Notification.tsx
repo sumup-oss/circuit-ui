@@ -14,12 +14,12 @@
  */
 
 import { FC, ReactNode } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Confirm, Alert, Notify, IconProps } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import { ClickEvent } from '../../types/events';
-import styled, { NoTheme, StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled';
 import CloseButton, { CloseButtonProps } from '../CloseButton';
 
 type Variant = 'success' | 'error' | 'warning';
@@ -40,13 +40,13 @@ const containerStyles = () => css`
   align-items: flex-start;
 `;
 
-const Container = styled('div')<NoTheme>(containerStyles);
+const Container = styled('div')(containerStyles);
 
 const contentStyles = () => css`
   width: 100%;
 `;
 
-const Content = styled('div')<NoTheme>(contentStyles);
+const Content = styled('div')(contentStyles);
 
 const colorMap = {
   success: 'success',

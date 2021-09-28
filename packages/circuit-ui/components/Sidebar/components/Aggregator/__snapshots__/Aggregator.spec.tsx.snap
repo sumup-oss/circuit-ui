@@ -2,7 +2,7 @@
 
 exports[`Aggregator styles should render and match snapshot when open 1`] = `
 HTMLCollection [
-  .circuit-2 {
+  .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11,8 +11,8 @@ HTMLCollection [
   -ms-flex-direction: row;
   flex-direction: row;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
   height: auto;
   width: calc(100% - (2 * 16px));
@@ -28,12 +28,12 @@ HTMLCollection [
   outline: none;
 }
 
-.circuit-2:hover,
-.circuit-2:focus {
+.circuit-0:hover,
+.circuit-0:focus {
   color: #F5F5F5;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: block;
   margin-left: 12px;
 }
@@ -80,12 +80,12 @@ HTMLCollection [
     <li>
       <button
         aria-disabled="false"
-        class="circuit-2"
+        class="circuit-0"
         data-testid="aggregator"
       >
         default-icon
         <span
-          class="circuit-0 circuit-1"
+          class="circuit-1 circuit-2"
         >
           Aggregator
         </span>
@@ -105,7 +105,7 @@ HTMLCollection [
 `;
 
 exports[`Aggregator styles should render with default styles 1`] = `
-.circuit-2 {
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -114,8 +114,8 @@ exports[`Aggregator styles should render with default styles 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
   height: auto;
   width: calc(100% - (2 * 16px));
@@ -131,12 +131,12 @@ exports[`Aggregator styles should render with default styles 1`] = `
   outline: none;
 }
 
-.circuit-2:hover,
-.circuit-2:focus {
+.circuit-0:hover,
+.circuit-0:focus {
   color: #F5F5F5;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: block;
   margin-left: 12px;
 }
@@ -177,12 +177,12 @@ exports[`Aggregator styles should render with default styles 1`] = `
   <li>
     <button
       aria-disabled="false"
-      class="circuit-2"
+      class="circuit-0"
       data-testid="aggregator"
     >
       default-icon
       <span
-        class="circuit-0 circuit-1"
+        class="circuit-1 circuit-2"
       >
         Aggregator
       </span>
@@ -202,11 +202,6 @@ exports[`Aggregator styles should render with default styles 1`] = `
 
 exports[`Aggregator styles should render with disabled state styles and match the snapshot 1`] = `
 .circuit-0 {
-  display: block;
-  margin-left: 12px;
-}
-
-.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -215,8 +210,8 @@ exports[`Aggregator styles should render with disabled state styles and match th
   -ms-flex-direction: row;
   flex-direction: row;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
   height: auto;
   width: calc(100% - (2 * 16px));
@@ -234,11 +229,16 @@ exports[`Aggregator styles should render with disabled state styles and match th
   color: #999;
 }
 
+.circuit-1 {
+  display: block;
+  margin-left: 12px;
+}
+
 <ul>
   <li>
     <button
       aria-disabled="true"
-      class="circuit-2"
+      class="circuit-0"
       data-testid="aggregator"
       disabled=""
     >
@@ -255,7 +255,7 @@ exports[`Aggregator styles should render with disabled state styles and match th
         />
       </svg>
       <span
-        class="circuit-0 circuit-1"
+        class="circuit-1 circuit-2"
       >
         Aggregator
       </span>

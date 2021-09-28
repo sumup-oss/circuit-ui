@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { forwardRef, Ref, HTMLProps, ReactNode } from 'react';
-import { css } from '@emotion/core';
+import { forwardRef, Ref, HTMLAttributes, ReactNode } from 'react';
+import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 
 import Title from './components/Title';
 
-export interface HeaderProps extends HTMLProps<HTMLDivElement> {
+export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The page title for the Header.
    */

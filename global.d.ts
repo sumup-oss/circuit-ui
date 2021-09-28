@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,13 +13,7 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-import { Theme } from '@sumup/design-tokens';
-
-export default styled;
-
-export interface StyleProps {
-  theme: Theme;
+declare module '*.mdx' {
+  const content: string;
+  export default content;
 }
-
-export type NoTheme = Record<string, unknown>;

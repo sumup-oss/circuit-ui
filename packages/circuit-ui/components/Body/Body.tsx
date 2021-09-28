@@ -13,18 +13,18 @@
  * limitations under the License.
  */
 
-import { forwardRef, HTMLProps, Ref } from 'react';
-import { css } from '@emotion/core';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { deprecate } from '../../util/logger';
+import { AsPropType } from '../../types/prop-types';
 
 type Size = 'one' | 'two';
 type Variant = 'highlight' | 'quote' | 'success' | 'error' | 'subtle';
 
-export interface BodyProps
-  extends Omit<HTMLProps<HTMLParagraphElement>, 'size'> {
+export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
    * Choose from 2 font sizes. Default `one`.
    */
@@ -40,7 +40,7 @@ export interface BodyProps
   /**
    * Render the text using any HTML element.
    */
-  as?: string;
+  as?: AsPropType;
   /**
    * The ref to the HTML DOM element.
    */
@@ -118,7 +118,7 @@ const StyledBody = styled('p', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<BodyProps>(baseStyles, sizeStyles, marginStyles, variantStyles);
 
-function getHTMLElement(variant?: Variant): string {
+function getHTMLElement(variant?: Variant): AsPropType {
   if (variant === 'highlight') {
     return 'strong';
   }

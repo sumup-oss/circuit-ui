@@ -13,15 +13,14 @@
  * limitations under the License.
  */
 
-import { FC, HTMLProps } from 'react';
-import { css } from '@emotion/core';
+import { FC, HTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { deprecate } from '../../util/logger';
 
-export interface SubHeadlineProps
-  extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
+export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
    * Removes the default bottom margin from the subheading.
    */

@@ -14,7 +14,7 @@
  */
 
 import { FC } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { ArrowRight } from '@sumup/icons';
@@ -27,6 +27,7 @@ import {
 } from '../../../../styles/style-mixins';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { ClickEvent } from '../../../../types/events';
+import { AsPropType } from '../../../../types/prop-types';
 import { useComponents } from '../../../ComponentsContext';
 import Body from '../../../Body';
 import { Skeleton } from '../../../Skeleton';
@@ -180,7 +181,8 @@ export function PrimaryLink({
   secondaryGroups,
   ...props
 }: PrimaryLinkProps): JSX.Element {
-  const { Link } = useComponents();
+  const components = useComponents();
+  const Link = components.Link as AsPropType;
 
   const handleClick = useClickEvent<ClickEvent>(
     onClick,
@@ -198,7 +200,6 @@ export function PrimaryLink({
       isActive={isActive}
       isOpen={isOpen}
       aria-current={isActive ? 'page' : undefined}
-      // @ts-expect-error The type for the `as` prop is missing in Emotion's prop types.
       as={props.href ? Link : 'button'}
     >
       <Skeleton css={cx(iconStyles, badge && iconWithBadgeStyles)}>

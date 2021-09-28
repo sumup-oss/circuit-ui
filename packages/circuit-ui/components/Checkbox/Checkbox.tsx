@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { HTMLProps, Ref, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import { InputHTMLAttributes, Ref, forwardRef } from 'react';
+import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
@@ -29,7 +29,7 @@ import { useClickEvent } from '../../hooks/useClickEvent';
 import { deprecate } from '../../util/logger';
 import Tooltip from '../Tooltip';
 
-export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
+export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * Triggers error styles on the component.
    */
@@ -47,7 +47,7 @@ export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
    */
   tracking?: TrackingProps;
   /**
-   * The ref to the HTML Dom element
+   * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLInputElement>;
 }
@@ -252,24 +252,17 @@ export const Checkbox = forwardRef(
           disabled={disabled}
           invalid={invalid}
           ref={ref}
+          // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
           onClick={handleChange}
-          onChange={() => {
-            /**
-             * Noop to silence React warning:
-             * https://github.com/facebook/react/issues/3070#issuecomment-73311114
-             * Change is handled by onClick which has better browser support:
-             * https://stackoverflow.com/a/5575369/4620154
-             */
-          }}
+          // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
+          onChange={() => {}}
         />
         <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
           {children}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>
         {!disabled && validationHint && (
-          // TODO: Reenable typechecks once Tooltip has been migrated to TypeScript.
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
+          // @ts-expect-error Reenable typechecks once Tooltip has been migrated to TypeScript
           <CheckboxTooltip position={'top'} align={'right'}>
             {validationHint}
           </CheckboxTooltip>

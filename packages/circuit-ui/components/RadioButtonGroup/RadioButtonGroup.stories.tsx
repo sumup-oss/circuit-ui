@@ -43,9 +43,9 @@ Base.args = {
   name: 'radio-button-group',
   label: 'Choose your favourite fruit',
   options: [
-    { children: 'Apple', value: 'apple' },
-    { children: 'Banana', value: 'banana' },
-    { children: 'Mango', value: 'mango' },
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
   ],
 };
 
@@ -61,9 +61,9 @@ Invalid.args = {
   name: 'radio-button-group',
   label: 'Choose your favourite fruit',
   options: [
-    { children: 'Apple', value: 'apple' },
-    { children: 'Banana', value: 'banana' },
-    { children: 'Mango', value: 'mango' },
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
   ],
   invalid: true,
   validationHint: 'This field is required.',
@@ -81,9 +81,9 @@ Valid.args = {
   name: 'radio-button-group',
   label: 'Choose your favourite fruit',
   options: [
-    { children: 'Apple', value: 'apple' },
-    { children: 'Banana', value: 'banana' },
-    { children: 'Mango', value: 'mango' },
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
   ],
   showValid: true,
   validationHint: 'You chose an option.',
@@ -101,9 +101,9 @@ Warning.args = {
   name: 'radio-button-group',
   label: 'Choose your favourite fruit',
   options: [
-    { children: 'Apple', value: 'apple' },
-    { children: 'Banana', value: 'banana' },
-    { children: 'Mango', value: 'mango' },
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
   ],
   hasWarning: true,
   validationHint: 'This choice might cause errors.',

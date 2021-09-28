@@ -11,35 +11,35 @@ exports[`Col default breakpoint should render with span based styles 1`] = `
   position: relative;
 }
 
-@media (max-width:479px) {
+@media (max-width: 479px) {
   .circuit-0 {
     padding-left: calc(8px / 2);
     padding-right: calc(8px / 2);
   }
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
   .circuit-0 {
     padding-left: calc(16px / 2);
     padding-right: calc(16px / 2);
   }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:960px) {
+@media (min-width: 960px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width: 1280px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
@@ -62,35 +62,35 @@ exports[`Col default breakpoint should render with span/skip based styles 1`] = 
   position: relative;
 }
 
-@media (max-width:479px) {
+@media (max-width: 479px) {
   .circuit-0 {
     padding-left: calc(8px / 2);
     padding-right: calc(8px / 2);
   }
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
   .circuit-0 {
     padding-left: calc(16px / 2);
     padding-right: calc(16px / 2);
   }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:960px) {
+@media (min-width: 960px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width: 1280px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
@@ -113,42 +113,42 @@ exports[`Col mobile breakpoint should render with span based styles 1`] = `
   position: relative;
 }
 
-@media (max-width:479px) {
+@media (max-width: 479px) {
   .circuit-0 {
     padding-left: calc(8px / 2);
     padding-right: calc(8px / 2);
   }
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
   .circuit-0 {
     padding-left: calc(16px / 2);
     padding-right: calc(16px / 2);
   }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:960px) {
+@media (min-width: 960px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width: 1280px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
   .circuit-0 {
     width: 100%;
   }
@@ -170,48 +170,48 @@ exports[`Col mobile breakpoint should render with span/skip based styles 1`] = `
   position: relative;
 }
 
-@media (max-width:479px) {
+@media (max-width: 479px) {
   .circuit-0 {
     padding-left: calc(8px / 2);
     padding-right: calc(8px / 2);
   }
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
   .circuit-0 {
     padding-left: calc(16px / 2);
     padding-right: calc(16px / 2);
   }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:960px) {
+@media (min-width: 960px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width: 1280px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
   .circuit-0 {
     width: 100%;
   }
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
   .circuit-0 {
     left: 25%;
     position: relative;
@@ -234,35 +234,35 @@ exports[`Col should render with default styles 1`] = `
   position: relative;
 }
 
-@media (max-width:479px) {
+@media (max-width: 479px) {
   .circuit-0 {
     padding-left: calc(8px / 2);
     padding-right: calc(8px / 2);
   }
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
   .circuit-0 {
     padding-left: calc(16px / 2);
     padding-right: calc(16px / 2);
   }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:960px) {
+@media (min-width: 960px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width: 1280px) {
   .circuit-0 {
     padding-left: calc(24px / 2);
     padding-right: calc(24px / 2);

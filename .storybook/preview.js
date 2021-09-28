@@ -1,9 +1,8 @@
 import { addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withPerformance } from 'storybook-addon-performance';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider, Global, css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Global, css } from '@emotion/core';
 import { light } from '@sumup/design-tokens';
 import { TrackingRoot, TrackingView } from '@sumup/collector';
 

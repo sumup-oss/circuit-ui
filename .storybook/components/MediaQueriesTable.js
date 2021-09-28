@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { withTheme, ThemeProvider } from 'emotion-theming';
+import { withTheme, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { Table } from '@sumup/circuit-ui';
 

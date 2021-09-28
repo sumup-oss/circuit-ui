@@ -14,7 +14,7 @@
  */
 
 import { useState } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Home, Profile, Sales, Shop } from '@sumup/icons';
 

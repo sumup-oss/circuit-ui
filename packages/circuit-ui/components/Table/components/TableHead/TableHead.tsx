@@ -14,7 +14,7 @@
  */
 
 import { Fragment } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';

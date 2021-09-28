@@ -13,8 +13,14 @@
  * limitations under the License.
  */
 
-import { Fragment, HTMLProps, Ref, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import {
+  Fragment,
+  InputHTMLAttributes,
+  Ref,
+  forwardRef,
+  ReactNode,
+} from 'react';
+import { css } from '@emotion/react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -26,7 +32,17 @@ import {
 import { uniqueId } from '../../util/id';
 import { useClickEvent } from '../../hooks/useClickEvent';
 
-export interface RadioButtonProps extends HTMLProps<HTMLInputElement> {
+export interface RadioButtonProps
+  extends InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * @deprecated
+   * Use the label prop instead.
+   */
+  children?: ReactNode;
+  /**
+   * A clear and concise description of the option's purpose.
+   */
+  label?: ReactNode;
   /**
    * Triggers error styles on the component.
    */
@@ -210,15 +226,10 @@ export const RadioButton = forwardRef(
           invalid={invalid}
           disabled={disabled}
           checked={checked}
+          // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
           onClick={handleChange}
-          onChange={() => {
-            /**
-             * Noop to silence React warning:
-             * https://github.com/facebook/react/issues/3070#issuecomment-73311114
-             * Change is handled by onClick which has better browser support:
-             * https://stackoverflow.com/a/5575369/4620154
-             */
-          }}
+          // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
+          onChange={() => {}}
           ref={ref}
         />
         <RadioButtonLabel

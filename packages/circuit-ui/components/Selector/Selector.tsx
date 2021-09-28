@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Fragment, Ref, HTMLProps, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import { Fragment, Ref, InputHTMLAttributes, forwardRef } from 'react';
+import { css } from '@emotion/react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -30,7 +30,7 @@ import { deprecate } from '../../util/logger';
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
 export interface SelectorProps
-  extends Omit<HTMLProps<HTMLInputElement>, 'size'> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
    * Value string for input.
    */
@@ -216,15 +216,10 @@ export const Selector = forwardRef(
           name={name}
           value={value}
           disabled={disabled}
+          // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
           onClick={handleChange}
-          onChange={() => {
-            /**
-             * Noop to silence React warning:
-             * https://github.com/facebook/react/issues/3070#issuecomment-73311114
-             * Change is handled by onClick which has better browser support:
-             * https://stackoverflow.com/a/5575369/4620154
-             */
-          }}
+          // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
+          onChange={() => {}}
           ref={ref}
           {...props}
         />

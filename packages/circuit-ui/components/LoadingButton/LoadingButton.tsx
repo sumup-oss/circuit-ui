@@ -14,7 +14,7 @@
  */
 
 import { FC } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually } from '../../styles/style-mixins';

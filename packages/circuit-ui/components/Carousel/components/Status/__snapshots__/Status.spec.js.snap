@@ -10,7 +10,7 @@ exports[`Status styles should render with default styles 1`] = `
   margin-bottom: 0;
 }
 
-@media (max-width:479px) {
+@media (max-width: 479px) {
   .circuit-1 {
     font-size: 14px;
     line-height: 20px;

@@ -31,22 +31,22 @@ describe('RadioButton', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<RadioButton />);
+    const actual = create(<RadioButton label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with checked styles', () => {
-    const actual = create(<RadioButton checked />);
+    const actual = create(<RadioButton checked label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styles', () => {
-    const actual = create(<RadioButton disabled />);
+    const actual = create(<RadioButton disabled label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with invalid styles', () => {
-    const actual = create(<RadioButton invalid />);
+    const actual = create(<RadioButton invalid label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -54,9 +54,7 @@ describe('RadioButton', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <RadioButton name="radio">Radio button</RadioButton>,
-    );
+    const wrapper = renderToHtml(<RadioButton name="radio" label="Label" />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
@@ -65,7 +63,7 @@ describe('RadioButton', () => {
    * Logic tests.
    */
   it('should be unchecked by default', () => {
-    const { getByLabelText } = render(<RadioButton>Label</RadioButton>);
+    const { getByLabelText } = render(<RadioButton label="Label" />);
     const inputEl = getByLabelText('Label', {
       exact: false,
     });
@@ -75,7 +73,7 @@ describe('RadioButton', () => {
   it('should call the change handler when clicked', () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
-      <RadioButton onChange={onChange}>Label</RadioButton>,
+      <RadioButton onChange={onChange} label="Label" />,
     );
     const inputEl = getByLabelText('Label', {
       exact: false,
@@ -94,7 +92,7 @@ describe('RadioButton', () => {
      */
     it('should accept a working ref', () => {
       const tref = createRef<HTMLInputElement>();
-      const { container } = render(<RadioButton ref={tref} />);
+      const { container } = render(<RadioButton ref={tref} label="Label" />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
     });

@@ -2,142 +2,11 @@
 
 exports[`ButtonGroup Center aligment should render with center alignment styles 1`] = `
 .circuit-0 {
-  font-size: 16px;
-  line-height: 24px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
-  padding: calc(12px - 1px) calc(24px - 1px);
-}
-
-.circuit-0:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-0:disabled,
-.circuit-0[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-0:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
-
-.circuit-0:active,
-.circuit-0[aria-expanded='true'],
-.circuit-0[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-.circuit-1 {
-  font-size: 16px;
-  line-height: 24px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
-  padding: calc(12px - 1px) calc(24px - 1px);
-}
-
-.circuit-1:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-1:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-1:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-1:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
-}
-
-.circuit-1:active,
-.circuit-1[aria-expanded='true'],
-.circuit-1[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
-}
-
-.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -147,58 +16,42 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
   align-items: flex-start;
   width: 100%;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
 }
 
-.circuit-2 > button,
-.circuit-2 > a {
+.circuit-0>button,
+.circuit-0>a {
   width: 100%;
 }
 
-.circuit-2 > button:not(:last-child),
-.circuit-2 > a:not(:last-child) {
+.circuit-0>button:not(:last-child),
+.circuit-0>a:not(:last-child) {
   margin-bottom: 16px;
 }
 
-@media (min-width:480px) {
-  .circuit-2 {
+@media (min-width: 480px) {
+  .circuit-0 {
+    -webkit-box-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 
-  .circuit-2 > button,
-  .circuit-2 > a {
+  .circuit-0>button,
+  .circuit-0>a {
     width: auto;
   }
 
-  .circuit-2 > button:not(:last-child),
-  .circuit-2 > a:not(:last-child) {
+  .circuit-0>button:not(:last-child),
+  .circuit-0>a:not(:last-child) {
     margin-right: 16px;
     margin-bottom: 0;
   }
 }
 
-<div
-  class="circuit-2"
->
-  <button
-    class="circuit-0"
-  >
-    Cancel
-  </button>
-  <button
-    class="circuit-1"
-  >
-    Confirm
-  </button>
-</div>
-`;
-
-exports[`ButtonGroup Left aligment should render with left alignment styles 1`] = `
-.circuit-0 {
+.circuit-1 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -210,8 +63,8 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -229,72 +82,6 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: calc(12px - 1px) calc(24px - 1px);
-}
-
-.circuit-0:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-0:disabled,
-.circuit-0[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-0:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
-
-.circuit-0:active,
-.circuit-0[aria-expanded='true'],
-.circuit-0[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-.circuit-1 {
-  font-size: 16px;
-  line-height: 24px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
 }
 
@@ -319,22 +106,106 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
 }
 
 .circuit-1:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+.circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
+  padding: calc(12px - 1px) calc(24px - 1px);
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-2:active,
+.circuit-2[aria-expanded='true'],
+.circuit-2[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-2 {
+<div
+  class="circuit-0"
+>
+  <button
+    class="circuit-1"
+  >
+    Cancel
+  </button>
+  <button
+    class="circuit-2"
+  >
+    Confirm
+  </button>
+</div>
+`;
+
+exports[`ButtonGroup Left aligment should render with left alignment styles 1`] = `
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -344,106 +215,42 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   align-items: flex-start;
   width: 100%;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.circuit-2 > button,
-.circuit-2 > a {
+.circuit-0>button,
+.circuit-0>a {
   width: 100%;
 }
 
-.circuit-2 > button:not(:last-child),
-.circuit-2 > a:not(:last-child) {
+.circuit-0>button:not(:last-child),
+.circuit-0>a:not(:last-child) {
   margin-bottom: 16px;
 }
 
-@media (min-width:480px) {
-  .circuit-2 {
+@media (min-width: 480px) {
+  .circuit-0 {
+    -webkit-box-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 
-  .circuit-2 > button,
-  .circuit-2 > a {
+  .circuit-0>button,
+  .circuit-0>a {
     width: auto;
   }
 
-  .circuit-2 > button:not(:last-child),
-  .circuit-2 > a:not(:last-child) {
+  .circuit-0>button:not(:last-child),
+  .circuit-0>a:not(:last-child) {
     margin-right: 16px;
     margin-bottom: 0;
   }
 }
 
-<div
-  class="circuit-2"
->
-  <button
-    class="circuit-0"
-  >
-    Cancel
-  </button>
-  <button
-    class="circuit-1"
-  >
-    Confirm
-  </button>
-</div>
-`;
-
-exports[`ButtonGroup should render with default styles 1`] = `
-.circuit-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
-
-.circuit-2 > button,
-.circuit-2 > a {
-  width: 100%;
-}
-
-.circuit-2 > button:not(:last-child),
-.circuit-2 > a:not(:last-child) {
-  margin-bottom: 16px;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
-
-  .circuit-2 > button,
-  .circuit-2 > a {
-    width: auto;
-  }
-
-  .circuit-2 > button:not(:last-child),
-  .circuit-2 > a:not(:last-child) {
-    margin-right: 16px;
-    margin-bottom: 0;
-  }
-}
-
-.circuit-0 {
+.circuit-1 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -455,8 +262,8 @@ exports[`ButtonGroup should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -474,72 +281,6 @@ exports[`ButtonGroup should render with default styles 1`] = `
   background-color: #FFF;
   border-color: #999;
   color: #000;
-  padding: calc(12px - 1px) calc(24px - 1px);
-}
-
-.circuit-0:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-0:disabled,
-.circuit-0[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-0:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
-
-.circuit-0:active,
-.circuit-0[aria-expanded='true'],
-.circuit-0[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-.circuit-1 {
-  font-size: 16px;
-  line-height: 24px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
 }
 
@@ -564,27 +305,292 @@ exports[`ButtonGroup should render with default styles 1`] = `
 }
 
 .circuit-1:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+.circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
+  padding: calc(12px - 1px) calc(24px - 1px);
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-2:active,
+.circuit-2[aria-expanded='true'],
+.circuit-2[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
 <div
-  class="circuit-2"
+  class="circuit-0"
 >
   <button
-    class="circuit-0"
+    class="circuit-1"
   >
     Cancel
   </button>
   <button
+    class="circuit-2"
+  >
+    Confirm
+  </button>
+</div>
+`;
+
+exports[`ButtonGroup should render with default styles 1`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.circuit-0>button,
+.circuit-0>a {
+  width: 100%;
+}
+
+.circuit-0>button:not(:last-child),
+.circuit-0>a:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+@media (min-width: 480px) {
+  .circuit-0 {
+    -webkit-box-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .circuit-0>button,
+  .circuit-0>a {
+    width: auto;
+  }
+
+  .circuit-0>button:not(:last-child),
+  .circuit-0>a:not(:last-child) {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
+  padding: calc(12px - 1px) calc(24px - 1px);
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
+}
+
+.circuit-1:active,
+.circuit-1[aria-expanded='true'],
+.circuit-1[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+.circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
+  padding: calc(12px - 1px) calc(24px - 1px);
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-2:active,
+.circuit-2[aria-expanded='true'],
+.circuit-2[aria-pressed='true'] {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+<div
+  class="circuit-0"
+>
+  <button
     class="circuit-1"
+  >
+    Cancel
+  </button>
+  <button
+    class="circuit-2"
   >
     Confirm
   </button>

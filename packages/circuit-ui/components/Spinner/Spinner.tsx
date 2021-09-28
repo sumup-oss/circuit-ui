@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { HTMLProps } from 'react';
-import { css, keyframes } from '@emotion/core';
+import { HTMLAttributes } from 'react';
+import { css, keyframes } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 
@@ -25,7 +25,7 @@ const spin = keyframes`
 
 export type SpinnerSize = 'byte' | 'kilo' | 'giga';
 
-export interface SpinnerProps extends Omit<HTMLProps<HTMLDivElement>, 'size'> {
+export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Choose from 3 sizes. Default: 'kilo'.
    */

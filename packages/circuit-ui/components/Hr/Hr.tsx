@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
-import styled, { NoTheme, StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled';
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: block;
@@ -29,4 +29,4 @@ const baseStyles = ({ theme }: StyleProps) => css`
 /**
  * A horizontal rule to visually and semantically separate content.
  */
-export const Hr = styled('hr')<NoTheme>(baseStyles);
+export const Hr = styled('hr')(baseStyles);

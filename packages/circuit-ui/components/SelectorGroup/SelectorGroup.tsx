@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { ReactNode, ChangeEvent, Ref, forwardRef } from 'react';
+import { ReactNode, Ref, forwardRef, ChangeEventHandler } from 'react';
 import { includes } from 'lodash/fp';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
@@ -36,7 +36,7 @@ export interface SelectorGroupProps {
   /**
    * Controls/Toggles the checked state. Passed on to the Selectors.
    */
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
   /**
    * The value of the currently checked Selector.
    */

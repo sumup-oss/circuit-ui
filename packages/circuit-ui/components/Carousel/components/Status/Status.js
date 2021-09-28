@@ -15,7 +15,7 @@
 
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import Body from '../../../Body';
 import { typography } from '../../../../styles/style-mixins';

@@ -21,7 +21,7 @@ import {
   useMemo,
 } from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 import { useClickTrigger } from '@sumup/collector';
 
 import { useStack, StackItem } from '../../hooks/useStack';

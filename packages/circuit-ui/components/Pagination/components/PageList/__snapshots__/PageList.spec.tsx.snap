@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageList styles should render with default styles 1`] = `
-.circuit-3 {
+.circuit-0 {
   list-style: none;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
 }
 
-.circuit-0 {
+.circuit-1 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -25,8 +25,8 @@ exports[`PageList styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -45,81 +45,6 @@ exports[`PageList styles should render with default styles 1`] = `
   border-color: #3063E9;
   color: #FFF;
   padding: calc(4px - 1px) calc(16px - 1px);
-  min-width: 34px;
-  padding: 4px;
-  margin-right: 4px;
-}
-
-.circuit-0:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-0:disabled,
-.circuit-0[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-0:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
-}
-
-.circuit-0:active,
-.circuit-0[aria-expanded='true'],
-.circuit-0[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
-}
-
-li:last-child .circuit-0 {
-  margin-right: 0;
-}
-
-.circuit-1 {
-  font-size: 16px;
-  line-height: 24px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  padding: calc(4px - 1px) calc(16px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
   min-width: 34px;
   padding: 4px;
   margin-right: 4px;
@@ -146,28 +71,103 @@ li:last-child .circuit-0 {
 }
 
 .circuit-1:hover {
-  color: #234BC3;
+  background-color: #234BC3;
+  border-color: #234BC3;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  color: #1A368E;
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 li:last-child .circuit-1 {
   margin-right: 0;
 }
 
+.circuit-2 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  padding: calc(4px - 1px) calc(16px - 1px);
+  background-color: transparent;
+  border-color: transparent;
+  color: #3063E9;
+  padding-left: 0;
+  padding-right: 0;
+  min-width: 34px;
+  padding: 4px;
+  margin-right: 4px;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  color: #234BC3;
+}
+
+.circuit-2:active,
+.circuit-2[aria-expanded='true'],
+.circuit-2[aria-pressed='true'] {
+  color: #1A368E;
+}
+
+li:last-child .circuit-2 {
+  margin-right: 0;
+}
+
 <ol
-  class="circuit-3"
+  class="circuit-0"
   role="list"
 >
   <li>
     <button
       aria-current="true"
       aria-label="Go to page 1"
-      class="circuit-0"
+      class="circuit-1"
       title="Go to page 1"
     >
       1
@@ -177,7 +177,7 @@ li:last-child .circuit-1 {
     <button
       aria-current="false"
       aria-label="Go to page 2"
-      class="circuit-1"
+      class="circuit-2"
       title="Go to page 2"
     >
       2
@@ -187,7 +187,7 @@ li:last-child .circuit-1 {
     <button
       aria-current="false"
       aria-label="Go to page 3"
-      class="circuit-1"
+      class="circuit-2"
       title="Go to page 3"
     >
       3

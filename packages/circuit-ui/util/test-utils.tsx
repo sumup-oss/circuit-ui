@@ -20,7 +20,7 @@ import { configureAxe } from 'jest-axe';
 import { render as renderTest, RenderResult } from '@testing-library/react';
 import { renderHook, act as actHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 
 import {

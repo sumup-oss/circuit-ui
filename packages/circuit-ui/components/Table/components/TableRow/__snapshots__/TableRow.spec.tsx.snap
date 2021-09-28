@@ -14,9 +14,10 @@ tbody .circuit-0:last-child td {
 
 .circuit-0:focus {
   z-index: 1;
-  -webkit-transform: translate(0,0);
-  -ms-transform: translate(0,0);
-  transform: translate(0,0);
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }

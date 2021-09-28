@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import { Children, HTMLProps, ReactNode } from 'react';
-import { css } from '@emotion/core';
+import { Children, HTMLAttributes, ReactNode } from 'react';
+import { css } from '@emotion/react';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { shadow } from '../../styles/style-mixins';
 
-export interface NotificationListProps extends HTMLProps<HTMLUListElement> {
+export interface NotificationListProps
+  extends Omit<HTMLAttributes<HTMLUListElement>, 'as'> {
   /**
    * One or more Notifications.
    */
@@ -49,7 +50,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const NotificationListWrapper = styled('ul')<NoTheme>(baseStyles);
+const NotificationListWrapper = styled('ul')(baseStyles);
 
 const cardStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.white};
@@ -61,7 +62,7 @@ const cardStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.mega} ${theme.spacings.mega};
 `;
 
-const NotificationListCard = styled('li')(cardStyles, shadow());
+const NotificationListCard = styled('li')<NoTheme>(cardStyles, shadow());
 
 /**
  * NotificationList displays Notifications as Cards in a corner.

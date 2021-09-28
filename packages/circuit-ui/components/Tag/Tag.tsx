@@ -13,8 +13,15 @@
  * limitations under the License.
  */
 
-import { HTMLProps, Ref, FC, SVGProps, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import {
+  Ref,
+  FC,
+  SVGProps,
+  forwardRef,
+  HTMLAttributes,
+  ButtonHTMLAttributes,
+} from 'react';
+import { css } from '@emotion/react';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 
@@ -66,8 +73,8 @@ type RemoveProps =
     }
   | { onRemove?: never; removeButtonLabel?: never };
 
-type DivElProps = Omit<HTMLProps<HTMLDivElement>, 'prefix' | 'onClick'>;
-type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'prefix' | 'onClick'>;
+type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>;
+type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type TagProps = BaseProps & RemoveProps & DivElProps & ButtonElProps;
 
@@ -233,7 +240,6 @@ export const Tag = forwardRef(
           <RemoveButton
             type="button"
             variant={selected ? 'primary' : 'secondary'}
-            selected={selected}
             label={removeButtonLabel}
             data-testid="tag-close"
             size="kilo"

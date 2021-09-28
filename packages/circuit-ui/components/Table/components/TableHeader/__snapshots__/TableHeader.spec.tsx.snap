@@ -100,7 +100,7 @@ exports[`TableHeader Style tests should render with row styles 1`] = `
 `;
 
 exports[`TableHeader Style tests should render with sortable styles 1`] = `
-.circuit-4 {
+.circuit-0 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -122,7 +122,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   user-select: none;
 }
 
-.circuit-4:focus-within::after {
+.circuit-0:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -137,22 +137,22 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus-within::after::-moz-focus-inner {
+.circuit-0:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-4:focus-within,
-.circuit-4:hover {
+.circuit-0:focus-within,
+.circuit-0:hover {
   background-color: #F5F5F5;
   color: #3063E9;
 }
 
-.circuit-4:focus-within > button,
-.circuit-4:hover > button {
+.circuit-0:focus-within>button,
+.circuit-0:hover>button {
   opacity: 1;
 }
 
-.circuit-3 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -161,8 +161,8 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   height: 40px;
   width: 20px;
@@ -171,6 +171,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   top: 50%;
   opacity: 0;
   -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
@@ -184,22 +185,21 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   cursor: pointer;
 }
 
-.circuit-3:focus {
+.circuit-1:focus {
   opacity: 1;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-1:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0 {
+.circuit-2 {
   margin-top: -3px;
   margin-bottom: -3px;
 }
 
-.circuit-2 {
+.circuit-4 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -213,16 +213,16 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
 <th
   aria-label="Sort in ascending order"
   aria-sort="none"
-  class="circuit-4"
+  class="circuit-0"
   scope="col"
 >
   <button
-    class="circuit-3"
+    class="circuit-1"
     role="button"
     title="Sort in ascending order"
   >
     <svg
-      class="circuit-0"
+      class="circuit-2"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -235,7 +235,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
       />
     </svg>
     <svg
-      class="circuit-0"
+      class="circuit-2"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -248,7 +248,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
       />
     </svg>
     <span
-      class="circuit-2"
+      class="circuit-4"
     >
       Sort in ascending order
     </span>
@@ -258,65 +258,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
 `;
 
 exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted ascending styles 1`] = `
-.circuit-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 40px;
-  width: 20px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  opacity: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
-  color: #3063E9;
-  border: 0;
-  background: none;
-  outline: 0;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-.circuit-2:focus {
-  opacity: 1;
-}
-
-.circuit-2:focus::-moz-focus-inner {
-  border: 0;
-}
-
 .circuit-0 {
-  margin-top: -3px;
-  margin-bottom: -3px;
-}
-
-.circuit-1 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -338,7 +280,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   user-select: none;
 }
 
-.circuit-3:focus-within::after {
+.circuit-0:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -353,38 +295,96 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus-within::after::-moz-focus-inner {
+.circuit-0:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus-within,
-.circuit-3:hover {
+.circuit-0:focus-within,
+.circuit-0:hover {
   background-color: #F5F5F5;
   color: #3063E9;
 }
 
-.circuit-3:focus-within > button,
-.circuit-3:hover > button {
+.circuit-0:focus-within>button,
+.circuit-0:hover>button {
   opacity: 1;
 }
 
-.circuit-3 > button {
+.circuit-0>button {
   opacity: 1;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
+  color: #3063E9;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.circuit-1:focus {
+  opacity: 1;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2 {
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+
+.circuit-3 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 <th
   aria-label="Sort in descending order"
   aria-sort="ascending"
-  class="circuit-3"
+  class="circuit-0"
   scope="col"
 >
   <button
-    class="circuit-2"
+    class="circuit-1"
     role="button"
     title="Sort in descending order"
   >
     <svg
-      class="circuit-0"
+      class="circuit-2"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -397,7 +397,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
       />
     </svg>
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       Sort in descending order
     </span>
@@ -407,65 +407,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 `;
 
 exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted descending styles 1`] = `
-.circuit-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 40px;
-  width: 20px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  opacity: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
-  color: #3063E9;
-  border: 0;
-  background: none;
-  outline: 0;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-.circuit-2:focus {
-  opacity: 1;
-}
-
-.circuit-2:focus::-moz-focus-inner {
-  border: 0;
-}
-
 .circuit-0 {
-  margin-top: -3px;
-  margin-bottom: -3px;
-}
-
-.circuit-1 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -487,7 +429,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   user-select: none;
 }
 
-.circuit-3:focus-within::after {
+.circuit-0:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -502,38 +444,96 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus-within::after::-moz-focus-inner {
+.circuit-0:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus-within,
-.circuit-3:hover {
+.circuit-0:focus-within,
+.circuit-0:hover {
   background-color: #F5F5F5;
   color: #3063E9;
 }
 
-.circuit-3:focus-within > button,
-.circuit-3:hover > button {
+.circuit-0:focus-within>button,
+.circuit-0:hover>button {
   opacity: 1;
 }
 
-.circuit-3 > button {
+.circuit-0>button {
   opacity: 1;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
+  color: #3063E9;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.circuit-1:focus {
+  opacity: 1;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2 {
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+
+.circuit-3 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 <th
   aria-label="Sort in ascending order"
   aria-sort="descending"
-  class="circuit-3"
+  class="circuit-0"
   scope="col"
 >
   <button
-    class="circuit-2"
+    class="circuit-1"
     role="button"
     title="Sort in ascending order"
   >
     <svg
-      class="circuit-0"
+      class="circuit-2"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -546,7 +546,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
       />
     </svg>
     <span
-      class="circuit-1"
+      class="circuit-3"
     >
       Sort in ascending order
     </span>

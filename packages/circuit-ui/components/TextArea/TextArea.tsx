@@ -14,7 +14,7 @@
  */
 
 import { forwardRef } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import Input from '../Input';
 import { InputProps } from '../Input/Input';

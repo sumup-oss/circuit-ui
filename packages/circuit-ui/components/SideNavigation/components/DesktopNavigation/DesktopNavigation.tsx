@@ -15,7 +15,7 @@
 
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import { find } from 'lodash/fp';
 import { TrackingElement } from '@sumup/collector';

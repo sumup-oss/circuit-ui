@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { HTMLProps, Ref, forwardRef } from 'react';
-import { css } from '@emotion/core';
+import { FieldsetHTMLAttributes, Ref, forwardRef } from 'react';
+import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, typography } from '../../styles/style-mixins';
@@ -23,10 +23,10 @@ import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
 import ValidationHint from '../ValidationHint';
 
 export interface RadioButtonGroupProps
-  extends Omit<HTMLProps<HTMLFieldSetElement>, 'onChange'> {
+  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
    * A collection of available options. Each option must have at least
-   * a value and children.
+   * a value and a label.
    */
   options: Omit<RadioButtonProps, 'onChange'>[];
   /**
@@ -119,20 +119,28 @@ export const RadioButtonGroup = forwardRef(
       <fieldset name={name} ref={ref} {...props}>
         <Legend hideLabel={hideLabel}>{label}</Legend>
         {options &&
-          options.map(({ children, value, className, style, ...rest }) => (
-            <div
-              key={value && value.toString()}
-              className={className}
-              style={style}
-            >
-              <RadioButton
-                {...{ ...rest, value, name, onChange }}
-                checked={value === activeValue}
+          options.map(
+            ({
+              children,
+              label: optionLabel,
+              value,
+              className,
+              style,
+              ...rest
+            }) => (
+              <div
+                key={value && value.toString()}
+                className={className}
+                style={style}
               >
-                {children}
-              </RadioButton>
-            </div>
-          ))}
+                <RadioButton
+                  {...{ ...rest, value, name, onChange }}
+                  checked={value === activeValue}
+                  label={optionLabel || children}
+                />
+              </div>
+            ),
+          )}
         <ValidationHint
           invalid={invalid}
           showValid={showValid}

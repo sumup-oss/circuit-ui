@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { css, keyframes } from '@emotion/core';
+import { css, keyframes } from '@emotion/react';
 
-import styled, { NoTheme, StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled';
 import { typography, hideVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { ReturnType } from '../../types/return-type';
@@ -79,7 +79,7 @@ const wrapperStyles = () => css`
   align-items: center;
 `;
 
-const ProgressBarWrapper = styled('div')<NoTheme>(wrapperStyles);
+const ProgressBarWrapper = styled('div')(wrapperStyles);
 
 const baseStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.n200};

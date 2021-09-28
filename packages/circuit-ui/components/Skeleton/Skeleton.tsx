@@ -14,7 +14,7 @@
  */
 
 import { createContext, useContext, ReactNode, forwardRef, Ref } from 'react';
-import { css, keyframes } from '@emotion/core';
+import { css, keyframes } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';

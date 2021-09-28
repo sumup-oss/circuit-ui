@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { HTMLProps } from 'react';
-import { css } from '@emotion/core';
+import { FC, OlHTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import Button from '../../../Button';
 
 export interface PageListProps
-  extends Omit<HTMLProps<HTMLOListElement>, 'onChange' | 'type'> {
+  extends Omit<OlHTMLAttributes<HTMLOListElement>, 'onChange'> {
   onChange: (page: number) => void;
   pageLabel: (page: number) => string;
   pages: number[];
@@ -45,7 +45,7 @@ const buttonStyles = ({ theme }: StyleProps) => css`
 
 const PageButton = styled(Button)(buttonStyles);
 
-export const PageList = ({
+export const PageList: FC<PageListProps> = ({
   onChange,
   pageLabel,
   pages,

@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TableHead Style tests should render with default styles 1`] = `
-.circuit-7 {
+.circuit-1 {
   vertical-align: middle;
 }
 
-tbody .circuit-7:last-child th,
-tbody .circuit-7:last-child td {
+tbody .circuit-1:last-child th,
+tbody .circuit-1:last-child td {
   border-bottom: none;
 }
 
-.circuit-4 {
+.circuit-3 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -32,7 +32,7 @@ tbody .circuit-7:last-child td {
   user-select: none;
 }
 
-.circuit-4:focus-within::after {
+.circuit-3:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -47,22 +47,22 @@ tbody .circuit-7:last-child td {
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus-within::after::-moz-focus-inner {
+.circuit-3:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-4:focus-within,
-.circuit-4:hover {
+.circuit-3:focus-within,
+.circuit-3:hover {
   background-color: #F5F5F5;
   color: #3063E9;
 }
 
-.circuit-4:focus-within > button,
-.circuit-4:hover > button {
+.circuit-3:focus-within>button,
+.circuit-3:hover>button {
   opacity: 1;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -71,8 +71,8 @@ tbody .circuit-7:last-child td {
   -ms-flex-direction: column;
   flex-direction: column;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   height: 40px;
   width: 20px;
@@ -81,6 +81,7 @@ tbody .circuit-7:last-child td {
   top: 50%;
   opacity: 0;
   -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
@@ -94,22 +95,21 @@ tbody .circuit-7:last-child td {
   cursor: pointer;
 }
 
-.circuit-3:focus {
+.circuit-4:focus {
   opacity: 1;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-4:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0 {
+.circuit-5 {
   margin-top: -3px;
   margin-bottom: -3px;
 }
 
-.circuit-2 {
+.circuit-7 {
   border: 0;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   margin: -1px;
@@ -120,7 +120,7 @@ tbody .circuit-7:last-child td {
   width: 1px;
 }
 
-.circuit-5 {
+.circuit-8 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -137,24 +137,24 @@ tbody .circuit-7:last-child td {
 }
 
 <thead
-  class="circuit-9"
+  class="circuit-0"
 >
   <tr
-    class="circuit-7 circuit-8"
+    class="circuit-1 circuit-2"
   >
     <th
       aria-label="Sort in ascending order"
       aria-sort="none"
-      class="circuit-4"
+      class="circuit-3"
       scope="col"
     >
       <button
-        class="circuit-3"
+        class="circuit-4"
         role="button"
         title="Sort in ascending order"
       >
         <svg
-          class="circuit-0"
+          class="circuit-5"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -167,7 +167,7 @@ tbody .circuit-7:last-child td {
           />
         </svg>
         <svg
-          class="circuit-0"
+          class="circuit-5"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -180,7 +180,7 @@ tbody .circuit-7:last-child td {
           />
         </svg>
         <span
-          class="circuit-2"
+          class="circuit-7"
         >
           Sort in ascending order
         </span>
@@ -188,13 +188,13 @@ tbody .circuit-7:last-child td {
       Foo
     </th>
     <th
-      class="circuit-5"
+      class="circuit-8"
       scope="col"
     >
       Bar
     </th>
     <th
-      class="circuit-5"
+      class="circuit-8"
       scope="col"
     >
       Baz
@@ -204,90 +204,16 @@ tbody .circuit-7:last-child td {
 `;
 
 exports[`TableHead Style tests should render with rowHeader styles 1`] = `
-.circuit-8 {
+.circuit-1 {
   vertical-align: middle;
 }
 
-tbody .circuit-8:last-child th,
-tbody .circuit-8:last-child td {
+tbody .circuit-1:last-child th,
+tbody .circuit-1:last-child td {
   border-bottom: none;
 }
 
 .circuit-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 40px;
-  width: 20px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  opacity: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
-  color: #3063E9;
-  border: 0;
-  background: none;
-  outline: 0;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-.circuit-3:focus {
-  opacity: 1;
-}
-
-.circuit-3:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0 {
-  margin-top: -3px;
-  margin-bottom: -3px;
-}
-
-.circuit-2 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
-  font-size: 14px;
-  line-height: 20px;
-  color: #666;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.circuit-4 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -309,8 +235,8 @@ tbody .circuit-8:last-child td {
   user-select: none;
 }
 
-@media (max-width:767px) {
-  .circuit-4 {
+@media (max-width: 767px) {
+  .circuit-3 {
     left: 0;
     top: auto;
     position: absolute;
@@ -319,7 +245,7 @@ tbody .circuit-8:last-child td {
   }
 }
 
-.circuit-4:focus-within::after {
+.circuit-3:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -334,22 +260,80 @@ tbody .circuit-8:last-child td {
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus-within::after::-moz-focus-inner {
+.circuit-3:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-4:focus-within,
-.circuit-4:hover {
+.circuit-3:focus-within,
+.circuit-3:hover {
   background-color: #F5F5F5;
   color: #3063E9;
 }
 
-.circuit-4:focus-within > button,
-.circuit-4:hover > button {
+.circuit-3:focus-within>button,
+.circuit-3:hover>button {
   opacity: 1;
 }
 
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
+  color: #3063E9;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.circuit-4:focus {
+  opacity: 1;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .circuit-5 {
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+
+.circuit-7 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-8 {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
   padding: 24px;
@@ -366,8 +350,8 @@ tbody .circuit-8:last-child td {
   white-space: nowrap;
 }
 
-@media (max-width:767px) {
-  .circuit-5 {
+@media (max-width: 767px) {
+  .circuit-8 {
     display: table-cell;
     min-width: 145px;
     max-width: 145px;
@@ -375,25 +359,41 @@ tbody .circuit-8:last-child td {
   }
 }
 
+.circuit-9 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 <thead
-  class="circuit-10"
+  class="circuit-0"
 >
   <tr
-    class="circuit-8 circuit-9"
+    class="circuit-1 circuit-2"
   >
     <th
       aria-label="Sort in ascending order"
       aria-sort="none"
-      class="circuit-4"
+      class="circuit-3"
       scope="col"
     >
       <button
-        class="circuit-3"
+        class="circuit-4"
         role="button"
         title="Sort in ascending order"
       >
         <svg
-          class="circuit-0"
+          class="circuit-5"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -406,7 +406,7 @@ tbody .circuit-8:last-child td {
           />
         </svg>
         <svg
-          class="circuit-0"
+          class="circuit-5"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -419,7 +419,7 @@ tbody .circuit-8:last-child td {
           />
         </svg>
         <span
-          class="circuit-2"
+          class="circuit-7"
         >
           Sort in ascending order
         </span>
@@ -428,19 +428,19 @@ tbody .circuit-8:last-child td {
     </th>
     <td
       aria-hidden="true"
-      class="circuit-5"
+      class="circuit-8"
       role="presentation"
     >
       Foo
     </td>
     <th
-      class="circuit-6"
+      class="circuit-9"
       scope="col"
     >
       Bar
     </th>
     <th
-      class="circuit-6"
+      class="circuit-9"
       scope="col"
     >
       Baz

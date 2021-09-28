@@ -15,8 +15,7 @@
 
 import { useEffect } from 'react';
 import usePrevious from 'use-previous';
-import { useTheme } from 'emotion-theming';
-import { Theme } from '@sumup/design-tokens';
+import { useTheme } from '@emotion/react';
 
 import { useMedia } from '../../hooks/useMedia';
 
@@ -55,7 +54,7 @@ export function SideNavigation({
     );
   }
 
-  const theme = useTheme<Theme>();
+  const theme = useTheme();
   const isMobile = useMedia(theme.breakpoints.untilGiga, true);
 
   const { setModal, removeModal } = useMobileNavigation();
