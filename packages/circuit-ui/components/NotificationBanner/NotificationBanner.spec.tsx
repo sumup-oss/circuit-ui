@@ -28,12 +28,17 @@ describe('NotificationBanner', () => {
     headline: 'Test',
     body: 'There is updated firmware available for your card reader',
     action: {
-      onClick: () => alert('Heloooo'),
+      onClick: jest.fn(),
       children: 'Update',
       variant: 'primary',
     },
     src: 'https://source.unsplash.com/EcWFOYOpkpY/100x100',
     alt: 'Cup of coffee',
+  };
+
+  const closeProps = {
+    onClose: jest.fn(),
+    closeButtonLabel: 'Close notification',
   };
 
   /**
@@ -49,19 +54,27 @@ describe('NotificationBanner', () => {
   /**
    * Logic tests.
    */
-  describe('when is removable', () => {
-    const closeProps = {
-      onClose: jest.fn(),
-      closeButtonLabel: 'Close notification',
-    };
+  describe('business logic', () => {
+    it('should click on a main button', () => {
+      const { getByRole } = render(
+        <NotificationBanner {...baseProps}></NotificationBanner>,
+      );
+
+      act(() => {
+        userEvent.click(getByRole('button'));
+      });
+
+      expect(baseProps.action.onClick).toHaveBeenCalledTimes(1);
+    });
+
     it('should render a close button', () => {
-      const { getAllByRole } = render(
+      const { getByRole } = render(
         <NotificationBanner
           {...baseProps}
           {...closeProps}
         ></NotificationBanner>,
       );
-      expect(getAllByRole('button')[1]).not.toBeNull();
+      expect(getByRole('button', { name: /close/i })).toBeVisible();
     });
 
     it('should call onClose when closed', () => {
