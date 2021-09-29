@@ -86,7 +86,7 @@ export interface UtilityLinkProps
 function UtilityLink({
   icon: Icon,
   label,
-  onClick = () => {}, // Can't be undefined in order to trigger useClickEvent
+  onClick,
   tracking,
   ...props
 }: UtilityLinkProps) {

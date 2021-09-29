@@ -104,7 +104,7 @@ describe('useClickEvent', () => {
       // useClickTrigger
       Collector.useClickTrigger = jest.fn(() => dispatch);
 
-      const onClick = jest.fn();
+      const onClick = undefined;
       const { result } = renderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
