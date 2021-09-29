@@ -21,6 +21,7 @@ import {
   disableVisually,
   cx,
 } from '../../../../styles/style-mixins';
+import { childrenPropType } from '../../../../util/shared-prop-types';
 
 import calendarInheritStyles from './CalendarImportedStyles';
 
@@ -262,6 +263,10 @@ const CalendarWrapper = ({ children }) => (
     {children}
   </div>
 );
+
+CalendarWrapper.propTypes = {
+  children: childrenPropType,
+};
 
 /**
  * @component

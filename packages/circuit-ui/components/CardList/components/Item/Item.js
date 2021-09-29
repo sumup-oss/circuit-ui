@@ -120,6 +120,10 @@ Item.propTypes = {
    * Content of the list item.
    */
   children: PropTypes.node.isRequired,
+  /**
+   * The onClick method to handle the click event.
+   */
+  onClick: PropTypes.func,
 };
 
 Item.defaultProps = {

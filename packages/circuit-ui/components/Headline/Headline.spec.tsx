@@ -22,7 +22,7 @@ describe('Headline', () => {
    * Style tests.
    */
   const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-  it.each(elements)(`should render as %s element`, (element) => {
+  it.each(elements)('should render as %s element', (element) => {
     const headline = create(
       <Headline as={element}>{`${element} headline`}</Headline>,
     );
@@ -30,7 +30,7 @@ describe('Headline', () => {
   });
 
   const sizes = ['one', 'two', 'three', 'four'] as const;
-  it.each(sizes)(`should render with size %s`, (size) => {
+  it.each(sizes)('should render with size %s', (size) => {
     const headline = create(
       <Headline as="h2" {...{ size }}>{`${size} headline`}</Headline>,
     );

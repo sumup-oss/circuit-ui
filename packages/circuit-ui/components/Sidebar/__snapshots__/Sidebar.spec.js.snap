@@ -71,10 +71,10 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     data-testid="sidebar-backdrop"
   />,
-  .circuit-1 {
+  .circuit-0 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -120,45 +120,45 @@ HTMLCollection [
   opacity: 1;
 }
 
-.circuit-1:focus {
+.circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-1:focus::-moz-focus-inner {
+.circuit-0:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:focus:not(:focus-visible) {
+.circuit-0:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-1:disabled,
-.circuit-1[disabled] {
+.circuit-0:disabled,
+.circuit-0[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1:hover {
+.circuit-0:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-1:active,
-.circuit-1[aria-expanded='true'],
-.circuit-1[aria-pressed='true'] {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
 
 @media (min-width: 960px) {
-  .circuit-1 {
+  .circuit-0 {
     visibility: hidden;
   }
 }
 
-.circuit-2 {
+.circuit-1 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -171,7 +171,7 @@ HTMLCollection [
 }
 
 <button
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     data-testid="sidebar-close-button"
     title="Close sidebar"
     type="button"
@@ -192,7 +192,7 @@ HTMLCollection [
       />
     </svg>
     <span
-      class="circuit-2"
+      class="circuit-1"
     >
       Close sidebar
     </span>
@@ -255,10 +255,10 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     data-testid="sidebar-backdrop"
   />,
-  .circuit-1 {
+  .circuit-0 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -302,45 +302,45 @@ HTMLCollection [
   z-index: 800;
 }
 
-.circuit-1:focus {
+.circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-1:focus::-moz-focus-inner {
+.circuit-0:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:focus:not(:focus-visible) {
+.circuit-0:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-1:disabled,
-.circuit-1[disabled] {
+.circuit-0:disabled,
+.circuit-0[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-1:hover {
+.circuit-0:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-1:active,
-.circuit-1[aria-expanded='true'],
-.circuit-1[aria-pressed='true'] {
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
 
 @media (min-width: 960px) {
-  .circuit-1 {
+  .circuit-0 {
     visibility: hidden;
   }
 }
 
-.circuit-2 {
+.circuit-1 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -353,7 +353,7 @@ HTMLCollection [
 }
 
 <button
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     data-testid="sidebar-close-button"
     title="Close sidebar"
     type="button"
@@ -374,7 +374,7 @@ HTMLCollection [
       />
     </svg>
     <span
-      class="circuit-2"
+      class="circuit-1"
     >
       Close sidebar
     </span>

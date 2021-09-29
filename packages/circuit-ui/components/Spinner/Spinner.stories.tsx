@@ -18,7 +18,7 @@ import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components';
 
-import Spinner from '.';
+import { Spinner } from './Spinner';
 
 export default {
   title: 'Components/Spinner',

@@ -16,7 +16,7 @@
 // TODO: Improve types
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-import { useState, useEffect, FC, SVGProps, ReactNode } from 'react';
+import { useState, useEffect, ReactElement } from 'react';
 import { css } from '@emotion/react';
 import { TrackingElement } from '@sumup/collector';
 import { isEmpty } from 'lodash/fp';
@@ -24,15 +24,15 @@ import { isEmpty } from 'lodash/fp';
 import { ClickEvent } from '../../../../types/events';
 import styled, { StyleProps } from '../../../../styles/styled';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
-import SubNavList from '../SubNavList';
-import BaseNavLabel from '../NavLabel';
-import { hasSelectedChild, getIcon } from '../NavItem/utils';
+import { Child, hasSelectedChild, getIcon } from '../../SidebarService';
+import { SubNavList } from '../SubNavList';
+import { NavLabel } from '../NavLabel';
 
 export interface AggregatorProps {
   /**
    * The children component passed to the NavAggregator
    */
-  children: ReactNode;
+  children: Child | Child[];
   /**
    * The label of NavAggregator
    */
@@ -40,11 +40,11 @@ export interface AggregatorProps {
   /**
    * The icon to be shown when the NavAggregator is not selected
    */
-  defaultIcon: FC<SVGProps<SVGSVGElement>>;
+  defaultIcon: ReactElement;
   /**
    * The icon to be shown when the NavAggregator is selected
    */
-  selectedIcon: FC<SVGProps<SVGSVGElement>>;
+  selectedIcon: ReactElement;
   /**
    * Disables the Aggregator and all children
    */
@@ -56,7 +56,7 @@ export interface AggregatorProps {
   /**
    * Additional data that is dispatched with click tracking event.
    */
-  tracking: {
+  tracking?: {
     label?: string;
     component?: string;
     customParameters?: {
@@ -112,9 +112,6 @@ const disabledStyles = ({ theme, disabled }: StyleProps & Disabled) =>
     color: ${theme.colors.n500};
   `;
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-const NavLabel = BaseNavLabel as any;
-
 const AggregatorContainer = styled('button')<Disabled & Selected>(
   baseStyles,
   hoverStyles,
@@ -124,7 +121,7 @@ const AggregatorContainer = styled('button')<Disabled & Selected>(
 
 const TRACKING_ELEMENT = 'aggregator';
 
-const Aggregator = ({
+export function Aggregator({
   children,
   label,
   defaultIcon,
@@ -133,7 +130,7 @@ const Aggregator = ({
   onClick,
   tracking,
   ...props
-}: AggregatorProps): JSX.Element => {
+}: AggregatorProps): JSX.Element {
   if (
     process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
     process.env.NODE_ENV !== 'production' &&
@@ -193,9 +190,4 @@ const Aggregator = ({
       )}
     </li>
   );
-};
-
-/**
- * @component
- */
-export default Aggregator;
+}

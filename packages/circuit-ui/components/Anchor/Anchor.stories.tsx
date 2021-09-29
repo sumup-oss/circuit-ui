@@ -32,12 +32,12 @@ export const AsLink = (args: AnchorProps) => <Anchor {...args} />;
 
 AsLink.args = {
   href: 'https://opensource.sumup.com',
-  children: `View SumUp's OSS projects`,
+  children: "View SumUp's OSS projects",
 };
 
 export const AsButton = (args: AnchorProps) => <Anchor {...args} />;
 
 AsButton.args = {
   onClick: () => alert('Hello'),
-  children: `Say hello`,
+  children: 'Say hello',
 };

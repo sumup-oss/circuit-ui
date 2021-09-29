@@ -76,7 +76,8 @@ export const Stateful = (): JSX.Element => {
   /**
    * Fakes a network request that fails 30% of the time
    */
-  const uploadFile = (file) =>
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const uploadFile = (_file: File) =>
     // upload the file to storage
     new Promise<string>((resolve, reject) =>
       setTimeout(() => {
@@ -87,7 +88,7 @@ export const Stateful = (): JSX.Element => {
       }, 2000),
     );
 
-  const onChange = (file) => {
+  const onChange = (file: File) => {
     setError('');
     setImageUrl('');
     return uploadFile(file)

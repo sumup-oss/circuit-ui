@@ -79,6 +79,7 @@ export interface BaseProps {
   /**
    * The ref to the HTML DOM element
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ref?: Ref<any>;
 }
 

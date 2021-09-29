@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavItem styles should render with default styles and match the snapshot 1`] = `
+.circuit-0 {
+  display: block;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  height: auto;
+  margin: 16px;
+  padding: 4px;
+  cursor: pointer;
+  color: #CCC;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1:hover {
+  color: #F5F5F5;
+}
+
+.circuit-2 {
+  display: block;
+  margin-left: 12px;
+}
+
+<li
+  class="circuit-0"
+>
+  <a
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    />
+  </a>
+</li>
+`;
+
+exports[`NavItem styles should render with default styles and match the snapshot for a secondary NavItem 1`] = `
+.circuit-0 {
+  display: block;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  height: auto;
+  margin: 16px;
+  padding: 4px;
+  cursor: pointer;
+  color: #CCC;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+  margin: 0px 24px;
+  padding: 4px 0px;
+  -webkit-transition: color 120ms ease-in-out,top 120ms ease-in-out;
+  transition: color 120ms ease-in-out,top 120ms ease-in-out;
+}
+
+.circuit-1:hover {
+  color: #F5F5F5;
+}
+
+.circuit-2 {
+  display: block;
+  margin-left: 12px;
+  margin-left: 0px;
+  margin-top: -12px;
+  -webkit-transition: margin-top 300ms ease-in-out;
+  transition: margin-top 300ms ease-in-out;
+  margin-top: 0px;
+}
+
+<li
+  class="circuit-0"
+>
+  <a
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    />
+  </a>
+</li>
+`;
+
+exports[`NavItem styles should render with disabled state styles and match the snapshot 1`] = `
+.circuit-0 {
+  display: block;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  height: auto;
+  margin: 16px;
+  padding: 4px;
+  cursor: pointer;
+  color: #CCC;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+  cursor: not-allowed;
+  color: #999;
+}
+
+.circuit-2 {
+  display: block;
+  margin-left: 12px;
+}
+
+<li
+  class="circuit-0"
+>
+  <a
+    class="circuit-1"
+    disabled=""
+  >
+    <span
+      class="circuit-2"
+    />
+  </a>
+</li>
+`;
+
+exports[`NavItem styles should render with selected state styles and match the snapshot 1`] = `
+.circuit-0 {
+  display: block;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  height: auto;
+  margin: 16px;
+  padding: 4px;
+  cursor: pointer;
+  color: #CCC;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+  font-weight: 700;
+  color: #FFF;
+}
+
+.circuit-2 {
+  display: block;
+  margin-left: 12px;
+}
+
+<li
+  class="circuit-0"
+>
+  <a
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    />
+  </a>
+</li>
+`;

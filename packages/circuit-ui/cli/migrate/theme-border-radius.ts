@@ -26,12 +26,12 @@ const transform: Transform = (file, api) => {
     ['theme.borderRadius.giga', 'theme.borderRadius.byte'],
     ['theme.borderRadius.tera', 'theme.borderRadius.byte'],
     ['theme.borderRadius.peta', 'theme.borderRadius.kilo'],
-    ['theme.borderRadius.kilo', `'1px'`],
+    ['theme.borderRadius.kilo', "'1px'"],
     ['p.theme.borderRadius.mega', 'p.theme.borderRadius.bit'],
     ['p.theme.borderRadius.giga', 'p.theme.borderRadius.byte'],
     ['p.theme.borderRadius.tera', 'p.theme.borderRadius.byte'],
     ['p.theme.borderRadius.peta', 'p.theme.borderRadius.kilo'],
-    ['p.theme.borderRadius.kilo', `'1px'`],
+    ['p.theme.borderRadius.kilo', "'1px'"],
   ];
 
   mappings.forEach(([prevValue, nextValue]) =>

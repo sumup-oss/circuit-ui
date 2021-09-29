@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import { SumUpLogo } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
-export const Logo = () => (
+export const Logo = (): JSX.Element => (
   <a
     href="https://sumup.com"
     target="_blank"

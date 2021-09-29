@@ -7,7 +7,7 @@ module.exports = require('@sumup/foundry/eslint')(
   },
   {
     parserOptions: {
-      project: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
+      project: ['./packages/*/tsconfig.json', './tsconfig.eslint.json'],
       tsconfigRootDir: __dirname,
     },
     overrides: [
@@ -42,6 +42,9 @@ module.exports = require('@sumup/foundry/eslint')(
           'notice/notice': 'off',
           '@typescript-eslint/no-unused-vars': 'off',
           'prettier/prettier': 'off',
+          'no-unused-vars': 'off',
+          'react/prop-types': 'off',
+          'no-console': 'off',
         },
       },
       {
@@ -54,6 +57,7 @@ module.exports = require('@sumup/foundry/eslint')(
           // that should not be transformed.
           'consistent-return': 'off',
           'no-console': 'off',
+          '@typescript-eslint/no-explicit-any': 'off',
           '@typescript-eslint/no-unsafe-call': 'off',
           '@typescript-eslint/no-unsafe-assignment': 'off',
           '@typescript-eslint/no-unsafe-member-access': 'off',

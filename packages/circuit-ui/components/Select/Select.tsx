@@ -36,7 +36,7 @@ export type SelectOption = {
   value: string | number;
   label: string;
   disabled?: boolean;
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {

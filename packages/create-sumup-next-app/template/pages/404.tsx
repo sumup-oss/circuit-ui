@@ -24,6 +24,8 @@ const centeredStyles = css`
 `;
 
 const title = 'Page not found';
+const description =
+  "The page you requested can't be found. What’s worse, a hilarious 404 page can’t be found either.";
 
 const NotFound: NextPage = () => (
   <>
@@ -36,9 +38,7 @@ const NotFound: NextPage = () => (
         <Heading size="tera" css={centeredStyles}>
           {title}
         </Heading>
-        <Text>
-          {`The page you requested can't be found. What’s worse, a hilarious 404 page can’t be found either.`}
-        </Text>
+        <Text>{description}</Text>
 
         <Link href="/" passHref>
           <Button variant="primary">Return to the homepage</Button>

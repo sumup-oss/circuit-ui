@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { createRef } from 'react';
+
 import Col from '.';
 
 describe('Col', () => {
@@ -48,6 +50,13 @@ describe('Col', () => {
       );
       expect(actual).toMatchSnapshot();
     });
+  });
+
+  it('should forward a ref', () => {
+    const ref = createRef();
+    const { container } = render(<Col ref={ref} />);
+    const element = container.querySelector('div');
+    expect(ref.current).toBe(element);
   });
 
   /**

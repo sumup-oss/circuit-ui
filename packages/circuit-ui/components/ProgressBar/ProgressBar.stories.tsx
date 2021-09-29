@@ -60,8 +60,10 @@ Timer.args = {
 };
 
 export const Labelled = (args: ProgressBarProps) => {
+  /* eslint-disable @typescript-eslint/no-non-null-assertion */
   const fraction = `${args.value!}/${args.max!}`;
   const percentage = `${(args.value! / args.max!) * 100}%`;
+  /* eslint-enable @typescript-eslint/no-non-null-assertion */
   return (
     <Fragment>
       <ProgressBar {...args} css={progressBarStyles} label={fraction} />

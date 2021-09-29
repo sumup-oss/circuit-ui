@@ -41,7 +41,7 @@ export const Base = (args: ButtonProps) => <Button {...args} />;
 
 Base.args = {
   onClick: () => alert('Hello'),
-  children: `Say hello`,
+  children: 'Say hello',
 };
 
 export const Variants = (args: ButtonProps) => (

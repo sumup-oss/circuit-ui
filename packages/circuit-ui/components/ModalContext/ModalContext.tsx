@@ -58,8 +58,10 @@ type ModalState<TProps extends BaseModalProps> = Omit<TProps, 'isOpen'> &
   StackItem & { component: ModalComponent<TProps> };
 
 type ModalContextValue = {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   setModal: (modal: ModalState<any>) => void;
   removeModal: (modal: ModalState<any>) => void;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 };
 
 export const ModalContext = createContext<ModalContextValue>({

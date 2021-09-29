@@ -287,9 +287,9 @@ function handleIconRenamed(
         [
           `The "${oldIconName}" icon has been renamed to "${newIconName}",`,
           `and should only be used in the context of the ${productName}`,
-          `product/feature.`,
-          `If you have doubts about your use of the icon, file an issue or`,
-          `contact the Design System team.`,
+          'product/feature.',
+          'If you have doubts about your use of the icon, file an issue or',
+          'contact the Design System team.',
           `\nin ${filePath}`,
         ].join(' '),
       ),
@@ -367,8 +367,8 @@ function handleIconDefaultSize(
           }
 
           const actionMessage = [
-            `Verify your page with the 24px icon size, and request a new 16px size`,
-            `from the Design System team if needed.`,
+            'Verify your page with the 24px icon size, and request a new 16px size',
+            'from the Design System team if needed.',
             `\nin ${filePath}`,
           ];
 

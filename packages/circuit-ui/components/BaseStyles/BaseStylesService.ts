@@ -13,14 +13,16 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
+import { css, SerializedStyles } from '@emotion/react';
 
 import { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
 
 const FONTS_BASE_URL = 'https://static.sumup.com/fonts/latin-greek-cyrillic';
 
-export const createBaseStyles = ({ theme }: StyleProps) => css`
+export const createBaseStyles = ({
+  theme,
+}: StyleProps): SerializedStyles => css`
   /**
    * Start downloading custom fonts as soon as possible.
    */

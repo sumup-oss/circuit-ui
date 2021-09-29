@@ -23,20 +23,19 @@ import {
   RenderFn,
 } from '../../../../util/test-utils';
 
-import Aggregator, { AggregatorProps } from './Aggregator';
+import { Aggregator, AggregatorProps } from './Aggregator';
 
 const ProxyComponent = ({ children, selected, visible, ...rest }: any) => (
   <div {...rest}>{children}</div>
 );
 
-const defaultProps = {
+const defaultProps: AggregatorProps = {
   label: 'Aggregator',
   onClick: jest.fn(),
-  selectedIcon: 'selected-icon' as any,
-  defaultIcon: 'default-icon' as any,
+  defaultIcon: <svg id="default-icon" />,
+  selectedIcon: <svg id="selected-icon" />,
   disabled: false,
   children: <ProxyComponent data-testid="child">child</ProxyComponent>,
-  tracking: {},
 };
 
 function renderComponent<T>(

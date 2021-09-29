@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import Aggregator from './Aggregator';
-
-export default Aggregator;
+export { Aggregator } from './Aggregator';
