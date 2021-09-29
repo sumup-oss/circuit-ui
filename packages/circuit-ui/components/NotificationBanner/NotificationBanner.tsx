@@ -13,7 +13,15 @@
  * limitations under the License.
  */
 
-import { HTMLProps, MouseEvent, KeyboardEvent } from 'react';
+import {
+  HTMLProps,
+  MouseEvent,
+  KeyboardEvent,
+  useState,
+  useRef,
+  RefObject,
+  useEffect,
+} from 'react';
 import { css } from '@emotion/core';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
@@ -22,9 +30,10 @@ import styled, { StyleProps } from '../../styles/styled';
 import { spacing } from '../../styles/style-mixins';
 import Headline from '../Headline';
 import Body from '../Body';
-import Image from '../Image';
+import Image, { ImageProps } from '../Image';
 import CloseButton from '../CloseButton';
 import { BUTTON_BORDER_WIDTH } from '../Button/Button';
+import { useAnimation } from '../../hooks/useAnimation';
 
 type Action = ButtonProps & {
   variant: 'primary' | 'tertiary';
@@ -32,20 +41,9 @@ type Action = ButtonProps & {
 
 type NotificationVariant = 'system' | 'promotional';
 
-type ImageType = {
-  /**
-   * The source URL of the image.
-   */
-  src: string;
-  /**
-   * Alt text for the image.
-   */
-  alt: string;
-  /**
-   * Custom image width.
-   */
-  width: string;
-};
+const DEFAULT_HEIGHT = 'auto';
+
+type ImageType = ImageProps;
 
 type CloseProps =
   | {
@@ -89,6 +87,7 @@ interface BaseProps extends Omit<HTMLProps<HTMLDivElement>, 'action'> {
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
+  isVisible?: boolean;
 }
 
 export type NotificationBannerProps = BaseProps & CloseProps;
@@ -105,6 +104,8 @@ const bannerWrapperStyles = ({
     ? theme.colors.p100
     : theme.colors.n100};
   overflow: hidden;
+  transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
+    visibility 200ms ease-in-out;
 `;
 
 const NotificationBannerWrapper = styled('div')(bannerWrapperStyles);
@@ -205,10 +206,41 @@ export function NotificationBanner({
   onClose,
   closeButtonLabel,
   tracking,
+  isVisible = true,
   ...props
 }: NotificationBannerProps): JSX.Element {
+  const contentElement = useRef(null);
+  const [isOpen, setOpen] = useState(isVisible);
+  const [height, setHeight] = useState(getHeight(contentElement));
+  const [, setAnimating] = useAnimation();
+  useEffect(() => {
+    setAnimating({
+      duration: 200,
+      onStart: () => {
+        setHeight(getHeight(contentElement));
+        // Delaying the state update until the next animation frame ensures that
+        // the browsers renders the new height before the animation starts.
+        window.requestAnimationFrame(() => {
+          setOpen(isVisible);
+        });
+      },
+      onEnd: () => {
+        setHeight(DEFAULT_HEIGHT);
+      },
+    });
+  }, [isVisible, setAnimating]);
+
   return (
-    <NotificationBannerWrapper variant={variant} {...props}>
+    <NotificationBannerWrapper
+      ref={contentElement}
+      style={{
+        opacity: isOpen ? 1 : 0,
+        height: isOpen ? height : 0,
+        visibility: isOpen ? 'visible' : 'hidden',
+      }}
+      variant={variant}
+      {...props}
+    >
       <Content>
         <ResponsiveHeadline as="h2" noMargin>
           {headline}
@@ -238,4 +270,11 @@ export function NotificationBanner({
       )}
     </NotificationBannerWrapper>
   );
+}
+
+export function getHeight(element: RefObject<HTMLElement>): string {
+  if (!element || !element.current) {
+    return DEFAULT_HEIGHT;
+  }
+  return `${element.current.scrollHeight}px`;
 }
