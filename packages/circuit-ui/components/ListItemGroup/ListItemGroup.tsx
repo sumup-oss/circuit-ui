@@ -108,7 +108,16 @@ const itemsContainerBaseStyles = ({ theme }: StyleProps) => css`
     &:focus,
     &:focus + [role='listitem'] {
       & > div:last-of-type:before {
-        border-top: none;
+        border-top-width: 0;
+      }
+    }
+
+    &:not(:hover):not(:active):not([data-selected='true']) {
+      &:focus:not(:focus-visible),
+      &:focus:not(:focus-visible) + [role='listitem'] {
+        & > div:last-of-type:before {
+          border-top-width: ${theme.borderWidth.kilo};
+        }
       }
     }
   }

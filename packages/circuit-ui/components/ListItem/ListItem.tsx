@@ -120,6 +120,11 @@ const baseStyles = ({ theme }: StyleProps) => css`
     z-index: 2;
   }
 
+  &:focus:not(:focus-visible) {
+    border-color: ${theme.colors.n200};
+    z-index: auto;
+  }
+
   &:disabled,
   &[disabled] {
     ${disableVisually()};
@@ -191,6 +196,7 @@ const IconContainer = styled.div(iconContainerStyles);
 const contentContainerStyles = css`
   flex: auto;
   display: flex;
+  align-items: center;
   min-width: 0;
 `;
 

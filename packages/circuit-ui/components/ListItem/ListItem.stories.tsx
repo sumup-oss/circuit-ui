@@ -93,7 +93,7 @@ const baseArgs = {
   selected: false,
   disabled: false,
   highlighted: false,
-  onClick: null,
+  onClick: () => {},
   css: { width: 500 },
 };
 
