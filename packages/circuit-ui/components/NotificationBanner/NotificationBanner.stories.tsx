@@ -20,9 +20,13 @@ import {
   NotificationBanner,
   NotificationBannerProps,
 } from './NotificationBanner';
+import docs from './NotificationBanner.docs.mdx';
 
 export default {
   title: 'Components/NotificationBanner',
+  parameters: {
+    docs: { page: docs },
+  },
   component: NotificationBanner,
 };
 
@@ -41,6 +45,7 @@ Base.args = {
   image: {
     src: 'https://i.ibb.co/QPqPhGG/update.png',
     alt: 'Update',
+    width: '100',
   },
 };
 

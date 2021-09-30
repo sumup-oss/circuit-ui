@@ -104,8 +104,8 @@ const bannerWrapperStyles = ({
     ? theme.colors.p100
     : theme.colors.n100};
   overflow: hidden;
-  transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
-    visibility 200ms ease-in-out;
+  transition: opacity 2000ms ease-in-out, height 2000ms ease-in-out,
+    visibility 2000ms ease-in-out;
 `;
 
 const NotificationBannerWrapper = styled('div')(bannerWrapperStyles);
@@ -173,7 +173,6 @@ const imageStyles = ({
   width: ${image.width || '200'}px;
   height: auto;
   object-fit: contain;
-  object-position: bottom;
 `;
 
 const StyledImage = styled(Image)(imageStyles);
