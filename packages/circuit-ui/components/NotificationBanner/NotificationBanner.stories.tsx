@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,7 +22,7 @@ import {
 } from './NotificationBanner';
 
 export default {
-  title: 'Components/Notification/NotificationBanner',
+  title: 'Components/NotificationBanner',
   component: NotificationBanner,
 };
 
@@ -39,9 +39,8 @@ Base.args = {
     variant: 'primary',
   },
   image: {
-    src: 'https://source.unsplash.com/EcWFOYOpkpY',
-    alt: 'Cup of coffee',
-    width: '150',
+    src: 'https://i.ibb.co/QPqPhGG/update.png',
+    alt: 'Update',
   },
 };
 
@@ -58,16 +57,15 @@ export const Dismissable = (args: NotificationBannerProps): JSX.Element => {
 };
 
 Dismissable.args = {
-  headline: 'Software update',
-  body: 'There is updated firmware available for your card reader',
+  headline: 'Refer a friend, get rewarded',
+  variant: 'promotional',
   action: {
     onClick: action('Helloooo'),
-    children: 'Update',
+    children: 'Click here',
     variant: 'primary',
   },
   image: {
-    src: 'https://source.unsplash.com/EcWFOYOpkpY',
-    alt: 'Cup of coffee',
-    width: '200',
+    src: 'https://svgshare.com/i/adf.svg',
+    alt: 'Refer a friend',
   },
 };
