@@ -26,6 +26,7 @@ import Popover, { PopoverProps } from '../../../Popover';
 import { Skeleton } from '../../../Skeleton';
 import { TRACKING_ELEMENTS } from '../../constants';
 import { UserProps } from '../../types';
+import { TrackingProps } from '../../../../hooks/useClickEvent';
 
 const profileWrapperStyles = ({ theme }: StyleProps) => css`
   height: 100%;
@@ -150,6 +151,10 @@ export interface ProfileMenuProps extends ProfileProps {
    * a profile action.
    */
   trackingLabel?: string;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
 }
 
 export function ProfileMenu({
@@ -158,6 +163,7 @@ export function ProfileMenu({
   actions,
   isActive,
   trackingLabel,
+  tracking,
 }: ProfileMenuProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
   const offsetModifier = { name: 'offset', options: { offset: [-16, 8] } };
@@ -182,6 +188,9 @@ export function ProfileMenu({
         actions={actions}
         placement="bottom-end"
         modifiers={[offsetModifier]}
+        tracking={
+          tracking ? { ...tracking, component: 'profile_menu' } : undefined
+        }
       />
     </TrackingElement>
   );
