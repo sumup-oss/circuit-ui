@@ -46,25 +46,29 @@ const baseArgs = {
       <SumUpLogo />
     </a>
   ),
-  userName: 'Jane Doe',
-  userId: 'ID: AC3YULT8',
-  profileLabel: 'Open profile menu',
-  profileActions: [
-    {
-      onClick: action('View profile'),
-      children: 'View profile',
-    },
-    {
-      onClick: action('Settings'),
-      children: 'Settings',
-    },
-    { type: 'divider' },
-    {
-      onClick: action('Logout'),
-      children: 'Logout',
-      destructive: true,
-    },
-  ],
+  user: {
+    name: 'Jane Doe',
+    id: 'ID: AC3YULT8',
+  },
+  profileMenu: {
+    label: 'Open profile menu',
+    actions: [
+      {
+        onClick: action('View profile'),
+        children: 'View profile',
+      },
+      {
+        onClick: action('Settings'),
+        children: 'Settings',
+      },
+      { type: 'divider' },
+      {
+        onClick: action('Logout'),
+        children: 'Logout',
+        destructive: true,
+      },
+    ],
+  },
   links: [
     {
       icon: Shop,

@@ -20,11 +20,12 @@ import { TrackingElement } from '@sumup/collector';
 
 import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
-import Avatar, { AvatarProps } from '../../../Avatar';
+import Avatar from '../../../Avatar';
 import Body from '../../../Body';
 import Popover, { PopoverProps } from '../../../Popover';
 import { Skeleton } from '../../../Skeleton';
 import { TRACKING_ELEMENTS } from '../../constants';
+import { UserProps } from '../../types';
 
 const profileWrapperStyles = ({ theme }: StyleProps) => css`
   height: 100%;
@@ -88,19 +89,11 @@ interface ProfileProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * A description of the button which opens the profile menu.
    */
-  profileLabel: string;
+  label: string;
   /**
-   * A user's profile photo.
+   * The user's profile.
    */
-  userAvatar?: AvatarProps;
-  /**
-   * A user's name. Strings longer than 20 characters are truncated.
-   */
-  userName: string;
-  /**
-   * An optional user id such as the SumUp merchant code.
-   */
-  userId?: string;
+  user: UserProps;
   /**
    * Whether the associated popover is open.
    */
@@ -108,29 +101,21 @@ interface ProfileProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Whether the profile page is the currently active page.
    */
-  profileIsActive?: boolean;
+  isActive?: boolean;
 }
 
-function Profile({
-  userAvatar,
-  userName,
-  userId,
-  profileLabel,
-  profileIsActive,
-  isOpen,
-  ...props
-}: ProfileProps) {
+function Profile({ user, label, isActive, isOpen, ...props }: ProfileProps) {
   return (
     <ProfileWrapper
       {...props}
       type="button"
-      aria-label={profileLabel}
-      title={profileLabel}
-      isActive={isOpen || profileIsActive}
+      aria-label={label}
+      title={label}
+      isActive={isOpen || isActive}
     >
       <Skeleton circle>
-        {userAvatar ? (
-          <UserAvatar {...userAvatar} variant="identity" />
+        {user.avatar ? (
+          <UserAvatar {...user.avatar} variant="identity" />
         ) : (
           <ProfileIcon role="presentation" />
         )}
@@ -138,13 +123,13 @@ function Profile({
       <UserDetails>
         <Skeleton css={truncateStyles}>
           <Body size="two" variant="highlight" noMargin>
-            {userName}
+            {user.name}
           </Body>
         </Skeleton>
-        {userId && (
+        {user.id && (
           <Skeleton css={truncateStyles}>
             <Body size="two" noMargin>
-              {userId}
+              {user.id}
             </Body>
           </Skeleton>
         )}
@@ -159,22 +144,20 @@ export interface ProfileMenuProps extends ProfileProps {
    * A collection of actions to be rendered in the profile menu.
    * Same API as the Popover actions.
    */
-  profileActions: PopoverProps['actions'];
+  actions: PopoverProps['actions'];
   /**
    * An optional label that is added to the element tree when clicking
    * a profile action.
    */
-  profileTrackingLabel?: string;
+  trackingLabel?: string;
 }
 
 export function ProfileMenu({
-  userAvatar,
-  userName,
-  userId,
-  profileLabel,
-  profileActions,
-  profileIsActive,
-  profileTrackingLabel,
+  user,
+  label,
+  actions,
+  isActive,
+  trackingLabel,
 }: ProfileMenuProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
   const offsetModifier = { name: 'offset', options: { offset: [-16, 8] } };
@@ -182,7 +165,7 @@ export function ProfileMenu({
   return (
     <TrackingElement
       name={TRACKING_ELEMENTS.PROFILE_SECTION}
-      label={profileTrackingLabel}
+      label={trackingLabel}
     >
       <Popover
         isOpen={isOpen}
@@ -191,14 +174,12 @@ export function ProfileMenu({
           <Profile
             {...popoverProps}
             isOpen={isOpen}
-            profileLabel={profileLabel}
-            userAvatar={userAvatar}
-            userName={userName}
-            userId={userId}
-            profileIsActive={profileIsActive}
+            label={label}
+            user={user}
+            isActive={isActive}
           />
         )}
-        actions={profileActions}
+        actions={actions}
         placement="bottom-end"
         modifiers={[offsetModifier]}
       />

@@ -20,9 +20,9 @@ import { ProfileMenu } from './ProfileMenu';
 
 describe('ProfileMenu', () => {
   const baseProps = {
-    userName: 'Jane Doe',
-    profileLabel: 'Open profile menu',
-    profileActions: [
+    user: { name: 'Jane Doe' },
+    label: 'Open profile menu',
+    actions: [
       {
         onClick: jest.fn(),
         children: 'View profile',
@@ -45,7 +45,7 @@ describe('ProfileMenu', () => {
       const { container } = render(
         <ProfileMenu
           {...baseProps}
-          userAvatar={{ src: 'profile.png', alt: '' }}
+          user={{ ...baseProps.user, avatar: { src: 'profile.png', alt: '' } }}
         />,
       );
 
