@@ -33,6 +33,7 @@ import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
 import isPropValid from '@emotion/is-prop-valid';
 import { IconProps } from '@sumup/icons';
+import { useClickTrigger } from '@sumup/collector';
 
 import { ClickEvent } from '../../types/events';
 import { AsPropType } from '../../types/prop-types';
@@ -48,6 +49,7 @@ import { useComponents } from '../ComponentsContext';
 import Portal from '../Portal';
 import Hr from '../Hr';
 import { useStackContext } from '../StackContext';
+import { isFunction } from '../../util/type-check';
 
 export interface BaseProps {
   /**
@@ -211,6 +213,8 @@ function isDivider(action: Action): action is Divider {
   return 'type' in action && action.type === 'divider';
 }
 
+type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
+
 export interface PopoverProps {
   /**
    * Determines whether the Popover is open or closed.
@@ -219,7 +223,7 @@ export interface PopoverProps {
   /**
    * Function that is called when toggles the Popover.
    */
-  onToggle: (open: boolean | ((prevOpen: boolean) => boolean)) => void;
+  onToggle: OnToggle;
   /**
    * An array of PopoverItem or Divider.
    */
@@ -249,6 +253,10 @@ export interface PopoverProps {
     'aria-controls': string;
     'aria-expanded': boolean;
   }) => JSX.Element;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
 }
 
 type TriggerKey = 'ArrowUp' | 'ArrowDown';
@@ -261,6 +269,7 @@ export const Popover = ({
   fallbackPlacements = ['top', 'right', 'left'],
   component: Component,
   modifiers = [],
+  tracking,
   ...props
 }: PopoverProps): JSX.Element | null => {
   const theme = useTheme();
@@ -270,6 +279,24 @@ export const Popover = ({
   const menuEl = useRef<HTMLDivElement>(null);
   const triggerId = useMemo(() => uniqueId('trigger_'), []);
   const menuId = useMemo(() => uniqueId('popover_'), []);
+
+  const sendEvent = useClickTrigger();
+
+  const handleToggle: OnToggle = (state) => {
+    onToggle((prev) => {
+      const next = isFunction(state) ? state(prev) : state;
+
+      if (tracking && tracking.label) {
+        sendEvent({
+          component: 'popover',
+          ...tracking,
+          label: `${tracking.label}|${next ? 'open' : 'close'}`,
+        });
+      }
+
+      return next;
+    });
+  };
 
   // Popper custom modifier to apply bottom sheet for mobile.
   // The window.matchMedia() is a useful API for this, it allows you to change the styles based on a condition.
@@ -328,8 +355,8 @@ export const Popover = ({
   // re-attached on every render.
   const popperRef = useLatest(popperElement);
 
-  useEscapeKey(() => onToggle(false), isOpen);
-  useClickOutside(popperRef, () => onToggle(false), isOpen);
+  useEscapeKey(() => handleToggle(false), isOpen);
+  useClickOutside(popperRef, () => handleToggle(false), isOpen);
 
   const prevOpen = usePrevious(isOpen);
 
@@ -365,17 +392,17 @@ export const Popover = ({
     // This prevents the event from bubbling which would trigger the
     // useClickOutside above and would prevent the popover from closing.
     event.stopPropagation();
-    onToggle((prev) => !prev);
+    handleToggle((prev) => !prev);
   };
 
   const handleTriggerKeyDown = (event: KeyboardEvent) => {
     if (isArrowDown(event)) {
       triggerKey.current = 'ArrowDown';
-      onToggle(true);
+      handleToggle(true);
     }
     if (isArrowUp(event)) {
       triggerKey.current = 'ArrowUp';
-      onToggle((prev) => !prev);
+      handleToggle((prev) => !prev);
     }
   };
 
@@ -386,7 +413,7 @@ export const Popover = ({
     if (onClick) {
       onClick(event);
     }
-    onToggle(false);
+    handleToggle(false);
   };
 
   return (

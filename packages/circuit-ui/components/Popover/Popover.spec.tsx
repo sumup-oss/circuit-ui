@@ -17,6 +17,7 @@
 
 import { Delete, Add, Download } from '@sumup/icons';
 import { Placement } from '@popperjs/core';
+import * as Collector from '@sumup/collector';
 
 import { act, axe, RenderFn, render, userEvent } from '../../util/test-utils';
 import { ClickEvent } from '../../types/events';
@@ -27,6 +28,8 @@ import {
   Popover,
   PopoverProps,
 } from './Popover';
+
+jest.mock('@sumup/collector');
 
 const placements: Placement[] = ['auto', 'top', 'bottom', 'left', 'right'];
 
@@ -86,7 +89,19 @@ describe('Popover', () => {
     jest.clearAllMocks();
   });
 
-  const renderPopover = (props: PopoverProps) => render(<Popover {...props} />);
+  function renderPopover(props: PopoverProps) {
+    return render(<Popover {...props} />);
+  }
+
+  const dispatch = jest.fn();
+  // @ts-expect-error TypeScript doesn't allow assigning to the read-only
+  // useClickTrigger
+  Collector.useClickTrigger = jest.fn(() => dispatch);
+
+  function createStateSetter(initialState: boolean) {
+    return (state: boolean | ((prev: boolean) => boolean)) =>
+      typeof state === 'boolean' ? state : state(initialState);
+  }
 
   const baseProps: PopoverProps = {
     component: (triggerProps) => <button {...triggerProps}>Button</button>,
@@ -105,7 +120,8 @@ describe('Popover', () => {
       },
     ],
     isOpen: true,
-    onToggle: jest.fn(),
+    onToggle: jest.fn(createStateSetter(true)),
+    tracking: { label: 'test-popover' },
   };
 
   describe('styles', () => {
@@ -128,7 +144,9 @@ describe('Popover', () => {
 
   describe('business logic', () => {
     it('should open the popover when clicking the trigger element', () => {
-      const { getByRole } = renderPopover({ ...baseProps, isOpen: false });
+      const isOpen = false;
+      const onToggle = jest.fn(createStateSetter(isOpen));
+      const { getByRole } = renderPopover({ ...baseProps, isOpen, onToggle });
 
       const popoverTrigger = getByRole('button');
 
@@ -136,7 +154,8 @@ describe('Popover', () => {
         userEvent.click(popoverTrigger);
       });
 
-      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      expect(onToggle).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it.each([
@@ -147,7 +166,9 @@ describe('Popover', () => {
     ])(
       'should open the popover when pressing the %s key on the trigger element',
       (_, key) => {
-        const { getByRole } = renderPopover({ ...baseProps, isOpen: false });
+        const isOpen = false;
+        const onToggle = jest.fn(createStateSetter(isOpen));
+        const { getByRole } = renderPopover({ ...baseProps, isOpen, onToggle });
 
         const popoverTrigger = getByRole('button');
 
@@ -156,7 +177,8 @@ describe('Popover', () => {
           userEvent.keyboard(key);
         });
 
-        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+        expect(onToggle).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenCalledTimes(1);
       },
     );
 
@@ -168,6 +190,7 @@ describe('Popover', () => {
       });
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it('should close the popover when clicking the trigger element', () => {
@@ -180,6 +203,7 @@ describe('Popover', () => {
       });
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it.each([
@@ -199,6 +223,7 @@ describe('Popover', () => {
         });
 
         expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenCalledTimes(1);
       },
     );
 
@@ -210,6 +235,7 @@ describe('Popover', () => {
       });
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it('should close the popover when clicking a popover item', () => {
@@ -222,12 +248,17 @@ describe('Popover', () => {
       });
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it('should move focus to the first popover item after opening', () => {
+      const isOpen = false;
+      const onToggle = jest.fn(createStateSetter(isOpen));
+
       const { getAllByRole, rerender } = renderPopover({
         ...baseProps,
-        isOpen: false,
+        isOpen,
+        onToggle,
       });
 
       act(() => {
