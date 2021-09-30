@@ -16,13 +16,12 @@
 import { MouseEvent, KeyboardEvent, FC, AnchorHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 import { IconProps } from '@sumup/icons';
 
 import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
 import { AsPropType } from '../../../../types/prop-types';
-import { useClickEvent } from '../../../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import Body from '../../../Body';
 import { useComponents } from '../../../ComponentsContext';
 import { Skeleton } from '../../../Skeleton';

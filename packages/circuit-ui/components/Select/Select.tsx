@@ -17,7 +17,6 @@ import { FC, ReactNode, Ref, SelectHTMLAttributes, forwardRef } from 'react';
 import { css } from '@emotion/react';
 import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { uniqueId } from '../../util/id';
 import styled, { StyleProps } from '../../styles/styled';
@@ -27,7 +26,7 @@ import {
   inputOutline,
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
-import { useClickEvent } from '../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 import { deprecate } from '../../util/logger';

@@ -25,7 +25,6 @@ import {
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -37,7 +36,7 @@ import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
 import { AsPropType } from '../../types/prop-types';
 import { useComponents } from '../ComponentsContext';
-import { useClickEvent } from '../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 
 export interface BaseProps {
   'children': ReactNode;

@@ -15,7 +15,6 @@
 
 import { Fragment, Ref, InputHTMLAttributes, forwardRef } from 'react';
 import { css } from '@emotion/react';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -24,7 +23,7 @@ import {
   focusOutline,
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import { useClickEvent } from '../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { deprecate } from '../../util/logger';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';

@@ -16,10 +16,9 @@
 import { ReactElement } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
-import { useClickEvent } from '../../../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import { ClickEvent } from '../../../../types/events';
 import { AsPropType } from '../../../../types/prop-types';
 import { useComponents } from '../../../ComponentsContext';

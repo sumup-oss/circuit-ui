@@ -29,7 +29,6 @@ import {
 } from 'react';
 import useLatest from 'use-latest';
 import usePrevious from 'use-previous';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 import { usePopper } from 'react-popper';
 import { Placement, State, Modifier } from '@popperjs/core';
 import isPropValid from '@emotion/is-prop-valid';
@@ -40,7 +39,7 @@ import { AsPropType } from '../../types/prop-types';
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import { useClickEvent } from '../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { useFocusList } from '../../hooks/useFocusList';

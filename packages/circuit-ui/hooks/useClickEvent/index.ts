@@ -14,3 +14,5 @@
  */
 
 export { useClickEvent } from './useClickEvent';
+
+export type { TrackingProps } from './useClickEvent';

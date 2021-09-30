@@ -21,7 +21,6 @@ import {
   Ref,
 } from 'react';
 import { css } from '@emotion/react';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 
 import { focusVisible } from '../../styles/style-mixins';
@@ -30,7 +29,7 @@ import { ClickEvent } from '../../types/events';
 import { AsPropType } from '../../types/prop-types';
 import { Body, BodyProps } from '../Body/Body';
 import { useComponents } from '../ComponentsContext';
-import { useClickEvent } from '../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 
 export interface BaseProps extends BodyProps {
   children: ReactNode;

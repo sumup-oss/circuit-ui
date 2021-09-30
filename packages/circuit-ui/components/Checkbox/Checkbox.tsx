@@ -16,7 +16,6 @@
 import { InputHTMLAttributes, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -25,7 +24,7 @@ import {
   focusOutline,
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import { useClickEvent } from '../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { deprecate } from '../../util/logger';
 import Tooltip from '../Tooltip';
 

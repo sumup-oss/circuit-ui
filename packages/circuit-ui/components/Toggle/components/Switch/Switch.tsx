@@ -15,11 +15,10 @@
 
 import { ButtonHTMLAttributes, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { focusVisible, hideVisually } from '../../../../styles/style-mixins';
-import { useClickEvent } from '../../../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 
 export interface SwitchProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
