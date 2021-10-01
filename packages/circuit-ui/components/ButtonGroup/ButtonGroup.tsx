@@ -25,7 +25,12 @@ export interface ButtonGroupProps {
   /**
    * Buttons to group.
    */
-  children: ReactElement<ButtonProps>[] | ReactElement<ButtonProps>;
+  /**
+   * @deprecated Use the action prop instead.
+   */
+  children?:
+    | (ReactElement<ButtonProps> | undefined)[]
+    | ReactElement<ButtonProps>;
   /**
    * Direction to align the content. Either left/right
    */
@@ -43,7 +48,7 @@ export interface ButtonGroupProps {
    */
   action?: {
     primary: Action;
-    secondary: Action;
+    secondary?: Action;
   };
 }
 
@@ -163,27 +168,15 @@ export const ButtonGroup = forwardRef(
     if (action) {
       return (
         <ActionsWrapper {...props}>
-          <SecondaryButton
-            variant="secondary"
-            onClick={action.secondary.onClick}
-            href={action.secondary.href}
-          >
-            {action.secondary.children}
-          </SecondaryButton>
-          <PrimaryButton
-            variant="primary"
-            onClick={action.primary.onClick}
-            href={action.primary.href}
-          >
-            {action.primary.children}
-          </PrimaryButton>
-          <TertiaryButton
-            variant="tertiary"
-            onClick={action.secondary.onClick}
-            href={action.secondary.href}
-          >
-            {action.secondary.children}
-          </TertiaryButton>
+          {action.secondary && (
+            <SecondaryButton {...action.secondary} variant="secondary" />
+          )}
+
+          <PrimaryButton {...action.primary} variant="primary" />
+
+          {action.secondary && (
+            <TertiaryButton {...action.secondary} variant="tertiary" />
+          )}
         </ActionsWrapper>
       );
     }

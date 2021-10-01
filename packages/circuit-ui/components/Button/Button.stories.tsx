@@ -19,7 +19,6 @@ import { useState } from 'react';
 
 import { Stack } from '../../../../.storybook/components';
 import ButtonGroup from '../ButtonGroup';
-import LoadingButton from '../LoadingButton';
 import IconButton from '../IconButton';
 import CloseButton from '../CloseButton';
 
@@ -29,7 +28,7 @@ import docs from './Button.docs.mdx';
 export default {
   title: 'Components/Button',
   component: Button,
-  subcomponents: { LoadingButton, IconButton, CloseButton, ButtonGroup },
+  subcomponents: { IconButton, CloseButton, ButtonGroup },
   parameters: {
     docs: { page: docs },
   },
@@ -119,13 +118,13 @@ export const Loading = (args: ButtonProps) => {
   };
 
   return (
-    <LoadingButton
+    <Button
       isLoading={loading}
       loadingLabel="Loading"
       onClick={handleClick}
       {...args}
     >
       Things take time
-    </LoadingButton>
+    </Button>
   );
 };

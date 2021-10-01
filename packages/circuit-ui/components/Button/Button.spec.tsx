@@ -106,6 +106,19 @@ describe('Button', () => {
       expect(buttonEl).toHaveAttribute('href');
     });
 
+    it('should render loading button with loading label', () => {
+      const loadingLabel = 'Loading';
+      const props = {
+        ...baseProps,
+        isLoading: true,
+        loadingLabel,
+      };
+
+      const { getByRole } = renderButton(render, props);
+      const buttonEl = getByRole('button');
+      expect(buttonEl).toHaveTextContent(loadingLabel);
+    });
+
     it('should call the onClick handler when clicked', () => {
       const props = {
         ...baseProps,
@@ -151,6 +164,16 @@ describe('Button', () => {
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(<Button>Button</Button>);
+      const actual = await axe(wrapper);
+      expect(actual).toHaveNoViolations();
+    });
+
+    it('should meet accessibility guidelines for Loading button', async () => {
+      const wrapper = renderToHtml(
+        <Button isLoading={true} loadingLabel="Loading">
+          Button
+        </Button>,
+      );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });

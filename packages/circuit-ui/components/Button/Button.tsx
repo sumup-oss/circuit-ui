@@ -25,7 +25,6 @@ import {
 } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
-import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -278,14 +277,27 @@ const stretchStyles = ({ stretch }: ButtonProps) =>
     width: 100%;
   `;
 
-const iconStyles = (theme: Theme) => css`
+const iconStyles = ({ theme }: StyleProps) => css`
   flex-shrink: 0;
   margin-right: ${theme.spacings.byte};
 `;
 
-const loadingButtonStyles = css`
-  // position: relative;
-  // overflow: hidden;
+const iconLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
+  isLoading &&
+  css`
+    opacity: 0;
+    visibility: hidden;
+    transform: scale3d(0, 0, 0);
+  `;
+
+const StyledIcon = styled.div<{ isLoading: boolean }>(
+  iconStyles,
+  iconLoadingStyles,
+);
+
+const loadingStyles = css`
+  position: relative;
+  overflow: hidden;
 `;
 
 const spinnerBaseStyles = ({ theme }: StyleProps) => css`
@@ -310,7 +322,7 @@ const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
 
 const LoadingLabel = styled.span(hideVisually);
 
-const childrenStyles = ({ theme }: StyleProps) => css`
+const contentStyles = ({ theme }: StyleProps) => css`
   opacity: 1;
   visibility: visible;
   transform: scale3d(1, 1, 1);
@@ -319,7 +331,7 @@ const childrenStyles = ({ theme }: StyleProps) => css`
     visibility ${theme.transitions.default};
 `;
 
-const childrenLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
+const contentLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
   isLoading &&
   css`
     opacity: 0;
@@ -327,9 +339,9 @@ const childrenLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
     transform: scale3d(0, 0, 0);
   `;
 
-const Children = styled.span<{ isLoading: boolean }>(
-  childrenStyles,
-  childrenLoadingStyles,
+const Content = styled.span<{ isLoading: boolean }>(
+  contentStyles,
+  contentLoadingStyles,
 );
 
 const StyledButton = styled('button', {
@@ -343,7 +355,7 @@ const StyledButton = styled('button', {
   sizeStyles,
   tertiaryStyles,
   stretchStyles,
-  loadingButtonStyles,
+  loadingStyles,
 );
 
 /**
@@ -390,17 +402,20 @@ export const Button = forwardRef(
         as={props.href ? Link : 'button'}
         onClick={handleClick}
       >
-        {Icon && <Icon css={iconStyles} role="presentation" />}
-        {loadingLabel ? (
-          <Fragment>
-            <LoadingIcon isLoading={Boolean(isLoading)} size="byte">
-              <LoadingLabel>{loadingLabel}</LoadingLabel>
-            </LoadingIcon>
-            <Children isLoading={Boolean(isLoading)}>{children}</Children>
-          </Fragment>
-        ) : (
-          children
-        )}
+        <Fragment>
+          {Icon && (
+            <StyledIcon
+              // @ts-expect-error This is gonna be addressed in v4.
+              as={Icon}
+              isLoading={Boolean(isLoading)}
+              role="presentation"
+            />
+          )}
+          <LoadingIcon isLoading={Boolean(isLoading)} size="byte">
+            <LoadingLabel>{loadingLabel}</LoadingLabel>
+          </LoadingIcon>
+          <Content isLoading={Boolean(isLoading)}>{children}</Content>
+        </Fragment>
       </StyledButton>
     );
   },

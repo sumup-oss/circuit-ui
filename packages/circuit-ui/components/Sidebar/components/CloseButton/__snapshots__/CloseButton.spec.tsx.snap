@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CloseButton styles should render and match snapshot when not visible 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -33,6 +49,8 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding: calc(12px - 1px);
   border-color: transparent!important;
   position: absolute;
@@ -84,6 +102,23 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
 }
 
 .circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -95,35 +130,73 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   width: 1px;
 }
 
+.circuit-3 {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
 <button
   class="circuit-0"
   title="Close"
   type="button"
 >
-  <svg
-    fill="none"
-    height="16"
-    role="presentation"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      clip-rule="evenodd"
-      d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
-      fill="currentColor"
-      fill-rule="evenodd"
-    />
-  </svg>
   <span
     class="circuit-1"
   >
-    Close
+    <span
+      class="circuit-2"
+    />
+  </span>
+  <span
+    class="circuit-3"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+    <span
+      class="circuit-2"
+    >
+      Close
+    </span>
   </span>
 </button>
 `;
 
 exports[`CloseButton styles should render and match snapshot when visible 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -156,6 +229,8 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding: calc(12px - 1px);
   border-color: transparent!important;
   position: absolute;
@@ -209,6 +284,23 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
 }
 
 .circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -220,30 +312,52 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   width: 1px;
 }
 
+.circuit-3 {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
 <button
   class="circuit-0"
   title="Close"
   type="button"
 >
-  <svg
-    fill="none"
-    height="16"
-    role="presentation"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      clip-rule="evenodd"
-      d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
-      fill="currentColor"
-      fill-rule="evenodd"
-    />
-  </svg>
   <span
     class="circuit-1"
   >
-    Close
+    <span
+      class="circuit-2"
+    />
+  </span>
+  <span
+    class="circuit-3"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+    <span
+      class="circuit-2"
+    >
+      Close
+    </span>
   </span>
 </button>
 `;

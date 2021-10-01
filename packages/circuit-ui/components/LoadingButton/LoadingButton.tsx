@@ -18,7 +18,6 @@ import LoadingButton, { ButtonProps } from '../Button';
 export type LoadingButtonProps = ButtonProps;
 
 /**
- * TODO deprecate me
- * (we should probably have a codemod to rename the component too)
+ * @deprecated Use the `Button` with isLoading and loadingLabel prop instead.
  */
 export { LoadingButton };

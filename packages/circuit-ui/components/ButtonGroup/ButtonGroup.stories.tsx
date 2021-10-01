@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { action } from '@storybook/addon-actions';
+
 import Button from '../Button';
 
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
@@ -37,7 +39,7 @@ Action.args = {
   action: {
     primary: {
       children: 'Look again',
-      onClick: () => console.log("It's still empty."),
+      onClick: action('Still empty'),
     },
     secondary: {
       children: 'Go elsewhere',
