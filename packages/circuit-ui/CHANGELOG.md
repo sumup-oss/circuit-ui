@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.0.0-next.3
+
+### Patch Changes
+
+- [#1191](https://github.com/sumup-oss/circuit-ui/pull/1191) [`b4e0041f`](https://github.com/sumup-oss/circuit-ui/commit/b4e0041f221428ea30112000aed8596aa7ce2c94) Thanks [@robinmetral](https://github.com/robinmetral)! - Typed the grid components to prevent wrong type inference.
+
 ## 4.0.0-next.2
 
 ### Major Changes
