@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- [#1193](https://github.com/sumup-oss/circuit-ui/pull/1193) [`139045d4`](https://github.com/sumup-oss/circuit-ui/commit/139045d4d055fa9435b4f409b087648db37b61ba) Thanks [@robinmetral](https://github.com/robinmetral)! - Added the classes that were removed from the SumUp logo icon.
+
 ## 2.0.0-next.0
 
 ### Major Changes
