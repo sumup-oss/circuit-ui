@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
-import Col from './Col';
+import { FC } from 'react';
 
-export default Col;
+import Row from './Row';
+
+export default Row as FC;

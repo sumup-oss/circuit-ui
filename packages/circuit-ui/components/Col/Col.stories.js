@@ -18,7 +18,7 @@ import { css } from '@emotion/react';
 
 import docs from '../Grid/Grid.docs.mdx';
 
-import Col from './Col';
+import Col from '.';
 
 const colControl = {
   control: {

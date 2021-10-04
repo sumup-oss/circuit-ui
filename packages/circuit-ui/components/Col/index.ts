@@ -13,6 +13,17 @@
  * limitations under the License.
  */
 
-import Grid from './Grid';
+import { FC } from 'react';
+import { Theme } from '@sumup/design-tokens';
 
-export default Grid;
+import Col from './Col';
+
+type ColBreakpoint = 'default' | keyof Theme['breakpoints'];
+
+type ObjectColSizing = {
+  [k in ColBreakpoint]?: number;
+};
+
+type ColSizing = ObjectColSizing | number | string;
+
+export default Col as FC<{ skip?: ColSizing; span?: ColSizing }>;
