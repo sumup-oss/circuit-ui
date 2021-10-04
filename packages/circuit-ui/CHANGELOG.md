@@ -1,5 +1,21 @@
 # @sumup/circuit-ui
 
+## 4.0.0-next.4
+
+### Major Changes
+
+- [#1186](https://github.com/sumup-oss/circuit-ui/pull/1186) [`17cf95aa`](https://github.com/sumup-oss/circuit-ui/commit/17cf95aac03c804c0bd00c865d5d84f04810ee13) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the Modal's tracking event to include the `open`/`close` data in the tracking label.
+
+* [#1186](https://github.com/sumup-oss/circuit-ui/pull/1186) [`17cf95aa`](https://github.com/sumup-oss/circuit-ui/commit/17cf95aac03c804c0bd00c865d5d84f04810ee13) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed and grouped the TopNavigation props that are forwarded to the ProfileMenu.
+
+- [#1186](https://github.com/sumup-oss/circuit-ui/pull/1186) [`17cf95aa`](https://github.com/sumup-oss/circuit-ui/commit/17cf95aac03c804c0bd00c865d5d84f04810ee13) Thanks [@connor-baer](https://github.com/connor-baer)! - Marked the `label` property of the `tracking` prop as required. This matches the existing behaviour where click events are only tracked if the `label` property is provided.
+
+### Minor Changes
+
+- [#1186](https://github.com/sumup-oss/circuit-ui/pull/1186) [`17cf95aa`](https://github.com/sumup-oss/circuit-ui/commit/17cf95aac03c804c0bd00c865d5d84f04810ee13) Thanks [@connor-baer](https://github.com/connor-baer)! - Added tracking support to the ProfileMenu.
+
+* [#1186](https://github.com/sumup-oss/circuit-ui/pull/1186) [`17cf95aa`](https://github.com/sumup-oss/circuit-ui/commit/17cf95aac03c804c0bd00c865d5d84f04810ee13) Thanks [@connor-baer](https://github.com/connor-baer)! - Added tracking support to the Popover.
+
 ## 4.0.0-next.3
 
 ### Patch Changes
