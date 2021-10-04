@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 4.0.0-next.2
+
+### Major Changes
+
+- [#1184](https://github.com/sumup-oss/circuit-ui/pull/1184) [`dfbe2bb3`](https://github.com/sumup-oss/circuit-ui/commit/dfbe2bb3b3bd6dffdebdb8d4a808896b6171a281) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `useClickEvent` hook to track events even if no custom `onClick` handler is defined.
+
+* [#1185](https://github.com/sumup-oss/circuit-ui/pull/1185) [`be3c0781`](https://github.com/sumup-oss/circuit-ui/commit/be3c0781d9708c2351b244516f6bcc22aa25988a) Thanks [@github-actions](https://github.com/apps/github-actions)! - Replaced the `SideNavigation` badge's `label` prop by `children` for consistency with the `BadgeProps`.
+
 ## 4.0.0-next.1
 
 ### Major Changes
