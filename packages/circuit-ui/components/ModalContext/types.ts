@@ -14,9 +14,9 @@
  */
 
 import { Props as ReactModalProps } from 'react-modal';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { ClickEvent } from '../../types/events';
+import { TrackingProps } from '../../hooks/useClickEvent';
 
 type OnClose = (event?: ClickEvent) => void;
 

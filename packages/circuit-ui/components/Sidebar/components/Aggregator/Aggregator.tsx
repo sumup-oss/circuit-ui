@@ -23,7 +23,7 @@ import { isEmpty } from 'lodash/fp';
 
 import { ClickEvent } from '../../../../types/events';
 import styled, { StyleProps } from '../../../../styles/styled';
-import { useClickEvent } from '../../../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import { Child, hasSelectedChild, getIcon } from '../../SidebarService';
 import { SubNavList } from '../SubNavList';
 import { NavLabel } from '../NavLabel';
@@ -40,15 +40,15 @@ export interface AggregatorProps {
   /**
    * The icon to be shown when the NavAggregator is not selected
    */
-  defaultIcon: ReactElement;
+  defaultIcon?: ReactElement;
   /**
    * The icon to be shown when the NavAggregator is selected
    */
-  selectedIcon: ReactElement;
+  selectedIcon?: ReactElement;
   /**
    * Disables the Aggregator and all children
    */
-  disabled: boolean;
+  disabled?: boolean;
   /**
    * The onClick method to handle the click event on the NavAggregator
    */
@@ -56,16 +56,10 @@ export interface AggregatorProps {
   /**
    * Additional data that is dispatched with click tracking event.
    */
-  tracking?: {
-    label?: string;
-    component?: string;
-    customParameters?: {
-      [key: string]: unknown;
-    };
-  };
+  tracking?: TrackingProps;
 }
 
-type Disabled = { disabled: boolean };
+type Disabled = { disabled?: boolean };
 type Selected = { selected: boolean };
 
 const baseStyles = ({ theme }: StyleProps) => css`

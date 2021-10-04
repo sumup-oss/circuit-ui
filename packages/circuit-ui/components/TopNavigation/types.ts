@@ -13,6 +13,19 @@
  * limitations under the License.
  */
 
-export { useClickEvent } from './useClickEvent';
+import { AvatarProps } from '../Avatar';
 
-export type { TrackingProps } from './useClickEvent';
+export type UserProps = {
+  /**
+   * A unique user id such as the SumUp merchant code.
+   */
+  id?: string;
+  /**
+   * A user's name. Can be the first or last name or a combination of both.
+   */
+  name: string;
+  /**
+   * A user's profile photo.
+   */
+  avatar?: AvatarProps;
+};

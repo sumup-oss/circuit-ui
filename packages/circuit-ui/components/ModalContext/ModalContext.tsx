@@ -93,8 +93,12 @@ export function ModalProvider<TProps extends BaseModalProps>({
 
   const setModal = useCallback(
     (modal: ModalState<TProps>) => {
-      if (modal.tracking) {
-        sendEvent({ component: 'modal-open', ...modal.tracking });
+      if (modal.tracking && modal.tracking.label) {
+        sendEvent({
+          component: 'modal',
+          ...modal.tracking,
+          label: `${modal.tracking.label}|open`,
+        });
       }
       dispatch({ type: 'push', item: modal });
     },
@@ -103,8 +107,12 @@ export function ModalProvider<TProps extends BaseModalProps>({
 
   const removeModal = useCallback(
     (modal: ModalState<TProps>) => {
-      if (modal.tracking) {
-        sendEvent({ component: 'modal-close', ...modal.tracking });
+      if (modal.tracking && modal.tracking.label) {
+        sendEvent({
+          component: 'modal',
+          ...modal.tracking,
+          label: `${modal.tracking.label}|close`,
+        });
       }
       if (modal.onClose) {
         modal.onClose();

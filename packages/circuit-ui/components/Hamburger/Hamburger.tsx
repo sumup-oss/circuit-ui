@@ -14,9 +14,9 @@
  */
 
 import { css } from '@emotion/react';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { TrackingProps } from '../../hooks/useClickEvent';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
 import { Skeleton } from '../Skeleton';
 
@@ -164,7 +164,7 @@ export const Hamburger = ({
   activeLabel,
   inactiveLabel,
   size = 'giga',
-  tracking = {},
+  tracking,
   ...props
 }: HamburgerProps): JSX.Element => {
   if (
@@ -183,7 +183,7 @@ export const Hamburger = ({
       {...props}
       size={size}
       label={isActive ? activeLabel : inactiveLabel}
-      tracking={{ component: 'hamburger', ...tracking }}
+      tracking={tracking ? { component: 'hamburger', ...tracking } : undefined}
       type="button"
     >
       <Box size={size}>

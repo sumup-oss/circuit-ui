@@ -26,6 +26,7 @@ import { SkeletonContainer } from '../Skeleton';
 import { ProfileMenu, ProfileMenuProps } from './components/ProfileMenu';
 import { UtilityLinks, UtilityLinksProps } from './components/UtilityLinks';
 import { TRACKING_ELEMENTS } from './constants';
+import { UserProps } from './types';
 
 const CONTENT_HEIGHT = '56px';
 export const TOP_NAVIGATION_HEIGHT =
@@ -93,23 +94,18 @@ const wrapperStyles = css`
   height: 100%;
 `;
 
-export interface TopNavigationProps
-  extends ProfileMenuProps,
-    Partial<UtilityLinksProps> {
+export interface TopNavigationProps extends Partial<UtilityLinksProps> {
   logo: ReactNode;
   hamburger?: HamburgerProps;
+  user: UserProps;
+  profileMenu: Omit<ProfileMenuProps, 'user'>;
   isLoading?: boolean;
 }
 
 export function TopNavigation({
   logo,
-  userAvatar,
-  userName,
-  userId,
-  profileLabel,
-  profileActions,
-  profileIsActive,
-  profileTrackingLabel,
+  user,
+  profileMenu,
   links,
   hamburger,
   isLoading,
@@ -128,15 +124,7 @@ export function TopNavigation({
         </div>
         <SkeletonContainer css={wrapperStyles} isLoading={Boolean(isLoading)}>
           {links && <UtilityLinks links={links} />}
-          <ProfileMenu
-            userAvatar={userAvatar}
-            userName={userName}
-            userId={userId}
-            profileLabel={profileLabel}
-            profileActions={profileActions}
-            profileIsActive={profileIsActive}
-            profileTrackingLabel={profileTrackingLabel}
-          />
+          <ProfileMenu {...profileMenu} user={user} />
         </SkeletonContainer>
       </Header>
     </TrackingElement>

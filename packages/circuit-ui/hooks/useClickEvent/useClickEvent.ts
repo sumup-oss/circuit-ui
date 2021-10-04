@@ -15,9 +15,13 @@
 
 import { useClickTrigger, Dispatch } from '@sumup/collector';
 
+import { Require } from '../../types/util';
+
+export type TrackingProps = Require<Dispatch, 'label'>;
+
 export function useClickEvent<Event>(
   onClick?: (event: Event) => void,
-  tracking?: Dispatch,
+  tracking?: TrackingProps,
   defaultComponentName?: string,
 ): ((event: Event) => void) | undefined {
   const dispatch = useClickTrigger();

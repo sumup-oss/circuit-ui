@@ -14,9 +14,9 @@
  */
 
 import { FC, MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 import { IconProps } from '@sumup/icons';
 
+import { TrackingProps } from '../../hooks/useClickEvent';
 import { BadgeProps } from '../Badge';
 
 export interface PrimaryLinkProps

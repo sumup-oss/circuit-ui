@@ -15,7 +15,6 @@
 
 import { FC, ReactNode } from 'react';
 import { css } from '@emotion/react';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { ClickEvent } from '../../../../types/events';
 import styled, { StyleProps } from '../../../../styles/styled';
@@ -23,6 +22,7 @@ import {
   CloseButton,
   CloseButtonProps,
 } from '../../../CloseButton/CloseButton';
+import { TrackingProps } from '../../../../hooks/useClickEvent';
 
 type CloseProps =
   | {
@@ -89,7 +89,7 @@ export const CardHeader: FC<CardHeaderProps> = ({
   onClose,
   children,
   closeButtonLabel,
-  tracking = {},
+  tracking,
   ...props
 }) => (
   <CardHeaderContainer {...props}>
@@ -98,7 +98,9 @@ export const CardHeader: FC<CardHeaderProps> = ({
       <CardHeaderCloseButton
         onClick={onClose}
         label={closeButtonLabel}
-        tracking={{ component: 'close-button', ...tracking }}
+        tracking={
+          tracking ? { component: 'close-button', ...tracking } : undefined
+        }
       />
     )}
   </CardHeaderContainer>

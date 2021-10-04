@@ -22,13 +22,12 @@ import {
   ButtonHTMLAttributes,
 } from 'react';
 import { css } from '@emotion/react';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 import { Theme } from '@sumup/design-tokens';
 
 import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
 import { typography, focusVisible } from '../../styles/style-mixins';
-import { useClickEvent } from '../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import CloseButton, { CloseButtonProps } from '../CloseButton';
 
 type BaseProps = {
@@ -244,10 +243,9 @@ export const Tag = forwardRef(
             data-testid="tag-close"
             size="kilo"
             onClick={onRemove}
-            tracking={{
-              component: 'tag-remove',
-              ...tracking,
-            }}
+            tracking={
+              tracking ? { component: 'tag-remove', ...tracking } : undefined
+            }
           />
         )}
       </Container>

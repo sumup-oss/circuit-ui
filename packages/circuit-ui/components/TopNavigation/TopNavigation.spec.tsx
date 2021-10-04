@@ -38,25 +38,29 @@ describe('TopNavigation', () => {
       activeLabel: 'Close menu',
       inactiveLabel: 'Open menu',
     },
-    userName: 'Jane Doe',
-    userId: 'ID: AC3YULT8',
-    profileLabel: 'Open profile menu',
-    profileActions: [
-      {
-        onClick: jest.fn(),
-        children: 'View profile',
-      },
-      {
-        onClick: jest.fn(),
-        children: 'Settings',
-      },
-      { type: 'divider' },
-      {
-        onClick: jest.fn(),
-        children: 'Logout',
-        destructive: true,
-      },
-    ] as PopoverProps['actions'],
+    user: {
+      name: 'Jane Doe',
+      id: 'ID: AC3YULT8',
+    },
+    profileMenu: {
+      label: 'Open profile menu',
+      actions: [
+        {
+          onClick: jest.fn(),
+          children: 'View profile',
+        },
+        {
+          onClick: jest.fn(),
+          children: 'Settings',
+        },
+        { type: 'divider' },
+        {
+          onClick: jest.fn(),
+          children: 'Logout',
+          destructive: true,
+        },
+      ] as PopoverProps['actions'],
+    },
     links: [
       {
         icon: Shop,
