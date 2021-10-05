@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.0.0-next.5
+
+### Patch Changes
+
+- [#1197](https://github.com/sumup-oss/circuit-ui/pull/1197) [`edd6f487`](https://github.com/sumup-oss/circuit-ui/commit/edd6f487ed6ab36d52b50b1a90e4f96a506deb66) Thanks [@robinmetral](https://github.com/robinmetral)! - Hid deprecation warnings on prod and test environments.
+
 ## 4.0.0-next.4
 
 ### Major Changes
