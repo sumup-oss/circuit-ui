@@ -83,12 +83,18 @@ const toggleWrapperDisabledStyles = ({ disabled }: WrapperElProps) =>
 
 const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
   if (!noMargin) {
-    deprecate(
-      'Toggle',
-      'The default outer spacing in the Toggle component is deprecated.',
-      'Use the `noMargin` prop to silence this warning.',
-      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-    );
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test'
+    ) {
+      deprecate(
+        'Toggle',
+        'The default outer spacing in the Toggle component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      );
+    }
+
     return null;
   }
   return css`

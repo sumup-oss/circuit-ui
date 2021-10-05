@@ -121,12 +121,17 @@ const labelNoMarginStyles = ({
   noMargin,
 }: StyleProps & LabelElProps) => {
   if (!noMargin) {
-    deprecate(
-      'Input',
-      'The default outer spacing in the Input component is deprecated.',
-      'Use the `noMargin` prop to silence this warning.',
-      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-    );
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test'
+    ) {
+      deprecate(
+        'Input',
+        'The default outer spacing in the Input component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      );
+    }
 
     return css`
       margin-bottom: ${theme.spacings.mega};

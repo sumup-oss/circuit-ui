@@ -122,12 +122,18 @@ const disabledStyles = ({ disabled }: LabelElProps) =>
 
 const noMarginStyles = ({ noMargin }: LabelElProps) => {
   if (!noMargin) {
-    deprecate(
-      'Selector',
-      'The default outer spacing in the Selector component is deprecated.',
-      'Use the `noMargin` prop to silence this warning.',
-      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-    );
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test'
+    ) {
+      deprecate(
+        'Selector',
+        'The default outer spacing in the Selector component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      );
+    }
+
     return null;
   }
   return css`

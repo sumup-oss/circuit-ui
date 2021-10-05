@@ -135,12 +135,17 @@ const wrapperBaseStyles = ({ theme }: StyleProps) => css`
 
 const wrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
   if (!noMargin) {
-    deprecate(
-      'Checkbox',
-      'The default outer spacing in the Checkbox component is deprecated.',
-      'Use the `noMargin` prop to silence this warning.',
-      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-    );
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test'
+    ) {
+      deprecate(
+        'Checkbox',
+        'The default outer spacing in the Checkbox component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      );
+    }
 
     return null;
   }
