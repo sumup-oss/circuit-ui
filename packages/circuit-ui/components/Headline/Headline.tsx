@@ -56,17 +56,19 @@ const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => {
   `;
 };
 const noMarginStyles = ({ noMargin }: HeadlineProps) => {
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    !noMargin
-  ) {
-    deprecate(
-      'Headline',
-      'The default outer spacing in the Headline component is deprecated.',
-      'Use the `noMargin` prop to silence this warning.',
-      'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-    );
+  if (!noMargin) {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test'
+    ) {
+      deprecate(
+        'Headline',
+        'The default outer spacing in the Headline component is deprecated.',
+        'Use the `noMargin` prop to silence this warning.',
+        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      );
+    }
+
     return null;
   }
 
