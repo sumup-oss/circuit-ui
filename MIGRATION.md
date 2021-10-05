@@ -1,6 +1,14 @@
 # Migration <!-- omit in toc -->
 
 - [🤖 Codemods](#-codemods)
+- [From v3.x to v4](#from-v3x-to-v4)
+  - [Emotion 11](#emotion-11)
+    - [New package names](#new-package-names)
+    - [Better TypeScript support](#better-typescript-support)
+      - [Typing the theme](#typing-the-theme)
+  - [New brand icons](#new-brand-icons)
+    - [Overview of `@sumup/icons` v2](#overview-of-sumupicons-v2)
+    - [Migrating to `@sumup/icons` v2](#migrating-to-sumupicons-v2)
 - [From v2.x to v3](#from-v2x-to-v3)
   - [Dependencies](#dependencies)
   - [Accessibility](#accessibility)
@@ -58,6 +66,123 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 > ```sh
 > ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
 > ```
+
+## From v3.x to v4
+
+Circuit v4 is a small maintenance release, featuring the upgrade to Emotion 11 and new brand icons.
+
+To get started, upgrade `@sumup/circuit-ui` and its peer dependencies:
+
+```sh
+yarn upgrade @sumup/circuit-ui @sumup/design-tokens @sumup/icons --latest
+```
+
+### Emotion 11
+
+Circuit was upgraded to Emotion 11, so apps using Circuit will also have to upgrade. The main changes are Emotion's new package names and better TypeScript support.
+
+#### New package names
+
+The main change in Emotion 11 is a renaming of most packages under the `@emotion` organization.
+
+It can be automated by using an ESLint plugin provided by Emotion: refer to the [migration guide](https://emotion.sh/docs/emotion-11#package-renaming) for upgrade instructions.
+
+Then, after running the codemod:
+
+- Remove the legacy dependencies and add the new ones:
+  ```sh
+  # example with yarn
+  yarn remove @emotion/core jest-emotion babel-plugin-emotion # remove legacy dependencies
+  yarn add @emotion/react # add new dependencies
+  yarn add -D @emotion/babel-plugin @emotion/jest # add new dev dependencies
+  yarn upgrade @emotion/styled --latest # upgrade existing packages
+  ```
+- Fix any duplicate imports of `@emotion/react` in cases where multiple modules (e.g. `css` from v10's `@emotion/core` and `ThemeProvider` from v10's `emotion-theming`) are all under `@emotion/react` in v11.
+
+#### Better TypeScript support
+
+Emotion's TypeScript types have been improved in v11. Refer to the [migration guide](https://emotion.sh/docs/emotion-11#typescript) for details of the changes.
+
+##### Typing the theme
+
+One of the most useful changes is support for typing the theme.
+
+Previously, many apps would use `CreateStyled`:
+
+```ts
+// utils/styled.ts
+import styled, { CreateStyled } from '@emotion/styled';
+import { Theme } from '@sumup/design-tokens';
+
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+export default styled as CreateStyled<Theme>;
+```
+
+...and import the custom `styled` in their components:
+
+```tsx
+// components/RedCard.tsx
+import { css } from '@emotion/core';
+
+import styled from 'util/styled';
+
+const RedCard = styled(Card)(
+  ({ theme }) => css`
+    background-color: red;
+  `,
+);
+```
+
+Now, you can type the theme by adding it to `@emotion/react`'s declaration:
+
+```ts
+// types/emotion.d.ts (don't forget to include this file in tsconfig.json under `typeRoots`)
+import { Theme as CircuitTheme } from '@sumup/design-tokens';
+import {} from '@emotion/react/types/css-prop'; // See https://github.com/emotion-js/emotion/pull/1941
+
+declare module '@emotion/react' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface Theme extends CircuitTheme {}
+}
+```
+
+...and use `styled` from `@emotion/styled` directly:
+
+```tsx
+// components/RedCard.tsx
+import { css } from '@emotion/core';
+import styled from '@emotion/styled';
+
+const RedCard = styled(Card)(
+  ({ theme }) => css`
+    background-color: red;
+  `,
+);
+```
+
+### New brand icons
+
+Circuit v4 ships with the [new brand icons](https://circuit.sumup.com/?path=/story/features-icons--page) from `@sumup/icons` v2.
+
+#### Overview of `@sumup/icons` v2
+
+- There used to be "filled" and "empty" versions of some of the v1 icons. The distinction has been removed and all icons are now using a "filled" design. The icon versions were primarily used in the legacy `Sidebar` component, which is being replaced by the new `SideNavgation`.
+- The icons' size names changed from `small` and `large` to `16` and `24` (their size in pixels).
+- The default icon size was `small` in v1 but is now `24` in v2 (this change follows [Circuit v3's new component heights](#component-heights)).
+- Many icons were renamed.
+- Some icons or icon sizes were removed.
+
+#### Migrating to `@sumup/icons` v2
+
+Most of the changes can be automated using the 🤖 _component-names-v3_ codemod.
+
+The codemod will print warnings and errors to your console when a manual migration is required:
+
+- Some icons were renamed to match the names of SumUp products. They should not be used outside of the product's context. If you have doubts about your use of the icon, [file an issue](https://github.com/sumup-oss/circuit-ui/issues) or contact the Design System team.
+- If an icon you were using was removed in v2 and can't be replaced by another icon, [file an issue](https://github.com/sumup-oss/circuit-ui/issues) or contact the Design System team.
+- If you were using a `small` (16px) icon that is only available in v2 in `24` (24px), see if the 24px size works for your use case. If it doesn't, [file an issue](https://github.com/sumup-oss/circuit-ui/issues) or contact the Design System team.
+
+Finally, remember to visually verify your application after the upgrade!
 
 ## From v2.x to v3
 
