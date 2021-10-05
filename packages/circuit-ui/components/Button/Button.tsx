@@ -25,6 +25,7 @@ import {
 } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
+import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -141,7 +142,6 @@ const SECONDARY_COLOR_MAP = {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-flex;
-  align-items: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -277,23 +277,10 @@ const stretchStyles = ({ stretch }: ButtonProps) =>
     width: 100%;
   `;
 
-const iconStyles = ({ theme }: StyleProps) => css`
+const iconStyles = (theme: Theme) => css`
   flex-shrink: 0;
   margin-right: ${theme.spacings.byte};
 `;
-
-const iconLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
-  isLoading &&
-  css`
-    opacity: 0;
-    visibility: hidden;
-    transform: scale3d(0, 0, 0);
-  `;
-
-const StyledIcon = styled.div<{ isLoading: boolean }>(
-  iconStyles,
-  iconLoadingStyles,
-);
 
 const loadingStyles = css`
   position: relative;
@@ -323,6 +310,8 @@ const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
 const LoadingLabel = styled.span(hideVisually);
 
 const contentStyles = ({ theme }: StyleProps) => css`
+  display: inline-flex;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   transform: scale3d(1, 1, 1);
@@ -403,18 +392,13 @@ export const Button = forwardRef(
         onClick={handleClick}
       >
         <Fragment>
-          {Icon && (
-            <StyledIcon
-              // @ts-expect-error This is gonna be addressed in v4.
-              as={Icon}
-              isLoading={Boolean(isLoading)}
-              role="presentation"
-            />
-          )}
           <LoadingIcon isLoading={Boolean(isLoading)} size="byte">
             <LoadingLabel>{loadingLabel}</LoadingLabel>
           </LoadingIcon>
-          <Content isLoading={Boolean(isLoading)}>{children}</Content>
+          <Content isLoading={Boolean(isLoading)}>
+            {Icon && <Icon css={iconStyles} role="presentation" />}
+            {children}
+          </Content>
         </Fragment>
       </StyledButton>
     );
