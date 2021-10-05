@@ -151,10 +151,6 @@ exports[`ImageInput styles should render a custom component 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -246,6 +242,14 @@ exports[`ImageInput styles should render a custom component 1`] = `
 }
 
 .circuit-7 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -521,10 +525,6 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -616,6 +616,14 @@ exports[`ImageInput styles should render with an existing image 1`] = `
 }
 
 .circuit-8 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -891,10 +899,6 @@ exports[`ImageInput styles should render with default styles 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -987,6 +991,14 @@ exports[`ImageInput styles should render with default styles 1`] = `
 }
 
 .circuit-8 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -1266,10 +1278,6 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -1362,6 +1370,14 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 }
 
 .circuit-8 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);

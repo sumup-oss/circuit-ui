@@ -24,10 +24,6 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -131,6 +127,14 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
 }
 
 .circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -204,10 +208,6 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -313,6 +313,14 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
 }
 
 .circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);

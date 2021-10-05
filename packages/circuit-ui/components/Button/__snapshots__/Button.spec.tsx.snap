@@ -40,10 +40,6 @@ exports[`Button should render with loading styles 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -133,6 +129,14 @@ exports[`Button should render with loading styles 1`] = `
 }
 
 .circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -196,10 +200,6 @@ exports[`Button styles should render a button with icon 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -258,13 +258,6 @@ exports[`Button styles should render a button with icon 1`] = `
 }
 
 .circuit-1 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  margin-right: 8px;
-}
-
-.circuit-2 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -281,7 +274,7 @@ exports[`Button styles should render a button with icon 1`] = `
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-3 {
+.circuit-2 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -293,7 +286,15 @@ exports[`Button styles should render a button with icon 1`] = `
   width: 1px;
 }
 
-.circuit-4 {
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -304,33 +305,40 @@ exports[`Button styles should render a button with icon 1`] = `
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-4 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
 <button
   class="circuit-0"
 >
-  <svg
-    class="circuit-1"
-    fill="none"
-    height="24"
-    role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M12 23a10.994 10.994 0 1 0-.012 0H12zM7 11c.266 0 .52.104.71.29l3.29 3.3V7a1 1 0 0 1 2 0v7.59l3.29-3.3c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .265-.104.52-.29.71l-5 5a1.014 1.014 0 0 1-1.42 0l-5-5A1.013 1.013 0 0 1 6 12a1 1 0 0 1 1-1z"
-      fill="currentColor"
-    />
-  </svg>
   <span
-    class="circuit-2"
+    class="circuit-1"
   >
     <span
-      class="circuit-3"
+      class="circuit-2"
     />
   </span>
   <span
-    class="circuit-4"
+    class="circuit-3"
   >
+    <svg
+      class="circuit-4"
+      fill="none"
+      height="24"
+      role="presentation"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 23a10.994 10.994 0 1 0-.012 0H12zM7 11c.266 0 .52.104.71.29l3.29 3.3V7a1 1 0 0 1 2 0v7.59l3.29-3.3c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .265-.104.52-.29.71l-5 5a1.014 1.014 0 0 1-1.42 0l-5-5A1.013 1.013 0 0 1 6 12a1 1 0 0 1 1-1z"
+        fill="currentColor"
+      />
+    </svg>
     Button
   </span>
 </button>
@@ -360,10 +368,6 @@ exports[`Button styles should render a disabled button 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -451,6 +455,14 @@ exports[`Button styles should render a disabled button 1`] = `
 }
 
 .circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -504,10 +516,6 @@ exports[`Button styles should render a giga button 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -595,6 +603,14 @@ exports[`Button styles should render a giga button 1`] = `
 }
 
 .circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -647,10 +663,6 @@ exports[`Button styles should render a kilo button 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -738,6 +750,14 @@ exports[`Button styles should render a kilo button 1`] = `
 }
 
 .circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -790,10 +810,6 @@ exports[`Button styles should render a primary button by default 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -881,6 +897,14 @@ exports[`Button styles should render a primary button by default 1`] = `
 }
 
 .circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -933,10 +957,6 @@ exports[`Button styles should render a secondary button 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -1024,6 +1044,14 @@ exports[`Button styles should render a secondary button 1`] = `
 }
 
 .circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -1076,10 +1104,6 @@ exports[`Button styles should render a stretched button 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -1168,6 +1192,14 @@ exports[`Button styles should render a stretched button 1`] = `
 }
 
 .circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
@@ -1220,10 +1252,6 @@ exports[`Button styles should render a tertiary button 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -1311,6 +1339,14 @@ exports[`Button styles should render a tertiary button 1`] = `
 }
 
 .circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale3d(1, 1, 1);
