@@ -77,6 +77,8 @@ To get started, upgrade `@sumup/circuit-ui` and its peer dependencies:
 yarn upgrade @sumup/circuit-ui @sumup/design-tokens @sumup/icons --latest
 ```
 
+> For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
+
 ### Emotion 11
 
 Circuit was upgraded to Emotion 11, so apps using Circuit will also have to upgrade. The main changes are Emotion's new package names and better TypeScript support.

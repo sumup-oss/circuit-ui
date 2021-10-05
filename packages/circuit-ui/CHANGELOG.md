@@ -1,5 +1,44 @@
 # @sumup/circuit-ui
 
+## 4.0.0
+
+### Major Changes
+
+- [#1186](https://github.com/sumup-oss/circuit-ui/pull/1186) [`17cf95aa`](https://github.com/sumup-oss/circuit-ui/commit/17cf95aac03c804c0bd00c865d5d84f04810ee13) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the Modal's tracking event to include the `open`/`close` data in the tracking label.
+
+* [#1186](https://github.com/sumup-oss/circuit-ui/pull/1186) [`17cf95aa`](https://github.com/sumup-oss/circuit-ui/commit/17cf95aac03c804c0bd00c865d5d84f04810ee13) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed and grouped the TopNavigation props that are forwarded to the ProfileMenu.
+
+- [#1184](https://github.com/sumup-oss/circuit-ui/pull/1184) [`dfbe2bb3`](https://github.com/sumup-oss/circuit-ui/commit/dfbe2bb3b3bd6dffdebdb8d4a808896b6171a281) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `useClickEvent` hook to track events even if no custom `onClick` handler is defined.
+
+* [#1168](https://github.com/sumup-oss/circuit-ui/pull/1168) [`ca74d320`](https://github.com/sumup-oss/circuit-ui/commit/ca74d320168aba1285e23691ca6651a1d12f9d27) Thanks [@robinmetral](https://github.com/robinmetral)! - Upgraded icons to the new brand icons in all components.
+
+- [#1186](https://github.com/sumup-oss/circuit-ui/pull/1186) [`17cf95aa`](https://github.com/sumup-oss/circuit-ui/commit/17cf95aac03c804c0bd00c865d5d84f04810ee13) Thanks [@connor-baer](https://github.com/connor-baer)! - Marked the `label` property of the `tracking` prop as required. This matches the existing behavior where click events are only tracked if the `label` property is provided.
+
+* [`be3c0781`](https://github.com/sumup-oss/circuit-ui/commit/be3c0781d9708c2351b244516f6bcc22aa25988a) Thanks [@robinmetral](https://github.com/robinmetral)! - Replaced the `SideNavigation` badge's `label` prop by `children` for consistency with the `BadgeProps`.
+
+- [#1176](https://github.com/sumup-oss/circuit-ui/pull/1176) [`c7483f0b`](https://github.com/sumup-oss/circuit-ui/commit/c7483f0bbc206b80c693e6b5f856464e012683f7) Thanks [@robinmetral](https://github.com/robinmetral)! - Migrated to Emotion 11.
+
+### Minor Changes
+
+- [#1186](https://github.com/sumup-oss/circuit-ui/pull/1186) [`17cf95aa`](https://github.com/sumup-oss/circuit-ui/commit/17cf95aac03c804c0bd00c865d5d84f04810ee13) Thanks [@connor-baer](https://github.com/connor-baer)! - Added tracking support to the ProfileMenu.
+
+* [#1186](https://github.com/sumup-oss/circuit-ui/pull/1186) [`17cf95aa`](https://github.com/sumup-oss/circuit-ui/commit/17cf95aac03c804c0bd00c865d5d84f04810ee13) Thanks [@connor-baer](https://github.com/connor-baer)! - Added tracking support to the Popover.
+
+- [#1168](https://github.com/sumup-oss/circuit-ui/pull/1168) [`ca74d320`](https://github.com/sumup-oss/circuit-ui/commit/ca74d320168aba1285e23691ca6651a1d12f9d27) Thanks [@robinmetral](https://github.com/robinmetral)! - Passed the icon size down from the IconButton.
+
+### Patch Changes
+
+- [#1168](https://github.com/sumup-oss/circuit-ui/pull/1168) [`ca74d320`](https://github.com/sumup-oss/circuit-ui/commit/ca74d320168aba1285e23691ca6651a1d12f9d27) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the spacing between a PopoverItem's label and (optional) icon. Since the items should receive 24px icons, the component looks more balanced with a 16px spacing.
+
+* [#1191](https://github.com/sumup-oss/circuit-ui/pull/1191) [`b4e0041f`](https://github.com/sumup-oss/circuit-ui/commit/b4e0041f221428ea30112000aed8596aa7ce2c94) Thanks [@robinmetral](https://github.com/robinmetral)! - Typed the grid components to prevent wrong type inference.
+
+- [#1176](https://github.com/sumup-oss/circuit-ui/pull/1176) [`c7483f0b`](https://github.com/sumup-oss/circuit-ui/commit/c7483f0bbc206b80c693e6b5f856464e012683f7) Thanks [@robinmetral](https://github.com/robinmetral)! - Switched all component interfaces to extend `*HTMLAttributes<HTML*Element>` instead of the less accurate `HTMLProps`.
+
+* [#1197](https://github.com/sumup-oss/circuit-ui/pull/1197) [`edd6f487`](https://github.com/sumup-oss/circuit-ui/commit/edd6f487ed6ab36d52b50b1a90e4f96a506deb66) Thanks [@robinmetral](https://github.com/robinmetral)! - Hid deprecation warnings on prod and test environments.
+
+* Updated dependencies [[`139045d4`](https://github.com/sumup-oss/circuit-ui/commit/139045d4d055fa9435b4f409b087648db37b61ba), [`ca74d320`](https://github.com/sumup-oss/circuit-ui/commit/ca74d320168aba1285e23691ca6651a1d12f9d27)]:
+  - @sumup/icons@2.0.0
+
 ## 4.0.0-next.5
 
 ### Patch Changes
