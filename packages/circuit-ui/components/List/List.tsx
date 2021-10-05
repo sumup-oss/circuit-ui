@@ -82,7 +82,11 @@ const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
 };
 
 const marginStyles = ({ noMargin }: ListProps) => {
-  if (!noMargin) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !noMargin
+  ) {
     deprecate(
       'List',
       'The default outer spacing in the List component is deprecated.',

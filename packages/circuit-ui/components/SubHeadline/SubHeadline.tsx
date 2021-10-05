@@ -43,7 +43,11 @@ const baseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const noMarginStyles = ({ noMargin }: SubHeadlineProps) => {
-  if (!noMargin) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !noMargin
+  ) {
     deprecate(
       'SubHeadline',
       'The default outer spacing in the SubHeadline component is deprecated.',

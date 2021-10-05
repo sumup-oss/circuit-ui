@@ -100,7 +100,11 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
 };
 
 const marginStyles = ({ noMargin }: BodyProps & StyleProps) => {
-  if (!noMargin) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !noMargin
+  ) {
     deprecate(
       'Body',
       'The default outer spacing in the Body component is deprecated.',

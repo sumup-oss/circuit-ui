@@ -56,7 +56,11 @@ const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => {
   `;
 };
 const noMarginStyles = ({ noMargin }: HeadlineProps) => {
-  if (!noMargin) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !noMargin
+  ) {
     deprecate(
       'Headline',
       'The default outer spacing in the Headline component is deprecated.',

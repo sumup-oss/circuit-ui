@@ -134,7 +134,11 @@ const wrapperBaseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const wrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
-  if (!noMargin) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !noMargin
+  ) {
     deprecate(
       'Checkbox',
       'The default outer spacing in the Checkbox component is deprecated.',

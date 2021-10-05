@@ -82,7 +82,11 @@ const toggleWrapperDisabledStyles = ({ disabled }: WrapperElProps) =>
   `;
 
 const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
-  if (!noMargin) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !noMargin
+  ) {
     deprecate(
       'Toggle',
       'The default outer spacing in the Toggle component is deprecated.',

@@ -36,7 +36,11 @@ export interface InlineMessageProps {
 }
 
 const marginStyles = ({ noMargin }: InlineMessageProps) => {
-  if (!noMargin) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !noMargin
+  ) {
     deprecate(
       'InlineMessage',
       'The default outer spacing in the InlineMessage component is deprecated.',

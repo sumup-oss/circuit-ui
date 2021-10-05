@@ -121,7 +121,11 @@ const disabledStyles = ({ disabled }: LabelElProps) =>
   disabled && css(disableVisually());
 
 const noMarginStyles = ({ noMargin }: LabelElProps) => {
-  if (!noMargin) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !noMargin
+  ) {
     deprecate(
       'Selector',
       'The default outer spacing in the Selector component is deprecated.',

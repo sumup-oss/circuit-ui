@@ -120,7 +120,11 @@ const labelNoMarginStyles = ({
   theme,
   noMargin,
 }: StyleProps & LabelElProps) => {
-  if (!noMargin) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !noMargin
+  ) {
     deprecate(
       'Input',
       'The default outer spacing in the Input component is deprecated.',
