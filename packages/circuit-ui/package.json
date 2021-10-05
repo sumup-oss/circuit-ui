@@ -1,6 +1,6 @@
 {
   "name": "@sumup/circuit-ui",
-  "version": "4.0.0-next.5",
+  "version": "4.0.0",
   "description": "SumUp's React UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -59,7 +59,7 @@
     "@emotion/styled": "^11.3.0",
     "@sumup/collector": "^1.4.0",
     "@sumup/design-tokens": "^3.1.0",
-    "@sumup/icons": "^2.0.0-next.0",
+    "@sumup/icons": "^2.0.0",
     "@sumup/intl": "^1.0.0",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/dom": "^8.1.0",
@@ -97,7 +97,7 @@
     "@emotion/styled": "11.x",
     "@sumup/collector": ">=1.4.0",
     "@sumup/design-tokens": ">=3.1.0",
-    "@sumup/icons": ">=2.0.0-next.0",
+    "@sumup/icons": ">=2.0.0",
     "@sumup/intl": "1.x",
     "react": ">=16.8.0 <18.0.0",
     "react-dom": ">=16.8.0 <18.0.0"
