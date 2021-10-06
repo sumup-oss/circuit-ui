@@ -22,11 +22,11 @@ import {
   RefObject,
   useEffect,
 } from 'react';
-import { css } from '@emotion/core';
-import { Dispatch as TrackingProps } from '@sumup/collector';
+import { css } from '@emotion/react';
 
 import Button, { ButtonProps } from '../Button';
-import styled, { StyleProps } from '../../styles/styled';
+import { AsPropType } from '../../types/prop-types';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { spacing } from '../../styles/style-mixins';
 import Headline from '../Headline';
 import Body from '../Body';
@@ -34,6 +34,7 @@ import Image, { ImageProps } from '../Image';
 import CloseButton from '../CloseButton';
 import { BUTTON_BORDER_WIDTH } from '../Button/Button';
 import { useAnimation } from '../../hooks/useAnimation';
+import { TrackingProps } from '../../hooks/useClickEvent';
 
 type Action = ButtonProps & {
   variant: 'primary' | 'tertiary';
@@ -87,7 +88,11 @@ interface BaseProps extends Omit<HTMLProps<HTMLDivElement>, 'action'> {
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
+  /**
+   * Whether the notification banner is visible.
+   */
   isVisible?: boolean;
+  as?: AsPropType;
 }
 
 export type NotificationBannerProps = BaseProps & CloseProps;
@@ -131,7 +136,7 @@ const headlineStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const ResponsiveHeadline = styled(Headline)(
+const ResponsiveHeadline = styled(Headline)<NoTheme>(
   headlineStyles,
   spacing({ bottom: 'byte' }),
 );
@@ -146,7 +151,10 @@ const bodyStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const ResponsiveBody = styled(Body)(bodyStyles, spacing({ bottom: 'byte' }));
+const ResponsiveBody = styled(Body)<NoTheme>(
+  bodyStyles,
+  spacing({ bottom: 'byte' }),
+);
 
 const buttonStyles = ({ theme, size = 'giga' }: StyleProps & Action) => css`
   padding-top: calc(${theme.spacings.bit} - ${BUTTON_BORDER_WIDTH});
@@ -206,6 +214,7 @@ export function NotificationBanner({
   closeButtonLabel,
   tracking,
   isVisible = true,
+  as,
   ...props
 }: NotificationBannerProps): JSX.Element {
   const contentElement = useRef(null);
@@ -238,6 +247,7 @@ export function NotificationBanner({
         visibility: isOpen ? 'visible' : 'hidden',
       }}
       variant={variant}
+      as={as}
       {...props}
     >
       <Content>
@@ -261,10 +271,11 @@ export function NotificationBanner({
           label={closeButtonLabel}
           size="kilo"
           onClick={onClose}
-          tracking={{
-            component: 'notification-close',
-            ...tracking,
-          }}
+          tracking={
+            tracking
+              ? { component: 'notification-close', ...tracking }
+              : undefined
+          }
         />
       )}
     </NotificationBannerWrapper>
