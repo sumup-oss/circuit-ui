@@ -6,8 +6,6 @@ import { Meta, Status, Intro, Link } from '../../.storybook/components';
 
 <Intro>
   The instructions below cover how to use Circuit UI with a React application.
-  If you'd like to use the Circuit UI styles without React, read the{' '}
-  <Link href="Features/Static-CSS">Static CSS docs</Link> (experimental).
 </Intro>
 
 ## Creating a new app with Circuit UI
@@ -71,7 +69,9 @@ import { BaseStyles } from '@sumup/circuit-ui';
 import Head from 'next/head'; // Add the meta tag directly in index.html with CRA
 
 const Layout = css`
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(
+      safe-area-inset-bottom
+    ) env(safe-area-inset-left);
 `;
 
 export default function App() {
@@ -84,9 +84,7 @@ export default function App() {
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
       </Head>
-      <Layout>
-        {/* Your app */}
-      </Layout>
+      <Layout>{/* Your app */}</Layout>
     </ThemeProvider>
   );
 }
