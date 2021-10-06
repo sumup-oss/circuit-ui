@@ -24,18 +24,11 @@ export default {
   component: ButtonGroup,
 };
 
-export const Base = (args: ButtonGroupProps) => (
-  <ButtonGroup {...args}>
-    <Button variant="secondary">Cancel</Button>
-    <Button variant="primary">Confirm</Button>
-  </ButtonGroup>
-);
-
-export const Action = (args: ButtonGroupProps): JSX.Element => (
+export const Base = (args: ButtonGroupProps): JSX.Element => (
   <ButtonGroup {...args} />
 );
 
-Action.args = {
+Base.args = {
   action: {
     primary: {
       children: 'Look again',

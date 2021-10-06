@@ -86,29 +86,21 @@ export interface BaseProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   'ref'?: Ref<any>;
   'data-testid'?: string;
+  /**
+   * Visually disables the button and shows a loading spinner.
+   */
+  'isLoading'?: boolean;
+  /**
+   * Visually hidden label to communicate the loading state to visually
+   * impaired users.
+   */
+  'loadingLabel'?: string;
 }
-
-type LoadingProps =
-  | {
-      /**
-       * Visually disables the button and shows a loading spinner.
-       */
-      isLoading: boolean;
-      /**
-       * Visually hidden label to communicate the loading state to visually
-       * impaired users.
-       */
-      loadingLabel: string;
-    }
-  | { isLoading?: never; loadingLabel?: never };
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
-export type ButtonProps = BaseProps &
-  LinkElProps &
-  ButtonElProps &
-  LoadingProps;
+export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
 const BORDER_WIDTH = '1px';
 
