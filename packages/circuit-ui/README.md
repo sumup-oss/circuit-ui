@@ -23,9 +23,9 @@ npm install --save @sumup/circuit-ui
 
 ```sh
 # With yarn
-yarn add react react-dom @emotion/core @emotion/styled emotion-theming @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
+yarn add react react-dom @emotion/react @emotion/styled @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
 # With npm
-npm install --save react react-dom @emotion/core @emotion/styled emotion-theming @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
+npm install --save react react-dom @emotion/react @emotion/styled @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
 ```
 
 ## Usage

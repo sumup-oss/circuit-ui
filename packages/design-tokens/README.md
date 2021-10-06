@@ -22,22 +22,22 @@ npm install @sumup/design-tokens
 
 ## Usage
 
-The package currently exports a single `light` theme that is meant to be used with SumUp's React component library, [Circuit UI](https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui). Pass the theme to the `ThemeProvider` from the [`emotion-theming`](https://emotion.sh/docs/theming) package:
+The package currently exports a single `light` theme that is meant to be used with SumUp's React component library, [Circuit UI](https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui). Pass the theme to Emotion's [`ThemeProvider`](https://emotion.sh/docs/theming):
 
 ```jsx
 import { light } from '@sumup/design-tokens';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from '@emotion/react';
 import styled from '@emotion/styled';
+
+const Bold = styled.strong`
+  font-weight: ${(p) => p.theme.fontWeight.bold};
+`;
 
 const App = () => (
   <ThemeProvider theme={light}>
     <Bold>This styled component has access to the theme.</Bold>
   </ThemeProvider>
 );
-
-const Bold = styled.strong`
-  font-weight: ${(p) => p.theme.fontWeight.bold};
-`;
 ```
 
 The theme is a plain JavaScript object, so you can use it in other ways, too.
@@ -48,10 +48,10 @@ The package exports a `themePropType` which can be used to check the `theme` pro
 
 ```js
 import PropTypes from 'prop-types';
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
 import { themePropType } from '@sumup/design-tokens';
 
-export function ComponentWithInlineStyles({ theme, label }) {
+function ComponentWithInlineStyles({ theme, label }) {
   return <div style={{ color: theme.colors.p500 }}>{label}</div>;
 }
 
@@ -59,6 +59,8 @@ ComponentWithInlineStyles.propTypes = {
   theme: themePropType.isRequired,
   label: PropTypes.string,
 };
+
+export default function withTheme(ComponentWithInlineStyles);
 ```
 
 ### With TypeScript

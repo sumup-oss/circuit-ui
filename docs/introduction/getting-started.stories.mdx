@@ -6,8 +6,6 @@ import { Meta, Status, Intro, Link } from '../../.storybook/components';
 
 <Intro>
   The instructions below cover how to use Circuit UI with a React application.
-  If you'd like to use the Circuit UI styles without React, read the{' '}
-  <Link href="Features/Static-CSS">Static CSS docs</Link> (experimental).
 </Intro>
 
 ## Creating a new app with Circuit UI
@@ -32,9 +30,9 @@ Circuit UI relies on some mandatory peer dependencies, namely [@sumup/collector]
 
 ```sh
 # With yarn:
-yarn add @sumup/collector @sumup/design-tokens @sumup/icons react react-dom @emotion/core @emotion/styled emotion-theming
+yarn add @sumup/collector @sumup/design-tokens @sumup/icons react react-dom @emotion/react @emotion/styled
 # With npm:
-npm install --save @sumup/collector @sumup/design-tokens @sumup/icons react react-dom @emotion/core @emotion/styled emotion-theming
+npm install --save @sumup/collector @sumup/design-tokens @sumup/icons react react-dom @emotion/react @emotion/styled
 ```
 
 ### Configuring the theme
@@ -45,7 +43,7 @@ To make the theme available to Circuit UI, wrap the root of your application in 
 
 ```tsx
 // _app.tsx for Next.js or App.js for CRA
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { BaseStyles } from '@sumup/circuit-ui';
 
@@ -61,17 +59,19 @@ export default function App() {
 
 ### Configuring the viewport
 
-Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and that your app has the right padding to render inside [CSS safe areas](https://developer.mozilla.org/en-US/docs/Web/CSS/env()):
+Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and that your app has the right padding to render inside [CSS safe areas](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>):
 
 ```tsx
 // _app.tsx for Next.js or App.js for CRA
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { BaseStyles } from '@sumup/circuit-ui';
 import Head from 'next/head'; // Add the meta tag directly in index.html with CRA
 
 const Layout = css`
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(
+      safe-area-inset-bottom
+    ) env(safe-area-inset-left);
 `;
 
 export default function App() {
@@ -84,9 +84,7 @@ export default function App() {
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
       </Head>
-      <Layout>
-        {/* Your app */}
-      </Layout>
+      <Layout>{/* Your app */}</Layout>
     </ThemeProvider>
   );
 }
