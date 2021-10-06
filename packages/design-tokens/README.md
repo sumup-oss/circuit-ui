@@ -1,3 +1,5 @@
+<div align="center">
+
 # @sumup/design-tokens
 
 Visual primitives such as typography, color, and spacing that are shared across platforms.
