@@ -14,18 +14,17 @@
  */
 
 import {
-  HTMLProps,
   MouseEvent,
   KeyboardEvent,
   useState,
   useRef,
   RefObject,
   useEffect,
+  HTMLAttributes,
 } from 'react';
 import { css } from '@emotion/react';
 
 import Button, { ButtonProps } from '../Button';
-import { AsPropType } from '../../types/prop-types';
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { spacing } from '../../styles/style-mixins';
 import Headline from '../Headline';
@@ -59,7 +58,7 @@ type CloseProps =
     }
   | { onClose?: never; closeButtonLabel?: never };
 
-interface BaseProps extends Omit<HTMLProps<HTMLDivElement>, 'action'> {
+interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
   /**
    * Use the `system` variant for system notification use cases,
    * otherwise, use the `promotional`
@@ -91,7 +90,6 @@ interface BaseProps extends Omit<HTMLProps<HTMLDivElement>, 'action'> {
    * Whether the notification banner is visible.
    */
   isVisible?: boolean;
-  as?: AsPropType;
 }
 
 export type NotificationBannerProps = BaseProps & CloseProps;
@@ -213,7 +211,6 @@ export function NotificationBanner({
   closeButtonLabel,
   tracking,
   isVisible = true,
-  as,
   ...props
 }: NotificationBannerProps): JSX.Element {
   const contentElement = useRef(null);
@@ -246,7 +243,6 @@ export function NotificationBanner({
         visibility: isOpen ? 'visible' : 'hidden',
       }}
       variant={variant}
-      as={as}
       {...props}
     >
       <Content>
