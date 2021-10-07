@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotificationBanner styles should render with default styles 1`] = `
-.circuit-4 {
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17,7 +17,7 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
 }
 
-.circuit-3 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34,7 +34,7 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   max-width: 420px;
 }
 
-.circuit-0 {
+.circuit-2 {
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
@@ -46,14 +46,14 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   margin-bottom: 8px;
 }
 
-@media (min-width:768px) {
-  .circuit-0 {
+@media (min-width: 768px) {
+  .circuit-2 {
     font-size: 20px;
     line-height: 24px;
   }
 }
 
-.circuit-1 {
+.circuit-3 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -64,14 +64,14 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   margin-bottom: 8px;
 }
 
-@media (min-width:768px) {
-  .circuit-1 {
+@media (min-width: 768px) {
+  .circuit-3 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-2 {
+.circuit-4 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -83,8 +83,8 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -107,40 +107,40 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   padding-bottom: calc(4px - 1px);
 }
 
-.circuit-2:focus {
+.circuit-4:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-4:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-4:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-2:hover {
+.circuit-4:hover {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-2:active,
-.circuit-2[aria-expanded='true'],
-.circuit-2[aria-pressed='true'] {
+.circuit-4:active,
+.circuit-4[aria-expanded='true'],
+.circuit-4[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-@media (min-width:768px) {
-  .circuit-2 {
+@media (min-width: 768px) {
+  .circuit-4 {
     padding-top: calc(12px - 1px);
     padding-bottom: calc(12px - 1px);
   }
@@ -149,25 +149,25 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
 <div>
   <div
     alt="Cup of coffee"
-    class="circuit-4"
+    class="circuit-0"
     src="https://source.unsplash.com/EcWFOYOpkpY/100x100"
     style="opacity: 1; height: 0px; visibility: visible;"
   >
     <div
-      class="circuit-3"
+      class="circuit-1"
     >
       <h2
-        class="circuit-0"
+        class="circuit-2"
       >
         Test
       </h2>
       <p
-        class="circuit-1"
+        class="circuit-3"
       >
         There is updated firmware available for your card reader
       </p>
       <button
-        class="circuit-2"
+        class="circuit-4"
       >
         Update
       </button>

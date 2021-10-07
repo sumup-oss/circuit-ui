@@ -43,7 +43,7 @@ Base.args = {
     variant: 'primary',
   },
   image: {
-    src: 'https://i.ibb.co/QPqPhGG/update.png',
+    src: '/images/software_update.png',
     alt: 'Update',
     width: '100',
   },
@@ -70,7 +70,7 @@ Dismissable.args = {
     variant: 'primary',
   },
   image: {
-    src: 'https://svgshare.com/i/adf.svg',
+    src: '/images/referals.svg',
     alt: 'Refer a friend',
   },
 };

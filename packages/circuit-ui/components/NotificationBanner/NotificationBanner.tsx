@@ -44,17 +44,15 @@ type NotificationVariant = 'system' | 'promotional';
 
 const DEFAULT_HEIGHT = 'auto';
 
-type ImageType = ImageProps;
-
 type CloseProps =
   | {
       /**
-       * Renders a close button inside the tag and calls the provided function
+       * Renders a close button in the top right corner and calls the provided function
        * when the button is clicked.
        */
       onClose: (event: MouseEvent | KeyboardEvent) => void;
       /**
-       * Text label for the remove icon for screen readers.
+       * Text label for the close button for screen readers.
        * Important for accessibility.
        */
       closeButtonLabel: string;
@@ -69,19 +67,20 @@ interface BaseProps extends Omit<HTMLProps<HTMLDivElement>, 'action'> {
    */
   variant?: NotificationVariant;
   /**
-   * TODO desc
+   * Optional image to communicate message. The image container width is adjustable.
    */
-  image?: ImageType;
+  image?: ImageProps;
   /**
-   * A notification headline.
+   * Optional notification headline to communicate a message.
    */
   headline?: string;
   /**
-   * A notification body.
+   * Optional notification body to communicate a message.
    */
   body?: string;
   /**
-   * A notification action.
+   * A notification action to allow users to directly follow up on the communicated content.
+   * It can be tertiary or primary button.
    */
   action: Action;
   /**
@@ -109,8 +108,8 @@ const bannerWrapperStyles = ({
     ? theme.colors.p100
     : theme.colors.n100};
   overflow: hidden;
-  transition: opacity 2000ms ease-in-out, height 2000ms ease-in-out,
-    visibility 2000ms ease-in-out;
+  transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
+    visibility 200ms ease-in-out;
 `;
 
 const NotificationBannerWrapper = styled('div')(bannerWrapperStyles);
@@ -175,7 +174,7 @@ const ResponsiveButton = styled(Button)(buttonStyles);
 const imageStyles = ({
   theme,
   image,
-}: { image: ImageType } & StyleProps) => css`
+}: { image: ImageProps } & StyleProps) => css`
   border-radius: 0 ${theme.borderRadius.mega} ${theme.borderRadius.mega} 0;
   min-width: 0;
   width: ${image.width || '200'}px;

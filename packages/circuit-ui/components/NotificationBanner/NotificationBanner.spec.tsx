@@ -36,11 +36,6 @@ describe('NotificationBanner', () => {
     alt: 'Cup of coffee',
   };
 
-  const closeProps = {
-    onClose: jest.fn(),
-    closeButtonLabel: 'Close notification',
-  };
-
   /**
    * Style tests.
    */
@@ -56,9 +51,7 @@ describe('NotificationBanner', () => {
    */
   describe('business logic', () => {
     it('should click on a main button', () => {
-      const { getByRole } = render(
-        <NotificationBanner {...baseProps}></NotificationBanner>,
-      );
+      const { getByRole } = renderNotificationBanner(baseProps);
 
       act(() => {
         userEvent.click(getByRole('button'));
@@ -68,28 +61,28 @@ describe('NotificationBanner', () => {
     });
 
     it('should render a close button', () => {
-      const { getByRole } = render(
-        <NotificationBanner
-          {...baseProps}
-          {...closeProps}
-        ></NotificationBanner>,
-      );
+      const { getByRole } = renderNotificationBanner({
+        ...baseProps,
+        onClose: jest.fn(),
+        closeButtonLabel: 'Close notification',
+      });
+
       expect(getByRole('button', { name: /close/i })).toBeVisible();
     });
 
     it('should call onClose when closed', () => {
-      const { getAllByRole } = render(
-        <NotificationBanner
-          {...baseProps}
-          {...closeProps}
-        ></NotificationBanner>,
-      );
+      const props = {
+        ...baseProps,
+        onClose: jest.fn(),
+        closeButtonLabel: 'Close notification',
+      };
+      const { getByRole } = renderNotificationBanner(props);
 
       act(() => {
-        userEvent.click(getAllByRole('button')[1]);
+        userEvent.click(getByRole('button', { name: /close/i }));
       });
 
-      expect(closeProps.onClose).toHaveBeenCalledTimes(1);
+      expect(props.onClose).toHaveBeenCalledTimes(1);
     });
   });
 
