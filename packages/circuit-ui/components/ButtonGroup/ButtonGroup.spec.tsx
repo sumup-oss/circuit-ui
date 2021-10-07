@@ -16,7 +16,7 @@
 import { create, renderToHtml, axe } from '../../util/test-utils';
 import Button from '../Button';
 
-import { ButtonGroup } from './ButtonGroup';
+import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
 
 describe('ButtonGroup', () => {
   /**
@@ -29,6 +29,25 @@ describe('ButtonGroup', () => {
         <Button variant="primary">Confirm</Button>
       </ButtonGroup>,
     );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with the actions prop', () => {
+    const props: ButtonGroupProps = {
+      actions: {
+        primary: {
+          children: 'Look again',
+          onClick: jest.fn(),
+        },
+        secondary: {
+          children: 'Go elsewhere',
+          href: 'https://sumup.com',
+        },
+      },
+    };
+
+    const actual = create(<ButtonGroup {...props} />);
+
     expect(actual).toMatchSnapshot();
   });
 

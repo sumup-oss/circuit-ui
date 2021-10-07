@@ -18,6 +18,6 @@ import LoadingButton, { ButtonProps } from '../Button';
 export type LoadingButtonProps = ButtonProps;
 
 /**
- * @deprecated Use the `Button` with isLoading and loadingLabel prop instead.
+ * @deprecated Use the Button component with the `isLoading` and `loadingLabel` props instead.
  */
 export { LoadingButton };

@@ -114,9 +114,8 @@ describe('Button', () => {
         loadingLabel,
       };
 
-      const { getByRole } = renderButton(render, props);
-      const buttonEl = getByRole('button');
-      expect(buttonEl).toHaveTextContent(loadingLabel);
+      const { getByText } = renderButton(render, props);
+      expect(getByText(loadingLabel)).toBeVisible();
     });
 
     it('should call the onClick handler when clicked', () => {

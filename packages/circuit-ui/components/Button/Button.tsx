@@ -21,7 +21,6 @@ import {
   ReactNode,
   FC,
   SVGProps,
-  Fragment,
 } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
@@ -383,15 +382,13 @@ export const Button = forwardRef(
         as={props.href ? Link : 'button'}
         onClick={handleClick}
       >
-        <Fragment>
-          <LoadingIcon isLoading={Boolean(isLoading)} size="byte">
-            <LoadingLabel>{loadingLabel}</LoadingLabel>
-          </LoadingIcon>
-          <Content isLoading={Boolean(isLoading)}>
-            {Icon && <Icon css={iconStyles} role="presentation" />}
-            {children}
-          </Content>
-        </Fragment>
+        <LoadingIcon isLoading={Boolean(isLoading)} size="byte">
+          <LoadingLabel>{loadingLabel}</LoadingLabel>
+        </LoadingIcon>
+        <Content isLoading={Boolean(isLoading)}>
+          {Icon && <Icon css={iconStyles} role="presentation" />}
+          {children}
+        </Content>
       </StyledButton>
     );
   },

@@ -26,7 +26,7 @@ export interface ButtonGroupProps {
    * Buttons to group.
    */
   /**
-   * @deprecated Use the action prop instead.
+   * @deprecated Use the `actions` prop instead.
    */
   children?:
     | (ReactElement<ButtonProps> | undefined)[]
@@ -46,7 +46,7 @@ export interface ButtonGroupProps {
   /**
    * Action Buttons
    */
-  action?: {
+  actions?: {
     primary: Action;
     secondary?: Action;
   };
@@ -115,16 +115,6 @@ const actionWrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const buttonStyles = ({ theme }: StyleProps) => css`
-  width: 100%;
-
-  ${theme.mq.kilo} {
-    width: auto;
-  }
-`;
-
-const PrimaryButton = styled(Button)<ButtonProps>(buttonStyles);
-
 const secondaryButtonStyles = ({ theme }: StyleProps) => css`
   margin-right: ${theme.spacings.mega};
   ${theme.mq.untilKilo} {
@@ -132,10 +122,7 @@ const secondaryButtonStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const SecondaryButton = styled(Button)<ButtonProps>(
-  secondaryButtonStyles,
-  buttonStyles,
-);
+const SecondaryButton = styled(Button)<ButtonProps>(secondaryButtonStyles);
 
 const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
   margin-top: ${theme.spacings.mega};
@@ -144,10 +131,7 @@ const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const TertiaryButton = styled(Button)<ButtonProps>(
-  tertiaryButtonStyles,
-  buttonStyles,
-);
+const TertiaryButton = styled(Button)<ButtonProps>(tertiaryButtonStyles);
 
 const Wrapper = styled('div')<ButtonGroupProps>(
   baseStyles,
@@ -162,20 +146,20 @@ const ActionsWrapper = styled('div')<ButtonGroupProps>(actionWrapperStyles);
  */
 export const ButtonGroup = forwardRef(
   (
-    { children, action, ...props }: ButtonGroupProps,
+    { children, actions, ...props }: ButtonGroupProps,
     ref: ButtonGroupProps['ref'],
   ) => {
-    if (action) {
+    if (actions) {
       return (
         <ActionsWrapper {...props}>
-          {action.secondary && (
-            <SecondaryButton {...action.secondary} variant="secondary" />
+          {actions.secondary && (
+            <SecondaryButton {...actions.secondary} variant="secondary" />
           )}
 
-          <PrimaryButton {...action.primary} variant="primary" />
+          <Button {...actions.primary} variant="primary" />
 
-          {action.secondary && (
-            <TertiaryButton {...action.secondary} variant="tertiary" />
+          {actions.secondary && (
+            <TertiaryButton {...actions.secondary} variant="tertiary" />
           )}
         </ActionsWrapper>
       );

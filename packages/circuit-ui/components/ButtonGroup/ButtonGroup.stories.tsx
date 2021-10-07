@@ -15,8 +15,6 @@
 
 import { action } from '@storybook/addon-actions';
 
-import Button from '../Button';
-
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
 
 export default {
@@ -29,7 +27,7 @@ export const Base = (args: ButtonGroupProps): JSX.Element => (
 );
 
 Base.args = {
-  action: {
+  actions: {
     primary: {
       children: 'Look again',
       onClick: action('Still empty'),
