@@ -141,7 +141,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   text-align: center;
   text-decoration: none;
   font-weight: ${theme.fontWeight.bold};
-  border-width: ${BUTTON_BORDER_WIDTH};
+  border-width: ${theme.borderWidth.kilo};
   border-style: solid;
   border-radius: ${theme.borderRadius.pill};
   transition: opacity ${theme.transitions.default},

@@ -65,12 +65,12 @@ Dismissable.args = {
   headline: 'Refer a friend, get rewarded',
   variant: 'promotional',
   action: {
-    onClick: action('Helloooo'),
+    onClick: action('Action clicked'),
     children: 'Click here',
-    variant: 'primary',
+    variant: 'tertiary',
   },
   image: {
-    src: '/images/referals.svg',
+    src: '/images/referrals.svg',
     alt: 'Refer a friend',
   },
 };

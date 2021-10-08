@@ -31,7 +31,6 @@ import Headline from '../Headline';
 import Body from '../Body';
 import Image, { ImageProps } from '../Image';
 import CloseButton from '../CloseButton';
-import { BUTTON_BORDER_WIDTH } from '../Button/Button';
 import { useAnimation } from '../../hooks/useAnimation';
 import { TrackingProps } from '../../hooks/useClickEvent';
 
@@ -154,16 +153,16 @@ const ResponsiveBody = styled(Body)<NoTheme>(
 );
 
 const buttonStyles = ({ theme, size = 'giga' }: StyleProps & Action) => css`
-  padding-top: calc(${theme.spacings.bit} - ${BUTTON_BORDER_WIDTH});
-  padding-bottom: calc(${theme.spacings.bit} - ${BUTTON_BORDER_WIDTH});
+  padding-top: calc(${theme.spacings.bit} - ${theme.borderWidth.kilo});
+  padding-bottom: calc(${theme.spacings.bit} - ${theme.borderWidth.kilo});
   ${theme.mq.mega} {
     padding-top: ${size === 'giga'
-      ? `calc(${theme.spacings.kilo} - ${BUTTON_BORDER_WIDTH})`
-      : `calc(${theme.spacings.bit} - ${BUTTON_BORDER_WIDTH})`};
+      ? `calc(${theme.spacings.kilo} - ${theme.borderWidth.kilo})`
+      : `calc(${theme.spacings.bit} - ${theme.borderWidth.kilo})`};
 
     padding-bottom: ${size === 'giga'
-      ? `calc(${theme.spacings.kilo} - ${BUTTON_BORDER_WIDTH})`
-      : `calc(${theme.spacings.bit} - ${BUTTON_BORDER_WIDTH})`};
+      ? `calc(${theme.spacings.kilo} - ${theme.borderWidth.kilo})`
+      : `calc(${theme.spacings.bit} - ${theme.borderWidth.kilo})`};
   }
 `;
 

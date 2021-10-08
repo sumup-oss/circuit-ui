@@ -32,8 +32,10 @@ describe('NotificationBanner', () => {
       children: 'Update',
       variant: 'primary',
     },
-    src: 'https://source.unsplash.com/EcWFOYOpkpY/100x100',
-    alt: 'Cup of coffee',
+    image: {
+      src: 'https://source.unsplash.com/EcWFOYOpkpY/100x100',
+      alt: 'Cup of coffee',
+    },
   };
 
   /**
@@ -42,6 +44,14 @@ describe('NotificationBanner', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
       const { container } = renderNotificationBanner(baseProps);
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render a promotional banner', () => {
+      const { container } = renderNotificationBanner({
+        ...baseProps,
+        variant: 'promotional',
+      });
       expect(container).toMatchSnapshot();
     });
   });
