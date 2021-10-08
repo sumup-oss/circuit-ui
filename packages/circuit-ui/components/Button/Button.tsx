@@ -101,8 +101,6 @@ type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
-const BORDER_WIDTH = '1px';
-
 const COLOR_MAP = {
   default: {
     default: 'p500',
@@ -141,7 +139,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   text-align: center;
   text-decoration: none;
   font-weight: ${theme.fontWeight.bold};
-  border-width: ${BORDER_WIDTH};
+  border-width: ${theme.borderWidth.kilo};
   border-style: solid;
   border-radius: ${theme.borderRadius.pill};
   transition: opacity ${theme.transitions.default},
@@ -250,10 +248,10 @@ const tertiaryStyles = ({
 const sizeStyles = ({ theme, size = 'giga' }: ButtonProps & StyleProps) => {
   const sizeMap = {
     kilo: {
-      padding: `calc(${theme.spacings.bit} - ${BORDER_WIDTH}) calc(${theme.spacings.mega} - ${BORDER_WIDTH})`,
+      padding: `calc(${theme.spacings.bit} - ${theme.borderWidth.kilo}) calc(${theme.spacings.mega} - ${theme.borderWidth.kilo})`,
     },
     giga: {
-      padding: `calc(${theme.spacings.kilo} - ${BORDER_WIDTH}) calc(${theme.spacings.giga} - ${BORDER_WIDTH})`,
+      padding: `calc(${theme.spacings.kilo} - ${theme.borderWidth.kilo}) calc(${theme.spacings.giga} - ${theme.borderWidth.kilo})`,
     },
   };
 
