@@ -101,8 +101,6 @@ type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
-export const BUTTON_BORDER_WIDTH = '1px';
-
 const COLOR_MAP = {
   default: {
     default: 'p500',
@@ -250,10 +248,10 @@ const tertiaryStyles = ({
 const sizeStyles = ({ theme, size = 'giga' }: ButtonProps & StyleProps) => {
   const sizeMap = {
     kilo: {
-      padding: `calc(${theme.spacings.bit} - ${BUTTON_BORDER_WIDTH}) calc(${theme.spacings.mega} - ${BUTTON_BORDER_WIDTH})`,
+      padding: `calc(${theme.spacings.bit} - ${theme.borderWidth.kilo}) calc(${theme.spacings.mega} - ${theme.borderWidth.kilo})`,
     },
     giga: {
-      padding: `calc(${theme.spacings.kilo} - ${BUTTON_BORDER_WIDTH}) calc(${theme.spacings.giga} - ${BUTTON_BORDER_WIDTH})`,
+      padding: `calc(${theme.spacings.kilo} - ${theme.borderWidth.kilo}) calc(${theme.spacings.giga} - ${theme.borderWidth.kilo})`,
     },
   };
 
