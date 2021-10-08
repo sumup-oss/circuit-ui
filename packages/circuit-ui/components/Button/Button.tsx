@@ -31,12 +31,14 @@ import {
   typography,
   disableVisually,
   focusVisible,
+  hideVisually,
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
 import { AsPropType } from '../../types/prop-types';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
+import Spinner from '../Spinner';
 
 export interface BaseProps {
   'children': ReactNode;
@@ -83,6 +85,15 @@ export interface BaseProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   'ref'?: Ref<any>;
   'data-testid'?: string;
+  /**
+   * Visually disables the button and shows a loading spinner.
+   */
+  'isLoading'?: boolean;
+  /**
+   * Visually hidden label to communicate the loading state to visually
+   * impaired users.
+   */
+  'loadingLabel'?: string;
 }
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
@@ -122,7 +133,6 @@ const SECONDARY_COLOR_MAP = {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-flex;
-  align-items: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -263,6 +273,57 @@ const iconStyles = (theme: Theme) => css`
   margin-right: ${theme.spacings.byte};
 `;
 
+const loadingStyles = css`
+  position: relative;
+  overflow: hidden;
+`;
+
+const spinnerBaseStyles = ({ theme }: StyleProps) => css`
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity ${theme.transitions.default},
+    visibility ${theme.transitions.default};
+`;
+
+const spinnerLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
+  isLoading &&
+  css`
+    opacity: 1;
+    visibility: visible;
+  `;
+
+const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
+  spinnerBaseStyles,
+  spinnerLoadingStyles,
+);
+
+const LoadingLabel = styled.span(hideVisually);
+
+const contentStyles = ({ theme }: StyleProps) => css`
+  display: inline-flex;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transform: scale3d(1, 1, 1);
+  transition: opacity ${theme.transitions.default},
+    transform ${theme.transitions.default},
+    visibility ${theme.transitions.default};
+`;
+
+const contentLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
+  isLoading &&
+  css`
+    opacity: 0;
+    visibility: hidden;
+    transform: scale3d(0, 0, 0);
+  `;
+
+const Content = styled.span<{ isLoading: boolean }>(
+  contentStyles,
+  contentLoadingStyles,
+);
+
 const StyledButton = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<ButtonProps>(
@@ -274,6 +335,7 @@ const StyledButton = styled('button', {
   sizeStyles,
   tertiaryStyles,
   stretchStyles,
+  loadingStyles,
 );
 
 /**
@@ -282,9 +344,27 @@ const StyledButton = styled('button', {
  */
 export const Button = forwardRef(
   (
-    { children, icon: Icon, tracking, ...props }: ButtonProps,
+    {
+      children,
+      isLoading,
+      loadingLabel,
+      icon: Icon,
+      tracking,
+      ...props
+    }: ButtonProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
+    if (
+      process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      isLoading !== undefined &&
+      !loadingLabel
+    ) {
+      throw new Error(
+        'The Button component has `isLoading` but is missing a `loadingLabel` prop. This is an accessibility requirement.',
+      );
+    }
     const components = useComponents();
     const Link = components.Link as AsPropType;
 
@@ -293,12 +373,22 @@ export const Button = forwardRef(
     return (
       <StyledButton
         {...props}
+        {...(loadingLabel && {
+          'disabled': isLoading,
+          'aria-live': 'polite',
+          'aria-busy': isLoading,
+        })}
         ref={ref}
         as={props.href ? Link : 'button'}
         onClick={handleClick}
       >
-        {Icon && <Icon css={iconStyles} role="presentation" />}
-        {children}
+        <LoadingIcon isLoading={Boolean(isLoading)} size="byte">
+          <LoadingLabel>{loadingLabel}</LoadingLabel>
+        </LoadingIcon>
+        <Content isLoading={Boolean(isLoading)}>
+          {Icon && <Icon css={iconStyles} role="presentation" />}
+          {children}
+        </Content>
       </StyledButton>
     );
   },

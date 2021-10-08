@@ -83,6 +83,15 @@ describe('Button', () => {
     });
   });
 
+  it('should render with loading styles', () => {
+    const wrapper = renderButton(create, {
+      ...baseProps,
+      isLoading: true,
+      loadingLabel: 'Loading',
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('business logic', () => {
     it('should render as a link when passed the href prop', () => {
       const props = {
@@ -95,6 +104,18 @@ describe('Button', () => {
       const buttonEl = getByTestId('link-button');
       expect(buttonEl.tagName).toBe('A');
       expect(buttonEl).toHaveAttribute('href');
+    });
+
+    it('should render loading button with loading label', () => {
+      const loadingLabel = 'Loading';
+      const props = {
+        ...baseProps,
+        isLoading: true,
+        loadingLabel,
+      };
+
+      const { getByText } = renderButton(render, props);
+      expect(getByText(loadingLabel)).toBeVisible();
     });
 
     it('should call the onClick handler when clicked', () => {
@@ -142,6 +163,16 @@ describe('Button', () => {
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(<Button>Button</Button>);
+      const actual = await axe(wrapper);
+      expect(actual).toHaveNoViolations();
+    });
+
+    it('should meet accessibility guidelines for Loading button', async () => {
+      const wrapper = renderToHtml(
+        <Button isLoading={true} loadingLabel="Loading">
+          Button
+        </Button>,
+      );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });

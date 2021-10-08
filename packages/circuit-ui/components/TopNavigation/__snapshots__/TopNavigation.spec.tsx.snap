@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TopNavigation styles should match the snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -55,10 +71,6 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -80,6 +92,8 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding: calc(12px - 1px);
   border: 0;
   padding: 12px;
@@ -140,6 +154,54 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 }
 
 .circuit-4 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-5 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-6 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-7 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -159,14 +221,14 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   height: 24px;
 }
 
-.circuit-5 {
+.circuit-8 {
   top: 50%;
   width: 22px;
 }
 
-.circuit-5,
-.circuit-5::after,
-.circuit-5::before {
+.circuit-8,
+.circuit-8::after,
+.circuit-8::before {
   background-color: currentColor;
   border-radius: 1px;
   display: block;
@@ -176,13 +238,13 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.circuit-5::before,
-.circuit-5::after {
+.circuit-8::before,
+.circuit-8::after {
   top: 0;
   content: '';
 }
 
-.circuit-5::before {
+.circuit-8::before {
   -webkit-transform: translateY(-7px);
   -moz-transform: translateY(-7px);
   -ms-transform: translateY(-7px);
@@ -190,7 +252,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   width: calc(22px * 0.64);
 }
 
-.circuit-5::after {
+.circuit-8::after {
   -webkit-transform: translateY(7px);
   -moz-transform: translateY(7px);
   -ms-transform: translateY(7px);
@@ -198,51 +260,39 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   width: calc(22px * 0.82);
 }
 
-.circuit-6 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-7 {
+.circuit-10 {
   height: 56px;
 }
 
-.circuit-7>* {
+.circuit-10>* {
   display: block;
   height: inherit;
   line-height: 0;
   padding: 16px;
 }
 
-.circuit-7 a:focus,
-.circuit-7 button:focus {
+.circuit-10 a:focus,
+.circuit-10 button:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-7 a:focus::-moz-focus-inner,
-.circuit-7 button:focus::-moz-focus-inner {
+.circuit-10 a:focus::-moz-focus-inner,
+.circuit-10 button:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-7 a:focus:not(:focus-visible),
-.circuit-7 button:focus:not(:focus-visible) {
+.circuit-10 a:focus:not(:focus-visible),
+.circuit-10 button:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-7 svg {
+.circuit-10 svg {
   color: #000;
   height: 24px;
 }
 
-.circuit-8 {
+.circuit-11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -254,7 +304,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   height: 100%;
 }
 
-.circuit-8[aria-busy='true'] {
+.circuit-11[aria-busy='true'] {
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -262,7 +312,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   user-select: none;
 }
 
-.circuit-9 {
+.circuit-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -273,7 +323,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   align-items: center;
 }
 
-.circuit-10 {
+.circuit-13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -297,34 +347,34 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   border-left: 1px solid #CCC;
 }
 
-.circuit-10:hover {
+.circuit-13:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-10:active {
+.circuit-13:active {
   background-color: #E6E6E6;
 }
 
-.circuit-10:focus {
+.circuit-13:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-10:focus::-moz-focus-inner {
+.circuit-13:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-10:focus:not(:focus-visible) {
+.circuit-13:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-10:disabled {
+.circuit-13:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-11 {
+.circuit-14 {
   display: inline-block;
   line-height: 0;
   -webkit-flex-shrink: 0;
@@ -335,17 +385,17 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 }
 
 @media (min-width: 480px) {
-  .circuit-11 {
+  .circuit-14 {
     margin-right: 8px;
   }
 }
 
-.circuit-12 {
+.circuit-15 {
   display: inline-block;
   line-height: 0;
 }
 
-.circuit-13 {
+.circuit-16 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -354,7 +404,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 }
 
 @media (max-width: 479px) {
-  .circuit-13 {
+  .circuit-16 {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -367,11 +417,11 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   }
 }
 
-.circuit-14 {
+.circuit-17 {
   display: inline-block;
 }
 
-.circuit-15 {
+.circuit-18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -393,35 +443,35 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   border-left: 1px solid #CCC;
 }
 
-.circuit-15:hover {
+.circuit-18:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-15:active {
+.circuit-18:active {
   background-color: #E6E6E6;
 }
 
-.circuit-15:focus {
+.circuit-18:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-15:focus::-moz-focus-inner {
+.circuit-18:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-15:focus:not(:focus-visible) {
+.circuit-18:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-15:disabled {
+.circuit-18:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
 @media (max-width: 767px) {
-  .circuit-17 {
+  .circuit-20 {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -435,13 +485,13 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 }
 
 @media (min-width: 768px) {
-  .circuit-17 {
+  .circuit-20 {
     margin: 0 12px;
     max-width: 20ch;
   }
 }
 
-.circuit-18 {
+.circuit-21 {
   display: inline-block;
   line-height: 0;
   display: block;
@@ -450,7 +500,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   text-overflow: ellipsis;
 }
 
-.circuit-19 {
+.circuit-22 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
@@ -459,7 +509,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   font-weight: 700;
 }
 
-.circuit-21 {
+.circuit-24 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
@@ -467,18 +517,18 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   margin-bottom: 0;
 }
 
-.circuit-22 {
+.circuit-25 {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .circuit-22 {
+  .circuit-25 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-22 {
+  button[aria-expanded='true'] .circuit-25 {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -505,7 +555,6 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
         >
           <span
             class="circuit-4"
-            role="presentation"
           >
             <span
               class="circuit-5"
@@ -514,12 +563,24 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
           <span
             class="circuit-6"
           >
-            Open menu
+            <span
+              class="circuit-7"
+              role="presentation"
+            >
+              <span
+                class="circuit-8"
+              />
+            </span>
+            <span
+              class="circuit-5"
+            >
+              Open menu
+            </span>
           </span>
         </button>
       </div>
       <div
-        class="circuit-7"
+        class="circuit-10"
       >
         <a
           aria-label="Visit SumUp's website"
@@ -572,17 +633,17 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
     </div>
     <div
       aria-busy="false"
-      class="circuit-8"
+      class="circuit-11"
     >
       <div
-        class="circuit-9"
+        class="circuit-12"
       >
         <a
-          class="circuit-10"
+          class="circuit-13"
           href="/shop"
         >
           <span
-            class="circuit-11"
+            class="circuit-14"
           >
             <svg
               fill="none"
@@ -601,10 +662,10 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="circuit-12"
+            class="circuit-15"
           >
             <span
-              class="circuit-13"
+              class="circuit-16"
             >
               Shop
             </span>
@@ -612,20 +673,20 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
         </a>
       </div>
       <div
-        class="circuit-14"
+        class="circuit-17"
       >
         <button
           aria-controls="popover_2"
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Open profile menu"
-          class="circuit-15"
+          class="circuit-18"
           id="trigger_1"
           title="Open profile menu"
           type="button"
         >
           <span
-            class="circuit-12"
+            class="circuit-15"
           >
             <svg
               fill="none"
@@ -642,29 +703,29 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
             </svg>
           </span>
           <div
-            class="circuit-17"
+            class="circuit-20"
           >
             <span
-              class="circuit-18"
+              class="circuit-21"
             >
               <strong
-                class="circuit-19"
+                class="circuit-22"
               >
                 Jane Doe
               </strong>
             </span>
             <span
-              class="circuit-18"
+              class="circuit-21"
             >
               <p
-                class="circuit-21"
+                class="circuit-24"
               >
                 ID: AC3YULT8
               </p>
             </span>
           </div>
           <svg
-            class="circuit-22"
+            class="circuit-25"
             fill="none"
             height="16"
             viewBox="0 0 16 16"

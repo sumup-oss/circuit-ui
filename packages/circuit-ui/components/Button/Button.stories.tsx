@@ -15,10 +15,10 @@
 
 import { action } from '@storybook/addon-actions';
 import { Plus } from '@sumup/icons';
+import { useState } from 'react';
 
 import { Stack } from '../../../../.storybook/components';
 import ButtonGroup from '../ButtonGroup';
-import LoadingButton from '../LoadingButton';
 import IconButton from '../IconButton';
 import CloseButton from '../CloseButton';
 
@@ -28,7 +28,7 @@ import docs from './Button.docs.mdx';
 export default {
   title: 'Components/Button',
   component: Button,
-  subcomponents: { LoadingButton, IconButton, CloseButton, ButtonGroup },
+  subcomponents: { IconButton, CloseButton, ButtonGroup },
   parameters: {
     docs: { page: docs },
   },
@@ -106,3 +106,25 @@ export const Tracking = (args: ButtonProps) => (
     Track me
   </Button>
 );
+
+export const Loading = (args: ButtonProps) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+
+  return (
+    <Button
+      isLoading={loading}
+      loadingLabel="Loading"
+      onClick={handleClick}
+      {...args}
+    >
+      Things take time
+    </Button>
+  );
+};

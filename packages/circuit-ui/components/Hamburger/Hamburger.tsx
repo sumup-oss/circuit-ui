@@ -40,6 +40,8 @@ export interface HamburgerProps
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
+  isLoading?: never;
+  loadingLabel?: never;
 }
 
 const LAYER_HEIGHT = '2px';

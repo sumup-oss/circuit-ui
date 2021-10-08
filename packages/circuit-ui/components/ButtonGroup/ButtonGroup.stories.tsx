@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Button from '../Button';
+import { action } from '@storybook/addon-actions';
 
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
 
@@ -22,9 +22,19 @@ export default {
   component: ButtonGroup,
 };
 
-export const Base = (args: ButtonGroupProps) => (
-  <ButtonGroup {...args}>
-    <Button variant="secondary">Cancel</Button>
-    <Button variant="primary">Confirm</Button>
-  </ButtonGroup>
+export const Base = (args: ButtonGroupProps): JSX.Element => (
+  <ButtonGroup {...args} />
 );
+
+Base.args = {
+  actions: {
+    primary: {
+      children: 'Look again',
+      onClick: action('Still empty'),
+    },
+    secondary: {
+      children: 'Go elsewhere',
+      href: 'https://sumup.com',
+    },
+  },
+};

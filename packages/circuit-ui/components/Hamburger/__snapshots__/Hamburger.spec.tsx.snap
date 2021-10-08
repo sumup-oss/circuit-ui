@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Hamburger should render with active styles when passed the isActive prop 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -8,10 +24,6 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -33,6 +45,8 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding: calc(12px - 1px);
   border: 0;
   padding: 12px;
@@ -71,6 +85,54 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 }
 
 .circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-4 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -90,7 +152,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   height: 24px;
 }
 
-.circuit-2 {
+.circuit-5 {
   top: 50%;
   width: 22px;
   -webkit-transform: rotate(225deg);
@@ -99,9 +161,9 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   transform: rotate(225deg);
 }
 
-.circuit-2,
-.circuit-2::after,
-.circuit-2::before {
+.circuit-5,
+.circuit-5::after,
+.circuit-5::before {
   background-color: currentColor;
   border-radius: 1px;
   display: block;
@@ -111,13 +173,13 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.circuit-2::before,
-.circuit-2::after {
+.circuit-5::before,
+.circuit-5::after {
   top: 0;
   content: '';
 }
 
-.circuit-2::before {
+.circuit-5::before {
   -webkit-transform: translateY(-7px);
   -moz-transform: translateY(-7px);
   -ms-transform: translateY(-7px);
@@ -125,7 +187,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   width: calc(22px * 0.64);
 }
 
-.circuit-2::after {
+.circuit-5::after {
   -webkit-transform: translateY(7px);
   -moz-transform: translateY(7px);
   -ms-transform: translateY(7px);
@@ -133,15 +195,15 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   width: calc(22px * 0.82);
 }
 
-.circuit-2,
-.circuit-2::before,
-.circuit-2::after {
+.circuit-5,
+.circuit-5::before,
+.circuit-5::after {
   -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-out 0.15s,-webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
   transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-out 0.15s,transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
   width: 22px;
 }
 
-.circuit-2::before {
+.circuit-5::before {
   opacity: 0;
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
@@ -149,23 +211,11 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   transform: translateY(0);
 }
 
-.circuit-2::after {
+.circuit-5::after {
   -webkit-transform: translateY(0) rotate(-90deg);
   -moz-transform: translateY(0) rotate(-90deg);
   -ms-transform: translateY(0) rotate(-90deg);
   transform: translateY(0) rotate(-90deg);
-}
-
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <button
@@ -175,7 +225,6 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 >
   <span
     class="circuit-1"
-    role="presentation"
   >
     <span
       class="circuit-2"
@@ -184,12 +233,40 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   <span
     class="circuit-3"
   >
-    Close menu
+    <span
+      class="circuit-4"
+      role="presentation"
+    >
+      <span
+        class="circuit-5"
+      />
+    </span>
+    <span
+      class="circuit-2"
+    >
+      Close menu
+    </span>
   </span>
 </button>
 `;
 
 exports[`Hamburger should render with default styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -197,10 +274,6 @@ exports[`Hamburger should render with default styles 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -222,6 +295,8 @@ exports[`Hamburger should render with default styles 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding: calc(12px - 1px);
   border: 0;
   padding: 12px;
@@ -260,6 +335,54 @@ exports[`Hamburger should render with default styles 1`] = `
 }
 
 .circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-4 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -279,14 +402,14 @@ exports[`Hamburger should render with default styles 1`] = `
   height: 24px;
 }
 
-.circuit-2 {
+.circuit-5 {
   top: 50%;
   width: 22px;
 }
 
-.circuit-2,
-.circuit-2::after,
-.circuit-2::before {
+.circuit-5,
+.circuit-5::after,
+.circuit-5::before {
   background-color: currentColor;
   border-radius: 1px;
   display: block;
@@ -296,13 +419,13 @@ exports[`Hamburger should render with default styles 1`] = `
   transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.circuit-2::before,
-.circuit-2::after {
+.circuit-5::before,
+.circuit-5::after {
   top: 0;
   content: '';
 }
 
-.circuit-2::before {
+.circuit-5::before {
   -webkit-transform: translateY(-7px);
   -moz-transform: translateY(-7px);
   -ms-transform: translateY(-7px);
@@ -310,24 +433,12 @@ exports[`Hamburger should render with default styles 1`] = `
   width: calc(22px * 0.64);
 }
 
-.circuit-2::after {
+.circuit-5::after {
   -webkit-transform: translateY(7px);
   -moz-transform: translateY(7px);
   -ms-transform: translateY(7px);
   transform: translateY(7px);
   width: calc(22px * 0.82);
-}
-
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <button
@@ -337,7 +448,6 @@ exports[`Hamburger should render with default styles 1`] = `
 >
   <span
     class="circuit-1"
-    role="presentation"
   >
     <span
       class="circuit-2"
@@ -346,12 +456,40 @@ exports[`Hamburger should render with default styles 1`] = `
   <span
     class="circuit-3"
   >
-    Open menu
+    <span
+      class="circuit-4"
+      role="presentation"
+    >
+      <span
+        class="circuit-5"
+      />
+    </span>
+    <span
+      class="circuit-2"
+    >
+      Open menu
+    </span>
   </span>
 </button>
 `;
 
 exports[`Hamburger should render with giga styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -359,10 +497,6 @@ exports[`Hamburger should render with giga styles 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -384,6 +518,8 @@ exports[`Hamburger should render with giga styles 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding: calc(12px - 1px);
   border: 0;
   padding: 12px;
@@ -422,6 +558,54 @@ exports[`Hamburger should render with giga styles 1`] = `
 }
 
 .circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-4 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -441,14 +625,14 @@ exports[`Hamburger should render with giga styles 1`] = `
   height: 24px;
 }
 
-.circuit-2 {
+.circuit-5 {
   top: 50%;
   width: 22px;
 }
 
-.circuit-2,
-.circuit-2::after,
-.circuit-2::before {
+.circuit-5,
+.circuit-5::after,
+.circuit-5::before {
   background-color: currentColor;
   border-radius: 1px;
   display: block;
@@ -458,13 +642,13 @@ exports[`Hamburger should render with giga styles 1`] = `
   transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.circuit-2::before,
-.circuit-2::after {
+.circuit-5::before,
+.circuit-5::after {
   top: 0;
   content: '';
 }
 
-.circuit-2::before {
+.circuit-5::before {
   -webkit-transform: translateY(-7px);
   -moz-transform: translateY(-7px);
   -ms-transform: translateY(-7px);
@@ -472,24 +656,12 @@ exports[`Hamburger should render with giga styles 1`] = `
   width: calc(22px * 0.64);
 }
 
-.circuit-2::after {
+.circuit-5::after {
   -webkit-transform: translateY(7px);
   -moz-transform: translateY(7px);
   -ms-transform: translateY(7px);
   transform: translateY(7px);
   width: calc(22px * 0.82);
-}
-
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <button
@@ -499,7 +671,6 @@ exports[`Hamburger should render with giga styles 1`] = `
 >
   <span
     class="circuit-1"
-    role="presentation"
   >
     <span
       class="circuit-2"
@@ -508,12 +679,40 @@ exports[`Hamburger should render with giga styles 1`] = `
   <span
     class="circuit-3"
   >
-    Open menu
+    <span
+      class="circuit-4"
+      role="presentation"
+    >
+      <span
+        class="circuit-5"
+      />
+    </span>
+    <span
+      class="circuit-2"
+    >
+      Open menu
+    </span>
   </span>
 </button>
 `;
 
 exports[`Hamburger should render with kilo styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -521,10 +720,6 @@ exports[`Hamburger should render with kilo styles 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -546,6 +741,8 @@ exports[`Hamburger should render with kilo styles 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding: calc(8px - 1px);
   border: 0;
   padding: 8px;
@@ -584,6 +781,54 @@ exports[`Hamburger should render with kilo styles 1`] = `
 }
 
 .circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-4 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -603,14 +848,14 @@ exports[`Hamburger should render with kilo styles 1`] = `
   height: 16px;
 }
 
-.circuit-2 {
+.circuit-5 {
   top: 50%;
   width: 14px;
 }
 
-.circuit-2,
-.circuit-2::after,
-.circuit-2::before {
+.circuit-5,
+.circuit-5::after,
+.circuit-5::before {
   background-color: currentColor;
   border-radius: 1px;
   display: block;
@@ -620,13 +865,13 @@ exports[`Hamburger should render with kilo styles 1`] = `
   transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.circuit-2::before,
-.circuit-2::after {
+.circuit-5::before,
+.circuit-5::after {
   top: 0;
   content: '';
 }
 
-.circuit-2::before {
+.circuit-5::before {
   -webkit-transform: translateY(-5px);
   -moz-transform: translateY(-5px);
   -ms-transform: translateY(-5px);
@@ -634,24 +879,12 @@ exports[`Hamburger should render with kilo styles 1`] = `
   width: calc(14px * 0.64);
 }
 
-.circuit-2::after {
+.circuit-5::after {
   -webkit-transform: translateY(5px);
   -moz-transform: translateY(5px);
   -ms-transform: translateY(5px);
   transform: translateY(5px);
   width: calc(14px * 0.82);
-}
-
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <button
@@ -661,7 +894,6 @@ exports[`Hamburger should render with kilo styles 1`] = `
 >
   <span
     class="circuit-1"
-    role="presentation"
   >
     <span
       class="circuit-2"
@@ -670,7 +902,19 @@ exports[`Hamburger should render with kilo styles 1`] = `
   <span
     class="circuit-3"
   >
-    Open menu
+    <span
+      class="circuit-4"
+      role="presentation"
+    >
+      <span
+        class="circuit-5"
+      />
+    </span>
+    <span
+      class="circuit-2"
+    >
+      Open menu
+    </span>
   </span>
 </button>
 `;

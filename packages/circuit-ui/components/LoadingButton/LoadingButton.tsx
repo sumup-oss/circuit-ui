@@ -13,105 +13,11 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
-import { css } from '@emotion/react';
+import LoadingButton, { ButtonProps } from '../Button';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { hideVisually } from '../../styles/style-mixins';
-import Button from '../Button';
-import { ButtonProps } from '../Button/Button';
-import Spinner from '../Spinner';
+export type LoadingButtonProps = ButtonProps;
 
-export interface LoadingButtonProps extends ButtonProps {
-  /**
-   * Visually disables the button and shows a loading spinner.
-   */
-  isLoading?: boolean;
-  /**
-   * Visually hidden label to communicate the loading state to visually
-   * impaired users.
-   */
-  loadingLabel: string;
-}
-
-const buttonStyles = css`
-  position: relative;
-  overflow: hidden;
-`;
-
-const spinnerBaseStyles = ({ theme }: StyleProps) => css`
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity ${theme.transitions.default},
-    visibility ${theme.transitions.default};
-`;
-
-const spinnerLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
-  isLoading &&
-  css`
-    opacity: 1;
-    visibility: visible;
-  `;
-
-const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
-  spinnerBaseStyles,
-  spinnerLoadingStyles,
-);
-
-const LoadingLabel = styled.span(hideVisually);
-
-const childrenStyles = ({ theme }: StyleProps) => css`
-  opacity: 1;
-  visibility: visible;
-  transform: scale3d(1, 1, 1);
-  transition: opacity ${theme.transitions.default},
-    transform ${theme.transitions.default},
-    visibility ${theme.transitions.default};
-`;
-
-const childrenLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
-  isLoading &&
-  css`
-    opacity: 0;
-    visibility: hidden;
-    transform: scale3d(0, 0, 0);
-  `;
-
-const Children = styled.span<{ isLoading: boolean }>(
-  childrenStyles,
-  childrenLoadingStyles,
-);
-
-export const LoadingButton: FC<LoadingButtonProps> = ({
-  children,
-  isLoading = false,
-  loadingLabel,
-  ...props
-}) => {
-  if (
-    process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    !loadingLabel
-  ) {
-    throw new Error(
-      'The LoadingButton component is missing a `loadingLabel` prop. This is an accessibility requirement.',
-    );
-  }
-
-  return (
-    <Button
-      css={buttonStyles}
-      disabled={isLoading}
-      aria-live="polite"
-      aria-busy={isLoading}
-      {...props}
-    >
-      <LoadingIcon isLoading={isLoading} size="byte">
-        <LoadingLabel>{loadingLabel}</LoadingLabel>
-      </LoadingIcon>
-      <Children isLoading={isLoading}>{children}</Children>
-    </Button>
-  );
-};
+/**
+ * @deprecated Use the Button component with the `isLoading` and `loadingLabel` props instead.
+ */
+export { LoadingButton };

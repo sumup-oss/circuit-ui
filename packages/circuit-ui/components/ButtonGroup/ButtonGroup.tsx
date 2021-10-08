@@ -17,13 +17,20 @@ import { ReactElement, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { ButtonProps } from '../Button/Button';
+import Button, { ButtonProps } from '../Button';
+
+type Action = Omit<ButtonProps, 'variant'>;
 
 export interface ButtonGroupProps {
   /**
    * Buttons to group.
    */
-  children: ReactElement<ButtonProps>[] | ReactElement<ButtonProps>;
+  /**
+   * @deprecated Use the `actions` prop instead.
+   */
+  children?:
+    | (ReactElement<ButtonProps> | undefined)[]
+    | ReactElement<ButtonProps>;
   /**
    * Direction to align the content. Either left/right
    */
@@ -36,6 +43,13 @@ export interface ButtonGroupProps {
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLDivElement>;
+  /**
+   * Action Buttons
+   */
+  actions?: {
+    primary: Action;
+    secondary?: Action;
+  };
 }
 
 const getInlineStyles = ({ theme }: StyleProps) => css`
@@ -90,21 +104,72 @@ const inlineMobileStyles = ({
     ${getInlineStyles({ theme })}
   `;
 
+const actionWrapperStyles = ({ theme }: StyleProps) => css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  ${theme.mq.kilo} {
+    flex-direction: row;
+  }
+`;
+
+const secondaryButtonStyles = ({ theme }: StyleProps) => css`
+  margin-right: ${theme.spacings.mega};
+  ${theme.mq.untilKilo} {
+    display: none;
+  }
+`;
+
+const SecondaryButton = styled(Button)<ButtonProps>(secondaryButtonStyles);
+
+const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
+  margin-top: ${theme.spacings.mega};
+  ${theme.mq.kilo} {
+    display: none;
+  }
+`;
+
+const TertiaryButton = styled(Button)<ButtonProps>(tertiaryButtonStyles);
+
 const Wrapper = styled('div')<ButtonGroupProps>(
   baseStyles,
   alignmentStyles,
   inlineMobileStyles,
 );
 
+const ActionsWrapper = styled('div')<ButtonGroupProps>(actionWrapperStyles);
+
 /**
  * Groups its Button children into a list and adds margins between.
  */
 export const ButtonGroup = forwardRef(
-  ({ children, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => (
-    <Wrapper {...props} ref={ref}>
-      {children}
-    </Wrapper>
-  ),
+  (
+    { children, actions, ...props }: ButtonGroupProps,
+    ref: ButtonGroupProps['ref'],
+  ) => {
+    if (actions) {
+      return (
+        <ActionsWrapper {...props}>
+          {actions.secondary && (
+            <SecondaryButton {...actions.secondary} variant="secondary" />
+          )}
+
+          <Button {...actions.primary} variant="primary" />
+
+          {actions.secondary && (
+            <TertiaryButton {...actions.secondary} variant="tertiary" />
+          )}
+        </ActionsWrapper>
+      );
+    }
+    return (
+      <Wrapper {...props} ref={ref}>
+        {children}
+      </Wrapper>
+    );
+  },
 );
 
 ButtonGroup.displayName = 'ButtonGroup';

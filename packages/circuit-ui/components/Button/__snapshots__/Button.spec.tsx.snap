@@ -1,6 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button styles should render a button with icon 1`] = `
+exports[`Button should render with loading styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -8,10 +40,6 @@ exports[`Button styles should render a button with icon 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -33,6 +61,8 @@ exports[`Button styles should render a button with icon 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
 }
 
 .circuit-0:focus {
@@ -68,6 +98,214 @@ exports[`Button styles should render a button with icon 1`] = `
 }
 
 .circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  opacity: 1;
+  visibility: visible;
+}
+
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale3d(0, 0, 0);
+  -moz-transform: scale3d(0, 0, 0);
+  -ms-transform: scale3d(0, 0, 0);
+  transform: scale3d(0, 0, 0);
+}
+
+<button
+  aria-busy="true"
+  aria-live="polite"
+  class="circuit-0"
+  disabled=""
+>
+  <span
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    >
+      Loading
+    </span>
+  </span>
+  <span
+    class="circuit-3"
+  >
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button styles should render a button with icon 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-0:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
+}
+
+.circuit-0:active,
+.circuit-0[aria-expanded='true'],
+.circuit-0[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+.circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-4 {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -77,25 +315,52 @@ exports[`Button styles should render a button with icon 1`] = `
 <button
   class="circuit-0"
 >
-  <svg
+  <span
     class="circuit-1"
-    fill="none"
-    height="24"
-    role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M12 23a10.994 10.994 0 1 0-.012 0H12zM7 11c.266 0 .52.104.71.29l3.29 3.3V7a1 1 0 0 1 2 0v7.59l3.29-3.3c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .265-.104.52-.29.71l-5 5a1.014 1.014 0 0 1-1.42 0l-5-5A1.013 1.013 0 0 1 6 12a1 1 0 0 1 1-1z"
-      fill="currentColor"
+    <span
+      class="circuit-2"
     />
-  </svg>
-  Button
+  </span>
+  <span
+    class="circuit-3"
+  >
+    <svg
+      class="circuit-4"
+      fill="none"
+      height="24"
+      role="presentation"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 23a10.994 10.994 0 1 0-.012 0H12zM7 11c.266 0 .52.104.71.29l3.29 3.3V7a1 1 0 0 1 2 0v7.59l3.29-3.3c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .265-.104.52-.29.71l-5 5a1.014 1.014 0 0 1-1.42 0l-5-5A1.013 1.013 0 0 1 6 12a1 1 0 0 1 1-1z"
+        fill="currentColor"
+      />
+    </svg>
+    Button
+  </span>
 </button>
 `;
 
 exports[`Button styles should render a disabled button 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -103,10 +368,6 @@ exports[`Button styles should render a disabled button 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -128,6 +389,8 @@ exports[`Button styles should render a disabled button 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
 }
 
 .circuit-0:focus {
@@ -160,17 +423,92 @@ exports[`Button styles should render a disabled button 1`] = `
 .circuit-0[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
+}
+
+.circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
 <button
   class="circuit-0"
   disabled=""
 >
-  Button
+  <span
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    />
+  </span>
+  <span
+    class="circuit-3"
+  >
+    Button
+  </span>
 </button>
 `;
 
 exports[`Button styles should render a giga button 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -178,10 +516,6 @@ exports[`Button styles should render a giga button 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -203,6 +537,8 @@ exports[`Button styles should render a giga button 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
 }
 
 .circuit-0:focus {
@@ -237,17 +573,36 @@ exports[`Button styles should render a giga button 1`] = `
   border-color: #333;
 }
 
-<button
-  class="circuit-0"
->
-  Button
-</button>
-`;
+.circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
 
-exports[`Button styles should render a kilo button 1`] = `
-.circuit-0 {
-  font-size: 16px;
-  line-height: 24px;
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -256,6 +611,58 @@ exports[`Button styles should render a kilo button 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+<button
+  class="circuit-0"
+>
+  <span
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    />
+  </span>
+  <span
+    class="circuit-3"
+  >
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button styles should render a kilo button 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -277,6 +684,8 @@ exports[`Button styles should render a kilo button 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(4px - 1px) calc(16px - 1px);
+  position: relative;
+  overflow: hidden;
 }
 
 .circuit-0:focus {
@@ -311,14 +720,89 @@ exports[`Button styles should render a kilo button 1`] = `
   border-color: #333;
 }
 
+.circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
 <button
   class="circuit-0"
 >
-  Button
+  <span
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    />
+  </span>
+  <span
+    class="circuit-3"
+  >
+    Button
+  </span>
 </button>
 `;
 
 exports[`Button styles should render a primary button by default 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -326,10 +810,6 @@ exports[`Button styles should render a primary button by default 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -351,6 +831,8 @@ exports[`Button styles should render a primary button by default 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
 }
 
 .circuit-0:focus {
@@ -385,14 +867,89 @@ exports[`Button styles should render a primary button by default 1`] = `
   border-color: #333;
 }
 
+.circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
 <button
   class="circuit-0"
 >
-  Button
+  <span
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    />
+  </span>
+  <span
+    class="circuit-3"
+  >
+    Button
+  </span>
 </button>
 `;
 
 exports[`Button styles should render a secondary button 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   font-size: 16px;
   line-height: 24px;
@@ -400,10 +957,6 @@ exports[`Button styles should render a secondary button 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -425,6 +978,8 @@ exports[`Button styles should render a secondary button 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
 }
 
 .circuit-0:focus {
@@ -459,17 +1014,36 @@ exports[`Button styles should render a secondary button 1`] = `
   border-color: #333;
 }
 
-<button
-  class="circuit-0"
->
-  Button
-</button>
-`;
+.circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
 
-exports[`Button styles should render a stretched button 1`] = `
-.circuit-0 {
-  font-size: 16px;
-  line-height: 24px;
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -478,6 +1052,58 @@ exports[`Button styles should render a stretched button 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+<button
+  class="circuit-0"
+>
+  <span
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    />
+  </span>
+  <span
+    class="circuit-3"
+  >
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button styles should render a stretched button 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -500,6 +1126,8 @@ exports[`Button styles should render a stretched button 1`] = `
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
   width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .circuit-0:focus {
@@ -534,17 +1162,36 @@ exports[`Button styles should render a stretched button 1`] = `
   border-color: #333;
 }
 
-<button
-  class="circuit-0"
->
-  Button
-</button>
-`;
+.circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
 
-exports[`Button styles should render a tertiary button 1`] = `
-.circuit-0 {
-  font-size: 16px;
-  line-height: 24px;
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -553,6 +1200,58 @@ exports[`Button styles should render a tertiary button 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+<button
+  class="circuit-0"
+>
+  <span
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    />
+  </span>
+  <span
+    class="circuit-3"
+  >
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button styles should render a tertiary button 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -576,6 +1275,8 @@ exports[`Button styles should render a tertiary button 1`] = `
   color: #3063E9;
   padding-left: 0;
   padding-right: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .circuit-0:focus {
@@ -608,9 +1309,68 @@ exports[`Button styles should render a tertiary button 1`] = `
   color: #1A368E;
 }
 
+.circuit-1 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-2 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
 <button
   class="circuit-0"
 >
-  Button
+  <span
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    />
+  </span>
+  <span
+    class="circuit-3"
+  >
+    Button
+  </span>
 </button>
 `;

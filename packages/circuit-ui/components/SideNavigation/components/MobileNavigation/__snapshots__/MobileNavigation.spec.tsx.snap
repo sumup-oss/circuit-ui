@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MobileNavigation styles should render with secondary links 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   position: fixed;
   top: 0;
@@ -82,10 +98,6 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -107,6 +119,8 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding: calc(12px - 1px);
   border-color: transparent!important;
   background-color: transparent;
@@ -145,6 +159,23 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 }
 
 .circuit-5 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-6 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -156,11 +187,30 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   width: 1px;
 }
 
-.circuit-6 {
+.circuit-7 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-9 {
   list-style: none;
 }
 
-.circuit-7 {
+.circuit-10 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -186,39 +236,39 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   color: #3063E9;
 }
 
-.circuit-7:focus {
+.circuit-10:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-7:focus::-moz-focus-inner {
+.circuit-10:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-7:focus:not(:focus-visible) {
+.circuit-10:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-7:hover {
+.circuit-10:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-7:active {
+.circuit-10:active {
   background-color: #E6E6E6;
 }
 
-.circuit-7:disabled {
+.circuit-10:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
 @media (max-width: 959px) {
-  .circuit-7 {
+  .circuit-10 {
     margin-bottom: 1px;
   }
 
-  .circuit-7::after {
+  .circuit-10::after {
     content: '';
     display: block;
     position: absolute;
@@ -233,7 +283,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 }
 
 @media (min-width: 960px) {
-  .circuit-7 {
+  .circuit-10 {
     height: 48px;
     width: 220px;
     padding: 12px;
@@ -241,11 +291,11 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   }
 }
 
-.circuit-7:hover {
+.circuit-10:hover {
   background-color: #F0F6FF;
 }
 
-.circuit-8 {
+.circuit-11 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -257,12 +307,12 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   margin-right: 12px;
 }
 
-.circuit-9 {
+.circuit-12 {
   display: inline-block;
   line-height: 0;
 }
 
-.circuit-10 {
+.circuit-13 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -272,13 +322,13 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 }
 
 @media (max-width: 959px) {
-  .circuit-10 {
+  .circuit-13 {
     font-size: 24px;
     line-height: 28px;
   }
 }
 
-.circuit-11 {
+.circuit-14 {
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -295,23 +345,23 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   transition: transform 120ms ease-in-out;
 }
 
-.circuit-12 {
+.circuit-15 {
   list-style: none;
   border-bottom: 1px solid #CCC;
   margin-bottom: -1px;
 }
 
-.circuit-12>*:last-child {
+.circuit-15>*:last-child {
   padding-bottom: 24px;
 }
 
-.circuit-13 {
+.circuit-16 {
   display: inline-block;
   line-height: 0;
   margin: 32px 16px 8px;
 }
 
-.circuit-14 {
+.circuit-17 {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
@@ -321,7 +371,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   margin-bottom: 0;
 }
 
-.circuit-16 {
+.circuit-19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -352,47 +402,47 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   hyphens: auto;
 }
 
-.circuit-16:hover {
+.circuit-19:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-16:active {
+.circuit-19:active {
   background-color: #E6E6E6;
 }
 
-.circuit-16:focus {
+.circuit-19:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-16:focus::-moz-focus-inner {
+.circuit-19:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-16:focus:not(:focus-visible) {
+.circuit-19:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-16:disabled {
+.circuit-19:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
 @media (min-width: 960px) {
-  .circuit-16 {
+  .circuit-19 {
     padding: 12px;
     padding-left: 20px;
   }
 }
 
-.circuit-17 {
+.circuit-20 {
   display: inline-block;
   line-height: 0;
   margin-right: 8px;
 }
 
-.circuit-18 {
+.circuit-21 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -437,25 +487,36 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
               title="Close navigation modal"
               type="button"
             >
-              <svg
-                fill="none"
-                height="16"
-                role="presentation"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                />
-              </svg>
               <span
                 class="circuit-5"
               >
-                Close navigation modal
+                <span
+                  class="circuit-6"
+                />
+              </span>
+              <span
+                class="circuit-7"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  role="presentation"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <span
+                  class="circuit-6"
+                >
+                  Close navigation modal
+                </span>
               </span>
             </button>
           </div>
@@ -463,18 +524,18 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
             aria-label="Primary"
           >
             <ul
-              class="circuit-6"
+              class="circuit-9"
             >
               <li>
                 <button
                   aria-controls="collapsible_2"
                   aria-current="page"
                   aria-expanded="false"
-                  class="circuit-7"
+                  class="circuit-10"
                   data-focus-list="1"
                 >
                   <span
-                    class="circuit-8"
+                    class="circuit-11"
                   >
                     <svg
                       fill="none"
@@ -493,16 +554,16 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="circuit-9"
+                    class="circuit-12"
                   >
                     <span
-                      class="circuit-10"
+                      class="circuit-13"
                     >
                       Shop
                     </span>
                   </span>
                   <svg
-                    class="circuit-11"
+                    class="circuit-14"
                     fill="none"
                     height="16"
                     role="presentation"
@@ -518,36 +579,36 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                 </button>
                 <ul
                   aria-hidden="true"
-                  class="circuit-12"
+                  class="circuit-15"
                   id="collapsible_2"
                   role="list"
                   style="overflow-y: hidden; will-change: height; opacity: 0; height: 0px; visibility: hidden; transition: all 200ms ease-in-out;"
                 >
                   <li>
                     <span
-                      class="circuit-13"
+                      class="circuit-16"
                     >
                       <h3
-                        class="circuit-14"
+                        class="circuit-17"
                       >
                         For Kids
                       </h3>
                     </span>
                     <ul
-                      class="circuit-6"
+                      class="circuit-9"
                       role="list"
                     >
                       <li>
                         <a
-                          class="circuit-16"
+                          class="circuit-19"
                           data-focus-list="3"
                           href="/shop/toys"
                         >
                           <span
-                            class="circuit-17"
+                            class="circuit-20"
                           >
                             <p
-                              class="circuit-18"
+                              class="circuit-21"
                             >
                               Toys
                             </p>
@@ -556,15 +617,15 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                       </li>
                       <li>
                         <a
-                          class="circuit-16"
+                          class="circuit-19"
                           data-focus-list="3"
                           href="/shop/books"
                         >
                           <span
-                            class="circuit-17"
+                            class="circuit-20"
                           >
                             <p
-                              class="circuit-18"
+                              class="circuit-21"
                             >
                               Books
                             </p>
@@ -585,6 +646,22 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 `;
 
 exports[`MobileNavigation styles should render without secondary links 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   position: fixed;
   top: 0;
@@ -666,10 +743,6 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -691,6 +764,8 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
   border-color: #999;
   color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding: calc(12px - 1px);
   border-color: transparent!important;
   background-color: transparent;
@@ -729,6 +804,23 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 }
 
 .circuit-5 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-6 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -740,11 +832,30 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
   width: 1px;
 }
 
-.circuit-6 {
+.circuit-7 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-9 {
   list-style: none;
 }
 
-.circuit-7 {
+.circuit-10 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -769,39 +880,39 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-7:focus {
+.circuit-10:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px #AFD0FE;
 }
 
-.circuit-7:focus::-moz-focus-inner {
+.circuit-10:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-7:focus:not(:focus-visible) {
+.circuit-10:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-7:hover {
+.circuit-10:hover {
   background-color: #F5F5F5;
 }
 
-.circuit-7:active {
+.circuit-10:active {
   background-color: #E6E6E6;
 }
 
-.circuit-7:disabled {
+.circuit-10:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
 @media (max-width: 959px) {
-  .circuit-7 {
+  .circuit-10 {
     margin-bottom: 1px;
   }
 
-  .circuit-7::after {
+  .circuit-10::after {
     content: '';
     display: block;
     position: absolute;
@@ -816,7 +927,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 }
 
 @media (min-width: 960px) {
-  .circuit-7 {
+  .circuit-10 {
     height: 48px;
     width: 220px;
     padding: 12px;
@@ -824,7 +935,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
   }
 }
 
-.circuit-8 {
+.circuit-11 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -836,12 +947,12 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
   margin-right: 12px;
 }
 
-.circuit-9 {
+.circuit-12 {
   display: inline-block;
   line-height: 0;
 }
 
-.circuit-10 {
+.circuit-13 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -850,7 +961,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 }
 
 @media (max-width: 959px) {
-  .circuit-10 {
+  .circuit-13 {
     font-size: 24px;
     line-height: 28px;
   }
@@ -896,25 +1007,36 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
               title="Close navigation modal"
               type="button"
             >
-              <svg
-                fill="none"
-                height="16"
-                role="presentation"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                />
-              </svg>
               <span
                 class="circuit-5"
               >
-                Close navigation modal
+                <span
+                  class="circuit-6"
+                />
+              </span>
+              <span
+                class="circuit-7"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  role="presentation"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <span
+                  class="circuit-6"
+                >
+                  Close navigation modal
+                </span>
               </span>
             </button>
           </div>
@@ -922,16 +1044,16 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
             aria-label="Primary"
           >
             <ul
-              class="circuit-6"
+              class="circuit-9"
             >
               <li>
                 <a
-                  class="circuit-7"
+                  class="circuit-10"
                   data-focus-list="4"
                   href="/"
                 >
                   <span
-                    class="circuit-8"
+                    class="circuit-11"
                   >
                     <svg
                       fill="none"
@@ -948,10 +1070,10 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="circuit-9"
+                    class="circuit-12"
                   >
                     <span
-                      class="circuit-10"
+                      class="circuit-13"
                     >
                       Home
                     </span>
