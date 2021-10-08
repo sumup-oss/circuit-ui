@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotificationBanner styles should render a promotional banner 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -78,10 +94,6 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -103,6 +115,8 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
   border-color: #3063E9;
   color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding-top: calc(4px - 1px);
   padding-bottom: calc(4px - 1px);
 }
@@ -148,6 +162,54 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
 
 .circuit-5 {
   display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-6 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-8 {
+  display: block;
   height: auto;
   max-height: 100%;
   width: 100%;
@@ -179,12 +241,23 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
       <button
         class="circuit-4"
       >
-        Update
+        <span
+          class="circuit-5"
+        >
+          <span
+            class="circuit-6"
+          />
+        </span>
+        <span
+          class="circuit-7"
+        >
+          Update
+        </span>
       </button>
     </div>
     <img
       alt="Cup of coffee"
-      class="circuit-5"
+      class="circuit-8"
       src="https://source.unsplash.com/EcWFOYOpkpY/100x100"
     />
   </div>
@@ -192,6 +265,22 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
 `;
 
 exports[`NotificationBanner styles should render with default styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -269,10 +358,6 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -294,6 +379,8 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   border-color: #3063E9;
   color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
   padding-top: calc(4px - 1px);
   padding-bottom: calc(4px - 1px);
 }
@@ -339,6 +426,54 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
 
 .circuit-5 {
   display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-6 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-8 {
+  display: block;
   height: auto;
   max-height: 100%;
   width: 100%;
@@ -370,12 +505,23 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
       <button
         class="circuit-4"
       >
-        Update
+        <span
+          class="circuit-5"
+        >
+          <span
+            class="circuit-6"
+          />
+        </span>
+        <span
+          class="circuit-7"
+        >
+          Update
+        </span>
       </button>
     </div>
     <img
       alt="Cup of coffee"
-      class="circuit-5"
+      class="circuit-8"
       src="https://source.unsplash.com/EcWFOYOpkpY/100x100"
     />
   </div>
