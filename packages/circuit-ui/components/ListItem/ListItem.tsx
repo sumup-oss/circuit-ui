@@ -13,43 +13,61 @@
  * limitations under the License.
  */
 
-import { ReactNode, forwardRef, Ref, HTMLProps, FC } from 'react';
-import { css } from '@emotion/core';
+import {
+  ReactNode,
+  forwardRef,
+  Ref,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+  HTMLAttributes,
+  FC,
+} from 'react';
+import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { ChevronRight, IconProps } from '@sumup/icons';
-import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { disableVisually, focusVisible } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
+import { AsPropType } from '../../types/prop-types';
 import { isFunction } from '../../util/type-check';
+import { warn } from '../../util/logger';
 import { useComponents } from '../ComponentsContext';
-import { useClickEvent } from '../../hooks/useClickEvent';
+import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 
 type Variant = 'action' | 'navigation';
 
 interface BaseProps {
   /**
    * Choose between 'action' and 'navigation' variant.
-   * Default: 'navigation' if 'href' prop is present, otherwise 'action'.
+   * The `navigation` variant renders a chevron in the trailing section.
    */
-  variant?: Variant;
+  variant: Variant;
   /**
-   * Display a leading icon or status image in addition to the text to help to identify the type or status.
+   * Display a leading icon, status image, checkbox, etc. in addition to the text content.
    */
-  icon?: FC<IconProps> | ReactNode;
+  prefix?: FC<IconProps> | ReactNode;
   /**
    * Display a main label for this list item.
    */
   label: ReactNode;
   /**
-   * Display a status line for this list item.
+   * Display a details line below the main label for this list item.
    */
-  status?: ReactNode;
+  details?: ReactNode;
   /**
-   * Display a trailing label or action for this list item.
-   * An additional chevron icon will be rendered when using the 'navigation' variant.
+   * Display a trailing label this list item.
+   * If using the 'navigation' variant, the chevron icon will be center aligned with this label.
+   */
+  suffixLabel?: ReactNode;
+  /**
+   * Display a trailing details label for this list item.
+   */
+  suffixDetails?: ReactNode;
+  /**
+   * Display a custom trailing component for this list item.
+   * If using the 'navigation' variant, the chevron icon will be center aligned with this component.
    */
   suffix?: ReactNode;
   /**
@@ -61,10 +79,6 @@ interface BaseProps {
    */
   disabled?: boolean;
   /**
-   * Visually highlight the list item.
-   */
-  highlighted?: boolean;
-  /**
    * Function that's called when the list item is clicked.
    */
   onClick?: (event: ClickEvent) => void;
@@ -73,30 +87,30 @@ interface BaseProps {
    */
   tracking?: TrackingProps;
   /**
-   The ref to the HTML DOM element
+   * The ref to the HTML DOM element
    */
   ref?: Ref<HTMLDivElement & HTMLAnchorElement & HTMLButtonElement>;
 }
 
-type DivElProps = Omit<
-  HTMLProps<HTMLDivElement>,
-  'label' | 'suffix' | 'onClick'
->;
+type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'prefix' | 'onClick'>;
 type LinkElProps = Omit<
-  HTMLProps<HTMLAnchorElement>,
-  'label' | 'suffix' | 'onClick'
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'prefix' | 'onClick'
 >;
 type ButtonElProps = Omit<
-  HTMLProps<HTMLButtonElement>,
-  'label' | 'suffix' | 'onClick'
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'prefix' | 'onClick'
 >;
 
-type RootProps = Pick<BaseProps, 'selected' | 'highlighted'> &
+export type ListItemProps = BaseProps &
   DivElProps &
   LinkElProps &
-  ButtonElProps & { as: string };
+  ButtonElProps;
 
-export type ListItemProps = BaseProps &
+type InteractiveProps = { isInteractive: boolean };
+
+type StyledListItemProps = Pick<BaseProps, 'selected'> &
+  InteractiveProps &
   DivElProps &
   LinkElProps &
   ButtonElProps;
@@ -131,8 +145,11 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const interactiveStyles = ({ theme, as }: StyleProps & RootProps) =>
-  as !== 'div' &&
+const interactiveStyles = ({
+  theme,
+  isInteractive,
+}: StyleProps & StyledListItemProps) =>
+  isInteractive &&
   css`
     cursor: pointer;
 
@@ -146,7 +163,10 @@ const interactiveStyles = ({ theme, as }: StyleProps & RootProps) =>
     }
   `;
 
-const selectedStyles = ({ theme, selected }: StyleProps & RootProps) =>
+const selectedStyles = ({
+  theme,
+  selected,
+}: StyleProps & StyledListItemProps) =>
   selected &&
   css`
     background-color: ${theme.colors.b100};
@@ -169,29 +189,22 @@ const selectedStyles = ({ theme, selected }: StyleProps & RootProps) =>
     }
   `;
 
-const highlightedStyles = ({ theme, highlighted }: StyleProps & RootProps) =>
-  highlighted &&
-  css`
-    background-color: ${theme.colors.b100};
-  `;
-
 const StyledListItem = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'label',
-})(
+})<StyledListItemProps>(
   focusVisible,
   baseStyles,
   interactiveStyles,
   selectedStyles,
-  highlightedStyles,
 );
 
-const iconContainerStyles = ({ theme }: StyleProps) => css`
+const prefixContainerStyles = ({ theme }: StyleProps) => css`
   flex: none;
   display: flex;
   margin-right: ${theme.spacings.mega};
 `;
 
-const IconContainer = styled.div(iconContainerStyles);
+const PrefixContainer = styled.div(prefixContainerStyles);
 
 const contentContainerStyles = css`
   flex: auto;
@@ -212,20 +225,54 @@ const mainContainerStyles = css`
 
 const MainContainer = styled.div(mainContainerStyles);
 
+type NavigationProps = { isNavigation: boolean };
+
+type SuffixContainerProps = { hasLabel: boolean } & NavigationProps;
+
 const suffixContainerStyles = ({
   theme,
-  justify,
-}: StyleProps & { justify: string }) => css`
+  hasLabel,
+}: StyleProps & SuffixContainerProps) => css`
   flex: none;
   align-self: stretch;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: ${justify};
+  justify-content: ${hasLabel ? 'flex-start' : 'center'};
   margin-left: ${theme.spacings.mega};
 `;
 
-const SuffixContainer = styled.div(suffixContainerStyles);
+const suffixContainerNavigationStyles = ({
+  theme,
+  isNavigation,
+}: StyleProps & SuffixContainerProps) =>
+  isNavigation &&
+  css`
+    margin-right: -${theme.spacings.bit};
+  `;
+
+const SuffixContainer = styled.div(
+  suffixContainerStyles,
+  suffixContainerNavigationStyles,
+);
+
+const suffixChevronContainerStyles = css`
+  display: flex;
+  align-items: center;
+`;
+
+const SuffixChevronContainer = styled.div(suffixChevronContainerStyles);
+
+const suffixDetailsContainerStyles = ({
+  theme,
+  isNavigation,
+}: StyleProps & NavigationProps) =>
+  isNavigation &&
+  css`
+    margin-right: ${theme.spacings.mega};
+  `;
+
+const SuffixDetailsContainer = styled.div(suffixDetailsContainerStyles);
 
 /**
  * The ListItem component enables the user to render a list item with various
@@ -234,62 +281,87 @@ const SuffixContainer = styled.div(suffixContainerStyles);
 export const ListItem = forwardRef(
   (
     {
-      variant: variantOverride,
-      icon: Icon,
+      variant,
+      prefix: Prefix,
       label,
-      status,
+      details,
+      suffixLabel,
+      suffixDetails,
       suffix,
       tracking,
       ...props
     }: ListItemProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
-    const components = useComponents();
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test'
+    ) {
+      // TODO: Print warning only once similar to `deprecate`
+      if (suffixDetails && !suffixLabel) {
+        warn(
+          'ListItem',
+          'Using `suffixDetails` without `suffixLabel` is not supported.',
+        );
+      }
+      if (suffixLabel && suffix) {
+        warn(
+          'ListItem',
+          'Using `suffixLabel` and `suffix` at the same time is not supported.',
+        );
+      }
+    }
 
-    let variant = variantOverride || 'action';
-    let as = 'div';
+    const components = useComponents();
+    let as: AsPropType = 'div';
     if (props.href) {
-      variant = variantOverride || 'navigation';
-      // Need to typecast here because the styled component types restrict the
-      // `as` prop to a string. It's safe to ignore that constraint here.
-      const Link = (components.Link as unknown) as string;
-      as = Link;
+      as = components.Link as AsPropType;
     } else if (props.onClick) {
       as = 'button';
     }
 
     const handleClick = useClickEvent(props.onClick, tracking, 'ListItem');
 
+    const isInteractive = !!props.href || !!props.onClick;
     const isNavigation = variant === 'navigation';
-    const shouldRenderSuffixContainer = !!suffix || isNavigation;
+    const hasSuffix = !!suffixLabel || !!suffix;
+    const shouldRenderSuffixContainer = hasSuffix || isNavigation;
 
     return (
       <StyledListItem
         {...props}
-        role="listitem"
         ref={ref}
         as={as}
-        data-selected={props.selected}
+        isInteractive={isInteractive}
         onClick={handleClick}
       >
-        {Icon && (
-          <IconContainer>
-            {isFunction(Icon) ? (
-              <Icon role="presentation" size="large" />
+        {Prefix && (
+          <PrefixContainer>
+            {isFunction(Prefix) ? (
+              <Prefix size="24" role="presentation" />
             ) : (
-              Icon
+              Prefix
             )}
-          </IconContainer>
+          </PrefixContainer>
         )}
         <ContentContainer>
           <MainContainer>
             {label}
-            {status}
+            {details}
           </MainContainer>
           {shouldRenderSuffixContainer && (
-            <SuffixContainer justify={suffix ? 'space-between' : 'center'}>
-              {suffix}
-              {isNavigation && <ChevronRight role="presentation" />}
+            <SuffixContainer
+              hasLabel={!!suffixLabel}
+              isNavigation={isNavigation}
+            >
+              <SuffixChevronContainer>
+                {suffixLabel}
+                {suffix}
+                {isNavigation && <ChevronRight size="16" role="presentation" />}
+              </SuffixChevronContainer>
+              <SuffixDetailsContainer isNavigation={isNavigation}>
+                {suffixDetails}
+              </SuffixDetailsContainer>
             </SuffixContainer>
           )}
         </ContentContainer>

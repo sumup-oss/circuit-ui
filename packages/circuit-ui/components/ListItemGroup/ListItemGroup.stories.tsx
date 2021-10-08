@@ -15,12 +15,12 @@
 
 import React, { useState } from 'react';
 import { css } from '@emotion/core';
-import { Card, CircleCheckmarkFilled, CircleCrossFilled } from '@sumup/icons';
+import { SumUpCard, Confirm, Alert } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import { spacing } from '../../styles/style-mixins';
+import Headline from '../Headline';
 import Body from '../Body';
-import ListItem from '../ListItem';
 
 import { ListItemGroup, ListItemGroupProps } from './ListItemGroup';
 
@@ -61,13 +61,25 @@ const items: Item[] = [
   },
 ];
 
+const GroupLabel = (
+  <Headline as="h4" size="four" noMargin>
+    Today
+  </Headline>
+);
+
+const GroupDetails = (
+  <Body size="two" noMargin>
+    €26.20
+  </Body>
+);
+
 const Label = ({ item }: { item: Item }) => (
   <Body size="one" noMargin>
     {item.title}
   </Body>
 );
 
-const statusStyles = css`
+const detailsStyles = css`
   display: flex;
   align-items: center;
 `;
@@ -82,12 +94,12 @@ const failedIconStyles = (theme: Theme) => css`
   color: ${theme.colors.danger};
 `;
 
-const Status = ({ item }: { item: Item }) => (
-  <div css={statusStyles}>
+const Details = ({ item }: { item: Item }) => (
+  <div css={detailsStyles}>
     {item.status !== 'Failed' ? (
-      <CircleCheckmarkFilled css={successfulIconStyles} />
+      <Confirm size="16" css={successfulIconStyles} role="presentation" />
     ) : (
-      <CircleCrossFilled css={failedIconStyles} />
+      <Alert size="16" css={failedIconStyles} role="presentation" />
     )}
     <Body
       size="two"
@@ -119,38 +131,87 @@ const Suffix = ({ item }: { item: Item }) => (
   </Body>
 );
 
-const baseArgs = {
-  title: (
-    <Body size="two" noMargin>
-      Today
-    </Body>
-  ),
-  suffix: (
-    <Body size="two" noMargin>
-      €26.20
-    </Body>
-  ),
-  immersive: false,
-  css: { width: 500 },
+const baseStyles = css`
+  width: 500px;
+`;
+
+const baseArgs: ListItemGroupProps = {
+  variant: undefined,
+  items: [],
+  label: undefined,
+  details: undefined,
 };
 
-export const Base = (args: ListItemGroupProps) => {
+export const Base = (args: ListItemGroupProps) => (
+  <ListItemGroup
+    {...args}
+    items={items.map((item) => ({
+      key: item.id,
+      variant: 'action',
+      label: <Label item={item} />,
+    }))}
+    css={baseStyles}
+  />
+);
+Base.args = baseArgs;
+
+export const WithLabelAndDetails = (args: ListItemGroupProps) => (
+  <ListItemGroup
+    {...args}
+    items={items.map((item) => ({
+      key: item.id,
+      variant: 'action',
+      label: <Label item={item} />,
+    }))}
+    label={GroupLabel}
+    details={GroupDetails}
+    css={baseStyles}
+  />
+);
+WithLabelAndDetails.args = {
+  ...baseArgs,
+} as ListItemGroupProps;
+
+export const PlainVariant = (args: ListItemGroupProps) => (
+  <ListItemGroup
+    {...args}
+    items={items.map((item) => ({
+      key: item.id,
+      variant: 'action',
+      label: <Label item={item} />,
+    }))}
+    label={GroupLabel}
+    details={GroupDetails}
+    css={baseStyles}
+  />
+);
+PlainVariant.args = {
+  ...baseArgs,
+  variant: 'plain',
+} as ListItemGroupProps;
+
+export const SampleConfiguration = (args: ListItemGroupProps) => {
   const [selectedId, setSelectedId] = useState<number>(null);
 
-  const children = items.map((item) => (
-    <ListItem
-      key={item.id}
-      variant="navigation"
-      icon={Card}
-      label={<Label item={item} />}
-      status={<Status item={item} />}
-      suffix={<Suffix item={item} />}
-      selected={item.id === selectedId}
-      onClick={() => setSelectedId(item.id)}
+  return (
+    <ListItemGroup
+      {...args}
+      items={items.map((item) => ({
+        key: item.id,
+        variant: 'navigation',
+        prefix: SumUpCard,
+        label: <Label item={item} />,
+        details: <Details item={item} />,
+        suffixLabel: <Suffix item={item} />,
+        selected: item.id === selectedId,
+        onClick: () => setSelectedId(item.id),
+      }))}
+      label={GroupLabel}
+      details={GroupDetails}
+      css={baseStyles}
     />
-  ));
-
-  return <ListItemGroup {...args}>{children}</ListItemGroup>;
+  );
 };
-
-Base.args = baseArgs;
+SampleConfiguration.args = {
+  ...baseArgs,
+} as ListItemGroupProps;

@@ -13,37 +13,43 @@
  * limitations under the License.
  */
 
-import { ReactElement, forwardRef, Ref, HTMLProps, ReactNode } from 'react';
-import { css } from '@emotion/core';
+import { forwardRef, Ref, HTMLAttributes, ReactNode } from 'react';
+import { css } from '@emotion/react';
+import { some } from 'lodash/fp';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { ReturnType } from '../../types/return-type';
-import { ListItemProps } from '../ListItem';
+import ListItem, { ListItemProps } from '../ListItem';
+
+type Variant = 'plain' | 'inset';
+
+export type ItemProps = ListItemProps & { key: string | number };
 
 interface BaseProps {
   /**
-   * Children of type ListItem.
+   * Choose between 'inset' (outer border and dividers) and 'plain' (only dividers) variant.
+   * Default: 'inset'.
    */
-  children: ReactElement<ListItemProps>[] | ReactElement<ListItemProps>;
+  variant?: Variant;
   /**
-   * Display a main label for this group of list items.
+   * List of ListItem props objects to render as a group.
    */
-  title?: ReactNode;
+  items: ItemProps[];
   /**
-   * Display a secondary label for this group of list items.
+   * Display a label for this group of list items.
    */
-  suffix?: ReactNode;
+  label?: ReactNode;
   /**
-   * Make the list item group suitable for full-width presentation on smaller resolutions.
+   * Display a secondary right-aligned label for this group of list items.
    */
-  immersive?: boolean;
+  details?: ReactNode;
   /**
    The ref to the HTML DOM element
    */
   ref?: Ref<HTMLDivElement>;
 }
 
-export type ListItemGroupProps = BaseProps & HTMLProps<HTMLDivElement>;
+export type ListItemGroupProps = BaseProps & HTMLAttributes<HTMLDivElement>;
 
 const baseStyles = css`
   display: flex;
@@ -55,25 +61,40 @@ const StyledListItemGroup = styled.div(baseStyles);
 const headerContainerStyles = ({ theme }: StyleProps) => css`
   flex: none;
   display: flex;
-  justify-content: flex-end;
+  align-items: flex-end;
   margin: 0 ${theme.spacings.mega} ${theme.spacings.byte};
 `;
 
-const HeaderContainer = styled.div(headerContainerStyles);
+const headerContainerPlainStyles = ({
+  theme,
+  isPlain,
+}: StyleProps & PlainProps) =>
+  isPlain &&
+  css`
+    margin: 0 calc(${theme.spacings.mega} - ${theme.borderWidth.mega})
+      ${theme.spacings.byte};
+  `;
 
-const titleContainerStyles = css`
+const HeaderContainer = styled.div(
+  headerContainerStyles,
+  headerContainerPlainStyles,
+);
+
+const labelContainerStyles = css`
   flex: auto;
+  min-width: 0;
 `;
 
-const TitleContainer = styled.div(titleContainerStyles);
+const LabelContainer = styled.div(labelContainerStyles);
 
-const suffixContainerStyles = ({ theme }: StyleProps) => css`
+const detailsContainerStyles = ({ theme }: StyleProps) => css`
   flex: none;
-  align-self: flex-end;
   margin-left: ${theme.spacings.mega};
 `;
 
-const SuffixContainer = styled.div(suffixContainerStyles);
+const DetailsContainer = styled.div(detailsContainerStyles);
+
+type PlainProps = { isPlain: boolean };
 
 const itemsContainerBaseStyles = ({ theme }: StyleProps) => css`
   flex: auto;
@@ -81,58 +102,93 @@ const itemsContainerBaseStyles = ({ theme }: StyleProps) => css`
   flex-direction: column;
   border: ${theme.borderWidth.mega} solid ${theme.colors.n200};
   border-radius: ${theme.borderRadius.mega};
+`;
 
-  & > [role='listitem'] {
-    border: none;
-    border-radius: calc(${theme.borderRadius.mega} - ${theme.borderWidth.mega});
+const itemsContainerPlainStyles = ({
+  theme,
+  isPlain,
+}: StyleProps & PlainProps) =>
+  isPlain &&
+  css`
+    border-width: ${theme.borderWidth.kilo} 0;
+    border-radius: 0;
+  `;
 
-    &:not(:first-of-type) > div:last-of-type {
-      position: relative;
+const ItemsContainer = styled.div(
+  itemsContainerBaseStyles,
+  itemsContainerPlainStyles,
+);
 
-      &:before {
-        content: '';
-        position: absolute;
-        top: -${theme.spacings.kilo};
-        left: 0;
-        right: -${theme.spacings.mega};
-        border-top: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
-      }
-    }
+type InteractiveProps = { isInteractive: boolean };
 
-    &:hover,
-    &:hover + [role='listitem'],
-    &:active,
-    &:active + [role='listitem'],
-    &[data-selected='true'],
-    &[data-selected='true'] + [role='listitem'],
-    &:focus,
-    &:focus + [role='listitem'] {
-      & > div:last-of-type:before {
-        border-top-width: 0;
-      }
-    }
+type StyledListItemProps = ListItemProps & PlainProps & InteractiveProps;
 
-    &:not(:hover):not(:active):not([data-selected='true']) {
-      &:focus:not(:focus-visible),
-      &:focus:not(:focus-visible) + [role='listitem'] {
-        & > div:last-of-type:before {
-          border-top-width: ${theme.borderWidth.kilo};
-        }
-      }
+const listItemStyles = ({ theme }: StyleProps) => css`
+  border: none;
+  border-radius: calc(${theme.borderRadius.mega} - ${theme.borderWidth.mega});
+
+  &:not(:first-of-type) > div:last-of-type {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -${theme.spacings.kilo};
+      left: 0;
+      right: -${theme.spacings.mega};
+      border-top: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
     }
   }
 `;
 
-const itemsContainerImmersiveStyles = ({
-  theme,
-  immersive,
-}: StyleProps & ListItemGroupProps) =>
-  immersive &&
+const listItemInteractiveStyles = ({ isInteractive }: StyledListItemProps) =>
+  isInteractive &&
   css`
-    border-width: ${theme.borderWidth.kilo} 0;
-    border-radius: 0;
+    &:hover,
+    &:active,
+    &:focus {
+      &,
+      & + * {
+        &:not(:first-of-type) > div:last-of-type:before {
+          border-top-width: 0;
+        }
+      }
+    }
+  `;
 
-    & > [role='listitem'][data-selected='true']:after {
+const listItemSelectedStyles = ({
+  theme,
+  selected,
+}: StyleProps & StyledListItemProps) =>
+  selected
+    ? css`
+        &,
+        & + * {
+          &:not(:first-of-type) > div:last-of-type:before {
+            border-top-width: 0;
+          }
+        }
+      `
+    : css`
+        &:not(:hover):not(:active) {
+          &:focus:not(:focus-visible),
+          &:focus:not(:focus-visible) + * {
+            &:not(:first-of-type) > div:last-of-type:before {
+              border-top-width: ${theme.borderWidth.kilo};
+            }
+          }
+        }
+      `;
+
+const listItemPlainStyles = ({
+  theme,
+  isPlain,
+  selected,
+}: StyleProps & StyledListItemProps) =>
+  isPlain &&
+  selected &&
+  css`
+    &:after {
       top: -${theme.borderWidth.kilo};
       bottom: -${theme.borderWidth.kilo};
       left: 0;
@@ -140,9 +196,11 @@ const itemsContainerImmersiveStyles = ({
     }
   `;
 
-const ItemsContainer = styled.div(
-  itemsContainerBaseStyles,
-  itemsContainerImmersiveStyles,
+const StyledListItem = styled(ListItem)(
+  listItemStyles,
+  listItemInteractiveStyles,
+  listItemSelectedStyles,
+  listItemPlainStyles,
 );
 
 /**
@@ -150,21 +208,39 @@ const ItemsContainer = styled.div(
  */
 export const ListItemGroup = forwardRef(
   (
-    { children, title, suffix, immersive, ...props }: ListItemGroupProps,
+    { variant, items, label, details, ...props }: ListItemGroupProps,
     ref?: BaseProps['ref'],
-  ): ReturnType => (
-    <StyledListItemGroup {...props} ref={ref}>
-      {(title || suffix) && (
-        <HeaderContainer>
-          {title && <TitleContainer>{title}</TitleContainer>}
-          {suffix && <SuffixContainer>{suffix}</SuffixContainer>}
-        </HeaderContainer>
-      )}
-      <ItemsContainer immersive={immersive} role="list">
-        {children}
-      </ItemsContainer>
-    </StyledListItemGroup>
-  ),
+  ): ReturnType => {
+    const isPlain = variant === 'plain';
+    const isInteractive = some((item) => !!item.href || !!item.onClick, items);
+    return (
+      <StyledListItemGroup {...props} ref={ref}>
+        {(label || details) && (
+          <HeaderContainer isPlain={isPlain}>
+            {label && <LabelContainer>{label}</LabelContainer>}
+            {details && <DetailsContainer>{details}</DetailsContainer>}
+          </HeaderContainer>
+        )}
+        <ItemsContainer
+          isPlain={isPlain}
+          role={isInteractive ? 'listbox' : 'list'}
+        >
+          {items.map(({ key, ...item }) => (
+            <StyledListItem
+              key={key}
+              {...item}
+              isPlain={isPlain}
+              isInteractive={isInteractive}
+              role={isInteractive ? 'option' : 'listitem'}
+              aria-selected={
+                !isInteractive || item.disabled ? undefined : item.selected
+              }
+            />
+          ))}
+        </ItemsContainer>
+      </StyledListItemGroup>
+    );
+  },
 );
 
 ListItemGroup.displayName = 'ListItemGroup';
