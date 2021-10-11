@@ -6,6 +6,7 @@
     - [New package names](#new-package-names)
     - [Better TypeScript support](#better-typescript-support)
       - [Typing the theme](#typing-the-theme)
+    - [Compatibility with Storybook](#compatibility-with-storybook)
   - [New brand icons](#new-brand-icons)
     - [Overview of `@sumup/icons` v2](#overview-of-sumupicons-v2)
     - [Migrating to `@sumup/icons` v2](#migrating-to-sumupicons-v2)
@@ -160,6 +161,32 @@ const RedCard = styled(Card)(
     background-color: red;
   `,
 );
+```
+
+#### Compatibility with Storybook
+
+In case you're using [Storybook](https://storybook.js.org/) in your application, you'll need to tweak the Storybook Webpack config to make it compatible with Emotion 11 (Storybook is still on Emotion 10).
+
+Make sure that references to Emotion packages inside Storybook are pointing to the v11 packages:
+
+```js
+// .storybook/main.js
+
+const path = require('path');
+const toPath = (_path) => path.join(process.cwd(), _path);
+
+module.exports = {
+  webpackFinal: async (config) => {
+    // Add compatibility with Emotion 11
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@emotion/core': toPath('node_modules/@emotion/react'),
+      '@emotion/styled': toPath('node_modules/@emotion/styled'),
+      'emotion-theming': toPath('node_modules/@emotion/react'),
+    };
+    return config;
+  },
+};
 ```
 
 ### New brand icons
