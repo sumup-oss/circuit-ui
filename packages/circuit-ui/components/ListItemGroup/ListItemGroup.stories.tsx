@@ -14,7 +14,7 @@
  */
 
 import React, { useState } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { SumUpCard, Confirm, Alert } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
