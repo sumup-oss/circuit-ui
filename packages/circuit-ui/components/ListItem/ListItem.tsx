@@ -40,10 +40,10 @@ type Variant = 'action' | 'navigation';
 
 interface BaseProps {
   /**
-   * Choose between 'action' and 'navigation' variant.
+   * Choose between 'action' and 'navigation' variant. Default: 'action'.
    * The `navigation` variant renders a chevron in the trailing section.
    */
-  variant: Variant;
+  variant?: Variant;
   /**
    * Display a leading icon, status image, checkbox, etc. in addition to the text content.
    */
@@ -281,7 +281,7 @@ const SuffixDetailsContainer = styled.div(suffixDetailsContainerStyles);
 export const ListItem = forwardRef(
   (
     {
-      variant,
+      variant = 'action',
       prefix: Prefix,
       label,
       details,
@@ -293,18 +293,20 @@ export const ListItem = forwardRef(
     }: ListItemProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
+    const hasOnlySuffixDetails = suffixDetails && !suffixLabel;
+    const hasCustomAndLabelSuffix = suffix && suffixLabel;
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
       // TODO: Print warning only once similar to `deprecate`
-      if (suffixDetails && !suffixLabel) {
+      if (hasOnlySuffixDetails) {
         warn(
           'ListItem',
           'Using `suffixDetails` without `suffixLabel` is not supported.',
         );
       }
-      if (suffixLabel && suffix) {
+      if (hasCustomAndLabelSuffix) {
         warn(
           'ListItem',
           'Using `suffixLabel` and `suffix` at the same time is not supported.',
@@ -325,7 +327,9 @@ export const ListItem = forwardRef(
     const isInteractive = !!props.href || !!props.onClick;
     const isNavigation = variant === 'navigation';
     const hasSuffix = !!suffixLabel || !!suffix;
-    const shouldRenderSuffixContainer = hasSuffix || isNavigation;
+    const hasInvalidSuffix = hasOnlySuffixDetails || hasCustomAndLabelSuffix;
+    const shouldRenderSuffixContainer =
+      !hasInvalidSuffix && (hasSuffix || isNavigation);
 
     return (
       <StyledListItem

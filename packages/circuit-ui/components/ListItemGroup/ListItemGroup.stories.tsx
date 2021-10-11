@@ -147,7 +147,6 @@ export const Base = (args: ListItemGroupProps) => (
     {...args}
     items={items.map((item) => ({
       key: item.id,
-      variant: 'action',
       label: <Label item={item} />,
     }))}
     css={baseStyles}
@@ -160,7 +159,6 @@ export const WithLabelAndDetails = (args: ListItemGroupProps) => (
     {...args}
     items={items.map((item) => ({
       key: item.id,
-      variant: 'action',
       label: <Label item={item} />,
     }))}
     label={GroupLabel}
@@ -177,7 +175,6 @@ export const PlainVariant = (args: ListItemGroupProps) => (
     {...args}
     items={items.map((item) => ({
       key: item.id,
-      variant: 'action',
       label: <Label item={item} />,
     }))}
     label={GroupLabel}

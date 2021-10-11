@@ -208,7 +208,7 @@ const StyledListItem = styled(ListItem)(
  */
 export const ListItemGroup = forwardRef(
   (
-    { variant, items, label, details, ...props }: ListItemGroupProps,
+    { variant = 'inset', items, label, details, ...props }: ListItemGroupProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
     const isPlain = variant === 'plain';

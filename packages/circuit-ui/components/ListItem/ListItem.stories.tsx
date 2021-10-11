@@ -50,6 +50,12 @@ const item: Item = {
   timestamp: '17:21',
 };
 
+const PrefixBadge = (
+  <Badge variant="danger" circle>
+    3
+  </Badge>
+);
+
 const Label = (
   <Body size="one" noMargin>
     {item.title}
@@ -102,7 +108,7 @@ const baseStyles = css`
 `;
 
 const baseArgs: ListItemProps = {
-  variant: 'action',
+  variant: undefined,
   prefix: undefined,
   label: undefined,
   details: undefined,
@@ -132,6 +138,13 @@ export const WithIcon = (args: ListItemProps) => (
   <ListItem {...args} label={Label} prefix={SumUpCard} css={baseStyles} />
 );
 WithIcon.args = {
+  ...baseArgs,
+} as ListItemProps;
+
+export const WithCustomPrefix = (args: ListItemProps) => (
+  <ListItem {...args} label={Label} prefix={PrefixBadge} css={baseStyles} />
+);
+WithCustomPrefix.args = {
   ...baseArgs,
 } as ListItemProps;
 
