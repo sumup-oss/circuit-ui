@@ -23,17 +23,39 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   -webkit-box-align: flex-end;
   -ms-flex-align: flex-end;
   align-items: flex-end;
-  margin: 0 16px 8px;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  margin: 0 16px;
 }
 
 .circuit-2 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  min-width: 0;
+  margin-bottom: 8px;
+}
+
+.circuit-3 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #000;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+.circuit-4 {
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
   margin-left: 16px;
+  margin-bottom: 8px;
 }
 
-.circuit-3 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
@@ -41,7 +63,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   margin-bottom: 0;
 }
 
-.circuit-4 {
+.circuit-6 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -56,7 +78,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   border-radius: 16px;
 }
 
-.circuit-5 {
+.circuit-7 {
   background-color: #FFF;
   color: #1A1A1A;
   border: 2px solid #E6E6E6;
@@ -81,42 +103,42 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   border-radius: calc(16px - 2px);
 }
 
-.circuit-5:focus {
+.circuit-7:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-7:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-7:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:focus {
+.circuit-7:focus {
   border-color: transparent;
   z-index: 2;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-7:focus:not(:focus-visible) {
   border-color: #E6E6E6;
   z-index: auto;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-7:disabled,
+.circuit-7[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-5:hover,
-.circuit-5:active {
+.circuit-7:hover,
+.circuit-7:active {
   background-color: #F0F6FF;
 }
 
-.circuit-5:after {
+.circuit-7:after {
   content: '';
   position: absolute;
   top: -2px;
@@ -128,11 +150,11 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   z-index: 1;
 }
 
-.circuit-5:not(:first-of-type)>div:last-of-type {
+.circuit-7:not(:first-of-type)>div:last-of-type {
   position: relative;
 }
 
-.circuit-5:not(:first-of-type)>div:last-of-type:before {
+.circuit-7:not(:first-of-type)>div:last-of-type:before {
   content: '';
   position: absolute;
   top: -12px;
@@ -141,12 +163,12 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   border-top: 1px solid #E6E6E6;
 }
 
-.circuit-5:not(:first-of-type)>div:last-of-type:before,
-.circuit-5+*:not(:first-of-type)>div:last-of-type:before {
+.circuit-7:not(:first-of-type)>div:last-of-type:before,
+.circuit-7+*:not(:first-of-type)>div:last-of-type:before {
   border-top-width: 0;
 }
 
-.circuit-6 {
+.circuit-8 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -161,7 +183,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   min-width: 0;
 }
 
-.circuit-7 {
+.circuit-9 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -179,7 +201,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   min-width: 0;
 }
 
-.circuit-8 {
+.circuit-10 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -187,7 +209,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   margin-bottom: 0;
 }
 
-.circuit-9 {
+.circuit-11 {
   background-color: #FFF;
   color: #1A1A1A;
   border: 2px solid #E6E6E6;
@@ -211,41 +233,41 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   border-radius: calc(16px - 2px);
 }
 
-.circuit-9:focus {
+.circuit-11:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-9:focus::-moz-focus-inner {
+.circuit-11:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-9:focus:not(:focus-visible) {
+.circuit-11:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-9:focus {
+.circuit-11:focus {
   border-color: transparent;
   z-index: 2;
 }
 
-.circuit-9:focus:not(:focus-visible) {
+.circuit-11:focus:not(:focus-visible) {
   border-color: #E6E6E6;
   z-index: auto;
 }
 
-.circuit-9:disabled,
-.circuit-9[disabled] {
+.circuit-11:disabled,
+.circuit-11[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-9:not(:first-of-type)>div:last-of-type {
+.circuit-11:not(:first-of-type)>div:last-of-type {
   position: relative;
 }
 
-.circuit-9:not(:first-of-type)>div:last-of-type:before {
+.circuit-11:not(:first-of-type)>div:last-of-type:before {
   content: '';
   position: absolute;
   top: -12px;
@@ -254,8 +276,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   border-top: 1px solid #E6E6E6;
 }
 
-.circuit-9:not(:hover):not(:active):focus:not(:focus-visible):not(:first-of-type)>div:last-of-type:before,
-.circuit-9:not(:hover):not(:active):focus:not(:focus-visible)+*:not(:first-of-type)>div:last-of-type:before {
+.circuit-11:not(:hover):not(:active):focus:not(:focus-visible):not(:first-of-type)>div:last-of-type:before,
+.circuit-11:not(:hover):not(:active):focus:not(:focus-visible)+*:not(:first-of-type)>div:last-of-type:before {
   border-top-width: 1px;
 }
 
@@ -267,30 +289,41 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   >
     <div
       class="circuit-2"
+      id="list-item-group_4"
+    >
+      <h4
+        class="circuit-3"
+      >
+        Group label
+      </h4>
+    </div>
+    <div
+      class="circuit-4"
     >
       <p
-        class="circuit-3"
+        class="circuit-5"
       >
         Group details
       </p>
     </div>
   </div>
   <div
-    class="circuit-4"
+    aria-labelledby="list-item-group_4"
+    class="circuit-6"
     role="list"
   >
     <div
-      class="circuit-5"
+      class="circuit-7"
       role="listitem"
     >
       <div
-        class="circuit-6"
+        class="circuit-8"
       >
         <div
-          class="circuit-7"
+          class="circuit-9"
         >
           <p
-            class="circuit-8"
+            class="circuit-10"
           >
             First item
           </p>
@@ -298,17 +331,17 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
       </div>
     </div>
     <div
-      class="circuit-9"
+      class="circuit-11"
       role="listitem"
     >
       <div
-        class="circuit-6"
+        class="circuit-8"
       >
         <div
-          class="circuit-7"
+          class="circuit-9"
         >
           <p
-            class="circuit-8"
+            class="circuit-10"
           >
             Second item
           </p>
@@ -316,17 +349,17 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
       </div>
     </div>
     <div
-      class="circuit-9"
+      class="circuit-11"
       role="listitem"
     >
       <div
-        class="circuit-6"
+        class="circuit-8"
       >
         <div
-          class="circuit-7"
+          class="circuit-9"
         >
           <p
-            class="circuit-8"
+            class="circuit-10"
           >
             Third item
           </p>
@@ -337,7 +370,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
 </div>
 `;
 
-exports[`ListItemGroup styles should render a ListItemGroup with a label 1`] = `
+exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -360,7 +393,11 @@ exports[`ListItemGroup styles should render a ListItemGroup with a label 1`] = `
   -webkit-box-align: flex-end;
   -ms-flex-align: flex-end;
   align-items: flex-end;
-  margin: 0 16px 8px;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  margin: 0 16px;
 }
 
 .circuit-2 {
@@ -368,6 +405,16 @@ exports[`ListItemGroup styles should render a ListItemGroup with a label 1`] = `
   -ms-flex: auto;
   flex: auto;
   min-width: 0;
+  margin-bottom: 8px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .circuit-3 {
@@ -605,6 +652,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a label 1`] = `
   >
     <div
       class="circuit-2"
+      id="list-item-group_3"
     >
       <h4
         class="circuit-3"
@@ -614,6 +662,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a label 1`] = `
     </div>
   </div>
   <div
+    aria-labelledby="list-item-group_3"
     class="circuit-4"
     role="list"
   >
@@ -687,6 +736,43 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
 }
 
 .circuit-1 {
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  margin: 0 16px;
+  margin: 0 calc(16px - 2px);
+}
+
+.circuit-2 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  min-width: 0;
+  margin-bottom: 8px;
+}
+
+.circuit-3 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #000;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+.circuit-4 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -703,7 +789,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   border-radius: 0;
 }
 
-.circuit-2 {
+.circuit-5 {
   background-color: #FFF;
   color: #1A1A1A;
   border: 2px solid #E6E6E6;
@@ -728,42 +814,42 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   border-radius: calc(16px - 2px);
 }
 
-.circuit-2:focus {
+.circuit-5:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-5:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-5:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:focus {
+.circuit-5:focus {
   border-color: transparent;
   z-index: 2;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-5:focus:not(:focus-visible) {
   border-color: #E6E6E6;
   z-index: auto;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-5:disabled,
+.circuit-5[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-2:hover,
-.circuit-2:active {
+.circuit-5:hover,
+.circuit-5:active {
   background-color: #F0F6FF;
 }
 
-.circuit-2:after {
+.circuit-5:after {
   content: '';
   position: absolute;
   top: -2px;
@@ -775,11 +861,11 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   z-index: 1;
 }
 
-.circuit-2:not(:first-of-type)>div:last-of-type {
+.circuit-5:not(:first-of-type)>div:last-of-type {
   position: relative;
 }
 
-.circuit-2:not(:first-of-type)>div:last-of-type:before {
+.circuit-5:not(:first-of-type)>div:last-of-type:before {
   content: '';
   position: absolute;
   top: -12px;
@@ -788,19 +874,19 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   border-top: 1px solid #E6E6E6;
 }
 
-.circuit-2:not(:first-of-type)>div:last-of-type:before,
-.circuit-2+*:not(:first-of-type)>div:last-of-type:before {
+.circuit-5:not(:first-of-type)>div:last-of-type:before,
+.circuit-5+*:not(:first-of-type)>div:last-of-type:before {
   border-top-width: 0;
 }
 
-.circuit-2:after {
+.circuit-5:after {
   top: -1px;
   bottom: -1px;
   left: 0;
   right: 0;
 }
 
-.circuit-3 {
+.circuit-6 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -815,7 +901,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   min-width: 0;
 }
 
-.circuit-4 {
+.circuit-7 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -833,7 +919,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   min-width: 0;
 }
 
-.circuit-5 {
+.circuit-8 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -841,7 +927,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   margin-bottom: 0;
 }
 
-.circuit-6 {
+.circuit-9 {
   background-color: #FFF;
   color: #1A1A1A;
   border: 2px solid #E6E6E6;
@@ -865,41 +951,41 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   border-radius: calc(16px - 2px);
 }
 
-.circuit-6:focus {
+.circuit-9:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-6:focus::-moz-focus-inner {
+.circuit-9:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-6:focus:not(:focus-visible) {
+.circuit-9:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-6:focus {
+.circuit-9:focus {
   border-color: transparent;
   z-index: 2;
 }
 
-.circuit-6:focus:not(:focus-visible) {
+.circuit-9:focus:not(:focus-visible) {
   border-color: #E6E6E6;
   z-index: auto;
 }
 
-.circuit-6:disabled,
-.circuit-6[disabled] {
+.circuit-9:disabled,
+.circuit-9[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-6:not(:first-of-type)>div:last-of-type {
+.circuit-9:not(:first-of-type)>div:last-of-type {
   position: relative;
 }
 
-.circuit-6:not(:first-of-type)>div:last-of-type:before {
+.circuit-9:not(:first-of-type)>div:last-of-type:before {
   content: '';
   position: absolute;
   top: -12px;
@@ -908,8 +994,8 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   border-top: 1px solid #E6E6E6;
 }
 
-.circuit-6:not(:hover):not(:active):focus:not(:focus-visible):not(:first-of-type)>div:last-of-type:before,
-.circuit-6:not(:hover):not(:active):focus:not(:focus-visible)+*:not(:first-of-type)>div:last-of-type:before {
+.circuit-9:not(:hover):not(:active):focus:not(:focus-visible):not(:first-of-type)>div:last-of-type:before,
+.circuit-9:not(:hover):not(:active):focus:not(:focus-visible)+*:not(:first-of-type)>div:last-of-type:before {
   border-top-width: 1px;
 }
 
@@ -918,20 +1004,35 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
 >
   <div
     class="circuit-1"
-    role="list"
   >
     <div
       class="circuit-2"
+      id="list-item-group_2"
+    >
+      <h4
+        class="circuit-3"
+      >
+        Group label
+      </h4>
+    </div>
+  </div>
+  <div
+    aria-labelledby="list-item-group_2"
+    class="circuit-4"
+    role="list"
+  >
+    <div
+      class="circuit-5"
       role="listitem"
     >
       <div
-        class="circuit-3"
+        class="circuit-6"
       >
         <div
-          class="circuit-4"
+          class="circuit-7"
         >
           <p
-            class="circuit-5"
+            class="circuit-8"
           >
             First item
           </p>
@@ -939,17 +1040,17 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
       </div>
     </div>
     <div
-      class="circuit-6"
+      class="circuit-9"
       role="listitem"
     >
       <div
-        class="circuit-3"
+        class="circuit-6"
       >
         <div
-          class="circuit-4"
+          class="circuit-7"
         >
           <p
-            class="circuit-5"
+            class="circuit-8"
           >
             Second item
           </p>
@@ -957,17 +1058,17 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
       </div>
     </div>
     <div
-      class="circuit-6"
+      class="circuit-9"
       role="listitem"
     >
       <div
-        class="circuit-3"
+        class="circuit-6"
       >
         <div
-          class="circuit-4"
+          class="circuit-7"
         >
           <p
-            class="circuit-5"
+            class="circuit-8"
           >
             Third item
           </p>
@@ -990,6 +1091,42 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
 }
 
 .circuit-1 {
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  margin: 0 16px;
+}
+
+.circuit-2 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  min-width: 0;
+  margin-bottom: 8px;
+}
+
+.circuit-3 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #000;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+.circuit-4 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -1004,7 +1141,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   border-radius: 16px;
 }
 
-.circuit-2 {
+.circuit-5 {
   background-color: #FFF;
   color: #1A1A1A;
   border: 2px solid #E6E6E6;
@@ -1029,42 +1166,42 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   border-radius: calc(16px - 2px);
 }
 
-.circuit-2:focus {
+.circuit-5:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-5:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-5:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-2:focus {
+.circuit-5:focus {
   border-color: transparent;
   z-index: 2;
 }
 
-.circuit-2:focus:not(:focus-visible) {
+.circuit-5:focus:not(:focus-visible) {
   border-color: #E6E6E6;
   z-index: auto;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-5:disabled,
+.circuit-5[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-2:hover,
-.circuit-2:active {
+.circuit-5:hover,
+.circuit-5:active {
   background-color: #F0F6FF;
 }
 
-.circuit-2:after {
+.circuit-5:after {
   content: '';
   position: absolute;
   top: -2px;
@@ -1076,11 +1213,11 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   z-index: 1;
 }
 
-.circuit-2:not(:first-of-type)>div:last-of-type {
+.circuit-5:not(:first-of-type)>div:last-of-type {
   position: relative;
 }
 
-.circuit-2:not(:first-of-type)>div:last-of-type:before {
+.circuit-5:not(:first-of-type)>div:last-of-type:before {
   content: '';
   position: absolute;
   top: -12px;
@@ -1089,12 +1226,12 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   border-top: 1px solid #E6E6E6;
 }
 
-.circuit-2:not(:first-of-type)>div:last-of-type:before,
-.circuit-2+*:not(:first-of-type)>div:last-of-type:before {
+.circuit-5:not(:first-of-type)>div:last-of-type:before,
+.circuit-5+*:not(:first-of-type)>div:last-of-type:before {
   border-top-width: 0;
 }
 
-.circuit-3 {
+.circuit-6 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -1109,7 +1246,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   min-width: 0;
 }
 
-.circuit-4 {
+.circuit-7 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -1127,7 +1264,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   min-width: 0;
 }
 
-.circuit-5 {
+.circuit-8 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -1135,7 +1272,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   margin-bottom: 0;
 }
 
-.circuit-6 {
+.circuit-9 {
   background-color: #FFF;
   color: #1A1A1A;
   border: 2px solid #E6E6E6;
@@ -1159,41 +1296,41 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   border-radius: calc(16px - 2px);
 }
 
-.circuit-6:focus {
+.circuit-9:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-6:focus::-moz-focus-inner {
+.circuit-9:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-6:focus:not(:focus-visible) {
+.circuit-9:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-6:focus {
+.circuit-9:focus {
   border-color: transparent;
   z-index: 2;
 }
 
-.circuit-6:focus:not(:focus-visible) {
+.circuit-9:focus:not(:focus-visible) {
   border-color: #E6E6E6;
   z-index: auto;
 }
 
-.circuit-6:disabled,
-.circuit-6[disabled] {
+.circuit-9:disabled,
+.circuit-9[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-6:not(:first-of-type)>div:last-of-type {
+.circuit-9:not(:first-of-type)>div:last-of-type {
   position: relative;
 }
 
-.circuit-6:not(:first-of-type)>div:last-of-type:before {
+.circuit-9:not(:first-of-type)>div:last-of-type:before {
   content: '';
   position: absolute;
   top: -12px;
@@ -1202,8 +1339,8 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   border-top: 1px solid #E6E6E6;
 }
 
-.circuit-6:not(:hover):not(:active):focus:not(:focus-visible):not(:first-of-type)>div:last-of-type:before,
-.circuit-6:not(:hover):not(:active):focus:not(:focus-visible)+*:not(:first-of-type)>div:last-of-type:before {
+.circuit-9:not(:hover):not(:active):focus:not(:focus-visible):not(:first-of-type)>div:last-of-type:before,
+.circuit-9:not(:hover):not(:active):focus:not(:focus-visible)+*:not(:first-of-type)>div:last-of-type:before {
   border-top-width: 1px;
 }
 
@@ -1212,20 +1349,35 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
 >
   <div
     class="circuit-1"
-    role="list"
   >
     <div
       class="circuit-2"
+      id="list-item-group_1"
+    >
+      <h4
+        class="circuit-3"
+      >
+        Group label
+      </h4>
+    </div>
+  </div>
+  <div
+    aria-labelledby="list-item-group_1"
+    class="circuit-4"
+    role="list"
+  >
+    <div
+      class="circuit-5"
       role="listitem"
     >
       <div
-        class="circuit-3"
+        class="circuit-6"
       >
         <div
-          class="circuit-4"
+          class="circuit-7"
         >
           <p
-            class="circuit-5"
+            class="circuit-8"
           >
             First item
           </p>
@@ -1233,17 +1385,17 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
       </div>
     </div>
     <div
-      class="circuit-6"
+      class="circuit-9"
       role="listitem"
     >
       <div
-        class="circuit-3"
+        class="circuit-6"
       >
         <div
-          class="circuit-4"
+          class="circuit-7"
         >
           <p
-            class="circuit-5"
+            class="circuit-8"
           >
             Second item
           </p>
@@ -1251,17 +1403,17 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
       </div>
     </div>
     <div
-      class="circuit-6"
+      class="circuit-9"
       role="listitem"
     >
       <div
-        class="circuit-3"
+        class="circuit-6"
       >
         <div
-          class="circuit-4"
+          class="circuit-7"
         >
           <p
-            class="circuit-5"
+            class="circuit-8"
           >
             Third item
           </p>

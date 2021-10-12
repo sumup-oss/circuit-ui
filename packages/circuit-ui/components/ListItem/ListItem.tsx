@@ -299,7 +299,6 @@ export const ListItem = forwardRef(
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      // TODO: Print warning only once similar to `deprecate`
       if (hasOnlySuffixDetails) {
         warn(
           'ListItem',

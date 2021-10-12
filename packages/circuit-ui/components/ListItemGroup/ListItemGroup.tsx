@@ -18,6 +18,9 @@ import { css } from '@emotion/react';
 import { some } from 'lodash/fp';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { hideVisually } from '../../styles/style-mixins';
+import { uniqueId } from '../../util/id';
+import { warn } from '../../util/logger';
 import { ReturnType } from '../../types/return-type';
 import ListItem, { ListItemProps } from '../ListItem';
 
@@ -38,7 +41,12 @@ interface BaseProps {
   /**
    * Display a label for this group of list items.
    */
-  label?: ReactNode;
+  label: ReactNode;
+  /**
+   * Visually hide the label. This should only be used in rare cases and only if the
+   * purpose of the field can be inferred from other context.
+   */
+  hideLabel?: boolean;
   /**
    * Display a secondary right-aligned label for this group of list items.
    */
@@ -62,7 +70,8 @@ const headerContainerStyles = ({ theme }: StyleProps) => css`
   flex: none;
   display: flex;
   align-items: flex-end;
-  margin: 0 ${theme.spacings.mega} ${theme.spacings.byte};
+  justify-content: flex-end;
+  margin: 0 ${theme.spacings.mega};
 `;
 
 const headerContainerPlainStyles = ({
@@ -71,8 +80,7 @@ const headerContainerPlainStyles = ({
 }: StyleProps & PlainProps) =>
   isPlain &&
   css`
-    margin: 0 calc(${theme.spacings.mega} - ${theme.borderWidth.mega})
-      ${theme.spacings.byte};
+    margin: 0 calc(${theme.spacings.mega} - ${theme.borderWidth.mega});
   `;
 
 const HeaderContainer = styled.div(
@@ -80,16 +88,29 @@ const HeaderContainer = styled.div(
   headerContainerPlainStyles,
 );
 
-const labelContainerStyles = css`
+type HideLabelProps = { hideLabel?: boolean };
+
+const labelContainerStyles = ({ theme }: StyleProps) => css`
   flex: auto;
   min-width: 0;
+  margin-bottom: ${theme.spacings.byte};
 `;
 
-const LabelContainer = styled.div(labelContainerStyles);
+const labelContainerHiddenStyles = ({ hideLabel }: HideLabelProps) =>
+  hideLabel &&
+  css`
+    ${hideVisually()};
+  `;
+
+const LabelContainer = styled.div(
+  labelContainerStyles,
+  labelContainerHiddenStyles,
+);
 
 const detailsContainerStyles = ({ theme }: StyleProps) => css`
   flex: none;
   margin-left: ${theme.spacings.mega};
+  margin-bottom: ${theme.spacings.byte};
 `;
 
 const DetailsContainer = styled.div(detailsContainerStyles);
@@ -208,22 +229,43 @@ const StyledListItem = styled(ListItem)(
  */
 export const ListItemGroup = forwardRef(
   (
-    { variant = 'inset', items, label, details, ...props }: ListItemGroupProps,
+    {
+      variant = 'inset',
+      items,
+      label,
+      hideLabel,
+      details,
+      ...props
+    }: ListItemGroupProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      warn(
+        'ListItemGroup',
+        'The `label` prop is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
+      );
+    }
+
+    const id = uniqueId('list-item-group_');
     const isPlain = variant === 'plain';
     const isInteractive = some((item) => !!item.href || !!item.onClick, items);
+
     return (
       <StyledListItemGroup {...props} ref={ref}>
-        {(label || details) && (
-          <HeaderContainer isPlain={isPlain}>
-            {label && <LabelContainer>{label}</LabelContainer>}
-            {details && <DetailsContainer>{details}</DetailsContainer>}
-          </HeaderContainer>
-        )}
+        <HeaderContainer isPlain={isPlain}>
+          <LabelContainer hideLabel={hideLabel} id={id}>
+            {label}
+          </LabelContainer>
+          {details && <DetailsContainer>{details}</DetailsContainer>}
+        </HeaderContainer>
         <ItemsContainer
           isPlain={isPlain}
           role={isInteractive ? 'listbox' : 'list'}
+          aria-labelledby={id}
         >
           {items.map(({ key, ...item }) => (
             <StyledListItem

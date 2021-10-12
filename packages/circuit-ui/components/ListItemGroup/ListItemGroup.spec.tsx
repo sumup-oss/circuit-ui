@@ -51,6 +51,11 @@ describe('ListItemGroup', () => {
       ),
       selected: item.id === 1,
     })),
+    label: (
+      <Headline as="h4" size="four" noMargin>
+        Group label
+      </Headline>
+    ),
   };
 
   describe('styles', () => {
@@ -67,14 +72,10 @@ describe('ListItemGroup', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render a ListItemGroup with a label', () => {
+    it('should render a ListItemGroup with a hidden label', () => {
       const wrapper = renderListItemGroup(create, {
         ...baseProps,
-        label: (
-          <Headline as="h4" size="four" noMargin>
-            Group label
-          </Headline>
-        ),
+        hideLabel: true,
       });
       expect(wrapper).toMatchSnapshot();
     });

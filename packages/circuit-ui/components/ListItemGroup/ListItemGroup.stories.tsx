@@ -149,10 +149,27 @@ export const Base = (args: ListItemGroupProps) => (
       key: item.id,
       label: <Label item={item} />,
     }))}
+    label={GroupLabel}
+    hideLabel
     css={baseStyles}
   />
 );
 Base.args = baseArgs;
+
+export const WithLabel = (args: ListItemGroupProps) => (
+  <ListItemGroup
+    {...args}
+    items={items.map((item) => ({
+      key: item.id,
+      label: <Label item={item} />,
+    }))}
+    label={GroupLabel}
+    css={baseStyles}
+  />
+);
+WithLabel.args = {
+  ...baseArgs,
+} as ListItemGroupProps;
 
 export const WithLabelAndDetails = (args: ListItemGroupProps) => (
   <ListItemGroup
@@ -167,6 +184,23 @@ export const WithLabelAndDetails = (args: ListItemGroupProps) => (
   />
 );
 WithLabelAndDetails.args = {
+  ...baseArgs,
+} as ListItemGroupProps;
+
+export const WithDetailsAndHiddenLabel = (args: ListItemGroupProps) => (
+  <ListItemGroup
+    {...args}
+    items={items.map((item) => ({
+      key: item.id,
+      label: <Label item={item} />,
+    }))}
+    label={GroupLabel}
+    hideLabel
+    details={GroupDetails}
+    css={baseStyles}
+  />
+);
+WithDetailsAndHiddenLabel.args = {
   ...baseArgs,
 } as ListItemGroupProps;
 
