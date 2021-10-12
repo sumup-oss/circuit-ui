@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { SumUpLogo } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 

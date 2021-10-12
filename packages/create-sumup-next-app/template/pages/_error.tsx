@@ -2,10 +2,18 @@ import React from 'react';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
-import { css } from '@emotion/core';
-import { Card, Heading, Text, ButtonGroup, Button } from '@sumup/circuit-ui';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import {
+  Card,
+  Headline,
+  Body,
+  ButtonGroup,
+  Button,
+  spacing,
+  cx,
+} from '@sumup/circuit-ui';
 
-import styled from '../utils/styled';
 import { Logo } from '../components/Logo';
 
 interface ErrorPageProps {
@@ -39,14 +47,19 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
         <Logo />
       </a>
       <Card>
-        <Heading size="tera" css={centeredStyles}>
+        <Headline
+          as="h1"
+          size="one"
+          noMargin
+          css={cx(centeredStyles, spacing({ bottom: 'giga' }))}
+        >
           {title}
-        </Heading>
-        <Text>
+        </Headline>
+        <Body noMargin css={spacing({ bottom: 'giga' })}>
           {statusCode
             ? `An error ${statusCode} occurred while loading the page.`
             : 'An error occurred while rendering the page.'}
-        </Text>
+        </Body>
 
         <ButtonGroup>
           <Button onClick={() => window.location.reload()}>
@@ -61,7 +74,6 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
   </>
 );
 
-// eslint-disable-next-line @typescript-eslint/unbound-method
 ErrorPage.getInitialProps = ({ res, err }) => {
   const statusCode = res?.statusCode || err?.statusCode;
   return { statusCode };
