@@ -79,6 +79,7 @@ const primaryWrapperStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.bodyBg};
   padding-top: ${theme.spacings.kilo};
   overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: 1px 0 ${theme.colors.n300};
   transition: width ${theme.transitions.default},
     box-shadow ${theme.transitions.default};
