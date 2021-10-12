@@ -1,9 +1,17 @@
 import React from 'react';
 import { NextPage } from 'next';
-import { css } from '@emotion/core';
-import { Card, Heading, Text, List, Anchor } from '@sumup/circuit-ui';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import {
+  Card,
+  Headline,
+  Body,
+  List,
+  Anchor,
+  cx,
+  spacing,
+} from '@sumup/circuit-ui';
 
-import styled from '../utils/styled';
 import { Meta } from '../components/Meta';
 import { Logo } from '../components/Logo';
 
@@ -30,10 +38,15 @@ const Page: NextPage = () => (
     <Main>
       <Logo />
       <Card>
-        <Heading size="tera" as="h1" css={centeredStyles}>
+        <Headline
+          size="one"
+          as="h1"
+          noMargin
+          css={cx(centeredStyles, spacing({ bottom: 'giga' }))}
+        >
           {title}
-        </Heading>
-        <Text>
+        </Headline>
+        <Body noMargin css={spacing({ bottom: 'giga' })}>
           This is a{' '}
           <Anchor href="https://nextjs.org" target="_blank" noMargin>
             Next.js
@@ -43,9 +56,9 @@ const Page: NextPage = () => (
             SumUp
           </Anchor>
           -specific customizations:
-        </Text>
+        </Body>
 
-        <List size="mega">
+        <List size="one" noMargin css={spacing({ bottom: 'giga' })}>
           <li>
             <Anchor
               href="https://github.com/sumup-oss/circuit-ui"
@@ -81,21 +94,29 @@ const Page: NextPage = () => (
           <li>Basic SEO and performance optimizations</li>
         </List>
 
-        <Text size="giga" css={centeredStyles}>
+        <Body
+          size="one"
+          noMargin
+          css={cx(centeredStyles, spacing({ bottom: 'giga' }))}
+        >
           Now go and build things!
           <br />
-        </Text>
-        <Text
-          size="giga"
-          css={css`
-            ${centeredStyles};
-            transform: scale3d(1.5, 1.5, 1);
-          `}
+        </Body>
+        <Body
+          size="one"
+          noMargin
+          css={cx(
+            css`
+              ${centeredStyles};
+              transform: scale3d(1.5, 1.5, 1);
+            `,
+            spacing({ bottom: 'giga' }),
+          )}
         >
           <span role="img" aria-label="Emojis for building things">
             🔨👩🏽‍💻👨🏼‍💻🚀
           </span>
-        </Text>
+        </Body>
       </Card>
     </Main>
   </>

@@ -7,8 +7,8 @@ import Document, {
   DocumentContext,
   DocumentProps as NextDocumentProps,
 } from 'next/document';
-import { extractCritical } from 'emotion-server';
-import { EmotionCritical } from 'create-emotion-server';
+import { extractCritical } from '@emotion/server';
+import { EmotionCritical } from '@emotion/server/create-instance';
 
 interface DocumentProps extends NextDocumentProps, EmotionCritical {}
 

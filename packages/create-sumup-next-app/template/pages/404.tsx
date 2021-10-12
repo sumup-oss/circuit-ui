@@ -2,10 +2,10 @@ import React from 'react';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
-import { css } from '@emotion/core';
-import { Card, Heading, Text, Button } from '@sumup/circuit-ui';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { Card, Headline, Body, Button, spacing, cx } from '@sumup/circuit-ui';
 
-import styled from '../utils/styled';
 import { Logo } from '../components/Logo';
 
 const Main = styled('main')(
@@ -35,10 +35,17 @@ const NotFound: NextPage = () => (
     <Main>
       <Logo />
       <Card>
-        <Heading size="tera" css={centeredStyles}>
+        <Headline
+          as="h1"
+          size="one"
+          noMargin
+          css={cx(centeredStyles, spacing({ bottom: 'giga' }))}
+        >
           {title}
-        </Heading>
-        <Text>{description}</Text>
+        </Headline>
+        <Body noMargin css={spacing({ bottom: 'giga' })}>
+          {description}
+        </Body>
 
         <Link href="/" passHref>
           <Button variant="primary">Return to the homepage</Button>

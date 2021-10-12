@@ -1,4 +1,18 @@
 {
-  "presets": ["next/babel", "@emotion/babel-preset-css-prop"],
-  "plugins": ["lodash", "inline-react-svg"]
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-react": {
+          "runtime": "automatic",
+          "importSource": "@emotion/react"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "lodash",
+    "inline-react-svg",
+    ["@emotion/babel-plugin", { "cssPropOptimization": true }]
+  ]
 }
