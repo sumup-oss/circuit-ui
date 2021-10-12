@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 4.1.0
+
+### Minor Changes
+
+- [#1167](https://github.com/sumup-oss/circuit-ui/pull/1167) [`7b5c44c9`](https://github.com/sumup-oss/circuit-ui/commit/7b5c44c960ec35237f7fde86ec237895346741ff) Thanks [@amelako](https://github.com/amelako)! - Added a new `actions` prop to the ButtonGroup that replaces the `children` prop. The new API is more ergonomic and enables an improved look on mobile.
+
+* [#1167](https://github.com/sumup-oss/circuit-ui/pull/1167) [`7b5c44c9`](https://github.com/sumup-oss/circuit-ui/commit/7b5c44c960ec35237f7fde86ec237895346741ff) Thanks [@amelako](https://github.com/amelako)! - Merged the LoadingButton into the Button component.
+
+- [#1113](https://github.com/sumup-oss/circuit-ui/pull/1113) [`d6350cc3`](https://github.com/sumup-oss/circuit-ui/commit/d6350cc3d592d404a7b3e6cf29d8e3aeea004cee) Thanks [@amelako](https://github.com/amelako)! - Added a new `NotificationBanner` component that communicates and promotes high-level, site-wide information to the user.
+
 ## 4.0.0
 
 ### Major Changes
