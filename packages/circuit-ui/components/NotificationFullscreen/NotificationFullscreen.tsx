@@ -58,7 +58,6 @@ const imageStyles = css`
 
 const bodyStyles = css`
   text-align: center;
-  margin-bottom: 0;
 `;
 
 /**
@@ -76,7 +75,11 @@ export const NotificationFullscreen = ({
     <Headline css={spacing({ top: 'giga', bottom: 'byte' })} size="two" as="h2">
       {headline}
     </Headline>
-    {body && <Body css={bodyStyles}>{body}</Body>}
+    {body && (
+      <Body css={bodyStyles} noMargin>
+        {body}
+      </Body>
+    )}
     <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
   </div>
 );
