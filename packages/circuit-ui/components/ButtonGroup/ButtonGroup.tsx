@@ -112,6 +112,7 @@ const actionWrapperStyles = ({ theme }: StyleProps) => css`
 
   ${theme.mq.kilo} {
     flex-direction: row;
+    justify-content: center;
   }
 `;
 
