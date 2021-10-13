@@ -13,44 +13,33 @@
  * limitations under the License.
  */
 
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { HTMLProps, MouseEvent } from 'react';
-import { jsx, css } from '@emotion/core';
+import { HTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 
 import Body from '../Body';
 import Headline from '../Headline';
-import ButtonGroup from '../ButtonGroup';
-import Button from '../Button';
+import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
 import { spacing } from '../../styles/style-mixins';
-import Image from '../Image';
+import Image, { ImageProps } from '../Image';
 
-type Action = {
-  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-  href?: string;
-  text: string;
-};
-
-export interface NotificationFullscreenProps extends HTMLProps<HTMLDivElement> {
+export interface NotificationFullscreenProps
+  extends HTMLAttributes<HTMLDivElement> {
   /**
-   * A concise description of the imageSrc prop.
+   * An image to communicate message.
    */
-  imageSrc: string;
+  image: ImageProps;
   /**
-   * A concise description of the headline prop.
+   * Notification fullscreen headline to provide information.
    */
   headline: string;
   /**
-   * A concise description of the body prop.
+   * An optional body copy.
    */
   body?: string;
   /**
-   * A concise description of the actions prop.
+   * An optional action prop to allow users to follow up on the content.
    */
-  actions: {
-    primary: Action;
-    secondary: Action;
-  };
+  actions?: ButtonGroupProps['actions'];
 }
 
 const wrapperStyles = css`
@@ -73,36 +62,21 @@ const bodyStyles = css`
 `;
 
 /**
- * Describe NotificationFullscreen here.
+ * NotificationFullscreen provides important information or feedback as part of a process flow.
  */
 export const NotificationFullscreen = ({
-  imageSrc,
+  image,
   headline,
   body,
   actions,
   ...props
 }: NotificationFullscreenProps): JSX.Element => (
   <div css={wrapperStyles} {...props}>
-    <Image css={imageStyles} src={imageSrc} alt="" />
-    <Headline css={spacing({ top: 'giga', bottom: 'byte' })} size="two">
+    <Image {...image} css={imageStyles} />
+    <Headline css={spacing({ top: 'giga', bottom: 'byte' })} size="two" as="h2">
       {headline}
     </Headline>
     {body && <Body css={bodyStyles}>{body}</Body>}
-    <ButtonGroup css={spacing({ top: 'giga' })} align="center">
-      <Button
-        variant="secondary"
-        onClick={actions.secondary.onClick}
-        href={actions.secondary.href}
-      >
-        {actions.secondary.text}
-      </Button>
-      <Button
-        variant="primary"
-        onClick={actions.primary.onClick}
-        href={actions.primary.href}
-      >
-        {actions.primary.text}
-      </Button>
-    </ButtonGroup>
+    <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
   </div>
 );
