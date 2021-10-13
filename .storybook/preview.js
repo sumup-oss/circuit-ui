@@ -50,7 +50,6 @@ const SORT_ORDER = {
     'design-tokens': {},
     'icons': {},
     'create-sumup-next-app': {},
-    'create-sumup-react-app': {},
   },
 };
 
