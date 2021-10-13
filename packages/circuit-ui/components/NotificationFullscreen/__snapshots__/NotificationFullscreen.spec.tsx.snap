@@ -58,8 +58,8 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
   margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  text-align: center;
   margin-bottom: 0;
+  text-align: center;
 }
 
 .circuit-4 {
