@@ -43,6 +43,7 @@ const SORT_ORDER = {
     Sidebar: {},
     Hamburger: {},
   },
+  Notification: {},
   Components: {},
   Hooks: {},
   Patterns: {},

@@ -23,7 +23,7 @@ import {
 import docs from './NotificationBanner.docs.mdx';
 
 export default {
-  title: 'Components/NotificationBanner',
+  title: 'Notification/NotificationBanner',
   parameters: {
     docs: { page: docs },
   },
