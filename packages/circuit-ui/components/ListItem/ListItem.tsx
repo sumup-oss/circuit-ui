@@ -49,25 +49,25 @@ interface BaseProps {
    */
   prefix?: FC<IconProps> | ReactNode;
   /**
-   * Display a main label for this list item.
+   * Display a main label.
    */
   label: ReactNode;
   /**
-   * Display a details line below the main label for this list item.
+   * Display a details line below the main label.
    */
   details?: ReactNode;
   /**
-   * Display a trailing label this list item.
-   * If using the 'navigation' variant, the chevron icon will be center aligned with this label.
+   * Display a trailing label.
+   * If using the `navigation` variant, the chevron icon will be center aligned with this label.
    */
   suffixLabel?: ReactNode;
   /**
-   * Display a trailing details label for this list item.
+   * Display a trailing details label.
    */
   suffixDetails?: ReactNode;
   /**
-   * Display a custom trailing component for this list item.
-   * If using the 'navigation' variant, the chevron icon will be center aligned with this component.
+   * Display a custom trailing component.
+   * If using the `navigation` variant, the chevron icon will be center aligned with this component.
    */
   suffix?: ReactNode;
   /**
@@ -79,9 +79,13 @@ interface BaseProps {
    */
   disabled?: boolean;
   /**
-   * Function that's called when the list item is clicked.
+   * Function that is called when the list item is clicked.
    */
   onClick?: (event: ClickEvent) => void;
+  /**
+   * Link to another part of the application or external page.
+   */
+  href?: string;
   /**
    * Additional data that is dispatched with the tracking event.
    */

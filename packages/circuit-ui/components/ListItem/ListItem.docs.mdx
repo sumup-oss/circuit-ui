@@ -1,79 +1,111 @@
 import { Status, Props, Story } from '../../../../.storybook/components';
 
+import ListItemGroup from '../ListItemGroup';
+
 # ListItem
 
 <Status.Stable />
 
-Description Base
+The ListItem component is used to represent data in a structured and concise manner.
+It covers various levels of complexity by being split into several designated areas that can hold textual, presentational or interactive components.
+In its simplest form the ListItem only requires a label.
+While ListItem can be used on its own, in most cases the ListItemGroup component should be used to render a list of items.
 
 <Story id="components-listitem--base" />
 <Props />
 
-Description NavigationVariant
+## Usage guidelines
+
+- **Do** use the `navigation` variant when the items are links to other parts of the application or open a side panel.
+- **Do** use ListItemGroup to display a group of contextually similar ListItems.
+- **Do** always accompany a ListItemGroup with a label in order to ensure it is accessible.
+
+## Content guidelines
+
+- **Do** use size `24` CircuitUI icon, a custom 48x48 image or other similar sized components, such as a circle Badge, for the `prefix` if applicable.
+- **Do** use size `one` Body for the `label` and `suffixLabel` if applicable.
+- **Do** use size `two` Body for the `details` and `suffixDetails` if applicable.
+- **Do not** use `suffixDetails` on its own without also providing a `suffixLabel`.
+- **Do not** use a combination of a custom `suffix` component and `suffixLabel`.
+
+### Variants
+
+In addition to the standard `action` variant there is also the `navigation` variant.
+It shows a chevron icon in the suffix area of the ListItem indicating to the user that clicking on the item
+will either change the page or lead to a major change in the layout, such as opening a side panel.
 
 <Story id="components-listitem--navigation-variant" />
 
-Description WithIcon
+### Elements
+
+A standard CircuitUI icon can be used as a `prefix` to provide additional visual context to the user.
 
 <Story id="components-listitem--with-icon" />
 
-
-Description WithCustomPrefix
+The `prefix` can also be used for custom components, such as a circle Badge or a Checkbox.
 
 <Story id="components-listitem--with-custom-prefix" />
 
-Description WithDetails
+The `details` line can be used to provide additional textual and visual information.
 
 <Story id="components-listitem--with-details" />
 
-Description WithLabelSuffix
+The suffix area can hold a combination of `suffixLabel` and `suffixDetails` or a standalone custom `suffix` component.
 
 <Story id="components-listitem--with-label-suffix" />
 
-Description WithLabelAndDetailsSuffix
-
 <Story id="components-listitem--with-label-and-details-suffix" />
-
-Description WithCustomSuffix
 
 <Story id="components-listitem--with-custom-suffix" />
 
-Description Clickable
+The ListItem component becomes interactive when it receives the `onClick` or `href` prop.
+This applies additional styles and accessibility features.
 
 <Story id="components-listitem--clickable" />
 
-Description AsLink
+Make sure to use the `navigation` variant when applicable, such as in this case when the ListItem acts as a link.
 
 <Story id="components-listitem--as-link" />
 
-Description SampleConfiguration
+With interactive list items it is also possible to set additional states like `selected` and `disabled`.
 
-<Story id="components-listitem--with-sample-configuration" />
+<Story id="components-listitem--selected" />
+
+<Story id="components-listitem--disabled" />
+
+### Sample configuration
+
+<Story id="components-listitem--sample-configuration" />
 
 
 ## ListItemGroup
 
-Description Base
+The ListItemGroup component is used to render a list of contextually similar items.
+It applies additional styling to the items and provides accessibility features out of the box.
 
 <Story id="components-listitem-listitemgroup--base" />
-<Props />
+<Props of={ListItemGroup} />
 
-Description WithLabel
+### Variants
 
-<Story id="components-listitem-listitemgroup--with-label" />
-
-Description WithLabelAndDetails
-
-<Story id="components-listitem-listitemgroup--with-label-and-details" />
-
-Description WithDetailsAndHiddenLabel
-
-<Story id="components-listitem-listitemgroup--with-details-and-hidden-label" />
-
-Description PlainVariant
+The ListItemGroup component offers a `plain` variant, which can be used for full-width lists on mobile resolutions or in containers with limited horizontal space, such as the side panel.
 
 <Story id="components-listitem-listitemgroup--plain-variant" />
 
-Description SampleConfiguration
+### Elements
+
+The ListItemGroup should always have a `label` in order to be accessible. Use the `Headline` component when possible.
+
+<Story id="components-listitem-listitemgroup--with-label" />
+
+Additional information can be given in the `details` section of the group header.
+
+<Story id="components-listitem-listitemgroup--with-label-and-details" />
+
+If necessary the label can be visually hidden through the `hideLabel` prop.
+
+<Story id="components-listitem-listitemgroup--with-details-and-hidden-label" />
+
+### Sample configuration
 
 <Story id="components-listitem-listitemgroup--sample-configuration" />

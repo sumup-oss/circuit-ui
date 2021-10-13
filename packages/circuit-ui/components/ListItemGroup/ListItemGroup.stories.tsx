@@ -18,6 +18,7 @@ import { css } from '@emotion/react';
 import { SumUpCard, Confirm, Alert } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
+import docs from '../ListItem/ListItem.docs.mdx';
 import { spacing } from '../../styles/style-mixins';
 import Headline from '../Headline';
 import Body from '../Body';
@@ -35,6 +36,9 @@ interface Item {
 export default {
   title: 'Components/ListItem/ListItemGroup',
   component: ListItemGroup,
+  parameters: {
+    docs: { page: docs },
+  },
 };
 
 const items: Item[] = [
@@ -139,6 +143,7 @@ const baseArgs: ListItemGroupProps = {
   variant: undefined,
   items: [],
   label: undefined,
+  hideLabel: undefined,
   details: undefined,
 };
 

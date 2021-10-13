@@ -35,20 +35,20 @@ interface BaseProps {
    */
   variant?: Variant;
   /**
-   * List of ListItem props objects to render as a group.
+   * List of ListItem prop objects to render as a group. Each item needs to have a unique `key`.
    */
   items: ItemProps[];
   /**
-   * Display a label for this group of list items.
+   * Display a main label/headline describing the group.
    */
   label: ReactNode;
   /**
    * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the field can be inferred from other context.
+   * purpose of the ListItemGroup can be inferred from other context.
    */
   hideLabel?: boolean;
   /**
-   * Display a secondary right-aligned label for this group of list items.
+   * Display a secondary right-aligned label.
    */
   details?: ReactNode;
   /**

@@ -22,6 +22,7 @@ import { Theme } from '@sumup/design-tokens';
 import { spacing } from '../../styles/style-mixins';
 import Body from '../Body';
 import Badge from '../Badge';
+import ListItemGroup from '../ListItemGroup';
 
 import { ListItem, ListItemProps } from './ListItem';
 import docs from './ListItem.docs.mdx';
@@ -37,6 +38,7 @@ interface Item {
 export default {
   title: 'Components/ListItem',
   component: ListItem,
+  subcomponents: { ListItemGroup },
   parameters: {
     docs: { page: docs },
   },
@@ -187,22 +189,6 @@ WithCustomSuffix.args = {
   ...baseArgs,
 } as ListItemProps;
 
-export const Selected = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} css={baseStyles} />
-);
-Selected.args = {
-  ...baseArgs,
-  selected: true,
-} as ListItemProps;
-
-export const Disabled = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} css={baseStyles} />
-);
-Disabled.args = {
-  ...baseArgs,
-  disabled: true,
-} as ListItemProps;
-
 export const Clickable = (args: ListItemProps) => (
   <ListItem {...args} label={Label} css={baseStyles} />
 );
@@ -220,6 +206,24 @@ AsLink.args = {
   variant: 'navigation',
   href: 'https://sumup.com',
   target: '_blank',
+} as ListItemProps;
+
+export const Selected = (args: ListItemProps) => (
+  <ListItem {...args} label={Label} css={baseStyles} />
+);
+Selected.args = {
+  ...baseArgs,
+  selected: true,
+  onClick: action('ListItem clicked'),
+} as ListItemProps;
+
+export const Disabled = (args: ListItemProps) => (
+  <ListItem {...args} label={Label} css={baseStyles} />
+);
+Disabled.args = {
+  ...baseArgs,
+  disabled: true,
+  onClick: action('ListItem clicked'),
 } as ListItemProps;
 
 export const SampleConfiguration = (args: ListItemProps) => (
