@@ -9,7 +9,10 @@
     "analyze": "ANALYZE=true yarn build",
     "test": "jest --watch",
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json",
-    "postinstall": "yarn foundry init -p lint -l TypeScript -e Browser Node; echo \"Remove the postinstall script from the package.json file after setting up Foundry.\""
+    "postinstall": "yarn foundry init -p lint -l TypeScript -e Browser Node; echo \"Remove the postinstall script from the package.json file after setting up Foundry.\"",
+    "lint": "foundry run eslint . --ext .js,.jsx,.json,.ts,.tsx",
+    "lint:fix": "yarn lint --fix",
+    "lint:ci": "yarn lint --format github"
   },
   "dependencies": {
     "@emotion/css": "^11.1.3",
@@ -33,7 +36,7 @@
     "@babel/runtime": "^7.0.0",
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/jest": "^11.3.0",
-    "@sumup/foundry": "^4.0.0-canary",
+    "@sumup/foundry": "^4.0.2",
     "@testing-library/jest-dom": "^5.0.0",
     "@testing-library/react": "^11.0.0",
     "@testing-library/react-hooks": "^3.0.0",
