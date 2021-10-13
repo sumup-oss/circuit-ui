@@ -31,7 +31,7 @@ export default {
 };
 
 export const Base = (args: NotificationBannerProps): JSX.Element => (
-  <NotificationBanner {...args}></NotificationBanner>
+  <NotificationBanner {...args} />
 );
 
 Base.args = {
@@ -57,7 +57,7 @@ export const Dismissable = (args: NotificationBannerProps): JSX.Element => {
       isVisible={isVisible}
       onClose={() => setVisible(false)}
       closeButtonLabel="Close Notification"
-    ></NotificationBanner>
+    />
   );
 };
 
