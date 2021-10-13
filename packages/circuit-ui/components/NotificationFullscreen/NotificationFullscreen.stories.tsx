@@ -20,9 +20,13 @@ import {
   NotificationFullscreen,
   NotificationFullscreenProps,
 } from './NotificationFullscreen';
+import docs from './NotificationFullscreen.docs.mdx';
 
 export default {
   title: 'Notification/NotificationFullscreen',
+  parameters: {
+    docs: { page: docs },
+  },
   component: NotificationFullscreen,
 };
 
