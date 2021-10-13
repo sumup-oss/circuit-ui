@@ -44,6 +44,7 @@ describe('NotificationFullscreen', () => {
       secondary: {
         children: 'Go elsewhere',
         href: 'https://sumup.com',
+        onClick: jest.fn(),
       },
     },
   };
@@ -56,16 +57,28 @@ describe('NotificationFullscreen', () => {
   });
 
   describe('business logic', () => {
-    it('should click on action button', () => {
+    it('should click on a first action button', () => {
       const { getByRole } = renderNotificationFullscreen(baseProps);
 
       act(() => {
         userEvent.click(getByRole('button', { name: /Look again/i }));
       });
 
-      expect(baseProps.actions.primary.onClick).toHaveBeenCalledTimes(1);
-
       expect(getByRole('button', { name: /Look again/i })).toBeVisible();
+
+      expect(baseProps.actions.primary.onClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('should click on a second action button', () => {
+      const { getAllByRole } = renderNotificationFullscreen(baseProps);
+
+      act(() => {
+        userEvent.click(getAllByRole('link', { name: /Go elsewhere/ })[0]);
+      });
+
+      expect(getAllByRole('link', { name: /Go elsewhere/ })[0]).toBeVisible();
+
+      expect(baseProps.actions.secondary.onClick).toHaveBeenCalledTimes(1);
     });
   });
 
