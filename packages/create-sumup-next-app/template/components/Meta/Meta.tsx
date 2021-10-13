@@ -25,7 +25,7 @@ export const Meta: FC<MetaProps> = ({
   title,
   description,
   path,
-  siteName = process.env.SITE_NAME as string,
+  siteName = process.env.SITE_NAME,
   type = 'website',
   image,
   updatedAt,
@@ -35,7 +35,7 @@ export const Meta: FC<MetaProps> = ({
   twitter,
   children,
 }) => {
-  const canonicalUrl = `${process.env.SITE_BASEURL as string}${path}`;
+  const canonicalUrl = `${process.env.SITE_BASEURL}${path}`;
 
   const indexString = index ? 'index' : 'noindex';
   const followString = follow ? 'follow' : 'nofollow';
