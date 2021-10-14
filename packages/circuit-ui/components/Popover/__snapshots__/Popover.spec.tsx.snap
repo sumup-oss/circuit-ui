@@ -22,7 +22,7 @@ exports[`Popover styles should render popover on auto 1`] = `
 
 @media (max-width: 479px) {
   .circuit-1 {
-    visibility: visible;
+    visibility: inherit;
     opacity: 1;
   }
 }
@@ -39,11 +39,14 @@ exports[`Popover styles should render popover on auto 1`] = `
   border-radius: 8px;
   background-color: #FFF;
   visibility: hidden;
-  visibility: visible;
+  opacity: 0;
+  opacity: 1;
+  visibility: inherit;
 }
 
 @media (max-width: 479px) {
   .circuit-3 {
+    opacity: 1;
     -webkit-transform: translateY(100%);
     -moz-transform: translateY(100%);
     -ms-transform: translateY(100%);
@@ -286,7 +289,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
 
 @media (max-width: 479px) {
   .circuit-1 {
-    visibility: visible;
+    visibility: inherit;
     opacity: 1;
   }
 }
@@ -303,11 +306,14 @@ exports[`Popover styles should render popover on bottom 1`] = `
   border-radius: 8px;
   background-color: #FFF;
   visibility: hidden;
-  visibility: visible;
+  opacity: 0;
+  opacity: 1;
+  visibility: inherit;
 }
 
 @media (max-width: 479px) {
   .circuit-3 {
+    opacity: 1;
     -webkit-transform: translateY(100%);
     -moz-transform: translateY(100%);
     -ms-transform: translateY(100%);
@@ -550,7 +556,7 @@ exports[`Popover styles should render popover on left 1`] = `
 
 @media (max-width: 479px) {
   .circuit-1 {
-    visibility: visible;
+    visibility: inherit;
     opacity: 1;
   }
 }
@@ -567,11 +573,14 @@ exports[`Popover styles should render popover on left 1`] = `
   border-radius: 8px;
   background-color: #FFF;
   visibility: hidden;
-  visibility: visible;
+  opacity: 0;
+  opacity: 1;
+  visibility: inherit;
 }
 
 @media (max-width: 479px) {
   .circuit-3 {
+    opacity: 1;
     -webkit-transform: translateY(100%);
     -moz-transform: translateY(100%);
     -ms-transform: translateY(100%);
@@ -814,7 +823,7 @@ exports[`Popover styles should render popover on right 1`] = `
 
 @media (max-width: 479px) {
   .circuit-1 {
-    visibility: visible;
+    visibility: inherit;
     opacity: 1;
   }
 }
@@ -831,11 +840,14 @@ exports[`Popover styles should render popover on right 1`] = `
   border-radius: 8px;
   background-color: #FFF;
   visibility: hidden;
-  visibility: visible;
+  opacity: 0;
+  opacity: 1;
+  visibility: inherit;
 }
 
 @media (max-width: 479px) {
   .circuit-3 {
+    opacity: 1;
     -webkit-transform: translateY(100%);
     -moz-transform: translateY(100%);
     -ms-transform: translateY(100%);
@@ -1078,7 +1090,7 @@ exports[`Popover styles should render popover on top 1`] = `
 
 @media (max-width: 479px) {
   .circuit-1 {
-    visibility: visible;
+    visibility: inherit;
     opacity: 1;
   }
 }
@@ -1095,11 +1107,14 @@ exports[`Popover styles should render popover on top 1`] = `
   border-radius: 8px;
   background-color: #FFF;
   visibility: hidden;
-  visibility: visible;
+  opacity: 0;
+  opacity: 1;
+  visibility: inherit;
 }
 
 @media (max-width: 479px) {
   .circuit-3 {
+    opacity: 1;
     -webkit-transform: translateY(100%);
     -moz-transform: translateY(100%);
     -ms-transform: translateY(100%);
@@ -1352,10 +1367,12 @@ exports[`Popover styles should render with closed styles 1`] = `
   border-radius: 8px;
   background-color: #FFF;
   visibility: hidden;
+  opacity: 0;
 }
 
 @media (max-width: 479px) {
   .circuit-3 {
+    opacity: 1;
     -webkit-transform: translateY(100%);
     -moz-transform: translateY(100%);
     -ms-transform: translateY(100%);
@@ -1589,7 +1606,7 @@ exports[`Popover styles should render with default styles 1`] = `
 
 @media (max-width: 479px) {
   .circuit-1 {
-    visibility: visible;
+    visibility: inherit;
     opacity: 1;
   }
 }
@@ -1606,11 +1623,14 @@ exports[`Popover styles should render with default styles 1`] = `
   border-radius: 8px;
   background-color: #FFF;
   visibility: hidden;
-  visibility: visible;
+  opacity: 0;
+  opacity: 1;
+  visibility: inherit;
 }
 
 @media (max-width: 479px) {
   .circuit-3 {
+    opacity: 1;
     -webkit-transform: translateY(100%);
     -moz-transform: translateY(100%);
     -ms-transform: translateY(100%);

@@ -141,8 +141,10 @@ const menuBaseStyles = ({ theme }: StyleProps) => css`
   border-radius: ${theme.borderRadius.byte};
   background-color: ${theme.colors.white};
   visibility: hidden;
+  opacity: 0;
 
   ${theme.mq.untilKilo} {
+    opacity: 1;
     transform: translateY(100%);
     transition: transform ${theme.transitions.default},
       visibility ${theme.transitions.default};
@@ -156,7 +158,8 @@ type OpenProps = { isOpen: boolean };
 const menuOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
   isOpen &&
   css`
-    visibility: visible;
+    opacity: 1;
+    visibility: inherit;
 
     ${theme.mq.untilKilo} {
       transform: translateY(0);
@@ -193,7 +196,7 @@ const overlayOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
   isOpen &&
   css`
     ${theme.mq.untilKilo} {
-      visibility: visible;
+      visibility: inherit;
       opacity: 1;
     }
   `;
