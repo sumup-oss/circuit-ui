@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.1.4
+
+### Patch Changes
+
+- [#1218](https://github.com/sumup-oss/circuit-ui/pull/1218) [`8402e6b9`](https://github.com/sumup-oss/circuit-ui/commit/8402e6b9cf7191de1858dcbb645ee8e7e05971a9) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a compatibility issue between the Popover and Button where the Button content would remain visible when the Popover was closed.
+
 ## 4.1.3
 
 ### Patch Changes
