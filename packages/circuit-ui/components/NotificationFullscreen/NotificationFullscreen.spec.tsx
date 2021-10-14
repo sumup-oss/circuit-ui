@@ -57,7 +57,7 @@ describe('NotificationFullscreen', () => {
   });
 
   describe('business logic', () => {
-    it('should click on a first action button', () => {
+    it('should click on a primary action button', () => {
       const { getByRole } = renderNotificationFullscreen(baseProps);
 
       act(() => {
@@ -69,7 +69,7 @@ describe('NotificationFullscreen', () => {
       expect(baseProps.actions.primary.onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should click on a second action button', () => {
+    it('should click on a secondary action button', () => {
       const { getAllByRole } = renderNotificationFullscreen(baseProps);
 
       act(() => {
