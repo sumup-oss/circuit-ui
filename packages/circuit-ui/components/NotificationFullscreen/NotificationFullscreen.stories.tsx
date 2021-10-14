@@ -30,11 +30,11 @@ export default {
   component: NotificationFullscreen,
 };
 
-export const base = (args: NotificationFullscreenProps): JSX.Element => (
+export const Base = (args: NotificationFullscreenProps): JSX.Element => (
   <NotificationFullscreen {...args} />
 );
 
-base.args = {
+Base.args = {
   headline: 'Empty box',
   body:
     'Unfortunately, the box is empty. You can either look again, or go elsewhere.',
