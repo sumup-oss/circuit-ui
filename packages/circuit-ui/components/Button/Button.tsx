@@ -344,6 +344,7 @@ export const Button = forwardRef(
   (
     {
       children,
+      disabled,
       isLoading,
       loadingLabel,
       icon: Icon,
@@ -372,10 +373,10 @@ export const Button = forwardRef(
       <StyledButton
         {...props}
         {...(loadingLabel && {
-          'disabled': isLoading,
           'aria-live': 'polite',
           'aria-busy': isLoading,
         })}
+        disabled={disabled || isLoading}
         ref={ref}
         as={props.href ? Link : 'button'}
         onClick={handleClick}

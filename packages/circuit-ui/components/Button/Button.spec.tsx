@@ -133,9 +133,42 @@ describe('Button', () => {
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });
 
-    /**
-     * Should accept a working ref for button
-     */
+    it('should render as disabled', () => {
+      const props = { ...baseProps, disabled: true };
+      const { getByRole } = renderButton(render, props);
+
+      const button = getByRole('button');
+
+      expect(button).toBeDisabled();
+    });
+
+    it('should render as disabled when loading', () => {
+      const props = {
+        ...baseProps,
+        isLoading: true,
+        loadingLabel: 'Loading',
+      };
+      const { getByRole } = renderButton(render, props);
+
+      const button = getByRole('button');
+
+      expect(button).toBeDisabled();
+    });
+
+    it('should render as disabled when not loading', () => {
+      const props = {
+        ...baseProps,
+        disabled: true,
+        isLoading: false,
+        loadingLabel: 'Loading',
+      };
+      const { getByRole } = renderButton(render, props);
+
+      const button = getByRole('button');
+
+      expect(button).toBeDisabled();
+    });
+
     it('should accept a working ref for a button', () => {
       const tref = createRef<any>();
       const { container } = render(
@@ -145,9 +178,6 @@ describe('Button', () => {
       expect(tref.current).toBe(button);
     });
 
-    /**
-     * Should accept a working ref for link
-     */
     it('should accept a working ref for a link', () => {
       const tref = createRef<any>();
       const { container } = render(
