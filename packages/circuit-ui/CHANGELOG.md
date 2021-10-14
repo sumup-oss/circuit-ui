@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.1.5
+
+### Patch Changes
+
+- [#1220](https://github.com/sumup-oss/circuit-ui/pull/1220) [`4161cc10`](https://github.com/sumup-oss/circuit-ui/commit/4161cc108b583272fab9a46aa034415c70a821e8) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the requirement for a label for hidden Inputs.
+
 ## 4.1.4
 
 ### Patch Changes
