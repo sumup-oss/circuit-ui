@@ -57,6 +57,9 @@ defineTest('label-prop-names');
 // v4
 defineTest('icons-v2');
 
+// v4.1
+defineTest('component-names-v4-1');
+
 function defineTest(transformName, testFilePrefix, testOptions = {}) {
   const dirName = __dirname;
   const fixtureDir = path.join(dirName, '..', '__testfixtures__');
