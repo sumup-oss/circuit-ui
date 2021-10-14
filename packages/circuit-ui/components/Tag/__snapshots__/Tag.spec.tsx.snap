@@ -263,7 +263,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);

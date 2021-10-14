@@ -20,7 +20,7 @@ const TooltipContainer = styled.div`
   line-height: 0;
   width: 32px;
   div {
-    visibility: visible;
+    visibility: inherit;
     opacity: 1;
   }
 `;

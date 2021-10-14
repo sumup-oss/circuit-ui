@@ -113,7 +113,7 @@ exports[`Button should render with loading styles 1`] = `
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
 }
 
 .circuit-2 {
@@ -138,7 +138,7 @@ exports[`Button should render with loading styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -296,7 +296,7 @@ exports[`Button styles should render a button with icon 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -464,7 +464,7 @@ exports[`Button styles should render a disabled button 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -612,7 +612,7 @@ exports[`Button styles should render a giga button 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -759,7 +759,7 @@ exports[`Button styles should render a kilo button 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -906,7 +906,7 @@ exports[`Button styles should render a primary button by default 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -1053,7 +1053,7 @@ exports[`Button styles should render a secondary button 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -1201,7 +1201,7 @@ exports[`Button styles should render a stretched button 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -1348,7 +1348,7 @@ exports[`Button styles should render a tertiary button 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);

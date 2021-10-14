@@ -35,7 +35,7 @@ exports[`Backdrop styles should render with default styles when visible 1`] = `
   visibility: hidden;
   opacity: 0;
   z-index: 700;
-  visibility: visible;
+  visibility: inherit;
   opacity: 0.56;
 }
 

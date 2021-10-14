@@ -43,7 +43,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const visibleStyles = ({ visible }: BackdropProps) =>
   visible &&
   css`
-    visibility: visible;
+    visibility: inherit;
     opacity: 0.56;
   `;
 

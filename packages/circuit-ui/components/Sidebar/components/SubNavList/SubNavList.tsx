@@ -55,7 +55,7 @@ const visibleStyles = ({
     height: calc(${SUB_NAV_ITEM_HEIGHT}px * ${getChildrenLength(children)});
     position: relative;
     opacity: 1;
-    visibility: visible;
+    visibility: inherit;
     transition: height ${theme.transitions.default},
       opacity ${theme.transitions.default} 100ms,
       visibility ${theme.transitions.default} 100ms;

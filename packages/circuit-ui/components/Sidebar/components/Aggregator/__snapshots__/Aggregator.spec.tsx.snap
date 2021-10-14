@@ -49,7 +49,7 @@ HTMLCollection [
   height: calc(32px * 1);
   position: relative;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transition: height 120ms ease-in-out,opacity 120ms ease-in-out 100ms,visibility 120ms ease-in-out 100ms;
   transition: height 120ms ease-in-out,opacity 120ms ease-in-out 100ms,visibility 120ms ease-in-out 100ms;
 }
