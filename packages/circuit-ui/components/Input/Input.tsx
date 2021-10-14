@@ -318,6 +318,7 @@ export const Input = forwardRef(
       process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
+      props.type !== 'hidden' &&
       !label
     ) {
       throw new Error(
