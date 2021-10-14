@@ -288,7 +288,7 @@ const spinnerLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
   isLoading &&
   css`
     opacity: 1;
-    visibility: visible;
+    visibility: inherit;
   `;
 
 const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
@@ -302,7 +302,7 @@ const contentStyles = ({ theme }: StyleProps) => css`
   display: inline-flex;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   transform: scale3d(1, 1, 1);
   transition: opacity ${theme.transitions.default},
     transform ${theme.transitions.default},

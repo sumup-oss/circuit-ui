@@ -123,7 +123,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -373,7 +373,7 @@ exports[`Hamburger should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -596,7 +596,7 @@ exports[`Hamburger should render with giga styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -819,7 +819,7 @@ exports[`Hamburger should render with kilo styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   opacity: 1;
-  visibility: visible;
+  visibility: inherit;
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);

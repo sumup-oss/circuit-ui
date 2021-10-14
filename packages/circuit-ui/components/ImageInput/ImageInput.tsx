@@ -255,7 +255,7 @@ const spinnerLoadingStyles = ({ isLoading }: LoadingIconProps) =>
   isLoading &&
   css`
     opacity: 1;
-    visibility: visible;
+    visibility: inherit;
   `;
 
 const LoadingIcon = styled(Spinner)<LoadingIconProps>(
