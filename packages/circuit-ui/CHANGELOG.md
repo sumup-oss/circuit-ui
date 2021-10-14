@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.1.3
+
+### Patch Changes
+
+- [#1216](https://github.com/sumup-oss/circuit-ui/pull/1216) [`9e5bfc11`](https://github.com/sumup-oss/circuit-ui/commit/9e5bfc111eb28eecce3df976c6b98a15a77fd8fc) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a bug in the Button component when it is disabled and not loading.
+
 ## 4.1.2
 
 ### Patch Changes
