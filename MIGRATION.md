@@ -1,6 +1,8 @@
 # Migration <!-- omit in toc -->
 
 - [🤖 Codemods](#-codemods)
+- [From v4 to v4.1](#from-v4-to-v41)
+  - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
 - [From v3.x to v4](#from-v3x-to-v4)
   - [Emotion 11](#emotion-11)
     - [New package names](#new-package-names)
@@ -67,6 +69,12 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 > ```sh
 > ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
 > ```
+
+## From v4 to v4.1
+
+### Combined LoadingButton and Button
+
+The LoadingButton is an extension of the Button component and adds a loading state. This is a common use case, so the loading functionality has been added to the Button component itself and the LoadingButton has been deprecated and will be removed in the next major release. This means that you can replace the LoadingButton with the Button component (🤖 _component-names-v4-1_).
 
 ## From v3.x to v4
 
