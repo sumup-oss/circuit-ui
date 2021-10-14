@@ -20,7 +20,6 @@ import { Theme } from '@sumup/design-tokens';
 
 import docs from '../ListItem/ListItem.docs.mdx';
 import { spacing } from '../../styles/style-mixins';
-import Headline from '../Headline';
 import Body from '../Body';
 
 import { ListItemGroup, ListItemGroupProps } from './ListItemGroup';
@@ -66,9 +65,9 @@ const items: Item[] = [
 ];
 
 const GroupLabel = (
-  <Headline as="h4" size="four" noMargin>
+  <Body as="h4" size="two" noMargin>
     Today
-  </Headline>
+  </Body>
 );
 
 const GroupDetails = (

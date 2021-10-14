@@ -806,9 +806,6 @@ exports[`ListItem styles should render a ListItem with a custom suffix 1`] = `
           Promo
         </div>
       </div>
-      <div
-        class="circuit-7"
-      />
     </div>
   </div>
 </div>
@@ -909,6 +906,18 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
 }
 
 .circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 24px;
+}
+
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
@@ -930,11 +939,15 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
       >
         Label
       </p>
-      <p
+      <div
         class="circuit-4"
       >
-        Details
-      </p>
+        <p
+          class="circuit-5"
+        >
+          Details
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -1220,6 +1233,18 @@ exports[`ListItem styles should render a ListItem with a suffix details line 1`]
   font-weight: 700;
 }
 
+.circuit-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 24px;
+}
+
 .circuit-8 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -1436,9 +1461,6 @@ exports[`ListItem styles should render a ListItem with a suffix label 1`] = `
           Suffix label
         </strong>
       </div>
-      <div
-        class="circuit-7"
-      />
     </div>
   </div>
 </div>
@@ -1689,10 +1711,6 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
   align-items: center;
 }
 
-.circuit-6 {
-  margin-right: 16px;
-}
-
 <div
   class="circuit-0"
 >
@@ -1715,6 +1733,7 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
         class="circuit-5"
       >
         <svg
+          class="circuit-6"
           fill="none"
           height="16"
           role="presentation"
@@ -1728,9 +1747,6 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
           />
         </svg>
       </div>
-      <div
-        class="circuit-6"
-      />
     </div>
   </div>
 </div>

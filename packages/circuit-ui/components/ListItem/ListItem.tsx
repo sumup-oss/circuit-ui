@@ -27,7 +27,11 @@ import isPropValid from '@emotion/is-prop-valid';
 import { ChevronRight, IconProps } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { disableVisually, focusVisible } from '../../styles/style-mixins';
+import {
+  disableVisually,
+  focusVisible,
+  spacing,
+} from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
 import { AsPropType } from '../../types/prop-types';
@@ -229,6 +233,15 @@ const mainContainerStyles = css`
 
 const MainContainer = styled.div(mainContainerStyles);
 
+const detailsContainerStyles = ({ theme }: StyleProps) =>
+  css`
+    display: flex;
+    align-items: center;
+    min-height: ${theme.typography.body.one.lineHeight};
+  `;
+
+const DetailsContainer = styled.div(detailsContainerStyles);
+
 type NavigationProps = { isNavigation: boolean };
 
 type SuffixContainerProps = { hasLabel: boolean } & NavigationProps;
@@ -267,16 +280,20 @@ const suffixChevronContainerStyles = css`
 
 const SuffixChevronContainer = styled.div(suffixChevronContainerStyles);
 
-const suffixDetailsContainerStyles = ({
+const suffixDetailsContainerNavigationStyles = ({
   theme,
   isNavigation,
 }: StyleProps & NavigationProps) =>
   isNavigation &&
   css`
-    margin-right: ${theme.spacings.mega};
+    margin-right: calc(${theme.spacings.mega} + ${theme.spacings.bit});
+    height: ${theme.typography.body.one.lineHeight};
   `;
 
-const SuffixDetailsContainer = styled.div(suffixDetailsContainerStyles);
+const SuffixDetailsContainer = styled.div(
+  detailsContainerStyles,
+  suffixDetailsContainerNavigationStyles,
+);
 
 /**
  * The ListItem component enables the user to render a list item with various
@@ -354,7 +371,7 @@ export const ListItem = forwardRef(
         <ContentContainer>
           <MainContainer>
             {label}
-            {details}
+            {details && <DetailsContainer>{details}</DetailsContainer>}
           </MainContainer>
           {shouldRenderSuffixContainer && (
             <SuffixContainer
@@ -364,11 +381,19 @@ export const ListItem = forwardRef(
               <SuffixChevronContainer>
                 {suffixLabel}
                 {suffix}
-                {isNavigation && <ChevronRight size="16" role="presentation" />}
+                {isNavigation && (
+                  <ChevronRight
+                    size="16"
+                    role="presentation"
+                    css={hasSuffix && spacing({ left: 'bit' })}
+                  />
+                )}
               </SuffixChevronContainer>
-              <SuffixDetailsContainer isNavigation={isNavigation}>
-                {suffixDetails}
-              </SuffixDetailsContainer>
+              {suffixDetails && (
+                <SuffixDetailsContainer isNavigation={isNavigation}>
+                  {suffixDetails}
+                </SuffixDetailsContainer>
+              )}
             </SuffixContainer>
           )}
         </ContentContainer>

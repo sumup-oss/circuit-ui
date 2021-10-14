@@ -17,8 +17,6 @@ While ListItem can be used on its own, in most cases the ListItemGroup component
 ## Usage guidelines
 
 - **Do** use the `navigation` variant when the items are links to other parts of the application or open a side panel.
-- **Do** use ListItemGroup to display a group of contextually similar ListItems.
-- **Do** always accompany a ListItemGroup with a label in order to ensure it is accessible.
 
 ## Content guidelines
 
@@ -85,6 +83,15 @@ It applies additional styling to the items and provides accessibility features o
 
 <Story id="components-listitem-listitemgroup--base" />
 <Props of={ListItemGroup} />
+
+## Usage guidelines
+
+- **Do** use ListItemGroup to display a group of contextually similar ListItems.
+- **Do** always accompany a ListItemGroup with a label in order to ensure it is accessible.
+
+## Content guidelines
+
+- **Do** use size `two` Body for the ListItemGroup `label` but render it as a heading for accessibility (e.g. `as="h4"`).
 
 ### Variants
 
