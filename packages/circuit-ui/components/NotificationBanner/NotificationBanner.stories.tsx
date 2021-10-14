@@ -30,11 +30,11 @@ export default {
   component: NotificationBanner,
 };
 
-export const Base = (args: NotificationBannerProps): JSX.Element => (
+export const base = (args: NotificationBannerProps): JSX.Element => (
   <NotificationBanner {...args} />
 );
 
-Base.args = {
+base.args = {
   headline: 'Software update',
   body: 'There is updated firmware available for your card reader',
   action: {
