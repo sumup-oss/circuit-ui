@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.1.2
+
+### Patch Changes
+
+- [#1214](https://github.com/sumup-oss/circuit-ui/pull/1214) [`994ee8e2`](https://github.com/sumup-oss/circuit-ui/commit/994ee8e2274041030d13e2c3719c3846fab9bf0b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a codemod for the LoadingButton → Button migration (🤖 _component-names-v4-1_).
+
 ## 4.1.1
 
 ### Patch Changes
