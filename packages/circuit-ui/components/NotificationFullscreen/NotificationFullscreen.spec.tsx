@@ -23,9 +23,8 @@ import {
 } from './NotificationFullscreen';
 
 describe('NotificationFullscreen', () => {
-  const renderNotificationFullscreen = (
-    baseProps: NotificationFullscreenProps,
-  ) => render(<NotificationFullscreen {...baseProps} />);
+  const renderNotificationFullscreen = (props: NotificationFullscreenProps) =>
+    render(<NotificationFullscreen {...props} />);
 
   const baseProps: NotificationFullscreenProps = {
     headline: 'Empty box',
@@ -52,6 +51,17 @@ describe('NotificationFullscreen', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
       const { container } = renderNotificationFullscreen(baseProps);
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render with default styles with h1 headline', () => {
+      const { container } = renderNotificationFullscreen({
+        ...baseProps,
+        headline: {
+          label: 'Headline 1',
+          as: 'h1',
+        },
+      });
       expect(container).toMatchSnapshot();
     });
   });

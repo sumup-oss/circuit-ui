@@ -21,6 +21,7 @@ import Headline from '../Headline';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
 import { spacing } from '../../styles/style-mixins';
 import Image, { ImageProps } from '../Image';
+import { isString } from '../../util/type-check';
 
 export interface NotificationFullscreenProps
   extends HTMLAttributes<HTMLDivElement> {
@@ -30,8 +31,15 @@ export interface NotificationFullscreenProps
   image: ImageProps;
   /**
    * Notification fullscreen headline to provide information.
+   * It can be either string or object(if the headline is 'h1')
+   * (Default is 'h2')
    */
-  headline: string;
+  headline:
+    | string
+    | {
+        as: 'h1' | 'h2' | 'h4';
+        label: string;
+      };
   /**
    * An optional body copy.
    */
@@ -69,17 +77,25 @@ export const NotificationFullscreen = ({
   body,
   actions,
   ...props
-}: NotificationFullscreenProps): JSX.Element => (
-  <div css={wrapperStyles} {...props}>
-    <Image {...image} css={imageStyles} />
-    <Headline css={spacing({ top: 'giga', bottom: 'byte' })} size="two" as="h2">
-      {headline}
-    </Headline>
-    {body && (
-      <Body css={bodyStyles} noMargin>
-        {body}
-      </Body>
-    )}
-    <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
-  </div>
-);
+}: NotificationFullscreenProps): JSX.Element => {
+  const headlineLabel = isString(headline) ? headline : headline.label;
+  const headlineElement = isString(headline) ? 'h2' : headline.as;
+  return (
+    <div css={wrapperStyles} {...props}>
+      <Image {...image} css={imageStyles} />
+      <Headline
+        css={spacing({ top: 'giga', bottom: 'byte' })}
+        size="two"
+        as={headlineElement}
+      >
+        {headlineLabel}
+      </Headline>
+      {body && (
+        <Body css={bodyStyles} noMargin>
+          {body}
+        </Body>
+      )}
+      <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
+    </div>
+  );
+};
