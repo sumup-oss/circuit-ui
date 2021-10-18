@@ -31,13 +31,13 @@ export interface NotificationFullscreenProps
   image: ImageProps;
   /**
    * Notification fullscreen headline to provide information.
-   * It can be either string or object(if the headline is 'h1')
+   * It can be either a string or an object (if the headline is 'h1')
    * (Default is 'h2')
    */
   headline:
     | string
     | {
-        as: 'h1' | 'h2' | 'h4';
+        as: 'h1' | 'h2';
         label: string;
       };
   /**
