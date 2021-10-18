@@ -21,6 +21,7 @@ import { Theme } from '@sumup/design-tokens';
 import docs from '../ListItem/ListItem.docs.mdx';
 import { spacing } from '../../styles/style-mixins';
 import Body from '../Body';
+import ListItem from '../ListItem';
 
 import { ListItemGroup, ListItemGroupProps } from './ListItemGroup';
 
@@ -35,6 +36,7 @@ interface Item {
 export default {
   title: 'Components/ListItem/ListItemGroup',
   component: ListItemGroup,
+  subcomponents: { ListItem },
   parameters: {
     docs: { page: docs },
   },

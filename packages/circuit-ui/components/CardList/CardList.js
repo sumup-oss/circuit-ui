@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { forwardRef } from 'react';
 import styled from '@emotion/styled';
 
 import { deprecate } from '../../util/logger';
@@ -27,7 +28,7 @@ const Wrapper = styled(Card)`
 /**
  * Component that wraps a list of CardList.Item components
  */
-const CardList = (props) => {
+const CardList = forwardRef((props, ref) => {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
@@ -38,8 +39,8 @@ const CardList = (props) => {
     );
   }
 
-  return <Wrapper {...props} />;
-};
+  return <Wrapper {...props} ref={ref} />;
+});
 
 CardList.defaultProps = Card.defaultProps;
 CardList.displayName = 'CardList';
