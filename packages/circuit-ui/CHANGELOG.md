@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.1.7
+
+### Patch Changes
+
+- [#1225](https://github.com/sumup-oss/circuit-ui/pull/1225) [`b451fb20`](https://github.com/sumup-oss/circuit-ui/commit/b451fb20ba0b4e36516fa156386b4401c69eab43) Thanks [@long-lazuli](https://github.com/long-lazuli)! - Fixed a bug where the RadioButtonGroup didn't forward the `required` attribute to the inputs.
+
 ## 4.1.6
 
 ### Patch Changes
