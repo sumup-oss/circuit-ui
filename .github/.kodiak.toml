@@ -1,0 +1,14 @@
+version = 1
+
+[merge]
+method = "squash"
+automerge_label = ["🚢 ready to merge"]
+blocking_labels = ["⛔ do not merge"]
+
+[merge.message]
+title = "pull_request_title"
+include_pr_number = true
+
+[merge.automerge_dependencies]
+versions = ["minor", "patch"]
+usernames = ["dependabot"]
