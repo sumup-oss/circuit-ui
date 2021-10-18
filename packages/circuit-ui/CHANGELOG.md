@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.1.6
+
+### Patch Changes
+
+- [#1222](https://github.com/sumup-oss/circuit-ui/pull/1222) [`986c7dea`](https://github.com/sumup-oss/circuit-ui/commit/986c7dea5314d58aa628edc30b74a98ab42c0a3b) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the alignment of the SearchInput's clear button.
+
 ## 4.1.5
 
 ### Patch Changes
