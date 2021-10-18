@@ -1,0 +1,26 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+import { NotificationFullscreen } from '@sumup/circuit-ui';
+
+# NotificationFullscreen
+
+<Status.Stable />
+
+<Story id="notification-notificationfullscreen--base" />
+<Props />
+
+The notification fullscreen component provides important information or feedback as part of a process flow.
+
+## When to use it
+
+- As confirmation/success screen after a process flow.
+- As empty screen.
+- As page loading error screen.
+
+## Usage guidelines
+
+- Use a concise headline to communicate the message.
+- To maintain proper headline hierarchy, the headline prop can be either a string or an object (to render 'h1'). Default value is set to 'h2'.
+- If needed, an optional body copy and actions can be included.
+- The maximum width of the notification fullscreen is 420px, to ensure an optimised readability of the text.
+- The positioning of the buttons within a button group follows the guidelines of the button group component.
+- The image asset has a fixed height of 160px, and maximum width of 280px.

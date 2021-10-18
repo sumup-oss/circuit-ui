@@ -43,8 +43,10 @@ const SORT_ORDER = {
     Sidebar: {},
     Hamburger: {},
   },
+  Notification: {},
   Components: {},
   Hooks: {},
+  Patterns: {},
   Packages: {
     'circuit-ui': {},
     'design-tokens': {},
