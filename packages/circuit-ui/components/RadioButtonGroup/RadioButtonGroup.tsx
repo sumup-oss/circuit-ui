@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import { FieldsetHTMLAttributes, Ref, forwardRef } from 'react';
+import {
+  FieldsetHTMLAttributes,
+  InputHTMLAttributes,
+  Ref,
+  forwardRef,
+} from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -62,6 +67,10 @@ export interface RadioButtonGroupProps
    */
   showValid?: boolean;
   /**
+   * Makes the input group required.
+   */
+  required?: InputHTMLAttributes<HTMLInputElement>['required'];
+  /**
    * Visually hide the label. This should only be used in rare cases and only if the
    * purpose of the field can be inferred from other context.
    */
@@ -100,6 +109,7 @@ export const RadioButtonGroup = forwardRef(
       disabled,
       hasWarning,
       hideLabel,
+      required,
       ...props
     }: RadioButtonGroupProps,
     ref: RadioButtonGroupProps['ref'],
@@ -134,7 +144,7 @@ export const RadioButtonGroup = forwardRef(
                 style={style}
               >
                 <RadioButton
-                  {...{ ...rest, value, name, onChange }}
+                  {...{ ...rest, value, name, required, onChange }}
                   checked={value === activeValue}
                   label={optionLabel || children}
                 />
