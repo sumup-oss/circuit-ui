@@ -67,6 +67,18 @@ describe('RadioButtonGroup', () => {
     expect(getByLabelText('Option 3')).not.toHaveAttribute('checked');
   });
 
+  /**
+   * Required attribute tests.
+   */
+  it('should have a required attribute on each option when required is specified', () => {
+    const { getByLabelText } = render(
+      <RadioButtonGroup {...baseProps} required />,
+    );
+    expect(getByLabelText('Option 1')).toHaveAttribute('required');
+    expect(getByLabelText('Option 2')).toHaveAttribute('required');
+    expect(getByLabelText('Option 3')).toHaveAttribute('required');
+  });
+
   it('should call the change handler when clicked', () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
