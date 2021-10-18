@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 4.2.0
+
+### Minor Changes
+
+- [#964](https://github.com/sumup-oss/circuit-ui/pull/964) [`75a67df4`](https://github.com/sumup-oss/circuit-ui/commit/75a67df465c927b1162233a82e65071de4aa029e) Thanks [@amelako](https://github.com/robinmetral)! - Added a new `NotificationFullscreen` component that provides important information or feedback as part of a process flow.
+
+### Patch Changes
+
+- [#964](https://github.com/sumup-oss/circuit-ui/pull/964) [`75a67df4`](https://github.com/sumup-oss/circuit-ui/commit/75a67df465c927b1162233a82e65071de4aa029e) Thanks [@amelako](https://github.com/robinmetral)! - Fixed the ButtonGroup to horizontally center buttons on wide viewports.
+
 ## 4.1.7
 
 ### Patch Changes
