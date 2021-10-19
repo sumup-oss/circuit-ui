@@ -23,7 +23,6 @@ import {
   RenderFn,
 } from '../../util/test-utils';
 import Body from '../Body';
-import Headline from '../Headline';
 
 import { ListItemGroup, ListItemGroupProps } from './ListItemGroup';
 
@@ -87,6 +86,14 @@ describe('ListItemGroup', () => {
     it('should render a ListItemGroup with a details line', () => {
       const wrapper = renderListItemGroup(create, {
         ...baseProps,
+        details: 'Group details',
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render a ListItemGroup with a custom details line', () => {
+      const wrapper = renderListItemGroup(create, {
+        ...baseProps,
         details: (
           <Body size="two" noMargin>
             Group details
@@ -113,16 +120,8 @@ describe('ListItemGroup', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderListItemGroup(renderToHtml, {
         ...baseProps,
-        label: (
-          <Headline as="h4" size="four" noMargin>
-            Group label
-          </Headline>
-        ),
-        details: (
-          <Body size="two" noMargin>
-            Group details
-          </Body>
-        ),
+        label: 'Group label',
+        details: 'Group details',
       });
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

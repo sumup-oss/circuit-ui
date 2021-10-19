@@ -38,6 +38,10 @@ export default {
   parameters: {
     docs: { page: docs },
   },
+  argTypes: {
+    label: { control: 'text' },
+    details: { control: 'text' },
+  },
 };
 
 const items: Item[] = [
@@ -89,28 +93,27 @@ const Details = ({ item }: { item: Item }) => (
     <Body
       size="two"
       variant="highlight"
-      css={spacing({ right: 'bit' })}
       noMargin
+      css={spacing({ right: 'bit' })}
     >
       {item.status}
     </Body>
-    <Body size="two" noMargin>
+    <Body size="two" variant="subtle" noMargin>
       &middot; {item.timestamp}
     </Body>
   </div>
 );
 
-const failedSuffixStyles = (theme: Theme) => css`
-  color: ${theme.colors.n700};
+const failedSuffixStyles = css`
   text-decoration-line: line-through;
 `;
 
 const Suffix = ({ item }: { item: Item }) => (
   <Body
     size="one"
-    variant="highlight"
-    noMargin
+    variant={item.status === 'Failed' ? 'subtle' : 'highlight'}
     css={item.status === 'Failed' && failedSuffixStyles}
+    noMargin
   >
     {item.amount}
   </Body>

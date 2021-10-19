@@ -40,6 +40,12 @@ export default {
   parameters: {
     docs: { page: docs },
   },
+  argTypes: {
+    label: { control: 'text' },
+    details: { control: 'text' },
+    suffixLabel: { control: 'text' },
+    suffixDetails: { control: 'text' },
+  },
 };
 
 const item: Item = {
@@ -77,20 +83,24 @@ const Details = (
     >
       {item.status}
     </Body>
-    <Body size="two" noMargin>
+    <Body size="two" variant="subtle" noMargin>
       &middot; {item.timestamp}
     </Body>
   </div>
 );
 
+const failedSuffixStyles = css`
+  text-decoration-line: line-through;
+`;
+
 const SuffixLabel = (
-  <Body size="one" variant="highlight" noMargin>
+  <Body size="one" variant="subtle" noMargin css={failedSuffixStyles}>
     {item.amount}
   </Body>
 );
 
 const SuffixDetails = (
-  <Body size="two" variant="subtle" noMargin>
+  <Body size="two" variant="subtle" noMargin css={failedSuffixStyles}>
     {item.fee} fee
   </Body>
 );
@@ -114,8 +124,8 @@ const baseArgs: ListItemProps = {
   suffixLabel: undefined,
   suffixDetails: undefined,
   suffix: undefined,
-  selected: false,
-  disabled: false,
+  selected: undefined,
+  disabled: undefined,
   onClick: null,
   href: undefined,
 };
@@ -147,21 +157,65 @@ WithCustomPrefix.args = {
   ...baseArgs,
 } as ListItemProps;
 
+export const WithCustomLabel = (args: ListItemProps) => (
+  <>
+    <ListItem
+      {...args}
+      prefix={SumUpCard}
+      label={`Default truncated label: ${args.label as string}`}
+      css={stylesWithMargin}
+    />
+    <ListItem
+      {...args}
+      prefix={SumUpCard}
+      label={
+        <Body size="one" noMargin>
+          Custom multiline label: {args.label}
+        </Body>
+      }
+      css={baseStyles}
+    />
+  </>
+);
+WithCustomLabel.args = {
+  ...baseArgs,
+  variant: 'navigation',
+  label: 'Kraftfahrzeug-Haftpflichtversicherung',
+} as ListItemProps;
+
 export const WithDetails = (args: ListItemProps) => (
-  <ListItem {...args} details={Details} css={baseStyles} />
+  <ListItem {...args} css={baseStyles} />
 );
 WithDetails.args = {
   ...baseArgs,
+  details: item.timestamp,
 } as ListItemProps;
 
-export const WithLabelSuffix = (args: ListItemProps) => (
-  <ListItem {...args} suffixLabel={SuffixLabel} css={baseStyles} />
+export const WithCustomDetails = (args: ListItemProps) => (
+  <ListItem {...args} details={Details} css={baseStyles} />
 );
-WithLabelSuffix.args = {
+WithCustomDetails.args = {
   ...baseArgs,
 } as ListItemProps;
 
-export const WithLabelAndDetailsSuffix = (args: ListItemProps) => (
+export const WithSuffixLabel = (args: ListItemProps) => (
+  <ListItem {...args} css={baseStyles} />
+);
+WithSuffixLabel.args = {
+  ...baseArgs,
+  suffixLabel: item.amount,
+} as ListItemProps;
+
+export const WithSuffixLabelAndDetails = (args: ListItemProps) => (
+  <ListItem {...args} css={baseStyles} />
+);
+WithSuffixLabelAndDetails.args = {
+  ...baseArgs,
+  suffixLabel: item.amount,
+  suffixDetails: `${item.fee} fee`,
+} as ListItemProps;
+
+export const WithCustomSuffixLabelAndDetails = (args: ListItemProps) => (
   <ListItem
     {...args}
     suffixLabel={SuffixLabel}
@@ -169,7 +223,7 @@ export const WithLabelAndDetailsSuffix = (args: ListItemProps) => (
     css={baseStyles}
   />
 );
-WithLabelAndDetailsSuffix.args = {
+WithCustomSuffixLabelAndDetails.args = {
   ...baseArgs,
 } as ListItemProps;
 
@@ -178,34 +232,6 @@ export const WithCustomSuffix = (args: ListItemProps) => (
 );
 WithCustomSuffix.args = {
   ...baseArgs,
-} as ListItemProps;
-
-const longLabel = 'Kraftfahrzeug-Haftpflichtversicherung';
-export const WithCustomLabel = (args: ListItemProps) => (
-  <>
-    <ListItem
-      {...args}
-      prefix={SumUpCard}
-      label={`Default truncated label: ${longLabel}`}
-      suffixLabel={SuffixLabel}
-      css={stylesWithMargin}
-    />
-    <ListItem
-      {...args}
-      prefix={SumUpCard}
-      label={
-        <Body size="one" noMargin>
-          Custom multiline label: {longLabel}
-        </Body>
-      }
-      suffixLabel={SuffixLabel}
-      css={baseStyles}
-    />
-  </>
-);
-WithCustomLabel.args = {
-  ...baseArgs,
-  variant: 'navigation',
 } as ListItemProps;
 
 export const Clickable = (args: ListItemProps) => (
@@ -246,17 +272,12 @@ Disabled.args = {
 } as ListItemProps;
 
 export const SampleConfiguration = (args: ListItemProps) => (
-  <ListItem
-    {...args}
-    prefix={SumUpCard}
-    details={Details}
-    suffixLabel={SuffixLabel}
-    suffixDetails={SuffixDetails}
-    css={baseStyles}
-  />
+  <ListItem {...args} prefix={SumUpCard} details={Details} css={baseStyles} />
 );
 SampleConfiguration.args = {
   ...baseArgs,
   variant: 'navigation',
+  suffixLabel: item.amount,
+  suffixDetails: `${item.fee} fee`,
   onClick: action('ListItem clicked'),
 } as ListItemProps;

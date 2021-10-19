@@ -388,7 +388,17 @@ export const ListItem = forwardRef(
             ) : (
               label
             )}
-            {details && <DetailsContainer>{details}</DetailsContainer>}
+            {details && (
+              <DetailsContainer>
+                {typeof details === 'string' ? (
+                  <Body size="two" variant="subtle" noMargin>
+                    {details}
+                  </Body>
+                ) : (
+                  details
+                )}
+              </DetailsContainer>
+            )}
           </MainContainer>
           {shouldRenderSuffixContainer && (
             <SuffixContainer
@@ -396,7 +406,13 @@ export const ListItem = forwardRef(
               isNavigation={isNavigation}
             >
               <SuffixChevronContainer>
-                {suffixLabel}
+                {typeof suffixLabel === 'string' ? (
+                  <Body size="one" variant="highlight" noMargin>
+                    {suffixLabel}
+                  </Body>
+                ) : (
+                  suffixLabel
+                )}
                 {suffix}
                 {isNavigation && (
                   <ChevronRight
@@ -408,7 +424,13 @@ export const ListItem = forwardRef(
               </SuffixChevronContainer>
               {suffixDetails && (
                 <SuffixDetailsContainer isNavigation={isNavigation}>
-                  {suffixDetails}
+                  {typeof suffixDetails === 'string' ? (
+                    <Body size="two" variant="subtle" noMargin>
+                      {suffixDetails}
+                    </Body>
+                  ) : (
+                    suffixDetails
+                  )}
                 </SuffixDetailsContainer>
               )}
             </SuffixContainer>

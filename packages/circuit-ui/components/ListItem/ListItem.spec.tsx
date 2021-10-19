@@ -88,6 +88,14 @@ describe('ListItem', () => {
     it('should render a ListItem with a details line', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
+        details: 'Details',
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render a ListItem with a custom details line', () => {
+      const wrapper = renderListItem(create, {
+        ...baseProps,
         details: (
           <Body size="two" noMargin>
             Details
@@ -98,6 +106,14 @@ describe('ListItem', () => {
     });
 
     it('should render a ListItem with a suffix label', () => {
+      const wrapper = renderListItem(create, {
+        ...baseProps,
+        suffixLabel: 'Suffix label',
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render a ListItem with a custom suffix label', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
         suffixLabel: (
@@ -112,11 +128,16 @@ describe('ListItem', () => {
     it('should render a ListItem with a suffix details line', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        suffixLabel: (
-          <Body size="one" variant="highlight" noMargin>
-            Suffix label
-          </Body>
-        ),
+        suffixLabel: 'Suffix label',
+        suffixDetails: 'Suffix details',
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render a ListItem with a custom suffix details line', () => {
+      const wrapper = renderListItem(create, {
+        ...baseProps,
+        suffixLabel: 'Suffix label',
         suffixDetails: (
           <Body size="two" variant="subtle" noMargin>
             Suffix details
@@ -155,11 +176,7 @@ describe('ListItem', () => {
     it('should not render a ListItem with a suffix details line without a suffix label', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        suffixDetails: (
-          <Body size="two" variant="subtle" noMargin>
-            Suffix details
-          </Body>
-        ),
+        suffixDetails: 'Suffix details',
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -167,11 +184,7 @@ describe('ListItem', () => {
     it('should not render a ListItem with both a suffix label and a custom suffix', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        suffixLabel: (
-          <Body size="one" variant="highlight" noMargin>
-            Suffix label
-          </Body>
-        ),
+        suffixLabel: 'Suffix label',
         suffix: <Badge variant="promo">Promo</Badge>,
       });
       expect(wrapper).toMatchSnapshot();
@@ -224,21 +237,9 @@ describe('ListItem', () => {
         ...baseProps,
         variant: 'navigation',
         prefix: SumUpCard,
-        details: (
-          <Body size="two" noMargin>
-            Details
-          </Body>
-        ),
-        suffixLabel: (
-          <Body size="one" variant="highlight" noMargin>
-            Suffix label
-          </Body>
-        ),
-        suffixDetails: (
-          <Body size="two" variant="subtle" noMargin>
-            Suffix details
-          </Body>
-        ),
+        details: 'Details',
+        suffixLabel: 'Suffix label',
+        suffixDetails: 'Suffix details',
         onClick: jest.fn(),
       });
       const actual = await axe(wrapper);

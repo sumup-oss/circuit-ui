@@ -489,6 +489,153 @@ exports[`ListItem business logic should render as a link when the href prop is p
 </a>
 `;
 
+exports[`ListItem styles should render a ListItem with a custom details line 1`] = `
+.circuit-0 {
+  background-color: #FFF;
+  color: #1A1A1A;
+  border: 2px solid #E6E6E6;
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-0:focus {
+  border-color: transparent;
+  z-index: 2;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  border-color: #E6E6E6;
+  z-index: auto;
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.circuit-2 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 100%;
+  min-height: 24px;
+}
+
+.circuit-5 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+<div
+  class="circuit-0"
+>
+  <div
+    class="circuit-1"
+  >
+    <div
+      class="circuit-2"
+    >
+      <p
+        class="circuit-3"
+      >
+        Label
+      </p>
+      <div
+        class="circuit-4"
+      >
+        <p
+          class="circuit-5"
+        >
+          Details
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ListItem styles should render a ListItem with a custom label 1`] = `
 .circuit-0 {
   background-color: #FFF;
@@ -948,6 +1095,387 @@ exports[`ListItem styles should render a ListItem with a custom suffix 1`] = `
 </div>
 `;
 
+exports[`ListItem styles should render a ListItem with a custom suffix details line 1`] = `
+.circuit-0 {
+  background-color: #FFF;
+  color: #1A1A1A;
+  border: 2px solid #E6E6E6;
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-0:focus {
+  border-color: transparent;
+  z-index: 2;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  border-color: #E6E6E6;
+  z-index: auto;
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.circuit-2 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-4 {
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  margin-left: 16px;
+}
+
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.circuit-6 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.circuit-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 100%;
+  min-height: 24px;
+}
+
+.circuit-8 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+  color: #666;
+}
+
+<div
+  class="circuit-0"
+>
+  <div
+    class="circuit-1"
+  >
+    <div
+      class="circuit-2"
+    >
+      <p
+        class="circuit-3"
+      >
+        Label
+      </p>
+    </div>
+    <div
+      class="circuit-4"
+    >
+      <div
+        class="circuit-5"
+      >
+        <strong
+          class="circuit-6"
+        >
+          Suffix label
+        </strong>
+      </div>
+      <div
+        class="circuit-7"
+      >
+        <p
+          class="circuit-8"
+        >
+          Suffix details
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListItem styles should render a ListItem with a custom suffix label 1`] = `
+.circuit-0 {
+  background-color: #FFF;
+  color: #1A1A1A;
+  border: 2px solid #E6E6E6;
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-0:focus {
+  border-color: transparent;
+  z-index: 2;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  border-color: #E6E6E6;
+  z-index: auto;
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.circuit-2 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-4 {
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  margin-left: 16px;
+}
+
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.circuit-6 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+<div
+  class="circuit-0"
+>
+  <div
+    class="circuit-1"
+  >
+    <div
+      class="circuit-2"
+    >
+      <p
+        class="circuit-3"
+      >
+        Label
+      </p>
+    </div>
+    <div
+      class="circuit-4"
+    >
+      <div
+        class="circuit-5"
+      >
+        <strong
+          class="circuit-6"
+        >
+          Suffix label
+        </strong>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ListItem styles should render a ListItem with a details line 1`] = `
 .circuit-0 {
   background-color: #FFF;
@@ -1065,6 +1593,7 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 0;
+  color: #666;
 }
 
 <div

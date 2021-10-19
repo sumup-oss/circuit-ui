@@ -1,5 +1,382 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ListItemGroup styles should render a ListItemGroup with a custom details line 1`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.circuit-1 {
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  margin: 0 16px;
+}
+
+.circuit-2 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  min-width: 0;
+  margin-bottom: 8px;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-4 {
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
+
+.circuit-5 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+.circuit-6 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border: 2px solid #E6E6E6;
+  border-radius: 16px;
+}
+
+.circuit-7 {
+  background-color: #FFF;
+  color: #1A1A1A;
+  border: 2px solid #E6E6E6;
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  background-color: #F0F6FF;
+  border: none;
+  border-radius: calc(16px - 2px);
+}
+
+.circuit-7:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-7:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-7:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-7:focus {
+  border-color: transparent;
+  z-index: 2;
+}
+
+.circuit-7:focus:not(:focus-visible) {
+  border-color: #E6E6E6;
+  z-index: auto;
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-7:hover,
+.circuit-7:active {
+  background-color: #F0F6FF;
+}
+
+.circuit-7:after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  border: 2px solid #3063E9;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.circuit-7:not(:first-of-type)>div:last-of-type {
+  position: relative;
+}
+
+.circuit-7:not(:first-of-type)>div:last-of-type:before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: -16px;
+  border-top: 1px solid #E6E6E6;
+}
+
+.circuit-7:not(:first-of-type)>div:last-of-type:before,
+.circuit-7+*:not(:first-of-type)>div:last-of-type:before {
+  border-top-width: 0;
+}
+
+.circuit-8 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.circuit-9 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.circuit-10 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-11 {
+  background-color: #FFF;
+  color: #1A1A1A;
+  border: 2px solid #E6E6E6;
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  border: none;
+  border-radius: calc(16px - 2px);
+}
+
+.circuit-11:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-11:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-11:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-11:focus {
+  border-color: transparent;
+  z-index: 2;
+}
+
+.circuit-11:focus:not(:focus-visible) {
+  border-color: #E6E6E6;
+  z-index: auto;
+}
+
+.circuit-11:disabled,
+.circuit-11[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-11:not(:first-of-type)>div:last-of-type {
+  position: relative;
+}
+
+.circuit-11:not(:first-of-type)>div:last-of-type:before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: -16px;
+  border-top: 1px solid #E6E6E6;
+}
+
+.circuit-11:not(:hover):not(:active):focus:not(:focus-visible):not(:first-of-type)>div:last-of-type:before,
+.circuit-11:not(:hover):not(:active):focus:not(:focus-visible)+*:not(:first-of-type)>div:last-of-type:before {
+  border-top-width: 1px;
+}
+
+<div
+  class="circuit-0"
+>
+  <div
+    class="circuit-1"
+  >
+    <div
+      class="circuit-2"
+      id="list-item-group_6"
+    >
+      <h4
+        class="circuit-3"
+      >
+        Group label
+      </h4>
+    </div>
+    <div
+      class="circuit-4"
+    >
+      <p
+        class="circuit-5"
+      >
+        Group details
+      </p>
+    </div>
+  </div>
+  <div
+    aria-labelledby="list-item-group_6"
+    class="circuit-6"
+    role="list"
+  >
+    <div
+      class="circuit-7"
+      role="listitem"
+    >
+      <div
+        class="circuit-8"
+      >
+        <div
+          class="circuit-9"
+        >
+          <p
+            class="circuit-10"
+          >
+            First item
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circuit-11"
+      role="listitem"
+    >
+      <div
+        class="circuit-8"
+      >
+        <div
+          class="circuit-9"
+        >
+          <p
+            class="circuit-10"
+          >
+            Second item
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circuit-11"
+      role="listitem"
+    >
+      <div
+        class="circuit-8"
+      >
+        <div
+          class="circuit-9"
+        >
+          <p
+            class="circuit-10"
+          >
+            Third item
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ListItemGroup styles should render a ListItemGroup with a custom label 1`] = `
 .circuit-0 {
   display: -webkit-box;
