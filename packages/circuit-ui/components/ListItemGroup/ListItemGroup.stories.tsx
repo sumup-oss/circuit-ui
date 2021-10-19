@@ -18,12 +18,11 @@ import { css } from '@emotion/react';
 import { SumUpCard, Confirm, Alert } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
-import docs from '../ListItem/ListItem.docs.mdx';
 import { spacing } from '../../styles/style-mixins';
 import Body from '../Body';
-import ListItem from '../ListItem';
 
 import { ListItemGroup, ListItemGroupProps } from './ListItemGroup';
+import docs from './ListItemGroup.docs.mdx';
 
 interface Item {
   id: number;
@@ -36,7 +35,6 @@ interface Item {
 export default {
   title: 'Components/ListItem/ListItemGroup',
   component: ListItemGroup,
-  subcomponents: { ListItem },
   parameters: {
     docs: { page: docs },
   },
@@ -65,24 +63,6 @@ const items: Item[] = [
     timestamp: '08:14',
   },
 ];
-
-const GroupLabel = (
-  <Body as="h4" size="two" noMargin>
-    Today
-  </Body>
-);
-
-const GroupDetails = (
-  <Body size="two" noMargin>
-    €26.20
-  </Body>
-);
-
-const Label = ({ item }: { item: Item }) => (
-  <Body size="one" noMargin>
-    {item.title}
-  </Body>
-);
 
 const detailsStyles = css`
   display: flex;
@@ -142,89 +122,43 @@ const baseStyles = css`
 
 const baseArgs: ListItemGroupProps = {
   variant: undefined,
-  items: [],
-  label: undefined,
+  items: items.map((item) => ({
+    key: item.id,
+    label: item.title,
+  })),
+  label: 'Today',
   hideLabel: undefined,
   details: undefined,
 };
 
 export const Base = (args: ListItemGroupProps) => (
-  <ListItemGroup
-    {...args}
-    items={items.map((item) => ({
-      key: item.id,
-      label: <Label item={item} />,
-    }))}
-    label={GroupLabel}
-    hideLabel
-    css={baseStyles}
-  />
+  <ListItemGroup {...args} css={baseStyles} />
 );
 Base.args = baseArgs;
 
-export const WithLabel = (args: ListItemGroupProps) => (
-  <ListItemGroup
-    {...args}
-    items={items.map((item) => ({
-      key: item.id,
-      label: <Label item={item} />,
-    }))}
-    label={GroupLabel}
-    css={baseStyles}
-  />
+export const WithHiddenLabel = (args: ListItemGroupProps) => (
+  <ListItemGroup {...args} css={baseStyles} />
 );
-WithLabel.args = {
+WithHiddenLabel.args = {
   ...baseArgs,
+  hideLabel: true,
 } as ListItemGroupProps;
 
 export const WithLabelAndDetails = (args: ListItemGroupProps) => (
-  <ListItemGroup
-    {...args}
-    items={items.map((item) => ({
-      key: item.id,
-      label: <Label item={item} />,
-    }))}
-    label={GroupLabel}
-    details={GroupDetails}
-    css={baseStyles}
-  />
+  <ListItemGroup {...args} css={baseStyles} />
 );
 WithLabelAndDetails.args = {
   ...baseArgs,
-} as ListItemGroupProps;
-
-export const WithDetailsAndHiddenLabel = (args: ListItemGroupProps) => (
-  <ListItemGroup
-    {...args}
-    items={items.map((item) => ({
-      key: item.id,
-      label: <Label item={item} />,
-    }))}
-    label={GroupLabel}
-    hideLabel
-    details={GroupDetails}
-    css={baseStyles}
-  />
-);
-WithDetailsAndHiddenLabel.args = {
-  ...baseArgs,
+  details: '€26.20',
 } as ListItemGroupProps;
 
 export const PlainVariant = (args: ListItemGroupProps) => (
-  <ListItemGroup
-    {...args}
-    items={items.map((item) => ({
-      key: item.id,
-      label: <Label item={item} />,
-    }))}
-    label={GroupLabel}
-    details={GroupDetails}
-    css={baseStyles}
-  />
+  <ListItemGroup {...args} css={baseStyles} />
 );
 PlainVariant.args = {
   ...baseArgs,
   variant: 'plain',
+  details: '€26.20',
 } as ListItemGroupProps;
 
 export const SampleConfiguration = (args: ListItemGroupProps) => {
@@ -237,18 +171,18 @@ export const SampleConfiguration = (args: ListItemGroupProps) => {
         key: item.id,
         variant: 'navigation',
         prefix: SumUpCard,
-        label: <Label item={item} />,
+        label: item.title,
         details: <Details item={item} />,
         suffixLabel: <Suffix item={item} />,
         selected: item.id === selectedId,
         onClick: () => setSelectedId(item.id),
       }))}
-      label={GroupLabel}
-      details={GroupDetails}
       css={baseStyles}
     />
   );
 };
 SampleConfiguration.args = {
   ...baseArgs,
+  items: [],
+  details: '€26.20',
 } as ListItemGroupProps;

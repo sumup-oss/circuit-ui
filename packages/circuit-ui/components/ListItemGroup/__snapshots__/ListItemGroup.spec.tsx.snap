@@ -1,5 +1,353 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ListItemGroup styles should render a ListItemGroup with a custom label 1`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.circuit-1 {
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  margin: 0 16px;
+}
+
+.circuit-2 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  min-width: 0;
+  margin-bottom: 8px;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+.circuit-4 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border: 2px solid #E6E6E6;
+  border-radius: 16px;
+}
+
+.circuit-5 {
+  background-color: #FFF;
+  color: #1A1A1A;
+  border: 2px solid #E6E6E6;
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  background-color: #F0F6FF;
+  border: none;
+  border-radius: calc(16px - 2px);
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:focus {
+  border-color: transparent;
+  z-index: 2;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  border-color: #E6E6E6;
+  z-index: auto;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover,
+.circuit-5:active {
+  background-color: #F0F6FF;
+}
+
+.circuit-5:after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  border: 2px solid #3063E9;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.circuit-5:not(:first-of-type)>div:last-of-type {
+  position: relative;
+}
+
+.circuit-5:not(:first-of-type)>div:last-of-type:before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: -16px;
+  border-top: 1px solid #E6E6E6;
+}
+
+.circuit-5:not(:first-of-type)>div:last-of-type:before,
+.circuit-5+*:not(:first-of-type)>div:last-of-type:before {
+  border-top-width: 0;
+}
+
+.circuit-6 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.circuit-7 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.circuit-8 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-9 {
+  background-color: #FFF;
+  color: #1A1A1A;
+  border: 2px solid #E6E6E6;
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  border: none;
+  border-radius: calc(16px - 2px);
+}
+
+.circuit-9:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-9:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-9:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-9:focus {
+  border-color: transparent;
+  z-index: 2;
+}
+
+.circuit-9:focus:not(:focus-visible) {
+  border-color: #E6E6E6;
+  z-index: auto;
+}
+
+.circuit-9:disabled,
+.circuit-9[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-9:not(:first-of-type)>div:last-of-type {
+  position: relative;
+}
+
+.circuit-9:not(:first-of-type)>div:last-of-type:before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: -16px;
+  border-top: 1px solid #E6E6E6;
+}
+
+.circuit-9:not(:hover):not(:active):focus:not(:focus-visible):not(:first-of-type)>div:last-of-type:before,
+.circuit-9:not(:hover):not(:active):focus:not(:focus-visible)+*:not(:first-of-type)>div:last-of-type:before {
+  border-top-width: 1px;
+}
+
+<div
+  class="circuit-0"
+>
+  <div
+    class="circuit-1"
+  >
+    <div
+      class="circuit-2"
+      id="list-item-group_4"
+    >
+      <h4
+        class="circuit-3"
+      >
+        Group label
+      </h4>
+    </div>
+  </div>
+  <div
+    aria-labelledby="list-item-group_4"
+    class="circuit-4"
+    role="list"
+  >
+    <div
+      class="circuit-5"
+      role="listitem"
+    >
+      <div
+        class="circuit-6"
+      >
+        <div
+          class="circuit-7"
+        >
+          <p
+            class="circuit-8"
+          >
+            First item
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circuit-9"
+      role="listitem"
+    >
+      <div
+        class="circuit-6"
+      >
+        <div
+          class="circuit-7"
+        >
+          <p
+            class="circuit-8"
+          >
+            Second item
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circuit-9"
+      role="listitem"
+    >
+      <div
+        class="circuit-6"
+      >
+        <div
+          class="circuit-7"
+        >
+          <p
+            class="circuit-8"
+          >
+            Third item
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ListItemGroup styles should render a ListItemGroup with a details line 1`] = `
 .circuit-0 {
   display: -webkit-box;
@@ -39,12 +387,15 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
 }
 
 .circuit-3 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #000;
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-4 {
@@ -207,6 +558,10 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-11 {
@@ -289,7 +644,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   >
     <div
       class="circuit-2"
-      id="list-item-group_4"
+      id="list-item-group_5"
     >
       <h4
         class="circuit-3"
@@ -308,7 +663,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
     </div>
   </div>
   <div
-    aria-labelledby="list-item-group_4"
+    aria-labelledby="list-item-group_5"
     class="circuit-6"
     role="list"
   >
@@ -418,12 +773,15 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
 }
 
 .circuit-3 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #000;
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-4 {
@@ -570,6 +928,10 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-9 {
@@ -764,12 +1126,15 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
 }
 
 .circuit-3 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #000;
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-4 {
@@ -925,6 +1290,10 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-9 {
@@ -1118,12 +1487,15 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
 }
 
 .circuit-3 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #000;
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-4 {
@@ -1270,6 +1642,10 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-9 {

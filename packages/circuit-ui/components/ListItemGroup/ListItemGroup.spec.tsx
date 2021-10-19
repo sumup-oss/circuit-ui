@@ -44,18 +44,10 @@ describe('ListItemGroup', () => {
   const baseProps = {
     items: items.map((item) => ({
       key: item.id,
-      label: (
-        <Body size="one" noMargin>
-          {item.label}
-        </Body>
-      ),
+      label: item.label,
       selected: item.id === 1,
     })),
-    label: (
-      <Headline as="h4" size="four" noMargin>
-        Group label
-      </Headline>
-    ),
+    label: 'Group label',
   };
 
   describe('styles', () => {
@@ -76,6 +68,18 @@ describe('ListItemGroup', () => {
       const wrapper = renderListItemGroup(create, {
         ...baseProps,
         hideLabel: true,
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render a ListItemGroup with a custom label', () => {
+      const wrapper = renderListItemGroup(create, {
+        ...baseProps,
+        label: (
+          <Body as="h4" size="two" noMargin>
+            Group label
+          </Body>
+        ),
       });
       expect(wrapper).toMatchSnapshot();
     });

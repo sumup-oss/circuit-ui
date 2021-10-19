@@ -92,6 +92,10 @@ exports[`ListItem business logic should not render a ListItem with a suffix deta
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 <div
@@ -205,6 +209,10 @@ exports[`ListItem business logic should not render a ListItem with both a suffix
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 <div
@@ -328,6 +336,10 @@ exports[`ListItem business logic should render as a button when the onClick prop
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 <button
@@ -451,6 +463,10 @@ exports[`ListItem business logic should render as a link when the href prop is p
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 <a
@@ -471,6 +487,119 @@ exports[`ListItem business logic should render as a link when the href prop is p
     </div>
   </div>
 </a>
+`;
+
+exports[`ListItem styles should render a ListItem with a custom label 1`] = `
+.circuit-0 {
+  background-color: #FFF;
+  color: #1A1A1A;
+  border: 2px solid #E6E6E6;
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-0:focus {
+  border-color: transparent;
+  z-index: 2;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  border-color: #E6E6E6;
+  z-index: auto;
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.circuit-2 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+<div
+  class="circuit-0"
+>
+  <div
+    class="circuit-1"
+  >
+    <div
+      class="circuit-2"
+    >
+      <p
+        class="circuit-3"
+      >
+        Label
+      </p>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`ListItem styles should render a ListItem with a custom prefix 1`] = `
@@ -605,6 +734,10 @@ exports[`ListItem styles should render a ListItem with a custom prefix 1`] = `
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 <div
@@ -727,6 +860,10 @@ exports[`ListItem styles should render a ListItem with a custom suffix 1`] = `
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-4 {
@@ -903,6 +1040,10 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-4 {
@@ -914,6 +1055,7 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  max-width: 100%;
   min-height: 24px;
 }
 
@@ -1056,6 +1198,10 @@ exports[`ListItem styles should render a ListItem with a prefix icon 1`] = `
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 <div
@@ -1186,6 +1332,10 @@ exports[`ListItem styles should render a ListItem with a suffix details line 1`]
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-4 {
@@ -1242,6 +1392,7 @@ exports[`ListItem styles should render a ListItem with a suffix details line 1`]
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  max-width: 100%;
   min-height: 24px;
 }
 
@@ -1387,6 +1538,10 @@ exports[`ListItem styles should render a ListItem with a suffix label 1`] = `
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-4 {
@@ -1558,6 +1713,10 @@ exports[`ListItem styles should render a disabled ListItem 1`] = `
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 <div
@@ -1672,6 +1831,10 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .circuit-4 {
@@ -1862,6 +2025,10 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 <div
@@ -1975,6 +2142,10 @@ exports[`ListItem styles should render the action variant ListItem by default 1`
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 <div

@@ -1,7 +1,5 @@
 import { Status, Props, Story } from '../../../../.storybook/components';
 
-import ListItemGroup from '../ListItemGroup';
-
 # ListItem
 
 <Status.Stable />
@@ -21,9 +19,10 @@ While ListItem can be used on its own, in most cases the ListItemGroup component
 ## Content guidelines
 
 - **Do** use size `24` Circuit UI icon, a custom 48x48 image, or other similar sized components, such as a circular Badge, for the `prefix` if applicable.
+- **Do** use the default `label` styles by passing a string instead of a custom component.
 - **Do** use size `one` Body for the `label` and `suffixLabel` if applicable.
 - **Do** use size `two` Body for the `details` and `suffixDetails` if applicable.
-- **Do not** use `suffixDetails` on its own without also providing a `suffixLabel`.
+- **Do not** use `suffixDetails` on their own without also providing a `suffixLabel`.
 - **Do not** use a combination of a custom `suffix` component and `suffixLabel`.
 
 ### Variants
@@ -56,6 +55,11 @@ The suffix area can hold a combination of `suffixLabel` and `suffixDetails` or a
 
 <Story id="components-listitem--with-custom-suffix" />
 
+When the `label` is provided as a string it is rendered as a size `one` Body and is truncated when it gets too long.
+A custom component can be used for special cases, such as a multiline label.
+
+<Story id="components-listitem--with-custom-label" />
+
 The ListItem component becomes interactive when it receives the `onClick` or `href` prop.
 This applies additional styles and accessibility features.
 
@@ -74,45 +78,3 @@ With interactive list items it is also possible to set additional states like `s
 ### Sample configuration
 
 <Story id="components-listitem--sample-configuration" />
-
-
-## ListItemGroup
-
-The ListItemGroup component is used to render a list of contextually similar items.
-It applies additional styling to the items and provides accessibility features out of the box.
-
-<Story id="components-listitem-listitemgroup--base" />
-<Props of={ListItemGroup} />
-
-## Usage guidelines
-
-- **Do** use ListItemGroup to display a group of contextually similar ListItems.
-- **Do** always accompany a ListItemGroup with a label in order to ensure it is accessible.
-
-## Content guidelines
-
-- **Do** use size `two` Body for the ListItemGroup `label` but render it as a heading for accessibility (e.g. `as="h4"`).
-
-### Variants
-
-The ListItemGroup component offers a `plain` variant, which can be used for full-width lists on mobile resolutions or in containers with limited horizontal space, such as the side panel.
-
-<Story id="components-listitem-listitemgroup--plain-variant" />
-
-### Elements
-
-The ListItemGroup should always have a `label` in order to be accessible. Use the `Headline` component when possible.
-
-<Story id="components-listitem-listitemgroup--with-label" />
-
-Additional information can be given in the `details` section of the group header.
-
-<Story id="components-listitem-listitemgroup--with-label-and-details" />
-
-If necessary the label can be visually hidden through the `hideLabel` prop.
-
-<Story id="components-listitem-listitemgroup--with-details-and-hidden-label" />
-
-### Sample configuration
-
-<Story id="components-listitem-listitemgroup--sample-configuration" />

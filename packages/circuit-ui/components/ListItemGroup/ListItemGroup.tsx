@@ -22,6 +22,7 @@ import { hideVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { warn } from '../../util/logger';
 import { ReturnType } from '../../types/return-type';
+import Body from '../Body';
 import ListItem, { ListItemProps } from '../ListItem';
 
 type Variant = 'plain' | 'inset';
@@ -106,6 +107,15 @@ const LabelContainer = styled.div(
   labelContainerStyles,
   labelContainerHiddenStyles,
 );
+
+const labelStyles = css`
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+
+const Label = styled(Body)(labelStyles);
 
 const detailsContainerStyles = ({ theme }: StyleProps) => css`
   flex: none;
@@ -258,9 +268,25 @@ export const ListItemGroup = forwardRef(
       <StyledListItemGroup {...props} ref={ref}>
         <HeaderContainer isPlain={isPlain}>
           <LabelContainer hideLabel={hideLabel} id={id}>
-            {label}
+            {typeof label === 'string' ? (
+              <Label as="h4" size="two" noMargin>
+                {label}
+              </Label>
+            ) : (
+              label
+            )}
           </LabelContainer>
-          {details && <DetailsContainer>{details}</DetailsContainer>}
+          {details && (
+            <DetailsContainer>
+              {typeof details === 'string' ? (
+                <Body size="two" noMargin>
+                  {details}
+                </Body>
+              ) : (
+                details
+              )}
+            </DetailsContainer>
+          )}
         </HeaderContainer>
         <ItemsContainer
           isPlain={isPlain}

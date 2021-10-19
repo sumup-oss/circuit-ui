@@ -36,11 +36,7 @@ describe('ListItem', () => {
   }
 
   const baseProps = {
-    label: (
-      <Body size="one" noMargin>
-        Label
-      </Body>
-    ),
+    label: 'Label',
   };
 
   describe('styles', () => {
@@ -72,6 +68,18 @@ describe('ListItem', () => {
           <Badge variant="danger" circle>
             3
           </Badge>
+        ),
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render a ListItem with a custom label', () => {
+      const wrapper = renderListItem(create, {
+        ...baseProps,
+        label: (
+          <Body size="one" noMargin>
+            Label
+          </Body>
         ),
       });
       expect(wrapper).toMatchSnapshot();

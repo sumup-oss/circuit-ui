@@ -22,7 +22,6 @@ import { Theme } from '@sumup/design-tokens';
 import { spacing } from '../../styles/style-mixins';
 import Body from '../Body';
 import Badge from '../Badge';
-import ListItemGroup from '../ListItemGroup';
 
 import { ListItem, ListItemProps } from './ListItem';
 import docs from './ListItem.docs.mdx';
@@ -38,7 +37,6 @@ interface Item {
 export default {
   title: 'Components/ListItem',
   component: ListItem,
-  subcomponents: { ListItemGroup },
   parameters: {
     docs: { page: docs },
   },
@@ -56,12 +54,6 @@ const PrefixBadge = (
   <Badge variant="danger" circle>
     3
   </Badge>
-);
-
-const Label = (
-  <Body size="one" noMargin>
-    {item.title}
-  </Body>
 );
 
 const detailsStyles = css`
@@ -109,10 +101,15 @@ const baseStyles = css`
   width: 500px;
 `;
 
+const stylesWithMargin = (theme: Theme) => css`
+  ${baseStyles};
+  margin-bottom: ${theme.spacings.tera};
+`;
+
 const baseArgs: ListItemProps = {
   variant: undefined,
   prefix: undefined,
-  label: undefined,
+  label: item.title,
   details: undefined,
   suffixLabel: undefined,
   suffixDetails: undefined,
@@ -124,12 +121,12 @@ const baseArgs: ListItemProps = {
 };
 
 export const Base = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} css={baseStyles} />
+  <ListItem {...args} css={baseStyles} />
 );
 Base.args = baseArgs;
 
 export const NavigationVariant = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} css={baseStyles} />
+  <ListItem {...args} css={baseStyles} />
 );
 NavigationVariant.args = {
   ...baseArgs,
@@ -137,33 +134,28 @@ NavigationVariant.args = {
 } as ListItemProps;
 
 export const WithIcon = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} prefix={SumUpCard} css={baseStyles} />
+  <ListItem {...args} prefix={SumUpCard} css={baseStyles} />
 );
 WithIcon.args = {
   ...baseArgs,
 } as ListItemProps;
 
 export const WithCustomPrefix = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} prefix={PrefixBadge} css={baseStyles} />
+  <ListItem {...args} prefix={PrefixBadge} css={baseStyles} />
 );
 WithCustomPrefix.args = {
   ...baseArgs,
 } as ListItemProps;
 
 export const WithDetails = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} details={Details} css={baseStyles} />
+  <ListItem {...args} details={Details} css={baseStyles} />
 );
 WithDetails.args = {
   ...baseArgs,
 } as ListItemProps;
 
 export const WithLabelSuffix = (args: ListItemProps) => (
-  <ListItem
-    {...args}
-    label={Label}
-    suffixLabel={SuffixLabel}
-    css={baseStyles}
-  />
+  <ListItem {...args} suffixLabel={SuffixLabel} css={baseStyles} />
 );
 WithLabelSuffix.args = {
   ...baseArgs,
@@ -172,7 +164,6 @@ WithLabelSuffix.args = {
 export const WithLabelAndDetailsSuffix = (args: ListItemProps) => (
   <ListItem
     {...args}
-    label={Label}
     suffixLabel={SuffixLabel}
     suffixDetails={SuffixDetails}
     css={baseStyles}
@@ -183,14 +174,42 @@ WithLabelAndDetailsSuffix.args = {
 } as ListItemProps;
 
 export const WithCustomSuffix = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} suffix={SuffixBadge} css={baseStyles} />
+  <ListItem {...args} suffix={SuffixBadge} css={baseStyles} />
 );
 WithCustomSuffix.args = {
   ...baseArgs,
 } as ListItemProps;
 
+const longLabel = 'Kraftfahrzeug-Haftpflichtversicherung';
+export const WithCustomLabel = (args: ListItemProps) => (
+  <>
+    <ListItem
+      {...args}
+      prefix={SumUpCard}
+      label={`Default truncated label: ${longLabel}`}
+      suffixLabel={SuffixLabel}
+      css={stylesWithMargin}
+    />
+    <ListItem
+      {...args}
+      prefix={SumUpCard}
+      label={
+        <Body size="one" noMargin>
+          Custom multiline label: {longLabel}
+        </Body>
+      }
+      suffixLabel={SuffixLabel}
+      css={baseStyles}
+    />
+  </>
+);
+WithCustomLabel.args = {
+  ...baseArgs,
+  variant: 'navigation',
+} as ListItemProps;
+
 export const Clickable = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} css={baseStyles} />
+  <ListItem {...args} css={baseStyles} />
 );
 Clickable.args = {
   ...baseArgs,
@@ -199,7 +218,7 @@ Clickable.args = {
 } as ListItemProps;
 
 export const AsLink = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} css={baseStyles} />
+  <ListItem {...args} css={baseStyles} />
 );
 AsLink.args = {
   ...baseArgs,
@@ -209,7 +228,7 @@ AsLink.args = {
 } as ListItemProps;
 
 export const Selected = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} css={baseStyles} />
+  <ListItem {...args} css={baseStyles} />
 );
 Selected.args = {
   ...baseArgs,
@@ -218,7 +237,7 @@ Selected.args = {
 } as ListItemProps;
 
 export const Disabled = (args: ListItemProps) => (
-  <ListItem {...args} label={Label} css={baseStyles} />
+  <ListItem {...args} css={baseStyles} />
 );
 Disabled.args = {
   ...baseArgs,
@@ -229,7 +248,6 @@ Disabled.args = {
 export const SampleConfiguration = (args: ListItemProps) => (
   <ListItem
     {...args}
-    label={Label}
     prefix={SumUpCard}
     details={Details}
     suffixLabel={SuffixLabel}

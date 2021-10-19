@@ -37,8 +37,9 @@ import { ClickEvent } from '../../types/events';
 import { AsPropType } from '../../types/prop-types';
 import { isFunction } from '../../util/type-check';
 import { warn } from '../../util/logger';
-import { useComponents } from '../ComponentsContext';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
+import { useComponents } from '../ComponentsContext';
+import Body from '../Body';
 
 type Variant = 'action' | 'navigation';
 
@@ -233,10 +234,20 @@ const mainContainerStyles = css`
 
 const MainContainer = styled.div(mainContainerStyles);
 
+const labelStyles = css`
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+
+const Label = styled(Body)(labelStyles);
+
 const detailsContainerStyles = ({ theme }: StyleProps) =>
   css`
     display: flex;
     align-items: center;
+    max-width: 100%;
     min-height: ${theme.typography.body.one.lineHeight};
   `;
 
@@ -370,7 +381,13 @@ export const ListItem = forwardRef(
         )}
         <ContentContainer>
           <MainContainer>
-            {label}
+            {typeof label === 'string' ? (
+              <Label size="one" noMargin>
+                {label}
+              </Label>
+            ) : (
+              label
+            )}
             {details && <DetailsContainer>{details}</DetailsContainer>}
           </MainContainer>
           {shouldRenderSuffixContainer && (
