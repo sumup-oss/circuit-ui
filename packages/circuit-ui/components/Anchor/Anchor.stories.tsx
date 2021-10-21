@@ -25,6 +25,7 @@ export default {
   argTypes: {
     href: { control: 'text' },
     children: { control: 'text' },
+    as: { control: 'text' },
   },
 };
 
