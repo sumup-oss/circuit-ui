@@ -27,6 +27,9 @@ export default {
   parameters: {
     docs: { page: docs },
   },
+  argTypes: {
+    as: { control: 'text' },
+  },
 };
 
 export const Base = (args: BodyProps) => (
