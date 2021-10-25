@@ -19,7 +19,6 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
 
 .circuit-0 {
   max-width: 420px;
-  margin: 0 40px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -440,7 +439,6 @@ exports[`NotificationFullscreen styles should render with default styles with h1
 
 .circuit-0 {
   max-width: 420px;
-  margin: 0 40px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

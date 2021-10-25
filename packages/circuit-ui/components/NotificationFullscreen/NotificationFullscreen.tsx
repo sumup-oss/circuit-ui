@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import { css } from '@emotion/react';
 
 import Body from '../Body';
@@ -43,7 +43,7 @@ export interface NotificationFullscreenProps
   /**
    * An optional body copy.
    */
-  body?: string;
+  body?: string | ReactNode;
   /**
    * An optional action prop to allow users to follow up on the content.
    */
@@ -52,7 +52,6 @@ export interface NotificationFullscreenProps
 
 const wrapperStyles = css`
   max-width: 420px;
-  margin: 0 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
