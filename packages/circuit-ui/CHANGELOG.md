@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.2.1
+
+### Patch Changes
+
+- [#1231](https://github.com/sumup-oss/circuit-ui/pull/1231) [`c9ec5169`](https://github.com/sumup-oss/circuit-ui/commit/c9ec5169a5b55b76bb001bb0bda48696372245c2) Thanks [@amelako](https://github.com/amelako)! - Updated the NotificationFullscreen `body` prop to accept a `ReactNode` and removed the external spacing.
+
 ## 4.2.0
 
 ### Minor Changes
