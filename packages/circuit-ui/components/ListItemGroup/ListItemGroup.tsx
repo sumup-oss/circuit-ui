@@ -19,7 +19,6 @@ import { some } from 'lodash/fp';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually } from '../../styles/style-mixins';
-import { uniqueId } from '../../util/id';
 import { warn } from '../../util/logger';
 import { ReturnType } from '../../types/return-type';
 import Body from '../Body';
@@ -98,10 +97,7 @@ const labelContainerStyles = ({ theme }: StyleProps) => css`
 `;
 
 const labelContainerHiddenStyles = ({ hideLabel }: HideLabelProps) =>
-  hideLabel &&
-  css`
-    ${hideVisually()};
-  `;
+  hideLabel && hideVisually();
 
 const LabelContainer = styled.div(
   labelContainerStyles,
@@ -145,20 +141,19 @@ const itemsContainerPlainStyles = ({
     border-radius: 0;
   `;
 
-const ItemsContainer = styled.div(
+const ItemsContainer = styled.ul(
   itemsContainerBaseStyles,
   itemsContainerPlainStyles,
 );
 
 type InteractiveProps = { isInteractive: boolean };
 
-type StyledListItemProps = ListItemProps & PlainProps & InteractiveProps;
+type StyledLiProps = Pick<ListItemProps, 'selected'> & InteractiveProps;
 
-const listItemStyles = ({ theme }: StyleProps) => css`
-  border: none;
-  border-radius: calc(${theme.borderRadius.mega} - ${theme.borderWidth.mega});
+const liStyles = ({ theme }: StyleProps) => css`
+  list-style: none;
 
-  &:not(:first-of-type) > div:last-of-type {
+  &:not(:first-of-type) > * > div:last-of-type {
     position: relative;
 
     &:before {
@@ -172,44 +167,39 @@ const listItemStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const listItemInteractiveStyles = ({ isInteractive }: StyledListItemProps) =>
+const liInteractiveStyles = ({ isInteractive }: StyledLiProps) =>
   isInteractive &&
   css`
     &:hover,
-    &:active,
-    &:focus {
+    &:focus-within {
       &,
-      & + * {
-        &:not(:first-of-type) > div:last-of-type:before {
+      & + li {
+        &:not(:first-of-type) > * > div:last-of-type:before {
           border-top-width: 0;
         }
       }
     }
   `;
 
-const listItemSelectedStyles = ({
-  theme,
-  selected,
-}: StyleProps & StyledListItemProps) =>
-  selected
-    ? css`
-        &,
-        & + * {
-          &:not(:first-of-type) > div:last-of-type:before {
-            border-top-width: 0;
-          }
-        }
-      `
-    : css`
-        &:not(:hover):not(:active) {
-          &:focus:not(:focus-visible),
-          &:focus:not(:focus-visible) + * {
-            &:not(:first-of-type) > div:last-of-type:before {
-              border-top-width: ${theme.borderWidth.kilo};
-            }
-          }
-        }
-      `;
+const liSelectedStyles = ({ selected }: StyledLiProps) =>
+  selected &&
+  css`
+    &,
+    & + li {
+      &:not(:first-of-type) > * > div:last-of-type:before {
+        border-top-width: 0;
+      }
+    }
+  `;
+
+const StyledLi = styled.li(liStyles, liInteractiveStyles, liSelectedStyles);
+
+type StyledListItemProps = ListItemProps & PlainProps;
+
+const listItemStyles = ({ theme }: StyleProps) => css`
+  border: none;
+  border-radius: calc(${theme.borderRadius.mega} - ${theme.borderWidth.mega});
+`;
 
 const listItemPlainStyles = ({
   theme,
@@ -227,12 +217,7 @@ const listItemPlainStyles = ({
     }
   `;
 
-const StyledListItem = styled(ListItem)(
-  listItemStyles,
-  listItemInteractiveStyles,
-  listItemSelectedStyles,
-  listItemPlainStyles,
-);
+const StyledListItem = styled(ListItem)(listItemStyles, listItemPlainStyles);
 
 /**
  * The ListItemGroup component enables the user to render a named list of ListItem components.
@@ -260,14 +245,13 @@ export const ListItemGroup = forwardRef(
       );
     }
 
-    const id = uniqueId('list-item-group_');
     const isPlain = variant === 'plain';
     const isInteractive = some((item) => !!item.href || !!item.onClick, items);
 
     return (
       <StyledListItemGroup {...props} ref={ref}>
         <HeaderContainer isPlain={isPlain}>
-          <LabelContainer hideLabel={hideLabel} id={id}>
+          <LabelContainer hideLabel={hideLabel}>
             {typeof label === 'string' ? (
               <Label as="h4" size="two" noMargin>
                 {label}
@@ -288,22 +272,19 @@ export const ListItemGroup = forwardRef(
             </DetailsContainer>
           )}
         </HeaderContainer>
-        <ItemsContainer
-          isPlain={isPlain}
-          role={isInteractive ? 'listbox' : 'list'}
-          aria-labelledby={id}
-        >
+        <ItemsContainer isPlain={isPlain}>
           {items.map(({ key, ...item }) => (
-            <StyledListItem
+            <StyledLi
               key={key}
-              {...item}
-              isPlain={isPlain}
               isInteractive={isInteractive}
-              role={isInteractive ? 'option' : 'listitem'}
-              aria-selected={
-                !isInteractive || item.disabled ? undefined : item.selected
-              }
-            />
+              selected={item.selected}
+            >
+              <StyledListItem
+                {...item}
+                isPlain={isPlain}
+                aria-pressed={item.selected}
+              />
+            </StyledLi>
           ))}
         </ItemsContainer>
       </StyledListItemGroup>
