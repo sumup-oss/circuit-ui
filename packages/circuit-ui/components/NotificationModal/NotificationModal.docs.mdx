@@ -1,0 +1,24 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+import { NotificationModal } from '@sumup/circuit-ui';
+
+# NotificationModal
+
+<Status.Stable />
+
+<Story id="notification-notificationmodal--base" />
+<Props />
+
+The notification modal component communicates critical information while blocking everything elsse on the page, and needs the user's attentior or action to proceed.
+
+## When to use it
+
+- As information that needs users immediate attention.
+- To request confirmation before performing a destructive action.
+
+## Usage guidelines
+
+- Notification modal always lives on an overlay.
+- Use a concise headline to communicate the message.
+- If needed, an optional body copy and image can be included.
+- The maximum width of the image is 232px, and default height set to 120px.
+- The positioning of the buttons within a button group follows the guidelines of the button group component.

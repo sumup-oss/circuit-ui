@@ -22,13 +22,14 @@ import Button from '../Button';
 // import docs from './Modal.docs.mdx';
 import { NotificationModal, NotificationModalProps } from './NotificationModal';
 import { useNotificationModal } from './useNotificationModal';
+import docs from './NotificationModal.docs.mdx';
 
 export default {
-  title: 'Components/NotificationModal',
+  title: 'Notification/NotificationModal',
+  parameters: {
+    docs: { page: docs },
+  },
   component: NotificationModal,
-  // parameters: {
-  //   docs: { page: docs },
-  // },
 };
 
 export const Base = (modal: NotificationModalProps): JSX.Element => {

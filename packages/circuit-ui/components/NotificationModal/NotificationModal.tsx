@@ -28,6 +28,7 @@ import { ButtonProps } from '../Button';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
 import styled, { StyleProps } from '../../styles/styled';
 import CloseButton from '../CloseButton';
+import { spacing } from '../../styles/style-mixins';
 
 const TRANSITION_DURATION = 200;
 
@@ -70,7 +71,7 @@ const closeButtonStyles = (theme: Theme) => css`
 
 const imageStyles = ({ theme }: StyleProps) => css`
   max-width: 232px;
-  height: 160px;
+  height: 120px;
   object-fit: cover;
   margin: 0 auto ${theme.spacings.mega};
 `;
@@ -132,12 +133,13 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
               -webkit-overflow-scrolling: touch;
             }
           `,
+
           afterOpen: cssString`
-            opacity: 1;
+           opacity: 1;
           `,
           beforeClose: cssString`
             opacity: 0;
-          `,
+        `,
         };
 
         const overlayStyles = {
@@ -192,7 +194,11 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
               />
             )}
             <ModalImage {...image} />
-            <Headline as="h2" size="three" noMargin>
+            <Headline
+              as="h3"
+              size="three"
+              css={spacing({ top: 'giga', bottom: 'byte' })}
+            >
               {headline}
             </Headline>
             <Body>{body}</Body>
@@ -208,6 +214,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
                     onClick: wrapOnClick(actions.secondary.onClick),
                   },
                 }}
+                css={spacing({ top: 'giga' })}
               />
             )}
           </ReactModal>
