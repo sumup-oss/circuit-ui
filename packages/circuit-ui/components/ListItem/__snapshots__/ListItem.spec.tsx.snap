@@ -2513,6 +2513,7 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
   border: 2px solid #3063E9;
   border-radius: 16px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .circuit-1 {

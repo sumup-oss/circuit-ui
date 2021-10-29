@@ -195,6 +195,7 @@ const selectedStyles = ({
       border: ${theme.borderWidth.mega} solid ${theme.colors.b500};
       border-radius: ${theme.borderRadius.mega};
       z-index: 1;
+      pointer-events: none;
     }
   `;
 

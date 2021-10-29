@@ -173,6 +173,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
   border: 2px solid #3063E9;
   border-radius: 16px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .circuit-9 {
@@ -542,6 +543,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
   border: 2px solid #3063E9;
   border-radius: 16px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .circuit-7 {
@@ -922,6 +924,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   border: 2px solid #3063E9;
   border-radius: 16px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .circuit-9 {
@@ -1304,6 +1307,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
   border: 2px solid #3063E9;
   border-radius: 16px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .circuit-7 {
@@ -1671,6 +1675,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   border: 2px solid #3063E9;
   border-radius: 16px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .circuit-6:after {
@@ -2042,6 +2047,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   border: 2px solid #3063E9;
   border-radius: 16px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .circuit-7 {
