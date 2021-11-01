@@ -55,7 +55,7 @@
     "@storybook/source-loader": "^6.3.7",
     "@sumup/foundry": "^4.0.0-canary",
     "@types/jest": "^27.0.1",
-    "audit-ci": "^4.0.0",
+    "audit-ci": "^5.1.2",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.1",
