@@ -79,7 +79,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^5.0.1",
     "fork-ts-checker-webpack-plugin": "^6.0.3",
-    "jest-axe": "^4.1.0",
+    "jest-axe": "^5.0.1",
     "react": "^17.0.1",
     "react-docgen": "^5.3.1",
     "react-docgen-annotation-resolver": "^2.0.0",
