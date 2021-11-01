@@ -15,7 +15,7 @@
 
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import { Confirm, Notify, Alert } from '@sumup/icons';
+import { Confirm, NotifyTriangle, Alert } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -75,7 +75,7 @@ const getIcon = (state: ValidationHintProps) => {
       return <Alert role="presentation" css={iconStyles('danger')} />;
     }
     case state.hasWarning: {
-      return <Notify role="presentation" css={iconStyles('warning')} />;
+      return <NotifyTriangle role="presentation" css={iconStyles('warning')} />;
     }
     case state.showValid: {
       return <Confirm role="presentation" css={iconStyles('success')} />;
