@@ -19,7 +19,6 @@ import { action } from '@storybook/addon-actions';
 import { ModalProvider } from '../ModalContext';
 import Button from '../Button';
 
-// import docs from './Modal.docs.mdx';
 import { NotificationModal, NotificationModalProps } from './NotificationModal';
 import { useNotificationModal } from './useNotificationModal';
 import docs from './NotificationModal.docs.mdx';
@@ -51,18 +50,18 @@ export const Base = (modal: NotificationModalProps): JSX.Element => {
 
 Base.args = {
   image: {
-    src: 'https://source.unsplash.com/TpHmEoVSmfQ/1600x900',
+    src: '/images/software_update.png',
     alt: '',
   },
-  headline: 'Example modal',
-  body: 'Hello World!',
+  headline: 'Software update',
+  body: 'There is updated firmware available for your card reader.',
   actions: {
     primary: {
-      children: 'Primary',
+      children: 'Update',
       onClick: action('primary'),
     },
     secondary: {
-      children: 'Secondary',
+      children: 'Not now',
       onClick: action('secondary'),
     },
   },

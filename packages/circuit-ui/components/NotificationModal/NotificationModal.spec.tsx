@@ -53,21 +53,23 @@ describe('NotificationModal', () => {
     });
 
     it('should render the modal', async () => {
-      const { getByRole } = renderNotificationModal(baseNotificationModal);
+      const { findByRole } = renderNotificationModal(baseNotificationModal);
+
+      const modalEl = await findByRole('dialog');
 
       await waitFor(() => {
-        expect(getByRole('dialog')).toBeVisible();
+        expect(modalEl).toBeVisible();
       });
     });
   });
 
   describe('business logic', () => {
-    it('should call the onClose callback', () => {
-      const { getByRole } = renderNotificationModal(baseNotificationModal);
+    it('should call the onClose callback', async () => {
+      const { findByRole } = renderNotificationModal(baseNotificationModal);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: /Close Modal/i }));
-      });
+      const closeButton = await findByRole('button', { name: /Close Modal/i });
+
+      userEvent.click(closeButton);
 
       expect(baseNotificationModal.onClose).toHaveBeenCalled();
     });
@@ -82,12 +84,12 @@ describe('NotificationModal', () => {
       expect(baseNotificationModal.onClose).toHaveBeenCalled();
     });
 
-    it('should perform action by clicking the action button and close the modal', () => {
-      const { getByRole } = renderNotificationModal(baseNotificationModal);
+    it('should perform action by clicking the action button and close the modal', async () => {
+      const { findByRole } = renderNotificationModal(baseNotificationModal);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: /Primary/i }));
-      });
+      const actionButton = await findByRole('button', { name: /Primary/i });
+
+      userEvent.click(actionButton);
 
       expect(baseNotificationModal.actions.primary.onClick).toHaveBeenCalled();
       expect(baseNotificationModal.onClose).toHaveBeenCalled();

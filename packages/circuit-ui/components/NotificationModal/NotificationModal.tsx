@@ -72,7 +72,7 @@ const closeButtonStyles = (theme: Theme) => css`
 const imageStyles = ({ theme }: StyleProps) => css`
   max-width: 232px;
   height: 120px;
-  object-fit: cover;
+  object-fit: contain;
   margin: 0 auto ${theme.spacings.mega};
 `;
 
@@ -195,13 +195,14 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
             )}
             <ModalImage {...image} />
             <Headline
-              as="h3"
+              as="h2"
               size="three"
               css={spacing({ top: 'giga', bottom: 'byte' })}
+              noMargin
             >
               {headline}
             </Headline>
-            <Body>{body}</Body>
+            <Body noMargin>{body}</Body>
             {actions && (
               <ButtonGroup
                 actions={{
