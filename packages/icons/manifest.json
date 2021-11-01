@@ -231,11 +231,6 @@
       "size": "24"
     },
     {
-      "name": "apm",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
       "name": "apple_pay",
       "category": "Payment method",
       "size": "24"
@@ -354,6 +349,71 @@
       "name": "vpay",
       "category": "Payment method",
       "size": "24"
+    },
+    {
+      "name": "american_express",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "diners_club",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "discover",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "elo",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "elv",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "hipercard",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "jcb",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "maestro",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "mastercard",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "union_pay",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "visa",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "visa_electron",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "vpay",
+      "category": "Card scheme",
+      "size": "32"
     },
     {
       "name": "flag_ar",
@@ -616,6 +676,11 @@
       "size": "24"
     },
     {
+      "name": "apm",
+      "category": "Finance",
+      "size": "32"
+    },
+    {
       "name": "atm",
       "category": "Finance",
       "size": "24"
@@ -629,6 +694,11 @@
       "name": "card_unknown",
       "category": "Finance",
       "size": "24"
+    },
+    {
+      "name": "card_unknown",
+      "category": "Finance",
+      "size": "32"
     },
     {
       "name": "cash",

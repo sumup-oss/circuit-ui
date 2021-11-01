@@ -29,6 +29,7 @@ const DIST_DIR = path.join(BASE_DIR, 'dist');
 enum IconSize {
   SIZE_16 = '16',
   SIZE_24 = '24',
+  SIZE_32 = '32',
 }
 
 type Icon = {
@@ -114,9 +115,9 @@ function buildDeclarationFile(components: Component[]): string {
 
     export interface IconProps extends React.SVGProps<SVGSVGElement> {
       /**
-       * Choose between the 16 or 24 pixels size. Defaults to \`24\`.
+       * Choose between the 16, 24 or 32 pixels size. Defaults to \`24\`.
        */
-      size?: '16' | '24';
+      size?: '16' | '24' | '32';
     }
 
     ${declarationStatements.join('\n')}

@@ -71,14 +71,15 @@ const Size = styled.p`
 `;
 
 const IconWrapper = styled.div`
-  height: 48px; /* 2 * 24px icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px; /* 2 * 32px icon */
 `;
 
-const iconStyles = (color, size) => (theme) => css`
-  height: ${size * 2}px;
-  width: auto;
-  max-width: 6rem;
-  margin: ${size === '16' ? theme.spacings.byte : '0'}; /* Center 16px icons */
+const iconStyles = (color) => (theme) => css`
+  transform: scale(2);
+  max-width: 3rem;
   color: ${theme.colors[color]};
   background-color: ${color === 'white'
     ? theme.colors.black
@@ -106,6 +107,7 @@ const Icons = () => {
     { label: 'All sizes', value: 'all' },
     { label: '16', value: '16' },
     { label: '24', value: '24' },
+    { label: '32', value: '32' },
   ];
 
   const colorOptions = [
@@ -167,7 +169,7 @@ const Icons = () => {
                       <Icon
                         id={id}
                         size={icon.size}
-                        css={iconStyles(color, icon.size)}
+                        css={iconStyles(color)}
                       />
                     </IconWrapper>
                     <Label htmlFor="id">
