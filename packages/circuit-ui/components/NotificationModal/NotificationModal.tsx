@@ -202,7 +202,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
             >
               {headline}
             </Headline>
-            <Body noMargin>{body}</Body>
+            {body && <Body noMargin>{body}</Body>}
             {actions && (
               <ButtonGroup
                 actions={{
