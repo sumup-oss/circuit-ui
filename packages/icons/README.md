@@ -37,7 +37,7 @@ const SuccessMessage = ({ description }) => (
 );
 ```
 
-Some icons have multiple sizes. They default to size 24. Use the `size` prop to show one of the other sizes (16 or 32) instead:
+Some icons have multiple sizes. They default to size '24', if supported, or to the smallest available size. Use the `size` prop to show one of the other sizes ('16' or '32') instead:
 
 ```jsx
 import { CircleCheckmark } from '@sumup/icons';

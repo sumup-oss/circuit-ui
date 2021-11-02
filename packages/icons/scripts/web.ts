@@ -64,23 +64,12 @@ function buildComponentFile(component: Component): string {
     name: getComponentName(`${icon.name}-${icon.size}`),
   }));
 
-  if (icons.length === 1) {
-    const icon = icons[0];
-    return dedent`
-      import React from 'react';
-
-      import { ReactComponent as ${icon.name} } from '${icon.filePath}';
-
-      export const ${component.name} = ({ size, ...props }) => (
-        <${icon.name} {...props} />
-      );
-    `;
-  }
-
   const iconImports = icons.map(
     (icon) =>
       `import { ReactComponent as ${icon.name} } from '${icon.filePath}';`,
   );
+  const sizes = icons.map((icon) => parseInt(icon.size));
+  const defaultSize = sizes.includes(24) ? '24' : Math.min(...sizes).toString();
   const sizeMap = icons.map((icon) => `${icon.size}: ${icon.name},`);
   return dedent`
     import React from 'react';
@@ -90,7 +79,7 @@ function buildComponentFile(component: Component): string {
       ${sizeMap.join('\n')}
     }
 
-    export const ${component.name} = ({ size = '24', ...props }) => {
+    export const ${component.name} = ({ size = '${defaultSize}', ...props }) => {
       const Icon = sizeMap[size];
       return <Icon {...props} />;
     };
@@ -105,19 +94,21 @@ function buildIndexFile(components: Component[]): string {
 
 function buildDeclarationFile(components: Component[]): string {
   const declarationStatements = components.map((component) => {
-    const hasMultipleSizes = component.icons.length === 1;
-    const PropType = hasMultipleSizes ? 'SVGProps<SVGSVGElement>' : 'IconProps';
-    return `declare const ${component.name}: FC<${PropType}>;`;
+    const sizes = component.icons
+      .map(({ size }) => `'${size}'`)
+      .sort();
+    const SizesType = sizes.join(' | ');
+    return `declare const ${component.name}: FC<IconProps<${SizesType}>>;`;
   });
   const exportNames = components.map((file) => file.name);
   return dedent`
     import { FC, SVGProps } from 'react';
 
-    export interface IconProps extends React.SVGProps<SVGSVGElement> {
+    export interface IconProps<Sizes = '16' | '24' | '32'> extends React.SVGProps<SVGSVGElement> {
       /**
-       * Choose between the 16, 24 or 32 pixels size. Defaults to \`24\`.
+       * Choose between the one of the available sizes. Defaults to '24', if supported, or to the smallest available size.
        */
-      size?: '16' | '24' | '32';
+      size?: Sizes;
     }
 
     ${declarationStatements.join('\n')}
