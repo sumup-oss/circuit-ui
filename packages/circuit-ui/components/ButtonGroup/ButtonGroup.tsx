@@ -23,13 +23,10 @@ type Action = Omit<ButtonProps, 'variant'>;
 
 export interface ButtonGroupProps {
   /**
-   * Buttons to group.
-   */
-  /**
    * @deprecated Use the `actions` prop instead.
    */
   children?:
-    | (ReactElement<ButtonProps> | undefined)[]
+    | (ReactElement<ButtonProps> | null | undefined)[]
     | ReactElement<ButtonProps>;
   /**
    * Direction to align the content. Either left/right
