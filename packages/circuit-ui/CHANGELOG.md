@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.3.0
+
+### Minor Changes
+
+- [#994](https://github.com/sumup-oss/circuit-ui/pull/994) [`0b7b3226`](https://github.com/sumup-oss/circuit-ui/commit/0b7b322667f41d6db2a2da21b3871b05a20661d9) Thanks [@amelako](https://github.com/connor-baer)! - Added a new `NotificationModal` component that communicates critical information, and needs the user's attention or action to proceed.
+
 ## 4.2.1
 
 ### Patch Changes
