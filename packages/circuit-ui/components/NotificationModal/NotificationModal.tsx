@@ -52,9 +52,9 @@ type PreventCloseProps =
 
 export type NotificationModalProps = BaseModalProps &
   PreventCloseProps & {
-    image: ImageProps;
+    image?: ImageProps;
     headline: string;
-    body: string | ReactNode;
+    body?: string | ReactNode;
     actions: ButtonGroupProps['actions'];
   };
 
@@ -193,7 +193,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
                 css={closeButtonStyles}
               />
             )}
-            <ModalImage {...image} />
+            {image && <ModalImage {...image} />}
             <Headline
               as="h2"
               size="three"
