@@ -693,12 +693,12 @@
     {
       "name": "card_unknown",
       "category": "Finance",
-      "size": "24"
+      "size": "32"
     },
     {
       "name": "card_unknown",
       "category": "Finance",
-      "size": "32"
+      "size": "24"
     },
     {
       "name": "cash",
