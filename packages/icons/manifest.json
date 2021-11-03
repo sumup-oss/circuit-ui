@@ -991,6 +991,11 @@
       "size": "24"
     },
     {
+      "name": "pix",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "qr_code",
       "category": "Product and feature",
       "size": "24"
