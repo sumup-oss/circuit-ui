@@ -178,11 +178,11 @@ const selectedStyles = ({
 }: StyleProps & StyledListItemProps) =>
   selected &&
   css`
-    background-color: ${theme.colors.b100};
+    background-color: ${theme.colors.p100};
 
     &:hover,
     &:active {
-      background-color: ${theme.colors.b100};
+      background-color: ${theme.colors.p100};
     }
 
     &:after {
@@ -192,7 +192,7 @@ const selectedStyles = ({
       bottom: -${theme.borderWidth.mega};
       left: -${theme.borderWidth.mega};
       right: -${theme.borderWidth.mega};
-      border: ${theme.borderWidth.mega} solid ${theme.colors.b500};
+      border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
       border-radius: ${theme.borderRadius.mega};
       z-index: 1;
       pointer-events: none;
