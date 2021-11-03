@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [#1182](https://github.com/sumup-oss/circuit-ui/pull/1182) [`8ad10a93`](https://github.com/sumup-oss/circuit-ui/commit/8ad10a93d6abe70e438e9f15eeece3405c0cb520) Thanks [@hris27](https://github.com/hris27)! - Added new ListItem and ListItemGroup components. ListItemGroup replaces the CardList component.
+- [#1182](https://github.com/sumup-oss/circuit-ui/pull/1182) [`8ad10a93`](https://github.com/sumup-oss/circuit-ui/commit/8ad10a93d6abe70e438e9f15eeece3405c0cb520) Thanks [@hris27](https://github.com/hris27)! - Added new `ListItem` and `ListItemGroup` components. The `ListItemGroup` replaces the `CardList` component.
 
 ## 4.3.0
 
