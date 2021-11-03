@@ -68,9 +68,13 @@ function buildComponentFile(component: Component): string {
     (icon) =>
       `import { ReactComponent as ${icon.name} } from '${icon.filePath}';`,
   );
-  const sizes = icons.map((icon) => parseInt(icon.size));
+  const sizes = icons.map((icon) => parseInt(icon.size)).sort();
   const defaultSize = sizes.includes(24) ? '24' : Math.min(...sizes).toString();
-  const sizeMap = icons.map((icon) => `${icon.size}: ${icon.name},`);
+  const sizeMap = icons.map((icon) => `'${icon.size}': ${icon.name},`);
+  const invalidSizeError = `The '\${size}' size is not supported by the '${
+    component.name
+  }' icon. Please use one of the available sizes: '${sizes.join("', '")}'.`;
+
   return dedent`
     import React from 'react';
     ${iconImports.join('\n')}
@@ -80,7 +84,16 @@ function buildComponentFile(component: Component): string {
     }
 
     export const ${component.name} = ({ size = '${defaultSize}', ...props }) => {
-      const Icon = sizeMap[size];
+      const Icon = sizeMap[size] || sizeMap['${defaultSize}'];
+
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        process.env.NODE_ENV !== 'test' &&
+        !sizeMap[size]
+      ) {
+        throw new Error(\`${invalidSizeError}\`);
+      }
+
       return <Icon {...props} />;
     };
   `;
