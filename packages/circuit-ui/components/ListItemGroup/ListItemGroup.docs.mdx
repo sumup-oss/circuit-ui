@@ -1,0 +1,42 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+
+## ListItemGroup
+
+<Status.Stable />
+
+The ListItemGroup component is used to render a list of contextually similar items.
+It applies additional styling to the ListItem elements and provides accessibility features out of the box.
+
+<Story id="components-listitem-listitemgroup--base" />
+<Props />
+
+## Usage guidelines
+
+- **Do** use ListItemGroup to display a group of contextually similar ListItems.
+- **Do** always accompany a ListItemGroup with a label in order to ensure it is accessible.
+
+## Content guidelines
+
+- **Do** use the default `label` and `details` styles by passing strings instead of custom components.
+- **Do** use size `two` Body for the group `label`, rendering it as a heading for accessibility (e.g. `as="h4"`), when using a custom component if applicable.
+- **Do** use size `two` Body for the group `details` when using a custom component if applicable.
+
+### Variants
+
+The ListItemGroup component offers a `plain` variant, which can be used for full-width lists on mobile resolutions or in containers with limited horizontal space, such as the side panel.
+
+<Story id="components-listitem-listitemgroup--plain-variant" />
+
+### Elements
+
+The ListItemGroup should always have a `label` in order to be accessible. If necessary the label can be visually hidden through the `hideLabel` prop.
+
+<Story id="components-listitem-listitemgroup--with-hidden-label" />
+
+Additional information can be given in the `details` section of the group header.
+
+<Story id="components-listitem-listitemgroup--with-label-and-details" />
+
+### Sample configuration
+
+<Story id="components-listitem-listitemgroup--sample-configuration" />

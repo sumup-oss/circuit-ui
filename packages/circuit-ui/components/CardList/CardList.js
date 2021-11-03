@@ -13,23 +13,39 @@
  * limitations under the License.
  */
 
+import { forwardRef } from 'react';
 import styled from '@emotion/styled';
 
+import { deprecate } from '../../util/logger';
 import Card from '../Card';
 
-/**
- * Component that wraps a list of CardList.Item components
- */
 const Wrapper = styled(Card)`
   padding: 0;
   border-radius: ${(p) => p.theme.borderRadius.bit};
   border: ${(p) => `${p.theme.borderWidth.kilo} solid ${p.theme.colors.n300}`};
 `;
 
-Wrapper.defaultProps = Card.defaultProps;
-Wrapper.displayName = 'CardList';
+/**
+ * Component that wraps a list of CardList.Item components
+ */
+const CardList = forwardRef((props, ref) => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    deprecate(
+      'CardList',
+      'This component has been deprecated and will be removed in version 5.0.0',
+    );
+  }
+
+  return <Wrapper {...props} ref={ref} />;
+});
+
+CardList.defaultProps = Card.defaultProps;
+CardList.displayName = 'CardList';
 
 /**
  * @component
  */
-export default Wrapper;
+export default CardList;

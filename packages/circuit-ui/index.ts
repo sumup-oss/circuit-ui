@@ -149,6 +149,10 @@ export { useModal } from './components/Modal';
 export type { ModalProps } from './components/Modal';
 export { useNotificationModal } from './components/NotificationModal';
 export type { NotificationModalProps } from './components/NotificationModal';
+export { default as ListItem } from './components/ListItem';
+export type { ListItemProps } from './components/ListItem';
+export { default as ListItemGroup } from './components/ListItemGroup';
+export type { ListItemGroupProps } from './components/ListItemGroup';
 
 export { default as Table } from './components/Table';
 export type {
