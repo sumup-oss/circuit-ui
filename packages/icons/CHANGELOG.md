@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.0.1
+
+### Patch Changes
+
+- [#1247](https://github.com/sumup-oss/circuit-ui/pull/1247) [`ac46a6ec`](https://github.com/sumup-oss/circuit-ui/commit/ac46a6ec2accdd03be382342f355b75199792418) Thanks [@connor-baer](https://github.com/connor-baer)! - Added missing flag icons to the manifest (AR, AU, CA, CO, HR, PE, RO, and SL).
+
 ## 2.0.0
 
 ### Major Changes
