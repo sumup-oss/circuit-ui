@@ -15,7 +15,7 @@
 
 import { FC, ReactNode } from 'react';
 import { css } from '@emotion/react';
-import { Confirm, Alert, NotifyTriangle, IconProps } from '@sumup/icons';
+import { Confirm, Alert, Notify, IconProps } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import { ClickEvent } from '../../types/events';
@@ -57,7 +57,7 @@ const colorMap = {
 const iconMap = {
   success: Confirm,
   error: Alert,
-  warning: NotifyTriangle,
+  warning: Notify,
 } as const;
 
 const iconStyles = (variant: Variant) => (theme: Theme) =>

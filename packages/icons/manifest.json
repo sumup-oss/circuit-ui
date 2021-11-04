@@ -901,12 +901,12 @@
       "size": "16"
     },
     {
-      "name": "notify_triangle",
+      "name": "notify_circle",
       "category": "Notification",
       "size": "24"
     },
     {
-      "name": "notify_triangle",
+      "name": "notify_circle",
       "category": "Notification",
       "size": "16"
     },
