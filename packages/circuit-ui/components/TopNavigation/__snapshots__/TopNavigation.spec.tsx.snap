@@ -66,7 +66,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 .circuit-3 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -399,7 +399,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
 }
 
@@ -504,7 +504,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   font-weight: 700;
 }
@@ -513,7 +513,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
 }
 

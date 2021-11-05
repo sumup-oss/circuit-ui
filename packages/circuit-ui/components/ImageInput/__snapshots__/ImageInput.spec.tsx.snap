@@ -66,7 +66,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
 
 .circuit-2 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   cursor: pointer;
 }
@@ -146,7 +146,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
 
 .circuit-4 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -429,7 +429,7 @@ exports[`ImageInput styles should render with an existing image 1`] = `
 
 .circuit-2 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   cursor: pointer;
 }
@@ -520,7 +520,7 @@ exports[`ImageInput styles should render with an existing image 1`] = `
 
 .circuit-5 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -803,7 +803,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
 
 .circuit-2 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   cursor: pointer;
 }
@@ -894,7 +894,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
 
 .circuit-5 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1174,7 +1174,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 
 .circuit-2 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   cursor: pointer;
 }
@@ -1273,7 +1273,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 
 .circuit-5 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1413,7 +1413,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 
 .circuit-12 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   margin-top: 4px;
   color: #666;

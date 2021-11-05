@@ -92,7 +92,7 @@ HTMLCollection [
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -337,7 +337,7 @@ HTMLCollection [
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

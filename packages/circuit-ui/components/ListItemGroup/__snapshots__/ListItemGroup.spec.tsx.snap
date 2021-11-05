@@ -42,7 +42,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -62,7 +62,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
 }
 
@@ -213,7 +213,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -432,7 +432,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
 }
 
@@ -583,7 +583,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -793,7 +793,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -813,7 +813,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
 }
 
@@ -964,7 +964,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1192,7 +1192,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1347,7 +1347,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1558,7 +1558,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1722,7 +1722,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1932,7 +1932,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -2087,7 +2087,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;

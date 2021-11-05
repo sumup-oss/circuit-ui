@@ -18,7 +18,7 @@ tbody .circuit-1:last-child td {
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   color: #666;
   font-weight: 700;
   padding: 8px 24px;
@@ -128,7 +128,7 @@ tbody .circuit-1:last-child td {
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   color: #666;
   font-weight: 700;
   padding: 8px 24px;
@@ -221,7 +221,7 @@ tbody .circuit-1:last-child td {
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   color: #666;
   font-weight: 700;
   padding: 8px 24px;
@@ -344,7 +344,7 @@ tbody .circuit-1:last-child td {
   overflow-wrap: break-word;
   display: none;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   font-weight: 700;
   padding: 8px 24px;
   white-space: nowrap;
@@ -367,7 +367,7 @@ tbody .circuit-1:last-child td {
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   color: #666;
   font-weight: 700;
   padding: 8px 24px;

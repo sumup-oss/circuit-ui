@@ -170,7 +170,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   font-weight: 700;
 }
@@ -178,7 +178,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 @media (max-width: 959px) {
   .circuit-6 {
     font-size: 24px;
-    line-height: 28px;
+    line-height: 24px;
   }
 }
 
@@ -211,8 +211,9 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
+  letter-spacing: -0.03em;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 18px;
   margin-bottom: 0;
 }
 
@@ -226,7 +227,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 14px;
   margin-bottom: 12px;
   color: #000;
   margin-bottom: 0;
@@ -307,7 +308,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
 }
 
@@ -601,14 +602,14 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
 }
 
 @media (max-width: 959px) {
   .circuit-6 {
     font-size: 24px;
-    line-height: 28px;
+    line-height: 24px;
   }
 }
 

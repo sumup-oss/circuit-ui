@@ -3,7 +3,7 @@
 exports[`RadioButtonGroup should render with default styles 1`] = `
 .circuit-0 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 4px;
 }
 

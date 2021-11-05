@@ -64,33 +64,33 @@ export const typography = {
   headline: {
     one: {
       fontSize: '32px',
-      lineHeight: '36px',
+      lineHeight: '32px',
     },
     two: {
       fontSize: '24px',
-      lineHeight: '28px',
+      lineHeight: '24px',
     },
     three: {
       fontSize: '20px',
-      lineHeight: '24px',
+      lineHeight: '20px',
     },
     four: {
       fontSize: '18px',
-      lineHeight: '24px',
+      lineHeight: '18px',
     },
   },
   subHeadline: {
     fontSize: '14px',
-    lineHeight: '20px',
+    lineHeight: '14px',
   },
   body: {
     one: {
       fontSize: '16px',
-      lineHeight: '24px',
+      lineHeight: '20px',
     },
     two: {
       fontSize: '14px',
-      lineHeight: '20px',
+      lineHeight: '18px',
     },
   },
 };

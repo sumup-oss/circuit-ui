@@ -43,6 +43,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.bold};
   margin-bottom: ${theme.spacings.giga};
   color: ${theme.colors.black};
+  letter-spacing: -0.03em;
 `;
 
 const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => {

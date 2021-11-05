@@ -88,7 +88,7 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
 }
 

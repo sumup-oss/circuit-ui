@@ -5,7 +5,7 @@ exports[`SubHeadline should render as h2 element 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 14px;
   margin-bottom: 12px;
   color: #000;
 }
@@ -22,7 +22,7 @@ exports[`SubHeadline should render as h3 element 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 14px;
   margin-bottom: 12px;
   color: #000;
 }
@@ -39,7 +39,7 @@ exports[`SubHeadline should render as h4 element 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 14px;
   margin-bottom: 12px;
   color: #000;
 }
@@ -56,7 +56,7 @@ exports[`SubHeadline should render as h5 element 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 14px;
   margin-bottom: 12px;
   color: #000;
 }
@@ -73,7 +73,7 @@ exports[`SubHeadline should render as h6 element 1`] = `
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 14px;
   margin-bottom: 12px;
   color: #000;
 }
@@ -90,7 +90,7 @@ exports[`SubHeadline should render with no margin styles when passed the noMargi
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 14px;
   margin-bottom: 12px;
   color: #000;
   margin-bottom: 0;

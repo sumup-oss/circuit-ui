@@ -47,7 +47,7 @@ exports[`Tabs styles should render with default styles 1`] = `
 
 .circuit-4 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   padding: 12px 32px;
   color: #666;
   -webkit-text-decoration: none;
@@ -99,7 +99,7 @@ exports[`Tabs styles should render with default styles 1`] = `
 
 .circuit-6 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   padding: 12px 32px;
   color: #666;
   -webkit-text-decoration: none;
@@ -246,7 +246,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 
 .circuit-4 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   padding: 12px 32px;
   color: #666;
   -webkit-text-decoration: none;
@@ -298,7 +298,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 
 .circuit-6 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   padding: 12px 32px;
   color: #666;
   -webkit-text-decoration: none;
