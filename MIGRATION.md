@@ -211,7 +211,7 @@ Circuit v4 ships with the [new brand icons](https://circuit.sumup.com/?path=/sto
 
 #### Migrating to `@sumup/icons` v2
 
-Most of the changes can be automated using the 🤖 _component-names-v3_ codemod.
+Most of the changes can be automated using the 🤖 _icons-v2_ codemod.
 
 The codemod will print warnings and errors to your console when a manual migration is required:
 
