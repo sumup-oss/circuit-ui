@@ -189,8 +189,8 @@ describe('Style helpers', () => {
   describe('typography', () => {
     type Size = keyof Theme['typography']['body'];
     const snapshots: { size: Size; snapshot: string }[] = [
-      { size: 'one', snapshot: '"font-size:16px;line-height:24px;"' },
-      { size: 'two', snapshot: '"font-size:14px;line-height:20px;"' },
+      { size: 'one', snapshot: '"font-size:16px;line-height:20px;"' },
+      { size: 'two', snapshot: '"font-size:14px;line-height:18px;"' },
     ];
     it.each(snapshots)(
       'should match the snapshot for size %#',

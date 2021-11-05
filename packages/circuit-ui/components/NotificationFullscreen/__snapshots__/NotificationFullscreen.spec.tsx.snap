@@ -46,8 +46,9 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
+  letter-spacing: -0.03em;
   font-size: 24px;
-  line-height: 28px;
+  line-height: 24px;
   margin-top: 24px;
   margin-bottom: 8px;
 }
@@ -56,7 +57,7 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   text-align: center;
 }
@@ -91,7 +92,7 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
 
 .circuit-5 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -210,7 +211,7 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
 
 .circuit-9 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -274,7 +275,7 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
 
 .circuit-13 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -466,8 +467,9 @@ exports[`NotificationFullscreen styles should render with default styles with h1
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
+  letter-spacing: -0.03em;
   font-size: 24px;
-  line-height: 28px;
+  line-height: 24px;
   margin-top: 24px;
   margin-bottom: 8px;
 }
@@ -476,7 +478,7 @@ exports[`NotificationFullscreen styles should render with default styles with h1
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   text-align: center;
 }
@@ -511,7 +513,7 @@ exports[`NotificationFullscreen styles should render with default styles with h1
 
 .circuit-5 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -630,7 +632,7 @@ exports[`NotificationFullscreen styles should render with default styles with h1
 
 .circuit-9 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -694,7 +696,7 @@ exports[`NotificationFullscreen styles should render with default styles with h1
 
 .circuit-13 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

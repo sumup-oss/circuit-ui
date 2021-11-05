@@ -35,7 +35,7 @@ exports[`Button should render with loading styles 1`] = `
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -195,7 +195,7 @@ exports[`Button styles should render a button with icon 1`] = `
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -363,7 +363,7 @@ exports[`Button styles should render a disabled button 1`] = `
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -511,7 +511,7 @@ exports[`Button styles should render a giga button 1`] = `
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -658,7 +658,7 @@ exports[`Button styles should render a kilo button 1`] = `
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -805,7 +805,7 @@ exports[`Button styles should render a primary button by default 1`] = `
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -952,7 +952,7 @@ exports[`Button styles should render a secondary button 1`] = `
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1099,7 +1099,7 @@ exports[`Button styles should render a stretched button 1`] = `
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1247,7 +1247,7 @@ exports[`Button styles should render a tertiary button 1`] = `
 
 .circuit-0 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

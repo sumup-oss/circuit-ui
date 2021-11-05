@@ -113,7 +113,7 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   font-weight: 700;
 }
@@ -284,7 +284,7 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   font-weight: 700;
 }

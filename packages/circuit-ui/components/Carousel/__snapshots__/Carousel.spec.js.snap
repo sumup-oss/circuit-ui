@@ -226,7 +226,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   font-weight: 700;
   margin-bottom: 0;
   -webkit-flex: none;
@@ -238,7 +238,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
 @media (max-width: 479px) {
   .circuit-41 {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 18px;
   }
 }
 
@@ -305,7 +305,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
 
 .circuit-45 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-left: 8px;
 }
 
@@ -333,7 +333,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
 
 .circuit-49 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -892,7 +892,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   font-weight: 700;
   margin-bottom: 0;
   -webkit-flex: none;
@@ -904,7 +904,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
 @media (max-width: 479px) {
   .circuit-41 {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 18px;
   }
 }
 
@@ -971,7 +971,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
 
 .circuit-45 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-left: 8px;
 }
 
@@ -999,7 +999,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
 
 .circuit-49 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1557,7 +1557,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   font-weight: 700;
   margin-bottom: 0;
   -webkit-flex: none;
@@ -1569,7 +1569,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 @media (max-width: 479px) {
   .circuit-41 {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 18px;
   }
 }
 
@@ -1636,7 +1636,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 
 .circuit-45 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-left: 8px;
 }
 
@@ -1664,7 +1664,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 
 .circuit-49 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -2193,7 +2193,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   font-weight: 700;
   margin-bottom: 0;
   -webkit-flex: none;
@@ -2205,7 +2205,7 @@ exports[`Carousel styles should render with default styles 1`] = `
 @media (max-width: 479px) {
   .circuit-41 {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 18px;
   }
 }
 
@@ -2272,7 +2272,7 @@ exports[`Carousel styles should render with default styles 1`] = `
 
 .circuit-45 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-left: 8px;
 }
 
@@ -2300,7 +2300,7 @@ exports[`Carousel styles should render with default styles 1`] = `
 
 .circuit-49 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

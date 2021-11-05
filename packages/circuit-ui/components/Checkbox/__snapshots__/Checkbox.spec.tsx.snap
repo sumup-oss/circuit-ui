@@ -108,7 +108,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 
 .circuit-3 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: inline-block;
   width: auto;
   max-width: 280px;

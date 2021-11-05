@@ -180,34 +180,34 @@ Object {
     "body": Object {
       "one": Object {
         "fontSize": "16px",
-        "lineHeight": "24px",
+        "lineHeight": "20px",
       },
       "two": Object {
         "fontSize": "14px",
-        "lineHeight": "20px",
+        "lineHeight": "18px",
       },
     },
     "headline": Object {
       "four": Object {
         "fontSize": "18px",
-        "lineHeight": "24px",
+        "lineHeight": "18px",
       },
       "one": Object {
         "fontSize": "32px",
-        "lineHeight": "36px",
+        "lineHeight": "32px",
       },
       "three": Object {
         "fontSize": "20px",
-        "lineHeight": "24px",
+        "lineHeight": "20px",
       },
       "two": Object {
         "fontSize": "24px",
-        "lineHeight": "28px",
+        "lineHeight": "24px",
       },
     },
     "subHeadline": Object {
       "fontSize": "14px",
-      "lineHeight": "20px",
+      "lineHeight": "14px",
     },
   },
   "zIndex": Object {

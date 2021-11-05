@@ -3,7 +3,7 @@
 exports[`Select should not render with invalid styles when also passed the disabled prop 1`] = `
 .circuit-0 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   opacity: 0.5;
   pointer-events: none;
@@ -24,7 +24,7 @@ label+.circuit-2 {
 
 .circuit-3 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -168,7 +168,7 @@ select:not(:active)~.circuit-5 {
 exports[`Select should render with a prefix when passed the prefix prop 1`] = `
 .circuit-0 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   margin-bottom: 16px;
 }
@@ -196,7 +196,7 @@ label+.circuit-2 {
 
 .circuit-4 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -354,7 +354,7 @@ select:not(:active)~.circuit-6 {
 exports[`Select should render with a tooltip when passed a validation hint 1`] = `
 .circuit-0 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   margin-bottom: 16px;
 }
@@ -372,7 +372,7 @@ label+.circuit-2 {
 
 .circuit-3 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -457,7 +457,7 @@ select:not(:active)~.circuit-5 {
 
 .circuit-6 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   margin-top: 4px;
   color: #666;
@@ -540,7 +540,7 @@ select:not(:active)~.circuit-5 {
 exports[`Select should render with a visually-hidden label 1`] = `
 .circuit-0 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   margin-bottom: 16px;
 }
@@ -565,7 +565,7 @@ exports[`Select should render with a visually-hidden label 1`] = `
 
 .circuit-3 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -718,7 +718,7 @@ select:not(:active)~.circuit-5 {
 exports[`Select should render with default styles 1`] = `
 .circuit-0 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   margin-bottom: 16px;
 }
@@ -736,7 +736,7 @@ label+.circuit-2 {
 
 .circuit-3 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -889,7 +889,7 @@ select:not(:active)~.circuit-5 {
 exports[`Select should render with disabled styles when passed the disabled prop 1`] = `
 .circuit-0 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   opacity: 0.5;
   pointer-events: none;
@@ -910,7 +910,7 @@ label+.circuit-2 {
 
 .circuit-3 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -1053,7 +1053,7 @@ select:not(:active)~.circuit-5 {
 exports[`Select should render with inline styles when passed the inline prop 1`] = `
 .circuit-0 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   display: inline-block;
   margin-right: 16px;
@@ -1074,7 +1074,7 @@ label+.circuit-2 {
 
 .circuit-3 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -1227,7 +1227,7 @@ select:not(:active)~.circuit-5 {
 exports[`Select should render with invalid styles when passed the invalid prop 1`] = `
 .circuit-0 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
   margin-bottom: 16px;
 }
@@ -1245,7 +1245,7 @@ label+.circuit-2 {
 
 .circuit-3 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -1400,7 +1400,7 @@ select:not(:active)~.circuit-5 {
 exports[`Select should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   display: block;
 }
 
@@ -1417,7 +1417,7 @@ label+.circuit-2 {
 
 .circuit-3 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;

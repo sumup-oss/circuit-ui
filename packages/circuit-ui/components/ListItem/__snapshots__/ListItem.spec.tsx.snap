@@ -90,7 +90,7 @@ exports[`ListItem business logic should not render a ListItem with a suffix deta
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -207,7 +207,7 @@ exports[`ListItem business logic should not render a ListItem with both a suffix
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -334,7 +334,7 @@ exports[`ListItem business logic should render as a button when the onClick prop
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -461,7 +461,7 @@ exports[`ListItem business logic should render as a link when the href prop is p
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -579,7 +579,7 @@ exports[`ListItem styles should render a ListItem with a custom details line 1`]
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -597,14 +597,14 @@ exports[`ListItem styles should render a ListItem with a custom details line 1`]
   -ms-flex-align: center;
   align-items: center;
   max-width: 100%;
-  min-height: 24px;
+  min-height: 20px;
 }
 
 .circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
 }
 
@@ -726,7 +726,7 @@ exports[`ListItem styles should render a ListItem with a custom label 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
 }
 
@@ -879,7 +879,7 @@ exports[`ListItem styles should render a ListItem with a custom prefix 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1005,7 +1005,7 @@ exports[`ListItem styles should render a ListItem with a custom suffix 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1185,7 +1185,7 @@ exports[`ListItem styles should render a ListItem with a custom suffix details l
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1233,7 +1233,7 @@ exports[`ListItem styles should render a ListItem with a custom suffix details l
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   font-weight: 700;
 }
@@ -1248,14 +1248,14 @@ exports[`ListItem styles should render a ListItem with a custom suffix details l
   -ms-flex-align: center;
   align-items: center;
   max-width: 100%;
-  min-height: 24px;
+  min-height: 20px;
 }
 
 .circuit-8 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   color: #666;
 }
@@ -1391,7 +1391,7 @@ exports[`ListItem styles should render a ListItem with a custom suffix label 1`]
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1439,7 +1439,7 @@ exports[`ListItem styles should render a ListItem with a custom suffix label 1`]
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   font-weight: 700;
 }
@@ -1566,7 +1566,7 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1584,14 +1584,14 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
   -ms-flex-align: center;
   align-items: center;
   max-width: 100%;
-  min-height: 24px;
+  min-height: 20px;
 }
 
 .circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   color: #666;
 }
@@ -1725,7 +1725,7 @@ exports[`ListItem styles should render a ListItem with a prefix icon 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1859,7 +1859,7 @@ exports[`ListItem styles should render a ListItem with a suffix details line 1`]
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -1907,7 +1907,7 @@ exports[`ListItem styles should render a ListItem with a suffix details line 1`]
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   font-weight: 700;
 }
@@ -1922,14 +1922,14 @@ exports[`ListItem styles should render a ListItem with a suffix details line 1`]
   -ms-flex-align: center;
   align-items: center;
   max-width: 100%;
-  min-height: 24px;
+  min-height: 20px;
 }
 
 .circuit-8 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   margin-bottom: 0;
   color: #666;
 }
@@ -2065,7 +2065,7 @@ exports[`ListItem styles should render a ListItem with a suffix label 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -2113,7 +2113,7 @@ exports[`ListItem styles should render a ListItem with a suffix label 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   font-weight: 700;
 }
@@ -2240,7 +2240,7 @@ exports[`ListItem styles should render a disabled ListItem 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -2358,7 +2358,7 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -2553,7 +2553,7 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -2670,7 +2670,7 @@ exports[`ListItem styles should render the action variant ListItem by default 1`
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   margin-bottom: 0;
   max-width: 100%;
   overflow-x: hidden;

@@ -12,7 +12,7 @@ exports[`TableCell Style tests should render with condensed styles 1`] = `
   overflow-wrap: break-word;
   padding: 12px 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
 }
 
 <td
