@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- [#1249](https://github.com/sumup-oss/circuit-ui/pull/1249) [`c03779bb`](https://github.com/sumup-oss/circuit-ui/commit/c03779bba7b9508209d57c9afb50657418559c9c) Thanks [@robinmetral](https://github.com/robinmetral)! - Adjust typography `line-height` and `letter-spacing` for better readability.
+- [#1249](https://github.com/sumup-oss/circuit-ui/pull/1249) [`c03779bb`](https://github.com/sumup-oss/circuit-ui/commit/c03779bba7b9508209d57c9afb50657418559c9c) Thanks [@robinmetral](https://github.com/robinmetral)! - Adjusted typography `line-height` and `letter-spacing` for better readability.
 
 ## 3.1.0
 
