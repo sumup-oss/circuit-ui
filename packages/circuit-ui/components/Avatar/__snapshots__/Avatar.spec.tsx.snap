@@ -7,7 +7,7 @@ exports[`Avatar styles should render the giga size 1`] = `
   height: 48px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
-  border-radius: 12px;
+  border-radius: 8px;
   object-fit: cover;
   object-position: center;
 }
