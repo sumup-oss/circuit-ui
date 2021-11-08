@@ -18,6 +18,7 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { Theme } from '@sumup/design-tokens';
 
 export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
@@ -45,7 +46,7 @@ const avatarSizes = {
   giga: '48px',
 };
 
-const avatarRadius = (size, variant, theme) => {
+const avatarRadius = (theme: Theme, size?: 'giga' | 'yotta', variant?: 'object' | 'identity') => {
   if (variant === 'identity') {
     return theme.borderRadius.circle;
   } else if (size === 'giga') {
@@ -71,7 +72,7 @@ const baseStyles = ({
   height: ${avatarSizes[size]};
   box-shadow: 0 0 0 ${theme.borderWidth.kilo} rgba(0, 0, 0, 0.1);
   background-color: ${theme.colors.n300};
-  border-radius: ${avatarRadius(size, variant, theme)};
+  border-radius: ${avatarRadius(theme, size, variant)};
   object-fit: cover;
   object-position: center;
 `;
