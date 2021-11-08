@@ -44,7 +44,7 @@ export interface ImageInputProps
    * The visual component to render as an image input. It should accept an src
    * prop to render the image.
    */
-  component: ({ src, alt }: { src?: string; alt: string }) => JSX.Element;
+  component: ({ src, alt, size }: { src?: string; alt: string, size: 'giga' | 'yotta' }) => JSX.Element;
   /**
    * A callback function to call when the user has selected an image.
    */
