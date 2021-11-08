@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.1.0
+
+### Minor Changes
+
+- [#1243](https://github.com/sumup-oss/circuit-ui/pull/1243) [`a3c04121`](https://github.com/sumup-oss/circuit-ui/commit/a3c04121c6cc2f12670abb7bfae5e0cbaf96958e) Thanks [@hris27](https://github.com/hris27)! - Added support for size 32 icons. Added new card scheme and sales-oriented icons.
+
 ## 2.0.1
 
 ### Patch Changes
