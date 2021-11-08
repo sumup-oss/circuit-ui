@@ -21,9 +21,19 @@
       "size": "24"
     },
     {
+      "name": "chevron_down",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "chevron_left",
       "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "chevron_left",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "chevron_right",
@@ -31,19 +41,29 @@
       "size": "24"
     },
     {
+      "name": "chevron_right",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "chevron_up",
       "category": "Action",
       "size": "24"
     },
     {
-      "name": "more",
+      "name": "chevron_up",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "close",
       "category": "Action",
       "size": "24"
     },
     {
       "name": "close",
       "category": "Action",
-      "size": "24"
+      "size": "16"
     },
     {
       "name": "crop",
@@ -54,6 +74,11 @@
       "name": "delete",
       "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "delete",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "download",
@@ -69,6 +94,11 @@
       "name": "edit",
       "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "edit",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "hide",
@@ -96,9 +126,34 @@
       "size": "24"
     },
     {
+      "name": "minus",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "more",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "pause",
       "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "pause",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "play",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "play",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "plus",
@@ -106,9 +161,9 @@
       "size": "24"
     },
     {
-      "name": "play",
+      "name": "plus",
       "category": "Action",
-      "size": "24"
+      "size": "16"
     },
     {
       "name": "refresh",
@@ -124,6 +179,11 @@
       "name": "search",
       "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "search",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "send",
@@ -151,12 +211,12 @@
       "size": "24"
     },
     {
-      "name": "live_chat",
+      "name": "email_chat",
       "category": "Communication",
       "size": "24"
     },
     {
-      "name": "email_chat",
+      "name": "live_chat",
       "category": "Communication",
       "size": "24"
     },
@@ -276,12 +336,12 @@
       "size": "24"
     },
     {
-      "name": "visa_electron",
+      "name": "visa",
       "category": "Payment method",
       "size": "24"
     },
     {
-      "name": "visa",
+      "name": "visa_electron",
       "category": "Payment method",
       "size": "24"
     },
@@ -289,6 +349,71 @@
       "name": "vpay",
       "category": "Payment method",
       "size": "24"
+    },
+    {
+      "name": "american_express",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "diners_club",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "discover",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "elo",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "elv",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "hipercard",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "jcb",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "maestro",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "mastercard",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "union_pay",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "visa",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "visa_electron",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "vpay",
+      "category": "Card scheme",
+      "size": "32"
     },
     {
       "name": "flag_ar",
@@ -551,6 +676,11 @@
       "size": "24"
     },
     {
+      "name": "apm",
+      "category": "Finance",
+      "size": "32"
+    },
+    {
       "name": "atm",
       "category": "Finance",
       "size": "24"
@@ -559,6 +689,11 @@
       "name": "bank",
       "category": "Finance",
       "size": "24"
+    },
+    {
+      "name": "card_unknown",
+      "category": "Finance",
+      "size": "32"
     },
     {
       "name": "card_unknown",
@@ -591,6 +726,11 @@
       "size": "24"
     },
     {
+      "name": "checkmark",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
       "name": "company",
       "category": "Miscellaneous",
       "size": "24"
@@ -616,14 +756,19 @@
       "size": "24"
     },
     {
-      "name": "secure_payments",
+      "name": "package",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
-      "name": "package",
+      "name": "paid_out",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "paid_out",
+      "category": "Miscellaneous",
+      "size": "16"
     },
     {
       "name": "profile",
@@ -631,7 +776,22 @@
       "size": "24"
     },
     {
+      "name": "refunded",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "refunded",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
       "name": "secure",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "secure_payments",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -656,16 +816,6 @@
       "size": "24"
     },
     {
-      "name": "arrow_up",
-      "category": "Navigation",
-      "size": "24"
-    },
-    {
-      "name": "arrow_right",
-      "category": "Navigation",
-      "size": "24"
-    },
-    {
       "name": "arrow_down",
       "category": "Navigation",
       "size": "24"
@@ -676,7 +826,12 @@
       "size": "24"
     },
     {
-      "name": "hamburger_menu",
+      "name": "arrow_left",
+      "category": "Navigation",
+      "size": "16"
+    },
+    {
+      "name": "arrow_right",
       "category": "Navigation",
       "size": "24"
     },
@@ -686,13 +841,13 @@
       "size": "16"
     },
     {
-      "name": "arrow_left",
+      "name": "arrow_up",
       "category": "Navigation",
-      "size": "16"
+      "size": "24"
     },
     {
-      "name": "confirm",
-      "category": "Notification",
+      "name": "hamburger_menu",
+      "category": "Navigation",
       "size": "24"
     },
     {
@@ -701,9 +856,39 @@
       "size": "24"
     },
     {
+      "name": "alert",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "confirm",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "confirm",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
       "name": "help",
       "category": "Notification",
       "size": "24"
+    },
+    {
+      "name": "help",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "info",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "info",
+      "category": "Notification",
+      "size": "16"
     },
     {
       "name": "notify",
@@ -711,9 +896,19 @@
       "size": "24"
     },
     {
-      "name": "info",
+      "name": "notify",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "notify_circle",
       "category": "Notification",
       "size": "24"
+    },
+    {
+      "name": "notify_circle",
+      "category": "Notification",
+      "size": "16"
     },
     {
       "name": "account",
@@ -796,6 +991,11 @@
       "size": "24"
     },
     {
+      "name": "pix",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "qr_code",
       "category": "Product and feature",
       "size": "24"
@@ -851,11 +1051,6 @@
       "size": "24"
     },
     {
-      "name": "messenger",
-      "category": "Social media",
-      "size": "24"
-    },
-    {
       "name": "facebook",
       "category": "Social media",
       "size": "24"
@@ -867,6 +1062,11 @@
     },
     {
       "name": "linkedin",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
+      "name": "messenger",
       "category": "Social media",
       "size": "24"
     },
@@ -884,96 +1084,6 @@
       "name": "youtube",
       "category": "Social media",
       "size": "24"
-    },
-    {
-      "name": "chevron_up",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "chevron_right",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "chevron_down",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "chevron_left",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "close",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "edit",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "delete",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "search",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "pause",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "play",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "plus",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "minus",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "checkmark",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "confirm",
-      "category": "Notification",
-      "size": "16"
-    },
-    {
-      "name": "alert",
-      "category": "Notification",
-      "size": "16"
-    },
-    {
-      "name": "help",
-      "category": "Notification",
-      "size": "16"
-    },
-    {
-      "name": "info",
-      "category": "Notification",
-      "size": "16"
-    },
-    {
-      "name": "notify",
-      "category": "Notification",
-      "size": "16"
     },
     {
       "name": "sum_up_logo",
