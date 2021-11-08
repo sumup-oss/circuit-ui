@@ -78,6 +78,10 @@ export interface ImageInputProps
    * An information or error message, displayed below the input.
    */
   validationHint?: string;
+  /**
+   * A size of Avatar component
+   */
+  size?: 'giga' | 'yotta';
 }
 
 const InputWrapper = styled.div`
@@ -224,10 +228,17 @@ const StyledLabel = styled(Label)<StyledLabelProps>(
 );
 
 const ActionButton = styled(IconButton)(
-  ({ theme }) => css`
+  ({ theme, isSmallImage }) => css`
     position: absolute;
     right: -${theme.spacings.bit};
     bottom: -${theme.spacings.bit};
+    ${isSmallImage && css`
+      padding: 5px;
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    `}
   `,
 );
 
@@ -272,6 +283,7 @@ export const ImageInput = ({
   label,
   src,
   alt,
+  size,
   id: customId,
   clearButtonLabel,
   onChange,
@@ -410,7 +422,7 @@ export const ImageInput = ({
           onDrop={handleDrop}
         >
           <span css={hideVisually()}>{label}</span>
-          <Component src={src || previewImage} alt={alt || ''} />
+          <Component src={src || previewImage} alt={alt || ''} size={size || 'yotta'} />
         </StyledLabel>
         {src ? (
           <ActionButton
@@ -421,6 +433,7 @@ export const ImageInput = ({
             label={clearButtonLabel}
             onClick={handleClear}
             disabled={isLoading}
+            isSmallImage={size === 'giga'}
           >
             <Delete size="16" />
           </ActionButton>
@@ -433,6 +446,7 @@ export const ImageInput = ({
             tabIndex={-1}
             label="-" // We need to pass a label here to prevent IconButton from throwing
             disabled={isLoading}
+            isSmallImage={size === 'giga'}
           >
             <Plus size="16" />
           </AddButton>

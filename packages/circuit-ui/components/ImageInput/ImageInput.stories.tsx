@@ -41,6 +41,7 @@ Base.args = {
   onClear: () => {},
   loadingLabel: 'Uploading',
   component: Avatar,
+  size: 'yotta'
 };
 
 export const WithImage = (): JSX.Element => (
