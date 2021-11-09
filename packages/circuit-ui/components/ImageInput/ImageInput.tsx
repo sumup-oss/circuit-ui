@@ -48,7 +48,15 @@ export interface ImageInputProps
    * The visual component to render as an image input. It should accept an src
    * prop to render the image.
    */
-  component: ({ src, alt, size }: { src?: string; alt: string, size: 'giga' | 'yotta' }) => JSX.Element;
+  component: ({
+    src,
+    alt,
+    size,
+  }: {
+    src?: string;
+    alt: string;
+    size: 'giga' | 'yotta';
+  }) => JSX.Element;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -236,7 +244,8 @@ const ActionButton = styled(IconButton)(
     position: absolute;
     right: -${theme.spacings.bit};
     bottom: -${theme.spacings.bit};
-    ${isSmallImage && css`
+    ${isSmallImage &&
+    css`
       padding: 5px;
       svg {
         width: 14px;
@@ -426,7 +435,11 @@ export const ImageInput = ({
           onDrop={handleDrop}
         >
           <span css={hideVisually()}>{label}</span>
-          <Component src={src || previewImage} alt={alt || ''} size={size || 'yotta'} />
+          <Component
+            src={src || previewImage}
+            alt={alt || ''}
+            size={size || 'yotta'}
+          />
         </StyledLabel>
         {src ? (
           <ActionButton
