@@ -421,10 +421,19 @@ Here's an overview of how the component heights have changed:
 
 We recommend verifying these changes visually at the end of the migration.
 
-In addition to its increased height, the `Button`'s default size was renamed from `mega` to `giga` to align it with the new size values (see the table above). (_🤖 \_button-default-size_)
+In addition to its increased height, the `Button`'s default size was renamed from `mega` to `giga` to align it with the new size values (see the table above). (🤖 _button-default-size_)
 
 ### Other changes
 
+- The design tokens **borderRadius** scale was changed. (🤖 _theme-border-radius_)
+  | value | v2 name | v3 name |
+  | --- | --- | --- |
+  | 1px | `kilo` | — (remove the radius or hardcode) |
+  | 4px | `mega` | `bit` |
+  | 6px | `giga` | — (migrate to `byte`) |
+  | 8px | `tera` | `byte` |
+  | 12px | `peta` | `kilo` |
+  | 16px | — | `mega` (new value) |
 - The **NotificationBanner** component has been renamed to **NotificationCard**. (🤖 _component-names-v3_)
 - Label prop names across components were harmonized to follow the _<description>Label_ pattern. (🤖 _label-prop-names_)
   - **CardHeader**: `labelCloseButton` 👉 `closeButtonLabel`
