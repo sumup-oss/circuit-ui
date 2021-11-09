@@ -51,12 +51,13 @@ const avatarRadius = (
   size?: 'giga' | 'yotta',
   variant?: 'object' | 'identity',
 ) => {
+  let radius = theme.borderRadius.kilo;
   if (variant === 'identity') {
-    return theme.borderRadius.circle;
+    radius = theme.borderRadius.circle;
   } else if (size === 'giga') {
-    return theme.borderRadius.byte;
+    radius = theme.borderRadius.byte;
   }
-  return theme.borderRadius.kilo;
+  return radius;
 };
 
 const placeholders = {
