@@ -34,6 +34,10 @@ import IconButton from '../IconButton';
 import Spinner from '../Spinner';
 import ValidationHint from '../ValidationHint';
 
+interface ActionButtonProps {
+  isSmallImage: boolean;
+}
+
 export interface ImageInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
   /**
@@ -228,7 +232,7 @@ const StyledLabel = styled(Label)<StyledLabelProps>(
 );
 
 const ActionButton = styled(IconButton)(
-  ({ theme, isSmallImage }) => css`
+  ({ theme, isSmallImage }: StyleProps & ActionButtonProps) => css`
     position: absolute;
     right: -${theme.spacings.bit};
     bottom: -${theme.spacings.bit};
