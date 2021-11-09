@@ -428,12 +428,12 @@ In addition to its increased height, the `Button`'s default size was renamed fro
 - The design tokens **borderRadius** scale was changed. (🤖 _theme-border-radius_)
   | value | v2 name | v3 name |
   | --- | --- | --- |
-  | 1px | `kilo` | - (remove the radius or hardcode) |
+  | 1px | `kilo` | — (remove the radius or hardcode) |
   | 4px | `mega` | `bit` |
-  | 6px | `giga` | - (migrate to `byte`) |
+  | 6px | `giga` | — (migrate to `byte`) |
   | 8px | `tera` | `byte` |
   | 12px | `peta` | `kilo` |
-  | 16px | - | `mega` (new value) |
+  | 16px | — | `mega` (new value) |
 - The **NotificationBanner** component has been renamed to **NotificationCard**. (🤖 _component-names-v3_)
 - Label prop names across components were harmonized to follow the _<description>Label_ pattern. (🤖 _label-prop-names_)
   - **CardHeader**: `labelCloseButton` 👉 `closeButtonLabel`
