@@ -24,7 +24,6 @@ import ImageInput from '.';
 
 export default {
   title: 'Forms/ImageInput',
-
   component: ImageInput,
   parameters: {
     docs: { page: docs },
