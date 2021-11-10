@@ -164,7 +164,7 @@ export const themePropType = PropTypes.shape({
       three: typePropType,
       four: typePropType,
     }).isRequired,
-    subHeadline: PropTypes.shape({ ...typePropType }).isRequired,
+    subHeadline: PropTypes.shape(typePropType).isRequired,
     body: PropTypes.shape({
       one: typePropType,
       two: typePropType,
