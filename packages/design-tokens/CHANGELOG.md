@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 3.1.1
+
+### Patch Changes
+
+- [#1262](https://github.com/sumup-oss/circuit-ui/pull/1262) [`d619b6e1`](https://github.com/sumup-oss/circuit-ui/commit/d619b6e1cfe36f031a2e8604ec05ff6a1663f33d) Thanks [@hris27](https://github.com/hris27)! - Updated `themePropType` to match the current state of the Circuit UI theme.
+
 ## 3.1.0
 
 ### Minor Changes
