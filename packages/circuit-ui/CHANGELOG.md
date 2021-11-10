@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- [#1263](https://github.com/sumup-oss/circuit-ui/pull/1263) [`d07efc86`](https://github.com/sumup-oss/circuit-ui/commit/d07efc8618ff568a0cd2fe87880700e5e6877eb9) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed optional chaining from the NotificationModal for compatibility with Node 12.
+- [#1263](https://github.com/sumup-oss/circuit-ui/pull/1263) [`d07efc86`](https://github.com/sumup-oss/circuit-ui/commit/d07efc8618ff568a0cd2fe87880700e5e6877eb9) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed optional chaining from the `NotificationModal` for compatibility with Node 12.
 
 - Updated dependencies [[`d619b6e1`](https://github.com/sumup-oss/circuit-ui/commit/d619b6e1cfe36f031a2e8604ec05ff6a1663f33d)]:
   - @sumup/design-tokens@3.1.1
