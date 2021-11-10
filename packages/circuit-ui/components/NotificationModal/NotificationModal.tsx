@@ -179,8 +179,13 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
 
         function wrapOnClick(onClick?: ButtonProps['onClick']) {
           return (event: ClickEvent) => {
-            handleClose?.(event);
-            onClick?.(event);
+            // FIXME switch to an optional call when apps are on Node 14
+            if (handleClose) {
+              handleClose(event);
+            }
+            if (onClick) {
+              onClick(event);
+            }
           };
         }
 
@@ -206,11 +211,11 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
             {actions && (
               <ButtonGroup
                 actions={{
-                  primary: actions?.primary && {
+                  primary: {
                     ...actions.primary,
                     onClick: wrapOnClick(actions.primary.onClick),
                   },
-                  secondary: actions?.secondary && {
+                  secondary: actions.secondary && {
                     ...actions.secondary,
                     onClick: wrapOnClick(actions.secondary.onClick),
                   },
