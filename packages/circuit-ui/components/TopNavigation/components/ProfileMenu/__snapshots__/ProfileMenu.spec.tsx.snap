@@ -65,9 +65,9 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
-  border-radius: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: 100%;
   width: 24px;
   height: 24px;
 }
