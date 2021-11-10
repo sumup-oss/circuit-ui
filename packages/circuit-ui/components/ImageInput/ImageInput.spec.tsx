@@ -71,7 +71,7 @@ describe('ImageInput', () => {
       expect(container).toMatchSnapshot();
     });
 
-    it('should render as giga avatar', () => {
+    it('should render as giga size', () => {
       const { container } = renderImageInput({
         ...defaultProps,
         size: 'giga',
