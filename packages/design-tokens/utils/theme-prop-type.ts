@@ -40,16 +40,12 @@ const typePropType = PropTypes.shape({
 const gridPropType = PropTypes.shape({
   priority: PropTypes.number.isRequired,
   breakpoint: PropTypes.oneOf([
+    'default',
     'untilKilo',
     'kilo',
-    'kiloToMega',
     'mega',
-    'untilMega',
-    'megaToGiga',
     'giga',
-    'gigaToTera',
     'tera',
-    'default',
   ]).isRequired,
   cols: PropTypes.number.isRequired,
   maxWidth: PropTypes.string.isRequired,
@@ -121,8 +117,12 @@ export const themePropType = PropTypes.shape({
     p900: PropTypes.string.isRequired,
     // Misc
     shadow: PropTypes.string.isRequired,
+    overlay: PropTypes.string.isRequired,
     bodyBg: PropTypes.string.isRequired,
     bodyColor: PropTypes.string.isRequired,
+    danger: PropTypes.string.isRequired,
+    success: PropTypes.string.isRequired,
+    warning: PropTypes.string.isRequired,
   } as { [key in keyof Colors]: Requireable<string>['isRequired'] }).isRequired,
   spacings: PropTypes.shape({
     bit: PropTypes.string.isRequired,
@@ -164,7 +164,7 @@ export const themePropType = PropTypes.shape({
       three: typePropType,
       four: typePropType,
     }).isRequired,
-    subHeadline: PropTypes.shape({ typePropType }).isRequired,
+    subHeadline: PropTypes.shape({ ...typePropType }).isRequired,
     body: PropTypes.shape({
       one: typePropType,
       two: typePropType,
@@ -203,6 +203,7 @@ export const themePropType = PropTypes.shape({
     giga: PropTypes.string.isRequired,
     gigaToTera: PropTypes.string.isRequired,
     tera: PropTypes.string.isRequired,
+    untilTera: PropTypes.string.isRequired,
   } as { [key in keyof MediaQueries]: Requireable<string>['isRequired'] })
     .isRequired,
   grid: PropTypes.shape({
@@ -227,6 +228,7 @@ export const themePropType = PropTypes.shape({
     header: PropTypes.number.isRequired,
     backdrop: PropTypes.number.isRequired,
     sidebar: PropTypes.number.isRequired,
+    navigation: PropTypes.number.isRequired,
     modal: PropTypes.number.isRequired,
   } as { [key in keyof ZIndex]: Requireable<unknown> }).isRequired,
 } as { [key in keyof Theme]: Requireable<unknown> });
