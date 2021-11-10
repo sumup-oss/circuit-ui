@@ -2,4 +2,4 @@
 "@sumup/circuit-ui": minor
 ---
 
-Size prop added to ImageInput component and border radius docs updated
+Added a `giga` size to the `ImageInput` component.
