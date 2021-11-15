@@ -41,7 +41,6 @@ Base.args = {
   onClear: () => {},
   loadingLabel: 'Uploading',
   component: Avatar,
-  size: 'yotta',
 };
 
 export const WithImage = (): JSX.Element => (
@@ -53,6 +52,18 @@ export const WithImage = (): JSX.Element => (
     onClear={() => {}}
     loadingLabel="Uploading"
     component={Avatar}
+  />
+);
+
+export const AsGigaAvatar = (): JSX.Element => (
+  <ImageInput
+    label="Upload an image"
+    clearButtonLabel="Clear"
+    onChange={() => Promise.resolve()}
+    onClear={() => {}}
+    loadingLabel="Uploading"
+    component={({ src, alt }) => <Avatar src={src} alt={alt} size="giga" />}
+    buttonSize="giga"
   />
 );
 
