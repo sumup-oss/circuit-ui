@@ -16,7 +16,6 @@
 import { ImgHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
-import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 
@@ -53,7 +52,7 @@ const placeholders = {
     '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M48 18c-7.732 0-14 6.268-14 14s6.268 14 14 14 14-6.268 14-14-6.268-14-14-14zM47.9998 88C61.53 88 73.4913 81.2822 80.73 71c-7.2387-10.2822-19.2-17-32.7303-17-13.5302 0-25.4914 6.7178-32.7302 17 7.2388 10.2822 19.2 17 32.7303 17z"/></svg>',
 };
 
-const baseStyles = ({ theme, size }: AvatarProps & StyleProps) => css`
+const baseStyles = ({ theme, size = 'yotta' }: AvatarProps & StyleProps) => css`
   display: block;
   width: ${avatarSizes[size]};
   height: ${avatarSizes[size]};
@@ -90,7 +89,7 @@ export const Avatar = ({
   src,
   alt = '',
   variant = 'object',
-  size = 'yotta',
+  size,
   ...props
 }: AvatarProps): JSX.Element => {
   const placeholder = `data:image/svg+xml;utf8,${placeholders[variant]}`;

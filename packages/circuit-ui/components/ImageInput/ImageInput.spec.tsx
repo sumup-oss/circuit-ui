@@ -71,10 +71,10 @@ describe('ImageInput', () => {
       expect(container).toMatchSnapshot();
     });
 
-    it('should render as giga size', () => {
+    it('should render with smaller button', () => {
       const { container } = renderImageInput({
         ...defaultProps,
-        size: 'giga',
+        buttonSize: 'giga',
       });
       expect(container).toMatchSnapshot();
     });

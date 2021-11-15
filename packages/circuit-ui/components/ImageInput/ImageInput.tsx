@@ -34,10 +34,6 @@ import IconButton from '../IconButton';
 import Spinner from '../Spinner';
 import ValidationHint from '../ValidationHint';
 
-interface ActionButtonProps {
-  isSmallImage: boolean;
-}
-
 export interface ImageInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
   /**
@@ -48,15 +44,7 @@ export interface ImageInputProps
    * The visual component to render as an image input. It should accept an src
    * prop to render the image.
    */
-  component: ({
-    src,
-    alt,
-    size,
-  }: {
-    src?: string;
-    alt: string;
-    size: 'giga' | 'yotta';
-  }) => JSX.Element;
+  component: ({ src, alt }: { src?: string; alt: string }) => JSX.Element;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -91,9 +79,9 @@ export interface ImageInputProps
    */
   validationHint?: string;
   /**
-   * A size of Avatar component
+   * A size of button component
    */
-  size?: 'giga' | 'yotta';
+  buttonSize?: 'giga' | 'yotta';
 }
 
 const InputWrapper = styled.div`
@@ -239,20 +227,31 @@ const StyledLabel = styled(Label)<StyledLabelProps>(
   addButtonStyles,
 );
 
-const ActionButton = styled(IconButton)(
-  ({ theme, isSmallImage }: StyleProps & ActionButtonProps) => css`
-    position: absolute;
-    right: -${theme.spacings.bit};
-    bottom: -${theme.spacings.bit};
-    ${isSmallImage &&
-    css`
+const baseActionButtonStyles = ({ theme }: StyleProps) => css`
+  position: absolute;
+  right: -${theme.spacings.bit};
+  bottom: -${theme.spacings.bit};
+`;
+
+const actionButtonIconSizeStyles = ({ buttonSize }: ActionButtonProps) => {
+  if (buttonSize === 'giga') {
+    return css`
       padding: 5px;
       svg {
         width: 14px;
         height: 14px;
       }
-    `}
-  `,
+    `;
+  }
+};
+
+interface ActionButtonProps {
+  buttonSize: 'giga' | 'yotta';
+}
+
+const ActionButton = styled(IconButton)<ActionButtonProps>(
+  baseActionButtonStyles,
+  actionButtonIconSizeStyles,
 );
 
 const AddButton = styled(ActionButton)`
@@ -296,7 +295,7 @@ export const ImageInput = ({
   label,
   src,
   alt,
-  size,
+  buttonSize = 'yotta',
   id: customId,
   clearButtonLabel,
   onChange,
@@ -435,11 +434,7 @@ export const ImageInput = ({
           onDrop={handleDrop}
         >
           <span css={hideVisually()}>{label}</span>
-          <Component
-            src={src || previewImage}
-            alt={alt || ''}
-            size={size || 'yotta'}
-          />
+          <Component src={src || previewImage} alt={alt || ''} />
         </StyledLabel>
         {src ? (
           <ActionButton
@@ -450,7 +445,7 @@ export const ImageInput = ({
             label={clearButtonLabel}
             onClick={handleClear}
             disabled={isLoading}
-            isSmallImage={size === 'giga'}
+            buttonSize={buttonSize}
           >
             <Delete size="16" />
           </ActionButton>
@@ -463,7 +458,7 @@ export const ImageInput = ({
             tabIndex={-1}
             label="-" // We need to pass a label here to prevent IconButton from throwing
             disabled={isLoading}
-            isSmallImage={size === 'giga'}
+            buttonSize={buttonSize}
           >
             <Plus size="16" />
           </AddButton>
