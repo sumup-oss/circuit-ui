@@ -16,11 +16,11 @@
 import { Children, cloneElement, ReactElement, forwardRef, Ref } from 'react';
 import { css, SerializedStyles } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
+import { IconProps } from '@sumup/icons';
 
 import { hideVisually } from '../../styles/style-mixins';
 import styled from '../../styles/styled';
 import { Button, ButtonProps } from '../Button/Button';
-import { IconProps } from '../../../icons/dist';
 
 export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
   /**
