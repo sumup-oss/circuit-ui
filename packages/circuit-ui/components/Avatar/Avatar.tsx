@@ -64,18 +64,19 @@ const baseStyles = ({ theme, size = 'yotta' }: AvatarProps & StyleProps) => css`
 `;
 
 const borderStyles = ({ theme, variant, size }: AvatarProps & StyleProps) => {
+  let styles = css`
+    border-radius: ${theme.borderRadius.kilo};
+  `;
   if (variant === 'identity') {
-    return css`
+    styles = css`
       border-radius: ${theme.borderRadius.circle};
     `;
   } else if (size === 'giga') {
-    return css`
+    styles = css`
       border-radius: ${theme.borderRadius.byte};
     `;
   }
-  return css`
-    border-radius: ${theme.borderRadius.kilo};
-  `;
+  return styles;
 };
 
 const StyledImage = styled('img', {

@@ -243,6 +243,7 @@ const actionButtonIconSizeStyles = ({ buttonSize }: ActionButtonProps) => {
       }
     `;
   }
+  return;
 };
 
 interface ActionButtonProps {
