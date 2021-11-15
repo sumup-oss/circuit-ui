@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.4.2
+
+### Patch Changes
+
+- [#1271](https://github.com/sumup-oss/circuit-ui/pull/1271) [`1c35dae3`](https://github.com/sumup-oss/circuit-ui/commit/1c35dae303e66e2c37a310d74d07a931363bdb02) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the import of `IconProps` in the `IconButton` component. This was causing TypeScript build failures.
+
 ## 4.4.1
 
 ### Patch Changes
