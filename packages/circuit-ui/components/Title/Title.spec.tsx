@@ -35,11 +35,6 @@ describe('Title', () => {
     expect(title).toMatchSnapshot();
   });
 
-  it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Title as="h1" noMargin />);
-    expect(actual).toMatchSnapshot();
-  });
-
   /**
    * Accessibility tests.
    */
