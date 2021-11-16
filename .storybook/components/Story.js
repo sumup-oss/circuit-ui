@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Story as StorybookStory } from '@storybook/addon-docs/blocks';
+import { Story as StorybookStory } from '@storybook/addon-docs';
 
 import Preview from './Preview';
 

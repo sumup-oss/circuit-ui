@@ -16,7 +16,7 @@
 import {
   ArgsTable as Props,
   PRIMARY_STORY,
-} from '@storybook/addon-docs/blocks';
+} from '@storybook/addon-docs';
 
 Props.defaultProps = { ...Props.defaultProps, story: PRIMARY_STORY };
 
@@ -27,7 +27,7 @@ export {
   IconGallery,
   IconItem,
   Typeset,
-} from '@storybook/addon-docs/blocks';
+} from '@storybook/addon-docs';
 
 export { default as Status } from './Statuses';
 export { default as Preview } from './Preview';
