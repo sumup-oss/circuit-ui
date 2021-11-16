@@ -206,11 +206,18 @@ export interface Theme {
       three: Typography;
       four: Typography;
     };
+    title: {
+      one: Typography;
+      two: Typography;
+      three: Typography;
+      four: Typography;
+    };
     subHeadline: Typography;
     body: {
       one: Typography;
       two: Typography;
     };
+    bodyLarge: Typography;
   };
   fontStack: FontStack;
   fontWeight: FontWeight;
