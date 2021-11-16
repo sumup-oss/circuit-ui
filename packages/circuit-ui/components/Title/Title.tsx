@@ -27,7 +27,7 @@ export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
    */
   size?: Size;
   /**
-   * The HTML heading element to render. Defaults to `h2`.
+   * The HTML heading element to render.
    * Headings should be nested sequentially without skipping any levels.
    * Learn more at https://www.w3.org/WAI/tutorials/page-structure/headings/.
    */
