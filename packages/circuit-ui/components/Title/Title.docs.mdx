@@ -1,0 +1,29 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+
+# Title
+
+<Status.Stable />
+
+Titles are used for titling major sections of the interface. They help better organize the information for our users providing useful labels for each possible section.
+
+<Story id="typography-Title--base" />
+<Props />
+
+## Usage guidelines
+
+- **Do** position the heading above the content
+- **Do** use the `four` size for titling cards and `three` for pages
+
+## Content guidelines
+
+Nest headings by their rank (or level). The most important heading has rank 1 (`h1`), the least important heading rank 6 (`h6`). Headings with an equal or higher rank start a new section, headings with a lower rank start new subsections that are part of the higher-ranked section.
+
+Skipping heading ranks can be confusing and should be avoided where possible: Ensure that an `h2` is not followed directly by an `h4`, for example. It is ok to skip ranks when closing subsections, for instance, an `h2` beginning a new section can follow an `h4` as it closes the previous section.
+
+[Learn more about a proper page structure](https://www.w3.org/WAI/tutorials/page-structure/headings/).
+
+## Component variations
+
+### Sizes
+
+<Story id="typography-Title--sizes" />
