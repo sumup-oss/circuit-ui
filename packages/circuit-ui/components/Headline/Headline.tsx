@@ -24,7 +24,7 @@ type Size = 'one' | 'two' | 'three' | 'four';
 
 export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
-   * A Circuit UI headline size. Default `one`.
+   * A Circuit UI headline size. Defaults to `one`.
    */
   size?: Size;
   /**
@@ -32,9 +32,9 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
    */
   noMargin?: boolean;
   /**
-   * The HTML heading element to render. Headings should be nested sequentially
-   * without skipping any levels. Learn more at
-   * https://www.w3.org/WAI/tutorials/page-structure/headings/.
+   * The HTML heading element to render. Defaults to `h2`.
+   * Headings should be nested sequentially without skipping any levels.
+   * Learn more at https://www.w3.org/WAI/tutorials/page-structure/headings/.
    */
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
@@ -79,7 +79,7 @@ const noMarginStyles = ({ noMargin }: HeadlineProps) => {
 };
 
 /**
- * A flexible headline component capable of rendering using any HTML headline tag.
+ * A flexible headline component capable of rendering any HTML heading element.
  */
 export const Headline: FC<HeadlineProps> = styled('h2', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
