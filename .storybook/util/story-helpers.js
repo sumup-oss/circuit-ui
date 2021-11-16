@@ -1,4 +1,4 @@
-import { some, startsWith, get } from 'lodash/fp';
+import { get } from 'lodash/fp';
 
 function getPosition(item, order = []) {
   const array = Array.isArray(order) ? order : Object.keys(order);
@@ -53,5 +53,5 @@ export function splitStoryName(storyName) {
 const LINK_PREFIXES = ['/', 'http', 'mailto', '#', 'tel'];
 
 export function isStoryName(name) {
-  return !some((prefix) => startsWith(prefix, name), LINK_PREFIXES);
+  return !LINK_PREFIXES.some((prefix) => name.startsWith(prefix));
 }
