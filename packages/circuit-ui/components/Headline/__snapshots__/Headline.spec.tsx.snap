@@ -108,7 +108,9 @@ exports[`Headline should render with no margin styles when passed the noMargin p
 
 <h2
   class="circuit-0"
-/>
+>
+  Headline
+</h2>
 `;
 
 exports[`Headline should render with size four 1`] = `

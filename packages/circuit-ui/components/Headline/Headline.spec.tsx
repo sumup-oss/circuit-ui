@@ -21,7 +21,7 @@ describe('Headline', () => {
   /**
    * Style tests.
    */
-  const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
   it.each(elements)('should render as %s element', (element) => {
     const headline = create(
       <Headline as={element}>{`${element} headline`}</Headline>,
@@ -38,7 +38,11 @@ describe('Headline', () => {
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Headline noMargin />);
+    const actual = create(
+      <Headline as="h2" noMargin>
+        Headline
+      </Headline>,
+    );
     expect(actual).toMatchSnapshot();
   });
 
