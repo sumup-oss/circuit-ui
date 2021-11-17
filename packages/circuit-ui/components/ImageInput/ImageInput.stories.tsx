@@ -55,6 +55,18 @@ export const WithImage = (): JSX.Element => (
   />
 );
 
+export const AsGigaAvatar = (): JSX.Element => (
+  <ImageInput
+    label="Upload an image"
+    clearButtonLabel="Clear"
+    onChange={() => Promise.resolve()}
+    onClear={() => {}}
+    loadingLabel="Uploading"
+    component={({ src, alt }) => <Avatar src={src} alt={alt} size="giga" />}
+    size="giga"
+  />
+);
+
 export const Invalid = (): JSX.Element => (
   <ImageInput
     label="Upload an image"

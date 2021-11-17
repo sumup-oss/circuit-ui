@@ -30,9 +30,11 @@ import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import { focusOutline, hideVisually } from '../../styles/style-mixins';
 import Label from '../Label';
-import IconButton from '../IconButton';
+import IconButton, { IconButtonProps } from '../IconButton';
 import Spinner from '../Spinner';
 import ValidationHint from '../ValidationHint';
+
+type Size = 'giga' | 'yotta';
 
 export interface ImageInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
@@ -78,6 +80,10 @@ export interface ImageInputProps
    * An information or error message, displayed below the input.
    */
   validationHint?: string;
+  /**
+   * Changes the size of the button that controls the input. Defaults to "yotta".
+   */
+  size?: Size;
 }
 
 const InputWrapper = styled.div`
@@ -223,12 +229,30 @@ const StyledLabel = styled(Label)<StyledLabelProps>(
   addButtonStyles,
 );
 
-const ActionButton = styled(IconButton)(
-  ({ theme }) => css`
-    position: absolute;
-    right: -${theme.spacings.bit};
-    bottom: -${theme.spacings.bit};
-  `,
+const actionButtonBaseStyles = ({ theme }: StyleProps) => css`
+  position: absolute;
+  right: -${theme.spacings.bit};
+  bottom: -${theme.spacings.bit};
+`;
+
+const actionButtonSizeStyles = ({ buttonSize }: ActionButtonProps) => {
+  if (buttonSize === 'giga') {
+    return css`
+      padding: 5px;
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    `;
+  }
+  return null;
+};
+
+type ActionButtonProps = IconButtonProps & { buttonSize: Size };
+
+const ActionButton = styled(IconButton)<ActionButtonProps>(
+  actionButtonBaseStyles,
+  actionButtonSizeStyles,
 );
 
 const AddButton = styled(ActionButton)`
@@ -272,6 +296,7 @@ export const ImageInput = ({
   label,
   src,
   alt,
+  size = 'yotta',
   id: customId,
   clearButtonLabel,
   onChange,
@@ -421,6 +446,7 @@ export const ImageInput = ({
             label={clearButtonLabel}
             onClick={handleClear}
             disabled={isLoading}
+            buttonSize={size}
           >
             <Delete size="16" />
           </ActionButton>
@@ -433,6 +459,7 @@ export const ImageInput = ({
             tabIndex={-1}
             label="-" // We need to pass a label here to prevent IconButton from throwing
             disabled={isLoading}
+            buttonSize={size}
           >
             <Plus size="16" />
           </AddButton>

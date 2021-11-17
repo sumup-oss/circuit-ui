@@ -19,6 +19,9 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 
+type AvatarSize = 'giga' | 'yotta';
+type AvatarVariant = 'object' | 'identity';
+
 export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * The source URL of the Avatar image.
@@ -33,11 +36,11 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    * The variant of the Avatar, either identity or object. Refer to the docs for usage guidelines.
    * The variant also changes which placeholder is rendered when the `src` prop is not provided.
    */
-  variant?: 'object' | 'identity';
+  variant?: AvatarVariant;
   /**
    * One of two available sizes for the Avatar, either giga or yotta.
    */
-  size?: 'giga' | 'yotta';
+  size?: AvatarSize;
 }
 
 const avatarSizes = {
@@ -52,26 +55,45 @@ const placeholders = {
     '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M48 18c-7.732 0-14 6.268-14 14s6.268 14 14 14 14-6.268 14-14-6.268-14-14-14zM47.9998 88C61.53 88 73.4913 81.2822 80.73 71c-7.2387-10.2822-19.2-17-32.7303-17-13.5302 0-25.4914 6.7178-32.7302 17 7.2388 10.2822 19.2 17 32.7303 17z"/></svg>',
 };
 
-const baseStyles = ({
-  theme,
-  variant,
-  size = 'yotta',
-}: AvatarProps & StyleProps) => css`
+type StyledImageProps = Omit<AvatarProps, 'size' | 'variant'> & {
+  size: AvatarSize;
+  variant: AvatarVariant;
+};
+
+const baseStyles = ({ theme, size }: StyledImageProps & StyleProps) => css`
   display: block;
   width: ${avatarSizes[size]};
   height: ${avatarSizes[size]};
   box-shadow: 0 0 0 ${theme.borderWidth.kilo} rgba(0, 0, 0, 0.1);
+
   background-color: ${theme.colors.n300};
-  border-radius: ${variant === 'identity'
-    ? theme.borderRadius.circle
-    : theme.borderRadius.kilo};
   object-fit: cover;
   object-position: center;
 `;
 
+const borderStyles = ({
+  theme,
+  variant,
+  size,
+}: StyledImageProps & StyleProps) => {
+  let styles = css`
+    border-radius: ${theme.borderRadius.kilo};
+  `;
+  if (variant === 'identity') {
+    styles = css`
+      border-radius: ${theme.borderRadius.circle};
+    `;
+  } else if (size === 'giga') {
+    styles = css`
+      border-radius: ${theme.borderRadius.byte};
+    `;
+  }
+  return styles;
+};
+
 const StyledImage = styled('img', {
   shouldForwardProp: (prop) => isPropValid(prop),
-})<AvatarProps>(baseStyles);
+})<StyledImageProps>(baseStyles, borderStyles);
 
 /**
  * The Avatar component displays an identity or an object image.
@@ -80,7 +102,7 @@ export const Avatar = ({
   src,
   alt = '',
   variant = 'object',
-  size,
+  size = 'yotta',
   ...props
 }: AvatarProps): JSX.Element => {
   const placeholder = `data:image/svg+xml;utf8,${placeholders[variant]}`;
