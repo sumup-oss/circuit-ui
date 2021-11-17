@@ -227,7 +227,7 @@ const StyledLabel = styled(Label)<StyledLabelProps>(
   addButtonStyles,
 );
 
-const baseActionButtonStyles = ({ theme }: StyleProps) => css`
+const actionButtonBaseStyles = ({ theme }: StyleProps) => css`
   position: absolute;
   right: -${theme.spacings.bit};
   bottom: -${theme.spacings.bit};
