@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,15 +13,26 @@
  * limitations under the License.
  */
 
-import { Story as StorybookStory } from '@storybook/addon-docs';
+import { Title, TitleProps } from './Title';
+import docs from './Title.docs.mdx';
 
-import Preview from './Preview';
+export default {
+  title: 'Typography/Title',
+  component: Title,
+  parameters: {
+    docs: { page: docs },
+  },
+};
 
-// eslint-disable-next-line react/prop-types
-const Story = ({ withToolbar = true, ...props }) => (
-  <Preview withToolbar={withToolbar}>
-    <StorybookStory {...props} />
-  </Preview>
+export const Base = (args: TitleProps) => (
+  <Title {...args}>This is a Title</Title>
 );
 
-export default Story;
+const sizes = ['one', 'two', 'three', 'four'] as const;
+
+export const Sizes = (args: TitleProps) =>
+  sizes.map((s) => (
+    <Title key={s} {...args} size={s}>
+      This is a Title {s}
+    </Title>
+  ));

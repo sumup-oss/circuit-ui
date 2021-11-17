@@ -1,33 +1,27 @@
 import { Status, Props, Story } from '../../../../.storybook/components';
 
-# Body
+# BodyLarge
 
 <Status.Stable />
 
-The Body component is used to present content to our users.
+The BodyLarge component is used to render content with large typography. Typically, large typography is intended for landing pages. In most cases, the [Body](Typography/Body) should be used instead.
 
-<Story id="typography-body--base" />
+<Story id="typography-bodylarge--base" />
 <Props />
 
 ## Usage guidelines
 
-- **Do** use the [Headline](Typography/Headline) and [SubHeadline](Typography/SubHeadline) components as well as semantic HTML elements to split the content into sections.
+- **Do** use the [Title](Typography/Title), [Headline](Typography/Headline), and [SubHeadline](Typography/SubHeadline) components as well as semantic HTML elements to split the content into sections.
 - **Do** use spacing to better format textual information, such as spacing between different paragraphs. The [`spacing()`](Features/Style-Mixins/spacing) style mixin is recommended.
 - **Do** use different variants of the BodyLarge component instead of styling it manually.
 - **Do** use the `as` prop to render the desired HTML element. The BodyLarge renders a `<p>` by default, except with the `highlight` or `quote` variants (see below).
 
 ## Component variations
 
-### Sizes
-
-The Body component comes in two sizes. Use the default `one` size in most cases. Consider using the [BodyLarge component](Typography/BodyLarge) for large typography in specific cases.
-
-<Story id="typography-body--sizes" />
-
 ### Variants
 
-The Body component accepts five different variants—`highlight`, `quote`, `success`, `error` and `subtle`—to tailor it according to the content we are presenting.
+The BodyLarge accepts five different variants—`highlight`, `quote`, `success`, `error` and `subtle`—to tailor it according to the content we are presenting.
 
 The `highlight` variant will render a `<strong>` element by default, while the `quote` variant will render a `blockquote`.
 
-<Story id="typography-body--variants" />
+<Story id="typography-bodylarge--variants" />

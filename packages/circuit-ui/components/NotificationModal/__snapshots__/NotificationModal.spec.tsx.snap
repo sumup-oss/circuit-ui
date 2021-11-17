@@ -204,6 +204,7 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
+  letter-spacing: -0.03em;
   font-size: 20px;
   line-height: 24px;
   margin-bottom: 0;

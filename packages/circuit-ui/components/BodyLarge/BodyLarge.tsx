@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,25 +18,15 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { deprecate } from '../../util/logger';
 import { AsPropType } from '../../types/prop-types';
 
-type Size = 'one' | 'two';
 type Variant = 'highlight' | 'quote' | 'success' | 'error' | 'subtle';
 
-export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
-  /**
-   * Choose from 2 font sizes. Default `one`.
-   */
-  size?: Size;
+export interface BodyLargeProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
    * Choose from style variants.
    */
   variant?: Variant;
-  /**
-   * Remove the default margin below the text.
-   */
-  noMargin?: boolean;
   /**
    * Render the text using any HTML element.
    */
@@ -50,15 +40,11 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.regular};
-  margin-bottom: ${theme.spacings.mega};
+  font-size: ${theme.typography.bodyLarge.fontSize};
+  line-height: ${theme.typography.bodyLarge.lineHeight};
 `;
 
-const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => css`
-  font-size: ${theme.typography.body[size].fontSize};
-  line-height: ${theme.typography.body[size].lineHeight};
-`;
-
-const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
+const variantStyles = ({ theme, variant }: BodyLargeProps & StyleProps) => {
   switch (variant) {
     default: {
       return null;
@@ -93,31 +79,9 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
   }
 };
 
-const marginStyles = ({ noMargin }: BodyProps & StyleProps) => {
-  if (!noMargin) {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      deprecate(
-        'Body',
-        'The default outer spacing in the Body component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      );
-    }
-
-    return null;
-  }
-
-  return css`
-    margin-bottom: 0;
-  `;
-};
-
-const StyledBody = styled('p', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<BodyProps>(baseStyles, sizeStyles, marginStyles, variantStyles);
+const StyledBodyLarge = styled('p', {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<BodyLargeProps>(baseStyles, variantStyles);
 
 function getHTMLElement(variant?: Variant): AsPropType {
   if (variant === 'highlight') {
@@ -130,12 +94,14 @@ function getHTMLElement(variant?: Variant): AsPropType {
 }
 
 /**
- * The Body component is used to present the core textual content
+ * The BodyLarge component is used to present the core textual content
  * to our users.
  */
-export const Body = forwardRef((props: BodyProps, ref?: BodyProps['ref']) => {
-  const as = props.as || getHTMLElement(props.variant);
-  return <StyledBody {...props} ref={ref} as={as} />;
-});
+export const BodyLarge = forwardRef(
+  (props: BodyLargeProps, ref?: BodyLargeProps['ref']) => {
+    const as = props.as || getHTMLElement(props.variant);
+    return <StyledBodyLarge {...props} ref={ref} as={as} />;
+  },
+);
 
-Body.displayName = 'Body';
+BodyLarge.displayName = 'BodyLarge';

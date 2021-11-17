@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,15 +13,8 @@
  * limitations under the License.
  */
 
-import { Story as StorybookStory } from '@storybook/addon-docs';
+import { Title } from './Title';
 
-import Preview from './Preview';
+export type { TitleProps } from './Title';
 
-// eslint-disable-next-line react/prop-types
-const Story = ({ withToolbar = true, ...props }) => (
-  <Preview withToolbar={withToolbar}>
-    <StorybookStory {...props} />
-  </Preview>
-);
-
-export default Story;
+export default Title;

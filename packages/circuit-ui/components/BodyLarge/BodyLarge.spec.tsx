@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,20 +15,14 @@
 
 import { create, renderToHtml, axe, render } from '../../util/test-utils';
 
-import { Body, BodyProps } from './Body';
+import { BodyLarge, BodyLargeProps } from './BodyLarge';
 
-describe('Body', () => {
+describe('BodyLarge', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Body>Body</Body>);
-    expect(actual).toMatchSnapshot();
-  });
-
-  const sizes: BodyProps['size'][] = ['one', 'two'];
-  it.each(sizes)('should render with size "%s"', (size) => {
-    const actual = create(<Body size={size}>{size} Body</Body>);
+    const actual = create(<BodyLarge>BodyLarge</BodyLarge>);
     expect(actual).toMatchSnapshot();
   });
 
@@ -38,14 +32,11 @@ describe('Body', () => {
     'success',
     'error',
     'subtle',
-  ] as BodyProps['variant'][];
+  ] as BodyLargeProps['variant'][];
   it.each(variants)('should render as a "%s" variant', (variant) => {
-    const actual = create(<Body variant={variant}>{variant} Body</Body>);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Body noMargin>noMargin Body</Body>);
+    const actual = create(
+      <BodyLarge variant={variant}>{variant} BodyLarge</BodyLarge>,
+    );
     expect(actual).toMatchSnapshot();
   });
 
@@ -54,19 +45,21 @@ describe('Body', () => {
    */
   const elements = ['p', 'article', 'div'] as const;
   it.each(elements)('should render as a "%s" element', (as) => {
-    const { container } = render(<Body as={as}>{as} Body</Body>);
+    const { container } = render(<BodyLarge as={as}>{as} BodyLarge</BodyLarge>);
     const actual = container.querySelector(as);
     expect(actual).toBeVisible();
   });
 
   it('should render the "highlight" variant as a "strong" element', () => {
-    const { container } = render(<Body variant="highlight">Highlight</Body>);
+    const { container } = render(
+      <BodyLarge variant="highlight">Highlight</BodyLarge>,
+    );
     const actual = container.querySelector('strong');
     expect(actual).toBeVisible();
   });
 
   it('should render the "quote" variant as a "blockquote" element', () => {
-    const { container } = render(<Body variant="quote">Quote</Body>);
+    const { container } = render(<BodyLarge variant="quote">Quote</BodyLarge>);
     const actual = container.querySelector('blockquote');
     expect(actual).toBeVisible();
   });
@@ -75,7 +68,7 @@ describe('Body', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Body>Body</Body>);
+    const wrapper = renderToHtml(<BodyLarge>BodyLarge</BodyLarge>);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

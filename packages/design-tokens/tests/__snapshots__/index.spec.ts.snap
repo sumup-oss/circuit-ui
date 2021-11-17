@@ -187,6 +187,10 @@ Object {
         "lineHeight": "20px",
       },
     },
+    "bodyLarge": Object {
+      "fontSize": "20px",
+      "lineHeight": "28px",
+    },
     "headline": Object {
       "four": Object {
         "fontSize": "18px",
@@ -208,6 +212,24 @@ Object {
     "subHeadline": Object {
       "fontSize": "14px",
       "lineHeight": "20px",
+    },
+    "title": Object {
+      "four": Object {
+        "fontSize": "56px",
+        "lineHeight": "56px",
+      },
+      "one": Object {
+        "fontSize": "120px",
+        "lineHeight": "120px",
+      },
+      "three": Object {
+        "fontSize": "64px",
+        "lineHeight": "64px",
+      },
+      "two": Object {
+        "fontSize": "96px",
+        "lineHeight": "96px",
+      },
     },
   },
   "zIndex": Object {

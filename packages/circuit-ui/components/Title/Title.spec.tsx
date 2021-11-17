@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,42 +15,31 @@
 
 import { create, renderToHtml, axe } from '../../util/test-utils';
 
-import { Headline } from './Headline';
+import { Title } from './Title';
 
-describe('Headline', () => {
+describe('Title', () => {
   /**
    * Style tests.
    */
   const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
   it.each(elements)('should render as %s element', (element) => {
-    const headline = create(
-      <Headline as={element}>{`${element} headline`}</Headline>,
-    );
-    expect(headline).toMatchSnapshot();
+    const title = create(<Title as={element}>{`${element} Title`}</Title>);
+    expect(title).toMatchSnapshot();
   });
 
   const sizes = ['one', 'two', 'three', 'four'] as const;
   it.each(sizes)('should render with size %s', (size) => {
-    const headline = create(
-      <Headline as="h2" {...{ size }}>{`${size} headline`}</Headline>,
+    const title = create(
+      <Title as="h2" {...{ size }}>{`${size} Title`}</Title>,
     );
-    expect(headline).toMatchSnapshot();
-  });
-
-  it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(
-      <Headline as="h2" noMargin>
-        Headline
-      </Headline>,
-    );
-    expect(actual).toMatchSnapshot();
+    expect(title).toMatchSnapshot();
   });
 
   /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Headline as="h2">Headline</Headline>);
+    const wrapper = renderToHtml(<Title as="h2">Title</Title>);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

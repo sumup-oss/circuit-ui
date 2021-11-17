@@ -46,6 +46,7 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
+  letter-spacing: -0.03em;
   font-size: 24px;
   line-height: 28px;
   margin-top: 24px;
@@ -466,6 +467,7 @@ exports[`NotificationFullscreen styles should render with default styles with h1
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
+  letter-spacing: -0.03em;
   font-size: 24px;
   line-height: 28px;
   margin-top: 24px;

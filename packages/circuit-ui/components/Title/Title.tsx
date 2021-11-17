@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,19 +18,14 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { deprecate } from '../../util/logger';
 
 type Size = 'one' | 'two' | 'three' | 'four';
 
-export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
-   * A Circuit UI headline size. Defaults to `one`.
+   * A Circuit UI title size. Defaults to `one`.
    */
   size?: Size;
-  /**
-   * Removes the default bottom margin from the headline.
-   */
-  noMargin?: boolean;
   /**
    * The HTML heading element to render.
    * Headings should be nested sequentially without skipping any levels.
@@ -41,41 +36,24 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.bold};
-  margin-bottom: ${theme.spacings.giga};
   color: ${theme.colors.black};
   letter-spacing: -0.03em;
 `;
 
-const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => css`
-  font-size: ${theme.typography.headline[size].fontSize};
-  line-height: ${theme.typography.headline[size].lineHeight};
-`;
-
-const noMarginStyles = ({ noMargin }: HeadlineProps) => {
-  if (!noMargin) {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      deprecate(
-        'Headline',
-        'The default outer spacing in the Headline component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      );
-    }
-
+const sizeStyles = ({ theme, size = 'one' }: StyleProps & TitleProps) => {
+  if (!size) {
     return null;
   }
 
   return css`
-    margin-bottom: 0;
+    font-size: ${theme.typography.title[size].fontSize};
+    line-height: ${theme.typography.title[size].lineHeight};
   `;
 };
 
 /**
- * A flexible headline component capable of rendering any HTML heading element.
+ * A flexible title component capable of rendering any HTML heading element.
  */
-export const Headline: FC<HeadlineProps> = styled('h2', {
+export const Title: FC<TitleProps> = styled('h2', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<HeadlineProps>(baseStyles, sizeStyles, noMarginStyles);
+})<TitleProps>(baseStyles, sizeStyles);

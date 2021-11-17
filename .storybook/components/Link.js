@@ -11,8 +11,8 @@ const Link = ({ children, href, ...props }) => {
   const storyName = decodeURIComponent(href);
 
   if (isStoryName(storyName)) {
-    const [group, component, name = 'page'] = splitStoryName(storyName);
-    const kind = `${group}|${component}`;
+    const [group, component, name = 'base'] = splitStoryName(storyName);
+    const kind = `${group}/${component}`;
     return (
       <LinkTo {...props} kind={kind} story={name}>
         {children}
