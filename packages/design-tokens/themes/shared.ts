@@ -113,7 +113,7 @@ export const typography = {
   },
   bodyLarge: {
     fontSize: '20px',
-    lineHeight: '20px',
+    lineHeight: '28px',
   },
 };
 

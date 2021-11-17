@@ -189,7 +189,7 @@ Object {
     },
     "bodyLarge": Object {
       "fontSize": "20px",
-      "lineHeight": "20px",
+      "lineHeight": "28px",
     },
     "headline": Object {
       "four": Object {
