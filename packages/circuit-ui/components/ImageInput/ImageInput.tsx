@@ -233,7 +233,7 @@ const baseActionButtonStyles = ({ theme }: StyleProps) => css`
   bottom: -${theme.spacings.bit};
 `;
 
-const actionButtonIconSizeStyles = ({ buttonSize }: ActionButtonProps) => {
+const actionButtonSizeStyles = ({ buttonSize }: ActionButtonProps) => {
   if (buttonSize === 'giga') {
     return css`
       padding: 5px;
