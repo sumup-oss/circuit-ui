@@ -30,9 +30,11 @@ import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import { focusOutline, hideVisually } from '../../styles/style-mixins';
 import Label from '../Label';
-import IconButton from '../IconButton';
+import IconButton, { IconButtonProps } from '../IconButton';
 import Spinner from '../Spinner';
 import ValidationHint from '../ValidationHint';
+
+type Size = 'giga' | 'yotta';
 
 export interface ImageInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
@@ -79,9 +81,9 @@ export interface ImageInputProps
    */
   validationHint?: string;
   /**
-   * A size of button component
+   * This prop changes the button size
    */
-  buttonSize?: 'giga' | 'yotta';
+  size?: Size;
 }
 
 const InputWrapper = styled.div`
@@ -246,13 +248,11 @@ const actionButtonSizeStyles = ({ buttonSize }: ActionButtonProps) => {
   return css``;
 };
 
-interface ActionButtonProps {
-  buttonSize: 'giga' | 'yotta';
-}
+type ActionButtonProps = IconButtonProps & { buttonSize: Size };
 
 const ActionButton = styled(IconButton)<ActionButtonProps>(
-  baseActionButtonStyles,
-  actionButtonIconSizeStyles,
+  actionButtonBaseStyles,
+  actionButtonSizeStyles,
 );
 
 const AddButton = styled(ActionButton)`
@@ -296,7 +296,7 @@ export const ImageInput = ({
   label,
   src,
   alt,
-  buttonSize = 'yotta',
+  size = 'yotta',
   id: customId,
   clearButtonLabel,
   onChange,
@@ -446,7 +446,7 @@ export const ImageInput = ({
             label={clearButtonLabel}
             onClick={handleClear}
             disabled={isLoading}
-            buttonSize={buttonSize}
+            buttonSize={size}
           >
             <Delete size="16" />
           </ActionButton>
@@ -459,7 +459,7 @@ export const ImageInput = ({
             tabIndex={-1}
             label="-" // We need to pass a label here to prevent IconButton from throwing
             disabled={isLoading}
-            buttonSize={buttonSize}
+            buttonSize={size}
           >
             <Plus size="16" />
           </AddButton>
