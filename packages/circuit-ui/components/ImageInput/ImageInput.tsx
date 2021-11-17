@@ -81,7 +81,7 @@ export interface ImageInputProps
    */
   validationHint?: string;
   /**
-   * This prop changes the button size
+   * Changes the size of the button that controls the input. Defaults to "yotta".
    */
   size?: Size;
 }
