@@ -26,24 +26,49 @@ describe('Body', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  const elements = ['p', 'article', 'div'];
-  it.each(elements)('should render as %s element', (as) => {
-    const { container } = render(
-      <Body as={as}>{`${as.toUpperCase()} text`}</Body>,
-    );
-    const actual = container.querySelector(as);
-    expect(actual).toBeVisible();
+  const sizes: BodyProps['size'][] = ['one', 'two'];
+  it.each(sizes)('should render with size "%s"', (size) => {
+    const actual = create(<Body size={size}>{size} Body</Body>);
+    expect(actual).toMatchSnapshot();
   });
 
-  const sizes: BodyProps['size'][] = ['one', 'two'];
-  it.each(sizes)('should render with size %s', (size) => {
-    const actual = create(<Body size={size}>{`${size as string} text`}</Body>);
+  const variants = [
+    'highlight',
+    'quote',
+    'success',
+    'error',
+    'subtle',
+  ] as BodyProps['variant'][];
+  it.each(variants)('should render as a "%s" variant', (variant) => {
+    const actual = create(<Body variant={variant}>{variant} Body</Body>);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Body noMargin />);
+    const actual = create(<Body noMargin>noMargin Body</Body>);
     expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Logic tests.
+   */
+  const elements = ['p', 'article', 'div'] as const;
+  it.each(elements)('should render as a "%s" element', (as) => {
+    const { container } = render(<Body as={as}>{as} Body</Body>);
+    const actual = container.querySelector(as);
+    expect(actual).toBeVisible();
+  });
+
+  it('should render the "highlight" variant as a "strong" element', () => {
+    const { container } = render(<Body variant="highlight">Highlight</Body>);
+    const actual = container.querySelector('strong');
+    expect(actual).toBeVisible();
+  });
+
+  it('should render the "quote" variant as a "blockquote" element', () => {
+    const { container } = render(<Body variant="quote">Quote</Body>);
+    const actual = container.querySelector('blockquote');
+    expect(actual).toBeVisible();
   });
 
   /**
