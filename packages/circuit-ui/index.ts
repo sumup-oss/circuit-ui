@@ -18,10 +18,14 @@ import * as sharedPropTypes from './util/shared-prop-types';
 // Typography
 export { default as Headline } from './components/Headline';
 export type { HeadlineProps } from './components/Headline';
+export { default as Title } from './components/Title';
+export type { TitleProps } from './components/Title';
 export { default as SubHeadline } from './components/SubHeadline';
 export type { SubHeadlineProps } from './components/SubHeadline';
 export { default as Body } from './components/Body';
 export type { BodyProps } from './components/Body';
+export { default as BodyLarge } from './components/BodyLarge';
+export type { BodyLargeProps } from './components/BodyLarge';
 export { default as Anchor } from './components/Anchor';
 export type { AnchorProps } from './components/Anchor';
 export { default as List } from './components/List';
