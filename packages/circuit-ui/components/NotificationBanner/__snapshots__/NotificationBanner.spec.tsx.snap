@@ -54,6 +54,7 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
+  letter-spacing: -0.03em;
   font-size: 32px;
   line-height: 36px;
   margin-bottom: 0;
@@ -318,6 +319,7 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   font-weight: 700;
   margin-bottom: 24px;
   color: #000;
+  letter-spacing: -0.03em;
   font-size: 32px;
   line-height: 36px;
   margin-bottom: 0;
