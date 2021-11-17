@@ -63,7 +63,7 @@ export const AsGigaAvatar = (): JSX.Element => (
     onClear={() => {}}
     loadingLabel="Uploading"
     component={({ src, alt }) => <Avatar src={src} alt={alt} size="giga" />}
-    buttonSize="giga"
+    size="giga"
   />
 );
 
