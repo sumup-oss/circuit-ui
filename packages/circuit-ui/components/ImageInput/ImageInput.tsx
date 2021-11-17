@@ -243,7 +243,7 @@ const actionButtonSizeStyles = ({ buttonSize }: ActionButtonProps) => {
       }
     `;
   }
-  return css``;
+  return null;
 };
 
 interface ActionButtonProps {
