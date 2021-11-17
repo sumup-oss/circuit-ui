@@ -4,17 +4,12 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-The Title component is used to render headings with very large typography. Typically, large typography is intended for landing pages. In most cases, a [Headline](Typography/Headline) should be used instead.
+The Title component is used to render headings with large typography. Typically, large typography is intended for landing pages. In most cases, the [Headline](Typography/Headline) should be used instead.
 
 <Story id="typography-title--base" />
 <Props />
 
-## Usage guidelines
-
-- **Do** use the [Headline](Typography/Headline) component for headings in most cases.
-- **Do** nest headings sequentially according to the Content guidelines below.
-
-## Content guidelines
+## Accessibility
 
 Nest headings by their rank (or level). The most important heading has rank 1 (`h1`), the least important heading rank 6 (`h6`). Headings with an equal or higher rank start a new section, headings with a lower rank start new subsections that are part of the higher-ranked section.
 
@@ -25,5 +20,7 @@ Skipping heading ranks can be confusing and should be avoided where possible: En
 ## Component variations
 
 ### Sizes
+
+The Title component comes in four sizes. In most cases, use the [Headline component](Typography/Headline) component instead to render headings.
 
 <Story id="typography-title--sizes" />
