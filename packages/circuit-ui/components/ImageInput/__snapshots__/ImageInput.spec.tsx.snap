@@ -1715,6 +1715,7 @@ exports[`ImageInput styles should render with smaller button 1`] = `
   position: absolute;
   right: -4px;
   bottom: -4px;
+  padding: 5px;
   pointer-events: none;
 }
 
@@ -1748,6 +1749,11 @@ exports[`ImageInput styles should render with smaller button 1`] = `
 .circuit-5[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
+}
+
+.circuit-5 svg {
+  width: 14px;
+  height: 14px;
 }
 
 .circuit-6 {

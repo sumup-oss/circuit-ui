@@ -74,7 +74,7 @@ describe('ImageInput', () => {
     it('should render with smaller button', () => {
       const { container } = renderImageInput({
         ...defaultProps,
-        buttonSize: 'giga',
+        size: 'giga',
       });
       expect(container).toMatchSnapshot();
     });
