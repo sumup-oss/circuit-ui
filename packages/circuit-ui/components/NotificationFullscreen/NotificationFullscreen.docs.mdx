@@ -27,10 +27,8 @@ The NotificationFullscreen component provides important information or feedback 
 
 ## Accessibility
 
-By default, the NotificationFullscreen component renders an `h2` headline. This assumes that the component is rendered as part of a broader heading structure, on a page that already has an `h1` heading element.
+By default, the NotificationFullscreen component renders an `h2` heading element. This assumes that the component is rendered as part of a broader heading structure, on a page that already has a parent `h1` heading element.
 
-However, the component may also be used in isolation, for example for full-screen error pages.
-
-In this case, in order to maintain an accessibly heading hierarchy, it is important to render the NotificationFullscreen's headline as an `h1`. This can be done by passing the `headline` prop as an object with the `as: "h1"` property.
+However, the component may also be used in isolation, for example for full-screen error pages. In this case, in order to maintain an accessible heading hierarchy, the NotificationFullscreen's headline should be rendered as an `h1`. This can be done by passing the `headline` prop as an object with the `as: "h1"` property.
 
 <Story id="notification-notificationfullscreen--with-heading-1" />
