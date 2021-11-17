@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 3.2.0
+
+### Minor Changes
+
+- [#1273](https://github.com/sumup-oss/circuit-ui/pull/1273) [`ed0c4f83`](https://github.com/sumup-oss/circuit-ui/commit/ed0c4f83258dccc93686ee7e5a282c1c720c6543) Thanks [@robinmetral](https://github.com/robinmetral)! - Added new `typography.title` and `typography.bodyLarge` values to the theme.
+
 ## 3.1.1
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @sumup/circuit-ui
 
+## 5.0.0
+
+### Minor Changes
+
+- [#1273](https://github.com/sumup-oss/circuit-ui/pull/1273) [`ed0c4f83`](https://github.com/sumup-oss/circuit-ui/commit/ed0c4f83258dccc93686ee7e5a282c1c720c6543) Thanks [@robinmetral](https://github.com/robinmetral)! - Introduced the `Title` and `BodyLarge` components for rendering copy with large typography, for example on landing pages.
+
+* [#1260](https://github.com/sumup-oss/circuit-ui/pull/1260) [`40339fe0`](https://github.com/sumup-oss/circuit-ui/commit/40339fe0204ce29b517bf8a19929e379d9915411) Thanks [@giedoka](https://github.com/giedoka)! - Added an optional `size` prop to the `ImageInput` component to change the action button's size.
+
+### Patch Changes
+
+- [#1273](https://github.com/sumup-oss/circuit-ui/pull/1273) [`ed0c4f83`](https://github.com/sumup-oss/circuit-ui/commit/ed0c4f83258dccc93686ee7e5a282c1c720c6543) Thanks [@robinmetral](https://github.com/robinmetral)! - Adapted the tracking of the `Headline` component for better readability.
+
+* [#1260](https://github.com/sumup-oss/circuit-ui/pull/1260) [`40339fe0`](https://github.com/sumup-oss/circuit-ui/commit/40339fe0204ce29b517bf8a19929e379d9915411) Thanks [@giedoka](https://github.com/giedoka)! - Adjusted the border radius of the `Avatar` component when `size="giga"` and `variant="object"`.
+
+* Updated dependencies [[`ed0c4f83`](https://github.com/sumup-oss/circuit-ui/commit/ed0c4f83258dccc93686ee7e5a282c1c720c6543)]:
+  - @sumup/design-tokens@3.2.0
+
 ## 4.4.2
 
 ### Patch Changes
