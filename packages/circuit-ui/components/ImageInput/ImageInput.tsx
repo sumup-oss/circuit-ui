@@ -245,7 +245,7 @@ const actionButtonSizeStyles = ({ buttonSize }: ActionButtonProps) => {
       }
     `;
   }
-  return css``;
+  return null;
 };
 
 type ActionButtonProps = IconButtonProps & { buttonSize: Size };
