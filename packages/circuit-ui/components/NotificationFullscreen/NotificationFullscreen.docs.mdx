@@ -8,19 +8,29 @@ import { NotificationFullscreen } from '@sumup/circuit-ui';
 <Story id="notification-notificationfullscreen--base" />
 <Props />
 
-The notification fullscreen component provides important information or feedback as part of a process flow.
+The NotificationFullscreen component provides important information or feedback as part of a process flow.
 
 ## When to use it
 
-- As confirmation/success screen after a process flow.
-- As empty screen.
-- As page loading error screen.
+- As a confirmation/success screen.
+- As an empty screen state.
+- As an error screen.
 
 ## Usage guidelines
 
-- Use a concise headline to communicate the message.
-- To maintain proper headline hierarchy, the headline prop can be either a string or an object (to render 'h1'). Default value is set to 'h2'.
-- If needed, an optional body copy and actions can be included.
-- The maximum width of the notification fullscreen is 420px, to ensure an optimised readability of the text.
-- The positioning of the buttons within a button group follows the guidelines of the button group component.
-- The image asset has a fixed height of 160px, and maximum width of 280px.
+- Use a concise headline to communicate your message.
+- Render an `h1` headline instead of the default `h2` if there is no other `h1` on the page (see "Accessibility" below).
+- When necessary, an optional body copy and actions (anchors or buttons) can be rendered.
+- The maximum width of the NotificationFullscreen is 420px, to optimize readability of the text.
+- The positioning of the action buttons follows the guidelines of the [ButtonGroup](Components/Button/ButtonGroup) component.
+- The image asset has a fixed height of 160px, and a maximum width of 280px.
+
+## Accessibility
+
+By default, the NotificationFullscreen component renders an `h2` headline. This assumes that the component is rendered as part of a broader heading structure, on a page that already has an `h1` heading element.
+
+However, the component may also be used in isolation, for example for full-screen error pages.
+
+In this case, in order to maintain an accessibly heading hierarchy, it is important to render the NotificationFullscreen's headline as an `h1`. This can be done by passing the `headline` prop as an object with the `as: "h1"` property.
+
+<Story id="notification-notificationfullscreen--with-heading-1" />

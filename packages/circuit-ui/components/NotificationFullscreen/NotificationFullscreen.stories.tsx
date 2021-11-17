@@ -55,14 +55,16 @@ Base.args = {
   },
 };
 
-export const Customized = (args: NotificationFullscreenProps): JSX.Element => (
-  <NotificationFullscreen {...args} />
+export const WithHeading1 = (
+  args: NotificationFullscreenProps,
+): JSX.Element => (
+  <NotificationFullscreen
+    {...args}
+    headline={{ label: 'Heading 1', as: 'h1' }}
+    body={
+      'The NotificationFullscreen\'s headline should be rendered as an "h1" when used on a page without a parent "h1".'
+    }
+  />
 );
 
-Customized.args = {
-  ...Base.args,
-  headline: {
-    label: 'Empty box',
-    as: 'h1',
-  },
-};
+WithHeading1.args = Base.args;
