@@ -46,16 +46,11 @@ const baseStyles = ({ theme }: StyleProps) => css`
   letter-spacing: -0.03em;
 `;
 
-const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => {
-  if (!size) {
-    return null;
-  }
+const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => css`
+  font-size: ${theme.typography.headline[size].fontSize};
+  line-height: ${theme.typography.headline[size].lineHeight};
+`;
 
-  return css`
-    font-size: ${theme.typography.headline[size].fontSize};
-    line-height: ${theme.typography.headline[size].lineHeight};
-  `;
-};
 const noMarginStyles = ({ noMargin }: HeadlineProps) => {
   if (!noMargin) {
     if (

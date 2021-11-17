@@ -68,5 +68,5 @@ const noMarginStyles = ({ noMargin }: SubHeadlineProps) => {
  * element, except h1.
  */
 export const SubHeadline: FC<SubHeadlineProps> = styled('h3', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
+  shouldForwardProp: (prop) => isPropValid(prop),
 })<SubHeadlineProps>(baseStyles, noMarginStyles);

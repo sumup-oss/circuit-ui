@@ -53,16 +53,10 @@ const baseStyles = ({ theme }: StyleProps) => css`
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => {
-  if (!size) {
-    return null;
-  }
-
-  return css`
-    font-size: ${theme.typography.body[size].fontSize};
-    line-height: ${theme.typography.body[size].lineHeight};
-  `;
-};
+const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => css`
+  font-size: ${theme.typography.body[size].fontSize};
+  line-height: ${theme.typography.body[size].lineHeight};
+`;
 
 const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
   switch (variant) {

@@ -80,7 +80,7 @@ const variantStyles = ({ theme, variant }: BodyLargeProps & StyleProps) => {
 };
 
 const StyledBodyLarge = styled('p', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
+  shouldForwardProp: (prop) => isPropValid(prop),
 })<BodyLargeProps>(baseStyles, variantStyles);
 
 function getHTMLElement(variant?: Variant): AsPropType {
