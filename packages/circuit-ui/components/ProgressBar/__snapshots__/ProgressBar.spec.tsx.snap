@@ -236,6 +236,7 @@ exports[`ProgressBar time-based should render with a hidden label 1`] = `
   <span
     aria-labelledby="progress-bar_5"
     class="circuit-1"
+    role="progressbar"
     title="A progress bar"
   />
   <span
@@ -322,6 +323,7 @@ exports[`ProgressBar time-based should render with default styles 1`] = `
   <span
     aria-labelledby="progress-bar_4"
     class="circuit-1"
+    role="progressbar"
   />
   <span
     class="circuit-2"
@@ -424,6 +426,7 @@ exports[`ProgressBar time-based should render with loop styles 1`] = `
     aria-labelledby="progress-bar_7"
     class="circuit-1"
     loop=""
+    role="progressbar"
   />
   <span
     class="circuit-2"
@@ -519,6 +522,7 @@ exports[`ProgressBar time-based should render with paused styles 1`] = `
   <span
     aria-labelledby="progress-bar_6"
     class="circuit-1"
+    role="progressbar"
   />
   <span
     class="circuit-2"
