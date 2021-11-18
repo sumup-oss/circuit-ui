@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 4.5.1
+
+### Patch Changes
+
+- [#1276](https://github.com/sumup-oss/circuit-ui/pull/1276) [`701a668a`](https://github.com/sumup-oss/circuit-ui/commit/701a668abc9542cca44860c1a5858ebe31db0d2a) Thanks [@robinmetral](https://github.com/robinmetral)! - Added `role="progressbar"` to the `ProgressBar` component's time-based variant.
+
+* [#1276](https://github.com/sumup-oss/circuit-ui/pull/1276) [`701a668a`](https://github.com/sumup-oss/circuit-ui/commit/701a668abc9542cca44860c1a5858ebe31db0d2a) Thanks [@robinmetral](https://github.com/robinmetral)! - Hid the `Carousel` component's visual progress indicator to screen readers.
+
 ## 4.5.0
 
 ### Minor Changes
