@@ -72,7 +72,9 @@ export function useStack<T extends StackItem>(
   const [state, dispatch] = useReducer(reducer, initialStack);
 
   useEffect(() => {
+    console.log('hello useStack useEffect');
     const itemToRemove = state.find((item) => item.timeout);
+    console.log(itemToRemove);
 
     if (!itemToRemove) {
       return;

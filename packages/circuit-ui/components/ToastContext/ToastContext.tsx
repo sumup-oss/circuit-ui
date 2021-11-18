@@ -1,0 +1,162 @@
+/**
+ * Copyright 2019, SumUp Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+} from 'react';
+import { useClickTrigger } from '@sumup/collector';
+import { css } from '@emotion/react';
+
+import { useStack, StackItem } from '../../hooks/useStack';
+import styled, { StyleProps } from '../../styles/styled';
+import { spacing } from '../..';
+
+import { BaseToastProps, ToastComponent } from './types';
+
+type ToastState<TProps extends BaseToastProps> = TProps &
+  StackItem & { component: ToastComponent<TProps> };
+
+type ToastContextValue = {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  setToast: (toast: ToastState<any>) => void;
+  removeToast: (toast: ToastState<any>) => void;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
+};
+
+export const ToastContext = createContext<ToastContextValue>({
+  setToast: () => {},
+  removeToast: () => {},
+});
+
+export interface ToastProviderProps<TProps extends BaseToastProps> {
+  /**
+   * The ToastProvider should wrap your entire application.
+   */
+  children: ReactNode;
+  /**
+   * An array of toasts that should be displayed immediately, e.g. on page load.
+   */
+  initialState?: ToastState<TProps>[];
+}
+
+const listWrapperStyles = ({ theme }: StyleProps) => css`
+  position: fixed;
+  bottom: ${theme.spacings.giga};
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column-reverse;
+`;
+
+const ListWrapper = styled('ul')(listWrapperStyles);
+
+export function ToastProvider<TProps extends BaseToastProps>({
+  children,
+  initialState,
+  ...defaultToastProps
+}: ToastProviderProps<TProps>): JSX.Element {
+  const sendEvent = useClickTrigger();
+  const [toasts, dispatch] = useStack<ToastState<TProps>>(initialState);
+
+  const setToast = useCallback(
+    (toast: ToastState<TProps>) => {
+      if (toast.tracking && toast.tracking.label) {
+        sendEvent({
+          component: 'toast',
+          ...toast.tracking,
+          label: `${toast.tracking.label}|open`,
+        });
+      }
+
+      dispatch({ type: 'push', item: toast });
+    },
+    [dispatch, sendEvent],
+  );
+
+  const removeToast = useCallback(
+    (toast: ToastState<TProps>) => {
+      if (toast.tracking && toast.tracking.label) {
+        sendEvent({
+          component: 'toast',
+          ...toast.tracking,
+          label: `${toast.tracking.label}|close`,
+        });
+      }
+      if (toast.onClose) {
+        toast.onClose();
+      }
+      dispatch({
+        type: 'remove',
+        id: toast.id,
+        timeout: toast.component.TIMEOUT,
+      });
+    },
+    [dispatch, sendEvent],
+  );
+
+  const context = useMemo(() => ({ setToast, removeToast }), [
+    setToast,
+    removeToast,
+  ]);
+
+  const autoDismissingToast = toasts.find((toast) => !!toast.duration);
+
+  useEffect(() => {
+    if (!autoDismissingToast) {
+      return undefined;
+    }
+    const timeoutId = setTimeout(() => {
+      context.removeToast(autoDismissingToast);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [autoDismissingToast, context]);
+
+  return (
+    <ToastContext.Provider value={context}>
+      {children}
+      <ListWrapper>
+        {toasts.map((toast) => {
+          const {
+            id,
+            onClose,
+            timeout,
+            component: Component,
+            ...toastProps
+          } = toast;
+          return (
+            // @ts-expect-error The props are enforced by the toast hooks,
+            // so this warning can be safely ignored.
+            <Component
+              css={spacing({ top: 'byte' })}
+              {...defaultToastProps}
+              {...toastProps}
+              key={id}
+              isVisible={!timeout}
+              onClose={() => context.removeToast(toast)}
+              as="li"
+            />
+          );
+        })}
+      </ListWrapper>
+    </ToastContext.Provider>
+  );
+}
