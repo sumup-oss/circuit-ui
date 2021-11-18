@@ -260,6 +260,7 @@ export function ProgressBar({
         />
       ) : (
         <TimeProgress
+          role="progressbar"
           title={title}
           aria-labelledby={ariaId}
           duration={duration}

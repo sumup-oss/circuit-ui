@@ -139,6 +139,7 @@ const Carousel = ({
               <StyledStatus step={state.step} total={slidesTotal} />
 
               <StyledProgressBar
+                aria-hidden
                 key={state.step}
                 size="byte"
                 variant="secondary"
