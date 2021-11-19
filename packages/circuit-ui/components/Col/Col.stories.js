@@ -61,6 +61,6 @@ export const Base = (args) => (
 );
 
 Base.args = {
-  span: '12',
+  span: 12,
   skip: 0,
 };
