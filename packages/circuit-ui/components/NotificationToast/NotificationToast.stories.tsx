@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Button from '../Button';
+import Body from '../Body';
 import { ToastProvider } from '../ToastContext';
 
 import {
@@ -26,14 +26,13 @@ import {
 } from './NotificationToast';
 
 export default {
-  title: 'Notification/NotificatinToast',
+  title: 'Notification/NotificationToast',
   component: NotificationToast,
 };
 
 export const Base = (toast: NotificationToastProps): JSX.Element => {
-  const Toast = () => {
+  const App = () => {
     const { setToast } = useNotificationToast();
-
     return (
       <Button type="button" onClick={() => setToast(toast)}>
         Open toast
@@ -42,39 +41,34 @@ export const Base = (toast: NotificationToastProps): JSX.Element => {
   };
   return (
     <ToastProvider>
-      <Toast />
+      <App />
     </ToastProvider>
   );
 };
 
 Base.args = {
-  closeButtonLabel: 'Close Notification Toast',
-  headline: 'Toast',
+  closeButtonLabel: 'Close',
   body: 'This is a toast message',
-  action: {
-    onClick: action('Action clicked'),
-    children: 'Click here',
-  },
-};
+} as NotificationToastProps;
 
 const variants = ['info', 'confirm', 'notify', 'alert'] as const;
 
-export const Variants = (args: NotificationToastProps) => {
-  const initialToast = {
-    id: 'initial',
-    component: NotificationToast,
-    ...args,
+export const Variants = (toast: NotificationToastProps): JSX.Element => {
+  const App = () => {
+    const { setToast } = useNotificationToast();
+    useEffect(() => {
+      variants.forEach((variant) => {
+        setToast({ ...toast, variant });
+      });
+    }, [setToast]);
+
+    return <Body noMargin>Your app</Body>;
   };
-
-  return variants.map((variant) => (
-    <ToastProvider
-      initialState={[initialToast]}
-      key={variant}
-      variant={variant}
-    ></ToastProvider>
-  ));
+  return (
+    <ToastProvider>
+      <App />
+    </ToastProvider>
+  );
 };
 
-Variants.args = {
-  body: 'There is updated firmware available for your card reader',
-};
+Variants.args = Base.args;

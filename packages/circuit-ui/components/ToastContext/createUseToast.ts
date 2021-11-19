@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useCallback, useContext, useMemo, useRef } from 'react';
+import { useCallback, useContext } from 'react';
 
 import { uniqueId } from '../../util/id';
 
@@ -25,29 +25,17 @@ export function createUseToast<T extends BaseToastProps>(
 ) {
   return (): {
     setToast: (props: T) => void;
-    removeToast: () => void;
   } => {
-    const id = useMemo(uniqueId, []);
-    const toastRef = useRef<T | null>(null);
     const context = useContext(ToastContext);
-    // const [toasts, setToasts] = useState([]);
 
     const setToast = useCallback(
       (props: T): void => {
-        toastRef.current = props;
+        const id = uniqueId('toast_');
         context.setToast({ ...props, id, component });
-        console.log(id);
       },
-      [context, id],
+      [context],
     );
 
-    const removeToast = useCallback((): void => {
-      if (toastRef.current) {
-        context.removeToast({ ...toastRef.current, id, component });
-        toastRef.current = null;
-      }
-    }, [context, id]);
-
-    return { setToast, removeToast };
+    return { setToast };
   };
 }

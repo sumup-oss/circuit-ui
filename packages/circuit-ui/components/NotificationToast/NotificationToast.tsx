@@ -13,16 +13,14 @@
  * limitations under the License.
  */
 
-/**
- * <NotificationToast />
- *   animation -> reference NotificationBanner
- *
- * useNotificationToast()
- *   ToastContext
- *   createUseToast
- *   useStack
- */
-import { ReactNode, RefObject, useEffect, useRef, useState } from 'react';
+import {
+  HTMLAttributes,
+  ReactNode,
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { css } from '@emotion/react';
 import { Alert, Confirm, Info, Notify } from '@sumup/icons';
 
@@ -44,44 +42,43 @@ type Action = ButtonProps & {
   variant: 'tertiary';
 };
 
-export type NotificationToastProps = BaseToastProps & {
-  /**
-   * Notification toast variants.
-   * Use the `info` variant for the informational messages (default), 'confirm' for successfull message,
-   * 'notify' for warning messages and 'alert' for error messages.
-   */
-  variant: Variant;
-  /**
-   * Notification toast headline to provide information (optional)
-   */
-  headline?: string | ReactNode;
-  /**
-   * An body copy to provide notification toast information
-   */
-  body: string | ReactNode;
-  /**
-   * An optional call-to-action button.
-   */
-  action?: Action;
-  /**
-   * Whether the notification toast is visible.
-   */
-  isVisible?: boolean;
-  /**
-   * Additional data that is dispatched with the tracking event.
-   */
-  tracking?: TrackingProps;
-  /**
-   * Renders a close button in the top right corner and calls the provided function
-   * when the button is clicked.
-   */
-  onClose?: (event: ClickEvent) => void;
-  /**
-   * Text label for the close button for screen readers.
-   * Important for accessibility.
-   */
-  closeButtonLabel: string;
-};
+export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
+  BaseToastProps & {
+    /**
+     * Notification toast variants. Defaults to `info`.
+     */
+    variant?: Variant;
+    /**
+     * Notification toast headline to provide information (optional)
+     */
+    headline?: string | ReactNode;
+    /**
+     * An body copy to provide notification toast information
+     */
+    body: string | ReactNode;
+    /**
+     * An optional call-to-action button.
+     */
+    action?: Action;
+    /**
+     * Whether the notification toast is visible.
+     */
+    isVisible?: boolean;
+    /**
+     * Additional data that is dispatched with the tracking event.
+     */
+    tracking?: TrackingProps;
+    /**
+     * Renders a close button in the top right corner and calls the provided function
+     * when the button is clicked.
+     */
+    onClose?: (event: ClickEvent) => void;
+    /**
+     * Text label for the close button for screen readers.
+     * Important for accessibility.
+     */
+    closeButtonLabel: string;
+  };
 
 // TODO: update the design token colors to be info/confirm/alert/notify, then remove this mapping
 const colorMap = {
@@ -98,10 +95,14 @@ const iconMap = {
   notify: Notify,
 };
 
+type NotificationToastWrapperProps = HTMLAttributes<HTMLDivElement> & {
+  variant: Variant;
+};
+
 const toastWrapperStyles = ({
   theme,
   variant,
-}: Pick<NotificationToastProps, 'variant'> & StyleProps) => css`
+}: NotificationToastWrapperProps & StyleProps) => css`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -115,7 +116,9 @@ const toastWrapperStyles = ({
     visibility 200ms ease-in-out;
 `;
 
-const NotificationToastWrapper = styled('div')(toastWrapperStyles);
+const NotificationToastWrapper = styled('div')<NotificationToastWrapperProps>(
+  toastWrapperStyles,
+);
 
 const contentStyles = ({ theme }: StyleProps) => css`
   display: flex;
@@ -178,7 +181,7 @@ export function NotificationToast({
   closeButtonLabel,
   isVisible,
   tracking,
-
+  duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
   ...props
 }: NotificationToastProps): JSX.Element {
   const contentElement = useRef(null);

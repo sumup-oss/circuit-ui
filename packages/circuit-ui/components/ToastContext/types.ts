@@ -30,7 +30,7 @@ export interface BaseToastProps {
   /**
    * TODO: Add description for prop
    */
-  duration: number;
+  duration?: number;
 }
 
 export type ToastComponent<TProps extends BaseToastProps = BaseToastProps> = ((

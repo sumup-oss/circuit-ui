@@ -44,15 +44,11 @@ export const ToastContext = createContext<ToastContextValue>({
   removeToast: () => {},
 });
 
-export interface ToastProviderProps<TProps extends BaseToastProps> {
+export interface ToastProviderProps {
   /**
    * The ToastProvider should wrap your entire application.
    */
   children: ReactNode;
-  /**
-   * An array of toasts that should be displayed immediately, e.g. on page load.
-   */
-  initialState?: ToastState<TProps>[];
 }
 
 const listWrapperStyles = ({ theme }: StyleProps) => css`
@@ -68,11 +64,9 @@ const ListWrapper = styled('ul')(listWrapperStyles);
 
 export function ToastProvider<TProps extends BaseToastProps>({
   children,
-  initialState,
-  ...defaultToastProps
-}: ToastProviderProps<TProps>): JSX.Element {
+}: ToastProviderProps): JSX.Element {
   const sendEvent = useClickTrigger();
-  const [toasts, dispatch] = useStack<ToastState<TProps>>(initialState);
+  const [toasts, dispatch] = useStack<ToastState<TProps>>([]);
 
   const setToast = useCallback(
     (toast: ToastState<TProps>) => {
@@ -84,7 +78,10 @@ export function ToastProvider<TProps extends BaseToastProps>({
         });
       }
 
-      dispatch({ type: 'push', item: toast });
+      dispatch({
+        type: 'push',
+        item: toast,
+      });
     },
     [dispatch, sendEvent],
   );
@@ -115,20 +112,20 @@ export function ToastProvider<TProps extends BaseToastProps>({
     removeToast,
   ]);
 
-  const autoDismissingToast = toasts.find((toast) => !!toast.duration);
-
   useEffect(() => {
-    if (!autoDismissingToast) {
+    const toastToDismiss = toasts[0];
+    if (!toastToDismiss) {
       return undefined;
     }
+    const duration = toastToDismiss.duration || 3000;
     const timeoutId = setTimeout(() => {
-      context.removeToast(autoDismissingToast);
-    }, 2000);
+      context.removeToast(toastToDismiss);
+    }, duration);
 
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [autoDismissingToast, context]);
+  }, [toasts, context]);
 
   return (
     <ToastContext.Provider value={context}>
@@ -147,7 +144,6 @@ export function ToastProvider<TProps extends BaseToastProps>({
             // so this warning can be safely ignored.
             <Component
               css={spacing({ top: 'byte' })}
-              {...defaultToastProps}
               {...toastProps}
               key={id}
               isVisible={!timeout}
