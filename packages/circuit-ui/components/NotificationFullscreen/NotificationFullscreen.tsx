@@ -19,7 +19,7 @@ import { css } from '@emotion/react';
 import Body from '../Body';
 import Headline from '../Headline';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
-import { spacing } from '../../styles/style-mixins';
+import { spacing, cx } from '../../styles/style-mixins';
 import Image, { ImageProps } from '../Image';
 import { isString } from '../../util/type-check';
 
@@ -63,7 +63,7 @@ const imageStyles = css`
   object-fit: contain;
 `;
 
-const bodyStyles = css`
+const centeredStyles = css`
   text-align: center;
 `;
 
@@ -84,14 +84,14 @@ export const NotificationFullscreen = ({
       <Image {...image} css={imageStyles} />
       <Headline
         noMargin
-        css={spacing({ top: 'giga', bottom: 'byte' })}
+        css={cx(spacing({ top: 'giga', bottom: 'byte' }), centeredStyles)}
         size="two"
         as={headlineElement}
       >
         {headlineLabel}
       </Headline>
       {body && (
-        <Body css={bodyStyles} noMargin>
+        <Body css={centeredStyles} noMargin>
           {body}
         </Body>
       )}
