@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 4.5.2
+
+### Patch Changes
+
+- [#1285](https://github.com/sumup-oss/circuit-ui/pull/1285) [`95a7f0f9`](https://github.com/sumup-oss/circuit-ui/commit/95a7f0f9c0e008c42d19b6918b3a16df173d8756) Thanks [@robinmetral](https://github.com/robinmetral)! - Centered the `NotificationFullscreen`'s headline when the copy wraps on two lines.
+
+* [#1283](https://github.com/sumup-oss/circuit-ui/pull/1283) [`c35e1c2c`](https://github.com/sumup-oss/circuit-ui/commit/c35e1c2c8da886a36e885e2a11336bda9f0abc02) Thanks [@robinmetral](https://github.com/robinmetral)! - Added the `noMargin` prop to the `NotificationFullscreen`'s headline to prevent the deprecation warning.
+
 ## 4.5.1
 
 ### Patch Changes
