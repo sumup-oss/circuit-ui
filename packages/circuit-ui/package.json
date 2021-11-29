@@ -77,7 +77,7 @@
     "chalk": "^4.1.2",
     "component-playground": "^3.2.1",
     "cross-env": "^7.0.2",
-    "css-loader": "^5.0.1",
+    "css-loader": "^6.5.1",
     "fork-ts-checker-webpack-plugin": "^6.0.3",
     "jest-axe": "^5.0.1",
     "react": "^17.0.1",
