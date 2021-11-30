@@ -13,4 +13,6 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup/foundry/prettier')();
+module.exports = require('@sumup/foundry/prettier')(undefined, {
+  proseWrap: 'always',
+});
