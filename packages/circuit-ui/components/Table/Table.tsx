@@ -194,6 +194,7 @@ const StyledTable = styled.table<TableElProps>`
 
 type TableState = {
   sortedRow?: number;
+  sortedRows?: Row[];
   sortHover?: number;
   sortDirection?: Direction;
   scrollTop?: number;
@@ -206,6 +207,7 @@ type TableState = {
 class Table extends Component<TableProps, TableState> {
   state: TableState = {
     sortedRow: undefined,
+    sortedRows: undefined,
     sortHover: undefined,
     sortDirection: undefined,
     scrollTop: undefined,
@@ -267,27 +269,23 @@ class Table extends Component<TableProps, TableState> {
     const { sortedRow, sortDirection } = this.state;
     const isActive = i === sortedRow;
     const nextDirection = getSortDirection(isActive, sortDirection);
+    const sortedRows = this.getSortedRows(nextDirection, i);
 
-    this.updateSort(i, nextDirection);
+    this.updateSort(i, nextDirection, sortedRows);
   };
 
-  getSortedRows = (): Row[] => {
+  getSortedRows = (sortDirection: Direction, sortedRow: number): Row[] => {
     const { rows, onSortBy } = this.props;
-    const { sortDirection, sortedRow } = this.state;
-
-    if (sortedRow === undefined) {
-      return rows;
-    }
-
     return onSortBy
       ? onSortBy(sortedRow, rows, sortDirection)
       : this.defaultSortBy(sortedRow, rows, sortDirection);
   };
 
-  updateSort = (i: number, nextDirection: Direction): void =>
+  updateSort = (i: number, nextDirection: Direction, sortedRows: Row[]): void =>
     this.setState({
       sortedRow: i,
       sortDirection: nextDirection,
+      sortedRows,
     });
 
   defaultSortBy = (i: number, rows: Row[], direction?: Direction): Row[] => {
@@ -309,7 +307,7 @@ class Table extends Component<TableProps, TableState> {
       condensed = false,
       scrollable = false,
       onRowClick,
-      rows,
+      rows: initialRows,
       onSortBy,
       ...props
     } = this.props;
@@ -321,7 +319,7 @@ class Table extends Component<TableProps, TableState> {
       tableBodyHeight,
     } = this.state;
 
-    const sortedRows = this.getSortedRows();
+    const rows = this.state.sortedRows || initialRows;
 
     return (
       <TableContainer
@@ -355,7 +353,7 @@ class Table extends Component<TableProps, TableState> {
             />
             <TableBody
               condensed={condensed}
-              rows={sortedRows}
+              rows={rows}
               rowHeaders={rowHeaders}
               sortHover={sortHover}
               onRowClick={onRowClick}
