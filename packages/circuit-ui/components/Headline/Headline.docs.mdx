@@ -4,7 +4,7 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-Headlines are used for titling sections of the interface. They're an essential part of a page's structure, helping organize information for our users.
+Headlines are used for titling sections of the interface. They're an essential part of a page's structure, helping organize information for users.
 
 <Story id="typography-headline--base" />
 <Props />
@@ -27,15 +27,15 @@ Headings are a fundamental aspect of creating accessible interfaces. Sighted use
 
 #### Each page should have a single `<h1>`
 
-The `<h1>` represents the page title. Our pages should all have one (and only one), and it should be similar to the document's `<title>`.
+The `<h1>` represents the page title. Pages should all have one (and only one), and it should be similar to the document's `<title>`.
 
 #### Headings should be descriptive
 
 A heading's text should describe its section's content accurately and concisely. Because screen reader users will use them to navigate the page's contents, headings must also make sense out of the content's context, as if rendered in a table of contents.
 
-#### Headings should be nested incrementally
+#### Headings should be nested hierarchically
 
-Beyond the `<h1>`, heading levels should be nested incrementally to make them easily accessible to users. Think of your heading structure like a nested list:
+Beyond the `<h1>`, heading levels should be nested hierarchically to make them easily accessible to users. Think of your heading structure like a nested list:
 
 - `<h1>` Page title
   - `<h2>` Section title
@@ -70,27 +70,39 @@ function HiddenHeadline() {
 
 #### Avoid headings without sections
 
-Headings typically use large typography, but all large typography shoulnd't be a heading.
+Headings typically use large typography, but not all large typography should be a heading.
 
 If you need to render large text that doesn't describe a section, don't use a semantic heading element, and instead use CSS to enlarge the text.
 
 ```tsx
-<section>
-  <Headline as="h2" size="four">
-    My product
-  </Headline>
-  <Headline as="p" size="one">
-    9,99 €
-  </Headline>
-  <Body>A description of my product.</Body>
-</section>
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+
+const Price = styled.p(
+  ({ theme }) => css`
+    font-size: ${theme.typography.headline.one};
+    font-weight: bold;
+  `,
+);
+
+function Product() {
+  return (
+    <section>
+      <Headline as="h2" size="four">
+        My product
+      </Headline>
+      <Price>9,99 €</Price>
+      <Body>A description of my product.</Body>
+    </section>
+  );
+}
 ```
 
 ### Resources
 
 #### Testing heading acessibility
 
-Use a tool like [Wave](https://wave.webaim.org/) to extract structure from a page (in Wave, you'll find the page structure under the _Structure_ tab). Verify that sections are appropriately titled and are nested incrementally.
+Use a tool like [Wave](https://wave.webaim.org/) to extract structure from a page (in Wave, you'll find the page structure under the _Structure_ tab). Verify that sections are appropriately titled and are nested hierarchically.
 
 #### Related WCAG success criteria
 
