@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.5.3
+
+### Patch Changes
+
+- [#1292](https://github.com/sumup-oss/circuit-ui/pull/1292) [`f5a172ae`](https://github.com/sumup-oss/circuit-ui/commit/f5a172ae6cbd39e98775e0ece5d7955f22aee353) Thanks [@robinmetral](https://github.com/robinmetral)! - Prevented the `Table` component from rerendering when hovering sortable header cells.
+
 ## 4.5.2
 
 ### Patch Changes
