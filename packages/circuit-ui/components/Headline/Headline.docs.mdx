@@ -4,18 +4,10 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-Headlines are used for titling major sections of the interface. They help better organize the information for our users providing useful labels for each possible section.
+The Headline component is used for describing the contents of a page or page section. It is an essential part of a page's structure, helping organize information for users.
 
 <Story id="typography-headline--base" />
 <Props />
-
-## Accessibility
-
-Nest headings by their rank (or level). The most important heading has rank 1 (`h1`), the least important heading rank 6 (`h6`). Headings with an equal or higher rank start a new section, headings with a lower rank start new subsections that are part of the higher-ranked section.
-
-Skipping heading ranks can be confusing and should be avoided where possible: Ensure that an `h2` is not followed directly by an `h4`, for example. It is ok to skip ranks when closing subsections, for instance, an `h2` beginning a new section can follow an `h4` as it closes the previous section.
-
-[Learn more about a proper page structure](https://www.w3.org/WAI/tutorials/page-structure/headings/).
 
 ## Component variations
 
@@ -26,3 +18,93 @@ The Headline component comes in four sizes.
 Use the `four` size for card headers and `three` for page titles in web applications. For specific use cases such as landing pages, consider using the [Title](Typography/Title) component.
 
 <Story id="typography-headline--sizes" />
+
+## Accessibility
+
+Headings are a fundamental aspect of creating accessible interfaces. Sighted users rely on them to easily find what they want on a page, while assistive technology allows users to jump between them for easier access to the page's different sections.
+
+### Best practices
+
+#### Each page should have a single `<h1>`
+
+The `<h1>` represents the page title. Pages should all have one (and only one), and it should be similar to the document's `<title>`.
+
+#### Headings should be descriptive
+
+A heading's text should describe its section's content accurately and concisely. Because screen reader users will use them to navigate the page's contents, headings must also make sense out of the content's context, as if rendered in a table of contents.
+
+#### Headings should be nested hierarchically
+
+Beyond the `<h1>`, heading levels should be nested hierarchically to make them easily accessible to users. Think of your heading structure like a nested list:
+
+- `<h1>` Page title
+  - `<h2>` Section title
+    - `<h3>` Section title
+    - `<h3>` Section title
+      - `<h4>` Section title
+  - `<h2>` Section title
+
+Don't skip heading levels: an `<h4>` should not directly follow an `<h2>`.
+
+In contrast, skipping headline _sizes_ and jumping from e.g. `<Headline size="two" as="h2" />` to `<Headline size="four" as="h4" />` does not constitute an accessibility issue, although we recommend keeping sizes visually consistent across pages.
+
+#### Avoid sections without headings
+
+If a section doesn't have a heading (for example, if it uses a different background color to distinguish it from another section), it will not be easily accessible to blind users.
+
+Consider adding a heading to make the section's purpose clearer.
+
+You can also add visually hidden headings using the `hideVisually()` style mixin:
+
+```tsx
+import { Headline, hideVisually } from '@sumup/circuit-ui';
+
+function HiddenHeadline() {
+  return (
+    <Headline as="h2" css={hideVisually}>
+      My section
+    </Headline>
+  );
+}
+```
+
+#### Avoid headings without sections
+
+Headings typically use large typography, but not all large typography should be a heading.
+
+If you need to render large text that doesn't describe a section, don't use a semantic heading element, and instead use CSS to enlarge the text.
+
+```tsx
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+
+const Price = styled.p(
+  ({ theme }) => css`
+    font-size: ${theme.typography.headline.one};
+    font-weight: bold;
+  `,
+);
+
+function Product() {
+  return (
+    <section>
+      <Headline as="h2" size="four">
+        My product
+      </Headline>
+      <Price>9,99 €</Price>
+      <Body>A description of my product.</Body>
+    </section>
+  );
+}
+```
+
+### Resources
+
+#### Testing heading acessibility
+
+Use a tool like [Wave](https://wave.webaim.org/) to extract structure from a page (in Wave, you'll find the page structure under the _Structure_ tab). Verify that sections are appropriately titled and are nested hierarchically.
+
+#### Related WCAG success criteria
+
+- 1.3.1: [Info and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html)
+- 2.4.6: [Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html)

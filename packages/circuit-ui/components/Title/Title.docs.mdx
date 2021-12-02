@@ -9,14 +9,6 @@ The Title component is used to render headings with large typography. Typically,
 <Story id="typography-title--base" />
 <Props />
 
-## Accessibility
-
-Nest headings by their rank (or level). The most important heading has rank 1 (`h1`), the least important heading rank 6 (`h6`). Headings with an equal or higher rank start a new section, headings with a lower rank start new subsections that are part of the higher-ranked section.
-
-Skipping heading ranks can be confusing and should be avoided where possible: Ensure that an `h2` is not followed directly by an `h4`, for example. It is ok to skip ranks when closing subsections, for instance, an `h2` beginning a new section can follow an `h4` as it closes the previous section.
-
-[Learn more about a proper page structure](https://www.w3.org/WAI/tutorials/page-structure/headings/).
-
 ## Component variations
 
 ### Sizes
@@ -24,3 +16,7 @@ Skipping heading ranks can be confusing and should be avoided where possible: En
 The Title component comes in four sizes. In most cases, use the [Headline component](Typography/Headline) component instead to render headings.
 
 <Story id="typography-title--sizes" />
+
+## Accessibility
+
+All accessibility guidelines for the [Headline component](Typography/Headline) also apply to the Title component.
