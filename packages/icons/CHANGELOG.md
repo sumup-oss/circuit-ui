@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.1.1
+
+### Patch Changes
+
+- [#1296](https://github.com/sumup-oss/circuit-ui/pull/1296) [`c310d134`](https://github.com/sumup-oss/circuit-ui/commit/c310d1347b11c5722cc012afb62232fb79772724) Thanks [@hris27](https://github.com/hris27)! - Added a size 32 Pix card scheme icon.
+
 ## 2.1.0
 
 ### Minor Changes
