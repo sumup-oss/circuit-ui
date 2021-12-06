@@ -41,12 +41,10 @@ export function currencyToRegex(
   decimalSeparators = ['.', ','],
   thousandGroupNumbers = 3,
 ) {
-  const thousandSeparatorsRegex = arrayOfStringsToRegex(
-    thousandSeparators,
-  ).join('|');
-  const decimalSeparatorsRegex = arrayOfStringsToRegex(decimalSeparators).join(
-    '|',
-  );
+  const thousandSeparatorsRegex =
+    arrayOfStringsToRegex(thousandSeparators).join('|');
+  const decimalSeparatorsRegex =
+    arrayOfStringsToRegex(decimalSeparators).join('|');
 
   // eslint-disable-next-line prettier/prettier
   const integerRegex = `(\\d{0,${thousandGroupNumbers - 1}}(?:(?:${thousandSeparatorsRegex})?\\d{${thousandGroupNumbers}})*)`;

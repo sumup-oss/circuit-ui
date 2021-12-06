@@ -77,9 +77,8 @@ const closeButtonStyles = ({ theme }: StyleProps) => css`
   margin-bottom: -${theme.spacings.byte};
 `;
 
-const CardHeaderCloseButton = styled(CloseButton)<CloseButtonProps>(
-  closeButtonStyles,
-);
+const CardHeaderCloseButton =
+  styled(CloseButton)<CloseButtonProps>(closeButtonStyles);
 
 /**
  * Header used in the Card component. Used for styling and alignment

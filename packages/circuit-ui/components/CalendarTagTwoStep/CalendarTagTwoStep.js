@@ -144,13 +144,8 @@ export default class CalendarTagTwoStep extends Component {
   };
 
   render() {
-    const {
-      clearText,
-      confirmText,
-      onDatesRangeChange,
-      tracking,
-      ...props
-    } = this.props;
+    const { clearText, confirmText, onDatesRangeChange, tracking, ...props } =
+      this.props;
     const { focusedInput, startDate, endDate } = this.state;
     const isOpen = focusedInput !== null;
     const isFilled = !!(startDate && endDate);

@@ -39,8 +39,7 @@ yargs
         })
         .option('path', {
           alias: 'p',
-          desc:
-            'A path to the folder that contains the files to be transformed',
+          desc: 'A path to the folder that contains the files to be transformed',
           type: 'string',
           default: '.',
         })

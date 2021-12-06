@@ -50,7 +50,7 @@ describe('useCollapsible', () => {
 
   it('should call a custom onClick prop on the button element', () => {
     const customProps = { onClick: jest.fn() };
-    const event = ({ fizz: 'buzz' } as unknown) as MouseEvent;
+    const event = { fizz: 'buzz' } as unknown as MouseEvent;
     const { result } = renderHook(() => useCollapsible());
     const { getButtonProps } = result.current;
 
@@ -159,7 +159,7 @@ describe('useCollapsible', () => {
 
   describe('toggling', () => {
     it('should toggle the open state when the button is clicked', async () => {
-      const event = ({ fizz: 'buzz' } as unknown) as MouseEvent;
+      const event = { fizz: 'buzz' } as unknown as MouseEvent;
       const { result } = renderHook(() => useCollapsible());
       const { getButtonProps } = result.current;
 

@@ -311,13 +311,8 @@ class Table extends Component<TableProps, TableState> {
       onSortBy,
       ...props
     } = this.props;
-    const {
-      sortDirection,
-      sortHover,
-      sortedRow,
-      scrollTop,
-      tableBodyHeight,
-    } = this.state;
+    const { sortDirection, sortHover, sortedRow, scrollTop, tableBodyHeight } =
+      this.state;
 
     const rows = this.state.sortedRows || initialRows;
 

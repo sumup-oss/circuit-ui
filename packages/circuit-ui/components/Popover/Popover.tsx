@@ -371,9 +371,11 @@ export const Popover = ({
 
     // Focus the first or last element after opening
     if (!prevOpen && isOpen) {
-      const element = (triggerKey.current && triggerKey.current === 'ArrowUp'
-        ? menuEl.current && menuEl.current.lastElementChild
-        : menuEl.current && menuEl.current.firstElementChild) as HTMLElement;
+      const element = (
+        triggerKey.current && triggerKey.current === 'ArrowUp'
+          ? menuEl.current && menuEl.current.lastElementChild
+          : menuEl.current && menuEl.current.firstElementChild
+      ) as HTMLElement;
       if (element) {
         element.focus();
       }

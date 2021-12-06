@@ -43,10 +43,10 @@ type StyleFn =
  * Helper to pass multiple style mixins to the `css` prop.
  * Mixins can be applied conditionally, falsy values are omitted.
  */
-export const cx = (...styleFns: StyleFn[]) => (
-  theme: Theme,
-): (SerializedStyles | false | null | undefined)[] =>
-  styleFns.map((styleFn) => (isFunction(styleFn) ? styleFn(theme) : styleFn));
+export const cx =
+  (...styleFns: StyleFn[]) =>
+  (theme: Theme): (SerializedStyles | false | null | undefined)[] =>
+    styleFns.map((styleFn) => (isFunction(styleFn) ? styleFn(theme) : styleFn));
 
 type Spacing = keyof Theme['spacings'];
 

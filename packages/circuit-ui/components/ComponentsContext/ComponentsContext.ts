@@ -23,6 +23,5 @@ export type ComponentsContextType = {
   Link: (props: LinkProps) => ReactNode;
 };
 
-export const ComponentsContext = createContext<ComponentsContextType>(
-  defaultComponents,
-);
+export const ComponentsContext =
+  createContext<ComponentsContextType>(defaultComponents);

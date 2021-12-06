@@ -55,16 +55,16 @@ const Wrapper = styled('span')<ValidationHintProps>(
   invalidStyles,
 );
 
-const iconStyles = (color: 'danger' | 'warning' | 'success') => (
-  theme: Theme,
-) => css`
-  display: inline-block;
-  width: ${theme.iconSizes.kilo};
-  height: ${theme.iconSizes.kilo};
-  vertical-align: text-top;
-  margin-right: ${theme.spacings.bit};
-  color: ${theme.colors[color]};
-`;
+const iconStyles =
+  (color: 'danger' | 'warning' | 'success') => (theme: Theme) =>
+    css`
+      display: inline-block;
+      width: ${theme.iconSizes.kilo};
+      height: ${theme.iconSizes.kilo};
+      vertical-align: text-top;
+      margin-right: ${theme.spacings.bit};
+      color: ${theme.colors[color]};
+    `;
 
 const getIcon = (state: ValidationHintProps) => {
   switch (true) {
