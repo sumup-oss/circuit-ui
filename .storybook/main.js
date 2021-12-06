@@ -3,6 +3,7 @@ const path = require('path');
 const toPath = (_path) => path.join(process.cwd(), _path);
 
 module.exports = {
+  staticDirs: [toPath('.storybook/public')],
   stories: [
     '../packages/**/*.stories.@(js|ts|tsx|mdx)',
     '../docs/**/*.stories.@(js|ts|tsx|mdx)',
