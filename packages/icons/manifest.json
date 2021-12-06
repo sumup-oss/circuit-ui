@@ -396,6 +396,11 @@
       "size": "32"
     },
     {
+      "name": "pix",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "union_pay",
       "category": "Card scheme",
       "size": "32"
