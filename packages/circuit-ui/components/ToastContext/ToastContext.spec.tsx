@@ -56,30 +56,18 @@ describe('ToastContext', () => {
       onClose,
       tracking: { label: 'test-toast' },
     };
-    const initialState = [toast];
-
-    it('should render the initial toasts', () => {
-      const { getByRole } = render(
-        <ToastProvider initialState={initialState}>
-          <div />
-        </ToastProvider>,
-      );
-
-      expect(getByRole('dialog')).toBeVisible();
-    });
 
     it('should open and close a toast when the context functions are called', () => {
       const Trigger = () => {
-        const { setToast, removeToast } = useContext(ToastContext);
+        const { setToast } = useContext(ToastContext);
         return (
           <>
             <button onClick={() => setToast(toast)}>Open toast</button>
-            <button onClick={() => removeToast(toast)}>Close toast</button>
           </>
         );
       };
 
-      const { getByRole, queryByRole, getByText } = render(
+      const { getByRole, getByText } = render(
         <ToastProvider>
           <Trigger />
         </ToastProvider>,
@@ -90,22 +78,23 @@ describe('ToastContext', () => {
       });
 
       expect(getByRole('dialog')).toBeVisible();
-
-      act(() => {
-        fireEvent.click(getByText('Close toast'));
-        jest.runAllTimers();
-      });
-
-      expect(queryByRole('dialog')).toBeNull();
     });
 
     it('should close the toast when the onClose method is called', () => {
+      const Trigger = () => {
+        const { setToast } = useContext(ToastContext);
+        return (
+          <>
+            <button onClick={() => setToast(toast)}>Open toast</button>
+          </>
+        );
+      };
+
       const { queryByRole } = render(
-        <ToastProvider initialState={initialState}>
-          <div />
+        <ToastProvider>
+          <Trigger />
         </ToastProvider>,
       );
-
       act(() => {
         userEvent.click(queryByRole('button'));
         jest.runAllTimers();
@@ -113,7 +102,6 @@ describe('ToastContext', () => {
 
       expect(queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
-      expect(dispatch).toHaveBeenCalledTimes(1);
     });
   });
 });

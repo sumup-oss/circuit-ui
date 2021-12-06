@@ -1,0 +1,87 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+import { NotificationToast } from '@sumup/circuit-ui';
+
+# NotificationToast
+
+<Status.Stable />
+
+<Story id="notification-notificationtoast--base" />
+<Props />
+
+The notification toast component non-disruptively provides quick, contextual or feedback based on outcome of an action.
+
+## When to use it
+
+The notification toast should be used for a feedback on micro actions (i.e. successful/unsuccessful saving on the page).
+
+## Usage guidelines
+
+- To communicate a message always provide a body copy, and if needed an optional headline can be included above the body copy.
+- The notification toast floats above the content, positioned at the bottom of the screen, centralized horizontally withing the content area.
+- For a multiple stacked toasts, the new toast slides on top of the previous one. The timeout of the stacked toasts follow chronological order.
+- The auto-dismiss duration is adjustable (default minimum duration is 3000 ms).
+- Toasts can also be dismissed by clicking on a close button in the top-right corner. You need to provide closeButtonLabel.
+- **Do** Be concise, specific and short in the message.
+
+## Variants
+
+<Story id="notification-notificationtoast--variants" />
+
+### Info
+
+Use 'Info' variant for the informational, neutral messages.
+
+### Confirm
+
+Use 'Confirm' variant for the successful messages.
+
+### Notify
+
+Use 'Notify' variant for a warning messages, information to be aware of.
+
+### Alert
+
+Use 'Alert' variant for error messages.
+
+## Usage in code
+
+First, wrap your application in the `ToastProvider` which keeps track of the open toasts and ensures the accessibility of the toast.
+
+```tsx
+// _app.tsx for Next.js or App.js for CRA
+import { ToastProvider, BaseStyles } from '@sumup/circuit-ui';
+
+export default function App() {
+  return (
+      <BaseStyles />
+      <ToastProvider>{/* Your content goes here... */}</ToastProvider>
+  );
+}
+```
+
+Then, use the `useNotificationToast` hook to open a toast from a component:
+
+```tsx
+import { useNotificationToast, Button, Body } from '@sumup/circuit-ui';
+
+export function App({ name }) {
+  const { setToast } = useNotificationToast();
+
+  const handleClick = () => {
+    setToast({
+      body: 'This is a toast message',
+      closeButtonLabel: 'Close modal',
+    });
+  };
+
+  return <Button onClick={handleClick}>Open toast</Button>;
+}
+```
+
+## Accessibility
+
+By their nature as small quick messages, or interruptions, toasts map to [live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions),
+and screen readers are gonna automatically announce the raw text within without any need to move the user's focus.
+Live region must always exist on the page at render, before the toast is generated.
+To ensure that the toast is always anounced as a whole, `aria-atomic` is set to `"true"`.
+The `aria-role` is adapted to `"status"`, as a most generic one that provides an updated status. It has a `aria-live="polite"` meaning the screen reader will wait before announcing the update.

@@ -54,19 +54,4 @@ describe('createUseToast', () => {
     });
     expect(setToast).toHaveBeenCalledWith(expected);
   });
-
-  it('should remove the toast when removeToast is called', () => {
-    const { result } = renderHook(() => useToast(), { wrapper });
-
-    actHook(() => {
-      result.current.setToast({});
-    });
-
-    actHook(() => {
-      result.current.removeToast();
-    });
-
-    const expected = expect.any(Object);
-    expect(removeToast).toHaveBeenCalledWith(expected);
-  });
 });

@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /**
  * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,10 +14,9 @@
  * limitations under the License.
  */
 
-import React, { useEffect } from 'react';
+import styled from '@emotion/styled';
 
 import Button from '../Button';
-import Body from '../Body';
 import { ToastProvider } from '../ToastContext';
 
 import {
@@ -24,17 +24,36 @@ import {
   NotificationToastProps,
   useNotificationToast,
 } from './NotificationToast';
+import docs from './NotificationToast.docs.mdx';
 
 export default {
   title: 'Notification/NotificationToast',
+  parameters: {
+    docs: { page: docs },
+  },
   component: NotificationToast,
 };
+
+const TOASTS = [
+  { body: 'An update is available.', variant: 'info' },
+  { body: 'Unexpected error occurred.', variant: 'alert' },
+  { body: 'Sorry. There was a problem with your request.', variant: 'notify' },
+  { body: 'You successfully updated your data.', variant: 'confirm' },
+] as NotificationToastProps[];
 
 export const Base = (toast: NotificationToastProps): JSX.Element => {
   const App = () => {
     const { setToast } = useNotificationToast();
     return (
-      <Button type="button" onClick={() => setToast(toast)}>
+      <Button
+        type="button"
+        onClick={() =>
+          setToast({
+            ...toast,
+            ...TOASTS[Math.floor(Math.random() * TOASTS.length)],
+          })
+        }
+      >
         Open toast
       </Button>
     );
@@ -48,27 +67,32 @@ export const Base = (toast: NotificationToastProps): JSX.Element => {
 
 Base.args = {
   closeButtonLabel: 'Close',
-  body: 'This is a toast message',
 } as NotificationToastProps;
 
 const variants = ['info', 'confirm', 'notify', 'alert'] as const;
 
-export const Variants = (toast: NotificationToastProps): JSX.Element => {
-  const App = () => {
-    const { setToast } = useNotificationToast();
-    useEffect(() => {
-      variants.forEach((variant) => {
-        setToast({ ...toast, variant });
-      });
-    }, [setToast]);
+const StackToasts = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+`;
 
-    return <Body noMargin>Your app</Body>;
-  };
-  return (
-    <ToastProvider>
-      <App />
-    </ToastProvider>
-  );
-};
+export const Variants = (toast: NotificationToastProps) => (
+  <StackToasts>
+    {variants.map((variant) => (
+      <NotificationToast
+        key={variant}
+        {...toast}
+        isVisible={true}
+        variant={variant}
+      />
+    ))}
+  </StackToasts>
+);
 
-Variants.args = Base.args;
+Variants.args = {
+  body: 'This is a toast message',
+  closeButtonLabel: 'Close',
+} as NotificationToastProps;
