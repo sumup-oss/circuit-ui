@@ -24,7 +24,6 @@ import {
 import { css } from '@emotion/react';
 import { Alert, Confirm, Info, Notify } from '@sumup/icons';
 
-import Button, { ButtonProps } from '../Button';
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
 import Body from '../Body';
@@ -37,10 +36,6 @@ const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
 
 type Variant = 'info' | 'confirm' | 'notify' | 'alert';
-
-type Action = ButtonProps & {
-  variant: 'tertiary';
-};
 
 export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
   BaseToastProps & {
@@ -56,10 +51,6 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
      * An body copy to provide notification toast information
      */
     body: string | ReactNode;
-    /**
-     * An optional call-to-action button.
-     */
-    action?: Action;
     /**
      * Whether the notification toast is visible.
      */
@@ -130,26 +121,6 @@ const contentStyles = ({ theme }: StyleProps) => css`
 
 const Content = styled('div')(contentStyles);
 
-const actionButtonStyles = ({ theme }: StyleProps & ButtonProps) =>
-  css`
-    font-weight: bold;
-    text-decoration-line: underline;
-    color: ${theme.colors.black};
-    padding-bottom: calc(${theme.spacings.kilo} - ${theme.borderWidth.kilo});
-
-    &:hover {
-      color: ${theme.colors.n800};
-    }
-
-    &:active,
-    &[aria-expanded='true'],
-    &[aria-pressed='true'] {
-      color: ${theme.colors.n700};
-    }
-  `;
-
-const ActionButton = styled(Button)(actionButtonStyles);
-
 const StyledIcon = styled.span(
   ({ theme, variant }: StyleProps & { variant: Variant }) =>
     css`
@@ -168,6 +139,7 @@ const closeButtonStyles = ({ theme }: StyleProps) => css`
   align-self: flex-start;
   margin-top: -${theme.spacings.bit};
   margin-bottom: -${theme.spacings.bit};
+  margin-left: auto;
 `;
 
 const StyledCloseButton = styled(CloseButton)(closeButtonStyles);
@@ -176,7 +148,6 @@ export function NotificationToast({
   variant = 'info',
   body,
   headline,
-  action,
   onClose,
   closeButtonLabel,
   isVisible,
@@ -224,7 +195,6 @@ export function NotificationToast({
           </Body>
         )}
         <Body noMargin>{body}</Body>
-        {action && <ActionButton {...action} variant={'tertiary'} />}
       </Content>
 
       <StyledCloseButton

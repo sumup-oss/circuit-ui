@@ -130,7 +130,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
   return (
     <ToastContext.Provider value={context}>
       {children}
-      <ListWrapper>
+      <ListWrapper role="status" aria-live="polite" aria-atomic="true">
         {toasts.map((toast) => {
           const {
             id,
