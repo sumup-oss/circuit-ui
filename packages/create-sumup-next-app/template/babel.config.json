@@ -13,6 +13,6 @@
   "plugins": [
     "lodash",
     "inline-react-svg",
-    ["@emotion/babel-plugin", { "cssPropOptimization": true }]
+    ["@emotion", { "cssPropOptimization": true }]
   ]
 }

@@ -23,6 +23,7 @@ module.exports = {
   ],
   features: {
     postcss: false,
+    emotionAlias: false,
   },
   webpackFinal: createWebpackConfig,
   managerWebpack: createWebpackConfig,
@@ -57,6 +58,7 @@ function createWebpackConfig(config) {
   config.resolve.alias = {
     ...config.resolve.alias,
     '@emotion/core': toPath('node_modules/@emotion/react'),
+    '@emotion/styled/base': toPath('node_modules/@emotion/styled'),
     '@emotion/styled': toPath('node_modules/@emotion/styled'),
     'emotion-theming': toPath('node_modules/@emotion/react'),
   };

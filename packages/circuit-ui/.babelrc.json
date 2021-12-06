@@ -2,7 +2,7 @@
   "plugins": [
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
     "lodash",
-    "@emotion/babel-plugin"
+    "@emotion"
   ],
   "presets": [
     ["@babel/preset-env", { "loose": true }],
@@ -17,7 +17,7 @@
         ["@babel/plugin-proposal-class-properties", { "loose": true }],
         "lodash",
         "react-docgen",
-        "@emotion/babel-plugin"
+        "@emotion"
       ],
       "presets": [
         "@babel/preset-typescript",

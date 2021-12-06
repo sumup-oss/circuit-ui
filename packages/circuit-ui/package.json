@@ -51,7 +51,6 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
-    "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/cache": "^11.4.0",
     "@emotion/is-prop-valid": "^1.1.0",
     "@emotion/jest": "^11.3.0",

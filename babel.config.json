@@ -9,7 +9,7 @@
   "plugins": [
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
     "lodash",
-    "@emotion/babel-plugin"
+    "@emotion"
   ],
   "env": {
     "test": {
