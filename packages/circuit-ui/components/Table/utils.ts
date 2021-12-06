@@ -59,55 +59,59 @@ export const getSortDirection = (
   return currentSort === 'ascending' ? 'descending' : 'ascending';
 };
 
-export const ascendingSort = (i: number) => (a: Row, b: Row): 0 | 1 | -1 => {
-  const firstRow = getRowCells(a);
-  const secondRow = getRowCells(b);
-  const first = getSortByValue(firstRow[i]);
-  const second = getSortByValue(secondRow[i]);
+export const ascendingSort =
+  (i: number) =>
+  (a: Row, b: Row): 0 | 1 | -1 => {
+    const firstRow = getRowCells(a);
+    const secondRow = getRowCells(b);
+    const first = getSortByValue(firstRow[i]);
+    const second = getSortByValue(secondRow[i]);
 
-  if (
-    first === null ||
-    first === undefined ||
-    second === null ||
-    second === undefined
-  ) {
+    if (
+      first === null ||
+      first === undefined ||
+      second === null ||
+      second === undefined
+    ) {
+      return 0;
+    }
+
+    if (first < second) {
+      return -1;
+    }
+    if (first > second) {
+      return 1;
+    }
+
     return 0;
-  }
+  };
 
-  if (first < second) {
-    return -1;
-  }
-  if (first > second) {
-    return 1;
-  }
+export const descendingSort =
+  (i: number) =>
+  (a: Row, b: Row): 0 | 1 | -1 => {
+    const firstRow = getRowCells(a);
+    const secondRow = getRowCells(b);
+    const first = getSortByValue(firstRow[i]);
+    const second = getSortByValue(secondRow[i]);
 
-  return 0;
-};
+    if (
+      first === null ||
+      first === undefined ||
+      second === null ||
+      second === undefined
+    ) {
+      return 0;
+    }
 
-export const descendingSort = (i: number) => (a: Row, b: Row): 0 | 1 | -1 => {
-  const firstRow = getRowCells(a);
-  const secondRow = getRowCells(b);
-  const first = getSortByValue(firstRow[i]);
-  const second = getSortByValue(secondRow[i]);
+    if (first > second) {
+      return -1;
+    }
+    if (first < second) {
+      return 1;
+    }
 
-  if (
-    first === null ||
-    first === undefined ||
-    second === null ||
-    second === undefined
-  ) {
     return 0;
-  }
-
-  if (first > second) {
-    return -1;
-  }
-  if (first < second) {
-    return 1;
-  }
-
-  return 0;
-};
+  };
 
 export const getSortParams = ({
   rowIndex,

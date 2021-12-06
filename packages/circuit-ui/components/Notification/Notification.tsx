@@ -79,9 +79,8 @@ const closeButtonStyles = ({ theme }: StyleProps) => css`
   margin-left: ${theme.spacings.kilo};
 `;
 
-const StyledCloseButton = styled(CloseButton)<CloseButtonProps>(
-  closeButtonStyles,
-);
+const StyledCloseButton =
+  styled(CloseButton)<CloseButtonProps>(closeButtonStyles);
 
 /**
  * A Notification component for alerts, updates and notifications.

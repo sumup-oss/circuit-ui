@@ -57,45 +57,43 @@ const marginStyles = ({ noMargin }: InlineMessageProps) => {
   `;
 };
 
-const createLeftBorderStyles = (variantName: Variant) => ({
-  theme,
-  size = 'giga',
-  variant,
-}: StyleProps & InlineMessageProps) => {
-  const colors = {
-    danger: theme.colors.danger,
-    success: theme.colors.success,
-    warning: theme.colors.warning,
-  } as const;
+const createLeftBorderStyles =
+  (variantName: Variant) =>
+  ({ theme, size = 'giga', variant }: StyleProps & InlineMessageProps) => {
+    const colors = {
+      danger: theme.colors.danger,
+      success: theme.colors.success,
+      warning: theme.colors.warning,
+    } as const;
 
-  const textColors = {
-    danger: theme.colors.danger,
-    success: theme.colors.black,
-    warning: theme.colors.black,
-  } as const;
+    const textColors = {
+      danger: theme.colors.danger,
+      success: theme.colors.black,
+      warning: theme.colors.black,
+    } as const;
 
-  return (
-    variant === variantName &&
-    css`
-      color: ${textColors[variant]};
-      position: relative;
-      margin-bottom: ${theme.spacings.mega};
+    return (
+      variant === variantName &&
+      css`
+        color: ${textColors[variant]};
+        position: relative;
+        margin-bottom: ${theme.spacings.mega};
 
-      &:before {
-        display: inline-block;
-        border-top-right-radius: ${theme.borderRadius.bit};
-        border-bottom-right-radius: ${theme.borderRadius.bit};
-        content: '';
-        position: absolute;
-        left: -${theme.spacings[size]};
-        top: 0;
-        height: 100%;
-        background-color: ${colors[variant]};
-        width: 3px;
-      }
-    `
-  );
-};
+        &:before {
+          display: inline-block;
+          border-top-right-radius: ${theme.borderRadius.bit};
+          border-bottom-right-radius: ${theme.borderRadius.bit};
+          content: '';
+          position: absolute;
+          left: -${theme.spacings[size]};
+          top: 0;
+          height: 100%;
+          background-color: ${colors[variant]};
+          width: 3px;
+        }
+      `
+    );
+  };
 
 const successStyles = createLeftBorderStyles('success');
 const warningStyles = createLeftBorderStyles('warning');

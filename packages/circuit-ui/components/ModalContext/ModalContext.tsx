@@ -144,10 +144,10 @@ export function ModalProvider<TProps extends BaseModalProps>({
     };
   }, [activeModal, removeModal]);
 
-  const context = useMemo(() => ({ setModal, removeModal }), [
-    setModal,
-    removeModal,
-  ]);
+  const context = useMemo(
+    () => ({ setModal, removeModal }),
+    [setModal, removeModal],
+  );
 
   return (
     <ModalContext.Provider value={context}>

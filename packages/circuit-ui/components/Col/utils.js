@@ -96,8 +96,10 @@ export const sortByPriority = (grid) => (iteratee) =>
  * Map the provided key/value breakpoint into styles based on the grid/theme
  * config.
  */
-export const mapBreakpoint = (fn, grid, theme) => ([key, value]) =>
-  fn(grid[key], theme, value);
+export const mapBreakpoint =
+  (fn, grid, theme) =>
+  ([key, value]) =>
+    fn(grid[key], theme, value);
 
 /**
  * Compose the breakpoints object into an array of styles.

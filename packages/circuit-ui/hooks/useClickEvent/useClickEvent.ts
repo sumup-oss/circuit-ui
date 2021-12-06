@@ -25,8 +25,11 @@ export function useClickEvent<Event>(
   defaultComponentName?: string,
 ): ((event: Event) => void) | undefined {
   const dispatch = useClickTrigger();
-  const { label, component = defaultComponentName, customParameters } =
-    tracking || {};
+  const {
+    label,
+    component = defaultComponentName,
+    customParameters,
+  } = tracking || {};
 
   return label
     ? (event: Event): void => {

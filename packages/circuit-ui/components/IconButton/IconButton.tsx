@@ -38,18 +38,18 @@ export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
 
 const Label = styled('span')(hideVisually);
 
-const sizeStyles = (size: IconButtonProps['size'] = 'giga') => (
-  theme: Theme,
-): SerializedStyles => {
-  const sizeMap = {
-    kilo: theme.spacings.byte,
-    giga: theme.spacings.kilo,
-  };
+const sizeStyles =
+  (size: IconButtonProps['size'] = 'giga') =>
+  (theme: Theme): SerializedStyles => {
+    const sizeMap = {
+      kilo: theme.spacings.byte,
+      giga: theme.spacings.kilo,
+    };
 
-  return css({
-    padding: `calc(${sizeMap[size]} - 1px)`,
-  });
-};
+    return css({
+      padding: `calc(${sizeMap[size]} - 1px)`,
+    });
+  };
 
 /**
  * The IconButton component displays a button with a single icon

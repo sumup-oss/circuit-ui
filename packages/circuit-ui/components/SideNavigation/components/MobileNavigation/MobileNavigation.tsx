@@ -116,11 +116,8 @@ function Group({
 }: Require<PrimaryLinkProps, 'secondaryGroups'> & {
   onClose: BaseModalProps['onClose'];
 }): JSX.Element {
-  const {
-    isOpen,
-    getButtonProps,
-    getContentProps,
-  } = useCollapsible<HTMLUListElement>();
+  const { isOpen, getButtonProps, getContentProps } =
+    useCollapsible<HTMLUListElement>();
 
   const mappedSecondaryGroups = secondaryGroups.map(
     ({ secondaryLinks, ...group }) => ({
