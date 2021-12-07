@@ -30,8 +30,8 @@ const baseStyles = ({ theme }: StyleProps) => css`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 40px;
-  width: 20px;
+  height: 36px;
+  width: ${theme.spacings.giga};
   position: absolute;
   left: 0;
   top: 50%;
@@ -42,7 +42,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   border: 0;
   background: none;
   outline: 0;
-  padding: 0;
+  padding: 2px 4px;
   margin: 0;
   cursor: pointer;
 
@@ -55,11 +55,10 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const Wrapper = styled.button(baseStyles);
+const Button = styled.button(baseStyles);
 
-const iconStyles = () => css`
-  margin-top: -3px;
-  margin-bottom: -3px;
+const iconStyles = css`
+  margin: -2px 0;
 `;
 
 const Label = styled('span')(hideVisually);
@@ -72,11 +71,11 @@ const SortArrow = ({
   direction,
   ...props
 }: SortArrowProps): JSX.Element => (
-  <Wrapper role="button" title={label} {...props}>
+  <Button role="button" title={label} {...props}>
     {direction !== 'ascending' && <ChevronUp size="16" css={iconStyles} />}
     {direction !== 'descending' && <ChevronDown size="16" css={iconStyles} />}
     <Label>{label}</Label>
-  </Wrapper>
+  </Button>
 );
 
 export default SortArrow;

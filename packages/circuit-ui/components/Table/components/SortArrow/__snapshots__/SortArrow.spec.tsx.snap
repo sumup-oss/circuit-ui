@@ -13,8 +13,8 @@ exports[`SortArrow Style tests should render with ascending arrow styles 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  height: 40px;
-  width: 20px;
+  height: 36px;
+  width: 24px;
   position: absolute;
   left: 0;
   top: 50%;
@@ -29,7 +29,7 @@ exports[`SortArrow Style tests should render with ascending arrow styles 1`] = `
   border: 0;
   background: none;
   outline: 0;
-  padding: 0;
+  padding: 2px 4px;
   margin: 0;
   cursor: pointer;
 }
@@ -43,8 +43,7 @@ exports[`SortArrow Style tests should render with ascending arrow styles 1`] = `
 }
 
 .circuit-1 {
-  margin-top: -3px;
-  margin-bottom: -3px;
+  margin: -2px 0;
 }
 
 .circuit-2 {
@@ -98,8 +97,8 @@ exports[`SortArrow Style tests should render with both arrows styles 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  height: 40px;
-  width: 20px;
+  height: 36px;
+  width: 24px;
   position: absolute;
   left: 0;
   top: 50%;
@@ -114,7 +113,7 @@ exports[`SortArrow Style tests should render with both arrows styles 1`] = `
   border: 0;
   background: none;
   outline: 0;
-  padding: 0;
+  padding: 2px 4px;
   margin: 0;
   cursor: pointer;
 }
@@ -128,8 +127,7 @@ exports[`SortArrow Style tests should render with both arrows styles 1`] = `
 }
 
 .circuit-1 {
-  margin-top: -3px;
-  margin-bottom: -3px;
+  margin: -2px 0;
 }
 
 .circuit-3 {
@@ -196,8 +194,8 @@ exports[`SortArrow Style tests should render with descending arrow styles 1`] = 
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  height: 40px;
-  width: 20px;
+  height: 36px;
+  width: 24px;
   position: absolute;
   left: 0;
   top: 50%;
@@ -212,7 +210,7 @@ exports[`SortArrow Style tests should render with descending arrow styles 1`] = 
   border: 0;
   background: none;
   outline: 0;
-  padding: 0;
+  padding: 2px 4px;
   margin: 0;
   cursor: pointer;
 }
@@ -226,8 +224,7 @@ exports[`SortArrow Style tests should render with descending arrow styles 1`] = 
 }
 
 .circuit-1 {
-  margin-top: -3px;
-  margin-bottom: -3px;
+  margin: -2px 0;
 }
 
 .circuit-2 {

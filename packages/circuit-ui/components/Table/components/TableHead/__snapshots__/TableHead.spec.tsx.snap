@@ -74,8 +74,8 @@ tbody .circuit-1:last-child td {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  height: 40px;
-  width: 20px;
+  height: 36px;
+  width: 24px;
   position: absolute;
   left: 0;
   top: 50%;
@@ -90,7 +90,7 @@ tbody .circuit-1:last-child td {
   border: 0;
   background: none;
   outline: 0;
-  padding: 0;
+  padding: 2px 4px;
   margin: 0;
   cursor: pointer;
 }
@@ -104,8 +104,7 @@ tbody .circuit-1:last-child td {
 }
 
 .circuit-5 {
-  margin-top: -3px;
-  margin-bottom: -3px;
+  margin: -2px 0;
 }
 
 .circuit-7 {
@@ -287,8 +286,8 @@ tbody .circuit-1:last-child td {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  height: 40px;
-  width: 20px;
+  height: 36px;
+  width: 24px;
   position: absolute;
   left: 0;
   top: 50%;
@@ -303,7 +302,7 @@ tbody .circuit-1:last-child td {
   border: 0;
   background: none;
   outline: 0;
-  padding: 0;
+  padding: 2px 4px;
   margin: 0;
   cursor: pointer;
 }
@@ -317,8 +316,7 @@ tbody .circuit-1:last-child td {
 }
 
 .circuit-5 {
-  margin-top: -3px;
-  margin-bottom: -3px;
+  margin: -2px 0;
 }
 
 .circuit-7 {
