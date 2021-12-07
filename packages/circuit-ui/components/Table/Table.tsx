@@ -226,6 +226,16 @@ class Table extends Component<TableProps, TableState> {
 
   componentDidUpdate(prevProps: TableProps): void {
     if (this.props.rows !== prevProps.rows) {
+      // Preserve existing sorting
+      if (this.state.sortedRow && this.state.sortDirection) {
+        const sortedRows = this.getSortedRows(
+          this.state.sortDirection,
+          this.state.sortedRow,
+        );
+        this.setState({ rows: sortedRows });
+        return;
+      }
+
       this.setState({ rows: this.props.rows });
     }
 
