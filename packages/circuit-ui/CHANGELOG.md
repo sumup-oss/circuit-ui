@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- [#1306](https://github.com/sumup-oss/circuit-ui/pull/1306) [`062aaa11`](https://github.com/sumup-oss/circuit-ui/commit/062aaa11d95adb05b7d07be1aedf385b6f96599e) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed a bug where updating Table `rows wouldn't re-render the Table.
+- [#1306](https://github.com/sumup-oss/circuit-ui/pull/1306) [`062aaa11`](https://github.com/sumup-oss/circuit-ui/commit/062aaa11d95adb05b7d07be1aedf385b6f96599e) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed a bug where updating the Table's `rows` wouldn't re-render the Table.
 
 ## 4.5.4
 
