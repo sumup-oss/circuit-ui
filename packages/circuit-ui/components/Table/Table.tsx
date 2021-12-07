@@ -15,7 +15,7 @@
 
 import { Component, createRef, HTMLAttributes, UIEvent } from 'react';
 import { css } from '@emotion/react';
-import { isEqual, isNil, throttle } from 'lodash/fp';
+import { isNil, throttle } from 'lodash/fp';
 
 import styled, { StyleProps } from '../../styles/styled';
 
@@ -225,7 +225,7 @@ class Table extends Component<TableProps, TableState> {
   }
 
   componentDidUpdate(prevProps: TableProps): void {
-    if (!isEqual(this.props.rows, prevProps.rows)) {
+    if (this.props.rows !== prevProps.rows) {
       this.setState({ rows: this.props.rows });
     }
 
