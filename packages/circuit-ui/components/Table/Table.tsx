@@ -207,7 +207,7 @@ type TableState = {
 class Table extends Component<TableProps, TableState> {
   state: TableState = {
     sortedRow: undefined,
-    rows: undefined,
+    rows: this.props.rows,
     sortHover: undefined,
     sortDirection: undefined,
     scrollTop: undefined,
@@ -217,8 +217,6 @@ class Table extends Component<TableProps, TableState> {
   private tableRef = createRef<HTMLDivElement>();
 
   componentDidMount(): void {
-    this.setState({ rows: this.props.rows });
-
     if (this.props.scrollable) {
       this.addVerticalScroll();
     }
