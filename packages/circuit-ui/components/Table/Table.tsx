@@ -107,11 +107,11 @@ const shadowStyles = ({
     border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   `;
 
-const TableContainer = styled.div<TableContainerElProps>`
-  ${tableContainerBaseStyles};
-  ${tableContainerScrollableStyles};
-  ${shadowStyles};
-`;
+const TableContainer = styled.div<TableContainerElProps>(
+  tableContainerBaseStyles,
+  tableContainerScrollableStyles,
+  shadowStyles,
+);
 
 /**
  * Scroll container styles.
@@ -141,10 +141,10 @@ const scrollableStyles = ({ scrollable, height }: ScrollContainerElProps) =>
     overflow-y: auto;
   `;
 
-const ScrollContainer = styled.div<ScrollContainerElProps>`
-  ${containerStyles};
-  ${scrollableStyles};
-`;
+const ScrollContainer = styled.div<ScrollContainerElProps>(
+  containerStyles,
+  scrollableStyles,
+);
 
 /**
  * Table styles.
@@ -186,11 +186,11 @@ const borderCollapsedStyles = ({ borderCollapsed }: TableElProps) =>
     border-collapse: collapse;
   `;
 
-const StyledTable = styled.table<TableElProps>`
-  ${baseStyles};
-  ${responsiveStyles};
-  ${borderCollapsedStyles};
-`;
+const StyledTable = styled.table<TableElProps>(
+  baseStyles,
+  responsiveStyles,
+  borderCollapsedStyles,
+);
 
 type TableState = {
   sortedRow?: number;
