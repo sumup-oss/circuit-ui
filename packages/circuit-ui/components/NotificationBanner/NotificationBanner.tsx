@@ -253,7 +253,6 @@ export function NotificationBanner({
       </Content>
       {image && image.src && (
         <StyledImage
-          onClick={action.onClick}
           alt={image.alt}
           src={image.src}
           image={image}
