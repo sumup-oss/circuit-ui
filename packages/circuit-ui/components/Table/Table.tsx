@@ -194,7 +194,7 @@ const StyledTable = styled.table<TableElProps>`
 
 type TableState = {
   sortedRow?: number;
-  sortedRows?: Row[];
+  rows?: Row[];
   sortHover?: number;
   sortDirection?: Direction;
   scrollTop?: number;
@@ -207,7 +207,7 @@ type TableState = {
 class Table extends Component<TableProps, TableState> {
   state: TableState = {
     sortedRow: undefined,
-    sortedRows: undefined,
+    rows: undefined,
     sortHover: undefined,
     sortDirection: undefined,
     scrollTop: undefined,
@@ -217,12 +217,28 @@ class Table extends Component<TableProps, TableState> {
   private tableRef = createRef<HTMLDivElement>();
 
   componentDidMount(): void {
+    this.setState({ rows: this.props.rows });
+
     if (this.props.scrollable) {
       this.addVerticalScroll();
     }
   }
 
   componentDidUpdate(prevProps: TableProps): void {
+    if (this.props.rows !== prevProps.rows) {
+      // Preserve existing sorting
+      if (this.state.sortedRow && this.state.sortDirection) {
+        const sortedRows = this.getSortedRows(
+          this.state.sortDirection,
+          this.state.sortedRow,
+        );
+        this.setState({ rows: sortedRows });
+        return;
+      }
+
+      this.setState({ rows: this.props.rows });
+    }
+
     if (!prevProps.scrollable && this.props.scrollable) {
       this.addVerticalScroll();
     }
@@ -285,7 +301,7 @@ class Table extends Component<TableProps, TableState> {
     this.setState({
       sortedRow: i,
       sortDirection: nextDirection,
-      sortedRows,
+      rows: sortedRows,
     });
 
   defaultSortBy = (i: number, rows: Row[], direction?: Direction): Row[] => {
@@ -311,10 +327,14 @@ class Table extends Component<TableProps, TableState> {
       onSortBy,
       ...props
     } = this.props;
-    const { sortDirection, sortHover, sortedRow, scrollTop, tableBodyHeight } =
-      this.state;
-
-    const rows = this.state.sortedRows || initialRows;
+    const {
+      sortDirection,
+      sortHover,
+      sortedRow,
+      scrollTop,
+      tableBodyHeight,
+      rows,
+    } = this.state;
 
     return (
       <TableContainer
