@@ -83,5 +83,55 @@ export function App({ name }) {
 By their nature as small quick messages, or interruptions, toasts map to [live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions),
 and screen readers are gonna automatically announce the raw text within without any need to move the user's focus.
 Live region must always exist on the page at render, before the toast is generated.
-To ensure that the toast is always anounced as a whole, `aria-atomic` is set to `"true"`.
-The `aria-role` is adapted to `"status"`, as a most generic one that provides an updated status. It has a `aria-live="polite"` meaning the screen reader will wait before announcing the update.
+To ensure that the toast is always announced as a whole, `aria-atomic` should be set to `"true"` (default value is `"false"`).
+
+### Role
+
+The `aria-role` can be adapted based on the context.
+For the most generic use cases that provides an updated status, the role can be set to `"status"`. It has a `aria-live="polite"` meaning the screen reader will wait before announcing the update.
+If it is an important message, typically time-sensitive, like an error, use `role="alert"`. It has `aria-live="assertive"` which means it will interrupt whatever the user is doing.
+The third role that can be given to the toast messages is `"log"`. It should be used when the order of the messages matters. It has a `aria-live="polite"`.
+
+Since the screen readers are gonna announce the raw text within toast messages, without structure, keyboard users won’t be able to move to the interactive elements with a clear path.
+For example, there is a toast message with the text “You successfully updated your data.”, followed by a link or button with the text "Back".
+Screen readers are gonna communicate a message as “You successfully updated your data. Back.”, meaning that the semantics of the link "Back" is not announced.
+People using a screen reader may think that the "Back" is an interactive element, but they will not know which element to search for.
+In this case you will need a modal or dialog with a `role="dialog"`.
+Ideally, the toast messages should not contain any interactive elements.
+
+### Best practices
+
+There are several WCAG 2.0 and 2.1 level AA accessibility guidelines that can be applied to toast messages.
+
+#### Color
+
+The standard color ratio requirement for text is 4.5:1 and for any interactive content 3.0:1.
+
+#### Consistent identification
+
+Based on the WCAG guideline [3.2.4](https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html) each component should be consistent with another.
+
+#### Location
+
+Following consistent identificaton, toast messages should be also placed consistently. Generally toast messages usually appear at the start or end of the DOM. If you place them somewhere else, it can cause difficulties for screen reader users to locate them.
+
+#### Keyboard access and focus order
+
+For any interactive element, user should be able to tab and shift through them by using the keyboard, which means they require a keyboard focus indicator.
+Follow more in the WCAG guideline [2.1.1](https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html)
+
+Using the keyboard, if the toast message has any interactive elements, then it should always show up in the same place in the focus order, in a way that makes sense to a user.
+This is related to the WCAG guideline [2.4.3](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html).
+
+#### Timing adjustable
+
+This is the one that is most relevant to the toast messages.
+Based on the WCAG guideline [2.2.1](https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html), user should be able to choose how long they want the toast messages to be displayed.
+
+#### Resources
+
+For more information follow up:
+
+- [ARIA Roles](https://www.w3.org/TR/aria-in-html/#aria-roles])
+- [Defining toast messages](https://adrianroselli.com/2020/01/defining-toast-messages.html)
+- [Status messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html)

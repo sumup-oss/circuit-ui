@@ -57,7 +57,7 @@ describe('ToastContext', () => {
       tracking: { label: 'test-toast' },
     };
 
-    it('should open and close a toast when the context functions are called', () => {
+    it('should open a toast when the context function is called', () => {
       const Trigger = () => {
         const { setToast } = useContext(ToastContext);
         return (
