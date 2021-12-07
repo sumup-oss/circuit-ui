@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Fixed a bug where deeply nested updates in the Table `rows` prop wouldn't update the Table.
+Fixed a bug where updating Table `rows wouldn't re-render the Table.
