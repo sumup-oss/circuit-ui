@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.5.4
+
+### Patch Changes
+
+- [#1304](https://github.com/sumup-oss/circuit-ui/pull/1304) [`6f621e53`](https://github.com/sumup-oss/circuit-ui/commit/6f621e53fcc1e02b3668dfa6932d58bc79239619) Thanks [@amelako](https://github.com/amelako)! - Removed the `onClick` function from `Image` component in `NotificationBanner`.
+
 ## 4.5.3
 
 ### Patch Changes
