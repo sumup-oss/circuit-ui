@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': minor
 ---
 
-Convert `Tooltip` to TypeScript and remove Lodash dependency.
+Converted the `Tooltip` component to TypeScript and removed its Lodash dependency.
