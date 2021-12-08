@@ -13,18 +13,13 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { includes } from 'lodash/fp';
+import styled from '@emotion/styled';
 
-import { typography, shadowSingle } from '../../styles/style-mixins';
-import {
-  positionPropType,
-  childrenPropType,
-} from '../../util/shared-prop-types';
+import type { StyleProps } from '../../styles/styled';
+import { typography, shadow } from '../../styles/style-mixins';
 
-const baseStyles = ({ theme }) => css`
+const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-block;
   width: auto;
   max-width: 280px;
@@ -47,14 +42,19 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const positionMap = {
+const positionMap: Record<Position, Position> = {
   top: 'bottom',
   right: 'left',
   bottom: 'top',
   left: 'right',
 };
 
-const getPositionStyles = ({ theme, position }) => {
+export type Position = 'top' | 'right' | 'bottom' | 'left';
+
+const getPositionStyles = ({
+  theme,
+  position,
+}: StyleProps & { position: Position }) => {
   const absolutePosition = positionMap[position];
 
   // The first absolute position rule is a fallback.
@@ -69,10 +69,28 @@ const getPositionStyles = ({ theme, position }) => {
   `;
 };
 
-const getAlignmentStyles = ({ theme, position, align }) => {
-  const isHorizontal = includes(position, ['top', 'bottom']);
+type VerticalAlignment = 'top' | 'center' | 'bottom';
 
-  if (isHorizontal && includes(align, ['top', 'bottom', 'center'])) {
+function isVerticalAlignment(value: unknown): value is VerticalAlignment {
+  return value === 'top' || value === 'center' || value === 'bottom';
+}
+
+type HorizontalAlignment = 'left' | 'center' | 'right';
+
+function isHorizontalAlignment(value: unknown): value is VerticalAlignment {
+  return value === 'left' || value === 'center' || value === 'right';
+}
+
+export type Alignment = VerticalAlignment | HorizontalAlignment;
+
+const getAlignmentStyles = ({
+  theme,
+  position,
+  align,
+}: StyleProps & TooltipProps) => {
+  const isHorizontal = position === 'bottom' || position === 'top';
+
+  if (isHorizontal && isVerticalAlignment(align)) {
     return `
       left: 50%;
       transform: translateX(-50%);
@@ -84,7 +102,7 @@ const getAlignmentStyles = ({ theme, position, align }) => {
     `;
   }
 
-  if (!isHorizontal && includes(align, ['left', 'right', 'center'])) {
+  if (!isHorizontal && isHorizontalAlignment(align)) {
     return `
       top: 50%;
       transform: translateY(-50%);
@@ -96,7 +114,9 @@ const getAlignmentStyles = ({ theme, position, align }) => {
     `;
   }
 
-  const absolutePosition = positionMap[align];
+  // align is not 'center' and therefore has the same possible values
+  // as a Position.
+  const absolutePosition = positionMap[align as Position];
 
   /* eslint-disable max-len */
   return `
@@ -114,37 +134,19 @@ const positionAndAlignStyles = ({
   theme,
   position = 'right',
   align = 'center',
-}) => css`
+}: StyleProps & TooltipProps) => css`
   ${getAlignmentStyles({ theme, position, align })};
   ${getPositionStyles({ theme, position })};
 `;
 
+type TooltipProps = { position?: Position; align?: Alignment };
+
 /**
  * A Tooltip component
  */
-const Tooltip = styled('div')(
+export const Tooltip = styled.div<TooltipProps>(
   typography('two'),
   baseStyles,
-  shadowSingle,
+  shadow,
   positionAndAlignStyles,
 );
-
-Tooltip.propTypes = {
-  /**
-   * The content of the tooltip.
-   */
-  children: childrenPropType.isRequired,
-  /**
-   * The position of the tooltip in relation to its reference point.
-   */
-  position: positionPropType,
-  /**
-   * The alignment of the tooltip relative to its position.
-   */
-  align: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'center']),
-};
-
-/**
- * @component
- */
-export default Tooltip;

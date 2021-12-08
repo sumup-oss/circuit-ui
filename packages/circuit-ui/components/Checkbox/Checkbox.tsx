@@ -266,7 +266,6 @@ export const Checkbox = forwardRef(
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>
         {!disabled && validationHint && (
-          // @ts-expect-error Reenable typechecks once Tooltip has been migrated to TypeScript
           <CheckboxTooltip position={'top'} align={'right'}>
             {validationHint}
           </CheckboxTooltip>
