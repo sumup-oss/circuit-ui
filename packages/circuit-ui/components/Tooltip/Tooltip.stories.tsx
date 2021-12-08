@@ -17,7 +17,7 @@ import styled from '@emotion/styled';
 import { Info } from '@sumup/icons';
 
 import docs from './Tooltip.docs.mdx';
-import Tooltip from './Tooltip';
+import { Tooltip } from './Tooltip';
 
 export default {
   title: 'Components/Tooltip',

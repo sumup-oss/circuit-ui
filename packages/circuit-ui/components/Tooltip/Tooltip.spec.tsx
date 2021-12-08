@@ -13,13 +13,16 @@
  * limitations under the License.
  */
 
-import Tooltip from '.';
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
+import type { Position, Alignment } from './Tooltip';
+import { Tooltip } from './Tooltip';
 
 describe('Tooltip', () => {
   /**
    * Style tests.
    */
-  const positions = ['top', 'right', 'bottom', 'left'];
+  const positions: Position[] = ['top', 'right', 'bottom', 'left'];
   positions.forEach((position) => {
     it(`should render with position ${position}, when passed "${position}" for the position prop`, () => {
       const component = create(
@@ -29,7 +32,7 @@ describe('Tooltip', () => {
     });
   });
 
-  const alignments = ['right', 'left', 'top', 'bottom', 'center'];
+  const alignments: Alignment[] = ['right', 'left', 'top', 'bottom', 'center'];
   alignments.forEach((align) => {
     it(`should render with align ${align}, when passed "${align}" for the align prop`, () => {
       const component = create(
@@ -52,11 +55,7 @@ describe('Tooltip', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <Tooltip align={'center'} content="Tooltip">
-        Text
-      </Tooltip>,
-    );
+    const wrapper = renderToHtml(<Tooltip align={'center'}>Text</Tooltip>);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

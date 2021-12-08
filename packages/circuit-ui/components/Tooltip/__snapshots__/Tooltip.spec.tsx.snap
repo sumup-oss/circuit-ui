@@ -16,7 +16,7 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -71,7 +71,7 @@ exports[`Tooltip should render with align bottom, when passed "bottom" for the a
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   top: 50%;
   top: calc(50% - (16px + 4px));
   left: 100%;
@@ -119,7 +119,7 @@ exports[`Tooltip should render with align center, when passed "center" for the a
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -174,7 +174,7 @@ exports[`Tooltip should render with align left, when passed "left" for the align
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -229,7 +229,7 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -284,7 +284,7 @@ exports[`Tooltip should render with align top, when passed "top" for the align p
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   bottom: 50%;
   bottom: calc(50% - (16px + 4px));
   left: 100%;
@@ -332,7 +332,7 @@ exports[`Tooltip should render with position bottom, when passed "bottom" for th
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
@@ -387,7 +387,7 @@ exports[`Tooltip should render with position left, when passed "left" for the po
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -442,7 +442,7 @@ exports[`Tooltip should render with position right, when passed "right" for the 
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -497,7 +497,7 @@ exports[`Tooltip should render with position top, when passed "top" for the posi
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
