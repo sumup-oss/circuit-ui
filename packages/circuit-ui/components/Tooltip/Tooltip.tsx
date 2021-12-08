@@ -139,7 +139,10 @@ const positionAndAlignStyles = ({
   ${getPositionStyles({ theme, position })};
 `;
 
-type TooltipProps = { position?: Position; align?: Alignment };
+export interface TooltipProps {
+  position?: Position;
+  align?: Alignment;
+}
 
 /**
  * A Tooltip component
