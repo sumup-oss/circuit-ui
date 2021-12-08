@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.5.6
+
+### Patch Changes
+
+- [#1308](https://github.com/sumup-oss/circuit-ui/pull/1308) [`ae1f00dc`](https://github.com/sumup-oss/circuit-ui/commit/ae1f00dc74860144a1dc9d06cae17e69d915d0fd) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the initialization of the Table `rows` on the first render.
+
 ## 4.5.5
 
 ### Patch Changes
