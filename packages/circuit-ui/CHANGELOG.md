@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.6.0
+
+### Minor Changes
+
+- [#1310](https://github.com/sumup-oss/circuit-ui/pull/1310) [`d9f0b380`](https://github.com/sumup-oss/circuit-ui/commit/d9f0b380d8eb50bda82a8b9339f532e9ccd56ef1) Thanks [@felixjung](https://github.com/felixjung)! - Converted the `Tooltip` component to TypeScript and removed its Lodash dependency.
+
 ## 4.5.6
 
 ### Patch Changes
