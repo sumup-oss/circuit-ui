@@ -100,6 +100,20 @@ describe('TextArea', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render rows props when passed', () => {
+    const actual = create(<TextArea rows={3} />);
+    expect(actual).toMatchSnapshot();
+  });
+  it('should render without rows props when passed if rows is auto', () => {
+    const actual = create(<TextArea rows="auto" />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render minRows props as rows when passed if rows is auto', () => {
+    const actual = create(<TextArea minRows={3} rows="auto" />);
+    expect(actual).toMatchSnapshot();
+  });
+
   describe('business logic', () => {
     /**
      * Should accept a working ref

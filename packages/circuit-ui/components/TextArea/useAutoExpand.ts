@@ -27,7 +27,7 @@ type ModifiedProps = Omit<TextAreaProps, 'minRows' | 'rows'> & {
 
 export const useAutoExpand = (
   ref: RefObject<HTMLCircuitInputElement>,
-  { minRows = 2, rows = minRows, onInput, ...props }: TextAreaProps,
+  { minRows, rows = minRows, onInput, ...props }: TextAreaProps,
 ): ModifiedProps => {
   const autoExpand = rows === 'auto';
 
