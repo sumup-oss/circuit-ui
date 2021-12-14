@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { forwardRef, Ref, FC, InputHTMLAttributes, ReactNode } from 'react';
+import {
+  forwardRef,
+  Ref,
+  FC,
+  InputHTMLAttributes,
+  TextareaHTMLAttributes,
+  ReactNode,
+} from 'react';
 import { css, Interpolation } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
@@ -29,7 +36,10 @@ import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';
 import { deprecate } from '../../util/logger';
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export type HTMLCircuitInputElement = HTMLInputElement & HTMLTextAreaElement;
+type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
+  TextareaHTMLAttributes<HTMLTextAreaElement>;
+export interface InputProps extends CircuitInputHTMLAttributes {
   /**
    * A clear and concise description of the input purpose.
    */
