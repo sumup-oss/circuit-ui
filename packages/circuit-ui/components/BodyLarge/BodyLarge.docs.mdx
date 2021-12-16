@@ -9,13 +9,6 @@ The BodyLarge component is used to render content with large typography. Typical
 <Story id="typography-bodylarge--base" />
 <Props />
 
-## Usage guidelines
-
-- **Do** use the [Title](Typography/Title), [Headline](Typography/Headline), and [SubHeadline](Typography/SubHeadline) components as well as semantic HTML elements to split the content into sections.
-- **Do** use spacing to better format textual information, such as spacing between different paragraphs. The [`spacing()`](Features/Style-Mixins/spacing) style mixin is recommended.
-- **Do** use different variants of the BodyLarge component instead of styling it manually.
-- **Do** use the `as` prop to render the desired HTML element. The BodyLarge renders a `<p>` by default, except with the `highlight` or `quote` variants (see below).
-
 ## Component variations
 
 ### Variants
@@ -25,3 +18,7 @@ The BodyLarge accepts five different variants—`highlight`, `quote`, `success`,
 The `highlight` variant will render a `<strong>` element by default, while the `quote` variant will render a `blockquote`.
 
 <Story id="typography-bodylarge--variants" />
+
+## Accessibility
+
+All accessibility guidelines for the [Body component](Typography/Body) also apply to the BodyLarge component.

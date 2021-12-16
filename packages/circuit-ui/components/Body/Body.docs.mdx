@@ -11,11 +11,6 @@ The Body component is used to present content to our users.
 
 ## Usage guidelines
 
-- **Do** use the [Headline](Typography/Headline) and [SubHeadline](Typography/SubHeadline) components as well as semantic HTML elements to split the content into sections.
-- **Do** use spacing to better format textual information, such as spacing between different paragraphs. The [`spacing()`](Features/Style-Mixins/spacing) style mixin is recommended.
-- **Do** use different variants of the Body component instead of styling it manually.
-- **Do** use the `as` prop to render the desired HTML element. The Body renders a `<p>` by default, except with the `highlight` or `quote` variants (see below).
-
 ## Component variations
 
 ### Sizes
@@ -28,6 +23,104 @@ The Body component comes in two sizes. Use the default `one` size in most cases.
 
 The Body component accepts five different variants—`highlight`, `quote`, `success`, `error` and `subtle`—to tailor it according to the content we are presenting.
 
-The `highlight` variant will render a `<strong>` element by default, while the `quote` variant will render a `blockquote`.
+Different variants will render different HTML elements by default:
+
+| Variant     | Default element |
+| ----------- | --------------- |
+| default     | `p`             |
+| `highlight` | `strong`        |
+| `quote`     | `blockquote`    |
+| `success`   | `p`             |
+| `error`     | `p`             |
+| `subtle`    | `p`             |
+
+Use the `as` prop to render other HTML elements, for example for rendering a highlighted paragraph (`<Body variant="highlight" as="p" />`).
 
 <Story id="typography-body--variants" />
+
+**Important**: the `success` and `error` variants only change the text's color. Keep in mind that this is not sufficient to make them accessible. Refer to the Accessibility section below, especially "Do not rely on color alone" and "Make status messages accessible to screen readers using live regions".
+
+## Accessibility
+
+### Best practices
+
+#### Break text up into sections
+
+In order to make content easier to digest (especially on content-heavy pages such as articles or landing pages), break text up into sections.
+
+- Use semantic HTML elements and headings (use the [Headline](Typography/Headline) component) to build sections into your markup
+- Add spacing between paragraphs and sections for sighted users (use the [`spacing()` style mixin](Features/Style-Mixins/Spacing))
+
+This is beneficial to everyone, but critical for users with cognitive, language or learning disabilities (such as dyslexia or ADHD).
+
+#### Write simple copy
+
+Similarly to how breaking text up into sections helps users _parse_ content, writing concise and simple copy helps users _understand_ content.
+
+- Avoid the figurative use of words, or specialized words ([3.1.3: Unusual Words](https://www.w3.org/WAI/WCAG21/Understanding/unusual-words))
+- Allow users to access the expanded form of abbreviations ([3.1.4: Abbreviations](https://www.w3.org/WAI/WCAG21/Understanding/abbreviations))
+- Write content as clearly and simply as possible ([3.1.5: Reading Level](https://www.w3.org/WAI/WCAG21/Understanding/reading-level))
+
+_Note: the success criteria referenced above are intended for AAA conformance. Though they are not requirements, they are a best practice and following them will improve the accessibility of our content._
+
+#### Complement text with images
+
+Images, graphs, or other illustrations can help users contextualize and/or understand a piece of content.
+
+Visuals should usually complement text—and not replace it—unless an excellent description is provided as alternative text.
+
+#### Translate content
+
+Translate content intended for a linguistically diverse audience, and make it easy for users to change the page's language.
+
+Bear in mind that machine translation is often inaccurate: prefer professional translation in order to give the best possible experience to users from diverse linguistic backgrounds.
+
+#### Do not rely on color alone
+
+Color alone is not sufficient to differentiate text from the surrounding content ([1.4.1 Use of Color](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html)).
+
+This is especially relevant when using the `success` and `error` variants.
+
+For example, imagine a list of good and bad accessibility practices. It is not enough to use the `success` (green) variant for good practices and the `error` (red) variant for bad practices. Instead, use additional visual cues such as icons (with an accessible label), or break up the list into two separate ones with explicit labeling.
+
+#### Make status messages accessible to screen readers using live regions
+
+When a change in content is not given focus (typically a message being added to the DOM to reflect a status update), the change needs to be announced to screen readers using a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) ([4.1.3 Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html), [3.3.1 Error Identification](https://www.w3.org/WAI/WCAG21/Understanding/error-identification)).
+
+For example, a form submission fails and a message saying "This username is already taken." using `<Body variant="error" />` appears. Without a live region, screen reader users would have no way of knowing that something happened and that they need to make changes to the form before submitting again. They will either have to step through the DOM to try and find the relevant error message, or they will give up and close the page.
+
+Live regions can be tricky to work with, therefore we recommend using existing components such as the [NotificationInline](Notifications/NotificationInline) or the [NotifiationToast](Notifications/NotificationToast) instead of implementing them from scratch.
+
+### Resources
+
+#### Visualizing document structure
+
+Use a tool like [Wave](https://wave.webaim.org/) to extract structure from a page (in Wave, you'll find the page structure under the _Structure_ tab). Verify that your copy is accurately grouped and labeled by headings.
+
+#### Verify your UI without color
+
+Simulate vision deficiencies or desaturate your page, and verify that visual cues beyond color are helping users understand your copy.
+
+- [Simulate vision deficiencies using Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector/Simulation)
+- [Simulate vision deficiencies using Chrome](https://developer.chrome.com/blog/new-in-devtools-83/#vision-deficiencies)
+- Desaturate a page using [Wave](https://wave.webaim.org/) (under Contrast, "Desaturate page")
+
+#### Test your page using a screen reader
+
+[Test your page using a screen reader](https://webaim.org/articles/screenreader_testing/) like JAWS (Windows), NVDA (Windows, Linux) or VoiceOver (macOS).
+
+This is particularly valuable for highly dynamic content, for example using live regions.
+
+#### Further reading
+
+- [Writing for Web Accessibility](https://www.w3.org/WAI/tips/writing/) (w3.org)
+- [Cognitive Disabilities](https://webaim.org/articles/cognitive/) (WebAIM)
+
+#### Related WCAG success criteria
+
+- 1.4.1: [Use of Color](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html)
+- 3.1.3: [Unusual Words](https://www.w3.org/WAI/WCAG21/Understanding/unusual-words) (AAA)
+- 3.1.4: [Abbreviations](https://www.w3.org/WAI/WCAG21/Understanding/abbreviations) (AAA)
+- 3.1.5: [Reading Level](https://www.w3.org/WAI/WCAG21/Understanding/reading-level) (AAA)
+- 3.3.1: [Error Identification](https://www.w3.org/WAI/WCAG21/Understanding/error-identification)
+- 4.1.3: [Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html)
