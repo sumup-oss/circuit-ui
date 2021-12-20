@@ -26,11 +26,11 @@ type Variant = 'ordered' | 'unordered';
 
 export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
   /**
-   * A Circuit UI body text size.
+   * A Circuit UI Body size. Should match surrounding text.
    */
   size?: Size;
   /**
-   * Whether the list should be presented as an <ol> or <ul>. Defaults to <ul>.
+   * Whether the list should be presented as an ordered or unordered list. Defaults to `unordered`.
    */
   variant?: Variant;
   /**
@@ -38,7 +38,7 @@ export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
    */
   noMargin?: boolean;
   /**
-   The ref to the HTML DOM element
+   The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLOListElement & HTMLUListElement>;
 }
@@ -109,7 +109,7 @@ const marginStyles = ({ noMargin }: ListProps) => {
   `;
 };
 
-const BaseList = styled('ol', {
+const BaseList = styled('ul', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<ListProps>(baseStyles, sizeStyles, marginStyles);
 

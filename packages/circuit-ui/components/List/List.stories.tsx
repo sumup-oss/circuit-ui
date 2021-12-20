@@ -15,6 +15,7 @@
 
 import { Fragment } from 'react';
 
+import Body from '../Body';
 import { spacing } from '../../styles/style-mixins';
 
 import docs from './List.docs.mdx';
@@ -60,23 +61,30 @@ const sizes: ListProps['size'][] = ['one', 'two'];
 
 export const Sizes = (args: ListProps) =>
   sizes.map((size) => (
-    <List
-      key={size}
-      {...args}
-      size={size}
-      noMargin
-      css={spacing({ bottom: 'giga' })}
-    >
-      <ListItems />
-    </List>
+    <>
+      <Body size={size}>
+        Use List size {size} with Body {size} text.
+      </Body>
+      <List
+        key={size}
+        {...args}
+        size={size}
+        noMargin
+        css={spacing({ bottom: 'giga' })}
+      >
+        <ListItems />
+      </List>
+    </>
   ));
 
 export const Nested = (args: ListProps) => (
   <List {...args} noMargin>
-    <ListItems />
-    <List {...args} noMargin>
-      <li>Sometimes a nested list</li>
-    </List>
+    <li>
+      This is a list
+      <List {...args} noMargin>
+        <li>Sometimes a nested list</li>
+      </List>
+    </li>
     <li>And the list goes on</li>
   </List>
 );

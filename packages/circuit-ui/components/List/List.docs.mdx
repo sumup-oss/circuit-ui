@@ -4,42 +4,99 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-At its core, the list component allows you to easily display a related content grouped together and organized vertically. They should be used to present simple pieces of information. For more complex sets of data, consider using a Data Table.
+The List component is used to group pieces of content—called "list items"—together.
 
 <Story id="typography-list--base" />
 <Props />
 
-## When to use it
-
-Use it when you want to display a list of text-only related items.
-
-## Usage guidelines
-
-- **Do** break up chunks of related content and make the information easier for users to scan
-- **Do** use sentence casing
-- **Do** arrange List items in a logical way. Try to sort items into smaller meaningful categories.
-  Specific lists might be more useful in some contexts. If sorting is not possible, organize in alphabetical
-  or numerical order
-- **Do not** show more than 2 columns on mobile view
-
-## Component Variants
+## Component variations
 
 ### Variants
 
-Use an ordered list to imply sequence and order. Ordered lists are commonly used when providing a set of instructions.
+The List component comes in two variants, `ordered` or `unordered`.
 
-Use an unordered list to present content of equal status or value.
+- Use an ordered list to imply sequence or order (e.g. when providing a set of instructions).
+- Use an unordered list when the order of the items is meaningless.
 
 <Story id="typography-list--variants" />
 
 ### Sizes
 
-The size of the list should be the same as the surrounding content.
+The List component has two available sizes, `one` and `two`, matching the [`Body` component](Typography/Body)'s sizes.
+
+For consistency, the list's size should be the same as the surrounding content's size.
 
 <Story id="typography-list--sizes" />
 
-### Nested
+### Nested lists
 
-Nested lists are indented.
+Lists can be nested to display a hierarchy, e.g. in a table of contents. The nested list will be visually indented.
+
+Instead of relying on nested lists, consider splitting the content into separate sections, labeled by headings (refer to the Accessibility section below).
 
 <Story id="typography-list--nested" />
+
+## Accessibility
+
+Lists are fundamental elements for structuring content. They can group pieces of content, give an overview of them, and make parsing and accessing them easier.
+
+### Best practices
+
+#### Keep list items concise
+
+Keep the text in each list item concise. If you need to display more (structured) content, consider splitting it into sections instead, labeled by headings.
+
+#### Use tables for two-dimensional data
+
+In order to display two-dimensional data, consider using a table instead of a list. This makes parsing easier for sighted users and allows screen reader users to move vertically and horizontally across the data.
+
+So instead of structuring content inside a list item:
+
+```html
+<ul>
+  <li>Germany (Capital: Berlin)</li>
+  <li>Ireland (Capital: Dublin)</li>
+  <li>Canada (Capital: Ottawa)</li>
+</ul>
+```
+
+Consider displaying the data in a table (you can use the [`Table` component](Components/Table)):
+
+```html
+<table>
+  <tr>
+    <th>Country</th>
+    <th>Capital</th>
+  </tr>
+  <tr>
+    <td>Germany</td>
+    <td>Berlin</td>
+  </tr>
+  <tr>
+    <td>Ireland</td>
+    <td>Dublin</td>
+  </tr>
+  <tr>
+    <td>Canada</td>
+    <td>Ottawa</td>
+  </tr>
+</table>
+```
+
+See also the section on definition lists below.
+
+#### Description lists
+
+- not supported by this component
+- not recommended (except for term/definition key-pair values?): screen reader discrepancies
+
+#### Using lists for non-text UI elements
+
+- for lists of cards, e.g. a list of articles
+- not everything should be a list (can be quite noisy for SR users). think of how it is announced to screen readers and whether it makes sense for the list to be announced
+
+### Resources
+
+#### Related WCAG success criteria
+
+- 1.3.1: [Info and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html)
