@@ -4,7 +4,7 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-The List component is used to group pieces of content—called "list items"—together.
+The List component is used to group pieces of content—the list items—together.
 
 <Story id="typography-list--base" />
 <Props />
@@ -36,9 +36,11 @@ Instead of relying on nested lists, consider splitting the content into separate
 
 <Story id="typography-list--nested" />
 
+---
+
 ## Accessibility
 
-Lists are fundamental elements for structuring content. They can group pieces of content, give an overview of them, and make parsing and accessing them easier.
+Lists are fundamental elements for content structure. They group related pieces of content, and make parsing and accessing them easier.
 
 ### Best practices
 
@@ -48,9 +50,9 @@ Keep the text in each list item concise. If you need to display more (structured
 
 #### Use tables for two-dimensional data
 
-In order to display two-dimensional data, consider using a table instead of a list. This makes parsing easier for sighted users and allows screen reader users to move vertically and horizontally across the data.
+In order to display two-dimensional data, consider using a table instead of a list. This makes parsing easier for sighted users, and allows screen reader users to move vertically and horizontally across the data.
 
-So instead of structuring content inside a list item:
+For example, instead of structuring content inside a list item:
 
 ```html
 <ul>
@@ -83,17 +85,96 @@ Consider displaying the data in a table (you can use the [`Table` component](Com
 </table>
 ```
 
-See also the section on definition lists below.
-
 #### Description lists
 
-- not supported by this component
-- not recommended (except for term/definition key-pair values?): screen reader discrepancies
+##### What are descriptions lists?
 
-#### Using lists for non-text UI elements
+One of the most obscure HTML elements, [description lists](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) (`dl`) were initially intended for displaying glossary-like name-value pairs: a term (`dt`) and its definition (`dd`). Newer versions of the HTML spec also allow other name-value pairs, such as metadata labels and values, or questions and answers:
 
-- for lists of cards, e.g. a list of articles
-- not everything should be a list (can be quite noisy for SR users). think of how it is announced to screen readers and whether it makes sense for the list to be announced
+```html
+<dl>
+  <!-- term and definition -->
+  <dt>Circuit</dt>
+  <dd>A closed, usually circular line that goes around an object or area.</dd>
+  <!-- metadata label and value -->
+  <dt>Account number</dt>
+  <dd>12345</dd>
+  <!-- question and answer -->
+  <dt>How do I find my account number?</dt>
+  <dd>You can find your account number under "Profile details".</dd>
+</dl>
+```
+
+##### Avoid using description lists
+
+Description lists are intentionally not supported by the List component. They are not consistently announced by screen readers, and can confuse users.
+
+For example, consider this simple description list, containing 2 metadata label-value pairs:
+
+<details>
+  <summary>Show the rendered description list</summary>
+  <dl>
+    <dt>Account number</dt>
+    <dd>12345</dd>
+    <dt>Sign-up date</dt>
+    <dd>21.12.2021</dd>
+  </dl>
+</details>
+
+```html
+<dl>
+  <dt>Account number</dt>
+  <dd>12345</dd>
+  <dt>Sign-up date</dt>
+  <dd>21.12.2021</dd>
+</dl>
+```
+
+Here's the screen reader output on three major [screen reader / browser combinations](https://webaim.org/projects/screenreadersurvey9/#browsercombos), when arrowing through the list:
+
+| OS         | Browser | Screen reader | Output                                                                                                     |
+| ---------- | ------- | ------------- | ---------------------------------------------------------------------------------------------------------- |
+| Windows 10 | Chrome  | JAWS          | Definition list of 2 items. Account number. 12345. Sign-up date. 21.12.2021.                               |
+| Windows 10 | Chrome  | NVDA          | List with 4 items. Account number. 12345. Sign-up date. 21.12.2021.                                        |
+| macOS      | Safari  | VoiceOver     | Description list 2 items. Account number, 1 of 4. 12345, 2 of 4. Sign-up date, 3 of 4. 21.12.2021, 4 of 4. |
+
+As you can see, there are inconsistencies between outputs:
+
+- The description list has 2 name-value pairs, but NVDA on Chrome announces it as a "list with 4 items"
+- VoiceOver on macOS Safari correctly announces "2 items", but goes on to announce each item's position on a total of 4 items ("Account number, 1 of 4")
+- JAWS on Chrome announces a "definition list" (the initial name of the `dl` element), although this description list doesn't contain definitions
+- Other screen reader / browser combinations (such as NVDA on Firefox or VoiceOver on Chrome) have yet other behaviors
+
+This can be very confusing to users, so we recommend against using description lists at this time. Instead, use an unordered list or a table.
+
+#### Using lists for other UI elements
+
+In some cases, a list shouldn't only have text as list items, but another UI element such as a card (e.g. for a list of articles on a news website).
+
+The List componnt doesn't support this use case. Instead, use an HTML unordered list element:
+
+```jsx
+function ArticleList(articles) {
+  return (
+    <ul
+      css={css`
+        list-style: none;
+      `}
+      role="list"
+    >
+      {articles.map((article, i) => (
+        <li key={i}>
+          <ArticleCard article={article} />
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+**Warning**: if you remove the list's markers using `list-style: none;`, you'll need to add `role="list"` to the `ul` element. This is because [VoiceOver on Webkit removes list semantics when list markers are hidden](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html), both on iOS and macOS.
+
+Bear in mind that not every group of elements should necessarily be a list. Lists can be quite verbose for screen-reader users, and using them excessively can be counter-productive. Imagine your list being announced as a "list of n items" and each subsequent item as "item m of n", and whether this improves or hinders user experience.
 
 ### Resources
 
