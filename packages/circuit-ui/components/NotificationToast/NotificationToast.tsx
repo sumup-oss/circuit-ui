@@ -100,9 +100,8 @@ const toastWrapperStyles = ({
     visibility 200ms ease-in-out;
 `;
 
-const NotificationToastWrapper = styled('div')<NotificationToastWrapperProps>(
-  toastWrapperStyles,
-);
+const NotificationToastWrapper =
+  styled('div')<NotificationToastWrapperProps>(toastWrapperStyles);
 
 const contentStyles = ({ theme }: StyleProps) => css`
   display: flex;

@@ -107,10 +107,10 @@ export function ToastProvider<TProps extends BaseToastProps>({
     [dispatch, sendEvent],
   );
 
-  const context = useMemo(() => ({ setToast, removeToast }), [
-    setToast,
-    removeToast,
-  ]);
+  const context = useMemo(
+    () => ({ setToast, removeToast }),
+    [setToast, removeToast],
+  );
 
   useEffect(() => {
     const toastToDismiss = toasts[0];
