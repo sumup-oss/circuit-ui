@@ -35,10 +35,18 @@ export default {
 };
 
 const TOASTS = [
-  { body: 'An update is available.', variant: 'info' },
-  { body: 'Unexpected error occurred.', variant: 'alert' },
-  { body: 'Sorry. There was a problem with your request.', variant: 'notify' },
-  { body: 'You successfully updated your data.', variant: 'confirm' },
+  { body: 'An update is available.', variant: 'info', iconLabel: '' },
+  { body: 'Unexpected error occurred.', variant: 'alert', iconLabel: '' },
+  {
+    body: 'There was a problem with your request.',
+    variant: 'notify',
+    iconLabel: 'warning',
+  },
+  {
+    body: 'You successfully updated your data.',
+    variant: 'confirm',
+    iconLabel: '',
+  },
 ] as NotificationToastProps[];
 
 export const Base = (toast: NotificationToastProps): JSX.Element => {
@@ -65,8 +73,34 @@ export const Base = (toast: NotificationToastProps): JSX.Element => {
   );
 };
 
-Base.args = {
-  closeButtonLabel: 'Close',
+export const WithHeadline = (toast: NotificationToastProps): JSX.Element => {
+  const App = () => {
+    const { setToast } = useNotificationToast();
+    return (
+      <Button
+        type="button"
+        onClick={() =>
+          setToast({
+            ...toast,
+          })
+        }
+      >
+        Open toast
+      </Button>
+    );
+  };
+  return (
+    <ToastProvider>
+      <App />
+    </ToastProvider>
+  );
+};
+
+WithHeadline.args = {
+  headline: 'Information',
+  iconLabel: '',
+  body: 'You successfully updated your data.',
+  variant: 'info',
 } as NotificationToastProps;
 
 const variants = ['info', 'confirm', 'notify', 'alert'] as const;
@@ -94,5 +128,5 @@ export const Variants = (toast: NotificationToastProps) => (
 
 Variants.args = {
   body: 'This is a toast message',
-  closeButtonLabel: 'Close',
+  iconLabel: '',
 } as NotificationToastProps;

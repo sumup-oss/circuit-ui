@@ -117,7 +117,9 @@ export function ToastProvider<TProps extends BaseToastProps>({
     if (!toastToDismiss) {
       return undefined;
     }
-    const duration = toastToDismiss.duration || 3000;
+    const duration = toastToDismiss.duration
+      ? Math.max(toastToDismiss.duration, 3000)
+      : 3000;
     const timeoutId = setTimeout(() => {
       context.removeToast(toastToDismiss);
     }, duration);
@@ -130,7 +132,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
   return (
     <ToastContext.Provider value={context}>
       {children}
-      <ListWrapper role="status" aria-live="polite" aria-atomic="true">
+      <ListWrapper role="status" aria-live="polite" aria-atomic="false">
         {toasts.map((toast) => {
           const {
             id,

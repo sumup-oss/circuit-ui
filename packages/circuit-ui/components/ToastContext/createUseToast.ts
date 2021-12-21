@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useCallback, useContext } from 'react';
+import { useContext, useMemo } from 'react';
 
 import { uniqueId } from '../../util/id';
 
@@ -28,14 +28,14 @@ export function createUseToast<T extends BaseToastProps>(
   } => {
     const context = useContext(ToastContext);
 
-    const setToast = useCallback(
-      (props: T): void => {
-        const id = uniqueId('toast_');
-        context.setToast({ ...props, id, component });
-      },
+    return useMemo(
+      () => ({
+        setToast: (props: T): void => {
+          const id = uniqueId('toast_');
+          context.setToast({ ...props, id, component });
+        },
+      }),
       [context],
     );
-
-    return { setToast };
   };
 }

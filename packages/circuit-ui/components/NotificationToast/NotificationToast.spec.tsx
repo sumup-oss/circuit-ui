@@ -31,8 +31,9 @@ describe('NotificationToast', () => {
     render(<NotificationToast {...props} />);
 
   const baseNotificationToast: NotificationToastProps = {
-    closeButtonLabel: 'Close toast',
     onClose: jest.fn(),
+    iconLabel: '',
+    isVisible: false,
     body: 'This is a toast message',
   };
   describe('styles', () => {
@@ -77,16 +78,16 @@ describe('NotificationToast', () => {
     it.each(variants)(
       'should render notification toast with %s styles',
       (variant) => {
-        const actual = renderNotificationToast({
+        const { baseElement } = renderNotificationToast({
           ...baseNotificationToast,
           variant,
         });
-        expect(actual).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
       },
     );
   });
   describe('business logic', () => {
-    it('should close the toast when the onClose method is called', async () => {
+    it('should close the toast when the onClose method is called', () => {
       const App = () => {
         const { setToast } = useNotificationToast();
         return (
@@ -96,7 +97,7 @@ describe('NotificationToast', () => {
         );
       };
 
-      const { findByRole, getByText } = render(
+      const { getByText } = render(
         <ToastProvider>
           <App />
         </ToastProvider>,
@@ -106,48 +107,48 @@ describe('NotificationToast', () => {
         fireEvent.click(getByText('Open toast'));
       });
 
-      const toastEl = await findByRole('status');
+      expect(getByText('This is a toast message')).toBeVisible();
 
-      await waitFor(() => {
-        expect(toastEl).toBeVisible();
-      });
-
-      const closeButton = await findByRole('button', { name: /Close toast/ });
+      const closeButton = getByText('-');
 
       act(() => {
         fireEvent.click(closeButton);
       });
 
-      expect(baseNotificationToast.onClose).toHaveBeenCalledTimes(1);
+      expect(baseNotificationToast.onClose).toHaveBeenCalled();
     });
-  });
-  it('should autodismiss toast after the duration has expired', async () => {
-    const App = () => {
-      const { setToast } = useNotificationToast();
-      return (
-        <Button
-          type="button"
-          onClick={() => setToast({ ...baseNotificationToast, duration: 30 })}
-        >
-          Open toast
-        </Button>
+
+    it('should autodismiss toast after the duration has expired', async () => {
+      const App = () => {
+        const { setToast } = useNotificationToast();
+        return (
+          <Button
+            type="button"
+            onClick={() => setToast({ ...baseNotificationToast })}
+          >
+            Open toast
+          </Button>
+        );
+      };
+
+      const { getByText } = render(
+        <ToastProvider>
+          <App />
+        </ToastProvider>,
       );
-    };
 
-    const { findByRole } = render(
-      <ToastProvider>
-        <App />
-      </ToastProvider>,
-    );
+      act(() => {
+        fireEvent.click(getByText('Open toast'));
+      });
 
-    const toastEl = await findByRole('status');
+      expect(getByText('This is a toast message')).toBeVisible();
 
-    await waitFor(() => {
-      expect(toastEl).toBeVisible();
-    });
-
-    await waitFor(() => {
-      expect(baseNotificationToast.onClose).toHaveBeenCalledTimes(1);
+      await waitFor(
+        () => {
+          expect(baseNotificationToast.onClose).toHaveBeenCalledTimes(1);
+        },
+        { timeout: 3000 },
+      );
     });
   });
   /**

@@ -8,20 +8,19 @@ import { NotificationToast } from '@sumup/circuit-ui';
 <Story id="notification-notificationtoast--base" />
 <Props />
 
-The notification toast component non-disruptively provides quick, contextual or feedback based on the outcome of an action.
+The notification toast component non-disruptively provides quick and contextual feedback to the user. It can be based on the outcome of an action (i.e. saving a form) or it can pop up without having been triggered explicitly (i.e. a toast message "You made a new sale" showing real time sales in an app).
 
 ## When to use it
 
-The notification toast should be used for a feedback on micro actions (i.e. successful/unsuccessful saving on the page).
+The notification toast should be used for a feedback on micro actions (i.e. successfully/unsuccessfully saving some information).
 
 ## Usage guidelines
 
-- To communicate a message always provide a body copy, and if needed an optional headline can be included above the body copy.
-- The notification toast floats above the content, positioned at the bottom of the screen, centralized horizontally withing the content area.
-- For a multiple stacked toasts, the new toast slides on top of the previous one. The timeout of the stacked toasts follow chronological order.
+- Be concise, specific and short in the message and always provide a body copy. If needed an optional headline can be included above the body copy.
+- The notification toast floats above the content, positioned at the bottom of the screen, centralized horizontally within the content area.
+- For multiple stacked toasts, the new toast slides on top of the previous one. The timeout of the stacked toasts follows chronological order.
 - The auto-dismiss duration is adjustable (default minimum duration is 3000 ms).
-- Toasts can also be dismissed by clicking on a close button in the top-right corner. You need to provide closeButtonLabel.
-- **Do** Be concise, specific and short in the message.
+- Toasts can also be dismissed by clicking on a close button in the top-right corner.
 
 ## Variants
 
@@ -29,19 +28,19 @@ The notification toast should be used for a feedback on micro actions (i.e. succ
 
 ### Info
 
-Use 'Info' variant for the informational, neutral messages.
+Use the 'Info' variant for informational, neutral messages.
 
 ### Confirm
 
-Use 'Confirm' variant for the successful messages.
+Use the 'Confirm' variant the successful messages.
 
 ### Notify
 
-Use 'Notify' variant for a warning messages, information to be aware of.
+Use the 'Notify' variant for warning messages, and other information a user should be aware of.
 
 ### Alert
 
-Use 'Alert' variant for error messages.
+Use the 'Alert' variant for error messages.
 
 ## Usage in code
 
@@ -49,28 +48,24 @@ First, wrap your application in the `ToastProvider` which keeps track of the ope
 
 ```tsx
 // _app.tsx for Next.js or App.js for CRA
-import { ToastProvider, BaseStyles } from '@sumup/circuit-ui';
+import { ToastProvider } from '@sumup/circuit-ui';
 
 export default function App() {
-  return (
-      <BaseStyles />
-      <ToastProvider>{/* Your content goes here... */}</ToastProvider>
-  );
+  return <ToastProvider>{/* Your content goes here... */}</ToastProvider>;
 }
 ```
 
 Then, use the `useNotificationToast` hook to open a toast from a component:
 
 ```tsx
-import { useNotificationToast, Button, Body } from '@sumup/circuit-ui';
+import { useNotificationToast, Button } from '@sumup/circuit-ui';
 
-export function App({ name }) {
+export function App({}) {
   const { setToast } = useNotificationToast();
 
   const handleClick = () => {
     setToast({
       body: 'This is a toast message',
-      closeButtonLabel: 'Close modal',
     });
   };
 
@@ -80,32 +75,26 @@ export function App({ name }) {
 
 ## Accessibility
 
-By their nature as small quick messages, or interruptions, toasts map to [live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions),
-and screen readers are gonna automatically announce the raw text within without any need to move the user's focus.
+By their nature as small quick messages, or interruptions, toasts map to [live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
 Live region must always exist on the page at render, before the toast is generated.
-To ensure that the toast is always announced as a whole, `aria-atomic` should be set to `"true"` (default value is `"false"`).
 
-### Role
-
-The `aria-role` can be adapted based on the context.
-For the most generic use cases that provides an updated status, the role can be set to `"status"`. It has a `aria-live="polite"` meaning the screen reader will wait before announcing the update.
-If it is an important message, typically time-sensitive, like an error, use `role="alert"`. It has `aria-live="assertive"` which means it will interrupt whatever the user is doing.
-The third role that can be given to the toast messages is `"log"`. It should be used when the order of the messages matters. It has a `aria-live="polite"`.
-
-Since the screen readers are gonna announce the raw text within toast messages, without structure, keyboard users won’t be able to move to the interactive elements with a clear path.
-For example, there is a toast message with the text “You successfully updated your data.”, followed by a link or button with the text "Back".
-Screen readers are gonna communicate a message as “You successfully updated your data. Back.”, meaning that the semantics of the link "Back" is not announced.
-People using a screen reader may think that the "Back" is an interactive element, but they will not know which element to search for.
-In this case you will need a modal or dialog with a `role="dialog"`.
 Ideally, the toast messages should not contain any interactive elements.
+The screen readers are gonna announce the raw text within toast messages, without structure and any need to move the user's focus.
+Keyboard users won’t be able to move to the interactive elements with a clear path.
+For example, there is a toast message with the text “You successfully updated your data.”, followed by a link or button with the text "Back".
+Screen readers are gonna communicate a message as “You successfully updated your data. Back.”, and the semantics of the link "Back" is not announced.
+
+To match the content, the role and aria-live level is adapted. The role is set to `"status"`, and it has `aria-live="polite"` meaning the screen reader will wait before announcing the update.
 
 ### Best practices
 
-There are several WCAG 2.0 and 2.1 level AA accessibility guidelines that can be applied to toast messages.
+This component adheres to the following principles from the Web Content Accessibility Guidelines (WCAG):
 
-#### Color
+#### Toast duration
 
-The standard color ratio requirement for text is 4.5:1 and for any interactive content 3.0:1.
+The auto-dimiss duration of the toast is adjustable.
+Based on how fast the average American reads, a good lenght of time to keep the toast message up is 5 seconds plus 1 extra second for every 120 words.
+The shortest default that should be used as a best practice is 6 seconds.
 
 #### Consistent identification
 
@@ -122,11 +111,6 @@ Follow more in the WCAG guideline [2.1.1](https://www.w3.org/WAI/WCAG21/Understa
 
 Using the keyboard, if the toast message has any interactive elements, then it should always show up in the same place in the focus order, in a way that makes sense to a user.
 This is related to the WCAG guideline [2.4.3](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html).
-
-#### Timing adjustable
-
-This is the one that is most relevant to the toast messages.
-Based on the WCAG guideline [2.2.1](https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html), user should be able to choose how long they want the toast messages to be displayed.
 
 #### Resources
 

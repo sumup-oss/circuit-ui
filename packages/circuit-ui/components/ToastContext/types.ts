@@ -28,7 +28,7 @@ export interface BaseToastProps {
    */
   tracking?: TrackingProps;
   /**
-   * TODO: Add description for prop
+   * Toast duration, defaults to 3000 ms.
    */
   duration?: number;
 }

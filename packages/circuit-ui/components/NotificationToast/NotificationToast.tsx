@@ -13,14 +13,7 @@
  * limitations under the License.
  */
 
-import {
-  HTMLAttributes,
-  ReactNode,
-  RefObject,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/react';
 import { Alert, Confirm, Info, Notify } from '@sumup/icons';
 
@@ -31,6 +24,7 @@ import { TrackingProps } from '../../hooks/useClickEvent';
 import CloseButton from '../CloseButton';
 import { ClickEvent } from '../../types/events';
 import { BaseToastProps, createUseToast } from '../ToastContext';
+import { hideVisually } from '../../styles/style-mixins';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
@@ -46,29 +40,28 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
     /**
      * Notification toast headline to provide information (optional)
      */
-    headline?: string | ReactNode;
+    headline?: string;
     /**
-     * An body copy to provide notification toast information
+     * A body copy to provide notification toast information
      */
-    body: string | ReactNode;
+    body: string;
     /**
      * Whether the notification toast is visible.
      */
-    isVisible?: boolean;
+    isVisible: boolean;
     /**
      * Additional data that is dispatched with the tracking event.
      */
     tracking?: TrackingProps;
     /**
-     * Renders a close button in the top right corner and calls the provided function
-     * when the button is clicked.
+     * Close button is always rendered in the top right corner
+     * onClose is called when the toast is auto-dismissed or the close button is clicked.
      */
     onClose?: (event: ClickEvent) => void;
     /**
-     * Text label for the close button for screen readers.
-     * Important for accessibility.
+     * A clear and concise description of the icon and the Toast's purpose.
      */
-    closeButtonLabel: string;
+    iconLabel: string;
   };
 
 // TODO: update the design token colors to be info/confirm/alert/notify, then remove this mapping
@@ -149,7 +142,7 @@ export function NotificationToast({
   body,
   headline,
   onClose,
-  closeButtonLabel,
+  iconLabel,
   isVisible,
   tracking,
   duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
@@ -187,7 +180,8 @@ export function NotificationToast({
       variant={variant}
       {...props}
     >
-      <StyledIcon as={iconMap[variant]} variant={variant} />
+      <StyledIcon as={iconMap[variant]} variant={variant} role="presentation" />
+      <span css={hideVisually}>{iconLabel}</span>
       <Content>
         {headline && (
           <Body variant={'highlight'} as="h3" noMargin>
@@ -198,7 +192,8 @@ export function NotificationToast({
       </Content>
 
       <StyledCloseButton
-        label={closeButtonLabel}
+        label="-" // We need to pass a label here to prevent CloseButton from throwing an error
+        aria-hidden="true"
         size="kilo"
         onClick={onClose}
         tracking={
@@ -206,6 +201,7 @@ export function NotificationToast({
             ? { component: 'notification-close', ...tracking }
             : undefined
         }
+        tabIndex={-1}
       />
     </NotificationToastWrapper>
   );
