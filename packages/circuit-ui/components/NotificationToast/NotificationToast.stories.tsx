@@ -73,36 +73,6 @@ export const Base = (toast: NotificationToastProps): JSX.Element => {
   );
 };
 
-export const WithHeadline = (toast: NotificationToastProps): JSX.Element => {
-  const App = () => {
-    const { setToast } = useNotificationToast();
-    return (
-      <Button
-        type="button"
-        onClick={() =>
-          setToast({
-            ...toast,
-          })
-        }
-      >
-        Open toast
-      </Button>
-    );
-  };
-  return (
-    <ToastProvider>
-      <App />
-    </ToastProvider>
-  );
-};
-
-WithHeadline.args = {
-  headline: 'Information',
-  iconLabel: '',
-  body: 'You successfully updated your data.',
-  variant: 'info',
-} as NotificationToastProps;
-
 const variants = ['info', 'confirm', 'notify', 'alert'] as const;
 
 const StackToasts = styled.div`
@@ -129,4 +99,15 @@ export const Variants = (toast: NotificationToastProps) => (
 Variants.args = {
   body: 'This is a toast message',
   iconLabel: '',
+} as NotificationToastProps;
+
+export const WithHeadline = (toast: NotificationToastProps) => (
+  <NotificationToast {...toast} isVisible={true} />
+);
+
+WithHeadline.args = {
+  headline: 'Information',
+  iconLabel: '',
+  body: 'You successfully updated your data.',
+  variant: 'info',
 } as NotificationToastProps;

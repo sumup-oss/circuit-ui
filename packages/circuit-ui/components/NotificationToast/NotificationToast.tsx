@@ -59,7 +59,7 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
      */
     onClose?: (event: ClickEvent) => void;
     /**
-     * A clear and concise description of the icon and the Toast's purpose.
+     * A clear and concise description of the icon and the Toast's purpose. If the toast body is self-explanatory pass an empty string.
      */
     iconLabel: string;
   };

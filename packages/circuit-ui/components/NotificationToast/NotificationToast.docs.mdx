@@ -10,37 +10,25 @@ import { NotificationToast } from '@sumup/circuit-ui';
 
 The notification toast component non-disruptively provides quick and contextual feedback to the user. It can be based on the outcome of an action (i.e. saving a form) or it can pop up without having been triggered explicitly (i.e. a toast message "You made a new sale" showing real time sales in an app).
 
-## When to use it
-
-The notification toast should be used for a feedback on micro actions (i.e. successfully/unsuccessfully saving some information).
-
 ## Usage guidelines
 
-- Be concise, specific and short in the message and always provide a body copy. If needed an optional headline can be included above the body copy.
-- The notification toast floats above the content, positioned at the bottom of the screen, centralized horizontally within the content area.
-- For multiple stacked toasts, the new toast slides on top of the previous one. The timeout of the stacked toasts follows chronological order.
-- The auto-dismiss duration is adjustable (default minimum duration is 3000 ms).
-- Toasts can also be dismissed by clicking on a close button in the top-right corner.
+- Be concise, specific and short in the message and always provide a body copy.
+- If needed an optional headline can be included above the body copy.
 
-## Variants
+## Component variations
+
+### Toast variants
 
 <Story id="notification-notificationtoast--variants" />
 
-### Info
+- Use the 'Info' variant for informational, neutral messages.
+- Use the 'Confirm' variant the successful messages.
+- Use the 'Notify' variant for warning messages, and other information a user should be aware of.
+- Use the 'Alert' variant for error messages.
 
-Use the 'Info' variant for informational, neutral messages.
+### Toast with headline
 
-### Confirm
-
-Use the 'Confirm' variant the successful messages.
-
-### Notify
-
-Use the 'Notify' variant for warning messages, and other information a user should be aware of.
-
-### Alert
-
-Use the 'Alert' variant for error messages.
+<Story id="notification-notificationtoast--with-headline" />
 
 ## Usage in code
 
@@ -78,11 +66,9 @@ export function App({}) {
 By their nature as small quick messages, or interruptions, toasts map to [live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
 Live region must always exist on the page at render, before the toast is generated.
 
-Ideally, the toast messages should not contain any interactive elements.
-The screen readers are gonna announce the raw text within toast messages, without structure and any need to move the user's focus.
-Keyboard users won’t be able to move to the interactive elements with a clear path.
-For example, there is a toast message with the text “You successfully updated your data.”, followed by a link or button with the text "Back".
-Screen readers are gonna communicate a message as “You successfully updated your data. Back.”, and the semantics of the link "Back" is not announced.
+Toast messages should not contain any interactive elements.
+Screen readers will announce raw text within the toast as it appears, without structure and without moving focus to the toast element.
+For example, if a toast read “You successfully updated your data” followed by an "Undo" button, screen readers would announce “You successfully updated your data. Undo”, not allowing keyboard users to interact with the button.
 
 To match the content, the role and aria-live level is adapted. The role is set to `"status"`, and it has `aria-live="polite"` meaning the screen reader will wait before announcing the update.
 
@@ -93,24 +79,18 @@ This component adheres to the following principles from the Web Content Accessib
 #### Toast duration
 
 The auto-dimiss duration of the toast is adjustable.
-Based on how fast the average American reads, a good lenght of time to keep the toast message up is 5 seconds plus 1 extra second for every 120 words.
+Based on how fast the [average American reads](https://sheribyrnehaber.medium.com/designing-toast-messages-for-accessibility-fb610ac364be), a good lenght of time to keep the toast message up is 5 seconds plus 1 extra second for every 120 words.
 The shortest default that should be used as a best practice is 6 seconds.
 
 #### Consistent identification
 
-Based on the WCAG guideline [3.2.4](https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html) each component should be consistent with another.
+Based on the WCAG guideline [3.2.4](https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html) each component should be identified consistently.
+However you choose to implement your messages, for example, deciding whether the information icon has alt-text or the toast message contains the word information, each type should be consistent with one another.
 
 #### Location
 
-Following consistent identificaton, toast messages should be also placed consistently. Generally toast messages usually appear at the start or end of the DOM. If you place them somewhere else, it can cause difficulties for screen reader users to locate them.
-
-#### Keyboard access and focus order
-
-For any interactive element, user should be able to tab and shift through them by using the keyboard, which means they require a keyboard focus indicator.
-Follow more in the WCAG guideline [2.1.1](https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html)
-
-Using the keyboard, if the toast message has any interactive elements, then it should always show up in the same place in the focus order, in a way that makes sense to a user.
-This is related to the WCAG guideline [2.4.3](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html).
+Following consistent identificaton, toast messages should be also placed consistently. Generally toast messages usually appear at the start or end of the DOM.
+If you place them somewhere else, they can confuse screen reader users as they navigate through the page.
 
 #### Resources
 
