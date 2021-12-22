@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.6.1
+
+### Patch Changes
+
+- [#1328](https://github.com/sumup-oss/circuit-ui/pull/1328) [`23065d4a`](https://github.com/sumup-oss/circuit-ui/commit/23065d4aa8b39bc5e29b5b275e158812c8d3298e) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed event listeners from the `Popover` when it is closed, to prevent unnecessary re-renders.
+
 ## 4.6.0
 
 ### Minor Changes
