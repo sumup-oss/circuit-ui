@@ -301,9 +301,9 @@ export const Popover = ({
     });
   };
 
-  // Popper custom modifier to apply bottom sheet for mobile.
-  // The window.matchMedia() is a useful API for this, it allows you to change the styles based on a condition.
-  // useMemo hook is used in order to prevent the render loop, more https://popper.js.org/react-popper/v2/faq/#why-i-get-render-loop-whenever-i-put-a-function-inside-the-popper-configuration
+  // Custom Popper.js modifier that switches to a bottom sheet on mobile.
+  // useMemo prevents a render loop:
+  // https://popper.js.org/react-popper/v2/faq/#why-i-get-render-loop-whenever-i-put-a-function-inside-the-popper-configuration
   const mobilePosition: Modifier<'mobilePosition', { state: State }> = useMemo(
     () => ({
       name: 'mobilePosition',
@@ -333,8 +333,8 @@ export const Popover = ({
     [theme, zIndex],
   );
 
-  // The flip modifier is used if the popper has placement set to bottom, but there isn't enough space to position the popper in that direction.
-  // By default, it will change the popper placement to top. More at https://popper.js.org/docs/v2/modifiers/flip/
+  // Flip the popover if there is no space for the default placement.
+  // https://popper.js.org/docs/v2/modifiers/flip/
   const flip = {
     name: 'flip',
     options: {
@@ -342,15 +342,22 @@ export const Popover = ({
     },
   };
 
-  // Note: the usePopper hook intentionally takes the DOM node, not refs, in order to be able to update when the nodes change.
-  // A callback ref is used here to permit this behaviour, and useState is an appropriate way to implement this.
+  // Disable the scroll and resize listeners when the popover is closed.
+  // https://popper.js.org/docs/v2/modifiers/event-listeners/
+  const eventListeners = {
+    name: 'eventListeners',
+    options: { scroll: isOpen, resize: isOpen },
+  };
+
+  // Note: the usePopper hook intentionally takes a DOM node, not a ref, in
+  // order to update when the node changes. We use a callback ref for this.
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
   const { styles, attributes, update } = usePopper(
     triggerEl.current,
     popperElement,
     {
       placement,
-      modifiers: [mobilePosition, flip, ...modifiers],
+      modifiers: [mobilePosition, flip, eventListeners, ...modifiers],
     },
   );
 
