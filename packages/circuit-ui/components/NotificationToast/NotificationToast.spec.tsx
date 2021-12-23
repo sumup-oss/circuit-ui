@@ -85,6 +85,14 @@ describe('NotificationToast', () => {
         expect(baseElement).toMatchSnapshot();
       },
     );
+
+    it('should render notification toast with headline', () => {
+      const { baseElement } = renderNotificationToast({
+        ...baseNotificationToast,
+        headline: 'Information',
+      });
+      expect(baseElement).toMatchSnapshot();
+    });
   });
   describe('business logic', () => {
     it('should close the toast when the onClose method is called', () => {
