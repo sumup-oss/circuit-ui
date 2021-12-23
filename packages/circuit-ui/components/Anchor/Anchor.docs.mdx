@@ -4,17 +4,88 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-Anchor is used to display a link or button that visually looks like a hyperlink.
+The Anchor component is used to display a link or button that visually looks like a hyperlink.
 
 <Story id="typography-anchor--as-link" />
 <Props />
 
-## Usage guidelines
-
-- **Do** use the `mega` size as the default for body text
-- **Do** open the link in the same window unless it leads to an external source.
-- **Do not** use in combination with the button component, use the tertiary button variant instead
+## Component variations
 
 ### As button
 
+should this generally be avoided to prevent surprising behavior?
+
 <Story id="typography-anchor--as-button" />
+
+## Accessibility
+
+### Best practices
+
+#### keyboard navigation
+
+- all links should receive focus (i.e. no `tabindex="-1"`)
+- focus styles should be visible
+
+#### focus order (2.4.3)
+
+- should follow a logical reading order (might be several, match one)
+- think of both a sighted keyboard user (logical order is visual) and a screen reader user (logical order is the DOM)
+
+#### opens in new tab/window
+
+- prev guidelines recommended this when linking to a separate website: no
+- only when necessary: https://www.w3.org/WAI/WCAG21/Techniques/general/G200
+  - invalid example: link to a separate website in an article, opens in a new tab
+  - valid example: link to TOC in a signup form, opens in a new tab (otherwise form progress is lost—but recommended to explicitly warn about the new tab, cf. "more link features" below)
+- announced by SRs?
+
+#### link purpose
+
+- link purpose = link text _and_ link context (roughly: same paragraph) (AAA: link text alone, see 2.4.9)
+- should define the content of the linked resource (e.g. page name)
+- good practice to match destination page name with link name, for continuity/confirmation
+
+#### link with the same text should have the same destination
+
+- avoid using the same link text pointing to different destinations (typical: "click here")
+- avoid using different link texts when pointing to the same destination in different places (also required in 3.2.4)
+
+#### link text length
+
+- better to keep links short, for when navigating lists of links? (similar to list items) i.e. no link paragraphs
+- add stricture to link text, see https://www.filamentgroup.com/lab/a11y-links.html#use-punctuation
+
+#### link styles
+
+Link should be underlined and blue (both common patterns)
+
+- 3:1 contrast with surrounding text if identified by color alone, see 1.4.1 use of color https://www.w3.org/WAI/WCAG21/Understanding/use-of-color
+- but underline is a best practice (common pattern and serves users that don't see color at all)
+
+#### more link features
+
+(not supported by our component)
+
+- visited link (already announced by screen readers, esp. useful in link-heavy web pages)
+- external link (indicate the link is to an external site—relates to the target=\_blank above)
+- on-page link (indicate that the link is to a node on the same webpage (#))
+- download links (indicate that the link downloads a file—e.g. a link to a PDF or mp3 is likely to trigger a download)
+- button links (indicate buttons that look like links, i.e. links that perform an action like opening an overlay. Good for sighted users–the button role is already announced by SRs)
+
+#### careful with block links
+
+a.k.a. clickable cards
+
+- handled very differently depending on the AT/SR, might be better to link only a part of the block element
+- (cf. research on notificationbanner link)
+- see:
+  - https://adrianroselli.com/2020/02/block-links-cards-clickable-regions-etc.html
+  - https://inclusive-components.design/cards/
+  - https://www.filamentgroup.com/lab/a11y-links.html#link-block-level-elements-with-care
+
+### Resources
+
+- 2.4.3: [Focus Order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order)
+- 2.4.4: [Link Purpose (In Context)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html)
+- 2.4.9: [Link Purpose (Link Only)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only) (AAA)
+- 3.2.4: [Consistent Identification](https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification)
