@@ -73,7 +73,6 @@ export function useStack<T extends StackItem>(
 
   useEffect(() => {
     const itemToRemove = state.find((item) => item.timeout);
-
     if (!itemToRemove) {
       return;
     }

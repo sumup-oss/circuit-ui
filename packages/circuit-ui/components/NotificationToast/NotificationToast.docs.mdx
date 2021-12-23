@@ -1,0 +1,101 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+import { NotificationToast } from '@sumup/circuit-ui';
+
+# NotificationToast
+
+<Status.Stable />
+
+<Story id="notification-notificationtoast--base" />
+<Props />
+
+The notification toast component non-disruptively provides quick and contextual feedback to the user. It can be based on the outcome of an action (i.e. saving a form) or it can pop up without having been triggered explicitly (i.e. a toast message "You made a new sale" showing real time sales in an app).
+
+## Usage guidelines
+
+- Be concise, specific and short in the message and always provide a body copy.
+- If needed an optional headline can be included above the body copy.
+
+## Component variations
+
+### Toast variants
+
+<Story id="notification-notificationtoast--variants" />
+
+- Use the 'Info' variant for informational, neutral messages.
+- Use the 'Confirm' variant the successful messages.
+- Use the 'Notify' variant for warning messages, and other information a user should be aware of.
+- Use the 'Alert' variant for error messages.
+
+### Toast with headline
+
+<Story id="notification-notificationtoast--with-headline" />
+
+## Usage in code
+
+First, wrap your application in the `ToastProvider` which keeps track of the open toasts and ensures the accessibility of the toast.
+
+```tsx
+// _app.tsx for Next.js or App.js for CRA
+import { ToastProvider } from '@sumup/circuit-ui';
+
+export default function App() {
+  return <ToastProvider>{/* Your content goes here... */}</ToastProvider>;
+}
+```
+
+Then, use the `useNotificationToast` hook to open a toast from a component:
+
+```tsx
+import { useNotificationToast, Button } from '@sumup/circuit-ui';
+
+export function App({}) {
+  const { setToast } = useNotificationToast();
+
+  const handleClick = () => {
+    setToast({
+      body: 'This is a toast message',
+    });
+  };
+
+  return <Button onClick={handleClick}>Open toast</Button>;
+}
+```
+
+## Accessibility
+
+By their nature as small quick messages, or interruptions, toasts map to [live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
+Live region must always exist on the page at render, before the toast is generated.
+
+Toast messages should not contain any interactive elements.
+Screen readers will announce raw text within the toast as it appears, without structure and without moving focus to the toast element.
+For example, if a toast read “You successfully updated your data” followed by an "Undo" button, screen readers would announce “You successfully updated your data. Undo”, not allowing keyboard users to interact with the button.
+
+To match the content, the role and aria-live level is adapted. The role is set to `"status"`, and it has `aria-live="polite"` meaning the screen reader will wait before announcing the update.
+
+### Best practices
+
+This component adheres to the following principles from the Web Content Accessibility Guidelines (WCAG):
+
+#### Toast duration
+
+The auto-dimiss duration of the toast is adjustable.
+Based on how fast the [average American reads](https://sheribyrnehaber.medium.com/designing-toast-messages-for-accessibility-fb610ac364be), a good lenght of time to keep the toast message up is 5 seconds plus 1 extra second for every 120 words.
+The shortest default that should be used as a best practice is 6 seconds.
+
+#### Consistent identification
+
+Based on the WCAG guideline [3.2.4](https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html) each component should be identified consistently.
+However you choose to implement your messages, for example, deciding whether the information icon has alt-text or the toast message contains the word information, each type should be consistent with one another.
+
+#### Location
+
+Following consistent identificaton, toast messages should be also placed consistently. Generally toast messages usually appear at the start or end of the DOM.
+If you place them somewhere else, they can confuse screen reader users as they navigate through the page.
+
+#### Resources
+
+For more information follow up:
+
+- [ARIA Roles](https://www.w3.org/TR/aria-in-html/#aria-roles])
+- [Defining toast messages](https://adrianroselli.com/2020/01/defining-toast-messages.html)
+- [Status messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html)
