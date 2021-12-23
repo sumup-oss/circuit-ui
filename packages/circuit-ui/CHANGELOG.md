@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.7.0
+
+### Minor Changes
+
+- [#1295](https://github.com/sumup-oss/circuit-ui/pull/1295) [`3861db2a`](https://github.com/sumup-oss/circuit-ui/commit/3861db2ae25fec899e3e516c30f8b42ff6993a68) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `NotificationToast` component that provides quick and contextual feedback to the user.
+
 ## 4.6.1
 
 ### Patch Changes
