@@ -15870,9 +15870,9 @@ react-moment-proptypes@^1.6.0:
     moment ">=1.6.0"
 
 react-number-format@^4.4.1:
-  version "4.7.3"
-  resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-4.7.3.tgz#e1706204a23c40fa17365a19f5059aabfca1886f"
-  integrity sha512-4EvcANjstypQ5anhanmdEioGc49qbnErfS+yqbhatC0vzQ1okplkWNb0DIY7ABu4RhaxzttEz6pypEy8KsqgBQ==
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-4.9.0.tgz#fd1defb74cc6ccc43a9e579f67d752c03ba897e4"
+  integrity sha512-HC4ZfvZSm6Gqq77/D4gz823XkvqK4AWAg4PxPv9Paz08hryAOnDjZk89iWmRLafeSOYG3TOx37ypHXMRez8q+w==
   dependencies:
     prop-types "^15.7.2"
 
