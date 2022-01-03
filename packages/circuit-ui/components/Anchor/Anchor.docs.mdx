@@ -13,37 +13,52 @@ The Anchor component is used to display a link or button that visually looks lik
 
 ### As button
 
-should this generally be avoided to prevent surprising behavior?
+If necessary, an Anchor can be rendered as a semantic `<button>` element. It will look like an Anchor but behave like a button.
+
+Bear in mind that this might lead to confusion for some users, since the expectation is that the Anchor should behave like a link (i.e. it should navigate), and conversely, something that behaves like a button (i.e. that performs an action) should look like a button.
 
 <Story id="typography-anchor--as-button" />
 
 ## Accessibility
 
+The Anchor component is most commonly used to render a hyperlink. Links are one of the most important elements in HTML. They bring the "H" in "<abbr title="HyperText Markup Language">HTML</abbr>", since hypertext without links is mostly just text.
+
+Note that the following guidelines apply to hyperlinks generally, and not only those rendered by the Anchor component.
+
 ### Best practices
 
-#### keyboard navigation
+#### Links should be focusable
 
-- all links should receive focus (i.e. no `tabindex="-1"`)
-- focus styles should be visible
+All links must be focusable in order to be usable by all users. A focus outline should also be visible so that keyboard users know where they are when tabbing through the page.
 
-#### focus order (2.4.3)
+The Anchor component is focusable by default and comes with an accessible focus outline. Do not remove it!
 
-- should follow a logical reading order (might be several, match one)
-- think of both a sighted keyboard user (logical order is visual) and a screen reader user (logical order is the DOM)
+#### Focus order should follow a logical reading order
 
-#### opens in new tab/window
+As detailed in [2.4.3: Focus Order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order), focus order on a page should follow a logical reading order.
 
-- prev guidelines recommended this when linking to a separate website: no
-- only when necessary: https://www.w3.org/WAI/WCAG21/Techniques/general/G200
-  - invalid example: link to a separate website in an article, opens in a new tab
-  - valid example: link to TOC in a signup form, opens in a new tab (otherwise form progress is lost—but recommended to explicitly warn about the new tab, cf. "more link features" below)
-- announced by SRs?
+Keep in mind that reading order may not be the same for sighted and screen-reader users:
 
-#### link purpose
+- For a sighted user, reading order is influenced by styles. If an element is visually placed above another, or is emphasized through the use of color or typography, it is more likely to be read first. Therefore, if interactive, it is generally expected to receive focus first.
+- For a a screen reader user, reading order is determined by the DOM. Irrespective of where elements are placed visually, what matters is their position in the DOM. What follows is that the DOM itself should be ordered logically: think about whether your interface is still understandable without styles.
 
-- link purpose = link text _and_ link context (roughly: same paragraph) (AAA: link text alone, see 2.4.9)
-- should define the content of the linked resource (e.g. page name)
-- good practice to match destination page name with link name, for continuity/confirmation
+#### Links should rarely open in new tabs or windows
+
+A link that opens in a new tab or window can confuse users, especially those relying on assistive technology. [Links should only open in new tabs or windows when necessary](https://www.w3.org/WAI/WCAG21/Techniques/general/G200).
+
+For example, if there is a link to terms and conditions above a form's submit button, and form progress would be lost if the link is visited before submission, it makes sense to open the link in a new tab to preserve the user's progress. It is also a good practice to explicitly warn that the link will open in a new tab, using iconography and/or plain text ("link opens in a new tab").
+
+In contrast, imagine that _cats.com_ features a link to _dogs.com_. It is not a good practice to make _dogs.com_ open in a new tab. Instead, trust users to know how to open the link in a new tab themselves, or how to navigate back to _cats.com_ later, if they so desire.
+
+#### Links should have a clear purpose
+
+The purpose of a link should be easy to determine by users. Ideally, a link's text should define the content of the linked resource, much like a heading's text defines the content of its section. The link's text could also match the destination page's name, to give users confirmation that they arrived in the right place after navigating.
+
+[2.4.4: Link Purpose (In Context)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html) states that link purpose must be inferrable from the link's context, i.e. the same paragraph, list item, or table cell as the link. So for example, a user should be able to understand what a link does by reading the surrounding paragraph.
+
+A best practice is to go even further, and attempt to make link purpose understandable even out of context, by the link text only. The reason behind this best practice is primarily that it's common for screen reader users to find their way on the web by pulling up a list of links on a page. The WCAG level AAA success criterion [2.4.9: Link Purpose (Link Only)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only) makes this a requirement.
+
+_Note: while it is tempting at this point to add visually hidden text (or an `aria-label`) to a link to make its purpose clear out of context for screen reader users, we recommend against it: voice control users may not be able to target the link if its accessible name doesn't match its visible text._
 
 #### link with the same text should have the same destination
 
@@ -85,7 +100,16 @@ a.k.a. clickable cards
 
 ### Resources
 
-- 2.4.3: [Focus Order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order)
-- 2.4.4: [Link Purpose (In Context)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html)
-- 2.4.9: [Link Purpose (Link Only)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only) (AAA)
-- 3.2.4: [Consistent Identification](https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification)
+#### Testing link accessibility
+
+🚧
+
+- Tab through your interface and verify that all links receive focus, that they have a visible outline when focused, ...
+- view page without styles for SR reading order
+
+#### Related WCAG success criteria
+
+- [2.4.3: Focus Order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order)
+- [2.4.4: Link Purpose (In Context)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html)
+- [2.4.9: Link Purpose (Link Only)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only) (AAA)
+- [3.2.4: Consistent Identification](https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification)
