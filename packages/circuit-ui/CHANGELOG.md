@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.7.1
+
+### Patch Changes
+
+- [#1346](https://github.com/sumup-oss/circuit-ui/pull/1346) [`e6a34e92`](https://github.com/sumup-oss/circuit-ui/commit/e6a34e92da4020ed005e782efbba20d9eaa8075b) Thanks [@robinmetral](https://github.com/robinmetral)! - Improved types in the `CurrencyInput`. The component's type (exposed via its `ref`) changed from `NumberFormat` to `NumberFormat<InputProps>`, now explicitly typing the wrapped Circuit UI `Input`.
+
 ## 4.7.0
 
 ### Minor Changes
