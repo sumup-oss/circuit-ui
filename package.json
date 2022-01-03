@@ -62,7 +62,7 @@
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-react-docgen": "^4.2.1",
-    "chromatic": "^5.1.0",
+    "chromatic": "^6.3.3",
     "eslint-formatter-github": "^1.0.11",
     "eslint-plugin-prettier": "^4.0.0",
     "expect": "^27.0.2",
