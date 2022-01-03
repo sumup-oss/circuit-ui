@@ -1,8 +1,7 @@
 import { addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withPerformance } from 'storybook-addon-performance';
-import { ThemeProvider, Global, css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { TrackingRoot, TrackingView } from '@sumup/collector';
 
@@ -56,7 +55,8 @@ const SORT_ORDER = {
 };
 
 export const parameters = {
-  layout: 'centered',
+  viewMode: 'docs',
+  previewTabs: { 'storybook/docs/panel': { index: -1 } },
   actions: { argTypesRegex: '^on.*' },
   options: {
     storySort: sortStories(SORT_ORDER),
@@ -64,43 +64,9 @@ export const parameters = {
   docs: { theme, components },
 };
 
-const StoryStyles = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  .sbdocs & {
-    min-height: auto;
-  }
-`;
-
-const globalStyles = (theme) => css`
-  code {
-    padding: 0.15em 0.2em 0.05em;
-    margin: -0.15em 0 -0.05em;
-    border-radius: 0.2em;
-    background: ${theme.colors.n200};
-  }
-
-  pre code {
-    background: inherit;
-  }
-`;
-
-const withStoryStyles = (Story) => {
-  return (
-    <StoryStyles>
-      <Story />
-    </StoryStyles>
-  );
-};
-
 const withThemeProvider = (Story) => (
   <ThemeProvider theme={light}>
     <BaseStyles />
-    <Global styles={globalStyles} />
     <Story />
   </ThemeProvider>
 );
