@@ -47,7 +47,7 @@ export interface CurrencyInputProps
   /**
    * The ref to the HTML DOM element.
    */
-  ref?: Ref<NumberFormat>;
+  ref?: Ref<NumberFormat<InputProps>>;
   /**
    * The value of the input element.
    */
@@ -108,14 +108,14 @@ export const CurrencyInput = forwardRef(
         ? (prefixProps: { className?: string }) => (
             <CurrencyIcon {...prefixProps}>{currencySymbol}</CurrencyIcon>
           )
-        : null;
+        : undefined;
 
     const renderSuffix =
       currencyPosition === 'suffix'
         ? (suffixProps: { className?: string }) => (
             <CurrencyIcon {...suffixProps}>{currencySymbol}</CurrencyIcon>
           )
-        : null;
+        : undefined;
 
     return (
       <NumberFormat
