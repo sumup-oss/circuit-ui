@@ -35,10 +35,10 @@ export const useAutoExpand = (
 
   const updateElementHeight = useCallback(
     (el: EventTarget & HTMLTextAreaElement) => {
-      const previousValue = el.value ?? '';
+      const previousValue = el.value !== undefined ? el.value : '';
       const shouldUsePlaceholder = !previousValue.length && !!props.placeholder;
       if (shouldUsePlaceholder) {
-        el.value = props.placeholder ?? '';
+        el.value = props.placeholder !== undefined ? props.placeholder : '';
       }
 
       el.style.height = 'auto';
@@ -54,8 +54,12 @@ export const useAutoExpand = (
 
   const inputHandler = useCallback(
     (e: FormEvent<HTMLCircuitInputElement>) => {
-      updateElementHeight(e.currentTarget);
-      onInput?.(e);
+      if (onInput) {
+        onInput(e);
+      }
+      if (!e.defaultPrevented) {
+        updateElementHeight(e.currentTarget);
+      }
     },
     [onInput, updateElementHeight],
   );

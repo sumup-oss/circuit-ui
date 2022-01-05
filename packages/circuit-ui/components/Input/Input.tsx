@@ -115,7 +115,7 @@ export interface InputProps extends CircuitInputHTMLAttributes {
   /**
    * The ref to the HTML DOM element
    */
-  ref?: Ref<HTMLInputElement & HTMLTextAreaElement>;
+  ref?: Ref<HTMLCircuitInputElement>;
 }
 
 const containerStyles = () => css`
