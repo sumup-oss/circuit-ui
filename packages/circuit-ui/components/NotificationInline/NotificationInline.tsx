@@ -96,30 +96,34 @@ const iconMap = {
   notify: Notify,
 };
 
-type NotificationInlineWrapperProps = HTMLAttributes<HTMLDivElement> & {
-  variant: Variant;
-};
-
-const inlineWrapperStyles = ({
-  theme,
-  variant,
-}: NotificationInlineWrapperProps & StyleProps) => css`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: relative;
-  background-color: ${theme.colors.bodyBg};
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-  border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid ${theme.colors[colorMap[variant]]};
+const inlineWrapperStyles = () => css`
   overflow: hidden;
+  will-change: height;
   transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
     height ${TRANSITION_DURATION}ms ease-in-out,
     visibility ${TRANSITION_DURATION}ms ease-in-out;
 `;
 
-const NotificationInlineWrapper =
-  styled('div')<NotificationInlineWrapperProps>(inlineWrapperStyles);
+const NotificationInlineWrapper = styled('div')(inlineWrapperStyles);
+
+type ContentWrapperProps = {
+  variant: Variant;
+};
+
+const contentWrapperStyles = ({
+  theme,
+  variant,
+}: ContentWrapperProps & StyleProps) => css`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: ${theme.colors.bodyBg};
+  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+  border-radius: ${theme.borderRadius.byte};
+  border: ${theme.borderWidth.mega} solid ${theme.colors[colorMap[variant]]};
+`;
+
+const ContentWrapper = styled('div')<ContentWrapperProps>(contentWrapperStyles);
 
 const contentStyles = ({ theme }: StyleProps) => css`
   display: flex;
@@ -190,6 +194,7 @@ export function NotificationInline({
   const [isOpen, setOpen] = useState(isVisible);
   const [height, setHeight] = useState(getHeight(contentElement));
   const [, setAnimating] = useAnimation();
+
   useEffect(() => {
     setAnimating({
       duration: TRANSITION_DURATION,
@@ -215,33 +220,38 @@ export function NotificationInline({
         height: isOpen ? height : 0,
         visibility: isOpen ? 'visible' : 'hidden',
       }}
-      variant={variant}
       {...props}
     >
-      <StyledIcon as={iconMap[variant]} variant={variant} role="presentation" />
-      <span css={hideVisually}>{iconLabel}</span>
-      <Content>
-        {headline && (
-          <Body variant={'highlight'} as="h3" noMargin>
-            {headline}
-          </Body>
-        )}
-        <Body noMargin>{body}</Body>
-        {action && <ActionButton {...action} variant={'tertiary'} />}
-      </Content>
-
-      {onClose && closeButtonLabel && (
-        <StyledCloseButton
-          label={closeButtonLabel}
-          size="kilo"
-          onClick={onClose}
-          tracking={
-            tracking
-              ? { component: 'notification-close', ...tracking }
-              : undefined
-          }
+      <ContentWrapper variant={variant}>
+        <StyledIcon
+          as={iconMap[variant]}
+          variant={variant}
+          role="presentation"
         />
-      )}
+        <span css={hideVisually}>{iconLabel}</span>
+        <Content>
+          {headline && (
+            <Body variant={'highlight'} as="h3" noMargin>
+              {headline}
+            </Body>
+          )}
+          <Body noMargin>{body}</Body>
+          {action && <ActionButton {...action} variant={'tertiary'} />}
+        </Content>
+
+        {onClose && closeButtonLabel && (
+          <StyledCloseButton
+            label={closeButtonLabel}
+            size="kilo"
+            onClick={onClose}
+            tracking={
+              tracking
+                ? { component: 'notification-close', ...tracking }
+                : undefined
+            }
+          />
+        )}
+      </ContentWrapper>
     </NotificationInlineWrapper>
   );
 }

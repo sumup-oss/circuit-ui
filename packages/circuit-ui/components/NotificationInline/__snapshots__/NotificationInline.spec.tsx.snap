@@ -2,6 +2,13 @@
 
 exports[`NotificationInline styles should render notification inline with alert styles 1`] = `
 .circuit-0 {
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -13,17 +20,13 @@ exports[`NotificationInline styles should render notification inline with alert 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
   background-color: #FFF;
   padding: 12px 16px;
   border-radius: 8px;
   border: 2px solid #D23F47;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: block;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
@@ -39,7 +42,7 @@ exports[`NotificationInline styles should render notification inline with alert 
   color: #D23F47;
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -51,7 +54,7 @@ exports[`NotificationInline styles should render notification inline with alert 
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -65,241 +68,6 @@ exports[`NotificationInline styles should render notification inline with alert 
   align-items: flex-start;
   padding-right: 40px;
   padding-left: 16px;
-}
-
-.circuit-4 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-<body>
-  <div>
-    <div
-      class="circuit-0"
-      style="opacity: 1; height: 0px; visibility: visible;"
-    >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="alert"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm4.71 14.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29l-3.29-3.29-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71l3.29-3.29-3.29-3.29a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l3.29 3.29 3.29-3.29c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L13.408 12l3.29 3.29z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
-      <div
-        class="circuit-3"
-      >
-        <p
-          class="circuit-4"
-        >
-          This is an inline message
-        </p>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`NotificationInline styles should render notification inline with confirm styles 1`] = `
-.circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
-  background-color: #FFF;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 2px solid #138849;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-}
-
-.circuit-1 {
-  display: block;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: flex-start;
-  align-self: flex-start;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  line-height: 0;
-  color: #138849;
-}
-
-.circuit-2 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  padding-right: 40px;
-  padding-left: 16px;
-}
-
-.circuit-4 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-<body>
-  <div>
-    <div
-      class="circuit-0"
-      style="opacity: 1; height: 0px; visibility: visible;"
-    >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="confirm"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm5.77 7.64-7 8a1.008 1.008 0 0 1-1.48.07l-3-3a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l2.22 2.23 6.3-7.16a1 1 0 1 1 1.54 1.28z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
-      <div
-        class="circuit-3"
-      >
-        <p
-          class="circuit-4"
-        >
-          This is an inline message
-        </p>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`NotificationInline styles should render notification inline with headline 1`] = `
-.circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
-  background-color: #FFF;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 2px solid #3063E9;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-}
-
-.circuit-1 {
-  display: block;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: flex-start;
-  align-self: flex-start;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  line-height: 0;
-  color: #3063E9;
-}
-
-.circuit-2 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  padding-right: 40px;
-  padding-left: 16px;
-}
-
-.circuit-4 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-  font-weight: 700;
 }
 
 .circuit-5 {
@@ -316,45 +84,51 @@ exports[`NotificationInline styles should render notification inline with headli
       class="circuit-0"
       style="opacity: 1; height: 0px; visibility: visible;"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="info"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
       <div
-        class="circuit-3"
+        class="circuit-1"
       >
-        <h3
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="alert"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm4.71 14.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29l-3.29-3.29-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71l3.29-3.29-3.29-3.29a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l3.29 3.29 3.29-3.29c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L13.408 12l3.29 3.29z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
           class="circuit-4"
         >
-          Information
-        </h3>
-        <p
-          class="circuit-5"
-        >
-          This is an inline message
-        </p>
+          <p
+            class="circuit-5"
+          >
+            This is an inline message
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </body>
 `;
 
-exports[`NotificationInline styles should render notification inline with info styles 1`] = `
+exports[`NotificationInline styles should render notification inline with confirm styles 1`] = `
 .circuit-0 {
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -366,17 +140,133 @@ exports[`NotificationInline styles should render notification inline with info s
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
   background-color: #FFF;
   padding: 12px 16px;
   border-radius: 8px;
-  border: 2px solid #3063E9;
+  border: 2px solid #138849;
+}
+
+.circuit-2 {
+  display: block;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: flex-start;
+  align-self: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #138849;
+}
+
+.circuit-3 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
   overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  padding-right: 40px;
+  padding-left: 16px;
+}
+
+.circuit-5 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="circuit-0"
+      style="opacity: 1; height: 0px; visibility: visible;"
+    >
+      <div
+        class="circuit-1"
+      >
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="confirm"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm5.77 7.64-7 8a1.008 1.008 0 0 1-1.48.07l-3-3a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l2.22 2.23 6.3-7.16a1 1 0 1 1 1.54 1.28z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
+          class="circuit-4"
+        >
+          <p
+            class="circuit-5"
+          >
+            This is an inline message
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`NotificationInline styles should render notification inline with headline 1`] = `
+.circuit-0 {
+  overflow: hidden;
+  will-change: height;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
   transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
 }
 
 .circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #FFF;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid #3063E9;
+}
+
+.circuit-2 {
   display: block;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
@@ -392,7 +282,7 @@ exports[`NotificationInline styles should render notification inline with info s
   color: #3063E9;
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -404,7 +294,7 @@ exports[`NotificationInline styles should render notification inline with info s
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -420,7 +310,16 @@ exports[`NotificationInline styles should render notification inline with info s
   padding-left: 16px;
 }
 
-.circuit-4 {
+.circuit-5 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -434,40 +333,56 @@ exports[`NotificationInline styles should render notification inline with info s
       class="circuit-0"
       style="opacity: 1; height: 0px; visibility: visible;"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="info"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
       <div
-        class="circuit-3"
+        class="circuit-1"
       >
-        <p
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="info"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
           class="circuit-4"
         >
-          This is an inline message
-        </p>
+          <h3
+            class="circuit-5"
+          >
+            Information
+          </h3>
+          <p
+            class="circuit-6"
+          >
+            This is an inline message
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </body>
 `;
 
-exports[`NotificationInline styles should render notification inline with notify styles 1`] = `
+exports[`NotificationInline styles should render notification inline with info styles 1`] = `
 .circuit-0 {
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -479,17 +394,133 @@ exports[`NotificationInline styles should render notification inline with notify
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
   background-color: #FFF;
   padding: 12px 16px;
   border-radius: 8px;
-  border: 2px solid #F5C625;
+  border: 2px solid #3063E9;
+}
+
+.circuit-2 {
+  display: block;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: flex-start;
+  align-self: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #3063E9;
+}
+
+.circuit-3 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
   overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  padding-right: 40px;
+  padding-left: 16px;
+}
+
+.circuit-5 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="circuit-0"
+      style="opacity: 1; height: 0px; visibility: visible;"
+    >
+      <div
+        class="circuit-1"
+      >
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="info"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
+          class="circuit-4"
+        >
+          <p
+            class="circuit-5"
+          >
+            This is an inline message
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`NotificationInline styles should render notification inline with notify styles 1`] = `
+.circuit-0 {
+  overflow: hidden;
+  will-change: height;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
   transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
 }
 
 .circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #FFF;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid #F5C625;
+}
+
+.circuit-2 {
   display: block;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
@@ -505,7 +536,7 @@ exports[`NotificationInline styles should render notification inline with notify
   color: #F5C625;
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -517,7 +548,7 @@ exports[`NotificationInline styles should render notification inline with notify
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -533,7 +564,7 @@ exports[`NotificationInline styles should render notification inline with notify
   padding-left: 16px;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -547,34 +578,38 @@ exports[`NotificationInline styles should render notification inline with notify
       class="circuit-0"
       style="opacity: 1; height: 0px; visibility: visible;"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="notify"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M14.544 3.481c-1.13-1.975-3.958-1.975-5.088 0L1.398 17.556C.268 19.53 1.681 22 3.942 22h16.116c2.261 0 3.675-2.47 2.544-4.444L14.544 3.48zM11 8a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0V8zm1 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
       <div
-        class="circuit-3"
+        class="circuit-1"
       >
-        <p
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="notify"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M14.544 3.481c-1.13-1.975-3.958-1.975-5.088 0L1.398 17.556C.268 19.53 1.681 22 3.942 22h16.116c2.261 0 3.675-2.47 2.544-4.444L14.544 3.48zM11 8a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0V8zm1 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
           class="circuit-4"
         >
-          This is an inline message
-        </p>
+          <p
+            class="circuit-5"
+          >
+            This is an inline message
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -599,6 +634,13 @@ exports[`NotificationInline styles should render notification toast with an acti
 }
 
 .circuit-0 {
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -610,17 +652,13 @@ exports[`NotificationInline styles should render notification toast with an acti
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
   background-color: #FFF;
   padding: 12px 16px;
   border-radius: 8px;
   border: 2px solid #3063E9;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: block;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
@@ -636,7 +674,7 @@ exports[`NotificationInline styles should render notification toast with an acti
   color: #3063E9;
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -648,7 +686,7 @@ exports[`NotificationInline styles should render notification toast with an acti
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -664,7 +702,7 @@ exports[`NotificationInline styles should render notification toast with an acti
   padding-left: 16px;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -672,7 +710,7 @@ exports[`NotificationInline styles should render notification toast with an acti
   margin-bottom: 0;
 }
 
-.circuit-5 {
+.circuit-6 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -710,47 +748,47 @@ exports[`NotificationInline styles should render notification toast with an acti
   padding-bottom: calc(12px - 1px);
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   color: #234BC3;
 }
 
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
+.circuit-6:active,
+.circuit-6[aria-expanded='true'],
+.circuit-6[aria-pressed='true'] {
   color: #1A368E;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   color: #333;
 }
 
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
+.circuit-6:active,
+.circuit-6[aria-expanded='true'],
+.circuit-6[aria-pressed='true'] {
   color: #666;
 }
 
-.circuit-6 {
+.circuit-7 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -767,7 +805,7 @@ exports[`NotificationInline styles should render notification toast with an acti
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-8 {
+.circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -792,48 +830,52 @@ exports[`NotificationInline styles should render notification toast with an acti
       class="circuit-0"
       style="opacity: 1; height: 0px; visibility: visible;"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="info"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
       <div
-        class="circuit-3"
+        class="circuit-1"
       >
-        <p
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="info"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
           class="circuit-4"
         >
-          This is an inline message
-        </p>
-        <button
-          class="circuit-5"
-        >
-          <span
+          <p
+            class="circuit-5"
+          >
+            This is an inline message
+          </p>
+          <button
             class="circuit-6"
           >
             <span
-              class="circuit-2"
-            />
-          </span>
-          <span
-            class="circuit-8"
-          >
-            Click here
-          </span>
-        </button>
+              class="circuit-7"
+            >
+              <span
+                class="circuit-3"
+              />
+            </span>
+            <span
+              class="circuit-9"
+            >
+              Click here
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -842,6 +884,13 @@ exports[`NotificationInline styles should render notification toast with an acti
 
 exports[`NotificationInline styles should render with default styles 1`] = `
 .circuit-0 {
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -853,17 +902,13 @@ exports[`NotificationInline styles should render with default styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
   background-color: #FFF;
   padding: 12px 16px;
   border-radius: 8px;
   border: 2px solid #3063E9;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: block;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
@@ -879,7 +924,7 @@ exports[`NotificationInline styles should render with default styles 1`] = `
   color: #3063E9;
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -891,7 +936,7 @@ exports[`NotificationInline styles should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -907,7 +952,7 @@ exports[`NotificationInline styles should render with default styles 1`] = `
   padding-left: 16px;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -921,32 +966,36 @@ exports[`NotificationInline styles should render with default styles 1`] = `
       class="circuit-0"
       style="opacity: 1; height: 0px; visibility: visible;"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="info"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
       <div
-        class="circuit-3"
+        class="circuit-1"
       >
-        <p
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="info"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
           class="circuit-4"
         >
-          This is an inline message
-        </p>
+          <p
+            class="circuit-5"
+          >
+            This is an inline message
+          </p>
+        </div>
       </div>
     </div>
   </div>
