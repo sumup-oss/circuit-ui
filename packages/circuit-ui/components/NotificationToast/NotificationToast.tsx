@@ -148,7 +148,7 @@ export function NotificationToast({
   ...props
 }: NotificationToastProps): JSX.Element {
   const contentElement = useRef(null);
-  const [isOpen, setOpen] = useState(isVisible);
+  const [isOpen, setOpen] = useState(false);
   const [height, setHeight] = useState(getHeight(contentElement));
   const [, setAnimating] = useAnimation();
   useEffect(() => {
