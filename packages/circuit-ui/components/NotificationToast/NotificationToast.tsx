@@ -79,7 +79,7 @@ const iconMap = {
   notify: Notify,
 };
 
-type NotificationToastWrapperProps = HTMLAttributes<HTMLDivElement> & {
+type NotificationToastWrapperProps = {
   variant: Variant;
 };
 
@@ -87,21 +87,27 @@ const toastWrapperStyles = ({
   theme,
   variant,
 }: NotificationToastWrapperProps & StyleProps) => css`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: relative;
   background-color: ${theme.colors.bodyBg};
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   border-radius: ${theme.borderRadius.byte};
   border: ${theme.borderWidth.mega} solid ${theme.colors[colorMap[variant]]};
   overflow: hidden;
-  transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
-    visibility 200ms ease-in-out;
+  will-change: height;
+  transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
+    height ${TRANSITION_DURATION}ms ease-in-out,
+    visibility ${TRANSITION_DURATION}ms ease-in-out;
 `;
 
 const NotificationToastWrapper =
   styled('div')<NotificationToastWrapperProps>(toastWrapperStyles);
+
+const contentWrapperStyles = ({ theme }: StyleProps) => css`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+`;
+
+const ContentWrapper = styled('div')(contentWrapperStyles);
 
 const contentStyles = ({ theme }: StyleProps) => css`
   display: flex;
@@ -151,6 +157,7 @@ export function NotificationToast({
   const [isOpen, setOpen] = useState(false);
   const [height, setHeight] = useState(getHeight(contentElement));
   const [, setAnimating] = useAnimation();
+
   useEffect(() => {
     setAnimating({
       duration: 200,
@@ -179,29 +186,35 @@ export function NotificationToast({
       variant={variant}
       {...props}
     >
-      <StyledIcon as={iconMap[variant]} variant={variant} role="presentation" />
-      <span css={hideVisually}>{iconLabel}</span>
-      <Content>
-        {headline && (
-          <Body variant={'highlight'} as="h3" noMargin>
-            {headline}
-          </Body>
-        )}
-        <Body noMargin>{body}</Body>
-      </Content>
+      <ContentWrapper>
+        <StyledIcon
+          as={iconMap[variant]}
+          variant={variant}
+          role="presentation"
+        />
+        <span css={hideVisually}>{iconLabel}</span>
+        <Content>
+          {headline && (
+            <Body variant={'highlight'} as="h3" noMargin>
+              {headline}
+            </Body>
+          )}
+          <Body noMargin>{body}</Body>
+        </Content>
 
-      <StyledCloseButton
-        label="-" // We need to pass a label here to prevent CloseButton from throwing an error
-        aria-hidden="true"
-        size="kilo"
-        onClick={onClose}
-        tracking={
-          tracking
-            ? { component: 'notification-close', ...tracking }
-            : undefined
-        }
-        tabIndex={-1}
-      />
+        <StyledCloseButton
+          label="-" // We need to pass a label here to prevent CloseButton from throwing an error
+          aria-hidden="true"
+          size="kilo"
+          onClick={onClose}
+          tracking={
+            tracking
+              ? { component: 'notification-close', ...tracking }
+              : undefined
+          }
+          tabIndex={-1}
+        />
+      </ContentWrapper>
     </NotificationToastWrapper>
   );
 }
