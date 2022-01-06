@@ -113,8 +113,9 @@ const inlineWrapperStyles = ({
   border-radius: ${theme.borderRadius.byte};
   border: ${theme.borderWidth.mega} solid ${theme.colors[colorMap[variant]]};
   overflow: hidden;
-  transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
-    visibility 200ms ease-in-out;
+  transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
+    height ${TRANSITION_DURATION}ms ease-in-out,
+    visibility ${TRANSITION_DURATION}ms ease-in-out;
 `;
 
 const NotificationInlineWrapper =
@@ -191,7 +192,7 @@ export function NotificationInline({
   const [, setAnimating] = useAnimation();
   useEffect(() => {
     setAnimating({
-      duration: 200,
+      duration: TRANSITION_DURATION,
       onStart: () => {
         setHeight(getHeight(contentElement));
         // Delaying the state update until the next animation frame ensures that

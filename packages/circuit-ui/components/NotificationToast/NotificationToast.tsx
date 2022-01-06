@@ -160,7 +160,7 @@ export function NotificationToast({
 
   useEffect(() => {
     setAnimating({
-      duration: 200,
+      duration: TRANSITION_DURATION,
       onStart: () => {
         setHeight(getHeight(contentElement));
         // Delaying the state update until the next animation frame ensures that
