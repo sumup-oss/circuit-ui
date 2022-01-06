@@ -35,4 +35,4 @@ export interface BaseToastProps {
 
 export type ToastComponent<TProps extends BaseToastProps = BaseToastProps> = ((
   props: TProps,
-) => JSX.Element) & { TIMEOUT?: number };
+) => JSX.Element) & { TRANSITION_DURATION: number };

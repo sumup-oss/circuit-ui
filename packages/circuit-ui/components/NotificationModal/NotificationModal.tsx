@@ -230,4 +230,4 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
   );
 };
 
-NotificationModal.TIMEOUT = TRANSITION_DURATION;
+NotificationModal.TRANSITION_DURATION = TRANSITION_DURATION;

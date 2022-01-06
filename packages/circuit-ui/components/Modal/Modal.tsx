@@ -302,6 +302,6 @@ export const Modal: ModalComponent<ModalProps> = ({
   );
 };
 
-Modal.TIMEOUT = TRANSITION_DURATION;
+Modal.TRANSITION_DURATION = TRANSITION_DURATION;
 
 export const useModal = createUseModal(Modal);

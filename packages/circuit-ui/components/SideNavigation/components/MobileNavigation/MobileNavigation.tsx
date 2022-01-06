@@ -334,6 +334,6 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
   );
 };
 
-MobileNavigation.TIMEOUT = TRANSITION_DURATION;
+MobileNavigation.TRANSITION_DURATION = TRANSITION_DURATION;
 
 export const useMobileNavigation = createUseModal(MobileNavigation);

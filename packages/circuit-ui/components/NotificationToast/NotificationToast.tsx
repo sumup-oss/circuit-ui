@@ -219,7 +219,7 @@ export function NotificationToast({
   );
 }
 
-NotificationToast.TIMEOUT = TRANSITION_DURATION;
+NotificationToast.TRANSITION_DURATION = TRANSITION_DURATION;
 
 export function getHeight(element: RefObject<HTMLElement>): string {
   if (!element || !element.current) {
