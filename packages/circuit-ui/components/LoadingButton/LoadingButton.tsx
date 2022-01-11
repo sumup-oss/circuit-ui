@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import LoadingButton, { ButtonProps } from '../Button';
+import Button, { ButtonProps } from '../Button';
 
 export type LoadingButtonProps = ButtonProps;
 
 /**
  * @deprecated Use the Button component with the `isLoading` and `loadingLabel` props instead.
  */
-export { LoadingButton };
+export const LoadingButton = Button;

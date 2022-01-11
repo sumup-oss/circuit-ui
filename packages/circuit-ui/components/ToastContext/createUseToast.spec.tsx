@@ -27,7 +27,7 @@ const Toast: ToastComponent = ({ onClose }) => (
     <button onClick={onClose}>Close</button>
   </div>
 );
-Toast.TIMEOUT = 200;
+Toast.TRANSITION_DURATION = 200;
 
 describe('createUseToast', () => {
   const useToast = createUseToast(Toast);

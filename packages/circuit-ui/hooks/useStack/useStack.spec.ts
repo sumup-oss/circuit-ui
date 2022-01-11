@@ -73,18 +73,18 @@ describe('useStack', () => {
     });
 
     it('should pop an item from the top of the stack after a delay', () => {
-      const timeout = 200;
+      const transition = { duration: 200 };
       const { result } = renderHook(() => useStack(initialStack));
 
       act(() => {
         const dispatch = result.current[1];
-        dispatch({ type: 'pop', timeout });
+        dispatch({ type: 'pop', transition });
       });
 
       expect(result.current[0]).toHaveLength(3);
 
       act(() => {
-        jest.advanceTimersByTime(timeout);
+        jest.advanceTimersByTime(transition.duration);
       });
 
       expect(result.current[0]).toHaveLength(2);
@@ -102,12 +102,12 @@ describe('useStack', () => {
     });
 
     it('should remove an item from the stack after a delay', () => {
-      const timeout = 200;
+      const transition = { duration: 200 };
       const { result } = renderHook(() => useStack(initialStack));
 
       act(() => {
         const dispatch = result.current[1];
-        dispatch({ type: 'remove', id: 2, timeout });
+        dispatch({ type: 'remove', id: 2, transition });
       });
 
       expect(result.current[0]).toHaveLength(3);

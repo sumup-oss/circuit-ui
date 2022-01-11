@@ -27,7 +27,7 @@ jest.mock('@sumup/collector');
 const Toast: ToastComponent = ({ onClose }) => (
   <button onClick={onClose}>Close</button>
 );
-Toast.TIMEOUT = 200;
+Toast.TRANSITION_DURATION = 200;
 
 describe('ToastContext', () => {
   beforeAll(() => {

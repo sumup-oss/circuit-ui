@@ -101,7 +101,9 @@ export function ToastProvider<TProps extends BaseToastProps>({
       dispatch({
         type: 'remove',
         id: toast.id,
-        timeout: toast.component.TIMEOUT,
+        transition: {
+          duration: toast.component.TRANSITION_DURATION,
+        },
       });
     },
     [dispatch, sendEvent],
@@ -137,7 +139,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
           const {
             id,
             onClose,
-            timeout,
+            transition,
             component: Component,
             ...toastProps
           } = toast;
@@ -148,7 +150,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
               css={spacing({ top: 'byte' })}
               {...toastProps}
               key={id}
-              isVisible={!timeout}
+              isVisible={!transition}
               onClose={() => context.removeToast(toast)}
               as="li"
             />

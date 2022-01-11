@@ -120,7 +120,9 @@ export function ModalProvider<TProps extends BaseModalProps>({
       dispatch({
         type: 'remove',
         id: modal.id,
-        timeout: modal.component.TIMEOUT,
+        transition: {
+          duration: modal.component.TRANSITION_DURATION,
+        },
       });
     },
     [dispatch, sendEvent],
@@ -157,7 +159,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
         const {
           id,
           onClose,
-          timeout,
+          transition,
           component: Component,
           ...modalProps
         } = modal;
@@ -168,7 +170,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
             {...defaultModalProps}
             {...modalProps}
             key={id}
-            isOpen={!timeout}
+            isOpen={!transition}
             onClose={() => removeModal(modal)}
             portalClassName={portalClassName}
             htmlOpenClassName={htmlOpenClassName}

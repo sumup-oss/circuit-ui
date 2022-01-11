@@ -37,4 +37,4 @@ export interface BaseModalProps
 
 export type ModalComponent<TProps extends BaseModalProps = BaseModalProps> = ((
   props: TProps,
-) => JSX.Element) & { TIMEOUT?: number };
+) => JSX.Element) & { TRANSITION_DURATION: number };

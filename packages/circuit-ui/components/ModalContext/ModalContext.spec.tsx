@@ -29,7 +29,7 @@ const Modal: ModalComponent = ({ onClose }) => (
     <button onClick={onClose}>Close</button>
   </div>
 );
-Modal.TIMEOUT = 200;
+Modal.TRANSITION_DURATION = 200;
 
 describe('ModalContext', () => {
   beforeAll(() => {

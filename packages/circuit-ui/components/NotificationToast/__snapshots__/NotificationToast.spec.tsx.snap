@@ -18,6 +18,16 @@ exports[`NotificationToast styles should render notification toast with alert st
 }
 
 .circuit-0 {
+  background-color: #FFF;
+  border-radius: 8px;
+  border: 2px solid #D23F47;
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -29,17 +39,10 @@ exports[`NotificationToast styles should render notification toast with alert st
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
-  background-color: #FFF;
   padding: 12px 16px;
-  border-radius: 8px;
-  border: 2px solid #D23F47;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: block;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
@@ -55,7 +58,7 @@ exports[`NotificationToast styles should render notification toast with alert st
   color: #D23F47;
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -67,7 +70,7 @@ exports[`NotificationToast styles should render notification toast with alert st
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -81,581 +84,6 @@ exports[`NotificationToast styles should render notification toast with alert st
   align-items: flex-start;
   padding-right: 40px;
   padding-left: 16px;
-}
-
-.circuit-4 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-.circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-  padding: calc(8px - 1px);
-  border-color: transparent!important;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: flex-start;
-  align-self: flex-start;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  margin-left: auto;
-}
-
-.circuit-5:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-5:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-5:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
-
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-.circuit-6 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-8 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-<body>
-  <div>
-    <div
-      class="circuit-0"
-      style="opacity: 0; height: 0px; visibility: hidden;"
-    >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="alert"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm4.71 14.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29l-3.29-3.29-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71l3.29-3.29-3.29-3.29a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l3.29 3.29 3.29-3.29c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L13.408 12l3.29 3.29z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
-      <div
-        class="circuit-3"
-      >
-        <p
-          class="circuit-4"
-        >
-          This is a toast message
-        </p>
-      </div>
-      <button
-        aria-hidden="true"
-        class="circuit-5"
-        tabindex="-1"
-        title="-"
-        type="button"
-      >
-        <span
-          class="circuit-6"
-        >
-          <span
-            class="circuit-2"
-          />
-        </span>
-        <span
-          class="circuit-8"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-          <span
-            class="circuit-2"
-          >
-            -
-          </span>
-        </span>
-      </button>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`NotificationToast styles should render notification toast with confirm styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-.circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
-  background-color: #FFF;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 2px solid #138849;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-}
-
-.circuit-1 {
-  display: block;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: flex-start;
-  align-self: flex-start;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  line-height: 0;
-  color: #138849;
-}
-
-.circuit-2 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  padding-right: 40px;
-  padding-left: 16px;
-}
-
-.circuit-4 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-.circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-  padding: calc(8px - 1px);
-  border-color: transparent!important;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: flex-start;
-  align-self: flex-start;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  margin-left: auto;
-}
-
-.circuit-5:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-5:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-5:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
-
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-.circuit-6 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-8 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-<body>
-  <div>
-    <div
-      class="circuit-0"
-      style="opacity: 0; height: 0px; visibility: hidden;"
-    >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="confirm"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm5.77 7.64-7 8a1.008 1.008 0 0 1-1.48.07l-3-3a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l2.22 2.23 6.3-7.16a1 1 0 1 1 1.54 1.28z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
-      <div
-        class="circuit-3"
-      >
-        <p
-          class="circuit-4"
-        >
-          This is a toast message
-        </p>
-      </div>
-      <button
-        aria-hidden="true"
-        class="circuit-5"
-        tabindex="-1"
-        title="-"
-        type="button"
-      >
-        <span
-          class="circuit-6"
-        >
-          <span
-            class="circuit-2"
-          />
-        </span>
-        <span
-          class="circuit-8"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-          <span
-            class="circuit-2"
-          >
-            -
-          </span>
-        </span>
-      </button>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`NotificationToast styles should render notification toast with headline 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-.circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
-  background-color: #FFF;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 2px solid #3063E9;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-}
-
-.circuit-1 {
-  display: block;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: flex-start;
-  align-self: flex-start;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  line-height: 0;
-  color: #3063E9;
-}
-
-.circuit-2 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  padding-right: 40px;
-  padding-left: 16px;
-}
-
-.circuit-4 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-  font-weight: 700;
 }
 
 .circuit-5 {
@@ -787,77 +215,670 @@ exports[`NotificationToast styles should render notification toast with headline
       class="circuit-0"
       style="opacity: 0; height: 0px; visibility: hidden;"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="info"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
       <div
-        class="circuit-3"
+        class="circuit-1"
       >
-        <h3
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="alert"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm4.71 14.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29l-3.29-3.29-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71l3.29-3.29-3.29-3.29a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l3.29 3.29 3.29-3.29c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L13.408 12l3.29 3.29z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
           class="circuit-4"
         >
-          Information
-        </h3>
-        <p
-          class="circuit-5"
-        >
-          This is a toast message
-        </p>
-      </div>
-      <button
-        aria-hidden="true"
-        class="circuit-6"
-        tabindex="-1"
-        title="-"
-        type="button"
-      >
-        <span
-          class="circuit-7"
+          <p
+            class="circuit-5"
+          >
+            This is a toast message
+          </p>
+        </div>
+        <button
+          aria-hidden="true"
+          class="circuit-6"
+          tabindex="-1"
+          title="-"
+          type="button"
         >
           <span
-            class="circuit-2"
-          />
-        </span>
-        <span
-          class="circuit-9"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
+            class="circuit-7"
           >
-            <path
-              clip-rule="evenodd"
-              d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
-              fill="currentColor"
-              fill-rule="evenodd"
+            <span
+              class="circuit-3"
             />
-          </svg>
-          <span
-            class="circuit-2"
-          >
-            -
           </span>
-        </span>
-      </button>
+          <span
+            class="circuit-9"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-3"
+            >
+              -
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`NotificationToast styles should render notification toast with confirm styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  background-color: #FFF;
+  border-radius: 8px;
+  border: 2px solid #138849;
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.circuit-2 {
+  display: block;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: flex-start;
+  align-self: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #138849;
+}
+
+.circuit-3 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  padding-right: 40px;
+  padding-left: 16px;
+}
+
+.circuit-5 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+.circuit-6 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
+  padding: calc(8px - 1px);
+  border-color: transparent!important;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: flex-start;
+  align-self: flex-start;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  margin-left: auto;
+}
+
+.circuit-6:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-6:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-6:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-6:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
+}
+
+.circuit-6:active,
+.circuit-6[aria-expanded='true'],
+.circuit-6[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+.circuit-7 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-9 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: inherit;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+<body>
+  <div>
+    <div
+      class="circuit-0"
+      style="opacity: 0; height: 0px; visibility: hidden;"
+    >
+      <div
+        class="circuit-1"
+      >
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="confirm"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm5.77 7.64-7 8a1.008 1.008 0 0 1-1.48.07l-3-3a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l2.22 2.23 6.3-7.16a1 1 0 1 1 1.54 1.28z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
+          class="circuit-4"
+        >
+          <p
+            class="circuit-5"
+          >
+            This is a toast message
+          </p>
+        </div>
+        <button
+          aria-hidden="true"
+          class="circuit-6"
+          tabindex="-1"
+          title="-"
+          type="button"
+        >
+          <span
+            class="circuit-7"
+          >
+            <span
+              class="circuit-3"
+            />
+          </span>
+          <span
+            class="circuit-9"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-3"
+            >
+              -
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`NotificationToast styles should render notification toast with headline 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  background-color: #FFF;
+  border-radius: 8px;
+  border: 2px solid #3063E9;
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.circuit-2 {
+  display: block;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: flex-start;
+  align-self: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #3063E9;
+}
+
+.circuit-3 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  padding-right: 40px;
+  padding-left: 16px;
+}
+
+.circuit-5 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.circuit-6 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+.circuit-7 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
+  padding: calc(8px - 1px);
+  border-color: transparent!important;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: flex-start;
+  align-self: flex-start;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  margin-left: auto;
+}
+
+.circuit-7:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-7:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-7:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-7:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
+}
+
+.circuit-7:active,
+.circuit-7[aria-expanded='true'],
+.circuit-7[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+.circuit-8 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-10 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: inherit;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+<body>
+  <div>
+    <div
+      class="circuit-0"
+      style="opacity: 0; height: 0px; visibility: hidden;"
+    >
+      <div
+        class="circuit-1"
+      >
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="info"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
+          class="circuit-4"
+        >
+          <h3
+            class="circuit-5"
+          >
+            Information
+          </h3>
+          <p
+            class="circuit-6"
+          >
+            This is a toast message
+          </p>
+        </div>
+        <button
+          aria-hidden="true"
+          class="circuit-7"
+          tabindex="-1"
+          title="-"
+          type="button"
+        >
+          <span
+            class="circuit-8"
+          >
+            <span
+              class="circuit-3"
+            />
+          </span>
+          <span
+            class="circuit-10"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-3"
+            >
+              -
+            </span>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </body>
@@ -881,6 +902,16 @@ exports[`NotificationToast styles should render notification toast with info sty
 }
 
 .circuit-0 {
+  background-color: #FFF;
+  border-radius: 8px;
+  border: 2px solid #3063E9;
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -892,17 +923,10 @@ exports[`NotificationToast styles should render notification toast with info sty
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
-  background-color: #FFF;
   padding: 12px 16px;
-  border-radius: 8px;
-  border: 2px solid #3063E9;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: block;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
@@ -918,7 +942,7 @@ exports[`NotificationToast styles should render notification toast with info sty
   color: #3063E9;
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -930,7 +954,7 @@ exports[`NotificationToast styles should render notification toast with info sty
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -946,7 +970,7 @@ exports[`NotificationToast styles should render notification toast with info sty
   padding-left: 16px;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -954,7 +978,7 @@ exports[`NotificationToast styles should render notification toast with info sty
   margin-bottom: 0;
 }
 
-.circuit-5 {
+.circuit-6 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -1001,39 +1025,39 @@ exports[`NotificationToast styles should render notification toast with info sty
   margin-left: auto;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
+.circuit-6:active,
+.circuit-6[aria-expanded='true'],
+.circuit-6[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
 
-.circuit-6 {
+.circuit-7 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -1050,7 +1074,7 @@ exports[`NotificationToast styles should render notification toast with info sty
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-8 {
+.circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1075,72 +1099,76 @@ exports[`NotificationToast styles should render notification toast with info sty
       class="circuit-0"
       style="opacity: 0; height: 0px; visibility: hidden;"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="info"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
       <div
-        class="circuit-3"
+        class="circuit-1"
       >
-        <p
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="info"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
           class="circuit-4"
         >
-          This is a toast message
-        </p>
-      </div>
-      <button
-        aria-hidden="true"
-        class="circuit-5"
-        tabindex="-1"
-        title="-"
-        type="button"
-      >
-        <span
+          <p
+            class="circuit-5"
+          >
+            This is a toast message
+          </p>
+        </div>
+        <button
+          aria-hidden="true"
           class="circuit-6"
+          tabindex="-1"
+          title="-"
+          type="button"
         >
           <span
-            class="circuit-2"
-          />
-        </span>
-        <span
-          class="circuit-8"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
+            class="circuit-7"
           >
-            <path
-              clip-rule="evenodd"
-              d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
-              fill="currentColor"
-              fill-rule="evenodd"
+            <span
+              class="circuit-3"
             />
-          </svg>
-          <span
-            class="circuit-2"
-          >
-            -
           </span>
-        </span>
-      </button>
+          <span
+            class="circuit-9"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-3"
+            >
+              -
+            </span>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </body>
@@ -1164,6 +1192,16 @@ exports[`NotificationToast styles should render notification toast with notify s
 }
 
 .circuit-0 {
+  background-color: #FFF;
+  border-radius: 8px;
+  border: 2px solid #F5C625;
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1175,17 +1213,10 @@ exports[`NotificationToast styles should render notification toast with notify s
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
-  background-color: #FFF;
   padding: 12px 16px;
-  border-radius: 8px;
-  border: 2px solid #F5C625;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: block;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
@@ -1201,7 +1232,7 @@ exports[`NotificationToast styles should render notification toast with notify s
   color: #F5C625;
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1213,7 +1244,7 @@ exports[`NotificationToast styles should render notification toast with notify s
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1229,7 +1260,7 @@ exports[`NotificationToast styles should render notification toast with notify s
   padding-left: 16px;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -1237,7 +1268,7 @@ exports[`NotificationToast styles should render notification toast with notify s
   margin-bottom: 0;
 }
 
-.circuit-5 {
+.circuit-6 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -1284,39 +1315,39 @@ exports[`NotificationToast styles should render notification toast with notify s
   margin-left: auto;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
+.circuit-6:active,
+.circuit-6[aria-expanded='true'],
+.circuit-6[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
 
-.circuit-6 {
+.circuit-7 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -1333,7 +1364,7 @@ exports[`NotificationToast styles should render notification toast with notify s
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-8 {
+.circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1358,74 +1389,78 @@ exports[`NotificationToast styles should render notification toast with notify s
       class="circuit-0"
       style="opacity: 0; height: 0px; visibility: hidden;"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="notify"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M14.544 3.481c-1.13-1.975-3.958-1.975-5.088 0L1.398 17.556C.268 19.53 1.681 22 3.942 22h16.116c2.261 0 3.675-2.47 2.544-4.444L14.544 3.48zM11 8a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0V8zm1 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
       <div
-        class="circuit-3"
+        class="circuit-1"
       >
-        <p
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="notify"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M14.544 3.481c-1.13-1.975-3.958-1.975-5.088 0L1.398 17.556C.268 19.53 1.681 22 3.942 22h16.116c2.261 0 3.675-2.47 2.544-4.444L14.544 3.48zM11 8a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0V8zm1 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
           class="circuit-4"
         >
-          This is a toast message
-        </p>
-      </div>
-      <button
-        aria-hidden="true"
-        class="circuit-5"
-        tabindex="-1"
-        title="-"
-        type="button"
-      >
-        <span
+          <p
+            class="circuit-5"
+          >
+            This is a toast message
+          </p>
+        </div>
+        <button
+          aria-hidden="true"
           class="circuit-6"
+          tabindex="-1"
+          title="-"
+          type="button"
         >
           <span
-            class="circuit-2"
-          />
-        </span>
-        <span
-          class="circuit-8"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
+            class="circuit-7"
           >
-            <path
-              clip-rule="evenodd"
-              d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
-              fill="currentColor"
-              fill-rule="evenodd"
+            <span
+              class="circuit-3"
             />
-          </svg>
-          <span
-            class="circuit-2"
-          >
-            -
           </span>
-        </span>
-      </button>
+          <span
+            class="circuit-9"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-3"
+            >
+              -
+            </span>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </body>
@@ -1449,6 +1484,16 @@ exports[`NotificationToast styles should render with default styles 1`] = `
 }
 
 .circuit-0 {
+  background-color: #FFF;
+  border-radius: 8px;
+  border: 2px solid #3063E9;
+  overflow: hidden;
+  will-change: height;
+  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1460,17 +1505,10 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
-  background-color: #FFF;
   padding: 12px 16px;
-  border-radius: 8px;
-  border: 2px solid #3063E9;
-  overflow: hidden;
-  -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: block;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
@@ -1486,7 +1524,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   color: #3063E9;
 }
 
-.circuit-2 {
+.circuit-3 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1498,7 +1536,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1514,7 +1552,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   padding-left: 16px;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -1522,7 +1560,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   margin-bottom: 0;
 }
 
-.circuit-5 {
+.circuit-6 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -1569,39 +1607,39 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   margin-left: auto;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #F5F5F5;
   border-color: #666;
 }
 
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
+.circuit-6:active,
+.circuit-6[aria-expanded='true'],
+.circuit-6[aria-pressed='true'] {
   background-color: #E6E6E6;
   border-color: #333;
 }
 
-.circuit-6 {
+.circuit-7 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -1618,7 +1656,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-8 {
+.circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1643,72 +1681,76 @@ exports[`NotificationToast styles should render with default styles 1`] = `
       class="circuit-0"
       style="opacity: 0; height: 0px; visibility: hidden;"
     >
-      <svg
-        class="circuit-1"
-        fill="none"
-        height="24"
-        role="presentation"
-        variant="info"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
-          fill="currentColor"
-        />
-      </svg>
-      <span
-        class="circuit-2"
-      />
       <div
-        class="circuit-3"
+        class="circuit-1"
       >
-        <p
+        <svg
+          class="circuit-2"
+          fill="none"
+          height="24"
+          role="presentation"
+          variant="info"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-3"
+        />
+        <div
           class="circuit-4"
         >
-          This is a toast message
-        </p>
-      </div>
-      <button
-        aria-hidden="true"
-        class="circuit-5"
-        tabindex="-1"
-        title="-"
-        type="button"
-      >
-        <span
+          <p
+            class="circuit-5"
+          >
+            This is a toast message
+          </p>
+        </div>
+        <button
+          aria-hidden="true"
           class="circuit-6"
+          tabindex="-1"
+          title="-"
+          type="button"
         >
           <span
-            class="circuit-2"
-          />
-        </span>
-        <span
-          class="circuit-8"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
+            class="circuit-7"
           >
-            <path
-              clip-rule="evenodd"
-              d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
-              fill="currentColor"
-              fill-rule="evenodd"
+            <span
+              class="circuit-3"
             />
-          </svg>
-          <span
-            class="circuit-2"
-          >
-            -
           </span>
-        </span>
-      </button>
+          <span
+            class="circuit-9"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-3"
+            >
+              -
+            </span>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </body>

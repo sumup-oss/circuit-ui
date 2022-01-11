@@ -16,7 +16,7 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 
-import { act, axe, fireEvent, render, waitFor } from '../../util/test-utils';
+import { act, axe, userEvent, render, waitFor } from '../../util/test-utils';
 import Button from '../Button';
 import { ToastProvider } from '../ToastContext';
 
@@ -59,7 +59,7 @@ describe('NotificationToast', () => {
       );
 
       act(() => {
-        fireEvent.click(getByText('Open toast'));
+        userEvent.click(getByText('Open toast'));
       });
 
       const toastEl = await findByRole('status');
@@ -95,7 +95,7 @@ describe('NotificationToast', () => {
     });
   });
   describe('business logic', () => {
-    it('should close the toast when the onClose method is called', () => {
+    it('should close the toast when the onClose method is called', async () => {
       const App = () => {
         const { setToast } = useNotificationToast();
         return (
@@ -112,15 +112,17 @@ describe('NotificationToast', () => {
       );
 
       act(() => {
-        fireEvent.click(getByText('Open toast'));
+        userEvent.click(getByText('Open toast'));
       });
 
-      expect(getByText('This is a toast message')).toBeVisible();
+      await waitFor(() => {
+        expect(getByText('This is a toast message')).toBeVisible();
+      });
 
       const closeButton = getByText('-');
 
       act(() => {
-        fireEvent.click(closeButton);
+        userEvent.click(closeButton);
       });
 
       expect(baseNotificationToast.onClose).toHaveBeenCalled();
@@ -146,10 +148,12 @@ describe('NotificationToast', () => {
       );
 
       act(() => {
-        fireEvent.click(getByText('Open toast'));
+        userEvent.click(getByText('Open toast'));
       });
 
-      expect(getByText('This is a toast message')).toBeVisible();
+      await waitFor(() => {
+        expect(getByText('This is a toast message')).toBeVisible();
+      });
 
       await waitFor(
         () => {

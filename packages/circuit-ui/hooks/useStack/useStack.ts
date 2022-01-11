@@ -16,16 +16,19 @@
 import { Dispatch, useEffect, useReducer } from 'react';
 
 type Id = string | number;
+type Transition = {
+  duration: number;
+};
 
 export type StackItem = {
   id: Id;
-  timeout?: number;
+  transition?: Transition;
 };
 
 type Action<T extends StackItem> =
   | { type: 'push'; item: T }
-  | { type: 'pop'; timeout?: number }
-  | { type: 'remove'; id: Id; timeout?: number };
+  | { type: 'pop'; transition?: Transition }
+  | { type: 'remove'; id: Id; transition?: Transition };
 
 export type StackDispatch<T extends StackItem> = Dispatch<Action<T>>;
 
@@ -38,10 +41,10 @@ function createReducer<T extends StackItem>() {
       case 'pop': {
         const firstItems = state.slice(0, -1);
 
-        if (action.timeout) {
+        if (action.transition) {
           const lastItem = {
             ...state[state.length - 1],
-            timeout: action.timeout,
+            transition: action.transition,
           };
           return [...firstItems, lastItem];
         }
@@ -49,9 +52,9 @@ function createReducer<T extends StackItem>() {
         return firstItems;
       }
       case 'remove': {
-        if (action.timeout) {
+        if (action.transition) {
           return state.map((s) =>
-            s.id !== action.id ? s : { ...s, timeout: action.timeout },
+            s.id !== action.id ? s : { ...s, transition: action.transition },
           );
         }
 
@@ -72,14 +75,19 @@ export function useStack<T extends StackItem>(
   const [state, dispatch] = useReducer(reducer, initialStack);
 
   useEffect(() => {
-    const itemToRemove = state.find((item) => item.timeout);
+    const itemToRemove = state.find((item) => item.transition);
+
     if (!itemToRemove) {
       return;
     }
 
-    setTimeout(() => {
-      dispatch({ type: 'remove', id: itemToRemove.id });
-    }, itemToRemove.timeout);
+    setTimeout(
+      () => {
+        dispatch({ type: 'remove', id: itemToRemove.id });
+      },
+      // We found the item by the `transition` property, so we can be sure it exists.
+      (itemToRemove.transition as Transition).duration,
+    );
   }, [state, dispatch]);
 
   return [state, dispatch];
