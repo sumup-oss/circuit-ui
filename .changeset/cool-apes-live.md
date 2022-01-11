@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Fixed the NotificationToast transitions issue, so the toast appear with smoother fade + height transition.
+Fixed the issue of the NotificationToast transition, now the toast appears with a smoother fade and height transition.
