@@ -29,6 +29,8 @@ import { spacing } from '../..';
 
 import { BaseToastProps, ToastComponent } from './types';
 
+const DEFAULT_TOAST_DURATION = 6000;
+
 type ToastState<TProps extends BaseToastProps> = TProps &
   StackItem & { component: ToastComponent<TProps> };
 
@@ -120,8 +122,8 @@ export function ToastProvider<TProps extends BaseToastProps>({
       return undefined;
     }
     const duration = toastToDismiss.duration
-      ? Math.max(toastToDismiss.duration, 6000)
-      : 6000;
+      ? Math.max(toastToDismiss.duration, DEFAULT_TOAST_DURATION)
+      : DEFAULT_TOAST_DURATION;
     const timeoutId = setTimeout(() => {
       context.removeToast(toastToDismiss);
     }, duration);

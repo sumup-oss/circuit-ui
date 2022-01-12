@@ -61,7 +61,7 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
     /**
      * A clear and concise description of the icon and the Toast's purpose. If the toast body is self-explanatory pass an empty string.
      */
-    iconLabel: string;
+    iconLabel?: string;
   };
 
 // TODO: update the design token colors to be info/confirm/alert/notify, then remove this mapping
