@@ -120,8 +120,8 @@ export function ToastProvider<TProps extends BaseToastProps>({
       return undefined;
     }
     const duration = toastToDismiss.duration
-      ? Math.max(toastToDismiss.duration, 3000)
-      : 3000;
+      ? Math.max(toastToDismiss.duration, 6000)
+      : 6000;
     const timeoutId = setTimeout(() => {
       context.removeToast(toastToDismiss);
     }, duration);
