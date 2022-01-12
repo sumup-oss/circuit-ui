@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 4.7.3
+
+### Patch Changes
+
+- [#1357](https://github.com/sumup-oss/circuit-ui/pull/1357) [`5d24f0d2`](https://github.com/sumup-oss/circuit-ui/commit/5d24f0d20bd310caa97a8819a0a953b8a19aee46) Thanks [@amelako](https://github.com/amelako)! - Increased the NotificationToast's default duration to 6 seconds to match the accessibility guidelines.
+
+* [#1357](https://github.com/sumup-oss/circuit-ui/pull/1357) [`5d24f0d2`](https://github.com/sumup-oss/circuit-ui/commit/5d24f0d20bd310caa97a8819a0a953b8a19aee46) Thanks [@amelako](https://github.com/amelako)! - Updated the NotificationToast's prop types, now the `iconLabel` prop is optional and the `isVisible` prop is internal only.
+
 ## 4.7.2
 
 ### Patch Changes
