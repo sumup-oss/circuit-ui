@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Fixed the NotificationToast issues, now the iconLabel prop is optional and isVisible is required internally only.
+Updated the NotificationToast's prop types, now the `iconLabel` prop is optional and the `isVisible` prop is internal only.
