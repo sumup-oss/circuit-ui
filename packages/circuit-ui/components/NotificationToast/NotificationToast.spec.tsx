@@ -159,7 +159,7 @@ describe('NotificationToast', () => {
         () => {
           expect(baseNotificationToast.onClose).toHaveBeenCalledTimes(1);
         },
-        { timeout: 3000 },
+        { timeout: 6000 },
       );
     });
   });

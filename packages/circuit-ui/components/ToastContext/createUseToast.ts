@@ -24,13 +24,13 @@ export function createUseToast<T extends BaseToastProps>(
   component: ToastComponent<T>,
 ) {
   return (): {
-    setToast: (props: T) => void;
+    setToast: (props: Omit<T, 'isVisible'>) => void;
   } => {
     const context = useContext(ToastContext);
 
     return useMemo(
       () => ({
-        setToast: (props: T): void => {
+        setToast: (props: Omit<T, 'isVisible'>): void => {
           const id = uniqueId('toast_');
           context.setToast({ ...props, id, component });
         },
