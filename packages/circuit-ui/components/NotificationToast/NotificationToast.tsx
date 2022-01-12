@@ -147,7 +147,7 @@ export function NotificationToast({
   body,
   headline,
   onClose,
-  iconLabel,
+  iconLabel = '',
   isVisible,
   tracking,
   duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
