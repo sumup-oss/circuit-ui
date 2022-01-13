@@ -60,6 +60,7 @@ const listWrapperStyles = ({ theme }: StyleProps) => css`
   transform: translateX(-50%);
   display: flex;
   flex-direction: column-reverse;
+  z-index: ${theme.zIndex.toast};
 `;
 
 const ListWrapper = styled('ul')(listWrapperStyles);

@@ -242,6 +242,7 @@ Object {
     "navigation": 800,
     "popover": 30,
     "sidebar": 800,
+    "toast": 1100,
     "tooltip": 40,
   },
 }
