@@ -237,5 +237,6 @@ export const themePropType = PropTypes.shape({
     sidebar: PropTypes.number.isRequired,
     navigation: PropTypes.number.isRequired,
     modal: PropTypes.number.isRequired,
+    toast: PropTypes.number.isRequired,
   } as { [key in keyof ZIndex]: Requireable<unknown> }).isRequired,
 } as { [key in keyof Theme]: Requireable<unknown> });

@@ -191,6 +191,7 @@ export type ZIndex = {
   sidebar: number;
   navigation: number;
   modal: number;
+  toast: number;
 };
 
 export interface Theme {

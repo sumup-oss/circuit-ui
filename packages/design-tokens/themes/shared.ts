@@ -208,4 +208,5 @@ export const zIndex: ZIndex = {
   sidebar: 800,
   navigation: 800,
   modal: 1000,
+  toast: 1100,
 };
