@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 3.3.0
+
+### Minor Changes
+
+- [#1359](https://github.com/sumup-oss/circuit-ui/pull/1359) [`5804fd8d`](https://github.com/sumup-oss/circuit-ui/commit/5804fd8d720a7594bb880b9956a3310609cfbaa9) Thanks [@amelako](https://github.com/amelako)! - Added a new `zIndex.toast` value for the NotificationToast component in Circuit UI.
+
 ## 3.2.0
 
 ### Minor Changes
