@@ -22,13 +22,13 @@ import {
   NotificationInline,
   NotificationInlineProps,
 } from './NotificationInline';
-// import docs from './NotificationInline.docs.mdx';
+import docs from './NotificationInline.docs.mdx';
 
 export default {
   title: 'Notification/NotificationInline',
-  // parameters: {
-  //   docs: { page: docs },
-  // },
+  parameters: {
+    docs: { page: docs },
+  },
   component: NotificationInline,
 };
 
