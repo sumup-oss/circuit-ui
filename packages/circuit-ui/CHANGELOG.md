@@ -1,5 +1,16 @@
 # @sumup/circuit-ui
 
+## 4.8.0
+
+### Minor Changes
+
+- [#1359](https://github.com/sumup-oss/circuit-ui/pull/1359) [`5804fd8d`](https://github.com/sumup-oss/circuit-ui/commit/5804fd8d720a7594bb880b9956a3310609cfbaa9) Thanks [@amelako](https://github.com/amelako)! - Added a `z-index` to the NotificationToasts so they always float above other content. Requires updating to `@sumup/design-tokens@3.3.0`.
+
+### Patch Changes
+
+- Updated dependencies [[`5804fd8d`](https://github.com/sumup-oss/circuit-ui/commit/5804fd8d720a7594bb880b9956a3310609cfbaa9)]:
+  - @sumup/design-tokens@3.3.0
+
 ## 4.7.3
 
 ### Patch Changes
