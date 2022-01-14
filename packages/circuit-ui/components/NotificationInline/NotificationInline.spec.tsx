@@ -28,7 +28,6 @@ describe('NotificationInline', () => {
     render(<NotificationInline {...props} />);
 
   const baseProps: NotificationInlineProps = {
-    iconLabel: '',
     body: 'This is an inline message',
   };
   describe('styles', () => {

@@ -42,12 +42,12 @@ const StackInlineMessages = styled.div`
   gap: 1rem;
 `;
 
-export const Variants = (toast: NotificationInlineProps) => (
+export const Variants = (args: NotificationInlineProps) => (
   <StackInlineMessages>
     {variants.map((variant) => (
       <NotificationInline
         key={variant}
-        {...toast}
+        {...args}
         isVisible={true}
         variant={variant}
       />
@@ -57,16 +57,14 @@ export const Variants = (toast: NotificationInlineProps) => (
 
 Variants.args = {
   body: 'This is a toast message',
-  iconLabel: '',
 } as NotificationInlineProps;
 
-export const Base = (toast: NotificationInlineProps) => (
-  <NotificationInline {...toast} isVisible={true} />
+export const Base = (args: NotificationInlineProps) => (
+  <NotificationInline {...args} isVisible={true} />
 );
 
 Base.args = {
   headline: 'Information',
-  iconLabel: '',
   body: 'You successfully updated your data.',
   variant: 'info',
   action: {
@@ -88,7 +86,6 @@ export const Dismissable = (args: NotificationInlineProps): JSX.Element => {
 };
 
 Dismissable.args = {
-  iconLabel: '',
   body: 'You successfully updated your data.',
   variant: 'info',
 } as NotificationInlineProps;

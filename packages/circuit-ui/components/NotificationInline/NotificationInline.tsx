@@ -76,7 +76,7 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * A clear and concise description of the icon and the Toast's purpose. If the toast body is self-explanatory pass an empty string.
    */
-  iconLabel: string;
+  iconLabel?: string;
 };
 
 export type NotificationInlineProps = BaseProps & CloseProps;
@@ -186,7 +186,7 @@ export function NotificationInline({
   action,
   onClose,
   closeButtonLabel,
-  iconLabel,
+  iconLabel = '',
   isVisible = true,
   tracking,
   ...props
