@@ -38,7 +38,7 @@ Base.args = {
   headline: 'Software update',
   body: 'There is updated firmware available for your card reader',
   action: {
-    onClick: action('Helloooo'),
+    onClick: action('Action clicked'),
     children: 'Update',
     variant: 'primary',
   },
