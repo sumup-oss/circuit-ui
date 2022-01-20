@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- [#1367](https://github.com/sumup-oss/circuit-ui/pull/1367) [`e2362dc6`](https://github.com/sumup-oss/circuit-ui/commit/e2362dc68fede159952c30c7ffd1fcc423bd8f62) Thanks [@robinmetral](https://github.com/robinmetral)! - Fix spacing in the `NotificationBanner`. Extra spacing should be added between the copy and the asset.
+- [#1367](https://github.com/sumup-oss/circuit-ui/pull/1367) [`e2362dc6`](https://github.com/sumup-oss/circuit-ui/commit/e2362dc68fede159952c30c7ffd1fcc423bd8f62) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed spacing in the `NotificationBanner`. Any extra horizontal spacing in the component should be added between the copy and the asset.
 
 ## 4.8.0
 
