@@ -25,7 +25,7 @@ describe('NotificationBanner', () => {
     render(<NotificationBanner {...props} />);
 
   const baseProps: NotificationBannerProps = {
-    headline: 'Test',
+    headline: 'Software update',
     body: 'There is updated firmware available for your card reader',
     action: {
       onClick: jest.fn(),
@@ -33,8 +33,9 @@ describe('NotificationBanner', () => {
       variant: 'primary',
     },
     image: {
-      src: 'https://source.unsplash.com/EcWFOYOpkpY/100x100',
-      alt: 'Cup of coffee',
+      src: '/images/software_update.png',
+      alt: 'Update',
+      width: '100',
     },
   };
 

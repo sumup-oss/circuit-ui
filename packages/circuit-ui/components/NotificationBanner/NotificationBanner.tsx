@@ -45,8 +45,8 @@ const DEFAULT_HEIGHT = 'auto';
 type CloseProps =
   | {
       /**
-       * Renders a close button in the top right corner and calls the provided function
-       * when the button is clicked.
+       * Renders a close button in the top right corner and calls the provided
+       * function when the button is clicked.
        */
       onClose: (event: MouseEvent | KeyboardEvent) => void;
       /**
@@ -59,13 +59,13 @@ type CloseProps =
 
 interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
   /**
-   * Use the `system` variant for system notification use cases,
-   * otherwise, use the `promotional`
-   * variant for promotional notification use cases.
+   * Use the `system` variant for system notification use cases, otherwise,
+   * use the `promotional` variant for promotional notification use cases.
    */
   variant?: NotificationVariant;
   /**
-   * Optional image to communicate message. The image container width is adjustable.
+   * Optional image to communicate message. The image container width is
+   * adjustable.
    */
   image?: ImageProps;
   /**
@@ -77,8 +77,8 @@ interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
    */
   body?: string;
   /**
-   * A notification action to allow users to directly follow up on the communicated content.
-   * It can be tertiary or primary button.
+   * A notification action to allow users to directly follow up on the
+   * communicated content. It can be a `primary` or `tertiary` button.
    */
   action: Action;
   /**
@@ -86,7 +86,7 @@ interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
    */
   tracking?: TrackingProps;
   /**
-   * Whether the notification banner is visible.
+   * Whether the NotificationBanner is visible.
    */
   isVisible?: boolean;
 }
@@ -99,6 +99,7 @@ const bannerWrapperStyles = ({
 }: Pick<NotificationBannerProps, 'variant'> & StyleProps) => css`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   position: relative;
   border-radius: ${theme.borderRadius.mega};
   background-color: ${variant === 'system'
@@ -198,7 +199,8 @@ const closeButtonStyles = ({
 const StyledCloseButton = styled(CloseButton)(closeButtonStyles);
 
 /**
- * NotificationBanner displays a persistent Notification.
+ * The NotificationBanner displays a notification with text, a call-to-action,
+ * and optionally an image.
  */
 export function NotificationBanner({
   headline,
@@ -221,8 +223,8 @@ export function NotificationBanner({
       duration: 200,
       onStart: () => {
         setHeight(getHeight(contentElement));
-        // Delaying the state update until the next animation frame ensures that
-        // the browsers renders the new height before the animation starts.
+        // Delaying the state update until the next animation frame ensures
+        // that browsers render the new height before the animation starts.
         window.requestAnimationFrame(() => {
           setOpen(isVisible);
         });
