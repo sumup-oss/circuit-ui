@@ -216,14 +216,14 @@ class Table extends Component<TableProps, TableState> {
   constructor(props: TableProps) {
     super(props);
     this.state = {
-      sortedRow: this.props.sortedRow,
+      sortedRow: this.props.initialSortedRow,
       rows: this.getRows(
         this.props.rows,
-        this.props.sortDirection,
-        this.props.sortedRow,
+        this.props.initialSortDirection,
+        this.props.initialSortedRow,
       ),
       sortHover: undefined,
-      sortDirection: this.props.sortDirection,
+      sortDirection: this.props.initialSortDirection,
       scrollTop: undefined,
       tableBodyHeight: undefined,
     };

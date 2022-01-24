@@ -170,8 +170,8 @@ describe('Table', () => {
             rows={rows}
             headers={headers}
             rowHeaders={false}
-            sortedRow={1}
-            sortDirection={'ascending'}
+            initialSortedRow={1}
+            initialSortDirection={'ascending'}
           />,
         );
 
@@ -214,8 +214,8 @@ describe('Table', () => {
             rows={rows}
             headers={headers}
             rowHeaders={false}
-            sortedRow={1}
-            sortDirection={'descending'}
+            initialSortedRow={1}
+            initialSortDirection={'descending'}
           />,
         );
 
