@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': major
 ---
 
-Added the `initialSortDirection` and `initialSortedRows` props to the Table component.
+Added the `initialSortDirection` and `initialSortedRow` props to the Table component.
