@@ -305,8 +305,8 @@ class Table extends Component<TableProps, TableState> {
 
   getRows = (
     rows: Row[],
-    sortDirection?: Direction | undefined,
-    sortedRow?: number | undefined,
+    initialSortDirection?: Direction | undefined,
+    initialSortedRow?: number | undefined,
   ): Row[] => {
     if (sortedRow && sortDirection) {
       return this.getSortedRows(sortDirection, sortedRow);
