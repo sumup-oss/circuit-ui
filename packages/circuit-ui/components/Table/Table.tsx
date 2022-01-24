@@ -63,11 +63,11 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Specifies the intial sort order of the table
    */
-  sortDirection?: 'ascending' | 'descending';
+  initialSortDirection?: 'ascending' | 'descending';
   /**
    * Specifies the row index which sortOrder applies to
    */
-  sortedRow?: number;
+  initialSortedRow?: number;
   /**
    * Click handler for the row
    * The signature is (index)
