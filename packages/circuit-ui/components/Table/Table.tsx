@@ -217,7 +217,7 @@ class Table extends Component<TableProps, TableState> {
     super(props);
     this.state = {
       sortedRow: this.props.initialSortedRow,
-      rows: this.getRows(
+      rows: this.getInitialRows(
         this.props.rows,
         this.props.initialSortDirection,
         this.props.initialSortedRow,
@@ -303,13 +303,13 @@ class Table extends Component<TableProps, TableState> {
     this.updateSort(i, nextDirection, sortedRows);
   };
 
-  getRows = (
+  getInitialRows = (
     rows: Row[],
     initialSortDirection?: Direction | undefined,
     initialSortedRow?: number | undefined,
   ): Row[] => {
-    if (sortedRow && sortDirection) {
-      return this.getSortedRows(sortDirection, sortedRow);
+    if (initialSortedRow && initialSortDirection) {
+      return this.getSortedRows(initialSortDirection, initialSortedRow);
     }
     return rows;
   };
