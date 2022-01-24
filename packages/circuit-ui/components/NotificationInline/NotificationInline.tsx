@@ -97,7 +97,6 @@ const iconMap = {
 };
 
 const inlineWrapperStyles = () => css`
-  display: inline-flex;
   overflow: hidden;
   will-change: height;
   transition: opacity ${TRANSITION_DURATION}ms ease-in-out,

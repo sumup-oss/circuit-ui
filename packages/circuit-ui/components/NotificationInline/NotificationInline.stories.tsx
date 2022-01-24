@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 /**
  * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -42,6 +41,15 @@ const StackInlineMessages = styled.div`
   gap: 1rem;
 `;
 
+export const Base = (args: NotificationInlineProps) => (
+  <NotificationInline {...args} isVisible={true} />
+);
+
+Base.args = {
+  body: 'You successfully updated your data.',
+  variant: 'info',
+} as NotificationInlineProps;
+
 export const Variants = (args: NotificationInlineProps) => (
   <StackInlineMessages>
     {variants.map((variant) => (
@@ -56,21 +64,7 @@ export const Variants = (args: NotificationInlineProps) => (
 );
 
 Variants.args = {
-  body: 'This is a toast message',
-} as NotificationInlineProps;
-
-export const Base = (args: NotificationInlineProps) => (
-  <NotificationInline {...args} isVisible={true} />
-);
-
-Base.args = {
-  headline: 'Information',
-  body: 'You successfully updated your data.',
-  variant: 'info',
-  action: {
-    onClick: action('Action clicked'),
-    children: 'Click here',
-  },
+  body: 'This is an inline message',
 } as NotificationInlineProps;
 
 export const Dismissable = (args: NotificationInlineProps): JSX.Element => {
@@ -86,6 +80,11 @@ export const Dismissable = (args: NotificationInlineProps): JSX.Element => {
 };
 
 Dismissable.args = {
+  headline: 'Information',
   body: 'You successfully updated your data.',
   variant: 'info',
+  action: {
+    onClick: action('Action clicked'),
+    children: 'Click here',
+  },
 } as NotificationInlineProps;
