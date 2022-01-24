@@ -65,7 +65,7 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
    */
   initialSortDirection?: 'ascending' | 'descending';
   /**
-   * Specifies the row index which sortOrder applies to
+   * Specifies the row index which initialSortDirection will be applied to
    */
   initialSortedRow?: number;
   /**
