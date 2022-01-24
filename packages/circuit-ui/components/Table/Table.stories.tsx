@@ -20,7 +20,6 @@ import Badge from '../Badge';
 import docs from './Table.docs.mdx';
 import { TableProps } from './Table';
 import { Direction } from './types';
-import { getSortDirection } from './utils';
 
 import Table from '.';
 
