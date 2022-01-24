@@ -61,7 +61,7 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
     nextDirection?: Direction,
   ) => Row[];
   /**
-   * Specifies the intial sort order of the table
+   * Specifies the initial sort order of the table
    */
   initialSortDirection?: 'ascending' | 'descending';
   /**
