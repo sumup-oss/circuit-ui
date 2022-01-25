@@ -61,6 +61,14 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
     nextDirection?: Direction,
   ) => Row[];
   /**
+   * Specifies the initial sort order of the table
+   */
+  initialSortDirection?: 'ascending' | 'descending';
+  /**
+   * Specifies the row index which `initialSortDirection` will be applied to
+   */
+  initialSortedRow?: number;
+  /**
    * Click handler for the row
    * The signature is (index)
    */
@@ -205,14 +213,21 @@ type TableState = {
  * Table interface component. It handles rendering rows/headers properly
  */
 class Table extends Component<TableProps, TableState> {
-  state: TableState = {
-    sortedRow: undefined,
-    rows: this.props.rows,
-    sortHover: undefined,
-    sortDirection: undefined,
-    scrollTop: undefined,
-    tableBodyHeight: undefined,
-  };
+  constructor(props: TableProps) {
+    super(props);
+    this.state = {
+      sortedRow: this.props.initialSortedRow,
+      rows: this.getInitialRows(
+        this.props.rows,
+        this.props.initialSortDirection,
+        this.props.initialSortedRow,
+      ),
+      sortHover: undefined,
+      sortDirection: this.props.initialSortDirection,
+      scrollTop: undefined,
+      tableBodyHeight: undefined,
+    };
+  }
 
   private tableRef = createRef<HTMLDivElement>();
 
@@ -286,6 +301,17 @@ class Table extends Component<TableProps, TableState> {
     const sortedRows = this.getSortedRows(nextDirection, i);
 
     this.updateSort(i, nextDirection, sortedRows);
+  };
+
+  getInitialRows = (
+    rows: Row[],
+    initialSortDirection?: Direction | undefined,
+    initialSortedRow?: number | undefined,
+  ): Row[] => {
+    if (initialSortedRow && initialSortDirection) {
+      return this.getSortedRows(initialSortDirection, initialSortedRow);
+    }
+    return rows;
   };
 
   getSortedRows = (sortDirection: Direction, sortedRow: number): Row[] => {

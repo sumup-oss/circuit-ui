@@ -164,6 +164,27 @@ describe('Table', () => {
         });
       });
 
+      it('should sort a column in ascending order when initial sort direction and initial sorted row is provided', () => {
+        const { getAllByRole } = render(
+          <Table
+            rows={rows}
+            headers={headers}
+            rowHeaders={false}
+            initialSortedRow={1}
+            initialSortDirection={'ascending'}
+          />,
+        );
+
+        const cellEls = getAllByRole('cell');
+
+        const sortedRow = ['a', 'c', 'b'];
+
+        rows.forEach((_row, index) => {
+          const cellIndex = rowLength * index;
+          expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
+        });
+      });
+
       it('should sort a column in descending order', () => {
         const { getAllByRole } = render(
           <Table rows={rows} headers={headers} rowHeaders={false} />,
@@ -180,6 +201,27 @@ describe('Table', () => {
         });
 
         const sortedRow = ['c', 'b', 'a'];
+
+        rows.forEach((_row, index) => {
+          const cellIndex = rowLength * index;
+          expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
+        });
+      });
+
+      it('should sort a column in descending order when initial sort direction and initial sorted row is provided', () => {
+        const { getAllByRole } = render(
+          <Table
+            rows={rows}
+            headers={headers}
+            rowHeaders={false}
+            initialSortedRow={1}
+            initialSortDirection={'descending'}
+          />,
+        );
+
+        const cellEls = getAllByRole('cell');
+
+        const sortedRow = ['b', 'c', 'a'];
 
         rows.forEach((_row, index) => {
           const cellIndex = rowLength * index;
