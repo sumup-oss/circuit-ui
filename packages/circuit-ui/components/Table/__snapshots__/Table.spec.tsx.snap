@@ -2390,7 +2390,6 @@ tbody .circuit-4:last-child td {
 
 .circuit-24 {
   border-radius: 999999px;
-  color: #FFF;
   display: inline-block;
   padding: 2px 8px;
   font-size: 14px;
