@@ -3,7 +3,6 @@
 exports[`Badge should have the correct circle styles 1`] = `
 .circuit-0 {
   border-radius: 999999px;
-  color: #FFF;
   display: inline-block;
   padding: 2px 8px;
   font-size: 14px;
@@ -38,7 +37,6 @@ exports[`Badge should have the correct circle styles 1`] = `
 exports[`Badge should render with danger styles 1`] = `
 .circuit-0 {
   border-radius: 999999px;
-  color: #FFF;
   display: inline-block;
   padding: 2px 8px;
   font-size: 14px;
@@ -58,7 +56,6 @@ exports[`Badge should render with danger styles 1`] = `
 exports[`Badge should render with default styles 1`] = `
 .circuit-0 {
   border-radius: 999999px;
-  color: #FFF;
   display: inline-block;
   padding: 2px 8px;
   font-size: 14px;
@@ -78,7 +75,6 @@ exports[`Badge should render with default styles 1`] = `
 exports[`Badge should render with neutral styles 1`] = `
 .circuit-0 {
   border-radius: 999999px;
-  color: #FFF;
   display: inline-block;
   padding: 2px 8px;
   font-size: 14px;
@@ -98,7 +94,6 @@ exports[`Badge should render with neutral styles 1`] = `
 exports[`Badge should render with promo styles 1`] = `
 .circuit-0 {
   border-radius: 999999px;
-  color: #FFF;
   display: inline-block;
   padding: 2px 8px;
   font-size: 14px;
@@ -118,7 +113,6 @@ exports[`Badge should render with promo styles 1`] = `
 exports[`Badge should render with success styles 1`] = `
 .circuit-0 {
   border-radius: 999999px;
-  color: #FFF;
   display: inline-block;
   padding: 2px 8px;
   font-size: 14px;
@@ -138,7 +132,6 @@ exports[`Badge should render with success styles 1`] = `
 exports[`Badge should render with warning styles 1`] = `
 .circuit-0 {
   border-radius: 999999px;
-  color: #FFF;
   display: inline-block;
   padding: 2px 8px;
   font-size: 14px;
