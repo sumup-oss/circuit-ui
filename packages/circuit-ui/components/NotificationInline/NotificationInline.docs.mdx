@@ -1,0 +1,41 @@
+import { Status, Props, Story } from '../../../../.storybook/components';
+import { NotificationToast } from '@sumup/circuit-ui';
+
+# NotificationInline
+
+<Status.Stable />
+
+<Story id="notification-notificationinline--base" />
+<Props />
+
+The Notification Inline component non-disruptively provides quick and contextual inline notification and it is integrated within the content section.
+Inline notifications are frequently used to provide additional guidance to the user, like positive feedback, confirmation about an action or errors in forms, cards or dialog boxes.
+
+## Component variations
+
+### Notification Inline variants
+
+<Story id="notification-notificationinline--variants" />
+
+- Use the 'Info' variant for informational, neutral messages.
+- Use the 'Confirm' variant the successful messages.
+- Use the 'Notify' variant for warning messages, and other information a user should be aware of.
+- Use the 'Alert' variant for error messages. Be descriptive and give users clear next steps.
+
+### Dismissable inline notification
+
+The close button is optional and can be excluded if the notification should not be dismissable. As accessibility requirement you need to provide a closeButtonLabel.
+
+<Story id="notification-notificationinline--dismissable" />
+
+### Inline with headline and action button
+
+If needed an optional headline can be included above the body copy. The action button is optional and it enables the user to take a specific action in relation to the message.
+
+<Story id="notification-notificationinline--with-headline-and-action" />
+
+## Accessibility
+
+- Be concise, specific and short in the message.
+- Inline notifications are part of the content and should be placed near their related part of the content.
+- Do not cover other content with inline notifications.

@@ -69,6 +69,7 @@ Live region must always exist on the page at render, before the toast is generat
 Toast messages should not contain any interactive elements.
 Screen readers will announce raw text within the toast as it appears, without structure and without moving focus to the toast element.
 For example, if a toast read “You successfully updated your data” followed by an "Undo" button, screen readers would announce “You successfully updated your data. Undo”, not allowing keyboard users to interact with the button.
+In case you need to provide an action button, use NotificationInline component.
 
 To match the content, the role and aria-live level is adapted. The role is set to `"status"`, and it has `aria-live="polite"` meaning the screen reader will wait before announcing the update.
 
