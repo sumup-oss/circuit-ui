@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.9.0
+
+### Minor Changes
+
+- [#1379](https://github.com/sumup-oss/circuit-ui/pull/1379) [`785c76e5`](https://github.com/sumup-oss/circuit-ui/commit/785c76e54eb5abf0c2acdfda4eb53347d94fc6f9) Thanks [@AndreeWille](https://github.com/AndreeWille)! - Added the `initialSortDirection` and `initialSortedRow` props to the Table component.
+
 ## 4.8.1
 
 ### Patch Changes
