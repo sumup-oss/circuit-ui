@@ -36,34 +36,28 @@ export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
 const COLOR_MAP = {
   success: {
     text: 'white',
-    default: 'g700',
-    hover: 'g900',
+    background: 'g700',
   },
   warning: {
     text: 'bodyColor',
-    default: 'y300',
-    hover: 'y500',
+    background: 'y300',
   },
   danger: {
     text: 'white',
-    default: 'r500',
-    hover: 'r700',
+    background: 'r500',
   },
   neutral: {
     text: 'bodyColor',
-    default: 'n200',
-    hover: 'n300',
+    background: 'n200',
   },
   promo: {
     text: 'white',
-    default: 'v500',
-    hover: 'v700',
+    background: 'v500',
   },
 } as const;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   border-radius: ${theme.borderRadius.pill};
-  color: ${theme.colors.white};
   display: inline-block;
   padding: 2px ${theme.spacings.byte};
   font-size: 14px;
@@ -78,11 +72,8 @@ const variantStyles = ({
   variant = 'neutral',
 }: StyleProps & BadgeProps) => {
   const currentColor = COLOR_MAP[variant];
-  if (!currentColor) {
-    return null;
-  }
   return css`
-    background-color: ${theme.colors[currentColor.default]};
+    background-color: ${theme.colors[currentColor.background]};
     color: ${theme.colors[currentColor.text]};
   `;
 };
