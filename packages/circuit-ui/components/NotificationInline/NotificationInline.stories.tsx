@@ -80,6 +80,18 @@ export const Dismissable = (args: NotificationInlineProps): JSX.Element => {
 };
 
 Dismissable.args = {
+  body: 'You successfully updated your data.',
+  variant: 'info',
+} as NotificationInlineProps;
+
+export const WithHeadlineAndAction = (
+  args: NotificationInlineProps,
+): JSX.Element => {
+  const [isVisible, setVisible] = useState(args.isVisible);
+  return <NotificationInline {...args} isVisible={isVisible} />;
+};
+
+WithHeadlineAndAction.args = {
   headline: 'Information',
   body: 'You successfully updated your data.',
   variant: 'info',

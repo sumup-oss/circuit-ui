@@ -22,14 +22,20 @@ Inline notifications are frequently used to provide additional guidance to the u
 - Use the 'Notify' variant for warning messages, and other information a user should be aware of.
 - Use the 'Alert' variant for error messages. Be descriptive and give users clear next steps.
 
-### Inline with headline and action button
+### Dismissable inline notification
+
+The close button is optional and can be excluded if the notification should not be dismissable. As accessibility requirement you need to provide a closeButtonLabel.
 
 <Story id="notification-notificationinline--dismissable" />
 
-## Accessibility guidelines
+### Inline with headline and action button
+
+If needed an optional headline can be included above the body copy. The action button is optional and it enables the user to take a specific action in relation to the message.
+
+<Story id="notification-notificationinline--with-headline-and-action" />
+
+## Accessibility
 
 - Be concise, specific and short in the message.
 - Inline notifications are part of the content and should be placed near their related part of the content.
 - Do not cover other content with inline notifications.
-- In case you need to provide an action button, use NotificationInline component. Toast messages should not contain any interactive elements. Screen readers will announce raw text within the toast as it appears, without structure and without moving focus to the toast element.
-- Inline notifications should not be added to the page dynamically. For this use case, use Toast notifications, since only dynamic alerts include aria live attributes.
