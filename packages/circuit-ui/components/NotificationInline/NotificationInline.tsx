@@ -15,7 +15,7 @@
 
 import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/react';
-import { Alert, Confirm, Info, Notify } from '@sumup/icons';
+import { Alert, Confirm, Info, NotifyCircle } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
@@ -93,7 +93,7 @@ const iconMap = {
   info: Info,
   confirm: Confirm,
   alert: Alert,
-  notify: Notify,
+  notify: NotifyCircle,
 };
 
 const inlineWrapperStyles = () => css`
@@ -155,15 +155,36 @@ const actionButtonStyles = ({ theme }: StyleProps & ButtonProps) =>
 
 const ActionButton = styled(Button)(actionButtonStyles);
 
-const StyledIcon = styled.span(
+const IconWrapper = styled.div(
   ({ theme, variant }: StyleProps & { variant: Variant }) =>
     css`
-      display: block;
+      position: relative;
       align-self: flex-start;
       flex-grow: 0;
       flex-shrink: 0;
       line-height: 0;
       color: ${theme.colors[colorMap[variant]]};
+    `,
+  // Adds a black background behind the SVG icon to color just the exclamation mark black.
+  ({ theme, variant }: StyleProps & { variant: Variant }) =>
+    variant === 'notify' &&
+    css`
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        background: ${theme.colors.black};
+        border-radius: ${theme.borderRadius.circle};
+      }
+
+      svg {
+        position: relative;
+        z-index: 1;
+      }
     `,
 );
 
@@ -212,6 +233,8 @@ export function NotificationInline({
     });
   }, [isVisible, setAnimating]);
 
+  const Icon = iconMap[variant];
+
   return (
     <NotificationInlineWrapper
       ref={contentElement}
@@ -223,11 +246,9 @@ export function NotificationInline({
       {...props}
     >
       <ContentWrapper variant={variant}>
-        <StyledIcon
-          as={iconMap[variant]}
-          variant={variant}
-          role="presentation"
-        />
+        <IconWrapper variant={variant}>
+          <Icon role="presentation" />
+        </IconWrapper>
         <span css={hideVisually}>{iconLabel}</span>
         <Content>
           {headline && (
