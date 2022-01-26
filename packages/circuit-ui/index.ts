@@ -98,6 +98,8 @@ export { useNotificationToast } from './components/NotificationToast';
 export type { NotificationToastProps } from './components/NotificationToast';
 export { ToastProvider } from './components/ToastContext';
 export type { ToastProviderProps } from './components/ToastContext';
+export { default as NotificationInline } from './components/NotificationInline';
+export type { NotificationInlineProps } from './components/NotificationInline';
 
 // Layout
 export { default as Grid } from './components/Grid';
