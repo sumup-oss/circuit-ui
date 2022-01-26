@@ -51,7 +51,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   ref?: Ref<HTMLInputElement>;
 }
 
-type LabelElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
+type LabelElProps = Pick<CheckboxProps, 'disabled'>;
 
 const labelBaseStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.bodyColor};
@@ -59,68 +59,14 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-
-  &::before {
-    height: 18px;
-    width: 18px;
-    box-sizing: border-box;
-    box-shadow: 0;
-    background-color: ${theme.colors.white};
-    border: 1px solid ${theme.colors.n500};
-    border-radius: 3px;
-    content: '';
-    display: block;
-    position: absolute;
-    top: ${theme.spacings.kilo};
-    left: 0;
-    transform: translateY(-50%);
-    transition: border ${theme.transitions.default},
-      background-color ${theme.transitions.default};
-  }
-
-  svg {
-    height: 18px;
-    width: 18px;
-    padding: 2px;
-    box-sizing: border-box;
-    color: ${theme.colors.white};
-    display: block;
-    line-height: 0;
-    opacity: 0;
-    position: absolute;
-    top: ${theme.spacings.kilo};
-    left: 0;
-    transform: translateY(-50%) scale(0, 0);
-    transition: transform ${theme.transitions.default},
-      opacity ${theme.transitions.default};
-  }
 `;
 
-const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
-  invalid &&
-  css`
-    &:not(:focus)::before {
-      border-color: ${theme.colors.danger};
-      background-color: ${theme.colors.r100};
-    }
-  `;
-
-const labelDisabledStyles = ({ disabled, theme }: StyleProps & LabelElProps) =>
-  disabled &&
-  css`
-    ${disableVisually()};
-
-    &::before {
-      ${disableVisually()};
-      border-color: ${theme.colors.n700};
-      background-color: ${theme.colors.n200};
-    }
-  `;
+const labelDisabledStyles = ({ disabled }: LabelElProps) =>
+  disabled && disableVisually;
 
 const CheckboxLabel = styled('label')<LabelElProps>(
   labelBaseStyles,
   labelDisabledStyles,
-  labelInvalidStyles,
 );
 
 type WrapperElProps = Pick<CheckboxProps, 'noMargin'>;
@@ -166,6 +112,41 @@ type InputElProps = Omit<CheckboxProps, 'tracking'>;
 const inputBaseStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
 
+  & + label::before {
+    height: 18px;
+    width: 18px;
+    box-sizing: border-box;
+    box-shadow: 0;
+    background-color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.n500};
+    border-radius: 3px;
+    content: '';
+    display: block;
+    position: absolute;
+    top: ${theme.spacings.kilo};
+    left: 0;
+    transform: translateY(-50%);
+    transition: border ${theme.transitions.default},
+      background-color ${theme.transitions.default};
+  }
+
+  & + label svg {
+    height: 18px;
+    width: 18px;
+    padding: 2px;
+    box-sizing: border-box;
+    color: ${theme.colors.white};
+    display: block;
+    line-height: 0;
+    opacity: 0;
+    position: absolute;
+    top: ${theme.spacings.kilo};
+    left: 0;
+    transform: translateY(-50%) scale(0, 0);
+    transition: transform ${theme.transitions.default},
+      opacity ${theme.transitions.default};
+  }
+
   &:hover + label::before {
     border-color: ${theme.colors.n700};
   }
@@ -198,6 +179,11 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
 const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
   invalid &&
   css`
+    & + label::before {
+      border-color: ${theme.colors.danger};
+      background-color: ${theme.colors.r100};
+    }
+
     &:hover + label::before,
     &:focus + label::before {
       border-color: ${theme.colors.r700};
@@ -209,9 +195,20 @@ const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
     }
   `;
 
+const inputDisabledStyles = ({ theme, disabled }: StyleProps & InputElProps) =>
+  disabled &&
+  css`
+    & + label::before {
+      ${disableVisually()}
+      border-color: ${theme.colors.n700};
+      background-color: ${theme.colors.n200};
+    }
+  `;
+
 const CheckboxInput = styled('input')<InputElProps>(
   inputBaseStyles,
   inputInvalidStyles,
+  inputDisabledStyles,
 );
 
 const tooltipStyles = ({ theme }: StyleProps) => css`
@@ -261,7 +258,7 @@ export const Checkbox = forwardRef(
           // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
           onChange={() => {}}
         />
-        <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
+        <CheckboxLabel htmlFor={id} disabled={disabled}>
           {children}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>

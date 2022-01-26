@@ -21,6 +21,47 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   width: 1px;
 }
 
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
 .circuit-1:hover+label::before {
   border-color: #666;
 }
@@ -63,47 +104,6 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-}
-
-.circuit-2::before {
-  height: 18px;
-  width: 18px;
-  box-sizing: border-box;
-  box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
-  border-radius: 3px;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-}
-
-.circuit-2 svg {
-  height: 18px;
-  width: 18px;
-  padding: 2px;
-  box-sizing: border-box;
-  color: #FFF;
-  display: block;
-  line-height: 0;
-  opacity: 0;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%) scale(0, 0);
-  -moz-transform: translateY(-50%) scale(0, 0);
-  -ms-transform: translateY(-50%) scale(0, 0);
-  transform: translateY(-50%) scale(0, 0);
-  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 .circuit-3 {
@@ -204,6 +204,47 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   width: 1px;
 }
 
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
 .circuit-1:hover+label::before {
   border-color: #666;
 }
@@ -246,47 +287,6 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-}
-
-.circuit-2::before {
-  height: 18px;
-  width: 18px;
-  box-sizing: border-box;
-  box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
-  border-radius: 3px;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-}
-
-.circuit-2 svg {
-  height: 18px;
-  width: 18px;
-  padding: 2px;
-  box-sizing: border-box;
-  color: #FFF;
-  display: block;
-  line-height: 0;
-  opacity: 0;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%) scale(0, 0);
-  -moz-transform: translateY(-50%) scale(0, 0);
-  -ms-transform: translateY(-50%) scale(0, 0);
-  transform: translateY(-50%) scale(0, 0);
-  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 <div
@@ -342,6 +342,47 @@ exports[`Checkbox should render with default styles 1`] = `
   width: 1px;
 }
 
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
 .circuit-1:hover+label::before {
   border-color: #666;
 }
@@ -384,47 +425,6 @@ exports[`Checkbox should render with default styles 1`] = `
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-}
-
-.circuit-2::before {
-  height: 18px;
-  width: 18px;
-  box-sizing: border-box;
-  box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
-  border-radius: 3px;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-}
-
-.circuit-2 svg {
-  height: 18px;
-  width: 18px;
-  padding: 2px;
-  box-sizing: border-box;
-  color: #FFF;
-  display: block;
-  line-height: 0;
-  opacity: 0;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%) scale(0, 0);
-  -moz-transform: translateY(-50%) scale(0, 0);
-  -ms-transform: translateY(-50%) scale(0, 0);
-  transform: translateY(-50%) scale(0, 0);
-  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 <div
@@ -479,6 +479,47 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   width: 1px;
 }
 
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
 .circuit-1:hover+label::before {
   border-color: #666;
 }
@@ -515,6 +556,14 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   background-color: #3063E9;
 }
 
+.circuit-1+label::before {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+  border-color: #666;
+  background-color: #E6E6E6;
+}
+
 .circuit-2 {
   color: #1A1A1A;
   display: inline-block;
@@ -524,55 +573,6 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-}
-
-.circuit-2::before {
-  height: 18px;
-  width: 18px;
-  box-sizing: border-box;
-  box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
-  border-radius: 3px;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-}
-
-.circuit-2 svg {
-  height: 18px;
-  width: 18px;
-  padding: 2px;
-  box-sizing: border-box;
-  color: #FFF;
-  display: block;
-  line-height: 0;
-  opacity: 0;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%) scale(0, 0);
-  -moz-transform: translateY(-50%) scale(0, 0);
-  -ms-transform: translateY(-50%) scale(0, 0);
-  transform: translateY(-50%) scale(0, 0);
-  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
-}
-
-.circuit-2::before {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-  border-color: #666;
-  background-color: #E6E6E6;
 }
 
 <div
@@ -629,6 +629,47 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   width: 1px;
 }
 
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
 .circuit-1:hover+label::before {
   border-color: #666;
 }
@@ -665,6 +706,11 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   background-color: #3063E9;
 }
 
+.circuit-1+label::before {
+  border-color: #D23F47;
+  background-color: #F4CBCB;
+}
+
 .circuit-1:hover+label::before,
 .circuit-1:focus+label::before {
   border-color: #B22426;
@@ -681,52 +727,6 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-}
-
-.circuit-2::before {
-  height: 18px;
-  width: 18px;
-  box-sizing: border-box;
-  box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
-  border-radius: 3px;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-}
-
-.circuit-2 svg {
-  height: 18px;
-  width: 18px;
-  padding: 2px;
-  box-sizing: border-box;
-  color: #FFF;
-  display: block;
-  line-height: 0;
-  opacity: 0;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%) scale(0, 0);
-  -moz-transform: translateY(-50%) scale(0, 0);
-  -ms-transform: translateY(-50%) scale(0, 0);
-  transform: translateY(-50%) scale(0, 0);
-  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
-}
-
-.circuit-2:not(:focus)::before {
-  border-color: #D23F47;
-  background-color: #F4CBCB;
 }
 
 <div
@@ -785,6 +785,47 @@ exports[`Checkbox should render with noMargin styles when passed the noMargin pr
   width: 1px;
 }
 
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
 .circuit-1:hover+label::before {
   border-color: #666;
 }
@@ -827,47 +868,6 @@ exports[`Checkbox should render with noMargin styles when passed the noMargin pr
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-}
-
-.circuit-2::before {
-  height: 18px;
-  width: 18px;
-  box-sizing: border-box;
-  box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
-  border-radius: 3px;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-}
-
-.circuit-2 svg {
-  height: 18px;
-  width: 18px;
-  padding: 2px;
-  box-sizing: border-box;
-  color: #FFF;
-  display: block;
-  line-height: 0;
-  opacity: 0;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%) scale(0, 0);
-  -moz-transform: translateY(-50%) scale(0, 0);
-  -ms-transform: translateY(-50%) scale(0, 0);
-  transform: translateY(-50%) scale(0, 0);
-  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
 <div
