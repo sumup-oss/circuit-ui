@@ -59,41 +59,6 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-
-  &::before {
-    height: 18px;
-    width: 18px;
-    box-sizing: border-box;
-    box-shadow: 0;
-    background-color: ${theme.colors.white};
-    border: 1px solid ${theme.colors.n500};
-    border-radius: 3px;
-    content: '';
-    display: block;
-    position: absolute;
-    top: ${theme.spacings.kilo};
-    left: 0;
-    transform: translateY(-50%);
-    transition: border ${theme.transitions.default},
-      background-color ${theme.transitions.default};
-  }
-
-  svg {
-    height: 18px;
-    width: 18px;
-    padding: 2px;
-    box-sizing: border-box;
-    color: ${theme.colors.white};
-    display: block;
-    line-height: 0;
-    opacity: 0;
-    position: absolute;
-    top: ${theme.spacings.kilo};
-    left: 0;
-    transform: translateY(-50%) scale(0, 0);
-    transition: transform ${theme.transitions.default},
-      opacity ${theme.transitions.default};
-  }
 `;
 
 const labelDisabledStyles = ({ disabled }: LabelElProps) =>
@@ -146,6 +111,41 @@ type InputElProps = Omit<CheckboxProps, 'tracking'>;
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
+
+  & + label::before {
+    height: 18px;
+    width: 18px;
+    box-sizing: border-box;
+    box-shadow: 0;
+    background-color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.n500};
+    border-radius: 3px;
+    content: '';
+    display: block;
+    position: absolute;
+    top: ${theme.spacings.kilo};
+    left: 0;
+    transform: translateY(-50%);
+    transition: border ${theme.transitions.default},
+      background-color ${theme.transitions.default};
+  }
+
+  & + label svg {
+    height: 18px;
+    width: 18px;
+    padding: 2px;
+    box-sizing: border-box;
+    color: ${theme.colors.white};
+    display: block;
+    line-height: 0;
+    opacity: 0;
+    position: absolute;
+    top: ${theme.spacings.kilo};
+    left: 0;
+    transform: translateY(-50%) scale(0, 0);
+    transition: transform ${theme.transitions.default},
+      opacity ${theme.transitions.default};
+  }
 
   &:hover + label::before {
     border-color: ${theme.colors.n700};
