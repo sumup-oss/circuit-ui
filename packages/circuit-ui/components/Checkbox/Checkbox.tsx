@@ -51,7 +51,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   ref?: Ref<HTMLInputElement>;
 }
 
-type LabelElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
+type LabelElProps = Pick<CheckboxProps, 'disabled'>;
 
 const labelBaseStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.bodyColor};
@@ -96,31 +96,12 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
-  invalid &&
-  css`
-    &:not(:focus)::before {
-      border-color: ${theme.colors.danger};
-      background-color: ${theme.colors.r100};
-    }
-  `;
-
-const labelDisabledStyles = ({ disabled, theme }: StyleProps & LabelElProps) =>
-  disabled &&
-  css`
-    ${disableVisually()};
-
-    &::before {
-      ${disableVisually()};
-      border-color: ${theme.colors.n700};
-      background-color: ${theme.colors.n200};
-    }
-  `;
+const labelDisabledStyles = ({ disabled }: LabelElProps) =>
+  disabled && disableVisually;
 
 const CheckboxLabel = styled('label')<LabelElProps>(
   labelBaseStyles,
   labelDisabledStyles,
-  labelInvalidStyles,
 );
 
 type WrapperElProps = Pick<CheckboxProps, 'noMargin'>;
@@ -198,6 +179,11 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
 const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
   invalid &&
   css`
+    & + label::before {
+      border-color: ${theme.colors.danger};
+      background-color: ${theme.colors.r100};
+    }
+
     &:hover + label::before,
     &:focus + label::before {
       border-color: ${theme.colors.r700};
@@ -209,9 +195,20 @@ const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
     }
   `;
 
+const inputDisabledStyles = ({ theme, disabled }: StyleProps & InputElProps) =>
+  disabled &&
+  css`
+    & + label::before {
+      ${disableVisually()}
+      border-color: ${theme.colors.n700};
+      background-color: ${theme.colors.n200};
+    }
+  `;
+
 const CheckboxInput = styled('input')<InputElProps>(
   inputBaseStyles,
   inputInvalidStyles,
+  inputDisabledStyles,
 );
 
 const tooltipStyles = ({ theme }: StyleProps) => css`
@@ -261,7 +258,7 @@ export const Checkbox = forwardRef(
           // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
           onChange={() => {}}
         />
-        <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
+        <CheckboxLabel htmlFor={id} disabled={disabled}>
           {children}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>

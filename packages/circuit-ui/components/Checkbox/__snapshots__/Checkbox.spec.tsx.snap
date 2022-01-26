@@ -515,6 +515,14 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   background-color: #3063E9;
 }
 
+.circuit-1+label::before {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+  border-color: #666;
+  background-color: #E6E6E6;
+}
+
 .circuit-2 {
   color: #1A1A1A;
   display: inline-block;
@@ -565,14 +573,6 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   transform: translateY(-50%) scale(0, 0);
   -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
-}
-
-.circuit-2::before {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-  border-color: #666;
-  background-color: #E6E6E6;
 }
 
 <div
@@ -665,6 +665,11 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   background-color: #3063E9;
 }
 
+.circuit-1+label::before {
+  border-color: #D23F47;
+  background-color: #F4CBCB;
+}
+
 .circuit-1:hover+label::before,
 .circuit-1:focus+label::before {
   border-color: #B22426;
@@ -722,11 +727,6 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   transform: translateY(-50%) scale(0, 0);
   -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
-}
-
-.circuit-2:not(:focus)::before {
-  border-color: #D23F47;
-  background-color: #F4CBCB;
 }
 
 <div
