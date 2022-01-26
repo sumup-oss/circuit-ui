@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.10.0
+
+### Minor Changes
+
+- [#1332](https://github.com/sumup-oss/circuit-ui/pull/1332) [`dd65ad12`](https://github.com/sumup-oss/circuit-ui/commit/dd65ad125712c0ed00a06141bef054d708faad02) Thanks [@amelako](https://github.com/amelako)! - Added a new `NotificationInline` component that provides quick and contextual inline notifications.
+
 ## 4.9.0
 
 ### Minor Changes
