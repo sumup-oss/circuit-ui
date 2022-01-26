@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.10.1
+
+### Patch Changes
+
+- [#1384](https://github.com/sumup-oss/circuit-ui/pull/1384) [`e0e5c431`](https://github.com/sumup-oss/circuit-ui/commit/e0e5c4312e7aaa6d0b7c3d902a5146a1f41e1e6b) Thanks [@robinmetral](https://github.com/robinmetral)! - Refactored `Checkbox` styles. This is an internal change only, but you'll need to update your snapshots.
+
 ## 4.10.0
 
 ### Minor Changes
