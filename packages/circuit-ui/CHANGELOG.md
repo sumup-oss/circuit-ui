@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.10.2
+
+### Patch Changes
+
+- [#1387](https://github.com/sumup-oss/circuit-ui/pull/1387) [`23a7e0a3`](https://github.com/sumup-oss/circuit-ui/commit/23a7e0a378ecb7b4e1bbe6cb2ccfae9f26bba0fd) Thanks [@amelako](https://github.com/amelako)! - Exported `NotificationInline` component.
+
 ## 4.10.1
 
 ### Patch Changes
