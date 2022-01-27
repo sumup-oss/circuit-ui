@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.3.0
+
+### Minor Changes
+
+- [#1389](https://github.com/sumup-oss/circuit-ui/pull/1389) [`1b310e89`](https://github.com/sumup-oss/circuit-ui/commit/1b310e895bc5de2c5d8d20cf7fc4836c092adb91) Thanks [@pavel-craciun-sumup](https://github.com/pavel-craciun-sumup)! - Added a size 24 Pix payment method icon.
+
 ## 2.2.0
 
 ### Minor Changes
