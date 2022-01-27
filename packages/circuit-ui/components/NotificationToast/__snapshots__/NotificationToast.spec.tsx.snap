@@ -43,7 +43,7 @@ exports[`NotificationToast styles should render notification toast with alert st
 }
 
 .circuit-2 {
-  display: block;
+  position: relative;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
   align-self: flex-start;
@@ -218,21 +218,23 @@ exports[`NotificationToast styles should render notification toast with alert st
       <div
         class="circuit-1"
       >
-        <svg
+        <div
           class="circuit-2"
-          fill="none"
-          height="24"
-          role="presentation"
-          variant="alert"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm4.71 14.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29l-3.29-3.29-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71l3.29-3.29-3.29-3.29a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l3.29 3.29 3.29-3.29c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L13.408 12l3.29 3.29z"
-            fill="currentColor"
-          />
-        </svg>
+          <svg
+            fill="none"
+            height="24"
+            role="presentation"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm4.71 14.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29l-3.29-3.29-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71l3.29-3.29-3.29-3.29a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l3.29 3.29 3.29-3.29c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L13.408 12l3.29 3.29z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
         <span
           class="circuit-3"
         />
@@ -333,7 +335,7 @@ exports[`NotificationToast styles should render notification toast with confirm 
 }
 
 .circuit-2 {
-  display: block;
+  position: relative;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
   align-self: flex-start;
@@ -508,21 +510,23 @@ exports[`NotificationToast styles should render notification toast with confirm 
       <div
         class="circuit-1"
       >
-        <svg
+        <div
           class="circuit-2"
-          fill="none"
-          height="24"
-          role="presentation"
-          variant="confirm"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm5.77 7.64-7 8a1.008 1.008 0 0 1-1.48.07l-3-3a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l2.22 2.23 6.3-7.16a1 1 0 1 1 1.54 1.28z"
-            fill="currentColor"
-          />
-        </svg>
+          <svg
+            fill="none"
+            height="24"
+            role="presentation"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm5.77 7.64-7 8a1.008 1.008 0 0 1-1.48.07l-3-3a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l2.22 2.23 6.3-7.16a1 1 0 1 1 1.54 1.28z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
         <span
           class="circuit-3"
         />
@@ -623,7 +627,7 @@ exports[`NotificationToast styles should render notification toast with headline
 }
 
 .circuit-2 {
-  display: block;
+  position: relative;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
   align-self: flex-start;
@@ -807,21 +811,23 @@ exports[`NotificationToast styles should render notification toast with headline
       <div
         class="circuit-1"
       >
-        <svg
+        <div
           class="circuit-2"
-          fill="none"
-          height="24"
-          role="presentation"
-          variant="info"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
-            fill="currentColor"
-          />
-        </svg>
+          <svg
+            fill="none"
+            height="24"
+            role="presentation"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
         <span
           class="circuit-3"
         />
@@ -927,7 +933,7 @@ exports[`NotificationToast styles should render notification toast with info sty
 }
 
 .circuit-2 {
-  display: block;
+  position: relative;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
   align-self: flex-start;
@@ -1102,21 +1108,23 @@ exports[`NotificationToast styles should render notification toast with info sty
       <div
         class="circuit-1"
       >
-        <svg
+        <div
           class="circuit-2"
-          fill="none"
-          height="24"
-          role="presentation"
-          variant="info"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
-            fill="currentColor"
-          />
-        </svg>
+          <svg
+            fill="none"
+            height="24"
+            role="presentation"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
         <span
           class="circuit-3"
         />
@@ -1217,7 +1225,7 @@ exports[`NotificationToast styles should render notification toast with notify s
 }
 
 .circuit-2 {
-  display: block;
+  position: relative;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
   align-self: flex-start;
@@ -1230,6 +1238,23 @@ exports[`NotificationToast styles should render notification toast with notify s
   flex-shrink: 0;
   line-height: 0;
   color: #F5C625;
+}
+
+.circuit-2::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: #000;
+  border-radius: 100%;
+}
+
+.circuit-2 svg {
+  position: relative;
+  z-index: 1;
 }
 
 .circuit-3 {
@@ -1392,23 +1417,25 @@ exports[`NotificationToast styles should render notification toast with notify s
       <div
         class="circuit-1"
       >
-        <svg
+        <div
           class="circuit-2"
-          fill="none"
-          height="24"
-          role="presentation"
-          variant="notify"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            clip-rule="evenodd"
-            d="M14.544 3.481c-1.13-1.975-3.958-1.975-5.088 0L1.398 17.556C.268 19.53 1.681 22 3.942 22h16.116c2.261 0 3.675-2.47 2.544-4.444L14.544 3.48zM11 8a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0V8zm1 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </svg>
+          <svg
+            fill="none"
+            height="24"
+            role="presentation"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M11.994 1.006a10.994 10.994 0 1 0 .012 0zm-1 6a1 1 0 0 1 2 0v5a1 1 0 1 1-2 0zm1 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
         <span
           class="circuit-3"
         />
@@ -1509,7 +1536,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
 }
 
 .circuit-2 {
-  display: block;
+  position: relative;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: flex-start;
   align-self: flex-start;
@@ -1684,21 +1711,23 @@ exports[`NotificationToast styles should render with default styles 1`] = `
       <div
         class="circuit-1"
       >
-        <svg
+        <div
           class="circuit-2"
-          fill="none"
-          height="24"
-          role="presentation"
-          variant="info"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
-            fill="currentColor"
-          />
-        </svg>
+          <svg
+            fill="none"
+            height="24"
+            role="presentation"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 22.988a10.994 10.994 0 1 0-.012 0H12zm1-6a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0v5zm-1-11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
         <span
           class="circuit-3"
         />
