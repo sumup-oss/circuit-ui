@@ -30,7 +30,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
 import React, { FormEvent } from 'react';
-import { render, screen } from '@testing-library/react';
+import { createEvent, render, screen } from '@testing-library/react';
 
 import { HTMLCircuitInputElement } from '../Input/Input';
 
@@ -58,6 +58,22 @@ describe('useAutoExpand hook', () => {
         rows: undefined,
       });
     });
+
+    test('should pass provided `onInput` as is', () => {
+      const ref = createTextAreaRef();
+      const onInputHandler = jest.fn();
+
+      const {
+        result: { current: modifiedProps },
+      } = renderHook(() =>
+        useAutoExpand(ref, {
+          label: 'test',
+          onInput: onInputHandler,
+        }),
+      );
+
+      expect(modifiedProps.onInput).toEqual(onInputHandler);
+    });
   });
 
   describe('when rows is set as number', () => {
@@ -75,6 +91,23 @@ describe('useAutoExpand hook', () => {
         rows: 2,
       });
       expect(ref.current).not.toHaveAttribute('style');
+    });
+
+    test('should pass provided `onInput` as is', () => {
+      const ref = createTextAreaRef();
+      const onInputHandler = jest.fn();
+
+      const {
+        result: { current: modifiedProps },
+      } = renderHook(() =>
+        useAutoExpand(ref, {
+          label: 'test',
+          rows: 2,
+          onInput: onInputHandler,
+        }),
+      );
+
+      expect(modifiedProps.onInput).toEqual(onInputHandler);
     });
   });
 
@@ -136,6 +169,28 @@ describe('useAutoExpand hook', () => {
       expect(result.current).toHaveProperty('onInput');
       expect(result.current.rows).toEqual(3);
       expect(ref.current).toHaveAttribute('style');
+    });
+
+    test('should modified provided `onInput`', () => {
+      const ref = createTextAreaRef();
+      const onInputHandler = jest.fn();
+
+      const {
+        result: { current: modifiedProps },
+      } = renderHook(() =>
+        useAutoExpand(ref, {
+          label: 'test',
+          rows: 'auto',
+          onInput: onInputHandler,
+        }),
+      );
+
+      expect(modifiedProps.onInput).not.toEqual(onInputHandler);
+      // We need to apply those props on a second textarea for code coverage.
+      render(<textarea aria-label="second" {...modifiedProps} />);
+      expect(onInputHandler).toHaveBeenCalledTimes(0);
+      userEvent.type(screen.getByLabelText('second'), '{space}{space}');
+      expect(onInputHandler).toHaveBeenCalledTimes(2);
     });
 
     test('should allow preventing resize from onInput handler', () => {

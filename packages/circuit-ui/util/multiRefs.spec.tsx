@@ -20,7 +20,7 @@ import { useRef } from 'react';
 import { multiRefs } from './multiRefs';
 
 describe('multiRefs function', () => {
-  test("should populate an reference's `current` member'", () => {
+  test("should populate a reference's `current` member'", () => {
     const {
       result: { current: refAsObject },
     } = renderHook(() => useRef<HTMLDivElement>());
@@ -29,11 +29,13 @@ describe('multiRefs function', () => {
     expect(refAsObject.current).toMatchInlineSnapshot('<div />');
   });
 
-  test("should call a ref it's a function", () => {
+  test("should call a ref if it's a function", () => {
     const refAsFunction = jest.fn();
+
     render(<div ref={multiRefs(refAsFunction)} />);
 
-    expect(refAsFunction).toBeCalled();
+    const lastCall = refAsFunction.mock.calls[0] as JSX.Element[];
+    expect(lastCall[0]).toMatchInlineSnapshot('<div />');
   });
 
   test('should allow multiple refs as arguments', () => {
