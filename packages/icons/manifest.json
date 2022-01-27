@@ -311,6 +311,11 @@
       "size": "24"
     },
     {
+      "name": "pix_full",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "red_compra",
       "category": "Payment method",
       "size": "24"
