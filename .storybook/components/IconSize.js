@@ -19,7 +19,7 @@ import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { Body, spacing } from '@sumup/circuit-ui';
 
-const Box = styled('div')`
+const Box = styled.div`
   ${({ theme, size }) => css`
     width: ${theme.iconSizes[size]};
     height: ${theme.iconSizes[size]};
@@ -28,25 +28,11 @@ const Box = styled('div')`
   `};
 `;
 
-const Wrapper = styled('div')`
+const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
     margin-bottom: ${theme.spacings.mega};
-  `};
-`;
-
-const IconSizeSize = styled('span')`
-  ${({ theme }) => css`
-    color: ${theme.colors.n500};
-  `};
-`;
-
-const IconSizeName = styled(Body)`
-  ${({ theme }) => css`
-    margin-left: ${theme.spacings.kilo};
-    margin-bottom: ${theme.spacings.giga};
-    color: ${theme.colors.n500};
   `};
 `;
 
@@ -58,11 +44,15 @@ const IconSize = ({ size }) => (
         <Body as="span" noMargin css={spacing({ bottom: 'giga' })}>
           {size}
         </Body>
-        <IconSizeSize>
-          <IconSizeName size="two" as="span" noMargin>
-            {light.iconSizes[size]}
-          </IconSizeName>
-        </IconSizeSize>
+        <Body
+          variant="subtle"
+          size="two"
+          as="span"
+          noMargin
+          css={spacing({ bottom: 'giga', left: 'kilo' })}
+        >
+          {light.iconSizes[size]}
+        </Body>
       </div>
     </Wrapper>
   </ThemeProvider>

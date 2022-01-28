@@ -153,9 +153,7 @@ const Icons = () => {
       </Filters>
 
       {isEmpty(activeIcons) ? (
-        <Body noMargin css={spacing({ bottom: 'giga' })}>
-          No icons found
-        </Body>
+        <Body noMargin>No icons found</Body>
       ) : (
         group('category', activeIcons).map(({ category, items }) => (
           <Category key={category}>

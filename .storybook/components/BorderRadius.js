@@ -17,9 +17,9 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Body } from '@sumup/circuit-ui';
+import { Body, spacing } from '@sumup/circuit-ui';
 
-const Box = styled('div')`
+const Box = styled.div`
   ${({ theme, size }) => css`
     width: ${theme.spacings.tera};
     height: ${theme.spacings.tera};
@@ -29,25 +29,11 @@ const Box = styled('div')`
   `};
 `;
 
-const Wrapper = styled('div')`
+const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
     margin-bottom: ${theme.spacings.mega};
-  `};
-`;
-
-const BorderRadiusSize = styled('span')`
-  ${({ theme }) => css`
-    color: ${theme.colors.n500};
-  `};
-`;
-
-const BorderRadiusName = styled(Body)`
-  ${({ theme }) => css`
-    margin-left: ${theme.spacings.kilo};
-    margin-bottom: ${theme.spacings.giga};
-    color: ${theme.colors.n500};
   `};
 `;
 
@@ -58,18 +44,20 @@ const BorderRadius = ({ size, ...props }) => (
       <Body as="span" noMargin>
         {size}
       </Body>
-      <BorderRadiusSize>
-        <BorderRadiusName size="two" as="span">
-          {light.borderRadius[size]}
-        </BorderRadiusName>
-      </BorderRadiusSize>
+      <Body
+        size="two"
+        as="span"
+        noMargin
+        variant="subtle"
+        css={spacing({ bottom: 'giga', left: 'kilo' })}
+      >
+        {light.borderRadius[size]}
+      </Body>
     </div>
   </Wrapper>
 );
 
 BorderRadius.propTypes = {
-  // eslint-disable-next-line
-  theme: PropTypes.object.isRequired,
   size: PropTypes.string.isRequired,
 };
 
