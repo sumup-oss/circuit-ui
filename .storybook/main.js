@@ -26,6 +26,9 @@ module.exports = {
     postcss: false,
     emotionAlias: false,
   },
+  core: {
+    builder: 'webpack5',
+  },
   webpackFinal: createWebpackConfig,
   managerWebpack: createWebpackConfig,
 };
