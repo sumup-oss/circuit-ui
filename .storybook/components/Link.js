@@ -21,7 +21,7 @@ const Link = ({ children, href, ...props }) => {
   }
 
   return (
-    <a css={styles} href={href} target="_blank" {...props}>
+    <a css={styles} href={href} {...props}>
       {children}
     </a>
   );

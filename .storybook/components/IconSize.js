@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Body } from '@sumup/circuit-ui';
+import { Body, spacing } from '@sumup/circuit-ui';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -45,6 +45,7 @@ const IconSizeSize = styled('span')`
 const IconSizeName = styled(Body)`
   ${({ theme }) => css`
     margin-left: ${theme.spacings.kilo};
+    margin-bottom: ${theme.spacings.giga};
     color: ${theme.colors.n500};
   `};
 `;
@@ -54,9 +55,11 @@ const IconSize = ({ size }) => (
     <Wrapper>
       <Box size={size} />
       <div>
-        <Body as="span">{size}</Body>
+        <Body as="span" noMargin css={spacing({ bottom: 'giga' })}>
+          {size}
+        </Body>
         <IconSizeSize>
-          <IconSizeName size="two" as="span">
+          <IconSizeName size="two" as="span" noMargin>
             {light.iconSizes[size]}
           </IconSizeName>
         </IconSizeSize>

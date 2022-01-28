@@ -18,7 +18,7 @@
 import PropTypes from 'prop-types';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Badge, Body } from '@sumup/circuit-ui';
+import { Badge, Body, spacing } from '@sumup/circuit-ui';
 
 const variants = {
   stable: { variant: 'success', label: 'Stable' },
@@ -46,8 +46,7 @@ const Status = ({ variant: status = 'stable' }) => {
 
 Status.Description = ({ children }) => (
   <ThemeProvider theme={light}>
-    <Body size="two" as="span">
-      {' '}
+    <Body size="two" as="span" noMargin css={spacing({ bottom: 'giga' })}>
       {children}
     </Body>
   </ThemeProvider>

@@ -17,9 +17,9 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Body } from '@sumup/circuit-ui';
+import { Body, spacing } from '@sumup/circuit-ui';
 
-const Box = styled('div')`
+const Box = styled.div`
   ${({ theme, spacingName }) => css`
     width: ${theme.spacings[spacingName]};
     height: ${theme.spacings[spacingName]};
@@ -28,24 +28,11 @@ const Box = styled('div')`
   `};
 `;
 
-const Wrapper = styled('div')`
+const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
     margin-bottom: ${theme.spacings.mega};
-  `};
-`;
-
-const SpacingSize = styled('span')`
-  ${({ theme }) => css`
-    color: ${theme.colors.n500};
-  `};
-`;
-
-const SpacingName = styled(Body)`
-  ${({ theme }) => css`
-    margin-left: ${theme.spacings.kilo};
-    color: ${theme.colors.n500};
   `};
 `;
 
@@ -54,12 +41,18 @@ const Spacing = ({ spacingName }) => (
     <Wrapper>
       <Box spacingName={spacingName} />
       <div>
-        <Body as="span">{spacingName}</Body>
-        <SpacingSize>
-          <SpacingName size="two" as="span">
-            {light.spacings[spacingName]}
-          </SpacingName>
-        </SpacingSize>
+        <Body as="span" noMargin css={spacing({ bottom: 'giga' })}>
+          {spacingName}
+        </Body>
+        <Body
+          size="two"
+          as="span"
+          noMargin
+          variant="subtle"
+          css={spacing({ left: 'kilo', bottom: 'giga' })}
+        >
+          {light.spacings[spacingName]}
+        </Body>
       </div>
     </Wrapper>
   </ThemeProvider>

@@ -27,6 +27,7 @@ import {
   Label,
   SearchInput,
   Select,
+  spacing,
 } from '@sumup/circuit-ui';
 
 function group(key, collection) {
@@ -77,14 +78,15 @@ const IconWrapper = styled.div`
   height: 64px; /* 2 * 32px icon */
 `;
 
-const iconStyles = (color) => (theme) => css`
-  transform: scale(2);
-  max-width: 3rem;
-  color: ${theme.colors[color]};
-  background-color: ${color === 'white'
-    ? theme.colors.black
-    : theme.colors.bodyBg};
-`;
+const iconStyles = (color) => (theme) =>
+  css`
+    transform: scale(2);
+    max-width: 3rem;
+    color: ${theme.colors[color]};
+    background-color: ${color === 'white'
+      ? theme.colors.black
+      : theme.colors.bodyBg};
+  `;
 
 const Icons = () => {
   const [search, setSearch] = useState('');
@@ -151,11 +153,18 @@ const Icons = () => {
       </Filters>
 
       {isEmpty(activeIcons) ? (
-        <Body>No icons found</Body>
+        <Body noMargin css={spacing({ bottom: 'giga' })}>
+          No icons found
+        </Body>
       ) : (
         group('category', activeIcons).map(({ category, items }) => (
           <Category key={category}>
-            <Headline as="h3" size="three">
+            <Headline
+              as="h3"
+              size="three"
+              noMargin
+              css={spacing({ bottom: 'giga' })}
+            >
               {category}
             </Headline>
             <List>
@@ -166,11 +175,7 @@ const Icons = () => {
                 return (
                   <Wrapper key={id}>
                     <IconWrapper>
-                      <Icon
-                        id={id}
-                        size={icon.size}
-                        css={iconStyles(color)}
-                      />
+                      <Icon id={id} size={icon.size} css={iconStyles(color)} />
                     </IconWrapper>
                     <Label htmlFor="id">
                       {icon.name}

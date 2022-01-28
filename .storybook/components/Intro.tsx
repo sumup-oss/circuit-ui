@@ -13,29 +13,24 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-import { css, ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react';
+import { BodyLarge, spacing } from '@sumup/circuit-ui';
 import { light } from '@sumup/design-tokens';
-import { Body } from '@sumup/circuit-ui';
 
-const StyledText = styled(Body)(
-  ({ theme }) => css`
-    line-height: 1.66 !important;
-    font-size: 20px !important;
-    color: ${theme.colors.n700};
-    margin-bottom: ${theme.spacings.giga};
+import type { BodyLargeProps } from '@sumup/circuit-ui';
 
-    * {
-      line-height: 1.66 !important;
-      font-size: 20px !important;
-    }
-  `,
-);
-
-const Intro = ({ children, ...props }) => (
-  <ThemeProvider theme={light}>
-    <StyledText {...props}>{children}</StyledText>
-  </ThemeProvider>
-);
+function Intro({
+  children,
+}: {
+  children: BodyLargeProps['children'];
+}): JSX.Element {
+  return (
+    <ThemeProvider theme={light}>
+      <BodyLarge variant="subtle" css={spacing({ bottom: 'giga' })}>
+        {children}
+      </BodyLarge>
+    </ThemeProvider>
+  );
+}
 
 export default Intro;
