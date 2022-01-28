@@ -47,6 +47,7 @@ const BorderWidthSize = styled('span')`
 const BorderWidthName = styled(Body)`
   ${({ theme }) => css`
     margin-left: ${theme.spacings.kilo};
+    margin-bottom: ${theme.spacings.giga};
     color: ${theme.colors.n500};
   `};
 `;
@@ -56,7 +57,9 @@ const BorderWidth = ({ size }) => (
     <Wrapper>
       <Box size={size} />
       <div>
-        <Body as="span">{size}</Body>
+        <Body as="span" noMargin>
+          {size}
+        </Body>
         <BorderWidthSize>
           <BorderWidthName size="two" as="span">
             {light.borderWidth[size]}

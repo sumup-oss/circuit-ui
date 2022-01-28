@@ -46,6 +46,7 @@ const BorderRadiusSize = styled('span')`
 const BorderRadiusName = styled(Body)`
   ${({ theme }) => css`
     margin-left: ${theme.spacings.kilo};
+    margin-bottom: ${theme.spacings.giga};
     color: ${theme.colors.n500};
   `};
 `;
@@ -54,7 +55,9 @@ const BorderRadius = ({ size, ...props }) => (
   <Wrapper>
     <Box size={size} {...props} />
     <div>
-      <Body as="span">{size}</Body>
+      <Body as="span" noMargin>
+        {size}
+      </Body>
       <BorderRadiusSize>
         <BorderRadiusName size="two" as="span">
           {light.borderRadius[size]}

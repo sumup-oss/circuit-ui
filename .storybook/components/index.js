@@ -13,27 +13,18 @@
  * limitations under the License.
  */
 
-import {
-  ArgsTable as Props,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
+import { ArgsTable as Props, PRIMARY_STORY } from '@storybook/addon-docs';
 
 Props.defaultProps = { ...Props.defaultProps, story: PRIMARY_STORY };
 
 export { Props };
 
-export {
-  Meta,
-  IconGallery,
-  IconItem,
-  Typeset,
-} from '@storybook/addon-docs';
+export { Meta, IconGallery, IconItem, Typeset } from '@storybook/addon-docs';
 
 export { default as Status } from './Statuses';
 export { default as Preview } from './Preview';
 export { default as Story } from './Story';
 export { default as Swatch } from './Swatch';
-export { default as Type } from './Type';
 export { default as Spacing } from './Spacing';
 export { default as MediaQueriesTable } from './MediaQueriesTable';
 export { default as BorderWidth } from './BorderWidth';

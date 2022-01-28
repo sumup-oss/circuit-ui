@@ -13,17 +13,19 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
+import { light, Theme } from '@sumup/design-tokens';
 import { Body } from '@sumup/circuit-ui';
+
+type StyleProps = { theme: Theme };
+type SwatchProps = { colorName: string };
 
 const SWATCH_WIDTH = '99px';
 const SWATCH_HEIGHT = '99px';
 
-const ColorWrapper = styled('div')`
-  ${({ theme }) => css`
+const ColorWrapper = styled.div`
+  ${({ theme }: StyleProps) => css`
     display: inline-block;
     margin-right: ${theme.spacings.kilo};
     margin-bottom: ${theme.spacings.kilo};
@@ -32,8 +34,8 @@ const ColorWrapper = styled('div')`
   `};
 `;
 
-const Color = styled('div')`
-  ${({ theme, colorName }) => css`
+const Color = styled.div`
+  ${({ theme, colorName }: StyleProps & SwatchProps) => css`
     width: ${SWATCH_WIDTH};
     height: ${SWATCH_HEIGHT};
     border-radius: ${theme.borderRadius.mega};
@@ -41,38 +43,28 @@ const Color = styled('div')`
   `};
 `;
 
-const ColorName = styled('div')`
-  ${({ theme }) => css`
+const ColorName = styled.div`
+  ${({ theme }: { theme: Theme }) => css`
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   `};
 `;
 
-const ColorHex = styled(Body)`
-  ${({ theme }) => css`
-    color: ${theme.colors.n500};
-  `};
-`;
-
-const Swatch = ({ colorName }) => (
-  <ThemeProvider theme={light}>
-    <ColorWrapper>
-      <Color colorName={colorName} />
-      <ColorName>
-        <Body variant="highlight" size="two" noMargin>
-          {colorName}
-        </Body>
-        <ColorHex as="p" size="two" noMargin>
-          {light.colors[colorName]}
-        </ColorHex>
-      </ColorName>
-    </ColorWrapper>
-  </ThemeProvider>
-);
-
-Swatch.propTypes = {
-  // eslint-disable-next-line
-  theme: PropTypes.object.isRequired,
-  colorName: PropTypes.string.isRequired,
-};
+function Swatch({ colorName }: SwatchProps): JSX.Element {
+  return (
+    <ThemeProvider theme={light}>
+      <ColorWrapper>
+        <Color colorName={colorName} />
+        <ColorName>
+          <Body variant="highlight" size="two" noMargin>
+            {colorName}
+          </Body>
+          <Body variant="subtle" size="two" noMargin>
+            {light.colors[colorName]}
+          </Body>
+        </ColorName>
+      </ColorWrapper>
+    </ThemeProvider>
+  );
+}
 
 export default Swatch;
