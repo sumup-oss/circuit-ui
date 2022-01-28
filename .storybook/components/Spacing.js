@@ -59,8 +59,6 @@ const Spacing = ({ spacingName }) => (
 );
 
 Spacing.propTypes = {
-  // eslint-disable-next-line
-  theme: PropTypes.object.isRequired,
   spacingName: PropTypes.string.isRequired,
 };
 
