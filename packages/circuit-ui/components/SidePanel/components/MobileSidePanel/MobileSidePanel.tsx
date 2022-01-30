@@ -26,15 +26,19 @@ const PORTAL_CLASS_NAME = 'ReactModalPortal__SidePanel';
 
 type MobileSidePanelProps = Omit<
   SidePanelProps,
-  'closeButtonLabel' | 'isMobile'
+  'backButtonLabel' | 'closeButtonLabel' | 'headline' | 'isMobile' | 'top'
 >;
 
 const contentStyles = ({ theme }: StyleProps) => css`
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   padding: ${theme.spacings.mega};
-  padding-bottom: calc(env(safe-area-inset-bottom) + ${theme.spacings.mega});
+  padding: calc(env(safe-area-inset-top) + ${theme.spacings.mega})
+    calc(env(safe-area-inset-right) + ${theme.spacings.mega})
+    calc(env(safe-area-inset-bottom) + ${theme.spacings.mega})
+    calc(env(safe-area-inset-left) + ${theme.spacings.mega});
   width: 100vw;
+  height: 100vh;
 `;
 
 const Content = styled.div(contentStyles);
@@ -52,24 +56,18 @@ export const MobileSidePanel = ({
       const styles = {
         base: cx(
           cssString`
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            height: 100%;
             outline: none;
             background-color: ${theme.colors.white};
             transform: translateY(100%);
             transition: transform ${TRANSITION_DURATION}ms ease-in-out;
           `,
         ),
-        // The !important below is necessary because of some weird
-        // style specificity issues in Emotion.
         afterOpen: cssString`
-          transform: translateY(0) !important;
+          transform: translateY(0);
         `,
         beforeClose: cssString`
-          transform: translateY(100%) !important;
+          transform: translateY(100%);
         `,
       };
 

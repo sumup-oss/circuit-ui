@@ -356,6 +356,7 @@ export const Popover = ({
     triggerEl.current,
     popperElement,
     {
+      strategy: 'fixed',
       placement,
       modifiers: [mobilePosition, flip, eventListeners, ...modifiers],
     },

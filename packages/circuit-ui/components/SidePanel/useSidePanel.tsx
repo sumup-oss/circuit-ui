@@ -13,34 +13,71 @@
  * limitations under the License.
  */
 
-import { useContext, useMemo, useCallback, useRef } from 'react';
+import { useContext, useMemo, useCallback, useRef, useEffect } from 'react';
 
 import { uniqueId } from '../../util/id';
 
-import { SidePanelContext, SidePanelContextProps } from './SidePanelContext';
+import {
+  SidePanelContext,
+  SidePanelContextProps,
+  SidePanelContextPropsPartial,
+} from './SidePanelContext';
 
-export const useSidePanel = (): {
+type SidePanelHookValue = {
   setSidePanel: (props: SidePanelContextProps) => void;
-  removeSidePanel: () => void;
-} => {
-  const id = useMemo(uniqueId, []);
-  const sidePanelRef = useRef<SidePanelContextProps | null>(null);
+  updateSidePanel: (props: SidePanelContextPropsPartial) => void;
+  removeSidePanel: (type?: SidePanelContextProps['type']) => void;
+};
+
+export const useSidePanel = (): SidePanelHookValue => {
+  const defaultType = useMemo(uniqueId, []);
+  const bottomSidePanelTypeRef = useRef<
+    SidePanelContextProps['type'] | undefined
+  >();
   const context = useContext(SidePanelContext);
 
   const setSidePanel = useCallback(
     (props: SidePanelContextProps): void => {
-      sidePanelRef.current = props;
-      context.setSidePanel({ ...props, id });
+      const sidePanelType = props.type || defaultType;
+      if (!bottomSidePanelTypeRef.current) {
+        bottomSidePanelTypeRef.current = sidePanelType;
+      }
+      context.setSidePanel({ ...props, type: sidePanelType, id: uniqueId() }); // TODD: remove type and go back to using id
     },
-    [context, id],
+    [context, defaultType],
   );
 
-  const removeSidePanel = useCallback((): void => {
-    if (sidePanelRef.current) {
-      context.removeSidePanel({ ...sidePanelRef.current, id });
-      sidePanelRef.current = null;
-    }
-  }, [context, id]);
+  const updateSidePanel = useCallback(
+    (props: SidePanelContextPropsPartial): void => {
+      const sidePanelType = props.type || defaultType;
+      context.updateSidePanel({ ...props, type: sidePanelType });
+    },
+    [context, defaultType],
+  );
 
-  return { setSidePanel, removeSidePanel };
+  const removeSidePanel = useCallback(
+    (type?: SidePanelContextProps['type']): void => {
+      const sidePanelType = type || defaultType;
+      context.removeSidePanel(sidePanelType);
+      if (bottomSidePanelTypeRef.current === sidePanelType) {
+        bottomSidePanelTypeRef.current = undefined;
+      }
+    },
+    [context, defaultType],
+  );
+
+  // Close the side panels when the component that opened them is unmounted.
+  // Removing the first one will remove all others stacked on top of it.
+  const removeSidePanelRef = useRef(removeSidePanel);
+  removeSidePanelRef.current = removeSidePanel;
+  useEffect(
+    () => () => {
+      if (bottomSidePanelTypeRef.current) {
+        removeSidePanelRef.current(bottomSidePanelTypeRef.current);
+      }
+    },
+    [],
+  );
+
+  return { setSidePanel, updateSidePanel, removeSidePanel };
 };

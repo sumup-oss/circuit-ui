@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import { Fragment, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
+import { Props as ReactModalProps } from 'react-modal';
 
 import { isFunction } from '../../util/type-check';
 import CloseButton from '../CloseButton';
@@ -25,19 +26,30 @@ import { DesktopSidePanel } from './components/DesktopSidePanel';
 
 export const TRANSITION_DURATION = 240;
 
-type OnClose = () => void;
+export type CloseCallback = () => void;
 
 export type SidePanelProps = {
+  /**
+   * Text label for the back button for screen readers.
+   * Important for accessibility.
+   */
+  backButtonLabel?: string;
   /**
    * The side panel content. Use a render function when you need access to the
    * `onClose` function.
    */
-  children: ReactNode | (({ onClose }: { onClose: OnClose }) => ReactNode);
+  children:
+    | ReactNode
+    | ((props: Pick<SidePanelProps, 'onBack' | 'onClose'>) => ReactNode);
   /**
    * Text label for the close button for screen readers.
    * Important for accessibility.
    */
   closeButtonLabel: string;
+  /**
+   * The headline/title of the side panel.
+   */
+  headline: string;
   /**
    * Boolean indicating whether the side panel should be in desktop or mobile mode.
    */
@@ -49,8 +61,16 @@ export type SidePanelProps = {
   /**
    * Callback function that is called when the side panel is closed.
    */
-  onClose: OnClose;
-};
+  onBack?: CloseCallback;
+  /**
+   * Callback function that is called when the side panel is closed.
+   */
+  onClose: CloseCallback;
+  /**
+   * The top offset in 'px' applied to the side panel in desktop mode.
+   */
+  top: string;
+} & Pick<ReactModalProps, 'shouldReturnFocusAfterClose' | 'closeTimeoutMS'>;
 
 const closeButtonStyles = (theme: Theme) => css`
   position: absolute;
@@ -60,10 +80,11 @@ const closeButtonStyles = (theme: Theme) => css`
 `;
 
 export const SidePanel = ({
+  backButtonLabel,
   children,
   closeButtonLabel,
+  headline,
   isMobile,
-  onClose,
   ...props
 }: SidePanelProps): JSX.Element => {
   if (
@@ -77,9 +98,12 @@ export const SidePanel = ({
     );
   }
 
-  // TODO: side panel header, close and back buttons, max-width on mobile
-  const panelContent = (
-    <Fragment>
+  const { onBack, onClose } = props;
+  const SidePanelComponent = isMobile ? MobileSidePanel : DesktopSidePanel;
+
+  // TODO: side panel header, close and back buttons, max-width and padding on mobile
+  return (
+    <SidePanelComponent {...props}>
       {closeButtonLabel && (
         <CloseButton
           onClick={onClose}
@@ -88,21 +112,7 @@ export const SidePanel = ({
         />
       )}
 
-      {isFunction(children) ? children({ onClose }) : children}
-    </Fragment>
-  );
-
-  if (isMobile) {
-    return (
-      <MobileSidePanel onClose={onClose} {...props}>
-        {panelContent}
-      </MobileSidePanel>
-    );
-  }
-
-  return (
-    <DesktopSidePanel onClose={onClose} {...props}>
-      {panelContent}
-    </DesktopSidePanel>
+      {isFunction(children) ? children({ onBack, onClose }) : children}
+    </SidePanelComponent>
   );
 };

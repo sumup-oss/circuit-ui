@@ -27,22 +27,37 @@ export const SIDE_PANEL_DESKTOP_WIDTH = 400;
 
 type DesktopSidePanelProps = Omit<
   SidePanelProps,
-  'closeButtonLabel' | 'isMobile'
+  'backButtonLabel' | 'closeButtonLabel' | 'headline' | 'isMobile'
 >;
+
+type ContentProps = { top: string };
 
 const contentStyles = ({ theme }: StyleProps) => css`
   overflow-y: auto;
   padding: ${theme.spacings.giga};
-  padding-bottom: calc(env(safe-area-inset-bottom) + ${theme.spacings.giga});
+  padding: calc(env(safe-area-inset-top) + ${theme.spacings.giga})
+    calc(env(safe-area-inset-right) + ${theme.spacings.giga})
+    calc(env(safe-area-inset-bottom) + ${theme.spacings.giga})
+    ${theme.spacings.giga};
   width: ${SIDE_PANEL_DESKTOP_WIDTH}px;
+  height: 100%;
 `;
 
-const Content = styled.div(contentStyles);
+const contentTopStyles = ({ theme, top }: StyleProps & ContentProps) =>
+  top !== '0px' &&
+  css`
+    padding-top: ${theme.spacings.giga};
+  `;
+
+const Content = styled.div(contentStyles, contentTopStyles);
 
 export const DesktopSidePanel = ({
   children,
   isOpen,
+  onBack,
   onClose,
+  top,
+  ...props
 }: DesktopSidePanelProps): JSX.Element => (
   <ClassNames>
     {({ css: cssString, cx, theme }) => {
@@ -52,10 +67,7 @@ export const DesktopSidePanel = ({
       const styles = {
         base: cx(
           cssString`
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
+            height: 100%;
             outline: none;
             background-color: ${theme.colors.white};
             box-shadow: inset ${theme.borderWidth.kilo} 0px 0px ${theme.colors.n300};
@@ -63,13 +75,11 @@ export const DesktopSidePanel = ({
             transition: transform ${TRANSITION_DURATION}ms ease-in-out;
           `,
         ),
-        // The !important below is necessary because of some weird
-        // style specificity issues in Emotion.
         afterOpen: cssString`
-          transform: translateX(0) !important;
+          transform: translateX(0);
         `,
         beforeClose: cssString`
-          transform: translateX(100%) !important;
+          transform: translateX(100%);
         `,
       };
 
@@ -90,25 +100,25 @@ export const DesktopSidePanel = ({
         onRequestClose: onClose,
         overlayClassName: overlayStyles,
         portalClassName: PORTAL_CLASS_NAME,
-        role: 'complementary',
         shouldCloseOnOverlayClick: false,
+        ...props,
       };
 
       return (
         <StackContext.Provider value={theme.zIndex.modal}>
           <ReactModal {...reactModalProps}>
-            <Content>{children}</Content>
+            <Content top={top}>{children}</Content>
           </ReactModal>
           <Global
             styles={css`
               /* Enable keyboard navigation inside the modal, see https://github.com/reactjs/react-modal/issues/782 */
               .${PORTAL_CLASS_NAME} {
                 position: fixed;
-                top: 0;
+                top: ${top};
                 right: 0;
-                height: 100%;
+                bottom: 0;
                 width: ${SIDE_PANEL_DESKTOP_WIDTH}px;
-                z-index: ${theme.zIndex.modal};
+                z-index: ${theme.zIndex.absolute};
               }
             `}
           />

@@ -28,7 +28,8 @@ export type StackItem = {
 type Action<T extends StackItem> =
   | { type: 'push'; item: T }
   | { type: 'pop'; transition?: Transition }
-  | { type: 'remove'; id: Id; transition?: Transition };
+  | { type: 'remove'; id: Id; transition?: Transition }
+  | { type: 'update'; item: Partial<T> & StackItem };
 
 export type StackDispatch<T extends StackItem> = Dispatch<Action<T>>;
 
@@ -59,6 +60,11 @@ function createReducer<T extends StackItem>() {
         }
 
         return state.filter((s) => s.id !== action.id);
+      }
+      case 'update': {
+        return state.map((s) =>
+          s.id !== action.item.id ? s : { ...s, ...action.item },
+        );
       }
       default: {
         return state;

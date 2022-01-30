@@ -52,6 +52,7 @@ const DefaultChildren = () => {
           setSidePanel({
             children: <Body noMargin>I am a second side panel.</Body>,
             closeButtonLabel: 'Close side panel',
+            headline: 'Second side panel',
           })
         }
       >
@@ -66,13 +67,24 @@ export const Base = (props: SidePanelContextProps): JSX.Element => {
     const { setSidePanel } = useSidePanel();
 
     return (
-      <Button
-        type="button"
-        onClick={() => setSidePanel(props)}
-        css={spacing('mega')}
-      >
-        Open side panel
-      </Button>
+      <>
+        <Button
+          type="button"
+          onClick={() => setSidePanel(props)}
+          css={spacing('mega')}
+        >
+          Open side panel
+        </Button>
+        <Button
+          type="button"
+          onClick={() =>
+            setSidePanel({ ...props, headline: 'Another side panel' })
+          }
+          css={spacing('mega')}
+        >
+          Open another side panel
+        </Button>
+      </>
     );
   };
   return (
@@ -87,4 +99,5 @@ export const Base = (props: SidePanelContextProps): JSX.Element => {
 Base.args = {
   children: DefaultChildren,
   closeButtonLabel: 'Close side panel',
+  headline: 'First side panel',
 } as SidePanelContextProps;
