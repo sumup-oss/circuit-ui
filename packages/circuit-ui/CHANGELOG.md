@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.11.0
+
+### Minor Changes
+
+- [#1319](https://github.com/sumup-oss/circuit-ui/pull/1319) [`98d3f59c`](https://github.com/sumup-oss/circuit-ui/commit/98d3f59c80ead0d4e513721f104a64f024b2e17b) Thanks [@long-lazuli](https://github.com/long-lazuli)! - Added an auto expand behavior to the `TextArea` component.
+
 ## 4.10.2
 
 ### Patch Changes
