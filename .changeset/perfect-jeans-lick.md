@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': minor
 ---
 
-Adds auto expand behavior to TextArea
+Added an auto expand behavior to the `TextArea` component.
