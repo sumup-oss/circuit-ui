@@ -32,6 +32,7 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
 
 .circuit-1 {
   display: inline-block;
+  position: relative;
   width: 16px;
   height: 16px;
   vertical-align: text-top;
@@ -42,20 +43,24 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
 <span
   class="circuit-0"
 >
-  <svg
+  <div
     class="circuit-1"
-    fill="none"
-    height="24"
-    role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
+    color="danger"
   >
-    <path
-      d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm4.71 14.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29l-3.29-3.29-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71l3.29-3.29-3.29-3.29a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l3.29 3.29 3.29-3.29c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L13.408 12l3.29 3.29z"
-      fill="currentColor"
-    />
-  </svg>
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3 11a1 1 0 0 1-1.41 0L8 9.41 6.41 11A1 1 0 0 1 5 9.59L6.59 8 5 6.41A1 1 0 0 1 5 5a1 1 0 0 1 1.41 0L8 6.59 9.59 5A1 1 0 0 1 11 5a1 1 0 0 1 0 1.41L9.41 8 11 9.59A1 1 0 0 1 11 11z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
   This field is required
 </span>
 `;
@@ -74,6 +79,7 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
 
 .circuit-1 {
   display: inline-block;
+  position: relative;
   width: 16px;
   height: 16px;
   vertical-align: text-top;
@@ -84,20 +90,24 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
 <span
   class="circuit-0"
 >
-  <svg
+  <div
     class="circuit-1"
-    fill="none"
-    height="24"
-    role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
+    color="success"
   >
-    <path
-      d="M11.988 1A10.994 10.994 0 1 0 12 1h-.012zm5.77 7.64-7 8a1.008 1.008 0 0 1-1.48.07l-3-3a1.013 1.013 0 0 1-.29-.71 1 1 0 0 1 1-1c.266 0 .52.104.71.29l2.22 2.23 6.3-7.16a1 1 0 1 1 1.54 1.28z"
-      fill="currentColor"
-    />
-  </svg>
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.78 6.62-4 5a.993.993 0 0 1-.72.38H7a1 1 0 0 1-.71-.29l-2-2a1.004 1.004 0 0 1 1.42-1.42L6.92 9.5l3.3-4.12a1 1 0 1 1 1.56 1.24z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
   This field is required
 </span>
 `;
@@ -115,6 +125,7 @@ exports[`ValidationHint styles should render with warning styles 1`] = `
 
 .circuit-1 {
   display: inline-block;
+  position: relative;
   width: 16px;
   height: 16px;
   vertical-align: text-top;
@@ -122,25 +133,46 @@ exports[`ValidationHint styles should render with warning styles 1`] = `
   color: #F5C625;
 }
 
+.circuit-1::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: #000;
+  border-radius: 100%;
+}
+
+.circuit-1 svg {
+  position: relative;
+  z-index: 1;
+}
+
 <span
   class="circuit-0"
 >
-  <svg
+  <div
     class="circuit-1"
-    fill="none"
-    height="24"
-    role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
+    color="warning"
   >
-    <path
-      clip-rule="evenodd"
-      d="M14.544 3.481c-1.13-1.975-3.958-1.975-5.088 0L1.398 17.556C.268 19.53 1.681 22 3.942 22h16.116c2.261 0 3.675-2.47 2.544-4.444L14.544 3.48zM11 8a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0V8zm1 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-      fill="currentColor"
-      fill-rule="evenodd"
-    />
-  </svg>
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM7 5a1 1 0 0 1 2 0v3a1 1 0 0 1-2 0V5zm1 7.5A1.25 1.25 0 1 1 8 10a1.25 1.25 0 0 1 0 2.5z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
   This field is required
 </span>
 `;
