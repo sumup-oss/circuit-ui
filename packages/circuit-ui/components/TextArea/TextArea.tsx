@@ -23,7 +23,15 @@ import { multiRefs } from '../../util/multiRefs';
 import { useAutoExpand } from './useAutoExpand';
 
 export type TextAreaProps = Omit<InputProps, 'rows'> & {
+  /**
+   * The number of visible text lines for the control.
+   * If set to `auto`, the control will auto-expand vertically to show the whole value.
+   */
   rows?: InputProps['rows'] | 'auto';
+  /**
+   * Define the minimum number of visible text lines for the control.
+   * Works only when `rows` is set to `auto`.
+   */
   minRows?: InputProps['rows'];
 };
 
