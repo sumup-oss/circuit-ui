@@ -76,3 +76,12 @@ HiddenLabel.args = {
   placeholder: 'Describe your issue',
   hideLabel: true,
 };
+
+export const AutoExpand = (args: TextAreaProps) => <TextArea {...args} />;
+
+AutoExpand.args = {
+  ...baseArgs,
+  placeholder:
+    'Try writing a long text, textarea auto adapt its height to your text.',
+  rows: 'auto',
+};

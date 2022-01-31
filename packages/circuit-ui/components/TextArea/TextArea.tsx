@@ -13,13 +13,27 @@
  * limitations under the License.
  */
 
-import { forwardRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import { css } from '@emotion/react';
 
 import Input from '../Input';
-import { InputProps } from '../Input/Input';
+import { HTMLCircuitInputElement, InputProps } from '../Input/Input';
+import { multiRefs } from '../../util/multiRefs';
 
-export type TextAreaProps = InputProps;
+import { useAutoExpand } from './useAutoExpand';
+
+export type TextAreaProps = Omit<InputProps, 'rows'> & {
+  /**
+   * The number of visible text lines for the control.
+   * If set to `auto`, the control will auto-expand vertically to show the whole value.
+   */
+  rows?: InputProps['rows'] | 'auto';
+  /**
+   * Define the minimum number of visible text lines for the control.
+   * Works only when `rows` is set to `auto`.
+   */
+  minRows?: InputProps['rows'];
+};
 
 const textAreaStyles = css`
   overflow: auto;
@@ -29,10 +43,20 @@ const textAreaStyles = css`
 /**
  * TextArea component for forms.
  */
-export const TextArea = forwardRef(
-  (props: TextAreaProps, ref: TextAreaProps['ref']) => (
-    <Input {...props} inputStyles={textAreaStyles} as="textarea" ref={ref} />
-  ),
+export const TextArea = forwardRef<HTMLCircuitInputElement, TextAreaProps>(
+  (props, passedRef) => {
+    const localRef = useRef<HTMLCircuitInputElement>(null);
+    const modifiedProps = useAutoExpand(localRef, props);
+
+    return (
+      <Input
+        {...modifiedProps}
+        inputStyles={textAreaStyles}
+        as="textarea"
+        ref={multiRefs(localRef, passedRef)}
+      />
+    );
+  },
 );
 
 TextArea.displayName = 'TextArea';
