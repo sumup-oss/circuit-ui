@@ -70,7 +70,9 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -154,7 +156,9 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -244,7 +248,9 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -335,7 +341,9 @@ exports[`TextArea should render rows props when passed 1`] = `
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -435,7 +443,9 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -539,7 +549,9 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -646,7 +658,9 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -739,7 +753,9 @@ exports[`TextArea should render with default styles 1`] = `
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -821,7 +837,9 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -913,7 +931,9 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -1022,7 +1042,9 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -1111,7 +1133,9 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -1201,7 +1225,9 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -1291,7 +1317,9 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -1396,7 +1424,9 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
@@ -1485,7 +1515,9 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
 >
   <span
     class="circuit-1"
-  />
+  >
+    Textarea
+  </span>
   <div
     class="circuit-2"
   >
