@@ -13,20 +13,37 @@
  * limitations under the License.
  */
 
-import { ThemeProvider } from '@emotion/react';
-import { BodyLarge, spacing } from '@sumup/circuit-ui';
+import { css, ThemeProvider } from '@emotion/react';
+import { BodyLarge, spacing, cx } from '@sumup/circuit-ui';
 import { light } from '@sumup/design-tokens';
 
 import type { BodyLargeProps } from '@sumup/circuit-ui';
+import type { Theme } from '@sumup/design-tokens';
+
+/**
+ * We need this to force children to have bodyLarge typography when the Intro
+ * is rendered as a div.
+ */
+const childrenBodyLargeStyles = (theme: Theme) => css`
+  > * {
+    font-size: ${theme.typography.bodyLarge.fontSize} !important;
+    line-height: ${theme.typography.bodyLarge.lineHeight} !important;
+  }
+`;
 
 function Intro({
   children,
+  ...props
 }: {
   children: BodyLargeProps['children'];
 }): JSX.Element {
   return (
     <ThemeProvider theme={light}>
-      <BodyLarge variant="subtle" css={spacing({ bottom: 'giga' })}>
+      <BodyLarge
+        variant="subtle"
+        css={cx(childrenBodyLargeStyles, spacing({ bottom: 'giga' }))}
+        {...props}
+      >
         {children}
       </BodyLarge>
     </ThemeProvider>
