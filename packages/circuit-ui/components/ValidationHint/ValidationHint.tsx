@@ -43,6 +43,15 @@ const validStyles = ({ theme, showValid }: StyleProps & ValidationHintProps) =>
     color: ${theme.colors.success};
   `;
 
+const warningStyles = ({
+  theme,
+  hasWarning,
+}: StyleProps & ValidationHintProps) =>
+  hasWarning &&
+  css`
+    color: ${theme.colors.n800};
+  `;
+
 const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
   invalid &&
   css`
@@ -54,6 +63,7 @@ const Wrapper = styled('span')<ValidationHintProps>(
   baseStyles,
   validStyles,
   invalidStyles,
+  warningStyles,
 );
 
 const IconWrapper = styled.div(
@@ -134,7 +144,11 @@ export const ValidationHint = ({
   const icon = getIcon(props);
 
   return (
-    <Wrapper invalid={props.invalid} showValid={props.showValid}>
+    <Wrapper
+      invalid={props.invalid}
+      showValid={props.showValid}
+      hasWarning={props.hasWarning}
+    >
       {icon}
       {validationHint}
     </Wrapper>
