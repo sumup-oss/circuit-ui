@@ -16,14 +16,13 @@
 import { Fragment } from 'react';
 
 import Button from '../Button';
-import Headline from '../Headline';
 import Body from '../Body';
 import { ModalProvider } from '../ModalContext';
 import { spacing } from '../../styles/style-mixins';
 
 import docs from './SidePanel.docs.mdx';
-import { SidePanelContextProps, SidePanelProvider } from './SidePanelContext';
-import { useSidePanel } from './useSidePanel';
+import { SidePanelProvider } from './SidePanelContext';
+import { useSidePanel, SidePanelHookProps } from './useSidePanel';
 import { SidePanel } from './SidePanel';
 
 export default {
@@ -40,9 +39,6 @@ const DefaultChildren = () => {
   const { setSidePanel } = useSidePanel();
   return (
     <Fragment>
-      <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
-        Hello World!
-      </Headline>
       <Body noMargin css={spacing({ bottom: 'mega' })}>
         I am a side panel.
       </Body>
@@ -50,8 +46,9 @@ const DefaultChildren = () => {
         type="button"
         onClick={() =>
           setSidePanel({
-            children: <Body noMargin>I am a second side panel.</Body>,
-            closeButtonLabel: 'Close side panel',
+            children: <Body noMargin>I am the second side panel.</Body>,
+            backButtonLabel: 'Back',
+            closeButtonLabel: 'Close',
             headline: 'Second side panel',
           })
         }
@@ -62,7 +59,7 @@ const DefaultChildren = () => {
   );
 };
 
-export const Base = (props: SidePanelContextProps): JSX.Element => {
+export const Base = (props: SidePanelHookProps): JSX.Element => {
   const ComponentWithSidePanel = () => {
     const { setSidePanel } = useSidePanel();
 
@@ -98,6 +95,6 @@ export const Base = (props: SidePanelContextProps): JSX.Element => {
 
 Base.args = {
   children: DefaultChildren,
-  closeButtonLabel: 'Close side panel',
+  closeButtonLabel: 'Close',
   headline: 'First side panel',
-} as SidePanelContextProps;
+} as SidePanelHookProps;

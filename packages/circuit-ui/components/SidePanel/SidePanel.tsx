@@ -15,18 +15,23 @@
 
 import { ReactNode } from 'react';
 import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 import { Props as ReactModalProps } from 'react-modal';
 
+import styled, { StyleProps } from '../../styles/styled';
 import { isFunction } from '../../util/type-check';
-import CloseButton from '../CloseButton';
 
 import { MobileSidePanel } from './components/MobileSidePanel';
 import { DesktopSidePanel } from './components/DesktopSidePanel';
+import { Header } from './components/Header';
 
+const BODY_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Body--open';
+export const HTML_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Html--open';
+export const PORTAL_CLASS_NAME = 'ReactModalPortal__SidePanel';
 export const TRANSITION_DURATION = 240;
+export const DESKTOP_WIDTH = 400;
+export const BODY_MAX_WIDTH = 480;
 
-export type CloseCallback = () => void;
+export type OnClose = () => void;
 
 export type SidePanelProps = {
   /**
@@ -36,7 +41,7 @@ export type SidePanelProps = {
   backButtonLabel?: string;
   /**
    * The side panel content. Use a render function when you need access to the
-   * `onClose` function.
+   * `onBack` and `onClose` functions.
    */
   children:
     | ReactNode
@@ -47,7 +52,7 @@ export type SidePanelProps = {
    */
   closeButtonLabel: string;
   /**
-   * The headline/title of the side panel.
+   * The headline of the side panel.
    */
   headline: string;
   /**
@@ -55,29 +60,60 @@ export type SidePanelProps = {
    */
   isMobile: boolean;
   /**
-   * Boolean indicating whether the side panel should be shown or not.
+   * Callback function that is called when the side panel is closed.
    */
-  isOpen: boolean;
+  onBack?: OnClose;
   /**
    * Callback function that is called when the side panel is closed.
    */
-  onBack?: CloseCallback;
-  /**
-   * Callback function that is called when the side panel is closed.
-   */
-  onClose: CloseCallback;
+  onClose: OnClose;
   /**
    * The top offset in 'px' applied to the side panel in desktop mode.
    */
   top: string;
-} & Pick<ReactModalProps, 'shouldReturnFocusAfterClose' | 'closeTimeoutMS'>;
+} & Pick<
+  ReactModalProps,
+  'closeTimeoutMS' | 'isOpen' | 'onAfterClose' | 'shouldReturnFocusAfterClose'
+>;
 
-const closeButtonStyles = (theme: Theme) => css`
-  position: absolute;
-  top: ${theme.spacings.byte};
-  right: ${theme.spacings.byte};
-  z-index: ${theme.zIndex.absolute};
+type ContentProps = { top: string };
+
+const contentStyles = ({ theme }: StyleProps) => css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  width: 100%;
+  height: 100%;
+
+  ${theme.mq.mega} {
+    padding-left: 0;
+  }
 `;
+
+const contentTopStyles = ({ top }: ContentProps) =>
+  top !== '0px' &&
+  css`
+    padding-top: 0;
+  `;
+
+const Content = styled.div(contentStyles, contentTopStyles);
+
+const bodyStyles = ({ theme }: StyleProps) => css`
+  width: 100%;
+  max-width: ${BODY_MAX_WIDTH}px;
+  padding: 0 ${theme.spacings.mega};
+
+  ${theme.mq.kilo} {
+    padding: 0 ${theme.spacings.giga};
+  }
+`;
+
+const Body = styled.div(bodyStyles);
 
 export const SidePanel = ({
   backButtonLabel,
@@ -85,34 +121,51 @@ export const SidePanel = ({
   closeButtonLabel,
   headline,
   isMobile,
+  onBack,
+  onClose,
   ...props
 }: SidePanelProps): JSX.Element => {
   if (
     process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
     process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    !closeButtonLabel
+    process.env.NODE_ENV !== 'test'
   ) {
-    throw new Error(
-      'The side panel is missing a `closeButtonLabel` prop. This is an accessibility requirement.',
-    );
+    if (!closeButtonLabel) {
+      throw new Error(
+        'The side panel is missing a `closeButtonLabel` prop. This is an accessibility requirement.',
+      );
+    }
+    if (onBack && !backButtonLabel) {
+      throw new Error(
+        'The side panel is missing a `backButtonLabel` prop. This is an accessibility requirement.',
+      );
+    }
   }
 
-  const { onBack, onClose } = props;
   const SidePanelComponent = isMobile ? MobileSidePanel : DesktopSidePanel;
 
-  // TODO: side panel header, close and back buttons, max-width and padding on mobile
-  return (
-    <SidePanelComponent {...props}>
-      {closeButtonLabel && (
-        <CloseButton
-          onClick={onClose}
-          label={closeButtonLabel}
-          css={closeButtonStyles}
-        />
-      )}
+  const defaultProps = {
+    bodyOpenClassName: BODY_OPEN_CLASS_NAME,
+    closeTimeoutMS: TRANSITION_DURATION,
+    htmlOpenClassName: HTML_OPEN_CLASS_NAME,
+    onRequestClose: onBack || onClose,
+    portalClassName: PORTAL_CLASS_NAME,
+  };
 
-      {isFunction(children) ? children({ onBack, onClose }) : children}
+  return (
+    <SidePanelComponent {...defaultProps} {...props}>
+      <Content top={props.top}>
+        <Header
+          backButtonLabel={backButtonLabel}
+          closeButtonLabel={closeButtonLabel}
+          headline={headline}
+          onBack={onBack}
+          onClose={onClose}
+        />
+        <Body>
+          {isFunction(children) ? children({ onBack, onClose }) : children}
+        </Body>
+      </Content>
     </SidePanelComponent>
   );
 };

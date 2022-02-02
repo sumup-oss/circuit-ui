@@ -16,65 +16,34 @@
 import { css, ClassNames, Global } from '@emotion/react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
-import styled, { StyleProps } from '../../../../styles/styled';
 import { StackContext } from '../../../StackContext';
-import { SidePanelProps, TRANSITION_DURATION } from '../../SidePanel';
-
-const BODY_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Body--open';
-const HTML_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Html--open';
-const PORTAL_CLASS_NAME = 'ReactModalPortal__SidePanel';
-export const SIDE_PANEL_DESKTOP_WIDTH = 400;
-
-type DesktopSidePanelProps = Omit<
+import {
   SidePanelProps,
-  'backButtonLabel' | 'closeButtonLabel' | 'headline' | 'isMobile'
->;
+  DESKTOP_WIDTH,
+  PORTAL_CLASS_NAME,
+  TRANSITION_DURATION,
+} from '../../SidePanel';
 
-type ContentProps = { top: string };
-
-const contentStyles = ({ theme }: StyleProps) => css`
-  overflow-y: auto;
-  padding: ${theme.spacings.giga};
-  padding: calc(env(safe-area-inset-top) + ${theme.spacings.giga})
-    calc(env(safe-area-inset-right) + ${theme.spacings.giga})
-    calc(env(safe-area-inset-bottom) + ${theme.spacings.giga})
-    ${theme.spacings.giga};
-  width: ${SIDE_PANEL_DESKTOP_WIDTH}px;
-  height: 100%;
-`;
-
-const contentTopStyles = ({ theme, top }: StyleProps & ContentProps) =>
-  top !== '0px' &&
-  css`
-    padding-top: ${theme.spacings.giga};
-  `;
-
-const Content = styled.div(contentStyles, contentTopStyles);
+type DesktopSidePanelProps = ReactModalProps & Pick<SidePanelProps, 'top'>;
 
 export const DesktopSidePanel = ({
   children,
-  isOpen,
-  onBack,
-  onClose,
   top,
   ...props
 }: DesktopSidePanelProps): JSX.Element => (
   <ClassNames>
-    {({ css: cssString, cx, theme }) => {
+    {({ css: cssString, theme }) => {
       // React Modal styles
       // https://reactcommunity.org/react-modal/styles/classes/
-
       const styles = {
-        base: cx(
-          cssString`
-            height: 100%;
-            outline: none;
-            background-color: ${theme.colors.white};
-            box-shadow: inset ${theme.borderWidth.kilo} 0px 0px ${theme.colors.n300};
-            transform: translateX(100%);
-            transition: transform ${TRANSITION_DURATION}ms ease-in-out;
-          `,
-        ),
+        base: cssString`
+          height: 100%;
+          outline: none;
+          background-color: ${theme.colors.white};
+          box-shadow: inset ${theme.borderWidth.kilo} 0px 0px ${theme.colors.n300};
+          transform: translateX(100%);
+          transition: transform ${TRANSITION_DURATION}ms ease-in-out;
+        `,
         afterOpen: cssString`
           transform: translateX(0);
         `,
@@ -92,23 +61,15 @@ export const DesktopSidePanel = ({
           modal: false,
         },
         ariaHideApp: false,
-        bodyOpenClassName: BODY_OPEN_CLASS_NAME,
         className: styles,
-        closeTimeoutMS: TRANSITION_DURATION,
-        htmlOpenClassName: HTML_OPEN_CLASS_NAME,
-        isOpen,
-        onRequestClose: onClose,
         overlayClassName: overlayStyles,
-        portalClassName: PORTAL_CLASS_NAME,
         shouldCloseOnOverlayClick: false,
         ...props,
       };
 
       return (
         <StackContext.Provider value={theme.zIndex.modal}>
-          <ReactModal {...reactModalProps}>
-            <Content top={top}>{children}</Content>
-          </ReactModal>
+          <ReactModal {...reactModalProps}>{children}</ReactModal>
           <Global
             styles={css`
               /* Enable keyboard navigation inside the modal, see https://github.com/reactjs/react-modal/issues/782 */
@@ -117,7 +78,7 @@ export const DesktopSidePanel = ({
                 top: ${top};
                 right: 0;
                 bottom: 0;
-                width: ${SIDE_PANEL_DESKTOP_WIDTH}px;
+                width: ${DESKTOP_WIDTH}px;
                 z-index: ${theme.zIndex.absolute};
               }
             `}

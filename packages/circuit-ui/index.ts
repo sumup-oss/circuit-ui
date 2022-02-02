@@ -164,12 +164,11 @@ export { default as ListItem } from './components/ListItem';
 export type { ListItemProps } from './components/ListItem';
 export { default as ListItemGroup } from './components/ListItemGroup';
 export type { ListItemGroupProps } from './components/ListItemGroup';
-export { SidePanelProvider } from './components/SidePanel';
+export { SidePanelProvider, useSidePanel } from './components/SidePanel';
 export type {
   SidePanelProviderProps,
-  SidePanelContextProps,
+  SidePanelHookProps,
 } from './components/SidePanel';
-export { useSidePanel } from './components/SidePanel';
 
 export { default as Table } from './components/Table';
 export type {

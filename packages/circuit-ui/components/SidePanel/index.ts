@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-export { useSidePanel } from './useSidePanel';
-
 export { SidePanelProvider } from './SidePanelContext';
 
-export type {
-  SidePanelProviderProps,
-  SidePanelContextProps,
-} from './SidePanelContext';
+export { useSidePanel } from './useSidePanel';
+
+export type { SidePanelProviderProps } from './SidePanelContext';
+
+export type { SidePanelHookProps } from './useSidePanel';

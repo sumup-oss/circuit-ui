@@ -81,19 +81,22 @@ export function useStack<T extends StackItem>(
   const [state, dispatch] = useReducer(reducer, initialStack);
 
   useEffect(() => {
-    const itemToRemove = state.find((item) => item.transition);
+    const itemsToRemove = state.filter((item) => item.transition);
 
-    if (!itemToRemove) {
+    if (itemsToRemove.length === 0) {
       return;
     }
 
-    setTimeout(
-      () => {
-        dispatch({ type: 'remove', id: itemToRemove.id });
-      },
-      // We found the item by the `transition` property, so we can be sure it exists.
-      (itemToRemove.transition as Transition).duration,
-    );
+    // Remove in reverse order
+    itemsToRemove.reverse().forEach((itemToRemove) => {
+      setTimeout(
+        () => {
+          dispatch({ type: 'remove', id: itemToRemove.id });
+        },
+        // We found the item by the `transition` property, so we can be sure it exists.
+        (itemToRemove.transition as Transition).duration,
+      );
+    });
   }, [state, dispatch]);
 
   return [state, dispatch];

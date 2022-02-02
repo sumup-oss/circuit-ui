@@ -17,48 +17,53 @@ import { useContext, useMemo, useCallback, useRef, useEffect } from 'react';
 
 import { uniqueId } from '../../util/id';
 
-import {
-  SidePanelContext,
-  SidePanelContextProps,
-  SidePanelContextPropsPartial,
-} from './SidePanelContext';
+import { SidePanelContext, SidePanelContextProps } from './SidePanelContext';
 
-type SidePanelHookValue = {
-  setSidePanel: (props: SidePanelContextProps) => void;
-  updateSidePanel: (props: SidePanelContextPropsPartial) => void;
-  removeSidePanel: (type?: SidePanelContextProps['type']) => void;
+export type SidePanelHookProps = Omit<SidePanelContextProps, 'type'> & {
+  type?: SidePanelContextProps['type'];
 };
 
-export const useSidePanel = (): SidePanelHookValue => {
+type SetSidePanel = (props: SidePanelHookProps) => void;
+
+type UpdateSidePanel = (props: Partial<SidePanelHookProps>) => void;
+
+type RemoveSidePanel = (type?: SidePanelHookProps['type']) => void;
+
+type UseSidePanelHook = () => {
+  setSidePanel: SetSidePanel;
+  updateSidePanel: UpdateSidePanel;
+  removeSidePanel: RemoveSidePanel;
+};
+
+export const useSidePanel: UseSidePanelHook = () => {
   const defaultType = useMemo(uniqueId, []);
-  const bottomSidePanelTypeRef = useRef<
-    SidePanelContextProps['type'] | undefined
-  >();
+  const bottomSidePanelTypeRef =
+    useRef<SidePanelContextProps['type'] | undefined>();
   const context = useContext(SidePanelContext);
 
-  const setSidePanel = useCallback(
-    (props: SidePanelContextProps): void => {
+  const setSidePanel = useCallback<SetSidePanel>(
+    (props) => {
       const sidePanelType = props.type || defaultType;
       if (!bottomSidePanelTypeRef.current) {
         bottomSidePanelTypeRef.current = sidePanelType;
       }
-      context.setSidePanel({ ...props, type: sidePanelType, id: uniqueId() }); // TODD: remove type and go back to using id
+      context.setSidePanel({ ...props, type: sidePanelType, id: uniqueId() });
     },
     [context, defaultType],
   );
 
-  const updateSidePanel = useCallback(
-    (props: SidePanelContextPropsPartial): void => {
+  const updateSidePanel = useCallback<UpdateSidePanel>(
+    (props) => {
       const sidePanelType = props.type || defaultType;
       context.updateSidePanel({ ...props, type: sidePanelType });
     },
     [context, defaultType],
   );
 
-  const removeSidePanel = useCallback(
-    (type?: SidePanelContextProps['type']): void => {
+  const removeSidePanel = useCallback<RemoveSidePanel>(
+    (type) => {
       const sidePanelType = type || defaultType;
-      context.removeSidePanel(sidePanelType);
+      context.removeSidePanel(sidePanelType).catch(() => {});
       if (bottomSidePanelTypeRef.current === sidePanelType) {
         bottomSidePanelTypeRef.current = undefined;
       }

@@ -22,7 +22,7 @@ import {
   useEffect,
 } from 'react';
 import { css, useTheme } from '@emotion/react';
-import ReactModal, { Props as ReactModalProps } from 'react-modal';
+import ReactModal from 'react-modal';
 import { useClickTrigger } from '@sumup/collector';
 
 import styled from '../../styles/styled';
@@ -30,15 +30,15 @@ import { useMedia } from '../../hooks/useMedia';
 import { TrackingProps } from '../../hooks/useClickEvent';
 import { useStack, StackItem } from '../../hooks/useStack';
 import { warn } from '../../util/logger';
-import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation'; // TODO: OK to reference another component?
+import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation';
 
 import {
-  CloseCallback,
+  OnClose,
   SidePanel,
   SidePanelProps,
+  DESKTOP_WIDTH,
   TRANSITION_DURATION,
 } from './SidePanel';
-import { SIDE_PANEL_DESKTOP_WIDTH } from './components/DesktopSidePanel';
 
 // It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the side panel is open on mobile.
@@ -65,47 +65,53 @@ if (typeof window !== 'undefined') {
   }
 }
 
-export type SidePanelContextProps = Pick<
+export type SidePanelContextProps = Omit<
   SidePanelProps,
-  'backButtonLabel' | 'children' | 'closeButtonLabel' | 'headline'
+  'isMobile' | 'isOpen' | 'onBack' | 'onClose' | 'top'
 > & {
+  /**
+   * Callback function that is called when the side panel is closed.
+   */
+  onClose?: OnClose;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
   /**
    * The type of the side panel. Opening a second side panel with
    * the same `type` will replace the content and close all side panels
    * stacked on top of it. Only panels of different type stack one on top of the other.
    */
-  type?: string; // TODO: should be required for context methods and optional for hook
-  /**
-   * Callback function that is called when the side panel is closed.
-   */
-  onClose?: CloseCallback;
-  /**
-   * Additional data that is dispatched with the tracking event.
-   */
-  tracking?: TrackingProps;
+  type: string;
 };
 
-export type SidePanelContextPropsPartial = Partial<SidePanelContextProps>;
+type SidePanelContextItem = SidePanelContextProps & StackItem;
 
-type SidePanelContextItem = SidePanelContextProps &
-  StackItem &
-  Pick<ReactModalProps, 'shouldReturnFocusAfterClose' | 'closeTimeoutMS'>;
+type SetSidePanel = (
+  sidePanel: SidePanelContextProps & Pick<StackItem, 'id'>,
+) => void;
+
+type UpdateSidePanel = (
+  sidePanel: Partial<SidePanelContextProps> & {
+    type: SidePanelContextProps['type'];
+  },
+) => void;
+
+type RemoveSidePanel = (
+  type: SidePanelContextProps['type'],
+  isShortTransition?: boolean,
+) => Promise<void | void[]>;
 
 export type SidePanelContextValue = {
-  setSidePanel: (
-    sidePanel: SidePanelContextProps & Pick<StackItem, 'id'>,
-  ) => void;
-  updateSidePanel: (sidePanel: SidePanelContextPropsPartial) => void;
-  removeSidePanel: (
-    type: SidePanelContextProps['type'],
-    shouldReturnFocusAfterClose?: boolean,
-  ) => void;
+  setSidePanel: SetSidePanel;
+  updateSidePanel: UpdateSidePanel;
+  removeSidePanel: RemoveSidePanel;
 };
 
 export const SidePanelContext = createContext<SidePanelContextValue>({
   setSidePanel: () => {},
   updateSidePanel: () => {},
-  removeSidePanel: () => {},
+  removeSidePanel: () => Promise.resolve(),
 });
 
 export interface SidePanelProviderProps {
@@ -121,15 +127,17 @@ export interface SidePanelProviderProps {
   withTopNavigation?: boolean;
 }
 
+type PrimaryContentProps = { isResized: boolean };
+
 const primaryContentStyles = () => css`
   width: 100%;
   transition: width ${TRANSITION_DURATION}ms ease-in-out;
 `;
 
-const primaryContentResizedStyles = ({ isResized }: { isResized: boolean }) =>
+const primaryContentResizedStyles = ({ isResized }: PrimaryContentProps) =>
   isResized &&
   css`
-    width: calc(100% - ${SIDE_PANEL_DESKTOP_WIDTH}px);
+    width: calc(100% - ${DESKTOP_WIDTH}px);
   `;
 
 const PrimaryContent = styled.div(
@@ -144,11 +152,12 @@ export const SidePanelProvider = ({
   const theme = useTheme();
   const isTopNavigationSticky = useMedia(theme.breakpoints.giga);
   const isMobile = useMedia(theme.breakpoints.untilMega);
-  const sendEvent = useClickTrigger();
   const [sidePanels, dispatch] = useStack<SidePanelContextItem>();
+  const sendEvent = useClickTrigger();
   const [sidePanelTop, setSidePanelTop] = useState(
     withTopNavigation ? TOP_NAVIGATION_HEIGHT : '0px',
   );
+  const [isPrimaryContentResized, setIsPrimaryContentResized] = useState(false);
 
   // Calculate side panel top offset
   useEffect(() => {
@@ -188,108 +197,105 @@ export const SidePanelProvider = ({
     [sendEvent],
   );
 
-  type RemoveSidePanel = (
-    type: SidePanelContextProps['type'],
-    shouldReturnFocusAfterClose?: boolean,
-  ) => void;
+  const findSidePanel = useCallback(
+    (type: SidePanelContextProps['type']) =>
+      sidePanels.find((panel) => panel.type === type && !panel.transition),
+    [sidePanels],
+  );
 
   const removeSidePanel = useCallback<RemoveSidePanel>(
-    (type, shouldReturnFocusAfterClose = true) => {
-      const sidePanel = sidePanels.find(
-        (panel) => panel.type === type && !panel.transition,
-      );
+    (type, isShortTransition) => {
+      const panel = findSidePanel(type);
 
-      if (!sidePanel) {
-        return;
+      if (!panel) {
+        return Promise.resolve();
       }
 
-      const sidePanelIndex = sidePanels.indexOf(sidePanel);
+      const sidePanelIndex = sidePanels.indexOf(panel);
+
+      if (!isShortTransition) {
+        setIsPrimaryContentResized(sidePanelIndex !== 0);
+      }
 
       // Remove the side panel and all panels above it in reverse order
-      sidePanels
-        .slice(sidePanelIndex)
-        .reverse()
-        .forEach((panel) => {
-          sendTrackingEvent(panel, 'close'); // TODO: should we send the tracking event for all panels
+      return Promise.all(
+        sidePanels
+          .slice(sidePanelIndex)
+          .reverse()
+          .map(
+            (sidePanel) =>
+              new Promise<void>((res) => {
+                sendTrackingEvent(sidePanel, 'close');
 
-          if (panel.onClose) {
-            panel.onClose();
-          }
+                if (sidePanel.onClose) {
+                  sidePanel.onClose();
+                }
 
-          if (shouldReturnFocusAfterClose === false) {
-            dispatch({
-              type: 'update',
-              item: {
-                ...panel,
-                shouldReturnFocusAfterClose,
-                closeTimeoutMS: 0,
-              },
-            });
-          }
+                let updatedPanel = { ...sidePanel, onAfterClose: res };
+                if (isShortTransition) {
+                  updatedPanel = {
+                    ...updatedPanel,
+                    shouldReturnFocusAfterClose: false,
+                    closeTimeoutMS: TRANSITION_DURATION / 2,
+                  };
+                }
 
-          dispatch({
-            type: 'remove',
-            id: panel.id,
-            transition:
-              shouldReturnFocusAfterClose === false
-                ? undefined
-                : {
-                    duration: TRANSITION_DURATION,
+                dispatch({
+                  type: 'update',
+                  item: updatedPanel,
+                });
+                dispatch({
+                  type: 'remove',
+                  id: sidePanel.id,
+                  transition: {
+                    duration: isShortTransition
+                      ? TRANSITION_DURATION / 2
+                      : TRANSITION_DURATION,
                   },
-          });
-        });
+                });
+              }),
+          ),
+      );
     },
-    [sidePanels, sendTrackingEvent, dispatch],
+    [findSidePanel, sidePanels, sendTrackingEvent, dispatch],
   );
 
-  const setSidePanel = useCallback(
-    (sidePanel: SidePanelContextProps & Pick<StackItem, 'id'>) => {
-      const existingPanel = sidePanels.find(
-        (panel) => panel.type === sidePanel.type && !panel.transition,
-      );
+  const setSidePanel = useCallback<SetSidePanel>(
+    (sidePanel) => {
+      const panel = findSidePanel(sidePanel.type);
 
-      if (existingPanel) {
-        // const existingPanelIndex = sidePanels.indexOf(existingPanel);
-        // if (existingPanelIndex !== sidePanels.length - 1) {
-        //   // Remove all side panels after the existing one
-        //   removeSidePanel(sidePanels[existingPanelIndex + 1].id);
-        // }
-        removeSidePanel(existingPanel.type, false);
-
-        // sendTrackingEvent(sidePanel, 'update'); // TODO: update or open event?
-        // dispatch({ type: 'update', item: sidePanel });
-        // return;
-      }
-
-      sendTrackingEvent(sidePanel, 'open');
-      // TODO: Setup instant cleanup
-      setTimeout(() =>
+      const pushPanel = () => {
+        setIsPrimaryContentResized(true);
+        sendTrackingEvent(sidePanel, 'open');
         dispatch({
           type: 'push',
-          item: {
-            ...sidePanel,
-            shouldReturnFocusAfterClose: true, // TODO: setup non-animated open ?
-          },
-        }),
-      );
+          item: sidePanel,
+        });
+      };
+
+      if (panel) {
+        removeSidePanel(panel.type, true)
+          .then(pushPanel)
+          .catch(() => {});
+      } else {
+        pushPanel();
+      }
     },
-    [sidePanels, removeSidePanel, sendTrackingEvent, dispatch],
+    [findSidePanel, sendTrackingEvent, dispatch, removeSidePanel],
   );
 
-  const updateSidePanel = useCallback(
-    (sidePanel: SidePanelContextPropsPartial) => {
-      const existingPanel = sidePanels.find(
-        (panel) => panel.type === sidePanel.type && !panel.transition,
-      );
+  const updateSidePanel = useCallback<UpdateSidePanel>(
+    (sidePanel) => {
+      const panel = findSidePanel(sidePanel.type);
 
-      if (existingPanel) {
+      if (panel) {
         dispatch({
           type: 'update',
-          item: { ...sidePanel, id: existingPanel.id },
+          item: { ...sidePanel, id: panel.id },
         });
       }
     },
-    [sidePanels, dispatch],
+    [findSidePanel, dispatch],
   );
 
   const context = useMemo(
@@ -297,25 +303,29 @@ export const SidePanelProvider = ({
     [setSidePanel, updateSidePanel, removeSidePanel],
   );
 
-  const isPrimaryContentResized =
-    !isMobile && sidePanels.some((sidePanel) => !sidePanel.transition);
-
   return (
     <SidePanelContext.Provider value={context}>
-      <PrimaryContent isResized={isPrimaryContentResized}>
+      <PrimaryContent isResized={!isMobile && isPrimaryContentResized}>
         {children}
       </PrimaryContent>
 
       {sidePanels.map((sidePanel) => {
-        const { id, transition, ...sidePanelProps } = sidePanel;
+        const { id, transition, type, ...sidePanelProps } = sidePanel;
+
+        const isStackedPanel = type !== sidePanels[0].type;
+        const handleClose = () => removeSidePanel(sidePanels[0].type);
+        const handleBack = isStackedPanel
+          ? () => removeSidePanel(type)
+          : undefined;
+
         return (
           <SidePanel
             {...sidePanelProps}
             key={id}
             isMobile={isMobile}
             isOpen={!transition}
-            onBack={() => removeSidePanel(sidePanel.type)}
-            onClose={() => removeSidePanel(sidePanels[0].type)}
+            onBack={handleBack}
+            onClose={handleClose}
             top={sidePanelTop}
           />
         );
