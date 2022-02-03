@@ -211,7 +211,7 @@ exports[`Popover styles should render popover on auto 1`] = `
   />
   <div
     class="circuit-2"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: fixed; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_11"
@@ -478,7 +478,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
   />
   <div
     class="circuit-2"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: fixed; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_21"
@@ -745,7 +745,7 @@ exports[`Popover styles should render popover on left 1`] = `
   />
   <div
     class="circuit-2"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: fixed; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_26"
@@ -1012,7 +1012,7 @@ exports[`Popover styles should render popover on right 1`] = `
   />
   <div
     class="circuit-2"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: fixed; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_31"
@@ -1279,7 +1279,7 @@ exports[`Popover styles should render popover on top 1`] = `
   />
   <div
     class="circuit-2"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: fixed; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_16"
@@ -1528,7 +1528,7 @@ exports[`Popover styles should render with closed styles 1`] = `
   />
   <div
     class="circuit-2"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: fixed; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_6"
@@ -1795,7 +1795,7 @@ exports[`Popover styles should render with default styles 1`] = `
   />
   <div
     class="circuit-2"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: fixed; left: 0px; top: 0px;"
   >
     <div
       aria-labelledby="trigger_1"
