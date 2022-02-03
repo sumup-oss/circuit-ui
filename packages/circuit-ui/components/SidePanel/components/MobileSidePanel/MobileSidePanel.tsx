@@ -55,21 +55,11 @@ export const MobileSidePanel = ({
         `,
       };
 
-      const overlayStyles = {
-        base: cssString`
-          position: fixed;
-          inset: 0;
-          opacity: 0;
-          transition: opacity ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
-          background: ${theme.colors.overlay};
-      `,
-        afterOpen: cssString`
-          opacity: 1;
-      `,
-        beforeClose: cssString`
-          opacity: 0;
-      `,
-      };
+      const overlayStyles = cssString`
+        position: fixed;
+        inset: 0;
+        background: ${theme.colors.overlay};
+      `;
 
       const reactModalProps: ReactModalProps = {
         className: styles,

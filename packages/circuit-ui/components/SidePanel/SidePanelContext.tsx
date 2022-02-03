@@ -113,7 +113,7 @@ export type SidePanelContextValue = {
   setSidePanel: SetSidePanel;
   updateSidePanel: UpdateSidePanel;
   removeSidePanel: RemoveSidePanel;
-  isSidePanelOpen: boolean;
+  isPrimaryContentResized: boolean;
   transitionDuration: number;
 };
 
@@ -121,7 +121,7 @@ export const SidePanelContext = createContext<SidePanelContextValue>({
   setSidePanel: () => {},
   updateSidePanel: () => {},
   removeSidePanel: () => Promise.resolve(),
-  isSidePanelOpen: false,
+  isPrimaryContentResized: false,
   transitionDuration: TRANSITION_DURATION_MOBILE,
 });
 
@@ -322,24 +322,20 @@ export const SidePanelProvider = ({
     [findSidePanel, dispatch],
   );
 
-  const isSidePanelOpen = useMemo(
-    () => sidePanels.some((panel) => !panel.transition),
-    [sidePanels],
-  );
-
   const context = useMemo(
     () => ({
       setSidePanel,
       updateSidePanel,
       removeSidePanel,
-      isSidePanelOpen,
+      isPrimaryContentResized: !isMobile && isPrimaryContentResized,
       transitionDuration,
     }),
     [
       setSidePanel,
       updateSidePanel,
       removeSidePanel,
-      isSidePanelOpen,
+      isMobile,
+      isPrimaryContentResized,
       transitionDuration,
     ],
   );
