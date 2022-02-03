@@ -128,7 +128,7 @@ const ButtonWithLoadingState = (args: ButtonProps) => {
 };
 
 export const Loading = (args: ButtonProps) => (
-  <ButtonWithLoadingState>{args.children}</ButtonWithLoadingState>
+  <ButtonWithLoadingState {...args} />
 );
 
 Loading.args = {
