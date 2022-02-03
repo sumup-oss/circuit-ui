@@ -69,6 +69,7 @@ if (typeof window !== 'undefined') {
 export type SidePanelContextProps = Omit<
   SidePanelProps,
   | 'isBottomPanelClosing'
+  | 'isInstantOpen'
   | 'isMobile'
   | 'isOpen'
   | 'isStacked'
@@ -92,7 +93,9 @@ export type SidePanelContextProps = Omit<
   type: string;
 };
 
-type SidePanelContextItem = SidePanelContextProps & StackItem;
+type SidePanelContextItem = SidePanelContextProps &
+  Pick<SidePanelProps, 'isInstantOpen'> &
+  StackItem;
 
 type SetSidePanel = (
   sidePanel: SidePanelContextProps & Pick<StackItem, 'id'>,
@@ -106,7 +109,7 @@ type UpdateSidePanel = (
 
 type RemoveSidePanel = (
   type: SidePanelContextProps['type'],
-  isShortTransition?: boolean,
+  isInstantClose?: boolean,
 ) => Promise<void | void[]>;
 
 export type SidePanelContextValue = {
@@ -222,7 +225,7 @@ export const SidePanelProvider = ({
   );
 
   const removeSidePanel = useCallback<RemoveSidePanel>(
-    (type, isShortTransition) => {
+    (type, isInstantClose) => {
       const panel = findSidePanel(type);
 
       if (!panel) {
@@ -231,7 +234,7 @@ export const SidePanelProvider = ({
 
       const sidePanelIndex = sidePanels.indexOf(panel);
 
-      if (!isShortTransition) {
+      if (!isInstantClose) {
         setIsPrimaryContentResized(sidePanelIndex !== 0);
       }
 
@@ -250,11 +253,11 @@ export const SidePanelProvider = ({
                 }
 
                 let updatedPanel = { ...sidePanel, onAfterClose: res };
-                if (isShortTransition) {
+                if (isInstantClose) {
                   updatedPanel = {
                     ...updatedPanel,
                     shouldReturnFocusAfterClose: false,
-                    closeTimeoutMS: transitionDuration / 2,
+                    closeTimeoutMS: 0,
                   };
                 }
 
@@ -266,9 +269,7 @@ export const SidePanelProvider = ({
                   type: 'remove',
                   id: sidePanel.id,
                   transition: {
-                    duration: isShortTransition
-                      ? transitionDuration / 2
-                      : transitionDuration,
+                    duration: isInstantClose ? 0 : transitionDuration,
                   },
                 });
               }),
@@ -288,21 +289,21 @@ export const SidePanelProvider = ({
     (sidePanel) => {
       const panel = findSidePanel(sidePanel.type);
 
-      const pushPanel = () => {
+      const pushPanel = (isInstantOpen: boolean) => {
         setIsPrimaryContentResized(true);
         sendTrackingEvent(sidePanel, 'open');
         dispatch({
           type: 'push',
-          item: sidePanel,
+          item: { ...sidePanel, isInstantOpen },
         });
       };
 
       if (panel) {
         removeSidePanel(panel.type, true)
-          .then(pushPanel)
+          .then(() => pushPanel(true))
           .catch(() => {});
       } else {
-        pushPanel();
+        pushPanel(false);
       }
     },
     [findSidePanel, sendTrackingEvent, dispatch, removeSidePanel],

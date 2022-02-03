@@ -61,6 +61,10 @@ export type SidePanelProps = {
    */
   isBottomPanelClosing: boolean;
   /**
+   * Boolean indicating whether the side panel should be opened without animation.
+   */
+  isInstantOpen: boolean;
+  /**
    * Boolean indicating whether the side panel should be in desktop or mobile mode.
    */
   isMobile: boolean;
@@ -130,6 +134,7 @@ export const SidePanel = ({
   closeButtonLabel,
   headline,
   isBottomPanelClosing,
+  isInstantOpen,
   isMobile,
   isStacked,
   onBack,
@@ -201,7 +206,12 @@ export const SidePanel = ({
   }
 
   return (
-    <DesktopSidePanel {...defaultProps} {...props} top={top}>
+    <DesktopSidePanel
+      {...defaultProps}
+      {...props}
+      isInstantOpen={isInstantOpen}
+      top={top}
+    >
       {content}
     </DesktopSidePanel>
   );

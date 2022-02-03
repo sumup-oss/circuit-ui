@@ -24,15 +24,17 @@ import {
   TRANSITION_DURATION_DESKTOP,
 } from '../../SidePanel';
 
-type DesktopSidePanelProps = ReactModalProps & Pick<SidePanelProps, 'top'>;
+type DesktopSidePanelProps = ReactModalProps &
+  Pick<SidePanelProps, 'isInstantOpen' | 'top'>;
 
 export const DesktopSidePanel = ({
   children,
+  isInstantOpen,
   top,
   ...props
 }: DesktopSidePanelProps): JSX.Element => (
   <ClassNames>
-    {({ css: cssString, theme }) => {
+    {({ css: cssString, cx, theme }) => {
       // React Modal styles
       // https://reactcommunity.org/react-modal/styles/classes/
       const styles = {
@@ -44,11 +46,18 @@ export const DesktopSidePanel = ({
           transform: translateX(100%);
           transition: transform ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
         `,
-        afterOpen: cssString`
-          transform: translateX(0) !important;
-        `,
+        afterOpen: cx(
+          cssString`
+            transform: translateX(0);
+          `,
+          isInstantOpen &&
+            cssString`
+              transition: none;
+            `,
+        ),
         beforeClose: cssString`
           transform: translateX(100%) !important;
+          transition: transform ${TRANSITION_DURATION_DESKTOP}ms ease-in-out !important;
         `,
       };
 
