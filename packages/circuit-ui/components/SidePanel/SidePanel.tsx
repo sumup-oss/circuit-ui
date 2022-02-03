@@ -117,7 +117,7 @@ const bodyStyles = ({ theme }: StyleProps) => css`
   max-width: ${BODY_MAX_WIDTH}px;
   padding: 0 ${theme.spacings.mega};
 
-  ${theme.mq.kilo} {
+  ${theme.mq.mega} {
     padding: 0 ${theme.spacings.giga};
   }
 `;
