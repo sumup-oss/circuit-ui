@@ -15,11 +15,12 @@
 
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import { Confirm, Notify, Alert } from '@sumup/icons';
-import { Theme } from '@sumup/design-tokens';
+import { Confirm, NotifyCircle, Alert } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
+
+type Color = 'danger' | 'warning' | 'success';
 
 export interface ValidationHintProps extends HTMLAttributes<HTMLSpanElement> {
   validationHint?: string;
@@ -42,6 +43,15 @@ const validStyles = ({ theme, showValid }: StyleProps & ValidationHintProps) =>
     color: ${theme.colors.success};
   `;
 
+const warningStyles = ({
+  theme,
+  hasWarning,
+}: StyleProps & ValidationHintProps) =>
+  hasWarning &&
+  css`
+    color: ${theme.colors.n900};
+  `;
+
 const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
   invalid &&
   css`
@@ -53,18 +63,40 @@ const Wrapper = styled('span')<ValidationHintProps>(
   baseStyles,
   validStyles,
   invalidStyles,
+  warningStyles,
 );
 
-const iconStyles =
-  (color: 'danger' | 'warning' | 'success') => (theme: Theme) =>
+const IconWrapper = styled.div(
+  ({ theme, color }: StyleProps & { color: Color }) =>
     css`
       display: inline-block;
+      position: relative;
       width: ${theme.iconSizes.kilo};
       height: ${theme.iconSizes.kilo};
       vertical-align: text-top;
       margin-right: ${theme.spacings.bit};
       color: ${theme.colors[color]};
-    `;
+    `,
+  ({ theme, color }: StyleProps & { color: Color }) =>
+    color === 'warning' &&
+    css`
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        background: ${theme.colors.black};
+        border-radius: ${theme.borderRadius.circle};
+      }
+      svg {
+        position: relative;
+        z-index: 1;
+      }
+    `,
+);
 
 const getIcon = (state: ValidationHintProps) => {
   switch (true) {
@@ -72,13 +104,25 @@ const getIcon = (state: ValidationHintProps) => {
       return null;
     }
     case state.invalid: {
-      return <Alert role="presentation" css={iconStyles('danger')} />;
+      return (
+        <IconWrapper color="danger">
+          <Alert role="presentation" size="16" />
+        </IconWrapper>
+      );
     }
     case state.hasWarning: {
-      return <Notify role="presentation" css={iconStyles('warning')} />;
+      return (
+        <IconWrapper color="warning">
+          <NotifyCircle role="presentation" size="16" />
+        </IconWrapper>
+      );
     }
     case state.showValid: {
-      return <Confirm role="presentation" css={iconStyles('success')} />;
+      return (
+        <IconWrapper color="success">
+          <Confirm role="presentation" size="16" />
+        </IconWrapper>
+      );
     }
     default: {
       return null;
@@ -100,7 +144,11 @@ export const ValidationHint = ({
   const icon = getIcon(props);
 
   return (
-    <Wrapper invalid={props.invalid} showValid={props.showValid}>
+    <Wrapper
+      invalid={props.invalid}
+      showValid={props.showValid}
+      hasWarning={props.hasWarning}
+    >
       {icon}
       {validationHint}
     </Wrapper>
