@@ -56,6 +56,13 @@ const SORT_ORDER = {
 
 export const parameters = {
   layout: 'centered',
+  backgrounds: {
+    default: 'light',
+    values: [
+      { name: 'light', value: light.colors.bodyBg },
+      { name: 'dark', value: light.colors.n900 },
+    ],
+  },
   viewMode: 'docs',
   previewTabs: { 'storybook/docs/panel': { index: -1 } },
   actions: { argTypesRegex: '^on.*' },
