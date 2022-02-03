@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.11.1
+
+### Patch Changes
+
+- [#1386](https://github.com/sumup-oss/circuit-ui/pull/1386) [`c49a6b42`](https://github.com/sumup-oss/circuit-ui/commit/c49a6b4201b85081088d52a5ebb7ac6f0d75c7f1) Thanks [@amelako](https://github.com/amelako)! - Changed the "Notify" icon to "NotifyCircle" for the `NotificationInline`, `NotificationToast` and `Input` components.
+
 ## 4.11.0
 
 ### Minor Changes
