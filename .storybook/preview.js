@@ -62,6 +62,9 @@ export const parameters = {
       { name: 'light', value: light.colors.bodyBg },
       { name: 'dark', value: light.colors.n900 },
     ],
+    grid: {
+      disable: true,
+    },
   },
   viewMode: 'docs',
   previewTabs: { 'storybook/docs/panel': { index: -1 } },
