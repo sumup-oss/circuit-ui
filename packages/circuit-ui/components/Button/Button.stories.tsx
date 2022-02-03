@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Plus } from '@sumup/icons';
-import { useState } from 'react';
 
 import { Stack } from '../../../../.storybook/components';
 import ButtonGroup from '../ButtonGroup';
@@ -108,23 +108,19 @@ export const Tracking = (args: ButtonProps) => (
 );
 
 export const Loading = (args: ButtonProps) => {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const handleClick = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 3000);
   };
 
-  return (
-    <Button
-      isLoading={loading}
-      loadingLabel="Loading"
-      onClick={handleClick}
-      {...args}
-    >
-      Things take time
-    </Button>
-  );
+  return <Button {...args} isLoading={isLoading} onClick={handleClick} />;
+};
+
+Loading.args = {
+  children: 'Things take time',
+  loadingLabel: 'Loading',
 };
