@@ -36,7 +36,6 @@ const headerContainerStyles = ({ theme }: StyleProps) => css`
   display: flex;
   align-items: center;
   background-color: ${theme.colors.white};
-  margin-right: ${theme.borderWidth.kilo};
   z-index: ${theme.zIndex.absolute};
 
   ${theme.mq.mega} {
