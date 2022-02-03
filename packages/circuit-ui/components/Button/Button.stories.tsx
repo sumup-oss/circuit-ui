@@ -107,7 +107,7 @@ export const Tracking = (args: ButtonProps) => (
   </Button>
 );
 
-const ButtonWithLoadingState = (args: ButtonProps) => {
+export const Loading = (args: ButtonProps) => {
   const [isLoading, setLoading] = useState(false);
 
   const handleClick = () => {
@@ -117,20 +117,10 @@ const ButtonWithLoadingState = (args: ButtonProps) => {
     }, 3000);
   };
 
-  return (
-    <Button
-      isLoading={isLoading}
-      loadingLabel="Loading"
-      onClick={handleClick}
-      {...args}
-    />
-  );
+  return <Button {...args} isLoading={isLoading} onClick={handleClick} />;
 };
-
-export const Loading = (args: ButtonProps) => (
-  <ButtonWithLoadingState {...args} />
-);
 
 Loading.args = {
   children: 'Things take time',
+  loadingLabel: 'Loading',
 };
