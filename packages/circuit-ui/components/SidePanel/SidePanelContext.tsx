@@ -106,12 +106,14 @@ export type SidePanelContextValue = {
   setSidePanel: SetSidePanel;
   updateSidePanel: UpdateSidePanel;
   removeSidePanel: RemoveSidePanel;
+  isSidePanelOpen: boolean;
 };
 
 export const SidePanelContext = createContext<SidePanelContextValue>({
   setSidePanel: () => {},
   updateSidePanel: () => {},
   removeSidePanel: () => Promise.resolve(),
+  isSidePanelOpen: false,
 });
 
 export interface SidePanelProviderProps {
@@ -178,6 +180,7 @@ export const SidePanelProvider = ({
       setSidePanelTop(`${top}px`);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -298,9 +301,14 @@ export const SidePanelProvider = ({
     [findSidePanel, dispatch],
   );
 
+  const isSidePanelOpen = useMemo(
+    () => sidePanels.some((panel) => !panel.transition),
+    [sidePanels],
+  );
+
   const context = useMemo(
-    () => ({ setSidePanel, updateSidePanel, removeSidePanel }),
-    [setSidePanel, updateSidePanel, removeSidePanel],
+    () => ({ setSidePanel, updateSidePanel, removeSidePanel, isSidePanelOpen }),
+    [setSidePanel, updateSidePanel, removeSidePanel, isSidePanelOpen],
   );
 
   return (

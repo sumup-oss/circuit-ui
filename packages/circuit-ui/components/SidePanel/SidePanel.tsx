@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactNode } from 'react';
+import { ReactNode, UIEventHandler, useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import { Props as ReactModalProps } from 'react-modal';
 
@@ -75,6 +75,8 @@ export type SidePanelProps = {
   ReactModalProps,
   'closeTimeoutMS' | 'isOpen' | 'onAfterClose' | 'shouldReturnFocusAfterClose'
 >;
+
+export type StackedProps = { isStacked: boolean };
 
 type ContentProps = { top: string };
 
@@ -142,6 +144,16 @@ export const SidePanel = ({
     }
   }
 
+  const [isHeaderSticky, setHeaderSticky] = useState(false);
+
+  useEffect(() => {
+    setHeaderSticky(false);
+  }, [isMobile]);
+
+  const handleScroll: UIEventHandler<HTMLDivElement> = (event) => {
+    setHeaderSticky(event.currentTarget.scrollTop > 0);
+  };
+
   const SidePanelComponent = isMobile ? MobileSidePanel : DesktopSidePanel;
 
   const defaultProps = {
@@ -153,14 +165,15 @@ export const SidePanel = ({
   };
 
   return (
-    <SidePanelComponent {...defaultProps} {...props}>
-      <Content top={props.top}>
+    <SidePanelComponent {...defaultProps} {...props} isStacked={!!onBack}>
+      <Content top={props.top} onScroll={handleScroll}>
         <Header
           backButtonLabel={backButtonLabel}
           closeButtonLabel={closeButtonLabel}
           headline={headline}
           onBack={onBack}
           onClose={onClose}
+          isSticky={isHeaderSticky}
         />
         <Body>
           {isFunction(children) ? children({ onBack, onClose }) : children}

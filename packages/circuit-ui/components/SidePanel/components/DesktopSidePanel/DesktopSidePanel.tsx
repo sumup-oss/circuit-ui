@@ -19,15 +19,19 @@ import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { StackContext } from '../../../StackContext';
 import {
   SidePanelProps,
+  StackedProps,
   DESKTOP_WIDTH,
   PORTAL_CLASS_NAME,
   TRANSITION_DURATION,
 } from '../../SidePanel';
 
-type DesktopSidePanelProps = ReactModalProps & Pick<SidePanelProps, 'top'>;
+type DesktopSidePanelProps = ReactModalProps &
+  Pick<SidePanelProps, 'top'> &
+  StackedProps;
 
 export const DesktopSidePanel = ({
   children,
+  isStacked,
   top,
   ...props
 }: DesktopSidePanelProps): JSX.Element => (
@@ -45,10 +49,10 @@ export const DesktopSidePanel = ({
           transition: transform ${TRANSITION_DURATION}ms ease-in-out;
         `,
         afterOpen: cssString`
-          transform: translateX(0);
+          transform: translateX(0) !important;
         `,
         beforeClose: cssString`
-          transform: translateX(100%);
+          transform: translateX(100%) !important;
         `,
       };
 

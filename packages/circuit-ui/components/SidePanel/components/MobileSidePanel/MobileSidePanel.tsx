@@ -18,6 +18,7 @@ import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
 import { StackContext } from '../../../StackContext';
 import {
+  StackedProps,
   HTML_OPEN_CLASS_NAME,
   PORTAL_CLASS_NAME,
   TRANSITION_DURATION,
@@ -25,25 +26,27 @@ import {
 
 export const MobileSidePanel = ({
   children,
+  isStacked,
   ...props
-}: ReactModalProps): JSX.Element => (
+}: ReactModalProps & StackedProps): JSX.Element => (
   <ClassNames>
     {({ css: cssString, theme }) => {
       // React Modal styles
       // https://reactcommunity.org/react-modal/styles/classes/
+      const translate = isStacked ? 'translateX' : 'translateY';
       const styles = {
         base: cssString`
           height: 100%;
           outline: none;
           background-color: ${theme.colors.white};
-          transform: translateY(100%);
+          transform: ${translate}(100%);
           transition: transform ${TRANSITION_DURATION}ms ease-in-out;
         `,
         afterOpen: cssString`
-          transform: translateY(0);
+          transform: ${translate}(0) !important;
         `,
         beforeClose: cssString`
-          transform: translateY(100%);
+          transform: ${translate}(100%) !important;
         `,
       };
 

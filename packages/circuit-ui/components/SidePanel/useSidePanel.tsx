@@ -33,6 +33,7 @@ type UseSidePanelHook = () => {
   setSidePanel: SetSidePanel;
   updateSidePanel: UpdateSidePanel;
   removeSidePanel: RemoveSidePanel;
+  isSidePanelOpen: boolean;
 };
 
 export const useSidePanel: UseSidePanelHook = () => {
@@ -84,5 +85,10 @@ export const useSidePanel: UseSidePanelHook = () => {
     [],
   );
 
-  return { setSidePanel, updateSidePanel, removeSidePanel };
+  return {
+    setSidePanel,
+    updateSidePanel,
+    removeSidePanel,
+    isSidePanelOpen: context.isSidePanelOpen,
+  };
 };

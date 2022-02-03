@@ -21,10 +21,13 @@ import { IconButton } from '../../../IconButton/IconButton';
 import Headline from '../../../Headline';
 import { SidePanelProps } from '../../SidePanel';
 
-type HeaderProps = Pick<
-  SidePanelProps,
-  'backButtonLabel' | 'closeButtonLabel' | 'headline' | 'onBack' | 'onClose'
->;
+type HeaderStickyProps = { isSticky: boolean };
+
+type HeaderProps = HeaderStickyProps &
+  Pick<
+    SidePanelProps,
+    'backButtonLabel' | 'closeButtonLabel' | 'headline' | 'onBack' | 'onClose'
+  >;
 
 const headerContainerStyles = ({ theme }: StyleProps) => css`
   position: sticky;
@@ -41,7 +44,24 @@ const headerContainerStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const HeaderContainer = styled.div(headerContainerStyles);
+const headerContainerStickyStyles = ({
+  theme,
+  isSticky,
+}: StyleProps & HeaderStickyProps) =>
+  isSticky &&
+  css`
+    box-shadow: inset 0px -${theme.borderWidth.kilo} 0px ${theme.colors.n300};
+
+    ${theme.mq.mega} {
+      box-shadow: inset ${theme.borderWidth.kilo} -${theme.borderWidth.kilo} 0px
+        ${theme.colors.n300};
+    }
+  `;
+
+const HeaderContainer = styled.div(
+  headerContainerStyles,
+  headerContainerStickyStyles,
+);
 
 const iconButtonStyles = ({ theme }: StyleProps) => css`
   flex: none;
@@ -78,8 +98,9 @@ export const Header = ({
   headline,
   onBack,
   onClose,
+  isSticky,
 }: HeaderProps): JSX.Element => (
-  <HeaderContainer>
+  <HeaderContainer isSticky={isSticky}>
     {onBack && backButtonLabel && (
       <StyledIconButton type="button" label={backButtonLabel} onClick={onBack}>
         <ArrowLeft size="24" />
