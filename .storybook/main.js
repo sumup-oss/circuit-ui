@@ -20,6 +20,7 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-links',
     '@storybook/addon-viewport',
+    '@storybook/addon-backgrounds',
     'storybook-addon-performance',
   ],
   features: {
