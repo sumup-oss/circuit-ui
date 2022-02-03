@@ -18,29 +18,34 @@ import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
 import { StackContext } from '../../../StackContext';
 import {
-  StackedProps,
+  SidePanelProps,
   HTML_OPEN_CLASS_NAME,
   PORTAL_CLASS_NAME,
-  TRANSITION_DURATION,
+  TRANSITION_DURATION_MOBILE,
 } from '../../SidePanel';
+
+type MobileSidePanelProps = ReactModalProps &
+  Pick<SidePanelProps, 'isBottomPanelClosing' | 'isStacked'>;
 
 export const MobileSidePanel = ({
   children,
+  isBottomPanelClosing,
   isStacked,
   ...props
-}: ReactModalProps & StackedProps): JSX.Element => (
+}: MobileSidePanelProps): JSX.Element => (
   <ClassNames>
     {({ css: cssString, theme }) => {
       // React Modal styles
       // https://reactcommunity.org/react-modal/styles/classes/
-      const translate = isStacked ? 'translateX' : 'translateY';
+      const translate =
+        isStacked && !isBottomPanelClosing ? 'translateX' : 'translateY';
       const styles = {
         base: cssString`
           height: 100%;
           outline: none;
           background-color: ${theme.colors.white};
           transform: ${translate}(100%);
-          transition: transform ${TRANSITION_DURATION}ms ease-in-out;
+          transition: transform ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
         `,
         afterOpen: cssString`
           transform: ${translate}(0) !important;
@@ -55,7 +60,7 @@ export const MobileSidePanel = ({
           position: fixed;
           inset: 0;
           opacity: 0;
-          transition: opacity ${TRANSITION_DURATION}ms ease-in-out;
+          transition: opacity ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
           background: ${theme.colors.overlay};
       `,
         afterOpen: cssString`
@@ -69,6 +74,7 @@ export const MobileSidePanel = ({
       const reactModalProps: ReactModalProps = {
         className: styles,
         overlayClassName: overlayStyles,
+        closeTimeoutMS: TRANSITION_DURATION_MOBILE,
         ...props,
       };
 

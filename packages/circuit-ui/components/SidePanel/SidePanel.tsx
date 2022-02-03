@@ -27,7 +27,8 @@ import { Header } from './components/Header';
 const BODY_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Body--open';
 export const HTML_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Html--open';
 export const PORTAL_CLASS_NAME = 'ReactModalPortal__SidePanel';
-export const TRANSITION_DURATION = 240;
+export const TRANSITION_DURATION_DESKTOP = 200;
+export const TRANSITION_DURATION_MOBILE = 240;
 export const DESKTOP_WIDTH = 400;
 export const BODY_MAX_WIDTH = 480;
 
@@ -56,9 +57,17 @@ export type SidePanelProps = {
    */
   headline: string;
   /**
+   * Boolean indicating whether the bottom side panel is being closed.
+   */
+  isBottomPanelClosing: boolean;
+  /**
    * Boolean indicating whether the side panel should be in desktop or mobile mode.
    */
   isMobile: boolean;
+  /**
+   * Boolean indicating whether the side panel is stacked over another panel.
+   */
+  isStacked: boolean;
   /**
    * Callback function that is called when the side panel is closed.
    */
@@ -75,8 +84,6 @@ export type SidePanelProps = {
   ReactModalProps,
   'closeTimeoutMS' | 'isOpen' | 'onAfterClose' | 'shouldReturnFocusAfterClose'
 >;
-
-export type StackedProps = { isStacked: boolean };
 
 type ContentProps = { top: string };
 
@@ -122,9 +129,12 @@ export const SidePanel = ({
   children,
   closeButtonLabel,
   headline,
+  isBottomPanelClosing,
   isMobile,
+  isStacked,
   onBack,
   onClose,
+  top,
   ...props
 }: SidePanelProps): JSX.Element => {
   if (
@@ -154,31 +164,45 @@ export const SidePanel = ({
     setHeaderSticky(event.currentTarget.scrollTop > 0);
   };
 
-  const SidePanelComponent = isMobile ? MobileSidePanel : DesktopSidePanel;
-
   const defaultProps = {
     bodyOpenClassName: BODY_OPEN_CLASS_NAME,
-    closeTimeoutMS: TRANSITION_DURATION,
     htmlOpenClassName: HTML_OPEN_CLASS_NAME,
     onRequestClose: onBack || onClose,
     portalClassName: PORTAL_CLASS_NAME,
   };
 
+  const content = (
+    <Content top={top} onScroll={handleScroll}>
+      <Header
+        backButtonLabel={backButtonLabel}
+        closeButtonLabel={closeButtonLabel}
+        headline={headline}
+        onBack={onBack}
+        onClose={onClose}
+        isSticky={isHeaderSticky}
+      />
+      <Body>
+        {isFunction(children) ? children({ onBack, onClose }) : children}
+      </Body>
+    </Content>
+  );
+
+  if (isMobile) {
+    return (
+      <MobileSidePanel
+        {...defaultProps}
+        {...props}
+        isBottomPanelClosing={isBottomPanelClosing}
+        isStacked={isStacked}
+      >
+        {content}
+      </MobileSidePanel>
+    );
+  }
+
   return (
-    <SidePanelComponent {...defaultProps} {...props} isStacked={!!onBack}>
-      <Content top={props.top} onScroll={handleScroll}>
-        <Header
-          backButtonLabel={backButtonLabel}
-          closeButtonLabel={closeButtonLabel}
-          headline={headline}
-          onBack={onBack}
-          onClose={onClose}
-          isSticky={isHeaderSticky}
-        />
-        <Body>
-          {isFunction(children) ? children({ onBack, onClose }) : children}
-        </Body>
-      </Content>
-    </SidePanelComponent>
+    <DesktopSidePanel {...defaultProps} {...props} top={top}>
+      {content}
+    </DesktopSidePanel>
   );
 };

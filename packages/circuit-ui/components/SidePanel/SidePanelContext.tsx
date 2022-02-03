@@ -37,7 +37,8 @@ import {
   SidePanel,
   SidePanelProps,
   DESKTOP_WIDTH,
-  TRANSITION_DURATION,
+  TRANSITION_DURATION_DESKTOP,
+  TRANSITION_DURATION_MOBILE,
 } from './SidePanel';
 
 // It is important for users of screen readers that other page content be hidden
@@ -67,7 +68,13 @@ if (typeof window !== 'undefined') {
 
 export type SidePanelContextProps = Omit<
   SidePanelProps,
-  'isMobile' | 'isOpen' | 'onBack' | 'onClose' | 'top'
+  | 'isBottomPanelClosing'
+  | 'isMobile'
+  | 'isOpen'
+  | 'isStacked'
+  | 'onBack'
+  | 'onClose'
+  | 'top'
 > & {
   /**
    * Callback function that is called when the side panel is closed.
@@ -107,6 +114,7 @@ export type SidePanelContextValue = {
   updateSidePanel: UpdateSidePanel;
   removeSidePanel: RemoveSidePanel;
   isSidePanelOpen: boolean;
+  transitionDuration: number;
 };
 
 export const SidePanelContext = createContext<SidePanelContextValue>({
@@ -114,6 +122,7 @@ export const SidePanelContext = createContext<SidePanelContextValue>({
   updateSidePanel: () => {},
   removeSidePanel: () => Promise.resolve(),
   isSidePanelOpen: false,
+  transitionDuration: TRANSITION_DURATION_MOBILE,
 });
 
 export interface SidePanelProviderProps {
@@ -129,11 +138,13 @@ export interface SidePanelProviderProps {
   withTopNavigation?: boolean;
 }
 
-type PrimaryContentProps = { isResized: boolean };
+type PrimaryContentProps = { isResized: boolean; transitionDuration: number };
 
-const primaryContentStyles = () => css`
+const primaryContentStyles = ({
+  transitionDuration,
+}: PrimaryContentProps) => css`
   width: 100%;
-  transition: width ${TRANSITION_DURATION}ms ease-in-out;
+  transition: width ${transitionDuration}ms ease-in-out;
 `;
 
 const primaryContentResizedStyles = ({ isResized }: PrimaryContentProps) =>
@@ -160,6 +171,10 @@ export const SidePanelProvider = ({
     withTopNavigation ? TOP_NAVIGATION_HEIGHT : '0px',
   );
   const [isPrimaryContentResized, setIsPrimaryContentResized] = useState(false);
+
+  const transitionDuration = isMobile
+    ? TRANSITION_DURATION_MOBILE
+    : TRANSITION_DURATION_DESKTOP;
 
   // Calculate side panel top offset
   useEffect(() => {
@@ -239,7 +254,7 @@ export const SidePanelProvider = ({
                   updatedPanel = {
                     ...updatedPanel,
                     shouldReturnFocusAfterClose: false,
-                    closeTimeoutMS: TRANSITION_DURATION / 2,
+                    closeTimeoutMS: transitionDuration / 2,
                   };
                 }
 
@@ -252,15 +267,21 @@ export const SidePanelProvider = ({
                   id: sidePanel.id,
                   transition: {
                     duration: isShortTransition
-                      ? TRANSITION_DURATION / 2
-                      : TRANSITION_DURATION,
+                      ? transitionDuration / 2
+                      : transitionDuration,
                   },
                 });
               }),
           ),
       );
     },
-    [findSidePanel, sidePanels, sendTrackingEvent, dispatch],
+    [
+      findSidePanel,
+      sidePanels,
+      sendTrackingEvent,
+      dispatch,
+      transitionDuration,
+    ],
   );
 
   const setSidePanel = useCallback<SetSidePanel>(
@@ -307,31 +328,47 @@ export const SidePanelProvider = ({
   );
 
   const context = useMemo(
-    () => ({ setSidePanel, updateSidePanel, removeSidePanel, isSidePanelOpen }),
-    [setSidePanel, updateSidePanel, removeSidePanel, isSidePanelOpen],
+    () => ({
+      setSidePanel,
+      updateSidePanel,
+      removeSidePanel,
+      isSidePanelOpen,
+      transitionDuration,
+    }),
+    [
+      setSidePanel,
+      updateSidePanel,
+      removeSidePanel,
+      isSidePanelOpen,
+      transitionDuration,
+    ],
   );
 
   return (
     <SidePanelContext.Provider value={context}>
-      <PrimaryContent isResized={!isMobile && isPrimaryContentResized}>
+      <PrimaryContent
+        isResized={!isMobile && isPrimaryContentResized}
+        transitionDuration={transitionDuration}
+      >
         {children}
       </PrimaryContent>
 
       {sidePanels.map((sidePanel) => {
         const { id, transition, type, ...sidePanelProps } = sidePanel;
 
-        const isStackedPanel = type !== sidePanels[0].type;
+        const isBottomPanelClosing = !!sidePanels[0].transition;
+        const isStacked = type !== sidePanels[0].type;
         const handleClose = () => removeSidePanel(sidePanels[0].type);
-        const handleBack = isStackedPanel
-          ? () => removeSidePanel(type)
-          : undefined;
+        const handleBack = isStacked ? () => removeSidePanel(type) : undefined;
 
         return (
           <SidePanel
             {...sidePanelProps}
             key={id}
+            isBottomPanelClosing={isBottomPanelClosing}
             isMobile={isMobile}
             isOpen={!transition}
+            isStacked={isStacked}
             onBack={handleBack}
             onClose={handleClose}
             top={sidePanelTop}
