@@ -17,7 +17,7 @@ import { forwardRef, useRef } from 'react';
 import { css } from '@emotion/react';
 
 import Input from '../Input';
-import { HTMLCircuitInputElement, InputProps } from '../Input/Input';
+import { InputElement, InputProps } from '../Input/Input';
 import { multiRefs } from '../../util/multiRefs';
 
 import { useAutoExpand } from './useAutoExpand';
@@ -43,9 +43,9 @@ const textAreaStyles = css`
 /**
  * TextArea component for forms.
  */
-export const TextArea = forwardRef<HTMLCircuitInputElement, TextAreaProps>(
+export const TextArea = forwardRef<InputElement, TextAreaProps>(
   (props, passedRef) => {
-    const localRef = useRef<HTMLCircuitInputElement>(null);
+    const localRef = useRef<InputElement>(null);
     const modifiedProps = useAutoExpand(localRef, props);
 
     return (

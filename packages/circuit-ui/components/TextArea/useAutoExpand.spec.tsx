@@ -18,7 +18,7 @@ import userEvent from '@testing-library/user-event';
 import React, { FormEvent } from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { HTMLCircuitInputElement } from '../Input/Input';
+import { InputElement } from '../Input/Input';
 
 import { useAutoExpand } from './useAutoExpand';
 
@@ -26,7 +26,7 @@ const createTextAreaRef = (props = {}) => {
   render(<textarea {...props} />);
   return {
     current: screen.getByRole('textbox'),
-  } as React.MutableRefObject<HTMLCircuitInputElement>;
+  } as React.MutableRefObject<InputElement>;
 };
 
 describe('useAutoExpand hook', () => {
@@ -182,7 +182,7 @@ describe('useAutoExpand hook', () => {
     test('should allow preventing resize from onInput handler', () => {
       const onInputHandler = jest
         .fn()
-        .mockImplementation((e: FormEvent<HTMLCircuitInputElement>) => {
+        .mockImplementation((e: FormEvent<InputElement>) => {
           e.preventDefault();
         });
 

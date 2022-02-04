@@ -15,6 +15,6 @@
 
 import { Input } from './Input';
 
-export type { InputProps } from './Input';
+export type { InputProps, InputElement } from './Input';
 
 export default Input;
