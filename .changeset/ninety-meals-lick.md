@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-upgrade react-number-format version
+Upgraded the `react-number-format` dependency to v4.9.1.
