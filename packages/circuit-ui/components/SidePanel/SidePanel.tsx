@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactNode, UIEventHandler, useEffect, useState } from 'react';
+import { UIEventHandler, useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import { Props as ReactModalProps } from 'react-modal';
 
@@ -23,6 +23,7 @@ import { isFunction } from '../../util/type-check';
 import { MobileSidePanel } from './components/MobileSidePanel';
 import { DesktopSidePanel } from './components/DesktopSidePanel';
 import { Header } from './components/Header';
+import { SidePanelHookProps, Callback } from './useSidePanel';
 
 const BODY_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Body--open';
 export const HTML_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Html--open';
@@ -32,62 +33,40 @@ export const TRANSITION_DURATION_MOBILE = 240;
 export const DESKTOP_WIDTH = 400;
 export const BODY_MAX_WIDTH = 480;
 
-export type OnClose = () => void;
-
-export type SidePanelProps = {
-  /**
-   * Text label for the back button for screen readers.
-   * Important for accessibility.
-   */
-  backButtonLabel?: string;
-  /**
-   * The side panel content. Use a render function when you need access to the
-   * `onBack` and `onClose` functions.
-   */
-  children:
-    | ReactNode
-    | ((props: Pick<SidePanelProps, 'onBack' | 'onClose'>) => ReactNode);
-  /**
-   * Text label for the close button for screen readers.
-   * Important for accessibility.
-   */
-  closeButtonLabel: string;
-  /**
-   * The headline of the side panel.
-   */
-  headline: string;
-  /**
-   * Boolean indicating whether the bottom side panel is being closed.
-   */
-  isBottomPanelClosing: boolean;
-  /**
-   * Boolean indicating whether the side panel should be opened without animation.
-   */
-  isInstantOpen: boolean;
-  /**
-   * Boolean indicating whether the side panel should be in desktop or mobile mode.
-   */
-  isMobile: boolean;
-  /**
-   * Boolean indicating whether the side panel is stacked over another panel.
-   */
-  isStacked: boolean;
-  /**
-   * Callback function that is called when the side panel is closed.
-   */
-  onBack?: OnClose;
-  /**
-   * Callback function that is called when the side panel is closed.
-   */
-  onClose: OnClose;
-  /**
-   * The top offset in 'px' applied to the side panel in desktop mode.
-   */
-  top: string;
-} & Pick<
-  ReactModalProps,
-  'closeTimeoutMS' | 'isOpen' | 'onAfterClose' | 'shouldReturnFocusAfterClose'
->;
+export type SidePanelProps = ReactModalProps &
+  Pick<
+    SidePanelHookProps,
+    'backButtonLabel' | 'children' | 'closeButtonLabel' | 'headline'
+  > & {
+    /**
+     * Boolean indicating whether the bottom side panel is being closed.
+     */
+    isBottomPanelClosing: boolean;
+    /**
+     * Boolean indicating whether the side panel should be opened without animation.
+     */
+    isInstantOpen: boolean;
+    /**
+     * Boolean indicating whether the side panel should be in desktop or mobile mode.
+     */
+    isMobile: boolean;
+    /**
+     * Boolean indicating whether the side panel is stacked over another panel.
+     */
+    isStacked: boolean;
+    /**
+     * Callback function that is called when the side panel is closed.
+     */
+    onBack?: Callback;
+    /**
+     * Callback function that is called when the side panel is closed.
+     */
+    onClose: Callback;
+    /**
+     * The top offset in 'px' applied to the side panel in desktop mode.
+     */
+    top: string;
+  };
 
 type ContentProps = { top: string };
 

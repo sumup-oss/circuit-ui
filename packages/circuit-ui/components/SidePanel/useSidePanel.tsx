@@ -13,14 +13,58 @@
  * limitations under the License.
  */
 
-import { useContext, useMemo, useCallback, useRef, useEffect } from 'react';
+import {
+  ReactNode,
+  useContext,
+  useMemo,
+  useCallback,
+  useRef,
+  useEffect,
+} from 'react';
 
 import { uniqueId } from '../../util/id';
+import { TrackingProps } from '../../hooks/useClickEvent';
 
 import { SidePanelContext, SidePanelContextProps } from './SidePanelContext';
 
-export type SidePanelHookProps = Omit<SidePanelContextProps, 'type'> & {
-  type?: SidePanelContextProps['type'];
+export type Callback = () => void;
+
+type ChildrenRenderProps = { onBack?: Callback; onClose: Callback };
+
+export type SidePanelHookProps = {
+  /**
+   * Text label for the back button for screen readers.
+   * Important for accessibility.
+   */
+  backButtonLabel?: string;
+  /**
+   * The side panel content. Use a render function when you need access to the
+   * `onBack` and `onClose` functions to close the side panel programmatically.
+   */
+  children: ReactNode | ((props: ChildrenRenderProps) => ReactNode);
+  /**
+   * Text label for the close button for screen readers.
+   * Important for accessibility.
+   */
+  closeButtonLabel: string;
+  /**
+   * The headline of the side panel.
+   */
+  headline: string;
+  /**
+   * Callback function that is called when the side panel is closed.
+   */
+  onClose?: Callback;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
+  /**
+   * The type of the side panel. Opening a second side panel with
+   * the same `type` will replace the content and close all side panels
+   * stacked on top of it. Only panels of different type stack one on top of the other.
+   */
+  type?: string;
 };
 
 type SetSidePanel = (props: SidePanelHookProps) => void;

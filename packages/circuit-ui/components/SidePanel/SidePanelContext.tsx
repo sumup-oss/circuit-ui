@@ -22,24 +22,24 @@ import {
   useEffect,
 } from 'react';
 import { css, useTheme } from '@emotion/react';
-import ReactModal from 'react-modal';
+import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { useClickTrigger } from '@sumup/collector';
 
 import styled from '../../styles/styled';
 import { useMedia } from '../../hooks/useMedia';
-import { TrackingProps } from '../../hooks/useClickEvent';
 import { useStack, StackItem } from '../../hooks/useStack';
+import { Require } from '../../types/util';
 import { warn } from '../../util/logger';
 import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation';
 
 import {
-  OnClose,
   SidePanel,
   SidePanelProps,
   DESKTOP_WIDTH,
   TRANSITION_DURATION_DESKTOP,
   TRANSITION_DURATION_MOBILE,
 } from './SidePanel';
+import { SidePanelHookProps } from './useSidePanel';
 
 // It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the side panel is open on mobile.
@@ -66,51 +66,29 @@ if (typeof window !== 'undefined') {
   }
 }
 
-export type SidePanelContextProps = Omit<
-  SidePanelProps,
-  | 'isBottomPanelClosing'
-  | 'isInstantOpen'
-  | 'isMobile'
-  | 'isOpen'
-  | 'isStacked'
-  | 'onBack'
-  | 'onClose'
-  | 'top'
-> & {
-  /**
-   * Callback function that is called when the side panel is closed.
-   */
-  onClose?: OnClose;
-  /**
-   * Additional data that is dispatched with the tracking event.
-   */
-  tracking?: TrackingProps;
-  /**
-   * The type of the side panel. Opening a second side panel with
-   * the same `type` will replace the content and close all side panels
-   * stacked on top of it. Only panels of different type stack one on top of the other.
-   */
-  type: string;
-};
-
-type SidePanelContextItem = SidePanelContextProps &
-  Pick<SidePanelProps, 'isInstantOpen'> &
-  StackItem;
+export type SidePanelContextProps = Require<SidePanelHookProps, 'type'>;
 
 type SetSidePanel = (
   sidePanel: SidePanelContextProps & Pick<StackItem, 'id'>,
 ) => void;
 
 type UpdateSidePanel = (
-  sidePanel: Partial<SidePanelContextProps> & {
-    type: SidePanelContextProps['type'];
-  },
+  sidePanel: Partial<SidePanelContextProps> &
+    Pick<Required<SidePanelContextProps>, 'type'>,
 ) => void;
 
 type RemoveSidePanel = (
   type: SidePanelContextProps['type'],
   isInstantClose?: boolean,
 ) => Promise<void | void[]>;
+
+type SidePanelContextItem = SidePanelContextProps &
+  Pick<SidePanelProps, 'isInstantOpen'> &
+  Pick<
+    ReactModalProps,
+    'closeTimeoutMS' | 'onAfterClose' | 'shouldReturnFocusAfterClose'
+  > &
+  StackItem;
 
 export type SidePanelContextValue = {
   setSidePanel: SetSidePanel;
