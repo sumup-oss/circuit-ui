@@ -45,7 +45,7 @@ export type { CheckboxProps } from './components/Checkbox';
 export { default as Label } from './components/Label';
 export type { LabelProps } from './components/Label';
 export { default as Input } from './components/Input';
-export type { InputProps } from './components/Input';
+export type { InputProps, InputElement } from './components/Input';
 export { default as RadioButton } from './components/RadioButton';
 export type { RadioButtonProps } from './components/RadioButton';
 export { default as RadioButtonGroup } from './components/RadioButtonGroup';

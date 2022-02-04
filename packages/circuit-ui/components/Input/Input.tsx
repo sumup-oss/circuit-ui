@@ -36,7 +36,7 @@ import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';
 import { deprecate } from '../../util/logger';
 
-export type HTMLCircuitInputElement = HTMLInputElement & HTMLTextAreaElement;
+export type InputElement = HTMLInputElement & HTMLTextAreaElement;
 type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
   TextareaHTMLAttributes<HTMLTextAreaElement>;
 export interface InputProps extends CircuitInputHTMLAttributes {
@@ -115,7 +115,7 @@ export interface InputProps extends CircuitInputHTMLAttributes {
   /**
    * The ref to the HTML DOM element
    */
-  ref?: Ref<HTMLCircuitInputElement>;
+  ref?: Ref<InputElement>;
 }
 
 const containerStyles = () => css`
@@ -232,7 +232,7 @@ const inputSuffixStyles = ({ theme, hasSuffix }: StyleProps & InputElProps) =>
     padding-right: ${theme.spacings.exa};
   `;
 
-const InputElement = styled('input')<InputElProps>(
+const StyledInput = styled('input')<InputElProps>(
   typography('one'),
   inputBaseStyles,
   inputWarningStyles,
@@ -360,7 +360,7 @@ export const Input = forwardRef(
         </LabelText>
         <InputContainer>
           {prefix}
-          <InputElement
+          <StyledInput
             as={as}
             id={id}
             value={value}
