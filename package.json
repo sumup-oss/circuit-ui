@@ -37,7 +37,7 @@
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.17.0",
     "@babel/node": "^7.16.8",
-    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.13.0",
     "@changesets/changelog-github": "^0.4.0",
     "@changesets/cli": "^2.14.1",
