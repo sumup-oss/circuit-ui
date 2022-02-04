@@ -9,6 +9,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    versioning-strategy: increase
     ignore:
     # Storybook dependencies need to be upgraded manually in unison.
      - dependency-name: "@storybook/*"
