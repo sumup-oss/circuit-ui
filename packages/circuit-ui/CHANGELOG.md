@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.11.2
+
+### Patch Changes
+
+- [#1406](https://github.com/sumup-oss/circuit-ui/pull/1406) [`a4cf4263`](https://github.com/sumup-oss/circuit-ui/commit/a4cf42639a1d803c7dc76d95aff57878f28c791a) Thanks [@robinmetral](https://github.com/robinmetral)! - Exported the Circuit Input component type as `InputElement`.
+
 ## 4.11.1
 
 ### Patch Changes
