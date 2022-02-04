@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.11.3
+
+### Patch Changes
+
+- [#1408](https://github.com/sumup-oss/circuit-ui/pull/1408) [`114f1270`](https://github.com/sumup-oss/circuit-ui/commit/114f12704ae4edef59931f34407aff908004131c) Thanks [@long-lazuli](https://github.com/long-lazuli)! - Upgraded the `react-number-format` dependency to v4.9.1.
+
 ## 4.11.2
 
 ### Patch Changes
