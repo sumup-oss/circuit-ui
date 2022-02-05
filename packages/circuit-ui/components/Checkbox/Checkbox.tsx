@@ -25,6 +25,8 @@ import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
 import { deprecate } from '../../util/logger';
 import { AccessibilityError } from '../../util/errors';
 
+import { IndeterminateIcon } from './IndeterminateIcon';
+
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * A clear and concise description of the input's purpose.
@@ -126,16 +128,19 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     border-color: var(--cui-border-normal);
   }
 
-  &:checked:focus:not(:focus-visible) + label::before {
+  &:checked:focus:not(:focus-visible) + label::before,
+  &:indeterminate:focus:not(:focus-visible) + label::before {
     border-color: var(--cui-border-accent);
   }
 
-  &:checked + label > svg {
+  &:checked + label > svg[data-symbol='checked'],
+  &:indeterminate + label > svg[data-symbol='indeterminate'] {
     transform: translateY(-50%) scale(1, 1);
     opacity: 1;
   }
 
-  &:checked + label::before {
+  &:checked + label::before,
+  &:indeterminate + label::before {
     border-color: var(--cui-border-accent);
     background-color: var(--cui-bg-accent-strong);
   }
@@ -154,7 +159,8 @@ const inputInvalidStyles = ({ invalid }: InputElProps) =>
       border-color: var(--cui-border-danger-hovered);
     }
 
-    &:checked + label::before {
+    &:checked + label::before,
+    &:indeterminate + label::before {
       border-color: var(--cui-border-danger);
       background-color: var(--cui-bg-danger-strong);
     }
@@ -249,6 +255,7 @@ export const Checkbox = forwardRef(
         <CheckboxLabel htmlFor={id}>
           {label || children}
           <Checkmark aria-hidden="true" />
+          <IndeterminateIcon aria-hidden="true" />
         </CheckboxLabel>
         <FieldValidationHint
           id={validationHintId}
