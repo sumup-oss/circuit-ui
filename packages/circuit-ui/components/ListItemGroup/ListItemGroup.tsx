@@ -282,7 +282,7 @@ export const ListItemGroup = forwardRef(
               <StyledListItem
                 {...item}
                 isPlain={isPlain}
-                aria-pressed={item.selected}
+                aria-pressed={item.onClick ? item.selected : undefined}
               />
             </StyledLi>
           ))}

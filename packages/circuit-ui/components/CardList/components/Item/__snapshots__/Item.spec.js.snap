@@ -56,8 +56,9 @@ exports[`Item should render with all paddings 1`] = `
 }
 
 <div
-  aria-selected="false"
+  aria-pressed="false"
   class="circuit-0 circuit-1"
+  role="button"
   tabindex="0"
 >
   List item
@@ -120,8 +121,9 @@ exports[`Item should render with all paddings 2`] = `
 }
 
 <div
-  aria-selected="false"
+  aria-pressed="false"
   class="circuit-0 circuit-1"
+  role="button"
   tabindex="0"
 >
   List item
@@ -184,8 +186,9 @@ exports[`Item should render with all paddings 3`] = `
 }
 
 <div
-  aria-selected="false"
+  aria-pressed="false"
   class="circuit-0 circuit-1"
+  role="button"
   tabindex="0"
 >
   List item
@@ -248,8 +251,9 @@ exports[`Item should render with default styles 1`] = `
 }
 
 <div
-  aria-selected="false"
+  aria-pressed="false"
   class="circuit-0 circuit-1"
+  role="button"
   tabindex="0"
 >
   List item
@@ -312,8 +316,9 @@ exports[`Item should render with selected styles 1`] = `
 }
 
 <div
-  aria-selected="false"
+  aria-pressed="false"
   class="circuit-0 circuit-1"
+  role="button"
   tabindex="0"
 >
   List item

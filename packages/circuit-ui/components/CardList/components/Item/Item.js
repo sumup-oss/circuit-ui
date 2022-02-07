@@ -101,7 +101,8 @@ const createOnKeyDown = (onClick) => {
 
 const Item = (props) => (
   <BaseItem
-    aria-selected={props.selected}
+    role="button"
+    aria-pressed={props.selected}
     onKeyDown={createOnKeyDown(props.onClick)}
     {...props}
   />
