@@ -29,7 +29,7 @@ import { SidePanelContext, SidePanelContextProps } from './SidePanelContext';
 
 export type Callback = () => void;
 
-type ChildrenRenderProps = { onBack?: Callback; onClose: Callback };
+export type ChildrenRenderProps = { onBack?: Callback; onClose: Callback };
 
 export type SidePanelHookProps = {
   /**
@@ -85,7 +85,13 @@ export const useSidePanel: UseSidePanelHook = () => {
   const defaultType = useMemo(uniqueId, []);
   const bottomSidePanelTypeRef =
     useRef<SidePanelContextProps['type'] | undefined>();
-  const context = useContext(SidePanelContext);
+  const {
+    setSidePanel: setSidePanelContext,
+    updateSidePanel: updateSidePanelContext,
+    removeSidePanel: removeSidePanelContext,
+    isPrimaryContentResized,
+    transitionDuration,
+  } = useContext(SidePanelContext);
 
   const setSidePanel = useCallback<SetSidePanel>(
     (props) => {
@@ -93,28 +99,28 @@ export const useSidePanel: UseSidePanelHook = () => {
       if (!bottomSidePanelTypeRef.current) {
         bottomSidePanelTypeRef.current = sidePanelType;
       }
-      context.setSidePanel({ ...props, type: sidePanelType, id: uniqueId() });
+      setSidePanelContext({ ...props, type: sidePanelType, id: uniqueId() });
     },
-    [context, defaultType],
+    [setSidePanelContext, defaultType],
   );
 
   const updateSidePanel = useCallback<UpdateSidePanel>(
     (props) => {
       const sidePanelType = props.type || defaultType;
-      context.updateSidePanel({ ...props, type: sidePanelType });
+      updateSidePanelContext({ ...props, type: sidePanelType });
     },
-    [context, defaultType],
+    [updateSidePanelContext, defaultType],
   );
 
   const removeSidePanel = useCallback<RemoveSidePanel>(
     (type) => {
       const sidePanelType = type || defaultType;
-      context.removeSidePanel(sidePanelType).catch(() => {});
+      removeSidePanelContext(sidePanelType).catch(() => {});
       if (bottomSidePanelTypeRef.current === sidePanelType) {
         bottomSidePanelTypeRef.current = undefined;
       }
     },
-    [context, defaultType],
+    [removeSidePanelContext, defaultType],
   );
 
   // Close the side panels when the component that opened them is unmounted.
@@ -134,7 +140,7 @@ export const useSidePanel: UseSidePanelHook = () => {
     setSidePanel,
     updateSidePanel,
     removeSidePanel,
-    isPrimaryContentResized: context.isPrimaryContentResized,
-    transitionDuration: context.transitionDuration,
+    isPrimaryContentResized,
+    transitionDuration,
   };
 };

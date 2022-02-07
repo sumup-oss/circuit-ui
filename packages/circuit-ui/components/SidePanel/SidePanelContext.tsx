@@ -20,6 +20,7 @@ import {
   useMemo,
   useState,
   useEffect,
+  useRef,
 } from 'react';
 import { css, useTheme } from '@emotion/react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
@@ -153,6 +154,10 @@ export const SidePanelProvider = ({
   );
   const [isPrimaryContentResized, setIsPrimaryContentResized] = useState(false);
 
+  // Keep an up-to-date sidePanels ref to lower the number of updates of the context value
+  const sidePanelsRef = useRef(sidePanels);
+  sidePanelsRef.current = sidePanels;
+
   const transitionDuration = isMobile
     ? TRANSITION_DURATION_MOBILE
     : TRANSITION_DURATION_DESKTOP;
@@ -198,8 +203,10 @@ export const SidePanelProvider = ({
 
   const findSidePanel = useCallback(
     (type: SidePanelContextProps['type']) =>
-      sidePanels.find((panel) => panel.type === type && !panel.transition),
-    [sidePanels],
+      sidePanelsRef.current.find(
+        (panel) => panel.type === type && !panel.transition,
+      ),
+    [],
   );
 
   const removeSidePanel = useCallback<RemoveSidePanel>(
@@ -210,7 +217,7 @@ export const SidePanelProvider = ({
         return Promise.resolve();
       }
 
-      const sidePanelIndex = sidePanels.indexOf(panel);
+      const sidePanelIndex = sidePanelsRef.current.indexOf(panel);
 
       if (!isInstantClose) {
         setIsPrimaryContentResized(sidePanelIndex !== 0);
@@ -218,7 +225,7 @@ export const SidePanelProvider = ({
 
       // Remove the side panel and all panels above it in reverse order
       return Promise.all(
-        sidePanels
+        sidePanelsRef.current
           .slice(sidePanelIndex)
           .reverse()
           .map(
@@ -254,13 +261,7 @@ export const SidePanelProvider = ({
           ),
       );
     },
-    [
-      findSidePanel,
-      sidePanels,
-      sendTrackingEvent,
-      dispatch,
-      transitionDuration,
-    ],
+    [findSidePanel, sendTrackingEvent, dispatch, transitionDuration],
   );
 
   const setSidePanel = useCallback<SetSidePanel>(
