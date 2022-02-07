@@ -85,7 +85,7 @@ const DefaultChildren = ({
           ? `These are the details of ${label}.`
           : `This is more information about ${label}.`}
       </Body>
-      <Body noMargin>
+      <Body noMargin css={spacing({ bottom: 'mega' })}>
         {
           'Lorem ipsum dolor amet swag pickled humblebrag retro farm-to-table, shoreditch typewriter deep v single-origin coffee green juice coloring book venmo chambray. Marfa authentic blue bottle mixtape tofu adaptogen. IPhone chia blog palo santo mlkshk tattooed jean shorts yr locavore ennui scenester. Wolf tousled pok pok sartorial scenester man bun salvia quinoa raclette sriracha roof party pour-over venmo hammock. Four dollar toast typewriter 3 wolf moon letterpress disrupt pabst. Neutra irony tousled iPhone banh mi wayfarers hoodie waistcoat.'
         }
@@ -109,6 +109,7 @@ const DefaultChildren = ({
               headline: 'More information',
             })
           }
+          css={spacing({ bottom: 'mega' })}
         >
           Show more
         </Button>
@@ -116,15 +117,22 @@ const DefaultChildren = ({
       {showClose && (
         <>
           {onBack && (
-            <Button type="button" variant="tertiary" onClick={onBack}>
+            <Button
+              type="button"
+              variant="tertiary"
+              size="kilo"
+              onClick={onBack}
+              css={spacing({ bottom: 'mega' })}
+            >
               Back
             </Button>
           )}
           <Button
             type="button"
             variant="tertiary"
+            size="kilo"
             onClick={onClose}
-            css={spacing({ left: 'mega' })}
+            css={spacing({ left: 'mega', bottom: 'mega' })}
           >
             Close
           </Button>
@@ -190,7 +198,6 @@ const ComponentWithSidePanelExtended = (props) => {
             setSelectedItem(null);
             removeSidePanel();
           } else {
-            setSelectedItem(item.key);
             setSidePanel({
               ...props,
               children: ({ onClose }) => (
@@ -202,6 +209,7 @@ const ComponentWithSidePanelExtended = (props) => {
               ),
               onClose: () => setSelectedItem(null),
             });
+            setSelectedItem(item.key);
             setTimeout(() => {
               updateSidePanel({
                 children: ({ onClose }) => (
