@@ -13,88 +13,219 @@
  * limitations under the License.
  */
 
-import { Fragment } from 'react';
+import { useState } from 'react';
 
-import Button from '../Button';
 import Body from '../Body';
-import { ModalProvider } from '../ModalContext';
+import Button from '../Button';
+import ListItemGroup from '../ListItemGroup';
+import { TopNavigation } from '../TopNavigation';
+import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories';
 import { spacing } from '../../styles/style-mixins';
 
 import docs from './SidePanel.docs.mdx';
 import { SidePanelProvider } from './SidePanelContext';
-import { useSidePanel, SidePanelHookProps } from './useSidePanel';
-import { SidePanel } from './SidePanel';
+import {
+  useSidePanel,
+  ChildrenRenderProps,
+  SidePanelHookProps,
+} from './useSidePanel';
 
 export default {
   title: 'Components/SidePanel',
-  component: SidePanel,
-  subcomponents: { SidePanelProvider },
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
   },
+  argTypes: {
+    backButtonLabel: { control: 'text' },
+    type: { control: 'text' },
+  },
 };
 
-const DefaultChildren = () => {
-  const { setSidePanel } = useSidePanel();
-  return (
-    <Fragment>
-      <Body noMargin css={spacing({ bottom: 'mega' })}>
-        I am a side panel.
-      </Body>
-      <Button
-        type="button"
-        onClick={() =>
-          setSidePanel({
-            children: <Body noMargin>I am the second side panel.</Body>,
-            backButtonLabel: 'Back',
-            closeButtonLabel: 'Close',
-            headline: 'Second side panel',
-          })
-        }
-      >
-        Open second side panel
-      </Button>
-    </Fragment>
-  );
-};
+const items = Array.from(Array(12).keys()).map((i) => ({
+  key: `${i + 1}`,
+  label: `Item ${i + 1}`,
+}));
 
-export const Base = (props: SidePanelHookProps): JSX.Element => {
-  const ComponentWithSidePanel = () => {
-    const { setSidePanel } = useSidePanel();
-
-    return (
-      <>
-        <Button
-          type="button"
-          onClick={() => setSidePanel(props)}
-          css={spacing('mega')}
-        >
-          Open side panel
-        </Button>
-        <Button
-          type="button"
-          onClick={() =>
-            setSidePanel({ ...props, headline: 'Another side panel' })
-          }
-          css={spacing('mega')}
-        >
-          Open another side panel
-        </Button>
-      </>
-    );
-  };
-  return (
-    <ModalProvider>
-      <SidePanelProvider>
-        <ComponentWithSidePanel />
-      </SidePanelProvider>
-    </ModalProvider>
-  );
-};
-
-Base.args = {
-  children: DefaultChildren,
+const baseArgs: SidePanelHookProps = {
+  backButtonLabel: undefined,
+  children: undefined,
   closeButtonLabel: 'Close',
-  headline: 'First side panel',
-} as SidePanelHookProps;
+  headline: 'Item details',
+  onClose: null,
+  tracking: undefined,
+  type: undefined,
+};
+
+type DefaultChildrenProps = {
+  label: string;
+  showMoreInfo?: boolean;
+  showLoading?: boolean;
+  showClose?: boolean;
+};
+
+const DefaultChildren = ({
+  label,
+  showMoreInfo,
+  showLoading,
+  showClose,
+  onBack,
+  onClose,
+}: DefaultChildrenProps & Partial<ChildrenRenderProps>) => {
+  const { setSidePanel } = useSidePanel();
+
+  if (showLoading) {
+    return <Body noMargin>{`Loading the details of ${label}...`}</Body>;
+  }
+
+  return (
+    <>
+      <Body noMargin css={spacing({ bottom: 'mega' })}>
+        {showMoreInfo
+          ? `These are the details of ${label}.`
+          : `This is more information about ${label}.`}
+      </Body>
+      <Body noMargin>
+        {
+          'Lorem ipsum dolor amet swag pickled humblebrag retro farm-to-table, shoreditch typewriter deep v single-origin coffee green juice coloring book venmo chambray. Marfa authentic blue bottle mixtape tofu adaptogen. IPhone chia blog palo santo mlkshk tattooed jean shorts yr locavore ennui scenester. Wolf tousled pok pok sartorial scenester man bun salvia quinoa raclette sriracha roof party pour-over venmo hammock. Four dollar toast typewriter 3 wolf moon letterpress disrupt pabst. Neutra irony tousled iPhone banh mi wayfarers hoodie waistcoat.'
+        }
+      </Body>
+      {showMoreInfo && (
+        <Button
+          type="button"
+          variant="primary"
+          size="kilo"
+          onClick={() =>
+            setSidePanel({
+              ...baseArgs,
+              backButtonLabel: 'Back',
+              children: (renderProps) => (
+                <DefaultChildren
+                  label={label}
+                  showClose={showClose}
+                  {...renderProps}
+                />
+              ),
+              headline: 'More information',
+            })
+          }
+        >
+          Show more
+        </Button>
+      )}
+      {showClose && (
+        <>
+          {onBack && (
+            <Button type="button" variant="tertiary" onClick={onBack}>
+              Back
+            </Button>
+          )}
+          <Button
+            type="button"
+            variant="tertiary"
+            onClick={onClose}
+            css={spacing({ left: 'mega' })}
+          >
+            Close
+          </Button>
+        </>
+      )}
+    </>
+  );
+};
+
+const ComponentWithSidePanel = (props) => {
+  const [selectedItem, setSelectedItem] = useState<string>(null);
+  const { setSidePanel } = useSidePanel();
+
+  return (
+    <ListItemGroup
+      items={items.map((item) => ({
+        ...item,
+        variant: 'navigation',
+        selected: item.key === selectedItem,
+        onClick: () => {
+          setSelectedItem(item.key);
+          setSidePanel({
+            ...props,
+            children: <DefaultChildren label={item.label} showMoreInfo />,
+          });
+        },
+      }))}
+      label="Select an item to open its details in a side panel"
+      css={spacing('mega')}
+    />
+  );
+};
+
+export const Base = (props: SidePanelHookProps): JSX.Element => (
+  <SidePanelProvider>
+    <ComponentWithSidePanel {...props} />
+  </SidePanelProvider>
+);
+Base.args = baseArgs;
+
+export const WithTopNavigation = (props: SidePanelHookProps): JSX.Element => (
+  <>
+    <TopNavigation {...topNavigationProps} />
+    <SidePanelProvider withTopNavigation>
+      <ComponentWithSidePanel {...props} />
+    </SidePanelProvider>
+  </>
+);
+WithTopNavigation.args = baseArgs;
+
+const ComponentWithSidePanelExtended = (props) => {
+  const [selectedItem, setSelectedItem] = useState<string>(null);
+  const { setSidePanel, updateSidePanel, removeSidePanel } = useSidePanel();
+
+  return (
+    <ListItemGroup
+      items={items.map((item) => ({
+        ...item,
+        variant: 'navigation',
+        selected: item.key === selectedItem,
+        onClick: () => {
+          if (selectedItem === item.key) {
+            setSelectedItem(null);
+            removeSidePanel();
+          } else {
+            setSelectedItem(item.key);
+            setSidePanel({
+              ...props,
+              children: ({ onClose }) => (
+                <DefaultChildren
+                  label={item.label}
+                  showLoading
+                  onClose={onClose}
+                />
+              ),
+              onClose: () => setSelectedItem(null),
+            });
+            setTimeout(() => {
+              updateSidePanel({
+                children: ({ onClose }) => (
+                  <DefaultChildren
+                    label={item.label}
+                    showMoreInfo
+                    showClose
+                    onClose={onClose}
+                  />
+                ),
+              });
+            }, 1000);
+          }
+        },
+      }))}
+      label="Select an item to open its details in a side panel"
+      css={spacing('mega')}
+    />
+  );
+};
+
+export const UpdateAndRemove = (props: SidePanelHookProps): JSX.Element => (
+  <SidePanelProvider>
+    <ComponentWithSidePanelExtended {...props} />
+  </SidePanelProvider>
+);
+UpdateAndRemove.args = baseArgs;

@@ -13,7 +13,14 @@ module.exports = {
       name: '@storybook/preset-typescript',
       options: { transpileManager: true },
     },
-    '@storybook/addon-docs',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        sourceLoaderOptions: {
+          injectStoryParameters: false,
+        },
+      },
+    },
     '@storybook/addon-storysource',
     '@storybook/addon-controls',
     '@storybook/addon-actions',

@@ -34,7 +34,7 @@ export default {
   },
 };
 
-const baseArgs = {
+export const baseArgs: TopNavigationProps = {
   isLoading: false,
   logo: (
     <a
