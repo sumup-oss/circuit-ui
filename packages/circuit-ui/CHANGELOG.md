@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.11.4
+
+### Patch Changes
+
+- [#1421](https://github.com/sumup-oss/circuit-ui/pull/1421) [`4bc2b453`](https://github.com/sumup-oss/circuit-ui/commit/4bc2b453bd4361d30b656e8ac4fb73261daaf9b4) Thanks [@robinmetral](https://github.com/robinmetral)! - Set `aria-pressed` on a `ListItem` or `CardList.Item` (deprecated) only when it has a role of `button`. The attribute is invalid on any other role.
+
 ## 4.11.3
 
 ### Patch Changes
