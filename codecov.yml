@@ -5,3 +5,5 @@ comment:
   require_base: no
   require_head: no
   branches: null
+github_checks:
+  annotations: false
