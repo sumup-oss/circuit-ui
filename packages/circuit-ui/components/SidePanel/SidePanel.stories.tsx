@@ -42,7 +42,7 @@ export default {
   },
 };
 
-const items = Array.from(Array(12).keys()).map((i) => ({
+const items = Array.from(Array(10).keys()).map((i) => ({
   key: `${i + 1}`,
   label: `Item ${i + 1}`,
 }));

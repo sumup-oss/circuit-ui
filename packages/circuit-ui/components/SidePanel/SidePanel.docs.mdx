@@ -4,19 +4,80 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 <Status.Stable />
 
-Lorem ipsum...
+The side panel component provides an additional surface for displaying contextual information that can support the screen's primary content.
+It should always start in the closed state and appear only upon user interaction with another element.
+You can also open a secondary side panel on top of the first, usually triggered from an element within the first panel.
+
+_Note: the examples for the side panel component are best viewed in canvas mode_
 
 <Story id="components-sidepanel--base" />
 <Props />
 
-## When to use it
+## Usage guidelines
 
-Lorem ipsum...
+- **Do** use the side panel to show short-lived contextual information as part of the user's workflow.
+- **Do not** use the side panel as a permanent layout element. It should always be dismissible.
+
+## Accessibility
+
+The side panel component has been built to be used as part of a workflow and this has an effect on its accessibility.
+When the element triggering the side panel is clicked, the focus automatically shifts to the newly opened panel, facilitating a better keyboard navigation experience.
+While the side panel is visible the focus remains trapped inside. On desktop resolutions the side panel is non-modal, meaning that mouse users can easily interact with the rest of the application.
+Screen reader users would have to close the side panel first, which can be done easily using the Esc key.
+Once the side panel is closed focus is returned to the trigger element.
 
 ## Usage in code
 
-Lorem ipsum...
+First, wrap the primary content of your application in the `SidePanelProvider`.
+On desktop resolutions the primary content will be resized when the side panel is opened.
+Additionally, the `SidePanelProvider` allows for the side panels to work seamlessly with the top navigation through the `withTopNavigation` prop.
+
+```tsx
+<SidePanelProvider withTopNavigation>
+  {/* Your primary content here... */}
+</SidePanelProvider>
+```
 
 <Story id="components-sidepanel--with-top-navigation" />
+
+Then, use the `useSidePanel` hook to open a side panel from within a component.
+In the most straightforward case, simply use the `setSidePanel` function, passing the minimum set of props:
+- `children` - the content of your side panel
+- `closeButtonLabel` - an accessibility label for the close Button
+- `headline` - the title of the side panel
+
+```tsx
+import { setSidePanel, Button, Body } from '@sumup/circuit-ui';
+
+export function ShowMore() {
+  const { setSidePanel } = useSidePanel();
+
+  const handleClick = () => {
+    setSidePanel({
+      children: <Body>Some additional information</Body>,
+      closeButtonLabel: 'Close',
+      headline: 'More information',
+    });
+  };
+
+  return <Button onClick={handleClick}>Show more</Button>;
+}
+```
+
+Under the hood, `useSidePanel` generates a unique identifier for the side panel.
+When you call `setSidePanel` a second time it will close the old panel and open a new one.
+For stacked side panels you need to also provide the `backButtonLabel` accessibility prop.
+
+If you want side panels to stack using a single instance of `useSidePanel`, you'll need to pass the `type` prop with a custom identifier for each panel.
+You also need to pass `type` when you want to open and replace the same side panel from different instances of `useSidePanel`.
+
+In addition to the `setSidePanel` function the `useSidePanel` hook also returns the `updateSidePanel` and `removeSidePanel` functions.
+You can use `updateSidePanel` if you need to update the side panel asynchronously, though usually you should keep the side panel content self-contained.
+The `removeSidePanel` function allows you to programmatically close the side panel from the component that triggered it. Closing a lower level side panel also closes the panels stacked on top of it.
+
+It is also possible to close a side panel manually from within the side panel, e.g. closing the panel after an asynchronous API call.
+This is achieved with the use of the `onBack` and `onClose` render props which are passed to the `children` prop.
+`onBack` is available only for stacked side panels and imitates the behavior of the back button, closing only the topmost panel.
+Calling `onClose` will close the entire stack, just like clicking on the close button in the header.
 
 <Story id="components-sidepanel--update-and-remove" />
