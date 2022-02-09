@@ -206,6 +206,11 @@
       "size": "24"
     },
     {
+      "name": "upload",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "upload_cloud",
       "category": "Action",
       "size": "24"
