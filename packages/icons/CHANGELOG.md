@@ -1,5 +1,15 @@
 # @sumup/icons
 
+## 2.4.0
+
+### Minor Changes
+
+- [#1423](https://github.com/sumup-oss/circuit-ui/pull/1423) [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6) Thanks [@hrstngrnvsmp](https://github.com/hrstngrnvsmp)! - Added new `Download`, `Upload` and `Filter` icons in sizes 16 and 24.
+
+### Patch Changes
+
+- [#1425](https://github.com/sumup-oss/circuit-ui/pull/1425) [`8317a905`](https://github.com/sumup-oss/circuit-ui/commit/8317a90590b40da66de3e64ada61f8fcbaadf03c) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed and optimized the newly added icons: `Upload`, `Download` and `Filter`.
+
 ## 2.3.0
 
 ### Minor Changes
