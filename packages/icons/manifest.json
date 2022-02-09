@@ -86,19 +86,14 @@
       "size": "24"
     },
     {
+      "name": "download",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "download_cloud",
       "category": "Action",
       "size": "24"
-    },
-    {
-      "name": "download_flat",
-      "category": "Action",
-      "size": "24"
-    },
-    {
-      "name": "download_flat",
-      "category": "Action",
-      "size": "16"
     },
     {
       "name": "edit",
