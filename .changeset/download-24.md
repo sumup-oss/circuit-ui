@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-Added a size 24 Download icon.
+Updated the size 24 Download icon.
