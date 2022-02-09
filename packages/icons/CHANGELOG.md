@@ -4,17 +4,7 @@
 
 ### Minor Changes
 
-- [#1423](https://github.com/sumup-oss/circuit-ui/pull/1423) [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6) Thanks [@hrstngrnvsmp](https://github.com/hrstngrnvsmp)! - Added a size 16 Download icon.
-
-* [#1423](https://github.com/sumup-oss/circuit-ui/pull/1423) [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6) Thanks [@hrstngrnvsmp](https://github.com/hrstngrnvsmp)! - Updated the size 24 Download icon.
-
-- [#1423](https://github.com/sumup-oss/circuit-ui/pull/1423) [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6) Thanks [@hrstngrnvsmp](https://github.com/hrstngrnvsmp)! - Added a size 16 Filter icon.
-
-* [#1423](https://github.com/sumup-oss/circuit-ui/pull/1423) [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6) Thanks [@hrstngrnvsmp](https://github.com/hrstngrnvsmp)! - Added a size 24 Filter icon.
-
-- [#1423](https://github.com/sumup-oss/circuit-ui/pull/1423) [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6) Thanks [@hrstngrnvsmp](https://github.com/hrstngrnvsmp)! - Added a size 16 Upload icon.
-
-* [#1423](https://github.com/sumup-oss/circuit-ui/pull/1423) [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6) Thanks [@hrstngrnvsmp](https://github.com/hrstngrnvsmp)! - Updated a size 24 Upload icon.
+- [#1423](https://github.com/sumup-oss/circuit-ui/pull/1423) [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6) Thanks [@hrstngrnvsmp](https://github.com/hrstngrnvsmp)! - Added new `Download`, `Upload` and `Filter` icons in sizes 16 and 24.
 
 ### Patch Changes
 

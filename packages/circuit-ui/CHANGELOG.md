@@ -1,12 +1,5 @@
 # @sumup/circuit-ui
 
-## 5.0.0
-
-### Patch Changes
-
-- Updated dependencies [[`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6), [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6), [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6), [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6), [`8317a905`](https://github.com/sumup-oss/circuit-ui/commit/8317a90590b40da66de3e64ada61f8fcbaadf03c), [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6), [`1e7eeb1a`](https://github.com/sumup-oss/circuit-ui/commit/1e7eeb1a132c2e342e9ccdd853a8107fcdb790c6)]:
-  - @sumup/icons@2.4.0
-
 ## 4.11.4
 
 ### Patch Changes
