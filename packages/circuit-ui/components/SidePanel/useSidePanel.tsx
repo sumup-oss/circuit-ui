@@ -48,6 +48,12 @@ export type SidePanelHookProps = {
    */
   closeButtonLabel: string;
   /**
+   * The group of the side panel. Opening a second side panel in
+   * the same group will replace the content and close all side panels
+   * stacked on top of it. Only panels in different groups stack one on top of the other.
+   */
+  group?: string;
+  /**
    * The headline of the side panel.
    */
   headline: string;
@@ -59,19 +65,13 @@ export type SidePanelHookProps = {
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
-  /**
-   * The type of the side panel. Opening a second side panel with
-   * the same `type` will replace the content and close all side panels
-   * stacked on top of it. Only panels of different type stack one on top of the other.
-   */
-  type?: string;
 };
 
 type SetSidePanel = (props: SidePanelHookProps) => void;
 
 type UpdateSidePanel = (props: Partial<SidePanelHookProps>) => void;
 
-type RemoveSidePanel = (type?: SidePanelHookProps['type']) => void;
+type RemoveSidePanel = (group?: SidePanelHookProps['group']) => void;
 
 type UseSidePanelHook = () => {
   setSidePanel: SetSidePanel;
@@ -82,9 +82,9 @@ type UseSidePanelHook = () => {
 };
 
 export const useSidePanel: UseSidePanelHook = () => {
-  const defaultType = useMemo(uniqueId, []);
-  const bottomSidePanelTypeRef =
-    useRef<SidePanelContextProps['type'] | undefined>();
+  const defaultGroup = useMemo(uniqueId, []);
+  const bottomSidePanelGroupRef =
+    useRef<SidePanelContextProps['group'] | undefined>();
   const {
     setSidePanel: setSidePanelContext,
     updateSidePanel: updateSidePanelContext,
@@ -95,32 +95,32 @@ export const useSidePanel: UseSidePanelHook = () => {
 
   const setSidePanel = useCallback<SetSidePanel>(
     (props) => {
-      const sidePanelType = props.type || defaultType;
-      if (!bottomSidePanelTypeRef.current) {
-        bottomSidePanelTypeRef.current = sidePanelType;
+      const sidePanelGroup = props.group || defaultGroup;
+      if (!bottomSidePanelGroupRef.current) {
+        bottomSidePanelGroupRef.current = sidePanelGroup;
       }
-      setSidePanelContext({ ...props, type: sidePanelType, id: uniqueId() });
+      setSidePanelContext({ ...props, group: sidePanelGroup, id: uniqueId() });
     },
-    [setSidePanelContext, defaultType],
+    [setSidePanelContext, defaultGroup],
   );
 
   const updateSidePanel = useCallback<UpdateSidePanel>(
     (props) => {
-      const sidePanelType = props.type || defaultType;
-      updateSidePanelContext({ ...props, type: sidePanelType });
+      const sidePanelGroup = props.group || defaultGroup;
+      updateSidePanelContext({ ...props, group: sidePanelGroup });
     },
-    [updateSidePanelContext, defaultType],
+    [updateSidePanelContext, defaultGroup],
   );
 
   const removeSidePanel = useCallback<RemoveSidePanel>(
-    (type) => {
-      const sidePanelType = type || defaultType;
-      removeSidePanelContext(sidePanelType).catch(() => {});
-      if (bottomSidePanelTypeRef.current === sidePanelType) {
-        bottomSidePanelTypeRef.current = undefined;
+    (group) => {
+      const sidePanelGroup = group || defaultGroup;
+      removeSidePanelContext(sidePanelGroup).catch(() => {});
+      if (bottomSidePanelGroupRef.current === sidePanelGroup) {
+        bottomSidePanelGroupRef.current = undefined;
       }
     },
-    [removeSidePanelContext, defaultType],
+    [removeSidePanelContext, defaultGroup],
   );
 
   // Close the side panels when the component that opened them is unmounted.
@@ -129,8 +129,8 @@ export const useSidePanel: UseSidePanelHook = () => {
   removeSidePanelRef.current = removeSidePanel;
   useEffect(
     () => () => {
-      if (bottomSidePanelTypeRef.current) {
-        removeSidePanelRef.current(bottomSidePanelTypeRef.current);
+      if (bottomSidePanelGroupRef.current) {
+        removeSidePanelRef.current(bottomSidePanelGroupRef.current);
       }
     },
     [],

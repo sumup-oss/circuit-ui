@@ -67,7 +67,7 @@ if (typeof window !== 'undefined') {
   }
 }
 
-export type SidePanelContextProps = Require<SidePanelHookProps, 'type'>;
+export type SidePanelContextProps = Require<SidePanelHookProps, 'group'>;
 
 type SetSidePanel = (
   sidePanel: SidePanelContextProps & Pick<StackItem, 'id'>,
@@ -75,11 +75,11 @@ type SetSidePanel = (
 
 type UpdateSidePanel = (
   sidePanel: Partial<SidePanelContextProps> &
-    Pick<Required<SidePanelContextProps>, 'type'>,
+    Pick<Required<SidePanelContextProps>, 'group'>,
 ) => void;
 
 type RemoveSidePanel = (
-  type: SidePanelContextProps['type'],
+  group: SidePanelContextProps['group'],
   isInstantClose?: boolean,
 ) => Promise<void | void[]>;
 
@@ -202,16 +202,16 @@ export const SidePanelProvider = ({
   );
 
   const findSidePanel = useCallback(
-    (type: SidePanelContextProps['type']) =>
+    (group: SidePanelContextProps['group']) =>
       sidePanelsRef.current.find(
-        (panel) => panel.type === type && !panel.transition,
+        (panel) => panel.group === group && !panel.transition,
       ),
     [],
   );
 
   const removeSidePanel = useCallback<RemoveSidePanel>(
-    (type, isInstantClose) => {
-      const panel = findSidePanel(type);
+    (group, isInstantClose) => {
+      const panel = findSidePanel(group);
 
       if (!panel) {
         return Promise.resolve();
@@ -266,7 +266,7 @@ export const SidePanelProvider = ({
 
   const setSidePanel = useCallback<SetSidePanel>(
     (sidePanel) => {
-      const panel = findSidePanel(sidePanel.type);
+      const panel = findSidePanel(sidePanel.group);
 
       const pushPanel = (isInstantOpen: boolean) => {
         setIsPrimaryContentResized(true);
@@ -278,7 +278,7 @@ export const SidePanelProvider = ({
       };
 
       if (panel) {
-        removeSidePanel(panel.type, true)
+        removeSidePanel(panel.group, true)
           .then(() => pushPanel(true))
           .catch(() => {});
       } else {
@@ -290,7 +290,7 @@ export const SidePanelProvider = ({
 
   const updateSidePanel = useCallback<UpdateSidePanel>(
     (sidePanel) => {
-      const panel = findSidePanel(sidePanel.type);
+      const panel = findSidePanel(sidePanel.group);
 
       if (panel) {
         dispatch({
@@ -330,12 +330,12 @@ export const SidePanelProvider = ({
       </PrimaryContent>
 
       {sidePanels.map((sidePanel) => {
-        const { id, transition, type, ...sidePanelProps } = sidePanel;
+        const { group, id, transition, ...sidePanelProps } = sidePanel;
 
         const isBottomPanelClosing = !!sidePanels[0].transition;
-        const isStacked = type !== sidePanels[0].type;
-        const handleClose = () => removeSidePanel(sidePanels[0].type);
-        const handleBack = isStacked ? () => removeSidePanel(type) : undefined;
+        const isStacked = group !== sidePanels[0].group;
+        const handleClose = () => removeSidePanel(sidePanels[0].group);
+        const handleBack = isStacked ? () => removeSidePanel(group) : undefined;
 
         return (
           <SidePanel

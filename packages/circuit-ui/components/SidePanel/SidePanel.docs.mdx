@@ -68,8 +68,8 @@ Under the hood, `useSidePanel` generates a unique identifier for the side panel.
 When you call `setSidePanel` a second time it will close the old panel and open a new one.
 For stacked side panels you need to also provide the `backButtonLabel` accessibility prop.
 
-If you want side panels to stack using a single instance of `useSidePanel`, you'll need to pass the `type` prop with a custom identifier for each panel.
-You also need to pass `type` when you want to open and replace the same side panel from different instances of `useSidePanel`.
+If you want side panels to stack using a single instance of `useSidePanel`, you'll need to pass the `group` prop with a custom identifier for each panel.
+You also need to pass `group` when you want to open and replace the same side panel from different instances of `useSidePanel`.
 
 In addition to the `setSidePanel` function the `useSidePanel` hook also returns the `updateSidePanel` and `removeSidePanel` functions.
 You can use `updateSidePanel` if you need to update the side panel asynchronously, though usually you should keep the side panel content self-contained.

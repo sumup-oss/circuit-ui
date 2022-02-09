@@ -38,7 +38,7 @@ export default {
   },
   argTypes: {
     backButtonLabel: { control: 'text' },
-    type: { control: 'text' },
+    group: { control: 'text' },
   },
 };
 
@@ -51,10 +51,10 @@ const baseArgs: SidePanelHookProps = {
   backButtonLabel: undefined,
   children: undefined,
   closeButtonLabel: 'Close',
+  group: undefined,
   headline: 'Item details',
   onClose: null,
   tracking: undefined,
-  type: undefined,
 };
 
 type DefaultChildrenProps = {
