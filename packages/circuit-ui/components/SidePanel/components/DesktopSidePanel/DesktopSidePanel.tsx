@@ -66,15 +66,16 @@ export const DesktopSidePanel = ({
       `;
 
       const reactModalProps: ReactModalProps = {
-        aria: {
-          modal: false,
-        },
         ariaHideApp: false,
         className: styles,
         overlayClassName: overlayStyles,
         shouldCloseOnOverlayClick: false,
         closeTimeoutMS: TRANSITION_DURATION_DESKTOP,
         ...props,
+        aria: {
+          ...props.aria,
+          modal: false,
+        },
       };
 
       return (

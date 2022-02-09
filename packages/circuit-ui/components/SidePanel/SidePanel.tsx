@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
-import { UIEventHandler, useEffect, useState } from 'react';
+import { UIEventHandler, useEffect, useMemo, useState } from 'react';
 import { css } from '@emotion/react';
 import { Props as ReactModalProps } from 'react-modal';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { isFunction } from '../../util/type-check';
+import { uniqueId } from '../../util/id';
 
 import { MobileSidePanel } from './components/MobileSidePanel';
 import { DesktopSidePanel } from './components/DesktopSidePanel';
@@ -139,6 +140,7 @@ export const SidePanel = ({
   }
 
   const [isHeaderSticky, setHeaderSticky] = useState(false);
+  const headerAriaId = useMemo(() => uniqueId('side-panel-header_'), []);
 
   useEffect(() => {
     setHeaderSticky(false);
@@ -148,7 +150,10 @@ export const SidePanel = ({
     setHeaderSticky(event.currentTarget.scrollTop > 0);
   };
 
-  const defaultProps = {
+  const defaultProps: Partial<ReactModalProps> = {
+    aria: {
+      labelledby: headerAriaId,
+    },
     bodyOpenClassName: BODY_OPEN_CLASS_NAME,
     htmlOpenClassName: HTML_OPEN_CLASS_NAME,
     onRequestClose: onBack || onClose,
@@ -161,6 +166,7 @@ export const SidePanel = ({
         backButtonLabel={backButtonLabel}
         closeButtonLabel={closeButtonLabel}
         headline={headline}
+        id={headerAriaId}
         onBack={onBack}
         onClose={onClose}
         isSticky={isHeaderSticky}

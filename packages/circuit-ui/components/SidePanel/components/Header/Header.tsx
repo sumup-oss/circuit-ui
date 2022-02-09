@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import { ArrowLeft, Close } from '@sumup/icons';
 
@@ -24,6 +25,7 @@ import { SidePanelProps } from '../../SidePanel';
 type HeaderStickyProps = { isSticky: boolean };
 
 type HeaderProps = HeaderStickyProps &
+  Pick<HTMLAttributes<HTMLDivElement>, 'id'> &
   Pick<
     SidePanelProps,
     'backButtonLabel' | 'closeButtonLabel' | 'headline' | 'onBack' | 'onClose'
@@ -95,6 +97,7 @@ export const Header = ({
   backButtonLabel,
   closeButtonLabel,
   headline,
+  id,
   onBack,
   onClose,
   isSticky,
@@ -105,7 +108,7 @@ export const Header = ({
         <ArrowLeft size="24" />
       </StyledIconButton>
     )}
-    <StyledHeadline size="four" as="h2" noMargin noBackButton={!onBack}>
+    <StyledHeadline id={id} size="four" as="h2" noMargin noBackButton={!onBack}>
       {headline}
     </StyledHeadline>
     {closeButtonLabel && (
