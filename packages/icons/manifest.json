@@ -91,6 +91,16 @@
       "size": "24"
     },
     {
+      "name": "download_flat",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "download_flat",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "edit",
       "category": "Action",
       "size": "24"
@@ -274,6 +284,16 @@
       "name": "elv",
       "category": "Payment method",
       "size": "24"
+    },
+    {
+      "name": "filter",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "filter",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "google_pay",
