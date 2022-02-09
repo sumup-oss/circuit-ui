@@ -58,7 +58,10 @@ export const MobileSidePanel = ({
       const overlayStyles = {
         base: cssString`
           position: fixed;
-          inset: 0;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
           transition: background-color ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
           background-color: rgba(0, 0, 0, 0);
         `,
@@ -91,7 +94,10 @@ export const MobileSidePanel = ({
               /* Enable keyboard navigation inside the modal, see https://github.com/reactjs/react-modal/issues/782 */
               .${PORTAL_CLASS_NAME} {
                 position: fixed;
-                inset: 0;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
                 z-index: ${theme.zIndex.modal};
               }
             `}
