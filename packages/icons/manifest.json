@@ -86,6 +86,11 @@
       "size": "24"
     },
     {
+      "name": "download",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "download_cloud",
       "category": "Action",
       "size": "24"
@@ -201,6 +206,11 @@
       "size": "24"
     },
     {
+      "name": "upload",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "upload_cloud",
       "category": "Action",
       "size": "24"
@@ -274,6 +284,16 @@
       "name": "elv",
       "category": "Payment method",
       "size": "24"
+    },
+    {
+      "name": "filter",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "filter",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "google_pay",

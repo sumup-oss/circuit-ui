@@ -1,0 +1,11 @@
+<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#upload_16_svg__a)">
+        <path d="M2.293 5.793a1 1 0 0 0 1.414 1.414L7 3.914V11.5a1 1 0 1 0 2 0V3.914l3.293 3.293a1 1 0 1 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5Z" fill="#000"/>
+        <path d="M13 14.5H3a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2Z" fill="currentColor"/>
+    </g>
+    <defs>
+        <clipPath id="upload_16_svg__a">
+            <path fill="#fff" transform="translate(0 .5)" d="M0 0h16v16H0z"/>
+        </clipPath>
+    </defs>
+</svg>
