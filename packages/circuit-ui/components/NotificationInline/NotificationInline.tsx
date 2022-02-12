@@ -25,6 +25,7 @@ import CloseButton from '../CloseButton';
 import { hideVisually } from '../../styles/style-mixins';
 import Button, { ButtonProps } from '../Button';
 import { ClickEvent } from '../../types/events';
+import { isString } from '../../util/type-check';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
@@ -55,8 +56,15 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
   variant?: Variant;
   /**
    * Notification inline headline to provide information (optional)
+   * It can be either a string or an object (if the headline is 'h1')
+   * (Default is 'h2')
    */
-  headline?: string;
+  headline?:
+    | string
+    | {
+        as: 'h2' | 'h3';
+        label: string;
+      };
   /**
    * A body copy to provide information
    */
@@ -252,8 +260,12 @@ export function NotificationInline({
         <span css={hideVisually}>{iconLabel}</span>
         <Content>
           {headline && (
-            <Body variant={'highlight'} as="h3" noMargin>
-              {headline}
+            <Body
+              variant={'highlight'}
+              as={isString(headline) ? 'h3' : headline.as}
+              noMargin
+            >
+              {isString(headline) ? headline : headline?.label}
             </Body>
           )}
           <Body noMargin>{body}</Body>

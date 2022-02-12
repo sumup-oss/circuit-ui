@@ -52,15 +52,18 @@ describe('NotificationFullscreen', () => {
       expect(container).toMatchSnapshot();
     });
 
-    it('should render with default styles with h1 headline', () => {
-      const { container } = renderNotificationFullscreen({
+    it('should render with h1 headline', () => {
+      const { getByRole } = renderNotificationFullscreen({
         ...baseProps,
         headline: {
           label: 'Headline 1',
           as: 'h1',
         },
       });
-      expect(container).toMatchSnapshot();
+
+      const headingEl = getByRole('heading');
+
+      expect(headingEl.tagName).toBe('H1');
     });
   });
 
