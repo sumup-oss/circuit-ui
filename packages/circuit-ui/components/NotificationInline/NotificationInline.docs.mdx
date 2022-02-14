@@ -5,15 +5,14 @@ import { NotificationToast } from '@sumup/circuit-ui';
 
 <Status.Stable />
 
+The `NotificationInline` component renders an inline notification within the content flow. It is frequently used to provide additional guidance or to draw attention to a section of the interface.
+
 <Story id="notification-notificationinline--base" />
 <Props />
 
-The Notification Inline component non-disruptively provides quick and contextual inline notification and it is integrated within the content section.
-Inline notifications are frequently used to provide additional guidance to the user, like positive feedback, confirmation about an action or errors in forms, cards or dialog boxes.
-
 ## Component variations
 
-### Notification Inline variants
+### Notification variants
 
 <Story id="notification-notificationinline--variants" />
 
@@ -22,20 +21,32 @@ Inline notifications are frequently used to provide additional guidance to the u
 - Use the 'Notify' variant for warning messages, and other information a user should be aware of.
 - Use the 'Alert' variant for error messages. Be descriptive and give users clear next steps.
 
-### Dismissable inline notification
+### Dismissable notifications
 
-The close button is optional and can be excluded if the notification should not be dismissable. As accessibility requirement you need to provide a closeButtonLabel.
+The notification can optionally be made dismissable by passing an `onClose` method and a `closeButtonLabel`.
 
 <Story id="notification-notificationinline--dismissable" />
 
-### Inline with headline and action button
+### Notifications with a headline and/or action button
 
-If needed an optional headline can be included above the body copy. The action button is optional and it enables the user to take a specific action in relation to the message.
+If needed, an optional headline can be included above the body copy. Note that the headline can be passed as a string (renders an `h3`), or as an object with the properties `label` (the heading text) and `as` (the heading level, from `h2` to `h6`). Make sure to render the appropriate heading level based on your page's heading structure: refer to the [`Headline` component docs](Typography/Headline) for more details.
+
+Likewise, an optional action button will prompt the user to take a specific action in relation to the notification.
 
 <Story id="notification-notificationinline--with-headline-and-action" />
 
 ## Accessibility
 
-- Be concise, specific and short in the message.
-- Inline notifications are part of the content and should be placed near their related part of the content.
-- Do not cover other content with inline notifications.
+### Best practices
+
+#### Place notifications close to their related content
+
+Inline notifications are part of the content flow, and should be placed near their related content. Make use of headings and semantic markup to programmatically group content into meaningful sections.
+
+#### Avoid dynamically rendering a notification
+
+If rendering a notification on the page dynamically, e.g. after a form submission, set up a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) to ensure that the new content is picked up by assistive technology.
+
+Alternatively, use the [`NotificationToast`](Notifications/NotificationToast), which comes with a live region built in.
+
+An even more more robust pattern would ne to navigate on form submission and to render an `InlineNotification` statically on a new page. This would also allow for a notification with an action, which toasts don't support.
