@@ -45,7 +45,6 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
 >
   <div
     class="circuit-1"
-    color="alert"
   >
     <svg
       fill="none"
@@ -92,7 +91,6 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
 >
   <div
     class="circuit-1"
-    color="confirm"
   >
     <svg
       fill="none"
@@ -156,7 +154,6 @@ exports[`ValidationHint styles should render with warning styles 1`] = `
 >
   <div
     class="circuit-1"
-    color="notify"
   >
     <svg
       fill="none"

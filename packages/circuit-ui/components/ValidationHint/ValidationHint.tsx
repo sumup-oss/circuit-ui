@@ -16,6 +16,7 @@
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import { Confirm, NotifyCircle, Alert } from '@sumup/icons';
+import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
@@ -66,7 +67,9 @@ const Wrapper = styled('span')<ValidationHintProps>(
   warningStyles,
 );
 
-const IconWrapper = styled.div(
+const IconWrapper = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})(
   ({ theme, color }: StyleProps & { color: Color }) =>
     css`
       display: inline-block;

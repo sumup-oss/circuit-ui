@@ -1510,7 +1510,6 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   >
     <div
       class="circuit-13"
-      color="alert"
     >
       <svg
         fill="none"
