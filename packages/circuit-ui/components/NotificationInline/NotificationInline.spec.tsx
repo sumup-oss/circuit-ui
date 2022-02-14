@@ -74,19 +74,22 @@ describe('NotificationInline', () => {
       expect(baseElement).toMatchSnapshot();
     });
 
-    it('should render notification inline with h2 headline', () => {
-      const { getByRole } = renderNotificationInline({
-        ...baseProps,
-        headline: {
-          label: 'Headline 2',
-          as: 'h2',
-        },
-      });
+    it.each(['h2', 'h3', 'h4', 'h5', 'h6'] as const)(
+      'should render notification inline as an %s headline',
+      (level) => {
+        const { getByRole } = renderNotificationInline({
+          ...baseProps,
+          headline: {
+            label: `${level} headline`,
+            as: level,
+          },
+        });
 
-      const headingEl = getByRole('heading');
+        const headingEl = getByRole('heading');
 
-      expect(headingEl.tagName).toBe('H2');
-    });
+        expect(headingEl.tagName).toBe(level.toUpperCase());
+      },
+    );
 
     it('should render notification toast with an action button', () => {
       const { baseElement } = renderNotificationInline({
