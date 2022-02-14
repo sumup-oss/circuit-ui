@@ -53,7 +53,7 @@
     "@emotion/babel-plugin": "^11.7.2",
     "@emotion/cache": "^11.4.0",
     "@emotion/is-prop-valid": "^1.1.0",
-    "@emotion/jest": "^11.3.0",
+    "@emotion/jest": "^11.7.1",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@sumup/collector": "^1.4.0",
