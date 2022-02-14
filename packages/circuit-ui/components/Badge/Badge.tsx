@@ -33,6 +33,7 @@ export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   ref?: Ref<HTMLDivElement>;
 }
 
+// TODO: Will rename variants to match the new color names scheme in the next major version
 const COLOR_MAP = {
   success: {
     text: 'white',

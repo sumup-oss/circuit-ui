@@ -22,6 +22,7 @@ import { deprecate } from '../../util/logger';
 import { AsPropType } from '../../types/prop-types';
 
 type Size = 'one' | 'two';
+// TODO: Will rename variants to match the new color names scheme in the next major version
 type Variant = 'highlight' | 'quote' | 'success' | 'error' | 'subtle';
 
 export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
