@@ -69,7 +69,7 @@
     "eslint-formatter-github": "^1.0.11",
     "eslint-plugin-prettier": "^4.0.0",
     "expect": "^27.5.0",
-    "jest": "^27.0.6",
+    "jest": "^27.5.1",
     "jest-cli": "^27.5.0",
     "lerna": "^4.0.0",
     "license-checker": "^25.0.1",
