@@ -63,12 +63,12 @@ const variantStyles = ({ theme, variant }: BodyLargeProps & StyleProps) => {
     }
     case 'success': {
       return css`
-        color: ${theme.colors.success};
+        color: ${theme.colors.confirm};
       `;
     }
     case 'error': {
       return css`
-        color: ${theme.colors.danger};
+        color: ${theme.colors.alert};
       `;
     }
     case 'subtle': {

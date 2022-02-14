@@ -357,19 +357,19 @@ export const inputOutline = (
   switch (true) {
     case options.invalid: {
       colors = {
-        default: theme.colors.danger,
+        default: theme.colors.alert,
         hover: theme.colors.r700,
-        focus: theme.colors.danger,
-        active: theme.colors.danger,
+        focus: theme.colors.alert,
+        active: theme.colors.alert,
       };
       break;
     }
     case options.hasWarning: {
       colors = {
-        default: theme.colors.warning,
+        default: theme.colors.notify,
         hover: theme.colors.y700,
-        focus: theme.colors.warning,
-        active: theme.colors.warning,
+        focus: theme.colors.notify,
+        active: theme.colors.notify,
       };
       break;
     }
@@ -421,9 +421,7 @@ export const listItem = (
     padding: ${theme.spacings.kilo} ${theme.spacings.tera}
       ${theme.spacings.kilo} ${theme.spacings.mega};
     border: 0;
-    color: ${options.destructive
-      ? theme.colors.danger
-      : theme.colors.bodyColor};
+    color: ${options.destructive ? theme.colors.alert : theme.colors.bodyColor};
     text-decoration: none;
     position: relative;
 
