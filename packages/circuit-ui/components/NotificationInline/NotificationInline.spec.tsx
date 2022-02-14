@@ -67,11 +67,15 @@ describe('NotificationInline', () => {
     );
 
     it('should render notification inline with headline', () => {
-      const { baseElement } = renderNotificationInline({
+      const { getByRole } = renderNotificationInline({
         ...baseProps,
         headline: 'Information',
       });
-      expect(baseElement).toMatchSnapshot();
+
+      const headingEl = getByRole('heading');
+
+      expect(headingEl.tagName).toBe('H3');
+      expect(headingEl).toHaveTextContent('Information');
     });
 
     it.each(['h2', 'h3', 'h4', 'h5', 'h6'] as const)(

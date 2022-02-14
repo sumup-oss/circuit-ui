@@ -55,7 +55,7 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
    */
   variant?: Variant;
   /**
-   * An optional headline for structured content. Can be a string (an `h2`
+   * An optional headline for structured content. Can be a string (an `h3`
    * heading label) or object containing a label and heading level.
    */
   headline?:
