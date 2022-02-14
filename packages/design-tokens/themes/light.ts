@@ -105,6 +105,10 @@ const misc = {
   danger: '#D23F47',
   success: '#138849',
   warning: '#F5C625',
+  info: '#3063E9',
+  confirm: '#138849',
+  alert: '#D23F47',
+  notify: '#F5C625',
 };
 
 export const colors: Colors = {

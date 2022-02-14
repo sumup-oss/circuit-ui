@@ -83,6 +83,10 @@ export type Colors = {
   danger: string;
   success: string;
   warning: string;
+  info: string;
+  confirm: string;
+  alert: string;
+  notify: string;
 };
 
 export type Spacings = {

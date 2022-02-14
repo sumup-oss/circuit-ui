@@ -123,6 +123,10 @@ export const themePropType = PropTypes.shape({
     danger: PropTypes.string.isRequired,
     success: PropTypes.string.isRequired,
     warning: PropTypes.string.isRequired,
+    info: PropTypes.string.isRequired,
+    alert: PropTypes.string.isRequired,
+    confirm: PropTypes.string.isRequired,
+    notify: PropTypes.string.isRequired,
   } as { [key in keyof Colors]: Requireable<string>['isRequired'] }).isRequired,
   spacings: PropTypes.shape({
     bit: PropTypes.string.isRequired,
