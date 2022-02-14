@@ -51,22 +51,21 @@ type CloseProps =
 
 export type BaseProps = HTMLAttributes<HTMLDivElement> & {
   /**
-   * Notification inline variants. Defaults to `info`.
+   * The notification's variant. Defaults to `info`.
    */
   variant?: Variant;
   /**
-   * Notification inline headline to provide information (optional)
-   * It can be either a string or an object (if the headline is 'h1')
-   * (Default is 'h2')
+   * An optional headline for structured content. Can be a string (an `h2`
+   * heading label) or object containing a label and heading level.
    */
   headline?:
     | string
     | {
-        as: 'h2' | 'h3';
+        as: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
         label: string;
       };
   /**
-   * A body copy to provide information
+   * The notification's body copy.
    */
   body: string;
   /**
@@ -74,7 +73,7 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
    */
   action?: Action;
   /**
-   * Whether the notification inline is visible.
+   * Whether the notification is visible.
    */
   isVisible?: boolean;
   /**
@@ -82,7 +81,8 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
    */
   tracking?: TrackingProps;
   /**
-   * A clear and concise description of the icon and the Toast's purpose. If the toast body is self-explanatory pass an empty string.
+   * A text replacement for the icon in the context of the notification, if its
+   * body copy isn't self-explanatory. Defaults to an empty string.
    */
   iconLabel?: string;
 };

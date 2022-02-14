@@ -34,15 +34,15 @@ type Variant = 'info' | 'confirm' | 'notify' | 'alert';
 export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
   BaseToastProps & {
     /**
-     * Notification toast variants. Defaults to `info`.
+     * The toast's variant. Defaults to `info`.
      */
     variant?: Variant;
     /**
-     * Notification toast headline to provide information (optional)
+     * An optional headline for structured toast content.
      */
     headline?: string;
     /**
-     * A body copy to provide notification toast information
+     * The toast's body copy.
      */
     body: string;
     /**
@@ -54,12 +54,13 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
      */
     tracking?: TrackingProps;
     /**
-     * Close button is always rendered in the top right corner
-     * onClose is called when the toast is auto-dismissed or the close button is clicked.
+     * An optional callback that is called when the toast is dismissed,
+     * manually or after a timeout.
      */
     onClose?: (event: ClickEvent) => void;
     /**
-     * A clear and concise description of the icon and the Toast's purpose. If the toast body is self-explanatory pass an empty string.
+     * A text replacement for the icon in the context of the toast, if its body
+     * copy isn't self-explanatory. Defaults to an empty string.
      */
     iconLabel?: string;
   };
