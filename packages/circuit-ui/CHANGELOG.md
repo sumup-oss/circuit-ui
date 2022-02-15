@@ -1,5 +1,16 @@
 # @sumup/circuit-ui
 
+## 4.13.0
+
+### Minor Changes
+
+- [#1431](https://github.com/sumup-oss/circuit-ui/pull/1431) [`3f9585a4`](https://github.com/sumup-oss/circuit-ui/commit/3f9585a44744c67904b03fbc50d614104bfff927) Thanks [@amelako](https://github.com/amelako)! - Replaced the `success`, `warning`, and `danger` colors with the new `confirm`, `notify`, and `alert` colors.
+
+### Patch Changes
+
+- Updated dependencies [[`3f9585a4`](https://github.com/sumup-oss/circuit-ui/commit/3f9585a44744c67904b03fbc50d614104bfff927)]:
+  - @sumup/design-tokens@3.4.0
+
 ## 4.12.0
 
 ### Minor Changes

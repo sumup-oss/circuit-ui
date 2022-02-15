@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 3.4.0
+
+### Minor Changes
+
+- [#1431](https://github.com/sumup-oss/circuit-ui/pull/1431) [`3f9585a4`](https://github.com/sumup-oss/circuit-ui/commit/3f9585a44744c67904b03fbc50d614104bfff927) Thanks [@amelako](https://github.com/amelako)! - Added new `info`, `confirm`, `alert`, and `notify` colors and deprecated the `success`, `warning`, and `danger` colors.
+
 ## 3.3.0
 
 ### Minor Changes
