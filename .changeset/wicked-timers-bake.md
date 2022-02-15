@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': minor
 ---
 
-Replaced the `success`, `warning` and `danger` color usage with the new values `confirm`, `notify` and `alert`.
+Replaced the `success`, `warning`, and `danger` colors with the new `confirm`, `notify`, and `alert` colors.
