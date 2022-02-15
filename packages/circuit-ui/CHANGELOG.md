@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.12.0
+
+### Minor Changes
+
+- [#1432](https://github.com/sumup-oss/circuit-ui/pull/1432) [`60d57a8a`](https://github.com/sumup-oss/circuit-ui/commit/60d57a8a2920a8e00bd061fc5a95950c288dd6ee) Thanks [@robinmetral](https://github.com/robinmetral)! - Allow heading levels `h2` to `h6` in the `NotificationInline` headline. Pass it an object with the properties `label` (the heading text) and `as` (the heading level).
+
 ## 4.11.4
 
 ### Patch Changes
