@@ -70,6 +70,36 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 > ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
 > ```
 
+## From v4 to v5
+
+### Notification components
+
+The old Notification components were general purpose without clear guidelines when to use a specific Notification component. This has led to inconsistent usage in our apps.
+The deprecated `Notification`, `NotificationList` and `NotificationCard` components were replaced with the new refreshed Notification components (`NotificationBanner`, `NotificationFullscreen`, `NotificationModal`, `NotificationToast` and `NotificationInline`)
+This introduces semantic, accessible components that make it clear when each should be used and are flexible enough to cover all use cases.
+
+#### NotificationBanner
+
+The notification banner should be used to display the global system messages or for promotions and recommendations.
+
+#### NotificationFullscreen
+
+The NotificationFullscreen component provides important information or feedback as part of a process flow. It can be used as a confirmation/success screen, an empty screen state or as an error screen.
+
+#### NotificationModal
+
+Notification modal should be used as information that needs a user's immediate attention or to request a confirmation before performing a destructive action.
+
+#### NotificationToast
+
+A toast should be used to follow a user action (e.g. submitting a form) or it can appear without having been triggered explicitly (e.g. a toast message "You made a new sale" showing real-time sales in an app).
+
+#### NotificationInline
+
+It is frequently used to provide additional guidance or to draw attention to a section of the interface (like positive feedback, confirmation about an action or errors in forms, cards or dialog boxes.)
+
+Refer to [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification) for a usage examples.
+
 ## From v4 to v4.1
 
 ### Combined LoadingButton and Button
