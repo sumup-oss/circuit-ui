@@ -21,6 +21,8 @@ import {
   renderToHtml,
   axe,
   RenderFn,
+  act,
+  userEvent,
 } from '../../util/test-utils';
 import Body from '../Body';
 
@@ -101,6 +103,34 @@ describe('ListItemGroup', () => {
         ),
       });
       expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render a ListItemGroup with interactive items', () => {
+      const { container } = renderListItemGroup(render, {
+        ...baseProps,
+        items: baseProps.items.map((item) => ({
+          ...item,
+          onClick: jest.fn(),
+        })),
+      });
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render the focused item in a ListItemGroup with interactive items', () => {
+      const { container } = renderListItemGroup(render, {
+        ...baseProps,
+        items: baseProps.items.map((item) => ({
+          ...item,
+          onClick: jest.fn(),
+        })),
+      });
+
+      act(() => {
+        userEvent.tab();
+      });
+
+      expect(container).toMatchSnapshot();
     });
   });
 

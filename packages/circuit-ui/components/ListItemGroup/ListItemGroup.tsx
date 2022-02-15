@@ -302,8 +302,14 @@ export const ListItemGroup = forwardRef(
                 isPlain={isPlain}
                 aria-pressed={item.onClick ? item.selected : undefined}
                 onFocus={(event) => {
-                  if (event.currentTarget.matches(':focus-visible')) {
-                    setFocusedItemKey(key);
+                  try {
+                    if (event.currentTarget.matches(':focus-visible')) {
+                      setFocusedItemKey(key);
+                    }
+                  } catch (err) {
+                    if (event.currentTarget.matches(':focus')) {
+                      setFocusedItemKey(key);
+                    }
                   }
                 }}
                 onBlur={() => setFocusedItemKey(null)}
