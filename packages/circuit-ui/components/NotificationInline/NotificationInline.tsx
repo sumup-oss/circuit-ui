@@ -25,6 +25,7 @@ import CloseButton from '../CloseButton';
 import { hideVisually } from '../../styles/style-mixins';
 import Button, { ButtonProps } from '../Button';
 import { ClickEvent } from '../../types/events';
+import { isString } from '../../util/type-check';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
@@ -50,15 +51,21 @@ type CloseProps =
 
 export type BaseProps = HTMLAttributes<HTMLDivElement> & {
   /**
-   * Notification inline variants. Defaults to `info`.
+   * The notification's variant. Defaults to `info`.
    */
   variant?: Variant;
   /**
-   * Notification inline headline to provide information (optional)
+   * An optional headline for structured content. Can be a string (an `h3`
+   * heading label) or object containing a label and heading level.
    */
-  headline?: string;
+  headline?:
+    | string
+    | {
+        as: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+        label: string;
+      };
   /**
-   * A body copy to provide information
+   * The notification's body copy.
    */
   body: string;
   /**
@@ -66,7 +73,7 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
    */
   action?: Action;
   /**
-   * Whether the notification inline is visible.
+   * Whether the notification is visible.
    */
   isVisible?: boolean;
   /**
@@ -74,7 +81,8 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
    */
   tracking?: TrackingProps;
   /**
-   * A clear and concise description of the icon and the Toast's purpose. If the toast body is self-explanatory pass an empty string.
+   * A text replacement for the icon in the context of the notification, if its
+   * body copy isn't self-explanatory. Defaults to an empty string.
    */
   iconLabel?: string;
 };
@@ -252,8 +260,12 @@ export function NotificationInline({
         <span css={hideVisually}>{iconLabel}</span>
         <Content>
           {headline && (
-            <Body variant={'highlight'} as="h3" noMargin>
-              {headline}
+            <Body
+              variant={'highlight'}
+              as={isString(headline) ? 'h3' : headline.as}
+              noMargin
+            >
+              {isString(headline) ? headline : headline?.label}
             </Body>
           )}
           <Body noMargin>{body}</Body>

@@ -67,12 +67,33 @@ describe('NotificationInline', () => {
     );
 
     it('should render notification inline with headline', () => {
-      const { baseElement } = renderNotificationInline({
+      const { getByRole } = renderNotificationInline({
         ...baseProps,
         headline: 'Information',
       });
-      expect(baseElement).toMatchSnapshot();
+
+      const headingEl = getByRole('heading');
+
+      expect(headingEl.tagName).toBe('H3');
+      expect(headingEl).toHaveTextContent('Information');
     });
+
+    it.each(['h2', 'h3', 'h4', 'h5', 'h6'] as const)(
+      'should render notification inline as an %s headline',
+      (level) => {
+        const { getByRole } = renderNotificationInline({
+          ...baseProps,
+          headline: {
+            label: `${level} headline`,
+            as: level,
+          },
+        });
+
+        const headingEl = getByRole('heading');
+
+        expect(headingEl.tagName).toBe(level.toUpperCase());
+      },
+    );
 
     it('should render notification toast with an action button', () => {
       const { baseElement } = renderNotificationInline({
@@ -85,6 +106,7 @@ describe('NotificationInline', () => {
       expect(baseElement).toMatchSnapshot();
     });
   });
+
   describe('business logic', () => {
     it('should click on a call to action button', () => {
       const props = {
@@ -102,6 +124,7 @@ describe('NotificationInline', () => {
 
       expect(props.action.onClick).toHaveBeenCalledTimes(1);
     });
+
     it('should close the notification inline when the onClose method is called', () => {
       const props = {
         ...baseProps,
@@ -117,9 +140,7 @@ describe('NotificationInline', () => {
       expect(props.onClose).toHaveBeenCalled();
     });
   });
-  /**
-   * Accessibility tests.
-   */
+
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const { container } = renderNotificationInline(baseProps);
