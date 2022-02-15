@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, Ref, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef, Ref, HTMLAttributes, ReactNode, useState } from 'react';
 import { css } from '@emotion/react';
 import { some } from 'lodash/fp';
 
@@ -146,7 +146,7 @@ const ItemsContainer = styled.ul(
   itemsContainerPlainStyles,
 );
 
-type InteractiveProps = { isInteractive: boolean };
+type InteractiveProps = { isFocused: boolean; isInteractive: boolean };
 
 type StyledLiProps = Pick<ListItemProps, 'selected'> & InteractiveProps;
 
@@ -170,13 +170,23 @@ const liStyles = ({ theme }: StyleProps) => css`
 const liInteractiveStyles = ({ isInteractive }: StyledLiProps) =>
   isInteractive &&
   css`
-    &:hover,
-    &:focus-within {
+    &:hover {
       &,
       & + li {
         &:not(:first-of-type) > * > div:last-of-type:before {
           border-top-width: 0;
         }
+      }
+    }
+  `;
+
+const liFocusedStyles = ({ isFocused }: StyledLiProps) =>
+  isFocused &&
+  css`
+    &,
+    & + li {
+      &:not(:first-of-type) > * > div:last-of-type:before {
+        border-top-width: 0;
       }
     }
   `;
@@ -192,7 +202,12 @@ const liSelectedStyles = ({ selected }: StyledLiProps) =>
     }
   `;
 
-const StyledLi = styled.li(liStyles, liInteractiveStyles, liSelectedStyles);
+const StyledLi = styled.li(
+  liStyles,
+  liInteractiveStyles,
+  liFocusedStyles,
+  liSelectedStyles,
+);
 
 type StyledListItemProps = ListItemProps & PlainProps;
 
@@ -244,6 +259,8 @@ export const ListItemGroup = forwardRef(
         'The `label` prop is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
+    const [focusedItemKey, setFocusedItemKey] =
+      useState<ItemProps['key'] | null>(null);
 
     const isPlain = variant === 'plain';
     const isInteractive = some((item) => !!item.href || !!item.onClick, items);
@@ -276,6 +293,7 @@ export const ListItemGroup = forwardRef(
           {items.map(({ key, ...item }) => (
             <StyledLi
               key={key}
+              isFocused={focusedItemKey === key}
               isInteractive={isInteractive}
               selected={item.selected}
             >
@@ -283,6 +301,12 @@ export const ListItemGroup = forwardRef(
                 {...item}
                 isPlain={isPlain}
                 aria-pressed={item.onClick ? item.selected : undefined}
+                onFocus={(event) => {
+                  if (event.currentTarget.matches(':focus-visible')) {
+                    setFocusedItemKey(key);
+                  }
+                }}
+                onBlur={() => setFocusedItemKey(null)}
               />
             </StyledLi>
           ))}
