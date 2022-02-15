@@ -99,12 +99,30 @@ const successStyles = createLeftBorderStyles('success');
 const warningStyles = createLeftBorderStyles('warning');
 const dangerStyles = createLeftBorderStyles('danger');
 
-/**
- * An inline message displayed inside a Card.
- */
-export const InlineMessage = styled('p')<InlineMessageProps>(
+export const InlineMessageStyles = styled('p')<InlineMessageProps>(
   dangerStyles,
   successStyles,
   warningStyles,
   marginStyles,
 );
+
+/**
+ * @deprecated
+ * An inline message displayed inside a Card.
+ */
+export const InlineMessage = ({
+  ...props
+}: InlineMessageProps): JSX.Element => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    deprecate(
+      'InlineMessage',
+      'The InlineMessage component is deprecated.',
+      'Use the `NotificationInline` component instead.',
+      'Read more at https://circuit.sumup.com/?path=/docs/notification-notificationinline--base',
+    );
+  }
+  return <InlineMessageStyles {...props}></InlineMessageStyles>;
+};

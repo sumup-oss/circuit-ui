@@ -18,6 +18,7 @@ import { css } from '@emotion/react';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { shadow } from '../../styles/style-mixins';
+import { deprecate } from '../../util/logger';
 
 export interface NotificationCardProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -41,13 +42,27 @@ const innerStyles = ({ theme }: StyleProps) => css`
 const NotificationCardInner = styled('div')(innerStyles);
 
 /**
+ * @deprecated
  * NotificationCard displays a persistent Notification.
  */
 export const NotificationCard = ({
   children,
   ...props
-}: NotificationCardProps): JSX.Element => (
-  <NotificationCardOuter {...props} aria-live="polite" role="status">
-    <NotificationCardInner>{children}</NotificationCardInner>
-  </NotificationCardOuter>
-);
+}: NotificationCardProps): JSX.Element => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    deprecate(
+      'NotificationCard',
+      'The NotificationCard component is deprecated.',
+      'Use the new Notification components instead',
+      'Read more at [migration guide] ',
+    );
+  }
+  return (
+    <NotificationCardOuter {...props} aria-live="polite" role="status">
+      <NotificationCardInner>{children}</NotificationCardInner>
+    </NotificationCardOuter>
+  );
+};
