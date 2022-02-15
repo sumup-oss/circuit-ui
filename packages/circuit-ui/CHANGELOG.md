@@ -1,6 +1,6 @@
 # @sumup/circuit-ui
 
-## 5.0.0
+## 4.13.0
 
 ### Minor Changes
 
