@@ -32,6 +32,7 @@ export default {
     layout: 'fullscreen',
     docs: { page: docs },
   },
+  excludeStories: /.*Args$/,
 };
 
 export const baseArgs: TopNavigationProps = {
