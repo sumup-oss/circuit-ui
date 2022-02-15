@@ -26,7 +26,11 @@ describe('useStack', () => {
     jest.useRealTimers();
   });
 
-  const initialStack = [{ id: 1 }, { id: 2 }, { id: 3 }];
+  const initialStack = [
+    { id: 1, label: 'one' },
+    { id: 2, label: 'tow' },
+    { id: 3, label: 'three' },
+  ];
 
   describe('initialization', () => {
     it('should initialize the stack to an empty array', () => {
@@ -52,7 +56,7 @@ describe('useStack', () => {
 
       act(() => {
         const dispatch = result.current[1];
-        dispatch({ type: 'push', item: { id: 4 } });
+        dispatch({ type: 'push', item: { id: 4, label: 'four' } });
       });
 
       const state = result.current[0];
@@ -117,6 +121,20 @@ describe('useStack', () => {
       });
 
       expect(result.current[0]).toHaveLength(2);
+    });
+
+    it('should update an item', () => {
+      const { result } = renderHook(() => useStack(initialStack));
+
+      act(() => {
+        const dispatch = result.current[1];
+        dispatch({ type: 'update', item: { id: 3, label: '~pi' } });
+      });
+
+      const state = result.current[0];
+
+      expect(state).toHaveLength(3);
+      expect(state[2].label).toBe('~pi');
     });
   });
 });
