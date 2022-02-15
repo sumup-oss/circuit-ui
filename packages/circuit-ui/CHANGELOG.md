@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.13.1
+
+### Patch Changes
+
+- [#1435](https://github.com/sumup-oss/circuit-ui/pull/1435) [`55e78782`](https://github.com/sumup-oss/circuit-ui/commit/55e7878251dc5a87392e099eb336490180df87ee) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed modern syntax in the NotificationInline component that wasn't transpiled and could lead to build issues in apps that consume Circuit UI.
+
 ## 4.13.0
 
 ### Minor Changes
