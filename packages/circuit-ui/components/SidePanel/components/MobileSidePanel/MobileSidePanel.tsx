@@ -24,7 +24,7 @@ import {
   TRANSITION_DURATION_MOBILE,
 } from '../../SidePanel';
 
-type MobileSidePanelProps = ReactModalProps &
+export type MobileSidePanelProps = ReactModalProps &
   Pick<SidePanelProps, 'isBottomPanelClosing' | 'isStacked'>;
 
 export const MobileSidePanel = ({

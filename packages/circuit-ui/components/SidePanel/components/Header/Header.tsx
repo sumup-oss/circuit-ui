@@ -24,7 +24,7 @@ import { SidePanelProps } from '../../SidePanel';
 
 type HeaderStickyProps = { isSticky: boolean };
 
-type HeaderProps = HeaderStickyProps &
+export type HeaderProps = HeaderStickyProps &
   Pick<HTMLAttributes<HTMLDivElement>, 'id'> &
   Pick<
     SidePanelProps,
@@ -98,9 +98,9 @@ export const Header = ({
   closeButtonLabel,
   headline,
   id,
+  isSticky,
   onBack,
   onClose,
-  isSticky,
 }: HeaderProps): JSX.Element => (
   <HeaderContainer isSticky={isSticky}>
     {onBack && backButtonLabel && (

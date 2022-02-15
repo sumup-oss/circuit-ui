@@ -24,7 +24,7 @@ import {
   TRANSITION_DURATION_DESKTOP,
 } from '../../SidePanel';
 
-type DesktopSidePanelProps = ReactModalProps &
+export type DesktopSidePanelProps = ReactModalProps &
   Pick<SidePanelProps, 'isInstantOpen' | 'top'>;
 
 export const DesktopSidePanel = ({
@@ -79,7 +79,7 @@ export const DesktopSidePanel = ({
       };
 
       return (
-        <StackContext.Provider value={theme.zIndex.modal}>
+        <StackContext.Provider value={theme.zIndex.absolute}>
           <ReactModal {...reactModalProps}>{children}</ReactModal>
           <Global
             styles={css`
