@@ -46,7 +46,6 @@ describe('ListItemGroup', () => {
     items: items.map((item) => ({
       key: item.id,
       label: item.label,
-      selected: item.id === 1,
     })),
     label: 'Group label',
   };
@@ -128,6 +127,19 @@ describe('ListItemGroup', () => {
 
       act(() => {
         userEvent.tab();
+      });
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render the selected item in a ListItemGroup with interactive items', () => {
+      const { container } = renderListItemGroup(render, {
+        ...baseProps,
+        items: baseProps.items.map((item) => ({
+          ...item,
+          onClick: jest.fn(),
+          selected: item.key === 1,
+        })),
       });
 
       expect(container).toMatchSnapshot();
