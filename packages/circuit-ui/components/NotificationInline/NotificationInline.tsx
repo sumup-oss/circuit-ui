@@ -89,14 +89,6 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
 
 export type NotificationInlineProps = BaseProps & CloseProps;
 
-// TODO: update the design token colors to be info/confirm/alert/notify, then remove this mapping
-const colorMap = {
-  info: 'p500',
-  confirm: 'success',
-  alert: 'danger',
-  notify: 'warning',
-} as const;
-
 const iconMap = {
   info: Info,
   confirm: Confirm,
@@ -128,7 +120,7 @@ const contentWrapperStyles = ({
   background-color: ${theme.colors.bodyBg};
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid ${theme.colors[colorMap[variant]]};
+  border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};
 `;
 
 const ContentWrapper = styled('div')<ContentWrapperProps>(contentWrapperStyles);
@@ -171,7 +163,7 @@ const IconWrapper = styled.div(
       flex-grow: 0;
       flex-shrink: 0;
       line-height: 0;
-      color: ${theme.colors[colorMap[variant]]};
+      color: ${theme.colors[variant]};
     `,
   // Adds a black background behind the SVG icon to color just the exclamation mark black.
   ({ theme, variant }: StyleProps & { variant: Variant }) =>

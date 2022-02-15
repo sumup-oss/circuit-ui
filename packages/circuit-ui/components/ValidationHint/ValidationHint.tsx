@@ -16,11 +16,12 @@
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import { Confirm, NotifyCircle, Alert } from '@sumup/icons';
+import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
 
-type Color = 'danger' | 'warning' | 'success';
+type Color = 'alert' | 'notify' | 'confirm';
 
 export interface ValidationHintProps extends HTMLAttributes<HTMLSpanElement> {
   validationHint?: string;
@@ -40,7 +41,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const validStyles = ({ theme, showValid }: StyleProps & ValidationHintProps) =>
   showValid &&
   css`
-    color: ${theme.colors.success};
+    color: ${theme.colors.confirm};
   `;
 
 const warningStyles = ({
@@ -55,7 +56,7 @@ const warningStyles = ({
 const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
   invalid &&
   css`
-    color: ${theme.colors.danger};
+    color: ${theme.colors.alert};
   `;
 
 const Wrapper = styled('span')<ValidationHintProps>(
@@ -66,7 +67,9 @@ const Wrapper = styled('span')<ValidationHintProps>(
   warningStyles,
 );
 
-const IconWrapper = styled.div(
+const IconWrapper = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})(
   ({ theme, color }: StyleProps & { color: Color }) =>
     css`
       display: inline-block;
@@ -78,7 +81,7 @@ const IconWrapper = styled.div(
       color: ${theme.colors[color]};
     `,
   ({ theme, color }: StyleProps & { color: Color }) =>
-    color === 'warning' &&
+    color === 'notify' &&
     css`
       &::before {
         content: '';
@@ -105,21 +108,21 @@ const getIcon = (state: ValidationHintProps) => {
     }
     case state.invalid: {
       return (
-        <IconWrapper color="danger">
+        <IconWrapper color="alert">
           <Alert role="presentation" size="16" />
         </IconWrapper>
       );
     }
     case state.hasWarning: {
       return (
-        <IconWrapper color="warning">
+        <IconWrapper color="notify">
           <NotifyCircle role="presentation" size="16" />
         </IconWrapper>
       );
     }
     case state.showValid: {
       return (
-        <IconWrapper color="success">
+        <IconWrapper color="confirm">
           <Confirm role="presentation" size="16" />
         </IconWrapper>
       );

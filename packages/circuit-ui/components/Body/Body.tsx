@@ -22,6 +22,7 @@ import { deprecate } from '../../util/logger';
 import { AsPropType } from '../../types/prop-types';
 
 type Size = 'one' | 'two';
+// TODO: Will rename variants to match the new color names scheme in the next major version
 type Variant = 'highlight' | 'quote' | 'success' | 'error' | 'subtle';
 
 export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
@@ -77,12 +78,12 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
     }
     case 'success': {
       return css`
-        color: ${theme.colors.success};
+        color: ${theme.colors.confirm};
       `;
     }
     case 'error': {
       return css`
-        color: ${theme.colors.danger};
+        color: ${theme.colors.alert};
       `;
     }
     case 'subtle': {

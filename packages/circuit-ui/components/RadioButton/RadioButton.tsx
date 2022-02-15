@@ -104,12 +104,12 @@ const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
   invalid &&
   css`
     &:not(:focus)::before {
-      border-color: ${theme.colors.danger};
+      border-color: ${theme.colors.alert};
       background-color: ${theme.colors.r100};
     }
 
     &:not(:focus)::after {
-      background-color: ${theme.colors.danger};
+      background-color: ${theme.colors.alert};
     }
   `;
 
@@ -180,7 +180,7 @@ const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
     }
 
     &:checked + label::before {
-      border-color: ${theme.colors.danger};
+      border-color: ${theme.colors.alert};
     }
   `;
 

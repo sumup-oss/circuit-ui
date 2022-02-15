@@ -61,13 +61,13 @@ const createLeftBorderStyles =
   (variantName: Variant) =>
   ({ theme, size = 'giga', variant }: StyleProps & InlineMessageProps) => {
     const colors = {
-      danger: theme.colors.danger,
-      success: theme.colors.success,
-      warning: theme.colors.warning,
+      danger: theme.colors.alert,
+      success: theme.colors.confirm,
+      warning: theme.colors.notify,
     } as const;
 
     const textColors = {
-      danger: theme.colors.danger,
+      danger: theme.colors.alert,
       success: theme.colors.black,
       warning: theme.colors.black,
     } as const;

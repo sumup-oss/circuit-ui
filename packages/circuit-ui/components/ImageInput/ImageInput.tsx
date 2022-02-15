@@ -148,7 +148,7 @@ const invalidLabelStyles = ({
   invalid &&
   css`
     > *:last-child {
-      box-shadow: 0 0 0 2px ${theme.colors.danger};
+      box-shadow: 0 0 0 2px ${theme.colors.alert};
     }
     &:hover > *:last-child {
       box-shadow: 0 0 0 2px ${theme.colors.r700};

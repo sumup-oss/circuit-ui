@@ -108,7 +108,7 @@ const COLOR_MAP = {
     active: 'p900',
   },
   destructive: {
-    default: 'danger',
+    default: 'alert',
     hover: 'r700',
     active: 'r900',
   },
@@ -122,8 +122,8 @@ const SECONDARY_COLOR_MAP = {
     active: 'n800',
   },
   destructive: {
-    text: 'danger',
-    default: 'danger',
+    text: 'alert',
+    default: 'alert',
     hover: 'r700',
     active: 'r900',
   },

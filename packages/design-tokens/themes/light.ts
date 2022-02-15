@@ -102,9 +102,22 @@ const misc = {
   overlay: 'rgba(0, 0, 0, 0.4)',
   bodyBg: white,
   bodyColor: neutrals.n900,
+  /**
+   * @deprecated Use `alert` color instead.
+   */
   danger: '#D23F47',
+  /**
+   * @deprecated Use `confirm` color instead.
+   */
   success: '#138849',
+  /**
+   * @deprecated Use `notify` color instead.
+   */
   warning: '#F5C625',
+  info: '#3063E9',
+  confirm: '#138849',
+  alert: '#D23F47',
+  notify: '#F5C625',
 };
 
 export const colors: Colors = {

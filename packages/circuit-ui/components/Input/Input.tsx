@@ -184,7 +184,7 @@ const inputWarningStyles = ({
   hasWarning &&
   css`
     &:not(:focus)::placeholder {
-      color: ${theme.colors.warning};
+      color: ${theme.colors.notify};
     }
   `;
 
@@ -197,7 +197,7 @@ const inputInvalidStyles = ({
   invalid &&
   css`
     &:not(:focus)::placeholder {
-      color: ${theme.colors.danger};
+      color: ${theme.colors.alert};
       opacity: 0.5;
     }
   `;
