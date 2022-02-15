@@ -1,6 +1,7 @@
 # Migration <!-- omit in toc -->
 
 - [🤖 Codemods](#-codemods)
+- [From v4 to v5](#from-v4-to-v5)
 - [From v4 to v4.1](#from-v4-to-v41)
   - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
 - [From v3.x to v4](#from-v3x-to-v4)
@@ -97,6 +98,8 @@ A toast should be used to follow a user action (e.g. submitting a form) or it ca
 #### NotificationInline
 
 It is frequently used to provide additional guidance or to draw attention to a section of the interface (like positive feedback, confirmation about an action or errors in forms, cards or dialog boxes.)
+
+The deprecated `InlineMessage` was replaced with the new `NotificationInline` component.
 
 Refer to [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification) for a usage examples.
 

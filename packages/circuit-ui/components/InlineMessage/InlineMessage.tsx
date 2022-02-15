@@ -121,7 +121,7 @@ export const InlineMessage = ({
       'InlineMessage',
       'The InlineMessage component is deprecated.',
       'Use the `NotificationInline` component instead.',
-      'Read more at https://circuit.sumup.com/?path=/docs/notification-notificationinline--base',
+      'Read more at [migration guide](https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#from-v4-to-v5) for usage examples',
     );
   }
   return <InlineMessageStyles {...props}></InlineMessageStyles>;

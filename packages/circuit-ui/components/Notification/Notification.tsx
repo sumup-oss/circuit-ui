@@ -105,7 +105,7 @@ export const Notification = ({
       'Notification',
       'The Notification component is deprecated.',
       'Use the new Notification components instead',
-      'Read more at [migration guide] ',
+      'Read more at [migration guide](https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#from-v4-to-v5) for usage examples',
     );
   }
 
