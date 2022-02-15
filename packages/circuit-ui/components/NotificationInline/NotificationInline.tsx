@@ -257,7 +257,7 @@ export function NotificationInline({
               as={isString(headline) ? 'h3' : headline.as}
               noMargin
             >
-              {isString(headline) ? headline : headline?.label}
+              {isString(headline) ? headline : headline.label}
             </Body>
           )}
           <Body noMargin>{body}</Body>
