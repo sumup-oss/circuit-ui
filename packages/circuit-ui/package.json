@@ -73,6 +73,7 @@
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.0",
     "@types/react-modal": "^3.10.5",
+    "@visa/charts-react": "^3.0.1",
     "chalk": "^4.1.2",
     "component-playground": "^3.2.1",
     "cross-env": "^7.0.2",
