@@ -107,7 +107,7 @@ export const InlineMessageStyles = styled('p')<InlineMessageProps>(
 );
 
 /**
- * @deprecated
+ * @deprecated — Use the new NotificationInline component instead.
  * An inline message displayed inside a Card.
  */
 export const InlineMessage = ({
@@ -121,8 +121,8 @@ export const InlineMessage = ({
       'InlineMessage',
       'The InlineMessage component is deprecated.',
       'Use the `NotificationInline` component instead.',
-      'Read more at [migration guide](https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#from-v4-to-v5) for usage examples',
+      'Refer to the migration guide: https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#from-v4-to-v5',
     );
   }
-  return <InlineMessageStyles {...props}></InlineMessageStyles>;
+  return <InlineMessageStyles {...props} />;
 };

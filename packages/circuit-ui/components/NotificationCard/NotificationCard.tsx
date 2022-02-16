@@ -56,8 +56,8 @@ export const NotificationCard = ({
     deprecate(
       'NotificationCard',
       'The NotificationCard component is deprecated.',
-      'Use the new Notification components instead',
-      'Read more at [migration guide](https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#from-v4-to-v5) for usage examples',
+      'Use one of the new notification components instead',
+      'Refer to the migration guide: https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#from-v4-to-v5',
     );
   }
   return (
