@@ -69,16 +69,16 @@ if (typeof window !== 'undefined') {
 
 export type SidePanelContextProps = Require<SidePanelHookProps, 'group'>;
 
-type SetSidePanel = (
+export type SetSidePanel = (
   sidePanel: SidePanelContextProps & Pick<StackItem, 'id'>,
 ) => void;
 
-type UpdateSidePanel = (
+export type UpdateSidePanel = (
   sidePanel: Partial<SidePanelContextProps> &
     Pick<Required<SidePanelContextProps>, 'group'>,
 ) => void;
 
-type RemoveSidePanel = (
+export type RemoveSidePanel = (
   group: SidePanelContextProps['group'],
   isInstantClose?: boolean,
 ) => Promise<void | void[]>;
