@@ -127,6 +127,7 @@ describe('ListItemGroup', () => {
 
       act(() => {
         userEvent.tab();
+        userEvent.tab(); // blur first and focus second item
       });
 
       expect(container).toMatchSnapshot();
@@ -140,6 +141,20 @@ describe('ListItemGroup', () => {
           onClick: jest.fn(),
           selected: item.key === 1,
         })),
+      });
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render the selected item in a plain ListItemGroup with interactive items', () => {
+      const { container } = renderListItemGroup(render, {
+        ...baseProps,
+        items: baseProps.items.map((item) => ({
+          ...item,
+          onClick: jest.fn(),
+          selected: item.key === 1,
+        })),
+        variant: 'plain',
       });
 
       expect(container).toMatchSnapshot();

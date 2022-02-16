@@ -307,9 +307,7 @@ export const ListItemGroup = forwardRef(
                       setFocusedItemKey(key);
                     }
                   } catch (err) {
-                    if (event.currentTarget.matches(':focus')) {
-                      setFocusedItemKey(key);
-                    }
+                    setFocusedItemKey(key);
                   }
                 }}
                 onBlur={() => setFocusedItemKey(null)}
