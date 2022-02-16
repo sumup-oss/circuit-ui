@@ -76,6 +76,7 @@ describe('useSidePanel', () => {
     const { result } = renderHook(() => useSidePanel(), { wrapper });
 
     actHook(() => {
+      result.current.setSidePanel(panel);
       result.current.setSidePanel({ ...panel, group: testId });
     });
 
@@ -139,6 +140,7 @@ describe('useSidePanel', () => {
     const { result } = renderHook(() => useSidePanel(), { wrapper });
 
     actHook(() => {
+      result.current.setSidePanel(panel);
       result.current.setSidePanel({ ...panel, group: testId });
     });
 
