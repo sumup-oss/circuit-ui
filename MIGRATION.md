@@ -86,7 +86,7 @@ This introduces semantic, accessible components that make it clear when each sho
 - The deprecated `InlineMessage` was replaced with the new `NotificationInline` component.
 - The deprecated `NotificationCard` component can be replaced with either `NotificationInline`, `NotificationBanner` or `NotificationToast` depending on use cases.
 
-Refer to [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification) for a usage examples of the new Notification components.
+Refer to [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification) for usage examples of the new Notification components.
 
 ## From v4 to v4.1
 
