@@ -18,6 +18,7 @@ import { css } from '@emotion/react';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { shadow } from '../../styles/style-mixins';
+import { deprecate } from '../../util/logger';
 
 export interface NotificationListProps
   extends Omit<HTMLAttributes<HTMLUListElement>, 'as'> {
@@ -65,15 +66,29 @@ const cardStyles = ({ theme }: StyleProps) => css`
 const NotificationListCard = styled('li')<NoTheme>(cardStyles, shadow());
 
 /**
+ * @deprecated
  * NotificationList displays Notifications as Cards in a corner.
  */
 export const NotificationList = ({
   children,
   ...props
-}: NotificationListProps): JSX.Element => (
-  <NotificationListWrapper {...props} aria-live="polite">
-    {Children.map(children, (child, i) => (
-      <NotificationListCard key={i}>{child}</NotificationListCard>
-    ))}
-  </NotificationListWrapper>
-);
+}: NotificationListProps): JSX.Element => {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    deprecate(
+      'NotificationList',
+      'The NotificationList component is deprecated.',
+      'Use one of the new notification components instead',
+      'Refer to the migration guide: https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#from-v4-to-v5',
+    );
+  }
+  return (
+    <NotificationListWrapper {...props} aria-live="polite">
+      {Children.map(children, (child, i) => (
+        <NotificationListCard key={i}>{child}</NotificationListCard>
+      ))}
+    </NotificationListWrapper>
+  );
+};

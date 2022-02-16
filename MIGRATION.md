@@ -1,6 +1,8 @@
 # Migration <!-- omit in toc -->
 
 - [🤖 Codemods](#-codemods)
+- [From v4 to v5](#from-v4-to-v5)
+  - [Notification components](#notification-components)
 - [From v4 to v4.1](#from-v4-to-v41)
   - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
 - [From v3.x to v4](#from-v3x-to-v4)
@@ -69,6 +71,22 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 > ```sh
 > ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
 > ```
+
+## From v4 to v5
+
+The Circuit UI v5 is not released yet, and in order to handle the deprecations earlier the migration guide was updated.
+
+### Notification components
+
+The old Notification components were general purpose without clear guidelines when to use a specific Notification component. This has led to inconsistent usage in our apps.
+
+The deprecated `Notification`, `NotificationList` and `NotificationCard` components were replaced with the new refreshed Notification components (`NotificationBanner`, `NotificationFullscreen`, `NotificationModal`, `NotificationToast` and `NotificationInline`).
+This introduces semantic, accessible components that make it clear when each should be used and are flexible enough to cover all use cases.
+
+- The deprecated `InlineMessage` was replaced with the new `NotificationInline` component.
+- The deprecated `NotificationCard` component can be replaced with either `NotificationInline`, `NotificationBanner` or `NotificationToast` depending on use cases.
+
+Refer to [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification) for usage examples of the new Notification components.
 
 ## From v4 to v4.1
 

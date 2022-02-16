@@ -21,6 +21,7 @@ import { Theme } from '@sumup/design-tokens';
 import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
 import CloseButton, { CloseButtonProps } from '../CloseButton';
+import { deprecate } from '../../util/logger';
 
 type Variant = 'success' | 'error' | 'warning';
 
@@ -83,6 +84,7 @@ const StyledCloseButton =
   styled(CloseButton)<CloseButtonProps>(closeButtonStyles);
 
 /**
+ * @deprecated
  * A Notification component for alerts, updates and notifications.
  */
 export const Notification = ({
@@ -94,6 +96,18 @@ export const Notification = ({
   ...props
 }: NotificationProps): JSX.Element => {
   const Icon = icon || iconMap[variant];
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    deprecate(
+      'Notification',
+      'The Notification component is deprecated.',
+      'Use one of the new notification components instead',
+      'Refer to the migration guide: https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#from-v4-to-v5',
+    );
+  }
 
   return (
     <Container {...props}>
