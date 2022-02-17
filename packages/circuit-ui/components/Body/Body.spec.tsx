@@ -36,7 +36,9 @@ describe('Body', () => {
     'highlight',
     'quote',
     'success',
+    'confirm',
     'error',
+    'alert',
     'subtle',
   ] as BodyProps['variant'][];
   it.each(variants)('should render as a "%s" variant', (variant) => {

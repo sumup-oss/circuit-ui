@@ -1,5 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Body should render as a "alert" variant 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #D23F47;
+}
+
+<p
+  class="circuit-0"
+>
+  alert
+   Body
+</p>
+`;
+
+exports[`Body should render as a "confirm" variant 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #138849;
+}
+
+<p
+  class="circuit-0"
+>
+  confirm
+   Body
+</p>
+`;
+
 exports[`Body should render as a "error" variant 1`] = `
 .circuit-0 {
   font-weight: 400;
