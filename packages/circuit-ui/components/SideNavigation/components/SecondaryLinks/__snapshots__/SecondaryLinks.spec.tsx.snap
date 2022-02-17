@@ -94,7 +94,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   text-align: center;
   letter-spacing: 0.25px;
   background-color: #CA58FF;
-  color: #FFF;
+  color: #1A1A1A;
 }
 
 .circuit-9 {
