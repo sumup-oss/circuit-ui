@@ -3,6 +3,8 @@
 - [🤖 Codemods](#-codemods)
 - [From v4 to v5](#from-v4-to-v5)
   - [New semantic color names](#new-semantic-color-names)
+    - [In design tokens](#in-design-tokens)
+    - [In component variants](#in-component-variants)
   - [Notification components](#notification-components)
 - [From v4 to v4.1](#from-v4-to-v41)
   - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
@@ -78,6 +80,38 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 Circuit UI v5 is not out yet, but there are already steps you can take to make migration easier in the future.
 
 ### New semantic color names
+
+#### In design tokens
+
+New semantic color names were introduced in `@sumup/design-tokens@3.4.0`. The legacy names were deprecated and will be removed in v5.
+
+| Legacy name | New name  |
+| ----------- | --------- |
+| `success`   | `confirm` |
+| `warning`   | `notify`  |
+| `danger`    | `alert`   |
+
+The new naming brings cross-platform consistency, as well as alignment with some existing components such as the notification icons.
+
+_🤖 semantic-color-names_
+
+#### In component variants
+
+Some `Body`, `BodyLarge` and `Badge` component variants were also renamed for consistency with the new design tokens:
+
+| Legacy variant                | New variant                   |
+| ----------------------------- | ----------------------------- |
+| `<Body variant="success" />`  | `<Body variant="confirm" />`  |
+| `<Body variant="error" />`    | `<Body variant="alert" />`    |
+| `<Badge variant="success" />` | `<Badge variant="confirm" />` |
+| `<Badge variant="warning" />` | `<Badge variant="notify" />`  |
+| `<Badge variant="danger" />`  | `<Badge variant="alert" />`   |
+
+_Note: the `Body` variants mapping above also apply to the `BodyLarge` component._
+
+The legacy variant names were deprecated and will be removed in v5.
+
+_🤖 semantic-variant-names_
 
 ### Notification components
 
