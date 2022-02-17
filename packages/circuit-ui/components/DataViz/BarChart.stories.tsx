@@ -15,34 +15,35 @@
 
 import { BarChart as VBarChart } from '@visa/charts-react';
 
-function BarChart() {
-  const data = [
-    { month: 'Jan', value: 15 },
-    { month: 'Feb', value: 2 },
-    { month: 'Mar', value: 18 },
-    { month: 'Apr', value: 19 },
-    { month: 'May', value: 7 },
-    { month: 'Jun', value: 7 },
-  ];
-  return (
-    <VBarChart
-      mainTitle={'BarChart'}
-      subTitle={'Vertical (default) bar chart example'}
-      data={data}
-      ordinalAccessor={'month'}
-      valueAccessor={'value'}
-      height={400}
-      width={600}
-      colors={['#000']}
-      roundedCorner={5}
-      accessibility={{ hideTextures: true }}
-    />
-  );
-}
+import docs from './DataViz.docs.mdx';
 
 export default {
-  title: 'Components/BarChart',
-  component: BarChart,
+  title: 'Features/BarChart',
+  parameters: {
+    docs: { page: docs },
+  },
 };
 
-export const Base = () => <BarChart />;
+const data = [
+  { month: 'Jan', value: 15 },
+  { month: 'Feb', value: 2 },
+  { month: 'Mar', value: 18 },
+  { month: 'Apr', value: 19 },
+  { month: 'May', value: 7 },
+  { month: 'Jun', value: 7 },
+];
+
+export const VisaChartComponents = () => (
+  <VBarChart
+    mainTitle={'BarChart'}
+    subTitle={'Vertical (default) bar chart example'}
+    data={data}
+    ordinalAccessor={'month'}
+    valueAccessor={'value'}
+    height={400}
+    width={600}
+    colors={['#000']}
+    roundedCorner={5}
+    accessibility={{ hideTextures: true }}
+  />
+);
