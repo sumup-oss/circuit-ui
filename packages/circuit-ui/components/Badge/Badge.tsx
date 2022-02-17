@@ -80,31 +80,46 @@ const variantStyles = ({
   theme,
   variant = 'neutral',
 }: StyleProps & BadgeProps) => {
-  // TODO: remove the legacy variants and this mapping in v5
+  // TODO: remove the legacy variants and this switch statement in v5
   /* eslint-disable no-param-reassign */
   switch (variant) {
     case 'success':
-      deprecate(
-        'Badge',
-        "The Badge's `success` variant is deprecated.",
-        'Use the `confirm` variant instead.',
-      );
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        process.env.NODE_ENV !== 'test'
+      ) {
+        deprecate(
+          'Badge',
+          "The Badge's `success` variant is deprecated.",
+          'Use the `confirm` variant instead.',
+        );
+      }
       variant = 'confirm';
       break;
     case 'warning':
-      deprecate(
-        'Badge',
-        "The Badge's `warning` variant is deprecated.",
-        'Use the `notify` variant instead.',
-      );
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        process.env.NODE_ENV !== 'test'
+      ) {
+        deprecate(
+          'Badge',
+          "The Badge's `warning` variant is deprecated.",
+          'Use the `notify` variant instead.',
+        );
+      }
       variant = 'notify';
       break;
     case 'danger':
-      deprecate(
-        'Badge',
-        "The Badge's `danger` variant is deprecated.",
-        'Use the `alert` variant instead.',
-      );
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        process.env.NODE_ENV !== 'test'
+      ) {
+        deprecate(
+          'Badge',
+          "The Badge's `danger` variant is deprecated.",
+          'Use the `alert` variant instead.',
+        );
+      }
       variant = 'alert';
       break;
     default:
