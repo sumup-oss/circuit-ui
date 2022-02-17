@@ -128,7 +128,7 @@ Furthermore, some patterns that were previously not supported by Circuit UI are 
 
 - The new `NotificationToast` provider and hook should replace any custom implementation of a toast notifications system for improved accessibility.
 - The new `NotificationModal` can be used for building notification dialogs that are essential to user flows.
-- the new `NotificationFullscreen` can replace custom full-screen messages such as error pages or empty states, for more consistency across pages.
+- The new `NotificationFullscreen` can replace custom full-screen messages such as error pages or empty states, for more consistency across pages.
 
 Read more about the new notification components in [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification).
 
