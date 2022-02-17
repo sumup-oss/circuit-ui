@@ -43,14 +43,14 @@ export const Variants = (args: BadgeProps) => {
       <Badge {...args} variant="neutral">
         Neutral
       </Badge>
-      <Badge {...args} variant="success">
-        Success
+      <Badge {...args} variant="confirm">
+        Confirm
       </Badge>
-      <Badge {...args} variant="warning">
-        Warning
+      <Badge {...args} variant="notify">
+        Notify
       </Badge>
-      <Badge {...args} variant="danger">
-        Danger
+      <Badge {...args} variant="alert">
+        Alert
       </Badge>
       <Badge {...args} variant="promo">
         Promo
