@@ -2,7 +2,21 @@ import { Status, Props, Story } from '../../../../.storybook/components';
 
 # Data Viz
 
-...
+We're looking to introduce data viz to Circuit UI. This is a working draft with rough, early-stage explorations. For feedback or thoughts, or if you want to be part of the initiative, reach out to [robin.metral@sumup.com](robin.metral@sumup.com).
+
+## Libraries
+
+These are the data viz libraries we'll be considering. (subject to change)
+
+| Name                                                                | Stars | Tech               | Benefits                       | Drawbacks         |
+| ------------------------------------------------------------------- | ----- | ------------------ | ------------------------------ | ----------------- |
+| [D3](https://github.com/d3/d3)                                      | 100k  | JS                 |                                |                   |
+| [Recharts](https://github.com/recharts/recharts)                    | 18k   | D3, React          |                                |                   |
+| [visx](https://github.com/airbnb/visx) (Airbnb)                     | 15k   | D3, React          |                                |                   |
+| [nivo](https://github.com/plouc/nivo)                               | 10k   | D3, React          | SSR                            |                   |
+| [Victory](https://github.com/formidablelabs/victory) (Formidable)   | 9k    | D3, React          |                                |                   |
+| [react-vis](https://github.com/uber/react-vis) (Uber)               | 8k    | D3, React          |                                |                   |
+| [VISA charts](https://github.com/visa/visa-chart-components) (VISA) | <100  | D3, web components | Accessible, framework-agnostic | Theming not great |
 
 ## Live examples
 
@@ -11,3 +25,60 @@ These are live examples using the data visualization libraries mentioned above.
 ### Visa Chart Components
 
 <Story id="features-barchart--visa-chart-components" />
+
+## Accessibility
+
+### Best practices
+
+Some best practices I've come across, in the form of bullet points (rough notes).
+
+- Sighted users
+  - Ensure high contrast (visual deficiencies)
+  - Don't rely on color alone (better standard than avoiding problematic color pairings due to colorblindness—red/green and yellow/blue). Use textures (for areas) or markers (for lines)
+  - Direct labeling instead of legends:
+- Non-sighted/low vision users
+
+### Techniques
+
+I'm splitting these into "standards", common strategies that we'll probably want to implement, vs. "experiments", experimental/creative ways of improving data visualization accessibility but that haven't been widely adopted/tested.
+
+Note that "standards" will keep its quote marks, because there truly isn't a standard for accessible data viz, beyond the vague WCAG requirement of adding a textual alternative to "complex images", under which data viz likely falls, as well as making all interactive elements focusable (in case of interactive vizzes, including tooltips).
+
+- "Standards"
+  - properly label the viz
+    - in case of a static dataset: tell the story that the viz tells. E.g.: "Chart showing the average number of sales per month of UK barber shops between January 2020 and December 2021, with record lows correlating with COVID-19 lockdowns in spring 2020 and winter 2020-2021."
+    - in case of a dynamic dataset: generate a label based on the primary metric we want to visualise. E.g.: "Chart of number of sales per day in the last week. Maximum `x` sales on `day`, minimum `x` sales on `day`, average `x` sales per day."
+  - allow users to download a copy of the dataset that can be explored in software like Excel that AT users can choose and be familiar with
+  - the above, and/or: add a (optionally visually hidden) data table as an alternative to the viz
+- Experiments
+  - keyboard navigable vizzes (role="application"):
+    - drawbacks:
+      - not great with large datasets, since the point of some vizzes is to give a quick overview of a trend. Can be solved by grouping values, but this makes it more complex (to build and to use)
+      - learning curve for users (no standard patterns)
+    - examples:
+      - [VISA chart components](https://github.com/visa/visa-chart-components)
+      - POC on the web by interactive things: https://inclusive.interactivethings.io/#/histogram/aria ([accompanying article](https://blog.interactivethings.com/how-does-this-data-sound-945ed27a1a95))
+  - sonification:
+    - great for an overview of the data
+    - should be seen as an enhancement, can't replace any of the other a11y strategies (requires audio, way of diving into the data, etc.)
+    - examples:
+      - Apple charts: https://developer.apple.com/videos/play/wwdc2021/10122/ (only for native VoiceOver but nice concepts)
+      - POC on the web by interactive things: https://inclusive.interactivethings.io/#/histogram/sonification ([accompanying article](https://blog.interactivethings.com/how-does-this-data-sound-945ed27a1a95))
+      - [Highcharts sonification](https://www.highcharts.com/docs/accessibility/sonification) (premium) ([playground](https://sonification.highcharts.com/#/))
+
+## Other inspiration
+
+- "Viz grammar":
+  - A structured language to define what a viz is. Could also improve a11y by design, since the chart becomes programmatically generated (therefore potentially accessible to AT) rather than visually composed.
+  - Could be good inspiration for designing viz APIs for our components
+  - resources:
+    - [The viz grammar Bible](https://www.amazon.com/Semiology-Graphics-Diagrams-Networks-Maps/dp/1589482611) (Bertin's Semiology of Graphics from 1967, Amazon link)
+    - Vega/Vega Lite: a viz spec https://vega.github.io/vega-lite/
+    - [Florence](https://florence.spatialnetworkslab.org/): Svelte framework based on Bertin's work ([peer reviewed paper](https://cartographicperspectives.org/index.php/journal/article/view/1645/1957))
+- SSR vizzes
+  - basic idea: charts can be generated on the server, for performance benefits. The main issue is responsiveness, as in how to recalculate SVGs based on the viewport
+  - examples:
+    - [Pancake](https://pancake-charts.surge.sh/) (POC by Rich Harris, [read the article](https://dev.to/richharris/a-new-technique-for-making-responsive-javascript-free-charts-gmp))
+      - Main idea: use CSS's `vector-effect: non-scaling-stroke` (TIL) to avoid scaling the strokes (in line charts), and use HTML/CSS for axes (instead of the more common SVG)
+      - Interesting but very experimental and likely not suited for all kinds of charts
+      - Also: JS required to build interactive vizzes. Harris mentions possible hydration to solve this, but it makes everything much more complicated and the drawbacks start outweighing benefits
