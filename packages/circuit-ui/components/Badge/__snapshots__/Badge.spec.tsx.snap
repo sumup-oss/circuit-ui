@@ -159,7 +159,7 @@ exports[`Badge should render with promo styles 1`] = `
   text-align: center;
   letter-spacing: 0.25px;
   background-color: #CA58FF;
-  color: #1A1A1A;
+  color: #FFF;
 }
 
 <div

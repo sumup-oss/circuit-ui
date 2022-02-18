@@ -60,7 +60,7 @@ const COLOR_MAP = {
     background: 'n200',
   },
   promo: {
-    text: 'bodyColor',
+    text: 'white',
     background: 'v500',
   },
 } as const;
