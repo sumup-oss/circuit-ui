@@ -2,6 +2,9 @@
 
 - [🤖 Codemods](#-codemods)
 - [From v4 to v5](#from-v4-to-v5)
+  - [New semantic color names](#new-semantic-color-names)
+    - [In design tokens](#in-design-tokens)
+    - [In component variants](#in-component-variants)
   - [Notification components](#notification-components)
 - [From v4 to v4.1](#from-v4-to-v41)
   - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
@@ -74,19 +77,60 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 
 ## From v4 to v5
 
-The Circuit UI v5 is not released yet, and in order to handle the deprecations earlier the migration guide was updated.
+Circuit UI v5 is not out yet, but there are already steps you can take to make migration easier in the future.
+
+### New semantic color names
+
+#### In design tokens
+
+New semantic color names were introduced in `@sumup/design-tokens@3.4.0`. The legacy names were deprecated and will be removed in v5.
+
+| Legacy name | New name  |
+| ----------- | --------- |
+| `success`   | `confirm` |
+| `warning`   | `notify`  |
+| `danger`    | `alert`   |
+
+The new naming brings cross-platform consistency, as well as alignment with some existing components such as the notification icons.
+
+_🤖 semantic-color-names_
+
+#### In component variants
+
+Some `Body`, `BodyLarge` and `Badge` component variants were also renamed for consistency with the new design tokens:
+
+| Legacy variant                | New variant                   |
+| ----------------------------- | ----------------------------- |
+| `<Body variant="success" />`  | `<Body variant="confirm" />`  |
+| `<Body variant="error" />`    | `<Body variant="alert" />`    |
+| `<Badge variant="success" />` | `<Badge variant="confirm" />` |
+| `<Badge variant="warning" />` | `<Badge variant="notify" />`  |
+| `<Badge variant="danger" />`  | `<Badge variant="alert" />`   |
+
+_Note: the `Body` variants mapping above also apply to the `BodyLarge` component._
+
+The legacy variant names were deprecated and will be removed in v5.
+
+_🤖 semantic-variant-names_
 
 ### Notification components
 
-The old Notification components were general purpose without clear guidelines when to use a specific Notification component. This has led to inconsistent usage in our apps.
+The legacy Circuit UI notification components (`Notification`, `NotificationList`, `NotificationCard` and `InlineMessage`) were general purpose, lacking clear guidelines on when to use which and leading to inconsistent usage in our apps.
 
-The deprecated `Notification`, `NotificationList` and `NotificationCard` components were replaced with the new refreshed Notification components (`NotificationBanner`, `NotificationFullscreen`, `NotificationModal`, `NotificationToast` and `NotificationInline`).
-This introduces semantic, accessible components that make it clear when each should be used and are flexible enough to cover all use cases.
+They were deprecated in v4.14.0 and replaced by semantic, accessible components that make it clear when each should be used and are flexible enough to cover all use cases (`NotificationBanner`, `NotificationFullscreen`, `NotificationModal`, `NotificationToast` and `NotificationInline`). The legacy components will be removed in v5.
 
-- The deprecated `InlineMessage` was replaced with the new `NotificationInline` component.
-- The deprecated `NotificationCard` component can be replaced with either `NotificationInline`, `NotificationBanner` or `NotificationToast` depending on use cases.
+To migrate to the new notifications, you'll need to:
 
-Refer to [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification) for usage examples of the new Notification components.
+- Replace the `InlineMessage` by the `NotificationInline` in your app
+- Replace uses of the `NotificationCard`, `NotificationList` and `Notification` (often used together) by either the `NotificationInline` or `NotificationBanner`, depending on the use cases.
+
+Furthermore, some patterns that were previously not supported by Circuit UI are now available:
+
+- The new `NotificationToast` provider and hook should replace any custom implementation of a toast notifications system for improved accessibility.
+- The new `NotificationModal` can be used for building notification dialogs that are essential to user flows.
+- The new `NotificationFullscreen` can replace custom full-screen messages such as error pages or empty states, for more consistency across pages.
+
+Read more about the new notification components in [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification).
 
 ## From v4 to v4.1
 

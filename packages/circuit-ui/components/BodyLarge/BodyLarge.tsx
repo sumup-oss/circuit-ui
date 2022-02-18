@@ -19,8 +19,16 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { AsPropType } from '../../types/prop-types';
+import { deprecate } from '../../util/logger';
 
-type Variant = 'highlight' | 'quote' | 'success' | 'error' | 'subtle';
+type Variant =
+  | 'highlight'
+  | 'quote'
+  | 'success'
+  | 'confirm'
+  | 'error'
+  | 'alert'
+  | 'subtle';
 
 export interface BodyLargeProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
@@ -45,6 +53,40 @@ const baseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const variantStyles = ({ theme, variant }: BodyLargeProps & StyleProps) => {
+  // TODO: remove the legacy variants and this switch statement in v5
+  /* eslint-disable no-param-reassign */
+  switch (variant) {
+    case 'success':
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        process.env.NODE_ENV !== 'test'
+      ) {
+        deprecate(
+          'BodyLarge',
+          "The BodyLarge's `success` variant is deprecated.",
+          'Use the `confirm` variant instead.',
+        );
+      }
+      variant = 'confirm';
+      break;
+    case 'error':
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        process.env.NODE_ENV !== 'test'
+      ) {
+        deprecate(
+          'BodyLarge',
+          "The BodyLarge's `error` variant is deprecated.",
+          'Use the `alert` variant instead.',
+        );
+      }
+      variant = 'alert';
+      break;
+    default:
+      break;
+  }
+  /* eslint-enable no-param-reassign */
+
   switch (variant) {
     default: {
       return null;
@@ -61,12 +103,12 @@ const variantStyles = ({ theme, variant }: BodyLargeProps & StyleProps) => {
         border-left: ${theme.borderWidth.mega} solid ${theme.colors.p500};
       `;
     }
-    case 'success': {
+    case 'confirm': {
       return css`
         color: ${theme.colors.confirm};
       `;
     }
-    case 'error': {
+    case 'alert': {
       return css`
         color: ${theme.colors.alert};
       `;

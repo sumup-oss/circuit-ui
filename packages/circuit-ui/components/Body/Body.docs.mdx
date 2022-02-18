@@ -21,7 +21,7 @@ The Body component comes in two sizes. Use the default `one` size in most cases.
 
 ### Variants
 
-The Body component accepts five different variants—`highlight`, `quote`, `success`, `error` and `subtle`—to tailor it according to the content we are presenting.
+The Body component accepts five different variants—`highlight`, `quote`, `confirm`, `alert` and `subtle`—to tailor it according to the content we are presenting.
 
 Different variants will render different HTML elements by default:
 
@@ -30,15 +30,15 @@ Different variants will render different HTML elements by default:
 | default     | `p`             |
 | `highlight` | `strong`        |
 | `quote`     | `blockquote`    |
-| `success`   | `p`             |
-| `error`     | `p`             |
+| `confirm`   | `p`             |
+| `alert`     | `p`             |
 | `subtle`    | `p`             |
 
 Use the `as` prop to render other HTML elements, for example for rendering a highlighted paragraph (`<Body variant="highlight" as="p" />`).
 
 <Story id="typography-body--variants" />
 
-**Important**: the `success` and `error` variants only change the text's color. Keep in mind that this is not sufficient to make them accessible. Refer to the Accessibility section below, especially "Do not rely on color alone" and "Make status messages accessible to screen readers using live regions".
+**Important**: the `confirm` and `alert` variants only change the text's color. Keep in mind that this is not sufficient to make them accessible. Refer to the Accessibility section below, especially "Do not rely on color alone" and "Make status messages accessible to screen readers using live regions".
 
 ---
 
@@ -81,17 +81,17 @@ Bear in mind that machine translation is often inaccurate: prefer professional t
 
 Color alone is not sufficient to differentiate text from the surrounding content ([1.4.1 Use of Color](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html)).
 
-This is especially relevant when using the `success` and `error` variants.
+This is especially relevant when using the `confirm` and `alert` variants.
 
-For example, imagine a list of good and bad accessibility practices. It is not enough to use the `success` (green) variant for good practices and the `error` (red) variant for bad practices. Instead, use additional visual cues such as icons (with an accessible label), or break up the list into two separate ones with explicit labeling.
+For example, imagine a list of good and bad accessibility practices. It is not enough to use the `confirm` (green) variant for good practices and the `alert` (red) variant for bad practices. Instead, use additional visual cues such as icons (with an accessible label), or break up the list into two separate ones with explicit labeling.
 
 #### Make status messages accessible to screen readers using live regions
 
 When a change in content is not given focus (typically a message being added to the DOM to reflect a status update), the change needs to be announced to screen readers using a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) ([4.1.3 Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html), [3.3.1 Error Identification](https://www.w3.org/WAI/WCAG21/Understanding/error-identification)).
 
-For example, a form submission fails and a message saying "This username is already taken." using `<Body variant="error" />` appears. Without a live region, screen reader users would have no way of knowing that something happened and that they need to make changes to the form before submitting again. They will either have to step through the DOM to try and find the relevant error message, or they will give up and close the page.
+For example, a form submission fails and a message saying "This username is already taken." using `<Body variant="alert" />` appears. Without a live region, screen reader users would have no way of knowing that something happened and that they need to make changes to the form before submitting again. They will either have to step through the DOM to try and find the relevant error message, or they will give up and close the page.
 
-Live regions can be tricky to work with, therefore we recommend using existing components such as the [NotificationInline](Notifications/NotificationInline) or the [NotifiationToast](Notifications/NotificationToast) instead of implementing them from scratch.
+Live regions can be tricky to work with, therefore we recommend using existing components such as the [NotificationInline](Notifications/NotificationInline) or the [NotificationToast](Notifications/NotificationToast) instead of implementing them from scratch.
 
 ### Resources
 

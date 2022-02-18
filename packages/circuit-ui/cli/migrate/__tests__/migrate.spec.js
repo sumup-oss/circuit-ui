@@ -60,6 +60,10 @@ defineTest('icons-v2');
 // v4.1
 defineTest('component-names-v4-1');
 
+// v5
+defineTest('semantic-color-names');
+defineTest('semantic-variant-names');
+
 function defineTest(transformName, testFilePrefix, testOptions = {}) {
   const dirName = __dirname;
   const fixtureDir = path.join(dirName, '..', '__testfixtures__');

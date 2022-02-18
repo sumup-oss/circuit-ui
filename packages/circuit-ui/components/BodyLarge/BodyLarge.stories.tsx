@@ -36,7 +36,7 @@ export const Base = (args: BodyLargeProps) => (
   <BodyLarge {...args}>{content}</BodyLarge>
 );
 
-const variants = ['highlight', 'quote', 'success', 'error', 'subtle'] as const;
+const variants = ['highlight', 'quote', 'confirm', 'alert', 'subtle'] as const;
 
 export const Variants = (args: BodyLargeProps) =>
   variants.map((variant) => (

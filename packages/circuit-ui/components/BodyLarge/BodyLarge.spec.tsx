@@ -30,7 +30,9 @@ describe('BodyLarge', () => {
     'highlight',
     'quote',
     'success',
+    'confirm',
     'error',
+    'alert',
     'subtle',
   ] as BodyLargeProps['variant'][];
   it.each(variants)('should render as a "%s" variant', (variant) => {

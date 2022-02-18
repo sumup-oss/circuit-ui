@@ -31,8 +31,11 @@ describe('Badge', () => {
   const variants = [
     'neutral',
     'success',
+    'confirm',
     'warning',
+    'notify',
     'danger',
+    'alert',
     'promo',
   ] as const;
 

@@ -81,7 +81,7 @@ export const NotificationList = ({
       'NotificationList',
       'The NotificationList component is deprecated.',
       'Use one of the new notification components instead',
-      'Refer to the migration guide: https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#from-v4-to-v5',
+      'Refer to the migration guide: https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#notification-components',
     );
   }
   return (
