@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 4.14.0
+
+### Minor Changes
+
+- [#1437](https://github.com/sumup-oss/circuit-ui/pull/1437) [`34177608`](https://github.com/sumup-oss/circuit-ui/commit/34177608dbebc7d62b993bfe70c259ba601daf85) Thanks [@amelako](https://github.com/amelako)! - Deprecated the `InlineMessage`, `Notification`, `NotificationList`, and `NotificationCard` components. Use the new `NotificationBanner`, `NotificationInline`, and `NotificationToast` components instead.
+
+* [#1440](https://github.com/sumup-oss/circuit-ui/pull/1440) [`86991d10`](https://github.com/sumup-oss/circuit-ui/commit/86991d10596eab29bca8c8d6270f185e532ed9fd) Thanks [@robinmetral](https://github.com/robinmetral)! - Added new semantic variant names to the `Body`, `BodyLarge` and `Badge` components, and deprecated legacy variants. Read more in the [migration guide](https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#new-semantic-color-names).
+
 ## 4.13.1
 
 ### Patch Changes
