@@ -114,12 +114,12 @@ const Icons = () => {
 
   const colorOptions = [
     { label: 'Black', value: 'black' },
-    { label: 'Gray', value: 'n500' },
+    { label: 'Subtle', value: 'n700' },
     { label: 'White', value: 'white' },
     { label: 'Primary', value: 'p500' },
-    { label: 'Success', value: 'success' },
-    { label: 'Warning', value: 'warning' },
-    { label: 'Danger', value: 'danger' },
+    { label: 'Confirm', value: 'confirm' },
+    { label: 'Notify', value: 'notify' },
+    { label: 'Alert', value: 'alert' },
   ];
 
   const activeIcons = icons.filter(

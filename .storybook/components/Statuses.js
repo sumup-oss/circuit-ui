@@ -21,10 +21,10 @@ import { light } from '@sumup/design-tokens';
 import { Badge, Body, spacing } from '@sumup/circuit-ui';
 
 const variants = {
-  stable: { variant: 'success', label: 'Stable' },
-  deprecated: { variant: 'danger', label: 'Deprecated' },
-  inReview: { variant: 'warning', label: 'In Review' },
-  experimental: { variant: 'warning', label: 'Experimental' },
+  stable: { variant: 'confirm', label: 'Stable' },
+  deprecated: { variant: 'alert', label: 'Deprecated' },
+  inReview: { variant: 'notify', label: 'In Review' },
+  experimental: { variant: 'notify', label: 'Experimental' },
 };
 
 const Status = ({ variant: status = 'stable' }) => {
