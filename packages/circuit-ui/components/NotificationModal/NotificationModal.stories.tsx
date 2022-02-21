@@ -65,4 +65,5 @@ Base.args = {
       onClick: action('secondary'),
     },
   },
+  closeButtonLabel: 'Close',
 };
