@@ -113,7 +113,7 @@ const COLOR_MAP = (T: SemanticTheme) =>
       border: T.primary.border.default.default,
       borderHover: T.primary.border.default.hover,
       borderActive: T.primary.border.default.active,
-      text: T.neutral.text.inverted.default, // onPrimary?
+      text: 'white', // onPrimary? (instead of immutable white)
     },
     destructive: {
       bg: T.alert.background.default.default,
@@ -122,7 +122,7 @@ const COLOR_MAP = (T: SemanticTheme) =>
       border: T.alert.border.default.default,
       borderHover: T.alert.border.default.hover,
       borderActive: T.alert.border.default.active,
-      text: T.neutral.text.inverted.default,
+      text: 'white',
     },
   } as const);
 

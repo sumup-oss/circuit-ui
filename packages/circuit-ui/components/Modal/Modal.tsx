@@ -160,8 +160,7 @@ export const Modal: ModalComponent<ModalProps> = ({
       "The modal is missing a `closeButtonLabel` prop. This is an accessibility requirement. Pass it in `setModal`, or pass `preventClose` if you intend to hide the modal's close button.",
     );
   }
-  const t = useContext(ThemeContext);
-  const T = getTheme(t);
+  const T = getTheme(useContext(ThemeContext));
   return (
     <ClassNames key={variant}>
       {({ css: cssString, cx, theme }) => {

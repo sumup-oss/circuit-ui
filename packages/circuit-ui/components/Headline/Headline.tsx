@@ -89,7 +89,6 @@ const StyledHeadline = styled('h2', {
 /**
  * A flexible headline component capable of rendering any HTML heading element.
  */
-export const Headline: FC<HeadlineProps> = (props) => {
-  const t = useContext(ThemeContext);
-  return <StyledHeadline {...props} t={t} />;
-};
+export const Headline: FC<HeadlineProps> = (props) => (
+  <StyledHeadline {...props} t={useContext(ThemeContext)} />
+);

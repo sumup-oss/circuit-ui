@@ -232,9 +232,9 @@ const D: SemanticTheme = {
     },
     border: {
       default: {
-        default: light.colors.n500,
-        hover: light.colors.n200,
-        active: light.colors.n100,
+        default: light.colors.n700,
+        hover: light.colors.n500,
+        active: light.colors.n300,
       },
       subtle: {
         default: '',
@@ -279,22 +279,22 @@ const D: SemanticTheme = {
     background: {
       default: {
         default: light.colors.p500,
-        hover: light.colors.p400,
-        active: light.colors.p300,
+        hover: light.colors.p700,
+        active: light.colors.p900,
       },
     },
     border: {
       default: {
         default: light.colors.p500,
-        hover: light.colors.p400,
-        active: light.colors.p300,
+        hover: light.colors.p700,
+        active: light.colors.p900,
       },
     },
     text: {
       default: {
         default: light.colors.p500,
-        hover: light.colors.p400,
-        active: light.colors.p300,
+        hover: light.colors.p700, // this won't work on black
+        active: light.colors.p900,
       },
     },
   },

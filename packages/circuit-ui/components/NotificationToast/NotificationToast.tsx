@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
+import {
+  HTMLAttributes,
+  RefObject,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { css } from '@emotion/react';
 import { Alert, Confirm, Info, NotifyCircle } from '@sumup/icons';
 
@@ -25,6 +32,8 @@ import CloseButton from '../CloseButton';
 import { ClickEvent } from '../../types/events';
 import { BaseToastProps, createUseToast } from '../ToastContext';
 import { hideVisually } from '../../styles/style-mixins';
+import { getTheme } from '../../styles/theme';
+import ThemeContext from '../Theming/ThemeContext';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
@@ -74,21 +83,26 @@ const iconMap = {
 
 type NotificationToastWrapperProps = {
   variant: Variant;
+  t?: 'light' | 'dark';
 };
 
 const toastWrapperStyles = ({
   theme,
   variant,
-}: NotificationToastWrapperProps & StyleProps) => css`
-  background-color: ${theme.colors.bodyBg};
-  border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};
-  overflow: hidden;
-  will-change: height;
-  transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
-    height ${TRANSITION_DURATION}ms ease-in-out,
-    visibility ${TRANSITION_DURATION}ms ease-in-out;
-`;
+  t,
+}: NotificationToastWrapperProps & StyleProps) => {
+  const T = getTheme(t);
+  return css`
+    background-color: ${T.neutral.background.default.default};
+    border-radius: ${theme.borderRadius.byte};
+    border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};
+    overflow: hidden;
+    will-change: height;
+    transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
+      height ${TRANSITION_DURATION}ms ease-in-out,
+      visibility ${TRANSITION_DURATION}ms ease-in-out;
+  `;
+};
 
 const NotificationToastWrapper =
   styled('div')<NotificationToastWrapperProps>(toastWrapperStyles);
@@ -200,6 +214,7 @@ export function NotificationToast({
         visibility: isOpen ? 'visible' : 'hidden',
       }}
       variant={variant}
+      t={useContext(ThemeContext)}
       {...props}
     >
       <ContentWrapper>

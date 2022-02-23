@@ -63,7 +63,6 @@ const StyledCard = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
 })<CardProps & { t?: 'light' | 'dark' }>(baseStyles, spacingStyles);
 
-export const Card: FC<CardProps> = (props) => {
-  const t = useContext(ThemeContext);
-  return <StyledCard {...props} t={t} />;
-};
+export const Card: FC<CardProps> = (props) => (
+  <StyledCard {...props} t={useContext(ThemeContext)} />
+);

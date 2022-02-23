@@ -249,8 +249,6 @@ export function NotificationInline({
 
   const Icon = iconMap[variant];
 
-  const t = useContext(ThemeContext);
-
   return (
     <NotificationInlineWrapper
       ref={contentElement}
@@ -261,7 +259,7 @@ export function NotificationInline({
       }}
       {...props}
     >
-      <ContentWrapper variant={variant} t={t}>
+      <ContentWrapper variant={variant} t={useContext(ThemeContext)}>
         <IconWrapper variant={variant}>
           <Icon role="presentation" />
         </IconWrapper>
