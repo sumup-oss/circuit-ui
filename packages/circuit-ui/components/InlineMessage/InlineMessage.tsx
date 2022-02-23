@@ -14,13 +14,15 @@
  */
 
 import { css } from '@emotion/react';
+import { HTMLAttributes } from 'react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { deprecate } from '../../util/logger';
 
 type Variant = 'danger' | 'success' | 'warning';
 
-export interface InlineMessageProps {
+export interface InlineMessageProps
+  extends HTMLAttributes<HTMLParagraphElement> {
   /**
    * Indicates the color of the left border and text in the message.
    */
@@ -99,7 +101,7 @@ const successStyles = createLeftBorderStyles('success');
 const warningStyles = createLeftBorderStyles('warning');
 const dangerStyles = createLeftBorderStyles('danger');
 
-export const InlineMessageStyles = styled('p')<InlineMessageProps>(
+export const InlineMessageStyled = styled('p')<InlineMessageProps>(
   dangerStyles,
   successStyles,
   warningStyles,
@@ -110,9 +112,7 @@ export const InlineMessageStyles = styled('p')<InlineMessageProps>(
  * @deprecated — Use the new NotificationInline component instead.
  * An inline message displayed inside a Card.
  */
-export const InlineMessage = ({
-  ...props
-}: InlineMessageProps): JSX.Element => {
+export const InlineMessage = (props: InlineMessageProps): JSX.Element => {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
@@ -124,5 +124,5 @@ export const InlineMessage = ({
       'Refer to the migration guide: https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#notification-components',
     );
   }
-  return <InlineMessageStyles {...props} />;
+  return <InlineMessageStyled {...props} />;
 };

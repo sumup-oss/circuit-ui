@@ -84,7 +84,7 @@ const StyledCloseButton =
   styled(CloseButton)<CloseButtonProps>(closeButtonStyles);
 
 /**
- * @deprecated
+ * @deprecated – Use one of the new notification components instead.
  * A Notification component for alerts, updates and notifications.
  */
 export const Notification = ({
@@ -104,7 +104,7 @@ export const Notification = ({
     deprecate(
       'Notification',
       'The Notification component is deprecated.',
-      'Use one of the new notification components instead',
+      'Use one of the new notification components instead.',
       'Refer to the migration guide: https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#notification-components',
     );
   }
