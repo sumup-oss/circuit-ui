@@ -57,6 +57,13 @@ type CloseProps =
     }
   | { onClose?: never; closeButtonLabel?: never };
 
+interface NotificationImageProps extends ImageProps {
+  /**
+   * Align the image to one side of its container. Default: `center`.
+   */
+  align?: 'top' | 'left' | 'bottom' | 'right';
+}
+
 interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
   /**
    * Use the `system` variant for system notification use cases, otherwise,
@@ -67,7 +74,7 @@ interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
    * Optional image to communicate message. The image container width is
    * adjustable.
    */
-  image?: ImageProps;
+  image?: NotificationImageProps;
   /**
    * Optional notification headline to communicate a message.
    */
@@ -171,13 +178,15 @@ const ResponsiveButton = styled(Button)(buttonStyles);
 
 const imageStyles = ({
   theme,
-  image,
-}: { image: ImageProps } & StyleProps) => css`
+  width,
+  align,
+}: NotificationImageProps & StyleProps) => css`
   border-radius: 0 ${theme.borderRadius.mega} ${theme.borderRadius.mega} 0;
   min-width: 0;
-  width: ${image.width || '200'}px;
+  width: ${width || 200}px;
   height: auto;
   object-fit: contain;
+  object-position: ${align || 'center'};
 `;
 
 const StyledImage = styled(Image)(imageStyles);
@@ -253,13 +262,7 @@ export function NotificationBanner({
         <ResponsiveBody noMargin>{body}</ResponsiveBody>
         <ResponsiveButton {...action} />
       </Content>
-      {image && image.src && (
-        <StyledImage
-          alt={image.alt}
-          src={image.src}
-          image={image}
-        ></StyledImage>
-      )}
+      {image && image.src && <StyledImage {...image} />}
       {onClose && closeButtonLabel && (
         <StyledCloseButton
           notificationVariant={variant}

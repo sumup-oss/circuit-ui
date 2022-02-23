@@ -55,6 +55,20 @@ describe('NotificationBanner', () => {
       });
       expect(container).toMatchSnapshot();
     });
+
+    it('should change the alignment of the image', () => {
+      const { container } = renderNotificationBanner({
+        ...baseProps,
+        variant: 'promotional',
+        image: {
+          ...baseProps.image,
+          align: 'bottom',
+        },
+      });
+      expect(container.querySelector('img')).toHaveStyle(
+        'object-position: bottom',
+      );
+    });
   });
 
   /**
