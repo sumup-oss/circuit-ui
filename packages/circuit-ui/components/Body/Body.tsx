@@ -13,13 +13,15 @@
  * limitations under the License.
  */
 
-import { forwardRef, HTMLAttributes, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref, useContext } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { deprecate } from '../../util/logger';
 import { AsPropType } from '../../types/prop-types';
+import ThemeContext from '../Theming/ThemeContext';
+import { getTheme } from '../../styles/theme';
 
 type Size = 'one' | 'two';
 type Variant =
@@ -55,17 +57,26 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
   ref?: Ref<any>;
 }
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  font-weight: ${theme.fontWeight.regular};
-  margin-bottom: ${theme.spacings.mega};
-`;
+const baseStyles = ({ theme, t }: StyleProps & { t?: 'light' | 'dark' }) => {
+  const T = getTheme(t);
+  return css`
+    font-weight: ${theme.fontWeight.regular};
+    margin-bottom: ${theme.spacings.mega};
+    color: ${T.neutral.text.default.default};
+  `;
+};
 
 const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => css`
   font-size: ${theme.typography.body[size].fontSize};
   line-height: ${theme.typography.body[size].lineHeight};
 `;
 
-const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
+const variantStyles = ({
+  theme,
+  variant,
+  t,
+}: BodyProps & StyleProps & { t?: 'light' | 'dark' }) => {
+  const T = getTheme(t);
   // TODO: remove the legacy variants and this switch statement in v5
   /* eslint-disable no-param-reassign */
   switch (variant) {
@@ -113,22 +124,23 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
       return css`
         font-style: italic;
         padding-left: ${theme.spacings.kilo};
-        border-left: ${theme.borderWidth.mega} solid ${theme.colors.p500};
+        border-left: ${theme.borderWidth.mega} solid
+          ${T.primary.border.default.default};
       `;
     }
     case 'confirm': {
       return css`
-        color: ${theme.colors.confirm};
+        color: ${T.confirm.text.default.default};
       `;
     }
     case 'alert': {
       return css`
-        color: ${theme.colors.alert};
+        color: ${T.alert.text.default.default};
       `;
     }
     case 'subtle': {
       return css`
-        color: ${theme.colors.n700};
+        color: ${T.neutral.text.subtle.default};
       `;
     }
   }
@@ -158,7 +170,12 @@ const marginStyles = ({ noMargin }: BodyProps & StyleProps) => {
 
 const StyledBody = styled('p', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<BodyProps>(baseStyles, sizeStyles, marginStyles, variantStyles);
+})<BodyProps & { t?: 'light' | 'dark' }>(
+  baseStyles,
+  sizeStyles,
+  marginStyles,
+  variantStyles,
+);
 
 function getHTMLElement(variant?: Variant): AsPropType {
   if (variant === 'highlight') {
@@ -176,7 +193,9 @@ function getHTMLElement(variant?: Variant): AsPropType {
  */
 export const Body = forwardRef((props: BodyProps, ref?: BodyProps['ref']) => {
   const as = props.as || getHTMLElement(props.variant);
-  return <StyledBody {...props} ref={ref} as={as} />;
+  return (
+    <StyledBody {...props} ref={ref} as={as} t={useContext(ThemeContext)} />
+  );
 });
 
 Body.displayName = 'Body';

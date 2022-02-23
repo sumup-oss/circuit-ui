@@ -204,7 +204,169 @@ const L: SemanticTheme = {
       },
     },
   },
-  // immutable?
+};
+
+const D: SemanticTheme = {
+  neutral: {
+    background: {
+      default: {
+        default: light.colors.n900,
+        hover: light.colors.n800,
+        active: light.colors.n700,
+      },
+      subtle: {
+        default: '',
+        hover: '',
+        active: '',
+      },
+      highlighted: {
+        default: '',
+        hover: '',
+        active: '',
+      },
+      inverted: {
+        default: '',
+        hover: '',
+        active: '',
+      },
+    },
+    border: {
+      default: {
+        default: light.colors.n500,
+        hover: light.colors.n200,
+        active: light.colors.n100,
+      },
+      subtle: {
+        default: '',
+        hover: '',
+        active: '',
+      },
+      highlighted: {
+        default: '',
+        hover: '',
+        active: '',
+      },
+      inverted: {
+        default: '',
+        hover: '',
+        active: '',
+      },
+    },
+    text: {
+      default: {
+        default: light.colors.n100,
+        hover: '',
+        active: '',
+      },
+      subtle: {
+        default: light.colors.n500,
+        hover: '',
+        active: '',
+      },
+      highlighted: {
+        default: light.colors.white,
+        hover: '',
+        active: '',
+      },
+      inverted: {
+        default: light.colors.black,
+        hover: '',
+        active: '',
+      },
+    },
+  },
+  primary: {
+    background: {
+      default: {
+        default: light.colors.p500,
+        hover: light.colors.p400,
+        active: light.colors.p300,
+      },
+    },
+    border: {
+      default: {
+        default: light.colors.p500,
+        hover: light.colors.p400,
+        active: light.colors.p300,
+      },
+    },
+    text: {
+      default: {
+        default: light.colors.p500,
+        hover: light.colors.p400,
+        active: light.colors.p300,
+      },
+    },
+  },
+  confirm: {
+    background: {
+      default: {
+        default: light.colors.confirm,
+        hover: '',
+        active: '',
+      },
+    },
+    border: {
+      default: {
+        default: light.colors.confirm,
+        hover: '',
+        active: '',
+      },
+    },
+    text: {
+      default: {
+        default: light.colors.confirm,
+        hover: '',
+        active: '',
+      },
+    },
+  },
+  notify: {
+    background: {
+      default: {
+        default: light.colors.notify,
+        hover: '',
+        active: '',
+      },
+    },
+    border: {
+      default: {
+        default: light.colors.notify,
+        hover: '',
+        active: '',
+      },
+    },
+    text: {
+      default: {
+        default: light.colors.notify,
+        hover: '',
+        active: '',
+      },
+    },
+  },
+  alert: {
+    background: {
+      default: {
+        default: light.colors.alert,
+        hover: light.colors.r300,
+        active: light.colors.r200,
+      },
+    },
+    border: {
+      default: {
+        default: light.colors.alert,
+        hover: light.colors.r300,
+        active: light.colors.r200,
+      },
+    },
+    text: {
+      default: {
+        default: light.colors.alert,
+        hover: light.colors.r300,
+        active: light.colors.r200,
+      },
+    },
+  },
 };
 
 export function getTheme(theme?: 'light' | 'dark'): SemanticTheme {
@@ -212,7 +374,7 @@ export function getTheme(theme?: 'light' | 'dark'): SemanticTheme {
     case 'light':
       return L;
     case 'dark':
-      return L; // TODO
+      return D;
     default:
       return L;
   }

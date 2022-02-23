@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, useContext } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { deprecate } from '../../util/logger';
+import { getTheme } from '../../styles/theme';
+import ThemeContext from '../Theming/ThemeContext';
 
 type Size = 'one' | 'two' | 'three' | 'four';
 
@@ -39,12 +41,15 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  font-weight: ${theme.fontWeight.bold};
-  margin-bottom: ${theme.spacings.giga};
-  color: ${theme.colors.black};
-  letter-spacing: -0.03em;
-`;
+const baseStyles = ({ theme, t }: StyleProps & { t?: 'light' | 'dark' }) => {
+  const T = getTheme(t);
+  return css`
+    font-weight: ${theme.fontWeight.bold};
+    margin-bottom: ${theme.spacings.giga};
+    color: ${T.neutral.text.highlighted.default};
+    letter-spacing: -0.03em;
+  `;
+};
 
 const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => css`
   font-size: ${theme.typography.headline[size].fontSize};
@@ -73,9 +78,18 @@ const noMarginStyles = ({ noMargin }: HeadlineProps) => {
   `;
 };
 
+const StyledHeadline = styled('h2', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
+})<HeadlineProps & { t?: 'light' | 'dark' }>(
+  baseStyles,
+  sizeStyles,
+  noMarginStyles,
+);
+
 /**
  * A flexible headline component capable of rendering any HTML heading element.
  */
-export const Headline: FC<HeadlineProps> = styled('h2', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<HeadlineProps>(baseStyles, sizeStyles, noMarginStyles);
+export const Headline: FC<HeadlineProps> = (props) => {
+  const t = useContext(ThemeContext);
+  return <StyledHeadline {...props} t={t} />;
+};

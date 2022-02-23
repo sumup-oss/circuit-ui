@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-import { FC, Ref, HTMLAttributes } from 'react';
+import { FC, Ref, HTMLAttributes, useContext } from 'react';
 import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { getTheme } from '../../styles/theme';
+import ThemeContext from '../Theming/ThemeContext';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -31,14 +33,17 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   ref?: Ref<any>;
 }
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  background-color: ${theme.colors.white};
-  border-radius: ${theme.borderRadius.mega};
-  border: ${theme.borderWidth.mega} solid ${theme.colors.n200};
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
+const baseStyles = ({ theme, t }: StyleProps & { t?: 'light' | 'dark' }) => {
+  const T = getTheme(t);
+  return css`
+    background-color: ${T.neutral.background.default.default};
+    border-radius: ${theme.borderRadius.mega};
+    border: ${theme.borderWidth.mega} solid ${T.neutral.border.default.default};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  `;
+};
 
 const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
   const spacings = {
@@ -54,6 +59,11 @@ const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
   `;
 };
 
-export const Card: FC<CardProps> = styled('div', {
+const StyledCard = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
-})<CardProps>(baseStyles, spacingStyles);
+})<CardProps & { t?: 'light' | 'dark' }>(baseStyles, spacingStyles);
+
+export const Card: FC<CardProps> = (props) => {
+  const t = useContext(ThemeContext);
+  return <StyledCard {...props} t={t} />;
+};

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactNode } from 'react';
+import { ReactNode, useContext } from 'react';
 import { css, ClassNames } from '@emotion/react';
 import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
@@ -27,6 +27,8 @@ import {
 import CloseButton from '../CloseButton';
 import { StackContext } from '../StackContext';
 import styled, { StyleProps } from '../../styles/styled';
+import ThemeContext from '../Theming/ThemeContext';
+import { getTheme } from '../../styles/theme';
 
 const TRANSITION_DURATION_MOBILE = 120;
 const TRANSITION_DURATION_DESKTOP = 240;
@@ -158,6 +160,8 @@ export const Modal: ModalComponent<ModalProps> = ({
       "The modal is missing a `closeButtonLabel` prop. This is an accessibility requirement. Pass it in `setModal`, or pass `preventClose` if you intend to hide the modal's close button.",
     );
   }
+  const t = useContext(ThemeContext);
+  const T = getTheme(t);
   return (
     <ClassNames key={variant}>
       {({ css: cssString, cx, theme }) => {
@@ -169,7 +173,7 @@ export const Modal: ModalComponent<ModalProps> = ({
             cssString`
               position: fixed;
               outline: none;
-              background-color: ${theme.colors.white};
+              background-color: ${T.neutral.background.default.default};
 
               &::after {
                 position: fixed;
@@ -178,11 +182,13 @@ export const Modal: ModalComponent<ModalProps> = ({
                 right: 0;
                 bottom: 0;
                 left: 0;
+                /*
                 background: linear-gradient(
                   rgba(255,255,255,0),
                   rgba(255,255,255,0.66),
                   rgba(255,255,255,1)
                 );
+                */
               }
 
               ${theme.mq.untilKilo} {

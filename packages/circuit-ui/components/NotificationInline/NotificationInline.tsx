@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
+import {
+  HTMLAttributes,
+  RefObject,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { css } from '@emotion/react';
 import { Alert, Confirm, Info, NotifyCircle } from '@sumup/icons';
 
@@ -26,6 +33,8 @@ import { hideVisually } from '../../styles/style-mixins';
 import Button, { ButtonProps } from '../Button';
 import { ClickEvent } from '../../types/events';
 import { isString } from '../../util/type-check';
+import { getTheme } from '../../styles/theme';
+import ThemeContext from '../Theming/ThemeContext';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
@@ -108,20 +117,25 @@ const NotificationInlineWrapper = styled('div')(inlineWrapperStyles);
 
 type ContentWrapperProps = {
   variant: Variant;
+  t: 'light' | 'dark';
 };
 
 const contentWrapperStyles = ({
   theme,
   variant,
-}: ContentWrapperProps & StyleProps) => css`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: ${theme.colors.bodyBg};
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-  border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};
-`;
+  t,
+}: ContentWrapperProps & StyleProps) => {
+  const T = getTheme(t);
+  return css`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: ${T.neutral.background.default.default};
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+    border-radius: ${theme.borderRadius.byte};
+    border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};
+  `;
+};
 
 const ContentWrapper = styled('div')<ContentWrapperProps>(contentWrapperStyles);
 
@@ -235,6 +249,8 @@ export function NotificationInline({
 
   const Icon = iconMap[variant];
 
+  const t = useContext(ThemeContext);
+
   return (
     <NotificationInlineWrapper
       ref={contentElement}
@@ -245,7 +261,7 @@ export function NotificationInline({
       }}
       {...props}
     >
-      <ContentWrapper variant={variant}>
+      <ContentWrapper variant={variant} t={t}>
         <IconWrapper variant={variant}>
           <Icon role="presentation" />
         </IconWrapper>

@@ -18,8 +18,6 @@ import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import Body from '../Body';
-import BodyLarge from '../BodyLarge';
-import List from '../List';
 import Headline from '../Headline';
 import Badge from '../Badge';
 import Card from '../Card';
@@ -64,9 +62,9 @@ const Theming = () => {
         </Headline>
         <Badge variant="promo">New</Badge>
       </div>
-      <BodyLarge variant="subtle" css={spacing({ bottom: 'giga' })}>
+      <Body variant="subtle" css={spacing({ bottom: 'giga' })}>
         Introducing Circuit UI theming.
-      </BodyLarge>
+      </Body>
       <Card
         css={css`
           align-items: baseline;
@@ -104,14 +102,12 @@ const Theming = () => {
                   <Body noMargin css={spacing({ bottom: 'giga' })}>
                     There will be at least two themes available in Circuit UI:
                   </Body>
-                  <List noMargin css={spacing({ bottom: 'giga' })}>
-                    <li>
-                      Light <Badge variant="confirm">Ready</Badge>
-                    </li>
-                    <li>
-                      Dark <Badge variant="notify">In progress</Badge>
-                    </li>
-                  </List>
+                  <Body noMargin css={spacing({ bottom: 'bit' })}>
+                    Light <Badge variant="confirm">Ready</Badge>
+                  </Body>
+                  <Body noMargin css={spacing({ bottom: 'giga' })}>
+                    Dark <Badge variant="notify">In progress</Badge>
+                  </Body>
                   <NotificationInline
                     variant="notify"
                     body="Do not use the dark theme yet."
@@ -160,7 +156,7 @@ const Theming = () => {
 
 export const Base = (args, context) => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  const isLight = context?.globals?.backgrounds?.value !== '#15181E';
+  const isLight = context?.globals?.backgrounds?.value !== '#1A1A1A';
 
   return (
     <ThemeContext.Provider value={isLight ? 'light' : 'dark'}>

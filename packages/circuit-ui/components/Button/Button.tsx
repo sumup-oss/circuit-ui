@@ -97,7 +97,6 @@ export interface BaseProps {
    * impaired users.
    */
   'loadingLabel'?: string;
-  't'?: 'light' | 'dark';
 }
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
@@ -191,7 +190,7 @@ const primaryStyles = ({
   variant = 'secondary',
   destructive,
   t,
-}: ButtonProps) => {
+}: ButtonProps & { t?: 'light' | 'dark' }) => {
   if (variant !== 'primary') {
     return null;
   }
@@ -222,7 +221,7 @@ const secondaryStyles = ({
   variant = 'secondary',
   destructive,
   t,
-}: ButtonProps) => {
+}: ButtonProps & { t?: 'light' | 'dark' }) => {
   if (variant !== 'secondary') {
     return null;
   }
@@ -255,7 +254,7 @@ const tertiaryStyles = ({
   variant = 'secondary',
   destructive,
   t,
-}: ButtonProps) => {
+}: ButtonProps & { t?: 'light' | 'dark' }) => {
   if (variant !== 'tertiary') {
     return null;
   }
@@ -363,7 +362,7 @@ const Content = styled.span<{ isLoading: boolean }>(
 
 const StyledButton = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<ButtonProps>(
+})<ButtonProps & { t?: 'light' | 'dark' }>(
   typography('one'),
   focusVisible,
   baseStyles,

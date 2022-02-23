@@ -60,7 +60,7 @@ export const parameters = {
     default: 'light',
     values: [
       { name: 'light', value: light.colors.bodyBg },
-      { name: 'dark', value: '#15181E' },
+      { name: 'dark', value: light.colors.n900 },
     ],
     grid: {
       disable: true,
