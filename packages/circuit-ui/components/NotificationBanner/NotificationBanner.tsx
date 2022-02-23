@@ -178,14 +178,15 @@ const ResponsiveButton = styled(Button)(buttonStyles);
 
 const imageStyles = ({
   theme,
-  image,
-}: { image: NotificationImageProps } & StyleProps) => css`
+  width,
+  align,
+}: NotificationImageProps & StyleProps) => css`
   border-radius: 0 ${theme.borderRadius.mega} ${theme.borderRadius.mega} 0;
   min-width: 0;
-  width: ${image.width || '200'}px;
+  width: ${width || 200}px;
   height: auto;
   object-fit: contain;
-  object-position: ${image.align || 'center'};
+  object-position: ${align || 'center'};
 `;
 
 const StyledImage = styled(Image)(imageStyles);
@@ -261,9 +262,7 @@ export function NotificationBanner({
         <ResponsiveBody noMargin>{body}</ResponsiveBody>
         <ResponsiveButton {...action} />
       </Content>
-      {image && image.src && (
-        <StyledImage alt={image.alt} src={image.src} image={image} />
-      )}
+      {image && image.src && <StyledImage {...image} />}
       {onClose && closeButtonLabel && (
         <StyledCloseButton
           notificationVariant={variant}
