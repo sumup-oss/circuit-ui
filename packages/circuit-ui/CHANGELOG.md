@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.15.1
+
+### Patch Changes
+
+- [#1450](https://github.com/sumup-oss/circuit-ui/pull/1450) [`db3f446b`](https://github.com/sumup-oss/circuit-ui/commit/db3f446bbb3f103ab2fd99aabeb0ceecaea1ba12) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the prop types of the InlineMessage to include the default HTML attributes."
+
 ## 4.15.0
 
 ### Minor Changes
