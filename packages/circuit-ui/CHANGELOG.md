@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 4.15.0
+
+### Minor Changes
+
+- [#1448](https://github.com/sumup-oss/circuit-ui/pull/1448) [`9b2e18da`](https://github.com/sumup-oss/circuit-ui/commit/9b2e18da93da90d9337916150ec2dc9dae5b55a8) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a prop to change the alignment of the NotificationBanner image.
+
 ## 4.14.0
 
 ### Minor Changes
