@@ -42,7 +42,7 @@ const innerStyles = ({ theme }: StyleProps) => css`
 const NotificationCardInner = styled('div')(innerStyles);
 
 /**
- * @deprecated
+ * @deprecated – Use one of the new notification components instead.
  * NotificationCard displays a persistent Notification.
  */
 export const NotificationCard = ({
@@ -56,7 +56,7 @@ export const NotificationCard = ({
     deprecate(
       'NotificationCard',
       'The NotificationCard component is deprecated.',
-      'Use one of the new notification components instead',
+      'Use one of the new notification components instead.',
       'Refer to the migration guide: https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#notification-components',
     );
   }

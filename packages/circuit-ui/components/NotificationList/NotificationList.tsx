@@ -66,7 +66,7 @@ const cardStyles = ({ theme }: StyleProps) => css`
 const NotificationListCard = styled('li')<NoTheme>(cardStyles, shadow());
 
 /**
- * @deprecated
+ * @deprecated – Use one of the new notification components instead.
  * NotificationList displays Notifications as Cards in a corner.
  */
 export const NotificationList = ({
@@ -80,7 +80,7 @@ export const NotificationList = ({
     deprecate(
       'NotificationList',
       'The NotificationList component is deprecated.',
-      'Use one of the new notification components instead',
+      'Use one of the new notification components instead.',
       'Refer to the migration guide: https://github.com/sumup-oss/circuit-ui/MIGRATION.md/#notification-components',
     );
   }
