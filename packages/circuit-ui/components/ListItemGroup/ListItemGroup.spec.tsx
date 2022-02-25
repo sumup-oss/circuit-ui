@@ -117,7 +117,7 @@ describe('ListItemGroup', () => {
     });
 
     it('should render the focused item in a ListItemGroup with interactive items', () => {
-      const { container } = renderListItemGroup(render, {
+      const { getAllByRole } = renderListItemGroup(render, {
         ...baseProps,
         items: baseProps.items.map((item) => ({
           ...item,
@@ -130,11 +130,11 @@ describe('ListItemGroup', () => {
         userEvent.tab(); // blur first and focus second item
       });
 
-      expect(container).toMatchSnapshot();
+      expect(getAllByRole('button')[1]).toMatchSnapshot();
     });
 
     it('should render the selected item in a ListItemGroup with interactive items', () => {
-      const { container } = renderListItemGroup(render, {
+      const { getAllByRole } = renderListItemGroup(render, {
         ...baseProps,
         items: baseProps.items.map((item) => ({
           ...item,
@@ -143,11 +143,11 @@ describe('ListItemGroup', () => {
         })),
       });
 
-      expect(container).toMatchSnapshot();
+      expect(getAllByRole('button')[0]).toMatchSnapshot();
     });
 
     it('should render the selected item in a plain ListItemGroup with interactive items', () => {
-      const { container } = renderListItemGroup(render, {
+      const { getAllByRole } = renderListItemGroup(render, {
         ...baseProps,
         items: baseProps.items.map((item) => ({
           ...item,
@@ -157,7 +157,7 @@ describe('ListItemGroup', () => {
         variant: 'plain',
       });
 
-      expect(container).toMatchSnapshot();
+      expect(getAllByRole('button')[0]).toMatchSnapshot();
     });
   });
 
@@ -182,6 +182,19 @@ describe('ListItemGroup', () => {
       });
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
+    });
+
+    it('should set the aria-selected attribute of the selected item', () => {
+      const { getAllByRole } = renderListItemGroup(render, {
+        ...baseProps,
+        items: baseProps.items.map((item) => ({
+          ...item,
+          onClick: jest.fn(),
+          selected: item.key === 1,
+        })),
+      });
+
+      expect(getAllByRole('button')[0]).toHaveAttribute('aria-pressed', 'true');
     });
   });
 });

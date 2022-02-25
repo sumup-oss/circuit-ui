@@ -157,6 +157,7 @@ const ComponentWithSidePanel = (props) => {
           setSidePanel({
             ...props,
             children: <DefaultChildren label={item.label} showMoreInfo />,
+            onClose: () => setSelectedItem(null),
           });
         },
       }))}

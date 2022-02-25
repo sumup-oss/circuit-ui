@@ -69,9 +69,9 @@ export type SidePanelProps = ReactModalProps &
     top: string;
   };
 
-type ContentProps = { top: string };
+type ContentContainerProps = { top: string };
 
-const contentStyles = ({ theme }: StyleProps) => css`
+const contentContainerStyles = ({ theme }: StyleProps) => css`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,15 +88,18 @@ const contentStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const contentTopStyles = ({ top }: ContentProps) =>
+const contentContainerTopStyles = ({ top }: ContentContainerProps) =>
   top !== '0px' &&
   css`
     padding-top: 0;
   `;
 
-const Content = styled.div(contentStyles, contentTopStyles);
+const ContentContainer = styled.div(
+  contentContainerStyles,
+  contentContainerTopStyles,
+);
 
-const bodyStyles = ({ theme }: StyleProps) => css`
+const contentStyles = ({ theme }: StyleProps) => css`
   width: 100%;
   max-width: ${BODY_MAX_WIDTH}px;
   padding: 0 ${theme.spacings.mega};
@@ -106,7 +109,7 @@ const bodyStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const Body = styled.div(bodyStyles);
+const Content = styled.div(contentStyles);
 
 export const SidePanel = ({
   backButtonLabel,
@@ -161,7 +164,7 @@ export const SidePanel = ({
   };
 
   const content = (
-    <Content top={top} onScroll={handleScroll}>
+    <ContentContainer top={top} onScroll={handleScroll}>
       <Header
         backButtonLabel={backButtonLabel}
         closeButtonLabel={closeButtonLabel}
@@ -171,10 +174,10 @@ export const SidePanel = ({
         onClose={onClose}
         isSticky={isHeaderSticky}
       />
-      <Body>
+      <Content>
         {isFunction(children) ? children({ onBack, onClose }) : children}
-      </Body>
-    </Content>
+      </Content>
+    </ContentContainer>
   );
 
   if (isMobile) {
