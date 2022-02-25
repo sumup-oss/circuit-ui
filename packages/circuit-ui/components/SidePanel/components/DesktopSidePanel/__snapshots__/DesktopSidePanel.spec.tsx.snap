@@ -39,7 +39,7 @@ exports[`DesktopSidePanel should match the snapshot 1`] = `
       class="ReactModal__Overlay circuit-0"
     >
       <div
-        aria-modal="false"
+        aria-modal="true"
         class="circuit-1"
         role="dialog"
         tabindex="-1"

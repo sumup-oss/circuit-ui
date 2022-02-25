@@ -288,7 +288,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
     >
       <div
         aria-labelledby="side-panel-header_2"
-        aria-modal="false"
+        aria-modal="true"
         class="circuit-2"
         role="dialog"
         tabindex="-1"
@@ -977,7 +977,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
     >
       <div
         aria-labelledby="side-panel-header_6"
-        aria-modal="false"
+        aria-modal="true"
         class="circuit-2"
         role="dialog"
         tabindex="-1"

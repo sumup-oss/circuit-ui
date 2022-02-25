@@ -63,9 +63,9 @@ describe('DesktopSidePanel', () => {
     expect(getByRole('dialog')).toHaveStyle('transition: none');
   });
 
-  it('should describe the side panel as non-modal', () => {
+  it('should describe the side panel as modal', () => {
     const { getByRole } = renderComponent();
-    expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'false');
+    expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
   });
 
   it('should meet accessibility guidelines', async () => {

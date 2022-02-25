@@ -253,7 +253,7 @@ exports[`SidePanel should match the snapshot 1`] = `
     >
       <div
         aria-labelledby="the_one"
-        aria-modal="false"
+        aria-modal="true"
         class="circuit-1"
         role="dialog"
         tabindex="-1"

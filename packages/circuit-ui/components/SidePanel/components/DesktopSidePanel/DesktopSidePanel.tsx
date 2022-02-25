@@ -72,10 +72,6 @@ export const DesktopSidePanel = ({
         shouldCloseOnOverlayClick: false,
         closeTimeoutMS: TRANSITION_DURATION_DESKTOP,
         ...props,
-        aria: {
-          ...props.aria,
-          modal: false,
-        },
       };
 
       return (

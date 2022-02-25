@@ -177,9 +177,9 @@ describe('SidePanel', () => {
   });
 
   describe('when the panel is on desktop resolution', () => {
-    it('should describe the side panel as non-modal', () => {
+    it('should describe the side panel as modal', () => {
       const { getByRole } = renderComponent();
-      expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'false');
+      expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
     });
   });
 
