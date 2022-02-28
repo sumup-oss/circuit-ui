@@ -34,7 +34,7 @@
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.1",
+    "@types/jest": "^27.4.1",
     "@types/prop-types": "^15.7.3",
     "jest": "^27.5.1",
     "jest-extended": "^2.0.0",
