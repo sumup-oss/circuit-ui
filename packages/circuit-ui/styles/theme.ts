@@ -292,9 +292,9 @@ const D: SemanticTheme = {
     },
     text: {
       default: {
-        default: light.colors.p500,
-        hover: light.colors.p700, // this won't work on black
-        active: light.colors.p900,
+        default: light.colors.p400,
+        hover: light.colors.p300,
+        active: light.colors.p200,
       },
     },
   },

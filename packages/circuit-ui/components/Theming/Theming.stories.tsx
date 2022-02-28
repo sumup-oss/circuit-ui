@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { Fragment } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
@@ -22,13 +21,10 @@ import Headline from '../Headline';
 import Badge from '../Badge';
 import Card from '../Card';
 import Button from '../Button';
-import ButtonGroup from '../ButtonGroup';
-import { useModal } from '../Modal';
-import NotificationInline from '../NotificationInline';
-import { useNotificationToast } from '../NotificationToast';
+import NotificationBanner from '../NotificationBanner';
 import { ToastProvider } from '../ToastContext';
 import { ModalProvider } from '../ModalContext';
-import { spacing } from '../../styles/style-mixins';
+import { cx, spacing } from '../../styles/style-mixins';
 
 import ThemeContext from './ThemeContext';
 import docs from './Theming.docs.mdx';
@@ -40,119 +36,56 @@ export default {
   },
 };
 
-const Theming = () => {
-  const { setModal } = useModal();
-  const { setToast } = useNotificationToast();
-  return (
+const Theming = () => (
+  <div
+    css={css`
+      max-width: 600px;
+    `}
+  >
     <div
-      css={css`
-        max-width: 600px;
+      css={(theme: Theme) => css`
+        display: flex;
+        gap: ${theme.spacings.mega};
+        align-items: center;
+        margin-bottom: ${theme.spacings.giga};
       `}
     >
-      <div
-        css={(theme: Theme) => css`
-          display: flex;
-          gap: ${theme.spacings.mega};
-          align-items: center;
-          margin-bottom: ${theme.spacings.giga};
-        `}
-      >
-        <Headline as="h1" size="two" noMargin>
-          Theming
-        </Headline>
-        <Badge variant="promo">New</Badge>
-      </div>
-      <Body variant="subtle" css={spacing({ bottom: 'giga' })}>
-        Introducing Circuit UI theming.
-      </Body>
-      <Card
-        css={css`
-          align-items: baseline;
-        `}
-      >
-        <Headline
-          as="h3"
-          size="four"
-          noMargin
-          css={spacing({ bottom: 'giga' })}
-        >
-          Themes
-        </Headline>
-        <Body noMargin css={spacing({ bottom: 'giga' })}>
-          Circuit UI will export some themes ready for use. You will also be
-          able to create your own themes, for an entire application or for a
-          single component.
-        </Body>
-        <Button
-          onClick={() =>
-            setModal({
-              variant: 'contextual',
-              closeButtonLabel: 'Close',
-              // eslint-disable-next-line react/display-name
-              children: ({ onClose }) => (
-                <Fragment>
-                  <Headline
-                    as="h2"
-                    size="four"
-                    noMargin
-                    css={spacing({ bottom: 'giga' })}
-                  >
-                    Themes
-                  </Headline>
-                  <Body noMargin css={spacing({ bottom: 'giga' })}>
-                    There will be at least two themes available in Circuit UI:
-                  </Body>
-                  <Body noMargin css={spacing({ bottom: 'bit' })}>
-                    Light <Badge variant="confirm">Ready</Badge>
-                  </Body>
-                  <Body noMargin css={spacing({ bottom: 'giga' })}>
-                    Dark <Badge variant="notify">In progress</Badge>
-                  </Body>
-                  <NotificationInline
-                    variant="notify"
-                    body="Do not use the dark theme yet."
-                    css={spacing({ bottom: 'giga' })}
-                  />
-                  <Body noMargin css={spacing({ bottom: 'giga' })}>
-                    Does this answer your question?
-                  </Body>
-                  <ButtonGroup
-                    align="left"
-                    actions={{
-                      primary: {
-                        children: 'Yes',
-                        onClick: () => {
-                          setToast({
-                            variant: 'confirm',
-                            body: 'Happy to hear!',
-                          });
-                          onClose();
-                        },
-                      },
-                      secondary: {
-                        children: 'No',
-                        destructive: true,
-                        onClick: () => {
-                          setToast({
-                            variant: 'info',
-                            body: 'Sorry about this :(',
-                          });
-                          onClose();
-                        },
-                      },
-                    }}
-                  />
-                </Fragment>
-              ),
-            })
-          }
-        >
-          View available themes
-        </Button>
-      </Card>
+      <Headline as="h1" size="two" noMargin>
+        Theming
+      </Headline>
+      <Badge variant="promo">New</Badge>
     </div>
-  );
-};
+    <Body variant="subtle" css={spacing({ bottom: 'giga' })}>
+      Introducing Circuit UI theming.
+    </Body>
+    <Card
+      css={cx(
+        css`
+          align-items: baseline;
+        `,
+        spacing({ bottom: 'giga' }),
+      )}
+    >
+      <Headline as="h3" size="four" noMargin css={spacing({ bottom: 'giga' })}>
+        Themes
+      </Headline>
+      <Body noMargin css={spacing({ bottom: 'giga' })}>
+        Circuit UI will export some themes ready for use. You will also be able
+        to create your own themes, for an entire application or for a single
+        component.
+      </Body>
+      <Button variant="primary">View available themes</Button>
+    </Card>
+    <NotificationBanner
+      body="Reach out to us on Slack (internal) if you want to help out!"
+      action={{
+        children: 'Go to Slack',
+        variant: 'tertiary',
+        href: 'https://sumup.slack.com/archives/C8VJTUADU',
+      }}
+    />
+  </div>
+);
 
 export const Base = (args, context) => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
