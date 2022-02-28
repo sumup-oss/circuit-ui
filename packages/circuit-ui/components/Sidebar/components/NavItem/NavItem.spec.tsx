@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import { create, render, renderToHtml, axe } from '../../../../util/test-utils';
+import {
+  create,
+  screen,
+  render,
+  renderToHtml,
+  axe,
+} from '../../../../util/test-utils';
 import { NavList } from '../NavList';
 
 import { NavItem } from './NavItem';
@@ -62,6 +68,25 @@ describe('NavItem', () => {
       );
       const iconEl = getByTestId('icon');
       expect(iconEl).not.toBeNull();
+    });
+  });
+
+  describe('when disabled', () => {
+    it('should ignore clicks', () => {
+      const label = 'Disabled';
+      const mockOnClick = jest.fn();
+      render(
+        <NavItem
+          disabled={true}
+          onClick={mockOnClick}
+          secondary={false}
+          label={label}
+          selected={false}
+        />,
+      );
+
+      screen.getByText(label).click();
+      expect(mockOnClick).not.toHaveBeenCalled();
     });
   });
 
