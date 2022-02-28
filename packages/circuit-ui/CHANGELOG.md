@@ -4,15 +4,15 @@
 
 ### Minor Changes
 
-- [#1401](https://github.com/sumup-oss/circuit-ui/pull/1401) [`d8361322`](https://github.com/sumup-oss/circuit-ui/commit/d836132205fd376ff9c02c414fb0e69cb73a654e) Thanks [@hris27](https://github.com/hris27)! - Added `useSidePanel` hook and `SidePanelProvider`.
+- [#1401](https://github.com/sumup-oss/circuit-ui/pull/1401) [`d8361322`](https://github.com/sumup-oss/circuit-ui/commit/d836132205fd376ff9c02c414fb0e69cb73a654e) Thanks [@hris27](https://github.com/hris27)! - Added a new `SidePanel` component. Use it via the `useSidePanel` hook and `SidePanelProvider`.
 
-* [#1401](https://github.com/sumup-oss/circuit-ui/pull/1401) [`d8361322`](https://github.com/sumup-oss/circuit-ui/commit/d836132205fd376ff9c02c414fb0e69cb73a654e) Thanks [@hris27](https://github.com/hris27)! - Added `update` operation to the `useStack` hook.
+* [#1401](https://github.com/sumup-oss/circuit-ui/pull/1401) [`d8361322`](https://github.com/sumup-oss/circuit-ui/commit/d836132205fd376ff9c02c414fb0e69cb73a654e) Thanks [@hris27](https://github.com/hris27)! - Added an `update` feature to the `useStack` hook.
 
 ### Patch Changes
 
-- [#1401](https://github.com/sumup-oss/circuit-ui/pull/1401) [`d8361322`](https://github.com/sumup-oss/circuit-ui/commit/d836132205fd376ff9c02c414fb0e69cb73a654e) Thanks [@hris27](https://github.com/hris27)! - Changed `Popover` strategy to `fixed` to prevent overflow issues.
+- [#1401](https://github.com/sumup-oss/circuit-ui/pull/1401) [`d8361322`](https://github.com/sumup-oss/circuit-ui/commit/d836132205fd376ff9c02c414fb0e69cb73a654e) Thanks [@hris27](https://github.com/hris27)! - Changed the `Popover`'s strategy to `fixed` to prevent overflow issues.
 
-* [#1401](https://github.com/sumup-oss/circuit-ui/pull/1401) [`d8361322`](https://github.com/sumup-oss/circuit-ui/commit/d836132205fd376ff9c02c414fb0e69cb73a654e) Thanks [@hris27](https://github.com/hris27)! - Fixed focused state of `ListItemGroup` items.
+* [#1401](https://github.com/sumup-oss/circuit-ui/pull/1401) [`d8361322`](https://github.com/sumup-oss/circuit-ui/commit/d836132205fd376ff9c02c414fb0e69cb73a654e) Thanks [@hris27](https://github.com/hris27)! - Fixed the focused state of `ListItemGroup` items.
 
 ## 4.15.1
 
