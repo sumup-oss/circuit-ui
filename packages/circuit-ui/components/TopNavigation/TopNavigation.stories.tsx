@@ -32,9 +32,10 @@ export default {
     layout: 'fullscreen',
     docs: { page: docs },
   },
+  excludeStories: /.*Args$/,
 };
 
-const baseArgs = {
+export const baseArgs: TopNavigationProps = {
   isLoading: false,
   logo: (
     <a

@@ -28,7 +28,8 @@ export type StackItem = {
 type Action<T extends StackItem> =
   | { type: 'push'; item: T }
   | { type: 'pop'; transition?: Transition }
-  | { type: 'remove'; id: Id; transition?: Transition };
+  | { type: 'remove'; id: Id; transition?: Transition }
+  | { type: 'update'; item: Partial<T> & StackItem };
 
 export type StackDispatch<T extends StackItem> = Dispatch<Action<T>>;
 
@@ -60,6 +61,11 @@ function createReducer<T extends StackItem>() {
 
         return state.filter((s) => s.id !== action.id);
       }
+      case 'update': {
+        return state.map((s) =>
+          s.id !== action.item.id ? s : { ...s, ...action.item },
+        );
+      }
       default: {
         return state;
       }
@@ -75,19 +81,22 @@ export function useStack<T extends StackItem>(
   const [state, dispatch] = useReducer(reducer, initialStack);
 
   useEffect(() => {
-    const itemToRemove = state.find((item) => item.transition);
+    const itemsToRemove = state.filter((item) => item.transition);
 
-    if (!itemToRemove) {
+    if (itemsToRemove.length === 0) {
       return;
     }
 
-    setTimeout(
-      () => {
-        dispatch({ type: 'remove', id: itemToRemove.id });
-      },
-      // We found the item by the `transition` property, so we can be sure it exists.
-      (itemToRemove.transition as Transition).duration,
-    );
+    // Remove in reverse order
+    itemsToRemove.reverse().forEach((itemToRemove) => {
+      setTimeout(
+        () => {
+          dispatch({ type: 'remove', id: itemToRemove.id });
+        },
+        // We found the item by the `transition` property, so we can be sure it exists.
+        (itemToRemove.transition as Transition).duration,
+      );
+    });
   }, [state, dispatch]);
 
   return [state, dispatch];

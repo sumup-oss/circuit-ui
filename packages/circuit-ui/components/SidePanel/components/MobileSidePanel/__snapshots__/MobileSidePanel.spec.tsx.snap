@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MobileSidePanel should match the snapshot 1`] = `
+.circuit-0 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: background-color 240ms ease-in-out;
+  transition: background-color 240ms ease-in-out;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.circuit-1 {
+  height: 100%;
+  outline: none;
+  background-color: #FFF;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: -webkit-transform 240ms ease-in-out;
+  transition: transform 240ms ease-in-out;
+}
+
+<body
+  class="ReactModal__Body--open"
+>
+  <div
+    data-react-modal-body-trap=""
+    style="position: absolute; opacity: 0;"
+    tabindex="0"
+  />
+  <div />
+  <div
+    data-react-modal-body-trap=""
+    style="position: absolute; opacity: 0;"
+    tabindex="0"
+  />
+  <div
+    class="ReactModalPortal"
+  >
+    <div
+      class="circuit-0"
+    >
+      <div
+        aria-modal="true"
+        class="circuit-1"
+        role="dialog"
+        tabindex="-1"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`MobileSidePanel should slide out towards the bottom when the side panel is not stacked 1`] = `
+.circuit-0 {
+  height: 100%;
+  outline: none;
+  background-color: #FFF;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: -webkit-transform 240ms ease-in-out;
+  transition: transform 240ms ease-in-out;
+}
+
+.circuit-1 {
+  -webkit-transform: translateY(100%)!important;
+  -moz-transform: translateY(100%)!important;
+  -ms-transform: translateY(100%)!important;
+  transform: translateY(100%)!important;
+}
+
+<div
+  aria-modal="true"
+  class="circuit-0 circuit-1"
+  role="dialog"
+  tabindex="-1"
+/>
+`;
+
+exports[`MobileSidePanel should slide out towards the bottom when the side panel is stacked and all panels are closing 1`] = `
+.circuit-0 {
+  height: 100%;
+  outline: none;
+  background-color: #FFF;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: -webkit-transform 240ms ease-in-out;
+  transition: transform 240ms ease-in-out;
+}
+
+.circuit-1 {
+  -webkit-transform: translateY(100%)!important;
+  -moz-transform: translateY(100%)!important;
+  -ms-transform: translateY(100%)!important;
+  transform: translateY(100%)!important;
+}
+
+<div
+  aria-modal="true"
+  class="circuit-0 circuit-1"
+  role="dialog"
+  tabindex="-1"
+/>
+`;
+
+exports[`MobileSidePanel should slide out towards the right when the side panel is stacked 1`] = `
+.circuit-0 {
+  height: 100%;
+  outline: none;
+  background-color: #FFF;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: -webkit-transform 240ms ease-in-out;
+  transition: transform 240ms ease-in-out;
+}
+
+.circuit-1 {
+  -webkit-transform: translateX(100%)!important;
+  -moz-transform: translateX(100%)!important;
+  -ms-transform: translateX(100%)!important;
+  transform: translateX(100%)!important;
+}
+
+<div
+  aria-modal="true"
+  class="circuit-0 circuit-1"
+  role="dialog"
+  tabindex="-1"
+/>
+`;
