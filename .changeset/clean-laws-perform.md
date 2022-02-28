@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Fixed a runtime error occurring when users click on a disabled NavItem with an onClick handler
+Fixed a runtime error that occurred when users click on a disabled item in the `Sidebar` with an `onClick` handler.
