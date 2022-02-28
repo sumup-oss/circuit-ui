@@ -21,7 +21,6 @@ import {
   StringLiteral,
   JSXIdentifier,
 } from 'jscodeshift';
-import chalk from 'chalk';
 
 import { findImportsByPath, findStyledComponentNames } from './utils';
 
@@ -282,17 +281,15 @@ function handleIconRenamed(
   }
 
   if (productName) {
-    console.log(
-      chalk.yellow(
-        [
-          `The "${oldIconName}" icon has been renamed to "${newIconName}",`,
-          `and should only be used in the context of the ${productName}`,
-          'product/feature.',
-          'If you have doubts about your use of the icon, file an issue or',
-          'contact the Design System team.',
-          `\nin ${filePath}`,
-        ].join(' '),
-      ),
+    console.warn(
+      [
+        `The "${oldIconName}" icon has been renamed to "${newIconName}",`,
+        `and should only be used in the context of the ${productName}`,
+        'product/feature.',
+        'If you have doubts about your use of the icon, file an issue or',
+        'contact the Design System team.',
+        `\nin ${filePath}`,
+      ].join(' '),
     );
   }
 
@@ -319,14 +316,12 @@ function handleIconRemoved(
   if (legacyIconImport) {
     const defaultMessage =
       'Copy it locally to finish the migration, and request a new icon from the Design System team.';
-    console.log(
-      chalk.red(
-        [
-          `The "${oldIconName}" icon has been removed.`,
-          customMessage || defaultMessage,
-          `\nin ${filePath}`,
-        ].join(' '),
-      ),
+    console.error(
+      [
+        `The "${oldIconName}" icon has been removed.`,
+        customMessage || defaultMessage,
+        `\nin ${filePath}`,
+      ].join(' '),
     );
   }
 }
@@ -373,23 +368,19 @@ function handleIconDefaultSize(
           ];
 
           if (hasSize16 && !hasSmallIcon) {
-            console.log(
-              chalk.red(
-                [
-                  `The 16px size of the "${i.local}" icon has been removed.`,
-                  ...actionMessage,
-                ].join(' '),
-              ),
+            console.error(
+              [
+                `The 16px size of the "${i.local}" icon has been removed.`,
+                ...actionMessage,
+              ].join(' '),
             );
           }
           if (hasImplicitSize16 && !hasSmallIcon) {
-            console.log(
-              chalk.red(
-                [
-                  `The default size of the "${i.local}" icon changed from 16px to 24px.`,
-                  ...actionMessage,
-                ].join(' '),
-              ),
+            console.error(
+              [
+                `The default size of the "${i.local}" icon changed from 16px to 24px.`,
+                ...actionMessage,
+              ].join(' '),
             );
           }
           return false;
