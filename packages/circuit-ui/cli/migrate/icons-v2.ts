@@ -281,7 +281,7 @@ function handleIconRenamed(
   }
 
   if (productName) {
-    console.log(
+    console.warn(
       [
         `The "${oldIconName}" icon has been renamed to "${newIconName}",`,
         `and should only be used in the context of the ${productName}`,
@@ -316,7 +316,7 @@ function handleIconRemoved(
   if (legacyIconImport) {
     const defaultMessage =
       'Copy it locally to finish the migration, and request a new icon from the Design System team.';
-    console.log(
+    console.error(
       [
         `The "${oldIconName}" icon has been removed.`,
         customMessage || defaultMessage,
@@ -368,7 +368,7 @@ function handleIconDefaultSize(
           ];
 
           if (hasSize16 && !hasSmallIcon) {
-            console.log(
+            console.error(
               [
                 `The 16px size of the "${i.local}" icon has been removed.`,
                 ...actionMessage,
@@ -376,7 +376,7 @@ function handleIconDefaultSize(
             );
           }
           if (hasImplicitSize16 && !hasSmallIcon) {
-            console.log(
+            console.error(
               [
                 `The default size of the "${i.local}" icon changed from 16px to 24px.`,
                 ...actionMessage,
