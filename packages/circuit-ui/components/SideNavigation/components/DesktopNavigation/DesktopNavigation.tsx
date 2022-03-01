@@ -55,10 +55,10 @@ export interface DesktopNavigationProps {
 const PRIMARY_NAVIGATION_WIDTH = '48px';
 
 const wrapperStyles = ({ theme }: StyleProps) => css`
-  ${theme.mq.untilGiga} {
+  ${theme.mq.untilTera} {
     display: none;
   }
-  ${theme.mq.giga} {
+  ${theme.mq.tera} {
     min-width: ${PRIMARY_NAVIGATION_WIDTH};
     flex-shrink: 0;
   }

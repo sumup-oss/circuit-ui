@@ -69,7 +69,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
     ${disableVisually()};
   }
 
-  ${theme.mq.untilGiga} {
+  ${theme.mq.untilTera} {
     margin-bottom: ${theme.borderWidth.kilo};
 
     &::after {
@@ -86,7 +86,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
     }
   }
 
-  ${theme.mq.giga} {
+  ${theme.mq.tera} {
     height: 48px;
     width: 220px;
     padding: ${theme.spacings.kilo};
@@ -107,7 +107,7 @@ const anchorActiveStyles = ({ theme, isActive }: StyleProps & AnchorProps) =>
 const anchorOpenStyles = ({ theme, isOpen }: StyleProps & AnchorProps) =>
   isOpen &&
   css`
-    ${theme.mq.untilGiga} {
+    ${theme.mq.untilTera} {
       &::after {
         right: 0;
         left: 0;
@@ -160,7 +160,7 @@ const externalIconStyles = css`
 `;
 
 const labelStyles = ({ theme }: StyleProps) => css`
-  ${theme.mq.untilGiga} {
+  ${theme.mq.untilTera} {
     font-size: ${theme.typography.headline.two.fontSize};
     line-height: ${theme.typography.headline.two.lineHeight};
   }
