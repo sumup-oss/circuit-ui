@@ -41,7 +41,7 @@ type Foreground = ForegroundRoles & ForegroundOnRoles & ForegroundNeutrals;
 type BackgroundRoles = {
   [key in ColorRole]: {
     default: ColorWithState;
-    subtle?: ColorWithState; // Q: currently only used in accent role (NotificationBanner), should we add it for others?
+    subtle: ColorWithState;
   };
 };
 type BackgroundNeutrals = {
@@ -108,7 +108,7 @@ export type Theme = {
         "hover": "darkerblue",
         "active": "darkestblue"
       }
-      // same for other role background variants, e.g. subtle
+      // same for subtle
     }
   },
   "border": {} // same as background
@@ -136,7 +136,6 @@ These can also be programmatically validated in tests.
 - Can we group text and icon colors under `foreground`?
 - Is `promo` another color role, or a different thing?
 - In our current light theme, `foreground.notify` (e.g. used in notify icons) doesn't have 4.5:1 contrast to `background.default`. It would be tricky to change this color—can we rely on documentation _not_ to use notify as text color? Or do we need to split icons from text? (`text.notify` could be set as gray, like in the `Input`'s warning message)
-- Role colors as backgrounds typically have a single variant in our UIs, except `background.accent`, which has a subtle variant in the `NotificationBanner`. Do we need to add subtle variants for all role colors? I suggest that subtle role backgrounds need to have 4.5:1 contrast with the default foreground color, to avoid the need for e.g. `onAccentSubtle`
 
 ## Prior art
 
