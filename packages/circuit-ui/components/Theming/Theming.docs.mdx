@@ -20,24 +20,24 @@ _(More rationale and a recap of open questions will be found below the code snip
 ```ts
 type ColorRole = 'accent' | 'confirm' | 'notify' | 'alert'; // Q: and promo? // Q: notify doesn't work with background.default in the current theme
 type ColorOnRole = 'onAccent' | 'onConfirm' | 'onNotify' | 'onAlert';
-
-// Foregrounds (Q: and icons?)
-type ForegroundRoles = { [key in ColorRole]: string }; // Q: do we need state here?
-type ForegroundOnRoles = { [key in ColorOnRole]: string };
-type ForegroundNeutrals = {
-  default: string;
-  subtle: string;
-  highlight: string;
-};
-type Foreground = ForegroundRoles & ForegroundOnRoles & ForegroundNeutrals;
-
-// Backgrounds and borders
 type ColorWithState = {
   // states are used for interactivity. We use "idle" to avoid confusion with "default" variants
   idle: string;
   hover: string;
   active: string;
 };
+
+// Foregrounds (Q: text and icons?)
+type ForegroundRoles = { [key in ColorRole]: ColorWithState };
+type ForegroundOnRoles = { [key in ColorOnRole]: ColorWithState };
+type ForegroundNeutrals = {
+  default: ColorWithState;
+  subtle: ColorWithState;
+  highlight: ColorWithState;
+};
+type Foreground = ForegroundRoles & ForegroundOnRoles & ForegroundNeutrals;
+
+// Backgrounds and borders
 type BackgroundRoles = {
   [key in ColorRole]: {
     default: ColorWithState;
@@ -64,12 +64,30 @@ export type Theme = {
 {
   "foreground": {
     // neutrals
-    "default": "darkgray",
-    "subtle": "gray",
-    "highlight": "black",
+    "default": {
+      "idle": "darkgray",
+      "hover": "darkgray", // we might not need state in foreground colors for all themes
+      "active": "darkgray"
+    },
+    "subtle": {
+      "idle": "gray"
+      // hover and active states
+    },
+    "highlight": {
+      "idle": "black"
+      // hover and active states
+    },
     // roles (example using accent, same for confirm, notify, alert)
-    "accent": "darkblue",
-    "onAccent": "white"
+    "accent": {
+      "idle": "darkblue",
+      "hover": "darkerblue",
+      "hover": "darkestblue"
+    },
+    "onAccent": {
+      "idle": "white",
+      "hover": "white",
+      "active": "white"
+    }
   },
   "background": {
     // neutrals
@@ -99,7 +117,7 @@ export type Theme = {
 
 ### Rationale
 
-- On the top-level, we split foreground colors and background/border colors, because foreground colors have no variants (except neutrals) and states* (*: see open questions)
+- On the top-level, we split foreground colors and background/border colors, because foreground colors have no variants (except neutrals)
 - We split neutral colors and role colors, because neutrals typically have more variants (e.g. default neutral text, subtle neutral text, highlight neutral text—but only a single variant of alert text)
 - We split backgrounds and borders because they vary in some cases (e.g. in the light theme, default background is white and default border is light gray), and also because borders will need to have increased contrast in future high-contrast modes
 
@@ -118,7 +136,6 @@ These can also be programmatically validated in tests.
 - Can we group text and icon colors under `foreground`?
 - Is `promo` another color role, or a different thing?
 - In our current light theme, `foreground.notify` (e.g. used in notify icons) doesn't have 4.5:1 contrast to `background.default`. It would be tricky to change this color—can we rely on documentation _not_ to use notify as text color? Or do we need to split icons from text? (`text.notify` could be set as gray, like in the `Input`'s warning message)
-- Foreground colors currently don't have states in our components, except the `Anchor` (becomes darker when hovered) and the tertiary `Button`. Since the Anchor doesn't need it (an underline is enough) and the tertiary button will become underlined, can we remove states for foregrounds? Or do we need to support them?
 - Role colors as backgrounds typically have a single variant in our UIs, except `background.accent`, which has a subtle variant in the `NotificationBanner`. Do we need to add subtle variants for all role colors? I suggest that subtle role backgrounds need to have 4.5:1 contrast with the default foreground color, to avoid the need for e.g. `onAccentSubtle`
 
 ## Prior art
