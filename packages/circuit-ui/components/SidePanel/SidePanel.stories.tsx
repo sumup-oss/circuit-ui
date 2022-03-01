@@ -153,12 +153,12 @@ const ComponentWithSidePanel = (props) => {
         variant: 'navigation',
         selected: item.key === selectedItem,
         onClick: () => {
-          setSelectedItem(item.key);
           setSidePanel({
             ...props,
             children: <DefaultChildren label={item.label} showMoreInfo />,
             onClose: () => setSelectedItem(null),
           });
+          setSelectedItem(item.key);
         },
       }))}
       label="Select an item to open its details in a side panel"
