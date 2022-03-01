@@ -6,7 +6,7 @@ This is working documentation for our theming initiative.
 
 ## Semantic color naming
 
-- **usage (in UI)**: bg, fg, border _(, icon)_
+- **usage (in UI)**: background, foreground, border _(, icon)_
 - **role (semantic meaning)**: neutral, primary, confirm, notify, alert _(, promo, ...)_
 - **variant**: default, subtle, highlight _(, ...)_
 - **state**: idle, hover, active
@@ -18,18 +18,18 @@ Here's a draft theme shape proposal as TypeScript types, along with explanations
 _(More rationale and a recap of open questions will be found below the code snippets.)_
 
 ```ts
-type ColorRole = 'primary' | 'confirm' | 'notify' | 'alert'; // Q: and promo? // Q: notify doesn't work with bg.default in the current theme
+type ColorRole = 'primary' | 'confirm' | 'notify' | 'alert'; // Q: and promo? // Q: notify doesn't work with background.default in the current theme
 type ColorOnRole = 'onPrimary' | 'onConfirm' | 'onNotify' | 'onAlert';
 
 // Foregrounds (Q: and icons?)
-type FgRoles = { [key in ColorRole]: string }; // Q: do we need state here?
-type FgOnRoles = { [key in ColorOnRole]: string };
-type FgNeutrals = {
+type ForegroundRoles = { [key in ColorRole]: string }; // Q: do we need state here?
+type ForegroundOnRoles = { [key in ColorOnRole]: string };
+type ForegroundNeutrals = {
   default: string;
   subtle: string; // Q: check naming for neutral variants
   highlight: string;
 };
-type Fg = FgRoles & FgOnRoles & FgNeutrals;
+type Foreground = ForegroundRoles & ForegroundOnRoles & ForegroundNeutrals;
 
 // Backgrounds and borders
 type ColorWithState = {
@@ -38,23 +38,23 @@ type ColorWithState = {
   hover: string;
   active: string;
 };
-type BgRoles = {
+type BackgroundRoles = {
   [key in ColorRole]: {
     default: ColorWithState;
     subtle?: ColorWithState; // Q: currently only used in primary role (NotificationBanner), should we add it for others?
   };
 };
-type BgNeutrals = {
+type BackgroundNeutrals = {
   default: ColorWithState;
   subtle: ColorWithState;
   highlight: ColorWithState;
 };
-type BgOrBorder = BgRoles & BgNeutrals;
+type BackgroundOrBorder = BackgroundRoles & BackgroundNeutrals;
 
 export type Theme = {
-  bg: BgOrBorder;
-  fg: Fg;
-  border: BgOrBorder;
+  background: BackgroundOrBorder;
+  foreground: Foreground;
+  border: BackgroundOrBorder;
 };
 ```
 
@@ -62,7 +62,7 @@ export type Theme = {
 
 ```json
 {
-  "fg": {
+  "foreground": {
     // neutrals
     "default": "darkgray",
     "subtle": "gray",
@@ -71,7 +71,7 @@ export type Theme = {
     "primary": "darkblue",
     "onPrimary": "white"
   },
-  "bg": {
+  "background": {
     // neutrals
     "default": {
       "idle": "white",
@@ -90,10 +90,10 @@ export type Theme = {
         "hover": "darkerblue",
         "active": "darkestblue"
       }
-      // same for other role bg variants, e.g. subtle
+      // same for other role background variants, e.g. subtle
     }
   },
-  "border": {} // same as bg
+  "border": {} // same as background
 }
 ```
 
@@ -101,36 +101,36 @@ export type Theme = {
 
 - On the top-level, we split foreground colors and background/border colors, because foreground colors have no variants (except neutrals) and states* (*: see open questions)
 - We split neutral colors and role colors, because neutrals typically have more variants (e.g. default neutral text, subtle neutral text, highlight neutral text—but only a single variant of alert text)
-- We split backgrounds and borders because they vary in some cases (e.g. in the light theme, default bg is white and default border is light gray), and also because borders will need to have increased contrast in future high-contrast modes
+- We split backgrounds and borders because they vary in some cases (e.g. in the light theme, default background is white and default border is light gray), and also because borders will need to have increased contrast in future high-contrast modes
 
 ### Contrast requirements
 
 These can also be programmatically validated in tests.
 
-- Color roles as backgrounds (e.g. `bg.primary.default.*`) need at least 4.5:1 contrast with the accompanying `on*` foreground color (e.g. `fg.onPrimary`)
-- Color roles as foregrounds (e.g. `fg.primary`) need at least 4.5:1 contrast with the default background (`bg.default.*`) (Note: see open question about the notify color role)
-- Subtle variants of color roles (e.g. `bg.primary.subtle.*`) need at least 4.5:1 contrast with neutral fg colors (`fg.default`, `fg.subtle`...)
+- Color roles as backgrounds (e.g. `background.primary.default.*`) need at least 4.5:1 contrast with the accompanying `on*` foreground color (e.g. `foreground.onPrimary`)
+- Color roles as foregrounds (e.g. `foreground.primary`) need at least 4.5:1 contrast with the default background (`background.default.*`) (Note: see open question about the notify color role)
+- Subtle variants of color roles (e.g. `background.primary.subtle.*`) need at least 4.5:1 contrast with neutral foreground colors (`foreground.default`, `foreground.subtle`...)
 - Neutral foregrounds need at least 4.5:1 contrast with neutral backgrounds
 - 🚧
 
 ### Open questions
 
-- Can we group text and icon colors under `fg`?
+- Can we group text and icon colors under `foreground`?
 - Is `promo` another color role, or a different thing?
-- In our current light theme, `fg.notify` (e.g. used in notify icons) doesn't have 4.5:1 contrast to `bg.default`. It would be tricky to change this color—can we rely on documentation _not_ to use notify as text color? Or do we need to split icons from text? (`text.notify` could be set as gray, like in the `Input`'s warning message)
+- In our current light theme, `foreground.notify` (e.g. used in notify icons) doesn't have 4.5:1 contrast to `background.default`. It would be tricky to change this color—can we rely on documentation _not_ to use notify as text color? Or do we need to split icons from text? (`text.notify` could be set as gray, like in the `Input`'s warning message)
 - Foreground colors currently don't have states in our components, except the `Anchor` (becomes darker when hovered) and the tertiary `Button`. Since the Anchor doesn't need it (an underline is enough) and the tertiary button will become underlined, can we remove states for foregrounds? Or do we need to support them?
 - There were open questions about naming for neutral variants. I added `default`, `subtle` and `highlight` in the examples, but heard opinions that e.g. `strong` may make more sense than `highlight` (note: renamings can happen after the v1 of theming)
-- Role colors as backgrounds typically have a single variant in our UIs, except `bg.primary`, which has a subtle variant in the `NotificationBanner`. Do we need to add subtle variants for all role colors? I suggest that subtle role backgrounds need to have 4.5:1 contrast with the default fg color, to avoid the need for e.g. `onPrimarySubtle`
+- Role colors as backgrounds typically have a single variant in our UIs, except `background.primary`, which has a subtle variant in the `NotificationBanner`. Do we need to add subtle variants for all role colors? I suggest that subtle role backgrounds need to have 4.5:1 contrast with the default foreground color, to avoid the need for e.g. `onPrimarySubtle`
 
 ## Prior art
 
 - ⭐️ [GitHub Primer](https://primer.style/design/foundations/color)
-  - Good: splitting neutralls from roles, because neutrals can have more variations
+  - Good: splitting neutrals from roles, because neutrals can have more variations
   - Good: all color roles work with the default text (black in light mode). `<role>Emphasis` works with `onEmphasis`. We can't go as far without changing our brand notify color (which doesn't work with white)
   - Good: practically, GitHub theming works really well in real apps
   - Less good: a color role between notify and alert (what does that mean?) (fortunately we don't need this)
 - [Shopify Polaris](https://polaris.shopify.com/design/colors)
-  - Good: lighter role bg working with black, darker one working with white (similar to Primer)
+  - Good: lighter role background working with black, darker one working with white (similar to Primer)
   - Interesting: "decorative" colors, this could apply to e.g. our promo color
   - Less good: mixing up `surface`, `onSurface` and and `secondary` and considering them both as distinct color roles
 - [Material](https://material.io/design/material-theming/implementing-your-theme.html#color)
@@ -148,16 +148,16 @@ These can also be programmatically validated in tests.
 - The initial proposal was a shape extending from five color roles with variants and states, in a tree structure
   - Pattern: `<usage><role><variant><state>`
   - Examples:
-    - bg.neutral.default.idle
-    - bg.neutral.default.hover
-    - fg.primary.default.active
+    - background.neutral.default.idle
+    - background.neutral.default.hover
+    - foreground.primary.default.active
     - border.alert.subtle.idle
   - Benefits
     - Simple: the theme stays relatively usage-agnostic, and focuses on providing a semantic abstraction on top of colors
   - Drawbacks
-    - Issue for e.g white fg on primary color: must still be white in dark mode
+    - Issue for e.g white foreground on primary color: must still be white in dark mode
       - ...therefore using something like an `inverted` foreground color wouldn't work
-      - using an `immutable` color (hardcode white) may work but would add barriers to theming (the button bg color would always need to work with white text)
+      - using an `immutable` color (hardcode white) may work but would add barriers to theming (the button background color would always need to work with white text)
       - possible solution: `onPrimary` (used in the new proposal)
     - Lots of unused keys in the shape (because all combinations are possible)
 
