@@ -26,7 +26,7 @@ type ForegroundRoles = { [key in ColorRole]: string }; // Q: do we need state he
 type ForegroundOnRoles = { [key in ColorOnRole]: string };
 type ForegroundNeutrals = {
   default: string;
-  subtle: string; // Q: check naming for neutral variants
+  subtle: string;
   highlight: string;
 };
 type Foreground = ForegroundRoles & ForegroundOnRoles & ForegroundNeutrals;
@@ -119,7 +119,6 @@ These can also be programmatically validated in tests.
 - Is `promo` another color role, or a different thing?
 - In our current light theme, `foreground.notify` (e.g. used in notify icons) doesn't have 4.5:1 contrast to `background.default`. It would be tricky to change this color—can we rely on documentation _not_ to use notify as text color? Or do we need to split icons from text? (`text.notify` could be set as gray, like in the `Input`'s warning message)
 - Foreground colors currently don't have states in our components, except the `Anchor` (becomes darker when hovered) and the tertiary `Button`. Since the Anchor doesn't need it (an underline is enough) and the tertiary button will become underlined, can we remove states for foregrounds? Or do we need to support them?
-- There were open questions about naming for neutral variants. I added `default`, `subtle` and `highlight` in the examples, but heard opinions that e.g. `strong` may make more sense than `highlight` (note: renamings can happen after the v1 of theming)
 - Role colors as backgrounds typically have a single variant in our UIs, except `background.primary`, which has a subtle variant in the `NotificationBanner`. Do we need to add subtle variants for all role colors? I suggest that subtle role backgrounds need to have 4.5:1 contrast with the default foreground color, to avoid the need for e.g. `onPrimarySubtle`
 
 ## Prior art
