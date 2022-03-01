@@ -7,7 +7,7 @@ This is working documentation for our theming initiative.
 ## Semantic color naming
 
 - **usage (in UI)**: background, foreground, border _(, icon)_
-- **role (semantic meaning)**: neutral, primary, confirm, notify, alert _(, promo, ...)_
+- **role (semantic meaning)**: neutral, accent, confirm, notify, alert _(, promo, ...)_
 - **variant**: default, subtle, highlight _(, ...)_
 - **state**: idle, hover, active
 
@@ -18,8 +18,8 @@ Here's a draft theme shape proposal as TypeScript types, along with explanations
 _(More rationale and a recap of open questions will be found below the code snippets.)_
 
 ```ts
-type ColorRole = 'primary' | 'confirm' | 'notify' | 'alert'; // Q: and promo? // Q: notify doesn't work with background.default in the current theme
-type ColorOnRole = 'onPrimary' | 'onConfirm' | 'onNotify' | 'onAlert';
+type ColorRole = 'accent' | 'confirm' | 'notify' | 'alert'; // Q: and promo? // Q: notify doesn't work with background.default in the current theme
+type ColorOnRole = 'onAccent' | 'onConfirm' | 'onNotify' | 'onAlert';
 
 // Foregrounds (Q: and icons?)
 type ForegroundRoles = { [key in ColorRole]: string }; // Q: do we need state here?
@@ -41,7 +41,7 @@ type ColorWithState = {
 type BackgroundRoles = {
   [key in ColorRole]: {
     default: ColorWithState;
-    subtle?: ColorWithState; // Q: currently only used in primary role (NotificationBanner), should we add it for others?
+    subtle?: ColorWithState; // Q: currently only used in accent role (NotificationBanner), should we add it for others?
   };
 };
 type BackgroundNeutrals = {
@@ -67,9 +67,9 @@ export type Theme = {
     "default": "darkgray",
     "subtle": "gray",
     "highlight": "black",
-    // roles (example using primary, same for confirm, notify, alert)
-    "primary": "darkblue",
-    "onPrimary": "white"
+    // roles (example using accent, same for confirm, notify, alert)
+    "accent": "darkblue",
+    "onAccent": "white"
   },
   "background": {
     // neutrals
@@ -83,8 +83,8 @@ export type Theme = {
       "hover": "lightgray",
       "active": "gray"
     },
-    // roles (example using primary, same for confirm, notify, alert)
-    "primary": {
+    // roles (example using accent, same for confirm, notify, alert)
+    "accent": {
       "default": {
         "idle": "darkblue",
         "hover": "darkerblue",
@@ -107,9 +107,9 @@ export type Theme = {
 
 These can also be programmatically validated in tests.
 
-- Color roles as backgrounds (e.g. `background.primary.default.*`) need at least 4.5:1 contrast with the accompanying `on*` foreground color (e.g. `foreground.onPrimary`)
-- Color roles as foregrounds (e.g. `foreground.primary`) need at least 4.5:1 contrast with the default background (`background.default.*`) (Note: see open question about the notify color role)
-- Subtle variants of color roles (e.g. `background.primary.subtle.*`) need at least 4.5:1 contrast with neutral foreground colors (`foreground.default`, `foreground.subtle`...)
+- Color roles as backgrounds (e.g. `background.accent.default.*`) need at least 4.5:1 contrast with the accompanying `on*` foreground color (e.g. `foreground.onAccent`)
+- Color roles as foregrounds (e.g. `foreground.accent`) need at least 4.5:1 contrast with the default background (`background.default.*`) (Note: see open question about the notify color role)
+- Subtle variants of color roles (e.g. `background.accent.subtle.*`) need at least 4.5:1 contrast with neutral foreground colors (`foreground.default`, `foreground.subtle`...)
 - Neutral foregrounds need at least 4.5:1 contrast with neutral backgrounds
 - 🚧
 
@@ -119,7 +119,7 @@ These can also be programmatically validated in tests.
 - Is `promo` another color role, or a different thing?
 - In our current light theme, `foreground.notify` (e.g. used in notify icons) doesn't have 4.5:1 contrast to `background.default`. It would be tricky to change this color—can we rely on documentation _not_ to use notify as text color? Or do we need to split icons from text? (`text.notify` could be set as gray, like in the `Input`'s warning message)
 - Foreground colors currently don't have states in our components, except the `Anchor` (becomes darker when hovered) and the tertiary `Button`. Since the Anchor doesn't need it (an underline is enough) and the tertiary button will become underlined, can we remove states for foregrounds? Or do we need to support them?
-- Role colors as backgrounds typically have a single variant in our UIs, except `background.primary`, which has a subtle variant in the `NotificationBanner`. Do we need to add subtle variants for all role colors? I suggest that subtle role backgrounds need to have 4.5:1 contrast with the default foreground color, to avoid the need for e.g. `onPrimarySubtle`
+- Role colors as backgrounds typically have a single variant in our UIs, except `background.accent`, which has a subtle variant in the `NotificationBanner`. Do we need to add subtle variants for all role colors? I suggest that subtle role backgrounds need to have 4.5:1 contrast with the default foreground color, to avoid the need for e.g. `onAccentSubtle`
 
 ## Prior art
 
@@ -149,15 +149,15 @@ These can also be programmatically validated in tests.
   - Examples:
     - background.neutral.default.idle
     - background.neutral.default.hover
-    - foreground.primary.default.active
+    - foreground.accent.default.active
     - border.alert.subtle.idle
   - Benefits
     - Simple: the theme stays relatively usage-agnostic, and focuses on providing a semantic abstraction on top of colors
   - Drawbacks
-    - Issue for e.g white foreground on primary color: must still be white in dark mode
+    - Issue for e.g white foreground on accent color: must still be white in dark mode
       - ...therefore using something like an `inverted` foreground color wouldn't work
       - using an `immutable` color (hardcode white) may work but would add barriers to theming (the button background color would always need to work with white text)
-      - possible solution: `onPrimary` (used in the new proposal)
+      - possible solution: `onAccent` (used in the new proposal)
     - Lots of unused keys in the shape (because all combinations are possible)
 
 ### Proof of concept
