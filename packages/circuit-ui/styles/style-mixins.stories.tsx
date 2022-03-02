@@ -30,6 +30,7 @@ import {
   hideVisually,
   hideScrollbar,
   SpacingValue,
+  center,
 } from './style-mixins';
 
 export default {
@@ -156,6 +157,8 @@ export const DisableVisually = () => (
 export const HideVisually = () => (
   <div css={hideVisually}>This element is visually hidden.</div>
 );
+
+export const Center = () => <div css={center}>This element is centered.</div>;
 
 const Scrollable = styled.div`
   overflow-x: scroll;

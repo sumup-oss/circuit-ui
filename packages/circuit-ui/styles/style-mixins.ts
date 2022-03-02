@@ -213,6 +213,16 @@ export const hideVisually = (): SerializedStyles => css`
 `;
 
 /**
+ * Easily center content in a block
+ */
+export const center = (): SerializedStyles => css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+/**
  * Visually communicates to the user that an element is focused.
  */
 export function focusOutline(
