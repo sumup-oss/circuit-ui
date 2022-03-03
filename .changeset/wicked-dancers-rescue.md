@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': minor
 ---
 
-adds center mixin
+Added a new `center` style mixin to center content horizontally and vertically.
