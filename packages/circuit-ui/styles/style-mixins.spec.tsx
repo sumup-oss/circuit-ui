@@ -35,6 +35,7 @@ import {
   inputOutline,
   listItem,
   navigationItem,
+  center,
 } from './style-mixins';
 
 describe('Style helpers', () => {
@@ -216,6 +217,15 @@ describe('Style helpers', () => {
       const { styles } = hideVisually();
       expect(styles).toMatchInlineSnapshot(
         '"border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px;label:hideVisually;"',
+      );
+    });
+  });
+
+  describe('center', () => {
+    it('should match the snapshot', () => {
+      const { styles } = center();
+      expect(styles).toMatchInlineSnapshot(
+        '"display:flex;flex-direction:column;justify-content:center;align-items:center;label:center;"',
       );
     });
   });
