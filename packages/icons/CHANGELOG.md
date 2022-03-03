@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.5.0
+
+### Minor Changes
+
+- [#1463](https://github.com/sumup-oss/circuit-ui/pull/1463) [`86800b22`](https://github.com/sumup-oss/circuit-ui/commit/86800b220d692a9c447c38624377b2d7b962256e) Thanks [@sumius](https://github.com/sumius)! - Add a 16px Share Icon
+
 ## 2.4.0
 
 ### Minor Changes
