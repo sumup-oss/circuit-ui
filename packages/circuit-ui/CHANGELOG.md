@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 4.17.0
+
+### Minor Changes
+
+- [#1464](https://github.com/sumup-oss/circuit-ui/pull/1464) [`f22cf47a`](https://github.com/sumup-oss/circuit-ui/commit/f22cf47a85892153af2ba131debfb84a3096d0f3) Thanks [@sumius](https://github.com/sumius)! - Added a new `center` style mixin to center content horizontally and vertically.
+
+### Patch Changes
+
+- [#1453](https://github.com/sumup-oss/circuit-ui/pull/1453) [`21a5d902`](https://github.com/sumup-oss/circuit-ui/commit/21a5d902fe37ae2f7d6edef0e4d92522a355c6b5) Thanks [@felixjung](https://github.com/felixjung)! - Fixed a runtime error that occurred when users click on a disabled item in the `Sidebar` with an `onClick` handler.
+
 ## 4.16.0
 
 ### Minor Changes
