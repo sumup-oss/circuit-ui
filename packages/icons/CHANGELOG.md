@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [#1463](https://github.com/sumup-oss/circuit-ui/pull/1463) [`86800b22`](https://github.com/sumup-oss/circuit-ui/commit/86800b220d692a9c447c38624377b2d7b962256e) Thanks [@sumius](https://github.com/sumius)! - Add a 16px Share Icon
+- [#1463](https://github.com/sumup-oss/circuit-ui/pull/1463) [`86800b22`](https://github.com/sumup-oss/circuit-ui/commit/86800b220d692a9c447c38624377b2d7b962256e) Thanks [@sumius](https://github.com/sumius)! - Added a size 16 `Share` icon.
 
 ## 2.4.0
 
@@ -20,13 +20,13 @@
 
 ### Minor Changes
 
-- [#1389](https://github.com/sumup-oss/circuit-ui/pull/1389) [`1b310e89`](https://github.com/sumup-oss/circuit-ui/commit/1b310e895bc5de2c5d8d20cf7fc4836c092adb91) Thanks [@pavel-craciun-sumup](https://github.com/pavel-craciun-sumup)! - Added a size 24 Pix payment method icon.
+- [#1389](https://github.com/sumup-oss/circuit-ui/pull/1389) [`1b310e89`](https://github.com/sumup-oss/circuit-ui/commit/1b310e895bc5de2c5d8d20cf7fc4836c092adb91) Thanks [@pavel-craciun-sumup](https://github.com/pavel-craciun-sumup)! - Added a size 24 `Pix` payment method icon.
 
 ## 2.2.0
 
 ### Minor Changes
 
-- [#1296](https://github.com/sumup-oss/circuit-ui/pull/1296) [`c310d134`](https://github.com/sumup-oss/circuit-ui/commit/c310d1347b11c5722cc012afb62232fb79772724) Thanks [@hris27](https://github.com/hris27)! - Added a size 32 Pix card scheme icon.
+- [#1296](https://github.com/sumup-oss/circuit-ui/pull/1296) [`c310d134`](https://github.com/sumup-oss/circuit-ui/commit/c310d1347b11c5722cc012afb62232fb79772724) Thanks [@hris27](https://github.com/hris27)! - Added a size 32 `Pix` card scheme icon.
 
 ## 2.1.0
 
