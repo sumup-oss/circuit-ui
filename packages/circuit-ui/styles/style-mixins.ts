@@ -213,7 +213,7 @@ export const hideVisually = (): SerializedStyles => css`
 `;
 
 /**
- * Easily center content in a block
+ * Centers the content horizontally and vertically.
  */
 export const center = (): SerializedStyles => css`
   display: flex;
