@@ -201,6 +201,11 @@
       "size": "24"
     },
     {
+      "name": "share",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "upload",
       "category": "Action",
       "size": "24"
