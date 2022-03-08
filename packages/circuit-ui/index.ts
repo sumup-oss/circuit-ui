@@ -202,6 +202,7 @@ export {
   hideScrollbar,
   inputOutline,
   typography,
+  center,
 } from './styles/style-mixins';
 
 export { sharedPropTypes };

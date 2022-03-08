@@ -145,8 +145,7 @@ export function NavItem({
     >
       <NavLink
         as={Link}
-        // @ts-expect-error It's okay if onClick is undefined.
-        onClick={!disabled && handleClick}
+        onClick={!disabled ? handleClick : undefined}
         selected={selected}
         secondary={secondary}
         visible={visible}
