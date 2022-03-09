@@ -126,10 +126,23 @@ const semanticColors = {
       default: {
         idle: neutrals.n900,
       },
+      subtle: {
+        idle: neutrals.n700,
+      },
     },
     accent: {
       default: {
         idle: primary.p500,
+      },
+    },
+    confirm: {
+      default: {
+        idle: greens.g700,
+      },
+    },
+    alert: {
+      default: {
+        idle: reds.r700,
       },
     },
   },
@@ -139,6 +152,13 @@ const semanticColors = {
         idle: white,
       },
     },
+    accent: {
+      default: {
+        idle: primary.p500,
+      },
+    },
+  },
+  border: {
     accent: {
       default: {
         idle: primary.p500,

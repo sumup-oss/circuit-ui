@@ -93,8 +93,21 @@ export type Colors = {
       default: {
         idle: string;
       };
+      subtle: {
+        idle: string;
+      };
     };
     accent: {
+      default: {
+        idle: string;
+      };
+    };
+    confirm: {
+      default: {
+        idle: string;
+      };
+    };
+    alert: {
       default: {
         idle: string;
       };
@@ -106,6 +119,13 @@ export type Colors = {
         idle: string;
       };
     };
+    accent: {
+      default: {
+        idle: string;
+      };
+    };
+  };
+  border: {
     accent: {
       default: {
         idle: string;
