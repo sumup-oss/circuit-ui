@@ -87,6 +87,31 @@ export type Colors = {
   confirm: string;
   alert: string;
   notify: string;
+  // Semantics
+  foreground: {
+    neutral: {
+      default: {
+        idle: string;
+      };
+    };
+    accent: {
+      default: {
+        idle: string;
+      };
+    };
+  };
+  background: {
+    neutral: {
+      default: {
+        idle: string;
+      };
+    };
+    accent: {
+      default: {
+        idle: string;
+      };
+    };
+  };
 };
 
 export type Spacings = {

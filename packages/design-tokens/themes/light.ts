@@ -105,19 +105,46 @@ const misc = {
   /**
    * @deprecated Use `alert` color instead.
    */
-  danger: '#D23F47',
+  danger: reds.r700,
   /**
    * @deprecated Use `confirm` color instead.
    */
-  success: '#138849',
+  success: greens.g700,
   /**
    * @deprecated Use `notify` color instead.
    */
   warning: '#F5C625',
-  info: '#3063E9',
-  confirm: '#138849',
-  alert: '#D23F47',
+  info: primary.p500,
+  confirm: greens.g700,
+  alert: reds.r700,
   notify: '#F5C625',
+};
+
+const semanticColors = {
+  foreground: {
+    neutral: {
+      default: {
+        idle: neutrals.n900,
+      },
+    },
+    accent: {
+      default: {
+        idle: primary.p500,
+      },
+    },
+  },
+  background: {
+    neutral: {
+      default: {
+        idle: white,
+      },
+    },
+    accent: {
+      default: {
+        idle: primary.p500,
+      },
+    },
+  },
 };
 
 export const colors: Colors = {
@@ -132,6 +159,7 @@ export const colors: Colors = {
   ...violets,
   ...primary,
   ...misc,
+  ...semanticColors,
 };
 
 export * from './shared';
