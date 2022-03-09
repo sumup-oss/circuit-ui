@@ -47,6 +47,10 @@ export interface ButtonGroupProps {
     primary: Action;
     secondary?: Action;
   };
+  /**
+   * Option to stretch the buttons in ButtonGroup
+   */
+  stretch?: boolean;
 }
 
 const getInlineStyles = ({ theme }: StyleProps) => css`
@@ -144,20 +148,32 @@ const ActionsWrapper = styled('div')<ButtonGroupProps>(actionWrapperStyles);
  */
 export const ButtonGroup = forwardRef(
   (
-    { children, actions, ...props }: ButtonGroupProps,
+    { children, actions, stretch, ...props }: ButtonGroupProps,
     ref: ButtonGroupProps['ref'],
   ) => {
     if (actions) {
       return (
         <ActionsWrapper {...props}>
           {actions.secondary && (
-            <SecondaryButton {...actions.secondary} variant="secondary" />
+            <SecondaryButton
+              {...actions.secondary}
+              variant="secondary"
+              {...(stretch && { css: { minWidth: '100%' } })}
+            />
           )}
 
-          <Button {...actions.primary} variant="primary" />
+          <Button
+            {...actions.primary}
+            variant="primary"
+            {...(stretch && { css: { minWidth: '100%' } })}
+          />
 
           {actions.secondary && (
-            <TertiaryButton {...actions.secondary} variant="tertiary" />
+            <TertiaryButton
+              {...actions.secondary}
+              variant="tertiary"
+              {...(stretch && { css: { minWidth: '100%' } })}
+            />
           )}
         </ActionsWrapper>
       );
