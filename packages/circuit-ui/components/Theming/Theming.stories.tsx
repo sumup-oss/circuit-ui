@@ -26,7 +26,6 @@ import { ToastProvider } from '../ToastContext';
 import { ModalProvider } from '../ModalContext';
 import { cx, spacing } from '../../styles/style-mixins';
 
-import ThemeContext from './ThemeContext';
 import docs from './Theming.docs.mdx';
 
 export default {
@@ -87,19 +86,12 @@ const Theming = () => (
   </div>
 );
 
-export const Base = (args, context) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  const isLight = context?.globals?.backgrounds?.value !== '#1A1A1A';
-
-  return (
-    <ThemeContext.Provider value={isLight ? 'light' : 'dark'}>
-      <ModalProvider>
-        <ToastProvider>
-          <Theming />
-        </ToastProvider>
-      </ModalProvider>
-    </ThemeContext.Provider>
-  );
-};
+export const Base = () => (
+  <ModalProvider>
+    <ToastProvider>
+      <Theming />
+    </ToastProvider>
+  </ModalProvider>
+);
 
 Base.args = {};

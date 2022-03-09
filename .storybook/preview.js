@@ -75,12 +75,16 @@ export const parameters = {
   docs: { theme, components },
 };
 
-const withThemeProvider = (Story) => (
-  <ThemeProvider theme={light}>
-    <BaseStyles />
-    <Story />
-  </ThemeProvider>
-);
+const withThemeProvider = (Story, context) => {
+  const isLight = context?.globals?.backgrounds?.value !== '#1A1A1A';
+  console.log(isLight);
+  return (
+    <ThemeProvider theme={light}>
+      <BaseStyles />
+      <Story />
+    </ThemeProvider>
+  );
+};
 
 const withTrackingAction = (Story) => (
   <TrackingRoot name="tracking-root" onDispatch={action('Tracking event')}>
