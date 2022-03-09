@@ -18,7 +18,7 @@ Here's a draft theme shape proposal as TypeScript types, along with explanations
 _(More rationale and a recap of open questions will be found below the code snippets.)_
 
 ```ts
-type ColorRole = 'accent' | 'confirm' | 'notify' | 'alert'; // Q: and promo? // Q: notify doesn't work with background.default in the current theme
+type ColorRole = 'accent' | 'confirm' | 'notify' | 'alert'; // Q: and promo?
 type ColorOnRole = 'onAccent' | 'onConfirm' | 'onNotify' | 'onAlert';
 type ColorWithState = {
   // states are used for interactivity. We use "idle" to avoid confusion with "default" variants
@@ -135,13 +135,12 @@ These can also be programmatically validated in tests.
 
 - Can we group text and icon colors under `foreground`?
 - Is `promo` another color role, or a different thing?
-- In our current light theme, `foreground.notify` (e.g. used in notify icons) doesn't have 4.5:1 contrast to `background.default`. It would be tricky to change this color—can we rely on documentation _not_ to use notify as text color? Or do we need to split icons from text? (`text.notify` could be set as gray, like in the `Input`'s warning message)
 
 ## Prior art
 
 - ⭐️ [GitHub Primer](https://primer.style/design/foundations/color)
   - Good: splitting neutrals from roles, because neutrals can have more variations
-  - Good: all color roles work with the default text (black in light mode). `<role>Emphasis` works with `onEmphasis`. We can't go as far without changing our brand notify color (which doesn't work with white)
+  - Good: all color roles work with the default text (black in light mode). `<role>Emphasis` works with `onEmphasis`
   - Good: practically, GitHub theming works really well in real apps
   - Less good: a color role between notify and alert (what does that mean?) (fortunately we don't need this)
 - [Shopify Polaris](https://polaris.shopify.com/design/colors)
