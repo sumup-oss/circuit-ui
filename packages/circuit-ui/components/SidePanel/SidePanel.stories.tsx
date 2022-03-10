@@ -41,7 +41,7 @@ export default {
     docs: { page: docs },
     chromatic: {
       viewports: [320, 960, 1280],
-      delay: 300,
+      delay: 1000,
     },
   },
   argTypes: {
