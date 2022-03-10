@@ -129,10 +129,20 @@ const semanticColors = {
       subtle: {
         idle: neutrals.n700,
       },
+      highlight: {
+        idle: black,
+      },
     },
     accent: {
       default: {
         idle: primary.p500,
+        hover: primary.p700,
+        active: primary.p900,
+      },
+    },
+    onAccent: {
+      default: {
+        idle: white,
       },
     },
     confirm: {
@@ -142,7 +152,14 @@ const semanticColors = {
     },
     alert: {
       default: {
-        idle: reds.r700,
+        idle: reds.r500,
+        hover: reds.r700,
+        active: reds.r900,
+      },
+    },
+    onAlert: {
+      default: {
+        idle: white,
       },
     },
   },
@@ -150,18 +167,45 @@ const semanticColors = {
     neutral: {
       default: {
         idle: white,
+        hover: neutrals.n100,
+        active: neutrals.n200,
       },
     },
     accent: {
       default: {
         idle: primary.p500,
+        hover: primary.p700,
+        active: primary.p900,
+      },
+    },
+    alert: {
+      default: {
+        idle: reds.r500,
+        hover: reds.r700,
+        active: reds.r900,
       },
     },
   },
   border: {
+    neutral: {
+      default: {
+        idle: neutrals.n500,
+        hover: neutrals.n700,
+        active: neutrals.n800,
+      },
+    },
     accent: {
       default: {
         idle: primary.p500,
+        hover: primary.p700,
+        active: primary.p900,
+      },
+    },
+    alert: {
+      default: {
+        idle: reds.r500,
+        hover: reds.r700,
+        active: reds.r900,
       },
     },
   },

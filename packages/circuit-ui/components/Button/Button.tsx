@@ -21,7 +21,6 @@ import {
   ReactNode,
   FC,
   SVGProps,
-  useContext,
 } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
@@ -40,8 +39,6 @@ import { AsPropType } from '../../types/prop-types';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Spinner from '../Spinner';
-import ThemeContext from '../Theming/ThemeContext';
-import { getTheme, SemanticTheme } from '../../styles/theme';
 
 export interface BaseProps {
   'children': ReactNode;
@@ -104,61 +101,61 @@ type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
-const COLOR_MAP = (T: SemanticTheme) =>
+const COLOR_MAP = (theme: Theme) =>
   ({
     default: {
-      bg: T.primary.background.default.default,
-      bgHover: T.primary.background.default.hover,
-      bgActive: T.primary.background.default.active,
-      border: T.primary.border.default.default,
-      borderHover: T.primary.border.default.hover,
-      borderActive: T.primary.border.default.active,
-      text: 'white', // onPrimary? (instead of immutable white)
+      bg: theme.colors.background.accent.default.idle,
+      bgHover: theme.colors.background.accent.default.hover,
+      bgActive: theme.colors.background.accent.default.active,
+      border: theme.colors.border.accent.default.idle,
+      borderHover: theme.colors.border.accent.default.hover,
+      borderActive: theme.colors.border.accent.default.active,
+      text: theme.colors.foreground.onAccent.default.idle,
     },
     destructive: {
-      bg: T.alert.background.default.default,
-      bgHover: T.alert.background.default.hover,
-      bgActive: T.alert.background.default.active,
-      border: T.alert.border.default.default,
-      borderHover: T.alert.border.default.hover,
-      borderActive: T.alert.border.default.active,
-      text: 'white',
+      bg: theme.colors.background.alert.default.idle,
+      bgHover: theme.colors.background.alert.default.hover,
+      bgActive: theme.colors.background.alert.default.active,
+      border: theme.colors.border.alert.default.idle,
+      borderHover: theme.colors.border.alert.default.hover,
+      borderActive: theme.colors.border.alert.default.active,
+      text: theme.colors.foreground.onAlert.default.idle,
     },
   } as const);
 
-const SECONDARY_COLOR_MAP = (T: SemanticTheme) =>
+const SECONDARY_COLOR_MAP = (theme: Theme) =>
   ({
     default: {
-      bg: T.neutral.background.default.default,
-      bgHover: T.neutral.background.default.hover,
-      bgActive: T.neutral.background.default.active,
-      text: T.neutral.text.highlighted.default,
-      border: T.neutral.border.default.default,
-      borderHover: T.neutral.border.default.hover,
-      borderActive: T.neutral.border.default.active,
+      bg: theme.colors.background.neutral.default.idle,
+      bgHover: theme.colors.background.neutral.default.hover,
+      bgActive: theme.colors.background.neutral.default.active,
+      border: theme.colors.border.neutral.default.idle,
+      borderHover: theme.colors.border.neutral.default.hover,
+      borderActive: theme.colors.border.neutral.default.active,
+      text: theme.colors.foreground.neutral.highlight.idle,
     },
     destructive: {
-      bg: T.neutral.background.default.default, // bgs are the same in default and destructive variants
-      bgHover: T.neutral.background.default.hover,
-      bgActive: T.neutral.background.default.active,
-      text: T.alert.text.default.default,
-      border: T.alert.border.default.default,
-      borderHover: T.alert.border.default.hover,
-      borderActive: T.alert.border.default.hover,
+      bg: theme.colors.background.neutral.default.idle,
+      bgHover: theme.colors.background.neutral.default.hover,
+      bgActive: theme.colors.background.neutral.default.active,
+      border: theme.colors.border.alert.default.idle,
+      borderHover: theme.colors.border.alert.default.hover,
+      borderActive: theme.colors.border.alert.default.hover,
+      text: theme.colors.foreground.alert.default.idle,
     },
   } as const);
 
-const TERTIARY_COLOR_MAP = (T: SemanticTheme) =>
+const TERTIARY_COLOR_MAP = (theme: Theme) =>
   ({
     default: {
-      text: T.primary.text.default.default,
-      textHover: T.primary.text.default.hover,
-      textActive: T.primary.text.default.active,
+      text: theme.colors.foreground.accent.default.idle,
+      textHover: theme.colors.foreground.accent.default.hover,
+      textActive: theme.colors.foreground.accent.default.active,
     },
     destructive: {
-      text: T.alert.text.default.default,
-      textHover: T.alert.text.default.hover,
-      textActive: T.alert.text.default.active,
+      text: theme.colors.foreground.alert.default.idle,
+      textHover: theme.colors.foreground.alert.default.hover,
+      textActive: theme.colors.foreground.alert.default.active,
     },
   } as const);
 
@@ -189,14 +186,15 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const primaryStyles = ({
   variant = 'secondary',
   destructive,
-  t,
-}: ButtonProps & { t?: 'light' | 'dark' }) => {
+  theme,
+}: ButtonProps & StyleProps) => {
   if (variant !== 'primary') {
     return null;
   }
 
-  const T = getTheme(t);
-  const colors = destructive ? COLOR_MAP(T).destructive : COLOR_MAP(T).default;
+  const colors = destructive
+    ? COLOR_MAP(theme).destructive
+    : COLOR_MAP(theme).default;
 
   return css`
     background-color: ${colors.bg};
@@ -220,16 +218,15 @@ const primaryStyles = ({
 const secondaryStyles = ({
   variant = 'secondary',
   destructive,
-  t,
-}: ButtonProps & { t?: 'light' | 'dark' }) => {
+  theme,
+}: ButtonProps & StyleProps) => {
   if (variant !== 'secondary') {
     return null;
   }
 
-  const T = getTheme(t);
   const colors = destructive
-    ? SECONDARY_COLOR_MAP(T).destructive
-    : SECONDARY_COLOR_MAP(T).default;
+    ? SECONDARY_COLOR_MAP(theme).destructive
+    : SECONDARY_COLOR_MAP(theme).default;
 
   return css`
     background-color: ${colors.bg};
@@ -253,16 +250,15 @@ const secondaryStyles = ({
 const tertiaryStyles = ({
   variant = 'secondary',
   destructive,
-  t,
-}: ButtonProps & { t?: 'light' | 'dark' }) => {
+  theme,
+}: ButtonProps & StyleProps) => {
   if (variant !== 'tertiary') {
     return null;
   }
 
-  const T = getTheme(t);
   const colors = destructive
-    ? TERTIARY_COLOR_MAP(T).destructive
-    : TERTIARY_COLOR_MAP(T).default;
+    ? TERTIARY_COLOR_MAP(theme).destructive
+    : TERTIARY_COLOR_MAP(theme).default;
 
   return css`
     background-color: transparent;
@@ -418,7 +414,6 @@ export const Button = forwardRef(
         ref={ref}
         as={props.href ? Link : 'button'}
         onClick={handleClick}
-        t={useContext(ThemeContext)}
       >
         <LoadingIcon isLoading={Boolean(isLoading)} size="byte">
           <LoadingLabel>{loadingLabel}</LoadingLabel>

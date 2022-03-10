@@ -96,8 +96,18 @@ export type Colors = {
       subtle: {
         idle: string;
       };
+      highlight: {
+        idle: string;
+      };
     };
     accent: {
+      default: {
+        idle: string;
+        hover: string;
+        active: string;
+      };
+    };
+    onAccent: {
       default: {
         idle: string;
       };
@@ -110,6 +120,13 @@ export type Colors = {
     alert: {
       default: {
         idle: string;
+        hover: string;
+        active: string;
+      };
+    };
+    onAlert: {
+      default: {
+        idle: string;
       };
     };
   };
@@ -117,18 +134,45 @@ export type Colors = {
     neutral: {
       default: {
         idle: string;
+        hover: string;
+        active: string;
       };
     };
     accent: {
       default: {
         idle: string;
+        hover: string;
+        active: string;
+      };
+    };
+    alert: {
+      default: {
+        idle: string;
+        hover: string;
+        active: string;
       };
     };
   };
   border: {
+    neutral: {
+      default: {
+        idle: string;
+        hover: string;
+        active: string;
+      };
+    };
     accent: {
       default: {
         idle: string;
+        hover: string;
+        active: string;
+      };
+    };
+    alert: {
+      default: {
+        idle: string;
+        hover: string;
+        active: string;
       };
     };
   };
