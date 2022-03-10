@@ -160,12 +160,7 @@ const marginStyles = ({ noMargin }: BodyProps & StyleProps) => {
 
 const StyledBody = styled('p', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<BodyProps & { t?: 'light' | 'dark' }>(
-  baseStyles,
-  sizeStyles,
-  marginStyles,
-  variantStyles,
-);
+})<BodyProps>(baseStyles, sizeStyles, marginStyles, variantStyles);
 
 function getHTMLElement(variant?: Variant): AsPropType {
   if (variant === 'highlight') {

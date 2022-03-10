@@ -358,7 +358,7 @@ const Content = styled.span<{ isLoading: boolean }>(
 
 const StyledButton = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<ButtonProps & { t?: 'light' | 'dark' }>(
+})<ButtonProps>(
   typography('one'),
   focusVisible,
   baseStyles,
