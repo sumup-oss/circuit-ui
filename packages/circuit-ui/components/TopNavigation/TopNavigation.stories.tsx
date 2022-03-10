@@ -31,6 +31,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
+    chromatic: { viewports: [320, 480, 960, 1280] },
   },
   excludeStories: /.*Args$/,
 };

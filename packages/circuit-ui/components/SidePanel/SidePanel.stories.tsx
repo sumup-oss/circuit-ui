@@ -39,6 +39,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
+    chromatic: { viewports: [320, 960, 1280] },
   },
   argTypes: {
     backButtonLabel: { control: 'text' },
