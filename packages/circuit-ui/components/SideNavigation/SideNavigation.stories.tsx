@@ -30,7 +30,7 @@ export default {
     docs: { page: docs },
     chromatic: {
       viewports: [320, 960, 1280],
-      pauseAnimationAtEnd: true,
+      delay: 300,
     },
   },
   excludeStories: /.*Args$/,
