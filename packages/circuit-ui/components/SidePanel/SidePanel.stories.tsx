@@ -39,7 +39,10 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
-    chromatic: { viewports: [320, 960, 1280] },
+    chromatic: {
+      viewports: [320, 960, 1280],
+      pauseAnimationAtEnd: true,
+    },
   },
   argTypes: {
     backButtonLabel: { control: 'text' },
@@ -74,7 +77,7 @@ const basePlay = ({ canvasElement }) => {
 const StoryInstructions = () => (
   <Body noMargin css={spacing('mega')}>
     Select an item to open its details in a side panel. When this story is
-    viewed in Canvas mode we simulate a selection of the third item.
+    viewed in canvas mode we simulate a selection of the third item.
   </Body>
 );
 
