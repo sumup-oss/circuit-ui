@@ -81,9 +81,7 @@ const withUnmountWhenHidden = (Story, context) => {
     const config = { attributeFilter: ['hidden'] };
 
     const observer = new MutationObserver(() => {
-      console.log('observe');
       if (context.canvasElement.getAttribute('hidden') === "true") {
-        console.log('unmount');
         ReactDOM.unmountComponentAtNode(context.canvasElement);
         observer.disconnect();
       }
