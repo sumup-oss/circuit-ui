@@ -109,7 +109,7 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
           css={css`
             background-color: lightgrey;
             width: 100%;
-            height: 200vh;
+            min-height: 300px;
             margin: 1.5rem;
             border-radius: 1rem;
           `}

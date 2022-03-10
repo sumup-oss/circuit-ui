@@ -39,10 +39,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
-    chromatic: {
-      viewports: [320, 960, 1280],
-      delay: 1000,
-    },
+    chromatic: { viewports: [320, 960, 1280] },
   },
   argTypes: {
     backButtonLabel: { control: 'text' },
@@ -194,10 +191,12 @@ const ComponentWithSidePanel = (props) => {
 };
 
 export const Base = (props: SidePanelHookProps): JSX.Element => (
-  <SidePanelProvider>
-    <StoryInstructions />
-    <ComponentWithSidePanel {...props} />
-  </SidePanelProvider>
+  <div style={{ display: 'flex' }}>
+    <SidePanelProvider>
+      <StoryInstructions />
+      <ComponentWithSidePanel {...props} />
+    </SidePanelProvider>
+  </div>
 );
 Base.args = baseArgs;
 Base.play = basePlay;
@@ -283,10 +282,12 @@ const ComponentWithSidePanelExtended = (props) => {
 };
 
 export const UpdateAndRemove = (props: SidePanelHookProps): JSX.Element => (
-  <SidePanelProvider>
-    <StoryInstructions />
-    <ComponentWithSidePanelExtended {...props} />
-  </SidePanelProvider>
+  <div style={{ display: 'flex' }}>
+    <SidePanelProvider>
+      <StoryInstructions />
+      <ComponentWithSidePanelExtended {...props} />
+    </SidePanelProvider>
+  </div>
 );
 UpdateAndRemove.args = baseArgs;
 UpdateAndRemove.play = basePlay;
