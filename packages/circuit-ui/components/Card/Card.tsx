@@ -35,7 +35,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.background.neutral.default.idle};
   border-radius: ${theme.borderRadius.mega};
   border: ${theme.borderWidth.mega} solid
-    ${theme.colors.border.neutral.default.idle};
+    ${theme.colors.border.neutral.subtle.idle};
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -160,6 +160,9 @@ export type Colors = {
         hover: string;
         active: string;
       };
+      subtle: {
+        idle: string;
+      };
     };
     accent: {
       default: {

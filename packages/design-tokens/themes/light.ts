@@ -193,6 +193,9 @@ const semanticColors = {
         hover: neutrals.n700,
         active: neutrals.n800,
       },
+      subtle: {
+        idle: neutrals.n200,
+      },
     },
     accent: {
       default: {
