@@ -206,5 +206,14 @@ describe('Button', () => {
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });
+
+    it('should have aria-busy and aria-live for a loading button', () => {
+      const wrapper = renderButton(create, {
+        ...baseProps,
+        isLoading: true,
+        loadingLabel: 'Loading...',
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 });
