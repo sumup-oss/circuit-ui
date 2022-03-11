@@ -1,5 +1,5 @@
 ---
-'@sumup/circuit-ui': minor
+'@sumup/circuit-ui': patch
 ---
 
-Fixes missing aria-busy on Button Component
+Fixed the conditional rendering of aria attributes in loading buttons.
