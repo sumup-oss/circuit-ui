@@ -25,7 +25,6 @@ import {
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
-import { isBoolean } from 'lodash/fp';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -374,7 +373,7 @@ export const Button = forwardRef(
       <StyledButton
         {...props}
         {...(loadingLabel &&
-          isBoolean(isLoading) && {
+          typeof isLoading === 'boolean' && {
             'aria-live': 'polite',
             'aria-busy': isLoading,
           })}
