@@ -206,5 +206,27 @@ describe('Button', () => {
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });
+
+    it('should have aria-busy and aria-live for a loading button', () => {
+      const { getByRole } = renderButton(render, {
+        ...baseProps,
+        isLoading: true,
+        loadingLabel: 'Loading...',
+      });
+      const button = getByRole('button');
+
+      expect(button).toHaveAttribute('aria-live', 'polite');
+      expect(button).toHaveAttribute('aria-busy', 'true');
+    });
+
+    it('should not have aria-busy and aria-live for a regular button', () => {
+      const { getByRole } = renderButton(render, {
+        ...baseProps,
+      });
+      const button = getByRole('button');
+
+      expect(button).not.toHaveAttribute('aria-live');
+      expect(button).not.toHaveAttribute('aria-busy');
+    });
   });
 });
