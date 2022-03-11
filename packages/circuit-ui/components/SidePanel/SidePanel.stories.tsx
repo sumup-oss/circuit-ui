@@ -39,7 +39,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
-    chromatic: { viewports: [320, 960, 1280] },
+    chromatic: { viewports: [320, 960] },
   },
   argTypes: {
     backButtonLabel: { control: 'text' },
@@ -228,8 +228,12 @@ export const WithTopNavigation = (props: SidePanelHookProps): JSX.Element => {
     </ModalProvider>
   );
 };
+WithTopNavigation.storyName = 'With TopNavigation';
 WithTopNavigation.args = baseArgs;
 WithTopNavigation.play = basePlay;
+WithTopNavigation.parameters = {
+  chromatic: { viewports: [320, 960, 1280] },
+};
 
 const ComponentWithSidePanelExtended = (props) => {
   const [selectedItem, setSelectedItem] = useState<string>(null);

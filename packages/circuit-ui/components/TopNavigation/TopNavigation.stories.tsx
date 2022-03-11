@@ -31,7 +31,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
-    chromatic: { viewports: [320, 480, 960, 1280] },
+    chromatic: { viewports: [320, 480, 960] },
   },
   excludeStories: /.*Args$/,
 };
@@ -127,4 +127,7 @@ WithSideNavigation.args = {
     activeLabel: 'Close side navigation',
     inactiveLabel: 'Open side navigation',
   },
+};
+WithSideNavigation.parameters = {
+  chromatic: { viewports: [320, 480, 960, 1280] },
 };
