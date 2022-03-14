@@ -35,7 +35,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   border-bottom: 1px solid #CCC;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-0 {
     position: -webkit-sticky;
     position: sticky;
@@ -147,7 +147,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   box-shadow: none;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-3 {
     display: none;
   }

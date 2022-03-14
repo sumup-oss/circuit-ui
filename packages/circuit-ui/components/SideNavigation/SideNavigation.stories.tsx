@@ -28,6 +28,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
+    chromatic: { viewports: [320, 960, 1280] },
   },
   excludeStories: /.*Args$/,
 };
@@ -117,7 +118,10 @@ export const baseArgs: SideNavigationProps = {
 export const Base = (args: SideNavigationProps) => (
   <ModalProvider>
     <div style={{ height: TOP_NAVIGATION_HEIGHT }} />
-    <SideNavigation {...args} />
+    <div style={{ display: 'flex' }}>
+      <SideNavigation {...args} />
+      <div style={{ width: '100%', minHeight: '440px' }} />
+    </div>
   </ModalProvider>
 );
 

@@ -40,7 +40,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   word-break: break-word;
   hyphens: auto;
 
-  ${theme.mq.giga} {
+  ${theme.mq.tera} {
     padding: ${theme.spacings.kilo};
     padding-left: 20px;
   }

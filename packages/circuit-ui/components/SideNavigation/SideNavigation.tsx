@@ -55,7 +55,7 @@ export function SideNavigation({
   }
 
   const theme = useTheme();
-  const isMobile = useMedia(theme.breakpoints.untilGiga, true);
+  const isMobile = useMedia(theme.breakpoints.untilTera, true);
 
   const { setModal, removeModal } = useMobileNavigation();
 

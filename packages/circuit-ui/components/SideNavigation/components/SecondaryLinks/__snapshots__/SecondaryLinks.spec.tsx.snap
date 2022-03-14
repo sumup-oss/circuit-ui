@@ -63,7 +63,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-2 {
     padding: 12px;
     padding-left: 20px;
@@ -155,7 +155,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-9 {
     padding: 12px;
     padding-left: 20px;

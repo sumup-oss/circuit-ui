@@ -31,6 +31,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
+    chromatic: { viewports: [320, 480, 960] },
   },
   excludeStories: /.*Args$/,
 };
@@ -108,7 +109,7 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
           css={css`
             background-color: lightgrey;
             width: 100%;
-            height: 200vh;
+            min-height: 300px;
             margin: 1.5rem;
             border-radius: 1rem;
           `}
@@ -126,4 +127,7 @@ WithSideNavigation.args = {
     activeLabel: 'Close side navigation',
     inactiveLabel: 'Open side navigation',
   },
+};
+WithSideNavigation.parameters = {
+  chromatic: { viewports: [320, 480, 960, 1280] },
 };

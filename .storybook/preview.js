@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import { addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withPerformance } from 'storybook-addon-performance';
@@ -75,6 +76,22 @@ export const parameters = {
   docs: { theme, components },
 };
 
+const withUnmountWhenHidden = (Story, context) => {
+  if (context.canvasElement) {
+    const config = { attributeFilter: ['hidden'] };
+
+    const observer = new MutationObserver(() => {
+      if (context.canvasElement.getAttribute('hidden') === "true") {
+        ReactDOM.unmountComponentAtNode(context.canvasElement);
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(context.canvasElement, config);
+  }
+  return <Story />;
+}
+
 const withThemeProvider = (Story) => (
   <ThemeProvider theme={light}>
     <BaseStyles />
@@ -103,4 +120,5 @@ export const decorators = [
   withThemeProvider,
   withTrackingAction,
   withPerformance,
+  withUnmountWhenHidden,
 ];

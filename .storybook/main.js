@@ -29,6 +29,7 @@ module.exports = {
     '@storybook/addon-viewport',
     '@storybook/addon-backgrounds',
     'storybook-addon-performance',
+    '@storybook/addon-interactions',
   ],
   features: {
     postcss: false,
