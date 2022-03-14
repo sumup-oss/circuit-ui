@@ -5780,7 +5780,7 @@ array.prototype.flat@^1.2.1, array.prototype.flat@^1.2.4:
     define-properties "^1.1.3"
     es-abstract "^1.18.0-next.1"
 
-array.prototype.flatmap@^1.2.1, array.prototype.flatmap@^1.2.4, array.prototype.flatmap@^1.2.5:
+array.prototype.flatmap@^1.2.1, array.prototype.flatmap@^1.2.4:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/array.prototype.flatmap/-/array.prototype.flatmap-1.2.5.tgz#908dc82d8a406930fdf38598d51e7411d18d4446"
   integrity sha512-08u6rVyi1Lj7oqWbS9nUxliETrtIROT4XGTA4D/LWGten6E3ocm7cy9SIrmNHOL5XVbVuckUp3X6Xyg8/zpvHA==
@@ -5887,20 +5887,19 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-audit-ci@^5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/audit-ci/-/audit-ci-5.1.2.tgz#2e9a6c23c8511d8f79f6fde18d042ebc1bdec881"
-  integrity sha512-FNBbo4ycoHxcS7ruNNkq3LB+fZ4UWDd0QUNAva7Ae/F/Y45BBA7ZfHPSr5Fr+tS2+eqSwxToeFRRnw2Tp2PE8Q==
+audit-ci@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/audit-ci/-/audit-ci-6.0.0.tgz#78b71ac2aa754218b16e224ef3aa649cfe3063f8"
+  integrity sha512-ZoJxM4FQvaWdabQvqA44PTg64Bm/a8B9dnL/ft33lygoQuKh+Oa0hwdc/VLsq/zrhNCC12uSUnnfYvgxgZLurw==
   dependencies:
     JSONStream "^1.3.5"
-    array.prototype.flatmap "^1.2.5"
     cross-spawn "^7.0.3"
     escape-string-regexp "^4.0.0"
     event-stream "4.0.1"
     jju "^1.4.0"
     readline-transform "1.0.0"
     semver "^7.0.0"
-    yargs "^16.0.0"
+    yargs "^17.0.0"
 
 autoprefixer@^9.8.6:
   version "9.8.6"
@@ -19423,7 +19422,7 @@ yargs@^15.1.0:
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
 
-yargs@^16.0.0, yargs@^16.2.0:
+yargs@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
   integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
@@ -19436,7 +19435,7 @@ yargs@^16.0.0, yargs@^16.2.0:
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
 
-yargs@^17.0.1:
+yargs@^17.0.0, yargs@^17.0.1:
   version "17.3.1"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.3.1.tgz#da56b28f32e2fd45aefb402ed9c26f42be4c07b9"
   integrity sha512-WUANQeVgjLbNsEmGk20f+nlHgOqzRFpiGWVaBrYGYIGANIIu3lWjoyi0fNlFmJkvfhCZ6BXINe7/W2O2bV4iaA==
