@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.0
+
+### Major Changes
+
+- [#1461](https://github.com/sumup-oss/circuit-ui/pull/1461) [`86e03b8d`](https://github.com/sumup-oss/circuit-ui/commit/86e03b8dffec7d410595197b9d682a712d2275f2) Thanks [@hris27](https://github.com/hris27)! - Changed the SideNavigation breakpoint to 1280px.
+
 ## 4.17.0
 
 ### Minor Changes

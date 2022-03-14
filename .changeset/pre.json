@@ -7,5 +7,7 @@
     "@sumup/design-tokens": "3.4.0",
     "@sumup/icons": "2.4.0"
   },
-  "changesets": []
+  "changesets": [
+    "eighty-shoes-cheer"
+  ]
 }
