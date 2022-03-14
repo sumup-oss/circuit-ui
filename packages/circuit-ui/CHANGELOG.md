@@ -6,6 +6,12 @@
 
 - [#1461](https://github.com/sumup-oss/circuit-ui/pull/1461) [`86e03b8d`](https://github.com/sumup-oss/circuit-ui/commit/86e03b8dffec7d410595197b9d682a712d2275f2) Thanks [@hris27](https://github.com/hris27)! - Changed the SideNavigation breakpoint to 1280px.
 
+## 4.17.1
+
+### Patch Changes
+
+- [#1475](https://github.com/sumup-oss/circuit-ui/pull/1475) [`82112c1e`](https://github.com/sumup-oss/circuit-ui/commit/82112c1e13da43b5dc838d4c25e074913df870bb) Thanks [@tareqlol](https://github.com/tareqlol)! - Fixed the conditional rendering of aria attributes in loading buttons.
+
 ## 4.17.0
 
 ### Minor Changes

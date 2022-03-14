@@ -372,10 +372,11 @@ export const Button = forwardRef(
     return (
       <StyledButton
         {...props}
-        {...(loadingLabel && {
-          'aria-live': 'polite',
-          'aria-busy': isLoading,
-        })}
+        {...(loadingLabel &&
+          typeof isLoading === 'boolean' && {
+            'aria-live': 'polite',
+            'aria-busy': isLoading,
+          })}
         disabled={disabled || isLoading}
         ref={ref}
         as={props.href ? Link : 'button'}

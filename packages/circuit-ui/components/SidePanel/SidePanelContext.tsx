@@ -36,7 +36,7 @@ import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation';
 import {
   SidePanel,
   SidePanelProps,
-  DESKTOP_WIDTH,
+  SIDE_PANEL_WIDTH,
   TRANSITION_DURATION_DESKTOP,
   TRANSITION_DURATION_MOBILE,
 } from './SidePanel';
@@ -132,7 +132,7 @@ const primaryContentStyles = ({
 const primaryContentResizedStyles = ({ isResized }: PrimaryContentProps) =>
   isResized &&
   css`
-    width: calc(100% - ${DESKTOP_WIDTH}px);
+    width: calc(100% - ${SIDE_PANEL_WIDTH});
   `;
 
 const PrimaryContent = styled.div(

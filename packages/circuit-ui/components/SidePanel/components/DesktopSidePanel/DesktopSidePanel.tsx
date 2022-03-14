@@ -19,7 +19,7 @@ import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { StackContext } from '../../../StackContext';
 import {
   SidePanelProps,
-  DESKTOP_WIDTH,
+  SIDE_PANEL_WIDTH,
   PORTAL_CLASS_NAME,
   TRANSITION_DURATION_DESKTOP,
 } from '../../SidePanel';
@@ -85,7 +85,7 @@ export const DesktopSidePanel = ({
                 top: ${top};
                 right: 0;
                 bottom: 0;
-                width: ${DESKTOP_WIDTH}px;
+                width: ${SIDE_PANEL_WIDTH};
                 z-index: ${theme.zIndex.absolute};
               }
             `}

@@ -31,8 +31,8 @@ export const HTML_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Html--open';
 export const PORTAL_CLASS_NAME = 'ReactModalPortal__SidePanel';
 export const TRANSITION_DURATION_DESKTOP = 200;
 export const TRANSITION_DURATION_MOBILE = 240;
-export const DESKTOP_WIDTH = 400;
-export const BODY_MAX_WIDTH = 480;
+export const SIDE_PANEL_WIDTH = '400px';
+export const BODY_MAX_WIDTH = '480px';
 
 export type SidePanelProps = ReactModalProps &
   Pick<
@@ -101,7 +101,7 @@ const ContentContainer = styled.div(
 
 const contentStyles = ({ theme }: StyleProps) => css`
   width: 100%;
-  max-width: ${BODY_MAX_WIDTH}px;
+  max-width: ${BODY_MAX_WIDTH};
   padding: 0 ${theme.spacings.mega};
 
   ${theme.mq.mega} {
