@@ -114,7 +114,10 @@ export type { HamburgerProps } from './components/Hamburger';
 export { default as Header } from './components/Header';
 export { default as Pagination } from './components/Pagination';
 export type { PaginationProps } from './components/Pagination';
-export { TopNavigation } from './components/TopNavigation';
+export {
+  TopNavigation,
+  TOP_NAVIGATION_HEIGHT,
+} from './components/TopNavigation';
 export type { TopNavigationProps } from './components/TopNavigation';
 export { SideNavigation } from './components/SideNavigation';
 export type {
@@ -164,7 +167,11 @@ export { default as ListItem } from './components/ListItem';
 export type { ListItemProps } from './components/ListItem';
 export { default as ListItemGroup } from './components/ListItemGroup';
 export type { ListItemGroupProps } from './components/ListItemGroup';
-export { SidePanelProvider, useSidePanel } from './components/SidePanel';
+export {
+  SidePanelProvider,
+  useSidePanel,
+  SIDE_PANEL_WIDTH,
+} from './components/SidePanel';
 export type {
   SidePanelProviderProps,
   SidePanelHookProps,
