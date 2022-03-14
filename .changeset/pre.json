@@ -8,6 +8,7 @@
     "@sumup/icons": "2.4.0"
   },
   "changesets": [
+    "dull-swans-fetch",
     "eighty-shoes-cheer"
   ]
 }

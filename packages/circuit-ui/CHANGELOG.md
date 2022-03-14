@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.1
+
+### Minor Changes
+
+- [#1482](https://github.com/sumup-oss/circuit-ui/pull/1482) [`2f7537fa`](https://github.com/sumup-oss/circuit-ui/commit/2f7537fa9c586f18dc0b0a8f527cc3f11c36854f) Thanks [@hris27](https://github.com/hris27)! - Exported `TOP_NAVIGATION_HEIGHT` and `SIDE_PANEL_WIDTH` constants.
+
 ## 5.0.0-canary.0
 
 ### Major Changes
