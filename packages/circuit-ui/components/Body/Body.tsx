@@ -58,7 +58,7 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
 const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.regular};
   margin-bottom: ${theme.spacings.mega};
-  color: ${theme.colors.foreground.neutral.default.idle};
+  color: ${theme.colors.foreground.default.idle};
 `;
 
 const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => css`
@@ -115,22 +115,22 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
         font-style: italic;
         padding-left: ${theme.spacings.kilo};
         border-left: ${theme.borderWidth.mega} solid
-          ${theme.colors.border.accent.default.idle};
+          ${theme.colors.border.accent.idle};
       `;
     }
     case 'confirm': {
       return css`
-        color: ${theme.colors.foreground.confirm.default.idle};
+        color: ${theme.colors.foreground.confirm.idle};
       `;
     }
     case 'alert': {
       return css`
-        color: ${theme.colors.foreground.alert.default.idle};
+        color: ${theme.colors.foreground.alert.idle};
       `;
     }
     case 'subtle': {
       return css`
-        color: ${theme.colors.foreground.neutral.subtle.idle};
+        color: ${theme.colors.foreground.subtle.idle};
       `;
     }
   }

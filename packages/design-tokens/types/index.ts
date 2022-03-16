@@ -89,94 +89,70 @@ export type Colors = {
   notify: string;
   // Semantics
   foreground: {
-    neutral: {
-      default: {
-        idle: string;
-      };
-      subtle: {
-        idle: string;
-      };
-      highlight: {
-        idle: string;
-      };
+    default: {
+      idle: string;
+    };
+    subtle: {
+      idle: string;
+    };
+    highlight: {
+      idle: string;
     };
     accent: {
-      default: {
-        idle: string;
-        hover: string;
-        active: string;
-      };
+      idle: string;
+      hover: string;
+      active: string;
     };
     onAccent: {
-      default: {
-        idle: string;
-      };
+      idle: string;
     };
     confirm: {
-      default: {
-        idle: string;
-      };
+      idle: string;
     };
     alert: {
-      default: {
-        idle: string;
-        hover: string;
-        active: string;
-      };
+      idle: string;
+      hover: string;
+      active: string;
     };
     onAlert: {
-      default: {
-        idle: string;
-      };
+      idle: string;
     };
   };
   background: {
-    neutral: {
-      default: {
-        idle: string;
-        hover: string;
-        active: string;
-      };
+    default: {
+      idle: string;
+      hover: string;
+      active: string;
     };
     accent: {
-      default: {
-        idle: string;
-        hover: string;
-        active: string;
-      };
+      idle: string;
+      hover: string;
+      active: string;
     };
     alert: {
-      default: {
-        idle: string;
-        hover: string;
-        active: string;
-      };
+      idle: string;
+      hover: string;
+      active: string;
     };
   };
   border: {
-    neutral: {
-      default: {
-        idle: string;
-        hover: string;
-        active: string;
-      };
-      subtle: {
-        idle: string;
-      };
+    default: {
+      idle: string;
+      hover: string;
+      active: string;
+    };
+    subtle: {
+      idle: string;
     };
     accent: {
-      default: {
-        idle: string;
-        hover: string;
-        active: string;
-      };
+      idle: string;
+      hover: string;
+      active: string;
     };
     alert: {
-      default: {
-        idle: string;
-        hover: string;
-        active: string;
-      };
+      idle: string;
+      hover: string;
+      active: string;
     };
   };
 };

@@ -80,7 +80,7 @@ const toastWrapperStyles = ({
   theme,
   variant,
 }: NotificationToastWrapperProps & StyleProps) => css`
-  background-color: ${theme.colors.background.neutral.default.idle};
+  background-color: ${theme.colors.background.default.idle};
   border-radius: ${theme.borderRadius.byte};
   border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};
   overflow: hidden;

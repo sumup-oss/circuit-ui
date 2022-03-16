@@ -32,10 +32,9 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  background-color: ${theme.colors.background.neutral.default.idle};
+  background-color: ${theme.colors.background.default.idle};
   border-radius: ${theme.borderRadius.mega};
-  border: ${theme.borderWidth.mega} solid
-    ${theme.colors.border.neutral.subtle.idle};
+  border: ${theme.borderWidth.mega} solid ${theme.colors.border.subtle.idle};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -55,8 +54,6 @@ const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
   `;
 };
 
-const StyledCard = styled('div', {
+export const Card: FC<CardProps> = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
 })<CardProps>(baseStyles, spacingStyles);
-
-export const Card: FC<CardProps> = (props) => <StyledCard {...props} />;

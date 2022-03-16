@@ -169,7 +169,7 @@ export const Modal: ModalComponent<ModalProps> = ({
             cssString`
               position: fixed;
               outline: none;
-              background-color: ${theme.colors.background.neutral.default.idle};
+              background-color: ${theme.colors.background.default.idle};
 
               &::after {
                 position: fixed;

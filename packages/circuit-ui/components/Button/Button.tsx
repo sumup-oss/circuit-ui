@@ -104,58 +104,58 @@ export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 const COLOR_MAP = (theme: Theme) =>
   ({
     default: {
-      bg: theme.colors.background.accent.default.idle,
-      bgHover: theme.colors.background.accent.default.hover,
-      bgActive: theme.colors.background.accent.default.active,
-      border: theme.colors.border.accent.default.idle,
-      borderHover: theme.colors.border.accent.default.hover,
-      borderActive: theme.colors.border.accent.default.active,
-      text: theme.colors.foreground.onAccent.default.idle,
+      bg: theme.colors.background.accent.idle,
+      bgHover: theme.colors.background.accent.hover,
+      bgActive: theme.colors.background.accent.active,
+      border: theme.colors.border.accent.idle,
+      borderHover: theme.colors.border.accent.hover,
+      borderActive: theme.colors.border.accent.active,
+      text: theme.colors.foreground.onAccent.idle,
     },
     destructive: {
-      bg: theme.colors.background.alert.default.idle,
-      bgHover: theme.colors.background.alert.default.hover,
-      bgActive: theme.colors.background.alert.default.active,
-      border: theme.colors.border.alert.default.idle,
-      borderHover: theme.colors.border.alert.default.hover,
-      borderActive: theme.colors.border.alert.default.active,
-      text: theme.colors.foreground.onAlert.default.idle,
+      bg: theme.colors.background.alert.idle,
+      bgHover: theme.colors.background.alert.hover,
+      bgActive: theme.colors.background.alert.active,
+      border: theme.colors.border.alert.idle,
+      borderHover: theme.colors.border.alert.hover,
+      borderActive: theme.colors.border.alert.active,
+      text: theme.colors.foreground.onAlert.idle,
     },
   } as const);
 
 const SECONDARY_COLOR_MAP = (theme: Theme) =>
   ({
     default: {
-      bg: theme.colors.background.neutral.default.idle,
-      bgHover: theme.colors.background.neutral.default.hover,
-      bgActive: theme.colors.background.neutral.default.active,
-      border: theme.colors.border.neutral.default.idle,
-      borderHover: theme.colors.border.neutral.default.hover,
-      borderActive: theme.colors.border.neutral.default.active,
-      text: theme.colors.foreground.neutral.highlight.idle,
+      bg: theme.colors.background.default.idle,
+      bgHover: theme.colors.background.default.hover,
+      bgActive: theme.colors.background.default.active,
+      border: theme.colors.border.default.idle,
+      borderHover: theme.colors.border.default.hover,
+      borderActive: theme.colors.border.default.active,
+      text: theme.colors.foreground.highlight.idle,
     },
     destructive: {
-      bg: theme.colors.background.neutral.default.idle,
-      bgHover: theme.colors.background.neutral.default.hover,
-      bgActive: theme.colors.background.neutral.default.active,
-      border: theme.colors.border.alert.default.idle,
-      borderHover: theme.colors.border.alert.default.hover,
-      borderActive: theme.colors.border.alert.default.hover,
-      text: theme.colors.foreground.alert.default.idle,
+      bg: theme.colors.background.default.idle,
+      bgHover: theme.colors.background.default.hover,
+      bgActive: theme.colors.background.default.active,
+      border: theme.colors.border.alert.idle,
+      borderHover: theme.colors.border.alert.hover,
+      borderActive: theme.colors.border.alert.hover,
+      text: theme.colors.foreground.alert.idle,
     },
   } as const);
 
 const TERTIARY_COLOR_MAP = (theme: Theme) =>
   ({
     default: {
-      text: theme.colors.foreground.accent.default.idle,
-      textHover: theme.colors.foreground.accent.default.hover,
-      textActive: theme.colors.foreground.accent.default.active,
+      text: theme.colors.foreground.accent.idle,
+      textHover: theme.colors.foreground.accent.hover,
+      textActive: theme.colors.foreground.accent.active,
     },
     destructive: {
-      text: theme.colors.foreground.alert.default.idle,
-      textHover: theme.colors.foreground.alert.default.hover,
-      textActive: theme.colors.foreground.alert.default.active,
+      text: theme.colors.foreground.alert.idle,
+      textHover: theme.colors.foreground.alert.hover,
+      textActive: theme.colors.foreground.alert.active,
     },
   } as const);
 

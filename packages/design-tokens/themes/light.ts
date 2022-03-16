@@ -122,94 +122,70 @@ const misc = {
 
 const semanticColors = {
   foreground: {
-    neutral: {
-      default: {
-        idle: neutrals.n900,
-      },
-      subtle: {
-        idle: neutrals.n700,
-      },
-      highlight: {
-        idle: black,
-      },
+    default: {
+      idle: neutrals.n900,
+    },
+    subtle: {
+      idle: neutrals.n700,
+    },
+    highlight: {
+      idle: black,
     },
     accent: {
-      default: {
-        idle: primary.p500,
-        hover: primary.p700,
-        active: primary.p900,
-      },
+      idle: primary.p500,
+      hover: primary.p700,
+      active: primary.p900,
     },
     onAccent: {
-      default: {
-        idle: white,
-      },
+      idle: white,
     },
     confirm: {
-      default: {
-        idle: greens.g700,
-      },
+      idle: greens.g700,
     },
     alert: {
-      default: {
-        idle: reds.r500,
-        hover: reds.r700,
-        active: reds.r900,
-      },
+      idle: reds.r500,
+      hover: reds.r700,
+      active: reds.r900,
     },
     onAlert: {
-      default: {
-        idle: white,
-      },
+      idle: white,
     },
   },
   background: {
-    neutral: {
-      default: {
-        idle: white,
-        hover: neutrals.n100,
-        active: neutrals.n200,
-      },
+    default: {
+      idle: white,
+      hover: neutrals.n100,
+      active: neutrals.n200,
     },
     accent: {
-      default: {
-        idle: primary.p500,
-        hover: primary.p700,
-        active: primary.p900,
-      },
+      idle: primary.p500,
+      hover: primary.p700,
+      active: primary.p900,
     },
     alert: {
-      default: {
-        idle: reds.r500,
-        hover: reds.r700,
-        active: reds.r900,
-      },
+      idle: reds.r500,
+      hover: reds.r700,
+      active: reds.r900,
     },
   },
   border: {
-    neutral: {
-      default: {
-        idle: neutrals.n500,
-        hover: neutrals.n700,
-        active: neutrals.n800,
-      },
-      subtle: {
-        idle: neutrals.n200,
-      },
+    default: {
+      idle: neutrals.n500,
+      hover: neutrals.n700,
+      active: neutrals.n800,
+    },
+    subtle: {
+      idle: neutrals.n200,
     },
     accent: {
-      default: {
-        idle: primary.p500,
-        hover: primary.p700,
-        active: primary.p900,
-      },
+      idle: primary.p500,
+      hover: primary.p700,
+      active: primary.p900,
     },
     alert: {
-      default: {
-        idle: reds.r500,
-        hover: reds.r700,
-        active: reds.r900,
-      },
+      idle: reds.r500,
+      hover: reds.r700,
+      active: reds.r900,
     },
   },
 };

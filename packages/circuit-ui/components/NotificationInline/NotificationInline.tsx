@@ -117,7 +117,7 @@ const contentWrapperStyles = ({
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${theme.colors.background.neutral.default.idle};
+  background-color: ${theme.colors.background.default.idle};
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   border-radius: ${theme.borderRadius.byte};
   border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};

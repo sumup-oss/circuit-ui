@@ -42,7 +42,7 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
 const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.bold};
   margin-bottom: ${theme.spacings.giga};
-  color: ${theme.colors.foreground.neutral.highlight.idle};
+  color: ${theme.colors.foreground.highlight.idle};
   letter-spacing: -0.03em;
 `;
 
@@ -73,13 +73,9 @@ const noMarginStyles = ({ noMargin }: HeadlineProps) => {
   `;
 };
 
-const StyledHeadline = styled('h2', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<HeadlineProps>(baseStyles, sizeStyles, noMarginStyles);
-
 /**
  * A flexible headline component capable of rendering any HTML heading element.
  */
-export const Headline: FC<HeadlineProps> = (props) => (
-  <StyledHeadline {...props} />
-);
+export const Headline: FC<HeadlineProps> = styled('h2', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
+})<HeadlineProps>(baseStyles, sizeStyles, noMarginStyles);
