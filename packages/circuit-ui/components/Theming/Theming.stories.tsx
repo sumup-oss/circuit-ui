@@ -13,18 +13,11 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
+import { ThemeProvider } from '@emotion/react';
+import { light } from '@sumup/design-tokens';
 
-import Body from '../Body';
-import Headline from '../Headline';
-import Badge from '../Badge';
-import Card from '../Card';
+import { Stack } from '../../../../.storybook/components';
 import Button from '../Button';
-import NotificationBanner from '../NotificationBanner';
-import { ToastProvider } from '../ToastContext';
-import { ModalProvider } from '../ModalContext';
-import { cx, spacing } from '../../styles/style-mixins';
 
 import docs from './Theming.docs.mdx';
 
@@ -35,63 +28,36 @@ export default {
   },
 };
 
-const Theming = () => (
-  <div
-    css={css`
-      max-width: 600px;
-    `}
-  >
-    <div
-      css={(theme: Theme) => css`
-        display: flex;
-        gap: ${theme.spacings.mega};
-        align-items: center;
-        margin-bottom: ${theme.spacings.giga};
-      `}
-    >
-      <Headline as="h1" size="two" noMargin>
-        Theming
-      </Headline>
-      <Badge variant="promo">New</Badge>
-    </div>
-    <Body variant="subtle" css={spacing({ bottom: 'giga' })}>
-      Introducing Circuit UI theming.
-    </Body>
-    <Card
-      css={cx(
-        css`
-          align-items: baseline;
-        `,
-        spacing({ bottom: 'giga' }),
-      )}
-    >
-      <Headline as="h3" size="four" noMargin css={spacing({ bottom: 'giga' })}>
-        Themes
-      </Headline>
-      <Body noMargin css={spacing({ bottom: 'giga' })}>
-        Circuit UI will export some themes ready for use. You will also be able
-        to create your own themes, for an entire application or for a single
-        component.
-      </Body>
-      <Button variant="primary">View available themes</Button>
-    </Card>
-    <NotificationBanner
-      body="Reach out to us on Slack (internal) if you want to help out!"
-      action={{
-        children: 'Go to Slack',
-        variant: 'tertiary',
-        href: 'https://sumup.slack.com/archives/C8VJTUADU',
-      }}
-    />
-  </div>
-);
-
 export const Base = () => (
-  <ModalProvider>
-    <ToastProvider>
-      <Theming />
-    </ToastProvider>
-  </ModalProvider>
+  <Stack>
+    <Button variant="primary">A default primary button</Button>
+    <ThemeProvider
+      theme={{
+        ...light,
+        colors: {
+          ...light.colors,
+          background: {
+            ...light.colors.background,
+            accent: {
+              idle: 'black',
+              hover: '#333',
+              active: '#333',
+            },
+          },
+          border: {
+            ...light.colors.border,
+            accent: {
+              idle: 'black',
+              hover: '#333',
+              active: '#333',
+            },
+          },
+        },
+      }}
+    >
+      <Button variant="primary">A custom primary button</Button>
+    </ThemeProvider>
+  </Stack>
 );
 
 Base.args = {};

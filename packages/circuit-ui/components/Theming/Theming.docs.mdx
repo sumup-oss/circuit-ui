@@ -2,181 +2,92 @@ import { Story } from '../../../../.storybook/components';
 
 # Theming
 
-This is working documentation for our theming initiative.
+Circuit UI supports color theming. It uses semantic color tokens, which can be customized to deviate from the default light theme.
 
-## Semantic color naming
+## Semantic color tokens
 
-- **usage (in UI)**: background, foreground, border _(, icon)_
-- **role (semantic meaning)**: neutral, accent, confirm, notify, alert _(, promo, ...)_
-- **variant**: default, subtle, highlight _(, ...)_
-- **state**: idle, hover, active
+At the core of Circuit UI theming are semantic color tokens. Instead of referencing color values (as hex codes, for example), Circuit UI components reference semantic color names, which are mapped to a color value depending on te theme.
 
-## Theme shape proposal
+### Anatomy of a semantic color token
 
-Here's a draft theme shape proposal as TypeScript types, along with explanations:
+A semantic color is composed of three parts:
 
-_(More rationale and a recap of open questions will be found below the code snippets.)_
+- **element**: `foreground`, `background`, `border`
+- **role (semantic meaning)**:
+  - `default` (e.g. the default background in light mode is white)
+  - `subtle`
+  - `highlight`
+  - role colors: `accent`, `confirm`, `notify`, `alert`
+  - on<Role\> colors: `onAccent`, `onConfirm`, etc.
+  - role color variants: `accentSubtle`, etc.
+- **state**: `idle`, `hover`, `active`
 
-```ts
-type ColorRole = 'accent' | 'confirm' | 'notify' | 'alert'; // Q: and promo?
-type ColorOnRole = 'onAccent' | 'onConfirm' | 'onNotify' | 'onAlert';
-type ColorWithState = {
-  // states are used for interactivity. We use "idle" to avoid confusion with "default" variants
-  idle: string;
-  hover: string;
-  active: string;
+For example:
+
+- `foreground.alert.hover`
+- `background.accentSubtle.idle`
+
+Not all combinations exist in the theme: use the theme's type definitions when overriding colors to ensure compatibility for your custom theme.
+
+### Using semantic color tokens in your app
+
+Custom components and styles in all applications should use semantic color tokens, so that theme customizations can be applied with confidence in the future.
+
+## Using theming
+
+### Customizing the theme
+
+The primary benefit of semantic color tokens is that they can be customized _without_ having to override component styles.
+
+Wrap a component subtree in Emotion's [`ThemeProvider`](https://emotion.sh/docs/theming) and pass it the customized theme:
+
+```tsx
+import { light, Theme } from '@sumup/design-tokens';
+
+const blackButtonTheme: Theme = {
+  ...light,
+  colors: {
+    ...light.colors,
+    background: {
+      ...light.colors.background,
+      accent: {
+        idle: 'black',
+        hover: '#333',
+        active: '#333',
+      },
+    },
+    border: {
+      ...light.colors.border,
+      accent: {
+        idle: 'black',
+        hover: '#333',
+        active: '#333',
+      },
+    },
+  },
 };
 
-// Foregrounds (Q: text and icons?)
-type ForegroundRoles = { [key in ColorRole]: ColorWithState };
-type ForegroundOnRoles = { [key in ColorOnRole]: ColorWithState };
-type ForegroundNeutrals = {
-  default: ColorWithState;
-  subtle: ColorWithState;
-  highlight: ColorWithState;
-};
-type Foreground = ForegroundRoles & ForegroundOnRoles & ForegroundNeutrals;
-
-// Backgrounds and borders
-type BackgroundRoles = {
-  [key in ColorRole]: {
-    default: ColorWithState;
-    subtle: ColorWithState;
-  };
-};
-type BackgroundNeutrals = {
-  default: ColorWithState;
-  subtle: ColorWithState;
-  highlight: ColorWithState;
-};
-type BackgroundOrBorder = BackgroundRoles & BackgroundNeutrals;
-
-export type Theme = {
-  background: BackgroundOrBorder;
-  foreground: Foreground;
-  border: BackgroundOrBorder;
-};
+const BlackButton = () => (
+  <>
+    <Button variant="primary">A default primary button</Button>
+    <ThemeProvider theme={blackButtonTheme}>
+      <Button variant="primary">A custom primary button</Button>
+    </ThemeProvider>
+  </>
+);
 ```
 
-...and as JSON with fake colors, for illustration purposes:
+<Story id="features-theming--base" />
 
-```json
-{
-  "foreground": {
-    // neutrals
-    "default": {
-      "idle": "darkgray",
-      "hover": "darkgray", // we might not need state in foreground colors for all themes
-      "active": "darkgray"
-    },
-    "subtle": {
-      "idle": "gray"
-      // hover and active states
-    },
-    "highlight": {
-      "idle": "black"
-      // hover and active states
-    },
-    // roles (example using accent, same for confirm, notify, alert)
-    "accent": {
-      "idle": "darkblue",
-      "hover": "darkerblue",
-      "hover": "darkestblue"
-    },
-    "onAccent": {
-      "idle": "white",
-      "hover": "white",
-      "active": "white"
-    }
-  },
-  "background": {
-    // neutrals
-    "default": {
-      "idle": "white",
-      "hover": "lightestgray",
-      "active": "lightergray"
-    },
-    "subtle": {
-      "idle": "lightergray",
-      "hover": "lightgray",
-      "active": "gray"
-    },
-    // roles (example using accent, same for confirm, notify, alert)
-    "accent": {
-      "default": {
-        "idle": "darkblue",
-        "hover": "darkerblue",
-        "active": "darkestblue"
-      }
-      // same for subtle
-    }
-  },
-  "border": {} // same as background
-}
-```
+### Building a full-fledged theme
 
-### Rationale
-
-- On the top-level, we split foreground colors and background/border colors, because foreground colors have no variants (except neutrals)
-- We split neutral colors and role colors, because neutrals typically have more variants (e.g. default neutral text, subtle neutral text, highlight neutral text—but only a single variant of alert text)
-- We split backgrounds and borders because they vary in some cases (e.g. in the light theme, default background is white and default border is light gray), and also because borders will need to have increased contrast in future high-contrast modes
+🚧
 
 ### Contrast requirements
 
-These can also be programmatically validated in tests.
+When customizing the default theme or designing a new theme, it is fundamental that contrast requirements are met.
 
-- Color roles as backgrounds (e.g. `background.accent.default.*`) need at least 4.5:1 contrast with the accompanying `on*` foreground color (e.g. `foreground.onAccent`)
-- Color roles as foregrounds (e.g. `foreground.accent`) need at least 4.5:1 contrast with the default background (`background.default.*`) (Note: see open question about the notify color role)
-- Subtle variants of color roles (e.g. `background.accent.subtle.*`) need at least 4.5:1 contrast with neutral foreground colors (`foreground.default`, `foreground.subtle`...)
-- Neutral foregrounds need at least 4.5:1 contrast with neutral backgrounds
+- Color roles as backgrounds (e.g. `background.accent.*`) need at least 4.5:1 contrast with the accompanying `on*` foreground colors (e.g. `foreground.onAccent.*`)
+- Color roles as foregrounds (e.g. `foreground.accent.*`) need at least 4.5:1 contrast with the default background (`background.default.*`)
+- Subtle variants of color role backgrounds (e.g. `background.accentSubtle.*`) need at least 4.5:1 contrast with neutral foreground colors (`foreground.default.*`, `foreground.subtle.*`...)
 - 🚧
-
-### Open questions
-
-- Can we group text and icon colors under `foreground`?
-- Is `promo` another color role, or a different thing?
-
-## Prior art
-
-- ⭐️ [GitHub Primer](https://primer.style/design/foundations/color)
-  - Good: splitting neutrals from roles, because neutrals can have more variations
-  - Good: all color roles work with the default text (black in light mode). `<role>Emphasis` works with `onEmphasis`
-  - Good: practically, GitHub theming works really well in real apps
-  - Less good: a color role between notify and alert (what does that mean?) (fortunately we don't need this)
-- [Shopify Polaris](https://polaris.shopify.com/design/colors)
-  - Good: lighter role background working with black, darker one working with white (similar to Primer)
-  - Interesting: "decorative" colors, this could apply to e.g. our promo color
-  - Less good: mixing up `surface`, `onSurface` and and `secondary` and considering them both as distinct color roles
-- [Material](https://material.io/design/material-theming/implementing-your-theme.html#color)
-  - Good: `on*` colors
-  - Less good: allowing to use `on*` colors as backgrounds, "in some cases" (which ones? And do they then need `onOn*`?)
-- [IBM Carbon](https://www.carbondesignsystem.com/guidelines/color/usage/)
-  - Less good: semantic usage of colors like `ui` or `interactive` is not obvious
-  - Less good: using numbers for variants, e.g. `interactive-01`, `interactive-02`... this is not semantic
-  - Less good: inconsistency in naming, feels like things were added to the theme without consideration for the whole
-
-## Archive
-
-### Initial shape proposal
-
-- The initial proposal was a shape extending from five color roles with variants and states, in a tree structure
-  - Pattern: `<usage><role><variant><state>`
-  - Examples:
-    - background.neutral.default.idle
-    - background.neutral.default.hover
-    - foreground.accent.default.active
-    - border.alert.subtle.idle
-  - Benefits
-    - Simple: the theme stays relatively usage-agnostic, and focuses on providing a semantic abstraction on top of colors
-  - Drawbacks
-    - Issue for e.g white foreground on accent color: must still be white in dark mode
-      - ...therefore using something like an `inverted` foreground color wouldn't work
-      - using an `immutable` color (hardcode white) may work but would add barriers to theming (the button background color would always need to work with white text)
-      - possible solution: `onAccent` (used in the new proposal)
-    - Lots of unused keys in the shape (because all combinations are possible)
-
-### Proof of concept
-
-An initial theming POC (best viewed in Canvas mode for background theming support). It will be updated with a future theme shape.
-
-<Story id="features-theming--base" />
