@@ -35,7 +35,7 @@
     "create:component": "foundry run plop component"
   },
   "dependencies": {
-    "@popperjs/core": "^2.9.2",
+    "@popperjs/core": "^2.11.4",
     "cross-spawn": "^7.0.3",
     "jscodeshift": "^0.13.0",
     "lodash": "^4.17.11",
