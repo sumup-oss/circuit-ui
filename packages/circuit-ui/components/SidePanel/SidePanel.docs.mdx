@@ -22,13 +22,13 @@ _Note: the examples for the side panel component are best viewed in canvas mode_
 
 The side panel component has been built to be used as part of a workflow and this has an effect on its accessibility.
 When the element triggering the side panel is clicked, the focus automatically shifts to the newly opened panel, facilitating a better keyboard navigation experience.
-While the side panel is visible the focus remains trapped inside. On desktop resolutions the side panel is non-modal, meaning that mouse users can easily interact with the rest of the application.
-Screen reader users would have to close the side panel first, which can be done easily using the Esc key.
+While the side panel is visible the focus remains trapped inside. On desktop resolutions the side panel is non-modal, meaning that mouse users can interact with the rest of the application.
+Screen reader users would have to close the side panel first, which can also be done using the Esc key.
 Once the side panel is closed focus is returned to the trigger element.
 
 ## Usage in code
 
-First, wrap the primary content of your application in the `SidePanelProvider`.
+First, wrap the primary content of your application in the `SidePanelProvider`. There should be only one instance of `SidePanelProvider` as part of your global application layout.
 On desktop resolutions the primary content will be resized when the side panel is opened.
 Additionally, the `SidePanelProvider` allows for the side panels to work seamlessly with the top navigation through the `withTopNavigation` prop.
 
@@ -47,7 +47,7 @@ In the most straightforward case, simply use the `setSidePanel` function, passin
 - `headline` - the title of the side panel
 
 ```tsx
-import { setSidePanel, Button, Body } from '@sumup/circuit-ui';
+import { useSidePanel, Button, Body } from '@sumup/circuit-ui';
 
 export function ShowMore() {
   const { setSidePanel } = useSidePanel();
@@ -64,12 +64,12 @@ export function ShowMore() {
 }
 ```
 
-Under the hood, `useSidePanel` generates a unique identifier for the side panel.
+Under the hood, `useSidePanel` generates a unique group identifier for the side panel.
 When you call `setSidePanel` a second time it will close the old panel and open a new one.
-For stacked side panels you need to also provide the `backButtonLabel` accessibility prop.
 
 If you want side panels to stack using a single instance of `useSidePanel`, you'll need to pass the `group` prop with a custom identifier for each panel.
-You also need to pass `group` when you want to open and replace the same side panel from different instances of `useSidePanel`.
+You also need to pass the same `group` when you want to open and replace the same side panel from different instances of `useSidePanel`.
+For stacked side panels you need to also provide the `backButtonLabel` accessibility prop.
 
 In addition to the `setSidePanel` function the `useSidePanel` hook also returns the `updateSidePanel` and `removeSidePanel` functions.
 You can use `updateSidePanel` if you need to update the side panel asynchronously, though usually you should keep the side panel content self-contained.
