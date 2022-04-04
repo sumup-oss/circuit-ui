@@ -43,5 +43,5 @@ export function isEmpty(value: unknown): boolean {
     return !Object.keys(value).length;
   }
 
-  return true;
+  return false;
 }

@@ -85,5 +85,10 @@ describe('helpers', () => {
       const actual = isEmpty('foo');
       expect(actual).toBeFalsy();
     });
+
+    it('should return false for unrecognized type', () => {
+      const actual = isEmpty(jest.fn());
+      expect(actual).toBeFalsy();
+    });
   });
 });
