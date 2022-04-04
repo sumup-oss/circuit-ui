@@ -39,6 +39,17 @@ export function composeBreakpoints<Option, ReturnValue>(
   breakpoints: BreakpointOptions<Option>,
 ): ReturnValue[] {
   return (entries(breakpoints) as [GridKey, Option][])
+    .filter(([breakpoint]) => {
+      const hasGridConfig = Boolean(theme.grid[breakpoint]);
+
+      if (process.env.NODE_ENV !== 'production' && !hasGridConfig) {
+        throw new Error(
+          `The breakpoint '${breakpoint}' isn't supported by the grid.`,
+        );
+      }
+
+      return hasGridConfig;
+    })
     .sort(
       ([breakpointA], [breakpointB]) =>
         theme.grid[breakpointA].priority - theme.grid[breakpointB].priority,
