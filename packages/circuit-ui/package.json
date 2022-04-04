@@ -84,7 +84,7 @@
     "react-svg-loader": "^3.0.3",
     "react-swipeable": "^6.1.0",
     "style-loader": "^2.0.0",
-    "ts-loader": "^9.0.0",
+    "ts-loader": "^9.2.8",
     "typescript": "^4.6.3"
   },
   "peerDependencies": {
