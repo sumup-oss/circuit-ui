@@ -41,7 +41,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.13.0",
     "@changesets/changelog-github": "^0.4.0",
-    "@changesets/cli": "^2.21.1",
+    "@changesets/cli": "^2.22.0",
     "@storybook/addon-a11y": "^6.4.18",
     "@storybook/addon-actions": "^6.4.18",
     "@storybook/addon-backgrounds": "^6.4.18",
