@@ -25,35 +25,8 @@ export interface StepProps extends StepOptions {
   children: (stateAndHelpers: StateAndHelpers) => JSX.Element;
 }
 
-export default function Step({
-  children,
-  totalSteps,
-  initialStep,
-  autoPlay,
-  cycle,
-  stepInterval,
-  animationDuration,
-  stepDuration,
-  tracking,
-  onPlay,
-  onPause,
-  onNext,
-  onPrevious,
-}: StepProps): JSX.Element {
-  const stateAndHelpers = useStep({
-    totalSteps,
-    initialStep,
-    autoPlay,
-    cycle,
-    stepInterval,
-    animationDuration,
-    stepDuration,
-    tracking,
-    onPlay,
-    onPause,
-    onNext,
-    onPrevious,
-  });
+export default function Step({ children, ...props }: StepProps): JSX.Element {
+  const stateAndHelpers = useStep(props);
 
   if (!isFunction(children)) {
     throw new Error('Children must be a function');
