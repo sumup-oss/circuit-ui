@@ -16,9 +16,9 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import docs from '../Grid/Grid.docs.mdx';
+import docs from '../Grid.docs.mdx';
 
-import Col from '.';
+import { Col } from './Col';
 
 const colControl = {
   control: {
@@ -54,11 +54,7 @@ const StyledCol = styled(Col)(
   `,
 );
 
-export const Base = (args) => (
-  <StyledCol span={args.span.toString()} skip={args.skip.toString()}>
-    Column
-  </StyledCol>
-);
+export const Base = (args) => <StyledCol {...args}>Column</StyledCol>;
 
 Base.args = {
   span: 12,

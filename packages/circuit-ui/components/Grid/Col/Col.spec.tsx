@@ -15,7 +15,9 @@
 
 import { createRef } from 'react';
 
-import Col from '.';
+import { create, render, renderToHtml, axe } from '../../../util/test-utils';
+
+import { Col } from './Col';
 
 describe('Col', () => {
   /**
@@ -53,7 +55,7 @@ describe('Col', () => {
   });
 
   it('should forward a ref', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(<Col ref={ref} />);
     const element = container.querySelector('div');
     expect(ref.current).toBe(element);

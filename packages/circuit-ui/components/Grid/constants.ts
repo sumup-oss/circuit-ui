@@ -13,8 +13,5 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
-
-import Row from './Row';
-
-export default Row as FC;
+export const MIN_COL_SPAN = 1;
+export const MAX_COL_WIDTH = 100;

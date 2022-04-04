@@ -15,10 +15,8 @@
 
 import styled from '@emotion/styled';
 
-import docs from '../Grid/Grid.docs.mdx';
-import Col from '../Col';
-
-import Row from '.';
+import docs from '../Grid.docs.mdx';
+import { Row, Col } from '..';
 
 export default {
   title: 'Layout/Grid/Row',

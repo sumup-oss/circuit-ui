@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import { isArray, isFunction, isObject, isString } from './type-check';
+import {
+  isArray,
+  isFunction,
+  isNumber,
+  isObject,
+  isString,
+} from './type-check';
 
 describe('type check', () => {
   describe('isFunction', () => {
@@ -44,6 +50,38 @@ describe('type check', () => {
 
     it('should return false for undefined', () => {
       const actual = isFunction(undefined);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isNumber', () => {
+    it('should return true for an integer', () => {
+      const actual = isNumber(1);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false for a string', () => {
+      const actual = isNumber('');
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for an object', () => {
+      const actual = isNumber({ foo: 'bar' });
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for an array of strings', () => {
+      const actual = isNumber(['foo', 'bar']);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for null', () => {
+      const actual = isNumber(null);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for undefined', () => {
+      const actual = isNumber(undefined);
       expect(actual).toBeFalsy();
     });
   });

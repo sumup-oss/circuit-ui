@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
+export { Grid } from './Grid/Grid';
+export { Row } from './Row/Row';
+export { Col } from './Col/Col';
 
-import Grid from './Grid';
-
-export default Grid as FC;
+export type { ColProps } from './Col/Col';

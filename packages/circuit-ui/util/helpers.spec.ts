@@ -13,9 +13,47 @@
  * limitations under the License.
  */
 
-import { eachFn, isEmpty } from './helpers';
+import { clamp, eachFn, isEmpty } from './helpers';
 
 describe('helpers', () => {
+  describe('clamp', () => {
+    const min = 10;
+    const max = 20;
+
+    describe('when the value is less than the minimum value', () => {
+      it('should return the minimum value', () => {
+        const value = 5;
+        const actual = clamp(value, min, max);
+
+        expect(actual).toBe(min);
+      });
+    });
+
+    describe('when the value is greater than the maximum value', () => {
+      it('should return the maximum value', () => {
+        const value = 25;
+        const actual = clamp(value, min, max);
+
+        expect(actual).toBe(max);
+      });
+    });
+
+    describe('when the value is greater than the minimum value and less than the maximum value', () => {
+      it('should return the value', () => {
+        const value = 15;
+        const actual = clamp(value, min, max);
+
+        expect(actual).toBe(value);
+      });
+    });
+
+    describe('when the minimum value is equal to or greater than the maximum value', () => {
+      it('should throw an error', () => {
+        expect(() => clamp(15, 10, 5)).toThrow();
+      });
+    });
+  });
+
   describe('eachFn', () => {
     it('should call each function with the passed arguments', () => {
       const fns = [jest.fn(), jest.fn(), jest.fn()];

@@ -15,7 +15,9 @@
 
 import { createRef } from 'react';
 
-import Grid from '.';
+import { create, render, renderToHtml, axe } from '../../../util/test-utils';
+
+import { Grid } from './Grid';
 
 describe('Grid', () => {
   /**
@@ -27,7 +29,7 @@ describe('Grid', () => {
   });
 
   it('should forward a ref', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(<Grid ref={ref} />);
     const element = container.querySelector('div');
     expect(ref.current).toBe(element);
