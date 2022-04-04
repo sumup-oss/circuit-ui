@@ -85,7 +85,7 @@
     "react-swipeable": "^6.1.0",
     "style-loader": "^2.0.0",
     "ts-loader": "^9.0.0",
-    "typescript": "^4.4.3"
+    "typescript": "^4.6.3"
   },
   "peerDependencies": {
     "@emotion/cache": "11.x",
