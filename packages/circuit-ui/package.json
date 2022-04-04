@@ -47,7 +47,7 @@
     "react-popper": "^2.2.5",
     "use-latest": "^1.2.0",
     "use-previous": "^1.1.0",
-    "yargs": "^17.0.1"
+    "yargs": "^17.4.0"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.7.2",
