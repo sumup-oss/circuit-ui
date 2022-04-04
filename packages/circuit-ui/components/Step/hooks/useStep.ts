@@ -14,42 +14,48 @@
  */
 
 import { useReducer, useEffect, useRef } from 'react';
-import { isFunction } from 'lodash/fp';
 
-import * as StepService from '../StepService';
 import { useClickEvent } from '../../../hooks/useClickEvent';
+import { isFunction } from '../../../util/type-check';
+import * as StepService from '../StepService';
+import { Duration, StateAndHelpers, StepOptions } from '../types';
 
-export function useStep(props = {}) {
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    props.cycle &&
-    !props.totalSteps
-  ) {
-    throw new Error('Cannot use cycle prop without totalSteps prop.');
+export function useStep({
+  initialStep = 0,
+  totalSteps = 0,
+  autoPlay = false,
+  cycle = false,
+  stepInterval = 1,
+  animationDuration = 0,
+  stepDuration = 0,
+  tracking,
+  onNext,
+  onPrevious,
+  onPause,
+  onPlay,
+}: StepOptions = {}): StateAndHelpers {
+  if (process.env.NODE_ENV !== 'production' && cycle && !totalSteps) {
+    throw new Error('Cannot use `cycle` prop without `totalSteps` prop.');
   }
 
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    props.autoPlay &&
-    !props.stepDuration
-  ) {
-    throw new Error('Cannot use autoPlay prop without stepDuration prop.');
+  if (process.env.NODE_ENV !== 'production' && autoPlay && !stepDuration) {
+    throw new Error('Cannot use `autoPlay` prop without `stepDuration` prop.');
   }
 
   const initialState = {
-    step: props.initialStep,
+    step: initialStep,
     previousStep: StepService.calculatePreviousStep({
-      step: props.initialStep,
-      totalSteps: props.totalSteps,
-      stepInterval: props.stepInterval,
-      cycle: props.cycle,
+      step: initialStep,
+      totalSteps,
+      stepInterval,
+      cycle,
     }),
-    paused: !props.autoPlay,
+    paused: !autoPlay,
   };
   const [state, dispatch] = useReducer(StepService.reducer, initialState);
-  const playingInterval = useRef(null);
-  const animationEndCallback = useRef(null);
-  const { onNext, onPrevious, onPause, onPlay, tracking } = props;
+  const playingInterval = useRef<ReturnType<typeof setInterval> | null>(null);
+  const animationEndCallback =
+    useRef<ReturnType<typeof setTimeout> | null>(null);
   const handleNext = useClickEvent(
     onNext,
     { label: 'next', ...tracking },
@@ -86,7 +92,6 @@ export function useStep(props = {}) {
 
   // ACTIONS
   function next() {
-    const { totalSteps, cycle, stepInterval } = props;
     const newStep = StepService.calculateNextStep({
       step: state.step,
       stepInterval,
@@ -102,7 +107,6 @@ export function useStep(props = {}) {
   }
 
   function previous() {
-    const { totalSteps, cycle, stepInterval } = props;
     const newStep = StepService.calculatePreviousStep({
       step: state.step,
       stepInterval,
@@ -135,20 +139,19 @@ export function useStep(props = {}) {
 
   // HELPERS
   function shouldPlay() {
-    const stepDuration = getDurationFromProp(props.stepDuration);
+    const duration = getDurationFromProp(stepDuration);
 
-    return stepDuration && !state.paused;
+    return duration && !state.paused;
   }
 
   function shouldStop() {
-    const { totalSteps, cycle } = props;
     const isLastStep = state.step === totalSteps - 1;
-    const stepDuration = getDurationFromProp(props.stepDuration);
+    const duration = getDurationFromProp(stepDuration);
 
-    return stepDuration && !cycle && isLastStep;
+    return duration && !cycle && isLastStep;
   }
 
-  function getDurationFromProp(duration) {
+  function getDurationFromProp(duration: Duration) {
     return isFunction(duration) ? duration(state.step) : duration;
   }
 
@@ -156,22 +159,26 @@ export function useStep(props = {}) {
     if (!playingInterval.current) {
       playingInterval.current = setInterval(
         next,
-        getDurationFromProp(props.stepDuration),
+        getDurationFromProp(stepDuration),
       );
     }
   }
 
   function stopPlaying() {
     if (playingInterval.current) {
-      playingInterval.current = clearInterval(playingInterval.current);
+      clearInterval(playingInterval.current);
+      playingInterval.current = null;
     }
   }
 
   // STATE MANAGEMENT
-  function updateSlide(newStep, onEndCallback) {
-    const animationDuration = getDurationFromProp(props.animationDuration);
+  function updateSlide(newStep: number, onEndCallback: () => void) {
+    const duration = getDurationFromProp(animationDuration);
     const update = () => {
-      animationEndCallback.current = clearTimeout(animationEndCallback.current);
+      if (animationEndCallback.current) {
+        clearTimeout(animationEndCallback.current);
+        animationEndCallback.current = null;
+      }
 
       stopPlaying();
       dispatch({
@@ -184,17 +191,17 @@ export function useStep(props = {}) {
       onEndCallback();
     };
 
-    if (animationDuration) {
-      animationEndCallback.current = setTimeout(update, animationDuration);
+    if (duration) {
+      animationEndCallback.current = setTimeout(update, duration);
     } else {
       update();
     }
   }
 
-  function updatePause(paused) {
-    const stepDuration = getDurationFromProp(props.stepDuration);
+  function updatePause(paused: boolean) {
+    const duration = getDurationFromProp(stepDuration);
 
-    if (!stepDuration) {
+    if (!duration) {
       return;
     }
 
@@ -210,7 +217,7 @@ export function useStep(props = {}) {
     }
   }
 
-  function getStateAndHelpers() {
+  function getStateAndHelpers(): StateAndHelpers {
     const actions = {
       next,
       previous,
@@ -218,14 +225,12 @@ export function useStep(props = {}) {
       pause,
     };
     const propGetters = StepService.generatePropGetters(actions);
-    const stepDuration = getDurationFromProp(props.stepDuration);
-    const animationDuration = getDurationFromProp(props.animationDuration);
 
     return {
       state: {
         ...state,
-        stepDuration,
-        animationDuration,
+        stepDuration: getDurationFromProp(stepDuration),
+        animationDuration: getDurationFromProp(animationDuration),
       },
       actions,
       ...propGetters,

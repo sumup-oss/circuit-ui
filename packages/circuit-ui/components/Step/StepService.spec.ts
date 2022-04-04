@@ -97,6 +97,17 @@ describe('StepService', () => {
   });
 
   describe('generatePropGetters', () => {
+    afterEach(() => {
+      jest.resetAllMocks();
+    });
+
+    const actions = {
+      play: jest.fn(),
+      pause: jest.fn(),
+      next: jest.fn(),
+      previous: jest.fn(),
+    };
+
     it('should return all necessary getters', () => {
       const expected = expect.objectContaining({
         getPlayControlProps: expect.any(Function),
@@ -104,18 +115,12 @@ describe('StepService', () => {
         getNextControlProps: expect.any(Function),
         getPreviousControlProps: expect.any(Function),
       });
-      const getters = StepService.generatePropGetters();
+      const getters = StepService.generatePropGetters(actions);
 
       expect(getters).toMatchObject(expected);
     });
 
     it('should add actions to elements onclick handler', () => {
-      const actions = {
-        play: jest.fn(),
-        pause: jest.fn(),
-        next: jest.fn(),
-        previous: jest.fn(),
-      };
       const getters = StepService.generatePropGetters(actions);
 
       getters.getPlayControlProps().onClick();
@@ -130,7 +135,7 @@ describe('StepService', () => {
     });
 
     it('should add aria-labels to elements', () => {
-      const getters = StepService.generatePropGetters();
+      const getters = StepService.generatePropGetters(actions);
 
       expect(getters.getPlayControlProps()).toMatchObject({
         'aria-label': 'play',
@@ -147,7 +152,7 @@ describe('StepService', () => {
     });
 
     it('should pass custom props to elements', () => {
-      const getters = StepService.generatePropGetters();
+      const getters = StepService.generatePropGetters(actions);
       const customProps = {
         foo: 'bar',
         onCopy: jest.fn(),
@@ -168,12 +173,6 @@ describe('StepService', () => {
     });
 
     it('should not allow custom props to overwrite action onclick handler', () => {
-      const actions = {
-        play: jest.fn(),
-        pause: jest.fn(),
-        next: jest.fn(),
-        previous: jest.fn(),
-      };
       const customProps = {
         onClick: jest.fn(),
       };
