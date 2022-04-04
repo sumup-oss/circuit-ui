@@ -15,17 +15,23 @@
 
 /* istanbul ignore file */
 
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { ReactNode, useState } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { useSwipeable } from 'react-swipeable';
+import {
+  SwipeableProps,
+  useSwipeable,
+  SwipeEventData,
+  SwipeDirections,
+} from 'react-swipeable';
 
 import Image from '../../Image';
 import Button from '../../Button';
 import ButtonGroup from '../../ButtonGroup';
-import Step from '../Step';
+import Step, { StepProps } from '../Step';
+import { StyleProps } from '../../../styles/styled';
+import { Actions } from '../types';
 
 const SLIDE_WIDTH = 400;
 const ANIMATION_DURATION = 200;
@@ -40,15 +46,19 @@ const sliderWrapperStyles = css`
 
 const SliderWrapper = styled('div')(sliderWrapperStyles);
 
-const sliderImageBaseStyles = ({ theme }) => css`
+const sliderImageBaseStyles = ({ theme }: StyleProps) => css`
   width: 100%;
   height: 100%;
   padding: ${theme.spacings.giga};
   transition: transform ${ANIMATION_DURATION}ms ease;
 `;
 
-const slideImageTransformStyles = ({ swipe }) =>
-  swipe.dir &&
+const slideImageTransformStyles = ({
+  swipe,
+}: {
+  swipe: SwipeEventData | null;
+}) =>
+  swipe?.dir &&
   css`
     transform: translate3d(${swipe.deltaX * -1}px, ${swipe.deltaY * -1}px, 0)
       rotate(${calculateRotationAngle(swipe.dir, swipe.velocity)}deg);
@@ -59,15 +69,26 @@ const SliderImage = styled(Image)(
   slideImageTransformStyles,
 );
 
-// eslint-disable-next-line react/prop-types
-const Swipeable = ({ children, ...props }) => {
+const Swipeable = ({
+  children,
+  ...props
+}: SwipeableProps & {
+  children: ReactNode;
+}) => {
   const handlers = useSwipeable(props);
   return <div {...handlers}>{children}</div>;
 };
 
-const YesOrNoSlider = ({ images, ...stepProps }) => {
-  const [swipe, setSwipe] = useState({});
-  const handleSwipe = (eventData, actions) => {
+interface YesOrNoSliderProps extends StepProps {
+  images: string[];
+}
+
+export default function YesOrNoSlider({
+  images,
+  ...stepProps
+}: YesOrNoSliderProps): JSX.Element {
+  const [swipe, setSwipe] = useState<SwipeEventData | null>(null);
+  const handleSwipe = (eventData: SwipeEventData, actions: Actions) => {
     setSwipe(eventData);
 
     if (eventData.dir === LEFT_DIRECTION) {
@@ -78,7 +99,7 @@ const YesOrNoSlider = ({ images, ...stepProps }) => {
       actions.next();
     }
 
-    setTimeout(() => setSwipe({}), ANIMATION_DURATION);
+    setTimeout(() => setSwipe(null), ANIMATION_DURATION);
   };
 
   return (
@@ -94,13 +115,13 @@ const YesOrNoSlider = ({ images, ...stepProps }) => {
           </Swipeable>
           <ButtonGroup align={'center'}>
             <Button
-              variant={swipe.dir === LEFT_DIRECTION ? 'primary' : 'secondary'}
+              variant={swipe?.dir === LEFT_DIRECTION ? 'primary' : 'secondary'}
               {...getPreviousControlProps()}
             >
               No
             </Button>
             <Button
-              variant={swipe.dir === RIGHT_DIRECTION ? 'primary' : 'secondary'}
+              variant={swipe?.dir === RIGHT_DIRECTION ? 'primary' : 'secondary'}
               {...getNextControlProps()}
             >
               Yes
@@ -110,12 +131,9 @@ const YesOrNoSlider = ({ images, ...stepProps }) => {
       )}
     </Step>
   );
-};
-YesOrNoSlider.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string),
-};
+}
 
-function calculateRotationAngle(direction, velocity) {
+function calculateRotationAngle(direction: SwipeDirections, velocity: number) {
   return Math.min(
     30,
     Math.max(
@@ -124,5 +142,3 @@ function calculateRotationAngle(direction, velocity) {
     ),
   );
 }
-
-export default YesOrNoSlider;
