@@ -102,9 +102,8 @@ export { default as NotificationInline } from './components/NotificationInline';
 export type { NotificationInlineProps } from './components/NotificationInline';
 
 // Layout
-export { default as Grid } from './components/Grid';
-export { default as Row } from './components/Row';
-export { default as Col } from './components/Col';
+export { Grid, Row, Col } from './components/Grid';
+export type { ColProps } from './components/Grid';
 export { default as InlineElements } from './components/InlineElements';
 export type { InlineElementsProps } from './components/InlineElements';
 

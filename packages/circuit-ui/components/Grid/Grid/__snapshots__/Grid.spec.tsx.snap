@@ -4,6 +4,9 @@ exports[`Grid should render with default styles 1`] = `
 .circuit-0 {
   margin: 0 auto;
   width: 100%;
+  max-width: 880px;
+  padding-left: calc(16px / 2);
+  padding-right: calc(16px / 2);
 }
 
 @media (max-width: 479px) {
@@ -47,6 +50,6 @@ exports[`Grid should render with default styles 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;

@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2022, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
-export const MIN_COL_SPAN = 1;
-export const MAX_COL_WIDTH = 100;
-export const DEFAULT_BREAKPOINT = 'default';
+import type { Theme } from '@sumup/design-tokens';
+
+export type GridKey = keyof Theme['grid'];
+export type GridValue = Theme['grid'][GridKey];
+
+export type BreakpointOptions<Option> = {
+  [key in GridKey]?: Option;
+};
