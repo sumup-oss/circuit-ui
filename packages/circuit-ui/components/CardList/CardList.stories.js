@@ -34,7 +34,7 @@ export const Base = (args) => {
 
   return (
     <CardList {...args}>
-      {Array.from(Array(5).keys()).map((i) => (
+      {[0,1,2,3,4].map((i) => (
         <CardList.Item
           key={i}
           selected={selected === i}
