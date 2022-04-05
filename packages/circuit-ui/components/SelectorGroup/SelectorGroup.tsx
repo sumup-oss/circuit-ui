@@ -14,7 +14,6 @@
  */
 
 import { ReactNode, Ref, forwardRef, ChangeEventHandler } from 'react';
-import { includes } from 'lodash/fp';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -171,7 +170,7 @@ export const SelectorGroup = forwardRef(
                 width: 100%;
               `}
               checked={
-                multiple ? includes(value, activeValue) : value === activeValue
+                multiple ? activeValue.includes(value) : value === activeValue
               }
               noMargin
               {...optionRest}

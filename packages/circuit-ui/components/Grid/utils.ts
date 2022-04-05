@@ -17,7 +17,6 @@
 import type { Theme } from '@sumup/design-tokens';
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { entries } from 'lodash/fp';
 
 import { isString } from '../../util/type-check';
 
@@ -38,7 +37,7 @@ export function composeBreakpoints<Option, ReturnValue>(
   theme: Theme,
   breakpoints: BreakpointOptions<Option>,
 ): ReturnValue[] {
-  return (entries(breakpoints) as [GridKey, Option][])
+  return (Object.entries(breakpoints) as [GridKey, Option][])
     .filter(([breakpoint]) => {
       const hasGridConfig = Boolean(theme.grid[breakpoint]);
 

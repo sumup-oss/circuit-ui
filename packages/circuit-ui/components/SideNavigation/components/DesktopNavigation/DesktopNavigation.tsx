@@ -17,7 +17,6 @@
 
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
-import { find } from 'lodash/fp';
 import { TrackingElement } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
@@ -128,10 +127,7 @@ export function DesktopNavigation({
 }: DesktopNavigationProps): JSX.Element {
   const focusProps = useFocusList();
 
-  const activePrimaryLink = find(
-    (link) => link.isActive,
-    primaryLinks,
-  ) as PrimaryLinkProps;
+  const activePrimaryLink = primaryLinks.find((link) => link.isActive);
   const secondaryGroups =
     activePrimaryLink && activePrimaryLink.secondaryGroups;
 

@@ -19,9 +19,9 @@
 import { useState, useEffect, ReactElement } from 'react';
 import { css } from '@emotion/react';
 import { TrackingElement } from '@sumup/collector';
-import { isEmpty } from 'lodash/fp';
 
 import { ClickEvent } from '../../../../types/events';
+import { isEmpty } from '../../../../util/helpers';
 import styled, { StyleProps } from '../../../../styles/styled';
 import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import { Child, hasSelectedChild, getIcon } from '../../SidebarService';

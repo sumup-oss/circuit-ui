@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, SumUp Ltd.
+ * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,16 +13,21 @@
  * limitations under the License.
  */
 
-import { ComponentType } from 'react';
+import { ForwardedRef } from 'react';
 
-export function getDisplayName(Component: ComponentType): string | undefined {
-  if (typeof Component === 'string') {
-    return Component;
-  }
+type Refs<T extends Element> = (ForwardedRef<T> | { current: T })[];
 
-  if (!Component) {
-    return undefined;
-  }
-
-  return Component.displayName || Component.name || 'Component';
+export function applyMultipleRefs<T extends Element>(
+  ...refs: Refs<T>
+): ForwardedRef<T> {
+  return (instance: T | null): void => {
+    refs.forEach((ref) => {
+      if (typeof ref === 'function') {
+        ref(instance);
+      } else if (ref) {
+        // eslint-disable-next-line no-param-reassign
+        ref.current = instance;
+      }
+    });
+  };
 }

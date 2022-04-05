@@ -38,3 +38,7 @@ export function isArray(value?: unknown): value is [] {
 export function isObject(value: unknown): value is Record<string, unknown> {
   return value === Object(value) && !isArray(value) && !isFunction(value);
 }
+
+export function isNil(value?: unknown): value is null | undefined {
+  return value === undefined || value === null;
+}

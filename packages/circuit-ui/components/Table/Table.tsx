@@ -15,9 +15,10 @@
 
 import { Component, createRef, HTMLAttributes, UIEvent } from 'react';
 import { css } from '@emotion/react';
-import { isNil, throttle } from 'lodash/fp';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { isNil } from '../../util/type-check';
+import { throttle } from '../../util/helpers';
 
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
@@ -272,7 +273,7 @@ class Table extends Component<TableProps, TableState> {
 
     window.addEventListener(
       'resize',
-      throttle(1000, this.calculateTableBodyHeight),
+      throttle(this.calculateTableBodyHeight, 1000),
     );
   };
 

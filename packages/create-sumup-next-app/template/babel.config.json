@@ -10,9 +10,5 @@
       }
     ]
   ],
-  "plugins": [
-    "lodash",
-    "inline-react-svg",
-    ["@emotion", { "cssPropOptimization": true }]
-  ]
+  "plugins": ["inline-react-svg", ["@emotion", { "cssPropOptimization": true }]]
 }

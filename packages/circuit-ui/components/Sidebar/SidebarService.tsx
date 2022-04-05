@@ -14,10 +14,10 @@
  */
 
 import { Children, ReactElement } from 'react';
-import { isEmpty, findIndex } from 'lodash/fp';
 import { SecurePayments } from '@sumup/icons';
 
 import { isArray } from '../../util/type-check';
+import { isEmpty } from '../../util/helpers';
 
 export type Child = {
   props: {
@@ -30,7 +30,8 @@ export type Child = {
 export function hasSelectedChild(children: Child[] | Child): boolean {
   if (children) {
     const childArray = (isArray(children) ? children : [children]) as Child[];
-    return !isEmpty(childArray.filter((item) => item.props.selected));
+    const selectedChildren = childArray.filter((item) => item.props.selected);
+    return !isEmpty(selectedChildren);
   }
   return false;
 }
@@ -42,7 +43,7 @@ export function getSelectedChildIndex(children?: Child[] | Child): number {
 
   const childArray = (isArray(children) ? children : [children]) as Child[];
 
-  return findIndex((child: Child) => Boolean(child.props.selected), childArray);
+  return childArray.findIndex((child: Child) => Boolean(child.props.selected));
 }
 
 export function getSecondaryChildren(

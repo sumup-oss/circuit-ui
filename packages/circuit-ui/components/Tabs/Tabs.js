@@ -15,7 +15,6 @@
 
 import { Component, Fragment, createRef } from 'react';
 import PropTypes from 'prop-types';
-import { range } from 'lodash/fp';
 
 import { isArrowLeft, isArrowRight, isArrowDown } from '../../util/key-codes';
 
@@ -126,7 +125,7 @@ function getIds(id) {
 }
 
 function createRefs(length) {
-  return range(0, length).map(createRef);
+  return Array.from(Array(length).keys()).map(createRef);
 }
 
 export default Tabs;

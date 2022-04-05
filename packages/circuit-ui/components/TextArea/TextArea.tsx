@@ -18,7 +18,7 @@ import { css } from '@emotion/react';
 
 import Input from '../Input';
 import { InputElement, InputProps } from '../Input/Input';
-import { multiRefs } from '../../util/multiRefs';
+import { applyMultipleRefs } from '../../util/refs';
 
 import { useAutoExpand } from './useAutoExpand';
 
@@ -53,7 +53,7 @@ export const TextArea = forwardRef<InputElement, TextAreaProps>(
         {...modifiedProps}
         inputStyles={textAreaStyles}
         as="textarea"
-        ref={multiRefs(localRef, passedRef)}
+        ref={applyMultipleRefs(localRef, passedRef)}
       />
     );
   },

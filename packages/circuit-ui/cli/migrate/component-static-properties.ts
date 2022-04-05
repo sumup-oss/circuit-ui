@@ -14,7 +14,6 @@
  */
 
 import { Transform, JSCodeshift, Collection } from 'jscodeshift';
-import { toLower } from 'lodash/fp';
 
 import { findLocalNames, findProperty } from './utils';
 
@@ -128,7 +127,7 @@ function transformFactory(
   localNames.forEach((localName) => {
     properties.forEach((property) => {
       findProperty(j, root, `${localName}.${property}`).replaceWith(
-        j.stringLiteral(toLower(property)),
+        j.stringLiteral((property || '').toLowerCase()),
       );
     });
   });

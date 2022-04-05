@@ -1,4 +1,16 @@
-import { get } from 'lodash/fp';
+function get(obj, paths, defaultValue) {
+  return paths.reduce((acc, path) => {
+    try {
+      acc =
+        acc[path] !== undefined && acc[path] !== null
+          ? acc[path]
+          : defaultValue;
+    } catch (e) {
+      return defaultValue;
+    }
+    return acc;
+  }, obj);
+}
 
 function getPosition(item, order = []) {
   const array = Array.isArray(order) ? order : Object.keys(order);
@@ -16,8 +28,8 @@ function compareSections(aSections, bSections, sortOrder, depth = 0) {
   let order;
 
   if (depth > 0) {
-    const pathToSection = aSections.slice(0, depth).join('.');
-    order = get(pathToSection, sortOrder);
+    const pathToSection = aSections.slice(0, depth);
+    order = get(sortOrder, pathToSection);
   } else {
     order = sortOrder;
   }
