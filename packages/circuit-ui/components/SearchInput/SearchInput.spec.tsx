@@ -14,7 +14,6 @@
  */
 
 import { createRef } from 'react';
-import { identity } from 'lodash/fp';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
@@ -37,7 +36,7 @@ describe('SearchInput', () => {
   });
 
   it('should display a clear icon when not empty and an onClear callback is provided', () => {
-    const onClear = jest.fn(identity);
+    const onClear = jest.fn();
     const clearLabel = 'Clear';
 
     const { getByRole } = render(
