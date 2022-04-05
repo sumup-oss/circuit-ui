@@ -186,6 +186,7 @@ export type {
 } from './components/Table';
 
 export { default as Step, useStep } from './components/Step';
+export type { StepProps, StepOptions } from './components/Step';
 export { default as AspectRatio } from './components/AspectRatio';
 export { default as Carousel, CarouselComposer } from './components/Carousel';
 export { default as Avatar } from './components/Avatar';

@@ -16,7 +16,6 @@
 /* istanbul ignore file */
 
 import { css } from '@emotion/react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 import Headline from '../../Headline';
@@ -28,7 +27,12 @@ import ProgressBar from '../../ProgressBar';
 import Step from '../Step';
 import { spacing } from '../../../styles/style-mixins';
 
-const FormOne = ({ onNextClick }) => (
+interface FormProps {
+  onNextClick: () => void;
+  onBackClick: () => void;
+}
+
+const FormOne = ({ onNextClick }: FormProps) => (
   <section>
     <Input
       label="First Name"
@@ -47,11 +51,8 @@ const FormOne = ({ onNextClick }) => (
     </Button>
   </section>
 );
-FormOne.propTypes = {
-  onNextClick: PropTypes.func.isRequired,
-};
 
-const FormTwo = ({ onNextClick, onBackClick }) => (
+const FormTwo = ({ onNextClick, onBackClick }: FormProps) => (
   <section>
     <Input
       label="Street"
@@ -78,14 +79,12 @@ const FormTwo = ({ onNextClick, onBackClick }) => (
     </ButtonGroup>
   </section>
 );
-FormTwo.propTypes = {
-  onNextClick: PropTypes.func.isRequired,
-  onBackClick: PropTypes.func.isRequired,
-};
 
 const Thanks = () => (
   <section>
-    <Headline noMargin>Thanks!</Headline>
+    <Headline as="h3" noMargin>
+      Thanks!
+    </Headline>
   </section>
 );
 
@@ -96,30 +95,33 @@ const containerStyles = css`
 `;
 const Container = styled('div')(containerStyles);
 
-const MultiStepForm = () => {
+export default function MultiStepForm(): JSX.Element {
   const steps = [FormOne, FormTwo, Thanks];
   const totalSteps = steps.length;
 
   return (
-    <Step total={steps.length}>
+    <Step totalSteps={steps.length}>
       {({ state, actions }) => {
         const StepComponent = steps[state.step];
         const stepNumber = state.step + 1;
 
         return (
           <Container>
-            <Headline size="three" noMargin css={spacing({ bottom: 'giga' })}>
+            <Headline
+              as="h2"
+              size="three"
+              noMargin
+              css={spacing({ bottom: 'giga' })}
+            >
               Step {stepNumber} of {totalSteps}
             </Headline>
             <ProgressBar
               value={stepNumber}
               max={totalSteps}
               size={'kilo'}
-              css={(theme) =>
-                css`
-                  margin-bottom: ${theme.spacings.mega};
-                `
-              }
+              css={spacing({ bottom: 'mega' })}
+              label={`Step ${stepNumber} of ${totalSteps}`}
+              hideLabel
             />
             <StepComponent
               onNextClick={actions.next}
@@ -130,6 +132,4 @@ const MultiStepForm = () => {
       }}
     </Step>
   );
-};
-
-export default MultiStepForm;
+}

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { create, render } from '../../util/test-utils';
+
 import Step from './Step';
 import { useStep } from './hooks/useStep';
 
@@ -26,10 +28,12 @@ describe('Step', () => {
   it('should throw error without children as a function', () => {
     const expectedError = new Error('Children must be a function');
 
+    // @ts-expect-error We're testing for this error.
     expect(() => create(<Step />)).toThrow(expectedError);
     expect(() =>
       create(
         <Step>
+          {/* @ts-expect-error We're testing for this error. */}
           <div />
         </Step>,
       ),
@@ -40,7 +44,7 @@ describe('Step', () => {
     const data = { step: 1, previousStep: 0 };
     const children = jest.fn(() => <div />);
 
-    useStep.mockReturnValue(data);
+    (useStep as jest.Mock).mockReturnValue(data);
 
     render(<Step>{children}</Step>);
 

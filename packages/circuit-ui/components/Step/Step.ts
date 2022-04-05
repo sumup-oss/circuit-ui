@@ -13,8 +13,24 @@
  * limitations under the License.
  */
 
-import { useStep } from './hooks/useStep';
-import Step from './Step';
+import { isFunction } from '../../util/type-check';
 
-export { useStep };
-export default Step;
+import { useStep } from './hooks/useStep';
+import { StateAndHelpers, StepOptions } from './types';
+
+export interface StepProps extends StepOptions {
+  /**
+   * Function called with an object containing current state and prop getters.
+   */
+  children: (stateAndHelpers: StateAndHelpers) => JSX.Element;
+}
+
+export default function Step({ children, ...props }: StepProps): JSX.Element {
+  const stateAndHelpers = useStep(props);
+
+  if (!isFunction(children)) {
+    throw new Error('Children must be a function');
+  }
+
+  return children(stateAndHelpers);
+}

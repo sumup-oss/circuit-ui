@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2022, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,70 +13,77 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import { isFunction } from 'lodash/fp';
+import { TrackingProps } from '../../hooks/useClickEvent';
+import { ClickEvent } from '../../types/events';
 
-import { useStep } from './hooks/useStep';
+export type Play = () => void;
+export type Pause = () => void;
+export type Next = () => void;
+export type Previous = () => void;
 
-function Step({
-  children,
-  totalSteps = 0,
-  initialStep = 0,
-  autoPlay = false,
-  cycle = false,
-  stepInterval = 1,
-  animationDuration = 0,
-  stepDuration = 0,
-  tracking = {},
-  onPlay = () => {},
-  onPause = () => {},
-  onNext = () => {},
-  onPrevious = () => {},
-}) {
-  const stateAndHelpers = useStep({
-    totalSteps,
-    initialStep,
-    autoPlay,
-    cycle,
-    stepInterval,
-    animationDuration,
-    stepDuration,
-    tracking,
-    onPlay,
-    onPause,
-    onNext,
-    onPrevious,
-  });
+export type Duration = number | ((step?: number) => number);
 
-  if (!isFunction(children)) {
-    throw new Error('Children must be a function');
-  }
+export type InternalState = {
+  step: number;
+  previousStep: number;
+  paused: boolean;
+};
 
-  return children(stateAndHelpers);
-}
+export type State = InternalState & {
+  stepDuration: number;
+  animationDuration: number;
+};
 
-Step.propTypes = {
+export type Actions = {
+  play: Play;
+  pause: Pause;
+  next: Next;
+  previous: Previous;
+};
+
+type BaseProps = { onClick?: () => void; [key: string]: unknown };
+type ReturnProps<Props> = Props & {
+  'aria-label': string;
+  'onClick'?: (event: ClickEvent) => void;
+};
+
+type PropGetter = <Props extends BaseProps = BaseProps>(
+  props?: Props,
+) => ReturnProps<Props>;
+
+export type PropGetters = {
+  getPlayControlProps: PropGetter;
+  getPauseControlProps: PropGetter;
+  getNextControlProps: PropGetter;
+  getPreviousControlProps: PropGetter;
+};
+
+export type StateAndHelpers = PropGetters & {
+  state: State;
+  actions: Actions;
+};
+export interface StepOptions {
   /**
    * The total number of steps. Defaults to `0`.
    */
-  totalSteps: PropTypes.number,
+  totalSteps?: number;
   /**
    * The initial step of component. Defaults to `0`.
    */
-  initialStep: PropTypes.number,
+  initialStep?: number;
   /**
    * Indicates if component should restart after last step. Defaults to `false`.
    */
-  cycle: PropTypes.bool,
+  cycle?: boolean;
   /**
    * Enable immediate playing of a component after load.
    * Requires `stepDuration` to have any effect. Defaults to `false`.
    */
-  autoPlay: PropTypes.bool,
+  autoPlay?: boolean;
   /**
    * The number of steps to interate when navigating. Defaults to `1`.
    */
-  stepInterval: PropTypes.number,
+  stepInterval?: number;
   /**
    * Indicates how long each step will stay visible (in milliseconds).
    * This prop is required for componenets play/pause functionality.
@@ -84,45 +91,32 @@ Step.propTypes = {
    * duration based on the data per step. Function should return a number.
    * Defaults to 0.
    */
-  stepDuration: PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
+  stepDuration?: Duration;
   /**
    * Indicates duration of animation between steps (in milliseconds).
    * If used as function receives state as argument which allows to configure
    * duration based on the data per step. Function should return a number.
    * Defaults to 0.
    */
-  animationDuration: PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
+  animationDuration?: Duration;
   /**
    * Function called when play action is triggered.
    */
-  onPlay: PropTypes.func,
+  onPlay?: (stateAndHelpers: StateAndHelpers) => void;
   /**
    * Function called when pause action is triggered.
    */
-  onPause: PropTypes.func,
+  onPause?: (stateAndHelpers: StateAndHelpers) => void;
   /**
    * Function called when go to next step action is triggered.
    */
-  onNext: PropTypes.func,
+  onNext?: (stateAndHelpers: StateAndHelpers) => void;
   /**
    * Function called when go to previous step action is triggered.
    */
-  onPrevious: PropTypes.func,
-  /**
-   * Function called with an object containing current state and prop getters.
-   */
-  children: PropTypes.func,
+  onPrevious?: (stateAndHelpers: StateAndHelpers) => void;
   /**
    * Additional data that is dispatched with the tracking event.
    */
-  tracking: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    component: PropTypes.string,
-    customParameters: PropTypes.object,
-  }),
-};
-
-/**
- * @component
- */
-export default Step;
+  tracking?: TrackingProps;
+}

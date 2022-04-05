@@ -39,7 +39,7 @@ describe('useStep', () => {
   it('should warn if cycle is used without totalSteps prop in dev environment', () => {
     const { result } = renderHook(() => useStep({ cycle: true }));
     const expectedError = new Error(
-      'Cannot use cycle prop without totalSteps prop.',
+      'Cannot use `cycle` prop without `totalSteps` prop.',
     );
 
     expect(result.error).toEqual(expectedError);
@@ -48,7 +48,7 @@ describe('useStep', () => {
   it('should warn if autoPlay is used without stepDuration prop', () => {
     const { result } = renderHook(() => useStep({ autoPlay: true }));
     const expectedError = Error(
-      'Cannot use autoPlay prop without stepDuration prop.',
+      'Cannot use `autoPlay` prop without `stepDuration` prop.',
     );
 
     expect(result.error).toEqual(expectedError);
