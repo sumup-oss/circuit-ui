@@ -277,6 +277,13 @@ export const Modal: ModalComponent<ModalProps> = ({
           closeTimeoutMS: TRANSITION_DURATION,
           shouldCloseOnOverlayClick: !preventClose,
           shouldCloseOnEsc: !preventClose,
+          /**
+           * react-modal relies on document.activeElement to return focus after the modal is closed.
+           * Safari and Firefox don't set it properly on button click (see https://github.com/reactjs/react-modal/issues/858 and https://github.com/reactjs/react-modal/issues/389).
+           * Returning the focus to document.body or to the focus-root can cause unwanted page scroll.
+           * Preventing scroll on focus would provide better UX for mouse users and shouldn't cause any side effects for assistive technology users.
+           */
+          preventScroll: true,
           ...props,
         };
 
