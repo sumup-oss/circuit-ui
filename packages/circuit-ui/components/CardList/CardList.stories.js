@@ -14,7 +14,6 @@
  */
 
 import { useState } from 'react';
-import { range } from 'lodash/fp';
 
 import docs from './CardList.docs.mdx';
 
@@ -35,7 +34,7 @@ export const Base = (args) => {
 
   return (
     <CardList {...args}>
-      {range(1, 6).map((i) => (
+      {Array.from(Array(5).keys()).map((i) => (
         <CardList.Item
           key={i}
           selected={selected === i}
