@@ -52,3 +52,23 @@ export function clamp(value: number, min: number, max: number): number {
   }
   return Math.max(min, Math.min(value, max));
 }
+
+type Fn<T extends []> = (...args: T) => void;
+
+/**
+ * Triggers a function at most once in a given amount of time.
+ */
+export function throttle<T extends []>(fn: Fn<T>, timeout: number): Fn<T> {
+  let ready = true;
+  return (...args: T) => {
+    if (!ready) {
+      return;
+    }
+
+    ready = false;
+    fn(...args);
+    setTimeout(() => {
+      ready = true;
+    }, timeout);
+  };
+}
