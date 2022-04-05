@@ -13,17 +13,15 @@
  * limitations under the License.
  */
 
-import { includes } from 'lodash/fp';
-
-function charToRegex(value) {
+function charToRegex(value: string) {
   const escapeChars = "\\.+*?[^]$(){}=!<>|:-'";
-  if (includes(value, escapeChars)) {
+  if (escapeChars.includes(value)) {
     return `\\${value}`;
   }
   return value;
 }
 
-function stringToRegex(value) {
+function stringToRegex(value: string) {
   return value
     .split('')
     .map((v) => charToRegex(v))
@@ -31,7 +29,7 @@ function stringToRegex(value) {
     .replace(/[\s]/g, '\\s');
 }
 
-function arrayOfStringsToRegex(values = []) {
+function arrayOfStringsToRegex(values: string[] = []) {
   return values.map((value) => stringToRegex(value));
 }
 
@@ -40,14 +38,16 @@ export function currencyToRegex(
   decimalNumbers = 2,
   decimalSeparators = ['.', ','],
   thousandGroupNumbers = 3,
-) {
+): string {
   const thousandSeparatorsRegex =
     arrayOfStringsToRegex(thousandSeparators).join('|');
   const decimalSeparatorsRegex =
     arrayOfStringsToRegex(decimalSeparators).join('|');
 
   // eslint-disable-next-line prettier/prettier
-  const integerRegex = `(\\d{0,${thousandGroupNumbers - 1}}(?:(?:${thousandSeparatorsRegex})?\\d{${thousandGroupNumbers}})*)`;
+  const integerRegex = `(\\d{0,${
+    thousandGroupNumbers - 1
+  }}(?:(?:${thousandSeparatorsRegex})?\\d{${thousandGroupNumbers}})*)`;
   const decimalRegex =
     decimalNumbers > 0
       ? `(?:(?:${decimalSeparatorsRegex})(\\d{0,${decimalNumbers}}))?`
