@@ -3,7 +3,6 @@
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
     ["@babel/plugin-proposal-private-methods", { "loose": true }],
     ["@babel/plugin-proposal-private-property-in-object", { "loose": true }],
-    "lodash",
     "@emotion"
   ],
   "presets": [
@@ -22,7 +21,6 @@
           "@babel/plugin-proposal-private-property-in-object",
           { "loose": true }
         ],
-        "lodash",
         "react-docgen",
         "@emotion"
       ],
