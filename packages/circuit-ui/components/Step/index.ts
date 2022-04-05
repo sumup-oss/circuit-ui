@@ -13,8 +13,10 @@
  * limitations under the License.
  */
 
-export { Grid } from './Grid/Grid';
-export { Row } from './Row/Row';
-export { Col } from './Col/Col';
+import Step from './Step';
 
-export type { ColProps } from './Col/Col';
+export { useStep } from './hooks/useStep';
+
+export type { StepOptions } from './types';
+export type { StepProps } from './Step';
+export default Step;

@@ -1,16 +1,30 @@
 # @sumup/circuit-ui
 
-## 5.0.0-canary.1
+## 4.19.0
+
+### Minor Changes
+
+- [#1504](https://github.com/sumup-oss/circuit-ui/pull/1504) [`467c3a82`](https://github.com/sumup-oss/circuit-ui/commit/467c3a8277accb686a6072ce646d5475e19d5512) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated the `Grid`, `Row`, and `Col` components to TypeScript. The `Col` component's `span` and `skip` props now accept numbers or numeric strings, even when nested in a breakpoints object. Here are some examples:
+
+  ```tsx
+  <Col span={2} />
+  <Col span="2" />
+  <Col span={{ default: 2, kilo: "4" }} />
+  ```
+
+### Patch Changes
+
+- [#1505](https://github.com/sumup-oss/circuit-ui/pull/1505) [`bbd20fd6`](https://github.com/sumup-oss/circuit-ui/commit/bbd20fd62930ac9c61b1a8f960195ff8668bf4b8) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated the `useStep` hook and `Step` component to TypeScript. The `useStep` hook now has the same default options as the `Step` component.
+
+* [#1505](https://github.com/sumup-oss/circuit-ui/pull/1505) [`bbd20fd6`](https://github.com/sumup-oss/circuit-ui/commit/bbd20fd62930ac9c61b1a8f960195ff8668bf4b8) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a missing accessibility label to the progressbar of the `Carousel` component.
+
+- [#1498](https://github.com/sumup-oss/circuit-ui/pull/1498) [`209b35bf`](https://github.com/sumup-oss/circuit-ui/commit/209b35bfcf8ae36256240c1a7ac23940cc7d644c) Thanks [@hris27](https://github.com/hris27)! - Fixed opening animation and unwanted page scroll when closing a `SidePanel` or `Modal` on Safari.
+
+## 4.18.0
 
 ### Minor Changes
 
 - [#1482](https://github.com/sumup-oss/circuit-ui/pull/1482) [`2f7537fa`](https://github.com/sumup-oss/circuit-ui/commit/2f7537fa9c586f18dc0b0a8f527cc3f11c36854f) Thanks [@hris27](https://github.com/hris27)! - Exported `TOP_NAVIGATION_HEIGHT` and `SIDE_PANEL_WIDTH` constants.
-
-## 5.0.0-canary.0
-
-### Major Changes
-
-- [#1461](https://github.com/sumup-oss/circuit-ui/pull/1461) [`86e03b8d`](https://github.com/sumup-oss/circuit-ui/commit/86e03b8dffec7d410595197b9d682a712d2275f2) Thanks [@hris27](https://github.com/hris27)! - Changed the SideNavigation breakpoint to 1280px.
 
 ## 4.17.1
 

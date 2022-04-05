@@ -307,6 +307,15 @@ exports[`Carousel styles should render with children as a function 1`] = `
   font-size: 14px;
   line-height: 20px;
   margin-left: 8px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .circuit-46 {
@@ -545,11 +554,14 @@ exports[`Carousel styles should render with children as a function 1`] = `
         class="circuit-44"
         loop=""
         role="progressbar"
+        title="1 / 3"
       />
       <span
         class="circuit-45"
         id="progress-bar_6"
-      />
+      >
+        1 / 3
+      </span>
     </div>
     <div
       class="circuit-46 circuit-47"
@@ -975,6 +987,15 @@ exports[`Carousel styles should render with children as a node 1`] = `
   font-size: 14px;
   line-height: 20px;
   margin-left: 8px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .circuit-46 {
@@ -1213,11 +1234,14 @@ exports[`Carousel styles should render with children as a node 1`] = `
         class="circuit-44"
         loop=""
         role="progressbar"
+        title="1 / 3"
       />
       <span
         class="circuit-45"
         id="progress-bar_8"
-      />
+      >
+        1 / 3
+      </span>
     </div>
     <div
       class="circuit-46 circuit-47"
@@ -1642,6 +1666,15 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   font-size: 14px;
   line-height: 20px;
   margin-left: 8px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .circuit-46 {
@@ -1880,11 +1913,14 @@ exports[`Carousel styles should render with default paused styles 1`] = `
         class="circuit-44"
         loop=""
         role="progressbar"
+        title="1 / 3"
       />
       <span
         class="circuit-45"
         id="progress-bar_4"
-      />
+      >
+        1 / 3
+      </span>
     </div>
     <div
       class="circuit-46 circuit-47"
@@ -2280,6 +2316,15 @@ exports[`Carousel styles should render with default styles 1`] = `
   font-size: 14px;
   line-height: 20px;
   margin-left: 8px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .circuit-46 {
@@ -2518,11 +2563,14 @@ exports[`Carousel styles should render with default styles 1`] = `
         class="circuit-44"
         loop=""
         role="progressbar"
+        title="1 / 3"
       />
       <span
         class="circuit-45"
         id="progress-bar_2"
-      />
+      >
+        1 / 3
+      </span>
     </div>
     <div
       class="circuit-46 circuit-47"

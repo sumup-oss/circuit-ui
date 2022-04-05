@@ -65,7 +65,7 @@ Options:
                        [string] [required] [choices: "button-variant-enum", ...]
 ```
 
-You can only run one codemod at a time and we encourage you to apply the transforms incrementally and review the changes before continuing. The codemods don't cover all edge cases, so further manual changes might be necessary.
+You can only run one codemod at a time and we encourage you to apply the transforms incrementally and review the changes before continuing. The codemods don't cover all edge cases, so further manual changes might be necessary. For example, `jscodeshift` is only able to look at one file at a time, so if a Circuit UI component is wrapped in a styled component in one file and used in another, the codemod won't be able to update its props.
 
 Tip: Provide the `--transform`/`-t` argument at the end of the command, so that as you run further codemods you can easily replace the last argument and reuse the command to run the next codemod.
 

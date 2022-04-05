@@ -14,14 +14,27 @@
  */
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export const isFunction = (value?: unknown): value is Function =>
-  typeof value === 'function';
+export function isFunction(value?: unknown): value is Function {
+  return typeof value === 'function';
+}
 
-export const isString = (value?: unknown): value is string =>
-  typeof value === 'string';
+export function isString(value?: unknown): value is string {
+  return typeof value === 'string';
+}
 
-export const isArray = (value?: unknown): value is [] =>
-  Boolean(value) &&
-  typeof value === 'object' &&
-  value !== null &&
-  value.constructor === Array;
+export function isNumber(value?: unknown): value is number {
+  return typeof value === 'number';
+}
+
+export function isArray(value?: unknown): value is [] {
+  return (
+    Boolean(value) &&
+    typeof value === 'object' &&
+    value !== null &&
+    value.constructor === Array
+  );
+}
+
+export function isObject(value: unknown): value is Record<string, unknown> {
+  return value === Object(value) && !isArray(value) && !isFunction(value);
+}

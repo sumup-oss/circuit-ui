@@ -13,8 +13,5 @@
  * limitations under the License.
  */
 
-export { Grid } from './Grid/Grid';
-export { Row } from './Row/Row';
-export { Col } from './Col/Col';
-
-export type { ColProps } from './Col/Col';
+export const MIN_COL_SPAN = 1;
+export const MAX_COL_WIDTH = 100;

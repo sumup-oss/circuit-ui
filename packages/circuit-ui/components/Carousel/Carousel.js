@@ -148,6 +148,8 @@ const Carousel = ({
                 duration={Math.round(
                   state.stepDuration + state.animationDuration,
                 )}
+                label={`${state.step + 1} / ${slidesTotal}`}
+                hideLabel
               />
 
               <StyledButtonList>
