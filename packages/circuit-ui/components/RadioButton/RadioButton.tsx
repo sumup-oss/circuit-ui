@@ -34,14 +34,9 @@ import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 export interface RadioButtonProps
   extends InputHTMLAttributes<HTMLInputElement> {
   /**
-   * @deprecated
-   * Use the label prop instead.
-   */
-  children?: ReactNode;
-  /**
    * A clear and concise description of the option's purpose.
    */
-  label?: ReactNode;
+  label: ReactNode;
   /**
    * Triggers error styles on the component.
    */
@@ -196,7 +191,6 @@ export const RadioButton = forwardRef(
   (
     {
       onChange,
-      children,
       label,
       id: customId,
       name,
@@ -238,7 +232,7 @@ export const RadioButton = forwardRef(
           className={className}
           style={style}
         >
-          {children || label}
+          {label}
         </RadioButtonLabel>
       </Fragment>
     );
