@@ -6,6 +6,7 @@
     - [In design tokens](#in-design-tokens)
     - [In component variants](#in-component-variants)
   - [Notification components](#notification-components)
+  - [Others](#others)
 - [From v4 to v4.1](#from-v4-to-v41)
   - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
 - [From v3.x to v4](#from-v3x-to-v4)
@@ -131,6 +132,10 @@ Furthermore, some patterns that were previously not supported by Circuit UI are 
 - The new `NotificationFullscreen` can replace custom full-screen messages such as error pages or empty states, for more consistency across pages.
 
 Read more about the new notification components in [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification).
+
+### Others
+
+- The deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins were removed. Use the `shadow()` style mixin instead. There is no codemod for this change: migrate manually by searching you for the deprecated style mixins in your codebase, and verify the changes visually.
 
 ## From v4 to v4.1
 
