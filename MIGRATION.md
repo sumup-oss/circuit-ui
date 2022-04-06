@@ -135,7 +135,7 @@ Read more about the new notification components in [the Notification section in 
 
 ### Others
 
-- The deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins were removed. Use the `shadow()` style mixin instead. There is no codemod for this change: migrate manually by searching you for the deprecated style mixins in your codebase, and verify the changes visually.
+- The deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins were removed. Use the `shadow()` style mixin instead. There is no codemod for this change: migrate manually by searching for the deprecated style mixins in your codebase, and verify the changes visually.
 
 ## From v4 to v4.1
 
