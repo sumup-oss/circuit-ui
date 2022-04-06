@@ -17,14 +17,14 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { shadowDouble, hideScrollbar } from '../../../../styles/style-mixins';
+import { shadow, hideScrollbar } from '../../../../styles/style-mixins';
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 const DEFAULT_HEIGHT = '48px';
 
 const Wrapper = styled.div(
   ({ theme }) => css`
-    ${shadowDouble({ theme })};
+    ${shadow(theme)};
     ${hideScrollbar()}
     background: ${theme.colors.white};
     height: ${DEFAULT_HEIGHT};
