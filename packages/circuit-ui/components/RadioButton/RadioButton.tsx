@@ -205,6 +205,15 @@ export const RadioButton = forwardRef(
     }: RadioButtonProps,
     ref: RadioButtonProps['ref'],
   ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      throw new Error(
+        'The RadioButton component is missing a `label` prop. This is an accessibility requirement.',
+      );
+    }
     const id = customId || uniqueId('radio-button_');
     const handleChange = useClickEvent(onChange, tracking, 'radio-button');
 
