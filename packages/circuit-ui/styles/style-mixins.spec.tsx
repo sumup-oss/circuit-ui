@@ -22,9 +22,6 @@ import {
   cx,
   spacing,
   shadow,
-  shadowSingle,
-  shadowDouble,
-  shadowTriple,
   typography,
   disableVisually,
   hideVisually,
@@ -156,33 +153,6 @@ describe('Style helpers', () => {
       const { styles } = shadow()({ theme: light });
       expect(styles).toMatchInlineSnapshot(
         '"box-shadow:0 3px 8px 0 rgba(0, 0, 0, 0.2);label:shadow;"',
-      );
-    });
-  });
-
-  describe('shadowSingle', () => {
-    it('should match the snapshot', () => {
-      const { styles } = shadowSingle({ theme: light });
-      expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px rgba(12, 15, 20, 0.07),0 0 1px 0 rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07);;label:shadowSingle;"',
-      );
-    });
-  });
-
-  describe('shadowDouble', () => {
-    it('should match the snapshot', () => {
-      const { styles } = shadowDouble({ theme: light });
-      expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px rgba(12, 15, 20, 0.07),0 2px 2px 0 rgba(12, 15, 20, 0.07),0 4px 4px 0 rgba(12, 15, 20, 0.07);;label:shadowDouble;"',
-      );
-    });
-  });
-
-  describe('shadowTriple', () => {
-    it('should match the snapshot', () => {
-      const { styles } = shadowTriple({ theme: light });
-      expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px rgba(12, 15, 20, 0.07),0 4px 4px 0 rgba(12, 15, 20, 0.07),0 8px 8px 0 rgba(12, 15, 20, 0.07);;label:shadowTriple;"',
       );
     });
   });
