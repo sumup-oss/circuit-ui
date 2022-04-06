@@ -238,7 +238,6 @@ export const themePropType = PropTypes.shape({
     tooltip: PropTypes.number.isRequired,
     header: PropTypes.number.isRequired,
     backdrop: PropTypes.number.isRequired,
-    sidebar: PropTypes.number.isRequired,
     navigation: PropTypes.number.isRequired,
     modal: PropTypes.number.isRequired,
     toast: PropTypes.number.isRequired,

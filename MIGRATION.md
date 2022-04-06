@@ -2,11 +2,12 @@
 
 - [🤖 Codemods](#-codemods)
 - [From v4 to v5](#from-v4-to-v5)
+  - [Dependencies](#dependencies)
   - [New semantic color names](#new-semantic-color-names)
     - [In design tokens](#in-design-tokens)
     - [In component variants](#in-component-variants)
   - [Notification components](#notification-components)
-  - [Others](#others)
+  - [Other changes](#other-changes)
 - [From v4 to v4.1](#from-v4-to-v41)
   - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
 - [From v3.x to v4](#from-v3x-to-v4)
@@ -19,7 +20,7 @@
     - [Overview of `@sumup/icons` v2](#overview-of-sumupicons-v2)
     - [Migrating to `@sumup/icons` v2](#migrating-to-sumupicons-v2)
 - [From v2.x to v3](#from-v2x-to-v3)
-  - [Dependencies](#dependencies)
+  - [Dependencies](#dependencies-1)
   - [Accessibility](#accessibility)
   - [New JSX transform](#new-jsx-transform)
   - [Typography](#typography)
@@ -34,7 +35,7 @@
     - [Modal](#modal)
     - [Popover](#popover)
   - [Component heights](#component-heights)
-  - [Other changes](#other-changes)
+  - [Other changes](#other-changes-1)
   - [Cleaning up](#cleaning-up)
 - [From v1.x to v2](#from-v1x-to-v2)
   - [Library format](#library-format)
@@ -78,7 +79,13 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 
 ## From v4 to v5
 
-Circuit UI v5 is not out yet, but there are already steps you can take to make migration easier in the future.
+### Dependencies
+
+Start by upgrading `@sumup/circuit-ui` and its peer dependencies:
+
+```sh
+yarn upgrade @sumup/circuit-ui @sumup/design-tokens @sumup/icons --latest
+```
 
 ### New semantic color names
 
@@ -133,8 +140,9 @@ Furthermore, some patterns that were previously not supported by Circuit UI are 
 
 Read more about the new notification components in [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification).
 
-### Others
+### Other changes
 
+- The deprecated `zIndex.sidebar` design token was removed from `@sumup/design-tokens`. Use `sIndex.navigation` instead. There is no codemod for this change: search and replace the old value for the new one in your codebase.
 - The deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins were removed. Use the `shadow()` style mixin instead. There is no codemod for this change: migrate manually by searching for the deprecated style mixins in your codebase, and verify the changes visually.
 
 ## From v4 to v4.1
