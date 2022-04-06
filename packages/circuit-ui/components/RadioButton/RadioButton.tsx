@@ -64,7 +64,6 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     box-sizing: border-box;
     height: 18px;
     width: 18px;
-    box-shadow: 0;
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.n500};
     border-radius: 100%;
