@@ -24,7 +24,7 @@ const DEFAULT_HEIGHT = '48px';
 
 const Wrapper = styled.div(
   ({ theme }) => css`
-    ${shadow()};
+    ${shadow(theme)};
     ${hideScrollbar()}
     background: ${theme.colors.white};
     height: ${DEFAULT_HEIGHT};
