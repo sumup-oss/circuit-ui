@@ -105,10 +105,8 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
   font-weight: 700;
 }
 
@@ -265,10 +263,8 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 @media (max-width: 1279px) {
@@ -411,10 +407,8 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 @media (max-width: 1279px) {
@@ -565,10 +559,8 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
   font-weight: 700;
 }
 

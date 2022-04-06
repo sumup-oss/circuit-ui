@@ -168,10 +168,8 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 
 .circuit-6 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
   font-weight: 700;
 }
 
@@ -228,9 +226,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 12px;
   color: #000;
-  margin-bottom: 0;
 }
 
 .circuit-14 {
@@ -306,10 +302,8 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 
 .circuit-16 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 <div>
@@ -600,10 +594,8 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
 
 .circuit-6 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 @media (max-width: 1279px) {
