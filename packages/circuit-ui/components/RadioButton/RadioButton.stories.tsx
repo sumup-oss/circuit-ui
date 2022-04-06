@@ -28,6 +28,7 @@ export default {
     docs: { page: docs },
   },
   argTypes: {
+    label: { control: 'text' },
     name: { control: 'text' },
     value: { control: 'text' },
     disabled: { control: 'boolean' },
