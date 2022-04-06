@@ -25,7 +25,6 @@ import {
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
-import { deprecate } from '../../util/logger';
 import Tooltip from '../Tooltip';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -82,14 +81,12 @@ const wrapperBaseStyles = ({ theme }: StyleProps) => css`
 const wrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'Checkbox',
-        'The default outer spacing in the Checkbox component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The Checkbox component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
 

@@ -57,7 +57,6 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.regular};
-  margin-bottom: ${theme.spacings.mega};
 `;
 
 const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => css`
@@ -134,26 +133,23 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
   }
 };
 
-const marginStyles = ({ noMargin }: BodyProps & StyleProps) => {
+const marginStyles = ({ theme, noMargin }: BodyProps & StyleProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'Body',
-        'The default outer spacing in the Body component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The Body component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
-
-    return null;
+    return css`
+      margin-bottom: ${theme.spacings.mega};
+    `;
   }
 
-  return css`
-    margin-bottom: 0;
-  `;
+  return null;
 };
 
 const StyledBody = styled('p', {

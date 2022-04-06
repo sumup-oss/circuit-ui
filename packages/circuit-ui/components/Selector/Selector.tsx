@@ -24,7 +24,6 @@ import {
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
-import { deprecate } from '../../util/logger';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
@@ -83,7 +82,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
   border: none;
   border-radius: ${theme.borderRadius.byte};
   transition: box-shadow ${theme.transitions.default};
-  margin-bottom: ${theme.spacings.mega};
 
   &::before {
     display: block;
@@ -120,25 +118,23 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const disabledStyles = ({ disabled }: LabelElProps) =>
   disabled && css(disableVisually());
 
-const noMarginStyles = ({ noMargin }: LabelElProps) => {
+const noMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'Selector',
-        'The default outer spacing in the Selector component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The Selector component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
 
-    return null;
+    return css`
+      margin-bottom: ${theme.spacings.mega};
+    `;
   }
-  return css`
-    margin-bottom: 0;
-  `;
+  return null;
 };
 
 const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
