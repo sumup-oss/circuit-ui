@@ -60,8 +60,6 @@ export { default as TextArea } from './components/TextArea';
 export type { TextAreaProps } from './components/TextArea';
 export { default as CurrencyInput } from './components/CurrencyInput';
 export type { CurrencyInputProps } from './components/CurrencyInput';
-export { default as InlineMessage } from './components/InlineMessage';
-export type { InlineMessageProps } from './components/InlineMessage';
 export { default as ImageInput } from './components/ImageInput';
 export type { ImageInputProps } from './components/ImageInput';
 
@@ -84,14 +82,6 @@ export { default as SelectorGroup } from './components/SelectorGroup';
 export type { SelectorGroupProps } from './components/SelectorGroup';
 
 // Notifications
-export { default as Notification } from './components/Notification';
-export type { NotificationProps } from './components/Notification';
-export { default as NotificationCard } from './components/NotificationCard';
-export type { NotificationCardProps } from './components/NotificationCard';
-export { default as NotificationBanner } from './components/NotificationBanner';
-export type { NotificationBannerProps } from './components/NotificationBanner';
-export { default as NotificationList } from './components/NotificationList';
-export type { NotificationListProps } from './components/NotificationList';
 export { default as NotificationFullscreen } from './components/NotificationFullscreen';
 export type { NotificationFullscreenProps } from './components/NotificationFullscreen';
 export { useNotificationToast } from './components/NotificationToast';
