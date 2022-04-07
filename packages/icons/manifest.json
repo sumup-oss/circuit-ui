@@ -451,6 +451,11 @@
       "size": "32"
     },
     {
+      "name": "vr",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "flag_ar",
       "category": "Country flag",
       "size": "16"
