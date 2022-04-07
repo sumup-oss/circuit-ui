@@ -1,5 +1,17 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.3
+
+### Major Changes
+
+- [#1513](https://github.com/sumup-oss/circuit-ui/pull/1513) [`4740ef30`](https://github.com/sumup-oss/circuit-ui/commit/4740ef30d22ec5f482c9d259454dadb03bdcef83) Thanks [@amelako](https://github.com/amelako)! - Removed the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable.
+
+* [#1512](https://github.com/sumup-oss/circuit-ui/pull/1512) [`b7712b30`](https://github.com/sumup-oss/circuit-ui/commit/b7712b3054b9c652c42d344da60e208828006d89) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the `RadioButton`'s deprecated `children` prop. Use the `label` prop (now required) instead, in both the `RadioButton` and the `RadioButtonGroup`'s `options`.
+
+- [#1510](https://github.com/sumup-oss/circuit-ui/pull/1510) [`908f1e77`](https://github.com/sumup-oss/circuit-ui/commit/908f1e77b25add3497c9dfcfecdd238bb035d79f) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins. Use the `shadow()` style mixin instead.
+
+* [#1512](https://github.com/sumup-oss/circuit-ui/pull/1512) [`b7712b30`](https://github.com/sumup-oss/circuit-ui/commit/b7712b3054b9c652c42d344da60e208828006d89) Thanks [@robinmetral](https://github.com/robinmetral)! - Made the `RadioButton`'s `label` prop required and throw an error if it isn't passed. This is an accessibility requirement.
+
 ## 5.0.0-canary.2
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 4.0.0-canary.0
+
+### Major Changes
+
+- [#1509](https://github.com/sumup-oss/circuit-ui/pull/1509) [`c7dfe6a4`](https://github.com/sumup-oss/circuit-ui/commit/c7dfe6a4b1b6c78a2477a8de2ac82a35a8f71dd6) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `zIndex.sidebar` token. Use `zIndex.navigation` instead.
+
 ## 3.4.0
 
 ### Minor Changes
