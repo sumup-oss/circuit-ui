@@ -2,11 +2,11 @@
 
 - [🤖 Codemods](#-codemods)
 - [From v4 to v5](#from-v4-to-v5)
-  - [Dependencies](#dependencies)
   - [New semantic color names](#new-semantic-color-names)
-    - [In design tokens](#in-design-tokens)
-    - [In component variants](#in-component-variants)
-  - [Notification components](#notification-components)
+    - [...in design tokens](#in-design-tokens)
+    - [...in component variants](#in-component-variants)
+  - [New notification components](#new-notification-components)
+  - [Required accessible labels](#required-accessible-labels)
   - [Other changes](#other-changes)
 - [From v4 to v4.1](#from-v4-to-v41)
   - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
@@ -20,7 +20,7 @@
     - [Overview of `@sumup/icons` v2](#overview-of-sumupicons-v2)
     - [Migrating to `@sumup/icons` v2](#migrating-to-sumupicons-v2)
 - [From v2.x to v3](#from-v2x-to-v3)
-  - [Dependencies](#dependencies-1)
+  - [Dependencies](#dependencies)
   - [Accessibility](#accessibility)
   - [New JSX transform](#new-jsx-transform)
   - [Typography](#typography)
@@ -79,19 +79,15 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 
 ## From v4 to v5
 
-### Dependencies
+Circuit UI v5 is a maintenance release, primarily removing deprecated components and props.
 
-Start by upgrading `@sumup/circuit-ui` and its peer dependencies:
-
-```sh
-yarn upgrade @sumup/circuit-ui @sumup/design-tokens @sumup/icons --latest
-```
+> :warning: In order to make the migration from v4 to v5 easier, we recommend that you address the changes listed below _before_ upgrading the Circuit UI dependencies. Deprecation warnings can also help identify code that needs to be migrated.
 
 ### New semantic color names
 
-#### In design tokens
+#### ...in design tokens
 
-New semantic color names were introduced in `@sumup/design-tokens@3.4.0`. The legacy names were deprecated and will be removed in v5.
+New semantic color names were introduced in `@sumup/design-tokens@3.4.0`. The legacy names were deprecated and have been removed in v5.
 
 | Legacy name | New name  |
 | ----------- | --------- |
@@ -103,7 +99,7 @@ The new naming brings cross-platform consistency, as well as alignment with some
 
 _🤖 semantic-color-names_
 
-#### In component variants
+#### ...in component variants
 
 Some `Body`, `BodyLarge` and `Badge` component variants were also renamed for consistency with the new design tokens:
 
@@ -117,15 +113,15 @@ Some `Body`, `BodyLarge` and `Badge` component variants were also renamed for co
 
 _Note: the `Body` variants mapping above also apply to the `BodyLarge` component._
 
-The legacy variant names were deprecated and will be removed in v5.
+The legacy variant names were deprecated in v4.14.0 and will be removed in v5.
 
 _🤖 semantic-variant-names_
 
-### Notification components
+### New notification components
 
-The legacy Circuit UI notification components (`Notification`, `NotificationList`, `NotificationCard` and `InlineMessage`) were general purpose, lacking clear guidelines on when to use which and leading to inconsistent usage in our apps.
+The legacy Circuit UI notification components (`Notification`, `NotificationList`, `NotificationCard` and `InlineMessage`) were general purpose and lacking clear guidelines on when to use which, leading to inconsistent usage in our apps.
 
-They were deprecated in v4.14.0 and replaced by semantic, accessible components that make it clear when each should be used and are flexible enough to cover all use cases (`NotificationBanner`, `NotificationFullscreen`, `NotificationModal`, `NotificationToast` and `NotificationInline`). The legacy components will be removed in v5.
+They were deprecated in v4.14.0 and replaced by semantic, accessible components that make it clear when each should be used and are flexible enough to cover all use cases (`NotificationBanner`, `NotificationFullscreen`, `NotificationModal`, `NotificationToast` and `NotificationInline`). The legacy components have been removed in v5.
 
 To migrate to the new notifications, you'll need to:
 
@@ -139,6 +135,14 @@ Furthermore, some patterns that were previously not supported by Circuit UI are 
 - The new `NotificationFullscreen` can replace custom full-screen messages such as error pages or empty states, for more consistency across pages.
 
 Read more about the new notification components in [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification).
+
+### Required accessible labels
+
+In [Circuit UI v3](#accessibility), components requiring accessible labels started throwing an error when the labels weren't being passed. This behavior could be worked around for migration purposes by setting the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable.
+
+In v5, the workaround was removed, meaning that all components that require accessible labels expect to receive them.
+
+Before migrating, make sure that you add appropriate and localized labels for all occurrences flagged by the error mechanism. After that, stop setting the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable.
 
 ### Other changes
 
