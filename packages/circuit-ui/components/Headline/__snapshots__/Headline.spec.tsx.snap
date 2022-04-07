@@ -3,11 +3,11 @@
 exports[`Headline should render as h1 element 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 32px;
   line-height: 36px;
+  margin-bottom: 24px;
 }
 
 <h1
@@ -20,11 +20,11 @@ exports[`Headline should render as h1 element 1`] = `
 exports[`Headline should render as h2 element 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 32px;
   line-height: 36px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -37,11 +37,11 @@ exports[`Headline should render as h2 element 1`] = `
 exports[`Headline should render as h3 element 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 32px;
   line-height: 36px;
+  margin-bottom: 24px;
 }
 
 <h3
@@ -54,11 +54,11 @@ exports[`Headline should render as h3 element 1`] = `
 exports[`Headline should render as h4 element 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 32px;
   line-height: 36px;
+  margin-bottom: 24px;
 }
 
 <h4
@@ -71,11 +71,11 @@ exports[`Headline should render as h4 element 1`] = `
 exports[`Headline should render as h5 element 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 32px;
   line-height: 36px;
+  margin-bottom: 24px;
 }
 
 <h5
@@ -88,11 +88,11 @@ exports[`Headline should render as h5 element 1`] = `
 exports[`Headline should render as h6 element 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 32px;
   line-height: 36px;
+  margin-bottom: 24px;
 }
 
 <h6
@@ -105,12 +105,10 @@ exports[`Headline should render as h6 element 1`] = `
 exports[`Headline should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 32px;
   line-height: 36px;
-  margin-bottom: 0;
 }
 
 <h2
@@ -123,11 +121,11 @@ exports[`Headline should render with no margin styles when passed the noMargin p
 exports[`Headline should render with size four 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 18px;
   line-height: 24px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -140,11 +138,11 @@ exports[`Headline should render with size four 1`] = `
 exports[`Headline should render with size one 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 32px;
   line-height: 36px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -157,11 +155,11 @@ exports[`Headline should render with size one 1`] = `
 exports[`Headline should render with size three 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 20px;
   line-height: 24px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -174,11 +172,11 @@ exports[`Headline should render with size three 1`] = `
 exports[`Headline should render with size two 1`] = `
 .circuit-0 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 24px;
   line-height: 28px;
+  margin-bottom: 24px;
 }
 
 <h2

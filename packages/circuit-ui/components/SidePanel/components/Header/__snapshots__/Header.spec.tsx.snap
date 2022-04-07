@@ -49,12 +49,10 @@ exports[`Header should have a bottom separator when sticky 1`] = `
 
 .circuit-1 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 18px;
   line-height: 24px;
-  margin-bottom: 0;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -276,12 +274,10 @@ exports[`Header should match the snapshot 1`] = `
 
 .circuit-1 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 18px;
   line-height: 24px;
-  margin-bottom: 0;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;

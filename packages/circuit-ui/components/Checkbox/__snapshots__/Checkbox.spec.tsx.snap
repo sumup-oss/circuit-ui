@@ -765,14 +765,6 @@ exports[`Checkbox should render with noMargin styles when passed the noMargin pr
   position: relative;
 }
 
-.circuit-0:last-of-type {
-  margin-bottom: 16px;
-}
-
-.circuit-0:last-of-type {
-  margin-bottom: 0;
-}
-
 .circuit-1 {
   border: 0;
   clip: rect(0 0 0 0);

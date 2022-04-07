@@ -70,15 +70,14 @@ const CheckboxLabel = styled('label')<LabelElProps>(
 
 type WrapperElProps = Pick<CheckboxProps, 'noMargin'>;
 
-const wrapperBaseStyles = ({ theme }: StyleProps) => css`
+const wrapperBaseStyles = () => css`
   position: relative;
-
-  &:last-of-type {
-    margin-bottom: ${theme.spacings.mega};
-  }
 `;
 
-const wrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
+const wrapperNoMarginStyles = ({
+  theme,
+  noMargin,
+}: StyleProps & WrapperElProps) => {
   if (!noMargin) {
     if (
       process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
@@ -89,14 +88,13 @@ const wrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
         'The Checkbox component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
-
-    return null;
+    return css`
+      &:last-of-type {
+        margin-bottom: ${theme.spacings.mega};
+      }
+    `;
   }
-  return css`
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-  `;
+  return null;
 };
 
 const CheckboxWrapper = styled('div')<WrapperElProps>(

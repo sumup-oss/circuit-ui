@@ -40,7 +40,6 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.bold};
-  margin-bottom: ${theme.spacings.giga};
   color: ${theme.colors.black};
   letter-spacing: -0.03em;
 `;
@@ -50,7 +49,7 @@ const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => css`
   line-height: ${theme.typography.headline[size].lineHeight};
 `;
 
-const noMarginStyles = ({ noMargin }: HeadlineProps) => {
+const noMarginStyles = ({ theme, noMargin }: StyleProps & HeadlineProps) => {
   if (!noMargin) {
     if (
       process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
@@ -62,12 +61,12 @@ const noMarginStyles = ({ noMargin }: HeadlineProps) => {
       );
     }
 
-    return null;
+    return css`
+      margin-bottom: ${theme.spacings.giga};
+    `;
   }
 
-  return css`
-    margin-bottom: 0;
-  `;
+  return null;
 };
 
 /**
