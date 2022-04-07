@@ -130,14 +130,7 @@ export const RadioButtonGroup = forwardRef(
         <Legend hideLabel={hideLabel}>{label}</Legend>
         {options &&
           options.map(
-            ({
-              children,
-              label: optionLabel,
-              value,
-              className,
-              style,
-              ...rest
-            }) => (
+            ({ label: optionLabel, value, className, style, ...rest }) => (
               <div
                 key={value && value.toString()}
                 className={className}
@@ -146,7 +139,7 @@ export const RadioButtonGroup = forwardRef(
                 <RadioButton
                   {...{ ...rest, value, name, required, onChange }}
                   checked={value === activeValue}
-                  label={optionLabel || children}
+                  label={optionLabel}
                 />
               </div>
             ),

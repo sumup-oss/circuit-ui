@@ -34,14 +34,9 @@ import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 export interface RadioButtonProps
   extends InputHTMLAttributes<HTMLInputElement> {
   /**
-   * @deprecated
-   * Use the label prop instead.
-   */
-  children?: ReactNode;
-  /**
    * A clear and concise description of the option's purpose.
    */
-  label?: ReactNode;
+  label: ReactNode;
   /**
    * Triggers error styles on the component.
    */
@@ -69,7 +64,6 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     box-sizing: border-box;
     height: 18px;
     width: 18px;
-    box-shadow: 0;
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.n500};
     border-radius: 100%;
@@ -196,7 +190,6 @@ export const RadioButton = forwardRef(
   (
     {
       onChange,
-      children,
       label,
       id: customId,
       name,
@@ -211,6 +204,15 @@ export const RadioButton = forwardRef(
     }: RadioButtonProps,
     ref: RadioButtonProps['ref'],
   ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label
+    ) {
+      throw new Error(
+        'The RadioButton component is missing a `label` prop. This is an accessibility requirement.',
+      );
+    }
     const id = customId || uniqueId('radio-button_');
     const handleChange = useClickEvent(onChange, tracking, 'radio-button');
 
@@ -238,7 +240,7 @@ export const RadioButton = forwardRef(
           className={className}
           style={style}
         >
-          {children || label}
+          {label}
         </RadioButtonLabel>
       </Fragment>
     );

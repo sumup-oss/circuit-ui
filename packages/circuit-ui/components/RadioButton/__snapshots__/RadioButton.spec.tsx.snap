@@ -68,7 +68,6 @@ HTMLCollection [
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  box-shadow: 0;
   background-color: #FFF;
   border: 1px solid #999;
   border-radius: 100%;
@@ -181,7 +180,6 @@ HTMLCollection [
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  box-shadow: 0;
   background-color: #FFF;
   border: 1px solid #999;
   border-radius: 100%;
@@ -298,7 +296,6 @@ HTMLCollection [
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  box-shadow: 0;
   background-color: #FFF;
   border: 1px solid #999;
   border-radius: 100%;
@@ -436,7 +433,6 @@ HTMLCollection [
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  box-shadow: 0;
   background-color: #FFF;
   border: 1px solid #999;
   border-radius: 100%;
