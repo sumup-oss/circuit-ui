@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [#1515](https://github.com/sumup-oss/circuit-ui/pull/1515) [`60961522`](https://github.com/sumup-oss/circuit-ui/commit/6096152255665da1e09e84857dbb2e22e4e337af) Thanks [@hris27](https://github.com/hris27)! - Added VR Benefícios card scheme icon.
+- [#1515](https://github.com/sumup-oss/circuit-ui/pull/1515) [`60961522`](https://github.com/sumup-oss/circuit-ui/commit/6096152255665da1e09e84857dbb2e22e4e337af) Thanks [@hris27](https://github.com/hris27)! - Added the VR Benefícios card scheme icon.
 
 ## 2.5.0
 
