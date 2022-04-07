@@ -12,12 +12,6 @@
 
 * [#1512](https://github.com/sumup-oss/circuit-ui/pull/1512) [`b7712b30`](https://github.com/sumup-oss/circuit-ui/commit/b7712b3054b9c652c42d344da60e208828006d89) Thanks [@robinmetral](https://github.com/robinmetral)! - Made the `RadioButton`'s `label` prop required and throw an error if it isn't passed. This is an accessibility requirement.
 
-### Patch Changes
-
-- Updated dependencies [[`60961522`](https://github.com/sumup-oss/circuit-ui/commit/6096152255665da1e09e84857dbb2e22e4e337af), [`c7dfe6a4`](https://github.com/sumup-oss/circuit-ui/commit/c7dfe6a4b1b6c78a2477a8de2ac82a35a8f71dd6)]:
-  - @sumup/icons@2.6.0-canary.0
-  - @sumup/design-tokens@4.0.0-canary.0
-
 ## 5.0.0-canary.2
 
 ### Minor Changes
