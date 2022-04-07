@@ -191,7 +191,6 @@ const TableHeader: FC<TableHeaderProps> = ({
   ...props
 }) => {
   if (
-    process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
     sortParams.sortable &&
