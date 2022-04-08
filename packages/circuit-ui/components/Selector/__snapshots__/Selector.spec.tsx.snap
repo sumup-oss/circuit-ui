@@ -54,7 +54,6 @@ HTMLCollection [
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
   padding: calc(12px) 24px;
-  margin-bottom: 16px;
 }
 
 .circuit-0::before {
@@ -151,7 +150,6 @@ HTMLCollection [
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
   padding: calc(12px) 24px;
-  margin-bottom: 16px;
 }
 
 .circuit-0::before {
@@ -189,6 +187,103 @@ HTMLCollection [
 <label
     class="circuit-0"
     for="selector_1"
+  >
+    Label
+  </label>,
+]
+`;
+
+exports[`Selector should render a default spacing when there is no noMargin prop passed 1`] = `
+HTMLCollection [
+  .circuit-0 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus+label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus+label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible)+label::before {
+  box-shadow: none;
+}
+
+.circuit-0:checked+label {
+  background-color: #F0F6FF;
+}
+
+.circuit-0:checked+label::before {
+  border: 2px solid #3063E9;
+}
+
+<input
+    class="circuit-0"
+    id="selector_4"
+    name="name"
+    type="radio"
+    value="value"
+  />,
+  .circuit-0 {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #FFF;
+  text-align: center;
+  position: relative;
+  border: none;
+  border-radius: 8px;
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+  padding: calc(12px) 24px;
+  margin-bottom: 16px;
+}
+
+.circuit-0::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid #CCC;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
+}
+
+.circuit-0:hover {
+  background-color: #F5F5F5;
+}
+
+.circuit-0:hover::before {
+  border-color: #999;
+}
+
+.circuit-0:active {
+  background-color: #E6E6E6;
+}
+
+.circuit-0:active::before {
+  border-color: #666;
+}
+
+<label
+    class="circuit-0"
+    for="selector_4"
   >
     Label
   </label>,
@@ -252,7 +347,6 @@ HTMLCollection [
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  margin-bottom: 16px;
 }
 
 .circuit-0::before {
@@ -291,102 +385,6 @@ HTMLCollection [
     class="circuit-0"
     disabled=""
     for="selector_2"
-  >
-    Label
-  </label>,
-]
-`;
-
-exports[`Selector should render a noMargin selector 1`] = `
-HTMLCollection [
-  .circuit-0 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-0:focus+label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus+label::before::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0:focus:not(:focus-visible)+label::before {
-  box-shadow: none;
-}
-
-.circuit-0:checked+label {
-  background-color: #F0F6FF;
-}
-
-.circuit-0:checked+label::before {
-  border: 2px solid #3063E9;
-}
-
-<input
-    class="circuit-0"
-    id="selector_4"
-    name="name"
-    type="radio"
-    value="value"
-  />,
-  .circuit-0 {
-  display: inline-block;
-  cursor: pointer;
-  background-color: #FFF;
-  text-align: center;
-  position: relative;
-  border: none;
-  border-radius: 8px;
-  -webkit-transition: box-shadow 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out;
-  padding: calc(12px) 24px;
-}
-
-.circuit-0::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  border: 1px solid #CCC;
-  -webkit-transition: border 120ms ease-in-out;
-  transition: border 120ms ease-in-out;
-}
-
-.circuit-0:hover {
-  background-color: #F5F5F5;
-}
-
-.circuit-0:hover::before {
-  border-color: #999;
-}
-
-.circuit-0:active {
-  background-color: #E6E6E6;
-}
-
-.circuit-0:active::before {
-  border-color: #666;
-}
-
-<label
-    class="circuit-0"
-    for="selector_4"
   >
     Label
   </label>,

@@ -21,8 +21,6 @@ import Body from '../../../Body';
 import { typography } from '../../../../styles/style-mixins';
 
 const textStyles = ({ theme }) => css`
-  margin-bottom: 0;
-
   ${theme.mq.untilKilo} {
     ${typography('two')(theme)};
   }
@@ -30,7 +28,7 @@ const textStyles = ({ theme }) => css`
 const StyledText = styled(Body)(textStyles);
 
 const Status = ({ step, total, ...props }) => (
-  <StyledText variant="highlight" {...props}>
+  <StyledText noMargin variant="highlight" {...props}>
     {step + 1} / {total}
   </StyledText>
 );

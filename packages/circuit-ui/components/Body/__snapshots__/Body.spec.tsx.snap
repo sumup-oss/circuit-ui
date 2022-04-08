@@ -5,7 +5,6 @@ exports[`Body should render as a "alert" variant 1`] = `
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 16px;
   color: #D23F47;
 }
 
@@ -22,7 +21,6 @@ exports[`Body should render as a "confirm" variant 1`] = `
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 16px;
   color: #138849;
 }
 
@@ -39,7 +37,6 @@ exports[`Body should render as a "error" variant 1`] = `
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 16px;
   color: #D23F47;
 }
 
@@ -56,7 +53,6 @@ exports[`Body should render as a "highlight" variant 1`] = `
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 16px;
   font-weight: 700;
 }
 
@@ -73,7 +69,6 @@ exports[`Body should render as a "quote" variant 1`] = `
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 16px;
   font-style: italic;
   padding-left: 12px;
   border-left: 2px solid #3063E9;
@@ -92,7 +87,6 @@ exports[`Body should render as a "subtle" variant 1`] = `
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 16px;
   color: #666;
 }
 
@@ -109,7 +103,6 @@ exports[`Body should render as a "success" variant 1`] = `
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 16px;
   color: #138849;
 }
 
@@ -121,26 +114,12 @@ exports[`Body should render as a "success" variant 1`] = `
 </p>
 `;
 
-exports[`Body should render with default styles 1`] = `
+exports[`Body should render with default spacing when there is no noMargin prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 16px;
-}
-
-<p
-  class="circuit-0"
->
-  Body
-</p>
-`;
-
-exports[`Body should render with no margin styles when passed the noMargin prop 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
 }
 
 <p
@@ -150,12 +129,25 @@ exports[`Body should render with no margin styles when passed the noMargin prop 
 </p>
 `;
 
+exports[`Body should render with default styles 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+<p
+  class="circuit-0"
+>
+  Body
+</p>
+`;
+
 exports[`Body should render with size "one" 1`] = `
 .circuit-0 {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 16px;
 }
 
 <p
@@ -171,7 +163,6 @@ exports[`Body should render with size "two" 1`] = `
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 16px;
 }
 
 <p
