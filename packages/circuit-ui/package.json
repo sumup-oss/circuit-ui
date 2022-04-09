@@ -39,7 +39,7 @@
     "cross-spawn": "^7.0.3",
     "jscodeshift": "^0.13.0",
     "lodash": "^4.17.11",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "prop-types": "^15.7.2",
     "react-dates": "^21.2.0",
     "react-modal": "^3.14.4",
