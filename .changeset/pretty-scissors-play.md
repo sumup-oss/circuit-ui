@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': major
 ---
 
-Removed deprecated `Notification`, `NotificationCard`, `NotificationList` and `InlineMessage` components.
+Removed the deprecated `Notification`, `NotificationCard`, `NotificationList` and `InlineMessage` components.
