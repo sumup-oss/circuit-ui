@@ -54,7 +54,7 @@ describe('Body', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with default spacing when there is no noMargin prop', () => {
+  it('should render with outer spacing when there is no noMargin prop', () => {
     const actual = create(<Body>noMargin Body</Body>);
     expect(actual).toMatchSnapshot();
   });
