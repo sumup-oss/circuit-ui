@@ -7,6 +7,7 @@
     - [...in component variants](#in-component-variants)
   - [New notification components](#new-notification-components)
   - [Required accessible labels](#required-accessible-labels)
+  - [noMargin prop dev-time error](#nomargin-prop-dev-time-error)
   - [Other changes](#other-changes)
 - [From v4 to v4.1](#from-v4-to-v41)
   - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
@@ -143,6 +144,22 @@ In [Circuit UI v3](#accessibility), components requiring accessible labels start
 In v5, the workaround was removed, meaning that all components that require accessible labels expect to receive them.
 
 Before migrating, make sure that you add appropriate and localized labels for all occurrences flagged by the error mechanism. After that, stop setting the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable.
+
+### noMargin prop dev-time error
+
+Since it require large scale changes in the apps, the noMargin prop is not removed in the v5, instead the components throw runtime errors in development at missing noMargin prop. Production and testing builds are not affected.
+
+During the migration you can use an escape hatch to continue running the app in development without throwing the noMargin prop errors.
+
+In your app, expose the `UNSAFE_DISABLE_NO_MARGIN_ERRORS` environment variable. You can use the [Webpack `DefinePlugin`](https://webpack.js.org/plugins/define-plugin/) ([here's an example](https://github.com/sumup-oss/circuit-ui/blob/main/.storybook/main.js#L45-L53) in the Circuit UI Storybook config) or, if your app uses Next.js, you can declare the variable in your `next.config.js` ([Next.js documentation](https://nextjs.org/docs/api-reference/next.config.js/environment-variables)).
+
+Now, if you want to turn off the noMargin errors temporarily, run the development app with the environment variable set to `true`:
+
+```sh
+UNSAFE_DISABLE_NO_MARGIN_ERRORS=true yarn dev # or yarn start
+```
+
+Keep in mind that this escape hatch is not meant as a way to permanently avoid the errors, but as a temporary workaround while the noMargin prop is still required.
 
 ### Other changes
 
