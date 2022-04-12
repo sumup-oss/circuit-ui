@@ -17,21 +17,12 @@ import { Ref, forwardRef, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { deprecate } from '../../util/logger';
 
 export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Choose from 4 style variants. Default: 'neutral'.
    */
-  variant?:
-    | 'neutral'
-    | 'success'
-    | 'confirm'
-    | 'warning'
-    | 'notify'
-    | 'danger'
-    | 'alert'
-    | 'promo';
+  variant?: 'neutral' | 'confirm' | 'notify' | 'alert' | 'promo';
   /**
    * Use the circular badge to indicate a count of items related to an element.
    */
@@ -80,53 +71,6 @@ const variantStyles = ({
   theme,
   variant = 'neutral',
 }: StyleProps & BadgeProps) => {
-  // TODO: remove the legacy variants and this switch statement in v5
-  /* eslint-disable no-param-reassign */
-  switch (variant) {
-    case 'success':
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test'
-      ) {
-        deprecate(
-          'Badge',
-          "The Badge's `success` variant is deprecated.",
-          'Use the `confirm` variant instead.',
-        );
-      }
-      variant = 'confirm';
-      break;
-    case 'warning':
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test'
-      ) {
-        deprecate(
-          'Badge',
-          "The Badge's `warning` variant is deprecated.",
-          'Use the `notify` variant instead.',
-        );
-      }
-      variant = 'notify';
-      break;
-    case 'danger':
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test'
-      ) {
-        deprecate(
-          'Badge',
-          "The Badge's `danger` variant is deprecated.",
-          'Use the `alert` variant instead.',
-        );
-      }
-      variant = 'alert';
-      break;
-    default:
-      break;
-  }
-  /* eslint-enable no-param-reassign */
-
   const currentColor = COLOR_MAP[variant];
   return css`
     background-color: ${theme.colors[currentColor.background]};

@@ -75,12 +75,12 @@ const detailsStyles = css`
 
 const successfulIconStyles = (theme: Theme) => css`
   margin-right: ${theme.spacings.bit};
-  color: ${theme.colors.success};
+  color: ${theme.colors.confirm};
 `;
 
 const failedIconStyles = (theme: Theme) => css`
   margin-right: ${theme.spacings.bit};
-  color: ${theme.colors.danger};
+  color: ${theme.colors.alert};
 `;
 
 const Details = ({ item }: { item: Item }) => (

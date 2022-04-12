@@ -18,18 +18,10 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { deprecate } from '../../util/logger';
 import { AsPropType } from '../../types/prop-types';
 
 type Size = 'one' | 'two';
-type Variant =
-  | 'highlight'
-  | 'quote'
-  | 'success'
-  | 'confirm'
-  | 'error'
-  | 'alert'
-  | 'subtle';
+type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 
 export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
@@ -65,40 +57,6 @@ const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => css`
 `;
 
 const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
-  // TODO: remove the legacy variants and this switch statement in v5
-  /* eslint-disable no-param-reassign */
-  switch (variant) {
-    case 'success':
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test'
-      ) {
-        deprecate(
-          'Body',
-          "The Body's `success` variant is deprecated.",
-          'Use the `confirm` variant instead.',
-        );
-      }
-      variant = 'confirm';
-      break;
-    case 'error':
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test'
-      ) {
-        deprecate(
-          'Body',
-          "The Body's `error` variant is deprecated.",
-          'Use the `alert` variant instead.',
-        );
-      }
-      variant = 'alert';
-      break;
-    default:
-      break;
-  }
-  /* eslint-enable no-param-reassign */
-
   switch (variant) {
     default: {
       return null;
