@@ -80,9 +80,6 @@ export type Colors = {
   overlay: string;
   bodyBg: string;
   bodyColor: string;
-  danger: string;
-  success: string;
-  warning: string;
   info: string;
   confirm: string;
   alert: string;
