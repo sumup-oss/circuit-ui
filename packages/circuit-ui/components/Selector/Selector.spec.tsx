@@ -37,12 +37,16 @@ describe('Selector', () => {
    * Style tests.
    */
   it('should render a default selector', () => {
-    const actual = create(<Selector {...defaultProps}>Label</Selector>);
+    const actual = create(
+      <Selector noMargin {...defaultProps}>
+        Label
+      </Selector>,
+    );
     expect(actual).toMatchSnapshot();
   });
   it('should render a disabled selector', () => {
     const actual = create(
-      <Selector {...defaultProps} disabled>
+      <Selector noMargin {...defaultProps} disabled>
         Label
       </Selector>,
     );
@@ -50,32 +54,30 @@ describe('Selector', () => {
   });
   it('should render a checked selector', () => {
     const actual = create(
-      <Selector {...defaultProps} checked>
+      <Selector noMargin {...defaultProps} checked>
         Label
       </Selector>,
     );
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render a noMargin selector', () => {
-    const actual = create(
-      <Selector {...defaultProps} noMargin>
-        Label
-      </Selector>,
-    );
+  it('should render a default spacing when there is no noMargin prop passed', () => {
+    const actual = create(<Selector {...defaultProps}>Label</Selector>);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render a radio input by default', () => {
     const { getByLabelText } = render(
-      <Selector {...defaultProps}>Label</Selector>,
+      <Selector noMargin {...defaultProps}>
+        Label
+      </Selector>,
     );
     expect(getByLabelText('Label')).toHaveAttribute('type', 'radio');
   });
 
   it('should render a checkbox input when multiple options can be selected', () => {
     const { getByLabelText } = render(
-      <Selector {...defaultProps} multiple>
+      <Selector noMargin {...defaultProps} multiple>
         Label
       </Selector>,
     );
@@ -87,7 +89,9 @@ describe('Selector', () => {
    */
   it('should be unchecked by default', () => {
     const { getByLabelText } = render(
-      <Selector {...defaultProps}>Label</Selector>,
+      <Selector noMargin {...defaultProps}>
+        Label
+      </Selector>,
     );
     const inputEl = getByLabelText('Label', {
       exact: false,
@@ -97,7 +101,9 @@ describe('Selector', () => {
 
   it('should call the change handler when clicked', () => {
     const { getByLabelText } = render(
-      <Selector {...defaultProps}>Label</Selector>,
+      <Selector noMargin {...defaultProps}>
+        Label
+      </Selector>,
     );
     const inputEl = getByLabelText('Label', {
       exact: false,
@@ -116,7 +122,9 @@ describe('Selector', () => {
      */
     it('should accept a working ref', () => {
       const tref = createRef<HTMLInputElement>();
-      const { container } = render(<Selector {...defaultProps} ref={tref} />);
+      const { container } = render(
+        <Selector noMargin {...defaultProps} ref={tref} />,
+      );
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
     });
@@ -126,7 +134,11 @@ describe('Selector', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Selector {...defaultProps}>Label</Selector>);
+    const wrapper = renderToHtml(
+      <Selector noMargin {...defaultProps}>
+        Label
+      </Selector>,
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

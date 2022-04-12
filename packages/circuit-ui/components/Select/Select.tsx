@@ -29,7 +29,6 @@ import { ReturnType } from '../../types/return-type';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
-import { deprecate } from '../../util/logger';
 
 export type SelectOption = {
   value: string | number;
@@ -141,14 +140,12 @@ type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
 const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'Select',
-        'The default outer spacing in the Select component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The Select component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
 

@@ -104,18 +104,14 @@ exports[`Toggle should render with default styles 1`] = `
 
 .circuit-5 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-6 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 0;
   color: #666;
 }
 
@@ -168,8 +164,6 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  margin-bottom: 16px;
-  margin-bottom: 0;
 }
 
 @media (max-width: 479px) {
@@ -263,18 +257,14 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
 
 .circuit-5 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-6 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 0;
   color: #666;
 }
 

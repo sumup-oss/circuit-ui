@@ -19,7 +19,6 @@ import { css } from '@emotion/react';
 import styled, { StyleProps } from '../../styles/styled';
 import { disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import { deprecate } from '../../util/logger';
 import { Body, BodyProps } from '../Body/Body';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
@@ -67,7 +66,6 @@ type WrapperElProps = Pick<ToggleProps, 'noMargin' | 'disabled'>;
 const toggleWrapperStyles = ({ theme }: StyleProps) => css`
   display: flex;
   align-items: flex-start;
-  margin-bottom: ${theme.spacings.mega};
 
   ${theme.mq.untilKilo} {
     flex-direction: row-reverse;
@@ -81,25 +79,26 @@ const toggleWrapperDisabledStyles = ({ disabled }: WrapperElProps) =>
     ${disableVisually()};
   `;
 
-const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
+const toggleWrapperNoMarginStyles = ({
+  theme,
+  noMargin,
+}: StyleProps & WrapperElProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'Toggle',
-        'The default outer spacing in the Toggle component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The Toggle component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
 
-    return null;
+    return css`
+      margin-bottom: ${theme.spacings.mega};
+    `;
   }
-  return css`
-    margin-bottom: 0;
-  `;
+  return null;
 };
 
 const ToggleWrapper = styled('div')<WrapperElProps>(

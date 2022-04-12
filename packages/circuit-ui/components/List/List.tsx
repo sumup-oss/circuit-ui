@@ -19,7 +19,6 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
-import { deprecate } from '../../util/logger';
 
 type Size = 'one' | 'two';
 type Variant = 'ordered' | 'unordered';
@@ -45,7 +44,6 @@ export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.regular};
-  margin-bottom: ${theme.spacings.mega};
 `;
 
 const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
@@ -71,42 +69,52 @@ const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
     li {
       margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     ul,
     ol {
       margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   `;
 };
 
-const marginStyles = ({ noMargin }: ListProps) => {
+const marginStyles = ({
+  theme,
+  noMargin,
+  size = 'one',
+}: StyleProps & ListProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'List',
-        'The default outer spacing in the List component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The List component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
+    const sizeMap = {
+      one: theme.spacings.byte,
+      two: theme.spacings.kilo,
+    };
+    return css`
+      margin-bottom: ${theme.spacings.mega};
 
-    return null;
+      li:last-child,
+      ul:last-child,
+      ol:last-child {
+        margin-bottom: ${sizeMap[size]};
+      }
+    `;
   }
-  return css`
-    margin-bottom: 0;
-    li:last-child {
-      margin-bottom: 0;
-    }
-    ul:last-child,
-    ol:last-child {
-      margin-bottom: 0;
-    }
-  `;
+  return null;
 };
 
 const BaseList = styled('ul', {

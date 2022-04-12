@@ -58,7 +58,15 @@ function createWebpackConfig(config) {
     }
     return rule;
   });
-
+  // Expose environment variables to Storybook
+  config.plugins = [
+    ...config.plugins,
+    new webpack.DefinePlugin({
+      'process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS': JSON.stringify(
+        process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS,
+      ),
+    }),
+  ];
   // Emotion 11
   config.resolve.alias = {
     ...config.resolve.alias,
