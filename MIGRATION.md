@@ -151,7 +151,7 @@ Since it require large scale changes in the apps, the noMargin prop is not remov
 
 During the migration you can use an escape hatch to continue running the app in development without throwing the noMargin prop errors.
 
-In your app, expose the `UNSAFE_DISABLE_NO_MARGIN_ERRORS` environment variable. You can use the [Webpack `DefinePlugin`](https://webpack.js.org/plugins/define-plugin/) ([here's an example](https://github.com/sumup-oss/circuit-ui/blob/main/.storybook/main.js#L45-L53) in the Circuit UI Storybook config) or, if your app uses Next.js, you can declare the variable in your `next.config.js` ([Next.js documentation](https://nextjs.org/docs/api-reference/next.config.js/environment-variables)).
+In your app, expose the `UNSAFE_DISABLE_NO_MARGIN_ERRORS` environment variable. You can use the [Webpack `DefinePlugin`](https://webpack.js.org/plugins/define-plugin/) (see the [Circuit UI Storybook Webpack config](https://github.com/sumup-oss/circuit-ui/blob/main/.storybook/main.js) as an example) or, if your app uses Next.js, you can declare the variable in your `next.config.js` ([Next.js documentation](https://nextjs.org/docs/api-reference/next.config.js/environment-variables)).
 
 Now, if you want to turn off the noMargin errors temporarily, run the development app with the environment variable set to `true`:
 
