@@ -363,12 +363,16 @@ export const Select = forwardRef(
             {...props}
             onChange={handleChange}
           >
-            {!value && !defaultValue && <option value="">{placeholder}</option>}
+            {!value && !defaultValue && (
+              <option key="placeholder" value="">
+                {placeholder}
+              </option>
+            )}
             {children ||
               (options &&
-                options.map(({ label: labelValue, ...rest }) => (
-                  <option key={rest.value} {...rest}>
-                    {labelValue}
+                options.map(({ label: optionLabel, ...rest }, index) => (
+                  <option key={index} {...rest}>
+                    {optionLabel}
                   </option>
                 )))}
           </SelectElement>
