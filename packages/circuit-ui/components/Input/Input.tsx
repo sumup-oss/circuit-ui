@@ -91,9 +91,11 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   inline?: boolean;
   /**
-   * Removes the default bottom margin from the input.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin: boolean;
+  noMargin: true;
   /**
    * Aligns text in the input
    */

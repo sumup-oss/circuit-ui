@@ -37,9 +37,11 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   validationHint?: string;
   /**
-   * Removes the default bottom margin from the Checkbox.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin: boolean;
+  noMargin: true;
   /**
    * Additional data that is dispatched with the tracking event.
    */

@@ -27,9 +27,11 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
    */
   size?: Size;
   /**
-   * Removes the default bottom margin from the headline.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin: boolean;
+  noMargin: true;
   /**
    * The HTML heading element to render.
    * Headings should be nested sequentially without skipping any levels.
