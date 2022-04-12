@@ -312,10 +312,6 @@ export const inputOutline = (
         disabled?: boolean;
         invalid?: boolean;
         hasWarning?: boolean;
-        /**
-         * @deprecated
-         */
-        showValid?: boolean;
       },
 ): SerializedStyles => {
   const theme = getTheme(args);
