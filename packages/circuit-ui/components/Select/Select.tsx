@@ -74,9 +74,11 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    */
   inline?: boolean;
   /**
-   * Removes the default bottom margin from the select.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin?: boolean;
+  noMargin: true;
   /**
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
@@ -167,7 +169,7 @@ const SelectLabel = styled(Label)<LabelElProps>(
   labelInlineStyles,
 );
 
-type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
+type SelectElProps = Omit<SelectProps, 'options' | 'label' | 'noMargin'> & {
   hasPrefix: boolean;
 };
 
@@ -290,7 +292,7 @@ export const Select = forwardRef(
     {
       value,
       defaultValue,
-      placeholder = 'Select an option',
+      placeholder,
       disabled,
       noMargin,
       inline,
@@ -362,15 +364,20 @@ export const Select = forwardRef(
             onChange={handleChange}
           >
             {!value && !defaultValue && (
-              <option key="placeholder" value="">
+              /**
+               * We need a key here just like when mapping over options.
+               * We're prefixing the key with an underscore to avoid clashes
+               * with option values.
+               */
+              <option key="_placeholder" value="">
                 {placeholder}
               </option>
             )}
             {children ||
               (options &&
-                options.map(({ label: labelValue, ...rest }) => (
+                options.map(({ label: optionLabel, ...rest }) => (
                   <option key={rest.value} {...rest}>
-                    {labelValue}
+                    {optionLabel}
                   </option>
                 )))}
           </SelectElement>

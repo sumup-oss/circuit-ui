@@ -7,7 +7,7 @@
     - [...in component variants](#in-component-variants)
   - [New notification components](#new-notification-components)
   - [Required accessible labels](#required-accessible-labels)
-  - [noMargin prop dev-time error](#nomargin-prop-dev-time-error)
+  - [Runtime errors for missing `noMargin` props](#runtime-errors-for-missing-nomargin-props)
   - [Other changes](#other-changes)
 - [From v4 to v4.1](#from-v4-to-v41)
   - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
@@ -145,21 +145,25 @@ In v5, the workaround was removed, meaning that all components that require acce
 
 Before migrating, make sure that you add appropriate and localized labels for all occurrences flagged by the error mechanism. After that, stop setting the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable.
 
-### noMargin prop dev-time error
+### Runtime errors for missing `noMargin` props
 
-Since it require large scale changes in the apps, the noMargin prop is not removed in the v5, instead the components throw runtime errors in development at missing noMargin prop. Production and testing builds are not affected.
+Several components used to have built-in bottom margin by default, and a `noMargin` prop to reset it. This non-atomic behavior was deprecated several major versions ago, but migration has proved difficult.
 
-During the migration you can use an escape hatch to continue running the app in development without throwing the noMargin prop errors.
+All components with built-in margin should be passed `noMargin`, so that we can remove the prop using codemods in a future major while avoiding UI regressions.
+
+Instead of removing the `noMargin` prop in v5, components that should receive it now throw a runtime error in development if the prop is missing. Production and testing builds are not affected. The `noMargin` prop was also marked as required in TypeScript types.
+
+While migrating, you can use an escape hatch to continue running your app in development without throwing.
 
 In your app, expose the `UNSAFE_DISABLE_NO_MARGIN_ERRORS` environment variable. You can use the [Webpack `DefinePlugin`](https://webpack.js.org/plugins/define-plugin/) (see the [Circuit UI Storybook Webpack config](https://github.com/sumup-oss/circuit-ui/blob/main/.storybook/main.js) as an example) or, if your app uses Next.js, you can declare the variable in your `next.config.js` ([Next.js documentation](https://nextjs.org/docs/api-reference/next.config.js/environment-variables)).
 
-Now, if you want to turn off the noMargin errors temporarily, run the development app with the environment variable set to `true`:
+Once your app is set up to accept the environment variable, set it to `true` in development to prevent components from throwing:
 
 ```sh
 UNSAFE_DISABLE_NO_MARGIN_ERRORS=true yarn dev # or yarn start
 ```
 
-Keep in mind that this escape hatch is not meant as a way to permanently avoid the errors, but as a temporary workaround while the noMargin prop is still required.
+Keep in mind that this escape hatch is not meant as a way to permanently bypass the errors, but as a temporary workaround to help migrate without regressions. The `noMargin` prop will be entirely removed in v6.
 
 ### Other changes
 

@@ -58,9 +58,11 @@ export interface SelectorProps
    */
   multiple?: boolean;
   /**
-   * Removes the default bottom margin from the Selector.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin?: boolean;
+  noMargin: true;
   /**
    * The ref to the HTML DOM element
    */

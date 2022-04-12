@@ -33,9 +33,11 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
    */
   variant?: Variant;
   /**
-   * Remove the default margin below the text.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin?: boolean;
+  noMargin: true;
   /**
    * Render the text using any HTML element.
    */

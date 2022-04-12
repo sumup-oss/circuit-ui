@@ -33,9 +33,11 @@ export interface ToggleProps extends SwitchProps {
    */
   explanation?: string;
   /**
-   * Removes the default bottom margin from the Toggle.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin?: boolean;
+  noMargin: true;
   /**
    * The ref to the HTML DOM button element
    */

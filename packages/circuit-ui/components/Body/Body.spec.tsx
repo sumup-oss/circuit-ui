@@ -53,6 +53,7 @@ describe('Body', () => {
   });
 
   it('should render with outer spacing when there is no noMargin prop', () => {
+    /* @ts-expect-error the noMargin prop is required */
     const actual = create(<Body>noMargin Body</Body>);
     expect(actual).toMatchSnapshot();
   });

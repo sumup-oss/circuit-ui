@@ -30,6 +30,7 @@ export default {
 const baseArgs = {
   name: 'select',
   label: 'Countries',
+  placeholder: 'Select an option',
   options: [
     {
       label: 'United States',
