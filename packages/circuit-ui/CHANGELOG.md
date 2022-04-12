@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.4
+
+### Major Changes
+
+- [#1511](https://github.com/sumup-oss/circuit-ui/pull/1511) [`eed3888f`](https://github.com/sumup-oss/circuit-ui/commit/eed3888f8df92d9e8358a0dc3b441852c38f852f) Thanks [@amelako](https://github.com/amelako)! - Threw a runtime error when the `noMargin` prop isn't passed to components requiring it. Setting the `UNSAFE_DISABLE_NO_MARGIN_ERRORS` environment variable to `true` will temporarily turn off the errors.
+
+* [#1518](https://github.com/sumup-oss/circuit-ui/pull/1518) [`2987be29`](https://github.com/sumup-oss/circuit-ui/commit/2987be297ab8a77f447f9e8052fbb88116d7e704) Thanks [@amelako](https://github.com/amelako)! - Removed the deprecated `Notification`, `NotificationCard`, `NotificationList` and `InlineMessage` components.
+
 ## 5.0.0-canary.3
 
 ### Major Changes
