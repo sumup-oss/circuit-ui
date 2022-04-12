@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 4.0.0-canary.1
+
+### Major Changes
+
+- [#1526](https://github.com/sumup-oss/circuit-ui/pull/1526) [`ba059828`](https://github.com/sumup-oss/circuit-ui/commit/ba059828c3caec2cabf0a43118af27a8128e78a0) Thanks [@amelako](https://github.com/amelako)! - Removed the deprecated `success`, `warning` and `danger` legacy color names. Use `confirm`, `notify` and `alert` instead.
+
 ## 4.0.0-canary.0
 
 ### Major Changes
