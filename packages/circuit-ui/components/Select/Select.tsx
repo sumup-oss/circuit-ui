@@ -364,14 +364,19 @@ export const Select = forwardRef(
             onChange={handleChange}
           >
             {!value && !defaultValue && (
-              <option key="placeholder" value="">
+              /**
+               * We need a key here just like when mapping over options.
+               * We're prefixing the key with an underscore to avoid clashes
+               * with option values.
+               */
+              <option key="_placeholder" value="">
                 {placeholder}
               </option>
             )}
             {children ||
               (options &&
-                options.map(({ label: optionLabel, ...rest }, index) => (
-                  <option key={index} {...rest}>
+                options.map(({ label: optionLabel, ...rest }) => (
+                  <option key={rest.value} {...rest}>
                     {optionLabel}
                   </option>
                 )))}
