@@ -69,17 +69,27 @@ const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
     li {
       margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     ul,
     ol {
       margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   `;
 };
 
-const marginStyles = ({ theme, noMargin }: StyleProps & ListProps) => {
+const marginStyles = ({
+  theme,
+  noMargin,
+  size = 'one',
+}: StyleProps & ListProps) => {
   if (!noMargin) {
     if (
       process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
@@ -90,19 +100,21 @@ const marginStyles = ({ theme, noMargin }: StyleProps & ListProps) => {
         'The List component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
+    const sizeMap = {
+      one: theme.spacings.byte,
+      two: theme.spacings.kilo,
+    };
     return css`
       margin-bottom: ${theme.spacings.mega};
+
+      li:last-child,
+      ul:last-child,
+      ol:last-child {
+        margin-bottom: ${sizeMap[size]};
+      }
     `;
   }
-  return css`
-    li:last-child {
-      margin-bottom: 0;
-    }
-    ul:last-child,
-    ol:last-child {
-      margin-bottom: 0;
-    }
-  `;
+  return null;
 };
 
 const BaseList = styled('ul', {
