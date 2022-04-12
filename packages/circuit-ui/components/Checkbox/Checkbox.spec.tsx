@@ -56,6 +56,7 @@ describe('Checkbox', () => {
   });
 
   it('should render with default spacing when there is no noMargin prop', () => {
+    /* @ts-expect-error the noMargin prop is required */
     const actual = create(<Checkbox {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });

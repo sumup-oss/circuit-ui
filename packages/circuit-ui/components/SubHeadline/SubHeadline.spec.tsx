@@ -33,6 +33,7 @@ describe('SubHeadline', () => {
   });
 
   it('should render with default spacing when there is no noMargin prop', () => {
+    /* @ts-expect-error the noMargin prop is required */
     const actual = create(<SubHeadline as="h3" />);
     expect(actual).toMatchSnapshot();
   });

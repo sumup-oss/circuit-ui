@@ -18,7 +18,8 @@ import { useCallback, FunctionComponent, ChangeEvent, Fragment } from 'react';
 import styled from '../../../../styles/styled';
 import { Select, SelectProps } from '../../../Select/Select';
 
-export interface PageSelectProps extends Omit<SelectProps, 'onChange'> {
+export interface PageSelectProps
+  extends Omit<SelectProps, 'onChange' | 'noMargin'> {
   onChange: (page: number) => void;
   pages: number[];
   currentPage: number;

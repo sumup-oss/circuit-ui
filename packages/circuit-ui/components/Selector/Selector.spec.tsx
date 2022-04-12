@@ -62,6 +62,7 @@ describe('Selector', () => {
   });
 
   it('should render a default spacing when there is no noMargin prop passed', () => {
+    /* @ts-expect-error the noMargin prop is required */
     const actual = create(<Selector {...defaultProps}>Label</Selector>);
     expect(actual).toMatchSnapshot();
   });

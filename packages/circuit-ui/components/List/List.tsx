@@ -35,7 +35,7 @@ export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
   /**
    * Removes the default bottom margin from the list.
    */
-  noMargin?: boolean;
+  noMargin: boolean;
   /**
    The ref to the HTML DOM element.
    */

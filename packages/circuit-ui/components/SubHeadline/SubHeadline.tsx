@@ -23,7 +23,7 @@ export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
    * Removes the default bottom margin from the subheading.
    */
-  noMargin?: boolean;
+  noMargin: boolean;
   /**
    * The HTML heading element to render. Headings should be nested sequentially
    * without skipping any levels. Learn more at

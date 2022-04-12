@@ -60,7 +60,7 @@ export interface SelectorProps
   /**
    * Removes the default bottom margin from the Selector.
    */
-  noMargin?: boolean;
+  noMargin: boolean;
   /**
    * The ref to the HTML DOM element
    */

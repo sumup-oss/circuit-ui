@@ -64,9 +64,12 @@ describe('List', () => {
 
   it('should render with default spacing when there is no noMargin prop', () => {
     const actual = create(
-      <List>
-        <li>no margin</li>
-      </List>,
+      <>
+        {/* @ts-expect-error the noMargin prop is required */}
+        <List>
+          <li>no margin</li>
+        </List>
+      </>,
     );
     expect(actual).toMatchSnapshot();
   });

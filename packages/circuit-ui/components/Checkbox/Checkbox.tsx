@@ -39,7 +39,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * Removes the default bottom margin from the Checkbox.
    */
-  noMargin?: boolean;
+  noMargin: boolean;
   /**
    * Additional data that is dispatched with the tracking event.
    */

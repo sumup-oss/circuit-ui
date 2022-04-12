@@ -93,7 +93,7 @@ export interface InputProps extends CircuitInputHTMLAttributes {
   /**
    * Removes the default bottom margin from the input.
    */
-  noMargin?: boolean;
+  noMargin: boolean;
   /**
    * Aligns text in the input
    */
@@ -149,7 +149,7 @@ const labelNoMarginStyles = ({
 
 const InputLabel = styled(Label)<LabelElProps>(labelNoMarginStyles);
 
-type InputElProps = Omit<InputProps, 'label'> & {
+type InputElProps = Omit<InputProps, 'label' | 'noMargin'> & {
   hasPrefix: boolean;
   hasSuffix: boolean;
 };

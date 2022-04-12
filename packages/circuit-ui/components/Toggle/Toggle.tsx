@@ -35,7 +35,7 @@ export interface ToggleProps extends SwitchProps {
   /**
    * Removes the default bottom margin from the Toggle.
    */
-  noMargin?: boolean;
+  noMargin: boolean;
   /**
    * The ref to the HTML DOM button element
    */

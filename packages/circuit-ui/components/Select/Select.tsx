@@ -76,7 +76,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   /**
    * Removes the default bottom margin from the select.
    */
-  noMargin?: boolean;
+  noMargin: boolean;
   /**
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
@@ -167,7 +167,7 @@ const SelectLabel = styled(Label)<LabelElProps>(
   labelInlineStyles,
 );
 
-type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
+type SelectElProps = Omit<SelectProps, 'options' | 'label' | 'noMargin'> & {
   hasPrefix: boolean;
 };
 
@@ -290,7 +290,7 @@ export const Select = forwardRef(
     {
       value,
       defaultValue,
-      placeholder = 'Select an option',
+      placeholder,
       disabled,
       noMargin,
       inline,
@@ -361,11 +361,7 @@ export const Select = forwardRef(
             {...props}
             onChange={handleChange}
           >
-            {!value && !defaultValue && (
-              <option key="placeholder" value="">
-                {placeholder}
-              </option>
-            )}
+            {!value && !defaultValue && <option value="">{placeholder}</option>}
             {children ||
               (options &&
                 options.map(({ label: labelValue, ...rest }) => (

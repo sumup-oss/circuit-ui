@@ -43,7 +43,7 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
    * Remove the default margin below the text.
    */
-  noMargin?: boolean;
+  noMargin: boolean;
   /**
    * Render the text using any HTML element.
    */
