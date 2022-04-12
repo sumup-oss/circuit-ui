@@ -1,5 +1,22 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.5
+
+### Major Changes
+
+- [#1528](https://github.com/sumup-oss/circuit-ui/pull/1528) [`005d2a17`](https://github.com/sumup-oss/circuit-ui/commit/005d2a17983a83053d5a86fd9813b6130f3fefe2) Thanks [@robinmetral](https://github.com/robinmetral)! - Typed `noMargin` as a required prop in components.
+
+* [#1528](https://github.com/sumup-oss/circuit-ui/pull/1528) [`005d2a17`](https://github.com/sumup-oss/circuit-ui/commit/005d2a17983a83053d5a86fd9813b6130f3fefe2) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the default placeholder option in the `Select` component. Pass a localized string to `placeholder` instead, or keep the default option empty.
+
+- [#1529](https://github.com/sumup-oss/circuit-ui/pull/1529) [`fa2101e5`](https://github.com/sumup-oss/circuit-ui/commit/fa2101e56031d8341cc392817aa1436308f2d181) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `showValid` option from the `inputOutline` style mixin.
+
+* [#1526](https://github.com/sumup-oss/circuit-ui/pull/1526) [`ba059828`](https://github.com/sumup-oss/circuit-ui/commit/ba059828c3caec2cabf0a43118af27a8128e78a0) Thanks [@amelako](https://github.com/amelako)! - Removed the deprecated `success`, `warning` and `danger` color variants. Use `confirm`, `notify` and `alert` instead.
+
+### Patch Changes
+
+- Updated dependencies [[`ba059828`](https://github.com/sumup-oss/circuit-ui/commit/ba059828c3caec2cabf0a43118af27a8128e78a0)]:
+  - @sumup/design-tokens@4.0.0-canary.1
+
 ## 5.0.0-canary.4
 
 ### Major Changes
