@@ -32,22 +32,6 @@ exports[`BodyLarge should render as a "confirm" variant 1`] = `
 </p>
 `;
 
-exports[`BodyLarge should render as a "error" variant 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 28px;
-  color: #D23F47;
-}
-
-<p
-  class="circuit-0"
->
-  error
-   BodyLarge
-</p>
-`;
-
 exports[`BodyLarge should render as a "highlight" variant 1`] = `
 .circuit-0 {
   font-weight: 400;
@@ -94,22 +78,6 @@ exports[`BodyLarge should render as a "subtle" variant 1`] = `
   class="circuit-0"
 >
   subtle
-   BodyLarge
-</p>
-`;
-
-exports[`BodyLarge should render as a "success" variant 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 28px;
-  color: #138849;
-}
-
-<p
-  class="circuit-0"
->
-  success
    BodyLarge
 </p>
 `;

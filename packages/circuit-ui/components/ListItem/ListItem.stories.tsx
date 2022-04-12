@@ -57,7 +57,7 @@ const item: Item = {
 };
 
 const PrefixBadge = (
-  <Badge variant="danger" circle>
+  <Badge variant="alert" circle>
     3
   </Badge>
 );
@@ -69,7 +69,7 @@ const detailsStyles = css`
 
 const statusIconStyles = (theme: Theme) => css`
   margin-right: ${theme.spacings.bit};
-  color: ${theme.colors.success};
+  color: ${theme.colors.confirm};
 `;
 
 const Details = (

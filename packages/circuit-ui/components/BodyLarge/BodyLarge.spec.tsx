@@ -29,9 +29,7 @@ describe('BodyLarge', () => {
   const variants = [
     'highlight',
     'quote',
-    'success',
     'confirm',
-    'error',
     'alert',
     'subtle',
   ] as BodyLargeProps['variant'][];

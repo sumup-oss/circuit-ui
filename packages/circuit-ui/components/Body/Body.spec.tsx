@@ -39,9 +39,7 @@ describe('Body', () => {
   const variants = [
     'highlight',
     'quote',
-    'success',
     'confirm',
-    'error',
     'alert',
     'subtle',
   ] as BodyProps['variant'][];
