@@ -20,11 +20,10 @@ import {
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
   HTMLAttributes,
-  FC,
 } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
-import { ChevronRight, IconProps } from '@sumup/icons';
+import { ChevronRight } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -52,7 +51,7 @@ interface BaseProps {
   /**
    * Display a leading icon, status image, checkbox, etc. in addition to the text content.
    */
-  prefix?: FC<IconProps> | ReactNode;
+  leadingElement?: ReactNode;
   /**
    * Display a main label.
    */
@@ -65,16 +64,16 @@ interface BaseProps {
    * Display a trailing label.
    * If using the `navigation` variant, the chevron icon will be center aligned with this label.
    */
-  suffixLabel?: ReactNode;
+  trailingLabel?: string | ReactNode;
   /**
    * Display a trailing details label.
    */
-  suffixDetails?: ReactNode;
+  trailingDetails?: string | ReactNode;
   /**
    * Display a custom trailing component.
    * If using the `navigation` variant, the chevron icon will be center aligned with this component.
    */
-  suffix?: ReactNode;
+  trailingElement?: ReactNode;
   /**
    * Visually mark the list item as selected.
    */
@@ -315,33 +314,33 @@ export const ListItem = forwardRef(
   (
     {
       variant = 'action',
-      prefix: Prefix,
+      leadingElement: Prefix,
       label,
       details,
-      suffixLabel,
-      suffixDetails,
-      suffix,
+      trailingLabel,
+      trailingDetails,
+      trailingElement,
       tracking,
       ...props
     }: ListItemProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
-    const hasOnlySuffixDetails = suffixDetails && !suffixLabel;
-    const hasCustomAndLabelSuffix = suffix && suffixLabel;
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      if (hasOnlySuffixDetails) {
+      if (trailingDetails && !trailingLabel) {
         warn(
           'ListItem',
-          'Using `suffixDetails` without `suffixLabel` is not supported.',
+          'Using `trailingDetails` without `trailingLabel` is not supported.',
+          'Use a custom `trailingElement` if necessary.',
         );
       }
-      if (hasCustomAndLabelSuffix) {
+      if (trailingElement && trailingLabel) {
         warn(
           'ListItem',
-          'Using `suffixLabel` and `suffix` at the same time is not supported.',
+          'Using `trailingLabel` and `trailingElement` at the same time is not supported.',
+          'Add a label to the custom `trailingElement` if necessary.',
         );
       }
     }
@@ -358,10 +357,8 @@ export const ListItem = forwardRef(
 
     const isInteractive = !!props.href || !!props.onClick;
     const isNavigation = variant === 'navigation';
-    const hasSuffix = !!suffixLabel || !!suffix;
-    const hasInvalidSuffix = hasOnlySuffixDetails || hasCustomAndLabelSuffix;
-    const shouldRenderSuffixContainer =
-      !hasInvalidSuffix && (hasSuffix || isNavigation);
+    const hasSuffix = !!trailingLabel || !!trailingElement;
+    const shouldRenderSuffixContainer = hasSuffix || isNavigation;
 
     return (
       <StyledListItem
@@ -403,18 +400,18 @@ export const ListItem = forwardRef(
           </MainContainer>
           {shouldRenderSuffixContainer && (
             <SuffixContainer
-              hasLabel={!!suffixLabel}
+              hasLabel={!!trailingLabel}
               isNavigation={isNavigation}
             >
               <SuffixChevronContainer>
-                {typeof suffixLabel === 'string' ? (
+                {typeof trailingLabel === 'string' ? (
                   <Body size="one" variant="highlight" noMargin>
-                    {suffixLabel}
+                    {trailingLabel}
                   </Body>
                 ) : (
-                  suffixLabel
+                  trailingLabel
                 )}
-                {suffix}
+                {trailingElement}
                 {isNavigation && (
                   <ChevronRight
                     size="16"
@@ -423,14 +420,14 @@ export const ListItem = forwardRef(
                   />
                 )}
               </SuffixChevronContainer>
-              {suffixDetails && (
+              {trailingDetails && (
                 <SuffixDetailsContainer isNavigation={isNavigation}>
-                  {typeof suffixDetails === 'string' ? (
+                  {typeof trailingDetails === 'string' ? (
                     <Body size="two" variant="subtle" noMargin>
-                      {suffixDetails}
+                      {trailingDetails}
                     </Body>
                   ) : (
-                    suffixDetails
+                    trailingDetails
                   )}
                 </SuffixDetailsContainer>
               )}
