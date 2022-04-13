@@ -95,7 +95,9 @@ export const NotificationFullscreen = ({
           {body}
         </Body>
       )}
-      <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
+      {actions && (
+        <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
+      )}
     </div>
   );
 };

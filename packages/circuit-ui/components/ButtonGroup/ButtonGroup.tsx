@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactElement, Ref, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -23,83 +23,17 @@ type Action = Omit<ButtonProps, 'variant'>;
 
 export interface ButtonGroupProps {
   /**
-   * @deprecated Use the `actions` prop instead.
-   */
-  children?:
-    | (ReactElement<ButtonProps> | null | undefined)[]
-    | ReactElement<ButtonProps>;
-  /**
    * Direction to align the content. Either left/right
    */
   align?: 'left' | 'center' | 'right';
   /**
-   * Whether to display buttons inline on mobile.
-   */
-  inlineMobile?: boolean;
-  /**
-   * The ref to the HTML DOM element.
-   */
-  ref?: Ref<HTMLDivElement>;
-  /**
    * Action Buttons
    */
-  actions?: {
+  actions: {
     primary: Action;
     secondary?: Action;
   };
 }
-
-const getInlineStyles = ({ theme }: StyleProps) => css`
-  flex-wrap: wrap;
-  > button,
-  > a {
-    width: auto;
-
-    &:not(:last-child) {
-      margin-right: ${theme.spacings.mega};
-      margin-bottom: 0;
-    }
-  }
-`;
-
-const baseStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  width: 100%;
-
-  > button,
-  > a {
-    width: 100%;
-
-    &:not(:last-child) {
-      margin-bottom: ${theme.spacings.mega};
-    }
-  }
-
-  ${theme.mq.kilo} {
-    ${getInlineStyles({ theme })};
-  }
-`;
-
-const alignmentMap = {
-  left: 'flex-start',
-  center: 'center',
-  right: 'flex-end',
-} as const;
-
-const alignmentStyles = ({ align = 'right' }: ButtonGroupProps) => css`
-  justify-content: ${alignmentMap[align]};
-`;
-
-const inlineMobileStyles = ({
-  theme,
-  inlineMobile = false,
-}: StyleProps & ButtonGroupProps) =>
-  inlineMobile &&
-  css`
-    ${getInlineStyles({ theme })}
-  `;
 
 const actionWrapperStyles = ({ theme }: StyleProps) => css`
   display: flex;
@@ -131,43 +65,26 @@ const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
 
 const TertiaryButton = styled(Button)<ButtonProps>(tertiaryButtonStyles);
 
-const Wrapper = styled('div')<ButtonGroupProps>(
-  baseStyles,
-  alignmentStyles,
-  inlineMobileStyles,
-);
-
-const ActionsWrapper = styled('div')<ButtonGroupProps>(actionWrapperStyles);
+const ActionsWrapper =
+  styled('div')<Omit<ButtonGroupProps, 'actions'>>(actionWrapperStyles);
 
 /**
  * Groups its Button children into a list and adds margins between.
  */
 export const ButtonGroup = forwardRef(
-  (
-    { children, actions, ...props }: ButtonGroupProps,
-    ref: ButtonGroupProps['ref'],
-  ) => {
-    if (actions) {
-      return (
-        <ActionsWrapper {...props}>
-          {actions.secondary && (
-            <SecondaryButton {...actions.secondary} variant="secondary" />
-          )}
+  ({ actions, ...props }: ButtonGroupProps) => (
+    <ActionsWrapper {...props}>
+      {actions.secondary && (
+        <SecondaryButton {...actions.secondary} variant="secondary" />
+      )}
 
-          <Button {...actions.primary} variant="primary" />
+      <Button {...actions.primary} variant="primary" />
 
-          {actions.secondary && (
-            <TertiaryButton {...actions.secondary} variant="tertiary" />
-          )}
-        </ActionsWrapper>
-      );
-    }
-    return (
-      <Wrapper {...props} ref={ref}>
-        {children}
-      </Wrapper>
-    );
-  },
+      {actions.secondary && (
+        <TertiaryButton {...actions.secondary} variant="tertiary" />
+      )}
+    </ActionsWrapper>
+  ),
 );
 
 ButtonGroup.displayName = 'ButtonGroup';
