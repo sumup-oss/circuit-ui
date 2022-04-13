@@ -57,10 +57,8 @@ defineTest('label-prop-names');
 // v4
 defineTest('icons-v2');
 
-// v4.1
-defineTest('component-names-v4-1');
-
 // v5
+defineTest('component-names-v5');
 defineTest('semantic-color-names');
 defineTest('semantic-variant-names');
 
