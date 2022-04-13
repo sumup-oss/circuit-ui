@@ -66,8 +66,6 @@ export type { ImageInputProps } from './components/ImageInput';
 // Actions
 export { default as Button } from './components/Button';
 export type { ButtonProps } from './components/Button';
-export { default as LoadingButton } from './components/LoadingButton';
-export type { LoadingButtonProps } from './components/LoadingButton';
 export { default as ButtonGroup } from './components/ButtonGroup';
 export type { ButtonGroupProps } from './components/ButtonGroup';
 export { default as CloseButton } from './components/CloseButton';
