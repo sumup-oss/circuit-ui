@@ -8,9 +8,8 @@
   - [New notification components](#new-notification-components)
   - [Required accessible labels](#required-accessible-labels)
   - [Runtime errors for missing `noMargin` props](#runtime-errors-for-missing-nomargin-props)
-  - [Other changes](#other-changes)
-- [From v4 to v4.1](#from-v4-to-v41)
   - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
+  - [Other changes](#other-changes)
 - [From v3.x to v4](#from-v3x-to-v4)
   - [Emotion 11](#emotion-11)
     - [New package names](#new-package-names)
@@ -165,18 +164,20 @@ UNSAFE_DISABLE_NO_MARGIN_ERRORS=true yarn dev # or yarn start
 
 Keep in mind that this escape hatch is not meant as a way to permanently bypass the errors, but as a temporary workaround to help migrate without regressions. The `noMargin` prop will be entirely removed in v6.
 
+### Combined LoadingButton and Button
+
+The `LoadingButton` is an extension of the `Button` component and adds a loading state. This is a common use case, so the loading functionality has been added to the `Button` component itself. The `LoadingButton` was deprecated in v4.1 and was removed in v5.
+
+The API hasn't changed: uses of the `LoadingButton` can be replaced by the `Button` component
+
+🤖 _component-names-v5_
+
 ### Other changes
 
 - The deprecated `zIndex.sidebar` design token was removed from `@sumup/design-tokens`. Use `sIndex.navigation` instead. There is no codemod for this change: search and replace the old value for the new one in your codebase.
 - The deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins were removed. Use the `shadow()` style mixin instead. There is no codemod for this change: migrate manually by searching for the deprecated style mixins in your codebase, and verify the changes visually.
 - The `RadioButton` component's deprecated `children` prop was removed. Use the `label` prop, now typed as required, instead. There is no codemod for this change: search your codebase for uses of the `RadioButton` or `RadioButtonGroup` component and migrate them manually.
 - The deprecated `showValid` option was removed from the `inputOutline` style mixin.
-
-## From v4 to v4.1
-
-### Combined LoadingButton and Button
-
-The LoadingButton is an extension of the Button component and adds a loading state. This is a common use case, so the loading functionality has been added to the Button component itself and the LoadingButton has been deprecated and will be removed in the next major release. This means that you can replace the LoadingButton with the Button component (🤖 _component-names-v4-1_).
 
 ## From v3.x to v4
 
