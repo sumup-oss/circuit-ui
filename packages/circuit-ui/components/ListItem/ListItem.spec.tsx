@@ -53,18 +53,18 @@ describe('ListItem', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render a ListItem with a prefix icon', () => {
+    it('should render a ListItem with a leading icon', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        prefix: SumUpCard,
+        leadingComponent: SumUpCard,
       });
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render a ListItem with a custom prefix', () => {
+    it('should render a ListItem with a custom leading component', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        prefix: (
+        leadingComponent: (
           <Badge variant="alert" circle>
             3
           </Badge>
@@ -105,52 +105,52 @@ describe('ListItem', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render a ListItem with a suffix label', () => {
+    it('should render a ListItem with a trailing label', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        suffixLabel: 'Suffix label',
+        trailingLabel: 'Trailing label',
       });
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render a ListItem with a custom suffix label', () => {
+    it('should render a ListItem with a custom trailing label', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        suffixLabel: (
+        trailingLabel: (
           <Body size="one" variant="highlight" noMargin>
-            Suffix label
+            Trailing label
           </Body>
         ),
       });
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render a ListItem with a suffix details line', () => {
+    it('should render a ListItem with trailing details', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        suffixLabel: 'Suffix label',
-        suffixDetails: 'Suffix details',
+        trailingLabel: 'Trailing label',
+        trailingDetails: 'Trailing details',
       });
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render a ListItem with a custom suffix details line', () => {
+    it('should render a ListItem with custom trailing details', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        suffixLabel: 'Suffix label',
-        suffixDetails: (
+        trailingLabel: 'Trailing label',
+        trailingDetails: (
           <Body size="two" variant="subtle" noMargin>
-            Suffix details
+            Trailing details
           </Body>
         ),
       });
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render a ListItem with a custom suffix', () => {
+    it('should render a ListItem with a custom trailing component', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        suffix: <Badge variant="promo">Promo</Badge>,
+        trailingComponent: <Badge variant="promo">Promo</Badge>,
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -173,19 +173,10 @@ describe('ListItem', () => {
   });
 
   describe('business logic', () => {
-    it('should not render a ListItem with a suffix details line without a suffix label', () => {
+    it('should not render a trailing section with details but no label', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        suffixDetails: 'Suffix details',
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should not render a ListItem with both a suffix label and a custom suffix', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        suffixLabel: 'Suffix label',
-        suffix: <Badge variant="promo">Promo</Badge>,
+        trailingDetails: 'Trailing details',
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -236,10 +227,10 @@ describe('ListItem', () => {
       const wrapper = renderListItem(renderToHtml, {
         ...baseProps,
         variant: 'navigation',
-        prefix: SumUpCard,
+        leadingComponent: SumUpCard,
         details: 'Details',
-        suffixLabel: 'Suffix label',
-        suffixDetails: 'Suffix details',
+        trailingLabel: 'Trailing label',
+        trailingDetails: 'Trailing details',
         onClick: jest.fn(),
       });
       const actual = await axe(wrapper);

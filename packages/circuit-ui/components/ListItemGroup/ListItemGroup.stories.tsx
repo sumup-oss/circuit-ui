@@ -104,15 +104,15 @@ const Details = ({ item }: { item: Item }) => (
   </div>
 );
 
-const failedSuffixStyles = css`
+const strikeThrough = css`
   text-decoration-line: line-through;
 `;
 
-const Suffix = ({ item }: { item: Item }) => (
+const TrailingLabel = ({ item }: { item: Item }) => (
   <Body
     size="one"
     variant={item.status === 'Failed' ? 'subtle' : 'highlight'}
-    css={item.status === 'Failed' && failedSuffixStyles}
+    css={item.status === 'Failed' && strikeThrough}
     noMargin
   >
     {item.amount}
@@ -173,10 +173,10 @@ export const SampleConfiguration = (args: ListItemGroupProps) => {
       items={items.map((item) => ({
         key: item.id,
         variant: 'navigation',
-        prefix: SumUpCard,
+        leadingComponent: SumUpCard,
         label: item.title,
         details: <Details item={item} />,
-        suffixLabel: <Suffix item={item} />,
+        trailingLabel: <TrailingLabel item={item} />,
         selected: item.id === selectedId,
         onClick: () => setSelectedId(item.id),
       }))}

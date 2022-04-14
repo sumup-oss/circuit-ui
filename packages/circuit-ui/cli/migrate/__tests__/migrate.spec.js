@@ -61,6 +61,7 @@ defineTest('icons-v2');
 defineTest('component-names-v5');
 defineTest('semantic-color-names');
 defineTest('semantic-variant-names');
+defineTest('listitem-prop-names');
 
 function defineTest(transformName, testFilePrefix, testOptions = {}) {
   const dirName = __dirname;
