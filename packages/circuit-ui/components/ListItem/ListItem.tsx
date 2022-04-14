@@ -35,7 +35,7 @@ import {
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
 import { AsPropType } from '../../types/prop-types';
-import { isFunction } from '../../util/type-check';
+import { isFunction, isString } from '../../util/type-check';
 import { warn } from '../../util/logger';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { useComponents } from '../ComponentsContext';
@@ -400,7 +400,7 @@ export const ListItem = forwardRef(
               isNavigation={isNavigation}
             >
               <TrailingChevronContainer>
-                {typeof trailingLabel === 'string' ? (
+                {isString(trailingLabel) ? (
                   <Body size="one" variant="highlight" noMargin>
                     {trailingLabel}
                   </Body>
