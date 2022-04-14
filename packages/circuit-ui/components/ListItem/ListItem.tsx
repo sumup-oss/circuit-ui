@@ -52,7 +52,7 @@ interface BaseProps {
   /**
    * Display a leading icon, status image, checkbox, etc. in addition to the text content.
    */
-  leadingElement?: FC<IconProps> | ReactNode;
+  leadingComponent?: FC<IconProps> | ReactNode;
   /**
    * Display a main label.
    */
@@ -74,7 +74,7 @@ interface BaseProps {
    * Display a custom trailing component.
    * If using the `navigation` variant, the chevron icon will be center aligned with this component.
    */
-  trailingElement?: ReactNode;
+  trailingComponent?: ReactNode;
   /**
    * Visually mark the list item as selected.
    */
@@ -309,12 +309,12 @@ export const ListItem = forwardRef(
   (
     {
       variant = 'action',
-      leadingElement: LeadingElement,
+      leadingComponent: LeadingComponent,
       label,
       details,
       trailingLabel,
       trailingDetails,
-      trailingElement,
+      trailingComponent,
       tracking,
       ...props
     }: ListItemProps,
@@ -328,14 +328,14 @@ export const ListItem = forwardRef(
         warn(
           'ListItem',
           'Using `trailingDetails` without `trailingLabel` is not supported.',
-          'Use a custom `trailingElement` if necessary.',
+          'Use a custom `trailingComponent` if necessary.',
         );
       }
-      if (trailingElement && trailingLabel) {
+      if (trailingComponent && trailingLabel) {
         warn(
           'ListItem',
-          'Using `trailingLabel` and `trailingElement` at the same time is not supported.',
-          'Add a label to the custom `trailingElement` if necessary.',
+          'Using `trailingLabel` and `trailingComponent` at the same time is not supported.',
+          'Add a label to the custom `trailingComponent` if necessary.',
         );
       }
     }
@@ -352,7 +352,7 @@ export const ListItem = forwardRef(
 
     const isInteractive = !!props.href || !!props.onClick;
     const isNavigation = variant === 'navigation';
-    const hasTrailing = !!trailingLabel || !!trailingElement;
+    const hasTrailing = !!trailingLabel || !!trailingComponent;
     const shouldRenderTrailingContainer = hasTrailing || isNavigation;
 
     return (
@@ -363,12 +363,12 @@ export const ListItem = forwardRef(
         isInteractive={isInteractive}
         onClick={handleClick}
       >
-        {LeadingElement && (
+        {LeadingComponent && (
           <LeadingContainer>
-            {isFunction(LeadingElement) ? (
-              <LeadingElement size="24" role="presentation" />
+            {isFunction(LeadingComponent) ? (
+              <LeadingComponent size="24" role="presentation" />
             ) : (
-              LeadingElement
+              LeadingComponent
             )}
           </LeadingContainer>
         )}
@@ -406,7 +406,7 @@ export const ListItem = forwardRef(
                 ) : (
                   trailingLabel
                 )}
-                {trailingElement}
+                {trailingComponent}
                 {isNavigation && (
                   <ChevronRight
                     size="16"
