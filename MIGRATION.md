@@ -8,7 +8,8 @@
   - [New notification components](#new-notification-components)
   - [Required accessible labels](#required-accessible-labels)
   - [Runtime errors for missing `noMargin` props](#runtime-errors-for-missing-nomargin-props)
-  - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
+  - [The `ListItemGroup` replaces the `CardList`](#the-listitemgroup-replaces-the-cardlist)
+  - [Combined `LoadingButton` and `Button`](#combined-loadingbutton-and-button)
   - [Other changes](#other-changes)
 - [From v3.x to v4](#from-v3x-to-v4)
   - [Emotion 11](#emotion-11)
@@ -164,7 +165,18 @@ UNSAFE_DISABLE_NO_MARGIN_ERRORS=true yarn dev # or yarn start
 
 Keep in mind that this escape hatch is not meant as a way to permanently bypass the errors, but as a temporary workaround to help migrate without regressions. The `noMargin` prop will be entirely removed in v6.
 
-### Combined LoadingButton and Button
+### The `ListItemGroup` replaces the `CardList`
+
+Two new components, `ListItem` and `ListItemGroup`, were added to Circuit UI v4.4.0 to render lists of contextually similar items.
+
+The `ListItem` component should generally be used implicitly by passing `items` to the `ListItemGroup`. The `ListItemGroup` differs from the `List` component because while the latter applies light styling to an HTML `ul` or `ol`, the former allows for structured data and interactivity. Refer to the [component's documentation](https://circuit.sumup.com/?path=/docs/components-listitem--base) for usage guidelines and examples.
+
+Circuit UI v5 comes with two related breaking changes:
+
+- the legacy `CardList` component has been deprecated in favor of the `ListItemGroup`. The component APIs are very different and migration can unfortunately not be automated: please migrate manually. The new component also comes with different styles: verify the changes visually with a designer.
+- (If you were already using the `ListItem` in a Circuit UI v4.x release:) The `ListItem` component's `prefix` and `suffix` props were renamed to `leadingComponent` and `trailingComponent`. The `suffixLabel` and `suffixDetails` props were renamed to `trailingLabel` and `trailingDetails`. The codemod will not transform uses of the `ListItem` as `ListItemGroup` items. (_🤖 listitem-prop-names_)
+
+### Combined `LoadingButton` and `Button`
 
 The `LoadingButton` is an extension of the `Button` component and adds a loading state. This is a common use case, so the loading functionality has been added to the `Button` component itself. The `LoadingButton` was deprecated in v4.1 and was removed in v5.
 
@@ -178,7 +190,6 @@ The API hasn't changed: uses of the `LoadingButton` can be replaced by the `Butt
 - The deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins were removed. Use the `shadow()` style mixin instead. There is no codemod for this change: migrate manually by searching for the deprecated style mixins in your codebase, and verify the changes visually.
 - The `RadioButton` component's deprecated `children` prop was removed. Use the `label` prop, now typed as required, instead. There is no codemod for this change: search your codebase for uses of the `RadioButton` or `RadioButtonGroup` component and migrate them manually.
 - The deprecated `showValid` option was removed from the `inputOutline` style mixin.
-- The `ListItem` component's `prefix` and `suffix` props were renamed to `leadingComponent` and `trailingComponent`. The `suffixLabel` and `suffixDetails` props were renamed to `trailingLabel` and `trailingDetails`. The codemod will not transform uses of the `ListItem` as `ListItemGroup` items. (_🤖 listitem-prop-names_)
 
 ## From v3.x to v4
 

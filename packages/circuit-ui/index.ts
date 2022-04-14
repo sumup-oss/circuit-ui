@@ -131,7 +131,6 @@ export type {
   CardHeaderProps,
   CardFooterProps,
 } from './components/Card';
-export { default as CardList } from './components/CardList';
 export { default as Hr } from './components/Hr';
 export { default as Image } from './components/Image';
 export type { ImageProps } from './components/Image';
