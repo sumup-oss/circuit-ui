@@ -50,7 +50,8 @@ interface BaseProps {
    */
   variant?: Variant;
   /**
-   * Display a leading icon, status image, checkbox, etc. in addition to the text content.
+   * Display a leading component.
+   * Pass an icon from `@sumup/icons` or a custom component.
    */
   leadingComponent?: FC<IconProps> | ReactNode;
   /**
