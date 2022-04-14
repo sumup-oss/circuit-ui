@@ -43,8 +43,8 @@ export default {
   argTypes: {
     label: { control: 'text' },
     details: { control: 'text' },
-    suffixLabel: { control: 'text' },
-    suffixDetails: { control: 'text' },
+    trailingLabel: { control: 'text' },
+    trailingDetails: { control: 'text' },
   },
 };
 
@@ -56,7 +56,7 @@ const item: Item = {
   timestamp: '17:21',
 };
 
-const PrefixBadge = (
+const LeadingBadge = (
   <Badge variant="alert" circle>
     3
   </Badge>
@@ -89,23 +89,23 @@ const Details = (
   </div>
 );
 
-const failedSuffixStyles = css`
+const lineThrough = css`
   text-decoration-line: line-through;
 `;
 
-const SuffixLabel = (
-  <Body size="one" variant="subtle" noMargin css={failedSuffixStyles}>
+const TrailingLabel = (
+  <Body size="one" variant="subtle" noMargin css={lineThrough}>
     {item.amount}
   </Body>
 );
 
-const SuffixDetails = (
-  <Body size="two" variant="subtle" noMargin css={failedSuffixStyles}>
+const TrailingDetails = (
+  <Body size="two" variant="subtle" noMargin css={lineThrough}>
     {item.fee} fee
   </Body>
 );
 
-const SuffixBadge = <Badge variant="promo">Promo</Badge>;
+const TrailingBadge = <Badge variant="promo">Promo</Badge>;
 
 const baseStyles = css`
   width: 500px;
@@ -118,12 +118,12 @@ const stylesWithMargin = (theme: Theme) => css`
 
 const baseArgs: ListItemProps = {
   variant: undefined,
-  prefix: undefined,
+  leadingComponent: undefined,
   label: item.title,
   details: undefined,
-  suffixLabel: undefined,
-  suffixDetails: undefined,
-  suffix: undefined,
+  trailingLabel: undefined,
+  trailingDetails: undefined,
+  trailingComponent: undefined,
   selected: undefined,
   disabled: undefined,
   onClick: null,
@@ -143,17 +143,17 @@ NavigationVariant.args = {
   variant: 'navigation',
 } as ListItemProps;
 
-export const WithIcon = (args: ListItemProps) => (
-  <ListItem {...args} prefix={SumUpCard} css={baseStyles} />
+export const WithLeadingIcon = (args: ListItemProps) => (
+  <ListItem {...args} leadingComponent={SumUpCard} css={baseStyles} />
 );
-WithIcon.args = {
+WithLeadingIcon.args = {
   ...baseArgs,
 } as ListItemProps;
 
-export const WithCustomPrefix = (args: ListItemProps) => (
-  <ListItem {...args} prefix={PrefixBadge} css={baseStyles} />
+export const WithLeadingComponent = (args: ListItemProps) => (
+  <ListItem {...args} leadingComponent={LeadingBadge} css={baseStyles} />
 );
-WithCustomPrefix.args = {
+WithLeadingComponent.args = {
   ...baseArgs,
 } as ListItemProps;
 
@@ -161,13 +161,13 @@ export const WithCustomLabel = (args: ListItemProps) => (
   <>
     <ListItem
       {...args}
-      prefix={SumUpCard}
+      leadingComponent={SumUpCard}
       label={`Default truncated label: ${args.label as string}`}
       css={stylesWithMargin}
     />
     <ListItem
       {...args}
-      prefix={SumUpCard}
+      leadingComponent={SumUpCard}
       label={
         <Body size="one" noMargin>
           Custom multiline label: {args.label}
@@ -198,39 +198,39 @@ WithCustomDetails.args = {
   ...baseArgs,
 } as ListItemProps;
 
-export const WithSuffixLabel = (args: ListItemProps) => (
+export const WithTrailingLabel = (args: ListItemProps) => (
   <ListItem {...args} css={baseStyles} />
 );
-WithSuffixLabel.args = {
+WithTrailingLabel.args = {
   ...baseArgs,
-  suffixLabel: item.amount,
+  trailingLabel: item.amount,
 } as ListItemProps;
 
-export const WithSuffixLabelAndDetails = (args: ListItemProps) => (
+export const WithTrailingLabelAndDetails = (args: ListItemProps) => (
   <ListItem {...args} css={baseStyles} />
 );
-WithSuffixLabelAndDetails.args = {
+WithTrailingLabelAndDetails.args = {
   ...baseArgs,
-  suffixLabel: item.amount,
-  suffixDetails: `${item.fee} fee`,
+  trailingLabel: item.amount,
+  trailingDetails: `${item.fee} fee`,
 } as ListItemProps;
 
-export const WithCustomSuffixLabelAndDetails = (args: ListItemProps) => (
+export const WithTrailingLabelAndDetailsComponents = (args: ListItemProps) => (
   <ListItem
     {...args}
-    suffixLabel={SuffixLabel}
-    suffixDetails={SuffixDetails}
+    trailingLabel={TrailingLabel}
+    trailingDetails={TrailingDetails}
     css={baseStyles}
   />
 );
-WithCustomSuffixLabelAndDetails.args = {
+WithTrailingLabelAndDetailsComponents.args = {
   ...baseArgs,
 } as ListItemProps;
 
-export const WithCustomSuffix = (args: ListItemProps) => (
-  <ListItem {...args} suffix={SuffixBadge} css={baseStyles} />
+export const WithTrailingComponent = (args: ListItemProps) => (
+  <ListItem {...args} trailingComponent={TrailingBadge} css={baseStyles} />
 );
-WithCustomSuffix.args = {
+WithTrailingComponent.args = {
   ...baseArgs,
 } as ListItemProps;
 
@@ -272,12 +272,17 @@ Disabled.args = {
 } as ListItemProps;
 
 export const SampleConfiguration = (args: ListItemProps) => (
-  <ListItem {...args} prefix={SumUpCard} details={Details} css={baseStyles} />
+  <ListItem
+    {...args}
+    leadingComponent={SumUpCard}
+    details={Details}
+    css={baseStyles}
+  />
 );
 SampleConfiguration.args = {
   ...baseArgs,
   variant: 'navigation',
-  suffixLabel: item.amount,
-  suffixDetails: `${item.fee} fee`,
+  trailingLabel: item.amount,
+  trailingDetails: `${item.fee} fee`,
   onClick: action('ListItem clicked'),
 } as ListItemProps;
