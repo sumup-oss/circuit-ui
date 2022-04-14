@@ -375,7 +375,7 @@ export const ListItem = forwardRef(
         )}
         <ContentContainer>
           <MainContainer>
-            {typeof label === 'string' ? (
+            {isString(label) ? (
               <Label size="one" noMargin>
                 {label}
               </Label>
@@ -384,7 +384,7 @@ export const ListItem = forwardRef(
             )}
             {details && (
               <DetailsContainer>
-                {typeof details === 'string' ? (
+                {isString(details) ? (
                   <Body size="two" variant="subtle" noMargin>
                     {details}
                   </Body>
@@ -418,7 +418,7 @@ export const ListItem = forwardRef(
               </TrailingChevronContainer>
               {trailingDetails && (
                 <TrailingDetailsContainer isNavigation={isNavigation}>
-                  {typeof trailingDetails === 'string' ? (
+                  {isString(trailingDetails) ? (
                     <Body size="two" variant="subtle" noMargin>
                       {trailingDetails}
                     </Body>
