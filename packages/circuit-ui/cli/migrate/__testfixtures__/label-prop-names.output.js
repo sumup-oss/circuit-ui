@@ -5,7 +5,7 @@ const RedHamburger = styled(Hamburger)`
   color: red;
 `;
 
-const Component = (
+const Component = () => (
   <Card>
     <CardHeader closeButtonLabel="Close">A strange component</CardHeader>
     <Hamburger activeLabel="Active" inactiveLabel="Inactive" />
