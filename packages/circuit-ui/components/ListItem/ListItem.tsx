@@ -20,10 +20,11 @@ import {
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
   HTMLAttributes,
+  FC,
 } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
-import { ChevronRight } from '@sumup/icons';
+import { ChevronRight, IconProps } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -51,7 +52,7 @@ interface BaseProps {
   /**
    * Display a leading icon, status image, checkbox, etc. in addition to the text content.
    */
-  leadingElement?: ReactNode;
+  leadingElement?: FC<IconProps> | ReactNode;
   /**
    * Display a main label.
    */
@@ -100,15 +101,9 @@ interface BaseProps {
   ref?: Ref<HTMLDivElement & HTMLAnchorElement & HTMLButtonElement>;
 }
 
-type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'prefix' | 'onClick'>;
-type LinkElProps = Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  'prefix' | 'onClick'
->;
-type ButtonElProps = Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  'prefix' | 'onClick'
->;
+type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>;
+type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
+type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ListItemProps = BaseProps &
   DivElProps &
@@ -207,13 +202,13 @@ const StyledListItem = styled('div', {
   selectedStyles,
 );
 
-const prefixContainerStyles = ({ theme }: StyleProps) => css`
+const leadingContainerStyles = ({ theme }: StyleProps) => css`
   flex: none;
   display: flex;
   margin-right: ${theme.spacings.mega};
 `;
 
-const PrefixContainer = styled.div(prefixContainerStyles);
+const LeadingContainer = styled.div(leadingContainerStyles);
 
 const contentContainerStyles = css`
   flex: auto;
@@ -255,12 +250,12 @@ const DetailsContainer = styled.div(detailsContainerStyles);
 
 type NavigationProps = { isNavigation: boolean };
 
-type SuffixContainerProps = { hasLabel: boolean } & NavigationProps;
+type TrailingContainerProps = { hasLabel: boolean } & NavigationProps;
 
-const suffixContainerStyles = ({
+const trailingContainerStyles = ({
   theme,
   hasLabel,
-}: StyleProps & SuffixContainerProps) => css`
+}: StyleProps & TrailingContainerProps) => css`
   flex: none;
   align-self: stretch;
   display: flex;
@@ -270,28 +265,28 @@ const suffixContainerStyles = ({
   margin-left: ${theme.spacings.mega};
 `;
 
-const suffixContainerNavigationStyles = ({
+const trailingContainerNavigationStyles = ({
   theme,
   isNavigation,
-}: StyleProps & SuffixContainerProps) =>
+}: StyleProps & TrailingContainerProps) =>
   isNavigation &&
   css`
     margin-right: -${theme.spacings.bit};
   `;
 
-const SuffixContainer = styled.div(
-  suffixContainerStyles,
-  suffixContainerNavigationStyles,
+const TrailingContainer = styled.div(
+  trailingContainerStyles,
+  trailingContainerNavigationStyles,
 );
 
-const suffixChevronContainerStyles = css`
+const trailingChevronContainerStyles = css`
   display: flex;
   align-items: center;
 `;
 
-const SuffixChevronContainer = styled.div(suffixChevronContainerStyles);
+const TrailingChevronContainer = styled.div(trailingChevronContainerStyles);
 
-const suffixDetailsContainerNavigationStyles = ({
+const trailingDetailsContainerNavigationStyles = ({
   theme,
   isNavigation,
 }: StyleProps & NavigationProps) =>
@@ -301,9 +296,9 @@ const suffixDetailsContainerNavigationStyles = ({
     height: ${theme.typography.body.one.lineHeight};
   `;
 
-const SuffixDetailsContainer = styled.div(
+const TrailingDetailsContainer = styled.div(
   detailsContainerStyles,
-  suffixDetailsContainerNavigationStyles,
+  trailingDetailsContainerNavigationStyles,
 );
 
 /**
@@ -314,7 +309,7 @@ export const ListItem = forwardRef(
   (
     {
       variant = 'action',
-      leadingElement: Prefix,
+      leadingElement: LeadingElement,
       label,
       details,
       trailingLabel,
@@ -357,8 +352,8 @@ export const ListItem = forwardRef(
 
     const isInteractive = !!props.href || !!props.onClick;
     const isNavigation = variant === 'navigation';
-    const hasSuffix = !!trailingLabel || !!trailingElement;
-    const shouldRenderSuffixContainer = hasSuffix || isNavigation;
+    const hasTrailing = !!trailingLabel || !!trailingElement;
+    const shouldRenderTrailingContainer = hasTrailing || isNavigation;
 
     return (
       <StyledListItem
@@ -368,14 +363,14 @@ export const ListItem = forwardRef(
         isInteractive={isInteractive}
         onClick={handleClick}
       >
-        {Prefix && (
-          <PrefixContainer>
-            {isFunction(Prefix) ? (
-              <Prefix size="24" role="presentation" />
+        {LeadingElement && (
+          <LeadingContainer>
+            {isFunction(LeadingElement) ? (
+              <LeadingElement size="24" role="presentation" />
             ) : (
-              Prefix
+              LeadingElement
             )}
-          </PrefixContainer>
+          </LeadingContainer>
         )}
         <ContentContainer>
           <MainContainer>
@@ -398,12 +393,12 @@ export const ListItem = forwardRef(
               </DetailsContainer>
             )}
           </MainContainer>
-          {shouldRenderSuffixContainer && (
-            <SuffixContainer
+          {shouldRenderTrailingContainer && (
+            <TrailingContainer
               hasLabel={!!trailingLabel}
               isNavigation={isNavigation}
             >
-              <SuffixChevronContainer>
+              <TrailingChevronContainer>
                 {typeof trailingLabel === 'string' ? (
                   <Body size="one" variant="highlight" noMargin>
                     {trailingLabel}
@@ -416,12 +411,12 @@ export const ListItem = forwardRef(
                   <ChevronRight
                     size="16"
                     role="presentation"
-                    css={hasSuffix && spacing({ left: 'bit' })}
+                    css={hasTrailing && spacing({ left: 'bit' })}
                   />
                 )}
-              </SuffixChevronContainer>
+              </TrailingChevronContainer>
               {trailingDetails && (
-                <SuffixDetailsContainer isNavigation={isNavigation}>
+                <TrailingDetailsContainer isNavigation={isNavigation}>
                   {typeof trailingDetails === 'string' ? (
                     <Body size="two" variant="subtle" noMargin>
                       {trailingDetails}
@@ -429,9 +424,9 @@ export const ListItem = forwardRef(
                   ) : (
                     trailingDetails
                   )}
-                </SuffixDetailsContainer>
+                </TrailingDetailsContainer>
               )}
-            </SuffixContainer>
+            </TrailingContainer>
           )}
         </ContentContainer>
       </StyledListItem>
