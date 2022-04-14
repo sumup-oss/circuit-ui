@@ -108,7 +108,7 @@ describe('ListItem', () => {
     it('should render a ListItem with a trailing label', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        trailingLabel: 'trailingComponent label',
+        trailingLabel: 'Trailing label',
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -118,7 +118,7 @@ describe('ListItem', () => {
         ...baseProps,
         trailingLabel: (
           <Body size="one" variant="highlight" noMargin>
-            trailingComponent label
+            Trailing label
           </Body>
         ),
       });
@@ -128,8 +128,8 @@ describe('ListItem', () => {
     it('should render a ListItem with trailing details', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        trailingLabel: 'trailingComponent label',
-        trailingDetails: 'trailingComponent details',
+        trailingLabel: 'Trailing label',
+        trailingDetails: 'Trailing details',
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -137,10 +137,10 @@ describe('ListItem', () => {
     it('should render a ListItem with custom trailing details', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        trailingLabel: 'trailingComponent label',
+        trailingLabel: 'Trailing label',
         trailingDetails: (
           <Body size="two" variant="subtle" noMargin>
-            trailingComponent details
+            Trailing details
           </Body>
         ),
       });
@@ -176,7 +176,7 @@ describe('ListItem', () => {
     it('should not render a trailing section with details but no label', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        trailingDetails: 'trailing details',
+        trailingDetails: 'Trailing details',
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -229,8 +229,8 @@ describe('ListItem', () => {
         variant: 'navigation',
         leadingComponent: SumUpCard,
         details: 'Details',
-        trailingLabel: 'trailing label',
-        trailingDetails: 'trailing details',
+        trailingLabel: 'Trailing label',
+        trailingDetails: 'Trailing details',
         onClick: jest.fn(),
       });
       const actual = await axe(wrapper);
