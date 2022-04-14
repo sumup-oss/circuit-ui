@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.6
+
+### Major Changes
+
+- [#1534](https://github.com/sumup-oss/circuit-ui/pull/1534) [`35d297aa`](https://github.com/sumup-oss/circuit-ui/commit/35d297aad0e69e56652530c0141977ac98577c9a) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `CardList` component. Use the `ListItemGroup` instead.
+
+* [#1531](https://github.com/sumup-oss/circuit-ui/pull/1531) [`ff09e8cf`](https://github.com/sumup-oss/circuit-ui/commit/ff09e8cfe97b6cc333734297de18b7e7927bad7f) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `LoadingButton` component. Use the `Button` component instead.
+
+- [#1533](https://github.com/sumup-oss/circuit-ui/pull/1533) [`dec0db59`](https://github.com/sumup-oss/circuit-ui/commit/dec0db596a2306c1e37a6f8ff4fc85692a02ba6b) Thanks [@robinmetral](https://github.com/robinmetral)! - Renamed the `ListItem` component's `prefix` and `suffix` props to `leadingComponent` and `trailingComponent`. Renamed the `suffixLabel` and `suffixDetails` props to `trailingLabel` and `trailingDetails`.
+
 ## 5.0.0-canary.5
 
 ### Major Changes
