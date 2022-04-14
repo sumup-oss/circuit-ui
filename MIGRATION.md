@@ -171,7 +171,7 @@ Keep in mind that this escape hatch is not meant as a way to permanently bypass 
 - The deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins were removed. Use the `shadow()` style mixin instead. There is no codemod for this change: migrate manually by searching for the deprecated style mixins in your codebase, and verify the changes visually.
 - The `RadioButton` component's deprecated `children` prop was removed. Use the `label` prop, now typed as required, instead. There is no codemod for this change: search your codebase for uses of the `RadioButton` or `RadioButtonGroup` component and migrate them manually.
 - The deprecated `showValid` option was removed from the `inputOutline` style mixin.
-- The `ListItem` component's `prefix` and `suffix` props were renamed into `leadingComponent` and `trailingComponent`. The `suffixLabel` and `suffixDetails` props were renamed into `trailingLabel` and `trailingDetails`. The codemod will not transform uses of the `ListItem` as `ListItemGroup` items. (_🤖 listitem-prop-names_)
+- The `ListItem` component's `prefix` and `suffix` props were renamed to `leadingComponent` and `trailingComponent`. The `suffixLabel` and `suffixDetails` props were renamed to `trailingLabel` and `trailingDetails`. The codemod will not transform uses of the `ListItem` as `ListItemGroup` items. (_🤖 listitem-prop-names_)
 
 ## From v4 to v4.1
 
