@@ -75,7 +75,7 @@
     "component-playground": "^3.2.1",
     "cross-env": "^7.0.2",
     "css-loader": "^6.7.1",
-    "fork-ts-checker-webpack-plugin": "^7.2.1",
+    "fork-ts-checker-webpack-plugin": "^7.2.6",
     "jest-axe": "^6.0.0",
     "react": "^17.0.1",
     "react-docgen": "^5.3.1",
