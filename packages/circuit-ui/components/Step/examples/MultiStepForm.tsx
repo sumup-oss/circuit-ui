@@ -73,6 +73,7 @@ const FormTwo = ({ onNextClick, onBackClick }: FormProps) => (
     />
 
     <ButtonGroup
+      align="left"
       actions={{
         primary: {
           children: 'Submit',

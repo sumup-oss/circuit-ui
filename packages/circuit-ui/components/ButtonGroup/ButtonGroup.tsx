@@ -35,6 +35,18 @@ export interface ButtonGroupProps {
   };
 }
 
+const alignmentMap = {
+  left: 'flex-start',
+  center: 'center',
+  right: 'flex-end',
+} as const;
+
+type ActionsWrapperProps = Omit<ButtonGroupProps, 'actions'>;
+
+const alignmentStyles = ({ align = 'right' }: ActionsWrapperProps) => css`
+  justify-content: ${alignmentMap[align]};
+`;
+
 const actionWrapperStyles = ({ theme }: StyleProps) => css`
   display: flex;
   flex-direction: column;
@@ -43,7 +55,6 @@ const actionWrapperStyles = ({ theme }: StyleProps) => css`
 
   ${theme.mq.kilo} {
     flex-direction: row;
-    justify-content: center;
   }
 `;
 
@@ -65,8 +76,10 @@ const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
 
 const TertiaryButton = styled(Button)<ButtonProps>(tertiaryButtonStyles);
 
-const ActionsWrapper =
-  styled('div')<Omit<ButtonGroupProps, 'actions'>>(actionWrapperStyles);
+const ActionsWrapper = styled('div')<ActionsWrapperProps>(
+  actionWrapperStyles,
+  alignmentStyles,
+);
 
 /**
  * Groups its Button children into a list and adds margins between.

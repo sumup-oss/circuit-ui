@@ -27,6 +27,7 @@ export const Base = (args: ButtonGroupProps): JSX.Element => (
 );
 
 Base.args = {
+  align: 'center',
   actions: {
     primary: {
       children: 'Look again',
