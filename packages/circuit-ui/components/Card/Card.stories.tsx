@@ -108,20 +108,33 @@ export const WithFooter = () => (
     <Card css={cardStyles}>
       <Content />
       <CardFooter>
-        <ButtonGroup>
-          <Button>Cancel</Button>
-          <Button variant="primary">Confirm</Button>
-        </ButtonGroup>
+        <ButtonGroup
+          actions={{
+            primary: {
+              children: 'Cancel',
+            },
+            secondary: {
+              children: 'Confirm',
+            },
+          }}
+        />
       </CardFooter>
     </Card>
 
     <Card css={cardStyles}>
       <Content />
       <CardFooter align="left">
-        <ButtonGroup align="left">
-          <Button>Cancel</Button>
-          <Button variant="primary">Confirm</Button>
-        </ButtonGroup>
+        <ButtonGroup
+          align="left"
+          actions={{
+            primary: {
+              children: 'Cancel',
+            },
+            secondary: {
+              children: 'Confirm',
+            },
+          }}
+        />
       </CardFooter>
     </Card>
   </Fragment>
