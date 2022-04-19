@@ -210,6 +210,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
             {body && <Body noMargin>{body}</Body>}
             {actions && (
               <ButtonGroup
+                align={'center'}
                 actions={{
                   primary: {
                     ...actions.primary,

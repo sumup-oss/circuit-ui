@@ -14,7 +14,6 @@
  */
 
 import { create, renderToHtml, axe } from '../../util/test-utils';
-import Button from '../Button';
 
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
 
@@ -22,30 +21,19 @@ describe('ButtonGroup', () => {
   /**
    * Style tests.
    */
-  it('should render with default styles', () => {
-    const actual = create(
-      <ButtonGroup>
-        <Button variant="secondary">Cancel</Button>
-        <Button variant="primary">Confirm</Button>
-      </ButtonGroup>,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with the actions prop', () => {
-    const props: ButtonGroupProps = {
-      actions: {
-        primary: {
-          children: 'Look again',
-          onClick: jest.fn(),
-        },
-        secondary: {
-          children: 'Go elsewhere',
-          href: 'https://sumup.com',
-        },
+  const props: ButtonGroupProps = {
+    actions: {
+      primary: {
+        children: 'Look again',
+        onClick: jest.fn(),
       },
-    };
-
+      secondary: {
+        children: 'Go elsewhere',
+        href: 'https://sumup.com',
+      },
+    },
+  };
+  it('should render with default styles', () => {
     const actual = create(<ButtonGroup {...props} />);
 
     expect(actual).toMatchSnapshot();
@@ -53,24 +41,16 @@ describe('ButtonGroup', () => {
 
   describe('Center aligment', () => {
     it('should render with center alignment styles', () => {
-      const actual = create(
-        <ButtonGroup align={'center'}>
-          <Button variant="secondary">Cancel</Button>
-          <Button variant="primary">Confirm</Button>
-        </ButtonGroup>,
-      );
+      const actual = create(<ButtonGroup align={'center'} {...props} />);
+
       expect(actual).toMatchSnapshot();
     });
   });
 
   describe('Left aligment', () => {
     it('should render with left alignment styles', () => {
-      const actual = create(
-        <ButtonGroup align={'left'}>
-          <Button variant="secondary">Cancel</Button>
-          <Button variant="primary">Confirm</Button>
-        </ButtonGroup>,
-      );
+      const actual = create(<ButtonGroup align={'left'} {...props} />);
+
       expect(actual).toMatchSnapshot();
     });
   });
@@ -79,12 +59,7 @@ describe('ButtonGroup', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <ButtonGroup>
-        <Button variant="secondary">Cancel</Button>
-        <Button variant="primary">Confirm</Button>
-      </ButtonGroup>,
-    );
+    const wrapper = renderToHtml(<ButtonGroup align={'center'} {...props} />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
