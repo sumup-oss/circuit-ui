@@ -27,7 +27,6 @@ import {
 } from 'react-swipeable';
 
 import Image from '../../Image';
-import Button from '../../Button';
 import ButtonGroup from '../../ButtonGroup';
 import Step, { StepProps } from '../Step';
 import { StyleProps } from '../../../styles/styled';
@@ -113,20 +112,20 @@ export default function YesOrNoSlider({
               swipe={swipe}
             />
           </Swipeable>
-          <ButtonGroup align={'center'}>
-            <Button
-              variant={swipe?.dir === LEFT_DIRECTION ? 'primary' : 'secondary'}
-              {...getPreviousControlProps()}
-            >
-              No
-            </Button>
-            <Button
-              variant={swipe?.dir === RIGHT_DIRECTION ? 'primary' : 'secondary'}
-              {...getNextControlProps()}
-            >
-              Yes
-            </Button>
-          </ButtonGroup>
+
+          <ButtonGroup
+            align={'center'}
+            actions={{
+              primary: {
+                children: 'No',
+                ...getPreviousControlProps(),
+              },
+              secondary: {
+                children: 'Yes',
+                ...getNextControlProps(),
+              },
+            }}
+          />
         </SliderWrapper>
       )}
     </Step>
