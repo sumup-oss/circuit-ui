@@ -873,6 +873,10 @@ exports[`ButtonGroup should render with the actions prop 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 @media (min-width: 480px) {
@@ -880,10 +884,6 @@ exports[`ButtonGroup should render with the actions prop 1`] = `
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
   }
 }
 

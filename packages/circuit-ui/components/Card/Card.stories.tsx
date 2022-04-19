@@ -22,7 +22,6 @@ import { Stack } from '../../../../.storybook/components';
 import Headline from '../Headline';
 import Body from '../Body';
 import ButtonGroup from '../ButtonGroup';
-import Button from '../Button';
 
 import docs from './Card.docs.mdx';
 
@@ -108,20 +107,34 @@ export const WithFooter = () => (
     <Card css={cardStyles}>
       <Content />
       <CardFooter>
-        <ButtonGroup>
-          <Button>Cancel</Button>
-          <Button variant="primary">Confirm</Button>
-        </ButtonGroup>
+        <ButtonGroup
+          align="right"
+          actions={{
+            primary: {
+              children: 'Confirm',
+            },
+            secondary: {
+              children: 'Cancel',
+            },
+          }}
+        />
       </CardFooter>
     </Card>
 
     <Card css={cardStyles}>
       <Content />
       <CardFooter align="left">
-        <ButtonGroup align="left">
-          <Button>Cancel</Button>
-          <Button variant="primary">Confirm</Button>
-        </ButtonGroup>
+        <ButtonGroup
+          align="left"
+          actions={{
+            primary: {
+              children: 'Confirm',
+            },
+            secondary: {
+              children: 'Cancel',
+            },
+          }}
+        />
       </CardFooter>
     </Card>
   </Fragment>
