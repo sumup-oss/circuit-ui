@@ -109,8 +109,11 @@ const actionWrapperStyles = ({ theme }: StyleProps) => css`
 
   ${theme.mq.kilo} {
     flex-direction: row;
-    justify-content: center;
   }
+`;
+
+const actionAlignmentStyles = ({ align = 'center' }: ButtonGroupProps) => css`
+  justify-content: ${alignmentMap[align]};
 `;
 
 const secondaryButtonStyles = ({ theme }: StyleProps) => css`
@@ -137,7 +140,10 @@ const Wrapper = styled('div')<ButtonGroupProps>(
   inlineMobileStyles,
 );
 
-const ActionsWrapper = styled('div')<ButtonGroupProps>(actionWrapperStyles);
+const ActionsWrapper = styled('div')<ButtonGroupProps>(
+  actionWrapperStyles,
+  actionAlignmentStyles,
+);
 
 /**
  * Groups its Button children into a list and adds margins between.
@@ -149,7 +155,7 @@ export const ButtonGroup = forwardRef(
   ) => {
     if (actions) {
       return (
-        <ActionsWrapper {...props}>
+        <ActionsWrapper {...props} ref={ref}>
           {actions.secondary && (
             <SecondaryButton {...actions.secondary} variant="secondary" />
           )}
