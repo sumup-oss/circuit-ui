@@ -71,12 +71,19 @@ const FormTwo = ({ onNextClick, onBackClick }: FormProps) => (
       css={spacing({ bottom: 'mega' })}
       noMargin
     />
-    <ButtonGroup align="left">
-      <Button variant="primary" onClick={() => onNextClick()}>
-        Submit
-      </Button>
-      <Button onClick={() => onBackClick()}>Back</Button>
-    </ButtonGroup>
+    <ButtonGroup
+      align="left"
+      actions={{
+        primary: {
+          children: 'Submit',
+          onClick: () => onNextClick(),
+        },
+        secondary: {
+          children: 'Back',
+          onClick: () => onBackClick(),
+        },
+      }}
+    />
   </section>
 );
 

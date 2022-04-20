@@ -28,7 +28,6 @@ import {
 
 import Image from '../../Image';
 import Button from '../../Button';
-import ButtonGroup from '../../ButtonGroup';
 import Step, { StepProps } from '../Step';
 import { StyleProps } from '../../../styles/styled';
 import { Actions } from '../types';
@@ -113,7 +112,13 @@ export default function YesOrNoSlider({
               swipe={swipe}
             />
           </Swipeable>
-          <ButtonGroup align={'center'}>
+          <div
+            css={(theme) => css`
+              display: flex;
+              justify-content: center;
+              gap: ${theme.spacings.mega};
+            `}
+          >
             <Button
               variant={swipe?.dir === LEFT_DIRECTION ? 'primary' : 'secondary'}
               {...getPreviousControlProps()}
@@ -126,7 +131,7 @@ export default function YesOrNoSlider({
             >
               Yes
             </Button>
-          </ButtonGroup>
+          </div>
         </SliderWrapper>
       )}
     </Step>

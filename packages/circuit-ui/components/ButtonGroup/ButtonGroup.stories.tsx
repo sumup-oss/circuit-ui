@@ -20,6 +20,10 @@ import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
 export default {
   title: 'Components/Button/ButtonGroup',
   component: ButtonGroup,
+  parameters: {
+    // we don't want to center this story to be able to see the effects of the `align` prop
+    layout: 'padded',
+  },
 };
 
 export const Base = (args: ButtonGroupProps): JSX.Element => (

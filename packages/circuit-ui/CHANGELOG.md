@@ -52,6 +52,11 @@
 ### Minor Changes
 
 - [#1507](https://github.com/sumup-oss/circuit-ui/pull/1507) [`c1942507`](https://github.com/sumup-oss/circuit-ui/commit/c19425073709a61e2df6cf0e5f4cb9dfa6af8d86) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed `lodash` as a dependency to reduce Circuit UI's bundle size. If you aren't using `lodash` in your application, you can remove `babel-plugin-lodash`.
+## 4.20.0
+
+### Minor Changes
+
+- [#1540](https://github.com/sumup-oss/circuit-ui/pull/1540) [`2a7d1c91`](https://github.com/sumup-oss/circuit-ui/commit/2a7d1c9141963f35df4f050da5df6fbcfec6c5f3) Thanks [@amelako](https://github.com/amelako)! - Added support for the `ButtonGroup` component's `align` prop when using the new `actions` prop. Defaults to `center`.
 
 ## 4.19.0
 

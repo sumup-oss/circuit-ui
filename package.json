@@ -35,7 +35,7 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.0",
+    "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
@@ -63,7 +63,7 @@
     "@types/jest": "^27.4.1",
     "audit-ci": "^6.0.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^27.4.6",
+    "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.1",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-module-resolver": "^4.0.0",

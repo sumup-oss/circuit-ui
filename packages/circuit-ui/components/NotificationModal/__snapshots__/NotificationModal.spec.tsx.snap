@@ -229,6 +229,10 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   margin-top: 24px;
 }
 
@@ -237,10 +241,6 @@ exports[`NotificationModal styles should render with default styles 1`] = `
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
   }
 }
 
