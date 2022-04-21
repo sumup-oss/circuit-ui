@@ -80,6 +80,8 @@ export { default as SelectorGroup } from './components/SelectorGroup';
 export type { SelectorGroupProps } from './components/SelectorGroup';
 
 // Notifications
+export { default as NotificationBanner } from './components/NotificationBanner';
+export type { NotificationBannerProps } from './components/NotificationBanner';
 export { default as NotificationFullscreen } from './components/NotificationFullscreen';
 export type { NotificationFullscreenProps } from './components/NotificationFullscreen';
 export { useNotificationToast } from './components/NotificationToast';
