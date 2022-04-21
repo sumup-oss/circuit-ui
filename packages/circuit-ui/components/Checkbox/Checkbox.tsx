@@ -241,6 +241,7 @@ export const Checkbox = forwardRef(
 
     return (
       <CheckboxWrapper className={className} style={style} noMargin={noMargin}>
+        {/* @ts-expect-error the noMargin prop is required */}
         <CheckboxInput
           {...props}
           id={id}
@@ -250,10 +251,7 @@ export const Checkbox = forwardRef(
           disabled={disabled}
           invalid={invalid}
           ref={ref}
-          // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
-          onClick={handleChange}
-          // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
-          onChange={() => {}}
+          onChange={handleChange}
         />
         <CheckboxLabel htmlFor={id} disabled={disabled}>
           {children}
