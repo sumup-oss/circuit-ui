@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.8
+
+### Minor Changes
+
+- [#1545](https://github.com/sumup-oss/circuit-ui/pull/1545) [`e8bc254f`](https://github.com/sumup-oss/circuit-ui/commit/e8bc254fd98c69eb70d8ffe5a225baf209db040c) Thanks [@robinmetral](https://github.com/robinmetral)! - Exported the `NotificationBanner` component from `@sumup/circuit-ui`.
+
 ## 5.0.0-canary.7
 
 ### Minor Changes
