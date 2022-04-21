@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.7
+
+### Minor Changes
+
+- [#1543](https://github.com/sumup-oss/circuit-ui/pull/1543) [`ef329372`](https://github.com/sumup-oss/circuit-ui/commit/ef329372376d936051e821a78d1b75a69fb25c4b) Thanks [@robinmetral](https://github.com/robinmetral)! - Updated the prerelease channel (`canary` branch) with recent minor changes from the stable release channel (`main` branch).
+
 ## 5.0.0-canary.6
 
 ### Major Changes
@@ -52,6 +58,7 @@
 ### Minor Changes
 
 - [#1507](https://github.com/sumup-oss/circuit-ui/pull/1507) [`c1942507`](https://github.com/sumup-oss/circuit-ui/commit/c19425073709a61e2df6cf0e5f4cb9dfa6af8d86) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed `lodash` as a dependency to reduce Circuit UI's bundle size. If you aren't using `lodash` in your application, you can remove `babel-plugin-lodash`.
+
 ## 4.20.0
 
 ### Minor Changes
