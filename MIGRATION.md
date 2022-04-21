@@ -2,6 +2,7 @@
 
 - [🤖 Codemods](#-codemods)
 - [From v4 to v5](#from-v4-to-v5)
+  - [Explicit browser support](#explicit-browser-support)
   - [New semantic color names](#new-semantic-color-names)
     - [...in design tokens](#in-design-tokens)
     - [...in component variants](#in-component-variants)
@@ -83,6 +84,13 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 Circuit UI v5 is a maintenance release, primarily removing deprecated components and props.
 
 > :warning: In order to make the migration from v4 to v5 easier, we recommend that you address the changes listed below _before_ upgrading the Circuit UI dependencies. Deprecation warnings can also help identify code that needs to be migrated.
+
+### Explicit browser support
+
+Starting in v5, Circuit UI is explicit about browser support. Refer to the browser support documentation for details.
+
+- The previously recommended [polyfill for the `Intl.NumberFormat` API](https://formatjs.io/docs/polyfills/intl-numberformat) isn't necessary anymore
+- The previously recommended [`object-fit` polyfill](https://github.com/constancecchen/object-fit-polyfill) (for the Carousel component) isn't necessary anymore
 
 ### New semantic color names
 
