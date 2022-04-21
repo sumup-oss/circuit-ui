@@ -15,48 +15,28 @@
 
 import React from 'react';
 
-/**
- * `event.keyCode` has been deprecated and replaced by `event.key`, however,
- * not all browsers implement it yet.
- * TypeScript assumes that `event.key` is always available, so it complains
- * about `event.keyCode` never being available.
- * FIXME: Clean up when we drop support for IE.
- */
-
 export const isEnter = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
-  // @ts-expect-error `keyCode` is needed to support older browsers.
-  'key' in event ? event.key === 'Enter' : event.keyCode === 13;
+  event.key === 'Enter';
 
 export const isEscape = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
-  // @ts-expect-error `keyCode` is needed to support older browsers.
-  'key' in event ? event.key === 'Escape' : event.keyCode === 27;
+  event.key === 'Escape';
 
 export const isSpacebar = (
   event: KeyboardEvent | React.KeyboardEvent,
-): boolean =>
-  // @ts-expect-error `keyCode` is needed to support older browsers.
-  'key' in event ? event.key === ' ' : event.keyCode === 32;
+): boolean => event.key === ' ';
 
 export const isArrowLeft = (
   event: KeyboardEvent | React.KeyboardEvent,
-): boolean =>
-  // @ts-expect-error `keyCode` is needed to support older browsers.
-  'key' in event ? event.key === 'ArrowLeft' : event.keyCode === 37;
+): boolean => event.key === 'ArrowLeft';
 
 export const isArrowUp = (
   event: KeyboardEvent | React.KeyboardEvent,
-): boolean =>
-  // @ts-expect-error `keyCode` is needed to support older browsers.
-  'key' in event ? event.key === 'ArrowUp' : event.keyCode === 38;
+): boolean => event.key === 'ArrowUp';
 
 export const isArrowRight = (
   event: KeyboardEvent | React.KeyboardEvent,
-): boolean =>
-  // @ts-expect-error `keyCode` is needed to support older browsers.
-  'key' in event ? event.key === 'ArrowRight' : event.keyCode === 39;
+): boolean => event.key === 'ArrowRight';
 
 export const isArrowDown = (
   event: KeyboardEvent | React.KeyboardEvent,
-): boolean =>
-  // @ts-expect-error `keyCode` is needed to support older browsers.
-  'key' in event ? event.key === 'ArrowDown' : event.keyCode === 40;
+): boolean => event.key === 'ArrowDown';
