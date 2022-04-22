@@ -1,0 +1,39 @@
+import { Meta, Status, Intro, Link } from '../../.storybook/components';
+
+<Meta title="Introduction/Browser Support" />
+
+# Browser Support
+
+<Intro>
+  Circuit UI supports all modern browsers. Polyfills may be required if your app
+  needs to support legacy browsers.
+</Intro>
+
+## Browser support policy
+
+Circuit UI supports all browser that support [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/):
+
+| Browser          | Version |
+| ---------------- | ------- |
+| Chrome           | 57+     |
+| Firefox          | 54+     |
+| Edge             | 16+     |
+| Safari iOS       | 10.3+   |
+| Safari macOS     | 10.1+   |
+| Opera            | 44+     |
+| Samsung Internet | 6.2+    |
+
+_Did you notice a bug with a Circuit UI component in a supported browser? [Report an issue!](https://github.com/sumup-oss/circuit-ui/issues/new?labels=&template=report-a-bug.md)_
+
+## Supporting legacy browsers
+
+If your app needs to support older browsers such as Internet Explorer, you may need to include polyfills in your bundled application. Some of the modern JavaScript and CSS features that Circuit UI uses are:
+
+- [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
+- [Object.entries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+- [CSS object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)
+
+_The list above is not exhaustive and depends on which Circuit UI components are used._
+
+The correct way to polyfill these features varies depending on your environment. For example, frameworks such as Next.js include many of these polyfills by default. Always test your app in your target browsers, and include polyfills if necessary.
