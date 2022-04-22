@@ -26,7 +26,6 @@
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui/README.md",
   "scripts": {
     "start": "tsc --watch",
-    "clean": "rm -rf dist",
     "build": "tsc && tsc --project tsconfig.cjs.json && yarn build:executable",
     "build:executable": "chmod +x ./dist/cjs/cli/index.js",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
