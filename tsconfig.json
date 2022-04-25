@@ -9,7 +9,6 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
-    "module": "es2020",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
@@ -17,7 +16,7 @@
     "outDir": "./dist/es",
     "resolveJsonModule": true,
     "strict": true,
-    "target": "es2020",
+    "target": "es2018",
     "plugins": [
       {
         "name": "typescript-styled-plugin",
