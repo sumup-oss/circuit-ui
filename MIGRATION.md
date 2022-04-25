@@ -87,10 +87,14 @@ Circuit UI v5 is a maintenance release, primarily removing deprecated components
 
 ### Explicit browser support
 
-Starting in v5, Circuit UI is explicit about browser support. Refer to the browser support documentation for details.
+Starting in v5, Circuit UI is explicit about which browsers it supports. Refer to the [browser support documentation](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) for details.
 
-- The previously recommended [polyfill for the `Intl.NumberFormat` API](https://formatjs.io/docs/polyfills/intl-numberformat) isn't necessary anymore
-- The previously recommended [`object-fit` polyfill](https://github.com/constancecchen/object-fit-polyfill) (for the Carousel component) isn't necessary anymore
+Here's what you need to be mindful of when migrating:
+
+- You no longer need to transpile Circuit UI when bundling your application (using e.g. [`next-transpile-module`](https://github.com/martpie/next-transpile-modules) in Next.js). Circuit UI now supports all target browsers out-of-the-box.
+- Previously recommended polyfills for Internet Explorer support are no longer necessary, and can be removed from your application:
+  - the [polyfill for the `Intl.NumberFormat` API](https://formatjs.io/docs/polyfills/intl-numberformat) isn't necessary anymore.
+  - the [`object-fit` polyfill](https://github.com/constancecchen/object-fit-polyfill) (for the Carousel component) isn't necessary anymore.
 
 ### New semantic color names
 
