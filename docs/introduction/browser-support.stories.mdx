@@ -5,13 +5,13 @@ import { Meta, Intro } from '../../.storybook/components';
 # Browser Support
 
 <Intro>
-  Circuit UI supports all modern browsers. Polyfills may be required if your app
-  needs to support legacy browsers.
+  Circuit UI supports all modern browsers. Polyfills and transpiling may be
+  required if your app needs to support legacy browsers.
 </Intro>
 
 ## Browser support policy
 
-Circuit UI supports all browser that support [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/):
+Circuit UI supports all browsers that support [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/):
 
 | Browser          | Version |
 | ---------------- | ------- |
@@ -23,11 +23,15 @@ Circuit UI supports all browser that support [CSS Grid Layout](https://www.w3.or
 | Opera            | 44+     |
 | Samsung Internet | 6.2+    |
 
+Starting in v5, Circuit UI does not need to be transpiled when bundling your application (unless you need to support legacy browsers: see below).
+
 _Did you notice a bug with a Circuit UI component in a supported browser? [Report an issue!](https://github.com/sumup-oss/circuit-ui/issues/new?labels=&template=report-a-bug.md)_
 
 ## Supporting legacy browsers
 
-If your app needs to support older browsers such as Internet Explorer, you may need to include polyfills in your bundled application. Some of the modern JavaScript and CSS features that Circuit UI uses are:
+If your app needs to support older browsers such as Internet Explorer, you will need to transpile Circuit UI when bundling your application. This can be achieved in different ways depending on the framework/bundler that you use. For example, if using Next.js, you can use the [`next-transpile-module`](https://github.com/martpie/next-transpile-modules) plugin.
+
+You may also need to include polyfills in your bundled application. Some of the modern JavaScript and CSS features that Circuit UI uses are:
 
 - [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
