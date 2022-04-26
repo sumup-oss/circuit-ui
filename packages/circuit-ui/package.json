@@ -67,17 +67,17 @@
     "@types/cross-spawn": "^6.0.2",
     "@types/jest-axe": "^3.5.3",
     "@types/jscodeshift": "^0.11.0",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
+    "@types/react": "^18.0.7",
+    "@types/react-dom": "^18.0.0",
     "@types/react-modal": "^3.10.5",
     "component-playground": "^3.2.1",
     "cross-env": "^7.0.2",
     "fork-ts-checker-webpack-plugin": "^7.2.6",
     "jest-axe": "^6.0.0",
-    "react": "^17.0.1",
+    "react": "^18.0.0",
     "react-docgen": "^5.3.1",
     "react-docgen-annotation-resolver": "^2.0.0",
-    "react-dom": "^17.0.1",
+    "react-dom": "^18.0.0",
     "react-swipeable": "^6.1.0",
     "typescript": "^4.6.3"
   },
@@ -90,7 +90,7 @@
     "@sumup/design-tokens": ">=4.0.0-canary.1",
     "@sumup/icons": ">=2.0.0",
     "@sumup/intl": "1.x",
-    "react": ">=16.8.0 <18.0.0",
-    "react-dom": ">=16.8.0 <18.0.0"
+    "react": ">=16.8.0 <19.0.0",
+    "react-dom": ">=16.8.0 <19.0.0"
   }
 }
