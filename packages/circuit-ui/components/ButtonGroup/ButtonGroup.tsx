@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactElement, Ref, forwardRef } from 'react';
+import { Ref, forwardRef, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -21,66 +21,24 @@ import Button, { ButtonProps } from '../Button';
 
 type Action = Omit<ButtonProps, 'variant'>;
 
-export interface ButtonGroupProps {
+export interface ButtonGroupProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'align'> {
   /**
-   * @deprecated Use the `actions` prop instead.
+   * The buttons to group. Expects a primary and optionally a secondary button.
    */
-  children?:
-    | (ReactElement<ButtonProps> | null | undefined)[]
-    | ReactElement<ButtonProps>;
+  actions: {
+    primary: Action;
+    secondary?: Action;
+  };
   /**
-   * Direction to align the content. Either left/right
+   * Direction to align the buttons. Defaults to `center`.
    */
   align?: 'left' | 'center' | 'right';
-  /**
-   * Whether to display buttons inline on mobile.
-   */
-  inlineMobile?: boolean;
   /**
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLDivElement>;
-  /**
-   * Action Buttons
-   */
-  actions?: {
-    primary: Action;
-    secondary?: Action;
-  };
 }
-
-const getInlineStyles = ({ theme }: StyleProps) => css`
-  flex-wrap: wrap;
-  > button,
-  > a {
-    width: auto;
-
-    &:not(:last-child) {
-      margin-right: ${theme.spacings.mega};
-      margin-bottom: 0;
-    }
-  }
-`;
-
-const baseStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  width: 100%;
-
-  > button,
-  > a {
-    width: 100%;
-
-    &:not(:last-child) {
-      margin-bottom: ${theme.spacings.mega};
-    }
-  }
-
-  ${theme.mq.kilo} {
-    ${getInlineStyles({ theme })};
-  }
-`;
 
 const alignmentMap = {
   left: 'flex-start',
@@ -88,20 +46,9 @@ const alignmentMap = {
   right: 'flex-end',
 } as const;
 
-const alignmentStyles = ({ align = 'right' }: ButtonGroupProps) => css`
-  justify-content: ${alignmentMap[align]};
-`;
+type WrapperProps = Omit<ButtonGroupProps, 'actions'>;
 
-const inlineMobileStyles = ({
-  theme,
-  inlineMobile = false,
-}: StyleProps & ButtonGroupProps) =>
-  inlineMobile &&
-  css`
-    ${getInlineStyles({ theme })}
-  `;
-
-const actionWrapperStyles = ({ theme }: StyleProps) => css`
+const wrapperStyles = ({ theme }: StyleProps) => css`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,9 +59,11 @@ const actionWrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const actionAlignmentStyles = ({ align = 'center' }: ButtonGroupProps) => css`
+const alignmentStyles = ({ align = 'center' }: WrapperProps) => css`
   justify-content: ${alignmentMap[align]};
 `;
+
+const Wrapper = styled('div')<WrapperProps>(wrapperStyles, alignmentStyles);
 
 const secondaryButtonStyles = ({ theme }: StyleProps) => css`
   margin-right: ${theme.spacings.mega};
@@ -134,46 +83,21 @@ const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
 
 const TertiaryButton = styled(Button)<ButtonProps>(tertiaryButtonStyles);
 
-const Wrapper = styled('div')<ButtonGroupProps>(
-  baseStyles,
-  alignmentStyles,
-  inlineMobileStyles,
-);
-
-const ActionsWrapper = styled('div')<ButtonGroupProps>(
-  actionWrapperStyles,
-  actionAlignmentStyles,
-);
-
 /**
- * Groups its Button children into a list and adds margins between.
+ * The ButtonGroup component groups and formats two buttons.
  */
 export const ButtonGroup = forwardRef(
-  (
-    { children, actions, ...props }: ButtonGroupProps,
-    ref: ButtonGroupProps['ref'],
-  ) => {
-    if (actions) {
-      return (
-        <ActionsWrapper {...props} ref={ref}>
-          {actions.secondary && (
-            <SecondaryButton {...actions.secondary} variant="secondary" />
-          )}
-
-          <Button {...actions.primary} variant="primary" />
-
-          {actions.secondary && (
-            <TertiaryButton {...actions.secondary} variant="tertiary" />
-          )}
-        </ActionsWrapper>
-      );
-    }
-    return (
-      <Wrapper {...props} ref={ref}>
-        {children}
-      </Wrapper>
-    );
-  },
+  ({ actions, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => (
+    <Wrapper {...props} ref={ref}>
+      {actions.secondary && (
+        <SecondaryButton {...actions.secondary} variant="secondary" />
+      )}
+      <Button {...actions.primary} variant="primary" />
+      {actions.secondary && (
+        <TertiaryButton {...actions.secondary} variant="tertiary" />
+      )}
+    </Wrapper>
+  ),
 );
 
 ButtonGroup.displayName = 'ButtonGroup';
