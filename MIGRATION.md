@@ -201,6 +201,7 @@ The API hasn't changed: uses of the `LoadingButton` can be replaced by the `Butt
 - The deprecated `zIndex.sidebar` design token was removed from `@sumup/design-tokens`. Use `sIndex.navigation` instead. There is no codemod for this change: search and replace the old value for the new one in your codebase.
 - The deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins were removed. Use the `shadow()` style mixin instead. There is no codemod for this change: migrate manually by searching for the deprecated style mixins in your codebase, and verify the changes visually.
 - The `RadioButton` component's deprecated `children` prop was removed. Use the `label` prop, now typed as required, instead. There is no codemod for this change: search your codebase for uses of the `RadioButton` or `RadioButtonGroup` component and migrate them manually.
+- The `ButtonGroup` component's deprecated `children` prop was removed. Use `actions` instead. If the new `ButtonGroup` component API doesn't fit your use case, consider aligning your use case with the design system, or write a custom wrapper for your buttons.
 - The deprecated `showValid` option was removed from the `inputOutline` style mixin.
 
 ## From v3.x to v4
