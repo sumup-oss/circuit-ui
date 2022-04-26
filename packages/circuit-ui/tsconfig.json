@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "alwaysStrict": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
     "declaration": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -15,6 +15,7 @@
     "noUnusedParameters": true,
     "outDir": "./dist/es",
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "strict": true,
     "target": "es2017",
     "plugins": [
