@@ -83,6 +83,7 @@
     "webpack": "^5.70.0"
   },
   "resolutions": {
-    "axe-core": "^4.3.5"
+    "axe-core": "^4.3.5",
+    "@types/react": "^17.0.44"
   }
 }
