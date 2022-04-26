@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 
 type Align = 'left' | 'right';
 
-export interface CardFooterProps {
+export interface CardFooterProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Direction to align the content. Either left/right
    */
@@ -51,10 +51,9 @@ const alignmentStyles = ({
   `;
 
 /**
- * Footer used in the Card component. Used for styling and aligment
- * purposes only.
+ * Footer used in the Card component. Used for styling and alignment purposes
+ * only.
  */
-
-export const CardFooter: FC<CardFooterProps> = styled(
+export const CardFooter: FC<PropsWithChildren<CardFooterProps>> = styled(
   'footer',
 )<CardFooterProps>(baseStyles, alignmentStyles);

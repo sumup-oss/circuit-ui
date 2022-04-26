@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ThHTMLAttributes, FC } from 'react';
+import { ThHTMLAttributes, FC, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -179,7 +179,7 @@ const StyledHeader = styled('th', {
 /**
  * TableHeader for the Table component. The Table handles rendering it.
  */
-const TableHeader: FC<TableHeaderProps> = ({
+const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
   children,
   condensed,
   align = 'left',

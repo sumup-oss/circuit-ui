@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -65,6 +65,9 @@ const noMarginStyles = ({ theme, noMargin }: StyleProps & SubHeadlineProps) => {
  * A flexible SubHeadline component capable of rendering using any HTML heading
  * element, except h1.
  */
-export const SubHeadline: FC<SubHeadlineProps> = styled('h3', {
-  shouldForwardProp: (prop) => isPropValid(prop),
-})<SubHeadlineProps>(baseStyles, noMarginStyles);
+export const SubHeadline: FC<PropsWithChildren<SubHeadlineProps>> = styled(
+  'h3',
+  {
+    shouldForwardProp: (prop) => isPropValid(prop),
+  },
+)<SubHeadlineProps>(baseStyles, noMarginStyles);

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC, Ref, HTMLAttributes } from 'react';
+import { FC, Ref, HTMLAttributes, PropsWithChildren } from 'react';
 import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/react';
 
@@ -54,6 +54,6 @@ const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
   `;
 };
 
-export const Card: FC<CardProps> = styled('div', {
+export const Card: FC<PropsWithChildren<CardProps>> = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
 })<CardProps>(baseStyles, spacingStyles);

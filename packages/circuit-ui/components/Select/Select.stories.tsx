@@ -14,7 +14,7 @@
  */
 
 import { useState, FC } from 'react';
-import { FlagDe, FlagUs, FlagFr } from '@sumup/icons';
+import { FlagDe, FlagUs, FlagFr, IconProps } from '@sumup/icons';
 
 import { Select, SelectProps } from './Select';
 import docs from './Select.docs.mdx';
@@ -48,7 +48,7 @@ const baseArgs = {
   noMargin: true,
 };
 
-const flagIconMap: { [key: string]: FC<{ className?: string }> } = {
+const flagIconMap: { [key: string]: FC<IconProps<'16'>> } = {
   DE: FlagDe,
   US: FlagUs,
   FR: FlagFr,

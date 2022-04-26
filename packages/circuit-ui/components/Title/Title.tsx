@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -54,6 +54,6 @@ const sizeStyles = ({ theme, size = 'one' }: StyleProps & TitleProps) => {
 /**
  * A flexible title component capable of rendering any HTML heading element.
  */
-export const Title: FC<TitleProps> = styled('h2', {
+export const Title: FC<PropsWithChildren<TitleProps>> = styled('h2', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<TitleProps>(baseStyles, sizeStyles);

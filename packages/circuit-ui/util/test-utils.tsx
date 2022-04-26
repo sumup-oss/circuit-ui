@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FunctionComponent, ReactElement } from 'react';
+import { FunctionComponent, ReactElement, PropsWithChildren } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
 import { configureAxe } from 'jest-axe';
@@ -32,7 +32,9 @@ export * from '@testing-library/react';
 
 export type RenderFn<T = any> = (component: ReactElement, ...rest: any) => T;
 
-const WithProviders: FunctionComponent = ({ children }) => (
+const WithProviders: FunctionComponent<PropsWithChildren<unknown>> = ({
+  children,
+}) => (
   <ComponentsContext.Provider value={defaultComponents}>
     <ThemeProvider theme={light}>{children}</ThemeProvider>
   </ComponentsContext.Provider>
