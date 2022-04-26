@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.9
+
+### Major Changes
+
+- [#1542](https://github.com/sumup-oss/circuit-ui/pull/1542) [`2c62d308`](https://github.com/sumup-oss/circuit-ui/commit/2c62d3087a7a772e5feb0126cc39ad5c84b564f4) Thanks [@robinmetral](https://github.com/robinmetral)! - Optimized Circuit UI for modern browsers. Refer to the [browser support policy](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) for details.
+
 ## 5.0.0-canary.8
 
 ### Minor Changes
