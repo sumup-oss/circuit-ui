@@ -13,7 +13,9 @@
  * limitations under the License.
  */
 
-import { create, renderToHtml, axe } from '../../util/test-utils';
+import { createRef } from 'react';
+
+import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
 
@@ -46,6 +48,16 @@ describe('ButtonGroup', () => {
       expect(actual).toMatchSnapshot();
     },
   );
+
+  /**
+   * Logic tests
+   */
+  it('should accept a working ref', () => {
+    const tref = createRef<HTMLDivElement>();
+    const { container } = render(<ButtonGroup {...defaultProps} ref={tref} />);
+    const div = container.querySelector('div');
+    expect(tref.current).toBe(div);
+  });
 
   /**
    * Accessibility tests.
