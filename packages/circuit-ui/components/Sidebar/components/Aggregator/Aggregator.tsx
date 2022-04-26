@@ -13,9 +13,6 @@
  * limitations under the License.
  */
 
-// TODO: Improve types
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
 import { useState, useEffect, ReactElement } from 'react';
 import { css } from '@emotion/react';
 import { TrackingElement } from '@sumup/collector';

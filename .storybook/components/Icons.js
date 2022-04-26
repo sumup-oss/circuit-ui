@@ -18,7 +18,7 @@ import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import * as iconComponents from '@sumup/icons';
-import { icons } from '@sumup/icons/manifest.json';
+import iconsJson from '@sumup/icons/manifest.json';
 import {
   Headline,
   Body,
@@ -129,7 +129,7 @@ const Icons = () => {
     { label: 'Alert', value: 'alert' },
   ];
 
-  const activeIcons = icons.filter(
+  const activeIcons = iconsJson.icons.filter(
     (icon) =>
       icon.name.includes(search) && (size === 'all' || size === icon.size),
   );

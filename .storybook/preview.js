@@ -16,9 +16,11 @@ const SORT_ORDER = {
   Introduction: {
     'Welcome': {},
     'Getting Started': {},
+    'Browser Support': {},
     'Contributing': {
       'Overview': {},
       'Code Conventions': {},
+      'Browser support (for contributors)': {},
       'Testing': {},
       'Release Process': {},
       'Deprecations': {},
@@ -81,7 +83,7 @@ const withUnmountWhenHidden = (Story, context) => {
     const config = { attributeFilter: ['hidden'] };
 
     const observer = new MutationObserver(() => {
-      if (context.canvasElement.getAttribute('hidden') === "true") {
+      if (context.canvasElement.getAttribute('hidden') === 'true') {
         ReactDOM.unmountComponentAtNode(context.canvasElement);
         observer.disconnect();
       }
@@ -90,7 +92,7 @@ const withUnmountWhenHidden = (Story, context) => {
     observer.observe(context.canvasElement, config);
   }
   return <Story />;
-}
+};
 
 const withThemeProvider = (Story) => (
   <ThemeProvider theme={light}>

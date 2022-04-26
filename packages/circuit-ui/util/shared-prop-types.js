@@ -15,48 +15,9 @@
 
 import PropTypes from 'prop-types';
 
-export const eitherOrPropType =
-  (firstProp, secondProp, propType, isRequired = false) =>
-  (props, propName, componentName) => {
-    const hasFirstProp = props[firstProp];
-    const hasSecondProp = props[secondProp];
-    /* eslint-disable max-len */
-    if (hasFirstProp && hasSecondProp) {
-      return new Error(
-        `You can provide either '${firstProp}' or '${secondProp}' to '${componentName}' but not both.`,
-      );
-    }
-    if (isRequired && !hasFirstProp && !hasSecondProp) {
-      return new Error(
-        `You must provide either '${firstProp}' or '${secondProp}' to '${componentName}' (but not both).`,
-      );
-    }
-    /* eslint-enable max-len */
-
-    return PropTypes.checkPropTypes(
-      { [propName]: propType },
-      props,
-      propName,
-      componentName,
-    );
-  };
-
 export const childrenPropType = PropTypes.oneOfType([
   PropTypes.arrayOf(PropTypes.node),
   PropTypes.node,
 ]);
 
 export const childrenRenderPropType = PropTypes.func;
-
-export const componentsPropType = PropTypes.shape({
-  Link: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-});
-
-export const positionPropType = PropTypes.oneOf([
-  'top',
-  'bottom',
-  'left',
-  'right',
-]);
-
-export const alignPropType = PropTypes.oneOf(['start', 'end', 'center']);

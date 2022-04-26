@@ -9,16 +9,14 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
-    "module": "ES2020",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "./dist/es",
     "resolveJsonModule": true,
-    "skipLibCheck": true,
     "strict": true,
-    "target": "es2020",
+    "target": "es2017",
     "plugins": [
       {
         "name": "typescript-styled-plugin",
@@ -39,5 +37,5 @@
     "**/*.spec.*",
     "**/*.stories.*"
   ],
-  "typeRoots": ["./node_modules/@types", "./global.d.ts"]
+  "typeRoots": ["./global.d.ts"]
 }

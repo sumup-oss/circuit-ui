@@ -30,17 +30,16 @@ export interface ColProps {
   /**
    * The amount to skip for a column. If the value is a number/string it will
    * be applied with no media query. If the value is an object it will apply
-   * each value based on the key breakpoint, IE:
-   * { untilKilo: 6 } will create a style for the untilKilo media query with a
-   * skip of 6 columns. Accepts negative values as well.
+   * each value based on the key breakpoint, i.e. `{ untilKilo: 6 }` will
+   * create a style for the untilKilo media query with a skip of 6 columns.
+   * Accepts negative values as well.
    */
   skip?: Option | BreakpointOptions<Option>;
   /**
    * The amount to span for a column. If the value is a number/string it will
    * be applied with no media query. If the value is an object it will apply
-   * each value based on the key breakpoint, IE:
-   * { untilKilo: 6 } will create a style for the untilKilo media query with a
-   * span of 6 columns.
+   * each value based on the key breakpoint, i.e. `{ untilKilo: 6 }` will
+   * create a style for the untilKilo media query with a span of 6 columns.
    */
   span?: Option | BreakpointOptions<Option>;
 }

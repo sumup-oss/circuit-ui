@@ -218,6 +218,7 @@ export const RadioButton = forwardRef(
 
     return (
       <Fragment>
+        {/* @ts-expect-error the noMargin prop is required */}
         <RadioButtonInput
           {...props}
           type="radio"
@@ -227,10 +228,7 @@ export const RadioButton = forwardRef(
           invalid={invalid}
           disabled={disabled}
           checked={checked}
-          // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
-          onClick={handleChange}
-          // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
-          onChange={() => {}}
+          onChange={handleChange}
           ref={ref}
         />
         <RadioButtonLabel
