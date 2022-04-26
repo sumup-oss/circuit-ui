@@ -54,12 +54,12 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderPrefix?: ({ className }: { className?: string }) => JSX.Element;
+  renderPrefix?: ({ className }: { className?: string }) => JSX.Element | null;
   /**
    * Render prop that should render a right-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderSuffix?: ({ className }: { className?: string }) => JSX.Element;
+  renderSuffix?: ({ className }: { className?: string }) => JSX.Element | null;
   /**
    * Warning or error message, displayed below the input.
    */
