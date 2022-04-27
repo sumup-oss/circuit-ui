@@ -17,15 +17,19 @@
 import React, { useContext } from 'react';
 import * as Collector from '@sumup/collector';
 
-import { render, act, userEvent, fireEvent } from '../../util/test-utils';
+import { render, act, userEvent } from '../../util/test-utils';
 
 import { ToastProvider, ToastContext } from './ToastContext';
 import type { ToastComponent } from './types';
 
 jest.mock('@sumup/collector');
 
+const toastMessage = "You've got mail!";
 const Toast: ToastComponent = ({ onClose }) => (
-  <button onClick={onClose}>Close</button>
+  <>
+    <p>{toastMessage}</p>
+    <button onClick={onClose}>Close</button>
+  </>
 );
 Toast.TRANSITION_DURATION = 200;
 
@@ -61,17 +65,17 @@ describe('ToastContext', () => {
         return <button onClick={() => setToast(toast)}>Open toast</button>;
       };
 
-      const { queryByRole, getByText } = render(
+      const { getByRole, getByText } = render(
         <ToastProvider>
           <Trigger />
         </ToastProvider>,
       );
 
       act(() => {
-        fireEvent.click(getByText('Open toast'));
+        userEvent.click(getByRole('button', { name: 'Open toast' }));
       });
 
-      expect(queryByRole('status')).toBeVisible();
+      expect(getByText(toastMessage)).toBeVisible();
     });
 
     it('should close the toast when the onClose method is called', () => {
@@ -87,7 +91,6 @@ describe('ToastContext', () => {
       );
       act(() => {
         userEvent.click(queryByRole('button'));
-        jest.runAllTimers();
       });
 
       expect(onClose).toHaveBeenCalledTimes(1);
