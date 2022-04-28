@@ -1,5 +1,16 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.11
+
+### Minor Changes
+
+- [#1554](https://github.com/sumup-oss/circuit-ui/pull/1554) [`d3fb618a`](https://github.com/sumup-oss/circuit-ui/commit/d3fb618a3b73b1751067421bcd237e861d593f33) Thanks [@robinmetral](https://github.com/robinmetral)! - Added support for React 18.
+
+### Patch Changes
+
+- Updated dependencies [[`d3fb618a`](https://github.com/sumup-oss/circuit-ui/commit/d3fb618a3b73b1751067421bcd237e861d593f33)]:
+  - @sumup/icons@2.7.0-canary.0
+
 ## 5.0.0-canary.10
 
 ### Major Changes
