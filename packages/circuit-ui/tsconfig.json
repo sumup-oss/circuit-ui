@@ -15,7 +15,6 @@
     "noUnusedParameters": true,
     "outDir": "./dist/es",
     "resolveJsonModule": true,
-    "skipLibCheck": true,
     "strict": true,
     "target": "es2017",
     "plugins": [
