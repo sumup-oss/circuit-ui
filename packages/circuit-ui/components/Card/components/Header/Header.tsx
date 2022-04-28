@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, HTMLAttributes, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
 
 import { ClickEvent } from '../../../../types/events';
@@ -48,7 +48,8 @@ export type CardHeaderProps = {
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
-} & CloseProps;
+} & CloseProps &
+  HTMLAttributes<HTMLDivElement>;
 
 type ContainerElProps = Pick<CardHeaderProps, 'children'>;
 
@@ -84,7 +85,7 @@ const CardHeaderCloseButton =
  * Header used in the Card component. Used for styling and alignment
  * purposes only.
  */
-export const CardHeader: FC<CardHeaderProps> = ({
+export const CardHeader: FC<PropsWithChildren<CardHeaderProps>> = ({
   onClose,
   children,
   closeButtonLabel,

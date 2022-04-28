@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
@@ -35,7 +34,13 @@ import { PrimaryLinkProps as PrimaryLinkType } from '../../types';
 
 export interface PrimaryLinkProps extends PrimaryLinkType {
   isOpen?: boolean;
-  suffix?: FC<{ className?: string; role?: string }>;
+  suffix?: ({
+    className,
+    role,
+  }: {
+    className?: string;
+    role?: string;
+  }) => JSX.Element;
 }
 
 type AnchorProps = Pick<PrimaryLinkProps, 'isActive' | 'isOpen'>;

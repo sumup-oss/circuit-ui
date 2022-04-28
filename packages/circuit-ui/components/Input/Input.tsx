@@ -16,7 +16,6 @@
 import {
   forwardRef,
   Ref,
-  FC,
   InputHTMLAttributes,
   TextareaHTMLAttributes,
   ReactNode,
@@ -55,12 +54,12 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderPrefix?: FC<{ className?: string }>;
+  renderPrefix?: ({ className }: { className?: string }) => JSX.Element | null;
   /**
    * Render prop that should render a right-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderSuffix?: FC<{ className?: string }>;
+  renderSuffix?: ({ className }: { className?: string }) => JSX.Element | null;
   /**
    * Warning or error message, displayed below the input.
    */

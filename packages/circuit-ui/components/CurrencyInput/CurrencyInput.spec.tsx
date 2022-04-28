@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { createRef } from 'react';
+import { ChangeEvent, createRef, useState } from 'react';
 import NumberFormat from 'react-number-format';
 
 import {
@@ -24,21 +24,29 @@ import {
   act,
   userEvent,
 } from '../../util/test-utils';
+import { InputProps } from '../Input';
 
-import CurrencyInput from '.';
+import CurrencyInput, { CurrencyInputProps } from '.';
 
 describe('CurrencyInput', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CurrencyInput currency="EUR" label="Amount" />);
+    const actual = create(
+      <CurrencyInput currency="EUR" label="Amount" noMargin />,
+    );
     expect(actual).toMatchSnapshot();
   });
 
   it('should adjust input padding and suffix width to match currency symbol width', () => {
     const actual = create(
-      <CurrencyInput placeholder="123,45" currency="CHF" label="Amount" />,
+      <CurrencyInput
+        placeholder="123,45"
+        currency="CHF"
+        label="Amount"
+        noMargin
+      />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -48,13 +56,14 @@ describe('CurrencyInput', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = createRef<NumberFormat>();
+      const tref = createRef<NumberFormat<InputProps>>();
       const { container } = render(
         <CurrencyInput
           locale="de-DE"
           currency="EUR"
           ref={tref}
           label="Amount"
+          noMargin
         />,
       );
       const input = container.querySelector('input');
@@ -63,16 +72,10 @@ describe('CurrencyInput', () => {
 
     it('should format a en-GB amount correctly', () => {
       const { getByLabelText } = render(
-        <CurrencyInput
-          locale="en-GB"
-          currency="EUR"
-          value={1234.5}
-          label="Amount"
-        />,
+        <CurrencyInput locale="en-GB" currency="EUR" label="Amount" noMargin />,
       );
 
-      const input = getByLabelText(new RegExp('Amount')) as HTMLInputElement;
-      expect(input.value).toBe('1,234.5');
+      const input = getByLabelText(/Amount/) as HTMLInputElement;
 
       act(() => {
         userEvent.type(input, '1234.56');
@@ -83,18 +86,41 @@ describe('CurrencyInput', () => {
 
     it('should format a de-DE amount correctly', () => {
       const { getByLabelText } = render(
-        <CurrencyInput
-          locale="de-DE"
-          currency="EUR"
-          value={1234.5}
-          label="Amount"
-        />,
+        <CurrencyInput locale="de-DE" currency="EUR" label="Amount" noMargin />,
       );
 
-      const input = getByLabelText(new RegExp('Amount')) as HTMLInputElement;
+      const input = getByLabelText(/Amount/) as HTMLInputElement;
+
+      act(() => {
+        userEvent.type(input, '1234,56');
+      });
+
+      expect(input.value).toBe('1.234,56');
+    });
+
+    it('should format an amount in a controlled input with an initial numeric value', () => {
+      const ControlledCurrencyInput = () => {
+        const [value, setValue] = useState<CurrencyInputProps['value']>(1234.5);
+        return (
+          <CurrencyInput
+            locale="de-DE"
+            currency="EUR"
+            value={value}
+            label="Amount"
+            noMargin
+            onChange={(
+              e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>,
+            ) => setValue(e.target.value)}
+          />
+        );
+      };
+      const { getByLabelText } = render(<ControlledCurrencyInput />);
+
+      const input = getByLabelText(/Amount/) as HTMLInputElement;
       expect(input.value).toBe('1.234,5');
 
       act(() => {
+        userEvent.clear(input);
         userEvent.type(input, '1234,56');
       });
 
@@ -107,7 +133,12 @@ describe('CurrencyInput', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <CurrencyInput locale="de-DE" currency="EUR" label="Product price" />,
+      <CurrencyInput
+        locale="de-DE"
+        currency="EUR"
+        label="Product price"
+        noMargin
+      />,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

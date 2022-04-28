@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
@@ -72,7 +72,8 @@ const Tr = styled.tr(baseStyles, clickableStyles);
 /**
  * TableRow for the Table component. The Table handles rendering it.
  */
-const TableRow: FC<TableRowProps> = ({ onClick, ...props }) => (
-  <Tr onClick={onClick} tabIndex={onClick ? 0 : undefined} {...props} />
-);
+const TableRow: FC<PropsWithChildren<TableRowProps>> = ({
+  onClick,
+  ...props
+}) => <Tr onClick={onClick} tabIndex={onClick ? 0 : undefined} {...props} />;
 export default TableRow;

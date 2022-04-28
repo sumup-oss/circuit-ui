@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { FC, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -21,7 +20,7 @@ import styled, { StyleProps } from '../../styles/styled';
 
 type Size = 'one' | 'two' | 'three' | 'four';
 
-export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface TitleProps {
   /**
    * A Circuit UI title size. Defaults to `one`.
    */
@@ -54,6 +53,6 @@ const sizeStyles = ({ theme, size = 'one' }: StyleProps & TitleProps) => {
 /**
  * A flexible title component capable of rendering any HTML heading element.
  */
-export const Title: FC<TitleProps> = styled('h2', {
+export const Title = styled('h2', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<TitleProps>(baseStyles, sizeStyles);

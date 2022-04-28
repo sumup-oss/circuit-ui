@@ -13,14 +13,7 @@
  * limitations under the License.
  */
 
-import {
-  Ref,
-  FC,
-  SVGProps,
-  forwardRef,
-  HTMLAttributes,
-  ButtonHTMLAttributes,
-} from 'react';
+import { Ref, forwardRef, HTMLAttributes, ButtonHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
@@ -34,11 +27,11 @@ type BaseProps = {
   /**
    * Render prop that should render a leading-aligned icon or element.
    */
-  prefix?: FC<SVGProps<SVGSVGElement>>;
+  prefix?: ({ className }: { className?: string }) => JSX.Element;
   /**
    * Render prop that should render a trailing-aligned icon or element.
    */
-  suffix?: FC<SVGProps<SVGSVGElement>>;
+  suffix?: ({ className }: { className?: string }) => JSX.Element;
   /**
    * Triggers selected styles on the tag.
    */

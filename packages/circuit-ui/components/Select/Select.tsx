@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC, ReactNode, Ref, SelectHTMLAttributes, forwardRef } from 'react';
+import { ReactNode, Ref, SelectHTMLAttributes, forwardRef } from 'react';
 import { css } from '@emotion/react';
 import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
@@ -83,7 +83,13 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderPrefix?: FC<{ value?: string | number; className?: string }>;
+  renderPrefix?: ({
+    value,
+    className,
+  }: {
+    value?: string | number;
+    className?: string;
+  }) => JSX.Element;
   /**
    * Warning or error message, displayed below the select.
    */

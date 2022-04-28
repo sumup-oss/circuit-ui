@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { FC, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -21,7 +20,7 @@ import styled, { StyleProps } from '../../styles/styled';
 
 type Size = 'one' | 'two' | 'three' | 'four';
 
-export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface HeadlineProps {
   /**
    * A Circuit UI headline size. Defaults to `one`.
    */
@@ -74,6 +73,6 @@ const noMarginStyles = ({ theme, noMargin }: StyleProps & HeadlineProps) => {
 /**
  * A flexible headline component capable of rendering any HTML heading element.
  */
-export const Headline: FC<HeadlineProps> = styled('h2', {
+export const Headline = styled('h2', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<HeadlineProps>(baseStyles, sizeStyles, noMarginStyles);
