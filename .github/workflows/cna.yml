@@ -8,11 +8,14 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 16]
     steps:
-      - name: Setup Node.js v14
+      - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: ${{ matrix.node }}
 
       - name: Checkout repository
         uses: actions/checkout@v2
