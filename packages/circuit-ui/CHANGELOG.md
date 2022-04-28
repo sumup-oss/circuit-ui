@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.10
+
+### Major Changes
+
+- [#1552](https://github.com/sumup-oss/circuit-ui/pull/1552) [`4e6a3750`](https://github.com/sumup-oss/circuit-ui/commit/4e6a375010aed43dcf5abc6b57c0503747b42b4b) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `children` prop from the `ButtonGroup` component. Use the `actions` prop instead.
+
 ## 5.0.0-canary.9
 
 ### Major Changes
