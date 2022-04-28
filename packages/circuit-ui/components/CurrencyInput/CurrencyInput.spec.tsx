@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { createRef } from 'react';
+import { ChangeEvent, createRef, useState } from 'react';
 import NumberFormat from 'react-number-format';
 
 import {
@@ -26,7 +26,7 @@ import {
 } from '../../util/test-utils';
 import { InputProps } from '../Input';
 
-import CurrencyInput from '.';
+import CurrencyInput, { CurrencyInputProps } from '.';
 
 describe('CurrencyInput', () => {
   /**
@@ -72,17 +72,10 @@ describe('CurrencyInput', () => {
 
     it('should format a en-GB amount correctly', () => {
       const { getByLabelText } = render(
-        <CurrencyInput
-          locale="en-GB"
-          currency="EUR"
-          value={1234.5}
-          label="Amount"
-          noMargin
-        />,
+        <CurrencyInput locale="en-GB" currency="EUR" label="Amount" noMargin />,
       );
 
-      const input = getByLabelText(new RegExp('Amount')) as HTMLInputElement;
-      expect(input.value).toBe('1,234.5');
+      const input = getByLabelText(/Amount/) as HTMLInputElement;
 
       act(() => {
         userEvent.type(input, '1234.56');
@@ -93,19 +86,41 @@ describe('CurrencyInput', () => {
 
     it('should format a de-DE amount correctly', () => {
       const { getByLabelText } = render(
-        <CurrencyInput
-          locale="de-DE"
-          currency="EUR"
-          value={1234.5}
-          label="Amount"
-          noMargin
-        />,
+        <CurrencyInput locale="de-DE" currency="EUR" label="Amount" noMargin />,
       );
 
-      const input = getByLabelText(new RegExp('Amount')) as HTMLInputElement;
+      const input = getByLabelText(/Amount/) as HTMLInputElement;
+
+      act(() => {
+        userEvent.type(input, '1234,56');
+      });
+
+      expect(input.value).toBe('1.234,56');
+    });
+
+    it('should format an amount in a controlled input with an initial numeric value', () => {
+      const ControlledCurrencyInput = () => {
+        const [value, setValue] = useState<CurrencyInputProps['value']>(1234.5);
+        return (
+          <CurrencyInput
+            locale="de-DE"
+            currency="EUR"
+            value={value}
+            label="Amount"
+            noMargin
+            onChange={(
+              e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>,
+            ) => setValue(e.target.value)}
+          />
+        );
+      };
+      const { getByLabelText } = render(<ControlledCurrencyInput />);
+
+      const input = getByLabelText(/Amount/) as HTMLInputElement;
       expect(input.value).toBe('1.234,5');
 
       act(() => {
+        userEvent.clear(input);
         userEvent.type(input, '1234,56');
       });
 
