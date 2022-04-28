@@ -24,6 +24,7 @@ import {
   act,
   userEvent,
 } from '../../util/test-utils';
+import { InputProps } from '../Input';
 
 import CurrencyInput from '.';
 
@@ -32,13 +33,20 @@ describe('CurrencyInput', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CurrencyInput currency="EUR" label="Amount" />);
+    const actual = create(
+      <CurrencyInput currency="EUR" label="Amount" noMargin />,
+    );
     expect(actual).toMatchSnapshot();
   });
 
   it('should adjust input padding and suffix width to match currency symbol width', () => {
     const actual = create(
-      <CurrencyInput placeholder="123,45" currency="CHF" label="Amount" />,
+      <CurrencyInput
+        placeholder="123,45"
+        currency="CHF"
+        label="Amount"
+        noMargin
+      />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -48,13 +56,14 @@ describe('CurrencyInput', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = createRef<NumberFormat>();
+      const tref = createRef<NumberFormat<InputProps>>();
       const { container } = render(
         <CurrencyInput
           locale="de-DE"
           currency="EUR"
           ref={tref}
           label="Amount"
+          noMargin
         />,
       );
       const input = container.querySelector('input');
@@ -68,6 +77,7 @@ describe('CurrencyInput', () => {
           currency="EUR"
           value={1234.5}
           label="Amount"
+          noMargin
         />,
       );
 
@@ -88,6 +98,7 @@ describe('CurrencyInput', () => {
           currency="EUR"
           value={1234.5}
           label="Amount"
+          noMargin
         />,
       );
 
@@ -107,7 +118,12 @@ describe('CurrencyInput', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <CurrencyInput locale="de-DE" currency="EUR" label="Product price" />,
+      <CurrencyInput
+        locale="de-DE"
+        currency="EUR"
+        label="Product price"
+        noMargin
+      />,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
