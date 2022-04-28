@@ -11,7 +11,7 @@ A
 
 ## 💻 Prerequisites
 
-- You should have **Node.js** installed at a version equal or above **`v10.13.0`**. If you cannot do that, see the Troubleshooting section for ways around this requirement.
+- You should have **Node.js** installed at a version equal or above **`v14.17.0`**. If you cannot do that, see the Troubleshooting section for ways around this requirement.
 - At the moment this project reqires **`yarn`** to be installed on your system. Yarn is a package manager for JavaScript. You can read how to install the Yarn CLI in [their documentation](https://yarnpkg.com/en/docs/install).
 
 ## ✨ Setting up a new SumUp Next.js project
