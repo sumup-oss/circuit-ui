@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { render, axe } from '../../../../util/test-utils';
+import { render, axe, act } from '../../../../util/test-utils';
 
 import { DesktopSidePanel, DesktopSidePanelProps } from './DesktopSidePanel';
 
@@ -59,7 +59,9 @@ describe('DesktopSidePanel', () => {
 
   it('should open without animation when isInstantOpen is true', () => {
     const { getByRole } = renderComponent({ isInstantOpen: true });
-    jest.advanceTimersByTime(100);
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
     expect(getByRole('dialog')).toHaveStyle('transition: none');
   });
 
