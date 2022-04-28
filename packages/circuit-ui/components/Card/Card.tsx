@@ -13,22 +13,16 @@
  * limitations under the License.
  */
 
-import { FC, Ref, HTMLAttributes, PropsWithChildren } from 'react';
 import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 
-export interface CardProps extends HTMLAttributes<HTMLDivElement> {
+export interface CardProps {
   /**
    * The padding of the Card.
    */
   spacing?: 'mega' | 'giga';
-  /**
-   * The ref to the HTML DOM element.
-   */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ref?: Ref<any>;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
@@ -54,6 +48,6 @@ const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
   `;
 };
 
-export const Card: FC<PropsWithChildren<CardProps>> = styled('div', {
+export const Card = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
 })<CardProps>(baseStyles, spacingStyles);

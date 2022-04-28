@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 
-export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface SubHeadlineProps {
   /**
    * We're moving away from built-in margins. The `noMargin` prop is now
    * required and will be removed in v6 using codemods. Use the `spacing()`
@@ -65,9 +64,6 @@ const noMarginStyles = ({ theme, noMargin }: StyleProps & SubHeadlineProps) => {
  * A flexible SubHeadline component capable of rendering using any HTML heading
  * element, except h1.
  */
-export const SubHeadline: FC<PropsWithChildren<SubHeadlineProps>> = styled(
-  'h3',
-  {
-    shouldForwardProp: (prop) => isPropValid(prop),
-  },
-)<SubHeadlineProps>(baseStyles, noMarginStyles);
+export const SubHeadline = styled('h3', {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<SubHeadlineProps>(baseStyles, noMarginStyles);
