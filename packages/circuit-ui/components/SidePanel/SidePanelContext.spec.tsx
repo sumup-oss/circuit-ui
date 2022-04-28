@@ -298,13 +298,15 @@ describe('SidePanelContext', () => {
 
         act(() => {
           userEvent.click(getByText('Close panel'));
+        });
+        act(() => {
           jest.runAllTimers();
         });
 
         expect(queryByRole('dialog')).toBeNull();
       });
 
-      it('should close all side panel stacked above the one being closed', () => {
+      it('should close all side panels stacked above the one being closed', () => {
         const Trigger = () => {
           const { setSidePanel, removeSidePanel } =
             useContext(SidePanelContext);
@@ -333,6 +335,8 @@ describe('SidePanelContext', () => {
 
         act(() => {
           userEvent.click(getByText('Close panel'));
+        });
+        act(() => {
           jest.runAllTimers();
         });
 
@@ -367,6 +371,8 @@ describe('SidePanelContext', () => {
 
         act(() => {
           userEvent.click(getByText('Close panel'));
+        });
+        act(() => {
           jest.runAllTimers();
         });
 
