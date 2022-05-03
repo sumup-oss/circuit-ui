@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-import Link from 'next/link';
 import Head from 'next/head';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -59,20 +58,19 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
             : 'An error occurred while rendering the page.'}
         </Body>
 
-        <Link href={'/'} passHref>
-          <ButtonGroup
-            actions={{
-              primary: {
-                href: '/',
-                children: 'Go to the homepage',
-              },
-              secondary: {
-                onClick: () => window.location.reload(),
-                children: 'Reload the page',
-              },
-            }}
-          />
-        </Link>
+        <ButtonGroup
+          actions={{
+            primary: {
+              href: '/',
+              children: 'Go to the homepage',
+              // TODO: render as a Next.js Link
+            },
+            secondary: {
+              onClick: () => window.location.reload(),
+              children: 'Reload the page',
+            },
+          }}
+        />
       </Card>
     </Container>
   </>
