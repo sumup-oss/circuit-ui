@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "analyze": "ANALYZE=true yarn build",
     "test": "jest --watch",
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json",
@@ -28,13 +27,26 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/runtime": "^7.17.9",
     "@emotion/babel-plugin": "^11.9.2",
+    "@emotion/jest": "^11.9.1",
+    "@sumup/foundry": "^4.1.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@testing-library/user-event": "^14.1.1",
+    "@types/jest": "^27.5.0",
+    "@types/jest-axe": "^3.5.3",
     "@types/node": "17.0.31",
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.3",
+    "@types/testing-library__jest-dom": "^5.14.3",
+    "babel-jest": "28.0.3",
     "babel-plugin-inline-react-svg": "^2.0.1",
-    "eslint": "8.14.0",
-    "eslint-config-next": "12.1.6",
+    "jest": "^28.0.3",
+    "jest-axe": "^6.0.0",
+    "jest-environment-jsdom": "28.0.2",
     "typescript": "4.6.4"
   }
 }
