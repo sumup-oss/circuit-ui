@@ -1,22 +1,38 @@
 {
-  "name": "template-new",
-  "version": "0.1.0",
+  "name": "next-app",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true yarn build",
+    "test": "jest --watch",
+    "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json",
+    "postinstall": "yarn foundry init -p lint -l TypeScript -e Browser Node; echo \"Remove the postinstall script from the package.json file after setting up Foundry.\""
   },
   "dependencies": {
+    "@emotion/css": "^11.9.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.8.1",
+    "@next/bundle-analyzer": "^12.1.6",
+    "@sumup/circuit-ui": "^5.0.0-canary.11",
+    "@sumup/collector": "^1.6.0",
+    "@sumup/design-tokens": "^4.0.0-canary.1",
+    "@sumup/icons": "^2.7.0-canary.0",
+    "@sumup/intl": "^1.2.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.9.2",
     "@types/node": "17.0.31",
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.3",
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.6",
     "typescript": "4.6.4"

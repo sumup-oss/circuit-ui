@@ -1,8 +1,19 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { ThemeProvider, CacheProvider } from '@emotion/react';
+import { cache } from '@emotion/css';
+import { BaseStyles } from '@sumup/circuit-ui';
+import { light } from '@sumup/design-tokens';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <CacheProvider value={cache}>
+      <ThemeProvider theme={light}>
+        <BaseStyles />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </CacheProvider>
+  );
 }
 
-export default MyApp
+export default App;
