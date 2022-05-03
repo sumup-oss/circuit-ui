@@ -22,7 +22,7 @@ Here are a few helpful links for getting started with Circuit UI:
 - **[@sumup/circuit-ui](./packages/circuit-ui)** — the core React component library
 - **[@sumup/design-tokens](./packages/design-tokens)** — visual primitives such as typography, color, and spacing
 - **[@sumup/icons](./packages/icons)** — a collection of SVG icons
-- **[create-sumup-next-app](./packages/create-sumup-next-app)** — bootstrap a fresh [Next.js](https://nextjs.org/) app with Circuit UI and [Foundry](https://github.com/sumup-oss/foundry)
+- **[@sumup/cna-template](./packages/cna-template)** — bootstrap a fresh [Next.js](https://nextjs.org/) app with Circuit UI and [Foundry](https://github.com/sumup-oss/foundry)
 
 ## Code of conduct
 

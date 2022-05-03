@@ -133,7 +133,7 @@ To configure the syntax highlighting in your favorite text editor, head to the [
 
 ## Contributing
 
-If you have ideas for how we could improve this readme or the project in general, [let us know](https://github.com/sumup-oss/circuit-ui/issues) or [contribute some](https://github.com/sumup-oss/circuit-ui/edit/main/packages/create-sumup-next-app/template/README.md)!
+If you have ideas for how we could improve this readme or the project in general, [let us know](https://github.com/sumup-oss/circuit-ui/issues) or [contribute some](https://github.com/sumup-oss/circuit-ui/edit/main/packages/cna-template/template/README.md)!
 
 ## Questions? Feedback?
 

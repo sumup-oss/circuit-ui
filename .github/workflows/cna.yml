@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Bootstrap app
-        run: yarn create next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-next-app/template" test-app
+        run: yarn create next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template/template" test-app
 
       - name: Build app
         working-directory: ./test-app

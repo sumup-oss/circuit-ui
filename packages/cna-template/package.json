@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/sumup-oss/circuit-ui/issues"
   },
-  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-next-app/README.md",
+  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template/README.md",
   "scripts": {
     "start": "tsc --watch",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",

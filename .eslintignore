@@ -15,4 +15,4 @@ tsconfig.json
 package.json
 scripts/
 # disable linting for the template because it will have its own rules when used in a new app
-packages/create-sumup-next-app/template
+packages/cna-template/template
