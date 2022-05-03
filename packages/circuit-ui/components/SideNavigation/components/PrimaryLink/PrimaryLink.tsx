@@ -26,7 +26,7 @@ import {
 } from '../../../../styles/style-mixins';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { ClickEvent } from '../../../../types/events';
-import { AsPropType } from '../../../../types/prop-types';
+import { EmotionAsPropType } from '../../../../types/prop-types';
 import { useComponents } from '../../../ComponentsContext';
 import Body from '../../../Body';
 import { Skeleton } from '../../../Skeleton';
@@ -186,8 +186,7 @@ export function PrimaryLink({
   secondaryGroups,
   ...props
 }: PrimaryLinkProps): JSX.Element {
-  const components = useComponents();
-  const Link = components.Link as AsPropType;
+  const { Link } = useComponents();
 
   const handleClick = useClickEvent<ClickEvent>(
     onClick,
@@ -205,7 +204,7 @@ export function PrimaryLink({
       isActive={isActive}
       isOpen={isOpen}
       aria-current={isActive ? 'page' : undefined}
-      as={props.href ? Link : 'button'}
+      as={props.href ? (Link as EmotionAsPropType) : 'button'}
     >
       <Skeleton css={cx(iconStyles, badge && iconWithBadgeStyles)}>
         <Icon role="presentation" size="24" />

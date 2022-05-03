@@ -18,7 +18,7 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { AsPropType } from '../../types/prop-types';
+import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
 
 type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 
@@ -100,7 +100,9 @@ function getHTMLElement(variant?: Variant): AsPropType {
 export const BodyLarge = forwardRef(
   (props: BodyLargeProps, ref?: BodyLargeProps['ref']) => {
     const as = props.as || getHTMLElement(props.variant);
-    return <StyledBodyLarge {...props} ref={ref} as={as} />;
+    return (
+      <StyledBodyLarge {...props} ref={ref} as={as as EmotionAsPropType} />
+    );
   },
 );
 

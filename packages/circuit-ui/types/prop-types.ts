@@ -15,4 +15,9 @@
 
 import { ElementType } from 'react';
 
-export type AsPropType = ElementType<any> & string; // This comes from Emotion's types
+// This is how we should type the `as` prop in Circuit components, because the
+// prop should accept either a Component or a string (for an element)
+export type AsPropType = ElementType<any> | string;
+
+// This is the type that Emotion expects
+export type EmotionAsPropType = ElementType<any> & string;

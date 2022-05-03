@@ -106,6 +106,23 @@ describe('Button', () => {
       expect(buttonEl).toHaveAttribute('href');
     });
 
+    it('should render as a custom element when passed the as prop', () => {
+      const CustomLink = ({ children, ...props }: ButtonProps) => (
+        <a {...props} href="https://sumup.com">
+          {children}
+        </a>
+      );
+      const props = {
+        ...baseProps,
+        'data-testid': 'custom-link-button',
+        'as': CustomLink,
+      };
+      const { getByTestId } = renderButton(render, props);
+      const buttonEl = getByTestId('custom-link-button');
+      expect(buttonEl.tagName).toBe('A');
+      expect(buttonEl).toHaveAttribute('href');
+    });
+
     it('should render loading button with loading label', () => {
       const loadingLabel = 'Loading';
       const props = {
@@ -185,8 +202,8 @@ describe('Button', () => {
           Link button
         </Button>,
       );
-      const button = container.querySelector('a');
-      expect(tref.current).toBe(button);
+      const anchor = container.querySelector('a');
+      expect(tref.current).toBe(anchor);
     });
   });
 

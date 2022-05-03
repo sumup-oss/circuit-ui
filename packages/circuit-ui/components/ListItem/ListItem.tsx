@@ -34,7 +34,7 @@ import {
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
-import { AsPropType } from '../../types/prop-types';
+import { EmotionAsPropType } from '../../types/prop-types';
 import { isFunction, isString } from '../../util/type-check';
 import { warn } from '../../util/logger';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
@@ -341,10 +341,10 @@ export const ListItem = forwardRef(
       }
     }
 
-    const components = useComponents();
-    let as: AsPropType = 'div';
+    const { Link } = useComponents();
+    let as: EmotionAsPropType = 'div';
     if (props.href) {
-      as = components.Link as AsPropType;
+      as = Link as EmotionAsPropType;
     } else if (props.onClick) {
       as = 'button';
     }
