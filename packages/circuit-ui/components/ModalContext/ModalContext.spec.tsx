@@ -25,7 +25,7 @@ import type { ModalComponent } from './types';
 jest.mock('@sumup/collector');
 
 const Modal: ModalComponent = ({ onClose }) => (
-  <div role="dialog">
+  <div role="dialog" aria-label="Modal">
     <button onClick={onClose}>Close</button>
   </div>
 );
