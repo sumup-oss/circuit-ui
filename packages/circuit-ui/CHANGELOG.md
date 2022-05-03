@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.0.0-canary.12
+
+### Minor Changes
+
+- [#1559](https://github.com/sumup-oss/circuit-ui/pull/1559) [`1d7dc8c3`](https://github.com/sumup-oss/circuit-ui/commit/1d7dc8c3ba837099daafed58808216eb954e3f61) Thanks [@robinmetral](https://github.com/robinmetral)! - Added support for the `as` prop in the `Button` component. This is necessary to render buttons in a `ButtonGroup` as links with routing.
+
 ## 5.0.0-canary.11
 
 ### Minor Changes
