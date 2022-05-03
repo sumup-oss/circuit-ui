@@ -3,7 +3,7 @@
 exports[`Logo should render with default styles 1`] = `
 .emotion-0 {
   display: block;
-  max-width: 120px;
+  width: 120px;
   color: #000;
   margin: 32px 0;
 }
@@ -14,7 +14,6 @@ exports[`Logo should render with default styles 1`] = `
     href="https://sumup.com"
     rel="noopener noreferrer"
     target="_blank"
-    title="Open SumUp's homepage in a new tab"
   >
     <svg
       class="emotion-0"
