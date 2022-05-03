@@ -1,17 +1,8 @@
-import React, { FC } from 'react';
-import { AppProps } from 'next/app';
-import { ThemeProvider, CacheProvider } from '@emotion/react';
-import { cache } from '@emotion/css';
-import { BaseStyles } from '@sumup/circuit-ui';
-import { light } from '@sumup/design-tokens';
+import '../styles/globals.css'
+import type { AppProps } from 'next/app'
 
-const App: FC<AppProps> = ({ Component, pageProps }) => (
-  <CacheProvider value={cache}>
-    <ThemeProvider theme={light}>
-      <BaseStyles />
-      <Component {...pageProps} />
-    </ThemeProvider>
-  </CacheProvider>
-);
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
 
-export default App;
+export default MyApp

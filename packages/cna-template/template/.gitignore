@@ -1,46 +1,35 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Project #
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-.next
-node_modules
+# testing
+/coverage
 
-# Tests #
+# next.js
+/.next/
+/out/
 
-.eslintcache
-__coverage__
-__reports__
+# production
+/build
 
-# Packages #
-
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-
-# Text editor files #
-
-*.sublime-workspace
-*.sublime-project
-*.editorconfig
-*.swp
-
-# Logs #
-
-*.log
-
-# OS generated files #
-
+# misc
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
