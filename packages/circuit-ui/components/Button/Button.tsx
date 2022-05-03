@@ -35,7 +35,7 @@ import {
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
-import { AsPropType } from '../../types/prop-types';
+import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Spinner from '../Spinner';
@@ -94,6 +94,10 @@ export interface BaseProps {
    * impaired users.
    */
   'loadingLabel'?: string;
+  /**
+   * Render the Button using any element.
+   */
+  'as'?: AsPropType;
 }
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
@@ -349,6 +353,7 @@ export const Button = forwardRef(
       loadingLabel,
       icon: Icon,
       tracking,
+      as,
       ...props
     }: ButtonProps,
     ref?: BaseProps['ref'],
@@ -363,8 +368,8 @@ export const Button = forwardRef(
         'The Button component has `isLoading` but is missing a `loadingLabel` prop. This is an accessibility requirement.',
       );
     }
-    const components = useComponents();
-    const Link = components.Link as AsPropType;
+    const { Link } = useComponents();
+    const linkOrButton = props.href ? Link : 'button';
 
     const handleClick = useClickEvent(props.onClick, tracking, 'button');
 
@@ -378,7 +383,7 @@ export const Button = forwardRef(
           })}
         disabled={disabled || isLoading}
         ref={ref}
-        as={props.href ? Link : 'button'}
+        as={(as || linkOrButton) as EmotionAsPropType}
         onClick={handleClick}
       >
         <LoadingIcon isLoading={Boolean(isLoading)} size="byte">

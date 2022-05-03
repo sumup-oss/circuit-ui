@@ -20,7 +20,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import styled, { StyleProps } from '../../../../styles/styled';
 import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import { ClickEvent } from '../../../../types/events';
-import { AsPropType } from '../../../../types/prop-types';
+import { EmotionAsPropType } from '../../../../types/prop-types';
 import { useComponents } from '../../../ComponentsContext';
 import { getIcon } from '../../SidebarService';
 import { NavLabel } from '../NavLabel';
@@ -129,8 +129,7 @@ export function NavItem({
   tracking,
   ...props
 }: NavItemProps): JSX.Element {
-  const components = useComponents();
-  const Link = components.Link as AsPropType;
+  const { Link } = useComponents();
 
   const handleClick = useClickEvent(onClick, tracking, 'sidebar-nav-item');
 
@@ -144,7 +143,7 @@ export function NavItem({
       `}
     >
       <NavLink
-        as={Link}
+        as={Link as EmotionAsPropType}
         onClick={!disabled ? handleClick : undefined}
         selected={selected}
         secondary={secondary}

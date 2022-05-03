@@ -22,7 +22,7 @@ import { TrackingElement } from '@sumup/collector';
 
 import styled, { StyleProps, NoTheme } from '../../../../styles/styled';
 import { navigationItem } from '../../../../styles/style-mixins';
-import { AsPropType } from '../../../../types/prop-types';
+import { EmotionAsPropType } from '../../../../types/prop-types';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { useFocusList, FocusProps } from '../../../../hooks/useFocusList';
 import SubHeadline from '../../../SubHeadline';
@@ -63,8 +63,7 @@ function SecondaryLink({
   badge,
   ...props
 }: SecondaryLinkProps) {
-  const components = useComponents();
-  const Link = components.Link as AsPropType;
+  const { Link } = useComponents();
 
   const handleClick = useClickEvent<MouseEvent | KeyboardEvent>(
     onClick,
@@ -78,7 +77,7 @@ function SecondaryLink({
         {...props}
         onClick={handleClick}
         aria-current={props.isActive ? 'page' : undefined}
-        as={props.href ? Link : 'button'}
+        as={props.href ? (Link as EmotionAsPropType) : 'button'}
       >
         <Skeleton css={labelStyles}>
           <Body

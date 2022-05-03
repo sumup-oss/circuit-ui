@@ -18,7 +18,7 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { AsPropType } from '../../types/prop-types';
+import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
 
 type Size = 'one' | 'two';
 type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
@@ -132,7 +132,7 @@ function getHTMLElement(variant?: Variant): AsPropType {
  */
 export const Body = forwardRef((props: BodyProps, ref?: BodyProps['ref']) => {
   const as = props.as || getHTMLElement(props.variant);
-  return <StyledBody {...props} ref={ref} as={as} />;
+  return <StyledBody {...props} ref={ref} as={as as EmotionAsPropType} />;
 });
 
 Body.displayName = 'Body';
