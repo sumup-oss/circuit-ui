@@ -1,5 +1,13 @@
 # @sumup/design-tokens
 
+## 4.0.0
+
+### Major Changes
+
+- [#1509](https://github.com/sumup-oss/circuit-ui/pull/1509) [`c7dfe6a4`](https://github.com/sumup-oss/circuit-ui/commit/c7dfe6a4b1b6c78a2477a8de2ac82a35a8f71dd6) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `zIndex.sidebar` token. Use `zIndex.navigation` instead.
+
+* [#1526](https://github.com/sumup-oss/circuit-ui/pull/1526) [`ba059828`](https://github.com/sumup-oss/circuit-ui/commit/ba059828c3caec2cabf0a43118af27a8128e78a0) Thanks [@amelako](https://github.com/amelako)! - Removed the deprecated `success`, `warning` and `danger` legacy color names. Use `confirm`, `notify` and `alert` instead.
+
 ## 4.0.0-canary.1
 
 ### Major Changes
