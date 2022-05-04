@@ -1,5 +1,11 @@
 # @sumup/cna-template
 
+## 2.0.0
+
+### Major Changes
+
+- [#1558](https://github.com/sumup-oss/circuit-ui/pull/1558) [`c97f601f`](https://github.com/sumup-oss/circuit-ui/commit/c97f601f7c9686fd56c970b2132bde62b1a0077b) Thanks [@robinmetral](https://github.com/robinmetral)! - Updated the Next.js template to Circuit UI v5, React 18, and Next.js 12.
+
 ## 1.2.1
 
 ### Patch Changes
