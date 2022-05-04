@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { render, axe } from '../../test-utils';
 
 import { Logo } from './Logo';

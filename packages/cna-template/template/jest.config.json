@@ -3,7 +3,7 @@
   "testPathIgnorePatterns": ["./.next/", "./node_modules/"],
   "testEnvironment": "jsdom",
   "testEnvironmentOptions": {
-    "url": "http://localhost"
+    "url": "https://example.sumup.com"
   },
   "setupFilesAfterEnv": ["<rootDir>/setupTests.tsx"],
   "snapshotSerializers": ["@emotion/jest/serializer"],
