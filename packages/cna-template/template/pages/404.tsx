@@ -3,7 +3,15 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Card, Headline, Body, Button, spacing, cx } from '@sumup/circuit-ui';
+import {
+  Card,
+  Headline,
+  Body,
+  Button,
+  spacing,
+  cx,
+  center,
+} from '@sumup/circuit-ui';
 
 import { Logo } from '../components/Logo';
 
@@ -17,10 +25,6 @@ const Main = styled('main')(
     margin: 0 auto ${theme.spacings.kilo};
   `,
 );
-
-const centeredStyles = css`
-  text-align: center;
-`;
 
 const title = 'Page not found';
 const description =
@@ -38,7 +42,7 @@ const NotFound: NextPage = () => (
           as="h1"
           size="one"
           noMargin
-          css={cx(centeredStyles, spacing({ bottom: 'giga' }))}
+          css={cx(center, spacing({ bottom: 'giga' }))}
         >
           {title}
         </Headline>

@@ -9,6 +9,7 @@ import {
   ButtonGroup,
   spacing,
   cx,
+  center,
 } from '@sumup/circuit-ui';
 
 import { Logo } from '../components/Logo';
@@ -28,10 +29,6 @@ const Container = styled('section')(
   `,
 );
 
-const centeredStyles = css`
-  text-align: center;
-`;
-
 const title = 'An error occurred';
 
 const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
@@ -48,7 +45,7 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
           as="h1"
           size="one"
           noMargin
-          css={cx(centeredStyles, spacing({ bottom: 'giga' }))}
+          css={cx(center, spacing({ bottom: 'giga' }))}
         >
           {title}
         </Headline>
