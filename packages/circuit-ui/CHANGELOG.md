@@ -38,10 +38,6 @@
 
 ### Minor Changes
 
-- [#1545](https://github.com/sumup-oss/circuit-ui/pull/1545) [`e8bc254f`](https://github.com/sumup-oss/circuit-ui/commit/e8bc254fd98c69eb70d8ffe5a225baf209db040c) Thanks [@robinmetral](https://github.com/robinmetral)! - Exported the `NotificationBanner` component from `@sumup/circuit-ui`.
-
-* [#1543](https://github.com/sumup-oss/circuit-ui/pull/1543) [`ef329372`](https://github.com/sumup-oss/circuit-ui/commit/ef329372376d936051e821a78d1b75a69fb25c4b) Thanks [@robinmetral](https://github.com/robinmetral)! - Updated the prerelease channel (`canary` branch) with recent minor changes from the stable release channel (`main` branch).
-
 - [#1554](https://github.com/sumup-oss/circuit-ui/pull/1554) [`d3fb618a`](https://github.com/sumup-oss/circuit-ui/commit/d3fb618a3b73b1751067421bcd237e861d593f33) Thanks [@robinmetral](https://github.com/robinmetral)! - Added support for React 18.
 
 * [#1507](https://github.com/sumup-oss/circuit-ui/pull/1507) [`c1942507`](https://github.com/sumup-oss/circuit-ui/commit/c19425073709a61e2df6cf0e5f4cb9dfa6af8d86) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed `lodash` as a dependency to reduce Circuit UI's bundle size. If you aren't using `lodash` in your application, you can remove `babel-plugin-lodash`.
