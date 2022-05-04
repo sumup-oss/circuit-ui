@@ -1,5 +1,57 @@
 # @sumup/circuit-ui
 
+## 5.0.0
+
+### Major Changes
+
+- [#1534](https://github.com/sumup-oss/circuit-ui/pull/1534) [`35d297aa`](https://github.com/sumup-oss/circuit-ui/commit/35d297aad0e69e56652530c0141977ac98577c9a) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `CardList` component. Use the `ListItemGroup` instead.
+
+* [#1531](https://github.com/sumup-oss/circuit-ui/pull/1531) [`ff09e8cf`](https://github.com/sumup-oss/circuit-ui/commit/ff09e8cfe97b6cc333734297de18b7e7927bad7f) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `LoadingButton` component. Use the `Button` component instead.
+
+- [#1528](https://github.com/sumup-oss/circuit-ui/pull/1528) [`005d2a17`](https://github.com/sumup-oss/circuit-ui/commit/005d2a17983a83053d5a86fd9813b6130f3fefe2) Thanks [@robinmetral](https://github.com/robinmetral)! - Typed `noMargin` as a required prop in components.
+
+* [#1513](https://github.com/sumup-oss/circuit-ui/pull/1513) [`4740ef30`](https://github.com/sumup-oss/circuit-ui/commit/4740ef30d22ec5f482c9d259454dadb03bdcef83) Thanks [@amelako](https://github.com/amelako)! - Removed the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable.
+
+- [#1511](https://github.com/sumup-oss/circuit-ui/pull/1511) [`eed3888f`](https://github.com/sumup-oss/circuit-ui/commit/eed3888f8df92d9e8358a0dc3b441852c38f852f) Thanks [@amelako](https://github.com/amelako)! - Threw a runtime error when the `noMargin` prop isn't passed to components requiring it. Setting the `UNSAFE_DISABLE_NO_MARGIN_ERRORS` environment variable to `true` will temporarily turn off the errors.
+
+* [#1461](https://github.com/sumup-oss/circuit-ui/pull/1461) [`86e03b8d`](https://github.com/sumup-oss/circuit-ui/commit/86e03b8dffec7d410595197b9d682a712d2275f2) Thanks [@hris27](https://github.com/hris27)! - Changed the SideNavigation breakpoint to 1280px.
+
+- [#1528](https://github.com/sumup-oss/circuit-ui/pull/1528) [`005d2a17`](https://github.com/sumup-oss/circuit-ui/commit/005d2a17983a83053d5a86fd9813b6130f3fefe2) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the default placeholder option in the `Select` component. Pass a localized string to `placeholder` instead, or keep the default option empty.
+
+* [#1529](https://github.com/sumup-oss/circuit-ui/pull/1529) [`fa2101e5`](https://github.com/sumup-oss/circuit-ui/commit/fa2101e56031d8341cc392817aa1436308f2d181) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `showValid` option from the `inputOutline` style mixin.
+
+- [#1542](https://github.com/sumup-oss/circuit-ui/pull/1542) [`2c62d308`](https://github.com/sumup-oss/circuit-ui/commit/2c62d3087a7a772e5feb0126cc39ad5c84b564f4) Thanks [@robinmetral](https://github.com/robinmetral)! - Optimized Circuit UI for modern browsers. Refer to the [browser support policy](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) for details.
+
+* [#1552](https://github.com/sumup-oss/circuit-ui/pull/1552) [`4e6a3750`](https://github.com/sumup-oss/circuit-ui/commit/4e6a375010aed43dcf5abc6b57c0503747b42b4b) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `children` prop from the `ButtonGroup` component. Use the `actions` prop instead.
+
+- [#1512](https://github.com/sumup-oss/circuit-ui/pull/1512) [`b7712b30`](https://github.com/sumup-oss/circuit-ui/commit/b7712b3054b9c652c42d344da60e208828006d89) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the `RadioButton`'s deprecated `children` prop. Use the `label` prop (now required) instead, in both the `RadioButton` and the `RadioButtonGroup`'s `options`.
+
+* [#1526](https://github.com/sumup-oss/circuit-ui/pull/1526) [`ba059828`](https://github.com/sumup-oss/circuit-ui/commit/ba059828c3caec2cabf0a43118af27a8128e78a0) Thanks [@amelako](https://github.com/amelako)! - Removed the deprecated `success`, `warning` and `danger` color variants. Use `confirm`, `notify` and `alert` instead.
+
+- [#1510](https://github.com/sumup-oss/circuit-ui/pull/1510) [`908f1e77`](https://github.com/sumup-oss/circuit-ui/commit/908f1e77b25add3497c9dfcfecdd238bb035d79f) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins. Use the `shadow()` style mixin instead.
+
+* [#1518](https://github.com/sumup-oss/circuit-ui/pull/1518) [`2987be29`](https://github.com/sumup-oss/circuit-ui/commit/2987be297ab8a77f447f9e8052fbb88116d7e704) Thanks [@amelako](https://github.com/amelako)! - Removed the deprecated `Notification`, `NotificationCard`, `NotificationList` and `InlineMessage` components.
+
+- [#1533](https://github.com/sumup-oss/circuit-ui/pull/1533) [`dec0db59`](https://github.com/sumup-oss/circuit-ui/commit/dec0db596a2306c1e37a6f8ff4fc85692a02ba6b) Thanks [@robinmetral](https://github.com/robinmetral)! - Renamed the `ListItem` component's `prefix` and `suffix` props to `leadingComponent` and `trailingComponent`. Renamed the `suffixLabel` and `suffixDetails` props to `trailingLabel` and `trailingDetails`.
+
+* [#1512](https://github.com/sumup-oss/circuit-ui/pull/1512) [`b7712b30`](https://github.com/sumup-oss/circuit-ui/commit/b7712b3054b9c652c42d344da60e208828006d89) Thanks [@robinmetral](https://github.com/robinmetral)! - Made the `RadioButton`'s `label` prop required and throw an error if it isn't passed. This is an accessibility requirement.
+
+### Minor Changes
+
+- [#1554](https://github.com/sumup-oss/circuit-ui/pull/1554) [`d3fb618a`](https://github.com/sumup-oss/circuit-ui/commit/d3fb618a3b73b1751067421bcd237e861d593f33) Thanks [@robinmetral](https://github.com/robinmetral)! - Added support for React 18.
+
+* [#1507](https://github.com/sumup-oss/circuit-ui/pull/1507) [`c1942507`](https://github.com/sumup-oss/circuit-ui/commit/c19425073709a61e2df6cf0e5f4cb9dfa6af8d86) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed `lodash` as a dependency to reduce Circuit UI's bundle size. If you aren't using `lodash` in your application, you can remove `babel-plugin-lodash`.
+
+- [#1559](https://github.com/sumup-oss/circuit-ui/pull/1559) [`1d7dc8c3`](https://github.com/sumup-oss/circuit-ui/commit/1d7dc8c3ba837099daafed58808216eb954e3f61) Thanks [@robinmetral](https://github.com/robinmetral)! - Added support for the `as` prop in the `Button` component. This is necessary to render buttons in a `ButtonGroup` as links with routing.
+
+### Patch Changes
+
+- [#1563](https://github.com/sumup-oss/circuit-ui/pull/1563) [`aa48826c`](https://github.com/sumup-oss/circuit-ui/commit/aa48826c82980d39bbc06e4b5d92c15c69e06bb8) Thanks [@robinmetral](https://github.com/robinmetral)! - Omitted the `noMargin` prop from the Anchor component's props.
+
+- Updated dependencies [[`c7dfe6a4`](https://github.com/sumup-oss/circuit-ui/commit/c7dfe6a4b1b6c78a2477a8de2ac82a35a8f71dd6), [`d3fb618a`](https://github.com/sumup-oss/circuit-ui/commit/d3fb618a3b73b1751067421bcd237e861d593f33), [`ba059828`](https://github.com/sumup-oss/circuit-ui/commit/ba059828c3caec2cabf0a43118af27a8128e78a0)]:
+  - @sumup/design-tokens@4.0.0
+  - @sumup/icons@2.7.0
+
 ## 4.20.0
 
 ### Minor Changes
