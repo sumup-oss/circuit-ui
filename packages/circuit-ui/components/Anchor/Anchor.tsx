@@ -31,7 +31,7 @@ import { Body, BodyProps } from '../Body/Body';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 
-export interface BaseProps extends BodyProps {
+export interface BaseProps extends Omit<BodyProps, 'noMargin'> {
   children: ReactNode;
   /**
    * Function that's called when the button is clicked.
