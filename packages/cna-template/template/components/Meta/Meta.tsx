@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import Head from 'next/head';
 
 export interface MetaProps {
@@ -21,7 +21,7 @@ export interface MetaProps {
 /**
  * Add meta tags to the document head.
  */
-export const Meta: FC<MetaProps> = ({
+export const Meta: FC<PropsWithChildren<MetaProps>> = ({
   title,
   description,
   path,

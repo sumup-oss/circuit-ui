@@ -53,7 +53,7 @@ const SORT_ORDER = {
     'circuit-ui': {},
     'design-tokens': {},
     'icons': {},
-    'create-sumup-next-app': {},
+    'cna-template': {},
   },
 };
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { NextPage } from 'next';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -10,6 +9,7 @@ import {
   Anchor,
   cx,
   spacing,
+  center,
 } from '@sumup/circuit-ui';
 
 import { Meta } from '../components/Meta';
@@ -26,10 +26,6 @@ const Main = styled('main')(
   `,
 );
 
-const centeredStyles = css`
-  text-align: center;
-`;
-
 const title = 'Welcome to SumUp Next.js';
 
 const Page: NextPage = () => (
@@ -39,10 +35,9 @@ const Page: NextPage = () => (
       <Logo />
       <Card>
         <Headline
-          size="one"
           as="h1"
           noMargin
-          css={cx(centeredStyles, spacing({ bottom: 'giga' }))}
+          css={cx(center, spacing({ bottom: 'giga' }))}
         >
           {title}
         </Headline>
@@ -58,7 +53,7 @@ const Page: NextPage = () => (
           -specific customizations:
         </Body>
 
-        <List size="one" noMargin css={spacing({ bottom: 'giga' })}>
+        <List noMargin css={spacing({ bottom: 'giga' })}>
           <li>
             <Anchor
               href="https://github.com/sumup-oss/circuit-ui"
@@ -76,13 +71,7 @@ const Page: NextPage = () => (
             support (incl. babel plugin)
           </li>
           <li>
-            <Anchor href="https://lodash.com/" target="_blank" noMargin>
-              Lodash
-            </Anchor>{' '}
-            support (incl. babel plugin)
-          </li>
-          <li>
-            {"SumUp's default tooling provided by "}
+            SumUp's default tooling provided by{' '}
             <Anchor
               href="https://github.com/sumup-oss/foundry"
               target="_blank"
@@ -94,28 +83,21 @@ const Page: NextPage = () => (
           <li>Basic SEO and performance optimizations</li>
         </List>
 
-        <Body
-          size="one"
-          noMargin
-          css={cx(centeredStyles, spacing({ bottom: 'giga' }))}
-        >
+        <Body noMargin css={cx(center, spacing({ bottom: 'giga' }))}>
           Now go and build things!
-          <br />
         </Body>
         <Body
-          size="one"
           noMargin
+          aria-hidden
           css={cx(
             css`
-              ${centeredStyles};
               transform: scale3d(1.5, 1.5, 1);
             `,
+            center,
             spacing({ bottom: 'giga' }),
           )}
         >
-          <span role="img" aria-label="Emojis for building things">
-            🔨👩🏽‍💻👨🏼‍💻🚀
-          </span>
+          🔨👩🏽‍💻👨🏼‍💻🚀
         </Body>
       </Card>
     </Main>

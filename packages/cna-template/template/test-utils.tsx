@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import { FC, ReactNode } from 'react';
 import { configureAxe } from 'jest-axe';
 import { ThemeProvider } from '@emotion/react';
 import { render as renderTest } from '@testing-library/react';
 import { light } from '@sumup/design-tokens';
 
-const WithProviders: FunctionComponent = ({ children }) => (
+const WithProviders: FC<{ children: ReactNode }> = ({ children }) => (
   <ThemeProvider theme={light}>{children}</ThemeProvider>
 );
 

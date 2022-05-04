@@ -23,7 +23,7 @@ import { ToastContext } from './ToastContext';
 import type { ToastComponent } from './types';
 
 const Toast: ToastComponent = ({ onClose }) => (
-  <div role="dialog">
+  <div role="dialog" aria-label="Toast">
     <button onClick={onClose}>Close</button>
   </div>
 );

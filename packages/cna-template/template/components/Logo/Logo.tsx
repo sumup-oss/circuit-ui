@@ -1,4 +1,3 @@
-import React from 'react';
 import { css } from '@emotion/react';
 import { SumUpLogo } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
@@ -9,12 +8,11 @@ export const Logo = (): JSX.Element => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Open SumUp's homepage in a new tab"
-    title="Open SumUp's homepage in a new tab"
   >
     <SumUpLogo
       css={(theme: Theme) => css`
         display: block;
-        max-width: 120px;
+        width: 120px;
         color: ${theme.colors.black};
         margin: ${theme.spacings.tera} 0;
       `}

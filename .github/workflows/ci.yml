@@ -37,7 +37,7 @@ jobs:
         run: yarn --pure-lockfile --prefer-offline
 
       - name: Install template dependencies
-        run: cd packages/create-sumup-next-app/template && yarn --no-lockfile --prefer-offline --ignore-scripts
+        run: cd packages/cna-template/template && yarn --no-lockfile --prefer-offline --ignore-scripts
 
       - name: Check dependency licenses
         run: yarn check:licenses

@@ -1,10 +1,17 @@
-import React from 'react';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Card, Headline, Body, Button, spacing, cx } from '@sumup/circuit-ui';
+import {
+  Card,
+  Headline,
+  Body,
+  Button,
+  spacing,
+  cx,
+  center,
+} from '@sumup/circuit-ui';
 
 import { Logo } from '../components/Logo';
 
@@ -19,13 +26,9 @@ const Main = styled('main')(
   `,
 );
 
-const centeredStyles = css`
-  text-align: center;
-`;
-
 const title = 'Page not found';
 const description =
-  "The page you requested can't be found. What’s worse, a hilarious 404 page can’t be found either.";
+  "The page you requested can't be found. What's worse, a hilarious 404 page can't be found either.";
 
 const NotFound: NextPage = () => (
   <>
@@ -39,7 +42,7 @@ const NotFound: NextPage = () => (
           as="h1"
           size="one"
           noMargin
-          css={cx(centeredStyles, spacing({ bottom: 'giga' }))}
+          css={cx(center, spacing({ bottom: 'giga' }))}
         >
           {title}
         </Headline>

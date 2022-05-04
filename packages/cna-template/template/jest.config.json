@@ -1,7 +1,10 @@
 {
-  "testURL": "http://localhost",
   "moduleFileExtensions": ["js", "jsx", "ts", "tsx"],
   "testPathIgnorePatterns": ["./.next/", "./node_modules/"],
+  "testEnvironment": "jsdom",
+  "testEnvironmentOptions": {
+    "url": "https://example.sumup.com"
+  },
   "setupFilesAfterEnv": ["<rootDir>/setupTests.tsx"],
   "snapshotSerializers": ["@emotion/jest/serializer"],
   "coverageDirectory": "./__coverage__",

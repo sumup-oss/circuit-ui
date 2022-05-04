@@ -1,6 +1,4 @@
-import React from 'react';
 import { NextPage } from 'next';
-import Link from 'next/link';
 import Head from 'next/head';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -9,12 +7,13 @@ import {
   Headline,
   Body,
   ButtonGroup,
-  Button,
   spacing,
   cx,
+  center,
 } from '@sumup/circuit-ui';
 
 import { Logo } from '../components/Logo';
+import { Link } from '../components/Link';
 
 interface ErrorPageProps {
   statusCode?: number;
@@ -30,10 +29,6 @@ const Container = styled('section')(
     margin: 0 auto ${theme.spacings.kilo};
   `,
 );
-
-const centeredStyles = css`
-  text-align: center;
-`;
 
 const title = 'An error occurred';
 
@@ -51,7 +46,7 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
           as="h1"
           size="one"
           noMargin
-          css={cx(centeredStyles, spacing({ bottom: 'giga' }))}
+          css={cx(center, spacing({ bottom: 'giga' }))}
         >
           {title}
         </Headline>
@@ -61,14 +56,19 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
             : 'An error occurred while rendering the page.'}
         </Body>
 
-        <ButtonGroup>
-          <Button onClick={() => window.location.reload()}>
-            Reload the page
-          </Button>
-          <Link href="/" passHref>
-            <Button variant="primary">Go to the homepage</Button>
-          </Link>
-        </ButtonGroup>
+        <ButtonGroup
+          actions={{
+            primary: {
+              href: '/',
+              children: 'Go to the homepage',
+              as: Link,
+            },
+            secondary: {
+              onClick: () => window.location.reload(),
+              children: 'Reload the page',
+            },
+          }}
+        />
       </Card>
     </Container>
   </>
