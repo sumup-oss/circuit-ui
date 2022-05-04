@@ -17,7 +17,7 @@
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.8.1",
     "@next/bundle-analyzer": "^12.1.6",
-    "@sumup/circuit-ui": "^5.0.0-canary.11",
+    "@sumup/circuit-ui": "^5.0.0-canary.12",
     "@sumup/collector": "^1.6.0",
     "@sumup/design-tokens": "^4.0.0-canary.1",
     "@sumup/icons": "^2.7.0-canary.0",

@@ -13,6 +13,7 @@ import {
 } from '@sumup/circuit-ui';
 
 import { Logo } from '../components/Logo';
+import { Link } from '../components/Link';
 
 interface ErrorPageProps {
   statusCode?: number;
@@ -60,7 +61,7 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
             primary: {
               href: '/',
               children: 'Go to the homepage',
-              // TODO: render as a Next.js Link
+              as: Link,
             },
             secondary: {
               onClick: () => window.location.reload(),
