@@ -13,18 +13,18 @@
  * limitations under the License.
  */
 
-import { FC, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { deprecate } from '../../util/logger';
 
-export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface SubHeadlineProps {
   /**
-   * Removes the default bottom margin from the subheading.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin?: boolean;
+  noMargin: true;
   /**
    * The HTML heading element to render. Headings should be nested sequentially
    * without skipping any levels. Learn more at
@@ -38,35 +38,32 @@ const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.bold};
   font-size: ${theme.typography.subHeadline.fontSize};
   line-height: ${theme.typography.subHeadline.lineHeight};
-  margin-bottom: ${theme.spacings.kilo};
   color: ${theme.colors.black};
 `;
 
-const noMarginStyles = ({ noMargin }: SubHeadlineProps) => {
+const noMarginStyles = ({ theme, noMargin }: StyleProps & SubHeadlineProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'SubHeadline',
-        'The default outer spacing in the SubHeadline component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The SubHeadline component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
 
-    return null;
+    return css`
+      margin-bottom: ${theme.spacings.kilo};
+    `;
   }
-  return css`
-    margin-bottom: 0;
-  `;
+  return null;
 };
 
 /**
  * A flexible SubHeadline component capable of rendering using any HTML heading
  * element, except h1.
  */
-export const SubHeadline: FC<SubHeadlineProps> = styled('h3', {
+export const SubHeadline = styled('h3', {
   shouldForwardProp: (prop) => isPropValid(prop),
 })<SubHeadlineProps>(baseStyles, noMarginStyles);

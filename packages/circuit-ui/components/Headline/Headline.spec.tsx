@@ -24,7 +24,7 @@ describe('Headline', () => {
   const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
   it.each(elements)('should render as %s element', (element) => {
     const headline = create(
-      <Headline as={element}>{`${element} headline`}</Headline>,
+      <Headline noMargin as={element}>{`${element} headline`}</Headline>,
     );
     expect(headline).toMatchSnapshot();
   });
@@ -32,17 +32,14 @@ describe('Headline', () => {
   const sizes = ['one', 'two', 'three', 'four'] as const;
   it.each(sizes)('should render with size %s', (size) => {
     const headline = create(
-      <Headline as="h2" {...{ size }}>{`${size} headline`}</Headline>,
+      <Headline noMargin as="h2" {...{ size }}>{`${size} headline`}</Headline>,
     );
     expect(headline).toMatchSnapshot();
   });
 
-  it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(
-      <Headline as="h2" noMargin>
-        Headline
-      </Headline>,
-    );
+  it('should render with default spacing when there is no noMargin prop', () => {
+    /* @ts-expect-error the noMargin prop is required */
+    const actual = create(<Headline as="h2">Headline</Headline>);
     expect(actual).toMatchSnapshot();
   });
 
@@ -50,7 +47,11 @@ describe('Headline', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Headline as="h2">Headline</Headline>);
+    const wrapper = renderToHtml(
+      <Headline noMargin as="h2">
+        Headline
+      </Headline>,
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

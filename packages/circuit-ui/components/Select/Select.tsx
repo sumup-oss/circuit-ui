@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC, ReactNode, Ref, SelectHTMLAttributes, forwardRef } from 'react';
+import { ReactNode, Ref, SelectHTMLAttributes, forwardRef } from 'react';
 import { css } from '@emotion/react';
 import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
@@ -29,7 +29,6 @@ import { ReturnType } from '../../types/return-type';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
-import { deprecate } from '../../util/logger';
 
 export type SelectOption = {
   value: string | number;
@@ -75,14 +74,22 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    */
   inline?: boolean;
   /**
-   * Removes the default bottom margin from the select.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin?: boolean;
+  noMargin: true;
   /**
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderPrefix?: FC<{ value?: string | number; className?: string }>;
+  renderPrefix?: ({
+    value,
+    className,
+  }: {
+    value?: string | number;
+    className?: string;
+  }) => JSX.Element;
   /**
    * Warning or error message, displayed below the select.
    */
@@ -141,14 +148,12 @@ type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
 const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'Select',
-        'The default outer spacing in the Select component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The Select component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
 
@@ -170,7 +175,7 @@ const SelectLabel = styled(Label)<LabelElProps>(
   labelInlineStyles,
 );
 
-type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
+type SelectElProps = Omit<SelectProps, 'options' | 'label' | 'noMargin'> & {
   hasPrefix: boolean;
 };
 
@@ -293,7 +298,7 @@ export const Select = forwardRef(
     {
       value,
       defaultValue,
-      placeholder = 'Select an option',
+      placeholder,
       disabled,
       noMargin,
       inline,
@@ -316,7 +321,6 @@ export const Select = forwardRef(
     ref?: SelectProps['ref'],
   ): ReturnType => {
     if (
-      process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
       !label
@@ -366,15 +370,20 @@ export const Select = forwardRef(
             onChange={handleChange}
           >
             {!value && !defaultValue && (
-              <option key="placeholder" value="">
+              /**
+               * We need a key here just like when mapping over options.
+               * We're prefixing the key with an underscore to avoid clashes
+               * with option values.
+               */
+              <option key="_placeholder" value="">
                 {placeholder}
               </option>
             )}
             {children ||
               (options &&
-                options.map(({ label: labelValue, ...rest }) => (
+                options.map(({ label: optionLabel, ...rest }) => (
                   <option key={rest.value} {...rest}>
-                    {labelValue}
+                    {optionLabel}
                   </option>
                 )))}
           </SelectElement>

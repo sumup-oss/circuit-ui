@@ -141,39 +141,6 @@ export function shadow(
 }
 
 /**
- * @deprecated Use the `shadow` style mixin instead.
- */
-export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
-  const theme = getTheme(args);
-  return css`
-    box-shadow: 0 0 0 1px ${theme.colors.shadow},
-      0 0 1px 0 ${theme.colors.shadow}, 0 2px 2px 0 ${theme.colors.shadow};
-  `;
-};
-
-/**
- * @deprecated Use the `shadow` style mixin instead.
- */
-export const shadowDouble = (args: ThemeArgs): SerializedStyles => {
-  const theme = getTheme(args);
-  return css`
-    box-shadow: 0 0 0 1px ${theme.colors.shadow},
-      0 2px 2px 0 ${theme.colors.shadow}, 0 4px 4px 0 ${theme.colors.shadow};
-  `;
-};
-
-/**
- * @deprecated Use the `shadow` style mixin instead.
- */
-export const shadowTriple = (args: ThemeArgs): SerializedStyles => {
-  const theme = getTheme(args);
-  return css`
-    box-shadow: 0 0 0 1px ${theme.colors.shadow},
-      0 4px 4px 0 ${theme.colors.shadow}, 0 8px 8px 0 ${theme.colors.shadow};
-  `;
-};
-
-/**
  * Sets the font size and line height matching the Body component.
  */
 export function typography(
@@ -345,10 +312,6 @@ export const inputOutline = (
         disabled?: boolean;
         invalid?: boolean;
         hasWarning?: boolean;
-        /**
-         * @deprecated
-         */
-        showValid?: boolean;
       },
 ): SerializedStyles => {
   const theme = getTheme(args);

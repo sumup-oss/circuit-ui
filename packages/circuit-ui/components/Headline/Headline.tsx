@@ -13,24 +13,24 @@
  * limitations under the License.
  */
 
-import { FC, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { deprecate } from '../../util/logger';
 
 type Size = 'one' | 'two' | 'three' | 'four';
 
-export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface HeadlineProps {
   /**
    * A Circuit UI headline size. Defaults to `one`.
    */
   size?: Size;
   /**
-   * Removes the default bottom margin from the headline.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin?: boolean;
+  noMargin: true;
   /**
    * The HTML heading element to render.
    * Headings should be nested sequentially without skipping any levels.
@@ -41,7 +41,6 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.bold};
-  margin-bottom: ${theme.spacings.giga};
   color: ${theme.colors.black};
   letter-spacing: -0.03em;
 `;
@@ -51,31 +50,29 @@ const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => css`
   line-height: ${theme.typography.headline[size].lineHeight};
 `;
 
-const noMarginStyles = ({ noMargin }: HeadlineProps) => {
+const noMarginStyles = ({ theme, noMargin }: StyleProps & HeadlineProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'Headline',
-        'The default outer spacing in the Headline component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The Headline component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
 
-    return null;
+    return css`
+      margin-bottom: ${theme.spacings.giga};
+    `;
   }
 
-  return css`
-    margin-bottom: 0;
-  `;
+  return null;
 };
 
 /**
  * A flexible headline component capable of rendering any HTML heading element.
  */
-export const Headline: FC<HeadlineProps> = styled('h2', {
+export const Headline = styled('h2', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<HeadlineProps>(baseStyles, sizeStyles, noMarginStyles);

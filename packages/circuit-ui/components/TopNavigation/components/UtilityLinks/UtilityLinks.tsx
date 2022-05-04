@@ -20,7 +20,7 @@ import { IconProps } from '@sumup/icons';
 
 import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
-import { AsPropType } from '../../../../types/prop-types';
+import { EmotionAsPropType } from '../../../../types/prop-types';
 import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import Body from '../../../Body';
 import { useComponents } from '../../../ComponentsContext';
@@ -89,8 +89,7 @@ function UtilityLink({
   tracking,
   ...props
 }: UtilityLinkProps) {
-  const components = useComponents();
-  const Link = components.Link as AsPropType;
+  const { Link } = useComponents();
 
   const handleClick = useClickEvent(onClick, tracking, 'utility-link');
 
@@ -98,7 +97,7 @@ function UtilityLink({
     <UtilityAnchor
       {...props}
       onClick={handleClick}
-      as={props.href ? Link : 'button'}
+      as={props.href ? (Link as EmotionAsPropType) : 'button'}
     >
       <Skeleton css={iconStyles}>
         <Icon role="presentation" size="24" />

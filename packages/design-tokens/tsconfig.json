@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "ES2020",
     "declaration": true,
-    "strict": true,
-    "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
     "isolatedModules": true,
-    "outDir": "./dist/es"
+    "moduleResolution": "node",
+    "outDir": "./dist/es",
+    "resolveJsonModule": true,
+    "strict": true,
+    "target": "es2017"
   },
   "include": [
     "tests/**/*",
@@ -20,5 +18,5 @@
     "index.ts"
   ],
   "exclude": ["node_modules", "**/dist/**/*", "**/*.spec.*", "**/*.stories.*"],
-  "typeRoots": ["./node_modules/@types", "./types/"]
+  "typeRoots": ["./types/"]
 }

@@ -17,13 +17,9 @@ import { renderHook, act } from '@testing-library/react-hooks';
 
 import { useComponentSize } from './useComponentSize';
 
-jest.mock('lodash/fp/throttle', () =>
-  jest.fn(() => (fn) => {
-    // eslint-disable-next-line no-param-reassign
-    fn.cancel = jest.fn();
-    return fn;
-  }),
-);
+jest.mock('../../util/helpers', () => ({
+  throttle: jest.fn((fn) => fn),
+}));
 
 describe('useComponentSize', () => {
   afterAll(() => {

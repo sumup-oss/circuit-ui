@@ -2,12 +2,16 @@
 
 - [🤖 Codemods](#-codemods)
 - [From v4 to v5](#from-v4-to-v5)
+  - [Explicit browser support](#explicit-browser-support)
   - [New semantic color names](#new-semantic-color-names)
-    - [In design tokens](#in-design-tokens)
-    - [In component variants](#in-component-variants)
-  - [Notification components](#notification-components)
-- [From v4 to v4.1](#from-v4-to-v41)
-  - [Combined LoadingButton and Button](#combined-loadingbutton-and-button)
+    - [...in design tokens](#in-design-tokens)
+    - [...in component variants](#in-component-variants)
+  - [New notification components](#new-notification-components)
+  - [Required accessible labels](#required-accessible-labels)
+  - [Runtime errors for missing `noMargin` props](#runtime-errors-for-missing-nomargin-props)
+  - [The `ListItemGroup` replaces the `CardList`](#the-listitemgroup-replaces-the-cardlist)
+  - [Combined `LoadingButton` and `Button`](#combined-loadingbutton-and-button)
+  - [Other changes](#other-changes)
 - [From v3.x to v4](#from-v3x-to-v4)
   - [Emotion 11](#emotion-11)
     - [New package names](#new-package-names)
@@ -33,7 +37,7 @@
     - [Modal](#modal)
     - [Popover](#popover)
   - [Component heights](#component-heights)
-  - [Other changes](#other-changes)
+  - [Other changes](#other-changes-1)
   - [Cleaning up](#cleaning-up)
 - [From v1.x to v2](#from-v1x-to-v2)
   - [Library format](#library-format)
@@ -77,13 +81,26 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 
 ## From v4 to v5
 
-Circuit UI v5 is not out yet, but there are already steps you can take to make migration easier in the future.
+Circuit UI v5 is a maintenance release, primarily removing deprecated components and props.
+
+> :warning: In order to make the migration from v4 to v5 easier, we recommend that you address the changes listed below _before_ upgrading the Circuit UI dependencies. Deprecation warnings can also help identify code that needs to be migrated.
+
+### Explicit browser support
+
+Starting in v5, Circuit UI is explicit about which browsers it supports. Refer to the [browser support documentation](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) for details.
+
+Here's what you need to be mindful of when migrating:
+
+- You no longer need to transpile Circuit UI when bundling your application (using e.g. [`next-transpile-module`](https://github.com/martpie/next-transpile-modules) in Next.js). Circuit UI now supports all target browsers out-of-the-box.
+- Previously recommended polyfills for Internet Explorer support are no longer necessary, and can be removed from your application:
+  - the [polyfill for the `Intl.NumberFormat` API](https://formatjs.io/docs/polyfills/intl-numberformat) isn't necessary anymore.
+  - the [`object-fit` polyfill](https://github.com/constancecchen/object-fit-polyfill) (for the Carousel component) isn't necessary anymore.
 
 ### New semantic color names
 
-#### In design tokens
+#### ...in design tokens
 
-New semantic color names were introduced in `@sumup/design-tokens@3.4.0`. The legacy names were deprecated and will be removed in v5.
+New semantic color names were introduced in `@sumup/design-tokens@3.4.0`. The legacy names were deprecated and have been removed in v5.
 
 | Legacy name | New name  |
 | ----------- | --------- |
@@ -95,7 +112,7 @@ The new naming brings cross-platform consistency, as well as alignment with some
 
 _🤖 semantic-color-names_
 
-#### In component variants
+#### ...in component variants
 
 Some `Body`, `BodyLarge` and `Badge` component variants were also renamed for consistency with the new design tokens:
 
@@ -109,15 +126,15 @@ Some `Body`, `BodyLarge` and `Badge` component variants were also renamed for co
 
 _Note: the `Body` variants mapping above also apply to the `BodyLarge` component._
 
-The legacy variant names were deprecated and will be removed in v5.
+The legacy variant names were deprecated in v4.14.0 and will be removed in v5.
 
 _🤖 semantic-variant-names_
 
-### Notification components
+### New notification components
 
-The legacy Circuit UI notification components (`Notification`, `NotificationList`, `NotificationCard` and `InlineMessage`) were general purpose, lacking clear guidelines on when to use which and leading to inconsistent usage in our apps.
+The legacy Circuit UI notification components (`Notification`, `NotificationList`, `NotificationCard` and `InlineMessage`) were general purpose and lacking clear guidelines on when to use which, leading to inconsistent usage in our apps.
 
-They were deprecated in v4.14.0 and replaced by semantic, accessible components that make it clear when each should be used and are flexible enough to cover all use cases (`NotificationBanner`, `NotificationFullscreen`, `NotificationModal`, `NotificationToast` and `NotificationInline`). The legacy components will be removed in v5.
+They were deprecated in v4.14.0 and replaced by semantic, accessible components that make it clear when each should be used and are flexible enough to cover all use cases (`NotificationBanner`, `NotificationFullscreen`, `NotificationModal`, `NotificationToast` and `NotificationInline`). The legacy components have been removed in v5.
 
 To migrate to the new notifications, you'll need to:
 
@@ -132,11 +149,60 @@ Furthermore, some patterns that were previously not supported by Circuit UI are 
 
 Read more about the new notification components in [the Notification section in Storybook](https://circuit.sumup.com/?path=/docs/notification).
 
-## From v4 to v4.1
+### Required accessible labels
 
-### Combined LoadingButton and Button
+In [Circuit UI v3](#accessibility), components requiring accessible labels started throwing an error when the labels weren't being passed. This behavior could be worked around for migration purposes by setting the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable.
 
-The LoadingButton is an extension of the Button component and adds a loading state. This is a common use case, so the loading functionality has been added to the Button component itself and the LoadingButton has been deprecated and will be removed in the next major release. This means that you can replace the LoadingButton with the Button component (🤖 _component-names-v4-1_).
+In v5, the workaround was removed, meaning that all components that require accessible labels expect to receive them.
+
+Before migrating, make sure that you add appropriate and localized labels for all occurrences flagged by the error mechanism. After that, stop setting the `UNSAFE_DISABLE_ACCESSIBILITY_ERRORS` environment variable.
+
+### Runtime errors for missing `noMargin` props
+
+Several components used to have built-in bottom margin by default, and a `noMargin` prop to reset it. This non-atomic behavior was deprecated several major versions ago, but migration has proved difficult.
+
+All components with built-in margin should be passed `noMargin`, so that we can remove the prop using codemods in a future major while avoiding UI regressions.
+
+Instead of removing the `noMargin` prop in v5, components that should receive it now throw a runtime error in development if the prop is missing. Production and testing builds are not affected. The `noMargin` prop was also marked as required in TypeScript types.
+
+While migrating, you can use an escape hatch to continue running your app in development without throwing.
+
+In your app, expose the `UNSAFE_DISABLE_NO_MARGIN_ERRORS` environment variable. You can use the [Webpack `DefinePlugin`](https://webpack.js.org/plugins/define-plugin/) (see the [Circuit UI Storybook Webpack config](https://github.com/sumup-oss/circuit-ui/blob/main/.storybook/main.js) as an example) or, if your app uses Next.js, you can declare the variable in your `next.config.js` ([Next.js documentation](https://nextjs.org/docs/api-reference/next.config.js/environment-variables)).
+
+Once your app is set up to accept the environment variable, set it to `true` in development to prevent components from throwing:
+
+```sh
+UNSAFE_DISABLE_NO_MARGIN_ERRORS=true yarn dev # or yarn start
+```
+
+Keep in mind that this escape hatch is not meant as a way to permanently bypass the errors, but as a temporary workaround to help migrate without regressions. The `noMargin` prop will be entirely removed in v6.
+
+### The `ListItemGroup` replaces the `CardList`
+
+Two new components, `ListItem` and `ListItemGroup`, were added to Circuit UI v4.4.0 to render lists of contextually similar items.
+
+The `ListItem` component should generally be used implicitly by passing `items` to the `ListItemGroup`. The `ListItemGroup` differs from the `List` component because while the latter applies light styling to an HTML `ul` or `ol`, the former allows for structured data and interactivity. Refer to the [component's documentation](https://circuit.sumup.com/?path=/docs/components-listitem--base) for usage guidelines and examples.
+
+Circuit UI v5 comes with two related breaking changes:
+
+- the legacy `CardList` component has been deprecated in favor of the `ListItemGroup`. The component APIs are very different and migration can unfortunately not be automated: please migrate manually. The new component also comes with different styles: verify the changes visually with a designer.
+- (If you were already using the `ListItem` in a Circuit UI v4.x release:) The `ListItem` component's `prefix` and `suffix` props were renamed to `leadingComponent` and `trailingComponent`. The `suffixLabel` and `suffixDetails` props were renamed to `trailingLabel` and `trailingDetails`. The codemod will not transform uses of the `ListItem` as `ListItemGroup` items. (_🤖 listitem-prop-names_)
+
+### Combined `LoadingButton` and `Button`
+
+The `LoadingButton` is an extension of the `Button` component and adds a loading state. This is a common use case, so the loading functionality has been added to the `Button` component itself. The `LoadingButton` was deprecated in v4.1 and was removed in v5.
+
+The API hasn't changed: uses of the `LoadingButton` can be replaced by the `Button` component
+
+🤖 _component-names-v5_
+
+### Other changes
+
+- The deprecated `zIndex.sidebar` design token was removed from `@sumup/design-tokens`. Use `sIndex.navigation` instead. There is no codemod for this change: search and replace the old value for the new one in your codebase.
+- The deprecated `shadowSingle`, `shadowDouble` and `shadowTriple` style mixins were removed. Use the `shadow()` style mixin instead. There is no codemod for this change: migrate manually by searching for the deprecated style mixins in your codebase, and verify the changes visually.
+- The `RadioButton` component's deprecated `children` prop was removed. Use the `label` prop, now typed as required, instead. There is no codemod for this change: search your codebase for uses of the `RadioButton` or `RadioButtonGroup` component and migrate them manually.
+- The `ButtonGroup` component's deprecated `children` prop was removed. Use the `actions` prop instead. If the new `ButtonGroup` component API doesn't fit your use case, consider aligning your use case with the design system, or writing a custom layout wrapper for your buttons.
+- The deprecated `showValid` option was removed from the `inputOutline` style mixin.
 
 ## From v3.x to v4
 

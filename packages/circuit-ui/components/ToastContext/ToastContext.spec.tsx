@@ -17,15 +17,26 @@
 import React, { useContext } from 'react';
 import * as Collector from '@sumup/collector';
 
-import { render, act, userEvent, fireEvent } from '../../util/test-utils';
+import {
+  render,
+  act,
+  userEvent,
+  waitForElementToBeRemoved,
+} from '../../util/test-utils';
 
 import { ToastProvider, ToastContext } from './ToastContext';
 import type { ToastComponent } from './types';
 
 jest.mock('@sumup/collector');
 
+const openButtonLabel = 'Open toast';
+const toastMessage = "You've got mail!";
+const closeButtonLabel = 'Close';
 const Toast: ToastComponent = ({ onClose }) => (
-  <button onClick={onClose}>Close</button>
+  <>
+    <p>{toastMessage}</p>
+    <button onClick={onClose}>{closeButtonLabel}</button>
+  </>
 );
 Toast.TRANSITION_DURATION = 200;
 
@@ -58,38 +69,46 @@ describe('ToastContext', () => {
     it('should open a toast when the context function is called', () => {
       const Trigger = () => {
         const { setToast } = useContext(ToastContext);
-        return <button onClick={() => setToast(toast)}>Open toast</button>;
+        return (
+          <button onClick={() => setToast(toast)}>{openButtonLabel}</button>
+        );
       };
 
-      const { queryByRole, getByText } = render(
+      const { getByRole, getByText } = render(
         <ToastProvider>
           <Trigger />
         </ToastProvider>,
       );
 
       act(() => {
-        fireEvent.click(getByText('Open toast'));
+        userEvent.click(getByRole('button', { name: openButtonLabel }));
       });
 
-      expect(queryByRole('status')).toBeVisible();
+      expect(getByText(toastMessage)).toBeVisible();
     });
 
-    it('should close the toast when the onClose method is called', () => {
+    it('should close the toast when the onClose method is called', async () => {
       const Trigger = () => {
         const { setToast } = useContext(ToastContext);
-        return <button onClick={() => setToast(toast)}>Open toast</button>;
+        return (
+          <button onClick={() => setToast(toast)}>{openButtonLabel}</button>
+        );
       };
 
-      const { queryByRole } = render(
+      const { getByRole, getByText } = render(
         <ToastProvider>
           <Trigger />
         </ToastProvider>,
       );
+
       act(() => {
-        userEvent.click(queryByRole('button'));
-        jest.runAllTimers();
+        userEvent.click(getByRole('button', { name: openButtonLabel }));
+      });
+      act(() => {
+        userEvent.click(getByRole('button', { name: closeButtonLabel }));
       });
 
+      await waitForElementToBeRemoved(getByText(toastMessage));
       expect(onClose).toHaveBeenCalledTimes(1);
     });
   });

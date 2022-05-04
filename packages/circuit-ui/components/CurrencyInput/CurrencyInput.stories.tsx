@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
-
 import { Stack } from '../../../../.storybook/components';
 
 import docs from './CurrencyInput.docs.mdx';
@@ -28,10 +26,6 @@ export default {
   },
 };
 
-const storyStyles = css`
-  max-width: 250px;
-`;
-
 const baseArgs = {
   label: 'Amount (de-DE, EUR)',
   placeholder: 123.45,
@@ -39,11 +33,10 @@ const baseArgs = {
   currency: 'EUR',
   locale: 'de-DE',
   noMargin: true,
+  labelStyles: { maxWidth: '250px' },
 };
 
-export const Base = (args: CurrencyInputProps) => (
-  <CurrencyInput {...args} css={storyStyles} />
-);
+export const Base = (args: CurrencyInputProps) => <CurrencyInput {...args} />;
 
 Base.args = baseArgs;
 
@@ -52,14 +45,12 @@ export const Currencies = (args: CurrencyInputProps) => (
     <CurrencyInput
       {...args}
       label="Amount (pt-BR, BRL)"
-      placeholder={1234.5}
       currency="BRL"
       locale="pt-BR"
     />
     <CurrencyInput
       {...args}
       label="Amount (pt-BR, EUR)"
-      placeholder={1234.5}
       currency="EUR"
       locale="pt-BR"
     />
@@ -73,14 +64,12 @@ export const Locales = (args: CurrencyInputProps) => (
     <CurrencyInput
       {...args}
       label="Amount (de-DE, EUR)"
-      placeholder={1234.5}
       currency="EUR"
       locale="de-DE"
     />
     <CurrencyInput
       {...args}
       label="Amount (en-IE, EUR)"
-      placeholder={1234.5}
       currency="EUR"
       locale="en-IE"
     />

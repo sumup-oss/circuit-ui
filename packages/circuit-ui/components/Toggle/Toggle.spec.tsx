@@ -31,12 +31,13 @@ describe('Toggle', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Toggle {...defaultProps} />);
+    const actual = create(<Toggle {...defaultProps} noMargin />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Toggle {...defaultProps} noMargin />);
+  it('should render with default spacing when there is no noMargin prop', () => {
+    /* @ts-expect-error the noMargin prop is required */
+    const actual = create(<Toggle {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -46,7 +47,9 @@ describe('Toggle', () => {
      */
     it('should accept a working ref', () => {
       const tref = createRef<HTMLButtonElement>();
-      const { container } = render(<Toggle {...defaultProps} ref={tref} />);
+      const { container } = render(
+        <Toggle {...defaultProps} noMargin ref={tref} />,
+      );
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);
     });
@@ -57,7 +60,7 @@ describe('Toggle', () => {
    * See https://inclusive-components.design/toggle-button/
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Toggle {...defaultProps} />);
+    const wrapper = renderToHtml(<Toggle {...defaultProps} noMargin />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

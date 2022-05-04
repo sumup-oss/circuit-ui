@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
@@ -27,7 +26,7 @@ import {
 } from '../../../../styles/style-mixins';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { ClickEvent } from '../../../../types/events';
-import { AsPropType } from '../../../../types/prop-types';
+import { EmotionAsPropType } from '../../../../types/prop-types';
 import { useComponents } from '../../../ComponentsContext';
 import Body from '../../../Body';
 import { Skeleton } from '../../../Skeleton';
@@ -35,7 +34,13 @@ import { PrimaryLinkProps as PrimaryLinkType } from '../../types';
 
 export interface PrimaryLinkProps extends PrimaryLinkType {
   isOpen?: boolean;
-  suffix?: FC<{ className?: string; role?: string }>;
+  suffix?: ({
+    className,
+    role,
+  }: {
+    className?: string;
+    role?: string;
+  }) => JSX.Element;
 }
 
 type AnchorProps = Pick<PrimaryLinkProps, 'isActive' | 'isOpen'>;
@@ -69,7 +74,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
     ${disableVisually()};
   }
 
-  ${theme.mq.untilGiga} {
+  ${theme.mq.untilTera} {
     margin-bottom: ${theme.borderWidth.kilo};
 
     &::after {
@@ -86,7 +91,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
     }
   }
 
-  ${theme.mq.giga} {
+  ${theme.mq.tera} {
     height: 48px;
     width: 220px;
     padding: ${theme.spacings.kilo};
@@ -107,7 +112,7 @@ const anchorActiveStyles = ({ theme, isActive }: StyleProps & AnchorProps) =>
 const anchorOpenStyles = ({ theme, isOpen }: StyleProps & AnchorProps) =>
   isOpen &&
   css`
-    ${theme.mq.untilGiga} {
+    ${theme.mq.untilTera} {
       &::after {
         right: 0;
         left: 0;
@@ -160,7 +165,7 @@ const externalIconStyles = css`
 `;
 
 const labelStyles = ({ theme }: StyleProps) => css`
-  ${theme.mq.untilGiga} {
+  ${theme.mq.untilTera} {
     font-size: ${theme.typography.headline.two.fontSize};
     line-height: ${theme.typography.headline.two.lineHeight};
   }
@@ -181,8 +186,7 @@ export function PrimaryLink({
   secondaryGroups,
   ...props
 }: PrimaryLinkProps): JSX.Element {
-  const components = useComponents();
-  const Link = components.Link as AsPropType;
+  const { Link } = useComponents();
 
   const handleClick = useClickEvent<ClickEvent>(
     onClick,
@@ -200,7 +204,7 @@ export function PrimaryLink({
       isActive={isActive}
       isOpen={isOpen}
       aria-current={isActive ? 'page' : undefined}
-      as={props.href ? Link : 'button'}
+      as={props.href ? (Link as EmotionAsPropType) : 'button'}
     >
       <Skeleton css={cx(iconStyles, badge && iconWithBadgeStyles)}>
         <Icon role="presentation" size="24" />

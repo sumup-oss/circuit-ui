@@ -16,6 +16,7 @@
 import {
   isArray,
   isFunction,
+  isNil,
   isNumber,
   isObject,
   isString,
@@ -168,6 +169,38 @@ describe('type check', () => {
 
     it('should return false for undefined', () => {
       const actual = isObject(undefined);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isNil', () => {
+    it('should return true for null', () => {
+      const actual = isNil(null);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return true for undefined', () => {
+      const actual = isNil(undefined);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false for a boolean', () => {
+      const actual = isNil(true);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for a function', () => {
+      const actual = isNil(jest.fn());
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for an integer', () => {
+      const actual = isNil(1);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for NaN', () => {
+      const actual = isNil(NaN);
       expect(actual).toBeFalsy();
     });
   });

@@ -34,8 +34,8 @@ import {
 } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
-import { AsPropType } from '../../types/prop-types';
-import { isFunction } from '../../util/type-check';
+import { EmotionAsPropType } from '../../types/prop-types';
+import { isFunction, isString } from '../../util/type-check';
 import { warn } from '../../util/logger';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { useComponents } from '../ComponentsContext';
@@ -50,9 +50,10 @@ interface BaseProps {
    */
   variant?: Variant;
   /**
-   * Display a leading icon, status image, checkbox, etc. in addition to the text content.
+   * Display a leading component.
+   * Pass an icon from `@sumup/icons` or a custom component.
    */
-  prefix?: FC<IconProps> | ReactNode;
+  leadingComponent?: FC<IconProps> | ReactNode;
   /**
    * Display a main label.
    */
@@ -65,16 +66,16 @@ interface BaseProps {
    * Display a trailing label.
    * If using the `navigation` variant, the chevron icon will be center aligned with this label.
    */
-  suffixLabel?: ReactNode;
+  trailingLabel?: string | ReactNode;
   /**
    * Display a trailing details label.
    */
-  suffixDetails?: ReactNode;
+  trailingDetails?: string | ReactNode;
   /**
    * Display a custom trailing component.
    * If using the `navigation` variant, the chevron icon will be center aligned with this component.
    */
-  suffix?: ReactNode;
+  trailingComponent?: ReactNode;
   /**
    * Visually mark the list item as selected.
    */
@@ -101,15 +102,9 @@ interface BaseProps {
   ref?: Ref<HTMLDivElement & HTMLAnchorElement & HTMLButtonElement>;
 }
 
-type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'prefix' | 'onClick'>;
-type LinkElProps = Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  'prefix' | 'onClick'
->;
-type ButtonElProps = Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  'prefix' | 'onClick'
->;
+type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>;
+type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
+type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ListItemProps = BaseProps &
   DivElProps &
@@ -208,13 +203,13 @@ const StyledListItem = styled('div', {
   selectedStyles,
 );
 
-const prefixContainerStyles = ({ theme }: StyleProps) => css`
+const leadingContainerStyles = ({ theme }: StyleProps) => css`
   flex: none;
   display: flex;
   margin-right: ${theme.spacings.mega};
 `;
 
-const PrefixContainer = styled.div(prefixContainerStyles);
+const LeadingContainer = styled.div(leadingContainerStyles);
 
 const contentContainerStyles = css`
   flex: auto;
@@ -256,12 +251,12 @@ const DetailsContainer = styled.div(detailsContainerStyles);
 
 type NavigationProps = { isNavigation: boolean };
 
-type SuffixContainerProps = { hasLabel: boolean } & NavigationProps;
+type TrailingContainerProps = { hasLabel: boolean } & NavigationProps;
 
-const suffixContainerStyles = ({
+const trailingContainerStyles = ({
   theme,
   hasLabel,
-}: StyleProps & SuffixContainerProps) => css`
+}: StyleProps & TrailingContainerProps) => css`
   flex: none;
   align-self: stretch;
   display: flex;
@@ -271,28 +266,28 @@ const suffixContainerStyles = ({
   margin-left: ${theme.spacings.mega};
 `;
 
-const suffixContainerNavigationStyles = ({
+const trailingContainerNavigationStyles = ({
   theme,
   isNavigation,
-}: StyleProps & SuffixContainerProps) =>
+}: StyleProps & TrailingContainerProps) =>
   isNavigation &&
   css`
     margin-right: -${theme.spacings.bit};
   `;
 
-const SuffixContainer = styled.div(
-  suffixContainerStyles,
-  suffixContainerNavigationStyles,
+const TrailingContainer = styled.div(
+  trailingContainerStyles,
+  trailingContainerNavigationStyles,
 );
 
-const suffixChevronContainerStyles = css`
+const trailingChevronContainerStyles = css`
   display: flex;
   align-items: center;
 `;
 
-const SuffixChevronContainer = styled.div(suffixChevronContainerStyles);
+const TrailingChevronContainer = styled.div(trailingChevronContainerStyles);
 
-const suffixDetailsContainerNavigationStyles = ({
+const trailingDetailsContainerNavigationStyles = ({
   theme,
   isNavigation,
 }: StyleProps & NavigationProps) =>
@@ -302,9 +297,9 @@ const suffixDetailsContainerNavigationStyles = ({
     height: ${theme.typography.body.one.lineHeight};
   `;
 
-const SuffixDetailsContainer = styled.div(
+const TrailingDetailsContainer = styled.div(
   detailsContainerStyles,
-  suffixDetailsContainerNavigationStyles,
+  trailingDetailsContainerNavigationStyles,
 );
 
 /**
@@ -315,41 +310,41 @@ export const ListItem = forwardRef(
   (
     {
       variant = 'action',
-      prefix: Prefix,
+      leadingComponent: LeadingComponent,
       label,
       details,
-      suffixLabel,
-      suffixDetails,
-      suffix,
+      trailingLabel,
+      trailingDetails,
+      trailingComponent,
       tracking,
       ...props
     }: ListItemProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
-    const hasOnlySuffixDetails = suffixDetails && !suffixLabel;
-    const hasCustomAndLabelSuffix = suffix && suffixLabel;
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      if (hasOnlySuffixDetails) {
+      if (trailingDetails && !trailingLabel) {
         warn(
           'ListItem',
-          'Using `suffixDetails` without `suffixLabel` is not supported.',
+          'Using `trailingDetails` without `trailingLabel` is not supported.',
+          'Use a custom `trailingComponent` if necessary.',
         );
       }
-      if (hasCustomAndLabelSuffix) {
+      if (trailingComponent && trailingLabel) {
         warn(
           'ListItem',
-          'Using `suffixLabel` and `suffix` at the same time is not supported.',
+          'Using `trailingLabel` and `trailingComponent` at the same time is not supported.',
+          'Add a label to the custom `trailingComponent` if necessary.',
         );
       }
     }
 
-    const components = useComponents();
-    let as: AsPropType = 'div';
+    const { Link } = useComponents();
+    let as: EmotionAsPropType = 'div';
     if (props.href) {
-      as = components.Link as AsPropType;
+      as = Link as EmotionAsPropType;
     } else if (props.onClick) {
       as = 'button';
     }
@@ -358,10 +353,8 @@ export const ListItem = forwardRef(
 
     const isInteractive = !!props.href || !!props.onClick;
     const isNavigation = variant === 'navigation';
-    const hasSuffix = !!suffixLabel || !!suffix;
-    const hasInvalidSuffix = hasOnlySuffixDetails || hasCustomAndLabelSuffix;
-    const shouldRenderSuffixContainer =
-      !hasInvalidSuffix && (hasSuffix || isNavigation);
+    const hasTrailing = !!trailingLabel || !!trailingComponent;
+    const shouldRenderTrailingContainer = hasTrailing || isNavigation;
 
     return (
       <StyledListItem
@@ -371,18 +364,18 @@ export const ListItem = forwardRef(
         isInteractive={isInteractive}
         onClick={handleClick}
       >
-        {Prefix && (
-          <PrefixContainer>
-            {isFunction(Prefix) ? (
-              <Prefix size="24" role="presentation" />
+        {LeadingComponent && (
+          <LeadingContainer>
+            {isFunction(LeadingComponent) ? (
+              <LeadingComponent size="24" role="presentation" />
             ) : (
-              Prefix
+              LeadingComponent
             )}
-          </PrefixContainer>
+          </LeadingContainer>
         )}
         <ContentContainer>
           <MainContainer>
-            {typeof label === 'string' ? (
+            {isString(label) ? (
               <Label size="one" noMargin>
                 {label}
               </Label>
@@ -391,7 +384,7 @@ export const ListItem = forwardRef(
             )}
             {details && (
               <DetailsContainer>
-                {typeof details === 'string' ? (
+                {isString(details) ? (
                   <Body size="two" variant="subtle" noMargin>
                     {details}
                   </Body>
@@ -401,40 +394,40 @@ export const ListItem = forwardRef(
               </DetailsContainer>
             )}
           </MainContainer>
-          {shouldRenderSuffixContainer && (
-            <SuffixContainer
-              hasLabel={!!suffixLabel}
+          {shouldRenderTrailingContainer && (
+            <TrailingContainer
+              hasLabel={!!trailingLabel}
               isNavigation={isNavigation}
             >
-              <SuffixChevronContainer>
-                {typeof suffixLabel === 'string' ? (
+              <TrailingChevronContainer>
+                {isString(trailingLabel) ? (
                   <Body size="one" variant="highlight" noMargin>
-                    {suffixLabel}
+                    {trailingLabel}
                   </Body>
                 ) : (
-                  suffixLabel
+                  trailingLabel
                 )}
-                {suffix}
+                {trailingComponent}
                 {isNavigation && (
                   <ChevronRight
                     size="16"
                     role="presentation"
-                    css={hasSuffix && spacing({ left: 'bit' })}
+                    css={hasTrailing && spacing({ left: 'bit' })}
                   />
                 )}
-              </SuffixChevronContainer>
-              {suffixDetails && (
-                <SuffixDetailsContainer isNavigation={isNavigation}>
-                  {typeof suffixDetails === 'string' ? (
+              </TrailingChevronContainer>
+              {trailingDetails && (
+                <TrailingDetailsContainer isNavigation={isNavigation}>
+                  {isString(trailingDetails) ? (
                     <Body size="two" variant="subtle" noMargin>
-                      {suffixDetails}
+                      {trailingDetails}
                     </Body>
                   ) : (
-                    suffixDetails
+                    trailingDetails
                   )}
-                </SuffixDetailsContainer>
+                </TrailingDetailsContainer>
               )}
-            </SuffixContainer>
+            </TrailingContainer>
           )}
         </ContentContainer>
       </StyledListItem>

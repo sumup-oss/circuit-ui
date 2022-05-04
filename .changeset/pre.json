@@ -1,0 +1,35 @@
+{
+  "mode": "exit",
+  "tag": "canary",
+  "initialVersions": {
+    "@sumup/circuit-ui": "4.16.0",
+    "@sumup/cna-template": "1.2.1",
+    "@sumup/design-tokens": "3.4.0",
+    "@sumup/icons": "2.4.0"
+  },
+  "changesets": [
+    "beige-feet-itch",
+    "beige-swans-applaud",
+    "big-swans-smoke",
+    "breezy-cougars-applaud",
+    "chilled-clocks-remain",
+    "chilled-doors-walk",
+    "chilled-geese-argue",
+    "dirty-keys-arrive",
+    "dull-lions-shave",
+    "dull-rats-fry",
+    "eighty-shoes-cheer",
+    "eleven-wasps-thank",
+    "few-plums-judge",
+    "five-pianos-taste",
+    "flat-terms-join",
+    "honest-pugs-return",
+    "mean-olives-watch",
+    "olive-pears-sniff",
+    "pink-maps-do",
+    "pretty-scissors-play",
+    "strange-seas-beam",
+    "thin-trainers-occur",
+    "twelve-cougars-sniff"
+  ]
+}

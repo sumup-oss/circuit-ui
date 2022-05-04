@@ -263,7 +263,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   box-shadow: none;
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1279px) {
   .circuit-10 {
     margin-bottom: 1px;
   }
@@ -282,7 +282,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-10 {
     height: 48px;
     width: 220px;
@@ -314,14 +314,12 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-13 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
   font-weight: 700;
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1279px) {
   .circuit-13 {
     font-size: 24px;
     line-height: 28px;
@@ -366,9 +364,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 12px;
   color: #000;
-  margin-bottom: 0;
 }
 
 .circuit-19 {
@@ -429,7 +425,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   box-shadow: none;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-19 {
     padding: 12px;
     padding-left: 20px;
@@ -444,10 +440,8 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-21 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 <body
@@ -907,7 +901,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
   box-shadow: none;
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1279px) {
   .circuit-10 {
     margin-bottom: 1px;
   }
@@ -926,7 +920,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-10 {
     height: 48px;
     width: 220px;
@@ -954,13 +948,11 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 
 .circuit-13 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1279px) {
   .circuit-13 {
     font-size: 24px;
     line-height: 28px;

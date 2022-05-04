@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import { addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withPerformance } from 'storybook-addon-performance';
@@ -15,9 +16,11 @@ const SORT_ORDER = {
   Introduction: {
     'Welcome': {},
     'Getting Started': {},
+    'Browser Support': {},
     'Contributing': {
       'Overview': {},
       'Code Conventions': {},
+      'Browser support (for contributors)': {},
       'Testing': {},
       'Release Process': {},
       'Deprecations': {},
@@ -50,7 +53,7 @@ const SORT_ORDER = {
     'circuit-ui': {},
     'design-tokens': {},
     'icons': {},
-    'create-sumup-next-app': {},
+    'cna-template': {},
   },
 };
 
@@ -73,6 +76,22 @@ export const parameters = {
     storySort: sortStories(SORT_ORDER),
   },
   docs: { theme, components },
+};
+
+const withUnmountWhenHidden = (Story, context) => {
+  if (context.canvasElement) {
+    const config = { attributeFilter: ['hidden'] };
+
+    const observer = new MutationObserver(() => {
+      if (context.canvasElement.getAttribute('hidden') === 'true') {
+        ReactDOM.unmountComponentAtNode(context.canvasElement);
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(context.canvasElement, config);
+  }
+  return <Story />;
 };
 
 const withThemeProvider = (Story) => (
@@ -103,4 +122,5 @@ export const decorators = [
   withThemeProvider,
   withTrackingAction,
   withPerformance,
+  withUnmountWhenHidden,
 ];

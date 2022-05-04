@@ -356,7 +356,7 @@
 
 - [#1209](https://github.com/sumup-oss/circuit-ui/pull/1209) [`0ad1a7df`](https://github.com/sumup-oss/circuit-ui/commit/0ad1a7df287777eccee6d6499aaf8a3efa341fb8) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a small wobble in the SideNavigation in Safari on some external displays.
 
-* [#1213](https://github.com/sumup-oss/circuit-ui/pull/1213) [`a27426aa`](https://github.com/sumup-oss/circuit-ui/commit/a27426aa668d667656bded20f08249056dd54494) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the Circuit CRA template. Use the [CNA template](https://github.com/sumup-oss/circuit-ui/tree/main/packages/create-sumup-next-app) instead.
+* [#1213](https://github.com/sumup-oss/circuit-ui/pull/1213) [`a27426aa`](https://github.com/sumup-oss/circuit-ui/commit/a27426aa668d667656bded20f08249056dd54494) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the Circuit CRA template. Use the [Next.js template](https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template) instead.
 
 ## 4.1.0
 

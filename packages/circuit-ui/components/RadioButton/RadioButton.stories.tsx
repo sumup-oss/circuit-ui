@@ -28,6 +28,7 @@ export default {
     docs: { page: docs },
   },
   argTypes: {
+    label: { control: 'text' },
     name: { control: 'text' },
     value: { control: 'text' },
     disabled: { control: 'boolean' },
@@ -63,20 +64,22 @@ Base.args = {
 };
 
 export const Invalid = (args: RadioButtonProps) => (
-  <RadioButtonWithState {...args}>Invalid</RadioButtonWithState>
+  <RadioButtonWithState {...args} />
 );
 
 Invalid.args = {
+  label: 'Invalid',
   name: 'invalid',
   value: 'true',
   invalid: true,
 };
 
 export const Disabled = (args: RadioButtonProps) => (
-  <RadioButtonWithState {...args}>Disabled</RadioButtonWithState>
+  <RadioButtonWithState {...args} />
 );
 
 Disabled.args = {
+  label: 'Disabled',
   name: 'disabled',
   value: 'true',
   disabled: true,

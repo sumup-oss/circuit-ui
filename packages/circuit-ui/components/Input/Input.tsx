@@ -16,7 +16,6 @@
 import {
   forwardRef,
   Ref,
-  FC,
   InputHTMLAttributes,
   TextareaHTMLAttributes,
   ReactNode,
@@ -34,7 +33,6 @@ import { uniqueId } from '../../util/id';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';
-import { deprecate } from '../../util/logger';
 
 export type InputElement = HTMLInputElement & HTMLTextAreaElement;
 type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
@@ -56,12 +54,12 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderPrefix?: FC<{ className?: string }>;
+  renderPrefix?: ({ className }: { className?: string }) => JSX.Element | null;
   /**
    * Render prop that should render a right-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderSuffix?: FC<{ className?: string }>;
+  renderSuffix?: ({ className }: { className?: string }) => JSX.Element | null;
   /**
    * Warning or error message, displayed below the input.
    */
@@ -92,9 +90,11 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   inline?: boolean;
   /**
-   * Removes the default bottom margin from the input.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin?: boolean;
+  noMargin: true;
   /**
    * Aligns text in the input
    */
@@ -132,14 +132,12 @@ const labelNoMarginStyles = ({
 }: StyleProps & LabelElProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'Input',
-        'The default outer spacing in the Input component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The Input component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
 
@@ -152,7 +150,7 @@ const labelNoMarginStyles = ({
 
 const InputLabel = styled(Label)<LabelElProps>(labelNoMarginStyles);
 
-type InputElProps = Omit<InputProps, 'label'> & {
+type InputElProps = Omit<InputProps, 'label' | 'noMargin'> & {
   hasPrefix: boolean;
   hasSuffix: boolean;
 };
@@ -325,7 +323,6 @@ export const Input = forwardRef(
     ref: InputProps['ref'],
   ): ReturnType => {
     if (
-      process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
       props.type !== 'hidden' &&

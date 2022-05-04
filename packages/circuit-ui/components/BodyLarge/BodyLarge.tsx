@@ -18,17 +18,9 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { AsPropType } from '../../types/prop-types';
-import { deprecate } from '../../util/logger';
+import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
 
-type Variant =
-  | 'highlight'
-  | 'quote'
-  | 'success'
-  | 'confirm'
-  | 'error'
-  | 'alert'
-  | 'subtle';
+type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 
 export interface BodyLargeProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
@@ -53,40 +45,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const variantStyles = ({ theme, variant }: BodyLargeProps & StyleProps) => {
-  // TODO: remove the legacy variants and this switch statement in v5
-  /* eslint-disable no-param-reassign */
-  switch (variant) {
-    case 'success':
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test'
-      ) {
-        deprecate(
-          'BodyLarge',
-          "The BodyLarge's `success` variant is deprecated.",
-          'Use the `confirm` variant instead.',
-        );
-      }
-      variant = 'confirm';
-      break;
-    case 'error':
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test'
-      ) {
-        deprecate(
-          'BodyLarge',
-          "The BodyLarge's `error` variant is deprecated.",
-          'Use the `alert` variant instead.',
-        );
-      }
-      variant = 'alert';
-      break;
-    default:
-      break;
-  }
-  /* eslint-enable no-param-reassign */
-
   switch (variant) {
     default: {
       return null;
@@ -142,7 +100,9 @@ function getHTMLElement(variant?: Variant): AsPropType {
 export const BodyLarge = forwardRef(
   (props: BodyLargeProps, ref?: BodyLargeProps['ref']) => {
     const as = props.as || getHTMLElement(props.variant);
-    return <StyledBodyLarge {...props} ref={ref} as={as} />;
+    return (
+      <StyledBodyLarge {...props} ref={ref} as={as as EmotionAsPropType} />
+    );
   },
 );
 

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../../../styles/styled';
@@ -51,10 +50,10 @@ const alignmentStyles = ({
   `;
 
 /**
- * Footer used in the Card component. Used for styling and aligment
- * purposes only.
+ * Footer used in the Card component. Used for styling and alignment purposes
+ * only.
  */
-
-export const CardFooter: FC<CardFooterProps> = styled(
-  'footer',
-)<CardFooterProps>(baseStyles, alignmentStyles);
+export const CardFooter = styled('footer')<CardFooterProps>(
+  baseStyles,
+  alignmentStyles,
+);

@@ -16,7 +16,7 @@
 const puppeteer = require('puppeteer');
 
 /**
- * This script is used to check for runtime errors in create-sumup-next-app.
+ * This script is used to check for runtime errors in `@sumup/cna-template`.
  */
 (async () => {
   const expected = 'Welcome to SumUp';

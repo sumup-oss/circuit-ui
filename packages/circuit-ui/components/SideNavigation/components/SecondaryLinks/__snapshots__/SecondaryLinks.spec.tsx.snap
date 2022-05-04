@@ -63,7 +63,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-2 {
     padding: 12px;
     padding-left: 20px;
@@ -78,10 +78,8 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
 
 .circuit-4 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-8 {
@@ -155,7 +153,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-9 {
     padding: 12px;
     padding-left: 20px;
@@ -164,10 +162,8 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
 
 .circuit-11 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
   font-weight: 700;
 }
 
@@ -182,9 +178,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 12px;
   color: #000;
-  margin-bottom: 0;
 }
 
 <ul

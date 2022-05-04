@@ -41,7 +41,7 @@ const headerStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.bodyBg};
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 
-  ${theme.mq.giga} {
+  ${theme.mq.tera} {
     position: sticky;
     top: 0;
     /* The +1 is necessary to ensure that the primary navigation doesn't */
@@ -60,7 +60,7 @@ const hamburgerStyles = (theme: Theme) => css`
   /* The !important below is necessary to override the default hover styles. */
   border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n300} !important;
 
-  ${theme.mq.giga} {
+  ${theme.mq.tera} {
     display: none;
   }
 `;

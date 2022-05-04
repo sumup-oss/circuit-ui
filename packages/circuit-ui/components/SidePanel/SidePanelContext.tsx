@@ -55,7 +55,6 @@ if (typeof window !== 'undefined') {
   if (appElement) {
     ReactModal.setAppElement(appElement);
   } else if (
-    process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
   ) {
@@ -145,7 +144,7 @@ export const SidePanelProvider = ({
   withTopNavigation = false,
 }: SidePanelProviderProps): JSX.Element => {
   const theme = useTheme();
-  const isTopNavigationSticky = useMedia(theme.breakpoints.giga);
+  const isTopNavigationSticky = useMedia(theme.breakpoints.tera);
   const isMobile = useMedia(theme.breakpoints.untilMega);
   const [sidePanels, dispatch] = useStack<SidePanelContextItem>();
   const sendEvent = useClickTrigger();

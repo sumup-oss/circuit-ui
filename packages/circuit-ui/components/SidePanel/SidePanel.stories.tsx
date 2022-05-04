@@ -14,12 +14,16 @@
  */
 
 import { useState } from 'react';
+import { within, userEvent } from '@storybook/testing-library';
 
 import Body from '../Body';
 import Button from '../Button';
 import ListItemGroup from '../ListItemGroup';
+import { ModalProvider } from '../ModalContext';
 import { TopNavigation } from '../TopNavigation';
 import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories';
+import { SideNavigation } from '../SideNavigation';
+import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories';
 import { spacing } from '../../styles/style-mixins';
 
 import docs from './SidePanel.docs.mdx';
@@ -35,6 +39,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: { page: docs },
+    chromatic: { viewports: [320, 960] },
   },
   argTypes: {
     backButtonLabel: { control: 'text' },
@@ -56,6 +61,22 @@ const baseArgs: SidePanelHookProps = {
   onClose: null,
   tracking: undefined,
 };
+
+const basePlay = ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const thirdItem = canvas.getByText('Item 3', {
+    selector: 'button[data-testid="list-item-3"] p',
+  });
+
+  userEvent.click(thirdItem);
+};
+
+const StoryInstructions = () => (
+  <Body noMargin css={spacing('mega')}>
+    Select an item to open its details in a side panel. When this story is
+    viewed in canvas mode we simulate a selection of the third item.
+  </Body>
+);
 
 type DefaultChildrenProps = {
   label: string;
@@ -150,9 +171,9 @@ const ComponentWithSidePanel = (props) => {
     <ListItemGroup
       items={items.map((item) => ({
         ...item,
-        variant: 'navigation',
-        selected: item.key === selectedItem,
-        onClick: () => {
+        'variant': 'navigation',
+        'selected': item.key === selectedItem,
+        'onClick': () => {
           setSidePanel({
             ...props,
             children: <DefaultChildren label={item.label} showMoreInfo />,
@@ -160,29 +181,59 @@ const ComponentWithSidePanel = (props) => {
           });
           setSelectedItem(item.key);
         },
+        'data-testid': `list-item-${item.key}`,
       }))}
-      label="Select an item to open its details in a side panel"
+      label="List of items with details in a side panel"
+      hideLabel
       css={spacing('mega')}
     />
   );
 };
 
 export const Base = (props: SidePanelHookProps): JSX.Element => (
-  <SidePanelProvider>
-    <ComponentWithSidePanel {...props} />
-  </SidePanelProvider>
-);
-Base.args = baseArgs;
-
-export const WithTopNavigation = (props: SidePanelHookProps): JSX.Element => (
-  <>
-    <TopNavigation {...topNavigationProps} />
-    <SidePanelProvider withTopNavigation>
+  <div style={{ display: 'flex' }}>
+    <SidePanelProvider>
+      <StoryInstructions />
       <ComponentWithSidePanel {...props} />
     </SidePanelProvider>
-  </>
+  </div>
 );
+Base.args = baseArgs;
+Base.play = basePlay;
+
+export const WithTopNavigation = (props: SidePanelHookProps): JSX.Element => {
+  const [isSideNavigationOpen, setSideNavigationOpen] = useState(false);
+  const hamburger = {
+    activeLabel: 'Close side navigation',
+    inactiveLabel: 'Open side navigation',
+    isActive: isSideNavigationOpen,
+    onClick: () => setSideNavigationOpen((prev) => !prev),
+  };
+  return (
+    <ModalProvider>
+      <TopNavigation {...topNavigationProps} hamburger={hamburger} />
+      <div style={{ display: 'flex' }}>
+        <SideNavigation
+          {...sideNavigationProps}
+          isOpen={isSideNavigationOpen}
+          onClose={() => setSideNavigationOpen(false)}
+        />
+        <div style={{ flex: '1' }}>
+          <SidePanelProvider withTopNavigation>
+            <StoryInstructions />
+            <ComponentWithSidePanel {...props} />
+          </SidePanelProvider>
+        </div>
+      </div>
+    </ModalProvider>
+  );
+};
+WithTopNavigation.storyName = 'With TopNavigation';
 WithTopNavigation.args = baseArgs;
+WithTopNavigation.play = basePlay;
+WithTopNavigation.parameters = {
+  chromatic: { viewports: [320, 960, 1280] },
+};
 
 const ComponentWithSidePanelExtended = (props) => {
   const [selectedItem, setSelectedItem] = useState<string>(null);
@@ -192,9 +243,9 @@ const ComponentWithSidePanelExtended = (props) => {
     <ListItemGroup
       items={items.map((item) => ({
         ...item,
-        variant: 'navigation',
-        selected: item.key === selectedItem,
-        onClick: () => {
+        'variant': 'navigation',
+        'selected': item.key === selectedItem,
+        'onClick': () => {
           if (selectedItem === item.key) {
             setSelectedItem(null);
             removeSidePanel();
@@ -225,16 +276,22 @@ const ComponentWithSidePanelExtended = (props) => {
             }, 1000);
           }
         },
+        'data-testid': `list-item-${item.key}`,
       }))}
-      label="Select an item to open its details in a side panel"
+      label="List of items with details in a side panel"
+      hideLabel
       css={spacing('mega')}
     />
   );
 };
 
 export const UpdateAndRemove = (props: SidePanelHookProps): JSX.Element => (
-  <SidePanelProvider>
-    <ComponentWithSidePanelExtended {...props} />
-  </SidePanelProvider>
+  <div style={{ display: 'flex' }}>
+    <SidePanelProvider>
+      <StoryInstructions />
+      <ComponentWithSidePanelExtended {...props} />
+    </SidePanelProvider>
+  </div>
 );
 UpdateAndRemove.args = baseArgs;
+UpdateAndRemove.play = basePlay;

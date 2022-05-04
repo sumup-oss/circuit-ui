@@ -25,7 +25,7 @@ import type { ModalComponent } from './types';
 jest.mock('@sumup/collector');
 
 const Modal: ModalComponent = ({ onClose }) => (
-  <div role="dialog">
+  <div role="dialog" aria-label="Modal">
     <button onClick={onClose}>Close</button>
   </div>
 );
@@ -79,20 +79,22 @@ describe('ModalContext', () => {
         );
       };
 
-      const { getByRole, queryByRole, getByText } = render(
+      const { getByRole, queryByRole } = render(
         <ModalProvider ariaHideApp={false}>
           <Trigger />
         </ModalProvider>,
       );
 
       act(() => {
-        fireEvent.click(getByText('Open modal'));
+        userEvent.click(getByRole('button', { name: 'Open modal' }));
       });
 
       expect(getByRole('dialog')).toBeVisible();
 
       act(() => {
-        fireEvent.click(getByText('Close modal'));
+        userEvent.click(getByRole('button', { name: 'Close modal' }));
+      });
+      act(() => {
         jest.runAllTimers();
       });
 
@@ -108,6 +110,8 @@ describe('ModalContext', () => {
 
       act(() => {
         fireEvent.popState(window);
+      });
+      act(() => {
         jest.runAllTimers();
       });
 
@@ -125,6 +129,8 @@ describe('ModalContext', () => {
 
       act(() => {
         userEvent.click(queryByRole('button'));
+      });
+      act(() => {
         jest.runAllTimers();
       });
 

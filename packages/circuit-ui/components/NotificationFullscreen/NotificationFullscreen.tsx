@@ -45,7 +45,7 @@ export interface NotificationFullscreenProps
    */
   body?: string | ReactNode;
   /**
-   * An optional action prop to allow users to follow up on the content.
+   * Optional action buttons to allow users to follow up on the content.
    */
   actions?: ButtonGroupProps['actions'];
 }
@@ -95,7 +95,9 @@ export const NotificationFullscreen = ({
           {body}
         </Body>
       )}
-      <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
+      {actions && (
+        <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
+      )}
     </div>
   );
 };

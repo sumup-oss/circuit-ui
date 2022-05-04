@@ -29,6 +29,7 @@ module.exports = {
     '@storybook/addon-viewport',
     '@storybook/addon-backgrounds',
     'storybook-addon-performance',
+    '@storybook/addon-interactions',
   ],
   features: {
     postcss: false,
@@ -61,8 +62,8 @@ function createWebpackConfig(config) {
   config.plugins = [
     ...config.plugins,
     new webpack.DefinePlugin({
-      'process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS': JSON.stringify(
-        process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS,
+      'process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS': JSON.stringify(
+        process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS,
       ),
     }),
   ];

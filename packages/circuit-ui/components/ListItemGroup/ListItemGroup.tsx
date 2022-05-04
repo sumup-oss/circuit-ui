@@ -15,7 +15,6 @@
 
 import { forwardRef, Ref, HTMLAttributes, ReactNode, useState } from 'react';
 import { css } from '@emotion/react';
-import { some } from 'lodash/fp';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually } from '../../styles/style-mixins';
@@ -263,7 +262,7 @@ export const ListItemGroup = forwardRef(
       useState<ItemProps['key'] | null>(null);
 
     const isPlain = variant === 'plain';
-    const isInteractive = some((item) => !!item.href || !!item.onClick, items);
+    const isInteractive = items.some((item) => !!item.href || !!item.onClick);
 
     return (
       <StyledListItemGroup {...props} ref={ref}>

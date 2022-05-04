@@ -41,7 +41,7 @@ const baseStyles = ({ theme }) => css`
   transition: transform ${theme.transitions.default};
   position: absolute;
   transform: translateX(-100%);
-  z-index: ${theme.zIndex.sidebar};
+  z-index: ${theme.zIndex.navigation};
   ${theme.mq.giga} {
     transform: translateX(0);
     position: relative;

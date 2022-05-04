@@ -44,7 +44,6 @@ export function SideNavigation({
   UNSAFE_components,
 }: SideNavigationProps): JSX.Element {
   if (
-    process.env.UNSAFE_DISABLE_ACCESSIBILITY_ERRORS !== 'true' &&
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
     (!closeButtonLabel || !primaryNavigationLabel || !secondaryNavigationLabel)
@@ -55,7 +54,7 @@ export function SideNavigation({
   }
 
   const theme = useTheme();
-  const isMobile = useMedia(theme.breakpoints.untilGiga, true);
+  const isMobile = useMedia(theme.breakpoints.untilTera, true);
 
   const { setModal, removeModal } = useMobileNavigation();
 

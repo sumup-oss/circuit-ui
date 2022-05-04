@@ -23,7 +23,7 @@ describe('List', () => {
    */
   it('should render with default styles', () => {
     const actual = create(
-      <List>
+      <List noMargin>
         <li>List</li>
       </List>,
     );
@@ -33,7 +33,7 @@ describe('List', () => {
   const variants: ListProps['variant'][] = ['ordered', 'unordered'];
   it.each(variants)('should render the %s variant', (variant) => {
     const actual = create(
-      <List variant={variant}>
+      <List noMargin variant={variant}>
         <li>{variant}</li>
       </List>,
     );
@@ -43,7 +43,7 @@ describe('List', () => {
   const sizes: ListProps['size'][] = ['one', 'two'];
   it.each(sizes)('should render with size %s', (size) => {
     const actual = create(
-      <List size={size}>
+      <List noMargin size={size}>
         <li>{size}</li>
       </List>,
     );
@@ -52,9 +52,9 @@ describe('List', () => {
 
   it('should render a nested list', () => {
     const actual = create(
-      <List>
+      <List noMargin>
         <li>First level</li>
-        <List>
+        <List noMargin>
           <li>Second level</li>
         </List>
       </List>,
@@ -62,11 +62,14 @@ describe('List', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with no margin styles when passed the noMargin prop', () => {
+  it('should render with default spacing when there is no noMargin prop', () => {
     const actual = create(
-      <List noMargin>
-        <li>no margin</li>
-      </List>,
+      <>
+        {/* @ts-expect-error the noMargin prop is required */}
+        <List>
+          <li>no margin</li>
+        </List>
+      </>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -76,7 +79,7 @@ describe('List', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <List>
+      <List noMargin>
         <li>List</li>
       </List>,
     );

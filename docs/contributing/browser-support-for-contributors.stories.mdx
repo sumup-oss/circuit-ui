@@ -1,0 +1,23 @@
+import { Meta } from '../../.storybook/components';
+
+<Meta title="Introduction/Contributing/Browser support (for contributors)" />
+
+# Browser support (for contributors)
+
+As a Circuit UI contributor, it is important to keep [`Browser Support`](Introduction/Browser-Support/page) in mind.
+
+## Context
+
+Circuit UI is built with [TypeScript](https://www.typescriptlang.org/) (and not [Babel](https://babeljs.io/)). TypeScript has limited options when it comes to transpiling code: [the compiler can only target JavaScript versions](https://www.typescriptlang.org/tsconfig#target), which generally don't match which features are actually supported by a given set of browsers.
+
+Circuit UI's [current browser support policy](Introduction/Browser-Support/page) supports `es2015` (a.k.a. `es6`) ([almost](https://caniuse.com/es6)) entirely. The target browsers also support most of the features introduced between `es2015` and `es2017`, such as destructuring, `Array.includes()`, `Object.entries()`, `Object.values()`, and the spread operator and rest parameters (`...`) ([except for objects](https://caniuse.com/mdn-javascript_operators_spread_spread_in_object_literals)). Therefore, TypeScript is configured to compile Circuit UI for `es2017` [`tsconfig.json`](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/tsconfig.json).
+
+However, one `es2016`/`es2017` feature, [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), is only partially supported by Circuit UI's target browsers: **Safari <11 doesn't support async arrow functions**.
+
+## What features to avoid
+
+Because of the reasons above, all JavaScript features up to `es2017` can be safely used in Circuit UI, except for the following:
+
+- [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) (use Promises instead)
+
+Newer JavaScript syntax, such as [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining), can be used and will be transpiled by the TypeScript compiler.

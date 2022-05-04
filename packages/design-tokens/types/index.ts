@@ -80,9 +80,6 @@ export type Colors = {
   overlay: string;
   bodyBg: string;
   bodyColor: string;
-  danger: string;
-  success: string;
-  warning: string;
   info: string;
   confirm: string;
   alert: string;
@@ -189,10 +186,6 @@ export type ZIndex = {
   tooltip: number;
   header: number;
   backdrop: number;
-  /**
-   * @deprecated Use `theme.zIndex.navigation` instead.
-   */
-  sidebar: number;
   navigation: number;
   modal: number;
   toast: number;

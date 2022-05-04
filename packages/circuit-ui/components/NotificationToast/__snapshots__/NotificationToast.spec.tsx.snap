@@ -88,10 +88,8 @@ exports[`NotificationToast styles should render notification toast with alert st
 
 .circuit-5 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-6 {
@@ -380,10 +378,8 @@ exports[`NotificationToast styles should render notification toast with confirm 
 
 .circuit-5 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-6 {
@@ -672,19 +668,15 @@ exports[`NotificationToast styles should render notification toast with headline
 
 .circuit-5 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
   font-weight: 700;
 }
 
 .circuit-6 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-7 {
@@ -978,10 +970,8 @@ exports[`NotificationToast styles should render notification toast with info sty
 
 .circuit-5 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-6 {
@@ -1287,10 +1277,8 @@ exports[`NotificationToast styles should render notification toast with notify s
 
 .circuit-5 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-6 {
@@ -1581,10 +1569,8 @@ exports[`NotificationToast styles should render with default styles 1`] = `
 
 .circuit-5 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-6 {

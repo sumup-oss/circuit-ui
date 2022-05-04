@@ -34,7 +34,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out;
   visibility: hidden;
   opacity: 0;
-  z-index: ${theme.zIndex.sidebar};
+  z-index: ${theme.zIndex.navigation};
   ${theme.mq.giga} {
     visibility: hidden;
   }

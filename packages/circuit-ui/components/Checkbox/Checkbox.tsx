@@ -25,7 +25,6 @@ import {
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
-import { deprecate } from '../../util/logger';
 import Tooltip from '../Tooltip';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -38,9 +37,11 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   validationHint?: string;
   /**
-   * Removes the default bottom margin from the Checkbox.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin?: boolean;
+  noMargin: true;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -71,35 +72,31 @@ const CheckboxLabel = styled('label')<LabelElProps>(
 
 type WrapperElProps = Pick<CheckboxProps, 'noMargin'>;
 
-const wrapperBaseStyles = ({ theme }: StyleProps) => css`
+const wrapperBaseStyles = () => css`
   position: relative;
-
-  &:last-of-type {
-    margin-bottom: ${theme.spacings.mega};
-  }
 `;
 
-const wrapperNoMarginStyles = ({ noMargin }: WrapperElProps) => {
+const wrapperNoMarginStyles = ({
+  theme,
+  noMargin,
+}: StyleProps & WrapperElProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'Checkbox',
-        'The default outer spacing in the Checkbox component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The Checkbox component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
-
-    return null;
+    return css`
+      &:last-of-type {
+        margin-bottom: ${theme.spacings.mega};
+      }
+    `;
   }
-  return css`
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-  `;
+  return null;
 };
 
 const CheckboxWrapper = styled('div')<WrapperElProps>(
@@ -244,6 +241,7 @@ export const Checkbox = forwardRef(
 
     return (
       <CheckboxWrapper className={className} style={style} noMargin={noMargin}>
+        {/* @ts-expect-error the noMargin prop is required */}
         <CheckboxInput
           {...props}
           id={id}
@@ -253,10 +251,7 @@ export const Checkbox = forwardRef(
           disabled={disabled}
           invalid={invalid}
           ref={ref}
-          // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
-          onClick={handleChange}
-          // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
-          onChange={() => {}}
+          onChange={handleChange}
         />
         <CheckboxLabel htmlFor={id} disabled={disabled}>
           {children}

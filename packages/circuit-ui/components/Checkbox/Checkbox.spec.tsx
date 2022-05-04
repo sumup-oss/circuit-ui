@@ -36,33 +36,38 @@ describe('Checkbox', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Checkbox {...defaultProps} />);
+    const actual = create(<Checkbox noMargin {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with checked styles when passed the checked prop', () => {
-    const actual = create(<Checkbox checked {...defaultProps} />);
+    const actual = create(<Checkbox noMargin checked {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styles when passed the disabled prop', () => {
-    const actual = create(<Checkbox disabled {...defaultProps} />);
+    const actual = create(<Checkbox noMargin disabled {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with invalid styles when passed the invalid prop', () => {
-    const actual = create(<Checkbox invalid {...defaultProps} />);
+    const actual = create(<Checkbox noMargin invalid {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with noMargin styles when passed the noMargin prop', () => {
-    const actual = create(<Checkbox noMargin {...defaultProps} />);
+  it('should render with default spacing when there is no noMargin prop', () => {
+    /* @ts-expect-error the noMargin prop is required */
+    const actual = create(<Checkbox {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with a tooltip when passed a validation hint', () => {
     const actual = create(
-      <Checkbox validationHint="This field is required." {...defaultProps} />,
+      <Checkbox
+        noMargin
+        validationHint="This field is required."
+        {...defaultProps}
+      />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -72,7 +77,9 @@ describe('Checkbox', () => {
    */
   it('should be unchecked by default', () => {
     const { getByLabelText } = render(
-      <Checkbox {...defaultProps}>Label</Checkbox>,
+      <Checkbox noMargin {...defaultProps}>
+        Label
+      </Checkbox>,
     );
     const inputEl = getByLabelText('Label', {
       exact: false,
@@ -82,7 +89,9 @@ describe('Checkbox', () => {
 
   it('should call the change handler when clicked', () => {
     const { getByLabelText } = render(
-      <Checkbox {...defaultProps}>Label</Checkbox>,
+      <Checkbox noMargin {...defaultProps}>
+        Label
+      </Checkbox>,
     );
     const inputEl = getByLabelText('Label', {
       exact: false,
@@ -101,7 +110,7 @@ describe('Checkbox', () => {
      */
     it('should accept a working ref', () => {
       const tref = createRef<HTMLInputElement>();
-      const { container } = render(<Checkbox ref={tref} />);
+      const { container } = render(<Checkbox noMargin ref={tref} />);
       const checkbox = container.querySelector('input');
       expect(tref.current).toBe(checkbox);
     });
@@ -113,7 +122,9 @@ describe('Checkbox', () => {
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
       <div>
-        <Checkbox {...defaultProps}>Label</Checkbox>
+        <Checkbox noMargin {...defaultProps}>
+          Label
+        </Checkbox>
       </div>,
     );
     const actual = await axe(wrapper);

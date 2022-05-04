@@ -202,22 +202,18 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 
 .circuit-8 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 20px;
   line-height: 24px;
-  margin-bottom: 0;
   margin-top: 24px;
   margin-bottom: 8px;
 }
 
 .circuit-9 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-10 {

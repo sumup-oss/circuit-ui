@@ -18,18 +18,10 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { deprecate } from '../../util/logger';
-import { AsPropType } from '../../types/prop-types';
+import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
 
 type Size = 'one' | 'two';
-type Variant =
-  | 'highlight'
-  | 'quote'
-  | 'success'
-  | 'confirm'
-  | 'error'
-  | 'alert'
-  | 'subtle';
+type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 
 export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
@@ -41,9 +33,11 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
    */
   variant?: Variant;
   /**
-   * Remove the default margin below the text.
+   * We're moving away from built-in margins. The `noMargin` prop is now
+   * required and will be removed in v6 using codemods. Use the `spacing()`
+   * mixin to add margin.
    */
-  noMargin?: boolean;
+  noMargin: true;
   /**
    * Render the text using any HTML element.
    */
@@ -57,7 +51,6 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.regular};
-  margin-bottom: ${theme.spacings.mega};
 `;
 
 const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => css`
@@ -66,40 +59,6 @@ const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => css`
 `;
 
 const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
-  // TODO: remove the legacy variants and this switch statement in v5
-  /* eslint-disable no-param-reassign */
-  switch (variant) {
-    case 'success':
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test'
-      ) {
-        deprecate(
-          'Body',
-          "The Body's `success` variant is deprecated.",
-          'Use the `confirm` variant instead.',
-        );
-      }
-      variant = 'confirm';
-      break;
-    case 'error':
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test'
-      ) {
-        deprecate(
-          'Body',
-          "The Body's `error` variant is deprecated.",
-          'Use the `alert` variant instead.',
-        );
-      }
-      variant = 'alert';
-      break;
-    default:
-      break;
-  }
-  /* eslint-enable no-param-reassign */
-
   switch (variant) {
     default: {
       return null;
@@ -134,26 +93,23 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
   }
 };
 
-const marginStyles = ({ noMargin }: BodyProps & StyleProps) => {
+const marginStyles = ({ theme, noMargin }: BodyProps & StyleProps) => {
   if (!noMargin) {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      deprecate(
-        'Body',
-        'The default outer spacing in the Body component is deprecated.',
-        'Use the `noMargin` prop to silence this warning.',
-        'Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      throw new Error(
+        'The Body component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
-
-    return null;
+    return css`
+      margin-bottom: ${theme.spacings.mega};
+    `;
   }
 
-  return css`
-    margin-bottom: 0;
-  `;
+  return null;
 };
 
 const StyledBody = styled('p', {
@@ -176,7 +132,7 @@ function getHTMLElement(variant?: Variant): AsPropType {
  */
 export const Body = forwardRef((props: BodyProps, ref?: BodyProps['ref']) => {
   const as = props.as || getHTMLElement(props.variant);
-  return <StyledBody {...props} ref={ref} as={as} />;
+  return <StyledBody {...props} ref={ref} as={as as EmotionAsPropType} />;
 });
 
 Body.displayName = 'Body';

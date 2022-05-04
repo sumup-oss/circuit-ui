@@ -9,13 +9,13 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   user-select: none;
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1279px) {
   .circuit-0 {
     display: none;
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-0 {
     min-width: 48px;
     -webkit-flex-shrink: 0;
@@ -117,7 +117,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   box-shadow: none;
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1279px) {
   .circuit-3 {
     margin-bottom: 1px;
   }
@@ -136,7 +136,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-3 {
     height: 48px;
     width: 220px;
@@ -168,14 +168,12 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 
 .circuit-6 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
   font-weight: 700;
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1279px) {
   .circuit-6 {
     font-size: 24px;
     line-height: 28px;
@@ -209,12 +207,10 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 
 .circuit-9 {
   font-weight: 700;
-  margin-bottom: 24px;
   color: #000;
   letter-spacing: -0.03em;
   font-size: 18px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .circuit-11 {
@@ -228,9 +224,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 12px;
   color: #000;
-  margin-bottom: 0;
 }
 
 .circuit-14 {
@@ -291,7 +285,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   box-shadow: none;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-14 {
     padding: 12px;
     padding-left: 20px;
@@ -306,10 +300,8 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 
 .circuit-16 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 <div>
@@ -446,13 +438,13 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   user-select: none;
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1279px) {
   .circuit-0 {
     display: none;
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-0 {
     min-width: 48px;
     -webkit-flex-shrink: 0;
@@ -553,7 +545,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   box-shadow: none;
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1279px) {
   .circuit-3 {
     margin-bottom: 1px;
   }
@@ -572,7 +564,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .circuit-3 {
     height: 48px;
     width: 220px;
@@ -600,13 +592,11 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
 
 .circuit-6 {
   font-weight: 400;
-  margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
-@media (max-width: 959px) {
+@media (max-width: 1279px) {
   .circuit-6 {
     font-size: 24px;
     line-height: 28px;

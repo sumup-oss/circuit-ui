@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { clamp, eachFn, isEmpty } from './helpers';
+import { clamp, eachFn, isEmpty, throttle } from './helpers';
 
 describe('helpers', () => {
   describe('clamp', () => {
@@ -127,6 +127,43 @@ describe('helpers', () => {
     it('should return false for unrecognized type', () => {
       const actual = isEmpty(jest.fn());
       expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('throttle', () => {
+    beforeAll(() => {
+      jest.useFakeTimers();
+    });
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
+    it('should trigger the function at most once per timeout when called rapidly', () => {
+      const fn = jest.fn();
+      const timeout = 100;
+      const throttledFn = throttle(fn, timeout);
+
+      const interval = setInterval(throttledFn, 15);
+
+      jest.advanceTimersByTime(500);
+
+      clearInterval(interval);
+
+      expect(fn).toHaveBeenCalledTimes(5);
+    });
+
+    it('should trigger the function at most once per timeout  when called infrequently', () => {
+      const fn = jest.fn();
+      const timeout = 100;
+      const throttledFn = throttle(fn, timeout);
+
+      const interval = setInterval(throttledFn, 150);
+
+      jest.advanceTimersByTime(500);
+
+      clearInterval(interval);
+
+      expect(fn).toHaveBeenCalledTimes(3);
     });
   });
 });

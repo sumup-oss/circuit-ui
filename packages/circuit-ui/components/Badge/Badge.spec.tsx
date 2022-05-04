@@ -28,16 +28,7 @@ describe('Badge', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  const variants = [
-    'neutral',
-    'success',
-    'confirm',
-    'warning',
-    'notify',
-    'danger',
-    'alert',
-    'promo',
-  ] as const;
+  const variants = ['neutral', 'confirm', 'notify', 'alert', 'promo'] as const;
 
   it.each(variants)('should render with %s styles', (variant) => {
     const actual = create(<Badge variant={variant} />);
