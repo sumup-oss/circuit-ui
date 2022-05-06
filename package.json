@@ -59,7 +59,7 @@
     "@storybook/source-loader": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
     "@storybook/theming": "^6.4.22",
-    "@sumup/foundry": "^4.1.0",
+    "@sumup/foundry": "^5.0.0",
     "@types/jest": "^27.5.0",
     "audit-ci": "^6.2.0",
     "babel-eslint": "^10.0.1",

@@ -1,0 +1,10 @@
+# The browsers that are explicitly supported
+chrome >= 57
+firefox >= 54
+safari >= 10.3
+edge >= 16
+opera >= 44
+samsung >= 6.2
+
+# The features that the script checks for
+supports css-grid and supports object-entries
