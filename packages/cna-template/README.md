@@ -30,16 +30,6 @@ Run `yarn dev` to start the development build. The app should automatically open
 
 To create a production build of your app, run `yarn build`. `Next.js` will create an optimized production build of your application inside the `.next/` folder of your project. It will also provide you with additional details on what to do with them.
 
-### Adding a new component
-
-We try making adding new components as easy as possible. Run `yarn create-component YourComponentName` to launch the plop CLI exposed and configured by Foundry.
-
-<div align="center">
-
-![A GIF of how to use the create-component script.](https://github.com/sumup-oss/circuit-ui/raw/main/assets/create-component.gif 'Using create-component')
-
-</div>
-
 ### Linting your code
 
 A linter is a tool that checks your code for
@@ -47,7 +37,7 @@ A linter is a tool that checks your code for
 - problems that will cause it to break when run, or
 - code style that violates a given set of rules the project is following.
 
-Linting serves as a first line of defence against evil bugs on production.​ Your project will be set up to use a version of the popular [ESLint](https://eslint.org) linter for JavaScript provided by Foundry. You can lint your code and apply automatic fixes by running `yarn lint`. Usually, your editor is able to integrate with ESLint. Check your options and refer to the [Tips](#setting-up-foundry-s-eslint-in-your-editor) section for details on how to make this work with Foundry.
+Linting serves as a first line of defence against evil bugs on production.​ Your project will be set up to use a version of the popular [ESLint](https://eslint.org) linter for TypeScript provided by Foundry. You can lint your code and apply automatic fixes by running `yarn lint`. Usually, your editor is able to integrate with ESLint. Check your options and refer to the [Tips](#setting-up-foundry-s-eslint-in-your-editor) section for details on how to make this work with Foundry.
 
 ### Writing tests
 
@@ -79,15 +69,6 @@ The ESLint extension for VSCode has a `nodePath` setting. It allows you to add a
 Don't worry, this won't break ESLint for other projects. It just gives VSCode another relative path where it can look for ESLint.
 
 ## ⚠️ Troubleshooting
-
-### Engine node is incompatible
-
-```
-error eslint@5.0.1: The engine "node" is incompatible with this module. Expected version "^6.14.0 || ^8.10.0 || >=9.10.0".
-error Found incompatible module
-```
-
-Use a version of Node that is compatible with ESLint. If you cannot install it globally, you may try [nvm](https://github.com/creationix/nvm), [nodenv](https://github.com/nodenv/nodenv), or similar tools.
 
 ### Error watching file for changes
 

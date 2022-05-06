@@ -1,4 +1,4 @@
-import { render, axe } from '../../test-utils';
+import { render, screen, axe } from '../../test-utils';
 
 import { Link, LinkProps } from './Link';
 
@@ -21,8 +21,9 @@ describe('Link', () => {
   };
 
   it('should render an anchor', () => {
-    const { getByRole } = renderLink(defaultProps);
-    const link = getByRole('link') as HTMLAnchorElement;
+    renderLink(defaultProps);
+
+    const link = screen.getByRole('link');
 
     expect(link).toHaveTextContent(defaultProps.children);
     expect(link.href).toBe(process.env.SITE_BASEURL + defaultProps.href);
