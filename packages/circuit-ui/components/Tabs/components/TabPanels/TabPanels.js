@@ -16,18 +16,14 @@
 import { Children } from 'react';
 
 /**
- * Tabpanel wrapping content being showed by tabs
+ * TabPanel wrapping content being showed by tabs
  */
-const TabPanels = ({ selectedIndex, children }) =>
-  Children.map(children, (child, index) => {
+export function TabPanels({ selectedIndex, children }) {
+  return Children.map(children, (child, index) => {
     if (index === selectedIndex) {
       return child;
     }
 
     return null;
   });
-
-/**
- * @component
- */
-export default TabPanels;
+}

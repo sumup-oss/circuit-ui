@@ -15,11 +15,9 @@
  * limitations under the License.
  */
 
-/* eslint-disable node/shebang */
-
 import yargs from 'yargs';
 
-import { migrate, listTransforms, listLanguages } from './migrate';
+import { migrate, listTransforms, listLanguages, MigrateArgs } from './migrate';
 
 type CommandType = 'migrate';
 
@@ -50,15 +48,14 @@ yargs
           type: 'string',
           required: true,
         }),
-    (args) => execute('migrate', args),
+    (args) => execute('migrate', args as MigrateArgs),
   )
   .showHelpOnFail(true)
   .demandCommand(1, '')
   .help()
   .version().argv;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function execute(command: CommandType, args: any): void {
+function execute(command: CommandType, args: MigrateArgs): void {
   const commands = { migrate };
   const commandFn = commands[command];
 

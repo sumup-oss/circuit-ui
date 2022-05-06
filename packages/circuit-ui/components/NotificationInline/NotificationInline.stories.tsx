@@ -86,10 +86,7 @@ Dismissable.args = {
 
 export const WithHeadlineAndAction = (
   args: NotificationInlineProps,
-): JSX.Element => {
-  const [isVisible, setVisible] = useState(args.isVisible);
-  return <NotificationInline {...args} isVisible={isVisible} />;
-};
+): JSX.Element => <NotificationInline {...args} isVisible={args.isVisible} />;
 
 WithHeadlineAndAction.args = {
   headline: 'Information',

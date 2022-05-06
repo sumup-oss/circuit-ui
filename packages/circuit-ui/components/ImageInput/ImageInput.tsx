@@ -331,8 +331,6 @@ export const ImageInput = ({
     }
     setPreviewImage('');
     setIsLoading(true);
-    // URL.createObjectURL is not supported in Node, but the handleChange will only run client-side
-    // eslint-disable-next-line node/no-unsupported-features/node-builtins
     setPreviewImage(URL.createObjectURL(file));
     Promise.resolve(onChange(file))
       .then(() => setIsLoading(false))

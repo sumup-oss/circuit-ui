@@ -26,6 +26,10 @@ const CalendarWrap = styled.div`
   margin-top: ${({ theme }) => theme.spacings.byte};
 `;
 
+function toDate(date) {
+  return date ? date.format('MMM DD') : '';
+}
+
 class CalendarTag extends Component {
   static propTypes = {
     /**
@@ -70,10 +74,8 @@ class CalendarTag extends Component {
       return 'Dates';
     }
 
-    return `${this.toDate(startDate)} - ${this.toDate(endDate)}`;
+    return `${toDate(startDate)} - ${toDate(endDate)}`;
   };
-
-  toDate = (date) => (date ? date.format('MMM DD') : '');
 
   handleButtonRef = (ref) => {
     this.buttonRef = ref;

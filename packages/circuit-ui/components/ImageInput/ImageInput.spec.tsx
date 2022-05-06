@@ -37,7 +37,6 @@ const defaultProps = {
 } as const;
 
 describe('ImageInput', () => {
-  // eslint-disable-next-line node/no-unsupported-features/node-builtins
   global.URL.createObjectURL = jest.fn();
 
   function renderImageInput(

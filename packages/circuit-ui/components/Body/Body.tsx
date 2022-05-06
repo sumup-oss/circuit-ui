@@ -60,9 +60,6 @@ const sizeStyles = ({ theme, size = 'one' }: BodyProps & StyleProps) => css`
 
 const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
   switch (variant) {
-    default: {
-      return null;
-    }
     case 'highlight': {
       return css`
         font-weight: ${theme.fontWeight.bold};
@@ -89,6 +86,9 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
       return css`
         color: ${theme.colors.n700};
       `;
+    }
+    default: {
+      return null;
     }
   }
 };
