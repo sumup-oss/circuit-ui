@@ -22,7 +22,7 @@ import { throttle } from '../../util/helpers';
 
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
-import { getSortDirection, ascendingSort, descendingSort } from './utils';
+import { defaultSortBy, getSortDirection } from './utils';
 import { Direction, Row, Cell } from './types';
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
@@ -319,7 +319,7 @@ class Table extends Component<TableProps, TableState> {
     const { rows, onSortBy } = this.props;
     return onSortBy
       ? onSortBy(sortedRow, rows, sortDirection)
-      : this.defaultSortBy(sortedRow, rows, sortDirection);
+      : defaultSortBy(sortedRow, rows, sortDirection);
   };
 
   updateSort = (i: number, nextDirection: Direction, sortedRows: Row[]): void =>
@@ -328,12 +328,6 @@ class Table extends Component<TableProps, TableState> {
       sortDirection: nextDirection,
       rows: sortedRows,
     });
-
-  defaultSortBy = (i: number, rows: Row[], direction?: Direction): Row[] => {
-    const sortFn = direction === 'ascending' ? ascendingSort : descendingSort;
-
-    return [...rows].sort(sortFn(i));
-  };
 
   handleScroll = (e: UIEvent<HTMLDivElement>): void => {
     this.setState({ scrollTop: e.currentTarget.scrollTop });

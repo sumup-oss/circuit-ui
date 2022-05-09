@@ -87,7 +87,15 @@ describe('SidePanelContext', () => {
     const renderCloseButton = (
       hookFn: RemoveSidePanel,
       group: SidePanelContextProps['group'] = 'primary',
-    ) => <button onClick={() => hookFn(group)}>Close panel</button>;
+    ) => (
+      <button
+        onClick={() => {
+          void hookFn(group);
+        }}
+      >
+        Close panel
+      </button>
+    );
 
     const renderUpdateButton = (
       hookFn: UpdateSidePanel,

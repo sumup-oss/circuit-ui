@@ -43,11 +43,11 @@ const Page: NextPage = () => (
         </Headline>
         <Body noMargin css={spacing({ bottom: 'giga' })}>
           This is a{' '}
-          <Anchor href="https://nextjs.org" target="_blank" noMargin>
+          <Anchor href="https://nextjs.org" target="_blank">
             Next.js
           </Anchor>
           -based starter project featuring some{' '}
-          <Anchor href="https://sumup.com" target="_blank" noMargin>
+          <Anchor href="https://sumup.com" target="_blank">
             SumUp
           </Anchor>
           -specific customizations:
@@ -58,25 +58,20 @@ const Page: NextPage = () => (
             <Anchor
               href="https://github.com/sumup-oss/circuit-ui"
               target="_blank"
-              noMargin
             >
               Circuit UI
             </Anchor>{' '}
             integration
           </li>
           <li>
-            <Anchor href="https://emotion.sh/" target="_blank" noMargin>
+            <Anchor href="https://emotion.sh/" target="_blank">
               Emotion
             </Anchor>{' '}
             support (incl. babel plugin)
           </li>
           <li>
-            SumUp's default tooling provided by{' '}
-            <Anchor
-              href="https://github.com/sumup-oss/foundry"
-              target="_blank"
-              noMargin
-            >
+            SumUp&apos;s default tooling provided by{' '}
+            <Anchor href="https://github.com/sumup-oss/foundry" target="_blank">
               Foundry
             </Anchor>
           </li>

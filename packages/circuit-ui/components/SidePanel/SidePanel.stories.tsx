@@ -62,7 +62,7 @@ const baseArgs: SidePanelHookProps = {
   tracking: undefined,
 };
 
-const basePlay = ({ canvasElement }) => {
+const basePlay = ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
   const canvas = within(canvasElement);
   const thirdItem = canvas.getByText('Item 3', {
     selector: 'button[data-testid="list-item-3"] p',
@@ -163,7 +163,7 @@ const DefaultChildren = ({
   );
 };
 
-const ComponentWithSidePanel = (props) => {
+const ComponentWithSidePanel = (props: SidePanelHookProps) => {
   const [selectedItem, setSelectedItem] = useState<string>(null);
   const { setSidePanel } = useSidePanel();
 
@@ -235,7 +235,7 @@ WithTopNavigation.parameters = {
   chromatic: { viewports: [320, 960, 1280] },
 };
 
-const ComponentWithSidePanelExtended = (props) => {
+const ComponentWithSidePanelExtended = (props: SidePanelHookProps) => {
   const [selectedItem, setSelectedItem] = useState<string>(null);
   const { setSidePanel, updateSidePanel, removeSidePanel } = useSidePanel();
 

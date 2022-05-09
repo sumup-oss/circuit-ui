@@ -99,7 +99,7 @@ export function findStyledComponentNames(
       ],
     })
     .forEach((path) => {
-      const styledComponent = j(path)
+      const styledComponent: string = j(path)
         .closest(j.VariableDeclaration)
         .find(j.Identifier)
         .get(0).node.name;
@@ -167,7 +167,7 @@ export function findProperty(
         name: property,
       },
     }),
-    { name: parent } as any,
+    { name: parent } as object,
   );
   return root.find(j.MemberExpression, query);
 }

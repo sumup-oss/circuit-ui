@@ -70,11 +70,13 @@ const Navigation = styled.div(
 /**
  * TabList component that wraps the Tab components
  */
-const TabList = ({ className, style, ...props }) => (
-  <Wrapper className={className} style={style}>
-    <Navigation {...props} role="tablist" />
-  </Wrapper>
-);
+export function TabList({ className, style, ...props }) {
+  return (
+    <Wrapper className={className} style={style}>
+      <Navigation {...props} role="tablist" />
+    </Wrapper>
+  );
+}
 
 TabList.propTypes = {
   /**
@@ -83,8 +85,3 @@ TabList.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
 };
-
-/**
- * @component
- */
-export default TabList;

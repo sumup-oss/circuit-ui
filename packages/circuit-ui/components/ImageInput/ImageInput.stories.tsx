@@ -91,14 +91,16 @@ export const Stateful = (): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const uploadFile = (_file: File) =>
     // upload the file to storage
-    new Promise<string>((resolve, reject) =>
+    new Promise<string>((resolve, reject) => {
       setTimeout(() => {
         const shouldFail = Math.random() < 0.3;
-        return shouldFail
-          ? reject()
-          : resolve('https://source.unsplash.com/EcWFOYOpkpY/200x200');
-      }, 2000),
-    );
+        if (shouldFail) {
+          reject();
+        } else {
+          resolve('https://source.unsplash.com/EcWFOYOpkpY/200x200');
+        }
+      }, 2000);
+    });
 
   const onChange = (file: File) => {
     setError('');

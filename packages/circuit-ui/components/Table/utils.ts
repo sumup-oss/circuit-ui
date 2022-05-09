@@ -139,3 +139,13 @@ export const getSortParams = ({
     isSorted,
   };
 };
+
+export function defaultSortBy(
+  i: number,
+  rows: Row[],
+  direction?: Direction,
+): Row[] {
+  const sortFn = direction === 'ascending' ? ascendingSort : descendingSort;
+
+  return [...rows].sort(sortFn(i));
+}
