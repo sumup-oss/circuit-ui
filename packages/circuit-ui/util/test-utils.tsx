@@ -17,7 +17,11 @@ import { FunctionComponent, ReactElement, PropsWithChildren } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
 import { configureAxe } from 'jest-axe';
-import { render as renderTest, RenderResult } from '@testing-library/react';
+import {
+  render as renderTest,
+  RenderOptions,
+  RenderResult,
+} from '@testing-library/react';
 import { renderHook, act as actHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from '@emotion/react';
@@ -30,7 +34,10 @@ import {
 
 export * from '@testing-library/react';
 
-export type RenderFn<T = any> = (component: ReactElement, ...rest: any) => T;
+export type RenderFn<T = unknown> = (
+  component: ReactElement,
+  ...rest: any[]
+) => T;
 
 const WithProviders: FunctionComponent<PropsWithChildren<unknown>> = ({
   children,
@@ -40,7 +47,7 @@ const WithProviders: FunctionComponent<PropsWithChildren<unknown>> = ({
   </ComponentsContext.Provider>
 );
 
-const render: RenderFn<RenderResult> = (component, options) =>
+const render: RenderFn<RenderResult> = (component, options: RenderOptions) =>
   renderTest(component, { wrapper: WithProviders, ...options });
 const renderToHtml: RenderFn<string> = (component) =>
   renderToStaticMarkup(<WithProviders>{component}</WithProviders>);

@@ -20,7 +20,7 @@ import { render, userEvent } from '../../util/test-utils';
 import { useClickOutside } from './useClickOutside';
 
 describe('useClickOutside', () => {
-  function MockComponent({ onClickOutside, isActive = true }) {
+  function MockComponent({ onClickOutside = jest.fn(), isActive = true }) {
     const ref = useRef<HTMLButtonElement>(null);
 
     useClickOutside(ref, onClickOutside, isActive);
@@ -48,7 +48,10 @@ describe('useClickOutside', () => {
   });
 
   it('should not call the callback when clicking inside the element and the target element is removed', () => {
-    function MockRemoveComponent({ onClickOutside, isActive = true }) {
+    function MockRemoveComponent({
+      onClickOutside = jest.fn(),
+      isActive = true,
+    }) {
       const ref = useRef<HTMLDivElement>(null);
       const [open, setOpen] = useState(true);
 

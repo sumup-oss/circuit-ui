@@ -40,17 +40,15 @@ const transform: Transform = (file, api) => {
                 name: prop,
               },
             })
-            .find(property as any, {
+            // @ts-expect-error This works.
+            .find(property, {
               key: {
                 type: 'Identifier',
                 name: 'afterTera',
               },
             })
             .replaceWith((nodePath) =>
-              j.objectProperty(
-                j.identifier('tera'),
-                (nodePath.node as any).value,
-              ),
+              j.objectProperty(j.identifier('tera'), nodePath.node.value),
             );
         });
       });

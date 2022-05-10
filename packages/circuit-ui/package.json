@@ -31,8 +31,7 @@
     "build:executable": "chmod +x ./dist/cjs/cli/index.js",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
-    "test": "jest --watch",
-    "create:component": "foundry run plop component"
+    "test": "jest --watch"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",

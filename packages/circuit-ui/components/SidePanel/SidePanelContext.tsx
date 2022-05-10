@@ -333,7 +333,9 @@ export const SidePanelProvider = ({
 
         const isBottomPanelClosing = !!sidePanels[0].transition;
         const isStacked = group !== sidePanels[0].group;
-        const handleClose = () => removeSidePanel(sidePanels[0].group);
+        const handleClose = () => {
+          void removeSidePanel(sidePanels[0].group);
+        };
         const handleBack = isStacked ? () => removeSidePanel(group) : undefined;
 
         return (

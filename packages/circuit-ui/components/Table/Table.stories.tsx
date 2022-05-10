@@ -16,6 +16,7 @@
 import { action } from '@storybook/addon-actions';
 
 import Badge from '../Badge';
+import { isString } from '../../util/type-check';
 
 import docs from './Table.docs.mdx';
 import { TableProps } from './Table';
@@ -126,20 +127,19 @@ Sortable.args = {
   ],
 };
 
-export const CustomSort = (args: TableProps): JSX.Element => (
-  <Table
-    {...args}
-    onSortBy={(_i, rows, direction) =>
-      direction === 'ascending'
-        ? rows.sort(
-            (a, b) => typeof a[0] === 'string' && a[0].localeCompare(b[0]),
-          )
-        : rows.sort(
-            (a, b) => typeof b[0] === 'string' && b[0].localeCompare(a[0]),
-          )
+export const CustomSort = (args: TableProps): JSX.Element => {
+  const onSortBy: TableProps['onSortBy'] = (_i, rows, direction) => {
+    if (direction === 'ascending') {
+      return rows.sort(
+        (a, b) => isString(a[0]) && isString(b[0]) && a[0].localeCompare(b[0]),
+      );
     }
-  />
-);
+    return rows.sort(
+      (a, b) => isString(a[0]) && isString(b[0]) && b[0].localeCompare(a[0]),
+    );
+  };
+  return <Table {...args} onSortBy={onSortBy} />;
+};
 
 CustomSort.args = {
   headers: [{ children: 'Country', sortable: true, sortLabel }],

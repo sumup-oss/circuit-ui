@@ -46,9 +46,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const variantStyles = ({ theme, variant }: BodyLargeProps & StyleProps) => {
   switch (variant) {
-    default: {
-      return null;
-    }
     case 'highlight': {
       return css`
         font-weight: ${theme.fontWeight.bold};
@@ -75,6 +72,9 @@ const variantStyles = ({ theme, variant }: BodyLargeProps & StyleProps) => {
       return css`
         color: ${theme.colors.n700};
       `;
+    }
+    default: {
+      return null;
     }
   }
 };

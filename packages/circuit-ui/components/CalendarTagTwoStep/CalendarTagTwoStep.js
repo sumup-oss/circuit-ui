@@ -48,6 +48,10 @@ const CalendarWrapper = styled.div`
   margin-top: ${({ theme }) => theme.spacings.byte};
 `;
 
+function toDate(date) {
+  return date ? date.format('MMM DD') : '';
+}
+
 /**
  * Component composed from a <Tag /> and a <RangePickerController /> that has
  * two step process where the user has to click "Apply" to trigger onChange
@@ -111,10 +115,8 @@ export default class CalendarTagTwoStep extends Component {
       return 'Dates';
     }
 
-    return `${this.toPreviewDate(startDate)} - ${this.toPreviewDate(endDate)}`;
+    return `${toDate(startDate)} - ${toDate(endDate)}`;
   };
-
-  toPreviewDate = (date) => (date ? date.format('MMM DD') : '');
 
   handleButtonRef = (ref) => {
     this.buttonRef = ref;

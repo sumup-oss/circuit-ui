@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ElementType } from 'react';
 
 // This is how we should type the `as` prop in Circuit components, because the
