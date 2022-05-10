@@ -235,6 +235,8 @@ WithTopNavigation.parameters = {
   chromatic: { viewports: [320, 960, 1280] },
 };
 
+const SIDEPANEL_UPDATE_DURATION = 1000;
+
 const ComponentWithSidePanelExtended = (props: SidePanelHookProps) => {
   const [selectedItem, setSelectedItem] = useState<string>(null);
   const { setSidePanel, updateSidePanel, removeSidePanel } = useSidePanel();
@@ -273,7 +275,7 @@ const ComponentWithSidePanelExtended = (props: SidePanelHookProps) => {
                   />
                 ),
               });
-            }, 1000);
+            }, SIDEPANEL_UPDATE_DURATION);
           }
         },
         'data-testid': `list-item-${item.key}`,
@@ -295,3 +297,6 @@ export const UpdateAndRemove = (props: SidePanelHookProps): JSX.Element => (
 );
 UpdateAndRemove.args = baseArgs;
 UpdateAndRemove.play = basePlay;
+UpdateAndRemove.parameters = {
+  chromatic: { delay: SIDEPANEL_UPDATE_DURATION },
+};
