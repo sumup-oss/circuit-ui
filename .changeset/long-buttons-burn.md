@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Allow IconButton to have a loading state
+Allowed the loading state for the `IconButton` component. Pass an `isLoading` prop with an accessible `loadingLabel` label. 
