@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.8.0
+
+### Minor Changes
+
+- [#1579](https://github.com/sumup-oss/circuit-ui/pull/1579) [`fa152a45`](https://github.com/sumup-oss/circuit-ui/commit/fa152a45021173d95ab260850ed0f30ed43980b8) Thanks [@hris27](https://github.com/hris27)! - Added new size 24 `Gauge`, `Calendar` and `FlashOn` icons.
+
 ## 2.7.0
 
 ### Minor Changes
