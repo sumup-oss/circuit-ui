@@ -32,8 +32,6 @@ export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
    * on hover, and accessible to screen readers.
    */
   label: string;
-  isLoading?: never;
-  loadingLabel?: never;
 }
 
 const Label = styled('span')(hideVisually);
