@@ -35,9 +35,11 @@ import { BaseModalProps, ModalComponent } from './types';
 // with a query selector identifying the root of the app.
 // http://reactcommunity.org/react-modal/accessibility/#app-element
 if (typeof window !== 'undefined') {
-  // These are the default app elements in Next.js and CRA.
+  // These are the default app elements in Next.js, Docusaurus, and CRA.
   const appElement =
-    document.getElementById('__next') || document.getElementById('root');
+    document.getElementById('__next') ||
+    document.getElementById('__docusaurus') ||
+    document.getElementById('root');
 
   if (appElement) {
     ReactModal.setAppElement(appElement);
