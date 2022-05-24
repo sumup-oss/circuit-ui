@@ -1041,6 +1041,11 @@
       "size": "24"
     },
     {
+      "name": "nfc_payment",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "online_store",
       "category": "Product and feature",
       "size": "24"
