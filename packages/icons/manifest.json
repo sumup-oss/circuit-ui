@@ -396,6 +396,11 @@
       "size": "24"
     },
     {
+      "name": "nfc_payment",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "american_express",
       "category": "Card scheme",
       "size": "32"
@@ -1037,11 +1042,6 @@
     },
     {
       "name": "notification_center",
-      "category": "Product and feature",
-      "size": "24"
-    },
-    {
-      "name": "nfc_payment",
       "category": "Product and feature",
       "size": "24"
     },
