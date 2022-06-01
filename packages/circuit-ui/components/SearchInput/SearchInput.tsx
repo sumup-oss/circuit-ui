@@ -18,12 +18,21 @@ import { css } from '@emotion/react';
 import { Search, Close } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
-import Input from '../Input';
-import { InputProps } from '../Input/Input';
+import Input, { InputProps } from '../Input';
 import IconButton from '../IconButton';
 
 type ClearProps =
-  | { onClear?: never; clearLabel?: never }
+  | {
+      /**
+       * Callback function when the user clears the field.
+       */
+      onClear?: never;
+      /**
+       * Visually hidden text label on the clear button for screen readers.
+       * Crucial for accessibility.
+       */
+      clearLabel?: never;
+    }
   | {
       /**
        * Callback function when the user clears the field.

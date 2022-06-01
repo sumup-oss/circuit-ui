@@ -24,7 +24,7 @@ import {
   act,
   userEvent,
 } from '../../util/test-utils';
-import { InputProps } from '../Input';
+import { InputElement, InputProps } from '../Input';
 
 import CurrencyInput, { CurrencyInputProps } from '.';
 
@@ -108,9 +108,9 @@ describe('CurrencyInput', () => {
             value={value}
             label="Amount"
             noMargin
-            onChange={(
-              e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>,
-            ) => setValue(e.target.value)}
+            onChange={(e: ChangeEvent<InputElement>) =>
+              setValue(e.target.value)
+            }
           />
         );
       };

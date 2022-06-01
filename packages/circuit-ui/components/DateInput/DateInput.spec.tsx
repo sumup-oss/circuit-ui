@@ -16,14 +16,15 @@
 import { createRef } from 'react';
 
 import { render, renderToHtml, axe } from '../../util/test-utils';
+import { InputElement } from '../Input';
 
 import DateInput from '.';
 
 describe('DateInput', () => {
-  const baseProps = { label: 'Date' };
+  const baseProps = { label: 'Date', noMargin: true } as const;
 
   it('should accept a working ref', () => {
-    const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
+    const tref = createRef<InputElement>();
     const { container } = render(<DateInput {...baseProps} ref={tref} />);
     const input = container.querySelector('input');
     expect(tref.current).toBe(input);

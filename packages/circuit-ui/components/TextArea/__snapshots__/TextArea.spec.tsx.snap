@@ -8,7 +8,6 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -94,7 +93,6 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -176,7 +174,6 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -244,7 +241,7 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 
 <label
   class="circuit-0"
-  for="input_32"
+  for="input_30"
 >
   <span
     class="circuit-1"
@@ -256,7 +253,7 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
   >
     <textarea
       class="circuit-3"
-      id="input_32"
+      id="input_30"
       rows="3"
       style="resize: none; overflow-y: hidden; height: auto;"
     />
@@ -269,7 +266,6 @@ exports[`TextArea should render rows props when passed 1`] = `
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -337,7 +333,7 @@ exports[`TextArea should render rows props when passed 1`] = `
 
 <label
   class="circuit-0"
-  for="input_28"
+  for="input_26"
 >
   <span
     class="circuit-1"
@@ -349,7 +345,7 @@ exports[`TextArea should render rows props when passed 1`] = `
   >
     <textarea
       class="circuit-3"
-      id="input_28"
+      id="input_26"
       rows="3"
     />
   </div>
@@ -361,7 +357,6 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -467,7 +462,6 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -572,7 +566,6 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -681,7 +674,6 @@ exports[`TextArea should render with default styles 1`] = `
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -775,7 +767,6 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -859,7 +850,6 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   display: block;
   display: inline-block;
   margin-right: 16px;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -950,7 +940,6 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -1057,102 +1046,11 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 </label>
 `;
 
-exports[`TextArea should render with no margin styles when passed the noMargin prop 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-1 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-.circuit-2 {
-  position: relative;
-}
-
-.circuit-3 {
-  font-size: 16px;
-  line-height: 24px;
-  -webkit-appearance: none;
-  background-color: #FFF;
-  border: none;
-  outline: 0;
-  border-radius: 8px;
-  padding: 12px 16px;
-  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  box-shadow: 0 0 0 1px #999;
-  overflow: auto;
-  resize: vertical;
-}
-
-.circuit-3::-webkit-input-placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-3::-moz-placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-3:-ms-input-placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-3::placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-3:hover {
-  box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-3:focus {
-  box-shadow: 0 0 0 2px #3063E9;
-}
-
-.circuit-3:active {
-  box-shadow: 0 0 0 1px #3063E9;
-}
-
-<label
-  class="circuit-0"
-  for="input_26"
->
-  <span
-    class="circuit-1"
-  >
-    Textarea
-  </span>
-  <div
-    class="circuit-2"
-  >
-    <textarea
-      class="circuit-3"
-      id="input_26"
-    />
-  </div>
-</label>
-`;
-
 exports[`TextArea should render with readonly styles when passed the readonly prop 1`] = `
 .circuit-0 {
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -1245,7 +1143,6 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -1336,7 +1233,6 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -1443,7 +1339,6 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
   font-size: 14px;
   line-height: 20px;
   display: block;
-  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -1511,7 +1406,7 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
 
 <label
   class="circuit-0"
-  for="input_30"
+  for="input_28"
 >
   <span
     class="circuit-1"
@@ -1523,7 +1418,7 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
   >
     <textarea
       class="circuit-3"
-      id="input_30"
+      id="input_28"
       style="resize: none; overflow-y: hidden; height: auto;"
     />
   </div>

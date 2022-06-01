@@ -15,6 +15,8 @@
 
 import { useState, ChangeEvent } from 'react';
 
+import { InputElement } from '../Input';
+
 import { SearchInput, SearchInputProps } from './SearchInput';
 import docs from './SearchInput.docs.mdx';
 
@@ -53,7 +55,7 @@ export const Clearable = (args: SearchInputProps): JSX.Element => {
 
   const handleChange = ({
     target: { value: inputValue },
-  }: ChangeEvent<HTMLInputElement>) => {
+  }: ChangeEvent<InputElement>) => {
     setValue(inputValue);
   };
 
