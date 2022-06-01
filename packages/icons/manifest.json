@@ -397,8 +397,8 @@
     },
     {
       "name": "nfc_payment",
-      "category": "Payment method",
-      "size": "24"
+      "category": "Card scheme",
+      "size": "32"
     },
     {
       "name": "american_express",
