@@ -1,5 +1,13 @@
 # @sumup/icons
 
+## 2.9.0
+
+### Minor Changes
+
+- [#1586](https://github.com/sumup-oss/circuit-ui/pull/1586) [`701b9f4b`](https://github.com/sumup-oss/circuit-ui/commit/701b9f4b957cf0fb8bda0d5050b5f72747832422) Thanks [@tavarest](https://github.com/tavarest)! - Added 24px NFC payment icon in Card Scheme
+
+* [#1586](https://github.com/sumup-oss/circuit-ui/pull/1586) [`701b9f4b`](https://github.com/sumup-oss/circuit-ui/commit/701b9f4b957cf0fb8bda0d5050b5f72747832422) Thanks [@tavarest](https://github.com/tavarest)! - Added a size 24 VR and Boleto payment method icons.
+
 ## 2.8.0
 
 ### Minor Changes
