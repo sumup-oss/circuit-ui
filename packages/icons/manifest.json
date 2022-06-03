@@ -386,6 +386,21 @@
       "size": "24"
     },
     {
+      "name": "vr",
+      "category": "Payment method",
+      "size": "24"
+    },
+     {
+      "name": "boleto",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "nfc_payment",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "american_express",
       "category": "Card scheme",
       "size": "32"
