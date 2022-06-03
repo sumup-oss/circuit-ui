@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 5.1.0
+
+### Minor Changes
+
+- [#1585](https://github.com/sumup-oss/circuit-ui/pull/1585) [`2a8370e0`](https://github.com/sumup-oss/circuit-ui/commit/2a8370e0d1b1a4b2988853e935f71e6a2850fd2b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for Docusaurus to the Modal.
+
+### Patch Changes
+
+- [#1570](https://github.com/sumup-oss/circuit-ui/pull/1570) [`bb9a8a39`](https://github.com/sumup-oss/circuit-ui/commit/bb9a8a39fa7966eb4a26d9e3e590c297aa147198) Thanks [@vascofg](https://github.com/vascofg)! - Allowed the loading state for the `IconButton` component. Pass an `isLoading` prop with an accessible `loadingLabel` label.
+
 ## 5.0.0
 
 ### Major Changes
