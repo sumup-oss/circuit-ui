@@ -2,4 +2,4 @@
 '@sumup/icons': patch
 ---
 
-Add viewbox to boleto and vr icons
+Added the missing `viewbox` attribute to the `Boleto` and `Vr` icons.
