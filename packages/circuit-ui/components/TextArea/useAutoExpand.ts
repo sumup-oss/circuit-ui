@@ -31,7 +31,7 @@ export const useAutoExpand = (
 ): ModifiedProps => {
   const autoExpand = rows === 'auto';
 
-  const { height, width } = useComponentSize(ref) as DOMRect;
+  const { height, width } = useComponentSize(ref);
 
   const updateElementHeight = useCallback(
     (el: EventTarget & HTMLTextAreaElement) => {

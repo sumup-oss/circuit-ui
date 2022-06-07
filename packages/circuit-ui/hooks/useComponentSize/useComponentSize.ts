@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect, RefObject } from 'react';
 
 import { throttle } from '../../util/helpers';
 
-function getSize(el) {
-  if (!el) {
+function getSize(element?: HTMLElement | null) {
+  if (!element) {
     return {
       width: 0,
       height: 0,
@@ -26,18 +26,20 @@ function getSize(el) {
   }
 
   return {
-    width: el.offsetWidth,
-    height: el.offsetHeight,
+    width: element.offsetWidth,
+    height: element.offsetHeight,
   };
 }
 
-export function useComponentSize(ref = {}) {
-  const [componentSize, setComponentSize] = useState(getSize(ref.current));
+export function useComponentSize(
+  ref: RefObject<HTMLElement>,
+  initialSize = { width: 0, height: 0 },
+) {
+  const [componentSize, setComponentSize] = useState(initialSize);
+
   const handleResize = useCallback(() => {
     throttle(() => {
-      if (ref.current) {
-        setComponentSize(getSize(ref.current));
-      }
+      setComponentSize(getSize(ref.current));
     }, 500)();
   }, [ref]);
 
@@ -51,12 +53,11 @@ export function useComponentSize(ref = {}) {
     handleResize();
 
     if (typeof ResizeObserver === 'function') {
-      let resizeObserver = new ResizeObserver(handleResize);
+      const resizeObserver = new ResizeObserver(handleResize);
       resizeObserver.observe(node);
 
       return () => {
-        resizeObserver.disconnect(node);
-        resizeObserver = null;
+        resizeObserver.disconnect();
       };
     }
 
