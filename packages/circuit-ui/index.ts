@@ -52,6 +52,8 @@ export { default as RadioButtonGroup } from './components/RadioButtonGroup';
 export type { RadioButtonGroupProps } from './components/RadioButtonGroup';
 export { default as SearchInput } from './components/SearchInput';
 export type { SearchInputProps } from './components/SearchInput';
+export { default as CopyInput } from './components/CopyInput';
+export type { CopyInputProps } from './components/CopyInput';
 export { default as DateInput } from './components/DateInput';
 export type { DateInputProps } from './components/DateInput';
 export { default as Select } from './components/Select';
