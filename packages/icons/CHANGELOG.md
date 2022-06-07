@@ -1,5 +1,13 @@
 # @sumup/icons
 
+## 2.9.1
+
+### Patch Changes
+
+- [#1593](https://github.com/sumup-oss/circuit-ui/pull/1593) [`da3cb509`](https://github.com/sumup-oss/circuit-ui/commit/da3cb509d6dfc58844a31937f37e772f01863030) Thanks [@tavarest](https://github.com/tavarest)! - Moved the `NfcPayment` icon to the payment methods category and changed its size to 24.
+
+* [#1593](https://github.com/sumup-oss/circuit-ui/pull/1593) [`da3cb509`](https://github.com/sumup-oss/circuit-ui/commit/da3cb509d6dfc58844a31937f37e772f01863030) Thanks [@tavarest](https://github.com/tavarest)! - Added the missing `viewbox` attribute to the `Boleto` and `Vr` icons.
+
 ## 2.9.0
 
 ### Minor Changes
