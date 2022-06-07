@@ -266,6 +266,11 @@
       "size": "24"
     },
     {
+      "name": "boleto",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "dankort",
       "category": "Payment method",
       "size": "24"
@@ -341,6 +346,11 @@
       "size": "24"
     },
     {
+      "name": "nfc_payment",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "pix_full",
       "category": "Payment method",
       "size": "24"
@@ -389,16 +399,6 @@
       "name": "vr",
       "category": "Payment method",
       "size": "24"
-    },
-     {
-      "name": "boleto",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "nfc_payment",
-      "category": "Card scheme",
-      "size": "32"
     },
     {
       "name": "american_express",
