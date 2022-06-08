@@ -14,7 +14,6 @@
  */
 
 import { FunctionComponent, ReactElement, PropsWithChildren } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
 import { configureAxe } from 'jest-axe';
 import {
@@ -49,8 +48,14 @@ const WithProviders: FunctionComponent<PropsWithChildren<unknown>> = ({
 
 const render: RenderFn<RenderResult> = (component, options: RenderOptions) =>
   renderTest(component, { wrapper: WithProviders, ...options });
-const renderToHtml: RenderFn<string> = (component) =>
-  renderToStaticMarkup(<WithProviders>{component}</WithProviders>);
+/**
+ * FIXME: `renderToHtml` should be removed and replaced in a11y tests by
+ * const { container } = render(<Component />);
+ */
+const renderToHtml: RenderFn<HTMLElement> = (component) => {
+  const { container } = render(component);
+  return container;
+};
 const create = (
   ...args: Parameters<RenderFn<RenderResult>>
 ): ChildNode | HTMLCollection | null => {
