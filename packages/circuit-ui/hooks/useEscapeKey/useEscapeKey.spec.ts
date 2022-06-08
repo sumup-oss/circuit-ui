@@ -13,29 +13,25 @@
  * limitations under the License.
  */
 
-import { renderHook, actHook, userEvent } from '../../util/test-utils';
+import { newRenderHook, userEvent } from '../../util/test-utils';
 
 import { useEscapeKey } from './useEscapeKey';
 
 describe('useEscapeKey', () => {
-  it('should call the callback when the escape key is pressed', () => {
+  it('should call the callback when the escape key is pressed', async () => {
     const callback = jest.fn();
-    renderHook(() => useEscapeKey(callback));
+    newRenderHook(() => useEscapeKey(callback));
 
-    actHook(() => {
-      userEvent.keyboard('{esc}');
-    });
+    await userEvent.keyboard('{Escape}');
 
     expect(callback).toHaveBeenCalledTimes(1);
   });
 
-  it('should not call the callback when the hook is inactive', () => {
+  it('should not call the callback when the hook is inactive', async () => {
     const callback = jest.fn();
-    renderHook(() => useEscapeKey(callback, false));
+    newRenderHook(() => useEscapeKey(callback, false));
 
-    actHook(() => {
-      userEvent.keyboard('{esc}');
-    });
+    await userEvent.keyboard('{Escape}');
 
     expect(callback).not.toHaveBeenCalled();
   });

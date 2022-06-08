@@ -20,6 +20,7 @@ import {
   render as renderTest,
   RenderOptions,
   RenderResult,
+  renderHook as newRenderHook,
 } from '@testing-library/react';
 import { renderHook, act as actHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
@@ -72,4 +73,13 @@ const axe = configureAxe({
   },
 });
 
-export { create, render, renderToHtml, renderHook, actHook, userEvent, axe };
+export {
+  create,
+  render,
+  renderToHtml,
+  renderHook,
+  actHook,
+  newRenderHook,
+  userEvent,
+  axe,
+};
