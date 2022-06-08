@@ -24,6 +24,7 @@ import {
   getChildrenLength,
 } from '../../SidebarService';
 
+// @ts-expect-error Wontfix: this component is deprecated.
 export interface SubNavListProps extends HTMLAttributes<HTMLUListElement> {
   children?: Child | Child[];
   /**
@@ -108,6 +109,7 @@ export function SubNavList({
       {...props}
       visible={visible}
       selectedChildIndex={getSelectedChildIndex(children)}
+      // @ts-expect-error Wontfix: this component is deprecated.
       // eslint-disable-next-line react/no-children-prop
       children={getSecondaryChildren(children, visible)}
     />

@@ -34,7 +34,7 @@ export const TRANSITION_DURATION_MOBILE = 240;
 export const SIDE_PANEL_WIDTH = '400px';
 export const BODY_MAX_WIDTH = '480px';
 
-export type SidePanelProps = ReactModalProps &
+export type SidePanelProps = Omit<ReactModalProps, 'children'> &
   Pick<
     SidePanelHookProps,
     'backButtonLabel' | 'children' | 'closeButtonLabel' | 'headline'
