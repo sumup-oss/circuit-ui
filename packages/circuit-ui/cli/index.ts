@@ -21,7 +21,7 @@ import { migrate, listTransforms, listLanguages, MigrateArgs } from './migrate';
 
 type CommandType = 'migrate';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+// eslint-disable-next-line @typescript-eslint/no-unused-expressions, @typescript-eslint/no-floating-promises
 yargs
   .command(
     'migrate',
