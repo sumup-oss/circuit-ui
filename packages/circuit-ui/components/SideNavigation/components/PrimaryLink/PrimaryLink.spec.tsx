@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import { Plus } from '@sumup/icons';
+import { FC } from 'react';
+import { IconProps, Plus } from '@sumup/icons';
 
 import { ClickEvent } from '../../../../types/events';
 import {
@@ -36,7 +37,7 @@ describe('PrimaryLink', () => {
   }
 
   const baseProps = {
-    icon: Plus,
+    icon: Plus as FC<IconProps>,
     label: 'Label',
     href: '/url',
     onClick: jest.fn(),
@@ -73,13 +74,6 @@ describe('PrimaryLink', () => {
     });
 
     it.todo('should render with an external icon');
-    // it('should render with an external icon', () => {
-    //   const wrapper = renderPrimaryLink(create, {
-    //     ...baseProps,
-    //     target: '_blank',
-    //   });
-    //   expect(wrapper).toMatchSnapshot();
-    // });
 
     it('should render with a suffix icon', () => {
       const { getByTestId } = renderPrimaryLink(render, {

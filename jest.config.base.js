@@ -25,6 +25,8 @@ module.exports = {
     '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js',
   },
   testEnvironment: 'jsdom',
+  testEnvironmentOptions: {
+    url: 'http://localhost',
+  },
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-  testURL: 'http://localhost',
 };

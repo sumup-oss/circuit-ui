@@ -21,7 +21,6 @@ const packageName = packageJson.name.split('@sumup/').pop();
 
 module.exports = {
   ...baseConfig,
-  name: packageName,
   displayName: packageName,
   rootDir: '../..',
   roots: [`<rootDir>/packages/${packageName}`],
