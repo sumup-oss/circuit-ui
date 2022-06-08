@@ -35,18 +35,6 @@ global.render = render;
 global.renderToHtml = renderToHtml;
 global.create = create;
 
-// react-popper relies on document.createRange
-if (global.document) {
-  document.createRange = () => ({
-    setStart: () => {},
-    setEnd: () => {},
-    commonAncestorContainer: {
-      nodeName: 'BODY',
-      ownerDocument: document,
-    },
-  });
-}
-
 // Add custom matchers
 expect.extend(toHaveNoViolations);
 

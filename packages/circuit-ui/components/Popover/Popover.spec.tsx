@@ -15,7 +15,8 @@
 
 /* eslint-disable react/display-name */
 
-import { Delete, Add, Download } from '@sumup/icons';
+import { FC } from 'react';
+import { Delete, Add, Download, IconProps } from '@sumup/icons';
 import { Placement } from '@popperjs/core';
 import * as Collector from '@sumup/collector';
 
@@ -41,7 +42,10 @@ describe('PopoverItem', () => {
     return renderFn(<PopoverItem {...props} />);
   }
 
-  const baseProps = { children: 'PopoverItem' };
+  const baseProps = {
+    children: 'PopoverItem',
+    icon: Download as FC<IconProps>,
+  };
 
   describe('styles', () => {
     it('should render as Link when an href (and onClick) is passed', () => {
@@ -49,7 +53,6 @@ describe('PopoverItem', () => {
         ...baseProps,
         href: 'https://sumup.com',
         onClick: jest.fn(),
-        icon: Download,
       };
       const { container } = renderPopoverItem(render, props);
       const anchorEl = container.querySelector('a');
@@ -57,7 +60,7 @@ describe('PopoverItem', () => {
     });
 
     it('should render as a `button` when an onClick is passed', () => {
-      const props = { ...baseProps, onClick: jest.fn(), icon: Download };
+      const props = { ...baseProps, onClick: jest.fn() };
       const { container } = renderPopoverItem(render, props);
       const buttonEl = container.querySelector('button');
       expect(buttonEl).toBeVisible();
@@ -65,19 +68,18 @@ describe('PopoverItem', () => {
   });
 
   describe('business logic', () => {
-    it('should call onClick when rendered as Link', () => {
+    it('should call onClick when rendered as Link', async () => {
       const props = {
         ...baseProps,
         href: 'https://sumup.com',
         onClick: jest.fn((event: ClickEvent) => {
           event.preventDefault();
         }),
-        icon: Download,
       };
       const { container } = renderPopoverItem(render, props);
       const anchorEl = container.querySelector('a');
       if (anchorEl) {
-        userEvent.click(anchorEl);
+        await userEvent.click(anchorEl);
       }
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });
@@ -109,13 +111,13 @@ describe('Popover', () => {
       {
         onClick: jest.fn(),
         children: 'Add',
-        icon: Add,
+        icon: Add as FC<IconProps>,
       },
       { type: 'divider' },
       {
         onClick: jest.fn(),
         children: 'Remove',
-        icon: Delete,
+        icon: Delete as FC<IconProps>,
         destructive: true,
       },
     ],
@@ -125,6 +127,10 @@ describe('Popover', () => {
   };
 
   describe('styles', () => {
+    /**
+     * FIXME: some of these tests, including style snapshots, throw act()
+     * warnings. We should look into it.
+     */
     it('should render with default styles', () => {
       const { baseElement } = renderPopover(baseProps);
       expect(baseElement).toMatchSnapshot();
@@ -143,109 +149,95 @@ describe('Popover', () => {
   });
 
   describe('business logic', () => {
-    it('should open the popover when clicking the trigger element', () => {
+    it('should open the popover when clicking the trigger element', async () => {
       const isOpen = false;
       const onToggle = jest.fn(createStateSetter(isOpen));
       const { getByRole } = renderPopover({ ...baseProps, isOpen, onToggle });
 
       const popoverTrigger = getByRole('button');
 
-      act(() => {
-        userEvent.click(popoverTrigger);
-      });
+      await userEvent.click(popoverTrigger);
 
       expect(onToggle).toHaveBeenCalledTimes(1);
       expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it.each([
-      ['space', '{space}'],
-      ['enter', '{enter}'],
-      ['arrow down', '{arrowDown}'],
-      ['arrow up', '{arrowUp}'],
+      ['space', '{ }'],
+      ['enter', '{Enter}'],
+      ['arrow down', '{ArrowDown}'],
+      ['arrow up', '{ArrowUp}'],
     ])(
       'should open the popover when pressing the %s key on the trigger element',
-      (_, key) => {
+      async (_, key) => {
         const isOpen = false;
         const onToggle = jest.fn(createStateSetter(isOpen));
         const { getByRole } = renderPopover({ ...baseProps, isOpen, onToggle });
 
         const popoverTrigger = getByRole('button');
 
-        act(() => {
-          popoverTrigger.focus();
-          userEvent.keyboard(key);
-        });
+        popoverTrigger.focus();
+        await userEvent.keyboard(key);
 
         expect(onToggle).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenCalledTimes(1);
       },
     );
 
-    it('should close the popover when clicking outside', () => {
+    it('should close the popover when clicking outside', async () => {
       renderPopover(baseProps);
 
-      act(() => {
-        userEvent.click(document.body);
-      });
+      await userEvent.click(document.body);
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
       expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
-    it('should close the popover when clicking the trigger element', () => {
+    it('should close the popover when clicking the trigger element', async () => {
       const { getByRole } = renderPopover(baseProps);
 
       const popoverTrigger = getByRole('button');
 
-      act(() => {
-        userEvent.click(popoverTrigger);
-      });
+      await userEvent.click(popoverTrigger);
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
       expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it.each([
-      ['space', '{space}'],
-      ['enter', '{enter}'],
-      ['arrow up', '{arrowUp}'],
+      ['space', '{ }'],
+      ['enter', '{Enter}'],
+      ['arrow up', '{ArrowUp}'],
     ])(
       'should close the popover when pressing the %s key on the trigger element',
-      (_, key) => {
+      async (_, key) => {
         const { getByRole } = renderPopover(baseProps);
 
         const popoverTrigger = getByRole('button');
 
-        act(() => {
-          popoverTrigger.focus();
-          userEvent.keyboard(key);
-        });
+        popoverTrigger.focus();
+        await userEvent.keyboard(key);
 
         expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenCalledTimes(1);
       },
     );
 
-    it('should close the popover when clicking the escape key', () => {
+    it('should close the popover when clicking the escape key', async () => {
       renderPopover(baseProps);
 
-      act(() => {
-        userEvent.keyboard('{escape}');
-      });
+      await userEvent.keyboard('{Escape}');
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
       expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
-    it('should close the popover when clicking a popover item', () => {
+    it('should close the popover when clicking a popover item', async () => {
       const { getAllByRole } = renderPopover(baseProps);
 
       const popoverItems = getAllByRole('menuitem');
 
-      act(() => {
-        userEvent.click(popoverItems[0]);
-      });
+      await userEvent.click(popoverItems[0]);
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
       expect(dispatch).toHaveBeenCalledTimes(1);
