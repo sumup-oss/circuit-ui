@@ -53,7 +53,7 @@ export interface ToastProviderProps {
   children: ReactNode;
 }
 
-const listWrapperStyles = ({ theme }: StyleProps) => css`
+const liveRegionStyles = ({ theme }: StyleProps) => css`
   position: fixed;
   width: 100%;
   padding: 0 ${theme.spacings.giga};
@@ -71,7 +71,7 @@ const listWrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const ListWrapper = styled('ul')(listWrapperStyles);
+const LiveRegion = styled('div')(liveRegionStyles);
 
 export function ToastProvider<TProps extends BaseToastProps>({
   children,
@@ -145,7 +145,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
   return (
     <ToastContext.Provider value={context}>
       {children}
-      <ListWrapper role="status" aria-live="polite" aria-atomic="false">
+      <LiveRegion role="status" aria-live="polite" aria-atomic="false">
         {toasts.map((toast) => {
           const {
             id,
@@ -163,11 +163,10 @@ export function ToastProvider<TProps extends BaseToastProps>({
               key={id}
               isVisible={!transition}
               onClose={() => context.removeToast(toast)}
-              as="li"
             />
           );
         })}
-      </ListWrapper>
+      </LiveRegion>
     </ToastContext.Provider>
   );
 }
