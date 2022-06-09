@@ -13,10 +13,7 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
-import React from 'react';
-
-import { renderHook, actHook } from '../../util/test-utils';
+import { newRenderHook } from '../../util/test-utils';
 
 import { useSidePanel } from './useSidePanel';
 import { SidePanelContext } from './SidePanelContext';
@@ -58,11 +55,9 @@ describe('useSidePanel', () => {
   };
 
   it('should open the side panel when setSidePanel is called', () => {
-    const { result } = renderHook(() => useSidePanel(), { wrapper });
+    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
 
-    actHook(() => {
-      result.current.setSidePanel(panel);
-    });
+    result.current.setSidePanel(panel);
 
     const expected = {
       ...panel,
@@ -73,12 +68,10 @@ describe('useSidePanel', () => {
   });
 
   it('should open the side panel of a given group when setSidePanel is called', () => {
-    const { result } = renderHook(() => useSidePanel(), { wrapper });
+    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
 
-    actHook(() => {
-      result.current.setSidePanel(panel);
-      result.current.setSidePanel({ ...panel, group: testId });
-    });
+    result.current.setSidePanel(panel);
+    result.current.setSidePanel({ ...panel, group: testId });
 
     const expected = {
       ...panel,
@@ -89,12 +82,10 @@ describe('useSidePanel', () => {
   });
 
   it('should update the side panel when updateSidePanel is called', () => {
-    const { result } = renderHook(() => useSidePanel(), { wrapper });
+    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
 
-    actHook(() => {
-      result.current.updateSidePanel({
-        children: <p data-testid="children">Updated content</p>,
-      });
+    result.current.updateSidePanel({
+      children: <p data-testid="children">Updated content</p>,
     });
 
     const expected = {
@@ -105,13 +96,11 @@ describe('useSidePanel', () => {
   });
 
   it('should update the side panel of a given group when updateSidePanel is called', () => {
-    const { result } = renderHook(() => useSidePanel(), { wrapper });
+    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
 
-    actHook(() => {
-      result.current.updateSidePanel({
-        children: <p data-testid="children">Updated content</p>,
-        group: testId,
-      });
+    result.current.updateSidePanel({
+      children: <p data-testid="children">Updated content</p>,
+      group: testId,
     });
 
     const expected = {
@@ -122,46 +111,35 @@ describe('useSidePanel', () => {
   });
 
   it('should remove the side panel when removeSidePanel is called', () => {
-    const { result } = renderHook(() => useSidePanel(), { wrapper });
+    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
 
-    actHook(() => {
-      result.current.setSidePanel(panel);
-    });
-
-    actHook(() => {
-      result.current.removeSidePanel();
-    });
+    result.current.setSidePanel(panel);
+    result.current.removeSidePanel();
 
     const expected = defaultId;
     expect(removeSidePanel).toHaveBeenCalledWith(expected);
   });
 
   it('should remove the side panel of a given group when removeSidePanel is called', () => {
-    const { result } = renderHook(() => useSidePanel(), { wrapper });
+    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
 
-    actHook(() => {
-      result.current.setSidePanel(panel);
-      result.current.setSidePanel({ ...panel, group: testId });
-    });
+    result.current.setSidePanel(panel);
+    result.current.setSidePanel({ ...panel, group: testId });
 
-    actHook(() => {
-      result.current.removeSidePanel(testId);
-    });
+    result.current.removeSidePanel(testId);
 
     const expected = testId;
     expect(removeSidePanel).toHaveBeenCalledWith(expected);
   });
 
   it('should remove the side panel when the component is unmounted', () => {
-    const { result, unmount } = renderHook(() => useSidePanel(), { wrapper });
-
-    actHook(() => {
-      result.current.setSidePanel(panel);
+    const { result, unmount } = newRenderHook(() => useSidePanel(), {
+      wrapper,
     });
 
-    actHook(() => {
-      unmount();
-    });
+    result.current.setSidePanel(panel);
+
+    unmount();
 
     const expected = defaultId;
     expect(removeSidePanel).toHaveBeenCalledWith(expected);

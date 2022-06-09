@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { render, act, userEvent, axe } from '../../../../util/test-utils';
+import { render, userEvent, axe } from '../../../../util/test-utils';
 
 import { Header, HeaderProps } from './Header';
 
@@ -46,13 +46,11 @@ describe('Header', () => {
     expect(getByText(baseProps.headline)).toBeVisible();
   });
 
-  it('should call the onClose callback from the close button', () => {
+  it('should call the onClose callback from the close button', async () => {
     const onClose = jest.fn();
     const { getByTitle } = renderComponent({ onClose });
 
-    act(() => {
-      userEvent.click(getByTitle(baseProps.closeButtonLabel));
-    });
+    await userEvent.click(getByTitle(baseProps.closeButtonLabel));
 
     expect(onClose).toHaveBeenCalled();
   });
@@ -66,15 +64,13 @@ describe('Header', () => {
     expect(getByTitle(baseProps.backButtonLabel)).toBeVisible();
   });
 
-  it('should call the onBack callback from the back button', () => {
+  it('should call the onBack callback from the back button', async () => {
     const onBack = jest.fn();
     const { getByTitle } = renderComponent({
       onBack,
     });
 
-    act(() => {
-      userEvent.click(getByTitle(baseProps.backButtonLabel));
-    });
+    await userEvent.click(getByTitle(baseProps.backButtonLabel));
 
     expect(onBack).toHaveBeenCalled();
   });
