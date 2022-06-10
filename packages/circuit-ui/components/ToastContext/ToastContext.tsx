@@ -55,12 +55,20 @@ export interface ToastProviderProps {
 
 const listWrapperStyles = ({ theme }: StyleProps) => css`
   position: fixed;
+  width: 100%;
+  padding: 0 ${theme.spacings.giga};
   bottom: ${theme.spacings.giga};
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   display: flex;
   flex-direction: column-reverse;
   z-index: ${theme.zIndex.toast};
+
+  ${theme.mq.kilo} {
+    width: auto;
+    padding: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const ListWrapper = styled('ul')(listWrapperStyles);
