@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.1.2
+
+### Patch Changes
+
+- [#1607](https://github.com/sumup-oss/circuit-ui/pull/1607) [`46fa52e6`](https://github.com/sumup-oss/circuit-ui/commit/46fa52e64b7b1c541a225db9c8860165113379dd) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the width of the `NotificationToast` component on narrow viewports.
+
 ## 5.1.1
 
 ### Patch Changes
