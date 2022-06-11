@@ -28,7 +28,7 @@ import calendarInheritStyles from './CalendarImportedStyles';
 const dayDefault = (theme) => css`
   .CalendarDay__default {
     border: 1px solid ${theme.colors.n300};
-    color: ${theme.colors.n900};
+    color: ${theme.colors.bodyColor};
     background: ${theme.colors.white};
     vertical-align: middle;
 
@@ -131,7 +131,7 @@ const dateRangePickerInput = (theme) => css`
   }
 
   .DateInput_input {
-    color: ${theme.colors.n900};
+    color: ${theme.colors.bodyColor};
     ${typography('one')(theme)};
     font-weight: 200;
     background-color: inherit;
@@ -210,7 +210,7 @@ const closeButton = (theme) => css`
 
 const calendarCaption = (theme) => css`
   .CalendarMonth_caption {
-    color: ${theme.colors.n900};
+    color: ${theme.colors.bodyColor};
     font-size: 18px;
     text-align: center;
     padding-top: 22px;
@@ -221,7 +221,7 @@ const calendarCaption = (theme) => css`
 
 const calendarWeekHeader = (theme) => css`
   .DayPicker_weekHeader {
-    color: ${theme.colors.n900};
+    color: ${theme.colors.bodyColor};
     position: absolute;
     top: 67px;
     z-index: 2;
