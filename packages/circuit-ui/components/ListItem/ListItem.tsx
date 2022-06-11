@@ -48,7 +48,7 @@ interface BaseProps {
    * Display a leading component.
    * Pass an icon from `@sumup/icons` or a custom component.
    */
-  leadingComponent?: FC<IconProps> | ReactNode;
+  leadingComponent?: FC<IconProps<'24'>> | ReactNode;
   /**
    * Display a main label.
    */

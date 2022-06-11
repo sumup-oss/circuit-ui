@@ -24,7 +24,7 @@ export interface PrimaryLinkProps
    * Display an icon in addition to the text to help to identify the link.
    * On narrow viewports, only the icon is displayed.
    */
-  icon: FC<IconProps>;
+  icon: FC<IconProps<'24'>>;
   /**
    * Short label to describe the target of the link.
    */

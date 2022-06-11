@@ -63,7 +63,7 @@ export interface BaseProps {
   /**
    * Display an icon in addition to the label. Designed for 24px icons from `@sumup/icons`.
    */
-  icon?: FC<IconProps>;
+  icon?: FC<IconProps<'24'>>;
   /**
    * Destructive variant, changes the color of label and icon from blue to red to signal to the user that the action
    * is irreversible or otherwise dangerous. Interactive states are the same for destructive variant.
