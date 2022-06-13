@@ -103,6 +103,9 @@ describe('MobileSidePanel', () => {
     expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
   });
 
+  /**
+   * FIXME: calling axe here can trigger an act() warning.
+   */
   it('should meet accessibility guidelines', async () => {
     const { container } = renderComponent();
     const actual = await axe(container);
