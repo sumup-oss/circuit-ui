@@ -13,10 +13,7 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
-import React from 'react';
-
-import { renderHook, actHook } from '../../util/test-utils';
+import { newRenderHook, act } from '../../util/test-utils';
 
 import { createUseModal } from './createUseModal';
 import { ModalContext } from './ModalContext';
@@ -42,9 +39,9 @@ describe('createUseModal', () => {
   );
 
   it('should add the modal when setModal is called', () => {
-    const { result } = renderHook(() => useModal(), { wrapper });
+    const { result } = newRenderHook(() => useModal(), { wrapper });
 
-    actHook(() => {
+    act(() => {
       result.current.setModal({});
     });
 
@@ -56,13 +53,13 @@ describe('createUseModal', () => {
   });
 
   it('should remove the modal when removeModal is called', () => {
-    const { result } = renderHook(() => useModal(), { wrapper });
+    const { result } = newRenderHook(() => useModal(), { wrapper });
 
-    actHook(() => {
+    act(() => {
       result.current.setModal({});
     });
 
-    actHook(() => {
+    act(() => {
       result.current.removeModal();
     });
 

@@ -61,7 +61,6 @@
     "@testing-library/dom": "^8.13.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
-    "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^14.2.0",
     "@types/cross-spawn": "^6.0.2",
     "@types/jest-axe": "^3.5.3",

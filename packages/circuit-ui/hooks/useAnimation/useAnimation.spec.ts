@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { renderHook, actHook } from '../../util/test-utils';
+import { newRenderHook, act } from '../../util/test-utils';
 
 import { useAnimation } from './useAnimation';
 
@@ -23,7 +23,7 @@ describe('useAnimation', () => {
   });
 
   it('should return the animation state and a callback', () => {
-    const { result } = renderHook(() => useAnimation());
+    const { result } = newRenderHook(() => useAnimation());
     const [isAnimating, animateFn] = result.current;
 
     expect(isAnimating).toBeFalsy();
@@ -36,16 +36,16 @@ describe('useAnimation', () => {
       onStart: jest.fn(),
       onEnd: jest.fn(),
     };
-    const { result } = renderHook(() => useAnimation());
+    const { result } = newRenderHook(() => useAnimation());
     const [, animateFn] = result.current;
 
-    actHook(() => {
+    act(() => {
       animateFn(animation);
     });
 
     expect(result.current[0]).toBeTruthy();
 
-    actHook(() => {
+    act(() => {
       jest.advanceTimersByTime(animation.duration);
     });
 
@@ -58,16 +58,16 @@ describe('useAnimation', () => {
       onStart: jest.fn(),
       onEnd: jest.fn(),
     };
-    const { result } = renderHook(() => useAnimation());
+    const { result } = newRenderHook(() => useAnimation());
     const [, animateFn] = result.current;
 
-    actHook(() => {
+    act(() => {
       animateFn(animation);
     });
 
     expect(animation.onStart).toHaveBeenCalledTimes(1);
 
-    actHook(() => {
+    act(() => {
       jest.advanceTimersByTime(animation.duration);
     });
 
@@ -80,16 +80,16 @@ describe('useAnimation', () => {
       onStart: jest.fn(),
       onEnd: jest.fn(),
     };
-    const { result } = renderHook(() => useAnimation());
+    const { result } = newRenderHook(() => useAnimation());
     const [, animateFn] = result.current;
 
-    actHook(() => {
+    act(() => {
       animateFn(animation);
     });
 
     expect(animation.onEnd).not.toHaveBeenCalled();
 
-    actHook(() => {
+    act(() => {
       jest.advanceTimersByTime(animation.duration);
     });
 

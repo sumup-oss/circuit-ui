@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { renderHook, act } from '@testing-library/react-hooks';
+import { newRenderHook, act } from '../../util/test-utils';
 
 import { useComponentSize } from './useComponentSize';
 
@@ -33,7 +33,7 @@ describe('useComponentSize', () => {
         offsetHeight: 450,
       } as HTMLElement,
     };
-    const { result } = renderHook(() => useComponentSize(ref));
+    const { result } = newRenderHook(() => useComponentSize(ref));
 
     expect(result.current).toEqual({ width: 800, height: 450 });
   });
@@ -67,7 +67,7 @@ describe('useComponentSize', () => {
         } as HTMLElement,
       };
 
-      const { unmount } = renderHook(() => useComponentSize(ref));
+      const { unmount } = newRenderHook(() => useComponentSize(ref));
       expect(observe).toHaveBeenCalledTimes(1);
 
       unmount();
@@ -84,7 +84,7 @@ describe('useComponentSize', () => {
         } as HTMLElement,
       };
 
-      const { result, unmount } = renderHook(() => useComponentSize(ref));
+      const { result, unmount } = newRenderHook(() => useComponentSize(ref));
 
       act(() => {
         // @ts-expect-error The value is mocked

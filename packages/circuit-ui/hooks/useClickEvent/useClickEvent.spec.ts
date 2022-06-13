@@ -15,7 +15,7 @@
 
 import * as Collector from '@sumup/collector';
 
-import { renderHook, actHook } from '../../util/test-utils';
+import { newRenderHook, act } from '../../util/test-utils';
 
 import { useClickEvent } from './useClickEvent';
 
@@ -31,12 +31,12 @@ describe('useClickEvent', () => {
 
     it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
-      const { result } = renderHook(() =>
+      const { result } = newRenderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
-      actHook(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -53,12 +53,12 @@ describe('useClickEvent', () => {
       Collector.useClickTrigger = jest.fn(() => dispatch);
 
       const onClick = jest.fn();
-      const { result } = renderHook(() =>
+      const { result } = newRenderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
-      actHook(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -69,7 +69,7 @@ describe('useClickEvent', () => {
 
     it('should return undefined if there is no onClick callback', () => {
       const onClick = undefined;
-      const { result } = renderHook(() =>
+      const { result } = newRenderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
 
@@ -83,12 +83,12 @@ describe('useClickEvent', () => {
 
     it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
-      const { result } = renderHook(() =>
+      const { result } = newRenderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
-      actHook(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -105,12 +105,12 @@ describe('useClickEvent', () => {
       Collector.useClickTrigger = jest.fn(() => dispatch);
 
       const onClick = undefined;
-      const { result } = renderHook(() =>
+      const { result } = newRenderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
-      actHook(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);

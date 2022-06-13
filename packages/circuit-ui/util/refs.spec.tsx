@@ -13,17 +13,16 @@
  * limitations under the License.
  */
 
-import { render } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
 import { useRef } from 'react';
 
+import { render, newRenderHook } from './test-utils';
 import { applyMultipleRefs } from './refs';
 
 describe('applyMultipleRefs function', () => {
   test("should populate a reference's `current` member'", () => {
     const {
       result: { current: refAsObject },
-    } = renderHook(() => useRef<HTMLDivElement>());
+    } = newRenderHook(() => useRef<HTMLDivElement>());
 
     render(<div ref={applyMultipleRefs(refAsObject)} />);
     expect(refAsObject.current).toMatchInlineSnapshot('<div />');
@@ -41,7 +40,7 @@ describe('applyMultipleRefs function', () => {
   test('should allow multiple refs as arguments', () => {
     const {
       result: { current: refAsObject },
-    } = renderHook(() => useRef<HTMLDivElement>());
+    } = newRenderHook(() => useRef<HTMLDivElement>());
 
     const refAsFunction = jest.fn();
 
