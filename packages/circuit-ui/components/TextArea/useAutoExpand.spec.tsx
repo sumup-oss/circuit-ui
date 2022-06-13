@@ -175,7 +175,7 @@ describe('useAutoExpand hook', () => {
 
       expect(modifiedProps.onInput).not.toEqual(onInputHandler);
       // We need to apply those props on a second textarea for code coverage.
-      render(<TextArea aria-label="second" {...modifiedProps} />);
+      render(<TextArea {...modifiedProps} label="second" />);
       expect(onInputHandler).toHaveBeenCalledTimes(0);
       await userEvent.type(screen.getByLabelText('second'), '{ }{ }');
       expect(onInputHandler).toHaveBeenCalledTimes(2);
