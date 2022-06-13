@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { newRenderHook } from '../../util/test-utils';
+import { renderHook } from '../../util/test-utils';
 
 import { useSidePanel } from './useSidePanel';
 import { SidePanelContext } from './SidePanelContext';
@@ -55,7 +55,7 @@ describe('useSidePanel', () => {
   };
 
   it('should open the side panel when setSidePanel is called', () => {
-    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
+    const { result } = renderHook(() => useSidePanel(), { wrapper });
 
     result.current.setSidePanel(panel);
 
@@ -68,7 +68,7 @@ describe('useSidePanel', () => {
   });
 
   it('should open the side panel of a given group when setSidePanel is called', () => {
-    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
+    const { result } = renderHook(() => useSidePanel(), { wrapper });
 
     result.current.setSidePanel(panel);
     result.current.setSidePanel({ ...panel, group: testId });
@@ -82,7 +82,7 @@ describe('useSidePanel', () => {
   });
 
   it('should update the side panel when updateSidePanel is called', () => {
-    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
+    const { result } = renderHook(() => useSidePanel(), { wrapper });
 
     result.current.updateSidePanel({
       children: <p data-testid="children">Updated content</p>,
@@ -96,7 +96,7 @@ describe('useSidePanel', () => {
   });
 
   it('should update the side panel of a given group when updateSidePanel is called', () => {
-    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
+    const { result } = renderHook(() => useSidePanel(), { wrapper });
 
     result.current.updateSidePanel({
       children: <p data-testid="children">Updated content</p>,
@@ -111,7 +111,7 @@ describe('useSidePanel', () => {
   });
 
   it('should remove the side panel when removeSidePanel is called', () => {
-    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
+    const { result } = renderHook(() => useSidePanel(), { wrapper });
 
     result.current.setSidePanel(panel);
     result.current.removeSidePanel();
@@ -121,7 +121,7 @@ describe('useSidePanel', () => {
   });
 
   it('should remove the side panel of a given group when removeSidePanel is called', () => {
-    const { result } = newRenderHook(() => useSidePanel(), { wrapper });
+    const { result } = renderHook(() => useSidePanel(), { wrapper });
 
     result.current.setSidePanel(panel);
     result.current.setSidePanel({ ...panel, group: testId });
@@ -133,7 +133,7 @@ describe('useSidePanel', () => {
   });
 
   it('should remove the side panel when the component is unmounted', () => {
-    const { result, unmount } = newRenderHook(() => useSidePanel(), {
+    const { result, unmount } = renderHook(() => useSidePanel(), {
       wrapper,
     });
 

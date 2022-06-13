@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { newRenderHook, act } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils';
 
 import { useStack } from './useStack';
 
@@ -34,7 +34,7 @@ describe('useStack', () => {
 
   describe('initialization', () => {
     it('should initialize the stack to an empty array', () => {
-      const { result } = newRenderHook(() => useStack());
+      const { result } = renderHook(() => useStack());
 
       const state = result.current[0];
 
@@ -42,7 +42,7 @@ describe('useStack', () => {
     });
 
     it('should initialize the stack with an initial value', () => {
-      const { result } = newRenderHook(() => useStack(initialStack));
+      const { result } = renderHook(() => useStack(initialStack));
 
       const state = result.current[0];
 
@@ -52,7 +52,7 @@ describe('useStack', () => {
 
   describe('actions', () => {
     it('should push an item to the top of the stack', () => {
-      const { result } = newRenderHook(() => useStack(initialStack));
+      const { result } = renderHook(() => useStack(initialStack));
 
       act(() => {
         const dispatch = result.current[1];
@@ -66,7 +66,7 @@ describe('useStack', () => {
     });
 
     it('should pop an item from the top of the stack', () => {
-      const { result } = newRenderHook(() => useStack(initialStack));
+      const { result } = renderHook(() => useStack(initialStack));
 
       act(() => {
         const dispatch = result.current[1];
@@ -78,7 +78,7 @@ describe('useStack', () => {
 
     it('should pop an item from the top of the stack after a delay', () => {
       const transition = { duration: 200 };
-      const { result } = newRenderHook(() => useStack(initialStack));
+      const { result } = renderHook(() => useStack(initialStack));
 
       act(() => {
         const dispatch = result.current[1];
@@ -95,7 +95,7 @@ describe('useStack', () => {
     });
 
     it('should remove an item from the stack', () => {
-      const { result } = newRenderHook(() => useStack(initialStack));
+      const { result } = renderHook(() => useStack(initialStack));
 
       act(() => {
         const dispatch = result.current[1];
@@ -107,7 +107,7 @@ describe('useStack', () => {
 
     it('should remove an item from the stack after a delay', () => {
       const transition = { duration: 200 };
-      const { result } = newRenderHook(() => useStack(initialStack));
+      const { result } = renderHook(() => useStack(initialStack));
 
       act(() => {
         const dispatch = result.current[1];
@@ -124,7 +124,7 @@ describe('useStack', () => {
     });
 
     it('should update an item', () => {
-      const { result } = newRenderHook(() => useStack(initialStack));
+      const { result } = renderHook(() => useStack(initialStack));
 
       act(() => {
         const dispatch = result.current[1];

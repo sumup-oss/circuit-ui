@@ -15,14 +15,14 @@
 
 import { useRef } from 'react';
 
-import { render, newRenderHook } from './test-utils';
+import { render, renderHook } from './test-utils';
 import { applyMultipleRefs } from './refs';
 
 describe('applyMultipleRefs function', () => {
   test("should populate a reference's `current` member'", () => {
     const {
       result: { current: refAsObject },
-    } = newRenderHook(() => useRef<HTMLDivElement>());
+    } = renderHook(() => useRef<HTMLDivElement>());
 
     render(<div ref={applyMultipleRefs(refAsObject)} />);
     expect(refAsObject.current).toMatchInlineSnapshot('<div />');
@@ -40,7 +40,7 @@ describe('applyMultipleRefs function', () => {
   test('should allow multiple refs as arguments', () => {
     const {
       result: { current: refAsObject },
-    } = newRenderHook(() => useRef<HTMLDivElement>());
+    } = renderHook(() => useRef<HTMLDivElement>());
 
     const refAsFunction = jest.fn();
 

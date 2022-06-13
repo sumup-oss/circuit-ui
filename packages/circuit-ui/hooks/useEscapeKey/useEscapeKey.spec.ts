@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { newRenderHook, userEvent } from '../../util/test-utils';
+import { renderHook, userEvent } from '../../util/test-utils';
 
 import { useEscapeKey } from './useEscapeKey';
 
 describe('useEscapeKey', () => {
   it('should call the callback when the escape key is pressed', async () => {
     const callback = jest.fn();
-    newRenderHook(() => useEscapeKey(callback));
+    renderHook(() => useEscapeKey(callback));
 
     await userEvent.keyboard('{Escape}');
 
@@ -29,7 +29,7 @@ describe('useEscapeKey', () => {
 
   it('should not call the callback when the hook is inactive', async () => {
     const callback = jest.fn();
-    newRenderHook(() => useEscapeKey(callback, false));
+    renderHook(() => useEscapeKey(callback, false));
 
     await userEvent.keyboard('{Escape}');
 

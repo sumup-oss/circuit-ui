@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { newRenderHook, act } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils';
 
 import { useAnimation } from './useAnimation';
 
@@ -23,7 +23,7 @@ describe('useAnimation', () => {
   });
 
   it('should return the animation state and a callback', () => {
-    const { result } = newRenderHook(() => useAnimation());
+    const { result } = renderHook(() => useAnimation());
     const [isAnimating, animateFn] = result.current;
 
     expect(isAnimating).toBeFalsy();
@@ -36,7 +36,7 @@ describe('useAnimation', () => {
       onStart: jest.fn(),
       onEnd: jest.fn(),
     };
-    const { result } = newRenderHook(() => useAnimation());
+    const { result } = renderHook(() => useAnimation());
     const [, animateFn] = result.current;
 
     act(() => {
@@ -58,7 +58,7 @@ describe('useAnimation', () => {
       onStart: jest.fn(),
       onEnd: jest.fn(),
     };
-    const { result } = newRenderHook(() => useAnimation());
+    const { result } = renderHook(() => useAnimation());
     const [, animateFn] = result.current;
 
     act(() => {
@@ -80,7 +80,7 @@ describe('useAnimation', () => {
       onStart: jest.fn(),
       onEnd: jest.fn(),
     };
-    const { result } = newRenderHook(() => useAnimation());
+    const { result } = renderHook(() => useAnimation());
     const [, animateFn] = result.current;
 
     act(() => {

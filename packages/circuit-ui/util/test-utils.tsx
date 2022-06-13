@@ -20,7 +20,7 @@ import {
   render as renderTest,
   RenderOptions,
   RenderResult,
-  renderHook as newRenderHook,
+  renderHook,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from '@emotion/react';
@@ -72,4 +72,4 @@ const axe = configureAxe({
   },
 });
 
-export { create, render, renderToHtml, newRenderHook, userEvent, axe };
+export { create, render, renderToHtml, renderHook, userEvent, axe };

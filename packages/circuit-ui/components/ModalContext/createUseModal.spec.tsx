@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { newRenderHook, act } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils';
 
 import { createUseModal } from './createUseModal';
 import { ModalContext } from './ModalContext';
@@ -39,7 +39,7 @@ describe('createUseModal', () => {
   );
 
   it('should add the modal when setModal is called', () => {
-    const { result } = newRenderHook(() => useModal(), { wrapper });
+    const { result } = renderHook(() => useModal(), { wrapper });
 
     act(() => {
       result.current.setModal({});
@@ -53,7 +53,7 @@ describe('createUseModal', () => {
   });
 
   it('should remove the modal when removeModal is called', () => {
-    const { result } = newRenderHook(() => useModal(), { wrapper });
+    const { result } = renderHook(() => useModal(), { wrapper });
 
     act(() => {
       result.current.setModal({});

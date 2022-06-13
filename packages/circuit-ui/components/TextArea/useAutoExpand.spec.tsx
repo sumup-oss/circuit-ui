@@ -15,12 +15,7 @@
 
 import { MutableRefObject, FormEvent } from 'react';
 
-import {
-  newRenderHook,
-  userEvent,
-  render,
-  screen,
-} from '../../util/test-utils';
+import { renderHook, userEvent, render, screen } from '../../util/test-utils';
 import { InputElement } from '../Input/Input';
 
 import { TextArea, TextAreaProps } from './TextArea';
@@ -42,7 +37,7 @@ describe('useAutoExpand hook', () => {
   describe('when rows is not set', () => {
     test('should render default Props', () => {
       const ref = createTextAreaRef();
-      const { result } = newRenderHook(() =>
+      const { result } = renderHook(() =>
         useAutoExpand(ref, baseTextareaProps),
       );
       expect(result.current).toEqual({
@@ -58,7 +53,7 @@ describe('useAutoExpand hook', () => {
 
       const {
         result: { current: modifiedProps },
-      } = newRenderHook(() =>
+      } = renderHook(() =>
         useAutoExpand(ref, {
           ...baseTextareaProps,
           onInput: onInputHandler,
@@ -72,7 +67,7 @@ describe('useAutoExpand hook', () => {
   describe('when rows is set as number', () => {
     test('should return rows when rows is a number', () => {
       const ref = createTextAreaRef();
-      const { result } = newRenderHook(() =>
+      const { result } = renderHook(() =>
         useAutoExpand(ref, {
           ...baseTextareaProps,
           rows: 2,
@@ -92,7 +87,7 @@ describe('useAutoExpand hook', () => {
 
       const {
         result: { current: modifiedProps },
-      } = newRenderHook(() =>
+      } = renderHook(() =>
         useAutoExpand(ref, {
           ...baseTextareaProps,
           rows: 2,
@@ -107,7 +102,7 @@ describe('useAutoExpand hook', () => {
   describe('when rows is set as `auto`', () => {
     test('should generate element style', () => {
       const ref = createTextAreaRef();
-      const { result } = newRenderHook(() =>
+      const { result } = renderHook(() =>
         useAutoExpand(ref, { ...baseTextareaProps, rows: 'auto' }),
       );
 
@@ -122,7 +117,7 @@ describe('useAutoExpand hook', () => {
         .spyOn(ref.current, 'scrollHeight', 'get')
         .mockImplementation(() => mockedScrollHeight);
 
-      newRenderHook(() =>
+      renderHook(() =>
         useAutoExpand(ref, {
           ...baseTextareaProps,
           value: 'blablabla',
@@ -139,7 +134,7 @@ describe('useAutoExpand hook', () => {
       const placeholderString = 'random string';
       jest.spyOn(ref.current, 'value', 'set').mockImplementation(valueSetter);
 
-      newRenderHook(() =>
+      renderHook(() =>
         useAutoExpand(ref, {
           ...baseTextareaProps,
           placeholder: placeholderString,
@@ -152,7 +147,7 @@ describe('useAutoExpand hook', () => {
 
     test('should have a rows props when minRows is defined', () => {
       const ref = createTextAreaRef();
-      const { result } = newRenderHook(() =>
+      const { result } = renderHook(() =>
         useAutoExpand(ref, {
           ...baseTextareaProps,
           rows: 'auto',
@@ -170,7 +165,7 @@ describe('useAutoExpand hook', () => {
 
       const {
         result: { current: modifiedProps },
-      } = newRenderHook(() =>
+      } = renderHook(() =>
         useAutoExpand(ref, {
           ...baseTextareaProps,
           rows: 'auto',
@@ -199,7 +194,7 @@ describe('useAutoExpand hook', () => {
         .spyOn(ref.current, 'scrollHeight', 'get')
         .mockImplementation(scrollHeightGetter);
 
-      newRenderHook(() =>
+      renderHook(() =>
         useAutoExpand(ref, {
           ...baseTextareaProps,
           rows: 'auto',

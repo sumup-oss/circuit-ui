@@ -15,13 +15,13 @@
 
 import { MouseEvent } from 'react';
 
-import { newRenderHook, act, waitFor } from '../../util/test-utils';
+import { renderHook, act, waitFor } from '../../util/test-utils';
 
 import { useCollapsible, getHeight } from './useCollapsible';
 
 describe('useCollapsible', () => {
   it('should return the open state and a toggle callback', () => {
-    const { result } = newRenderHook(() => useCollapsible());
+    const { result } = renderHook(() => useCollapsible());
     const { isOpen, toggleOpen } = result.current;
 
     expect(isOpen).toBeFalsy();
@@ -30,7 +30,7 @@ describe('useCollapsible', () => {
 
   it('should accept an initial state', () => {
     const initialOpen = true;
-    const { result } = newRenderHook(() => useCollapsible({ initialOpen }));
+    const { result } = renderHook(() => useCollapsible({ initialOpen }));
     const { isOpen } = result.current;
 
     expect(isOpen).toBeTruthy();
@@ -38,7 +38,7 @@ describe('useCollapsible', () => {
 
   it('should accept a custom id', () => {
     const id = 'foo';
-    const { result } = newRenderHook(() => useCollapsible({ id }));
+    const { result } = renderHook(() => useCollapsible({ id }));
     const { getButtonProps, getContentProps } = result.current;
 
     const buttonProps = getButtonProps();
@@ -51,7 +51,7 @@ describe('useCollapsible', () => {
   it('should call a custom onClick prop on the button element', () => {
     const customProps = { onClick: jest.fn() };
     const event = { fizz: 'buzz' } as unknown as MouseEvent;
-    const { result } = newRenderHook(() => useCollapsible());
+    const { result } = renderHook(() => useCollapsible());
     const { getButtonProps } = result.current;
 
     const actual = getButtonProps(customProps);
@@ -66,7 +66,7 @@ describe('useCollapsible', () => {
 
   it('should add custom styles to the content element', () => {
     const customProps = { style: { color: 'red' } };
-    const { result } = newRenderHook(() => useCollapsible());
+    const { result } = renderHook(() => useCollapsible());
     const { getContentProps } = result.current;
 
     const actual = getContentProps(customProps);
@@ -81,7 +81,7 @@ describe('useCollapsible', () => {
     const initialOpen = false;
 
     it('should return a getter for the button props', () => {
-      const { result } = newRenderHook(() => useCollapsible({ initialOpen }));
+      const { result } = renderHook(() => useCollapsible({ initialOpen }));
       const { getButtonProps } = result.current;
 
       const actual = getButtonProps();
@@ -95,7 +95,7 @@ describe('useCollapsible', () => {
     });
 
     it('should return a getter for the content props', () => {
-      const { result } = newRenderHook(() => useCollapsible({ initialOpen }));
+      const { result } = renderHook(() => useCollapsible({ initialOpen }));
       const { getContentProps } = result.current;
 
       const actual = getContentProps();
@@ -121,7 +121,7 @@ describe('useCollapsible', () => {
     const initialOpen = true;
 
     it('should return a getter for the button props', () => {
-      const { result } = newRenderHook(() => useCollapsible({ initialOpen }));
+      const { result } = renderHook(() => useCollapsible({ initialOpen }));
       const { getButtonProps } = result.current;
 
       const actual = getButtonProps();
@@ -135,7 +135,7 @@ describe('useCollapsible', () => {
     });
 
     it('should return a getter for the content props', () => {
-      const { result } = newRenderHook(() => useCollapsible({ initialOpen }));
+      const { result } = renderHook(() => useCollapsible({ initialOpen }));
       const { getContentProps } = result.current;
 
       const actual = getContentProps();
@@ -160,7 +160,7 @@ describe('useCollapsible', () => {
   describe('toggling', () => {
     it('should toggle the open state when the button is clicked', async () => {
       const event = { fizz: 'buzz' } as unknown as MouseEvent;
-      const { result } = newRenderHook(() => useCollapsible());
+      const { result } = renderHook(() => useCollapsible());
       const { getButtonProps } = result.current;
 
       expect(result.current.isOpen).toBeFalsy();
@@ -175,7 +175,7 @@ describe('useCollapsible', () => {
     });
 
     it('should toggle the open state when the callback is called', async () => {
-      const { result } = newRenderHook(() => useCollapsible());
+      const { result } = renderHook(() => useCollapsible());
 
       expect(result.current.isOpen).toBeFalsy();
 

@@ -15,7 +15,7 @@
 
 import * as Collector from '@sumup/collector';
 
-import { newRenderHook, act } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils';
 
 import { useClickEvent } from './useClickEvent';
 
@@ -31,7 +31,7 @@ describe('useClickEvent', () => {
 
     it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
-      const { result } = newRenderHook(() =>
+      const { result } = renderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
 
@@ -53,7 +53,7 @@ describe('useClickEvent', () => {
       Collector.useClickTrigger = jest.fn(() => dispatch);
 
       const onClick = jest.fn();
-      const { result } = newRenderHook(() =>
+      const { result } = renderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
 
@@ -69,7 +69,7 @@ describe('useClickEvent', () => {
 
     it('should return undefined if there is no onClick callback', () => {
       const onClick = undefined;
-      const { result } = newRenderHook(() =>
+      const { result } = renderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
 
@@ -83,7 +83,7 @@ describe('useClickEvent', () => {
 
     it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
-      const { result } = newRenderHook(() =>
+      const { result } = renderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
 
@@ -105,7 +105,7 @@ describe('useClickEvent', () => {
       Collector.useClickTrigger = jest.fn(() => dispatch);
 
       const onClick = undefined;
-      const { result } = newRenderHook(() =>
+      const { result } = renderHook(() =>
         useClickEvent(onClick, tracking, defaultComponentName),
       );
 
