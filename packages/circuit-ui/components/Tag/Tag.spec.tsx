@@ -20,7 +20,6 @@ import {
   renderToHtml,
   axe,
   render,
-  act,
   userEvent,
 } from '../../util/test-utils';
 
@@ -115,12 +114,10 @@ describe('Tag', () => {
       expect(getByTestId('tag-close')).not.toBeNull();
     });
 
-    it('should call onRemove when closed', () => {
+    it('should call onRemove when closed', async () => {
       const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
 
-      act(() => {
-        userEvent.click(getByTestId('tag-close'));
-      });
+      await userEvent.click(getByTestId('tag-close'));
 
       expect(props.onRemove).toHaveBeenCalledTimes(1);
     });

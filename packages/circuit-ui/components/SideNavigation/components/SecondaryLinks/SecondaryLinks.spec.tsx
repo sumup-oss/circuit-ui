@@ -19,7 +19,6 @@ import {
   render,
   axe,
   RenderFn,
-  act,
   userEvent,
 } from '../../../../util/test-utils';
 
@@ -82,7 +81,7 @@ describe('SecondaryLinks', () => {
   });
 
   describe('business logic', () => {
-    it('should call the onClick handler when clicked', () => {
+    it('should call the onClick handler when clicked', async () => {
       const onClick = jest.fn((event: ClickEvent) => {
         event.preventDefault();
       });
@@ -101,9 +100,7 @@ describe('SecondaryLinks', () => {
       };
       const { getByRole } = renderSecondaryLinks(render, props);
 
-      act(() => {
-        userEvent.click(getByRole('link'));
-      });
+      await userEvent.click(getByRole('link'));
 
       expect(onClick).toHaveBeenCalledTimes(1);
     });

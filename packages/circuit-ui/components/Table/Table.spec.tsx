@@ -18,7 +18,6 @@ import {
   render,
   renderToHtml,
   axe,
-  act,
   userEvent,
 } from '../../util/test-utils';
 import Badge from '../Badge';
@@ -125,7 +124,7 @@ describe('Table', () => {
   });
 
   describe('Interaction tests', () => {
-    it('should call the row click callback', () => {
+    it('should call the row click callback', async () => {
       const onRowClickMock = jest.fn();
       const index = 0;
       const { getAllByRole } = render(
@@ -134,17 +133,15 @@ describe('Table', () => {
 
       const rowElements = getAllByRole('row');
 
-      act(() => {
-        // rowElements[0] is the hidden first row
-        userEvent.click(rowElements[1]);
-      });
+      // rowElements[0] is the hidden first row
+      await userEvent.click(rowElements[1]);
 
       expect(onRowClickMock).toHaveBeenCalledTimes(1);
       expect(onRowClickMock).toHaveBeenCalledWith(index);
     });
 
     describe('sorting', () => {
-      it('should sort a column in ascending order', () => {
+      it('should sort a column in ascending order', async () => {
         const { getAllByRole } = render(
           <Table rows={rows} headers={headers} rowHeaders={false} />,
         );
@@ -152,9 +149,7 @@ describe('Table', () => {
         const letterHeaderEl = getAllByRole('columnheader')[0];
         const cellEls = getAllByRole('cell');
 
-        act(() => {
-          userEvent.click(letterHeaderEl);
-        });
+        await userEvent.click(letterHeaderEl);
 
         const sortedRow = ['a', 'b', 'c'];
 
@@ -185,7 +180,7 @@ describe('Table', () => {
         });
       });
 
-      it('should sort a column in descending order', () => {
+      it('should sort a column in descending order', async () => {
         const { getAllByRole } = render(
           <Table rows={rows} headers={headers} rowHeaders={false} />,
         );
@@ -193,12 +188,8 @@ describe('Table', () => {
         const letterHeaderEl = getAllByRole('columnheader')[0];
         const cellEls = getAllByRole('cell');
 
-        act(() => {
-          userEvent.click(letterHeaderEl);
-        });
-        act(() => {
-          userEvent.click(letterHeaderEl);
-        });
+        await userEvent.click(letterHeaderEl);
+        await userEvent.click(letterHeaderEl);
 
         const sortedRow = ['c', 'b', 'a'];
 
@@ -229,7 +220,7 @@ describe('Table', () => {
         });
       });
 
-      it('should call a custom sort callback', () => {
+      it('should call a custom sort callback', async () => {
         const onSortByMock = jest.fn();
         const index = 0;
         const nextDirection = 'ascending';
@@ -239,9 +230,7 @@ describe('Table', () => {
 
         const headerElements = getAllByRole('columnheader');
 
-        act(() => {
-          userEvent.click(headerElements[0]);
-        });
+        await userEvent.click(headerElements[0]);
 
         expect(onSortByMock).toHaveBeenCalledTimes(1);
         expect(onSortByMock).toHaveBeenCalledWith(index, rows, nextDirection);

@@ -22,7 +22,6 @@ import {
   render,
   axe,
   RenderFn,
-  act,
   userEvent,
 } from '../../../../util/test-utils';
 
@@ -86,7 +85,7 @@ describe('PrimaryLink', () => {
   });
 
   describe('business logic', () => {
-    it('should call the onClick handler when clicked', () => {
+    it('should call the onClick handler when clicked', async () => {
       const props = {
         ...baseProps,
         onClick: jest.fn((event: ClickEvent) => {
@@ -95,9 +94,7 @@ describe('PrimaryLink', () => {
       };
       const { getByRole } = renderPrimaryLink(render, props);
 
-      act(() => {
-        userEvent.click(getByRole('link'));
-      });
+      await userEvent.click(getByRole('link'));
 
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });

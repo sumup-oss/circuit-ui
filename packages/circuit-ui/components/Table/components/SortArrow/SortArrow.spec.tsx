@@ -18,7 +18,6 @@ import {
   render,
   renderToHtml,
   axe,
-  act,
   userEvent,
 } from '../../../../util/test-utils';
 
@@ -43,14 +42,12 @@ describe('SortArrow', () => {
   });
 
   describe('Logic tests', () => {
-    it('should call the onClick callback', () => {
+    it('should call the onClick callback', async () => {
       const onClick = jest.fn();
       const { getByTestId } = render(
         <SortArrow label="Sort" onClick={onClick} data-testid="sort" />,
       );
-      act(() => {
-        userEvent.click(getByTestId('sort'));
-      });
+      await userEvent.click(getByTestId('sort'));
       expect(onClick).toHaveBeenCalledTimes(1);
     });
   });

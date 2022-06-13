@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
 import { Home, Shop } from '@sumup/icons';
 
 import { ClickEvent } from '../../../../types/events';
@@ -117,7 +116,7 @@ describe('MobileNavigation', () => {
 
       expect(secondaryLinkEl).not.toBeVisible();
 
-      userEvent.click(primaryLinkEl);
+      await userEvent.click(primaryLinkEl);
 
       await waitFor(
         () => {
@@ -126,7 +125,7 @@ describe('MobileNavigation', () => {
         { timeout: 300 },
       );
 
-      userEvent.click(primaryLinkEl);
+      await userEvent.click(primaryLinkEl);
 
       await waitFor(
         () => {
@@ -136,7 +135,7 @@ describe('MobileNavigation', () => {
       );
     });
 
-    it('should close the modal when clicking a primary link', () => {
+    it('should close the modal when clicking a primary link', async () => {
       const onClick = jest.fn((event: ClickEvent) => {
         event.preventDefault();
       });
@@ -155,7 +154,7 @@ describe('MobileNavigation', () => {
 
       const primaryLinkEl = getByRole('link', { name: /home/i });
 
-      userEvent.click(primaryLinkEl);
+      await userEvent.click(primaryLinkEl);
 
       expect(baseProps.onClose).toHaveBeenCalledTimes(1);
       expect(onClick).toHaveBeenCalledTimes(1);
@@ -195,7 +194,7 @@ describe('MobileNavigation', () => {
 
       expect(secondaryLinkEl).not.toBeVisible();
 
-      userEvent.click(primaryLinkEl);
+      await userEvent.click(primaryLinkEl);
 
       await waitFor(
         () => {
@@ -204,7 +203,7 @@ describe('MobileNavigation', () => {
         { timeout: 300 },
       );
 
-      userEvent.click(secondaryLinkEl);
+      await userEvent.click(secondaryLinkEl);
 
       expect(baseProps.onClose).toHaveBeenCalledTimes(1);
       expect(onClick).toHaveBeenCalledTimes(1);

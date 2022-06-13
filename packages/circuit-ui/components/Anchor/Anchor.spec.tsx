@@ -22,7 +22,6 @@ import {
   renderToHtml,
   axe,
   RenderFn,
-  act,
   userEvent,
 } from '../../util/test-utils';
 import { ClickEvent } from '../../types/events';
@@ -82,7 +81,7 @@ describe('Anchor', () => {
       expect(actual).toBeVisible();
     });
 
-    it('should call the onClick handler when rendered as a link', () => {
+    it('should call the onClick handler when rendered as a link', async () => {
       const props = {
         ...baseProps,
         'href': 'https://sumup.com',
@@ -93,14 +92,12 @@ describe('Anchor', () => {
       };
       const { getByTestId } = renderAnchor(render, props);
 
-      act(() => {
-        userEvent.click(getByTestId('anchor'));
-      });
+      await userEvent.click(getByTestId('anchor'));
 
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should call the onClick handler when rendered as a button', () => {
+    it('should call the onClick handler when rendered as a button', async () => {
       const props = {
         ...baseProps,
         'onClick': jest.fn(),
@@ -108,9 +105,7 @@ describe('Anchor', () => {
       };
       const { getByTestId } = renderAnchor(render, props);
 
-      act(() => {
-        userEvent.click(getByTestId('anchor'));
-      });
+      await userEvent.click(getByTestId('anchor'));
 
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });

@@ -18,7 +18,6 @@ import {
   render,
   renderToHtml,
   axe,
-  act,
   userEvent,
 } from '../../../../util/test-utils';
 import { Cell, Direction } from '../../types';
@@ -49,30 +48,26 @@ describe('TableHead', () => {
   });
 
   describe('onClick', () => {
-    it('should not dispatch the onSortBy handler when the column is not sortable', () => {
+    it('should not dispatch the onSortBy handler when the column is not sortable', async () => {
       const headers = ['Foo'];
       const onSortByMock = jest.fn();
       const { getByRole } = render(
         <TableHead onSortBy={onSortByMock} headers={headers} />,
       );
 
-      act(() => {
-        userEvent.click(getByRole('columnheader'));
-      });
+      await userEvent.click(getByRole('columnheader'));
 
       expect(onSortByMock).not.toHaveBeenCalled();
     });
 
-    it('should dispatch the onSortBy handler', () => {
+    it('should dispatch the onSortBy handler', async () => {
       const headers: Cell[] = [{ children: 'Foo', sortable: true, sortLabel }];
       const onSortByMock = jest.fn();
       const { getByRole } = render(
         <TableHead onSortBy={onSortByMock} headers={headers} />,
       );
 
-      act(() => {
-        userEvent.click(getByRole('columnheader'));
-      });
+      await userEvent.click(getByRole('columnheader'));
 
       expect(onSortByMock).toHaveBeenCalledTimes(1);
       expect(onSortByMock).toHaveBeenCalledWith(0);
@@ -80,30 +75,26 @@ describe('TableHead', () => {
   });
 
   describe('onSortEnter', () => {
-    it('should not dispatch the onSortEnter handler when the column is not sortable', () => {
+    it('should not dispatch the onSortEnter handler when the column is not sortable', async () => {
       const headers = ['Foo'];
       const onSortEnterMock = jest.fn();
       const { getByRole } = render(
         <TableHead onSortEnter={onSortEnterMock} headers={headers} />,
       );
 
-      act(() => {
-        userEvent.hover(getByRole('columnheader'));
-      });
+      await userEvent.hover(getByRole('columnheader'));
 
       expect(onSortEnterMock).not.toHaveBeenCalled();
     });
 
-    it('should dispatch the onSortEnter handler', () => {
+    it('should dispatch the onSortEnter handler', async () => {
       const headers: Cell[] = [{ children: 'Foo', sortable: true, sortLabel }];
       const onSortEnterMock = jest.fn();
       const { getByRole } = render(
         <TableHead onSortEnter={onSortEnterMock} headers={headers} />,
       );
 
-      act(() => {
-        userEvent.hover(getByRole('columnheader'));
-      });
+      await userEvent.hover(getByRole('columnheader'));
 
       expect(onSortEnterMock).toHaveBeenCalledTimes(1);
       expect(onSortEnterMock).toHaveBeenCalledWith(0);
@@ -111,31 +102,27 @@ describe('TableHead', () => {
   });
 
   describe('onSortLeave', () => {
-    it('should dispatch the onSortLeave handler', () => {
+    it('should dispatch the onSortLeave handler', async () => {
       const headers: Cell[] = [{ children: 'Foo', sortable: true, sortLabel }];
       const onSortLeaveMock = jest.fn();
       const { getByRole } = render(
         <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,
       );
 
-      act(() => {
-        userEvent.unhover(getByRole('columnheader'));
-      });
+      await userEvent.unhover(getByRole('columnheader'));
 
       expect(onSortLeaveMock).toHaveBeenCalledTimes(1);
       expect(onSortLeaveMock).toHaveBeenCalledWith(0);
     });
 
-    it('should not dispatch the onSortLeave handler when the column is not sortable', () => {
+    it('should not dispatch the onSortLeave handler when the column is not sortable', async () => {
       const headers = ['Foo'];
       const onSortLeaveMock = jest.fn();
       const { getByRole } = render(
         <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,
       );
 
-      act(() => {
-        userEvent.unhover(getByRole('columnheader'));
-      });
+      await userEvent.unhover(getByRole('columnheader'));
 
       expect(onSortLeaveMock).not.toHaveBeenCalled();
     });
