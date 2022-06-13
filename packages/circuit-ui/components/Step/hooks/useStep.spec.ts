@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { renderHook, act } from '@testing-library/react-hooks';
+import { act, newRenderHook, waitFor } from '../../../util/test-utils';
 
 import { useStep } from './useStep';
 
@@ -25,7 +25,7 @@ describe('useStep', () => {
       cycle: true,
       autoPlay: false,
     };
-    const { result, unmount } = renderHook(() => useStep(defaults));
+    const { result, unmount } = newRenderHook(() => useStep(defaults));
 
     expect(result.current.state).toMatchObject({
       step: defaults.initialStep,
@@ -34,24 +34,6 @@ describe('useStep', () => {
     });
 
     unmount();
-  });
-
-  it('should warn if cycle is used without totalSteps prop in dev environment', () => {
-    const { result } = renderHook(() => useStep({ cycle: true }));
-    const expectedError = new Error(
-      'Cannot use `cycle` prop without `totalSteps` prop.',
-    );
-
-    expect(result.error).toEqual(expectedError);
-  });
-
-  it('should warn if autoPlay is used without stepDuration prop', () => {
-    const { result } = renderHook(() => useStep({ autoPlay: true }));
-    const expectedError = Error(
-      'Cannot use `autoPlay` prop without `stepDuration` prop.',
-    );
-
-    expect(result.error).toEqual(expectedError);
   });
 
   it('should return actions and prop getters', () => {
@@ -67,7 +49,7 @@ describe('useStep', () => {
       getNextControlProps: expect.any(Function),
       getPreviousControlProps: expect.any(Function),
     });
-    const { result, unmount } = renderHook(() => useStep());
+    const { result, unmount } = newRenderHook(() => useStep());
 
     expect(result.current).toMatchObject(expected);
 
@@ -75,7 +57,7 @@ describe('useStep', () => {
   });
 
   it('should update paused state when pause action is called', () => {
-    const { result, unmount } = renderHook(() =>
+    const { result, unmount } = newRenderHook(() =>
       useStep({
         autoPlay: true,
         stepDuration: 3000,
@@ -94,7 +76,7 @@ describe('useStep', () => {
   });
 
   it('should update paused state when play action is called', () => {
-    const { result, unmount } = renderHook(() =>
+    const { result, unmount } = newRenderHook(() =>
       useStep({
         autoPlay: false,
         stepDuration: 3000,
@@ -113,7 +95,7 @@ describe('useStep', () => {
   });
 
   it('should not update state if play action is called repeatedly', () => {
-    const { result, unmount } = renderHook(() =>
+    const { result, unmount } = newRenderHook(() =>
       useStep({
         autoPlay: false,
         stepDuration: 3000,
@@ -138,7 +120,7 @@ describe('useStep', () => {
   });
 
   it('should not update paused state when step duration is missing in props', () => {
-    const { result, unmount } = renderHook(() => useStep());
+    const { result, unmount } = newRenderHook(() => useStep());
 
     expect(result.current.state.paused).toEqual(true);
 
@@ -153,7 +135,7 @@ describe('useStep', () => {
 
   it('should update steps state when next action is called', () => {
     const initialStep = 1;
-    const { result, unmount } = renderHook(() => useStep({ initialStep }));
+    const { result, unmount } = newRenderHook(() => useStep({ initialStep }));
 
     expect(result.current.state.step).toEqual(initialStep);
     expect(result.current.state.previousStep).toEqual(initialStep - 1);
@@ -170,7 +152,7 @@ describe('useStep', () => {
 
   it('should update steps state when previous action is called', () => {
     const initialStep = 1;
-    const { result, unmount } = renderHook(() => useStep({ initialStep }));
+    const { result, unmount } = newRenderHook(() => useStep({ initialStep }));
 
     expect(result.current.state.step).toEqual(initialStep);
     expect(result.current.state.previousStep).toEqual(initialStep - 1);
@@ -188,7 +170,7 @@ describe('useStep', () => {
   it('should update steps state based on used step interval', () => {
     const initialStep = 1;
     const stepInterval = 3;
-    const { result, unmount } = renderHook(() =>
+    const { result, unmount } = newRenderHook(() =>
       useStep({ initialStep, stepInterval }),
     );
 
@@ -214,11 +196,10 @@ describe('useStep', () => {
     unmount();
   });
 
-  // eslint-disable-next-line max-len
   it('should automatically change steps based on step and animation duration', async () => {
     const initialStep = 1;
     const stepInterval = 1;
-    const { result, waitForNextUpdate, unmount } = renderHook(() =>
+    const { result, unmount } = newRenderHook(() =>
       useStep({
         initialStep,
         stepInterval,
@@ -228,16 +209,17 @@ describe('useStep', () => {
       }),
     );
 
-    expect(result.current.state.paused).toEqual(false);
     expect(result.current.state.step).toEqual(initialStep);
+    expect(result.current.state.paused).toEqual(false);
     expect(result.current.state.previousStep).toEqual(
       initialStep - stepInterval,
     );
 
-    await waitForNextUpdate();
+    await waitFor(() => {
+      expect(result.current.state.step).toEqual(initialStep + stepInterval);
+    });
 
     expect(result.current.state.paused).toEqual(false);
-    expect(result.current.state.step).toEqual(initialStep + stepInterval);
     expect(result.current.state.previousStep).toEqual(initialStep);
 
     act(() => {
@@ -251,11 +233,10 @@ describe('useStep', () => {
     unmount();
   });
 
-  // eslint-disable-next-line max-len
   it('should accept functions for step and animation duration', async () => {
     const initialStep = 1;
     const stepInterval = 1;
-    const { result, waitForNextUpdate, unmount } = renderHook(() =>
+    const { result, unmount } = newRenderHook(() =>
       useStep({
         initialStep,
         stepInterval,
@@ -265,16 +246,17 @@ describe('useStep', () => {
       }),
     );
 
-    expect(result.current.state.paused).toEqual(false);
     expect(result.current.state.step).toEqual(initialStep);
+    expect(result.current.state.paused).toEqual(false);
     expect(result.current.state.previousStep).toEqual(
       initialStep - stepInterval,
     );
 
-    await waitForNextUpdate();
+    await waitFor(() => {
+      expect(result.current.state.step).toEqual(initialStep + stepInterval);
+    });
 
     expect(result.current.state.paused).toEqual(false);
-    expect(result.current.state.step).toEqual(initialStep + stepInterval);
     expect(result.current.state.previousStep).toEqual(initialStep);
 
     unmount();
@@ -284,7 +266,7 @@ describe('useStep', () => {
     const initialStep = 0;
     const stepInterval = 1;
     const totalSteps = 2;
-    const { result, unmount } = renderHook(() =>
+    const { result, unmount } = newRenderHook(() =>
       useStep({
         initialStep,
         stepInterval,
@@ -320,7 +302,7 @@ describe('useStep', () => {
     const onPause = jest.fn();
     const onNext = jest.fn();
     const onPrevious = jest.fn();
-    const { result, unmount } = renderHook(() =>
+    const { result, unmount } = newRenderHook(() =>
       useStep({ onPlay, onPause, onNext, onPrevious }),
     );
 
