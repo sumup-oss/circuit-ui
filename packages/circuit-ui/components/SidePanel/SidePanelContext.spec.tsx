@@ -59,6 +59,10 @@ describe('SidePanelContext', () => {
     jest.resetModules();
   });
 
+  /**
+   * We need to set up userEvent with delay=null to address this issue:
+   * https://github.com/testing-library/user-event/issues/833
+   */
   const userEvent = baseUserEvent.setup({ delay: null });
 
   describe('SidePanelProvider', () => {

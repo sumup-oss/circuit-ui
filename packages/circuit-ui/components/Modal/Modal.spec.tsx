@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { render, act, userEvent, axe, waitFor } from '../../util/test-utils';
+import { render, userEvent, axe, waitFor } from '../../util/test-utils';
 
 import { Modal, ModalProps } from './Modal';
 
@@ -24,7 +24,7 @@ describe('Modal', () => {
     closeButtonLabel: 'Close modal',
     onClose: jest.fn(),
     // eslint-disable-next-line react/prop-types, react/display-name
-    children: () => <p data-testid="children">Hello world!</p>,
+    children: <p data-testid="children">Hello world!</p>,
     // Silences the warning about the missing app element.
     // In user land, the modal is always rendered by the ModalProvider,
     // which takes care of setting the app element.
@@ -45,12 +45,10 @@ describe('Modal', () => {
     });
   });
 
-  it('should call the onClose callback', () => {
+  it('should call the onClose callback', async () => {
     const { getByRole } = render(<Modal {...defaultModal} />);
 
-    act(() => {
-      userEvent.click(getByRole('button'));
-    });
+    await userEvent.click(getByRole('button'));
 
     expect(defaultModal.onClose).toHaveBeenCalled();
   });
