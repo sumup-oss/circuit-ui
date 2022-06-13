@@ -51,7 +51,7 @@ describe('CardHeader', () => {
     expect(closeButton).toHaveTextContent(closeButtonLabel);
   });
 
-  it('should call the onClose prop when the close button is clicked', () => {
+  it('should call the onClose prop when the close button is clicked', async () => {
     const onClose = jest.fn();
 
     const { getByRole } = render(
@@ -61,7 +61,7 @@ describe('CardHeader', () => {
     );
     const closeButton = getByRole('button');
 
-    userEvent.click(closeButton);
+    await userEvent.click(closeButton);
 
     expect(onClose).toHaveBeenCalledTimes(1);
   });

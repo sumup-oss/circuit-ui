@@ -22,7 +22,6 @@ import {
   renderToHtml,
   axe,
   RenderFn,
-  act,
   userEvent,
 } from '../../util/test-utils';
 
@@ -135,7 +134,7 @@ describe('Button', () => {
       expect(getByText(loadingLabel)).toBeVisible();
     });
 
-    it('should call the onClick handler when clicked', () => {
+    it('should call the onClick handler when clicked', async () => {
       const props = {
         ...baseProps,
         'onClick': jest.fn(),
@@ -143,9 +142,7 @@ describe('Button', () => {
       };
       const { getByTestId } = renderButton(render, props);
 
-      act(() => {
-        userEvent.click(getByTestId('link-button'));
-      });
+      await userEvent.click(getByTestId('link-button'));
 
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });
