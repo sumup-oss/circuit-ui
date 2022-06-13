@@ -37,6 +37,8 @@ const gutterStyles = ({ theme }: StyleProps) =>
   composeBreakpoints(createGutterStyles, theme, theme.grid);
 
 /**
+ * @deprecated Use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) instead.
+ *
  * Row wrapping for the Col component.
  */
 export const Row = styled('div')<NoTheme>(baseStyles, clearfix, gutterStyles);

@@ -38,6 +38,8 @@ const gutterStyles = ({ theme }: StyleProps) =>
   composeBreakpoints(createGutterStyles, theme, theme.grid);
 
 /**
+ * @deprecated Use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) instead.
+ *
  * A basic 12-column grid component.
  */
 export const Grid = styled('div')<NoTheme>(baseStyles, gutterStyles);

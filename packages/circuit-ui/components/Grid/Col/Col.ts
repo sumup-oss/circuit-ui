@@ -98,6 +98,8 @@ const skipStyles = ({ theme, skip = 0 }: StyleProps & ColProps) =>
     : composeBreakpoints(createSkipStyles, theme, skip);
 
 /**
+ * @deprecated Use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) instead.
+ *
  * Content wrapping for the Grid component. Allows sizing based on provided
  * props.
  */
