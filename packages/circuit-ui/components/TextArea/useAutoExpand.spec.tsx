@@ -20,7 +20,13 @@ import { render, screen } from '@testing-library/react';
 
 import { InputElement } from '../Input/Input';
 
+import { TextAreaProps } from './TextArea';
 import { useAutoExpand } from './useAutoExpand';
+
+const baseTextareaProps: TextAreaProps = {
+  label: 'Test',
+  noMargin: true,
+};
 
 const createTextAreaRef = (props = {}) => {
   render(<textarea {...props} />);
@@ -34,12 +40,10 @@ describe('useAutoExpand hook', () => {
     test('should render default Props', () => {
       const ref = createTextAreaRef();
       const { result } = renderHook(() =>
-        useAutoExpand(ref, {
-          label: 'test',
-        }),
+        useAutoExpand(ref, baseTextareaProps),
       );
       expect(result.current).toEqual({
-        label: 'test',
+        ...baseTextareaProps,
         onInput: undefined,
         rows: undefined,
       });
@@ -53,7 +57,7 @@ describe('useAutoExpand hook', () => {
         result: { current: modifiedProps },
       } = renderHook(() =>
         useAutoExpand(ref, {
-          label: 'test',
+          ...baseTextareaProps,
           onInput: onInputHandler,
         }),
       );
@@ -67,12 +71,12 @@ describe('useAutoExpand hook', () => {
       const ref = createTextAreaRef();
       const { result } = renderHook(() =>
         useAutoExpand(ref, {
-          label: 'test',
+          ...baseTextareaProps,
           rows: 2,
         }),
       );
       expect(result.current).toEqual({
-        label: 'test',
+        ...baseTextareaProps,
         onInput: undefined,
         rows: 2,
       });
@@ -87,7 +91,7 @@ describe('useAutoExpand hook', () => {
         result: { current: modifiedProps },
       } = renderHook(() =>
         useAutoExpand(ref, {
-          label: 'test',
+          ...baseTextareaProps,
           rows: 2,
           onInput: onInputHandler,
         }),
@@ -101,7 +105,7 @@ describe('useAutoExpand hook', () => {
     test('should generate element style', () => {
       const ref = createTextAreaRef();
       const { result } = renderHook(() =>
-        useAutoExpand(ref, { label: 'test', rows: 'auto' }),
+        useAutoExpand(ref, { ...baseTextareaProps, rows: 'auto' }),
       );
 
       expect(result.current).toHaveProperty('onInput');
@@ -117,7 +121,7 @@ describe('useAutoExpand hook', () => {
 
       renderHook(() =>
         useAutoExpand(ref, {
-          label: 'test',
+          ...baseTextareaProps,
           value: 'blablabla',
           rows: 'auto',
         }),
@@ -134,7 +138,7 @@ describe('useAutoExpand hook', () => {
 
       renderHook(() =>
         useAutoExpand(ref, {
-          label: 'test',
+          ...baseTextareaProps,
           placeholder: placeholderString,
           rows: 'auto',
         }),
@@ -147,7 +151,7 @@ describe('useAutoExpand hook', () => {
       const ref = createTextAreaRef();
       const { result } = renderHook(() =>
         useAutoExpand(ref, {
-          label: 'test',
+          ...baseTextareaProps,
           rows: 'auto',
           minRows: 3,
         }),
@@ -157,7 +161,7 @@ describe('useAutoExpand hook', () => {
       expect(ref.current).toHaveAttribute('style');
     });
 
-    test('should modified provided `onInput`', () => {
+    test('should modify provided `onInput`', async () => {
       const ref = createTextAreaRef();
       const onInputHandler = jest.fn();
 
@@ -165,7 +169,7 @@ describe('useAutoExpand hook', () => {
         result: { current: modifiedProps },
       } = renderHook(() =>
         useAutoExpand(ref, {
-          label: 'test',
+          ...baseTextareaProps,
           rows: 'auto',
           onInput: onInputHandler,
         }),
@@ -175,11 +179,11 @@ describe('useAutoExpand hook', () => {
       // We need to apply those props on a second textarea for code coverage.
       render(<textarea aria-label="second" {...modifiedProps} />);
       expect(onInputHandler).toHaveBeenCalledTimes(0);
-      userEvent.type(screen.getByLabelText('second'), '{space}{space}');
+      await userEvent.type(screen.getByLabelText('second'), '{ }{ }');
       expect(onInputHandler).toHaveBeenCalledTimes(2);
     });
 
-    test('should allow preventing resize from onInput handler', () => {
+    test('should allow preventing resize from onInput handler', async () => {
       const onInputHandler = jest
         .fn()
         .mockImplementation((e: FormEvent<InputElement>) => {
@@ -194,7 +198,7 @@ describe('useAutoExpand hook', () => {
 
       renderHook(() =>
         useAutoExpand(ref, {
-          label: 'test',
+          ...baseTextareaProps,
           rows: 'auto',
           onInput: onInputHandler,
         }),
@@ -205,7 +209,7 @@ describe('useAutoExpand hook', () => {
       expect(scrollHeightGetter).toHaveBeenCalledTimes(1);
 
       // typing
-      userEvent.type(screen.getByRole('textbox'), '{space}{space}');
+      await userEvent.type(screen.getByRole('textbox'), '{ }{ }');
       expect(onInputHandler).toHaveBeenCalledTimes(2);
       expect(scrollHeightGetter).toHaveBeenCalledTimes(1);
     });
