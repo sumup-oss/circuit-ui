@@ -59,7 +59,7 @@ describe('Pagination', () => {
     expect(nextButtonEl).toBeDisabled();
   });
 
-  it('should go to the previous page', () => {
+  it('should go to the previous page', async () => {
     const onChange = jest.fn();
     const { getByText } = renderPagination(render, {
       ...baseProps,
@@ -69,19 +69,19 @@ describe('Pagination', () => {
 
     const prevButtonEl = getByText('Previous');
 
-    userEvent.click(prevButtonEl);
+    await userEvent.click(prevButtonEl);
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(2);
   });
 
-  it('should go to the next page', () => {
+  it('should go to the next page', async () => {
     const onChange = jest.fn();
     const { getByText } = renderPagination(render, { ...baseProps, onChange });
 
     const nextButtonEl = getByText('Next');
 
-    userEvent.click(nextButtonEl);
+    await userEvent.click(nextButtonEl);
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(2);

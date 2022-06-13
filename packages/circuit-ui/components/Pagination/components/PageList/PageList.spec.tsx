@@ -44,12 +44,12 @@ describe('PageList', () => {
   });
 
   describe('business logic', () => {
-    it('should call the onChange callback', () => {
+    it('should call the onChange callback', async () => {
       const onChange = jest.fn();
       const { getByText } = renderPageList(render, { ...baseProps, onChange });
       const pageFour = getByText('3');
 
-      userEvent.click(pageFour);
+      await userEvent.click(pageFour);
 
       expect(onChange).toHaveBeenCalledTimes(1);
       expect(onChange).toHaveBeenCalledWith(3);
