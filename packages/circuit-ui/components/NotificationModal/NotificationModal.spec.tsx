@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
-import { act, axe, render, userEvent, waitFor } from '../../util/test-utils';
+import { axe, render, userEvent, waitFor } from '../../util/test-utils';
 
 import { NotificationModal, NotificationModalProps } from './NotificationModal';
 
@@ -69,17 +67,15 @@ describe('NotificationModal', () => {
 
       const closeButton = await findByRole('button', { name: /Close Modal/i });
 
-      userEvent.click(closeButton);
+      await userEvent.click(closeButton);
 
       expect(baseNotificationModal.onClose).toHaveBeenCalled();
     });
 
-    it('should close the modal without performing any action', () => {
+    it('should close the modal without performing any action', async () => {
       renderNotificationModal(baseNotificationModal);
 
-      act(() => {
-        userEvent.click(document.body);
-      });
+      await userEvent.click(document.body);
 
       expect(baseNotificationModal.onClose).toHaveBeenCalled();
     });
@@ -89,7 +85,7 @@ describe('NotificationModal', () => {
 
       const actionButton = await findByRole('button', { name: /Primary/i });
 
-      userEvent.click(actionButton);
+      await userEvent.click(actionButton);
 
       expect(baseNotificationModal.actions.primary.onClick).toHaveBeenCalled();
       expect(baseNotificationModal.onClose).toHaveBeenCalled();

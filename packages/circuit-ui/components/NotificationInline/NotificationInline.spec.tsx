@@ -13,10 +13,7 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
-import React from 'react';
-
-import { act, axe, render, userEvent, waitFor } from '../../util/test-utils';
+import { axe, render, userEvent, waitFor } from '../../util/test-utils';
 
 import {
   NotificationInline,
@@ -108,7 +105,7 @@ describe('NotificationInline', () => {
   });
 
   describe('business logic', () => {
-    it('should click on a call to action button', () => {
+    it('should click on a call to action button', async () => {
       const props = {
         ...baseProps,
         action: {
@@ -118,14 +115,12 @@ describe('NotificationInline', () => {
       };
       const { getByRole } = renderNotificationInline(props);
 
-      act(() => {
-        userEvent.click(getByRole('button'));
-      });
+      await userEvent.click(getByRole('button'));
 
       expect(props.action.onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should close the notification inline when the onClose method is called', () => {
+    it('should close the notification inline when the onClose method is called', async () => {
       const props = {
         ...baseProps,
         onClose: jest.fn(),
@@ -133,9 +128,7 @@ describe('NotificationInline', () => {
       };
       const { getByRole } = renderNotificationInline(props);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: /close/i }));
-      });
+      await userEvent.click(getByRole('button', { name: /close/i }));
 
       expect(props.onClose).toHaveBeenCalled();
     });
