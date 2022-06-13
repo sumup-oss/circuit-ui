@@ -148,7 +148,7 @@ describe('ImageInput', () => {
       const { getByLabelText } = render(<StatefulInput />);
       const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
 
-      userEvent.upload(inputEl, file);
+      await userEvent.upload(inputEl, file);
 
       await waitFor(() => {
         expect(inputEl.files && inputEl.files[0]).toEqual(file);
@@ -188,7 +188,7 @@ describe('ImageInput', () => {
       const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
       const imageEl = getByRole('img') as HTMLImageElement;
 
-      userEvent.upload(inputEl, file);
+      await userEvent.upload(inputEl, file);
 
       await waitFor(() => {
         expect(imageEl.src).toBe(
@@ -202,7 +202,7 @@ describe('ImageInput', () => {
       const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
       const imageEl = getByRole('img') as HTMLImageElement;
 
-      userEvent.upload(inputEl, file);
+      await userEvent.upload(inputEl, file);
 
       await waitFor(() => {
         expect(imageEl.src).toBe(
@@ -210,7 +210,7 @@ describe('ImageInput', () => {
         );
       });
 
-      userEvent.click(
+      await userEvent.click(
         getByRole('button', { name: defaultProps.clearButtonLabel }),
       );
 
@@ -229,7 +229,7 @@ describe('ImageInput', () => {
       const { getByLabelText, getByText } = render(<StatefulInput />);
       const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
 
-      userEvent.upload(inputEl, file);
+      await userEvent.upload(inputEl, file);
 
       await waitFor(() => {
         expect(getByText(errorMessage)).toBeVisible();

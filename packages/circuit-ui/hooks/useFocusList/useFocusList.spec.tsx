@@ -33,7 +33,7 @@ describe('useFocusList', () => {
   }
 
   describe('when pressing the arrow up key', () => {
-    it('should focus the previous element when pressing the arrow down key', () => {
+    it('should focus the previous element when pressing the arrow down key', async () => {
       const { getByTestId } = render(<MockComponent />);
 
       const lastElement = getByTestId('wrapper')
@@ -41,15 +41,16 @@ describe('useFocusList', () => {
 
       act(() => {
         lastElement.focus();
-        userEvent.keyboard('{arrowUp}');
       });
+
+      await userEvent.keyboard('{arrowUp}');
 
       const expected = (list.length - 2).toString();
 
       expect(document.activeElement).toHaveAttribute('id', expected);
     });
 
-    it('should focus the last element when at the beginning', () => {
+    it('should focus the last element when at the beginning', async () => {
       const { getByTestId } = render(<MockComponent />);
 
       const firstElement = getByTestId('wrapper')
@@ -57,8 +58,9 @@ describe('useFocusList', () => {
 
       act(() => {
         firstElement.focus();
-        userEvent.keyboard('{arrowUp}');
       });
+
+      await userEvent.keyboard('{arrowUp}');
 
       const expected = (list.length - 1).toString();
 
@@ -67,7 +69,7 @@ describe('useFocusList', () => {
   });
 
   describe('when pressing the arrow down key', () => {
-    it('should focus the next element', () => {
+    it('should focus the next element', async () => {
       const { getByTestId } = render(<MockComponent />);
 
       const firstElement = getByTestId('wrapper')
@@ -75,15 +77,16 @@ describe('useFocusList', () => {
 
       act(() => {
         firstElement.focus();
-        userEvent.keyboard('{arrowDown}');
       });
+
+      await userEvent.keyboard('{arrowDown}');
 
       const expected = '1';
 
       expect(document.activeElement).toHaveAttribute('id', expected);
     });
 
-    it('should focus the first element when at the end', () => {
+    it('should focus the first element when at the end', async () => {
       const { getByTestId } = render(<MockComponent />);
 
       const lastElement = getByTestId('wrapper')
@@ -91,8 +94,9 @@ describe('useFocusList', () => {
 
       act(() => {
         lastElement.focus();
-        userEvent.keyboard('{arrowDown}');
       });
+
+      await userEvent.keyboard('{arrowDown}');
 
       const expected = '0';
 

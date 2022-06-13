@@ -21,7 +21,6 @@ import {
   renderToHtml,
   axe,
   RenderFn,
-  act,
   userEvent,
 } from '../../util/test-utils';
 import Body from '../Body';
@@ -116,7 +115,7 @@ describe('ListItemGroup', () => {
       expect(container).toMatchSnapshot();
     });
 
-    it('should render the focused item in a ListItemGroup with interactive items', () => {
+    it('should render the focused item in a ListItemGroup with interactive items', async () => {
       const { getAllByRole } = renderListItemGroup(render, {
         ...baseProps,
         items: baseProps.items.map((item) => ({
@@ -125,10 +124,8 @@ describe('ListItemGroup', () => {
         })),
       });
 
-      act(() => {
-        userEvent.tab();
-        userEvent.tab(); // blur first and focus second item
-      });
+      await userEvent.tab();
+      await userEvent.tab(); // blur first and focus second item
 
       expect(getAllByRole('button')[1]).toMatchSnapshot();
     });
