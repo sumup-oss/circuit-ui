@@ -49,7 +49,7 @@ const selectedTabStyles = ({ theme, selected }) =>
   selected &&
   css`
     position: relative;
-    color: ${theme.colors.n900};
+    color: ${theme.colors.bodyColor};
 
     &::after {
       content: ' ';

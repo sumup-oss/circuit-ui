@@ -39,7 +39,7 @@ const buttonBase = ({ theme, primary }) => css`
   ${typography('two')(theme)};
   margin-left: ${theme.spacings.kilo}};
   cursor: pointer;
-  color: ${primary ? theme.colors.b500 : theme.colors.n900};
+  color: ${primary ? theme.colors.p500 : theme.colors.bodyColor};
 `;
 
 const InfoButton = styled('span')(buttonBase);

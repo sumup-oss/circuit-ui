@@ -119,7 +119,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 const containerBaseStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.n900};
+  color: ${theme.colors.bodyColor};
   display: block;
   position: relative;
 `;
@@ -187,7 +187,7 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   border: 0;
   border-radius: ${theme.borderRadius.byte};
   box-shadow: none;
-  color: ${theme.colors.n900};
+  color: ${theme.colors.bodyColor};
   margin: 0;
   padding-top: ${theme.spacings.kilo};
   padding-right: ${theme.spacings.exa};

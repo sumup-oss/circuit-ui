@@ -127,7 +127,7 @@ const sortableStyles = ({ theme, sortable }: StyleProps & ThElProps) =>
     &:focus-within,
     &:hover {
       background-color: ${theme.colors.n100};
-      color: ${theme.colors.b500};
+      color: ${theme.colors.p500};
 
       & > button {
         opacity: 1;

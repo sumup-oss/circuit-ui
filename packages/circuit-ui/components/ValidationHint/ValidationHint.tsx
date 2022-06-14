@@ -50,7 +50,7 @@ const warningStyles = ({
 }: StyleProps & ValidationHintProps) =>
   hasWarning &&
   css`
-    color: ${theme.colors.n900};
+    color: ${theme.colors.bodyColor};
   `;
 
 const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
