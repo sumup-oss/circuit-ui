@@ -54,8 +54,9 @@ export function useStep({
   };
   const [state, dispatch] = useReducer(StepService.reducer, initialState);
   const playingInterval = useRef<ReturnType<typeof setInterval> | null>(null);
-  const animationEndCallback =
-    useRef<ReturnType<typeof setTimeout> | null>(null);
+  const animationEndCallback = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const handleNext = useClickEvent(
     onNext,
     { label: 'next', ...tracking },

@@ -83,8 +83,9 @@ type UseSidePanelHook = () => {
 
 export const useSidePanel: UseSidePanelHook = () => {
   const defaultGroup = useMemo(uniqueId, []);
-  const bottomSidePanelGroupRef =
-    useRef<SidePanelContextProps['group'] | undefined>();
+  const bottomSidePanelGroupRef = useRef<
+    SidePanelContextProps['group'] | undefined
+  >();
   const {
     setSidePanel: setSidePanelContext,
     updateSidePanel: updateSidePanelContext,
