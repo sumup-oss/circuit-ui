@@ -39,7 +39,13 @@ However, a custom component can also be used in other cases to display an ImageI
 
 There are some caveats with this approach:
 
-- A custom placeholder will also need to be provided to match the custom aspect ratio. Refer to the `CustomComponent` story for a code example.
+- A custom placeholder will also need to be provided to match the custom aspect ratio. Refer to the `CustomComponent` stories for code examples.
 - Currently, the `ImageInput` only supports rectangular components in order to correctly apply state-specific styles. Please omit border-radius styles from your custom components, they will be set to a fixed 12px radius by the ImageInput.
 
-<Story id="forms-imageinput--custom-component" />
+### Using an img element
+
+<Story id="forms-imageinput--custom-component-img" />
+
+### Using a div element
+
+<Story id="forms-imageinput--custom-component-div" />
