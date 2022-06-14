@@ -1,5 +1,4 @@
 import ReactDOM from 'react-dom';
-import { addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
@@ -111,6 +110,5 @@ const withTrackingAction = (Story) => (
 export const decorators = [
   withThemeProvider,
   withTrackingAction,
-  withPerformance,
   withUnmountWhenHidden,
 ];
