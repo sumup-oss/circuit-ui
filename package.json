@@ -84,6 +84,7 @@
     "webpack": "^5.72.0"
   },
   "resolutions": {
-    "axe-core": "^4.3.5"
+    "axe-core": "^4.3.5",
+    "prettier": "^2.6.2"
   }
 }
