@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 5.1.3
+
+### Patch Changes
+
+- [#1614](https://github.com/sumup-oss/circuit-ui/pull/1614) [`2ac245b6`](https://github.com/sumup-oss/circuit-ui/commit/2ac245b6b68ecb5f87ebd2fa68b542f04a63b0b6) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced `colors.n900` with `colors.bodyColor` when used as a text color for consistency.
+
+* [#1605](https://github.com/sumup-oss/circuit-ui/pull/1605) [`384cedb7`](https://github.com/sumup-oss/circuit-ui/commit/384cedb79fc70857927c43e66e56145f177efdb8) Thanks [@robinmetral](https://github.com/robinmetral)! - Switched the `ToastContext`'s live region element from a `ul` to a `div`: lists shouldn't have `role="status"` since this strips list semantics.
+
 ## 5.1.2
 
 ### Patch Changes
