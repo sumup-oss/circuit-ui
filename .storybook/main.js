@@ -28,7 +28,6 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-viewport',
     '@storybook/addon-backgrounds',
-    'storybook-addon-performance',
     '@storybook/addon-interactions',
   ],
   features: {

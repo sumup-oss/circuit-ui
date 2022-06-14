@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom';
 import { addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withPerformance } from 'storybook-addon-performance';
 import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { TrackingRoot, TrackingView } from '@sumup/collector';
@@ -108,15 +107,6 @@ const withTrackingAction = (Story) => (
     </TrackingView>
   </TrackingRoot>
 );
-
-// Run only client tasks in prod builds of Storybook, SSR tasks are failing.
-// See https://github.com/atlassian-labs/storybook-addon-performance/pull/40
-addParameters({
-  performance: {
-    allowedGroups:
-      process.env.NODE_ENV === 'production' ? ['client'] : ['server', 'client'],
-  },
-});
 
 export const decorators = [
   withThemeProvider,
