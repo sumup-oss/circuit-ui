@@ -15,7 +15,7 @@
 
 import { createRef } from 'react';
 
-import { create, render, act, userEvent } from '../../../../util/test-utils';
+import { create, render, userEvent } from '../../../../util/test-utils';
 
 import { Switch } from './Switch';
 
@@ -41,14 +41,12 @@ describe('Switch', () => {
   /**
    * Logic tests.
    */
-  it('should call the change handler when toggled', () => {
+  it('should call the change handler when toggled', async () => {
     const onChange = jest.fn();
     const { getByTestId } = render(
       <Switch {...defaultProps} onChange={onChange} data-testid="switch" />,
     );
-    act(() => {
-      userEvent.click(getByTestId('switch'));
-    });
+    await userEvent.click(getByTestId('switch'));
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 

@@ -13,13 +13,27 @@
  * limitations under the License.
  */
 
-import { render, act, userEvent, axe } from '../../util/test-utils';
+import { render, userEvent, axe, waitFor } from '../../util/test-utils';
 
 import { SidePanel, SidePanelProps } from './SidePanel';
 
 jest.mock('../../util/id', () => ({
   uniqueId: () => 'the_one',
 }));
+
+/**
+ * We need to patch the key event because `react-modal` uses the deprecated
+ * `KeyboardEvent.keyCode`.
+ * See https://github.com/testing-library/user-event/issues/969
+ */
+function patchKeyEvent(e: KeyboardEvent) {
+  Object.defineProperty(e, 'keyCode', {
+    get: () => (e.code === 'Escape' ? 27 : 0),
+  });
+}
+beforeAll(() => {
+  document.addEventListener('keydown', patchKeyEvent, { capture: true });
+});
 
 describe('SidePanel', () => {
   const baseProps: SidePanelProps = {
@@ -32,7 +46,7 @@ describe('SidePanel', () => {
     isMobile: false,
     isStacked: false,
     onBack: undefined,
-    onClose: undefined,
+    onClose: () => {},
     top: '0px',
     // Silences the warning about the missing app element.
     // In user land, the side panel is always rendered by the SidePanelProvider,
@@ -69,18 +83,16 @@ describe('SidePanel', () => {
     expect(getByText(baseProps.headline)).toBeVisible();
   });
 
-  it('should call the onClose callback from the close button', () => {
+  it('should call the onClose callback from the close button', async () => {
     const onClose = jest.fn();
     const { getByTitle } = renderComponent({ onClose });
 
-    act(() => {
-      userEvent.click(getByTitle(baseProps.closeButtonLabel));
-    });
+    await userEvent.click(getByTitle(baseProps.closeButtonLabel));
 
     expect(onClose).toHaveBeenCalled();
   });
 
-  it('should call the onClose callback from the onClose render prop', () => {
+  it('should call the onClose callback from the onClose render prop', async () => {
     const onClose = jest.fn();
     const { getByTestId } = renderComponent({
       children: ({ onClose: onCloseRenderProp }) => (
@@ -91,29 +103,29 @@ describe('SidePanel', () => {
       onClose,
     });
 
-    act(() => {
-      userEvent.click(getByTestId('close'));
-    });
+    await userEvent.click(getByTestId('close'));
 
     expect(onClose).toHaveBeenCalled();
   });
 
-  it('should call the onClose callback when Esc is pressed', () => {
+  it('should call the onClose callback when Esc is pressed', async () => {
     const onClose = jest.fn();
-    renderComponent({ onClose });
+    const { getByText } = renderComponent({ onClose });
 
-    act(() => {
-      userEvent.keyboard('{escape}');
-    });
+    const sidePanel = getByText('Close');
 
-    expect(onClose).toHaveBeenCalled();
+    await waitFor(() => expect(sidePanel).toBeVisible());
+
+    await userEvent.keyboard('{Escape}');
+
+    await waitFor(() => expect(onClose).toHaveBeenCalled());
   });
 
   describe('when the panel is not stacked', () => {
     it('should not show the back button', () => {
       const { queryByTitle } = renderComponent();
 
-      expect(queryByTitle(baseProps.backButtonLabel)).toBeNull();
+      expect(queryByTitle(baseProps.backButtonLabel as string)).toBeNull();
     });
   });
 
@@ -125,24 +137,22 @@ describe('SidePanel', () => {
         onBack,
       });
 
-      expect(getByTitle(baseProps.backButtonLabel)).toBeVisible();
+      expect(getByTitle(baseProps.backButtonLabel as string)).toBeVisible();
     });
 
-    it('should call the onBack callback from the back button', () => {
+    it('should call the onBack callback from the back button', async () => {
       const onBack = jest.fn();
       const { getByTitle } = renderComponent({
         isStacked: true,
         onBack,
       });
 
-      act(() => {
-        userEvent.click(getByTitle(baseProps.backButtonLabel));
-      });
+      await userEvent.click(getByTitle(baseProps.backButtonLabel as string));
 
       expect(onBack).toHaveBeenCalled();
     });
 
-    it('should call the onBack callback from the onBack render prop', () => {
+    it('should call the onBack callback from the onBack render prop', async () => {
       const onBack = jest.fn();
       const { getByTestId } = renderComponent({
         children: ({ onBack: onBackRenderProp }) => (
@@ -154,23 +164,19 @@ describe('SidePanel', () => {
         onBack,
       });
 
-      act(() => {
-        userEvent.click(getByTestId('back'));
-      });
+      await userEvent.click(getByTestId('back'));
 
       expect(onBack).toHaveBeenCalled();
     });
 
-    it('should call the onBack callback when Esc is pressed', () => {
+    it('should call the onBack callback when Esc is pressed', async () => {
       const onBack = jest.fn();
       renderComponent({
         isStacked: true,
         onBack,
       });
 
-      act(() => {
-        userEvent.keyboard('{escape}');
-      });
+      await userEvent.keyboard('{Escape}');
 
       expect(onBack).toHaveBeenCalled();
     });
@@ -195,6 +201,9 @@ describe('SidePanel', () => {
     });
   });
 
+  /**
+   * FIXME: calling axe here can trigger an act() warning.
+   */
   it('should meet accessibility guidelines', async () => {
     const { container } = renderComponent();
     const actual = await axe(container);

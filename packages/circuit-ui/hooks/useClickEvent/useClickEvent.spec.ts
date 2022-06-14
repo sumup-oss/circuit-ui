@@ -15,7 +15,7 @@
 
 import * as Collector from '@sumup/collector';
 
-import { renderHook, actHook } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils';
 
 import { useClickEvent } from './useClickEvent';
 
@@ -36,7 +36,7 @@ describe('useClickEvent', () => {
       );
 
       const event = new MouseEvent('click');
-      actHook(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -58,7 +58,7 @@ describe('useClickEvent', () => {
       );
 
       const event = new MouseEvent('click');
-      actHook(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -88,7 +88,7 @@ describe('useClickEvent', () => {
       );
 
       const event = new MouseEvent('click');
-      actHook(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);
@@ -110,7 +110,7 @@ describe('useClickEvent', () => {
       );
 
       const event = new MouseEvent('click');
-      actHook(() => {
+      act(() => {
         expect(result).not.toBeUndefined();
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         result.current!(event);

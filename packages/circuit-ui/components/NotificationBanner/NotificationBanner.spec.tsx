@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { render, axe, userEvent, act } from '../../util/test-utils';
+import { render, axe, userEvent } from '../../util/test-utils';
 
 import {
   NotificationBanner,
@@ -75,12 +75,10 @@ describe('NotificationBanner', () => {
    * Logic tests.
    */
   describe('business logic', () => {
-    it('should click on a main button', () => {
+    it('should click on a main button', async () => {
       const { getByRole } = renderNotificationBanner(baseProps);
 
-      act(() => {
-        userEvent.click(getByRole('button'));
-      });
+      await userEvent.click(getByRole('button'));
 
       expect(baseProps.action.onClick).toHaveBeenCalledTimes(1);
     });
@@ -95,7 +93,7 @@ describe('NotificationBanner', () => {
       expect(getByRole('button', { name: /close/i })).toBeVisible();
     });
 
-    it('should call onClose when closed', () => {
+    it('should call onClose when closed', async () => {
       const props = {
         ...baseProps,
         onClose: jest.fn(),
@@ -103,9 +101,7 @@ describe('NotificationBanner', () => {
       };
       const { getByRole } = renderNotificationBanner(props);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: /close/i }));
-      });
+      await userEvent.click(getByRole('button', { name: /close/i }));
 
       expect(props.onClose).toHaveBeenCalledTimes(1);
     });

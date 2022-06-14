@@ -18,7 +18,6 @@ import { createRef } from 'react';
 import {
   create,
   render,
-  act,
   userEvent,
   renderToHtml,
   axe,
@@ -100,7 +99,7 @@ describe('Selector', () => {
     expect(inputEl).not.toHaveAttribute('checked');
   });
 
-  it('should call the change handler when clicked', () => {
+  it('should call the change handler when clicked', async () => {
     const { getByLabelText } = render(
       <Selector noMargin {...defaultProps}>
         Label
@@ -110,9 +109,7 @@ describe('Selector', () => {
       exact: false,
     });
 
-    act(() => {
-      userEvent.click(inputEl);
-    });
+    await userEvent.click(inputEl);
 
     expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
   });

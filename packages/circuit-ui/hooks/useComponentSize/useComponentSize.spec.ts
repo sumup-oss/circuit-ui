@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '../../util/test-utils';
 
 import { useComponentSize } from './useComponentSize';
 

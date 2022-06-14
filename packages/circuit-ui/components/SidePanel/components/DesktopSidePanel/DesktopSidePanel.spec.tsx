@@ -70,6 +70,9 @@ describe('DesktopSidePanel', () => {
     expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
   });
 
+  /**
+   * FIXME: calling axe here can trigger an act() warning.
+   */
   it('should meet accessibility guidelines', async () => {
     jest.useRealTimers();
     const { container } = renderComponent();

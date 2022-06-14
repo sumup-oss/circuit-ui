@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-import { render } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
 import { useRef } from 'react';
 
+import { render, renderHook } from './test-utils';
 import { applyMultipleRefs } from './refs';
 
 describe('applyMultipleRefs function', () => {

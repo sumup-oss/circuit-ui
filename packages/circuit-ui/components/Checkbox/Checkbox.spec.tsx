@@ -20,7 +20,6 @@ import {
   render,
   renderToHtml,
   axe,
-  act,
   userEvent,
 } from '../../util/test-utils';
 
@@ -87,7 +86,7 @@ describe('Checkbox', () => {
     expect(inputEl).not.toHaveAttribute('checked');
   });
 
-  it('should call the change handler when clicked', () => {
+  it('should call the change handler when clicked', async () => {
     const { getByLabelText } = render(
       <Checkbox noMargin {...defaultProps}>
         Label
@@ -97,9 +96,7 @@ describe('Checkbox', () => {
       exact: false,
     });
 
-    act(() => {
-      userEvent.click(inputEl);
-    });
+    await userEvent.click(inputEl);
 
     expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
   });

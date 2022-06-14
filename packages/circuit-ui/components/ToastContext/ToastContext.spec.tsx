@@ -13,14 +13,12 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import * as Collector from '@sumup/collector';
 
 import {
   render,
-  act,
-  userEvent,
+  userEvent as baseUserEvent,
   waitForElementToBeRemoved,
 } from '../../util/test-utils';
 
@@ -52,6 +50,12 @@ describe('ToastContext', () => {
     jest.clearAllMocks();
   });
 
+  /**
+   * We need to set up userEvent with delay=null to address this issue:
+   * https://github.com/testing-library/user-event/issues/833
+   */
+  const userEvent = baseUserEvent.setup({ delay: null });
+
   describe('ToastProvider', () => {
     const dispatch = jest.fn();
     // @ts-expect-error TypeScript doesn't allow assigning to the read-only
@@ -66,7 +70,7 @@ describe('ToastContext', () => {
       tracking: { label: 'test-toast' },
     };
 
-    it('should open a toast when the context function is called', () => {
+    it('should open a toast when the context function is called', async () => {
       const Trigger = () => {
         const { setToast } = useContext(ToastContext);
         return (
@@ -80,9 +84,7 @@ describe('ToastContext', () => {
         </ToastProvider>,
       );
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: openButtonLabel }));
-      });
+      await userEvent.click(getByRole('button', { name: openButtonLabel }));
 
       expect(getByText(toastMessage)).toBeVisible();
     });
@@ -101,12 +103,8 @@ describe('ToastContext', () => {
         </ToastProvider>,
       );
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: openButtonLabel }));
-      });
-      act(() => {
-        userEvent.click(getByRole('button', { name: closeButtonLabel }));
-      });
+      await userEvent.click(getByRole('button', { name: openButtonLabel }));
+      await userEvent.click(getByRole('button', { name: closeButtonLabel }));
 
       await waitForElementToBeRemoved(getByText(toastMessage));
       expect(onClose).toHaveBeenCalledTimes(1);

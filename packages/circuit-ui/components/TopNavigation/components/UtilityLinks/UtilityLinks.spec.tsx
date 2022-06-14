@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { More } from '@sumup/icons';
-import { KeyboardEvent, MouseEvent } from 'react';
+import { IconProps, More } from '@sumup/icons';
+import { KeyboardEvent, MouseEvent, FC } from 'react';
 
 import {
   axe,
@@ -29,7 +29,7 @@ describe('UtilityLinks', () => {
   const baseProps = {
     links: [
       {
-        icon: More,
+        icon: More as FC<IconProps>,
         label: 'More',
         href: '/more',
         onClick: jest.fn((event: MouseEvent | KeyboardEvent) => {
@@ -48,12 +48,12 @@ describe('UtilityLinks', () => {
   });
 
   describe('business logic', () => {
-    it('should call the onClick handler of a link', () => {
+    it('should call the onClick handler of a link', async () => {
       const { getByText } = render(<UtilityLinks {...baseProps} />);
 
       const link = baseProps.links[0];
 
-      userEvent.click(getByText(link.label));
+      await userEvent.click(getByText(link.label));
 
       expect(link.onClick).toHaveBeenCalledTimes(1);
     });

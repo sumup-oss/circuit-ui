@@ -21,7 +21,6 @@ import {
   render,
   renderToHtml,
   axe,
-  act,
   userEvent,
 } from '../../util/test-utils';
 import { InputProps } from '../Input';
@@ -70,35 +69,31 @@ describe('CurrencyInput', () => {
       expect(tref.current).toBe(input);
     });
 
-    it('should format a en-GB amount correctly', () => {
+    it('should format a en-GB amount correctly', async () => {
       const { getByLabelText } = render(
         <CurrencyInput locale="en-GB" currency="EUR" label="Amount" noMargin />,
       );
 
       const input = getByLabelText(/Amount/) as HTMLInputElement;
 
-      act(() => {
-        userEvent.type(input, '1234.56');
-      });
+      await userEvent.type(input, '1234.56');
 
       expect(input.value).toBe('1,234.56');
     });
 
-    it('should format a de-DE amount correctly', () => {
+    it('should format a de-DE amount correctly', async () => {
       const { getByLabelText } = render(
         <CurrencyInput locale="de-DE" currency="EUR" label="Amount" noMargin />,
       );
 
       const input = getByLabelText(/Amount/) as HTMLInputElement;
 
-      act(() => {
-        userEvent.type(input, '1234,56');
-      });
+      await userEvent.type(input, '1234,56');
 
       expect(input.value).toBe('1.234,56');
     });
 
-    it('should format an amount in a controlled input with an initial numeric value', () => {
+    it('should format an amount in a controlled input with an initial numeric value', async () => {
       const ControlledCurrencyInput = () => {
         const [value, setValue] = useState<CurrencyInputProps['value']>(1234.5);
         return (
@@ -119,10 +114,8 @@ describe('CurrencyInput', () => {
       const input = getByLabelText(/Amount/) as HTMLInputElement;
       expect(input.value).toBe('1.234,5');
 
-      act(() => {
-        userEvent.clear(input);
-        userEvent.type(input, '1234,56');
-      });
+      await userEvent.clear(input);
+      await userEvent.type(input, '1234,56');
 
       expect(input.value).toBe('1.234,56');
     });

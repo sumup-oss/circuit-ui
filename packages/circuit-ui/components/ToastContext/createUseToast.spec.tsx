@@ -16,7 +16,7 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 
-import { renderHook, actHook } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils';
 
 import { createUseToast } from './createUseToast';
 import { ToastContext } from './ToastContext';
@@ -44,7 +44,7 @@ describe('createUseToast', () => {
   it('should add the toast when setToast is called', () => {
     const { result } = renderHook(() => useToast(), { wrapper });
 
-    actHook(() => {
+    act(() => {
       result.current.setToast({});
     });
 

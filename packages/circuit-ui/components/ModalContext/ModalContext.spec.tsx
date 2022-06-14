@@ -13,11 +13,15 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import * as Collector from '@sumup/collector';
 
-import { render, act, userEvent, fireEvent } from '../../util/test-utils';
+import {
+  render,
+  act,
+  userEvent as baseUserEvent,
+  fireEvent,
+} from '../../util/test-utils';
 
 import { ModalProvider, ModalContext } from './ModalContext';
 import type { ModalComponent } from './types';
@@ -42,6 +46,12 @@ describe('ModalContext', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
+
+  /**
+   * We need to set up userEvent with delay=null to address this issue:
+   * https://github.com/testing-library/user-event/issues/833
+   */
+  const userEvent = baseUserEvent.setup({ delay: null });
 
   describe('ModalProvider', () => {
     const dispatch = jest.fn();
@@ -68,7 +78,7 @@ describe('ModalContext', () => {
       expect(getByRole('dialog')).toBeVisible();
     });
 
-    it('should open and close a modal when the context functions are called', () => {
+    it('should open and close a modal when the context functions are called', async () => {
       const Trigger = () => {
         const { setModal, removeModal } = useContext(ModalContext);
         return (
@@ -85,15 +95,12 @@ describe('ModalContext', () => {
         </ModalProvider>,
       );
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Open modal' }));
-      });
+      await userEvent.click(getByRole('button', { name: 'Open modal' }));
 
       expect(getByRole('dialog')).toBeVisible();
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Close modal' }));
-      });
+      await userEvent.click(getByRole('button', { name: 'Close modal' }));
+
       act(() => {
         jest.runAllTimers();
       });
@@ -120,16 +127,15 @@ describe('ModalContext', () => {
       expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
-    it('should close the modal when the onClose method is called', () => {
+    it('should close the modal when the onClose method is called', async () => {
       const { queryByRole } = render(
         <ModalProvider initialState={initialState} ariaHideApp={false}>
           <div />
         </ModalProvider>,
       );
 
-      act(() => {
-        userEvent.click(queryByRole('button'));
-      });
+      const closeButton = queryByRole('button') as HTMLButtonElement;
+      await userEvent.click(closeButton);
       act(() => {
         jest.runAllTimers();
       });

@@ -13,10 +13,14 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
-import { render, act, userEvent, waitFor } from '../../util/test-utils';
+import {
+  render,
+  act,
+  userEvent as baseUserEvent,
+  waitFor,
+} from '../../util/test-utils';
 import { uniqueId } from '../../util/id';
 import { useMedia } from '../../hooks/useMedia';
 
@@ -55,6 +59,12 @@ describe('SidePanelContext', () => {
     jest.resetModules();
   });
 
+  /**
+   * We need to set up userEvent with delay=null to address this issue:
+   * https://github.com/testing-library/user-event/issues/833
+   */
+  const userEvent = baseUserEvent.setup({ delay: null });
+
   describe('SidePanelProvider', () => {
     const getPanel = () => ({
       backButtonLabel: 'Back',
@@ -65,6 +75,11 @@ describe('SidePanelContext', () => {
       id: uniqueId(),
       onClose: undefined,
       tracking: undefined,
+      // Silences the warning about the missing app element.
+      // In user land, the side panel is always rendered by the SidePanelProvider,
+      // which takes care of setting the app element.
+      // http://reactcommunity.org/react-modal/accessibility/#app-element
+      ariaHideApp: false,
     });
 
     const renderComponent = (Trigger, props = {}) =>
@@ -117,7 +132,7 @@ describe('SidePanelContext', () => {
         expect(baseElement).toMatchSnapshot();
       });
 
-      it('should render the side panel and the resized container', () => {
+      it('should render the side panel and the resized container', async () => {
         const Trigger = () => {
           const { setSidePanel } = useContext(SidePanelContext);
           return renderOpenButton(setSidePanel);
@@ -125,14 +140,12 @@ describe('SidePanelContext', () => {
 
         const { baseElement, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         expect(baseElement).toMatchSnapshot();
       });
 
-      it('should render the side panel on mobile resolutions', () => {
+      it('should render the side panel on mobile resolutions', async () => {
         const Trigger = () => {
           const { setSidePanel } = useContext(SidePanelContext);
           return renderOpenButton(setSidePanel);
@@ -142,14 +155,12 @@ describe('SidePanelContext', () => {
 
         const { baseElement, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         expect(baseElement).toMatchSnapshot();
       });
 
-      it('should render the side panel with offset for the top navigation', () => {
+      it('should render the side panel with offset for the top navigation', async () => {
         const Trigger = () => {
           const { setSidePanel } = useContext(SidePanelContext);
           return renderOpenButton(setSidePanel);
@@ -159,16 +170,14 @@ describe('SidePanelContext', () => {
           withTopNavigation: true,
         });
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         expect(baseElement).toMatchSnapshot();
       });
     });
 
     describe('setSidePanel', () => {
-      it('should open a side panel', () => {
+      it('should open a side panel', async () => {
         const Trigger = () => {
           const { setSidePanel } = useContext(SidePanelContext);
           return renderOpenButton(setSidePanel);
@@ -176,9 +185,7 @@ describe('SidePanelContext', () => {
 
         const { getByRole, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         expect(getByRole('dialog')).toBeVisible();
       });
@@ -191,20 +198,15 @@ describe('SidePanelContext', () => {
 
         const { getAllByRole, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
-
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(getByText('Open panel'));
 
         await waitFor(() => {
           expect(getAllByRole('dialog')).toHaveLength(1);
         });
       });
 
-      it('should open a second side panel', () => {
+      it('should open a second side panel', async () => {
         const Trigger = () => {
           const { setSidePanel } = useContext(SidePanelContext);
           return (
@@ -221,10 +223,8 @@ describe('SidePanelContext', () => {
 
         const { getAllByRole, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-          userEvent.click(getByText('Open second panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(getByText('Open second panel'));
 
         expect(getAllByRole('dialog')).toHaveLength(2);
       });
@@ -246,23 +246,19 @@ describe('SidePanelContext', () => {
 
         const { getAllByRole, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-          userEvent.click(getByText('Open second panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(getByText('Open second panel'));
 
         expect(getAllByRole('dialog')).toHaveLength(2);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         await waitFor(() => {
           expect(getAllByRole('dialog')).toHaveLength(1);
         });
       });
 
-      it('should send an open tracking event', () => {
+      it('should send an open tracking event', async () => {
         const Trigger = () => {
           const { setSidePanel } = useContext(SidePanelContext);
           return renderOpenButton(setSidePanel, {
@@ -272,9 +268,7 @@ describe('SidePanelContext', () => {
 
         const { getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         expect(mockSendEvent).toHaveBeenCalledWith({
           component: 'side-panel',
@@ -284,7 +278,7 @@ describe('SidePanelContext', () => {
     });
 
     describe('removeSidePanel', () => {
-      it('should close the side panel', () => {
+      it('should close the side panel', async () => {
         const Trigger = () => {
           const { setSidePanel, removeSidePanel } =
             useContext(SidePanelContext);
@@ -298,15 +292,12 @@ describe('SidePanelContext', () => {
 
         const { getByRole, queryByRole, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         expect(getByRole('dialog')).toBeVisible();
 
-        act(() => {
-          userEvent.click(getByText('Close panel'));
-        });
+        await userEvent.click(getByText('Close panel'));
+
         act(() => {
           jest.runAllTimers();
         });
@@ -314,7 +305,7 @@ describe('SidePanelContext', () => {
         expect(queryByRole('dialog')).toBeNull();
       });
 
-      it('should close all side panels stacked above the one being closed', () => {
+      it('should close all side panels stacked above the one being closed', async () => {
         const Trigger = () => {
           const { setSidePanel, removeSidePanel } =
             useContext(SidePanelContext);
@@ -334,16 +325,12 @@ describe('SidePanelContext', () => {
         const { getAllByRole, queryByRole, getByText } =
           renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-          userEvent.click(getByText('Open second panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(getByText('Open second panel'));
 
         expect(getAllByRole('dialog')).toHaveLength(2);
 
-        act(() => {
-          userEvent.click(getByText('Close panel'));
-        });
+        await userEvent.click(getByText('Close panel'));
         act(() => {
           jest.runAllTimers();
         });
@@ -351,7 +338,7 @@ describe('SidePanelContext', () => {
         expect(queryByRole('dialog')).toBeNull();
       });
 
-      it('should not close side panels stacked below the one being closed', () => {
+      it('should not close side panels stacked below the one being closed', async () => {
         const Trigger = () => {
           const { setSidePanel, removeSidePanel } =
             useContext(SidePanelContext);
@@ -370,16 +357,12 @@ describe('SidePanelContext', () => {
 
         const { getAllByRole, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-          userEvent.click(getByText('Open second panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(getByText('Open second panel'));
 
         expect(getAllByRole('dialog')).toHaveLength(2);
 
-        act(() => {
-          userEvent.click(getByText('Close panel'));
-        });
+        await userEvent.click(getByText('Close panel'));
         act(() => {
           jest.runAllTimers();
         });
@@ -387,7 +370,7 @@ describe('SidePanelContext', () => {
         expect(getAllByRole('dialog')).toHaveLength(1);
       });
 
-      it('should not close the side panel when there is no match', () => {
+      it('should not close the side panel when there is no match', async () => {
         const Trigger = () => {
           const { setSidePanel, removeSidePanel } =
             useContext(SidePanelContext);
@@ -401,21 +384,19 @@ describe('SidePanelContext', () => {
 
         const { getByRole, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         expect(getByRole('dialog')).toBeVisible();
 
+        await userEvent.click(getByText('Close panel'));
         act(() => {
-          userEvent.click(getByText('Close panel'));
           jest.runAllTimers();
         });
 
         expect(getByRole('dialog')).toBeVisible();
       });
 
-      it('should call the onClose callback of the side panel', () => {
+      it('should call the onClose callback of the side panel', async () => {
         const onClose = jest.fn();
         const Trigger = () => {
           const { setSidePanel, removeSidePanel } =
@@ -430,19 +411,17 @@ describe('SidePanelContext', () => {
 
         const { getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
+        await userEvent.click(getByText('Close panel'));
         act(() => {
-          userEvent.click(getByText('Close panel'));
           jest.runAllTimers();
         });
 
         expect(onClose).toHaveBeenCalled();
       });
 
-      it('should send a close tracking event', () => {
+      it('should send a close tracking event', async () => {
         const Trigger = () => {
           const { setSidePanel, removeSidePanel } =
             useContext(SidePanelContext);
@@ -458,14 +437,12 @@ describe('SidePanelContext', () => {
 
         const { getByRole, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         expect(getByRole('dialog')).toBeVisible();
 
+        await userEvent.click(getByText('Close panel'));
         act(() => {
-          userEvent.click(getByText('Close panel'));
           jest.runAllTimers();
         });
 
@@ -477,7 +454,7 @@ describe('SidePanelContext', () => {
     });
 
     describe('updateSidePanel', () => {
-      it('should update the side panel', () => {
+      it('should update the side panel', async () => {
         const Trigger = () => {
           const { setSidePanel, updateSidePanel } =
             useContext(SidePanelContext);
@@ -493,21 +470,19 @@ describe('SidePanelContext', () => {
 
         const { getByTestId, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         expect(getByTestId('children')).toHaveTextContent('Side panel content');
 
+        await userEvent.click(getByText('Update panel'));
         act(() => {
-          userEvent.click(getByText('Update panel'));
           jest.runAllTimers();
         });
 
         expect(getByTestId('children')).toHaveTextContent('Updated content');
       });
 
-      it('should not update the side panel when there is no match', () => {
+      it('should not update the side panel when there is no match', async () => {
         const Trigger = () => {
           const { setSidePanel, updateSidePanel } =
             useContext(SidePanelContext);
@@ -527,14 +502,12 @@ describe('SidePanelContext', () => {
 
         const { getByTestId, getByText } = renderComponent(Trigger);
 
-        act(() => {
-          userEvent.click(getByText('Open panel'));
-        });
+        await userEvent.click(getByText('Open panel'));
 
         expect(getByTestId('children')).toHaveTextContent('Side panel content');
 
+        await userEvent.click(getByText('Update panel'));
         act(() => {
-          userEvent.click(getByText('Update panel'));
           jest.runAllTimers();
         });
 

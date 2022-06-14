@@ -15,7 +15,7 @@
 
 import { MouseEvent } from 'react';
 
-import { renderHook, actHook, waitFor } from '../../util/test-utils';
+import { renderHook, act, waitFor } from '../../util/test-utils';
 
 import { useCollapsible, getHeight } from './useCollapsible';
 
@@ -56,7 +56,7 @@ describe('useCollapsible', () => {
 
     const actual = getButtonProps(customProps);
 
-    actHook(() => {
+    act(() => {
       actual.onClick(event);
     });
 
@@ -165,7 +165,7 @@ describe('useCollapsible', () => {
 
       expect(result.current.isOpen).toBeFalsy();
 
-      actHook(() => {
+      act(() => {
         getButtonProps().onClick(event);
       });
 
@@ -179,7 +179,7 @@ describe('useCollapsible', () => {
 
       expect(result.current.isOpen).toBeFalsy();
 
-      actHook(() => {
+      act(() => {
         result.current.toggleOpen();
       });
 

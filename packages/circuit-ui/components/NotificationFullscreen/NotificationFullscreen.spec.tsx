@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
-import { render, axe, userEvent, act } from '../../util/test-utils';
+import { render, axe, userEvent } from '../../util/test-utils';
 
 import {
   NotificationFullscreen,
@@ -68,24 +66,20 @@ describe('NotificationFullscreen', () => {
   });
 
   describe('business logic', () => {
-    it('should click on a primary action button', () => {
+    it('should click on a primary action button', async () => {
       const { getByRole } = renderNotificationFullscreen(baseProps);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: /Look again/i }));
-      });
+      await userEvent.click(getByRole('button', { name: /Look again/i }));
 
       expect(getByRole('button', { name: /Look again/i })).toBeVisible();
 
       expect(baseProps.actions.primary.onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should click on a secondary action button', () => {
+    it('should click on a secondary action button', async () => {
       const { getAllByRole } = renderNotificationFullscreen(baseProps);
 
-      act(() => {
-        userEvent.click(getAllByRole('link', { name: /Go elsewhere/ })[0]);
-      });
+      await userEvent.click(getAllByRole('link', { name: /Go elsewhere/ })[0]);
 
       expect(getAllByRole('link', { name: /Go elsewhere/ })[0]).toBeVisible();
 

@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { createRef } from 'react';
-import { SumUpCard } from '@sumup/icons';
+import { createRef, FC } from 'react';
+import { IconProps, SumUpCard } from '@sumup/icons';
 
 import {
   create,
@@ -22,7 +22,6 @@ import {
   renderToHtml,
   axe,
   RenderFn,
-  act,
   userEvent,
 } from '../../util/test-utils';
 import Body from '../Body';
@@ -56,7 +55,7 @@ describe('ListItem', () => {
     it('should render a ListItem with a leading icon', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        leadingComponent: SumUpCard,
+        leadingComponent: SumUpCard as FC<IconProps>,
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -197,16 +196,14 @@ describe('ListItem', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should call the onClick handler when clicked', () => {
+    it('should call the onClick handler when clicked', async () => {
       const props = {
         ...baseProps,
         onClick: jest.fn(),
       };
       const { getByRole } = renderListItem(render, props);
 
-      act(() => {
-        userEvent.click(getByRole('button'));
-      });
+      await userEvent.click(getByRole('button'));
 
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });
@@ -227,7 +224,7 @@ describe('ListItem', () => {
       const wrapper = renderListItem(renderToHtml, {
         ...baseProps,
         variant: 'navigation',
-        leadingComponent: SumUpCard,
+        leadingComponent: SumUpCard as FC<IconProps>,
         details: 'Details',
         trailingLabel: 'Trailing label',
         trailingDetails: 'Trailing details',

@@ -20,7 +20,6 @@ import {
   renderToHtml,
   axe,
   render,
-  act,
   userEvent,
 } from '../../util/test-utils';
 
@@ -70,7 +69,7 @@ describe('RadioButton', () => {
     expect(inputEl).not.toHaveAttribute('checked');
   });
 
-  it('should call the change handler when clicked', () => {
+  it('should call the change handler when clicked', async () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
       <RadioButton onChange={onChange} label="Label" />,
@@ -79,9 +78,7 @@ describe('RadioButton', () => {
       exact: false,
     });
 
-    act(() => {
-      userEvent.click(inputEl);
-    });
+    await userEvent.click(inputEl);
 
     expect(onChange).toHaveBeenCalledTimes(1);
   });

@@ -30,10 +30,10 @@ const interactionTasks: PublicInteractionTask[] = [
     name: 'Tick checkbox',
     description: 'Click the checkbox and wait for the label to change',
     run: async ({ container }: InteractionTaskArgs): Promise<void> => {
-      const checkbox: HTMLElement | null = container.querySelector(
+      const checkbox = container.querySelector(
         'input[type=checkbox]',
-      );
-      userEvent.click(checkbox);
+      ) as HTMLInputElement;
+      await userEvent.click(checkbox);
       await findByText(container, 'Checked');
     },
   },

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { renderHook, actHook } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils';
 
 import { useAnimation } from './useAnimation';
 
@@ -39,13 +39,13 @@ describe('useAnimation', () => {
     const { result } = renderHook(() => useAnimation());
     const [, animateFn] = result.current;
 
-    actHook(() => {
+    act(() => {
       animateFn(animation);
     });
 
     expect(result.current[0]).toBeTruthy();
 
-    actHook(() => {
+    act(() => {
       jest.advanceTimersByTime(animation.duration);
     });
 
@@ -61,13 +61,13 @@ describe('useAnimation', () => {
     const { result } = renderHook(() => useAnimation());
     const [, animateFn] = result.current;
 
-    actHook(() => {
+    act(() => {
       animateFn(animation);
     });
 
     expect(animation.onStart).toHaveBeenCalledTimes(1);
 
-    actHook(() => {
+    act(() => {
       jest.advanceTimersByTime(animation.duration);
     });
 
@@ -83,13 +83,13 @@ describe('useAnimation', () => {
     const { result } = renderHook(() => useAnimation());
     const [, animateFn] = result.current;
 
-    actHook(() => {
+    act(() => {
       animateFn(animation);
     });
 
     expect(animation.onEnd).not.toHaveBeenCalled();
 
-    actHook(() => {
+    act(() => {
       jest.advanceTimersByTime(animation.duration);
     });
 

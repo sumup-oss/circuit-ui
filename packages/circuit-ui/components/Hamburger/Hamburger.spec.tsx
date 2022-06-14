@@ -18,7 +18,6 @@ import {
   renderToHtml,
   axe,
   render,
-  act,
   userEvent,
   RenderFn,
 } from '../../util/test-utils';
@@ -58,7 +57,7 @@ describe('Hamburger', () => {
   /**
    * Logic tests.
    */
-  it('should call the onClick prop when clicked', () => {
+  it('should call the onClick prop when clicked', async () => {
     const onClick = jest.fn();
     const { getByTestId } = renderHamburger(render, {
       ...baseProps,
@@ -66,9 +65,7 @@ describe('Hamburger', () => {
       'data-testid': 'hamburger',
     });
 
-    act(() => {
-      userEvent.click(getByTestId('hamburger'));
-    });
+    await userEvent.click(getByTestId('hamburger'));
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });

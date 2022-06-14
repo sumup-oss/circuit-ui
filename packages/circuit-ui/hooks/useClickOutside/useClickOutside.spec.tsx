@@ -28,26 +28,26 @@ describe('useClickOutside', () => {
     return <button ref={ref}>Click outside</button>;
   }
 
-  it('should call the callback when clicking outside the element', () => {
+  it('should call the callback when clicking outside the element', async () => {
     const onClickOutside = jest.fn();
     render(<MockComponent onClickOutside={onClickOutside} />);
-    userEvent.click(document.body);
+    await userEvent.click(document.body);
 
     expect(onClickOutside).toHaveBeenCalledTimes(1);
   });
 
-  it('should not call the callback when clicking (inside) the element', () => {
+  it('should not call the callback when clicking (inside) the element', async () => {
     const onClickOutside = jest.fn();
     const { getByRole } = render(
       <MockComponent onClickOutside={onClickOutside} />,
     );
 
-    userEvent.click(getByRole('button'));
+    await userEvent.click(getByRole('button'));
 
     expect(onClickOutside).not.toHaveBeenCalled();
   });
 
-  it('should not call the callback when clicking inside the element and the target element is removed', () => {
+  it('should not call the callback when clicking inside the element and the target element is removed', async () => {
     function MockRemoveComponent({
       onClickOutside = jest.fn(),
       isActive = true,
@@ -71,16 +71,16 @@ describe('useClickOutside', () => {
       <MockRemoveComponent onClickOutside={onClickOutside} />,
     );
 
-    userEvent.click(getByRole('button'));
+    await userEvent.click(getByRole('button'));
 
     expect(onClickOutside).not.toHaveBeenCalled();
   });
 
-  it('should not call the callback when the listener is inactive', () => {
+  it('should not call the callback when the listener is inactive', async () => {
     const onClickOutside = jest.fn();
     render(<MockComponent onClickOutside={onClickOutside} isActive={false} />);
 
-    userEvent.click(document.body);
+    await userEvent.click(document.body);
 
     expect(onClickOutside).not.toHaveBeenCalled();
   });

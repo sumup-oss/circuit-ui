@@ -18,7 +18,6 @@ import {
   render,
   renderToHtml,
   axe,
-  act,
   userEvent,
 } from '../../../../util/test-utils';
 
@@ -42,7 +41,7 @@ describe('TableRow', () => {
   });
 
   describe('Logic tests', () => {
-    it('should call the onClick when clicked', () => {
+    it('should call the onClick when clicked', async () => {
       const onClick = jest.fn();
       const { getByTestId } = render(
         <TableRow onClick={onClick} data-testid="row">
@@ -51,14 +50,13 @@ describe('TableRow', () => {
       );
       const rowEl = getByTestId('row');
 
-      act(() => {
-        rowEl.focus();
-        userEvent.click(rowEl);
-      });
+      rowEl.focus();
+      await userEvent.click(rowEl);
+
       expect(onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should call the onClick when navigating with the keyboard', () => {
+    it('should call the onClick when navigating with the keyboard', async () => {
       const onClick = jest.fn();
       const { getByTestId } = render(
         <TableRow onClick={onClick} data-testid="row">
@@ -67,11 +65,9 @@ describe('TableRow', () => {
       );
       const rowEl = getByTestId('row');
 
-      act(() => {
-        rowEl.focus();
-        userEvent.type(rowEl, '{enter}');
-        userEvent.type(rowEl, ' ');
-      });
+      rowEl.focus();
+      await userEvent.type(rowEl, '{enter}');
+      await userEvent.type(rowEl, ' ');
 
       expect(onClick).toHaveBeenCalledTimes(2);
     });

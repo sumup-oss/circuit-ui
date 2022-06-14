@@ -18,7 +18,6 @@ import {
   renderToHtml,
   axe,
   render,
-  act,
   userEvent,
   RenderFn,
 } from '../../../../util/test-utils';
@@ -58,13 +57,11 @@ describe('Aggregator', () => {
       expect(actual).toMatchSnapshot();
     });
 
-    it('should render and match snapshot when open', () => {
+    it('should render and match snapshot when open', async () => {
       const { container, getByTestId } = renderComponent(render);
       const aggregatorEl = getByTestId('aggregator');
 
-      act(() => {
-        userEvent.click(aggregatorEl);
-      });
+      await userEvent.click(aggregatorEl);
 
       expect(container.children).toMatchSnapshot();
     });
@@ -77,7 +74,7 @@ describe('Aggregator', () => {
   });
 
   describe('interactions', () => {
-    it('should show children and call onClick when clicking the aggregator', () => {
+    it('should show children and call onClick when clicking the aggregator', async () => {
       const onClick = jest.fn();
       const { getByTestId } = renderComponent(render, { onClick });
       const aggregatorEl = getByTestId('aggregator');
@@ -85,15 +82,13 @@ describe('Aggregator', () => {
 
       expect(childEl).not.toBeVisible();
 
-      act(() => {
-        userEvent.click(aggregatorEl);
-      });
+      await userEvent.click(aggregatorEl);
 
       expect(childEl).toBeVisible();
       expect(onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should show children when clicking the aggregator and no onClick handle is passed', () => {
+    it('should show children when clicking the aggregator and no onClick handle is passed', async () => {
       const { getByTestId } = renderComponent(render, {
         onClick: undefined,
       });
@@ -102,14 +97,12 @@ describe('Aggregator', () => {
 
       expect(childEl).not.toBeVisible();
 
-      act(() => {
-        userEvent.click(aggregatorEl);
-      });
+      await userEvent.click(aggregatorEl);
 
       expect(childEl).toBeVisible();
     });
 
-    it('should not toggle when clicking again on the aggregator with a selected child', () => {
+    it('should not toggle when clicking again on the aggregator with a selected child', async () => {
       const children = (
         <ProxyComponent selected data-testid="child">
           child
@@ -123,21 +116,17 @@ describe('Aggregator', () => {
 
       expect(childEl).toBeVisible();
 
-      act(() => {
-        userEvent.click(aggregatorEl);
-      });
+      await userEvent.click(aggregatorEl);
 
       expect(childEl).toBeVisible();
 
-      act(() => {
-        userEvent.click(aggregatorEl);
-      });
+      await userEvent.click(aggregatorEl);
 
       expect(onClick).toHaveBeenCalledTimes(2);
       expect(childEl).toBeVisible();
     });
 
-    it('should close when there are no selected children', () => {
+    it('should close when there are no selected children', async () => {
       const onClick = jest.fn();
       const { getByTestId } = renderComponent(render, { onClick });
       const aggregatorEl = getByTestId('aggregator');
@@ -145,15 +134,11 @@ describe('Aggregator', () => {
 
       expect(childEl).not.toBeVisible();
 
-      act(() => {
-        userEvent.click(aggregatorEl);
-      });
+      await userEvent.click(aggregatorEl);
 
       expect(childEl).toBeVisible();
 
-      act(() => {
-        userEvent.click(aggregatorEl);
-      });
+      await userEvent.click(aggregatorEl);
 
       expect(onClick).toHaveBeenCalledTimes(2);
       expect(childEl).not.toBeVisible();
