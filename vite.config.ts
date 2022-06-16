@@ -13,13 +13,19 @@
  * limitations under the License.
  */
 
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vite';
 import GithubActionsReporter from 'vitest-github-actions-reporter';
+import linaria from '@linaria/vite';
 
-export default defineConfig({
+export default defineConfig(() => ({
   test: {
     reporters: process.env.GITHUB_ACTIONS
       ? ['default', new GithubActionsReporter()]
       : 'default',
   },
-});
+  plugins: [
+    linaria({
+      include: ['**/*.{ts,tsx}'],
+    }),
+  ],
+}));

@@ -16,12 +16,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import linaria from '@linaria/vite';
 
 export default defineConfig({
   plugins: [
     react({
       jsxImportSource: '@emotion/react',
       include: /\.(mdx|js|jsx|ts|tsx)$/,
+    }),
+    linaria({
+      include: ['**/*.{ts,tsx}'],
     }),
   ],
   test: {
