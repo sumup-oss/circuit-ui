@@ -60,7 +60,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@storybook/theming": "^6.5.9",
     "@sumup/foundry": "^5.0.0",
-    "@types/jest": "^28.1.1",
+    "@types/jest": "^28.1.2",
     "audit-ci": "^6.2.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^28.1.1",
