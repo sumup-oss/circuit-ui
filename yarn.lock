@@ -323,10 +323,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/node@^7.17.10":
-  version "7.17.10"
-  resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.17.10.tgz#7fae7b2abe0c43387dd31292dc6007261817e504"
-  integrity sha512-sFFMyvw23U8QOcTnLJnw2/Myr01e4+iLVy7rHAHrNSnXAfnwS3j2NqihpmZm7TotyNKKf/y8cJ96T5asY46eyw==
+"@babel/node@^7.18.5":
+  version "7.18.5"
+  resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.18.5.tgz#b44a790b8896436908ebcaf4816c1efce73d61cb"
+  integrity sha512-zv94ESipS2/YKAOJ+/WAfVEzsl9M8UmPZ7Hwx5qVPgytdrgwUPxfi700iR9KO/w5ZhIHyFyvoZtCTSEcQJF8vQ==
   dependencies:
     "@babel/register" "^7.17.7"
     commander "^4.0.1"
