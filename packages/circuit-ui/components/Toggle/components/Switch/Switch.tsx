@@ -130,13 +130,20 @@ export const Switch = forwardRef(
   ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      (!checkedLabel || !uncheckedLabel)
+      process.env.NODE_ENV !== 'test'
     ) {
-      throw new AccessibilityError(
-        'Switch',
-        'The `checkedLabel` and/or `uncheckedLabel` props are missing.',
-      );
+      if (!checkedLabel) {
+        throw new AccessibilityError(
+          'Toggle',
+          'The `checkedLabel` prop is missing.',
+        );
+      }
+      if (!uncheckedLabel) {
+        throw new AccessibilityError(
+          'Toggle',
+          'The `checkedLabel` prop is missing.',
+        );
+      }
     }
     const handleChange = useClickEvent(onChange, tracking, 'toggle');
     return (
