@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [#1619](https://github.com/sumup-oss/circuit-ui/pull/1619) [`6b0b6ed9`](https://github.com/sumup-oss/circuit-ui/commit/6b0b6ed9d28b8e5ad8610722e8bb8552ece58732) Thanks [@n-yordanov3](https://github.com/n-yordanov3)! - Added new size 24 icons 'Cafe', 'Globe', 'Hospitality', 'SumUpLogomark' icons.
+- [#1619](https://github.com/sumup-oss/circuit-ui/pull/1619) [`6b0b6ed9`](https://github.com/sumup-oss/circuit-ui/commit/6b0b6ed9d28b8e5ad8610722e8bb8552ece58732) Thanks [@n-yordanov3](https://github.com/n-yordanov3)! - Added new size 24 `Cafe`, `Globe`, `Hospitality`, and `SumUpLogomark` icons.
 
 ## 2.9.1
 
