@@ -48,7 +48,9 @@ export function isEmpty(value: unknown): boolean {
 
 export function clamp(value: number, min: number, max: number): number {
   if (process.env.NODE_ENV !== 'production' && min >= max) {
-    throw new Error('The minimum value must be less than the maximum value.');
+    throw new RangeError(
+      `The minimum value (${min}) must be less than the maximum value (${max}).`,
+    );
   }
   return Math.max(min, Math.min(value, max));
 }

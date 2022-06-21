@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { CircuitError } from '../../util/errors';
 import { isFunction } from '../../util/type-check';
 
 import { useStep } from './hooks/useStep';
@@ -29,7 +30,7 @@ export default function Step({ children, ...props }: StepProps): JSX.Element {
   const stateAndHelpers = useStep(props);
 
   if (!isFunction(children)) {
-    throw new Error('Children must be a function');
+    throw new CircuitError('Step', 'The `children` prop must be a function.');
   }
 
   return children(stateAndHelpers);

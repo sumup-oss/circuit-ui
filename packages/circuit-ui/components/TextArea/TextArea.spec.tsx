@@ -28,7 +28,7 @@ describe('TextArea', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<TextArea label="Textarea" />);
+    const actual = create(<TextArea label="Textarea" noMargin />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -36,6 +36,7 @@ describe('TextArea', () => {
     const actual = create(
       <TextArea
         label="Textarea"
+        noMargin
         renderPrefix={({ className }) => <DummyElement {...{ className }} />}
       />,
     );
@@ -46,6 +47,7 @@ describe('TextArea', () => {
     const actual = create(
       <TextArea
         label="Textarea"
+        noMargin
         renderSuffix={({ className }) => <DummyElement {...{ className }} />}
       />,
     );
@@ -54,48 +56,52 @@ describe('TextArea', () => {
 
   it('should render with a Tooltip when passed the validationHint prop', () => {
     const actual = create(
-      <TextArea label="Textarea" validationHint="Validation hint" />,
+      <TextArea label="Textarea" noMargin validationHint="Validation hint" />,
     );
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with warning styles when passed the hasWarning prop', () => {
-    const actual = create(<TextArea label="Textarea" hasWarning />);
+    const actual = create(<TextArea label="Textarea" noMargin hasWarning />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with invalid styles when passed the invalid prop', () => {
-    const actual = create(<TextArea label="Textarea" invalid />);
+    const actual = create(<TextArea label="Textarea" noMargin invalid />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with valid styles when passed the showValid prop', () => {
-    const actual = create(<TextArea label="Textarea" showValid />);
+    const actual = create(<TextArea label="Textarea" noMargin showValid />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with readonly styles when passed the readonly prop', () => {
-    const actual = create(<TextArea label="Textarea" readOnly />);
+    const actual = create(<TextArea label="Textarea" noMargin readOnly />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styled when passed the disabled prop', () => {
-    const actual = create(<TextArea label="Textarea" disabled />);
+    const actual = create(<TextArea label="Textarea" noMargin disabled />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should prioritize disabled over error styles', () => {
-    const actual = create(<TextArea label="Textarea" invalid disabled />);
+    const actual = create(
+      <TextArea label="Textarea" noMargin invalid disabled />,
+    );
     expect(actual).toMatchSnapshot();
   });
 
   it('should prioritize disabled over warning styles', () => {
-    const actual = create(<TextArea label="Textarea" hasWarning disabled />);
+    const actual = create(
+      <TextArea label="Textarea" noMargin hasWarning disabled />,
+    );
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with inline styles when passed the inline prop', () => {
-    const actual = create(<TextArea label="Textarea" inline />);
+    const actual = create(<TextArea label="Textarea" noMargin inline />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -105,18 +111,18 @@ describe('TextArea', () => {
   });
 
   it('should render rows props when passed', () => {
-    const actual = create(<TextArea label="Textarea" rows={3} />);
+    const actual = create(<TextArea label="Textarea" noMargin rows={3} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render without rows props when passed if rows is auto', () => {
-    const actual = create(<TextArea label="Textarea" rows="auto" />);
+    const actual = create(<TextArea label="Textarea" noMargin rows="auto" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render minRows props as rows when passed if rows is auto', () => {
     const actual = create(
-      <TextArea label="Textarea" minRows={3} rows="auto" />,
+      <TextArea label="Textarea" noMargin minRows={3} rows="auto" />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -127,7 +133,9 @@ describe('TextArea', () => {
      */
     it('should accept a working ref', () => {
       const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
-      const { container } = render(<TextArea label="Textarea" ref={tref} />);
+      const { container } = render(
+        <TextArea label="Textarea" noMargin ref={tref} />,
+      );
       const textarea = container.querySelector('textarea');
       expect(tref.current).toBe(textarea);
     });
@@ -137,7 +145,9 @@ describe('TextArea', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<TextArea label="Textarea" id="textarea" />);
+    const wrapper = renderToHtml(
+      <TextArea label="Textarea" noMargin id="textarea" />,
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

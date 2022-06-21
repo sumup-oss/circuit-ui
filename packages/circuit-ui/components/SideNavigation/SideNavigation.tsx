@@ -18,6 +18,7 @@ import usePrevious from 'use-previous';
 import { useTheme } from '@emotion/react';
 
 import { useMedia } from '../../hooks/useMedia';
+import { AccessibilityError } from '../../util/errors';
 
 import { DesktopNavigation } from './components/DesktopNavigation';
 import { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation';
@@ -45,12 +46,26 @@ export function SideNavigation({
 }: SideNavigationProps): JSX.Element {
   if (
     process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    (!closeButtonLabel || !primaryNavigationLabel || !secondaryNavigationLabel)
+    process.env.NODE_ENV !== 'test'
   ) {
-    throw new Error(
-      'The SideNavigation component is missing a `closeButtonLabel`, `primaryNavigationLabel`, or `secondaryNavigationLabel` prop. This is an accessibility requirement.',
-    );
+    if (!closeButtonLabel) {
+      throw new AccessibilityError(
+        'SideNavigation',
+        'The `closeButtonLabel` prop is missing.',
+      );
+    }
+    if (!primaryNavigationLabel) {
+      throw new AccessibilityError(
+        'SideNavigation',
+        'The `primaryNavigationLabel` prop is missing.',
+      );
+    }
+    if (!secondaryNavigationLabel) {
+      throw new AccessibilityError(
+        'SideNavigation',
+        'The `secondaryNavigationLabel` prop is missing.',
+      );
+    }
   }
 
   const theme = useTheme();

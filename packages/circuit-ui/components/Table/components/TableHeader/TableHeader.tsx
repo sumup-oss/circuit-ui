@@ -22,6 +22,7 @@ import SortArrow from '../SortArrow';
 import styled, { StyleProps } from '../../../../styles/styled';
 import { SortParams } from '../../types';
 import { ClickEvent } from '../../../../types/events';
+import { AccessibilityError } from '../../../../util/errors';
 
 export interface TableHeaderProps
   extends ThHTMLAttributes<HTMLTableHeaderCellElement> {
@@ -196,8 +197,9 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
     sortParams.sortable &&
     !sortParams.sortLabel
   ) {
-    throw new Error(
-      'The Table component is missing a `sortLabel` prop. This is an accessibility requirement. Omit the `sortable` prop if you intend to disable the row sorting functionality.',
+    throw new AccessibilityError(
+      'Table',
+      'The `sortLabel` prop is missing. Omit the `sortable` prop if you intend to disable the row sorting functionality.',
     );
   }
   return (

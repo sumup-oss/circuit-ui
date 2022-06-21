@@ -29,6 +29,7 @@ import { ReturnType } from '../../types/return-type';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
+import { AccessibilityError, DeprecationError } from '../../util/errors';
 
 export type SelectOption = {
   value: string | number;
@@ -145,24 +146,11 @@ const SelectContainer = styled('div')<ContainerElProps>(
 
 type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
 
-const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
-  if (!noMargin) {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      throw new Error(
-        'The Select component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      );
-    }
-
-    return css`
-      margin-bottom: ${theme.spacings.mega};
-    `;
-  }
-  return null;
-};
+const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
+  !noMargin &&
+  css`
+    margin-bottom: ${theme.spacings.mega};
+  `;
 
 const labelInlineStyles = ({ inline }: LabelElProps) =>
   inline &&
@@ -321,12 +309,24 @@ export const Select = forwardRef(
     ref?: SelectProps['ref'],
   ): ReturnType => {
     if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !noMargin
+    ) {
+      throw new DeprecationError(
+        'Select',
+        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      );
+    }
+    if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
       !label
     ) {
-      throw new Error(
-        'The Select component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
+      throw new AccessibilityError(
+        'Select',
+        'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
     const id = customId || uniqueId('select_');

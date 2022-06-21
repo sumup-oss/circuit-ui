@@ -27,6 +27,7 @@ import {
 import CloseButton from '../CloseButton';
 import { StackContext } from '../StackContext';
 import styled, { StyleProps } from '../../styles/styled';
+import { AccessibilityError } from '../../util/errors';
 
 const TRANSITION_DURATION_MOBILE = 120;
 const TRANSITION_DURATION_DESKTOP = 240;
@@ -153,8 +154,9 @@ export const Modal: ModalComponent<ModalProps> = ({
     !preventClose &&
     !closeButtonLabel
   ) {
-    throw new Error(
-      "The modal is missing a `closeButtonLabel` prop. This is an accessibility requirement. Pass it in `setModal`, or pass `preventClose` if you intend to hide the modal's close button.",
+    throw new AccessibilityError(
+      'Modal',
+      "The `closeButtonLabel` prop is missing. Pass it in `setModal`, or pass `preventClose` if you intend to hide the Modal's close button.",
     );
   }
   return (

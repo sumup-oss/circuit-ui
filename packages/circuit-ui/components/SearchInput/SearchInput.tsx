@@ -21,6 +21,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
 import IconButton from '../IconButton';
+import { AccessibilityError } from '../../util/errors';
 
 type ClearProps =
   | { onClear?: never; clearLabel?: never }
@@ -64,8 +65,9 @@ export const SearchInput = forwardRef(
       onClear &&
       !clearLabel
     ) {
-      throw new Error(
-        'The SearchInput component is missing a `clearLabel` prop. This is an accessibility requirement. Omit the `onClear` prop if you intend to disable the input clearing functionality.',
+      throw new AccessibilityError(
+        'SearchInput',
+        'The `clearLabel` prop is missing. Omit the `onClear` prop if you intend to disable the input clearing functionality.',
       );
     }
     return (

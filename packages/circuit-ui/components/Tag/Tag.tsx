@@ -22,6 +22,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import { typography, focusVisible } from '../../styles/style-mixins';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import CloseButton, { CloseButtonProps } from '../CloseButton';
+import { AccessibilityError } from '../../util/errors';
 
 type BaseProps = {
   /**
@@ -202,8 +203,9 @@ export const Tag = forwardRef(
       onRemove &&
       !removeButtonLabel
     ) {
-      throw new Error(
-        'The Tag component is missing a `removeButtonLabel` prop. This is an accessibility requirement. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
+      throw new AccessibilityError(
+        'Tag',
+        'The `removeButtonLabel` prop is missing. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
       );
     }
     const as = onClick ? 'button' : 'div';

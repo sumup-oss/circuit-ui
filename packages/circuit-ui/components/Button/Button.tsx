@@ -39,6 +39,7 @@ import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Spinner from '../Spinner';
+import { AccessibilityError } from '../../util/errors';
 
 export interface BaseProps {
   'children': ReactNode;
@@ -364,8 +365,9 @@ export const Button = forwardRef(
       isLoading !== undefined &&
       !loadingLabel
     ) {
-      throw new Error(
-        'The Button component has `isLoading` but is missing a `loadingLabel` prop. This is an accessibility requirement.',
+      throw new AccessibilityError(
+        'Button',
+        "The `loadingLabel` prop is missing. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
       );
     }
     const { Link } = useComponents();

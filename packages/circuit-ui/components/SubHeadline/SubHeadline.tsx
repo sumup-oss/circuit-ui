@@ -17,6 +17,7 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { withDeprecation } from '../../util/logger';
 
 export interface SubHeadlineProps {
   /**
@@ -41,29 +42,30 @@ const baseStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.black};
 `;
 
-const noMarginStyles = ({ theme, noMargin }: StyleProps & SubHeadlineProps) => {
-  if (!noMargin) {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      throw new Error(
-        'The SubHeadline component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      );
-    }
+const noMarginStyles = ({ theme, noMargin }: StyleProps & SubHeadlineProps) =>
+  !noMargin &&
+  css`
+    margin-bottom: ${theme.spacings.kilo};
+  `;
 
-    return css`
-      margin-bottom: ${theme.spacings.kilo};
-    `;
+const StyledSubHeadline = styled('h3', {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<SubHeadlineProps>(baseStyles, noMarginStyles);
+
+function deprecateFn(props: SubHeadlineProps) {
+  if (!props.noMargin) {
+    return 'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.';
   }
   return null;
-};
+}
 
 /**
  * A flexible SubHeadline component capable of rendering using any HTML heading
  * element, except h1.
  */
-export const SubHeadline = styled('h3', {
-  shouldForwardProp: (prop) => isPropValid(prop),
-})<SubHeadlineProps>(baseStyles, noMarginStyles);
+export const SubHeadline =
+  process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
+  process.env.NODE_ENV !== 'production' &&
+  process.env.NODE_ENV !== 'test'
+    ? withDeprecation(StyledSubHeadline, deprecateFn, true)
+    : StyledSubHeadline;

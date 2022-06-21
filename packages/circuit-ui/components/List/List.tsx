@@ -19,6 +19,7 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
+import { DeprecationError } from '../../util/errors';
 
 type Size = 'one' | 'two';
 type Variant = 'ordered' | 'unordered';
@@ -93,15 +94,6 @@ const marginStyles = ({
   size = 'one',
 }: StyleProps & ListProps) => {
   if (!noMargin) {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      throw new Error(
-        'The List component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      );
-    }
     const sizeMap = {
       one: theme.spacings.byte,
       two: theme.spacings.kilo,
@@ -127,9 +119,22 @@ const BaseList = styled('ul', {
  * A list, which can be ordered or unordered.
  */
 export const List = forwardRef(
-  ({ variant, ...props }: ListProps, ref: ListProps['ref']) => (
-    <BaseList as={variant === 'ordered' ? 'ol' : 'ul'} {...props} ref={ref} />
-  ),
+  ({ variant, ...props }: ListProps, ref: ListProps['ref']) => {
+    if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !props.noMargin
+    ) {
+      throw new DeprecationError(
+        'List',
+        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      );
+    }
+    return (
+      <BaseList as={variant === 'ordered' ? 'ol' : 'ul'} {...props} ref={ref} />
+    );
+  },
 );
 
 List.displayName = 'List';

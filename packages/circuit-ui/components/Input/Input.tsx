@@ -33,6 +33,7 @@ import { uniqueId } from '../../util/id';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';
+import { AccessibilityError, DeprecationError } from '../../util/errors';
 
 export type InputElement = HTMLInputElement & HTMLTextAreaElement;
 type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
@@ -126,27 +127,11 @@ const InputContainer = styled('div')(containerStyles);
 
 type LabelElProps = Pick<InputProps, 'noMargin'>;
 
-const labelNoMarginStyles = ({
-  theme,
-  noMargin,
-}: StyleProps & LabelElProps) => {
-  if (!noMargin) {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      throw new Error(
-        'The Input component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      );
-    }
-
-    return css`
-      margin-bottom: ${theme.spacings.mega};
-    `;
-  }
-  return null;
-};
+const labelNoMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
+  !noMargin &&
+  css`
+    margin-bottom: ${theme.spacings.mega};
+  `;
 
 const InputLabel = styled(Label)<LabelElProps>(labelNoMarginStyles);
 
@@ -328,8 +313,20 @@ export const Input = forwardRef(
       props.type !== 'hidden' &&
       !label
     ) {
-      throw new Error(
-        'The Input component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
+      throw new AccessibilityError(
+        'Input',
+        'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
+      );
+    }
+    if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !noMargin
+    ) {
+      throw new DeprecationError(
+        'Input',
+        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
 

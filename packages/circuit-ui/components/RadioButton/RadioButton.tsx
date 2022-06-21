@@ -30,6 +30,7 @@ import {
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
+import { AccessibilityError } from '../../util/errors';
 
 export interface RadioButtonProps
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -209,8 +210,9 @@ export const RadioButton = forwardRef(
       process.env.NODE_ENV !== 'test' &&
       !label
     ) {
-      throw new Error(
-        'The RadioButton component is missing a `label` prop. This is an accessibility requirement.',
+      throw new AccessibilityError(
+        'RadioButton',
+        'The `label` prop is missing.',
       );
     }
     const id = customId || uniqueId('radio-button_');

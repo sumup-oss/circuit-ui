@@ -21,6 +21,7 @@ import { Dispatch as TrackingProps, useClickTrigger } from '@sumup/collector';
 
 import styled from '../../styles/styled';
 import IconButton from '../IconButton';
+import { AccessibilityError } from '../../util/errors';
 
 import { PageSelect } from './components/PageSelect';
 import { PageList } from './components/PageList';
@@ -104,12 +105,26 @@ export const Pagination = ({
 }: PaginationProps): ReactNode => {
   if (
     process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    (!label || !previousLabel || !nextLabel)
+    process.env.NODE_ENV !== 'test'
   ) {
-    throw new Error(
-      'The Pagination component is missing a `label`, a `previousLabel` and/or a `nextLabel` prop. This is an accessibility requirement.',
-    );
+    if (!label) {
+      throw new AccessibilityError(
+        'Pagination',
+        'The `label` prop is missing.',
+      );
+    }
+    if (!previousLabel) {
+      throw new AccessibilityError(
+        'Pagination',
+        'The `previousLabel` prop is missing.',
+      );
+    }
+    if (!nextLabel) {
+      throw new AccessibilityError(
+        'Pagination',
+        'The `nextLabel` prop is missing.',
+      );
+    }
   }
 
   // Can't use our custom useClickEvent here because it doesn't allow us

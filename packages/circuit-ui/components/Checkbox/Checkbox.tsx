@@ -26,6 +26,7 @@ import {
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Tooltip from '../Tooltip';
+import { DeprecationError } from '../../util/errors';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -79,25 +80,13 @@ const wrapperBaseStyles = () => css`
 const wrapperNoMarginStyles = ({
   theme,
   noMargin,
-}: StyleProps & WrapperElProps) => {
-  if (!noMargin) {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      throw new Error(
-        'The Checkbox component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      );
+}: StyleProps & WrapperElProps) =>
+  noMargin &&
+  css`
+    &:last-of-type {
+      margin-bottom: ${theme.spacings.mega};
     }
-    return css`
-      &:last-of-type {
-        margin-bottom: ${theme.spacings.mega};
-      }
-    `;
-  }
-  return null;
-};
+  `;
 
 const CheckboxWrapper = styled('div')<WrapperElProps>(
   wrapperBaseStyles,
@@ -236,6 +225,18 @@ export const Checkbox = forwardRef(
     }: CheckboxProps,
     ref: CheckboxProps['ref'],
   ) => {
+    if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !noMargin
+    ) {
+      throw new DeprecationError(
+        'Checkbox',
+        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
+      );
+    }
+
     const id = customId || uniqueId('checkbox_');
     const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 

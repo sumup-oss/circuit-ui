@@ -19,6 +19,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import { typography, hideVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { ReturnType } from '../../types/return-type';
+import { AccessibilityError } from '../../util/errors';
 
 interface BaseProps {
   /**
@@ -236,9 +237,7 @@ export function ProgressBar({
     process.env.NODE_ENV !== 'test' &&
     !label
   ) {
-    throw new Error(
-      'The ProgressBar component is missing a `label` prop. This is an accessibility requirement.',
-    );
+    throw new AccessibilityError('ProgressBar', 'The `label` prop is missing.');
   }
   const ariaId = uniqueId('progress-bar_');
   const title = hideLabel ? label : undefined;

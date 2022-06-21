@@ -20,6 +20,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import { disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { Body, BodyProps } from '../Body/Body';
+import { AccessibilityError, DeprecationError } from '../../util/errors';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
 
@@ -84,24 +85,11 @@ const toggleWrapperDisabledStyles = ({ disabled }: WrapperElProps) =>
 const toggleWrapperNoMarginStyles = ({
   theme,
   noMargin,
-}: StyleProps & WrapperElProps) => {
-  if (!noMargin) {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      throw new Error(
-        'The Toggle component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      );
-    }
-
-    return css`
-      margin-bottom: ${theme.spacings.mega};
-    `;
-  }
-  return null;
-};
+}: StyleProps & WrapperElProps) =>
+  !noMargin &&
+  css`
+    margin-bottom: ${theme.spacings.mega};
+  `;
 
 const ToggleWrapper = styled('div')<WrapperElProps>(
   toggleWrapperStyles,
@@ -122,10 +110,21 @@ export const Toggle = forwardRef(
       process.env.NODE_ENV !== 'test' &&
       !label
     ) {
-      throw new Error(
-        'The Toggle component is missing a `label` prop. This is an accessibility requirement.',
+      throw new AccessibilityError('Toggle', 'The `label` prop is missing.');
+    }
+
+    if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !noMargin
+    ) {
+      throw new DeprecationError(
+        'Toggle',
+        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
       );
     }
+
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
     return (
