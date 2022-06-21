@@ -19,7 +19,7 @@
  * elimination.
  */
 export const warn = (componentName: string, ...message: unknown[]): void =>
-  console.error(`[${componentName}]`, ...message);
+  console.warn(`[${componentName}]`, ...message);
 
 const deprecated: { [key: string]: true } = {};
 
