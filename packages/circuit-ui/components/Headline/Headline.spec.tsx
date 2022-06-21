@@ -45,7 +45,7 @@ describe('Headline', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should accept a working ref for a button', () => {
+  it('should accept a working ref for a headline', () => {
     const tref = createRef<HTMLHeadingElement>();
     const { container } = render(
       <Headline noMargin as="h2" ref={tref}>
