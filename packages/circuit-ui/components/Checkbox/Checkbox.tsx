@@ -81,7 +81,7 @@ const wrapperNoMarginStyles = ({
   theme,
   noMargin,
 }: StyleProps & WrapperElProps) =>
-  noMargin &&
+  !noMargin &&
   css`
     &:last-of-type {
       margin-bottom: ${theme.spacings.mega};
