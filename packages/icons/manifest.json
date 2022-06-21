@@ -786,6 +786,11 @@
       "size": "24"
     },
     {
+      "name": "cafe",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "calendar",
       "category": "Miscellaneous",
       "size": "24"
@@ -807,6 +812,16 @@
     },
     {
       "name": "gauge",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "globe",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "hospitality",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -1157,6 +1172,11 @@
     },
     {
       "name": "sum_up_logo",
+      "category": "Brand",
+      "size": "24"
+    },
+    {
+      "name": "sum_up_logomark",
       "category": "Brand",
       "size": "24"
     }
