@@ -44,8 +44,8 @@ export const deprecate = (componentName: string, message: string): void => {
 };
 
 /**
- * Always wrap in `process.env.NODE_ENV !== 'production'` to enable dead code
- * elimination.
+ * Always conditionally render with `process.env.NODE_ENV !== 'production'`
+ * to enable dead code elimination.
  */
 export function withDeprecation<Props>(
   Component: ComponentType<Props>,
