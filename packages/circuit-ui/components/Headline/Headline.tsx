@@ -65,7 +65,7 @@ StyledHeadline.displayName = 'Headline';
 
 function deprecateFn(props: HeadlineProps) {
   if (!props.noMargin) {
-    return 'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.';
+    return 'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.';
   }
   return null;
 }
