@@ -36,7 +36,7 @@ import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
 import { EmotionAsPropType } from '../../types/prop-types';
 import { isFunction, isString } from '../../util/type-check';
-import { warn } from '../../util/logger';
+import { CircuitError } from '../../util/errors';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { useComponents } from '../ComponentsContext';
 import Body from '../Body';
@@ -326,17 +326,15 @@ export const ListItem = forwardRef(
       process.env.NODE_ENV !== 'test'
     ) {
       if (trailingDetails && !trailingLabel) {
-        warn(
+        throw new CircuitError(
           'ListItem',
-          'Using `trailingDetails` without `trailingLabel` is not supported.',
-          'Use a custom `trailingComponent` if necessary.',
+          'Using `trailingDetails` without `trailingLabel` is not supported. Use a custom `trailingComponent` if necessary.',
         );
       }
       if (trailingComponent && trailingLabel) {
-        warn(
+        throw new CircuitError(
           'ListItem',
-          'Using `trailingLabel` and `trailingComponent` at the same time is not supported.',
-          'Add a label to the custom `trailingComponent` if necessary.',
+          'Using `trailingLabel` and `trailingComponent` at the same time is not supported. Add a label to the custom `trailingComponent` if necessary.',
         );
       }
     }

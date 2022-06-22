@@ -29,6 +29,7 @@ import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
 import styled, { StyleProps } from '../../styles/styled';
 import CloseButton from '../CloseButton';
 import { spacing } from '../../styles/style-mixins';
+import { CircuitError } from '../../util/errors';
 
 const TRANSITION_DURATION = 200;
 
@@ -95,13 +96,9 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
   ...props
 }) => {
   if (process.env.NODE_ENV !== 'production' && className) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      [
-        'Custom styles are not supported by the NotificationModal component.',
-        'If your use case requires custom styles, please open an issue at',
-        'https://github.com/sumup-oss/circuit-ui.',
-      ].join(' '),
+    throw new CircuitError(
+      'NotificationModal',
+      'Custom styles are not supported by this component. If your use case requires custom styles, please open an issue at https://github.com/sumup-oss/circuit-ui.',
     );
   }
 

@@ -31,11 +31,7 @@ const DEPRECATED: { [key: string]: true } = {};
  * Always wrap in `process.env.NODE_ENV !== 'production'` to enable dead code
  * elimination.
  */
-export const deprecate = (
-  componentName: string,
-  message: string,
-  shouldThrow = false,
-): void => {
+export const deprecate = (componentName: string, message: string): void => {
   const error = new DeprecationError(componentName, message);
 
   if (DEPRECATED[componentName]) {
@@ -44,11 +40,7 @@ export const deprecate = (
 
   DEPRECATED[componentName] = true;
 
-  if (shouldThrow) {
-    throw error;
-  } else {
-    console.warn(error);
-  }
+  console.warn(error);
 };
 
 /**
@@ -62,9 +54,14 @@ export function withDeprecation<Props>(
 ): ComponentType<Props> {
   const WithDeprecation = forwardRef<unknown, Props>((props: Props, ref) => {
     const deprecation = deprecateFn(props);
+    const componentName = Component.displayName as string;
 
     if (deprecation) {
-      deprecate(Component.displayName as string, deprecation, shouldThrow);
+      if (shouldThrow) {
+        throw new DeprecationError(componentName, deprecation);
+      } else {
+        deprecate(componentName, deprecation);
+      }
     }
 
     return <Component {...props} ref={ref} />;
