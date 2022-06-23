@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.1.4
+
+### Patch Changes
+
+- [#1627](https://github.com/sumup-oss/circuit-ui/pull/1627) [`4eaab3b2`](https://github.com/sumup-oss/circuit-ui/commit/4eaab3b25dfdc3d4a376aa1954e493fdef533c74) Thanks [@connor-baer](https://github.com/connor-baer)! - Added component stack traces to accessibility and deprecation warnings.
+
 ## 5.1.3
 
 ### Patch Changes
