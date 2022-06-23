@@ -33,6 +33,7 @@ import Label from '../Label';
 import IconButton, { IconButtonProps } from '../IconButton';
 import Spinner from '../Spinner';
 import ValidationHint from '../ValidationHint';
+import { AccessibilityError } from '../../util/errors';
 
 type Size = 'giga' | 'yotta';
 
@@ -310,12 +311,26 @@ export const ImageInput = ({
 }: ImageInputProps): JSX.Element => {
   if (
     process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    (!label || !clearButtonLabel || !loadingLabel)
+    process.env.NODE_ENV !== 'test'
   ) {
-    throw new Error(
-      'The ImageInput component is missing a `label`, a `clearButtonLabel` and/or a `loadingLabel` prop. This is an accessibility requirement.',
-    );
+    if (!label) {
+      throw new AccessibilityError(
+        'ImageInput',
+        'The `label` prop is missing.',
+      );
+    }
+    if (!clearButtonLabel) {
+      throw new AccessibilityError(
+        'ImageInput',
+        'The `clearButtonLabel` prop is missing.',
+      );
+    }
+    if (!loadingLabel) {
+      throw new AccessibilityError(
+        'ImageInput',
+        'The `loadingLabel` prop is missing.',
+      );
+    }
   }
 
   const inputRef = useRef<HTMLInputElement>(null);

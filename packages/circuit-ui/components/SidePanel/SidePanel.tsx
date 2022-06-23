@@ -20,6 +20,7 @@ import { Props as ReactModalProps } from 'react-modal';
 import styled, { StyleProps } from '../../styles/styled';
 import { isFunction } from '../../util/type-check';
 import { uniqueId } from '../../util/id';
+import { AccessibilityError } from '../../util/errors';
 
 import { MobileSidePanel } from './components/MobileSidePanel';
 import { DesktopSidePanel } from './components/DesktopSidePanel';
@@ -130,13 +131,15 @@ export const SidePanel = ({
     process.env.NODE_ENV !== 'test'
   ) {
     if (!closeButtonLabel) {
-      throw new Error(
-        'The side panel is missing a `closeButtonLabel` prop. This is an accessibility requirement.',
+      throw new AccessibilityError(
+        'SidePanel',
+        'The `closeButtonLabel` prop is missing.',
       );
     }
     if (onBack && !backButtonLabel) {
-      throw new Error(
-        'The side panel is missing a `backButtonLabel` prop. This is an accessibility requirement.',
+      throw new AccessibilityError(
+        'SidePanel',
+        'The `backButtonLabel` prop is missing.',
       );
     }
   }

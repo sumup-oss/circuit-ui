@@ -26,7 +26,9 @@ describe('Step', () => {
   });
 
   it('should throw error without children as a function', () => {
-    const expectedError = new Error('Children must be a function');
+    const expectedError = new Error(
+      '[Step] The `children` prop must be a function.',
+    );
 
     // @ts-expect-error We're testing for this error.
     expect(() => create(<Step />)).toThrow(expectedError);

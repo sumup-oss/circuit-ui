@@ -19,6 +19,7 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
+import { DeprecationError } from '../../util/errors';
 
 type Size = 'one' | 'two';
 type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
@@ -93,24 +94,11 @@ const variantStyles = ({ theme, variant }: BodyProps & StyleProps) => {
   }
 };
 
-const marginStyles = ({ theme, noMargin }: BodyProps & StyleProps) => {
-  if (!noMargin) {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      throw new Error(
-        'The Body component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      );
-    }
-    return css`
-      margin-bottom: ${theme.spacings.mega};
-    `;
-  }
-
-  return null;
-};
+const marginStyles = ({ theme, noMargin }: BodyProps & StyleProps) =>
+  !noMargin &&
+  css`
+    margin-bottom: ${theme.spacings.mega};
+  `;
 
 const StyledBody = styled('p', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
@@ -131,6 +119,18 @@ function getHTMLElement(variant?: Variant): AsPropType {
  * to our users.
  */
 export const Body = forwardRef((props: BodyProps, ref?: BodyProps['ref']) => {
+  if (
+    process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !props.noMargin
+  ) {
+    throw new DeprecationError(
+      'Body',
+      'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
+    );
+  }
+
   const as = props.as || getHTMLElement(props.variant);
   return <StyledBody {...props} ref={ref} as={as as EmotionAsPropType} />;
 });

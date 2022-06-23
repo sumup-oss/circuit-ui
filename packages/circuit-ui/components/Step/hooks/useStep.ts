@@ -16,6 +16,7 @@
 import { useReducer, useEffect, useRef } from 'react';
 
 import { useClickEvent } from '../../../hooks/useClickEvent';
+import { CircuitError } from '../../../util/errors';
 import { isFunction } from '../../../util/type-check';
 import * as StepService from '../StepService';
 import { Duration, StateAndHelpers, StepOptions } from '../types';
@@ -35,11 +36,17 @@ export function useStep({
   onPlay,
 }: StepOptions = {}): StateAndHelpers {
   if (process.env.NODE_ENV !== 'production' && cycle && !totalSteps) {
-    throw new Error('Cannot use `cycle` prop without `totalSteps` prop.');
+    throw new CircuitError(
+      'useStep',
+      'Cannot use `cycle` prop without `totalSteps` prop.',
+    );
   }
 
   if (process.env.NODE_ENV !== 'production' && autoPlay && !stepDuration) {
-    throw new Error('Cannot use `autoPlay` prop without `stepDuration` prop.');
+    throw new CircuitError(
+      'useStep',
+      'Cannot use `autoPlay` prop without `stepDuration` prop.',
+    );
   }
 
   const initialState = {

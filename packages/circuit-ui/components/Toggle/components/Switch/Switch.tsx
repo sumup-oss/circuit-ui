@@ -19,6 +19,7 @@ import { css } from '@emotion/react';
 import styled, { StyleProps } from '../../../../styles/styled';
 import { focusVisible, hideVisually } from '../../../../styles/style-mixins';
 import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
+import { AccessibilityError } from '../../../../util/errors';
 
 export interface SwitchProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -129,12 +130,20 @@ export const Switch = forwardRef(
   ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      (!checkedLabel || !uncheckedLabel)
+      process.env.NODE_ENV !== 'test'
     ) {
-      throw new Error(
-        'The Switch component is missing a `checkedLabel` and/or an `uncheckedLabel` prop. This is an accessibility requirement.',
-      );
+      if (!checkedLabel) {
+        throw new AccessibilityError(
+          'Toggle',
+          'The `checkedLabel` prop is missing.',
+        );
+      }
+      if (!uncheckedLabel) {
+        throw new AccessibilityError(
+          'Toggle',
+          'The `checkedLabel` prop is missing.',
+        );
+      }
     }
     const handleChange = useClickEvent(onChange, tracking, 'toggle');
     return (

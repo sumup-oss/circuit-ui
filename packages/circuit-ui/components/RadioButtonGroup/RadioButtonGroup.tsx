@@ -26,6 +26,7 @@ import { hideVisually, typography } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
 import ValidationHint from '../ValidationHint';
+import { AccessibilityError } from '../../util/errors';
 
 export interface RadioButtonGroupProps
   extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
@@ -119,8 +120,9 @@ export const RadioButtonGroup = forwardRef(
       process.env.NODE_ENV !== 'test' &&
       !label
     ) {
-      throw new Error(
-        'The RadioButtonGroup component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
+      throw new AccessibilityError(
+        'RadioButtonGroup',
+        'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
     const name = customName || uniqueId('radio-button-group_');

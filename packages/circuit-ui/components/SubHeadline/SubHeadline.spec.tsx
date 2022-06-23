@@ -13,7 +13,9 @@
  * limitations under the License.
  */
 
-import { create, renderToHtml, axe } from '../../util/test-utils';
+import { createRef } from 'react';
+
+import { create, renderToHtml, axe, render } from '../../util/test-utils';
 
 import { SubHeadline } from './SubHeadline';
 
@@ -36,6 +38,16 @@ describe('SubHeadline', () => {
     /* @ts-expect-error the noMargin prop is required */
     const actual = create(<SubHeadline as="h3" />);
     expect(actual).toMatchSnapshot();
+  });
+  it('should accept a working ref for a headline', () => {
+    const tref = createRef<HTMLHeadingElement>();
+    const { container } = render(
+      <SubHeadline noMargin as="h3" ref={tref}>
+        SubHeadline
+      </SubHeadline>,
+    );
+    const headline = container.querySelector('h3');
+    expect(tref.current).toBe(headline);
   });
 
   /**

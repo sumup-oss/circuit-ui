@@ -19,6 +19,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import { TrackingProps } from '../../hooks/useClickEvent';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
 import { Skeleton } from '../Skeleton';
+import { AccessibilityError } from '../../util/errors';
 
 export type HamburgerRef = HTMLButtonElement;
 
@@ -171,12 +172,20 @@ export const Hamburger = ({
 }: HamburgerProps): JSX.Element => {
   if (
     process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    (!activeLabel || !inactiveLabel)
+    process.env.NODE_ENV !== 'test'
   ) {
-    throw new Error(
-      'The Hamburger component is missing an `activeLabel` and/or an `inactiveLabel` prop. This is an accessibility requirement.',
-    );
+    if (!activeLabel) {
+      throw new AccessibilityError(
+        'Hamburger',
+        'The `activeLabel` prop is missing.',
+      );
+    }
+    if (!inactiveLabel) {
+      throw new AccessibilityError(
+        'Hamburger',
+        'The `inactiveLabel` prop is missing.',
+      );
+    }
   }
 
   return (

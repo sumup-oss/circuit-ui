@@ -18,7 +18,7 @@ import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually } from '../../styles/style-mixins';
-import { warn } from '../../util/logger';
+import { AccessibilityError } from '../../util/errors';
 import { ReturnType } from '../../types/return-type';
 import Body from '../Body';
 import ListItem, { ListItemProps } from '../ListItem';
@@ -253,7 +253,7 @@ export const ListItemGroup = forwardRef(
       process.env.NODE_ENV !== 'test' &&
       !label
     ) {
-      warn(
+      throw new AccessibilityError(
         'ListItemGroup',
         'The `label` prop is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
       );

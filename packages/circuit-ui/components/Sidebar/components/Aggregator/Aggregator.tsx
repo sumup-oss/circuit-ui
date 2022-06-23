@@ -24,6 +24,7 @@ import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import { Child, hasSelectedChild, getIcon } from '../../SidebarService';
 import { SubNavList } from '../SubNavList';
 import { NavLabel } from '../NavLabel';
+import { AccessibilityError } from '../../../../util/errors';
 
 export interface AggregatorProps {
   /**
@@ -127,9 +128,7 @@ export function Aggregator({
     process.env.NODE_ENV !== 'test' &&
     !label
   ) {
-    throw new Error(
-      'The Aggregator component is missing a `label` prop. This is an accessibility requirement.',
-    );
+    throw new AccessibilityError('Aggregator', 'The `label` prop is missing.');
   }
   const [isOpen, setIsOpen] = useState(false);
   const selectedChild = hasSelectedChild(children);

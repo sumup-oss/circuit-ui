@@ -21,6 +21,7 @@ import { uniqueId } from '../../util/id';
 import Selector from '../Selector';
 import { SelectorSize } from '../Selector/Selector';
 import { hideVisually, typography } from '../../styles/style-mixins';
+import { AccessibilityError } from '../../util/errors';
 
 export interface SelectorGroupProps {
   /**
@@ -144,8 +145,9 @@ export const SelectorGroup = forwardRef(
       process.env.NODE_ENV !== 'test' &&
       !label
     ) {
-      throw new Error(
-        'The SelectorGroup component is missing a `label` prop. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
+      throw new AccessibilityError(
+        'SelectorGroup',
+        'The `label` prop is required. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
     const name = customName || uniqueId('selector-group_');

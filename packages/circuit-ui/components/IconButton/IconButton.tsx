@@ -21,6 +21,7 @@ import { IconProps } from '@sumup/icons';
 import { hideVisually } from '../../styles/style-mixins';
 import styled from '../../styles/styled';
 import { Button, ButtonProps } from '../Button/Button';
+import { AccessibilityError } from '../../util/errors';
 
 export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
   /**
@@ -70,8 +71,9 @@ export const IconButton = forwardRef(
       process.env.NODE_ENV !== 'test' &&
       !label
     ) {
-      throw new Error(
-        'The IconButton component is missing a `label` prop. This is an accessibility requirement.',
+      throw new AccessibilityError(
+        'IconButton',
+        'The `label` prop is missing.',
       );
     }
     return (

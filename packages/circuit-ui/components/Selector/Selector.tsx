@@ -24,6 +24,7 @@ import {
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
+import { DeprecationError } from '../../util/errors';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
@@ -120,24 +121,11 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const disabledStyles = ({ disabled }: LabelElProps) =>
   disabled && css(disableVisually());
 
-const noMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) => {
-  if (!noMargin) {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      throw new Error(
-        'The Selector component requires the `noMargin` prop to be passed. Read more at https://github.com/sumup-oss/circuit-ui/issues/534.',
-      );
-    }
-
-    return css`
-      margin-bottom: ${theme.spacings.mega};
-    `;
-  }
-  return null;
-};
+const noMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
+  !noMargin &&
+  css`
+    margin-bottom: ${theme.spacings.mega};
+  `;
 
 const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   const sizeMap = {
@@ -207,6 +195,18 @@ export const Selector = forwardRef(
     }: SelectorProps,
     ref: SelectorProps['ref'],
   ) => {
+    if (
+      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !noMargin
+    ) {
+      throw new DeprecationError(
+        'Selector',
+        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
+      );
+    }
+
     const inputId = id || uniqueId('selector_');
     const type = multiple ? 'checkbox' : 'radio';
     const handleChange = useClickEvent(onChange, tracking, 'selector');
