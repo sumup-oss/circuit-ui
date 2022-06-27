@@ -73,7 +73,7 @@
     "fork-ts-checker-webpack-plugin": "^7.2.11",
     "jest-axe": "^6.0.0",
     "react": "^18.1.0",
-    "react-docgen": "^5.3.1",
+    "react-docgen": "^5.4.2",
     "react-docgen-annotation-resolver": "^2.0.0",
     "react-dom": "^18.1.0",
     "react-swipeable": "^6.1.0",
