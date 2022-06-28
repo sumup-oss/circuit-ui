@@ -102,4 +102,4 @@ The latest version of the icon library is [automatically deployed](https://circu
 }
 ```
 
-It is not possible to change the color of an external SVG using the `css` color property. Instead, you can use the [CSS `filter` hack](https://blog.union.io/code/2017/08/10/img-svg-fill/) to colorize the icon.
+It is not possible to change the color of an external SVG using the CSS `color` property. Instead, you can use the [CSS `filter` hack](https://blog.union.io/code/2017/08/10/img-svg-fill/) to colorize the icon.
