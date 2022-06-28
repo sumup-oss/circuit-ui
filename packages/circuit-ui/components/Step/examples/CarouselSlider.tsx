@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/* istanbul ignore file */
-
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
