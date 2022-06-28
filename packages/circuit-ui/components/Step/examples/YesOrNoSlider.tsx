@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/* istanbul ignore file */
+
 import { ReactNode, useState } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
