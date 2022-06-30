@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactNode } from 'react';
+import { ReactElement } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import { ChevronLeft, ChevronRight } from '@sumup/icons';
@@ -102,7 +102,7 @@ export const Pagination = ({
   totalLabel,
   tracking = {},
   ...props
-}: PaginationProps): ReactNode => {
+}: PaginationProps): ReactElement | null => {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
