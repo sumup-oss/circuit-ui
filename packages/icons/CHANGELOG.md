@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.11.0
+
+### Minor Changes
+
+- [#1637](https://github.com/sumup-oss/circuit-ui/pull/1637) [`2f45ec2d`](https://github.com/sumup-oss/circuit-ui/commit/2f45ec2d84020d3d6a9009326276ad9b59dd6cdd) Thanks [@Marczerwinski](https://github.com/Marczerwinski)! - Add new 24 size 'Drag' icon
+
 ## 2.10.0
 
 ### Minor Changes
