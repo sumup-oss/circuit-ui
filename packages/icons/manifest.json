@@ -96,6 +96,11 @@
       "size": "24"
     },
     {
+      "name": "drag",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "edit",
       "category": "Action",
       "size": "24"
