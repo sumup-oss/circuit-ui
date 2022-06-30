@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.1.5
+
+### Patch Changes
+
+- [#1635](https://github.com/sumup-oss/circuit-ui/pull/1635) [`5c2ea976`](https://github.com/sumup-oss/circuit-ui/commit/5c2ea976a3320fe78d175f9b3260680e1d4ed070) Thanks [@robinmetral](https://github.com/robinmetral)! - Changed `Pagination` type from `ReactNode` to `ReactElement | null` to prevent a clash with React 18 types.
+
 ## 5.1.4
 
 ### Patch Changes
