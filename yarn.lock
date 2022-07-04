@@ -4419,10 +4419,10 @@
     jest-matcher-utils "^28.0.0"
     pretty-format "^28.0.0"
 
-"@types/jscodeshift@^0.11.0":
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/@types/jscodeshift/-/jscodeshift-0.11.2.tgz#cbad968d5bf6055529531364e57be119563e9685"
-  integrity sha512-CwgUni90VW+H3xc9Hekz/+ShEKPTvYbgVsDWCV4YksKoTKrWu9qfPpNaf7VDvbwjRp+PlkBJ7wZJNDpILzRiRw==
+"@types/jscodeshift@^0.11.5":
+  version "0.11.5"
+  resolved "https://registry.yarnpkg.com/@types/jscodeshift/-/jscodeshift-0.11.5.tgz#51198aa72ceb66d36ceba3918e1ab445b868f29b"
+  integrity sha512-7JV0qdblTeWFigevmwFUgROXX395F+MQx6v0YqPn8Bx0B4Sng6alEejz9PENzgLYpG+zL0O4tGdBzc4gKZH8XA==
   dependencies:
     ast-types "^0.14.1"
     recast "^0.20.3"
