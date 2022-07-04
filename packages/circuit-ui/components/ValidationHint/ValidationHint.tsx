@@ -148,6 +148,7 @@ export const ValidationHint = ({
 
   return (
     <Wrapper
+      {...props}
       invalid={props.invalid}
       showValid={props.showValid}
       hasWarning={props.hasWarning}

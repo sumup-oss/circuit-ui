@@ -434,6 +434,7 @@ export const ImageInput = ({
           onClick={handleClick}
           disabled={disabled || isLoading}
           aria-invalid={invalid}
+          aria-describedby="validation_hint"
           {...props}
         />
         <StyledLabel
@@ -480,7 +481,12 @@ export const ImageInput = ({
           <LoadingLabel>{loadingLabel}</LoadingLabel>
         </LoadingIcon>
       </InputWrapper>
-      <ValidationHint validationHint={validationHint} invalid={invalid} />
+      <ValidationHint
+        id="validation_hint"
+        aria-live="assertive"
+        validationHint={validationHint}
+        invalid={invalid}
+      />
     </Fragment>
   );
 };

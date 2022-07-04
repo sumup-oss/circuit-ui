@@ -289,6 +289,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
   >
     <input
       accept="image/*"
+      aria-describedby="validation_hint"
       aria-invalid="false"
       class="circuit-1"
       id="image-input_5"
@@ -663,6 +664,7 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   >
     <input
       accept="image/*"
+      aria-describedby="validation_hint"
       aria-invalid="false"
       class="circuit-1"
       id="image-input_2"
@@ -1038,6 +1040,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
   >
     <input
       accept="image/*"
+      aria-describedby="validation_hint"
       aria-invalid="false"
       class="circuit-1"
       id="image-input_1"
@@ -1438,6 +1441,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   >
     <input
       accept="image/*"
+      aria-describedby="validation_hint"
       aria-invalid="true"
       class="circuit-1"
       id="image-input_3"
@@ -1506,7 +1510,9 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
     </span>
   </div>
   <span
+    aria-live="assertive"
     class="circuit-12"
+    id="validation_hint"
   >
     <div
       class="circuit-13"
@@ -1837,6 +1843,7 @@ exports[`ImageInput styles should render with smaller button 1`] = `
   >
     <input
       accept="image/*"
+      aria-describedby="validation_hint"
       aria-invalid="false"
       class="circuit-1"
       id="image-input_4"
