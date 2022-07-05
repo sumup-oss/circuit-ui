@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.1.6
+
+### Patch Changes
+
+- [#1645](https://github.com/sumup-oss/circuit-ui/pull/1645) [`607ba30f`](https://github.com/sumup-oss/circuit-ui/commit/607ba30f5f463975419a846f44d74a26c19c7d81) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed codemods for legacy Circuit UI versions. Any given Circuit UI version will now only include codemods for migrating from the previous major version. The library doesn't support skipping major versions when upgrading.
+
 ## 5.1.5
 
 ### Patch Changes
