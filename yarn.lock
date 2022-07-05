@@ -11477,7 +11477,7 @@ js-yaml@^4.1.0:
   dependencies:
     argparse "^2.0.1"
 
-jscodeshift@^0.13.0:
+jscodeshift@^0.13.1:
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-0.13.1.tgz#69bfe51e54c831296380585c6d9e733512aecdef"
   integrity sha512-lGyiEbGOvmMRKgWk4vf+lUrCWO/8YR8sUR3FKF1Cq5fovjZDlIcw3Hu5ppLHAnEXshVffvaM0eyuY/AbOeYpnQ==

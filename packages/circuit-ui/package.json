@@ -36,7 +36,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "cross-spawn": "^7.0.3",
-    "jscodeshift": "^0.13.0",
+    "jscodeshift": "^0.13.1",
     "moment": "^2.29.2",
     "prop-types": "^15.7.2",
     "react-dates": "^21.2.0",
