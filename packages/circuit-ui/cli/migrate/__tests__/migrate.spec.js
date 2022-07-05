@@ -22,42 +22,6 @@ jest.autoMockOff();
 
 const PARSERS = ['babel', 'tsx', 'flow'];
 
-// v2
-defineTest('button-variant-enum');
-defineTest('button-size-giga');
-defineTest('list-variant-enum');
-defineTest('onchange-prop');
-defineTest('as-prop');
-defineTest('selector-props');
-defineTest('exit-animations');
-defineTest('input-deepref-prop');
-defineTest('input-styles-prop');
-defineTest('component-names-v2');
-defineTest('component-static-properties');
-defineTest('toggle-checked-prop');
-defineTest('badge-variant-enum');
-defineTest('inline-message-variant-enum');
-// Need to skip the TypeScript parser, because the output format slightly
-// differs from the expected format (but it is correct).
-defineTest('theme-grid-tera', null, { parser: 'babel' });
-defineTest('theme-to-design-tokens', 'theme-to-design-tokens-1');
-defineTest('theme-to-design-tokens', 'theme-to-design-tokens-2');
-defineTest('theme-icon-sizes');
-defineTest('currency-utils', 'currency-utils-1');
-defineTest('currency-utils', 'currency-utils-2');
-
-// v3
-defineTest('component-names-v3');
-defineTest('typography-sizes');
-defineTest('body-variant-highlight');
-defineTest('theme-border-radius');
-defineTest('button-default-size');
-defineTest('label-prop-names');
-
-// v4
-defineTest('icons-v2');
-
-// v5
 defineTest('component-names-v5');
 defineTest('semantic-color-names');
 defineTest('semantic-variant-names');
