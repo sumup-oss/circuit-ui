@@ -32,6 +32,7 @@ function findNotEmpty(collections: Collection[]) {
   return collections[0];
 }
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 export function findImportsByPath(
   j: JSCodeshift,
   root: Collection,
@@ -44,7 +45,9 @@ export function findImportsByPath(
     ['Literal', 'StringLiteral'].map((type) =>
       root.find(j.ImportDeclaration, {
         source: {
+          // @ts-ignore
           type,
+          // @ts-ignore
           value: importPath,
         },
       }),
@@ -53,9 +56,6 @@ export function findImportsByPath(
 
   importDeclaration.forEach((nodePath) => {
     nodePath.value.specifiers.forEach((specifier: unknown) => {
-      // These TypeScript errors are incorrect,
-      // but I (Connor) am too lazy to submit a fix ¯\_(ツ)_/¯
-      /* eslint-disable @typescript-eslint/ban-ts-comment */
       if (j.ImportDefaultSpecifier.check(specifier)) {
         imports.push({
           type: 'default',
@@ -71,12 +71,12 @@ export function findImportsByPath(
           local: specifier.local.name,
         });
       }
-      /* eslint-enable @typescript-eslint/ban-ts-comment */
     });
   });
 
   return imports;
 }
+/* eslint-enable @typescript-eslint/ban-ts-comment */
 
 export function findStyledComponentNames(
   j: JSCodeshift,

@@ -38,10 +38,16 @@ function transformFactory(
             type: 'JSXIdentifier',
             name: 'size',
           },
+          // These TypeScript errors popped up when bumping @types/jscodeshift
+          // to 0.11.5. The codemod works.
+          /* eslint-disable @typescript-eslint/ban-ts-comment */
           value: {
+            // @ts-ignore
             type,
+            // @ts-ignore
             value: 'mega',
           },
+          /* eslint-enable @typescript-eslint/ban-ts-comment */
         })
         .replaceWith(() =>
           j.jsxAttribute(j.jsxIdentifier('size'), j.stringLiteral('giga')),

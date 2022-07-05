@@ -40,10 +40,16 @@ function renameFactory(
               type: 'JSXIdentifier',
               name: 'size',
             },
+            // These TypeScript errors popped up when bumping @types/jscodeshift
+            // to 0.11.5. The codemod works.
+            /* eslint-disable @typescript-eslint/ban-ts-comment */
             value: {
+              // @ts-ignore
               type,
+              // @ts-ignore
               value: oldValue,
             },
+            /* eslint-enable @typescript-eslint/ban-ts-comment */
           })
           .replaceWith(() =>
             j.jsxAttribute(j.jsxIdentifier('size'), j.stringLiteral(newValue)),
@@ -99,10 +105,16 @@ function warnFactory(
             type: 'JSXIdentifier',
             name: 'size',
           },
+          // These TypeScript errors popped up when bumping @types/jscodeshift
+          // to 0.11.5. The codemod works.
+          /* eslint-disable @typescript-eslint/ban-ts-comment */
           value: {
+            // @ts-ignore
             type,
+            // @ts-ignore
             value: propName,
           },
+          /* eslint-enable @typescript-eslint/ban-ts-comment */
         })
         .forEach((nodePath) => {
           const hasValue = Boolean(nodePath.value.value);
