@@ -49,13 +49,16 @@ const WithProviders: FunctionComponent<PropsWithChildren<unknown>> = ({
 const render: RenderFn<RenderResult> = (component, options: RenderOptions) =>
   renderTest(component, { wrapper: WithProviders, ...options });
 /**
- * FIXME: `renderToHtml` should be removed and replaced in a11y tests by
- * const { container } = render(<Component />);
+ * @deprecated `renderToHtml` is deprecated. Instead, run axe on the container
+ * from `const { container } = render(<Component />)`.
  */
 const renderToHtml: RenderFn<HTMLElement> = (component) => {
   const { container } = render(component);
   return container;
 };
+/**
+ * @deprecated `create` is deprecated. Use `render` instead.
+ */
 const create = (
   ...args: Parameters<RenderFn<RenderResult>>
 ): ChildNode | HTMLCollection | null => {
