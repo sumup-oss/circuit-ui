@@ -23,6 +23,7 @@ import {
   axe,
   RenderFn,
   userEvent,
+  screen,
 } from '../../util/test-utils';
 import { ClickEvent } from '../../types/events';
 
@@ -84,15 +85,14 @@ describe('Anchor', () => {
     it('should call the onClick handler when rendered as a link', async () => {
       const props = {
         ...baseProps,
-        'href': 'https://sumup.com',
-        'onClick': jest.fn((event: ClickEvent) => {
+        href: 'https://sumup.com',
+        onClick: jest.fn((event: ClickEvent) => {
           event.preventDefault();
         }),
-        'data-testid': 'anchor',
       };
-      const { getByTestId } = renderAnchor(render, props);
+      renderAnchor(render, props);
 
-      await userEvent.click(getByTestId('anchor'));
+      await userEvent.click(screen.getByRole('link'));
 
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });
