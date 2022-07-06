@@ -49,15 +49,15 @@ const WithProviders: FunctionComponent<PropsWithChildren<unknown>> = ({
 const render: RenderFn<RenderResult> = (component, options: RenderOptions) =>
   renderTest(component, { wrapper: WithProviders, ...options });
 /**
- * @deprecated renderToHtml is deprecated. Use `axe(screen)` in accessibility
- * tests instead.
+ * @deprecated `renderToHtml` is deprecated. Instead, run axe on the container
+ * from `const { container } = render(<Component />)`.
  */
 const renderToHtml: RenderFn<HTMLElement> = (component) => {
   const { container } = render(component);
   return container;
 };
 /**
- * @deprecated create is deprecated. Use render instead.
+ * @deprecated `create` is deprecated. Use `render` instead.
  */
 const create = (
   ...args: Parameters<RenderFn<RenderResult>>
