@@ -411,6 +411,21 @@
       "size": "32"
     },
     {
+      "name": "apple_pay",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "bancontact",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "boleto",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "diners_club",
       "category": "Card scheme",
       "size": "32"
@@ -431,12 +446,27 @@
       "size": "32"
     },
     {
+      "name": "google_pay",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "hipercard",
       "category": "Card scheme",
       "size": "32"
     },
     {
+      "name": "ideal",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "jcb",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "klarna",
       "category": "Card scheme",
       "size": "32"
     },
@@ -447,6 +477,11 @@
     },
     {
       "name": "mastercard",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "pay_pal",
       "category": "Card scheme",
       "size": "32"
     },
