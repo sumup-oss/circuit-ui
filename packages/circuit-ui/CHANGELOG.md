@@ -1,6 +1,6 @@
 # @sumup/circuit-ui
 
-## 6.0.0
+## 5.1.7
 
 ### Patch Changes
 
