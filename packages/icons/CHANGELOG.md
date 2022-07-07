@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.12.0
+
+### Minor Changes
+
+- [#1648](https://github.com/sumup-oss/circuit-ui/pull/1648) [`821532f9`](https://github.com/sumup-oss/circuit-ui/commit/821532f9728ec34b4bb00d1273ca8c6484ea26b4) Thanks [@hris27](https://github.com/hris27)! - Added new size 32 card scheme icons: `ApplePay`, `Bancontact`, `Boleto`, `GooglePay`, `Ideal`, `Klarna` and `PayPal`.
+
 ## 2.11.0
 
 ### Minor Changes
