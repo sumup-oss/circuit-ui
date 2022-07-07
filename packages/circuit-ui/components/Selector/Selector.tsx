@@ -77,7 +77,9 @@ export interface SelectorProps
 type LabelElProps = Pick<SelectorProps, 'disabled' | 'size' | 'noMargin'>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   background-color: ${theme.colors.white};
   text-align: center;
