@@ -1384,8 +1384,8 @@ tbody .circuit-4:last-child td {
   font-size: 14px;
   line-height: 20px;
   vertical-align: middle;
-  padding: 12px 16px;
-  padding: 8px 16px;
+  padding: 12px 16px 12px 24px;
+  padding: 12px 16px 12px 24px;
 }
 
 @media (max-width: 767px) {
@@ -1494,7 +1494,7 @@ tbody .circuit-4:last-child td {
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   overflow-wrap: break-word;
-  padding: 12px 16px;
+  padding: 12px 16px 12px 24px;
   font-size: 14px;
   line-height: 20px;
   display: none;
@@ -1503,10 +1503,10 @@ tbody .circuit-4:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   white-space: nowrap;
-  padding: 12px 16px;
+  padding: 12px 16px 12px 24px;
   font-size: 14px;
   line-height: 20px;
-  padding: 8px 16px;
+  padding: 12px 16px 12px 24px;
 }
 
 @media (max-width: 767px) {
@@ -1541,8 +1541,8 @@ tbody .circuit-4:last-child td {
   font-size: 14px;
   line-height: 20px;
   vertical-align: middle;
-  padding: 12px 16px;
-  padding: 8px 16px;
+  padding: 12px 16px 12px 24px;
+  padding: 12px 16px 12px 24px;
 }
 
 .circuit-12:focus-within::after {
@@ -1592,8 +1592,8 @@ tbody .circuit-4:last-child td {
   font-size: 14px;
   line-height: 20px;
   vertical-align: middle;
-  padding: 12px 16px;
-  padding: 8px 16px;
+  padding: 12px 16px 12px 24px;
+  padding: 12px 16px 12px 24px;
 }
 
 .circuit-20 {
@@ -1606,7 +1606,7 @@ tbody .circuit-4:last-child td {
   font-size: 14px;
   line-height: 20px;
   vertical-align: middle;
-  padding: 12px 16px;
+  padding: 12px 16px 12px 24px;
 }
 
 @media (max-width: 767px) {
@@ -1628,11 +1628,11 @@ tbody .circuit-4:last-child td {
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   overflow-wrap: break-word;
-  padding: 12px 16px;
+  padding: 12px 16px 12px 24px;
   font-size: 14px;
   line-height: 20px;
   display: none;
-  padding: 12px 16px;
+  padding: 12px 16px 12px 24px;
   font-size: 14px;
   line-height: 20px;
 }
@@ -1655,7 +1655,7 @@ tbody .circuit-4:last-child td {
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   overflow-wrap: break-word;
-  padding: 12px 16px;
+  padding: 12px 16px 12px 24px;
   font-size: 14px;
   line-height: 20px;
 }
