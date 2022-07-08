@@ -1385,7 +1385,7 @@ tbody .circuit-4:last-child td {
   line-height: 20px;
   vertical-align: middle;
   padding: 12px 16px 12px 24px;
-  padding: 12px 16px 12px 24px;
+  padding: 8px 16px 8px 24px;
 }
 
 @media (max-width: 767px) {
@@ -1506,7 +1506,7 @@ tbody .circuit-4:last-child td {
   padding: 12px 16px 12px 24px;
   font-size: 14px;
   line-height: 20px;
-  padding: 12px 16px 12px 24px;
+  padding: 8px 16px 8px 24px;
 }
 
 @media (max-width: 767px) {
@@ -1542,7 +1542,7 @@ tbody .circuit-4:last-child td {
   line-height: 20px;
   vertical-align: middle;
   padding: 12px 16px 12px 24px;
-  padding: 12px 16px 12px 24px;
+  padding: 8px 16px 8px 24px;
 }
 
 .circuit-12:focus-within::after {
@@ -1593,7 +1593,7 @@ tbody .circuit-4:last-child td {
   line-height: 20px;
   vertical-align: middle;
   padding: 12px 16px 12px 24px;
-  padding: 12px 16px 12px 24px;
+  padding: 8px 16px 8px 24px;
 }
 
 .circuit-20 {
