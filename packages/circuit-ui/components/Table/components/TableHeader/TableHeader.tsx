@@ -162,8 +162,8 @@ const condensedColStyles = ({
   condensed &&
   scope === 'col' &&
   css`
-    padding: ${theme.spacings.kilo} ${theme.spacings.mega}
-      ${theme.spacings.kilo} ${theme.spacings.giga};
+    padding: ${theme.spacings.byte} ${theme.spacings.mega}
+      ${theme.spacings.byte} ${theme.spacings.giga};
   `;
 
 const StyledHeader = styled('th', {
