@@ -72,7 +72,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "expect": "^28.1.1",
     "jest": "^28.1.1",
-    "jest-cli": "^28.1.1",
+    "jest-cli": "^28.1.2",
     "jest-environment-jsdom": "^28.1.2",
     "lerna": "^5.1.6",
     "license-checker": "^25.0.1",
