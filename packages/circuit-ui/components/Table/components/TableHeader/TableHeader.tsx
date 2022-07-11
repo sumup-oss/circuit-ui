@@ -150,7 +150,8 @@ const condensedStyles = ({ condensed, theme }: StyleProps & ThElProps) =>
   css`
     ${typography('two')(theme)};
     vertical-align: middle;
-    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega}
+      ${theme.spacings.kilo} ${theme.spacings.giga};
   `;
 
 const condensedColStyles = ({
@@ -161,7 +162,8 @@ const condensedColStyles = ({
   condensed &&
   scope === 'col' &&
   css`
-    padding: ${theme.spacings.byte} ${theme.spacings.mega};
+    padding: ${theme.spacings.byte} ${theme.spacings.mega}
+      ${theme.spacings.byte} ${theme.spacings.giga};
   `;
 
 const StyledHeader = styled('th', {

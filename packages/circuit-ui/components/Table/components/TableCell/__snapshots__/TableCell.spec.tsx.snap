@@ -10,7 +10,7 @@ exports[`TableCell Style tests should render with condensed styles 1`] = `
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   overflow-wrap: break-word;
-  padding: 12px 16px;
+  padding: 12px 16px 12px 24px;
   font-size: 14px;
   line-height: 20px;
 }

@@ -88,7 +88,8 @@ const hoverStyles = ({
 const condensedStyles = ({ condensed, theme }: TableCellProps & StyleProps) =>
   condensed &&
   css`
-    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega}
+      ${theme.spacings.kilo} ${theme.spacings.giga};
     ${typography('two')(theme)};
   `;
 
@@ -101,12 +102,14 @@ const condensedPresentationStyles = ({
   condensed &&
   role === PRESENTATION &&
   css`
-    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega}
+      ${theme.spacings.kilo} ${theme.spacings.giga};
     ${typography('two')(theme)};
 
     ${header &&
     css`
-      padding: ${theme.spacings.byte} ${theme.spacings.mega};
+      padding: ${theme.spacings.byte} ${theme.spacings.mega}
+        ${theme.spacings.byte} ${theme.spacings.giga};
     `}
   `;
 
