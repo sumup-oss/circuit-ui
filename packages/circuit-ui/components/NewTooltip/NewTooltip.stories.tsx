@@ -13,20 +13,24 @@
  * limitations under the License.
  */
 
+import React from 'react';
 import styled from '@emotion/styled';
 import { Info } from '@sumup/icons';
 
+import docs from './NewTooltip.docs.mdx';
 import { NewTooltip as Tooltip, TooltipProps } from './NewTooltip';
 
 export default {
   title: 'Components/NewTooltip',
   component: Tooltip,
+  parameters: {
+    docs: { page: docs },
+  },
 };
 
 const TooltipContainer = styled('div')`
   display: flex;
   height: 200px;
-  width: 200px;
   align-items: center;
   justify-content: center;
 `;
@@ -38,13 +42,7 @@ const Button = styled.button`
   padding: 0;
 `;
 
-export const Base = (args: TooltipProps) => (
-  <TooltipContainer>
-    <Tooltip {...args} />
-  </TooltipContainer>
-);
-
-Base.args = {
+const baseArgs: TooltipProps = {
   text: 'I am a teeny, tiny tooltip.',
   placement: 'bottom',
   component: () => (
@@ -53,3 +51,43 @@ Base.args = {
     </Button>
   ),
 };
+
+export const Base = (args: TooltipProps) => (
+  <TooltipContainer>
+    <Tooltip {...args} />
+  </TooltipContainer>
+);
+
+Base.args = baseArgs;
+
+export const Top = (args) => (
+  <TooltipContainer>
+    <Tooltip {...args} />
+  </TooltipContainer>
+);
+
+Top.args = { ...baseArgs, placement: 'top' };
+
+export const Bottom = (args) => (
+  <TooltipContainer>
+    <Tooltip {...args} />
+  </TooltipContainer>
+);
+
+Bottom.args = { ...baseArgs, placement: 'bottom' };
+
+export const Left = (args) => (
+  <TooltipContainer>
+    <Tooltip {...args} />
+  </TooltipContainer>
+);
+
+Left.args = { ...baseArgs, placement: 'left' };
+
+export const Right = (args) => (
+  <TooltipContainer>
+    <Tooltip {...args} />
+  </TooltipContainer>
+);
+
+Right.args = { ...baseArgs, placement: 'right' };
