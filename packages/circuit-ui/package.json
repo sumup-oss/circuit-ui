@@ -34,6 +34,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@floating-ui/react-dom": "^0.7.2",
     "@popperjs/core": "^2.11.5",
     "cross-spawn": "^7.0.3",
     "jscodeshift": "^0.13.1",
