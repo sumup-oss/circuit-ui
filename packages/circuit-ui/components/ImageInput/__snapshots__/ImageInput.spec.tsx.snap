@@ -1510,7 +1510,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
     </span>
   </div>
   <span
-    aria-live="assertive"
+    aria-live="polite"
     class="circuit-12"
     id="validation_hint"
   >
