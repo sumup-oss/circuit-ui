@@ -483,7 +483,7 @@ export const ImageInput = ({
       </InputWrapper>
       <ValidationHint
         id="validation_hint"
-        aria-live="assertive"
+        aria-live="polite"
         validationHint={validationHint}
         invalid={invalid}
       />
