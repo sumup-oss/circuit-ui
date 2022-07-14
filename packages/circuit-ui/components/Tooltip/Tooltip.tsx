@@ -28,13 +28,17 @@ import { typography } from '../../styles/style-mixins';
 
 export interface TooltipProps {
   /**
-   * The text content of the tooltip
+   * The text content of the tooltip.
    */
   text: string;
   /**
-   * The placement of the tooltip in relation to the anchored component
+   * The placement of the tooltip in relation to the anchored component.
    */
   placement?: Placement;
+  /**
+   * Element Id. Needed for aria-labelledby.
+   */
+  id: string;
   children?: JSX.Element;
 }
 
@@ -62,9 +66,15 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const TooltipContainer = styled.div<NoTheme>(baseStyles, typography('two'));
 
-const AnchoredElementWrapper = styled.div`
-  display: inline;
+const AnchoredElementWrapper = styled.button`
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+  & * {
+    display: block;
+  }
 `;
 
 const arrowStyles = ({ theme }: StyleProps) => css`
@@ -81,6 +91,7 @@ export const Tooltip = ({
   text,
   placement,
   children,
+  id,
   ...props
 }: TooltipProps) => {
   const arrowRef = useRef(null);
@@ -106,11 +117,12 @@ export const Tooltip = ({
 
   return (
     <div>
-      <AnchoredElementWrapper ref={reference}>
+      <AnchoredElementWrapper aria-labelledby={id} ref={reference}>
         {children}
       </AnchoredElementWrapper>
       <TooltipContainer
         {...props}
+        id={id}
         role="tooltip"
         ref={floating}
         style={{

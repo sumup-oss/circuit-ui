@@ -4,8 +4,15 @@ exports[`Tooltip should render with placement bottom 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -46,7 +53,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -62,9 +70,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -78,8 +87,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -119,7 +135,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -135,9 +152,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -207,8 +225,15 @@ exports[`Tooltip should render with placement bottom-start 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -249,7 +274,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -265,9 +291,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -281,8 +308,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -322,7 +356,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -338,9 +373,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -410,8 +446,15 @@ exports[`Tooltip should render with placement bottom-start 2`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -452,7 +495,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -468,9 +512,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -484,8 +529,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -525,7 +577,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -541,9 +594,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -613,8 +667,15 @@ exports[`Tooltip should render with placement left 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -655,7 +716,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -671,9 +733,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -687,8 +750,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -728,7 +798,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -744,9 +815,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -816,8 +888,15 @@ exports[`Tooltip should render with placement left-end 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -858,7 +937,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -874,9 +954,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -890,8 +971,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -931,7 +1019,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -947,9 +1036,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -1019,8 +1109,15 @@ exports[`Tooltip should render with placement left-start 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -1061,7 +1158,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -1077,9 +1175,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -1093,8 +1192,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -1134,7 +1240,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -1150,9 +1257,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -1222,8 +1330,15 @@ exports[`Tooltip should render with placement right 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -1264,7 +1379,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -1280,9 +1396,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -1296,8 +1413,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -1337,7 +1461,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -1353,9 +1478,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -1425,8 +1551,15 @@ exports[`Tooltip should render with placement right-end 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -1467,7 +1600,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -1483,9 +1617,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -1499,8 +1634,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -1540,7 +1682,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -1556,9 +1699,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -1628,8 +1772,15 @@ exports[`Tooltip should render with placement right-start 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -1670,7 +1821,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -1686,9 +1838,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -1702,8 +1855,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -1743,7 +1903,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -1759,9 +1920,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -1831,8 +1993,15 @@ exports[`Tooltip should render with placement top 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -1873,7 +2042,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -1889,9 +2059,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -1905,8 +2076,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -1946,7 +2124,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -1962,9 +2141,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -2034,8 +2214,15 @@ exports[`Tooltip should render with placement top-end 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -2076,7 +2263,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -2092,9 +2280,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -2108,8 +2297,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -2149,7 +2345,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -2165,9 +2362,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -2237,8 +2435,15 @@ exports[`Tooltip should render with placement top-start 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -2279,7 +2484,8 @@ Object {
 <body>
     <div>
       <div>
-        <div
+        <button
+          aria-labelledby="test-tooltip"
           class="circuit-0"
         >
           <svg
@@ -2295,9 +2501,10 @@ Object {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
         <div
           class="circuit-1"
+          id="test-tooltip"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -2311,8 +2518,15 @@ Object {
     </div>
   </body>,
   "container": .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -2352,7 +2566,8 @@ Object {
 
 <div>
     <div>
-      <div
+      <button
+        aria-labelledby="test-tooltip"
         class="circuit-0"
       >
         <svg
@@ -2368,9 +2583,10 @@ Object {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       <div
         class="circuit-1"
+        id="test-tooltip"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >

@@ -35,13 +35,6 @@ const TooltipContainer = styled('div')`
   justify-content: center;
 `;
 
-const Button = styled.button`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-`;
-
 const baseArgs: Partial<TooltipProps> = {
   text: 'I am a teeny, tiny tooltip.',
   placement: 'bottom',
@@ -49,10 +42,8 @@ const baseArgs: Partial<TooltipProps> = {
 
 export const Base = (args: TooltipProps) => (
   <TooltipContainer>
-    <Tooltip {...args}>
-      <Button>
-        <Info size="16" style={{ width: 'auto' }} />
-      </Button>
+    <Tooltip {...args} id="base-tooltip">
+      <Info size="16" style={{ width: 'auto' }} />
     </Tooltip>
   </TooltipContainer>
 );
@@ -61,10 +52,8 @@ Base.args = baseArgs;
 
 export const Top = (args) => (
   <TooltipContainer>
-    <Tooltip {...args}>
-      <Button>
-        <Info size="16" style={{ width: 'auto' }} />
-      </Button>
+    <Tooltip {...args} id="top-tooltip">
+      <Info size="16" style={{ width: 'auto' }} />
     </Tooltip>
   </TooltipContainer>
 );
@@ -73,10 +62,8 @@ Top.args = { ...baseArgs, placement: 'top' };
 
 export const Bottom = (args) => (
   <TooltipContainer>
-    <Tooltip {...args}>
-      <Button>
-        <Info size="16" style={{ width: 'auto' }} />
-      </Button>
+    <Tooltip {...args} id="bottom-tooltip">
+      <Info size="16" style={{ width: 'auto' }} />
     </Tooltip>
   </TooltipContainer>
 );
@@ -85,10 +72,8 @@ Bottom.args = { ...baseArgs, placement: 'bottom' };
 
 export const Left = (args) => (
   <TooltipContainer>
-    <Tooltip {...args}>
-      <Button>
-        <Info size="16" style={{ width: 'auto' }} />
-      </Button>
+    <Tooltip {...args} id="left-tooltip">
+      <Info size="16" style={{ width: 'auto' }} />
     </Tooltip>
   </TooltipContainer>
 );
@@ -97,10 +82,8 @@ Left.args = { ...baseArgs, placement: 'left' };
 
 export const Right = (args) => (
   <TooltipContainer>
-    <Tooltip {...args}>
-      <Button>
-        <Info size="16" style={{ width: 'auto' }} />
-      </Button>
+    <Tooltip {...args} id="right-tooltip">
+      <Info size="16" style={{ width: 'auto' }} />
     </Tooltip>
   </TooltipContainer>
 );

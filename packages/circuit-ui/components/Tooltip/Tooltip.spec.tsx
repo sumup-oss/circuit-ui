@@ -49,7 +49,7 @@ describe('Tooltip', () => {
   placements.forEach((placement) => {
     it(`should render with placement ${placement}`, () => {
       const tooltip = render(
-        <Tooltip text="Tooltip content" placement={placement}>
+        <Tooltip text="Tooltip content" placement={placement} id="test-tooltip">
           <Info size="16" style={{ width: 'auto' }} />
         </Tooltip>,
       );
@@ -62,7 +62,7 @@ describe('Tooltip', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const { container } = render(
-      <Tooltip text="Tooltip content" placement="top">
+      <Tooltip text="Tooltip content" placement="top" id="test-tooltip-2">
         <Info size="16" style={{ width: 'auto' }} />
       </Tooltip>,
     );

@@ -3,8 +3,15 @@
 exports[`Checkbox should render with a tooltip when passed a validation hint 1`] = `
 HTMLCollection [
   .circuit-0 {
-  display: inline;
+  display: block;
+  border: none;
+  background-color: transparent;
   width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
 }
 
 .circuit-1 {
@@ -43,7 +50,7 @@ HTMLCollection [
 }
 
 <div>
-    <div
+    <button
       class="circuit-0"
     />
     <div
