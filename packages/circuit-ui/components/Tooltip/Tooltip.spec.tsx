@@ -62,7 +62,7 @@ describe('Tooltip', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const { container } = render(
-      <Tooltip text="Tooltip content" placement="top" id="test-tooltip-2">
+      <Tooltip text="Tooltip content" placement="top">
         <Info size="16" style={{ width: 'auto' }} />
       </Tooltip>,
     );

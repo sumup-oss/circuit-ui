@@ -54,7 +54,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":ra:"
           class="circuit-0"
         >
           <svg
@@ -73,7 +73,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":ra:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -136,7 +136,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":ra:"
         class="circuit-0"
       >
         <svg
@@ -155,7 +155,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":ra:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -275,7 +275,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":r9:"
           class="circuit-0"
         >
           <svg
@@ -294,7 +294,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":r9:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -357,7 +357,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":r9:"
         class="circuit-0"
       >
         <svg
@@ -376,7 +376,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":r9:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -496,7 +496,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":rb:"
           class="circuit-0"
         >
           <svg
@@ -515,7 +515,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":rb:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -578,7 +578,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":rb:"
         class="circuit-0"
       >
         <svg
@@ -597,7 +597,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":rb:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -717,7 +717,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":r4:"
           class="circuit-0"
         >
           <svg
@@ -736,7 +736,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":r4:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -799,7 +799,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":r4:"
         class="circuit-0"
       >
         <svg
@@ -818,7 +818,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":r4:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -938,7 +938,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":r5:"
           class="circuit-0"
         >
           <svg
@@ -957,7 +957,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":r5:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -1020,7 +1020,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":r5:"
         class="circuit-0"
       >
         <svg
@@ -1039,7 +1039,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":r5:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -1159,7 +1159,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":r3:"
           class="circuit-0"
         >
           <svg
@@ -1178,7 +1178,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":r3:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -1241,7 +1241,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":r3:"
         class="circuit-0"
       >
         <svg
@@ -1260,7 +1260,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":r3:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -1380,7 +1380,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":r7:"
           class="circuit-0"
         >
           <svg
@@ -1399,7 +1399,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":r7:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -1462,7 +1462,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":r7:"
         class="circuit-0"
       >
         <svg
@@ -1481,7 +1481,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":r7:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -1601,7 +1601,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":r8:"
           class="circuit-0"
         >
           <svg
@@ -1620,7 +1620,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":r8:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -1683,7 +1683,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":r8:"
         class="circuit-0"
       >
         <svg
@@ -1702,7 +1702,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":r8:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -1822,7 +1822,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":r6:"
           class="circuit-0"
         >
           <svg
@@ -1841,7 +1841,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":r6:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -1904,7 +1904,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":r6:"
         class="circuit-0"
       >
         <svg
@@ -1923,7 +1923,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":r6:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -2043,7 +2043,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":r1:"
           class="circuit-0"
         >
           <svg
@@ -2062,7 +2062,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":r1:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -2125,7 +2125,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":r1:"
         class="circuit-0"
       >
         <svg
@@ -2144,7 +2144,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":r1:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -2264,7 +2264,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":r2:"
           class="circuit-0"
         >
           <svg
@@ -2283,7 +2283,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":r2:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -2346,7 +2346,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":r2:"
         class="circuit-0"
       >
         <svg
@@ -2365,7 +2365,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":r2:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >
@@ -2485,7 +2485,7 @@ Object {
     <div>
       <div>
         <button
-          aria-labelledby="test-tooltip"
+          aria-labelledby=":r0:"
           class="circuit-0"
         >
           <svg
@@ -2504,7 +2504,7 @@ Object {
         </button>
         <div
           class="circuit-1"
-          id="test-tooltip"
+          id=":r0:"
           role="tooltip"
           style="position: absolute; top: 0px; left: 0px;"
         >
@@ -2567,7 +2567,7 @@ Object {
 <div>
     <div>
       <button
-        aria-labelledby="test-tooltip"
+        aria-labelledby=":r0:"
         class="circuit-0"
       >
         <svg
@@ -2586,7 +2586,7 @@ Object {
       </button>
       <div
         class="circuit-1"
-        id="test-tooltip"
+        id=":r0:"
         role="tooltip"
         style="position: absolute; top: 0px; left: 0px;"
       >

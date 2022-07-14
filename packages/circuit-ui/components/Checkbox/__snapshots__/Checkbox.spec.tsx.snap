@@ -51,10 +51,12 @@ HTMLCollection [
 
 <div>
     <button
+      aria-labelledby=":r0:"
       class="circuit-0"
     />
     <div
       class="circuit-1"
+      id=":r0:"
       role="tooltip"
       style="position: absolute; top: 0px; left: 0px;"
     >

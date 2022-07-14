@@ -42,7 +42,7 @@ const baseArgs: Partial<TooltipProps> = {
 
 export const Base = (args: TooltipProps) => (
   <TooltipContainer>
-    <Tooltip {...args} id="base-tooltip">
+    <Tooltip {...args}>
       <Info size="16" style={{ width: 'auto' }} />
     </Tooltip>
   </TooltipContainer>
@@ -52,7 +52,7 @@ Base.args = baseArgs;
 
 export const Top = (args) => (
   <TooltipContainer>
-    <Tooltip {...args} id="top-tooltip">
+    <Tooltip {...args}>
       <Info size="16" style={{ width: 'auto' }} />
     </Tooltip>
   </TooltipContainer>
@@ -62,7 +62,7 @@ Top.args = { ...baseArgs, placement: 'top' };
 
 export const Bottom = (args) => (
   <TooltipContainer>
-    <Tooltip {...args} id="bottom-tooltip">
+    <Tooltip {...args}>
       <Info size="16" style={{ width: 'auto' }} />
     </Tooltip>
   </TooltipContainer>
@@ -72,7 +72,7 @@ Bottom.args = { ...baseArgs, placement: 'bottom' };
 
 export const Left = (args) => (
   <TooltipContainer>
-    <Tooltip {...args} id="left-tooltip">
+    <Tooltip {...args}>
       <Info size="16" style={{ width: 'auto' }} />
     </Tooltip>
   </TooltipContainer>
@@ -82,7 +82,7 @@ Left.args = { ...baseArgs, placement: 'left' };
 
 export const Right = (args) => (
   <TooltipContainer>
-    <Tooltip {...args} id="right-tooltip">
+    <Tooltip {...args}>
       <Info size="16" style={{ width: 'auto' }} />
     </Tooltip>
   </TooltipContainer>

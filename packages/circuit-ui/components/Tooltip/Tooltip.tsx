@@ -21,7 +21,7 @@ import {
   Placement,
   useFloating,
 } from '@floating-ui/react-dom';
-import { useRef } from 'react';
+import { useId, useRef } from 'react';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
@@ -35,10 +35,6 @@ export interface TooltipProps {
    * The placement of the tooltip in relation to the anchored component.
    */
   placement?: Placement;
-  /**
-   * Element Id. Needed for aria-labelledby.
-   */
-  id: string;
   children?: JSX.Element;
 }
 
@@ -91,10 +87,10 @@ export const Tooltip = ({
   text,
   placement,
   children,
-  id,
   ...props
 }: TooltipProps) => {
   const arrowRef = useRef(null);
+  const id = useId();
   const {
     x,
     y,
