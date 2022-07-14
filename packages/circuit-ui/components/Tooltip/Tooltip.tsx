@@ -63,6 +63,11 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const TooltipContainer = styled.div<NoTheme>(baseStyles, typography('two'));
 
+const AnchoredElementWrapper = styled.div`
+  display: inline;
+  position: relative;
+`;
+
 const arrowStyles = ({ theme }: StyleProps) => css`
   position: absolute;
   background-color: ${theme.colors.n900};
@@ -73,7 +78,12 @@ const arrowStyles = ({ theme }: StyleProps) => css`
 
 const Arrow = styled.div(arrowStyles);
 
-export const Tooltip = ({ text, placement, children }: TooltipProps) => {
+export const Tooltip = ({
+  text,
+  placement,
+  children,
+  ...props
+}: TooltipProps) => {
   const arrowRef = useRef(null);
   const {
     x,
@@ -97,8 +107,11 @@ export const Tooltip = ({ text, placement, children }: TooltipProps) => {
 
   return (
     <>
-      <span ref={reference}>{children}</span>
+      <AnchoredElementWrapper ref={reference}>
+        {children}
+      </AnchoredElementWrapper>
       <TooltipContainer
+        {...props}
         role="tooltip"
         ref={floating}
         style={{
