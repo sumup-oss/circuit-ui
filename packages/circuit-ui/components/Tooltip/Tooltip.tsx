@@ -15,23 +15,42 @@
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import {
+  arrow,
+  autoUpdate,
+  offset,
+  Placement,
+  useFloating,
+} from '@floating-ui/react-dom';
+import { useRef } from 'react';
 
-import type { StyleProps } from '../../styles/styled';
-import { typography, shadow } from '../../styles/style-mixins';
+import { NoTheme, StyleProps } from '../../styles/styled';
+import { typography } from '../../styles/style-mixins';
+
+export interface TooltipProps {
+  /**
+   * The text content of the tooltip
+   */
+  text: string;
+  /**
+   * The placement of the tooltip in relation to the anchored component
+   */
+  placement?: Placement;
+  children: JSX.Element;
+}
+
+const DEFAULT_PLACEMENT: Placement = 'bottom';
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: ${theme.colors.n900};
   color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.bit};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
-  position: absolute;
   z-index: ${theme.zIndex.tooltip};
   transition: opacity 0.3s;
-
   &::after {
     display: block;
     content: '';
@@ -42,114 +61,64 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const positionMap: Record<Position, Position> = {
-  top: 'bottom',
-  right: 'left',
-  bottom: 'top',
-  left: 'right',
-};
+const TooltipContainer = styled.div<NoTheme>(baseStyles, typography('two'));
 
-export type Position = 'top' | 'right' | 'bottom' | 'left';
-
-const getPositionStyles = ({
-  theme,
-  position,
-}: StyleProps & { position: Position }) => {
-  const absolutePosition = positionMap[position];
-
-  // The first absolute position rule is a fallback.
-  return `
-    ${absolutePosition}: 100%;
-    ${absolutePosition}: calc(100% + ${theme.spacings.kilo});
-
-    &::after {
-      ${position}: 100%;
-      border-${position}-color: ${theme.colors.n900};
-    }
-  `;
-};
-
-type VerticalAlignment = 'top' | 'center' | 'bottom';
-
-function isVerticalAlignment(value: unknown): value is VerticalAlignment {
-  return value === 'top' || value === 'center' || value === 'bottom';
-}
-
-type HorizontalAlignment = 'left' | 'center' | 'right';
-
-function isHorizontalAlignment(value: unknown): value is VerticalAlignment {
-  return value === 'left' || value === 'center' || value === 'right';
-}
-
-export type Alignment = VerticalAlignment | HorizontalAlignment;
-
-const getAlignmentStyles = ({
-  theme,
-  position,
-  align,
-}: StyleProps & TooltipProps) => {
-  const isHorizontal = position === 'bottom' || position === 'top';
-
-  if (isHorizontal && isVerticalAlignment(align)) {
-    return `
-      left: 50%;
-      transform: translateX(-50%);
-
-      &::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    `;
-  }
-
-  if (!isHorizontal && isHorizontalAlignment(align)) {
-    return `
-      top: 50%;
-      transform: translateY(-50%);
-
-      &::after {
-        top: 50%;
-        transform: translateY(-50%);
-      }
-    `;
-  }
-
-  // align is not 'center' and therefore has the same possible values
-  // as a Position.
-  const absolutePosition = positionMap[align as Position];
-
-  /* eslint-disable max-len */
-  return `
-    ${absolutePosition}: 50%;
-    ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${theme.spacings.bit}));
-
-    &::after {
-      ${absolutePosition}: ${theme.spacings.kilo};
-    }
-  `;
-  /* eslint-enable max-len */
-};
-
-const positionAndAlignStyles = ({
-  theme,
-  position = 'right',
-  align = 'center',
-}: StyleProps & TooltipProps) => css`
-  ${getAlignmentStyles({ theme, position, align })};
-  ${getPositionStyles({ theme, position })};
+const arrowStyles = ({ theme }: StyleProps) => css`
+  position: absolute;
+  background-color: ${theme.colors.n900};
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
 `;
 
-export interface TooltipProps {
-  position?: Position;
-  align?: Alignment;
-}
+const Arrow = styled.div(arrowStyles);
 
-/**
- * A Tooltip component
- */
-export const Tooltip = styled.div<TooltipProps>(
-  typography('two'),
-  baseStyles,
-  shadow,
-  positionAndAlignStyles,
-);
+export const Tooltip = ({ text, placement, children }: TooltipProps) => {
+  const arrowRef = useRef(null);
+  const {
+    x,
+    y,
+    reference,
+    placement: floatingPlacement,
+    floating,
+    strategy,
+    middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
+  } = useFloating({
+    placement,
+    whileElementsMounted: autoUpdate,
+    middleware: [offset(10), arrow({ element: arrowRef })],
+  });
+  const staticSide = {
+    top: 'bottom',
+    right: 'left',
+    bottom: 'top',
+    left: 'right',
+  }[(floatingPlacement || DEFAULT_PLACEMENT).split('-')[0]] as Placement;
+
+  return (
+    <>
+      <span ref={reference}>{children}</span>
+      <TooltipContainer
+        role="tooltip"
+        ref={floating}
+        style={{
+          position: strategy,
+          top: y ?? 0,
+          left: x ?? 0,
+        }}
+      >
+        {text}
+        <Arrow
+          ref={arrowRef}
+          style={{
+            left: arrowX != null ? `${arrowX}px` : '',
+            top: arrowY != null ? `${arrowY}px` : '',
+            right: '',
+            bottom: '',
+            [staticSide]: '-4px',
+          }}
+        />
+      </TooltipContainer>
+    </>
+  );
+};

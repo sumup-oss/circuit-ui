@@ -197,12 +197,6 @@ const CheckboxInput = styled('input')<InputElProps>(
   inputDisabledStyles,
 );
 
-const tooltipStyles = ({ theme }: StyleProps) => css`
-  left: -${theme.spacings.kilo};
-`;
-
-const CheckboxTooltip = styled(Tooltip)(tooltipStyles);
-
 /**
  * Checkbox component for forms.
  */
@@ -241,29 +235,35 @@ export const Checkbox = forwardRef(
     const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
     return (
-      <CheckboxWrapper className={className} style={style} noMargin={noMargin}>
-        {/* @ts-expect-error the noMargin prop is required */}
-        <CheckboxInput
-          {...props}
-          id={id}
-          name={name}
-          value={value}
-          type="checkbox"
-          disabled={disabled}
-          invalid={invalid}
-          ref={ref}
-          onChange={handleChange}
-        />
-        <CheckboxLabel htmlFor={id} disabled={disabled}>
-          {children}
-          <Checkmark aria-hidden="true" />
-        </CheckboxLabel>
+      <>
         {!disabled && validationHint && (
-          <CheckboxTooltip position={'top'} align={'right'}>
-            {validationHint}
-          </CheckboxTooltip>
+          <Tooltip text={validationHint} placement="top-start">
+            <div />
+          </Tooltip>
         )}
-      </CheckboxWrapper>
+        <CheckboxWrapper
+          className={className}
+          style={style}
+          noMargin={noMargin}
+        >
+          {/* @ts-expect-error the noMargin prop is required */}
+          <CheckboxInput
+            {...props}
+            id={id}
+            name={name}
+            value={value}
+            type="checkbox"
+            disabled={disabled}
+            invalid={invalid}
+            ref={ref}
+            onChange={handleChange}
+          />
+          <CheckboxLabel htmlFor={id} disabled={disabled}>
+            {children}
+            <Checkmark aria-hidden="true" />
+          </CheckboxLabel>
+        </CheckboxWrapper>
+      </>
     );
   },
 );

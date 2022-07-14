@@ -1,29 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip should override alignment styles with position styles 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`Tooltip should render with placement bottom 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
-  position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 100%;
-  right: calc(100% + 12px);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
@@ -35,47 +27,180 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
   border: 8px solid transparent;
 }
 
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="top: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
-  left: 100%;
-  border-left-color: #1A1A1A;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  Tooltip content
-</div>
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="top: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`Tooltip should render with align bottom, when passed "bottom" for the align prop 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`Tooltip should render with placement bottom-start 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
-  position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  top: 50%;
-  top: calc(50% - (16px + 4px));
-  left: 100%;
-  left: calc(100% + 12px);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
@@ -87,46 +212,180 @@ exports[`Tooltip should render with align bottom, when passed "bottom" for the a
   border: 8px solid transparent;
 }
 
-.circuit-0::after {
-  top: 12px;
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="top: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
-  right: 100%;
-  border-right-color: #1A1A1A;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  Tooltip content
-</div>
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="top: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`Tooltip should render with align center, when passed "center" for the align prop 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`Tooltip should render with placement bottom-start 2`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
-  position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 100%;
-  left: calc(100% + 12px);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
@@ -138,50 +397,180 @@ exports[`Tooltip should render with align center, when passed "center" for the a
   border: 8px solid transparent;
 }
 
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="top: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
-  right: 100%;
-  border-right-color: #1A1A1A;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  Tooltip content
-</div>
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="top: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`Tooltip should render with align left, when passed "left" for the align prop 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`Tooltip should render with placement left 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
-  position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 100%;
-  left: calc(100% + 12px);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
@@ -193,50 +582,180 @@ exports[`Tooltip should render with align left, when passed "left" for the align
   border: 8px solid transparent;
 }
 
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="right: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
-  right: 100%;
-  border-right-color: #1A1A1A;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  Tooltip content
-</div>
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="right: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`Tooltip should render with align right, when passed "right" for the align prop 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`Tooltip should render with placement left-end 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
-  position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 100%;
-  left: calc(100% + 12px);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
@@ -248,47 +767,180 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
   border: 8px solid transparent;
 }
 
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="right: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
-  right: 100%;
-  border-right-color: #1A1A1A;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  Tooltip content
-</div>
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="right: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`Tooltip should render with align top, when passed "top" for the align prop 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`Tooltip should render with placement left-start 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
-  position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  bottom: 50%;
-  bottom: calc(50% - (16px + 4px));
-  left: 100%;
-  left: calc(100% + 12px);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
@@ -300,46 +952,180 @@ exports[`Tooltip should render with align top, when passed "top" for the align p
   border: 8px solid transparent;
 }
 
-.circuit-0::after {
-  bottom: 12px;
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="right: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
-  right: 100%;
-  border-right-color: #1A1A1A;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  Tooltip content
-</div>
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="right: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`Tooltip should render with position bottom, when passed "bottom" for the position prop 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`Tooltip should render with placement right 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
-  position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  top: 100%;
-  top: calc(100% + 12px);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
@@ -351,50 +1137,180 @@ exports[`Tooltip should render with position bottom, when passed "bottom" for th
   border: 8px solid transparent;
 }
 
-.circuit-0::after {
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="left: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
-  bottom: 100%;
-  border-bottom-color: #1A1A1A;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  Tooltip content
-</div>
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="left: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`Tooltip should render with position left, when passed "left" for the position prop 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`Tooltip should render with placement right-end 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
-  position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 100%;
-  right: calc(100% + 12px);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
@@ -406,50 +1322,180 @@ exports[`Tooltip should render with position left, when passed "left" for the po
   border: 8px solid transparent;
 }
 
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="left: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
-  left: 100%;
-  border-left-color: #1A1A1A;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  Tooltip content
-</div>
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="left: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`Tooltip should render with position right, when passed "right" for the position prop 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`Tooltip should render with placement right-start 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
-  position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 100%;
-  left: calc(100% + 12px);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
@@ -461,50 +1507,180 @@ exports[`Tooltip should render with position right, when passed "right" for the 
   border: 8px solid transparent;
 }
 
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="left: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
-  right: 100%;
-  border-right-color: #1A1A1A;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  Tooltip content
-</div>
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="left: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`Tooltip should render with position top, when passed "top" for the position prop 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`Tooltip should render with placement top 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: inline-block;
-  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
-  position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  bottom: 100%;
-  bottom: calc(100% + 12px);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
@@ -516,22 +1692,530 @@ exports[`Tooltip should render with position top, when passed "top" for the posi
   border: 8px solid transparent;
 }
 
-.circuit-0::after {
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="bottom: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .circuit-0::after {
-  top: 100%;
-  border-top-color: #1A1A1A;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  Tooltip content
-</div>
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="bottom: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Tooltip should render with placement top-end 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.circuit-0::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
+}
+
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="bottom: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.circuit-0::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
+}
+
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="bottom: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Tooltip should render with placement top-start 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.circuit-0::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
+}
+
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<body>
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        class="circuit-0 circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2 circuit-3"
+          style="bottom: -4px;"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.circuit-0::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
+}
+
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div>
+    <span>
+      <svg
+        fill="none"
+        height="16"
+        style="width: auto;"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      class="circuit-0 circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      Tooltip content
+      <div
+        class="circuit-2 circuit-3"
+        style="bottom: -4px;"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

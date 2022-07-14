@@ -70,6 +70,7 @@ export const Invalid = (args: CheckboxProps) => {
       onChange={handleChange}
       validationHint={invalid ? args.validationHint : undefined}
       invalid={invalid}
+      noMargin
     >
       {checked ? 'Checked' : 'Unchecked'}
     </Checkbox>

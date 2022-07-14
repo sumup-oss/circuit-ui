@@ -1,7 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox should render with a tooltip when passed a validation hint 1`] = `
-.circuit-0 {
+HTMLCollection [
+  <span>
+    <div />
+  </span>,
+  .circuit-0 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.circuit-0::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
+}
+
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div
+    class="circuit-0 circuit-1"
+    role="tooltip"
+    style="position: absolute; top: 0px; left: 0px;"
+  >
+    This field is required.
+    <div
+      class="circuit-2 circuit-3"
+      style="bottom: -4px;"
+    />
+  </div>,
+  .circuit-0 {
   position: relative;
 }
 
@@ -102,81 +152,36 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   cursor: pointer;
 }
 
-.circuit-3 {
-  font-size: 14px;
-  line-height: 20px;
-  display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #1A1A1A;
-  color: #FFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 40;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  left: 50%;
-  left: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  left: -12px;
-}
-
-.circuit-3::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-3::after {
-  left: 12px;
-}
-
-.circuit-3::after {
-  top: 100%;
-  border-top-color: #1A1A1A;
-}
-
 <div
-  class="circuit-0"
->
-  <input
-    class="circuit-1"
-    id="checkbox_6"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    for="checkbox_6"
+    class="circuit-0"
   >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+    <input
+      class="circuit-1"
+      id="checkbox_6"
+      name="name"
+      type="checkbox"
+      value=""
+    />
+    <label
+      class="circuit-2"
+      for="checkbox_6"
     >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
-      />
-    </svg>
-  </label>
-  <div
-    class="circuit-3"
-  >
-    This field is required.
-  </div>
-</div>
+      <svg
+        aria-hidden="true"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+          fill="currentColor"
+        />
+      </svg>
+    </label>
+  </div>,
+]
 `;
 
 exports[`Checkbox should render with checked styles when passed the checked prop 1`] = `

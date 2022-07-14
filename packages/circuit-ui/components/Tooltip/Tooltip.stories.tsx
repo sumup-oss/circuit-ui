@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
+import React from 'react';
 import styled from '@emotion/styled';
 import { Info } from '@sumup/icons';
 
 import docs from './Tooltip.docs.mdx';
-import { Tooltip } from './Tooltip';
+import { Tooltip, TooltipProps } from './Tooltip';
 
 export default {
   title: 'Components/Tooltip',
@@ -25,77 +26,83 @@ export default {
   parameters: {
     docs: { page: docs },
   },
-  argTypes: {
-    position: {
-      options: ['top', 'bottom', 'left', 'right'],
-      control: {
-        type: 'select',
-      },
-    },
-    align: {
-      options: ['top', 'bottom', 'left', 'right', 'center'],
-      control: {
-        type: 'select',
-      },
-    },
-  },
 };
 
 const TooltipContainer = styled('div')`
-  position: relative;
-  line-height: 0;
-  margin: 1rem;
-
-  div {
-    visibility: visible;
-    opacity: 1;
-  }
+  display: flex;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const Base = (args) => (
+const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+`;
+
+const baseArgs: Partial<TooltipProps> = {
+  text: 'I am a teeny, tiny tooltip.',
+  placement: 'bottom',
+};
+
+export const Base = (args: TooltipProps) => (
   <TooltipContainer>
-    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info size="16" />
+    <Tooltip {...args}>
+      <Button>
+        <Info size="16" style={{ width: 'auto' }} />
+      </Button>
+    </Tooltip>
   </TooltipContainer>
 );
 
-Base.args = {
-  position: 'right',
-  align: 'center',
-};
+Base.args = baseArgs;
 
-export const TopLeft = (args) => (
+export const Top = (args) => (
   <TooltipContainer>
-    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info size="16" />
+    <Tooltip {...args}>
+      <Button>
+        <Info size="16" style={{ width: 'auto' }} />
+      </Button>
+    </Tooltip>
   </TooltipContainer>
 );
 
-TopLeft.args = {
-  position: 'top',
-  align: 'left',
-};
+Top.args = { ...baseArgs, placement: 'top-start' };
 
-export const BottomRight = (args) => (
+export const Bottom = (args) => (
   <TooltipContainer>
-    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info size="16" />
+    <Tooltip {...args}>
+      <Button>
+        <Info size="16" style={{ width: 'auto' }} />
+      </Button>
+    </Tooltip>
   </TooltipContainer>
 );
 
-BottomRight.args = {
-  position: 'bottom',
-  align: 'right',
-};
+Bottom.args = { ...baseArgs, placement: 'bottom' };
 
-export const LeftCenter = (args) => (
+export const Left = (args) => (
   <TooltipContainer>
-    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info size="16" />
+    <Tooltip {...args}>
+      <Button>
+        <Info size="16" style={{ width: 'auto' }} />
+      </Button>
+    </Tooltip>
   </TooltipContainer>
 );
 
-LeftCenter.args = {
-  position: 'left',
-  align: 'center',
-};
+Left.args = { ...baseArgs, placement: 'left' };
+
+export const Right = (args) => (
+  <TooltipContainer>
+    <Tooltip {...args}>
+      <Button>
+        <Info size="16" style={{ width: 'auto' }} />
+      </Button>
+    </Tooltip>
+  </TooltipContainer>
+);
+
+Right.args = { ...baseArgs, placement: 'right' };

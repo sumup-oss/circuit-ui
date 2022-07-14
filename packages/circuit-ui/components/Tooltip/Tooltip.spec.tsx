@@ -13,50 +13,60 @@
  * limitations under the License.
  */
 
-import { create, renderToHtml, axe } from '../../util/test-utils';
+import { Placement } from '@floating-ui/react-dom';
+import { Info } from '@sumup/icons';
 
-import type { Position, Alignment } from './Tooltip';
+import { axe, render } from '../../util/test-utils';
+
 import { Tooltip } from './Tooltip';
 
 describe('Tooltip', () => {
+  const placements: Placement[] = [
+    'top-start',
+    'top',
+    'top-end',
+    'left-start',
+    'left',
+    'left-end',
+    'right-start',
+    'right',
+    'right-end',
+    'bottom-start',
+    'bottom',
+    'bottom-start',
+  ];
+
+  // ResizeObserver Mock
+  global.ResizeObserver = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+  }));
+
   /**
    * Style tests.
    */
-  const positions: Position[] = ['top', 'right', 'bottom', 'left'];
-  positions.forEach((position) => {
-    it(`should render with position ${position}, when passed "${position}" for the position prop`, () => {
-      const component = create(
-        <Tooltip position={position}>Tooltip content</Tooltip>,
+  placements.forEach((placement) => {
+    it(`should render with placement ${placement}`, () => {
+      const tooltip = render(
+        <Tooltip text="Tooltip content" placement={placement}>
+          <Info size="16" style={{ width: 'auto' }} />
+        </Tooltip>,
       );
-      expect(component).toMatchSnapshot();
+      expect(tooltip).toMatchSnapshot();
     });
-  });
-
-  const alignments: Alignment[] = ['right', 'left', 'top', 'bottom', 'center'];
-  alignments.forEach((align) => {
-    it(`should render with align ${align}, when passed "${align}" for the align prop`, () => {
-      const component = create(
-        <Tooltip align={align}>Tooltip content</Tooltip>,
-      );
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  it('should override alignment styles with position styles', () => {
-    const component = create(
-      <Tooltip align={'left'} position={'left'}>
-        Tooltip content
-      </Tooltip>,
-    );
-    expect(component).toMatchSnapshot();
   });
 
   /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Tooltip align={'center'}>Text</Tooltip>);
-    const actual = await axe(wrapper);
+    const { container } = render(
+      <Tooltip text="Tooltip content" placement="top">
+        <Info size="16" style={{ width: 'auto' }} />
+      </Tooltip>,
+    );
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });
