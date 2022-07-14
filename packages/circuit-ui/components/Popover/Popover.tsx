@@ -32,6 +32,7 @@ import { useFloating, flip, Placement } from '@floating-ui/react-dom';
 import isPropValid from '@emotion/is-prop-valid';
 import { IconProps } from '@sumup/icons';
 import { useClickTrigger } from '@sumup/collector';
+
 import { ClickEvent } from '../../types/events';
 import { EmotionAsPropType } from '../../types/prop-types';
 import styled, { StyleProps } from '../../styles/styled';
@@ -274,13 +275,12 @@ export const Popover = ({
 
   const sendEvent = useClickTrigger();
 
-  const { x, y, reference, floating, strategy, refs, update } = useFloating<
-    HTMLElement
-  >({
-    placement,
-    strategy: 'fixed',
-    middleware: [flip({ fallbackPlacements })],
-  });
+  const { x, y, reference, floating, strategy, refs, update } =
+    useFloating<HTMLElement>({
+      placement,
+      strategy: 'fixed',
+      middleware: [flip({ fallbackPlacements })],
+    });
 
   // This is a performance optimization to prevent event listeners from being
   // re-attached on every render.
@@ -288,9 +288,6 @@ export const Popover = ({
 
   const focusProps = useFocusList();
   const prevOpen = usePrevious(isOpen);
-
-  useEscapeKey(() => handleToggle(false), isOpen);
-  useClickOutside(popperRef, () => handleToggle(false), isOpen);
 
   const isMobile = window.matchMedia(`${theme.breakpoints.untilKilo}`).matches;
 
@@ -347,16 +344,29 @@ export const Popover = ({
     handleToggle(false);
   };
 
+  useEscapeKey(() => handleToggle(false), isOpen);
+  useClickOutside(popperRef, () => handleToggle(false), isOpen);
+
   useEffect(() => {
     // Add an event listener that invokes the function `update` to update
     // the position of the floating element when screen is resized
-    addEventListener('resize', update);
+
+    if (isOpen) {
+      update();
+      window.addEventListener('resize', update);
+      window.addEventListener('scroll', update, { passive: true });
+    } else {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update);
+    }
 
     // Focus the first or last element after opening
     if (!prevOpen && isOpen) {
-      const element = (triggerKey.current && triggerKey.current === 'ArrowUp'
-        ? menuEl.current && menuEl.current.lastElementChild
-        : menuEl.current && menuEl.current.firstElementChild) as HTMLElement;
+      const element = (
+        triggerKey.current && triggerKey.current === 'ArrowUp'
+          ? menuEl.current && menuEl.current.lastElementChild
+          : menuEl.current && menuEl.current.firstElementChild
+      ) as HTMLElement;
       if (element) {
         element.focus();
       }
@@ -372,8 +382,11 @@ export const Popover = ({
     triggerKey.current = null;
 
     // Clearn up the event listener when the component is unmounted
-    return () => removeEventListener('resize', update);
-  }, [isOpen, prevOpen]);
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update);
+    };
+  }, [isOpen, prevOpen, refs.reference, update]);
 
   return (
     <Fragment>
