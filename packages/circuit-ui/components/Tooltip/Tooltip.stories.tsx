@@ -69,7 +69,7 @@ export const Top = (args) => (
   </TooltipContainer>
 );
 
-Top.args = { ...baseArgs, placement: 'top-start' };
+Top.args = { ...baseArgs, placement: 'top' };
 
 export const Bottom = (args) => (
   <TooltipContainer>
