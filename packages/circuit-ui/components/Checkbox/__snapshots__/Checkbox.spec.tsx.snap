@@ -2,10 +2,12 @@
 
 exports[`Checkbox should render with a tooltip when passed a validation hint 1`] = `
 HTMLCollection [
-  <span>
-    <div />
-  </span>,
   .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -20,7 +22,7 @@ HTMLCollection [
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -40,16 +42,21 @@ HTMLCollection [
   transform: rotate(45deg);
 }
 
-<div
-    class="circuit-0 circuit-1"
-    role="tooltip"
-    style="position: absolute; top: 0px; left: 0px;"
-  >
-    This field is required.
+<div>
     <div
-      class="circuit-2 circuit-3"
-      style="bottom: -4px;"
+      class="circuit-0"
     />
+    <div
+      class="circuit-1"
+      role="tooltip"
+      style="position: absolute; top: 0px; left: 0px;"
+    >
+      This field is required.
+      <div
+        class="circuit-2"
+        style="bottom: -4px;"
+      />
+    </div>
   </div>,
   .circuit-0 {
   position: relative;

@@ -4,6 +4,11 @@ exports[`Tooltip should render with placement bottom 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -18,7 +23,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -40,35 +45,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="top: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="top: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -83,7 +97,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -104,31 +118,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="top: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="top: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -189,6 +207,11 @@ exports[`Tooltip should render with placement bottom-start 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -203,7 +226,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -225,35 +248,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="top: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="top: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -268,7 +300,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -289,31 +321,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="top: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="top: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -374,6 +410,11 @@ exports[`Tooltip should render with placement bottom-start 2`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -388,7 +429,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -410,35 +451,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="top: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="top: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -453,7 +503,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -474,31 +524,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="top: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="top: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -559,6 +613,11 @@ exports[`Tooltip should render with placement left 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -573,7 +632,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -595,35 +654,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="right: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="right: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -638,7 +706,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -659,31 +727,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="right: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="right: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -744,6 +816,11 @@ exports[`Tooltip should render with placement left-end 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -758,7 +835,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -780,35 +857,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="right: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="right: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -823,7 +909,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -844,31 +930,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="right: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="right: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -929,6 +1019,11 @@ exports[`Tooltip should render with placement left-start 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -943,7 +1038,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -965,35 +1060,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="right: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="right: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1008,7 +1112,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1029,31 +1133,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="right: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="right: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -1114,6 +1222,11 @@ exports[`Tooltip should render with placement right 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1128,7 +1241,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1150,35 +1263,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="left: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="left: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1193,7 +1315,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1214,31 +1336,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="left: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="left: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -1299,6 +1425,11 @@ exports[`Tooltip should render with placement right-end 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1313,7 +1444,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1335,35 +1466,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="left: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="left: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1378,7 +1518,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1399,31 +1539,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="left: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="left: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -1484,6 +1628,11 @@ exports[`Tooltip should render with placement right-start 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1498,7 +1647,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1520,35 +1669,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="left: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="left: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1563,7 +1721,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1584,31 +1742,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="left: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="left: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -1669,6 +1831,11 @@ exports[`Tooltip should render with placement top 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1683,7 +1850,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1705,35 +1872,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="bottom: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="bottom: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1748,7 +1924,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1769,31 +1945,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="bottom: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="bottom: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -1854,6 +2034,11 @@ exports[`Tooltip should render with placement top-end 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1868,7 +2053,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1890,35 +2075,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="bottom: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="bottom: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -1933,7 +2127,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -1954,31 +2148,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="bottom: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="bottom: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -2039,6 +2237,11 @@ exports[`Tooltip should render with placement top-start 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -2053,7 +2256,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -2075,35 +2278,44 @@ Object {
 
 <body>
     <div>
-      <span>
-        <svg
-          fill="none"
-          height="16"
-          style="width: auto;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <div
-        class="circuit-0 circuit-1"
-        role="tooltip"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        Tooltip content
+      <div>
         <div
-          class="circuit-2 circuit-3"
-          style="bottom: -4px;"
-        />
+          class="circuit-0"
+        >
+          <svg
+            fill="none"
+            height="16"
+            style="width: auto;"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="circuit-1"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          Tooltip content
+          <div
+            class="circuit-2"
+            style="bottom: -4px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
   "container": .circuit-0 {
+  display: inline;
+  width: 100%;
+}
+
+.circuit-1 {
   display: inline-block;
   max-width: 280px;
   min-width: 120px;
@@ -2118,7 +2330,7 @@ Object {
   line-height: 20px;
 }
 
-.circuit-0::after {
+.circuit-1::after {
   display: block;
   content: '';
   width: 0;
@@ -2139,31 +2351,35 @@ Object {
 }
 
 <div>
-    <span>
-      <svg
-        fill="none"
-        height="16"
-        style="width: auto;"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <div
-      class="circuit-0 circuit-1"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      Tooltip content
+    <div>
       <div
-        class="circuit-2 circuit-3"
-        style="bottom: -4px;"
-      />
+        class="circuit-0"
+      >
+        <svg
+          fill="none"
+          height="16"
+          style="width: auto;"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16A8 8 0 1 0 8-.001 8 8 0 0 0 8 16zm1-5a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v3zM8 3.5A1.25 1.25 0 1 1 8 6a1.25 1.25 0 0 1 0-2.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="circuit-1"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        Tooltip content
+        <div
+          class="circuit-2"
+          style="bottom: -4px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
