@@ -21,10 +21,11 @@ import {
   Placement,
   useFloating,
 } from '@floating-ui/react-dom';
-import { useId, useRef } from 'react';
+import { useRef } from 'react';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
+import { uniqueId } from '../../util/id';
 
 export interface TooltipProps {
   /**
@@ -90,7 +91,7 @@ export const Tooltip = ({
   ...props
 }: TooltipProps) => {
   const arrowRef = useRef(null);
-  const id = useId();
+  const id = uniqueId('tooltip-');
   const {
     x,
     y,
