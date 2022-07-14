@@ -14,7 +14,6 @@
  */
 
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 import {
   arrow,
   autoUpdate,
@@ -24,7 +23,7 @@ import {
 } from '@floating-ui/react-dom';
 import { useRef } from 'react';
 
-import { NoTheme, StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
 
 export interface TooltipProps {
@@ -36,7 +35,7 @@ export interface TooltipProps {
    * The placement of the tooltip in relation to the anchored component
    */
   placement?: Placement;
-  children: JSX.Element;
+  children?: JSX.Element;
 }
 
 const DEFAULT_PLACEMENT: Placement = 'bottom';
@@ -65,7 +64,7 @@ const TooltipContainer = styled.div<NoTheme>(baseStyles, typography('two'));
 
 const AnchoredElementWrapper = styled.div`
   display: inline;
-  position: relative;
+  width: 100%;
 `;
 
 const arrowStyles = ({ theme }: StyleProps) => css`
@@ -96,7 +95,7 @@ export const Tooltip = ({
   } = useFloating({
     placement,
     whileElementsMounted: autoUpdate,
-    middleware: [offset(10), arrow({ element: arrowRef })],
+    middleware: [offset(10), arrow({ element: arrowRef, padding: 12 })],
   });
   const staticSide = {
     top: 'bottom',
@@ -106,7 +105,7 @@ export const Tooltip = ({
   }[(floatingPlacement || DEFAULT_PLACEMENT).split('-')[0]] as Placement;
 
   return (
-    <>
+    <div>
       <AnchoredElementWrapper ref={reference}>
         {children}
       </AnchoredElementWrapper>
@@ -132,6 +131,6 @@ export const Tooltip = ({
           }}
         />
       </TooltipContainer>
-    </>
+    </div>
   );
 };

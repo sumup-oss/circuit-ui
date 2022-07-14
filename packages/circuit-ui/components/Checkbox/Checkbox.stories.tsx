@@ -16,6 +16,8 @@
 import { useState, ChangeEvent, Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 
+import styled from '../../styles/styled';
+
 import { Checkbox, CheckboxProps } from './Checkbox';
 import docs from './Checkbox.docs.mdx';
 
@@ -49,6 +51,14 @@ const CheckboxWithState = ({
   );
 };
 
+const CheckboxContainer = styled.div`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+`;
+
 export const Base = (args: CheckboxProps) => <CheckboxWithState {...args} />;
 
 Base.args = {
@@ -64,16 +74,18 @@ export const Invalid = (args: CheckboxProps) => {
   };
   const invalid = !checked;
   return (
-    <Checkbox
-      {...args}
-      checked={checked}
-      onChange={handleChange}
-      validationHint={invalid ? args.validationHint : undefined}
-      invalid={invalid}
-      noMargin
-    >
-      {checked ? 'Checked' : 'Unchecked'}
-    </Checkbox>
+    <CheckboxContainer>
+      <Checkbox
+        {...args}
+        checked={checked}
+        onChange={handleChange}
+        validationHint={invalid ? args.validationHint : undefined}
+        invalid={invalid}
+        noMargin
+      >
+        {checked ? 'Checked' : 'Unchecked'}
+      </Checkbox>
+    </CheckboxContainer>
   );
 };
 
