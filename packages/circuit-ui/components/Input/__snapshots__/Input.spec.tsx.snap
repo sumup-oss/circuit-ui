@@ -583,7 +583,7 @@ exports[`Input should render with custom styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_15"
+    for="input_14"
   >
     <span
       class="circuit-2 circuit-3"
@@ -595,7 +595,7 @@ exports[`Input should render with custom styles 1`] = `
     >
       <input
         class="circuit-5"
-        id="input_15"
+        id="input_14"
         value=""
       />
     </div>
@@ -680,7 +680,7 @@ exports[`Input should render with default spacing when there is no noMargin prop
 >
   <label
     class="circuit-1"
-    for="input_14"
+    for="input_13"
   >
     <span
       class="circuit-2 circuit-3"
@@ -692,7 +692,7 @@ exports[`Input should render with default spacing when there is no noMargin prop
     >
       <input
         class="circuit-5"
-        id="input_14"
+        id="input_13"
         value=""
       />
     </div>
@@ -875,103 +875,6 @@ exports[`Input should render with disabled styles when passed the disabled prop 
         class="circuit-5"
         disabled=""
         id="input_10"
-        value=""
-      />
-    </div>
-  </label>
-</div>
-`;
-
-exports[`Input should render with inline styles when passed the inline prop 1`] = `
-.circuit-0 {
-  display: inline-block;
-  margin-right: 16px;
-}
-
-.circuit-1 {
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-.circuit-4 {
-  position: relative;
-}
-
-.circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
-  -webkit-appearance: none;
-  background-color: #FFF;
-  border: none;
-  outline: 0;
-  border-radius: 8px;
-  padding: 12px 16px;
-  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  box-shadow: 0 0 0 1px #999;
-}
-
-.circuit-5::-webkit-input-placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-5::-moz-placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-5:-ms-input-placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-5::placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
-}
-
-.circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
-}
-
-<div
-  class="circuit-0"
->
-  <label
-    class="circuit-1"
-    for="input_13"
-  >
-    <span
-      class="circuit-2 circuit-3"
-    >
-      Label
-    </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        id="input_13"
         value=""
       />
     </div>

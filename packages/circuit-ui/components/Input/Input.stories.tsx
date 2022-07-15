@@ -122,18 +122,6 @@ RightAligned.args = {
   textAlign: 'right',
 };
 
-export const Inline = (args: InputProps) => (
-  <div>
-    <Input {...args} label="First name" placeholder="Jane" />
-    <Input {...args} label="Last name" placeholder="Doe" />
-  </div>
-);
-
-Inline.args = {
-  ...baseArgs,
-  inline: true,
-};
-
 export const HiddenLabel = (args: InputProps) => (
   <Input {...args} css={inputStyles} />
 );

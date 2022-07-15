@@ -71,10 +71,6 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    */
   placeholder?: string;
   /**
-   * Trigger inline styles on the component.
-   */
-  inline?: boolean;
-  /**
    * We're moving away from built-in margins. The `noMargin` prop is now
    * required and will be removed in v6 using codemods. Use the `spacing()`
    * mixin to add margin.
@@ -242,7 +238,6 @@ export const Select = forwardRef(
       placeholder,
       disabled,
       noMargin,
-      inline,
       invalid,
       required,
       options,
@@ -295,7 +290,6 @@ export const Select = forwardRef(
       <FieldWrapper
         className={className}
         style={style}
-        inline={inline}
         disabled={disabled}
         noMargin={noMargin}
       >

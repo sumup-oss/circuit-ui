@@ -87,10 +87,6 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   readOnly?: boolean;
   /**
-   * Trigger inline styles on the component.
-   */
-  inline?: boolean;
-  /**
    * We're moving away from built-in margins. The `noMargin` prop is now
    * required and will be removed in v6 using codemods. Use the `spacing()`
    * mixin to add margin.
@@ -259,7 +255,6 @@ export const Input = forwardRef(
       hasWarning,
       showValid,
       noMargin,
-      inline,
       disabled,
       inputStyles,
       as,
@@ -307,7 +302,6 @@ export const Input = forwardRef(
       <FieldWrapper
         className={className}
         style={style}
-        inline={inline}
         disabled={disabled}
         noMargin={noMargin}
       >

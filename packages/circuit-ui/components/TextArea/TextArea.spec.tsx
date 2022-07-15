@@ -100,11 +100,6 @@ describe('TextArea', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with inline styles when passed the inline prop', () => {
-    const actual = create(<TextArea label="Textarea" noMargin inline />);
-    expect(actual).toMatchSnapshot();
-  });
-
   it('should render with no margin styles when passed the noMargin prop', () => {
     const actual = create(<TextArea label="Textarea" noMargin />);
     expect(actual).toMatchSnapshot();

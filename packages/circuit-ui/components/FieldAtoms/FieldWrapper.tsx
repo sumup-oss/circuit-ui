@@ -22,11 +22,7 @@ import { disableVisually } from '../../styles/style-mixins';
 
 export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Trigger inline styles on the component.
-   */
-  inline?: boolean;
-  /**
-   * Trigger inline styles on the component.
+   * Trigger disabled styles on the component.
    */
   disabled?: boolean;
   /**
@@ -36,13 +32,6 @@ export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
    */
   noMargin: true;
 }
-
-const inlineStyles = ({ theme, inline }: StyleProps & FieldWrapperProps) =>
-  inline &&
-  css`
-    display: inline-block;
-    margin-right: ${theme.spacings.mega};
-  `;
 
 const disabledStyles = ({ disabled }: FieldWrapperProps) =>
   disabled && disableVisually();
@@ -58,4 +47,4 @@ const noMarginStyles = ({ theme, noMargin }: StyleProps & FieldWrapperProps) =>
  */
 export const FieldWrapper = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled',
-})<FieldWrapperProps>(inlineStyles, disabledStyles, noMarginStyles);
+})<FieldWrapperProps>(disabledStyles, noMarginStyles);

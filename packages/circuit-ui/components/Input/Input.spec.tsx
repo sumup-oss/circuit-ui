@@ -102,11 +102,6 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with inline styles when passed the inline prop', () => {
-    const actual = create(<Input inline label="Label" noMargin />);
-    expect(actual).toMatchSnapshot();
-  });
-
   it('should render with default spacing when there is no noMargin prop', () => {
     /* @ts-expect-error the noMargin prop is required */
     const actual = create(<Input label="Label" />);
