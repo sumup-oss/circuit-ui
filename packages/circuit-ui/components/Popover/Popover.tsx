@@ -28,7 +28,12 @@ import {
 } from 'react';
 import useLatest from 'use-latest';
 import usePrevious from 'use-previous';
-import { useFloating, flip, offset, Placement } from '@floating-ui/react-dom';
+import {
+  useFloating,
+  flip,
+  offset as offsetMiddleware,
+  Placement,
+} from '@floating-ui/react-dom';
 import isPropValid from '@emotion/is-prop-valid';
 import { IconProps } from '@sumup/icons';
 import { useClickTrigger } from '@sumup/collector';
@@ -256,7 +261,7 @@ export interface PopoverProps {
    * Displace the floating element from its core placement along specified axes
    * More on offset: https://floating-ui.com/docs/offset
    */
-  offsetProp?: number | { mainAxis?: number; crossAxis?: number };
+  offset?: number | { mainAxis?: number; crossAxis?: number };
 }
 
 type TriggerKey = 'ArrowUp' | 'ArrowDown';
@@ -269,7 +274,7 @@ export const Popover = ({
   fallbackPlacements = ['top', 'right', 'left'],
   component: Component,
   tracking,
-  offsetProp,
+  offset,
   ...props
 }: PopoverProps): JSX.Element | null => {
   const theme = useTheme();
@@ -285,8 +290,8 @@ export const Popover = ({
     useFloating<HTMLElement>({
       placement,
       strategy: 'fixed',
-      middleware: offsetProp
-        ? [offset(offsetProp), flip({ fallbackPlacements })]
+      middleware: offset
+        ? [offsetMiddleware(offset), flip({ fallbackPlacements })]
         : [flip({ fallbackPlacements })],
     });
 
