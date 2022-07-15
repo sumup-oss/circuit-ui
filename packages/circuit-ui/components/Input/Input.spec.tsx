@@ -116,7 +116,7 @@ describe('Input', () => {
   it('should render with custom styles', () => {
     const actual = create(
       <Input
-        labelStyles={css`
+        css={css`
           border: 1px solid red;
         `}
         inputStyles={css`

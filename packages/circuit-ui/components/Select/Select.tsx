@@ -20,15 +20,15 @@ import { Theme } from '@sumup/design-tokens';
 
 import { uniqueId } from '../../util/id';
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  typography,
-  hideVisually,
-  inputOutline,
-} from '../../styles/style-mixins';
+import { typography, inputOutline } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
-import Label from '../Label';
-import ValidationHint from '../ValidationHint';
+import {
+  FieldWrapper,
+  FieldLabel,
+  FieldLabelText,
+  FieldValidationHint,
+} from '../FieldAtoms';
 import { AccessibilityError, DeprecationError } from '../../util/errors';
 
 export type SelectOption = {
@@ -119,49 +119,13 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   tracking?: TrackingProps;
 }
 
-const containerBaseStyles = ({ theme }: StyleProps) => css`
+const wrapperStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.bodyColor};
   display: block;
   position: relative;
 `;
 
-type ContainerElProps = Pick<SelectProps, 'hideLabel'>;
-
-const containerHideLabelStyles = ({
-  theme,
-  hideLabel,
-}: StyleProps & ContainerElProps) =>
-  !hideLabel &&
-  css`
-    label &,
-    label + & {
-      margin-top: ${theme.spacings.bit};
-    }
-  `;
-
-const SelectContainer = styled('div')<ContainerElProps>(
-  containerBaseStyles,
-  containerHideLabelStyles,
-);
-
-type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
-
-const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
-  !noMargin &&
-  css`
-    margin-bottom: ${theme.spacings.mega};
-  `;
-
-const labelInlineStyles = ({ inline }: LabelElProps) =>
-  inline &&
-  css`
-    display: inline-block;
-  `;
-
-const SelectLabel = styled(Label)<LabelElProps>(
-  labelMarginStyles,
-  labelInlineStyles,
-);
+const SelectWrapper = styled('div')(wrapperStyles);
 
 type SelectElProps = Omit<SelectProps, 'options' | 'label' | 'noMargin'> & {
   hasPrefix: boolean;
@@ -224,17 +188,6 @@ const SelectElement = styled.select<SelectElProps>(
   selectPrefixStyles,
   inputOutline,
 );
-
-const labelTextStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
-  hideLabel && hideVisually();
-
-const LabelText = styled('span')(labelTextStyles);
-
-const optionalLabelStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.n700};
-`;
-
-const OptionalLabel = styled('span')(optionalLabelStyles);
 
 /**
  * Used with css prop directly, so it does not require prop
@@ -339,64 +292,65 @@ export const Select = forwardRef(
     const handleChange = useClickEvent(onChange, tracking, 'select');
 
     return (
-      <SelectLabel
+      <FieldWrapper
         className={className}
         style={style}
-        htmlFor={id}
         inline={inline}
         disabled={disabled}
         noMargin={noMargin}
       >
-        <LabelText hideLabel={hideLabel}>
-          {label}
-          {optionalLabel && !required ? (
-            <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
-          ) : null}
-        </LabelText>
-
-        <SelectContainer hideLabel={hideLabel}>
-          {prefix}
-          <SelectElement
-            id={id}
-            value={value}
-            ref={ref}
-            invalid={invalid}
-            aria-invalid={invalid}
+        <FieldLabel htmlFor={id}>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
             required={required}
-            disabled={disabled}
-            hasPrefix={hasPrefix}
-            defaultValue={defaultValue}
-            {...props}
-            onChange={handleChange}
-          >
-            {!value && !defaultValue && (
-              /**
-               * We need a key here just like when mapping over options.
-               * We're prefixing the key with an underscore to avoid clashes
-               * with option values.
-               */
-              <option key="_placeholder" value="">
-                {placeholder}
-              </option>
-            )}
-            {children ||
-              (options &&
-                options.map(({ label: optionLabel, ...rest }) => (
-                  <option key={rest.value} {...rest}>
-                    {optionLabel}
-                  </option>
-                )))}
-          </SelectElement>
-          <IconActive size="16" />
-          <IconInactive size="16" />
-        </SelectContainer>
+          />
 
-        <ValidationHint
-          disabled={disabled}
-          invalid={invalid}
-          validationHint={validationHint}
-        />
-      </SelectLabel>
+          <SelectWrapper>
+            {prefix}
+            <SelectElement
+              id={id}
+              value={value}
+              ref={ref}
+              invalid={invalid}
+              aria-invalid={invalid}
+              required={required}
+              disabled={disabled}
+              hasPrefix={hasPrefix}
+              defaultValue={defaultValue}
+              {...props}
+              onChange={handleChange}
+            >
+              {!value && !defaultValue && (
+                /**
+                 * We need a key here just like when mapping over options.
+                 * We're prefixing the key with an underscore to avoid clashes
+                 * with option values.
+                 */
+                <option key="_placeholder" value="">
+                  {placeholder}
+                </option>
+              )}
+              {children ||
+                (options &&
+                  options.map(({ label: optionLabel, ...rest }) => (
+                    <option key={rest.value} {...rest}>
+                      {optionLabel}
+                    </option>
+                  )))}
+            </SelectElement>
+            <IconActive size="16" />
+            <IconInactive size="16" />
+          </SelectWrapper>
+
+          <FieldValidationHint
+            disabled={disabled}
+            invalid={invalid}
+            validationHint={validationHint}
+          />
+        </FieldLabel>
+      </FieldWrapper>
     );
   },
 );

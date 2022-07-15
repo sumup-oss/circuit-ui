@@ -24,14 +24,14 @@ import { css, Interpolation } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  typography,
-  hideVisually,
-  inputOutline,
-} from '../../styles/style-mixins';
+import { typography, inputOutline } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import Label from '../Label';
-import ValidationHint from '../ValidationHint';
+import {
+  FieldWrapper,
+  FieldLabel,
+  FieldLabelText,
+  FieldValidationHint,
+} from '../FieldAtoms';
 import { ReturnType } from '../../types/return-type';
 import { AccessibilityError, DeprecationError } from '../../util/errors';
 
@@ -110,30 +110,16 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   inputStyles?: Interpolation<Theme>;
   /**
-   * Emotion style object to overwrite the input label element styles.
-   */
-  labelStyles?: Interpolation<Theme>;
-  /**
    * The ref to the HTML DOM element
    */
   ref?: Ref<InputElement>;
 }
 
-const containerStyles = () => css`
+const wrapperStyles = () => css`
   position: relative;
 `;
 
-const InputContainer = styled('div')(containerStyles);
-
-type LabelElProps = Pick<InputProps, 'noMargin'>;
-
-const labelNoMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
-  !noMargin &&
-  css`
-    margin-bottom: ${theme.spacings.mega};
-  `;
-
-const InputLabel = styled(Label)<LabelElProps>(labelNoMarginStyles);
+const InputWrapper = styled('div')(wrapperStyles);
 
 type InputElProps = Omit<InputProps, 'label' | 'noMargin'> & {
   hasPrefix: boolean;
@@ -257,28 +243,6 @@ const suffixStyles = (theme: Theme) => css`
   transition: right ${theme.transitions.default};
 `;
 
-const labelTextStyles = ({ theme }: StyleProps) => css`
-  display: inline-block;
-  margin-bottom: ${theme.spacings.bit};
-`;
-
-const labelTextHiddenStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
-  hideLabel &&
-  css`
-    ${hideVisually()};
-  `;
-
-const LabelText = styled('span')<{ hideLabel?: boolean }>(
-  labelTextStyles,
-  labelTextHiddenStyles,
-);
-
-const optionalLabelStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.n700};
-`;
-
-const OptionalLabel = styled('span')(optionalLabelStyles);
-
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
@@ -297,12 +261,13 @@ export const Input = forwardRef(
       noMargin,
       inline,
       disabled,
-      labelStyles,
       inputStyles,
       as,
       label,
       hideLabel,
       id: customId,
+      className,
+      style,
       ...props
     }: InputProps,
     ref: InputProps['ref'],
@@ -339,46 +304,48 @@ export const Input = forwardRef(
     const hasSuffix = Boolean(suffix);
 
     return (
-      <InputLabel
-        htmlFor={id}
+      <FieldWrapper
+        className={className}
+        style={style}
         inline={inline}
         disabled={disabled}
         noMargin={noMargin}
-        css={labelStyles}
       >
-        <LabelText hideLabel={hideLabel}>
-          {label}
-          {optionalLabel && !required ? (
-            <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
-          ) : null}
-        </LabelText>
-        <InputContainer>
-          {prefix}
-          <StyledInput
-            as={as}
-            id={id}
-            value={value}
-            ref={ref}
-            invalid={invalid}
-            aria-invalid={invalid}
+        <FieldLabel htmlFor={id}>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
             required={required}
-            disabled={disabled}
-            hasWarning={hasWarning}
-            hasPrefix={hasPrefix}
-            hasSuffix={hasSuffix}
-            css={inputStyles}
-            {...props}
           />
-          {suffix}
-        </InputContainer>
-        <ValidationHint
-          disabled={disabled}
-          invalid={invalid}
-          hasWarning={hasWarning}
-          showValid={showValid}
-          validationHint={validationHint}
-        />
-      </InputLabel>
+          <InputWrapper>
+            {prefix}
+            <StyledInput
+              as={as}
+              id={id}
+              value={value}
+              ref={ref}
+              invalid={invalid}
+              aria-invalid={invalid}
+              required={required}
+              disabled={disabled}
+              hasWarning={hasWarning}
+              hasPrefix={hasPrefix}
+              hasSuffix={hasSuffix}
+              css={inputStyles}
+              {...props}
+            />
+            {suffix}
+          </InputWrapper>
+          <FieldValidationHint
+            disabled={disabled}
+            invalid={invalid}
+            hasWarning={hasWarning}
+            showValid={showValid}
+            validationHint={validationHint}
+          />
+        </FieldLabel>
+      </FieldWrapper>
     );
   },
 );

@@ -2,24 +2,27 @@
 
 exports[`SearchInput should grey out icon when disabled 1`] = `
 .circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
-  display: block;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
 .circuit-1 {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
 }
 
-.circuit-2 {
+.circuit-4 {
   position: relative;
 }
 
-.circuit-3 {
+.circuit-5 {
   position: absolute;
   pointer-events: none;
   color: #666;
@@ -28,7 +31,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   width: 48px;
 }
 
-.circuit-4 {
+.circuit-6 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -47,86 +50,89 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-6::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-6::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-6:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-6::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-<label
+<div
   class="circuit-0"
-  disabled=""
-  for="input_2"
 >
-  <span
+  <label
     class="circuit-1"
+    for="input_2"
   >
-    Search
-  </span>
-  <div
-    class="circuit-2"
-  >
-    <svg
-      class="circuit-3"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+    <span
+      class="circuit-2 circuit-3"
     >
-      <path
-        clip-rule="evenodd"
-        d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0zm-.81 5.608a7 7 0 1 1 1.418-1.418l3.102 3.103c.186.189.29.443.29.709a.999.999 0 0 1-.998.998c-.266 0-.52-.104-.71-.29l-3.102-3.102zM14 5.238v-.472c.004.157.004.315 0 .472z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-    <input
+      Search
+    </span>
+    <div
       class="circuit-4"
-      disabled=""
-      id="input_2"
-      type="text"
-      value=""
-    />
-  </div>
-</label>
+    >
+      <svg
+        class="circuit-5"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0zm-.81 5.608a7 7 0 1 1 1.418-1.418l3.102 3.103c.186.189.29.443.29.709a.999.999 0 0 1-.998.998c-.266 0-.52-.104-.71-.29l-3.102-3.102zM14 5.238v-.472c.004.157.004.315 0 .472z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <input
+        class="circuit-6"
+        disabled=""
+        id="input_2"
+        type="text"
+        value=""
+      />
+    </div>
+  </label>
+</div>
 `;
 
 exports[`SearchInput should render with default styles 1`] = `
-.circuit-0 {
+.circuit-1 {
+  display: block;
   font-size: 14px;
   line-height: 20px;
-  display: block;
 }
 
-.circuit-1 {
+.circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
 }
 
-.circuit-2 {
+.circuit-4 {
   position: relative;
 }
 
-.circuit-3 {
+.circuit-5 {
   position: absolute;
   pointer-events: none;
   color: #666;
@@ -135,7 +141,7 @@ exports[`SearchInput should render with default styles 1`] = `
   width: 48px;
 }
 
-.circuit-4 {
+.circuit-6 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -153,75 +159,79 @@ exports[`SearchInput should render with default styles 1`] = `
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-6::-webkit-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-6::-moz-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-6:-ms-input-placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-6::placeholder {
   color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:hover {
+.circuit-6:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-4:focus {
+.circuit-6:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-4:active {
+.circuit-6:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
-<label
+<div
   class="circuit-0"
-  for="input_1"
 >
-  <span
+  <label
     class="circuit-1"
+    for="input_1"
   >
-    Search
-  </span>
-  <div
-    class="circuit-2"
-  >
-    <svg
-      class="circuit-3"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+    <span
+      class="circuit-2 circuit-3"
     >
-      <path
-        clip-rule="evenodd"
-        d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0zm-.81 5.608a7 7 0 1 1 1.418-1.418l3.102 3.103c.186.189.29.443.29.709a.999.999 0 0 1-.998.998c-.266 0-.52-.104-.71-.29l-3.102-3.102zM14 5.238v-.472c.004.157.004.315 0 .472z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-    <input
+      Search
+    </span>
+    <div
       class="circuit-4"
-      id="input_1"
-      type="text"
-      value=""
-    />
-  </div>
-</label>
+    >
+      <svg
+        class="circuit-5"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0zm-.81 5.608a7 7 0 1 1 1.418-1.418l3.102 3.103c.186.189.29.443.29.709a.999.999 0 0 1-.998.998c-.266 0-.52-.104-.71-.29l-3.102-3.102zM14 5.238v-.472c.004.157.004.315 0 .472z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <input
+        class="circuit-6"
+        id="input_1"
+        type="text"
+        value=""
+      />
+    </div>
+  </label>
+</div>
 `;

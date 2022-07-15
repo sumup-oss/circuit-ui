@@ -13,19 +13,7 @@
  * limitations under the License.
  */
 
-import { Label, LabelProps } from './Label';
-import docs from './Label.docs.mdx';
-
-export default {
-  title: 'Forms/Label',
-  component: Label,
-  parameters: {
-    docs: { page: docs },
-  },
-};
-
-export const Base = (args: LabelProps) => (
-  <Label {...args} htmlFor="some-id">
-    An input label
-  </Label>
-);
+export { FieldWrapper } from './FieldWrapper';
+export { FieldLabel } from './FieldLabel';
+export { FieldLabelText } from './FieldLabelText';
+export { FieldValidationHint } from './FieldValidationHint';

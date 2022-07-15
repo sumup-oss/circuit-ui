@@ -712,19 +712,33 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-6 {
+.circuit-7 {
+  display: block;
   font-size: 14px;
   line-height: 20px;
-  display: block;
 }
 
 .circuit-8 {
+  display: inline-block;
+  margin-bottom: 4px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-10 {
   color: #1A1A1A;
   display: block;
   position: relative;
 }
 
-.circuit-9 {
+.circuit-11 {
   font-size: 16px;
   line-height: 24px;
   -webkit-appearance: none;
@@ -754,66 +768,66 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-9:-moz-focusring {
+.circuit-11:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-9::-ms-expand {
+.circuit-11::-ms-expand {
   display: none;
 }
 
-.circuit-9:hover {
+.circuit-11:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-9:focus {
+.circuit-11:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-9:active {
+.circuit-11:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
-.circuit-10 {
-  color: #666;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:active~.circuit-10 {
-  display: none;
-}
-
-.circuit-11 {
-  color: #666;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:not(:active)~.circuit-11 {
-  display: none;
-}
-
 .circuit-12 {
-  margin-left: 12px;
+  color: #666;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+select:active~.circuit-12 {
+  display: none;
 }
 
 .circuit-13 {
+  color: #666;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+select:not(:active)~.circuit-13 {
+  display: none;
+}
+
+.circuit-14 {
+  margin-left: 12px;
+}
+
+.circuit-15 {
   font-size: 16px;
   line-height: 24px;
   display: -webkit-inline-box;
@@ -852,33 +866,33 @@ select:not(:active)~.circuit-11 {
   flex-shrink: 0;
 }
 
-.circuit-13:focus {
+.circuit-15:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-13:focus::-moz-focus-inner {
+.circuit-15:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-13:focus:not(:focus-visible) {
+.circuit-15:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-13:disabled,
-.circuit-13[disabled] {
+.circuit-15:disabled,
+.circuit-15[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-13:hover {
+.circuit-15:hover {
   color: #234BC3;
 }
 
-.circuit-13:active,
-.circuit-13[aria-expanded='true'],
-.circuit-13[aria-pressed='true'] {
+.circuit-15:active,
+.circuit-15[aria-expanded='true'],
+.circuit-15[aria-pressed='true'] {
   color: #1A368E;
 }
 
@@ -922,108 +936,112 @@ select:not(:active)~.circuit-11 {
       </span>
     </span>
   </button>
-  <label
+  <div
     class="circuit-6"
-    for="select_1"
   >
-    <span
-      class="circuit-3"
+    <label
+      class="circuit-7"
+      for="select_1"
     >
-      Pagination
-    </span>
-    <div
-      class="circuit-8"
-    >
-      <select
-        class="circuit-9"
-        id="select_1"
+      <span
+        class="circuit-8 circuit-9"
       >
-        <option
-          value="1"
-        >
-          1
-        </option>
-        <option
-          value="2"
-        >
-          2
-        </option>
-        <option
-          value="3"
-        >
-          3
-        </option>
-        <option
-          value="4"
-        >
-          4
-        </option>
-        <option
-          value="5"
-        >
-          5
-        </option>
-        <option
-          value="6"
-        >
-          6
-        </option>
-        <option
-          value="7"
-        >
-          7
-        </option>
-        <option
-          value="8"
-        >
-          8
-        </option>
-        <option
-          value="9"
-        >
-          9
-        </option>
-        <option
-          value="10"
-        >
-          10
-        </option>
-      </select>
-      <svg
+        Pagination
+      </span>
+      <div
         class="circuit-10"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
-          fill="currentColor"
-        />
-      </svg>
-      <svg
-        class="circuit-11"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
-          fill="currentColor"
-        />
-      </svg>
-    </div>
-  </label>
+        <select
+          class="circuit-11"
+          id="select_1"
+        >
+          <option
+            value="1"
+          >
+            1
+          </option>
+          <option
+            value="2"
+          >
+            2
+          </option>
+          <option
+            value="3"
+          >
+            3
+          </option>
+          <option
+            value="4"
+          >
+            4
+          </option>
+          <option
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="6"
+          >
+            6
+          </option>
+          <option
+            value="7"
+          >
+            7
+          </option>
+          <option
+            value="8"
+          >
+            8
+          </option>
+          <option
+            value="9"
+          >
+            9
+          </option>
+          <option
+            value="10"
+          >
+            10
+          </option>
+        </select>
+        <svg
+          class="circuit-12"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+            fill="currentColor"
+          />
+        </svg>
+        <svg
+          class="circuit-13"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </label>
+  </div>
   <span
-    class="circuit-12"
+    class="circuit-14"
   >
     of 10
   </span>
   <button
-    class="circuit-13"
+    class="circuit-15"
     title="Next"
   >
     <span

@@ -19,13 +19,16 @@ import {
   Ref,
   forwardRef,
 } from 'react';
-import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { hideVisually, typography } from '../../styles/style-mixins';
+import styled from '../../styles/styled';
+import { typography } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
-import ValidationHint from '../ValidationHint';
+import {
+  FieldWrapper,
+  FieldLabelText,
+  FieldValidationHint,
+} from '../FieldAtoms';
 import { AccessibilityError } from '../../util/errors';
 
 export interface RadioButtonGroupProps
@@ -43,6 +46,11 @@ export interface RadioButtonGroupProps
    * A visually hidden description of the selector group for screen readers.
    */
   label: string;
+  /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
   /**
    * The value of the currently checked RadioButton.
    */
@@ -80,18 +88,7 @@ export interface RadioButtonGroupProps
 
 type LegendProps = Pick<RadioButtonGroupProps, 'hideLabel'>;
 
-const legendStyles = ({ theme }: StyleProps) => css`
-  margin-bottom: ${theme.spacings.bit};
-`;
-
-const legendHiddenStyles = ({ hideLabel }: LegendProps) =>
-  hideLabel && hideVisually();
-
-const Legend = styled('legend')<LegendProps>(
-  typography('two'),
-  legendStyles,
-  legendHiddenStyles,
-);
+const Legend = styled('legend')<LegendProps>(typography('two'));
 
 /**
  * A group of RadioButtons.
@@ -110,6 +107,7 @@ export const RadioButtonGroup = forwardRef(
       disabled,
       hasWarning,
       hideLabel,
+      optionalLabel,
       required,
       ...props
     }: RadioButtonGroupProps,
@@ -127,8 +125,23 @@ export const RadioButtonGroup = forwardRef(
     }
     const name = customName || uniqueId('radio-button-group_');
     return (
-      <fieldset name={name} ref={ref} {...props}>
-        <Legend hideLabel={hideLabel}>{label}</Legend>
+      <FieldWrapper
+        as="fieldset"
+        name={name}
+        // @ts-expect-error TypeScript isn't smart enough to recognize the `as` prop.
+        ref={ref}
+        disabled={disabled}
+        noMargin
+        {...props}
+      >
+        <Legend>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
+            required={required}
+          />
+        </Legend>
         {options &&
           options.map(
             ({ label: optionLabel, value, className, style, ...rest }) => (
@@ -145,14 +158,14 @@ export const RadioButtonGroup = forwardRef(
               </div>
             ),
           )}
-        <ValidationHint
+        <FieldValidationHint
           invalid={invalid}
           showValid={showValid}
           disabled={disabled}
           hasWarning={hasWarning}
           validationHint={validationHint}
         />
-      </fieldset>
+      </FieldWrapper>
     );
   },
 );
