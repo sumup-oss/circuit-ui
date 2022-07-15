@@ -20,29 +20,36 @@ import { isFunction } from '../../util/type-check';
 import {
   Direction,
   SortByValue,
-  CellObject,
-  Cell,
+  RowCellObject,
+  HeaderCellObject,
+  HeaderCell,
+  RowCell,
   Row,
   SortParams,
 } from './types';
 
-export const mapRowProps = (props: Row): { cells: Cell[] } =>
+export const mapRowProps = (props: Row): { cells: RowCell[] } =>
   Array.isArray(props) ? { cells: props } : props;
 
-export const getRowCells = (props: Row): Cell[] => mapRowProps(props).cells;
+export const getRowCells = (props: Row): RowCell[] => mapRowProps(props).cells;
 
-export const mapCellProps = (props: Cell): CellObject =>
-  typeof props === 'string' ||
-  typeof props === 'number' ||
-  props === null ||
-  props === undefined
+export function mapCellProps(props: RowCell): RowCellObject;
+export function mapCellProps(props: HeaderCell): HeaderCellObject;
+export function mapCellProps(
+  props: RowCell | HeaderCell,
+): RowCellObject | HeaderCellObject {
+  return typeof props === 'string' ||
+    typeof props === 'number' ||
+    props === null ||
+    props === undefined
     ? { children: props }
     : props;
+}
 
-export const getCellChildren = (props: Cell): ReactNode =>
+export const getCellChildren = (props: HeaderCell | RowCell): ReactNode =>
   mapCellProps(props).children;
 
-export const getSortByValue = (props: Cell): SortByValue | ReactNode => {
+export const getSortByValue = (props: RowCell): SortByValue | ReactNode => {
   const cell = mapCellProps(props);
 
   return cell.sortByValue !== undefined ? cell.sortByValue : cell.children;

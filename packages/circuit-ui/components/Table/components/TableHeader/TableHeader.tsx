@@ -20,16 +20,16 @@ import isPropValid from '@emotion/is-prop-valid';
 import { focusOutline, typography } from '../../../../styles/style-mixins';
 import SortArrow from '../SortArrow';
 import styled, { StyleProps } from '../../../../styles/styled';
-import { SortParams } from '../../types';
+import { CellAlignment, SortParams } from '../../types';
 import { ClickEvent } from '../../../../types/events';
 import { AccessibilityError } from '../../../../util/errors';
 
 export interface TableHeaderProps
-  extends ThHTMLAttributes<HTMLTableHeaderCellElement> {
+  extends ThHTMLAttributes<HTMLTableCellElement> {
   /**
    * Aligns the content of the Header with text-align.
    */
-  align?: 'left' | 'right' | 'center';
+  align?: CellAlignment;
   /**
    * Adds row or col styles based on the provided Scope.
    */

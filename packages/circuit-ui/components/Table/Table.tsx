@@ -23,13 +23,13 @@ import { throttle } from '../../util/helpers';
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
 import { defaultSortBy, getSortDirection } from './utils';
-import { Direction, Row, Cell } from './types';
+import { Direction, Row, HeaderCell } from './types';
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * An array of header cells for the table.
    */
-  headers?: Cell[];
+  headers?: HeaderCell[];
   /**
    * An array of rows or an object with children containing an array of cells
    * for the table.

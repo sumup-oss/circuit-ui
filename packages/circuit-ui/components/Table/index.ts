@@ -16,10 +16,24 @@
 import Table, { TableProps } from './Table';
 import {
   Direction as TableSortDirection,
-  Cell as TableCell,
+  RowCell as TableRowCell,
+  HeaderCell as TableHeaderCell,
   Row as TableRow,
 } from './types';
 
-export type { TableProps, TableSortDirection, TableCell, TableRow };
+/**
+ * @deprecated
+ * Use `TableRowCell` or `TableHeaderCell` instead.
+ */
+type TableCell = TableRowCell | TableHeaderCell;
+
+export type {
+  TableProps,
+  TableSortDirection,
+  TableCell,
+  TableRowCell,
+  TableHeaderCell,
+  TableRow,
+};
 
 export default Table;

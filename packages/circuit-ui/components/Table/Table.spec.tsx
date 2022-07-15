@@ -23,13 +23,13 @@ import {
 import Badge from '../Badge';
 
 import Table from './Table';
-import { Cell, Direction } from './types';
+import { HeaderCell, Direction } from './types';
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {
   const order = direction === 'ascending' ? 'descending' : 'ascending';
   return `Sort in ${order} order`;
 };
-const headers: Cell[] = [
+const headers: HeaderCell[] = [
   {
     children: 'Letters',
     sortable: true,

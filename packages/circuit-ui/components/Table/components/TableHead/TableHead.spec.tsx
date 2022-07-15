@@ -20,7 +20,7 @@ import {
   axe,
   userEvent,
 } from '../../../../util/test-utils';
-import { Cell, Direction } from '../../types';
+import { HeaderCell, Direction } from '../../types';
 
 import TableHead from '.';
 
@@ -28,7 +28,7 @@ const sortLabel = ({ direction }: { direction?: Direction }) => {
   const order = direction === 'ascending' ? 'descending' : 'ascending';
   return `Sort in ${order} order`;
 };
-const fixtureHeaders: Cell[] = [
+const fixtureHeaders: HeaderCell[] = [
   { children: 'Foo', sortable: true, sortLabel },
   'Bar',
   'Baz',
@@ -61,7 +61,9 @@ describe('TableHead', () => {
     });
 
     it('should dispatch the onSortBy handler', async () => {
-      const headers: Cell[] = [{ children: 'Foo', sortable: true, sortLabel }];
+      const headers: HeaderCell[] = [
+        { children: 'Foo', sortable: true, sortLabel },
+      ];
       const onSortByMock = jest.fn();
       const { getByRole } = render(
         <TableHead onSortBy={onSortByMock} headers={headers} />,
@@ -88,7 +90,9 @@ describe('TableHead', () => {
     });
 
     it('should dispatch the onSortEnter handler', async () => {
-      const headers: Cell[] = [{ children: 'Foo', sortable: true, sortLabel }];
+      const headers: HeaderCell[] = [
+        { children: 'Foo', sortable: true, sortLabel },
+      ];
       const onSortEnterMock = jest.fn();
       const { getByRole } = render(
         <TableHead onSortEnter={onSortEnterMock} headers={headers} />,
@@ -103,7 +107,9 @@ describe('TableHead', () => {
 
   describe('onSortLeave', () => {
     it('should dispatch the onSortLeave handler', async () => {
-      const headers: Cell[] = [{ children: 'Foo', sortable: true, sortLabel }];
+      const headers: HeaderCell[] = [
+        { children: 'Foo', sortable: true, sortLabel },
+      ];
       const onSortLeaveMock = jest.fn();
       const { getByRole } = render(
         <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,

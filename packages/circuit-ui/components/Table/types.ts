@@ -19,12 +19,14 @@ export type SortByValue = boolean | number | string | Date;
 
 export type Direction = 'ascending' | 'descending';
 
-type SortableCellProps =
+export type CellAlignment = 'left' | 'right' | 'center';
+
+type SortableHeaderCell =
   | { sortable?: false; sortLabel?: never; sortByValue?: never }
   | {
       /**
-       * Makes a table column sortable when passed to a header cell. An
-       * accessible sortLabel also needs to be provided.
+       * Makes a table column sortable. An accessible `sortLabel` also needs to
+       * be provided.
        */
       sortable: true;
       /**
@@ -34,24 +36,31 @@ type SortableCellProps =
       sortLabel:
         | string
         | (({ direction }: { direction?: Direction }) => string);
-      /**
-       * An optional value to change the order of the table rows.
-       */
-      sortByValue?: SortByValue;
     };
 
-export type CellObject = SortableCellProps & {
-  children: ReactNode;
+type SortableRowCell = {
+  /**
+   * An optional value to change the order of the table rows.
+   */
+  sortByValue?: SortByValue;
 };
 
-export type Cell = string | number | CellObject | null | undefined;
+type CellObject = {
+  children: ReactNode;
+  align?: CellAlignment;
+};
 
-export type Row =
-  | Cell[]
-  | {
-      cells: Cell[];
-      align?: string;
-    };
+export type RowCellObject = SortableRowCell & CellObject;
+
+export type HeaderCellObject = CellObject & SortableHeaderCell;
+
+type Cell = string | number | null | undefined;
+
+export type HeaderCell = Cell | HeaderCellObject;
+
+export type RowCell = Cell | RowCellObject;
+
+export type Row = RowCell[] | { cells: RowCell[] };
 
 export type SortParams =
   | {
