@@ -2,6 +2,7 @@
 
 exports[`Toggle should render with default spacing when there is no noMargin prop 1`] = `
 .circuit-0 {
+  margin-bottom: 16px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10,7 +11,6 @@ exports[`Toggle should render with default spacing when there is no noMargin pro
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  margin-bottom: 16px;
 }
 
 @media (max-width: 479px) {

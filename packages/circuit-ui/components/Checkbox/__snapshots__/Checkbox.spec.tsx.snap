@@ -315,6 +315,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 
 exports[`Checkbox should render with default spacing when there is no noMargin prop 1`] = `
 .circuit-0 {
+  margin-bottom: 16px;
   position: relative;
 }
 
@@ -585,6 +586,9 @@ exports[`Checkbox should render with default styles 1`] = `
 
 exports[`Checkbox should render with disabled styles when passed the disabled prop 1`] = `
 .circuit-0 {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
   position: relative;
 }
 
@@ -691,9 +695,6 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
 }
 
 <div
@@ -709,7 +710,6 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   />
   <label
     class="circuit-2"
-    disabled=""
     for="checkbox_3"
   >
     <svg

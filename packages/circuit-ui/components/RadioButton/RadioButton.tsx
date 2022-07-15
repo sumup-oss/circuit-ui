@@ -131,7 +131,7 @@ const RadioButtonLabel = styled('label')<LabelElProps>(
   labelInvalidStyles,
 );
 
-type InputElProps = Omit<RadioButtonProps, 'tracking'>;
+type InputElProps = Pick<RadioButtonProps, 'invalid'>;
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
@@ -220,7 +220,6 @@ export const RadioButton = forwardRef(
 
     return (
       <Fragment>
-        {/* @ts-expect-error the noMargin prop is required */}
         <RadioButtonInput
           {...props}
           type="radio"
