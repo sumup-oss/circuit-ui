@@ -356,9 +356,8 @@ export const Popover = ({
   useClickOutside(popperRef, () => handleToggle(false), isOpen);
 
   useEffect(() => {
-    // Add an event listener that invokes the function `update` to update
-    // the position of the floating element when screen is resized
-
+    // When the floating element is visible, add event listeners that invoke the function `update`
+    // to update the position of the floating element when screen is resized or scrolled
     if (isOpen) {
       update();
       window.addEventListener('resize', update);
