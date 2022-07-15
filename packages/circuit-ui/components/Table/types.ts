@@ -25,7 +25,7 @@ type SortableHeaderCell =
   | { sortable?: false; sortLabel?: never; sortByValue?: never }
   | {
       /**
-       * Makes a table column sortable. An accessible sortLabel also needs to
+       * Makes a table column sortable. An accessible `sortLabel` also needs to
        * be provided.
        */
       sortable: true;

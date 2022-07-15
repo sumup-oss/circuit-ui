@@ -171,10 +171,6 @@ export type {
   TableSortDirection,
   TableHeaderCell,
   TableRowCell,
-  /**
-   * @deprecated
-   * Use `TableRowCell` or `TableHeaderCell` instead.
-   */
   TableCell,
   TableRow,
 } from './components/Table';
