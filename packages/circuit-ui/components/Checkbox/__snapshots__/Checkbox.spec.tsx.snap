@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox should render with a tooltip when passed a validation hint 1`] = `
-HTMLCollection [
-  .circuit-0 {
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   display: block;
   border: none;
   background-color: transparent;
@@ -49,29 +50,11 @@ HTMLCollection [
   transform: rotate(45deg);
 }
 
-<div>
-    <button
-      aria-labelledby="tooltip-7"
-      class="circuit-0"
-    />
-    <div
-      class="circuit-1"
-      id="tooltip-7"
-      role="tooltip"
-      style="position: absolute; top: 0px; left: 0px;"
-    >
-      This field is required.
-      <div
-        class="circuit-2"
-        style="bottom: -4px;"
-      />
-    </div>
-  </div>,
-  .circuit-0 {
+.circuit-3 {
   position: relative;
 }
 
-.circuit-1 {
+.circuit-4 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -83,7 +66,7 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-1+label::before {
+.circuit-4+label::before {
   height: 18px;
   width: 18px;
   box-sizing: border-box;
@@ -104,7 +87,7 @@ HTMLCollection [
   transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-1+label svg {
+.circuit-4+label svg {
   height: 18px;
   width: 18px;
   padding: 2px;
@@ -124,30 +107,30 @@ HTMLCollection [
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
-.circuit-1:hover+label::before {
+.circuit-4:hover+label::before {
   border-color: #666;
 }
 
-.circuit-1:focus+label::before {
+.circuit-4:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
   border-color: #3063E9;
 }
 
-.circuit-1:focus+label::before::-moz-focus-inner {
+.circuit-4:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:focus:not(:focus-visible)+label::before {
+.circuit-4:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: #999;
 }
 
-.circuit-1:checked:focus:not(:focus-visible)+label::before {
+.circuit-4:checked:focus:not(:focus-visible)+label::before {
   border-color: #3063E9;
 }
 
-.circuit-1:checked+label>svg {
+.circuit-4:checked+label>svg {
   -webkit-transform: translateY(-50%) scale(1, 1);
   -moz-transform: translateY(-50%) scale(1, 1);
   -ms-transform: translateY(-50%) scale(1, 1);
@@ -155,12 +138,12 @@ HTMLCollection [
   opacity: 1;
 }
 
-.circuit-1:checked+label::before {
+.circuit-4:checked+label::before {
   border-color: #3063E9;
   background-color: #3063E9;
 }
 
-.circuit-2 {
+.circuit-5 {
   color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
@@ -168,40 +151,312 @@ HTMLCollection [
   cursor: pointer;
 }
 
-<div
-    class="circuit-0"
-  >
-    <input
-      class="circuit-1"
-      id="checkbox_6"
-      name="name"
-      type="checkbox"
-      value=""
-    />
-    <label
-      class="circuit-2"
-      for="checkbox_6"
-    >
-      <svg
-        aria-hidden="true"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-          fill="currentColor"
+<body>
+    <div>
+      <div>
+        <button
+          aria-labelledby="tooltip-7"
+          class="circuit-0"
         />
-      </svg>
-    </label>
+        <div
+          class="circuit-1"
+          id="tooltip-7"
+          role="tooltip"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          This field is required.
+          <div
+            class="circuit-2"
+            style="bottom: -4px;"
+          />
+        </div>
+      </div>
+      <div
+        class="circuit-3"
+      >
+        <input
+          class="circuit-4"
+          id="checkbox_6"
+          name="name"
+          type="checkbox"
+          value=""
+        />
+        <label
+          class="circuit-5"
+          for="checkbox_6"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+              fill="currentColor"
+            />
+          </svg>
+        </label>
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  display: block;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 0px;
+}
+
+.circuit-0 * {
+  display: block;
+}
+
+.circuit-1 {
+  display: inline-block;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #1A1A1A;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  z-index: 40;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.circuit-1::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
+}
+
+.circuit-2 {
+  position: absolute;
+  background-color: #1A1A1A;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.circuit-3 {
+  position: relative;
+}
+
+.circuit-4 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-4+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-4+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
+.circuit-4:hover+label::before {
+  border-color: #666;
+}
+
+.circuit-4:focus+label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+  border-color: #3063E9;
+}
+
+.circuit-4:focus+label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-4:focus:not(:focus-visible)+label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-4:checked:focus:not(:focus-visible)+label::before {
+  border-color: #3063E9;
+}
+
+.circuit-4:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
+  opacity: 1;
+}
+
+.circuit-4:checked+label::before {
+  border-color: #3063E9;
+  background-color: #3063E9;
+}
+
+.circuit-5 {
+  color: #1A1A1A;
+  display: inline-block;
+  padding-left: 26px;
+  position: relative;
+  cursor: pointer;
+}
+
+<div>
+    <div>
+      <button
+        aria-labelledby="tooltip-7"
+        class="circuit-0"
+      />
+      <div
+        class="circuit-1"
+        id="tooltip-7"
+        role="tooltip"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        This field is required.
+        <div
+          class="circuit-2"
+          style="bottom: -4px;"
+        />
+      </div>
+    </div>
+    <div
+      class="circuit-3"
+    >
+      <input
+        class="circuit-4"
+        id="checkbox_6"
+        name="name"
+        type="checkbox"
+        value=""
+      />
+      <label
+        class="circuit-5"
+        for="checkbox_6"
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+            fill="currentColor"
+          />
+        </svg>
+      </label>
+    </div>
   </div>,
-]
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Checkbox should render with checked styles when passed the checked prop 1`] = `
-.circuit-0 {
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   position: relative;
 }
 
@@ -302,40 +557,231 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   cursor: pointer;
 }
 
-<div
-  class="circuit-0"
->
-  <input
-    checked=""
-    class="circuit-1"
-    id="checkbox_2"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    for="checkbox_2"
-  >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+<body>
+    <div>
+      <div
+        class="circuit-0"
+      >
+        <input
+          checked=""
+          class="circuit-1"
+          id="checkbox_2"
+          name="name"
+          type="checkbox"
+          value=""
+        />
+        <label
+          class="circuit-2"
+          for="checkbox_2"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+              fill="currentColor"
+            />
+          </svg>
+        </label>
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  position: relative;
+}
+
+.circuit-1 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
+.circuit-1:hover+label::before {
+  border-color: #666;
+}
+
+.circuit-1:focus+label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+  border-color: #3063E9;
+}
+
+.circuit-1:focus+label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible)+label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
+  border-color: #3063E9;
+}
+
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
+  opacity: 1;
+}
+
+.circuit-1:checked+label::before {
+  border-color: #3063E9;
+  background-color: #3063E9;
+}
+
+.circuit-2 {
+  color: #1A1A1A;
+  display: inline-block;
+  padding-left: 26px;
+  position: relative;
+  cursor: pointer;
+}
+
+<div>
+    <div
+      class="circuit-0"
     >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
+      <input
+        checked=""
+        class="circuit-1"
+        id="checkbox_2"
+        name="name"
+        type="checkbox"
+        value=""
       />
-    </svg>
-  </label>
-</div>
+      <label
+        class="circuit-2"
+        for="checkbox_2"
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+            fill="currentColor"
+          />
+        </svg>
+      </label>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Checkbox should render with default spacing when there is no noMargin prop 1`] = `
-.circuit-0 {
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   position: relative;
 }
 
@@ -440,39 +886,233 @@ exports[`Checkbox should render with default spacing when there is no noMargin p
   cursor: pointer;
 }
 
-<div
-  class="circuit-0"
->
-  <input
-    class="circuit-1"
-    id="checkbox_5"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    for="checkbox_5"
-  >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+<body>
+    <div>
+      <div
+        class="circuit-0"
+      >
+        <input
+          class="circuit-1"
+          id="checkbox_5"
+          name="name"
+          type="checkbox"
+          value=""
+        />
+        <label
+          class="circuit-2"
+          for="checkbox_5"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+              fill="currentColor"
+            />
+          </svg>
+        </label>
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  position: relative;
+}
+
+.circuit-0:last-of-type {
+  margin-bottom: 16px;
+}
+
+.circuit-1 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
+.circuit-1:hover+label::before {
+  border-color: #666;
+}
+
+.circuit-1:focus+label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+  border-color: #3063E9;
+}
+
+.circuit-1:focus+label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible)+label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
+  border-color: #3063E9;
+}
+
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
+  opacity: 1;
+}
+
+.circuit-1:checked+label::before {
+  border-color: #3063E9;
+  background-color: #3063E9;
+}
+
+.circuit-2 {
+  color: #1A1A1A;
+  display: inline-block;
+  padding-left: 26px;
+  position: relative;
+  cursor: pointer;
+}
+
+<div>
+    <div
+      class="circuit-0"
     >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
+      <input
+        class="circuit-1"
+        id="checkbox_5"
+        name="name"
+        type="checkbox"
+        value=""
       />
-    </svg>
-  </label>
-</div>
+      <label
+        class="circuit-2"
+        for="checkbox_5"
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+            fill="currentColor"
+          />
+        </svg>
+      </label>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Checkbox should render with default styles 1`] = `
-.circuit-0 {
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   position: relative;
 }
 
@@ -573,39 +1213,229 @@ exports[`Checkbox should render with default styles 1`] = `
   cursor: pointer;
 }
 
-<div
-  class="circuit-0"
->
-  <input
-    class="circuit-1"
-    id="checkbox_1"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    for="checkbox_1"
-  >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+<body>
+    <div>
+      <div
+        class="circuit-0"
+      >
+        <input
+          class="circuit-1"
+          id="checkbox_1"
+          name="name"
+          type="checkbox"
+          value=""
+        />
+        <label
+          class="circuit-2"
+          for="checkbox_1"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+              fill="currentColor"
+            />
+          </svg>
+        </label>
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  position: relative;
+}
+
+.circuit-1 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
+.circuit-1:hover+label::before {
+  border-color: #666;
+}
+
+.circuit-1:focus+label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+  border-color: #3063E9;
+}
+
+.circuit-1:focus+label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible)+label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
+  border-color: #3063E9;
+}
+
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
+  opacity: 1;
+}
+
+.circuit-1:checked+label::before {
+  border-color: #3063E9;
+  background-color: #3063E9;
+}
+
+.circuit-2 {
+  color: #1A1A1A;
+  display: inline-block;
+  padding-left: 26px;
+  position: relative;
+  cursor: pointer;
+}
+
+<div>
+    <div
+      class="circuit-0"
     >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
+      <input
+        class="circuit-1"
+        id="checkbox_1"
+        name="name"
+        type="checkbox"
+        value=""
       />
-    </svg>
-  </label>
-</div>
+      <label
+        class="circuit-2"
+        for="checkbox_1"
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+            fill="currentColor"
+          />
+        </svg>
+      </label>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Checkbox should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-0 {
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   position: relative;
 }
 
@@ -717,41 +1547,244 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   box-shadow: none;
 }
 
-<div
-  class="circuit-0"
->
-  <input
-    class="circuit-1"
-    disabled=""
-    id="checkbox_3"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    disabled=""
-    for="checkbox_3"
-  >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+<body>
+    <div>
+      <div
+        class="circuit-0"
+      >
+        <input
+          class="circuit-1"
+          disabled=""
+          id="checkbox_3"
+          name="name"
+          type="checkbox"
+          value=""
+        />
+        <label
+          class="circuit-2"
+          disabled=""
+          for="checkbox_3"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+              fill="currentColor"
+            />
+          </svg>
+        </label>
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  position: relative;
+}
+
+.circuit-1 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
+.circuit-1:hover+label::before {
+  border-color: #666;
+}
+
+.circuit-1:focus+label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+  border-color: #3063E9;
+}
+
+.circuit-1:focus+label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible)+label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
+  border-color: #3063E9;
+}
+
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
+  opacity: 1;
+}
+
+.circuit-1:checked+label::before {
+  border-color: #3063E9;
+  background-color: #3063E9;
+}
+
+.circuit-1+label::before {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+  border-color: #666;
+  background-color: #E6E6E6;
+}
+
+.circuit-2 {
+  color: #1A1A1A;
+  display: inline-block;
+  padding-left: 26px;
+  position: relative;
+  cursor: pointer;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+<div>
+    <div
+      class="circuit-0"
     >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
+      <input
+        class="circuit-1"
+        disabled=""
+        id="checkbox_3"
+        name="name"
+        type="checkbox"
+        value=""
       />
-    </svg>
-  </label>
-</div>
+      <label
+        class="circuit-2"
+        disabled=""
+        for="checkbox_3"
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+            fill="currentColor"
+          />
+        </svg>
+      </label>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Checkbox should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-0 {
+Object {
+  "asFragment": [Function],
+  "baseElement": .circuit-0 {
   position: relative;
 }
 
@@ -867,33 +1900,236 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   cursor: pointer;
 }
 
-<div
-  class="circuit-0"
->
-  <input
-    class="circuit-1"
-    id="checkbox_4"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    for="checkbox_4"
-  >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+<body>
+    <div>
+      <div
+        class="circuit-0"
+      >
+        <input
+          class="circuit-1"
+          id="checkbox_4"
+          name="name"
+          type="checkbox"
+          value=""
+        />
+        <label
+          class="circuit-2"
+          for="checkbox_4"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+              fill="currentColor"
+            />
+          </svg>
+        </label>
+      </div>
+    </div>
+  </body>,
+  "container": .circuit-0 {
+  position: relative;
+}
+
+.circuit-1 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-1+label::before {
+  height: 18px;
+  width: 18px;
+  box-sizing: border-box;
+  box-shadow: 0;
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
+}
+
+.circuit-1+label svg {
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transform: translateY(-50%) scale(0, 0);
+  -moz-transform: translateY(-50%) scale(0, 0);
+  -ms-transform: translateY(-50%) scale(0, 0);
+  transform: translateY(-50%) scale(0, 0);
+  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
+}
+
+.circuit-1:hover+label::before {
+  border-color: #666;
+}
+
+.circuit-1:focus+label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+  border-color: #3063E9;
+}
+
+.circuit-1:focus+label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible)+label::before {
+  box-shadow: none;
+  border-color: #999;
+}
+
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
+  border-color: #3063E9;
+}
+
+.circuit-1:checked+label>svg {
+  -webkit-transform: translateY(-50%) scale(1, 1);
+  -moz-transform: translateY(-50%) scale(1, 1);
+  -ms-transform: translateY(-50%) scale(1, 1);
+  transform: translateY(-50%) scale(1, 1);
+  opacity: 1;
+}
+
+.circuit-1:checked+label::before {
+  border-color: #3063E9;
+  background-color: #3063E9;
+}
+
+.circuit-1+label::before {
+  border-color: #D23F47;
+  background-color: #F4CBCB;
+}
+
+.circuit-1:hover+label::before,
+.circuit-1:focus+label::before {
+  border-color: #B22426;
+}
+
+.circuit-1:checked+label::before {
+  border-color: #D23F47;
+  background-color: #D23F47;
+}
+
+.circuit-2 {
+  color: #1A1A1A;
+  display: inline-block;
+  padding-left: 26px;
+  position: relative;
+  cursor: pointer;
+}
+
+<div>
+    <div
+      class="circuit-0"
     >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
+      <input
+        class="circuit-1"
+        id="checkbox_4"
+        name="name"
+        type="checkbox"
+        value=""
       />
-    </svg>
-  </label>
-</div>
+      <label
+        class="circuit-2"
+        for="checkbox_4"
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+            fill="currentColor"
+          />
+        </svg>
+      </label>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
