@@ -57,9 +57,16 @@ There are some caveats with this approach:
 #### Error message associated with input field
 
 Error messages should be simple and clear to understand, also provide guidance on how to correct mistakes.
-The error messages must be associated with their respective controls (e.g. Input field), via labeling or `aria-describedby`.
-The screen readers call the error message with a live region by applying an `aria-live` property or using one of the live region roles (e.g alert).
+The error messages must be associated with respective controls (e.g. Input field), via `aria-describedby` or labeling.
+The screen readers announce the error message with a live region by applying an `aria-live` property.
 
 The `aria-describedby` is added to the Input field, and `aria-invalid="true"` when the error is triggered.
-The `aria-live="assertive"` indicate that screen readers should immediately announce the error message rather than completing other announcements first.
-This increases the possibility that users are aware of the error message before they move focus out of the input.
+The `aria-live="polite"` indicates that the error message will be announced after completing other announcements first.
+
+### Resources
+
+#### Related articles
+
+- [Testing error messages](https://www.davidmacd.com/blog/test-aria-describedby-errormessage-aria-live.html) Web Accessibility Training
+- [Using live regions to identify error messages](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA19.html)
+- [Error messages with aria-live] (https://gaurav5430.medium.com/accessibility-quick-wins-error-messages-with-aria-live-7a622cb606f9)
