@@ -200,11 +200,11 @@ const overlayOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
 
 const Overlay = styled.div<OpenProps>(overlayStyles, overlayOpenStyles);
 
-const popperStyles = ({ isOpen }: OpenProps) => css`
+const floatingStyles = ({ isOpen }: OpenProps) => css`
   pointer-events: ${isOpen ? 'all' : 'none'};
 `;
 
-const Popper = styled.div<OpenProps>(popperStyles);
+const FloatingElement = styled.div<OpenProps>(floatingStyles);
 
 type Divider = { type: 'divider' };
 type Action = PopoverItemProps | Divider;
@@ -292,7 +292,7 @@ export const Popover = ({
 
   // This is a performance optimization to prevent event listeners from being
   // re-attached on every render.
-  const popperRef = useLatest(refs.floating.current);
+  const floatingRef = useLatest(refs.floating.current);
 
   const focusProps = useFocusList();
   const prevOpen = usePrevious(isOpen);
@@ -353,7 +353,7 @@ export const Popover = ({
   };
 
   useEscapeKey(() => handleToggle(false), isOpen);
-  useClickOutside(popperRef, () => handleToggle(false), isOpen);
+  useClickOutside(floatingRef, () => handleToggle(false), isOpen);
 
   useEffect(() => {
     // When the floating element is visible, add event listeners that invoke the function `update`
@@ -412,7 +412,7 @@ export const Popover = ({
           isOpen={isOpen}
           style={{ zIndex: zIndex || theme.zIndex.popover }}
         />
-        <Popper
+        <FloatingElement
           {...props}
           ref={floating}
           isOpen={isOpen}
@@ -449,7 +449,7 @@ export const Popover = ({
               ),
             )}
           </PopoverMenu>
-        </Popper>
+        </FloatingElement>
       </Portal>
     </Fragment>
   );
