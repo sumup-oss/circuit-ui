@@ -20,7 +20,7 @@ import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 import { mapCellProps, getCellChildren, getSortParams } from '../../utils';
-import { Cell, Direction } from '../../types';
+import { Direction, HeaderCell } from '../../types';
 import styled, { StyleProps } from '../../../../styles/styled';
 
 type ScrollableOptions =
@@ -43,7 +43,7 @@ type TableHeadProps = ScrollableOptions & {
   /**
    * An array of header cells for the table.
    */
-  headers?: Cell[];
+  headers?: HeaderCell[];
   /**
    * Enables/disables sticky columns on mobile
    */

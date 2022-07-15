@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Cell, Direction, SortParams } from './types';
+import { RowCell, Direction, SortParams } from './types';
 import * as utils from './utils';
 
 describe('Table utils', () => {
@@ -109,10 +109,8 @@ describe('Table utils', () => {
     });
 
     it('should return the sortByValue', () => {
-      const props: Cell = {
+      const props: RowCell = {
         children: 'Foo',
-        sortable: true,
-        sortLabel: 'Sort',
         sortByValue: 'Foo',
       };
       const expected = props.sortByValue;

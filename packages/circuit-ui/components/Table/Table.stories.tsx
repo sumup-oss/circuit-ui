@@ -41,7 +41,7 @@ export const Base = ({ onSortBy, ...args }: TableProps): JSX.Element => (
   <Table {...args} />
 );
 
-Base.args = {
+const baseProps: TableProps = {
   headers: [
     { children: 'Name', sortable: true, sortLabel },
     { children: 'Created at', sortable: true, sortLabel },
@@ -50,17 +50,12 @@ Base.args = {
   ],
   rows: [
     {
-      'cells': [
+      cells: [
         'Lorem ipsum',
-        {
-          'children': '12/01/2017',
-          'sortByValue': 0,
-          'data-selector': 'item-1-cell-date-12/01/2017',
-        },
+        { children: '12/01/2017', sortByValue: 0 },
         '-',
         { children: 'Disabled', align: 'right' },
       ],
-      'data-selector': 'item-1',
     },
     [
       'Consectetur adipiscing',
@@ -78,6 +73,8 @@ Base.args = {
   rowHeaders: true,
   onRowClick: action('onRowClick'),
 };
+
+Base.args = baseProps;
 
 export const WithComponentRows = ({
   onSortBy,
