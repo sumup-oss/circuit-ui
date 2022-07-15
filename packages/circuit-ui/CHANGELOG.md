@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 5.1.7
+
+### Patch Changes
+
+- [#1662](https://github.com/sumup-oss/circuit-ui/pull/1662) [`a74749c0`](https://github.com/sumup-oss/circuit-ui/commit/a74749c04b8ce737518bf31626b97f65a869b074) Thanks [@robinmetral](https://github.com/robinmetral)! - Improved `Table` component types. Deprecated the `Cell` type in favor of `HeaderCell` and `RowCell`, to reflect differences in sorting-related props. Correctly typed the `align` prop on the `Cell` instead of the `Row`.
+
+- [`b74dc5e2`](https://github.com/sumup-oss/circuit-ui/commit/b74dc5e28a3e1eeda27c845e2a2d0d0750474d0b) Thanks [@dependabot[bot]](https://github.com/dependabot%5Bbot%5D)! - Upgraded `moment.js` to v2.29.4. If your app also depends on `moment.js`, you need to pin it to the same version to avoid the bug described in [#674](https://github.com/sumup-oss/circuit-ui/issues/674).
+
+- [#1653](https://github.com/sumup-oss/circuit-ui/pull/1653) [`d4ecc20f`](https://github.com/sumup-oss/circuit-ui/commit/d4ecc20fb21cafc536dd8c6d41c737990feb054f) Thanks [@tranhoangan22](https://github.com/tranhoangan22)! - Fixed a spacing issue in the `Table` component when sorting a column in `condensed` mode.
+
 ## 5.1.6
 
 ### Patch Changes
