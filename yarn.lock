@@ -5754,10 +5754,10 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-audit-ci@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/audit-ci/-/audit-ci-6.2.0.tgz#f863bf749397ce1e9b8dd94315ce01cd01167154"
-  integrity sha512-ZEeEaagcHSt/nSgoSAgS/zvzgtOLE+KcI3Txr/GMABzsm/7qoOCbzCcVYpN9oVS8ZkQCrUFQK2MpavVXm1lv0g==
+audit-ci@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/audit-ci/-/audit-ci-6.3.0.tgz#7c9048fda4e7ff93d44edd11920d1a7cd1805f56"
+  integrity sha512-rVCn4J7SUMQw2A21E3PPLzMz70A5RqWIx5BzvuU0iKeEGuuC6vGE00eeo4mFEnr439WdvI9i2lCXnmgABqLSeQ==
   dependencies:
     JSONStream "^1.3.5"
     cross-spawn "^7.0.3"
