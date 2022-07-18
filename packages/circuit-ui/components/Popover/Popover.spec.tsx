@@ -130,6 +130,8 @@ describe('Popover', () => {
     /**
      * FIXME: some of these tests, including style snapshots, throw act()
      * warnings. We should look into it.
+     *
+     * NOTE: the offset behavior enabled by the `offset` prop is tested with Chromatic via storybook
      */
     it('should render with default styles', () => {
       const { baseElement } = renderPopover(baseProps);

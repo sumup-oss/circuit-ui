@@ -243,7 +243,7 @@ export interface PopoverProps {
    */
   fallbackPlacements?: Placement[];
   /**
-   * The element that toggles the Popover when clicked.
+   * The element that toggles the Popover when clicked. Also referred to as the reference element.
    */
   component: (props: {
     'onClick': (event: ClickEvent) => void;
@@ -258,8 +258,8 @@ export interface PopoverProps {
    */
   tracking?: TrackingProps;
   /**
-   * Displace the floating element from its core placement along specified axes
-   * More on offset: https://floating-ui.com/docs/offset
+   * Displace the floating element from its core placement along specified axes.
+   * @see https://floating-ui.com/docs/offset
    */
   offset?: number | { mainAxis?: number; crossAxis?: number };
 }

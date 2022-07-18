@@ -8,15 +8,17 @@ Popover menus are a common pattern to display a list of subsequent action option
 <Story id="components-popover--base" />
 <Props of={Popover} />
 
-- Triggers of Popover can be primary, secondary, tertiary buttons, an overflow icon, or components with embedded buttons such as the [ImageInput component](Forms/ImageInput).
-- Each Popover action item is represented by an appropriate HTML element (button or a).
-- If needed the dividing line can be used to separate Popover action items.
+- The reference element, which triggers Popover, can be primary, secondary, tertiary buttons, an overflow icon, or components with embedded buttons such as the [ImageInput](Forms/ImageInput) component.
+- Each Popover action item is represented by an appropriate HTML element (e.g., a button element or an anchor element).
+- If needed, the dividing line can be used to separate Popover action items.
 - The leading icon is optional.
-- The Popover is powered by React Popper [https://popper.js.org/docs/v2/] which means you can easily change the Popover placement by simply passing the placement prop.
+- The Popover is powered by [Floating UI](https://floating-ui.com/docs/react-dom). You can easily change the position of the Popover relative to the reference element by passing in the `placement` prop. If you want to offset the Popover in the x and y directions, use the `offset` prop.
+
+Popover can be offset via the `offset` prop.
+
+<Story id="components-popover--offset" />
 
 ## Usage guidelines
 
 - **Do** use clear, concise and actionable labels for Popover items
 - **Do** always think about the priority of the action option to be taken and put the option order in logical order
-
-<Story id="components-popover--with-icon" />

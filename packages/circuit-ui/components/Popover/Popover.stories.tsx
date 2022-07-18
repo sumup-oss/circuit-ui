@@ -75,3 +75,25 @@ export const Base = (args: PopoverProps): JSX.Element => {
 Base.args = {
   actions,
 };
+
+export const Offset = (args: PopoverProps): JSX.Element => {
+  const [isOpen, setOpen] = useState(true);
+
+  return (
+    <Popover
+      {...args}
+      isOpen={isOpen}
+      onToggle={setOpen}
+      component={(props) => (
+        <Button size="kilo" variant="secondary" {...props}>
+          Open popover
+        </Button>
+      )}
+    />
+  );
+};
+
+Offset.args = {
+  actions,
+  offset: 20,
+};
