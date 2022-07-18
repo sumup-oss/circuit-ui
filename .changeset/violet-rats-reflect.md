@@ -1,7 +1,5 @@
 ---
-'@sumup/circuit-ui': minor
+'@sumup/circuit-ui': patch
 ---
 
-Improved accessibility for the `ImageInput` component.
-
-- Now the error message is associated with the input field by `aria-describedby`.
+Improved the accessibility of the `ImageInput` component by associating the validation hint with the input and announcing updates to screen reader users.
