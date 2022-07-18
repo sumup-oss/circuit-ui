@@ -393,7 +393,7 @@ export const Popover = ({
 
     triggerKey.current = null;
 
-    // Clearn up the event listener when the component is unmounted
+    // Clean up the event listener when the component is unmounted
     return () => {
       window.removeEventListener('resize', update);
       window.removeEventListener('scroll', update);
