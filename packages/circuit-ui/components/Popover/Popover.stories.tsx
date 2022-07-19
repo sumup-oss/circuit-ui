@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
-
 import { action } from '@storybook/addon-actions';
 import { Add, Edit, Delete } from '@sumup/icons';
 import { useState } from 'react';
@@ -59,16 +57,20 @@ export const Base = (args: PopoverProps): JSX.Element => {
   const [isOpen, setOpen] = useState(true);
 
   return (
-    <Popover
-      {...args}
-      isOpen={isOpen}
-      onToggle={setOpen}
-      component={(props) => (
-        <Button size="kilo" variant="secondary" {...props}>
-          Open popover
-        </Button>
-      )}
-    />
+    // This wrapper is necessary because the Popover's floating element renders
+    // in a Portal, and Chromatic excludes it from screenshots by default.
+    <div style={{ width: 200, height: 250 }}>
+      <Popover
+        {...args}
+        isOpen={isOpen}
+        onToggle={setOpen}
+        component={(props) => (
+          <Button size="kilo" variant="secondary" {...props}>
+            Open popover
+          </Button>
+        )}
+      />
+    </div>
   );
 };
 
