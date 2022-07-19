@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
-
 import { action } from '@storybook/addon-actions';
 import { Add, Edit, Delete } from '@sumup/icons';
 import { useState } from 'react';
@@ -33,7 +31,6 @@ export default {
   argTypes: {
     children: { control: 'text' },
   },
-  chromatic: { delay: 300 },
 };
 
 const actions = [
@@ -60,16 +57,26 @@ export const Base = (args: PopoverProps): JSX.Element => {
   const [isOpen, setOpen] = useState(true);
 
   return (
-    <Popover
-      {...args}
-      isOpen={isOpen}
-      onToggle={setOpen}
-      component={(props) => (
-        <Button size="kilo" variant="secondary" {...props}>
-          Open popover
-        </Button>
-      )}
-    />
+    <div
+      style={{
+        width: 500,
+        height: 500,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Popover
+        {...args}
+        isOpen={isOpen}
+        onToggle={setOpen}
+        component={(props) => (
+          <Button size="kilo" variant="secondary" {...props}>
+            Open popover
+          </Button>
+        )}
+      />
+    </div>
   );
 };
 
