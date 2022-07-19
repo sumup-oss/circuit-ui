@@ -57,15 +57,9 @@ export const Base = (args: PopoverProps): JSX.Element => {
   const [isOpen, setOpen] = useState(true);
 
   return (
-    <div
-      style={{
-        width: 500,
-        height: 500,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+    // This wrapper is necessary because the Popover's floating element renders
+    // in a Portal, and Chromatic excludes it from screenshots by default.
+    <div style={{ width: 200, height: 250 }}>
       <Popover
         {...args}
         isOpen={isOpen}
