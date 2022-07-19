@@ -166,7 +166,7 @@ export function ProfileMenu({
   tracking,
 }: ProfileMenuProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
-  const offsetModifier = { name: 'offset', options: { offset: [-16, 8] } };
+  const offset = { mainAxis: 8, crossAxis: -16 };
 
   return (
     <TrackingElement
@@ -187,7 +187,7 @@ export function ProfileMenu({
         )}
         actions={actions}
         placement="bottom-end"
-        modifiers={[offsetModifier]}
+        offset={offset}
         tracking={
           tracking ? { ...tracking, component: 'profile_menu' } : undefined
         }

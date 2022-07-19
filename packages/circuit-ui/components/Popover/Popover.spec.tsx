@@ -17,7 +17,7 @@
 
 import { FC } from 'react';
 import { Delete, Add, Download, IconProps } from '@sumup/icons';
-import { Placement } from '@popperjs/core';
+import { Placement } from '@floating-ui/react-dom';
 import * as Collector from '@sumup/collector';
 
 import { act, axe, RenderFn, render, userEvent } from '../../util/test-utils';
@@ -32,7 +32,7 @@ import {
 
 jest.mock('@sumup/collector');
 
-const placements: Placement[] = ['auto', 'top', 'bottom', 'left', 'right'];
+const placements: Placement[] = ['top', 'bottom', 'left', 'right'];
 
 describe('PopoverItem', () => {
   function renderPopoverItem<T>(
@@ -130,6 +130,9 @@ describe('Popover', () => {
     /**
      * FIXME: some of these tests, including style snapshots, throw act()
      * warnings. We should look into it.
+     *
+     * NOTE: we can't test the offset behavior enabled by the `offset`
+     * prop with `jsdom`. The logic is covered in Chromatic.
      */
     it('should render with default styles', () => {
       const { baseElement } = renderPopover(baseProps);

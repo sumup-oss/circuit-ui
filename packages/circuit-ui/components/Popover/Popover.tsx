@@ -22,15 +22,18 @@ import {
   useEffect,
   useMemo,
   useRef,
-  useState,
   KeyboardEvent,
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
 } from 'react';
 import useLatest from 'use-latest';
 import usePrevious from 'use-previous';
-import { usePopper } from 'react-popper';
-import { Placement, State, Modifier } from '@popperjs/core';
+import {
+  useFloating,
+  flip,
+  offset as offsetMiddleware,
+  Placement,
+} from '@floating-ui/react-dom';
 import isPropValid from '@emotion/is-prop-valid';
 import { IconProps } from '@sumup/icons';
 import { useClickTrigger } from '@sumup/collector';
@@ -202,11 +205,11 @@ const overlayOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
 
 const Overlay = styled.div<OpenProps>(overlayStyles, overlayOpenStyles);
 
-const popperStyles = ({ isOpen }: OpenProps) => css`
+const floatingStyles = ({ isOpen }: OpenProps) => css`
   pointer-events: ${isOpen ? 'all' : 'none'};
 `;
 
-const Popper = styled.div<OpenProps>(popperStyles);
+const FloatingElement = styled.div<OpenProps>(floatingStyles);
 
 type Divider = { type: 'divider' };
 type Action = PopoverItemProps | Divider;
@@ -240,12 +243,7 @@ export interface PopoverProps {
    */
   fallbackPlacements?: Placement[];
   /**
-   * Modifiers are plugins for Popper.js to modify its default behavior.
-   * [Read the docs](https://popper.js.org/docs/v2/modifiers/).
-   */
-  modifiers?: Partial<Modifier<string, Record<string, unknown>>>[];
-  /**
-   * The element that toggles the Popover when clicked.
+   * The element that toggles the Popover when clicked. Also referred to as the reference element.
    */
   component: (props: {
     'onClick': (event: ClickEvent) => void;
@@ -259,6 +257,11 @@ export interface PopoverProps {
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
+  /**
+   * Displace the floating element from its core placement along specified axes.
+   * @see https://floating-ui.com/docs/offset
+   */
+  offset?: number | { mainAxis?: number; crossAxis?: number };
 }
 
 type TriggerKey = 'ArrowUp' | 'ArrowDown';
@@ -270,19 +273,45 @@ export const Popover = ({
   placement = 'bottom',
   fallbackPlacements = ['top', 'right', 'left'],
   component: Component,
-  modifiers = [],
   tracking,
+  offset,
   ...props
 }: PopoverProps): JSX.Element | null => {
   const theme = useTheme();
   const zIndex = useStackContext();
   const triggerKey = useRef<TriggerKey | null>(null);
-  const triggerEl = useRef<HTMLDivElement>(null);
   const menuEl = useRef<HTMLDivElement>(null);
   const triggerId = useMemo(() => uniqueId('trigger_'), []);
   const menuId = useMemo(() => uniqueId('popover_'), []);
 
   const sendEvent = useClickTrigger();
+
+  const { x, y, reference, floating, strategy, refs, update } =
+    useFloating<HTMLElement>({
+      placement,
+      strategy: 'fixed',
+      middleware: offset
+        ? [offsetMiddleware(offset), flip({ fallbackPlacements })]
+        : [flip({ fallbackPlacements })],
+    });
+
+  // This is a performance optimization to prevent event listeners from being
+  // re-attached on every render.
+  const floatingRef = useLatest(refs.floating.current);
+
+  const focusProps = useFocusList();
+  const prevOpen = usePrevious(isOpen);
+
+  const isMobile = window.matchMedia(`${theme.breakpoints.untilKilo}`).matches;
+
+  const mobileStyles = {
+    position: 'fixed',
+    bottom: '0px',
+    left: '0px',
+    right: '0px',
+    width: 'auto',
+    zIndex: zIndex || theme.zIndex.popover,
+  } as const;
 
   const handleToggle: OnToggle = (state) => {
     onToggle((prev) => {
@@ -299,106 +328,6 @@ export const Popover = ({
       return next;
     });
   };
-
-  // Custom Popper.js modifier that switches to a bottom sheet on mobile.
-  // useMemo prevents a render loop:
-  // https://popper.js.org/react-popper/v2/faq/#why-i-get-render-loop-whenever-i-put-a-function-inside-the-popper-configuration
-  const mobilePosition: Modifier<'mobilePosition', { state: State }> = useMemo(
-    () => ({
-      name: 'mobilePosition',
-      enabled: true,
-      phase: 'write',
-      fn({ state }) {
-        if (window.matchMedia(`${theme.breakpoints.untilKilo}`).matches) {
-          // eslint-disable-next-line no-param-reassign
-          state.styles.popper = {
-            width: '100%',
-            left: '0px',
-            right: '0px',
-            bottom: '0px',
-            position: 'fixed',
-            zIndex: (zIndex || theme.zIndex.popover).toString(),
-          };
-        } else {
-          // eslint-disable-next-line no-param-reassign
-          state.styles.popper.width = 'auto';
-          // eslint-disable-next-line no-param-reassign
-          state.styles.popper.zIndex = (
-            zIndex || theme.zIndex.popover
-          ).toString();
-        }
-      },
-    }),
-    [theme, zIndex],
-  );
-
-  // Flip the popover if there is no space for the default placement.
-  // https://popper.js.org/docs/v2/modifiers/flip/
-  const flip = {
-    name: 'flip',
-    options: {
-      fallbackPlacements,
-    },
-  };
-
-  // Disable the scroll and resize listeners when the popover is closed.
-  // https://popper.js.org/docs/v2/modifiers/event-listeners/
-  const eventListeners = {
-    name: 'eventListeners',
-    options: { scroll: isOpen, resize: isOpen },
-  };
-
-  // Note: the usePopper hook intentionally takes a DOM node, not a ref, in
-  // order to update when the node changes. We use a callback ref for this.
-  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const { styles, attributes, update } = usePopper(
-    triggerEl.current,
-    popperElement,
-    {
-      strategy: 'fixed',
-      placement,
-      modifiers: [mobilePosition, flip, eventListeners, ...modifiers],
-    },
-  );
-
-  // This is a performance optimization to prevent event listeners from being
-  // re-attached on every render.
-  const popperRef = useLatest(popperElement);
-
-  useEscapeKey(() => handleToggle(false), isOpen);
-  useClickOutside(popperRef, () => handleToggle(false), isOpen);
-
-  const prevOpen = usePrevious(isOpen);
-
-  useEffect(() => {
-    if (update) {
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      update();
-    }
-
-    // Focus the first or last element after opening
-    if (!prevOpen && isOpen) {
-      const element = (
-        triggerKey.current && triggerKey.current === 'ArrowUp'
-          ? menuEl.current && menuEl.current.lastElementChild
-          : menuEl.current && menuEl.current.firstElementChild
-      ) as HTMLElement;
-      if (element) {
-        element.focus();
-      }
-    }
-
-    // Focus the trigger button after closing
-    if (prevOpen && !isOpen) {
-      const triggerButton = (triggerEl.current &&
-        triggerEl.current.firstElementChild) as HTMLElement;
-      triggerButton.focus();
-    }
-
-    triggerKey.current = null;
-  }, [isOpen, prevOpen, update]);
-
-  const focusProps = useFocusList();
 
   const handleTriggerClick = (event: ClickEvent) => {
     // This prevents the event from bubbling which would trigger the
@@ -428,9 +357,52 @@ export const Popover = ({
     handleToggle(false);
   };
 
+  useEscapeKey(() => handleToggle(false), isOpen);
+  useClickOutside(floatingRef, () => handleToggle(false), isOpen);
+
+  useEffect(() => {
+    // When the floating element is visible, add event listeners that invoke the function `update`
+    // to update the position of the floating element when screen is resized or scrolled
+    if (isOpen) {
+      update();
+      window.addEventListener('resize', update);
+      window.addEventListener('scroll', update, { passive: true });
+    } else {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update);
+    }
+
+    // Focus the first or last element after opening
+    if (!prevOpen && isOpen) {
+      const element = (
+        triggerKey.current && triggerKey.current === 'ArrowUp'
+          ? menuEl.current && menuEl.current.lastElementChild
+          : menuEl.current && menuEl.current.firstElementChild
+      ) as HTMLElement;
+      if (element) {
+        element.focus();
+      }
+    }
+
+    // Focus the trigger button after closing
+    if (prevOpen && !isOpen) {
+      const triggerButton = (refs.reference.current &&
+        refs.reference.current.firstElementChild) as HTMLElement;
+      triggerButton.focus();
+    }
+
+    triggerKey.current = null;
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update);
+    };
+  }, [isOpen, prevOpen, refs.reference, update]);
+
   return (
     <Fragment>
-      <TriggerElement ref={triggerEl}>
+      <TriggerElement ref={reference}>
         <Component
           id={triggerId}
           aria-haspopup={true}
@@ -445,12 +417,20 @@ export const Popover = ({
           isOpen={isOpen}
           style={{ zIndex: zIndex || theme.zIndex.popover }}
         />
-        <Popper
+        <FloatingElement
           {...props}
-          ref={setPopperElement}
+          ref={floating}
           isOpen={isOpen}
-          style={styles.popper}
-          {...attributes.popper}
+          style={
+            isMobile
+              ? mobileStyles
+              : {
+                  position: strategy,
+                  top: y ?? 0,
+                  left: x ?? 0,
+                  zIndex: zIndex || theme.zIndex.popover,
+                }
+          }
         >
           <PopoverMenu
             id={menuId}
@@ -474,7 +454,7 @@ export const Popover = ({
               ),
             )}
           </PopoverMenu>
-        </Popper>
+        </FloatingElement>
       </Portal>
     </Fragment>
   );
