@@ -33,6 +33,7 @@ export default {
   argTypes: {
     children: { control: 'text' },
   },
+  chromatic: { delay: 300 },
 };
 
 const actions = [
