@@ -1,0 +1,11 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "@sumup/circuit-ui": "5.1.7",
+    "@sumup/cna-template": "2.1.0",
+    "@sumup/design-tokens": "4.0.0",
+    "@sumup/icons": "2.12.0"
+  },
+  "changesets": []
+}
