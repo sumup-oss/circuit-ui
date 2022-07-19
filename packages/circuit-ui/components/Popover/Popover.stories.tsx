@@ -53,13 +53,17 @@ const actions = [
   },
 ];
 
+// This wrapper is necessary because the Popover's floating element renders
+// in a Portal, and Chromatic excludes it from screenshots by default.
+function PopoverWrapper({ children }) {
+  return <div style={{ width: 200, height: 250 }}>{children}</div>;
+}
+
 export const Base = (args: PopoverProps): JSX.Element => {
   const [isOpen, setOpen] = useState(true);
 
   return (
-    // This wrapper is necessary because the Popover's floating element renders
-    // in a Portal, and Chromatic excludes it from screenshots by default.
-    <div style={{ width: 200, height: 250 }}>
+    <PopoverWrapper>
       <Popover
         {...args}
         isOpen={isOpen}
@@ -70,7 +74,7 @@ export const Base = (args: PopoverProps): JSX.Element => {
           </Button>
         )}
       />
-    </div>
+    </PopoverWrapper>
   );
 };
 
@@ -82,16 +86,18 @@ export const Offset = (args: PopoverProps): JSX.Element => {
   const [isOpen, setOpen] = useState(true);
 
   return (
-    <Popover
-      {...args}
-      isOpen={isOpen}
-      onToggle={setOpen}
-      component={(props) => (
-        <Button size="kilo" variant="secondary" {...props}>
-          Open popover
-        </Button>
-      )}
-    />
+    <PopoverWrapper>
+      <Popover
+        {...args}
+        isOpen={isOpen}
+        onToggle={setOpen}
+        component={(props) => (
+          <Button size="kilo" variant="secondary" {...props}>
+            Open popover
+          </Button>
+        )}
+      />
+    </PopoverWrapper>
   );
 };
 
