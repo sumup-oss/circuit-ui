@@ -234,16 +234,25 @@ export interface PopoverProps {
    */
   actions: Action[];
   /**
-   * One of the accepted placement values. Defaults to bottom.
+   * One of the accepted placement values. Defaults to `bottom`.
    */
   placement?: Placement;
   /**
    * The placements to fallback to when there is not enough space for the
-   * Popover. Defaults to ['top', 'right', 'left'].
+   * Popover. Defaults to `['top', 'right', 'left']`.
    */
   fallbackPlacements?: Placement[];
   /**
-   * The element that toggles the Popover when clicked. Also referred to as the reference element.
+   * Displaces the floating element from its `placement` along specified axes.
+   *
+   * Pass a number to move the floating element on the main axis, away from (if
+   * positive) or towards (if negative) the reference element. Pass an object
+   * to displace the floating element on both the main and cross axes.
+   */
+  offset?: number | { mainAxis?: number; crossAxis?: number };
+  /**
+   * The component that toggles the Popover when clicked. Also referred to as
+   * reference element.
    */
   component: (props: {
     'onClick': (event: ClickEvent) => void;
@@ -257,11 +266,6 @@ export interface PopoverProps {
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
-  /**
-   * Displace the floating element from its core placement along specified axes.
-   * @see https://floating-ui.com/docs/offset
-   */
-  offset?: number | { mainAxis?: number; crossAxis?: number };
 }
 
 type TriggerKey = 'ArrowUp' | 'ArrowDown';
