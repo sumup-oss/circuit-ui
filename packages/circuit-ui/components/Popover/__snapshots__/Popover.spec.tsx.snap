@@ -196,10 +196,10 @@ exports[`Popover styles should render popover on bottom 1`] = `
       class="circuit-0"
     >
       <button
-        aria-controls="popover_16"
+        aria-controls="popover_14"
         aria-expanded="true"
         aria-haspopup="true"
-        id="trigger_15"
+        id="trigger_13"
       >
         Button
       </button>
@@ -214,14 +214,14 @@ exports[`Popover styles should render popover on bottom 1`] = `
     style="position: fixed; top: 0px; left: 0px; z-index: 30;"
   >
     <div
-      aria-labelledby="trigger_15"
+      aria-labelledby="trigger_13"
       class="circuit-3"
-      id="popover_16"
+      id="popover_14"
       role="menu"
     >
       <button
         class="circuit-4"
-        data-focus-list="17"
+        data-focus-list="15"
         role="menuitem"
       >
         <svg
@@ -244,7 +244,7 @@ exports[`Popover styles should render popover on bottom 1`] = `
       />
       <button
         class="circuit-7"
-        data-focus-list="17"
+        data-focus-list="15"
         role="menuitem"
       >
         <svg
@@ -463,10 +463,10 @@ exports[`Popover styles should render popover on left 1`] = `
       class="circuit-0"
     >
       <button
-        aria-controls="popover_21"
+        aria-controls="popover_18"
         aria-expanded="true"
         aria-haspopup="true"
-        id="trigger_20"
+        id="trigger_17"
       >
         Button
       </button>
@@ -481,14 +481,14 @@ exports[`Popover styles should render popover on left 1`] = `
     style="position: fixed; top: 0px; left: 0px; z-index: 30;"
   >
     <div
-      aria-labelledby="trigger_20"
+      aria-labelledby="trigger_17"
       class="circuit-3"
-      id="popover_21"
+      id="popover_18"
       role="menu"
     >
       <button
         class="circuit-4"
-        data-focus-list="22"
+        data-focus-list="19"
         role="menuitem"
       >
         <svg
@@ -511,7 +511,7 @@ exports[`Popover styles should render popover on left 1`] = `
       />
       <button
         class="circuit-7"
-        data-focus-list="22"
+        data-focus-list="19"
         role="menuitem"
       >
         <svg
@@ -730,10 +730,10 @@ exports[`Popover styles should render popover on right 1`] = `
       class="circuit-0"
     >
       <button
-        aria-controls="popover_26"
+        aria-controls="popover_22"
         aria-expanded="true"
         aria-haspopup="true"
-        id="trigger_25"
+        id="trigger_21"
       >
         Button
       </button>
@@ -748,14 +748,14 @@ exports[`Popover styles should render popover on right 1`] = `
     style="position: fixed; top: 0px; left: 0px; z-index: 30;"
   >
     <div
-      aria-labelledby="trigger_25"
+      aria-labelledby="trigger_21"
       class="circuit-3"
-      id="popover_26"
+      id="popover_22"
       role="menu"
     >
       <button
         class="circuit-4"
-        data-focus-list="27"
+        data-focus-list="23"
         role="menuitem"
       >
         <svg
@@ -778,7 +778,7 @@ exports[`Popover styles should render popover on right 1`] = `
       />
       <button
         class="circuit-7"
-        data-focus-list="27"
+        data-focus-list="23"
         role="menuitem"
       >
         <svg
@@ -997,10 +997,10 @@ exports[`Popover styles should render popover on top 1`] = `
       class="circuit-0"
     >
       <button
-        aria-controls="popover_11"
+        aria-controls="popover_10"
         aria-expanded="true"
         aria-haspopup="true"
-        id="trigger_10"
+        id="trigger_9"
       >
         Button
       </button>
@@ -1015,14 +1015,14 @@ exports[`Popover styles should render popover on top 1`] = `
     style="position: fixed; top: 0px; left: 0px; z-index: 30;"
   >
     <div
-      aria-labelledby="trigger_10"
+      aria-labelledby="trigger_9"
       class="circuit-3"
-      id="popover_11"
+      id="popover_10"
       role="menu"
     >
       <button
         class="circuit-4"
-        data-focus-list="12"
+        data-focus-list="11"
         role="menuitem"
       >
         <svg
@@ -1045,7 +1045,7 @@ exports[`Popover styles should render popover on top 1`] = `
       />
       <button
         class="circuit-7"
-        data-focus-list="12"
+        data-focus-list="11"
         role="menuitem"
       >
         <svg
@@ -1246,10 +1246,10 @@ exports[`Popover styles should render with closed styles 1`] = `
       class="circuit-0"
     >
       <button
-        aria-controls="popover_7"
+        aria-controls="popover_6"
         aria-expanded="false"
         aria-haspopup="true"
-        id="trigger_6"
+        id="trigger_5"
       >
         Button
       </button>
@@ -1264,14 +1264,14 @@ exports[`Popover styles should render with closed styles 1`] = `
     style="position: fixed; top: 0px; left: 0px; z-index: 30;"
   >
     <div
-      aria-labelledby="trigger_6"
+      aria-labelledby="trigger_5"
       class="circuit-3"
-      id="popover_7"
+      id="popover_6"
       role="menu"
     >
       <button
         class="circuit-4"
-        data-focus-list="8"
+        data-focus-list="7"
         role="menuitem"
       >
         <svg
@@ -1294,7 +1294,7 @@ exports[`Popover styles should render with closed styles 1`] = `
       />
       <button
         class="circuit-7"
-        data-focus-list="8"
+        data-focus-list="7"
         role="menuitem"
       >
         <svg
