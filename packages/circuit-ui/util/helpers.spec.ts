@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { clamp, eachFn, isEmpty, throttle } from './helpers';
+import { clamp, debouncer, eachFn, isEmpty, throttle } from './helpers';
 
 describe('helpers', () => {
   describe('clamp', () => {
@@ -164,6 +164,45 @@ describe('helpers', () => {
       clearInterval(interval);
 
       expect(fn).toHaveBeenCalledTimes(3);
+    });
+  });
+
+  describe('debouncer', () => {
+    beforeAll(() => {
+      jest.useFakeTimers();
+    });
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
+    it('should trigger the function only once after it stops being called rapidly', () => {
+      const fn = jest.fn();
+      const timeout = 100;
+      const debouncedFn = debouncer(fn, timeout);
+
+      const interval = setInterval(debouncedFn, 15);
+
+      jest.advanceTimersByTime(500);
+
+      clearInterval(interval);
+
+      jest.advanceTimersByTime(100);
+
+      expect(fn).toHaveBeenCalledTimes(1);
+    });
+
+    it('should not trigger the function while being called faster than the passed interval', () => {
+      const fn = jest.fn();
+      const timeout = 100;
+      const debouncedFn = debouncer(fn, timeout);
+
+      const interval = setInterval(debouncedFn, 15);
+
+      jest.advanceTimersByTime(500);
+
+      clearInterval(interval);
+
+      expect(fn).not.toHaveBeenCalled();
     });
   });
 });
