@@ -160,6 +160,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
       role="tooltip"
       style="position: absolute; top: 0px; left: 0px;"
     >
+      This field is required.
       <div
         class="circuit-2"
         style="bottom: -4px;"

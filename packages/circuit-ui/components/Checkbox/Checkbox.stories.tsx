@@ -13,15 +13,16 @@
  * limitations under the License.
  */
 
-import { useState, ChangeEvent, Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
+import { Meta } from '@storybook/react';
+import { useState, ChangeEvent, Fragment } from 'react';
 
 import styled from '../../styles/styled';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
 import docs from './Checkbox.docs.mdx';
 
-export default {
+const storyMeta: Meta = {
   title: 'Forms/Checkbox',
   component: Checkbox,
   parameters: {
@@ -33,6 +34,8 @@ export default {
     disabled: { control: 'boolean' },
   },
 };
+
+export default storyMeta;
 
 const CheckboxWithState = ({
   checked: initial = false,
