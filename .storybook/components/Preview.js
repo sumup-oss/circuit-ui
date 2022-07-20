@@ -19,9 +19,12 @@ import { light } from '@sumup/design-tokens';
 
 // eslint-disable-next-line react/prop-types
 const Preview = ({ children, ...props }) => (
-  <Canvas {...props}>
-    <ThemeProvider theme={light}>{children}</ThemeProvider>
-  </Canvas>
+  <ThemeProvider theme={light}>
+    <Canvas {...props}>
+      {children}
+    </Canvas>
+  </ThemeProvider>
+
 );
 
 export default Preview;

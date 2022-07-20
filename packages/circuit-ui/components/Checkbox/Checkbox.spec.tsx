@@ -36,40 +36,46 @@ describe('Checkbox', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = render(<Checkbox noMargin {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Checkbox noMargin {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with checked styles when passed the checked prop', () => {
-    const actual = render(<Checkbox noMargin checked {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(
+      <Checkbox noMargin checked {...defaultProps} />,
+    );
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with disabled styles when passed the disabled prop', () => {
-    const actual = render(<Checkbox noMargin disabled {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(
+      <Checkbox noMargin disabled {...defaultProps} />,
+    );
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with invalid styles when passed the invalid prop', () => {
-    const actual = render(<Checkbox noMargin invalid {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(
+      <Checkbox noMargin invalid {...defaultProps} />,
+    );
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with default spacing when there is no noMargin prop', () => {
     /* @ts-expect-error the noMargin prop is required */
-    const actual = render(<Checkbox {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Checkbox {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with a tooltip when passed a validation hint', () => {
-    const actual = render(
+    const { container } = render(
       <Checkbox
         noMargin
         validationHint="This field is required."
         {...defaultProps}
       />,
     );
-    expect(actual).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   /**

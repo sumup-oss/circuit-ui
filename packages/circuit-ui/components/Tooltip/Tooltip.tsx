@@ -14,32 +14,35 @@
  */
 
 import { css } from '@emotion/react';
-import {
-  arrow,
-  autoUpdate,
-  offset,
-  Placement,
-  useFloating,
-} from '@floating-ui/react-dom';
-import { useRef } from 'react';
+import { arrow, offset, Placement, useFloating } from '@floating-ui/react-dom';
+import { useEffect, useRef } from 'react';
 
 import styled, { NoTheme, StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
+import { debouncer } from '../../util/helpers';
+
+const DEFAULT_OFFSET = 10;
+const DEFAULT_PLACEMENT: Placement = 'bottom';
 
 export interface TooltipProps {
   /**
    * The text content of the tooltip.
    */
-  text: string;
+  label: string;
   /**
    * The placement of the tooltip in relation to the anchored component.
    */
   placement?: Placement;
   children?: JSX.Element;
+  offset?: Offset;
+  arrowOffset?: {
+    x?: number;
+    y?: number;
+  };
 }
 
-const DEFAULT_PLACEMENT: Placement = 'bottom';
+type Offset = number | { mainAxis?: number; crossAxis?: number };
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-block;
@@ -64,14 +67,12 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const TooltipContainer = styled.div<NoTheme>(baseStyles, typography('two'));
 
 const AnchoredElementWrapper = styled.button`
-  display: block;
+  display: inline-block;
   border: none;
   background-color: transparent;
-  width: 100%;
+  width: fit-content;
   padding: 0px;
-  & * {
-    display: block;
-  }
+  /* line-height: 0; */
 `;
 
 const arrowStyles = ({ theme }: StyleProps) => css`
@@ -84,26 +85,42 @@ const arrowStyles = ({ theme }: StyleProps) => css`
 
 const Arrow = styled.div(arrowStyles);
 
+const handleOffset = (defaultValue: number, offsetProp?: Offset): Offset => {
+  if (!offsetProp) {
+    return { mainAxis: defaultValue };
+  }
+  if (typeof offsetProp === 'number') {
+    return { mainAxis: offsetProp + defaultValue };
+  }
+  return { ...offsetProp, mainAxis: (offsetProp.mainAxis || 0) + defaultValue };
+};
+
 export const Tooltip = ({
-  text,
-  placement,
+  label,
+  placement = 'bottom',
+  offset: customOffset,
+  arrowOffset = {},
   children,
   ...props
 }: TooltipProps) => {
   const arrowRef = useRef(null);
   const id = uniqueId('tooltip-');
+  const offsetValue = handleOffset(DEFAULT_OFFSET, customOffset);
   const {
     x,
     y,
-    reference,
-    placement: floatingPlacement,
     floating,
-    strategy,
     middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
+    placement: floatingPlacement,
+    reference,
+    strategy,
+    update,
   } = useFloating({
     placement,
-    whileElementsMounted: autoUpdate,
-    middleware: [offset(10), arrow({ element: arrowRef, padding: 12 })],
+    middleware: [
+      offset(offsetValue),
+      arrow({ element: arrowRef, padding: 12 }),
+    ],
   });
   const staticSide = {
     top: 'bottom',
@@ -112,9 +129,22 @@ export const Tooltip = ({
     left: 'right',
   }[(floatingPlacement || DEFAULT_PLACEMENT).split('-')[0]] as Placement;
 
+  useEffect(() => {
+    const REFRESH_INTERVAL = 100;
+    const debouncedUpdate = debouncer(update, REFRESH_INTERVAL);
+    window.addEventListener('resize', debouncedUpdate);
+    return () => {
+      window.removeEventListener('resize', debouncedUpdate);
+    };
+  }, [update]);
+
   return (
     <div>
-      <AnchoredElementWrapper aria-labelledby={id} ref={reference}>
+      <AnchoredElementWrapper
+        type="button"
+        aria-labelledby={id}
+        ref={reference}
+      >
         {children}
       </AnchoredElementWrapper>
       <TooltipContainer
@@ -128,12 +158,12 @@ export const Tooltip = ({
           left: x ?? 0,
         }}
       >
-        {text}
+        {label}
         <Arrow
           ref={arrowRef}
           style={{
-            left: arrowX != null ? `${arrowX}px` : '',
-            top: arrowY != null ? `${arrowY}px` : '',
+            left: arrowX != null ? `${(arrowOffset.x || 0) + arrowX}px` : '',
+            top: arrowY != null ? `${(arrowOffset.x || 0) + arrowY}px` : '',
             right: '',
             bottom: '',
             [staticSide]: '-4px',

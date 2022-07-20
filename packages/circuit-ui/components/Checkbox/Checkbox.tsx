@@ -237,7 +237,7 @@ export const Checkbox = forwardRef(
     return (
       <>
         {!disabled && validationHint && (
-          <Tooltip text={validationHint} placement="top-end" />
+          <Tooltip label={validationHint} placement="top-end" />
         )}
         <CheckboxWrapper
           className={className}

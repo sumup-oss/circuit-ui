@@ -36,24 +36,17 @@ describe('Tooltip', () => {
     'bottom-start',
   ];
 
-  // ResizeObserver Mock
-  global.ResizeObserver = jest.fn().mockImplementation(() => ({
-    observe: jest.fn(),
-    unobserve: jest.fn(),
-    disconnect: jest.fn(),
-  }));
-
   /**
    * Style tests.
    */
   placements.forEach((placement) => {
     it(`should render with placement ${placement}`, () => {
-      const tooltip = render(
-        <Tooltip text="Tooltip content" placement={placement} id="test-tooltip">
+      const { container } = render(
+        <Tooltip label="Tooltip content" placement={placement}>
           <Info size="16" style={{ width: 'auto' }} />
         </Tooltip>,
       );
-      expect(tooltip).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -62,7 +55,7 @@ describe('Tooltip', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const { container } = render(
-      <Tooltip text="Tooltip content" placement="top">
+      <Tooltip label="Tooltip content" placement="top">
         <Info size="16" style={{ width: 'auto' }} />
       </Tooltip>,
     );

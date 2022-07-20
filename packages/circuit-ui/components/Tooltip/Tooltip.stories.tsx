@@ -13,79 +13,83 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import styled from '@emotion/styled';
 import { Info } from '@sumup/icons';
+import { Meta } from '@storybook/react';
+
+import styled from '../../styles/styled';
 
 import docs from './Tooltip.docs.mdx';
 import { Tooltip, TooltipProps } from './Tooltip';
 
-export default {
+const TooltipContainer = styled('div')`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+`;
+
+const storyMeta: Meta = {
   title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
     docs: { page: docs },
   },
+  decorators: [
+    (Story) => (
+      <TooltipContainer>
+        <Story />
+      </TooltipContainer>
+    ),
+  ],
 };
 
-const TooltipContainer = styled('div')`
-  display: flex;
-  height: 200px;
-  align-items: center;
-  justify-content: center;
-`;
+export default storyMeta;
 
-const baseArgs: Partial<TooltipProps> = {
-  text: 'I am a teeny, tiny tooltip.',
+const baseArgs: TooltipProps = {
+  label: 'I am a teeny, tiny tooltip.',
   placement: 'bottom',
+  offset: {
+    crossAxis: 10,
+  },
 };
 
-export const Base = (args: TooltipProps) => (
-  <TooltipContainer>
-    <Tooltip {...args}>
-      <Info size="16" style={{ width: 'auto' }} />
-    </Tooltip>
-  </TooltipContainer>
+export const Base = (args) => (
+  <Tooltip {...args}>
+    <Info size="16" />
+  </Tooltip>
 );
 
 Base.args = baseArgs;
 
 export const Top = (args) => (
-  <TooltipContainer>
-    <Tooltip {...args}>
-      <Info size="16" style={{ width: 'auto' }} />
-    </Tooltip>
-  </TooltipContainer>
+  <Tooltip {...args}>
+    <Info size="16" />
+  </Tooltip>
 );
 
 Top.args = { ...baseArgs, placement: 'top' };
 
 export const Bottom = (args) => (
-  <TooltipContainer>
-    <Tooltip {...args}>
-      <Info size="16" style={{ width: 'auto' }} />
-    </Tooltip>
-  </TooltipContainer>
+  <Tooltip {...args}>
+    <Info size="16" />
+  </Tooltip>
 );
 
 Bottom.args = { ...baseArgs, placement: 'bottom' };
 
 export const Left = (args) => (
-  <TooltipContainer>
-    <Tooltip {...args}>
-      <Info size="16" style={{ width: 'auto' }} />
-    </Tooltip>
-  </TooltipContainer>
+  <Tooltip {...args}>
+    <Info size="16" />
+  </Tooltip>
 );
 
 Left.args = { ...baseArgs, placement: 'left' };
 
 export const Right = (args) => (
-  <TooltipContainer>
-    <Tooltip {...args}>
-      <Info size="16" style={{ width: 'auto' }} />
-    </Tooltip>
-  </TooltipContainer>
+  <Tooltip {...args}>
+    <Info size="16" />
+  </Tooltip>
 );
 
 Right.args = { ...baseArgs, placement: 'right' };

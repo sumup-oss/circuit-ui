@@ -74,3 +74,14 @@ export function throttle<T extends []>(fn: Fn<T>, timeout: number): Fn<T> {
     }, timeout);
   };
 }
+
+/**
+ * Triggers a function after ms milisseconds. Resets the counter if the function is called again
+ */
+export const debouncer = (fn: () => void, ms: number) => {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  return () => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(fn, ms);
+  };
+};
