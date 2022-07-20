@@ -49,9 +49,6 @@ export default storyMeta;
 const baseArgs: TooltipProps = {
   label: 'I am a teeny, tiny tooltip.',
   placement: 'bottom',
-  offset: {
-    crossAxis: 10,
-  },
 };
 
 export const Base = (args) => (
