@@ -35,7 +35,13 @@ export interface TooltipProps {
    */
   placement?: Placement;
   children?: JSX.Element;
+  /**
+   * Adjust the tooltip offset
+   */
   offset?: Offset;
+  /**
+   * Adjust the arrow offset
+   */
   arrowOffset?: {
     x?: number;
     y?: number;
