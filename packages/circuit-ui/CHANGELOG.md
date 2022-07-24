@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.2.0
+
+### Minor Changes
+
+- [#1682](https://github.com/sumup-oss/circuit-ui/pull/1682) [`d4ce46f0`](https://github.com/sumup-oss/circuit-ui/commit/d4ce46f042e993d8d3eb872dd92ef4fd6d7d6697) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `ClickEvent`, `PopoverItemProps`, and `TableSortByValue` types to the public exports.
+
 ## 5.1.7
 
 ### Patch Changes
