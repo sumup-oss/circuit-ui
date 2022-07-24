@@ -170,6 +170,7 @@ export { default as Table } from './components/Table';
 export type {
   TableProps,
   TableSortDirection,
+  TableSortByValue,
   TableHeaderCell,
   TableRowCell,
   TableCell,
