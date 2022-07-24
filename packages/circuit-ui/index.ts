@@ -141,7 +141,7 @@ export type { ProgressBarProps } from './components/ProgressBar';
 export { default as Tag } from './components/Tag';
 export type { TagProps } from './components/Tag';
 export { default as Popover } from './components/Popover';
-export type { PopoverProps } from './components/Popover';
+export type { PopoverProps, PopoverItemProps } from './components/Popover';
 export { default as Tooltip } from './components/Tooltip';
 export type { TooltipProps } from './components/Tooltip';
 export { default as BaseStyles } from './components/BaseStyles';
