@@ -14,8 +14,9 @@
  */
 
 import Table, { TableProps } from './Table';
-import {
+import type {
   Direction as TableSortDirection,
+  SortByValue as TableSortByValue,
   RowCell as TableRowCell,
   HeaderCell as TableHeaderCell,
   Row as TableRow,
@@ -30,6 +31,7 @@ type TableCell = TableRowCell | TableHeaderCell;
 export type {
   TableProps,
   TableSortDirection,
+  TableSortByValue,
   TableCell,
   TableRowCell,
   TableHeaderCell,

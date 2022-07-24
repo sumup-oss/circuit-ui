@@ -26,16 +26,13 @@ export function isNumber(value?: unknown): value is number {
   return typeof value === 'number';
 }
 
-export function isArray(value?: unknown): value is [] {
-  return (
-    Boolean(value) &&
-    typeof value === 'object' &&
-    value !== null &&
-    value.constructor === Array
-  );
+export function isArray<T>(value?: unknown): value is T[] {
+  return Array.isArray(value);
 }
 
-export function isObject(value: unknown): value is Record<string, unknown> {
+export function isObject<T extends Record<string, unknown>>(
+  value: unknown,
+): value is T {
   return value === Object(value) && !isArray(value) && !isFunction(value);
 }
 

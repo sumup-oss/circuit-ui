@@ -46,8 +46,9 @@ type SortableRowCell = {
 };
 
 type CellObject = {
-  children: ReactNode;
-  align?: CellAlignment;
+  'children': ReactNode;
+  'align'?: CellAlignment;
+  'data-testid'?: string;
 };
 
 export type RowCellObject = SortableRowCell & CellObject;

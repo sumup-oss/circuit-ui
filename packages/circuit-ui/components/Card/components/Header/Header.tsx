@@ -23,6 +23,7 @@ import {
   CloseButtonProps,
 } from '../../../CloseButton/CloseButton';
 import { TrackingProps } from '../../../../hooks/useClickEvent';
+import { isArray } from '../../../../util/type-check';
 
 type CloseProps =
   | {
@@ -61,7 +62,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const noHeadlineStyles = ({ children }: ContainerElProps) =>
-  Array.isArray(children) &&
+  isArray(children) &&
   !children[0] &&
   css`
     justify-content: flex-end;

@@ -29,7 +29,7 @@ export type Child = {
 
 export function hasSelectedChild(children: Child[] | Child): boolean {
   if (children) {
-    const childArray = (isArray(children) ? children : [children]) as Child[];
+    const childArray = isArray(children) ? children : [children];
     const selectedChildren = childArray.filter((item) => item.props.selected);
     return !isEmpty(selectedChildren);
   }
@@ -41,7 +41,7 @@ export function getSelectedChildIndex(children?: Child[] | Child): number {
     return -1;
   }
 
-  const childArray = (isArray(children) ? children : [children]) as Child[];
+  const childArray = isArray(children) ? children : [children];
 
   return childArray.findIndex((child: Child) => Boolean(child.props.selected));
 }
@@ -54,7 +54,7 @@ export function getSecondaryChildren(
     return undefined;
   }
 
-  const childArray = (isArray(children) ? children : [children]) as Child[];
+  const childArray = isArray(children) ? children : [children];
 
   return childArray.map((child: Child) => ({
     ...child,
