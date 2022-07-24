@@ -78,6 +78,7 @@ export { default as Selector } from './components/Selector';
 export type { SelectorProps } from './components/Selector';
 export { default as SelectorGroup } from './components/SelectorGroup';
 export type { SelectorGroupProps } from './components/SelectorGroup';
+export type { ClickEvent } from './types/events';
 
 // Notifications
 export { default as NotificationBanner } from './components/NotificationBanner';
