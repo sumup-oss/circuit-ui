@@ -28,7 +28,7 @@ import { ButtonProps } from '../Button';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
 import styled, { StyleProps } from '../../styles/styled';
 import CloseButton from '../CloseButton';
-import { spacing } from '../../styles/style-mixins';
+import { cx, spacing } from '../../styles/style-mixins';
 import { CircuitError } from '../../util/errors';
 
 const TRANSITION_DURATION = 200;
@@ -78,6 +78,15 @@ const imageStyles = ({ theme }: StyleProps) => css`
 `;
 
 const ModalImage = styled(Image)(imageStyles);
+
+// Prevent the headline from being overlapped by the close button
+const noImageStyles = (hasImage: boolean) =>
+  !hasImage &&
+  css`
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  `;
 
 /**
  * Circuit UI's wrapper component for ReactModal.
@@ -181,6 +190,8 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
           };
         }
 
+        const hasImage = Boolean(image);
+
         return (
           <ReactModal {...reactModalProps}>
             {!preventClose && closeButtonLabel && (
@@ -194,7 +205,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
             <Headline
               as="h2"
               size="three"
-              css={spacing({ bottom: 'byte' })}
+              css={cx(spacing({ bottom: 'byte' }), noImageStyles(hasImage))}
               noMargin
             >
               {headline}
