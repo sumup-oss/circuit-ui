@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Fixed spacing in imageless `NotificationModal`s.
+Fixed the spacing in imageless `NotificationModal`s.
