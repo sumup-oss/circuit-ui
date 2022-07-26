@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.2.1
+
+### Patch Changes
+
+- [#1690](https://github.com/sumup-oss/circuit-ui/pull/1690) [`66bef295`](https://github.com/sumup-oss/circuit-ui/commit/66bef29596c93a99e29bd97ca6efda1e47856ebe) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the spacing in imageless `NotificationModal`s.
+
 ## 5.2.0
 
 ### Minor Changes
