@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.2.2
+
+### Patch Changes
+
+- [#1692](https://github.com/sumup-oss/circuit-ui/pull/1692) [`cab2f20c`](https://github.com/sumup-oss/circuit-ui/commit/cab2f20cf89746bd4b09aa3577176de405cbdf82) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a max-width to the headline of an imageless `NotificationModal` to prevent it from being overlapped by the close button.
+
 ## 5.2.1
 
 ### Patch Changes
