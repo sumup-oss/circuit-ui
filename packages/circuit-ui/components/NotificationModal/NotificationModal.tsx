@@ -74,7 +74,7 @@ const imageStyles = ({ theme }: StyleProps) => css`
   max-width: 232px;
   height: 120px;
   object-fit: contain;
-  margin: 0 auto ${theme.spacings.mega};
+  margin: 0 auto ${theme.spacings.giga};
 `;
 
 const ModalImage = styled(Image)(imageStyles);
@@ -194,7 +194,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
             <Headline
               as="h2"
               size="three"
-              css={spacing({ top: 'giga', bottom: 'byte' })}
+              css={spacing({ bottom: 'byte' })}
               noMargin
             >
               {headline}

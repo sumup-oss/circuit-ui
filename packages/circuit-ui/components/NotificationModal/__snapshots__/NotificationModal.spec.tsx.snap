@@ -197,7 +197,7 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   max-width: 232px;
   height: 120px;
   object-fit: contain;
-  margin: 0 auto 16px;
+  margin: 0 auto 24px;
 }
 
 .circuit-8 {
@@ -206,7 +206,6 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   letter-spacing: -0.03em;
   font-size: 20px;
   line-height: 24px;
-  margin-top: 24px;
   margin-bottom: 8px;
 }
 
