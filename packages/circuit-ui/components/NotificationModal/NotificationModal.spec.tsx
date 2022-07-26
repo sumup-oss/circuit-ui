@@ -50,6 +50,12 @@ describe('NotificationModal', () => {
       expect(baseElement).toMatchSnapshot();
     });
 
+    it('should render without an image', () => {
+      const { image, ...props } = baseNotificationModal;
+      const { baseElement } = renderNotificationModal(props);
+      expect(baseElement).toMatchSnapshot();
+    });
+
     it('should render the modal', async () => {
       const { findByRole } = renderNotificationModal(baseNotificationModal);
 
