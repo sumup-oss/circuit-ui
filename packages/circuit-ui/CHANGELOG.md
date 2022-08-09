@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.2.3
+
+### Patch Changes
+
+- [#1644](https://github.com/sumup-oss/circuit-ui/pull/1644) [`6c5c2a1a`](https://github.com/sumup-oss/circuit-ui/commit/6c5c2a1a21e87ddee66d53dcbafb3ecf0eae34d1) Thanks [@amelako](https://github.com/amelako)! - Improved the accessibility of the `ImageInput` component by associating the validation hint with the input and announcing updates to screen reader users.
+
 ## 5.2.2
 
 ### Patch Changes
