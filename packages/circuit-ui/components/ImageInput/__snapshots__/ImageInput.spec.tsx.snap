@@ -289,14 +289,15 @@ exports[`ImageInput styles should render a custom component 1`] = `
   >
     <input
       accept="image/*"
+      aria-describedby="validation-hint_10"
       aria-invalid="false"
       class="circuit-1"
-      id="image-input_5"
+      id="image-input_9"
       type="file"
     />
     <label
       class="circuit-2"
-      for="image-input_5"
+      for="image-input_9"
     >
       <span
         class="circuit-3"
@@ -663,14 +664,15 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   >
     <input
       accept="image/*"
+      aria-describedby="validation-hint_4"
       aria-invalid="false"
       class="circuit-1"
-      id="image-input_2"
+      id="image-input_3"
       type="file"
     />
     <label
       class="circuit-2"
-      for="image-input_2"
+      for="image-input_3"
     >
       <span
         class="circuit-3"
@@ -1038,6 +1040,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
   >
     <input
       accept="image/*"
+      aria-describedby="validation-hint_2"
       aria-invalid="false"
       class="circuit-1"
       id="image-input_1"
@@ -1438,14 +1441,15 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   >
     <input
       accept="image/*"
+      aria-describedby="validation-hint_6"
       aria-invalid="true"
       class="circuit-1"
-      id="image-input_3"
+      id="image-input_5"
       type="file"
     />
     <label
       class="circuit-2"
-      for="image-input_3"
+      for="image-input_5"
     >
       <span
         class="circuit-3"
@@ -1506,7 +1510,9 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
     </span>
   </div>
   <span
+    aria-live="polite"
     class="circuit-12"
+    id="validation-hint_6"
   >
     <div
       class="circuit-13"
@@ -1837,14 +1843,15 @@ exports[`ImageInput styles should render with smaller button 1`] = `
   >
     <input
       accept="image/*"
+      aria-describedby="validation-hint_8"
       aria-invalid="false"
       class="circuit-1"
-      id="image-input_4"
+      id="image-input_7"
       type="file"
     />
     <label
       class="circuit-2"
-      for="image-input_4"
+      for="image-input_7"
     >
       <span
         class="circuit-3"
