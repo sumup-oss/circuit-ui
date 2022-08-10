@@ -406,6 +406,11 @@
       "size": "24"
     },
     {
+      "name": "alelo",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "american_express",
       "category": "Card scheme",
       "size": "32"
@@ -487,6 +492,16 @@
     },
     {
       "name": "pix",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "sodexo",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "ticket",
       "category": "Card scheme",
       "size": "32"
     },
