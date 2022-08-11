@@ -6,12 +6,12 @@ import { Meta } from '../../.storybook/components';
 
 This page outlines the process of contributing an icon to the `@sumup/icons` package.
 
-> Note: if the icon you'd like to contribute isn't in the [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link), make sure to request it with the design team first.
+> Note that icons should be added by internal contributors with access to the SumUp [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link). If you don't have access but would like to see an icon added to `@sumup/icons`, please [open an issue](https://github.com/sumup-oss/circuit-ui/issues/new).
 
 ## Adding a new icon to `@sumup/icons`
 
 1. Create a new SVG file for each icon size in [`packages/web/icons/v2/`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/web/v2) with the name `name_size.svg` (e.g. `add_items_24`—this will generate an `<AddItems />` component).
-2. Export the icon as SVG from the [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link).
+2. Export the icon as SVG from the [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link). If the icon isn't in the library, make a request with the design team first.
    ![Right click on the group in Figma and choose "export as SVG"](/images/contributing-icons-export.png)
 3. Paste the SVG into your file and verify the code—refer to the "Caveats" section below.
 4. Commit the icons, they will automatically be optimized in the commit hook using `svgo`.
