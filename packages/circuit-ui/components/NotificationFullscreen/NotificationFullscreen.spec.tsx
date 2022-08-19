@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Plus } from '@sumup/icons';
+
 import { render, axe, userEvent } from '../../util/test-utils';
 
 import {
@@ -24,7 +26,7 @@ describe('NotificationFullscreen', () => {
   const renderNotificationFullscreen = (props: NotificationFullscreenProps) =>
     render(<NotificationFullscreen {...props} />);
 
-  const baseProps: NotificationFullscreenProps = {
+  const baseProps = {
     headline: 'Empty box',
     body: 'Unfortunately, the box is empty. You can either look again, or go elsewhere.',
     image: {
@@ -42,11 +44,17 @@ describe('NotificationFullscreen', () => {
         onClick: jest.fn(),
       },
     },
-  };
+  } as const;
 
   describe('styles', () => {
     it('should render with default styles', () => {
       const { container } = renderNotificationFullscreen(baseProps);
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render with an SVG', () => {
+      const props = { ...baseProps, image: Plus };
+      const { container } = renderNotificationFullscreen(props);
       expect(container).toMatchSnapshot();
     });
 

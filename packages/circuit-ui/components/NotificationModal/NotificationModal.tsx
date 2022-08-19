@@ -14,7 +14,7 @@
  */
 
 import { css, ClassNames } from '@emotion/react';
-import { ReactNode } from 'react';
+import { FC, ReactNode, SVGProps } from 'react';
 import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
@@ -26,10 +26,10 @@ import Headline from '../Headline';
 import Body from '../Body';
 import { ButtonProps } from '../Button';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
-import styled, { StyleProps } from '../../styles/styled';
 import CloseButton from '../CloseButton';
 import { cx, spacing } from '../../styles/style-mixins';
 import { CircuitError } from '../../util/errors';
+import { isFunction } from '../../util/type-check';
 
 const TRANSITION_DURATION = 200;
 
@@ -53,7 +53,7 @@ type PreventCloseProps =
 
 export type NotificationModalProps = BaseModalProps &
   PreventCloseProps & {
-    image?: ImageProps;
+    image?: ImageProps | FC<SVGProps<SVGSVGElement>>;
     headline: string;
     body?: string | ReactNode;
     actions: ButtonGroupProps['actions'];
@@ -70,14 +70,34 @@ const closeButtonStyles = (theme: Theme) => css`
   }
 `;
 
-const imageStyles = ({ theme }: StyleProps) => css`
+const imageStyles = (theme: Theme) => css`
   max-width: 232px;
   height: 120px;
   object-fit: contain;
   margin: 0 auto ${theme.spacings.giga};
 `;
 
-const ModalImage = styled(Image)(imageStyles);
+const svgStyles = css`
+  height: 100%;
+  width: 100%;
+`;
+
+function NotificationImage({ image }: Pick<NotificationModalProps, 'image'>) {
+  if (!image) {
+    return null;
+  }
+
+  if (isFunction(image)) {
+    const Svg = image;
+    return (
+      <div css={imageStyles}>
+        <Svg css={svgStyles} />
+      </div>
+    );
+  }
+
+  return <Image {...image} css={imageStyles} />;
+}
 
 // Prevent the headline from being overlapped by the close button
 const noImageStyles = (hasImage: boolean) =>
@@ -201,7 +221,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
                 css={closeButtonStyles}
               />
             )}
-            {image && <ModalImage {...image} />}
+            <NotificationImage image={image} />
             <Headline
               as="h2"
               size="three"

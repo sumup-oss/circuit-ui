@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Plus } from '@sumup/icons';
+
 import { axe, render, userEvent, waitFor } from '../../util/test-utils';
 
 import { NotificationModal, NotificationModalProps } from './NotificationModal';
@@ -21,7 +23,7 @@ describe('NotificationModal', () => {
   const renderNotificationModal = (props: NotificationModalProps) =>
     render(<NotificationModal {...props} />);
 
-  const baseNotificationModal: NotificationModalProps = {
+  const baseNotificationModal = {
     isOpen: true,
     closeButtonLabel: 'Close modal',
     onClose: jest.fn(),
@@ -42,11 +44,17 @@ describe('NotificationModal', () => {
       },
     },
     ariaHideApp: false,
-  };
+  } as const;
 
   describe('styles', () => {
     it('should render with default styles', () => {
       const { baseElement } = renderNotificationModal(baseNotificationModal);
+      expect(baseElement).toMatchSnapshot();
+    });
+
+    it('should render with an SVG', () => {
+      const props = { ...baseNotificationModal, image: Plus };
+      const { baseElement } = renderNotificationModal(props);
       expect(baseElement).toMatchSnapshot();
     });
 

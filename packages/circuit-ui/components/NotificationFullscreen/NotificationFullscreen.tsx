@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, ReactNode } from 'react';
+import { FC, HTMLAttributes, ReactNode, SVGProps } from 'react';
 import { css } from '@emotion/react';
 
 import Body from '../Body';
@@ -21,14 +21,14 @@ import Headline from '../Headline';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
 import { spacing, cx } from '../../styles/style-mixins';
 import Image, { ImageProps } from '../Image';
-import { isString } from '../../util/type-check';
+import { isFunction, isString } from '../../util/type-check';
 
 export interface NotificationFullscreenProps
   extends HTMLAttributes<HTMLDivElement> {
   /**
    * An image to communicate message.
    */
-  image: ImageProps;
+  image: ImageProps | FC<SVGProps<SVGSVGElement>>;
   /**
    * Notification fullscreen headline to provide information.
    * It can be either a string or an object (if the headline is 'h1')
@@ -63,6 +63,26 @@ const imageStyles = css`
   object-fit: contain;
 `;
 
+const svgStyles = css`
+  height: 100%;
+  width: 100%;
+`;
+
+function NotificationImage({
+  image,
+}: Pick<NotificationFullscreenProps, 'image'>) {
+  if (isFunction(image)) {
+    const Svg = image;
+    return (
+      <div css={imageStyles}>
+        <Svg css={svgStyles} />
+      </div>
+    );
+  }
+
+  return <Image {...image} css={imageStyles} />;
+}
+
 const centeredStyles = css`
   text-align: center;
 `;
@@ -81,7 +101,7 @@ export const NotificationFullscreen = ({
   const headlineElement = isString(headline) ? 'h2' : headline.as;
   return (
     <div css={wrapperStyles} {...props}>
-      <Image {...image} css={imageStyles} />
+      <NotificationImage image={image} />
       <Headline
         noMargin
         css={cx(spacing({ top: 'giga', bottom: 'byte' }), centeredStyles)}
