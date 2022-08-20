@@ -35,8 +35,22 @@ export const Base = (modal: NotificationModalProps): JSX.Element => {
   const ComponentWithModal = () => {
     const { setModal } = useNotificationModal();
 
+    const props = {
+      ...modal,
+      actions: {
+        primary: {
+          children: 'hello',
+          loadingLabel: 'Loading',
+          onClick: () =>
+            new Promise<boolean>((resolve, reject) => {
+              setTimeout(reject, 5000);
+            }),
+        },
+      },
+    };
+
     return (
-      <Button type="button" onClick={() => setModal(modal)}>
+      <Button type="button" onClick={() => setModal(props)}>
         Open modal
       </Button>
     );

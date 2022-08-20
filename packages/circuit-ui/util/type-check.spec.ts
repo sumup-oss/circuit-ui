@@ -19,6 +19,7 @@ import {
   isNil,
   isNumber,
   isObject,
+  isPromise,
   isString,
 } from './type-check';
 
@@ -169,6 +170,23 @@ describe('type check', () => {
 
     it('should return false for undefined', () => {
       const actual = isObject(undefined);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isPromise', () => {
+    it('should return true for a promise-like value', () => {
+      const actual = isPromise(Promise.resolve());
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false for an object', () => {
+      const actual = isPromise({});
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for a synchronous function', () => {
+      const actual = isPromise(jest.fn());
       expect(actual).toBeFalsy();
     });
   });

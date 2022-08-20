@@ -14,7 +14,7 @@
  */
 
 import { css, ClassNames } from '@emotion/react';
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
@@ -25,11 +25,12 @@ import Image, { ImageProps } from '../Image';
 import Headline from '../Headline';
 import Body from '../Body';
 import { ButtonProps } from '../Button';
-import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
+import ButtonGroup from '../ButtonGroup';
 import styled, { StyleProps } from '../../styles/styled';
 import CloseButton from '../CloseButton';
 import { cx, spacing } from '../../styles/style-mixins';
 import { CircuitError } from '../../util/errors';
+import { isPromise } from '../../util/type-check';
 
 const TRANSITION_DURATION = 200;
 
@@ -51,13 +52,25 @@ type PreventCloseProps =
       preventClose?: never;
     };
 
+type Action =
+  | Omit<ButtonProps, 'variant'>
+  | (Omit<ButtonProps, 'variant' | 'onClick'> & {
+      onClick: (event: ClickEvent) => Promise<void>;
+      loadingLabel: string;
+    });
+
 export type NotificationModalProps = BaseModalProps &
   PreventCloseProps & {
     image?: ImageProps;
     headline: string;
     body?: string | ReactNode;
-    actions: ButtonGroupProps['actions'];
+    actions: {
+      primary: Action;
+      secondary?: Action;
+    };
   };
+
+type ActionName = keyof NotificationModalProps['actions'];
 
 const closeButtonStyles = (theme: Theme) => css`
   position: absolute;
@@ -104,6 +117,8 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
   className,
   ...props
 }) => {
+  const [loading, setLoading] = useState<ActionName | null>(null);
+
   if (process.env.NODE_ENV !== 'production' && className) {
     throw new CircuitError(
       'NotificationModal',
@@ -183,10 +198,34 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
           ...props,
         };
 
-        function wrapOnClick(onClick?: ButtonProps['onClick']) {
-          return (event: ClickEvent) => {
-            handleClose?.(event);
-            onClick?.(event);
+        function wrapOnClick(actionName: ActionName) {
+          const onClick = actions[actionName]?.onClick;
+
+          if (!onClick) {
+            return { onClick: handleClose };
+          }
+
+          return {
+            onClick: (event: ClickEvent) => {
+              const res = onClick(event);
+
+              if (!isPromise(res)) {
+                handleClose?.(event);
+                return;
+              }
+
+              setLoading(actionName);
+              res
+                .then(() => {
+                  setLoading(null);
+                  handleClose?.(event);
+                })
+                .catch(() => {
+                  setLoading(null);
+                });
+            },
+            // TODO: Don't trigger loading label error
+            isLoading: loading !== null ? loading === actionName : undefined,
           };
         }
 
@@ -216,11 +255,11 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
                 actions={{
                   primary: {
                     ...actions.primary,
-                    onClick: wrapOnClick(actions.primary.onClick),
+                    ...wrapOnClick('primary'),
                   },
                   secondary: actions.secondary && {
                     ...actions.secondary,
-                    onClick: wrapOnClick(actions.secondary.onClick),
+                    ...wrapOnClick('secondary'),
                   },
                 }}
                 css={spacing({ top: 'giga' })}

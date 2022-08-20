@@ -36,6 +36,10 @@ export function isObject<T extends Record<string, unknown>>(
   return value === Object(value) && !isArray(value) && !isFunction(value);
 }
 
+export function isPromise<T>(value?: unknown): value is Promise<T> {
+  return isObject(value) && isFunction(value.then);
+}
+
 export function isNil(value?: unknown): value is null | undefined {
   return value === undefined || value === null;
 }
