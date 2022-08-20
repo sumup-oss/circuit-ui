@@ -52,7 +52,7 @@ describe('NotificationFullscreen', () => {
       expect(container).toMatchSnapshot();
     });
 
-    it('should render with an SVG', () => {
+    it('should render with an SVG component', () => {
       const props = { ...baseProps, image: Plus };
       const { container } = renderNotificationFullscreen(props);
       expect(container).toMatchSnapshot();
