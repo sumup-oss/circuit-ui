@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.2.4
+
+### Patch Changes
+
+- [#1719](https://github.com/sumup-oss/circuit-ui/pull/1719) [`e0dbb2c8`](https://github.com/sumup-oss/circuit-ui/commit/e0dbb2c8666cce666ba681753bcdfe02e5274ad7) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed extra bottom spacing from the `NotificationInline` action.
+
 ## 5.2.3
 
 ### Patch Changes
