@@ -83,7 +83,6 @@ export const MultipleLines = () => {
         {
           children: 'A whole lotta fruits!',
           value: 'lotsOfFruits',
-          noMargin: true,
         },
       ]}
       value={value}

@@ -18,7 +18,6 @@ import { createRef } from 'react';
 import { axe, render, screen } from '../../util/test-utils';
 
 import { SelectorGroup } from './SelectorGroup';
-import { MultipleLines } from './SelectorGroup.stories';
 
 describe('SelectorGroup', () => {
   const defaultProps = {
@@ -79,11 +78,6 @@ describe('SelectorGroup', () => {
 
   it('should render with horizontal layout by default', () => {
     const actual = render(<SelectorGroup {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render all selectors with the same height', () => {
-    const actual = render(<MultipleLines />);
     expect(actual).toMatchSnapshot();
   });
 
