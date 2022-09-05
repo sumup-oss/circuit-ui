@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Themes light should match the snapshot 1`] = `
-Object {
-  "borderRadius": Object {
+{
+  "borderRadius": {
     "bit": "4px",
     "byte": "8px",
     "circle": "100%",
@@ -10,11 +10,11 @@ Object {
     "mega": "16px",
     "pill": "999999px",
   },
-  "borderWidth": Object {
+  "borderWidth": {
     "kilo": "1px",
     "mega": "2px",
   },
-  "breakpoints": Object {
+  "breakpoints": {
     "giga": "(min-width: 960px)",
     "gigaToTera": "(min-width: 960px) and (max-width: 1279px)",
     "kilo": "(min-width: 480px)",
@@ -27,7 +27,7 @@ Object {
     "untilMega": "(max-width: 767px)",
     "untilTera": "(max-width: 1279px)",
   },
-  "colors": Object {
+  "colors": {
     "alert": "#D23F47",
     "b100": "#F0F6FF",
     "b200": "#DAEAFF",
@@ -90,51 +90,51 @@ Object {
     "y700": "#AD7A14",
     "y900": "#725514",
   },
-  "fontStack": Object {
-    "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", Roboto, Helvetica, Arial, sans-serif, \\"Apple Color Emoji\\", \\"Segoe UI Emoji\\", \\"Segoe UI Symbol\\"",
+  "fontStack": {
+    "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"",
     "mono": "Consolas, monaco, monospace",
   },
-  "fontWeight": Object {
+  "fontWeight": {
     "bold": "700",
     "regular": "400",
   },
-  "grid": Object {
-    "default": Object {
+  "grid": {
+    "default": {
       "breakpoint": "default",
       "cols": 12,
       "gutter": "16px",
       "maxWidth": "880px",
       "priority": 0,
     },
-    "giga": Object {
+    "giga": {
       "breakpoint": "giga",
       "cols": 12,
       "gutter": "24px",
       "maxWidth": "880px",
       "priority": 4,
     },
-    "kilo": Object {
+    "kilo": {
       "breakpoint": "kilo",
       "cols": 12,
       "gutter": "16px",
       "maxWidth": "600px",
       "priority": 2,
     },
-    "mega": Object {
+    "mega": {
       "breakpoint": "mega",
       "cols": 12,
       "gutter": "24px",
       "maxWidth": "760px",
       "priority": 3,
     },
-    "tera": Object {
+    "tera": {
       "breakpoint": "tera",
       "cols": 12,
       "gutter": "24px",
       "maxWidth": "1200px",
       "priority": 5,
     },
-    "untilKilo": Object {
+    "untilKilo": {
       "breakpoint": "untilKilo",
       "cols": 12,
       "gutter": "8px",
@@ -142,13 +142,13 @@ Object {
       "priority": 1,
     },
   },
-  "iconSizes": Object {
+  "iconSizes": {
     "giga": "32px",
     "kilo": "16px",
     "mega": "24px",
     "tera": "48px",
   },
-  "mq": Object {
+  "mq": {
     "giga": "@media (min-width: 960px)",
     "gigaToTera": "@media (min-width: 960px) and (max-width: 1279px)",
     "kilo": "@media (min-width: 480px)",
@@ -161,7 +161,7 @@ Object {
     "untilMega": "@media (max-width: 767px)",
     "untilTera": "@media (max-width: 1279px)",
   },
-  "spacings": Object {
+  "spacings": {
     "bit": "4px",
     "byte": "8px",
     "exa": "48px",
@@ -172,68 +172,68 @@ Object {
     "tera": "32px",
     "zetta": "56px",
   },
-  "transitions": Object {
+  "transitions": {
     "default": "120ms ease-in-out",
     "slow": "300ms ease-in-out",
   },
   "type": "light",
-  "typography": Object {
-    "body": Object {
-      "one": Object {
+  "typography": {
+    "body": {
+      "one": {
         "fontSize": "16px",
         "lineHeight": "24px",
       },
-      "two": Object {
+      "two": {
         "fontSize": "14px",
         "lineHeight": "20px",
       },
     },
-    "bodyLarge": Object {
+    "bodyLarge": {
       "fontSize": "20px",
       "lineHeight": "28px",
     },
-    "headline": Object {
-      "four": Object {
+    "headline": {
+      "four": {
         "fontSize": "18px",
         "lineHeight": "24px",
       },
-      "one": Object {
+      "one": {
         "fontSize": "32px",
         "lineHeight": "36px",
       },
-      "three": Object {
+      "three": {
         "fontSize": "20px",
         "lineHeight": "24px",
       },
-      "two": Object {
+      "two": {
         "fontSize": "24px",
         "lineHeight": "28px",
       },
     },
-    "subHeadline": Object {
+    "subHeadline": {
       "fontSize": "14px",
       "lineHeight": "20px",
     },
-    "title": Object {
-      "four": Object {
+    "title": {
+      "four": {
         "fontSize": "56px",
         "lineHeight": "56px",
       },
-      "one": Object {
+      "one": {
         "fontSize": "120px",
         "lineHeight": "120px",
       },
-      "three": Object {
+      "three": {
         "fontSize": "64px",
         "lineHeight": "64px",
       },
-      "two": Object {
+      "two": {
         "fontSize": "96px",
         "lineHeight": "96px",
       },
     },
   },
-  "zIndex": Object {
+  "zIndex": {
     "absolute": 1,
     "backdrop": 700,
     "default": 0,
