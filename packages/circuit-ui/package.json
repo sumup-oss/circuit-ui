@@ -52,7 +52,7 @@
     "@emotion/cache": "^11.4.0",
     "@emotion/is-prop-valid": "^1.1.0",
     "@emotion/jest": "^11.10.0",
-    "@emotion/react": "^11.9.3",
+    "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.9.3",
     "@sumup/collector": "^1.6.0",
     "@sumup/design-tokens": "^4.0.0",
