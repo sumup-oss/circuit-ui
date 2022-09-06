@@ -365,12 +365,17 @@ export const Popover = ({
   useClickOutside(floatingRef, () => handleToggle(false), isOpen);
 
   useEffect(() => {
-    // When the floating element is visible, add event listeners that invoke the function `update`
-    // to update the position of the floating element when screen is resized or scrolled
+    /**
+     * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
+     * we can look into using Floating UI's `autoUpdate` (but we can't use
+     * `whileElementInMounted` because our implementation hides the floating
+     * element using CSS instead of using conditional rendering.
+     * See https://floating-ui.com/docs/react-dom#updating
+     */
     if (isOpen) {
       update();
       window.addEventListener('resize', update);
-      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('scroll', update);
     } else {
       window.removeEventListener('resize', update);
       window.removeEventListener('scroll', update);
