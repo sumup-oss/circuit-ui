@@ -56,6 +56,27 @@ export default function App() {
 }
 ```
 
+#### Typing the theme
+
+If you're using TypeScript, you might run into conflicts when using the `theme` prop in styled components or the CSS prop.
+
+Type the theme by extending the `@emotion/react` module declaration, for example in a new `types/emotion.d.ts` file (make sure the file is included in `typeRoots` in your `tsconfig.json`):
+
+```ts
+// types/emotion.d.ts
+import { Theme as CircuitTheme } from '@sumup/design-tokens';
+import {} from '@emotion/react/types/css-prop'; // See https://github.com/emotion-js/emotion/pull/1941
+
+declare module '@emotion/react' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface Theme extends CircuitTheme {}
+}
+```
+
+This will also enable intellisense for the theme object.
+
+For more information, refer to [Emotion's TypeScript documentation](https://emotion.sh/docs/typescript#define-a-theme).
+
 ### Configuring the viewport
 
 Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and that your app has the right padding to render inside [CSS safe areas](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>):
