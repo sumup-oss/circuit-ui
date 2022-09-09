@@ -29,7 +29,6 @@ import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
 import CloseButton from '../CloseButton';
 import { cx, spacing } from '../../styles/style-mixins';
 import { CircuitError } from '../../util/errors';
-import { isFunction } from '../../util/type-check';
 
 const TRANSITION_DURATION = 200;
 
@@ -53,9 +52,24 @@ type PreventCloseProps =
 
 export type NotificationModalProps = BaseModalProps &
   PreventCloseProps & {
-    image?: ImageProps | FC<SVGProps<SVGSVGElement>>;
+    /**
+     * An optional image to illustrate the notification. Supports either
+     * passing an image source to `image.src` or an SVG component to
+     * `image.svg`. Pass an empty string as alt text if the image is
+     * decorative, or a localized description if the image is informative.
+     */
+    image?: ImageProps | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
+    /**
+     * The notification's headline.
+     */
     headline: string;
+    /**
+     * Optional body copy for notification details.
+     */
     body?: string | ReactNode;
+    /**
+     * Action buttons to allow users to act on the notification.
+     */
     actions: ButtonGroupProps['actions'];
   };
 
@@ -87,11 +101,17 @@ function NotificationImage({ image }: Pick<NotificationModalProps, 'image'>) {
     return null;
   }
 
-  if (isFunction(image)) {
-    const Svg = image;
+  if ('svg' in image) {
+    const Svg = image.svg;
+    const isDecorative = !image.alt;
     return (
       <div css={imageStyles}>
-        <Svg css={svgStyles} />
+        <Svg
+          css={svgStyles}
+          {...(isDecorative
+            ? { 'aria-hidden': true }
+            : { 'aria-label': image.alt, 'role': 'img' })}
+        />
       </div>
     );
   }

@@ -520,6 +520,7 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
           class="circuit-7"
         >
           <svg
+            aria-hidden="true"
             class="circuit-8"
             fill="none"
             height="24"
@@ -536,12 +537,12 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
         <h2
           class="circuit-9"
         >
-          Example modal
+          It's time to update your browser
         </h2>
         <p
           class="circuit-10"
         >
-          Hello World!
+          You'll soon need a more up-to-date browser to continue using SumUp.
         </p>
         <div
           class="circuit-11"
@@ -559,7 +560,7 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
             <span
               class="circuit-5"
             >
-              Secondary
+              Not now
             </span>
           </button>
           <button
@@ -575,7 +576,7 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
             <span
               class="circuit-5"
             >
-              Primary
+              Update now
             </span>
           </button>
           <button
@@ -591,7 +592,7 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
             <span
               class="circuit-5"
             >
-              Secondary
+              Not now
             </span>
           </button>
         </div>
@@ -1116,17 +1117,17 @@ exports[`NotificationModal styles should render with default styles 1`] = `
         <img
           alt=""
           class="circuit-7"
-          src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
+          src="/images/illustration-update-browser.svg"
         />
         <h2
           class="circuit-8"
         >
-          Example modal
+          It's time to update your browser
         </h2>
         <p
           class="circuit-9"
         >
-          Hello World!
+          You'll soon need a more up-to-date browser to continue using SumUp.
         </p>
         <div
           class="circuit-10"
@@ -1144,7 +1145,7 @@ exports[`NotificationModal styles should render with default styles 1`] = `
             <span
               class="circuit-5"
             >
-              Secondary
+              Not now
             </span>
           </button>
           <button
@@ -1160,7 +1161,7 @@ exports[`NotificationModal styles should render with default styles 1`] = `
             <span
               class="circuit-5"
             >
-              Primary
+              Update now
             </span>
           </button>
           <button
@@ -1176,7 +1177,7 @@ exports[`NotificationModal styles should render with default styles 1`] = `
             <span
               class="circuit-5"
             >
-              Secondary
+              Not now
             </span>
           </button>
         </div>
@@ -1699,12 +1700,12 @@ exports[`NotificationModal styles should render without an image 1`] = `
         <h2
           class="circuit-7"
         >
-          Example modal
+          It's time to update your browser
         </h2>
         <p
           class="circuit-8"
         >
-          Hello World!
+          You'll soon need a more up-to-date browser to continue using SumUp.
         </p>
         <div
           class="circuit-9"
@@ -1722,7 +1723,7 @@ exports[`NotificationModal styles should render without an image 1`] = `
             <span
               class="circuit-5"
             >
-              Secondary
+              Not now
             </span>
           </button>
           <button
@@ -1738,7 +1739,7 @@ exports[`NotificationModal styles should render without an image 1`] = `
             <span
               class="circuit-5"
             >
-              Primary
+              Update now
             </span>
           </button>
           <button
@@ -1754,7 +1755,7 @@ exports[`NotificationModal styles should render without an image 1`] = `
             <span
               class="circuit-5"
             >
-              Secondary
+              Not now
             </span>
           </button>
         </div>
