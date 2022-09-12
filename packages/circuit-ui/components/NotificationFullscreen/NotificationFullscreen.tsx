@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, ReactNode } from 'react';
+import { FC, HTMLAttributes, ReactNode, SVGProps } from 'react';
 import { css } from '@emotion/react';
 
 import Body from '../Body';
@@ -26,13 +26,15 @@ import { isString } from '../../util/type-check';
 export interface NotificationFullscreenProps
   extends HTMLAttributes<HTMLDivElement> {
   /**
-   * An image to communicate message.
+   * An image to illustrate the notification. Supports either passing an image
+   * source to `image.src` or an SVG component to `image.svg`. Pass an empty
+   * string as alt text if the image is decorative, or a localized description
+   * if the image is informative.
    */
-  image: ImageProps;
+  image: ImageProps | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
   /**
-   * Notification fullscreen headline to provide information.
-   * It can be either a string or an object (if the headline is 'h1')
-   * (Default is 'h2')
+   * The notification's headline. Renders an `h2` element by default. If
+   * appropriate, pass an object with `as: 'h1'` to render an `h1` element.
    */
   headline:
     | string
@@ -41,11 +43,11 @@ export interface NotificationFullscreenProps
         label: string;
       };
   /**
-   * An optional body copy.
+   * Optional body copy for notification details.
    */
   body?: string | ReactNode;
   /**
-   * Optional action buttons to allow users to follow up on the content.
+   * Optional action buttons to allow users to act on the notification.
    */
   actions?: ButtonGroupProps['actions'];
 }
@@ -63,12 +65,38 @@ const imageStyles = css`
   object-fit: contain;
 `;
 
+const svgStyles = css`
+  height: 100%;
+  width: 100%;
+`;
+
+function NotificationImage({
+  image,
+}: Pick<NotificationFullscreenProps, 'image'>) {
+  if ('svg' in image) {
+    const Svg = image.svg;
+    const isDecorative = !image.alt;
+    return (
+      <div css={imageStyles}>
+        <Svg
+          css={svgStyles}
+          {...(isDecorative
+            ? { 'aria-hidden': true }
+            : { 'aria-label': image.alt, 'role': 'img' })}
+        />
+      </div>
+    );
+  }
+  return <Image {...image} css={imageStyles} />;
+}
+
 const centeredStyles = css`
   text-align: center;
 `;
 
 /**
- * NotificationFullscreen provides important information or feedback as part of a process flow.
+ * The `NotificationFullscreen` component provides important information or
+ * feedback as part of a process flow.
  */
 export const NotificationFullscreen = ({
   image,
@@ -81,7 +109,7 @@ export const NotificationFullscreen = ({
   const headlineElement = isString(headline) ? 'h2' : headline.as;
   return (
     <div css={wrapperStyles} {...props}>
-      <Image {...image} css={imageStyles} />
+      <NotificationImage image={image} />
       <Headline
         noMargin
         css={cx(spacing({ top: 'giga', bottom: 'byte' }), centeredStyles)}

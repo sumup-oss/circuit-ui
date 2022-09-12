@@ -104,7 +104,7 @@ describe('MobileSidePanel', () => {
   });
 
   /**
-   * FIXME: calling axe here can trigger an act() warning.
+   * FIXME: calling axe here triggers an act() warning.
    */
   it('should meet accessibility guidelines', async () => {
     const { container } = renderComponent();

@@ -14,7 +14,7 @@
  */
 
 import { css, ClassNames } from '@emotion/react';
-import { ReactNode } from 'react';
+import { FC, ReactNode, SVGProps } from 'react';
 import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
@@ -26,7 +26,6 @@ import Headline from '../Headline';
 import Body from '../Body';
 import { ButtonProps } from '../Button';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
-import styled, { StyleProps } from '../../styles/styled';
 import CloseButton from '../CloseButton';
 import { cx, spacing } from '../../styles/style-mixins';
 import { CircuitError } from '../../util/errors';
@@ -53,9 +52,24 @@ type PreventCloseProps =
 
 export type NotificationModalProps = BaseModalProps &
   PreventCloseProps & {
-    image?: ImageProps;
+    /**
+     * An optional image to illustrate the notification. Supports either
+     * passing an image source to `image.src` or an SVG component to
+     * `image.svg`. Pass an empty string as alt text if the image is
+     * decorative, or a localized description if the image is informative.
+     */
+    image?: ImageProps | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
+    /**
+     * The notification's headline.
+     */
     headline: string;
+    /**
+     * Optional body copy for notification details.
+     */
     body?: string | ReactNode;
+    /**
+     * Action buttons to allow users to act on the notification.
+     */
     actions: ButtonGroupProps['actions'];
   };
 
@@ -70,14 +84,40 @@ const closeButtonStyles = (theme: Theme) => css`
   }
 `;
 
-const imageStyles = ({ theme }: StyleProps) => css`
+const imageStyles = (theme: Theme) => css`
   max-width: 232px;
   height: 120px;
   object-fit: contain;
   margin: 0 auto ${theme.spacings.giga};
 `;
 
-const ModalImage = styled(Image)(imageStyles);
+const svgStyles = css`
+  height: 100%;
+  width: 100%;
+`;
+
+function NotificationImage({ image }: Pick<NotificationModalProps, 'image'>) {
+  if (!image) {
+    return null;
+  }
+
+  if ('svg' in image) {
+    const Svg = image.svg;
+    const isDecorative = !image.alt;
+    return (
+      <div css={imageStyles}>
+        <Svg
+          css={svgStyles}
+          {...(isDecorative
+            ? { 'aria-hidden': true }
+            : { 'aria-label': image.alt, 'role': 'img' })}
+        />
+      </div>
+    );
+  }
+
+  return <Image {...image} css={imageStyles} />;
+}
 
 // Prevent the headline from being overlapped by the close button
 const noImageStyles = (hasImage: boolean) =>
@@ -201,7 +241,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
                 css={closeButtonStyles}
               />
             )}
-            {image && <ModalImage {...image} />}
+            <NotificationImage image={image} />
             <Headline
               as="h2"
               size="three"
