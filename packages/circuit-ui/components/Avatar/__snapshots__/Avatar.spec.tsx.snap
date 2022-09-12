@@ -58,7 +58,7 @@ exports[`Avatar styles should render the identity variant with an image 1`] = `
   <img
     alt=""
     class="circuit-0"
-    src="https://source.unsplash.com/ZDgrqccUn88/200x200"
+    src="/images/illustration-cat.jpg"
   />
 </div>
 `;
@@ -100,7 +100,7 @@ exports[`Avatar styles should render the object variant with an image 1`] = `
   <img
     alt=""
     class="circuit-0"
-    src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+    src="/images/illustration-coffee.jpg"
   />
 </div>
 `;

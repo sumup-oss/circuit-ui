@@ -306,7 +306,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
       </span>
       <img
         alt=""
-        src="https://source.unsplash.com/EcWFOYOpkpY/800x200"
+        src="/images/illustration-coffee.jpg"
         style="width: 400px; height: 100px;"
       />
     </label>
@@ -682,7 +682,7 @@ exports[`ImageInput styles should render with an existing image 1`] = `
       <img
         alt=""
         class="circuit-4"
-        src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+        src="/images/illustration-coffee.jpg"
       />
     </label>
     <button

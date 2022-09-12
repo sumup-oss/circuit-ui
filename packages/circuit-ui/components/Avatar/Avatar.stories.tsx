@@ -28,7 +28,7 @@ export default {
 
 export const Base = (args: AvatarProps): JSX.Element => <Avatar {...args} />;
 Base.args = {
-  src: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
+  src: '/images/illustration-coffee.jpg',
   variant: 'object',
   size: 'yotta',
   alt: 'A cup of coffee on a table',
@@ -37,7 +37,7 @@ Base.args = {
 export const ObjectVariant = (): JSX.Element => (
   <Stack>
     <Avatar
-      src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+      src="/images/illustration-coffee.jpg"
       variant="object"
       alt="A cup of coffee on a table"
     />
@@ -48,7 +48,7 @@ export const ObjectVariant = (): JSX.Element => (
 export const IdentityVariant = (): JSX.Element => (
   <Stack>
     <Avatar
-      src="https://source.unsplash.com/ZDgrqccUn88/200x200"
+      src="/images/illustration-cat.jpg"
       variant="identity"
       alt="A portrait of a grey cat"
     />
@@ -60,13 +60,13 @@ export const Sizes = (): JSX.Element => (
   <Stack>
     <Stack>
       <Avatar
-        src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+        src="/images/illustration-coffee.jpg"
         variant="object"
         size="yotta"
         alt="A cup of coffee on a table"
       />
       <Avatar
-        src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+        src="/images/illustration-coffee.jpg"
         variant="object"
         size="giga"
         alt="A cup of coffee on a table"
@@ -74,13 +74,13 @@ export const Sizes = (): JSX.Element => (
     </Stack>
     <Stack>
       <Avatar
-        src="https://source.unsplash.com/ZDgrqccUn88/200x200"
+        src="/images/illustration-cat.jpg"
         variant="identity"
         size="yotta"
         alt="A portrait of a grey cat"
       />
       <Avatar
-        src="https://source.unsplash.com/ZDgrqccUn88/200x200"
+        src="/images/illustration-cat.jpg"
         variant="identity"
         size="giga"
         alt="A portrait of a grey cat"
