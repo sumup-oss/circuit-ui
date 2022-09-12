@@ -16,19 +16,19 @@
 export const SLIDES = [
   {
     image: {
-      src: 'https://source.unsplash.com/QU-zhliIV8Q/1600x900',
+      src: '/images/illustration-waves.jpg',
       alt: 'Aerial photo of turbulent blue ocean waves',
     },
   },
   {
     image: {
-      src: 'https://source.unsplash.com/TpHmEoVSmfQ/1600x900',
+      src: '/images/illustration-waves-2.jpg',
       alt: 'Aerial photo of turbulent turquoise ocean waves',
     },
   },
   {
     image: {
-      src: 'https://source.unsplash.com/-lpbnspYkJg/1600x900',
+      src: '/images/illustration-waves-3.jpg',
       alt: 'Aerial photo of turbulent ocean water with white foam',
     },
   },

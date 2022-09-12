@@ -31,6 +31,6 @@ export default {
 export const Base = (args: ImageProps) => <Image {...args} />;
 
 Base.args = {
-  src: 'https://source.unsplash.com/QU-zhliIV8Q/1600x900',
+  src: '/images/illustration-waves.jpg',
   alt: 'Aerial photo of turbulent blue-turquoise ocean waves',
 };
