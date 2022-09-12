@@ -27,8 +27,10 @@
   "scripts": {
     "start": "tsc --watch",
     "clean": "rm -rf ./dist",
-    "build": "tsc && tsc --project tsconfig.cjs.json && yarn build:executable",
+    "build:es": "tsc --project tsconfig.es.json",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
     "build:executable": "chmod +x ./dist/cjs/cli/index.js",
+    "build": "yarn build:es && yarn build:cjs && yarn build:executable",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
     "test": "jest --watch"

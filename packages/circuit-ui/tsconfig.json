@@ -10,21 +10,13 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "moduleResolution": "node",
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "./dist/es",
     "resolveJsonModule": true,
     "strict": true,
-    "target": "es2017",
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin",
-        "lint": {
-          "validProperties": ["label"]
-        }
-      }
-    ]
+    "target": "es2017"
   },
   "include": [
     "cli/**/*",
@@ -35,13 +27,6 @@
     "util/**/*",
     "index.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "**/*/__tests__/*",
-    "**/*/__testfixtures__/*",
-    "**/*.spec.*",
-    "**/*.stories.*"
-  ],
+  "exclude": ["node_modules", "dist"],
   "typeRoots": ["./types"]
 }
