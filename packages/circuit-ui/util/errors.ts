@@ -15,8 +15,6 @@
 
 /* eslint-disable max-classes-per-file */
 
-import React from 'react';
-
 export class CircuitError extends Error {
   constructor(componentName: string, message: string) {
     super(`[${componentName}] ${message}`);

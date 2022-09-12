@@ -75,6 +75,9 @@ function buildComponentFile(component: Component): string {
     component.name
   }' icon. Please use one of the available sizes: '${sizes.join("', '")}'.`;
 
+  /**
+   * TODO look into whether we still need the React import here
+   */
   return dedent`
     import React from 'react';
     ${iconImports.join('\n')}
@@ -83,7 +86,9 @@ function buildComponentFile(component: Component): string {
       ${sizeMap.join('\n')}
     }
 
-    export const ${component.name} = ({ size = '${defaultSize}', ...props }) => {
+    export const ${
+      component.name
+    } = ({ size = '${defaultSize}', ...props }) => {
       const Icon = sizeMap[size] || sizeMap['${defaultSize}'];
 
       if (
@@ -107,9 +112,7 @@ function buildIndexFile(components: Component[]): string {
 
 function buildDeclarationFile(components: Component[]): string {
   const declarationStatements = components.map((component) => {
-    const sizes = component.icons
-      .map(({ size }) => `'${size}'`)
-      .sort();
+    const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
     const SizesType = sizes.join(' | ');
     return `declare const ${component.name}: FC<IconProps<${SizesType}>>;`;
   });
