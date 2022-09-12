@@ -16,7 +16,7 @@
 import SlideImage from './SlideImage';
 
 const image = {
-  src: 'https://source.unsplash.com/QU-zhliIV8Q/1600x900',
+  src: '/images/illustration-waves.jpg',
   alt: 'Aerial photo of turbulent blue ocean waves',
 };
 

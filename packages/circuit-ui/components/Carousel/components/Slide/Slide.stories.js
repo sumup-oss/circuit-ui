@@ -43,8 +43,8 @@ const StyledHeadline = styled(Headline)(
 export const OnlyImage = (args) => (
   <Slide {...args}>
     <Image
-      src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
-      alt="Aerial photo of turbulent turquoise ocean waves"
+      src="/images/illustration-waves.jpg"
+      alt="Aerial photo of turbulent blue ocean waves"
     />
   </Slide>
 );
@@ -52,9 +52,9 @@ export const OnlyImage = (args) => (
 export const TextAndImage = (args) => (
   <Slide {...args}>
     <Image
-      src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
-      alt="Aerial photo of turbulent turquoise ocean waves"
+      src="/images/illustration-waves.jpg"
+      alt="Aerial photo of turbulent blue ocean waves"
     />
-    <StyledHeadline>Get The SumUp Card Reader Today!</StyledHeadline>
+    <StyledHeadline noMargin>Get The SumUp Card Reader Today!</StyledHeadline>
   </Slide>
 );
