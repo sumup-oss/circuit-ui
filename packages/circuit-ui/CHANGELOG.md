@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.3.1
+
+### Patch Changes
+
+- [#1651](https://github.com/sumup-oss/circuit-ui/pull/1651) [`ea1ebb0d`](https://github.com/sumup-oss/circuit-ui/commit/ea1ebb0dd95a8c5bdb57ddbfabc0caf8e4875375) Thanks [@anasalles47](https://github.com/anasalles47)! - Adjusted the SelectorGroup component to ensure that all Selectors have the same height.
+
 ## 5.3.0
 
 ### Minor Changes
