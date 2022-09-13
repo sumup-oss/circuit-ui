@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.3.0
+
+### Minor Changes
+
+- [#1720](https://github.com/sumup-oss/circuit-ui/pull/1720) [`d3c6165d`](https://github.com/sumup-oss/circuit-ui/commit/d3c6165d1971c25d0bfe2ffde1a78b33155d758b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for passing an SVG component as `image.svg` to the `NotificationFullscreen` and `NotificationModal` components.
+
 ## 5.2.4
 
 ### Patch Changes
