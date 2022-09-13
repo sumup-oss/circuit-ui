@@ -29,6 +29,7 @@ const baseArgs = {
     { children: 'Apple', value: 'apple', noMargin: true },
     { children: 'Banana', value: 'banana', noMargin: true },
     { children: 'Mango', value: 'mango', noMargin: true },
+    { children: 'I like all fruits', value: 'all', noMargin: true },
   ],
 };
 

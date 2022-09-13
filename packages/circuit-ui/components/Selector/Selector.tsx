@@ -77,12 +77,14 @@ export interface SelectorProps
 type LabelElProps = Pick<SelectorProps, 'disabled' | 'size' | 'noMargin'>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   background-color: ${theme.colors.white};
   text-align: center;
   position: relative;
-  border: none;
   border-radius: ${theme.borderRadius.byte};
   transition: box-shadow ${theme.transitions.default};
 

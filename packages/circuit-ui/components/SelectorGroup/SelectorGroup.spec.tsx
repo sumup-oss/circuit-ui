@@ -15,7 +15,7 @@
 
 import { createRef } from 'react';
 
-import { create, render, renderToHtml, axe } from '../../util/test-utils';
+import { axe, render, screen } from '../../util/test-utils';
 
 import { SelectorGroup } from './SelectorGroup';
 
@@ -44,8 +44,8 @@ describe('SelectorGroup', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<SelectorGroup {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<SelectorGroup {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
 
   /**
@@ -53,22 +53,18 @@ describe('SelectorGroup', () => {
    */
   it('should check the selected option', () => {
     const value = 'second';
-    const { getByLabelText } = render(
-      <SelectorGroup {...defaultProps} value={value} />,
-    );
-    expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
-    expect(getByLabelText('Option 2')).toHaveAttribute('checked');
-    expect(getByLabelText('Option 3')).not.toHaveAttribute('checked');
+    render(<SelectorGroup {...defaultProps} value={value} />);
+    expect(screen.getByLabelText('Option 1')).not.toHaveAttribute('checked');
+    expect(screen.getByLabelText('Option 2')).toHaveAttribute('checked');
+    expect(screen.getByLabelText('Option 3')).not.toHaveAttribute('checked');
   });
 
   it('should check the selected options', () => {
     const value = ['second', 'third'];
-    const { getByLabelText } = render(
-      <SelectorGroup {...defaultProps} value={value} multiple />,
-    );
-    expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
-    expect(getByLabelText('Option 2')).toHaveAttribute('checked');
-    expect(getByLabelText('Option 3')).toHaveAttribute('checked');
+    render(<SelectorGroup {...defaultProps} value={value} multiple />);
+    expect(screen.getByLabelText('Option 1')).not.toHaveAttribute('checked');
+    expect(screen.getByLabelText('Option 2')).toHaveAttribute('checked');
+    expect(screen.getByLabelText('Option 3')).toHaveAttribute('checked');
   });
 
   it('should accept a working ref', () => {
@@ -81,8 +77,8 @@ describe('SelectorGroup', () => {
   });
 
   it('should render with horizontal layout by default', () => {
-    const actual = create(<SelectorGroup {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<SelectorGroup {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
 
   /**
@@ -90,10 +86,10 @@ describe('SelectorGroup', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const value = 'second';
-    const wrapper = renderToHtml(
+    const { container } = render(
       <SelectorGroup {...defaultProps} value={value} />,
     );
-    const actual = await axe(wrapper);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });
