@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SelectorGroup should render with default styles 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": .circuit-0 {
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -99,207 +97,6 @@ Object {
   background-color: #FFF;
   text-align: center;
   position: relative;
-  border: none;
-  border-radius: 8px;
-  -webkit-transition: box-shadow 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out;
-  padding: calc(12px) 24px;
-  width: 100%;
-}
-
-.circuit-4::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  border: 1px solid #CCC;
-  -webkit-transition: border 120ms ease-in-out;
-  transition: border 120ms ease-in-out;
-}
-
-.circuit-4:hover {
-  background-color: #F5F5F5;
-}
-
-.circuit-4:hover::before {
-  border-color: #999;
-}
-
-.circuit-4:active {
-  background-color: #E6E6E6;
-}
-
-.circuit-4:active::before {
-  border-color: #666;
-}
-
-<body>
-    <div>
-      <fieldset
-        class="circuit-0"
-      >
-        <legend
-          class="circuit-1"
-        >
-          Choose an option
-        </legend>
-        <div
-          class="circuit-2"
-        >
-          <input
-            class="circuit-3"
-            id="selector_2"
-            name="selector-group_1"
-            type="radio"
-            value="first"
-          />
-          <label
-            class="circuit-4"
-            for="selector_2"
-          >
-            Option 1
-          </label>
-        </div>
-        <div
-          class="circuit-2"
-        >
-          <input
-            class="circuit-3"
-            id="selector_3"
-            name="selector-group_1"
-            type="radio"
-            value="second"
-          />
-          <label
-            class="circuit-4"
-            for="selector_3"
-          >
-            Option 2
-          </label>
-        </div>
-        <div
-          class="circuit-2"
-        >
-          <input
-            class="circuit-3"
-            id="selector_4"
-            name="selector-group_1"
-            type="radio"
-            value="third"
-          />
-          <label
-            class="circuit-4"
-            for="selector_4"
-          >
-            Option 3
-          </label>
-        </div>
-      </fieldset>
-    </div>
-  </body>,
-  "container": .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  width: 100%;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  width: auto;
-}
-
-.circuit-0>div:not(:last-child) {
-  margin-right: 16px;
-}
-
-.circuit-1 {
-  font-size: 14px;
-  line-height: 20px;
-  margin-bottom: 4px;
-}
-
-.circuit-2 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-}
-
-.circuit-2 label {
-  height: 100%;
-}
-
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3:focus+label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-3:focus+label::before::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-3:focus:not(:focus-visible)+label::before {
-  box-shadow: none;
-}
-
-.circuit-3:checked+label {
-  background-color: #F0F6FF;
-}
-
-.circuit-3:checked+label::before {
-  border: 2px solid #3063E9;
-}
-
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: #FFF;
-  text-align: center;
-  position: relative;
-  border: none;
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
@@ -340,125 +137,71 @@ Object {
 }
 
 <div>
-    <fieldset
-      class="circuit-0"
+  <fieldset
+    class="circuit-0"
+  >
+    <legend
+      class="circuit-1"
     >
-      <legend
-        class="circuit-1"
+      Choose an option
+    </legend>
+    <div
+      class="circuit-2"
+    >
+      <input
+        class="circuit-3"
+        id="selector_2"
+        name="selector-group_1"
+        type="radio"
+        value="first"
+      />
+      <label
+        class="circuit-4"
+        for="selector_2"
       >
-        Choose an option
-      </legend>
-      <div
-        class="circuit-2"
+        Option 1
+      </label>
+    </div>
+    <div
+      class="circuit-2"
+    >
+      <input
+        class="circuit-3"
+        id="selector_3"
+        name="selector-group_1"
+        type="radio"
+        value="second"
+      />
+      <label
+        class="circuit-4"
+        for="selector_3"
       >
-        <input
-          class="circuit-3"
-          id="selector_2"
-          name="selector-group_1"
-          type="radio"
-          value="first"
-        />
-        <label
-          class="circuit-4"
-          for="selector_2"
-        >
-          Option 1
-        </label>
-      </div>
-      <div
-        class="circuit-2"
+        Option 2
+      </label>
+    </div>
+    <div
+      class="circuit-2"
+    >
+      <input
+        class="circuit-3"
+        id="selector_4"
+        name="selector-group_1"
+        type="radio"
+        value="third"
+      />
+      <label
+        class="circuit-4"
+        for="selector_4"
       >
-        <input
-          class="circuit-3"
-          id="selector_3"
-          name="selector-group_1"
-          type="radio"
-          value="second"
-        />
-        <label
-          class="circuit-4"
-          for="selector_3"
-        >
-          Option 2
-        </label>
-      </div>
-      <div
-        class="circuit-2"
-      >
-        <input
-          class="circuit-3"
-          id="selector_4"
-          name="selector-group_1"
-          type="radio"
-          value="third"
-        />
-        <label
-          class="circuit-4"
-          for="selector_4"
-        >
-          Option 3
-        </label>
-      </div>
-    </fieldset>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+        Option 3
+      </label>
+    </div>
+  </fieldset>
+</div>
 `;
 
 exports[`SelectorGroup should render with horizontal layout by default 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": .circuit-0 {
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -554,207 +297,6 @@ Object {
   background-color: #FFF;
   text-align: center;
   position: relative;
-  border: none;
-  border-radius: 8px;
-  -webkit-transition: box-shadow 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out;
-  padding: calc(12px) 24px;
-  width: 100%;
-}
-
-.circuit-4::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  border: 1px solid #CCC;
-  -webkit-transition: border 120ms ease-in-out;
-  transition: border 120ms ease-in-out;
-}
-
-.circuit-4:hover {
-  background-color: #F5F5F5;
-}
-
-.circuit-4:hover::before {
-  border-color: #999;
-}
-
-.circuit-4:active {
-  background-color: #E6E6E6;
-}
-
-.circuit-4:active::before {
-  border-color: #666;
-}
-
-<body>
-    <div>
-      <fieldset
-        class="circuit-0"
-      >
-        <legend
-          class="circuit-1"
-        >
-          Choose an option
-        </legend>
-        <div
-          class="circuit-2"
-        >
-          <input
-            class="circuit-3"
-            id="selector_18"
-            name="selector-group_17"
-            type="radio"
-            value="first"
-          />
-          <label
-            class="circuit-4"
-            for="selector_18"
-          >
-            Option 1
-          </label>
-        </div>
-        <div
-          class="circuit-2"
-        >
-          <input
-            class="circuit-3"
-            id="selector_19"
-            name="selector-group_17"
-            type="radio"
-            value="second"
-          />
-          <label
-            class="circuit-4"
-            for="selector_19"
-          >
-            Option 2
-          </label>
-        </div>
-        <div
-          class="circuit-2"
-        >
-          <input
-            class="circuit-3"
-            id="selector_20"
-            name="selector-group_17"
-            type="radio"
-            value="third"
-          />
-          <label
-            class="circuit-4"
-            for="selector_20"
-          >
-            Option 3
-          </label>
-        </div>
-      </fieldset>
-    </div>
-  </body>,
-  "container": .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  width: 100%;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  width: auto;
-}
-
-.circuit-0>div:not(:last-child) {
-  margin-right: 16px;
-}
-
-.circuit-1 {
-  font-size: 14px;
-  line-height: 20px;
-  margin-bottom: 4px;
-}
-
-.circuit-2 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-}
-
-.circuit-2 label {
-  height: 100%;
-}
-
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3:focus+label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-3:focus+label::before::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-3:focus:not(:focus-visible)+label::before {
-  box-shadow: none;
-}
-
-.circuit-3:checked+label {
-  background-color: #F0F6FF;
-}
-
-.circuit-3:checked+label::before {
-  border: 2px solid #3063E9;
-}
-
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: #FFF;
-  text-align: center;
-  position: relative;
-  border: none;
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
@@ -795,117 +337,65 @@ Object {
 }
 
 <div>
-    <fieldset
-      class="circuit-0"
+  <fieldset
+    class="circuit-0"
+  >
+    <legend
+      class="circuit-1"
     >
-      <legend
-        class="circuit-1"
+      Choose an option
+    </legend>
+    <div
+      class="circuit-2"
+    >
+      <input
+        class="circuit-3"
+        id="selector_18"
+        name="selector-group_17"
+        type="radio"
+        value="first"
+      />
+      <label
+        class="circuit-4"
+        for="selector_18"
       >
-        Choose an option
-      </legend>
-      <div
-        class="circuit-2"
+        Option 1
+      </label>
+    </div>
+    <div
+      class="circuit-2"
+    >
+      <input
+        class="circuit-3"
+        id="selector_19"
+        name="selector-group_17"
+        type="radio"
+        value="second"
+      />
+      <label
+        class="circuit-4"
+        for="selector_19"
       >
-        <input
-          class="circuit-3"
-          id="selector_18"
-          name="selector-group_17"
-          type="radio"
-          value="first"
-        />
-        <label
-          class="circuit-4"
-          for="selector_18"
-        >
-          Option 1
-        </label>
-      </div>
-      <div
-        class="circuit-2"
+        Option 2
+      </label>
+    </div>
+    <div
+      class="circuit-2"
+    >
+      <input
+        class="circuit-3"
+        id="selector_20"
+        name="selector-group_17"
+        type="radio"
+        value="third"
+      />
+      <label
+        class="circuit-4"
+        for="selector_20"
       >
-        <input
-          class="circuit-3"
-          id="selector_19"
-          name="selector-group_17"
-          type="radio"
-          value="second"
-        />
-        <label
-          class="circuit-4"
-          for="selector_19"
-        >
-          Option 2
-        </label>
-      </div>
-      <div
-        class="circuit-2"
-      >
-        <input
-          class="circuit-3"
-          id="selector_20"
-          name="selector-group_17"
-          type="radio"
-          value="third"
-        />
-        <label
-          class="circuit-4"
-          for="selector_20"
-        >
-          Option 3
-        </label>
-      </div>
-    </fieldset>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+        Option 3
+      </label>
+    </div>
+  </fieldset>
+</div>
 `;

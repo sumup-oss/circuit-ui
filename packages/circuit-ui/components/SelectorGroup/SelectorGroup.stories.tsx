@@ -29,6 +29,7 @@ const baseArgs = {
     { children: 'Apple', value: 'apple', noMargin: true },
     { children: 'Banana', value: 'banana', noMargin: true },
     { children: 'Mango', value: 'mango', noMargin: true },
+    { children: 'I like all fruits', value: 'all', noMargin: true },
   ],
 };
 
@@ -48,7 +49,7 @@ export const Base = (args: SelectorGroupProps) => {
 
 Base.args = baseArgs;
 
-export const MultipleSelection = (args: SelectorGroupProps) => {
+export const Multiple = (args: SelectorGroupProps) => {
   const [value, setValue] = useState<string[]>([]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -70,25 +71,4 @@ export const MultipleSelection = (args: SelectorGroupProps) => {
   );
 };
 
-MultipleSelection.args = { ...baseArgs, multiple: true };
-
-export const MultipleLines = () => {
-  const [value, setValue] = useState<string>('');
-
-  return (
-    <SelectorGroup
-      {...baseArgs}
-      options={[
-        ...baseArgs.options,
-        {
-          children: 'A whole lotta fruits!',
-          value: 'lotsOfFruits',
-        },
-      ]}
-      value={value}
-      onChange={(event) => {
-        setValue(event.target.value);
-      }}
-    />
-  );
-};
+Multiple.args = { ...baseArgs, multiple: true };

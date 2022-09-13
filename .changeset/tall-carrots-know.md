@@ -1,5 +1,5 @@
 ---
-'@sumup/circuit-ui': minor
+'@sumup/circuit-ui': patch
 ---
 
-Adjusted height of Selectors in SelectorGroup to automatically be equal to the one with the greatest height value. This was previously not working, and Selectors were being rendered with different heights. No code update is required to trigger this behaviour.
+Adjusted the SelectorGroup component to ensure that all Selectors have the same height.

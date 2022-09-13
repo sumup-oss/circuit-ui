@@ -44,8 +44,8 @@ describe('SelectorGroup', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = render(<SelectorGroup {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<SelectorGroup {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
 
   /**
@@ -77,8 +77,8 @@ describe('SelectorGroup', () => {
   });
 
   it('should render with horizontal layout by default', () => {
-    const actual = render(<SelectorGroup {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<SelectorGroup {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
 
   /**

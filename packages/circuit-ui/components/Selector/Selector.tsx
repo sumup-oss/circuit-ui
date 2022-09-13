@@ -85,7 +85,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.white};
   text-align: center;
   position: relative;
-  border: none;
   border-radius: ${theme.borderRadius.byte};
   transition: box-shadow ${theme.transitions.default};
 
