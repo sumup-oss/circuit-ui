@@ -1,25 +1,17 @@
 import { Status, Props, Story } from '../../../../.storybook/components';
-import SelectorGroup from '../SelectorGroup';
 
 # Selector
 
-<Status.Stable />
+<Status.InReview />
+<Status.Description>
+  This component is under design review. Consider using radio buttons or
+  checkboxes instead.
+</Status.Description>
 
-The selector is a component that allows users to select a single or multiple options from a range of items, keeping that selection highlighted and allowing possible changes to happen on the same screen based on it.
+The Selector component should only by used as options passed to the [SelectorGroup](Forms/Selector/SelectorGroup) component.
 
 <Story id="forms-selector--base" />
 <Props />
-
-## When to use it
-
-We should use a selector when we need the user to choose a critical option on the flows that impact the
-same screen that they are currently in. For example, choosing a payment method on the order flow.
-
-## Usage guidelines
-
-- **Do** always position the selectable options on the same horizontal line for easy comparison
-- **Do** provide the possible change on the content below the selector (for instance showing credit card input fields if users select this type of payment)
-- **Do not** use a selector for more than 3 items. Consider using a select dropdown, instead.
 
 ## Component variations
 
@@ -33,19 +25,12 @@ same screen that they are currently in. For example, choosing a payment method o
 
 ### Sizes
 
-Selector component supports 3 different sizes:
+The Selector's `size` determines its padding. There are three available sizes:
 
 - **mega**, the default size
 - **kilo**, used when there are sizing constraints
-- **flexible**, used for more complex content within selector which may define its own margins. **flexible** just adds a minimal equal margin on all sides.
+- **flexible**, used for more complex content within selector which may define its own padding. Adds minimal equal padding on all sides.
+
+**Warning**: for accessibility reasons, we recommend against using the `flexible` size and may deprecate it in the future. Refer to the [SelectorGroup component](Forms/Selector/SelectorGroup)'s documentation for details.
 
 <Story id="forms-selector--sizes" />
-
-## SelectorGroup
-
-<Story id="forms-selector-selectorgroup--base" />
-<Props of={SelectorGroup} />
-
-### Multiple
-
-<Story id="forms-selector-selectorgroup--multiple" />
