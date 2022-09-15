@@ -251,6 +251,11 @@
       "size": "24"
     },
     {
+      "name": "alelo",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "american_express",
       "category": "Payment method",
       "size": "24"
@@ -376,7 +381,17 @@
       "size": "24"
     },
     {
+      "name": "sodexo",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "sofort",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "ticket",
       "category": "Payment method",
       "size": "24"
     },
