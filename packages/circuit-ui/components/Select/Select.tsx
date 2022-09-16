@@ -43,7 +43,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   /**
    * A clear and concise description of the select purpose.
    */
-  label: ReactNode;
+  label: string;
   /**
    * Name of the select form element.
    */

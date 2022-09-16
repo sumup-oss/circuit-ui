@@ -18,7 +18,6 @@ import {
   Ref,
   InputHTMLAttributes,
   TextareaHTMLAttributes,
-  ReactNode,
 } from 'react';
 import { css, Interpolation } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
@@ -42,7 +41,7 @@ export interface InputProps extends CircuitInputHTMLAttributes {
   /**
    * A clear and concise description of the input purpose.
    */
-  label: ReactNode;
+  label: string;
   /**
    * The HTML input element to render.
    */

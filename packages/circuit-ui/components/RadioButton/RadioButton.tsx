@@ -13,13 +13,7 @@
  * limitations under the License.
  */
 
-import {
-  Fragment,
-  InputHTMLAttributes,
-  Ref,
-  forwardRef,
-  ReactNode,
-} from 'react';
+import { Fragment, InputHTMLAttributes, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -37,7 +31,7 @@ export interface RadioButtonProps
   /**
    * A clear and concise description of the option's purpose.
    */
-  label: ReactNode;
+  label: string;
   /**
    * Triggers error styles on the component.
    */

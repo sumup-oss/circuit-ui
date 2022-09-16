@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -24,7 +24,7 @@ export interface FieldLabelTextProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * A clear and concise description of the input purpose.
    */
-  label: ReactNode;
+  label: string;
   /**
    * Label to indicate that the input is optional. Only displayed when the
    * `required` prop is falsy.
