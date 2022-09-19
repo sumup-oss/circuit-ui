@@ -89,9 +89,7 @@ const FormTwo = ({ onNextClick, onBackClick }: FormProps) => (
 
 const Thanks = () => (
   <section>
-    <Headline as="h3" noMargin>
-      Thanks!
-    </Headline>
+    <Headline as="h3">Thanks!</Headline>
   </section>
 );
 
@@ -114,12 +112,7 @@ export default function MultiStepForm(): JSX.Element {
 
         return (
           <Container>
-            <Headline
-              as="h2"
-              size="three"
-              noMargin
-              css={spacing({ bottom: 'giga' })}
-            >
+            <Headline as="h2" size="three" css={spacing({ bottom: 'giga' })}>
               Step {stepNumber} of {totalSteps}
             </Headline>
             <ProgressBar

@@ -40,7 +40,7 @@ export default {
 
 const defaultModalChildren = () => (
   <Fragment>
-    <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
+    <Headline as="h2" size="four" css={spacing({ bottom: 'giga' })}>
       Hello World!
     </Headline>
     <Body>I am a modal.</Body>
@@ -115,7 +115,7 @@ export const PreventClose = (modal: ModalProps): JSX.Element => {
 PreventClose.args = {
   children: ({ onClose }: { onClose: ModalProps['onClose'] }) => (
     <Fragment>
-      <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
+      <Headline as="h2" size="four" css={spacing({ bottom: 'giga' })}>
         Complete the action
       </Headline>
       <Body css={spacing({ bottom: 'giga' })}>
@@ -177,7 +177,7 @@ CustomStyles.args = {
           `
         }
       />
-      <Headline as="h2" size="four" css={spacing('giga')} noMargin>
+      <Headline as="h2" size="four" css={spacing('giga')}>
         Custom styles
       </Headline>
       <Body css={spacing('giga')}>

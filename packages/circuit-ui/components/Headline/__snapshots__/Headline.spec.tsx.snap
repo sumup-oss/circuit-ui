@@ -96,23 +96,6 @@ exports[`Headline should render as h6 element 1`] = `
 </h6>
 `;
 
-exports[`Headline should render with default spacing when there is no noMargin prop 1`] = `
-.circuit-0 {
-  font-weight: 700;
-  color: #000;
-  letter-spacing: -0.03em;
-  font-size: 32px;
-  line-height: 36px;
-  margin-bottom: 24px;
-}
-
-<h2
-  class="circuit-0"
->
-  Headline
-</h2>
-`;
-
 exports[`Headline should render with size four 1`] = `
 .circuit-0 {
   font-weight: 700;

@@ -56,30 +56,25 @@ export const components = {
     as: 'h1',
     size: 'one',
     css: headlineStyles,
-    noMargin: true,
   }),
   h2: withThemeProvider(Headline, {
     as: 'h2',
     size: 'two',
     css: headlineStyles,
-    noMargin: true,
   }),
   h3: withThemeProvider(Headline, {
     as: 'h3',
     size: 'three',
     css: headlineStyles,
-    noMargin: true,
   }),
   h4: withThemeProvider(Headline, {
     as: 'h4',
     size: 'four',
     css: spacing({ top: 'giga' }),
-    noMargin: true,
   }),
   h5: withThemeProvider(SubHeadline, {
     as: 'h5',
     css: spacing({ top: 'giga' }),
-    noMargin: true,
   }),
   p: withThemeProvider(Body, {
     as: 'p',

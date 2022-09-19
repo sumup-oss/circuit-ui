@@ -111,9 +111,7 @@ function SecondaryGroup({
       <li>
         {label && (
           <Skeleton css={subHeadlineStyles}>
-            <SubHeadline as="h3" noMargin>
-              {label}
-            </SubHeadline>
+            <SubHeadline as="h3">{label}</SubHeadline>
           </Skeleton>
         )}
         <ul role="list" css={listStyles}>

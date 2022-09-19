@@ -26,23 +26,15 @@ describe('SubHeadline', () => {
   const elements = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
   it.each(elements)('should render as %s element', (element) => {
     const subheading = create(
-      <SubHeadline
-        noMargin
-        as={element}
-      >{`${element} subheading`}</SubHeadline>,
+      <SubHeadline as={element}>{`${element} subheading`}</SubHeadline>,
     );
     expect(subheading).toMatchSnapshot();
   });
 
-  it('should render with default spacing when there is no noMargin prop', () => {
-    /* @ts-expect-error the noMargin prop is required */
-    const actual = create(<SubHeadline as="h3" />);
-    expect(actual).toMatchSnapshot();
-  });
   it('should accept a working ref for a headline', () => {
     const tref = createRef<HTMLHeadingElement>();
     const { container } = render(
-      <SubHeadline noMargin as="h3" ref={tref}>
+      <SubHeadline as="h3" ref={tref}>
         SubHeadline
       </SubHeadline>,
     );
@@ -54,11 +46,7 @@ describe('SubHeadline', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <SubHeadline noMargin as="h3">
-        Subheading
-      </SubHeadline>,
-    );
+    const wrapper = renderToHtml(<SubHeadline as="h3">Subheading</SubHeadline>);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

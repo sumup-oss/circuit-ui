@@ -168,12 +168,7 @@ const Icons = () => {
         Object.entries(groupBy(activeIcons, 'category')).map(
           ([category, items]) => (
             <Category key={category}>
-              <Headline
-                as="h3"
-                size="three"
-                noMargin
-                css={spacing({ bottom: 'giga' })}
-              >
+              <Headline as="h3" size="three" css={spacing({ bottom: 'giga' })}>
                 {category}
               </Headline>
               <List>

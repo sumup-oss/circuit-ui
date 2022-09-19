@@ -111,7 +111,6 @@ export const NotificationFullscreen = ({
     <div css={wrapperStyles} {...props}>
       <NotificationImage image={image} />
       <Headline
-        noMargin
         css={cx(spacing({ top: 'giga', bottom: 'byte' }), centeredStyles)}
         size="two"
         as={headlineElement}
