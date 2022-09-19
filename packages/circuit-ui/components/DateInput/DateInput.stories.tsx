@@ -26,6 +26,7 @@ export default {
 const baseArgs = {
   label: 'Date of birth',
   validationHint: 'You must be at least 18 years old',
+  noMargin: true,
 };
 
 export const Base = (args: DateInputProps) => <DateInput {...args} />;

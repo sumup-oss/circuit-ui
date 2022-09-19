@@ -17,10 +17,10 @@ import { Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { disableVisually } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { Body, BodyProps } from '../Body/Body';
 import { AccessibilityError, DeprecationError } from '../../util/errors';
+import { FieldWrapper } from '../FieldAtoms';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
 
@@ -66,7 +66,7 @@ const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);
 
 type WrapperElProps = Pick<ToggleProps, 'noMargin' | 'disabled'>;
 
-const toggleWrapperStyles = ({ theme }: StyleProps) => css`
+const wrapperStyles = ({ theme }: StyleProps) => css`
   display: flex;
   align-items: flex-start;
 
@@ -76,26 +76,7 @@ const toggleWrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const toggleWrapperDisabledStyles = ({ disabled }: WrapperElProps) =>
-  disabled &&
-  css`
-    ${disableVisually()};
-  `;
-
-const toggleWrapperNoMarginStyles = ({
-  theme,
-  noMargin,
-}: StyleProps & WrapperElProps) =>
-  !noMargin &&
-  css`
-    margin-bottom: ${theme.spacings.mega};
-  `;
-
-const ToggleWrapper = styled('div')<WrapperElProps>(
-  toggleWrapperStyles,
-  toggleWrapperDisabledStyles,
-  toggleWrapperNoMarginStyles,
-);
+const ToggleWrapper = styled(FieldWrapper)<WrapperElProps>(wrapperStyles);
 
 /**
  * A toggle component with support for labels and additional explanations.

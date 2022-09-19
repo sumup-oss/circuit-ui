@@ -13,13 +13,7 @@
  * limitations under the License.
  */
 
-import {
-  Fragment,
-  InputHTMLAttributes,
-  Ref,
-  forwardRef,
-  ReactNode,
-} from 'react';
+import { Fragment, InputHTMLAttributes, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -37,7 +31,7 @@ export interface RadioButtonProps
   /**
    * A clear and concise description of the option's purpose.
    */
-  label: ReactNode;
+  label: string;
   /**
    * Triggers error styles on the component.
    */
@@ -131,7 +125,7 @@ const RadioButtonLabel = styled('label')<LabelElProps>(
   labelInvalidStyles,
 );
 
-type InputElProps = Omit<RadioButtonProps, 'tracking'>;
+type InputElProps = Pick<RadioButtonProps, 'invalid'>;
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
@@ -220,7 +214,6 @@ export const RadioButton = forwardRef(
 
     return (
       <Fragment>
-        {/* @ts-expect-error the noMargin prop is required */}
         <RadioButtonInput
           {...props}
           type="radio"

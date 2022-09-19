@@ -42,8 +42,6 @@ export { default as CalendarTag } from './components/CalendarTag';
 export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep';
 export { default as Checkbox } from './components/Checkbox';
 export type { CheckboxProps } from './components/Checkbox';
-export { default as Label } from './components/Label';
-export type { LabelProps } from './components/Label';
 export { default as Input } from './components/Input';
 export type { InputProps, InputElement } from './components/Input';
 export { default as RadioButton } from './components/RadioButton';

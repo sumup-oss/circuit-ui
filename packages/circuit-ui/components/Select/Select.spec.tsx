@@ -66,13 +66,6 @@ describe('Select', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with inline styles when passed the inline prop', () => {
-    const actual = create(
-      <Select {...{ options }} label="Label" noMargin inline />,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
   it('should render with default spacing when there is no noMargin prop', () => {
     /* @ts-expect-error the noMargin prop is required */
     const actual = create(<Select {...{ options }} />);

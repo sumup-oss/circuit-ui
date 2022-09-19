@@ -15,15 +15,16 @@
 
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import { Confirm, NotifyCircle, Alert } from '@sumup/icons';
 import isPropValid from '@emotion/is-prop-valid';
+import { Confirm, NotifyCircle, Alert } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
 
 type Color = 'alert' | 'notify' | 'confirm';
 
-export interface ValidationHintProps extends HTMLAttributes<HTMLSpanElement> {
+export interface FieldValidationHintProps
+  extends HTMLAttributes<HTMLSpanElement> {
   validationHint?: string;
   disabled?: boolean;
   invalid?: boolean;
@@ -38,7 +39,10 @@ const baseStyles = ({ theme }: StyleProps) => css`
   transition: color ${theme.transitions.default};
 `;
 
-const validStyles = ({ theme, showValid }: StyleProps & ValidationHintProps) =>
+const validStyles = ({
+  theme,
+  showValid,
+}: StyleProps & FieldValidationHintProps) =>
   showValid &&
   css`
     color: ${theme.colors.confirm};
@@ -47,19 +51,22 @@ const validStyles = ({ theme, showValid }: StyleProps & ValidationHintProps) =>
 const warningStyles = ({
   theme,
   hasWarning,
-}: StyleProps & ValidationHintProps) =>
+}: StyleProps & FieldValidationHintProps) =>
   hasWarning &&
   css`
     color: ${theme.colors.bodyColor};
   `;
 
-const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
+const invalidStyles = ({
+  theme,
+  invalid,
+}: StyleProps & FieldValidationHintProps) =>
   invalid &&
   css`
     color: ${theme.colors.alert};
   `;
 
-const Wrapper = styled('span')<ValidationHintProps>(
+const Wrapper = styled('span')<FieldValidationHintProps>(
   typography('two'),
   baseStyles,
   validStyles,
@@ -101,7 +108,7 @@ const IconWrapper = styled('div', {
     `,
 );
 
-const getIcon = (state: ValidationHintProps) => {
+const getIcon = (state: FieldValidationHintProps) => {
   switch (true) {
     case state.disabled: {
       return null;
@@ -136,10 +143,10 @@ const getIcon = (state: ValidationHintProps) => {
 /**
  * @private
  */
-export const ValidationHint = ({
+export const FieldValidationHint = ({
   validationHint,
   ...props
-}: ValidationHintProps): JSX.Element | null => {
+}: FieldValidationHintProps): JSX.Element | null => {
   if (!validationHint) {
     return null;
   }

@@ -27,6 +27,7 @@ import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Tooltip from '../Tooltip';
 import { DeprecationError } from '../../util/errors';
+import { FieldWrapper } from '../FieldAtoms';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -53,8 +54,6 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   ref?: Ref<HTMLInputElement>;
 }
 
-type LabelElProps = Pick<CheckboxProps, 'disabled'>;
-
 const labelBaseStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.bodyColor};
   display: inline-block;
@@ -63,13 +62,7 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
   cursor: pointer;
 `;
 
-const labelDisabledStyles = ({ disabled }: LabelElProps) =>
-  disabled && disableVisually;
-
-const CheckboxLabel = styled('label')<LabelElProps>(
-  labelBaseStyles,
-  labelDisabledStyles,
-);
+const CheckboxLabel = styled('label')(labelBaseStyles);
 
 type WrapperElProps = Pick<CheckboxProps, 'noMargin'>;
 
@@ -88,12 +81,12 @@ const wrapperNoMarginStyles = ({
     }
   `;
 
-const CheckboxWrapper = styled('div')<WrapperElProps>(
+const CheckboxWrapper = styled(FieldWrapper)<WrapperElProps>(
   wrapperBaseStyles,
   wrapperNoMarginStyles,
 );
 
-type InputElProps = Omit<CheckboxProps, 'tracking'>;
+type InputElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
@@ -241,8 +234,12 @@ export const Checkbox = forwardRef(
     const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
     return (
-      <CheckboxWrapper className={className} style={style} noMargin={noMargin}>
-        {/* @ts-expect-error the noMargin prop is required */}
+      <CheckboxWrapper
+        className={className}
+        style={style}
+        disabled={disabled}
+        noMargin={noMargin}
+      >
         <CheckboxInput
           {...props}
           id={id}
@@ -254,7 +251,7 @@ export const Checkbox = forwardRef(
           ref={ref}
           onChange={handleChange}
         />
-        <CheckboxLabel htmlFor={id} disabled={disabled}>
+        <CheckboxLabel htmlFor={id}>
           {children}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>
