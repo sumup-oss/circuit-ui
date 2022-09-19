@@ -259,7 +259,7 @@ export function NotificationBanner({
         <ResponsiveHeadline as="h2" noMargin>
           {headline}
         </ResponsiveHeadline>
-        <ResponsiveBody noMargin>{body}</ResponsiveBody>
+        <ResponsiveBody>{body}</ResponsiveBody>
         <ResponsiveButton {...action} />
       </Content>
       {image && image.src && <StyledImage {...image} />}

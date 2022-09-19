@@ -209,11 +209,11 @@ export function NotificationToast({
         <span css={hideVisually}>{iconLabel}</span>
         <Content>
           {headline && (
-            <Body variant={'highlight'} as="h3" noMargin>
+            <Body variant={'highlight'} as="h3">
               {headline}
             </Body>
           )}
-          <Body noMargin>{body}</Body>
+          <Body>{body}</Body>
         </Content>
 
         <StyledCloseButton

@@ -41,13 +41,12 @@ const Spacing = ({ spacingName }) => (
     <Wrapper>
       <Box spacingName={spacingName} />
       <div>
-        <Body as="span" noMargin css={spacing({ bottom: 'giga' })}>
+        <Body as="span" css={spacing({ bottom: 'giga' })}>
           {spacingName}
         </Body>
         <Body
           size="two"
           as="span"
-          noMargin
           variant="subtle"
           css={spacing({ left: 'kilo', bottom: 'giga' })}
         >

@@ -163,7 +163,7 @@ const Icons = () => {
       </Filters>
 
       {activeIcons.length <= 0 ? (
-        <Body noMargin>No icons found</Body>
+        <Body>No icons found</Body>
       ) : (
         Object.entries(groupBy(activeIcons, 'category')).map(
           ([category, items]) => (

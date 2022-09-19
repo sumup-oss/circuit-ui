@@ -80,11 +80,7 @@ function SecondaryLink({
         as={props.href ? (Link as EmotionAsPropType) : 'button'}
       >
         <Skeleton css={labelStyles}>
-          <Body
-            size="one"
-            variant={props.isActive ? 'highlight' : undefined}
-            noMargin
-          >
+          <Body size="one" variant={props.isActive ? 'highlight' : undefined}>
             {label}
           </Body>
         </Skeleton>

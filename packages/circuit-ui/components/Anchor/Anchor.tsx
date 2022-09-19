@@ -31,7 +31,7 @@ import { Body, BodyProps } from '../Body/Body';
 import { useComponents } from '../ComponentsContext';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 
-export interface BaseProps extends Omit<BodyProps, 'noMargin'> {
+export interface BaseProps extends BodyProps {
   children: ReactNode;
   /**
    * Function that's called when the button is clicked.
@@ -103,7 +103,7 @@ export const Anchor = forwardRef(
     const handleClick = useClickEvent(props.onClick, tracking, 'anchor');
 
     if (!props.href && !props.onClick) {
-      return <Body as="span" {...props} ref={ref} noMargin />;
+      return <Body as="span" {...props} ref={ref} />;
     }
 
     if (props.href) {
@@ -114,7 +114,6 @@ export const Anchor = forwardRef(
           as={Link}
           ref={ref}
           onClick={handleClick}
-          noMargin
         />
       );
     }
@@ -126,7 +125,6 @@ export const Anchor = forwardRef(
         css={anchorStyles}
         ref={ref}
         onClick={handleClick}
-        noMargin
       />
     );
   },

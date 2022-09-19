@@ -26,12 +26,15 @@ export const theme = create({
 
 // FIXME: BaseStyles should only be included once, however, I couldn't find
 //        any other way to add it to the Docs page.
-const withThemeProvider = (Component, baseProps = {}) => (props = {}) => (
-  <ThemeProvider theme={light}>
-    <BaseStyles />
-    <Component {...baseProps} {...props} />
-  </ThemeProvider>
-);
+const withThemeProvider =
+  (Component, baseProps = {}) =>
+  (props = {}) =>
+    (
+      <ThemeProvider theme={light}>
+        <BaseStyles />
+        <Component {...baseProps} {...props} />
+      </ThemeProvider>
+    );
 
 const TEXT_SIZE = 'one';
 
@@ -82,24 +85,20 @@ export const components = {
     as: 'p',
     size: TEXT_SIZE,
     css: spacing({ bottom: 'giga' }),
-    noMargin: true,
   }),
   li: withThemeProvider(Body, {
     as: 'li',
     size: TEXT_SIZE,
-    noMargin: true,
   }),
   strong: withThemeProvider(Body, {
     as: 'strong',
     size: TEXT_SIZE,
     variant: 'highlight',
-    noMargin: true,
   }),
   em: withThemeProvider(Body, {
     as: 'em',
     size: TEXT_SIZE,
     css: italicStyles,
-    noMargin: true,
   }),
   ul: withThemeProvider(List, {
     css: spacing({ bottom: 'giga' }),

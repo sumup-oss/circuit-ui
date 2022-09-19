@@ -62,7 +62,7 @@ const sizes: ListProps['size'][] = ['one', 'two'];
 export const Sizes = (args: ListProps) =>
   sizes.map((size) => (
     <>
-      <Body size={size} css={spacing({ bottom: 'mega' })} noMargin>
+      <Body size={size} css={spacing({ bottom: 'mega' })}>
         Use List size {size} with Body {size} text.
       </Body>
       <List

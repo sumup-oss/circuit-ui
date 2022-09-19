@@ -123,15 +123,13 @@ function Profile({ user, label, isActive, isOpen, ...props }: ProfileProps) {
       </Skeleton>
       <UserDetails>
         <Skeleton css={truncateStyles}>
-          <Body size="two" variant="highlight" noMargin>
+          <Body size="two" variant="highlight">
             {user.name}
           </Body>
         </Skeleton>
         {user.id && (
           <Skeleton css={truncateStyles}>
-            <Body size="two" noMargin>
-              {user.id}
-            </Body>
+            <Body size="two">{user.id}</Body>
           </Skeleton>
         )}
       </UserDetails>

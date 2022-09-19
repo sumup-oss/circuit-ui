@@ -118,11 +118,7 @@ export const NotificationFullscreen = ({
       >
         {headlineLabel}
       </Headline>
-      {body && (
-        <Body css={centeredStyles} noMargin>
-          {body}
-        </Body>
-      )}
+      {body && <Body css={centeredStyles}>{body}</Body>}
       {actions && (
         <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
       )}

@@ -75,11 +75,7 @@ describe('ListItem', () => {
     it('should render a ListItem with a custom label', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        label: (
-          <Body size="one" noMargin>
-            Label
-          </Body>
-        ),
+        label: <Body size="one">Label</Body>,
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -95,11 +91,7 @@ describe('ListItem', () => {
     it('should render a ListItem with a custom details line', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        details: (
-          <Body size="two" noMargin>
-            Details
-          </Body>
-        ),
+        details: <Body size="two">Details</Body>,
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -116,7 +108,7 @@ describe('ListItem', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
         trailingLabel: (
-          <Body size="one" variant="highlight" noMargin>
+          <Body size="one" variant="highlight">
             Trailing label
           </Body>
         ),
@@ -138,7 +130,7 @@ describe('ListItem', () => {
         ...baseProps,
         trailingLabel: 'Trailing label',
         trailingDetails: (
-          <Body size="two" variant="subtle" noMargin>
+          <Body size="two" variant="subtle">
             Trailing details
           </Body>
         ),

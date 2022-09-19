@@ -74,15 +74,10 @@ const statusIconStyles = (theme: Theme) => css`
 const Details = (
   <div css={detailsStyles}>
     <Confirm size="16" css={statusIconStyles} role="presentation" />
-    <Body
-      size="two"
-      variant="highlight"
-      css={spacing({ right: 'bit' })}
-      noMargin
-    >
+    <Body size="two" variant="highlight" css={spacing({ right: 'bit' })}>
       {item.status}
     </Body>
-    <Body size="two" variant="subtle" noMargin>
+    <Body size="two" variant="subtle">
       &middot; {item.timestamp}
     </Body>
   </div>
@@ -93,13 +88,13 @@ const lineThrough = css`
 `;
 
 const TrailingLabel = (
-  <Body size="one" variant="subtle" noMargin css={lineThrough}>
+  <Body size="one" variant="subtle" css={lineThrough}>
     {item.amount}
   </Body>
 );
 
 const TrailingDetails = (
-  <Body size="two" variant="subtle" noMargin css={lineThrough}>
+  <Body size="two" variant="subtle" css={lineThrough}>
     {item.fee} fee
   </Body>
 );
@@ -167,11 +162,7 @@ export const WithCustomLabel = (args: ListItemProps) => (
     <ListItem
       {...args}
       leadingComponent={SumUpCard}
-      label={
-        <Body size="one" noMargin>
-          Custom multiline label: {args.label}
-        </Body>
-      }
+      label={<Body size="one">Custom multiline label: {args.label}</Body>}
       css={baseStyles}
     />
   </>

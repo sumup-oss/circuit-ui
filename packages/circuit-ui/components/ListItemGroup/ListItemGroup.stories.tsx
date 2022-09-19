@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { css } from '@emotion/react';
 import { SumUpCard, Confirm, Alert } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
@@ -90,15 +90,10 @@ const Details = ({ item }: { item: Item }) => (
     ) : (
       <Alert size="16" css={failedIconStyles} role="presentation" />
     )}
-    <Body
-      size="two"
-      variant="highlight"
-      noMargin
-      css={spacing({ right: 'bit' })}
-    >
+    <Body size="two" variant="highlight" css={spacing({ right: 'bit' })}>
       {item.status}
     </Body>
-    <Body size="two" variant="subtle" noMargin>
+    <Body size="two" variant="subtle">
       &middot; {item.timestamp}
     </Body>
   </div>
@@ -113,7 +108,6 @@ const TrailingLabel = ({ item }: { item: Item }) => (
     size="one"
     variant={item.status === 'Failed' ? 'subtle' : 'highlight'}
     css={item.status === 'Failed' && strikeThrough}
-    noMargin
   >
     {item.amount}
   </Body>
