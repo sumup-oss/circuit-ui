@@ -51,8 +51,8 @@ export function withDeprecation<Props>(
   Component: ComponentType<Props>,
   deprecateFn: (props: Props) => string | null,
   shouldThrow = false,
-): ComponentType<Props> {
-  const WithDeprecation = forwardRef<unknown, Props>((props: Props, ref) => {
+) {
+  const WithDeprecation = forwardRef<unknown, Props>((props, ref) => {
     const deprecation = deprecateFn(props);
     const componentName = Component.displayName as string;
 
@@ -64,6 +64,11 @@ export function withDeprecation<Props>(
       }
     }
 
+    /**
+     * FIXME: there is a clash between `React.ComponentType` and `@jsxImportSource @emotion/react`.
+     * See https://github.com/emotion-js/emotion/issues/2169
+     */
+    /* @ts-expect-error see above */
     return <Component {...props} ref={ref} />;
   });
 

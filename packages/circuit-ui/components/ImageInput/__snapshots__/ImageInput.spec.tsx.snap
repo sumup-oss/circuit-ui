@@ -292,14 +292,15 @@ exports[`ImageInput styles should render a custom component 1`] = `
     >
       <input
         accept="image/*"
+        aria-describedby="validation-hint_10"
         aria-invalid="false"
         class="circuit-2"
-        id="image-input_5"
+        id="image-input_9"
         type="file"
       />
       <label
         class="circuit-3"
-        for="image-input_5"
+        for="image-input_9"
       >
         <span
           class="circuit-4"
@@ -308,7 +309,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
         </span>
         <img
           alt=""
-          src="https://source.unsplash.com/EcWFOYOpkpY/800x200"
+          src="/images/illustration-coffee.jpg"
           style="width: 400px; height: 100px;"
         />
       </label>
@@ -670,14 +671,15 @@ exports[`ImageInput styles should render with an existing image 1`] = `
     >
       <input
         accept="image/*"
+        aria-describedby="validation-hint_4"
         aria-invalid="false"
         class="circuit-2"
-        id="image-input_2"
+        id="image-input_3"
         type="file"
       />
       <label
         class="circuit-3"
-        for="image-input_2"
+        for="image-input_3"
       >
         <span
           class="circuit-4"
@@ -687,7 +689,7 @@ exports[`ImageInput styles should render with an existing image 1`] = `
         <img
           alt=""
           class="circuit-5"
-          src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+          src="/images/illustration-coffee.jpg"
         />
       </label>
       <button
@@ -1049,6 +1051,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
     >
       <input
         accept="image/*"
+        aria-describedby="validation-hint_2"
         aria-invalid="false"
         class="circuit-2"
         id="image-input_1"
@@ -1066,7 +1069,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
         <img
           alt=""
           class="circuit-5"
-          src="data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" fill=\\"none\\" viewBox=\\"0 0 96 96\\"><path fill=\\"white\\" d=\\"M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z\\"/></svg>"
+          src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"/></svg>"
         />
       </label>
       <button
@@ -1453,14 +1456,15 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
     >
       <input
         accept="image/*"
+        aria-describedby="validation-hint_6"
         aria-invalid="true"
         class="circuit-2"
-        id="image-input_3"
+        id="image-input_5"
         type="file"
       />
       <label
         class="circuit-3"
-        for="image-input_3"
+        for="image-input_5"
       >
         <span
           class="circuit-4"
@@ -1470,7 +1474,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
         <img
           alt=""
           class="circuit-5"
-          src="data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" fill=\\"none\\" viewBox=\\"0 0 96 96\\"><path fill=\\"white\\" d=\\"M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z\\"/></svg>"
+          src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"/></svg>"
         />
       </label>
       <button
@@ -1521,7 +1525,9 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
       </span>
     </div>
     <span
+      aria-live="polite"
       class="circuit-13"
+      id="validation-hint_6"
     >
       <div
         class="circuit-14"
@@ -1856,14 +1862,15 @@ exports[`ImageInput styles should render with smaller button 1`] = `
     >
       <input
         accept="image/*"
+        aria-describedby="validation-hint_8"
         aria-invalid="false"
         class="circuit-2"
-        id="image-input_4"
+        id="image-input_7"
         type="file"
       />
       <label
         class="circuit-3"
-        for="image-input_4"
+        for="image-input_7"
       >
         <span
           class="circuit-4"
@@ -1873,7 +1880,7 @@ exports[`ImageInput styles should render with smaller button 1`] = `
         <img
           alt=""
           class="circuit-5"
-          src="data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" fill=\\"none\\" viewBox=\\"0 0 96 96\\"><path fill=\\"white\\" d=\\"M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z\\"/></svg>"
+          src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"/></svg>"
         />
       </label>
       <button

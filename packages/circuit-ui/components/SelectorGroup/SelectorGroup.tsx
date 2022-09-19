@@ -119,6 +119,10 @@ const Legend = styled('legend')<LegendProps>(
 
 const OptionItem = styled.div`
   flex: 1;
+  align-self: stretch;
+  & label {
+    height: 100%;
+  }
 `;
 
 /**

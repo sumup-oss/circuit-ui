@@ -20,8 +20,8 @@ import { Avatar, AvatarProps } from './Avatar';
 const sizes = ['giga', 'yotta'] as const;
 const variants = ['object', 'identity'] as const;
 const images = {
-  object: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
-  identity: 'https://source.unsplash.com/ZDgrqccUn88/200x200',
+  object: '/images/illustration-coffee.jpg',
+  identity: '/images/illustration-cat.jpg',
 };
 
 describe('Avatar', () => {

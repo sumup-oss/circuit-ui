@@ -1,5 +1,47 @@
 # @sumup/circuit-ui
 
+## 5.3.1
+
+### Patch Changes
+
+- [#1651](https://github.com/sumup-oss/circuit-ui/pull/1651) [`ea1ebb0d`](https://github.com/sumup-oss/circuit-ui/commit/ea1ebb0dd95a8c5bdb57ddbfabc0caf8e4875375) Thanks [@anasalles47](https://github.com/anasalles47)! - Adjusted the SelectorGroup component to ensure that all Selectors have the same height.
+
+## 5.3.0
+
+### Minor Changes
+
+- [#1720](https://github.com/sumup-oss/circuit-ui/pull/1720) [`d3c6165d`](https://github.com/sumup-oss/circuit-ui/commit/d3c6165d1971c25d0bfe2ffde1a78b33155d758b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for passing an SVG component as `image.svg` to the `NotificationFullscreen` and `NotificationModal` components.
+
+## 5.2.4
+
+### Patch Changes
+
+- [#1719](https://github.com/sumup-oss/circuit-ui/pull/1719) [`e0dbb2c8`](https://github.com/sumup-oss/circuit-ui/commit/e0dbb2c8666cce666ba681753bcdfe02e5274ad7) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed extra bottom spacing from the `NotificationInline` action.
+
+## 5.2.3
+
+### Patch Changes
+
+- [#1644](https://github.com/sumup-oss/circuit-ui/pull/1644) [`6c5c2a1a`](https://github.com/sumup-oss/circuit-ui/commit/6c5c2a1a21e87ddee66d53dcbafb3ecf0eae34d1) Thanks [@amelako](https://github.com/amelako)! - Improved the accessibility of the `ImageInput` component by associating the validation hint with the input and announcing updates to screen reader users.
+
+## 5.2.2
+
+### Patch Changes
+
+- [#1692](https://github.com/sumup-oss/circuit-ui/pull/1692) [`cab2f20c`](https://github.com/sumup-oss/circuit-ui/commit/cab2f20cf89746bd4b09aa3577176de405cbdf82) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a max-width to the headline of an imageless `NotificationModal` to prevent it from being overlapped by the close button.
+
+## 5.2.1
+
+### Patch Changes
+
+- [#1690](https://github.com/sumup-oss/circuit-ui/pull/1690) [`66bef295`](https://github.com/sumup-oss/circuit-ui/commit/66bef29596c93a99e29bd97ca6efda1e47856ebe) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the spacing in imageless `NotificationModal`s.
+
+## 5.2.0
+
+### Minor Changes
+
+- [#1682](https://github.com/sumup-oss/circuit-ui/pull/1682) [`d4ce46f0`](https://github.com/sumup-oss/circuit-ui/commit/d4ce46f042e993d8d3eb872dd92ef4fd6d7d6697) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `ClickEvent`, `PopoverItemProps`, and `TableSortByValue` types to the public exports.
+
 ## 5.1.7
 
 ### Patch Changes

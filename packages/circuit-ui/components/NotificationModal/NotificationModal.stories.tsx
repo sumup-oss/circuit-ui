@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { ModalProvider } from '../ModalContext';
@@ -35,11 +34,7 @@ export const Base = (modal: NotificationModalProps): JSX.Element => {
   const ComponentWithModal = () => {
     const { setModal } = useNotificationModal();
 
-    return (
-      <Button type="button" onClick={() => setModal(modal)}>
-        Open modal
-      </Button>
-    );
+    return <Button onClick={() => setModal(modal)}>Open modal</Button>;
   };
   return (
     <ModalProvider>
@@ -50,14 +45,14 @@ export const Base = (modal: NotificationModalProps): JSX.Element => {
 
 Base.args = {
   image: {
-    src: '/images/software_update.png',
+    src: '/images/illustration-update-browser.svg',
     alt: '',
   },
-  headline: 'Software update',
-  body: 'There is updated firmware available for your card reader.',
+  headline: "It's time to update your browser",
+  body: "You'll soon need a more up-to-date browser to continue using SumUp.",
   actions: {
     primary: {
-      children: 'Update',
+      children: 'Update now',
       onClick: action('primary'),
     },
     secondary: {

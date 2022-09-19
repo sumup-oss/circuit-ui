@@ -44,12 +44,25 @@ HTMLCollection [
     value="value"
   />,
   .circuit-0 {
-  display: inline-block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   cursor: pointer;
   background-color: #FFF;
   text-align: center;
   position: relative;
-  border: none;
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
@@ -140,12 +153,25 @@ HTMLCollection [
     value="value"
   />,
   .circuit-0 {
-  display: inline-block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   cursor: pointer;
   background-color: #FFF;
   text-align: center;
   position: relative;
-  border: none;
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
@@ -236,12 +262,25 @@ HTMLCollection [
     value="value"
   />,
   .circuit-0 {
-  display: inline-block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   cursor: pointer;
   background-color: #FFF;
   text-align: center;
   position: relative;
-  border: none;
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
@@ -334,12 +373,25 @@ HTMLCollection [
     value="value"
   />,
   .circuit-0 {
-  display: inline-block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   cursor: pointer;
   background-color: #FFF;
   text-align: center;
   position: relative;
-  border: none;
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;

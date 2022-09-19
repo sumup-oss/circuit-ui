@@ -16,10 +16,14 @@
 import { useState, ChangeEvent } from 'react';
 
 import { SelectorGroup, SelectorGroupProps } from './SelectorGroup';
+import docs from './SelectorGroup.docs.mdx';
 
 export default {
   title: 'Forms/Selector/SelectorGroup',
   component: SelectorGroup,
+  parameters: {
+    docs: { page: docs },
+  },
 };
 
 const baseArgs = {
@@ -29,6 +33,7 @@ const baseArgs = {
     { children: 'Apple', value: 'apple', noMargin: true },
     { children: 'Banana', value: 'banana', noMargin: true },
     { children: 'Mango', value: 'mango', noMargin: true },
+    { children: 'I like all fruits', value: 'all', noMargin: true },
   ],
 };
 

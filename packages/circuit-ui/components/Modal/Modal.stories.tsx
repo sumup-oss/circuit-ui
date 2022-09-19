@@ -168,7 +168,7 @@ CustomStyles.args = {
   children: () => (
     <Fragment>
       <Image
-        src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
+        src="/images/illustration-waves.jpg"
         alt=""
         css={(theme: Theme) =>
           css`

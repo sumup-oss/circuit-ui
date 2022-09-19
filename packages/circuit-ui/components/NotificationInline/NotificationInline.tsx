@@ -140,7 +140,7 @@ const actionButtonStyles = ({ theme }: StyleProps & ButtonProps) =>
     font-weight: bold;
     text-decoration-line: underline;
     color: ${theme.colors.black};
-    padding-bottom: calc(${theme.spacings.kilo} - ${theme.borderWidth.kilo});
+    margin-top: ${theme.spacings.byte};
 
     &:hover {
       color: ${theme.colors.n800};
@@ -261,7 +261,9 @@ export function NotificationInline({
             </Body>
           )}
           <Body noMargin>{body}</Body>
-          {action && <ActionButton {...action} variant={'tertiary'} />}
+          {action && (
+            <ActionButton {...action} variant="tertiary" size="kilo" />
+          )}
         </Content>
 
         {onClose && closeButtonLabel && (

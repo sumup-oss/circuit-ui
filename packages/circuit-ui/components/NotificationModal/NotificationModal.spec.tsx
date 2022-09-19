@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Plus } from '@sumup/icons';
+
 import { axe, render, userEvent, waitFor } from '../../util/test-utils';
 
 import { NotificationModal, NotificationModalProps } from './NotificationModal';
@@ -21,32 +23,44 @@ describe('NotificationModal', () => {
   const renderNotificationModal = (props: NotificationModalProps) =>
     render(<NotificationModal {...props} />);
 
-  const baseNotificationModal: NotificationModalProps = {
+  const baseNotificationModal = {
     isOpen: true,
     closeButtonLabel: 'Close modal',
     onClose: jest.fn(),
     image: {
-      src: 'https://source.unsplash.com/TpHmEoVSmfQ/1600x900',
+      src: '/images/illustration-update-browser.svg',
       alt: '',
     },
-    headline: 'Example modal',
-    body: 'Hello World!',
+    headline: "It's time to update your browser",
+    body: "You'll soon need a more up-to-date browser to continue using SumUp.",
     actions: {
       primary: {
-        children: 'Primary',
+        children: 'Update now',
         onClick: jest.fn(),
       },
       secondary: {
-        children: 'Secondary',
+        children: 'Not now',
         onClick: jest.fn(),
       },
     },
     ariaHideApp: false,
-  };
+  } as const;
 
   describe('styles', () => {
     it('should render with default styles', () => {
       const { baseElement } = renderNotificationModal(baseNotificationModal);
+      expect(baseElement).toMatchSnapshot();
+    });
+
+    it('should render with an SVG', () => {
+      const props = { ...baseNotificationModal, image: { svg: Plus, alt: '' } };
+      const { baseElement } = renderNotificationModal(props);
+      expect(baseElement).toMatchSnapshot();
+    });
+
+    it('should render without an image', () => {
+      const { image, ...props } = baseNotificationModal;
+      const { baseElement } = renderNotificationModal(props);
       expect(baseElement).toMatchSnapshot();
     });
 
@@ -62,17 +76,19 @@ describe('NotificationModal', () => {
   });
 
   describe('business logic', () => {
-    it('should call the onClose callback', async () => {
+    it('should close the modal when clicking the close button', async () => {
       const { findByRole } = renderNotificationModal(baseNotificationModal);
 
-      const closeButton = await findByRole('button', { name: /Close Modal/i });
+      const closeButton = await findByRole('button', {
+        name: baseNotificationModal.closeButtonLabel,
+      });
 
       await userEvent.click(closeButton);
 
       expect(baseNotificationModal.onClose).toHaveBeenCalled();
     });
 
-    it('should close the modal without performing any action', async () => {
+    it('should close the modal when clicking outside', async () => {
       renderNotificationModal(baseNotificationModal);
 
       await userEvent.click(document.body);
@@ -80,10 +96,12 @@ describe('NotificationModal', () => {
       expect(baseNotificationModal.onClose).toHaveBeenCalled();
     });
 
-    it('should perform action by clicking the action button and close the modal', async () => {
+    it('should perform an action and close the modal when clicking an action button', async () => {
       const { findByRole } = renderNotificationModal(baseNotificationModal);
 
-      const actionButton = await findByRole('button', { name: /Primary/i });
+      const actionButton = await findByRole('button', {
+        name: baseNotificationModal.actions.primary.children,
+      });
 
       await userEvent.click(actionButton);
 
@@ -93,7 +111,10 @@ describe('NotificationModal', () => {
   });
 
   describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
+    /**
+     * FIXME: calling axe here triggers an act() warning.
+     */
+    it('should have no violations', async () => {
       const { container } = renderNotificationModal(baseNotificationModal);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();

@@ -47,7 +47,7 @@ export const WithImage = (): JSX.Element => (
   <ImageInput
     label="Upload an image"
     clearButtonLabel="Clear"
-    src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+    src="/images/illustration-coffee.jpg"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     loadingLabel="Uploading"
@@ -71,7 +71,7 @@ export const Invalid = (): JSX.Element => (
   <ImageInput
     label="Upload an image"
     clearButtonLabel="Clear"
-    src="https://source.unsplash.com/EcWFOYOpkpY/200x200"
+    src="/images/illustration-coffee.jpg"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     invalid
@@ -97,7 +97,7 @@ export const Stateful = (): JSX.Element => {
         if (shouldFail) {
           reject();
         } else {
-          resolve('https://source.unsplash.com/EcWFOYOpkpY/200x200');
+          resolve('/images/illustration-coffee.jpg');
         }
       }, 2000);
     });

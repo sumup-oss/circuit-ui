@@ -55,7 +55,7 @@ describe('ImageInput', () => {
     it('should render with an existing image', () => {
       const { container } = renderImageInput({
         ...defaultProps,
-        src: 'https://source.unsplash.com/EcWFOYOpkpY/200x200',
+        src: '/images/illustration-coffee.jpg',
       });
       expect(container).toMatchSnapshot();
     });
@@ -81,7 +81,7 @@ describe('ImageInput', () => {
     it('should render a custom component', () => {
       const { container } = renderImageInput({
         ...defaultProps,
-        src: 'https://source.unsplash.com/EcWFOYOpkpY/800x200',
+        src: '/images/illustration-coffee.jpg',
         // eslint-disable-next-line react/display-name
         component: ({ src }) => (
           <img
@@ -100,7 +100,7 @@ describe('ImageInput', () => {
 
   const mockUploadFn = jest
     .fn<Promise<string>, [File]>()
-    .mockResolvedValue('https://source.unsplash.com/EcWFOYOpkpY/200x200');
+    .mockResolvedValue('/images/illustration-coffee.jpg');
   const mockClearFn = jest.fn();
 
   /**
@@ -157,6 +157,9 @@ describe('ImageInput', () => {
       });
     });
 
+    /**
+     * FIXME: this test triggers an act() warning.
+     */
     it('should support dragging and dropping an image', async () => {
       const { getByText } = render(<StatefulInput />);
       const labelEl = getByText(defaultProps.label);
@@ -168,6 +171,9 @@ describe('ImageInput', () => {
       });
     });
 
+    /**
+     * FIXME: this test triggers an act() warning.
+     */
     it('should support pasting an image', async () => {
       const { getByLabelText } = render(<StatefulInput />);
       const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
@@ -192,7 +198,7 @@ describe('ImageInput', () => {
 
       await waitFor(() => {
         expect(imageEl.src).toBe(
-          'https://source.unsplash.com/EcWFOYOpkpY/200x200',
+          'http://localhost/images/illustration-coffee.jpg',
         );
       });
     });
@@ -206,7 +212,7 @@ describe('ImageInput', () => {
 
       await waitFor(() => {
         expect(imageEl.src).toBe(
-          'https://source.unsplash.com/EcWFOYOpkpY/200x200',
+          'http://localhost/images/illustration-coffee.jpg',
         );
       });
 
@@ -217,7 +223,7 @@ describe('ImageInput', () => {
       await waitFor(() => {
         expect(mockClearFn).toHaveBeenCalledTimes(1);
         expect(imageEl.src).not.toBe(
-          'https://source.unsplash.com/EcWFOYOpkpY/200x200',
+          'http://localhost/images/illustration-coffee.jpg',
         );
       });
     });

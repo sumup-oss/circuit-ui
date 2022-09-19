@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { css } from '@emotion/react';
 import { action } from '@storybook/addon-actions';
 import { SumUpCard, Confirm } from '@sumup/icons';

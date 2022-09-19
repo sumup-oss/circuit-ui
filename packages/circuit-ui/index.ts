@@ -76,6 +76,7 @@ export { default as Selector } from './components/Selector';
 export type { SelectorProps } from './components/Selector';
 export { default as SelectorGroup } from './components/SelectorGroup';
 export type { SelectorGroupProps } from './components/SelectorGroup';
+export type { ClickEvent } from './types/events';
 
 // Notifications
 export { default as NotificationBanner } from './components/NotificationBanner';
@@ -139,7 +140,7 @@ export type { ProgressBarProps } from './components/ProgressBar';
 export { default as Tag } from './components/Tag';
 export type { TagProps } from './components/Tag';
 export { default as Popover } from './components/Popover';
-export type { PopoverProps } from './components/Popover';
+export type { PopoverProps, PopoverItemProps } from './components/Popover';
 export { default as Tooltip } from './components/Tooltip';
 export type { TooltipProps } from './components/Tooltip';
 export { default as BaseStyles } from './components/BaseStyles';
@@ -167,6 +168,7 @@ export { default as Table } from './components/Table';
 export type {
   TableProps,
   TableSortDirection,
+  TableSortByValue,
   TableHeaderCell,
   TableRowCell,
   TableCell,

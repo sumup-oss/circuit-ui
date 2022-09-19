@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
-import React from 'react';
+import { ReactElement } from 'react';
 
 import { renderHook, act } from '../../util/test-utils';
 
@@ -35,7 +34,7 @@ describe('createUseToast', () => {
   const setToast = jest.fn();
   const removeToast = jest.fn();
 
-  const wrapper = ({ children }) => (
+  const wrapper = ({ children }: { children: ReactElement }) => (
     <ToastContext.Provider value={{ setToast, removeToast }}>
       {children}
     </ToastContext.Provider>

@@ -16,15 +16,7 @@
     "outDir": "./dist/es",
     "resolveJsonModule": true,
     "strict": true,
-    "target": "es2017",
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin",
-        "lint": {
-          "validProperties": ["label"]
-        }
-      }
-    ]
+    "target": "es2017"
   },
   "include": ["**/*"],
   "exclude": [

@@ -1,5 +1,17 @@
 # @sumup/icons
 
+## 2.14.0
+
+### Minor Changes
+
+- [#1756](https://github.com/sumup-oss/circuit-ui/pull/1756) [`97ca8c52`](https://github.com/sumup-oss/circuit-ui/commit/97ca8c523874eafb0bce6857945310f635942c29) Thanks [@rcdutra](https://github.com/rcdutra)! - Added new payment method icons for `Alelo`, `Sodexo` and `Ticket`.
+
+## 2.13.0
+
+### Minor Changes
+
+- [#1708](https://github.com/sumup-oss/circuit-ui/pull/1708) [`c5d42bc8`](https://github.com/sumup-oss/circuit-ui/commit/c5d42bc8835047da562b8b21d1045c31e916fbb7) Thanks [@larimaza](https://github.com/larimaza)! - Added new card scheme icons for `Alelo`, `Sodexo` and `Ticket`.
+
 ## 2.12.0
 
 ### Minor Changes
