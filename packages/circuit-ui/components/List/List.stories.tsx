@@ -37,7 +37,7 @@ const ListItems = () => (
 );
 
 export const Base = (args: ListProps) => (
-  <List {...args} noMargin>
+  <List {...args}>
     <ListItems />
   </List>
 );
@@ -50,7 +50,6 @@ export const Variants = (args: ListProps) =>
       key={variant}
       {...args}
       variant={variant}
-      noMargin
       css={spacing({ bottom: 'giga' })}
     >
       <ListItems />
@@ -65,23 +64,17 @@ export const Sizes = (args: ListProps) =>
       <Body size={size} css={spacing({ bottom: 'mega' })}>
         Use List size {size} with Body {size} text.
       </Body>
-      <List
-        key={size}
-        {...args}
-        size={size}
-        noMargin
-        css={spacing({ bottom: 'giga' })}
-      >
+      <List key={size} {...args} size={size} css={spacing({ bottom: 'giga' })}>
         <ListItems />
       </List>
     </>
   ));
 
 export const Nested = (args: ListProps) => (
-  <List {...args} noMargin>
+  <List {...args}>
     <li>
       This is a list
-      <List {...args} noMargin>
+      <List {...args}>
         <li>Sometimes a nested list</li>
       </List>
     </li>

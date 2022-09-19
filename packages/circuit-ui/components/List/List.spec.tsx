@@ -23,7 +23,7 @@ describe('List', () => {
    */
   it('should render with default styles', () => {
     const actual = create(
-      <List noMargin>
+      <List>
         <li>List</li>
       </List>,
     );
@@ -33,7 +33,7 @@ describe('List', () => {
   const variants: ListProps['variant'][] = ['ordered', 'unordered'];
   it.each(variants)('should render the %s variant', (variant) => {
     const actual = create(
-      <List noMargin variant={variant}>
+      <List variant={variant}>
         <li>{variant}</li>
       </List>,
     );
@@ -43,7 +43,7 @@ describe('List', () => {
   const sizes: ListProps['size'][] = ['one', 'two'];
   it.each(sizes)('should render with size %s', (size) => {
     const actual = create(
-      <List noMargin size={size}>
+      <List size={size}>
         <li>{size}</li>
       </List>,
     );
@@ -52,24 +52,12 @@ describe('List', () => {
 
   it('should render a nested list', () => {
     const actual = create(
-      <List noMargin>
+      <List>
         <li>First level</li>
-        <List noMargin>
+        <List>
           <li>Second level</li>
         </List>
       </List>,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with default spacing when there is no noMargin prop', () => {
-    const actual = create(
-      <>
-        {/* @ts-expect-error the noMargin prop is required */}
-        <List>
-          <li>no margin</li>
-        </List>
-      </>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -79,7 +67,7 @@ describe('List', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <List noMargin>
+      <List>
         <li>List</li>
       </List>,
     );

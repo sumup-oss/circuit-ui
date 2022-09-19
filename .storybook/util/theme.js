@@ -97,12 +97,10 @@ export const components = {
   }),
   ul: withThemeProvider(List, {
     css: spacing({ bottom: 'giga' }),
-    noMargin: true,
   }),
   ol: withThemeProvider(List, {
     variant: 'ordered',
     css: spacing({ bottom: 'giga' }),
-    noMargin: true,
   }),
   a: withThemeProvider(Link, { size: TEXT_SIZE }),
 };
