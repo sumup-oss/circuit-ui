@@ -14,6 +14,7 @@
  */
 
 import { css } from '@emotion/react';
+import { Theme } from '@sumup/design-tokens';
 
 import SearchInput from '../SearchInput';
 import CurrencyInput from '../CurrencyInput';
@@ -121,6 +122,23 @@ RightAligned.args = {
   ...baseArgs,
   textAlign: 'right',
 };
+
+const inlineInputs = (theme: Theme) => css`
+  display: flex;
+
+  > *:not(:last-child) {
+    margin-right: ${theme.spacings.mega};
+  }
+`;
+
+export const Inline = (args: InputProps) => (
+  <div css={inlineInputs}>
+    <Input {...args} label="First name" placeholder="Jane" />
+    <Input {...args} label="Last name" placeholder="Doe" />
+  </div>
+);
+
+Inline.args = baseArgs;
 
 export const HiddenLabel = (args: InputProps) => (
   <Input {...args} css={inputStyles} />
