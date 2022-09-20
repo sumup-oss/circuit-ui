@@ -131,7 +131,6 @@ export const RadioButtonGroup = forwardRef(
         // @ts-expect-error TypeScript isn't smart enough to recognize the `as` prop.
         ref={ref}
         disabled={disabled}
-        noMargin
         {...props}
       >
         <Legend>

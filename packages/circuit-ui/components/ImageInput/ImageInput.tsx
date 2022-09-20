@@ -418,12 +418,7 @@ export const ImageInput = ({
   };
 
   return (
-    <FieldWrapper
-      className={className}
-      style={style}
-      disabled={disabled}
-      noMargin
-    >
+    <FieldWrapper className={className} style={style} disabled={disabled}>
       <InputWrapper onPaste={handlePaste}>
         <HiddenInput
           ref={inputRef}

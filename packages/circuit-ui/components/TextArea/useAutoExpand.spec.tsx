@@ -23,11 +23,10 @@ import { useAutoExpand } from './useAutoExpand';
 
 const baseTextareaProps: TextAreaProps = {
   label: 'Test',
-  noMargin: true,
 };
 
 const createTextAreaRef = (props = {}) => {
-  render(<TextArea noMargin label="Test" {...props} />);
+  render(<TextArea label="Test" {...props} />);
   return {
     current: screen.getByRole('textbox'),
   } as MutableRefObject<InputElement>;

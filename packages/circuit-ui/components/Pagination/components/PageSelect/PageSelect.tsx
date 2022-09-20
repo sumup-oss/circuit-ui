@@ -18,8 +18,7 @@ import { useCallback, FunctionComponent, ChangeEvent, Fragment } from 'react';
 import styled from '../../../../styles/styled';
 import { Select, SelectProps } from '../../../Select/Select';
 
-export interface PageSelectProps
-  extends Omit<SelectProps, 'onChange' | 'noMargin'> {
+export interface PageSelectProps extends Omit<SelectProps, 'onChange'> {
   onChange: (page: number) => void;
   pages: number[];
   currentPage: number;
@@ -58,7 +57,6 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
         options={pageOptions}
         onChange={handleChange}
         hideLabel
-        noMargin
       />
       {totalLabel && <TotalPages>{totalLabel(totalPages)}</TotalPages>}
     </Fragment>

@@ -20,7 +20,7 @@ import { render, renderToHtml, axe } from '../../util/test-utils';
 import DateInput from '.';
 
 describe('DateInput', () => {
-  const baseProps = { label: 'Date', noMargin: true };
+  const baseProps = { label: 'Date' };
 
   it('should accept a working ref', () => {
     const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();

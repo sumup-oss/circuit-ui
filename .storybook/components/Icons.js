@@ -144,21 +144,18 @@ const Icons = () => {
           onChange={handleSearch}
           onClear={() => setSearch('')}
           clearLabel="Clear"
-          noMargin
         />
         <Select
           label="Select icon size"
           options={sizeOptions}
           value={size}
           onChange={handleSizeChange}
-          noMargin
         />
         <Select
           label="Select icon color"
           options={colorOptions}
           value={color}
           onChange={handleColorChange}
-          noMargin
         />
       </Filters>
 

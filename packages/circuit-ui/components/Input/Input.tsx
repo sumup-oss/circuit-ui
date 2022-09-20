@@ -32,7 +32,7 @@ import {
   FieldValidationHint,
 } from '../FieldAtoms';
 import { ReturnType } from '../../types/return-type';
-import { AccessibilityError, DeprecationError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors';
 
 export type InputElement = HTMLInputElement & HTMLTextAreaElement;
 type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
@@ -86,12 +86,6 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   readOnly?: boolean;
   /**
-   * We're moving away from built-in margins. The `noMargin` prop is now
-   * required and will be removed in v6 using codemods. Use the `spacing()`
-   * mixin to add margin.
-   */
-  noMargin: true;
-  /**
    * Aligns text in the input
    */
   textAlign?: 'left' | 'right';
@@ -116,7 +110,7 @@ const wrapperStyles = () => css`
 
 const InputWrapper = styled('div')(wrapperStyles);
 
-type InputElProps = Omit<InputProps, 'label' | 'noMargin'> & {
+type InputElProps = Omit<InputProps, 'label'> & {
   hasPrefix: boolean;
   hasSuffix: boolean;
 };
@@ -253,7 +247,6 @@ export const Input = forwardRef(
       invalid,
       hasWarning,
       showValid,
-      noMargin,
       disabled,
       inputStyles,
       as,
@@ -277,17 +270,6 @@ export const Input = forwardRef(
         'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !noMargin
-    ) {
-      throw new DeprecationError(
-        'Input',
-        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
-      );
-    }
 
     const id = customId || uniqueId('input_');
 
@@ -298,12 +280,7 @@ export const Input = forwardRef(
     const hasSuffix = Boolean(suffix);
 
     return (
-      <FieldWrapper
-        className={className}
-        style={style}
-        disabled={disabled}
-        noMargin={noMargin}
-      >
+      <FieldWrapper className={className} style={style} disabled={disabled}>
         <FieldLabel htmlFor={id}>
           <FieldLabelText
             label={label}

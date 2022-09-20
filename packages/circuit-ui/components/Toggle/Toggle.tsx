@@ -19,7 +19,7 @@ import { css } from '@emotion/react';
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import { Body, BodyProps } from '../Body/Body';
-import { AccessibilityError, DeprecationError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors';
 import { FieldWrapper } from '../FieldAtoms';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
@@ -33,12 +33,6 @@ export interface ToggleProps extends SwitchProps {
    * Further explanation of the toggle. Can change depending on the state.
    */
   explanation?: string;
-  /**
-   * We're moving away from built-in margins. The `noMargin` prop is now
-   * required and will be removed in v6 using codemods. Use the `spacing()`
-   * mixin to add margin.
-   */
-  noMargin: true;
   /**
    * The ref to the HTML DOM button element
    */
@@ -64,7 +58,7 @@ const explanationStyles = ({ theme }: StyleProps) => css`
 
 const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);
 
-type WrapperElProps = Pick<ToggleProps, 'noMargin' | 'disabled'>;
+type WrapperElProps = Pick<ToggleProps, 'disabled'>;
 
 const wrapperStyles = ({ theme }: StyleProps) => css`
   display: flex;
@@ -82,10 +76,7 @@ const ToggleWrapper = styled(FieldWrapper)<WrapperElProps>(wrapperStyles);
  * A toggle component with support for labels and additional explanations.
  */
 export const Toggle = forwardRef(
-  (
-    { label, explanation, noMargin, ...props }: ToggleProps,
-    ref: ToggleProps['ref'],
-  ) => {
+  ({ label, explanation, ...props }: ToggleProps, ref: ToggleProps['ref']) => {
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -94,22 +85,10 @@ export const Toggle = forwardRef(
       throw new AccessibilityError('Toggle', 'The `label` prop is missing.');
     }
 
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !noMargin
-    ) {
-      throw new DeprecationError(
-        'Toggle',
-        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
-      );
-    }
-
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
     return (
-      <ToggleWrapper noMargin={noMargin} disabled={props.disabled}>
+      <ToggleWrapper disabled={props.disabled}>
         <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
         <ToggleTextWrapper id={labelId} htmlFor={switchId}>
           <Body>{label}</Body>

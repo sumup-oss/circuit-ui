@@ -14,10 +14,9 @@
  */
 
 import { HTMLAttributes } from 'react';
-import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled from '../../styles/styled';
 import { disableVisually } from '../../styles/style-mixins';
 
 export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
@@ -25,26 +24,14 @@ export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
    * Trigger disabled styles on the component.
    */
   disabled?: boolean;
-  /**
-   * We're moving away from built-in margins. The `noMargin` prop is now
-   * required and will be removed in v6 using codemods. Use the `spacing()`
-   * mixin to add margin.
-   */
-  noMargin: true;
 }
 
 const disabledStyles = ({ disabled }: FieldWrapperProps) =>
   disabled && disableVisually();
-
-const noMarginStyles = ({ theme, noMargin }: StyleProps & FieldWrapperProps) =>
-  !noMargin &&
-  css`
-    margin-bottom: ${theme.spacings.mega};
-  `;
 
 /**
  * @private
  */
 export const FieldWrapper = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled',
-})<FieldWrapperProps>(disabledStyles, noMarginStyles);
+})<FieldWrapperProps>(disabledStyles);
