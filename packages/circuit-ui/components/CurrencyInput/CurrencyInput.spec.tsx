@@ -32,20 +32,13 @@ describe('CurrencyInput', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(
-      <CurrencyInput currency="EUR" label="Amount" noMargin />,
-    );
+    const actual = create(<CurrencyInput currency="EUR" label="Amount" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should adjust input padding and suffix width to match currency symbol width', () => {
     const actual = create(
-      <CurrencyInput
-        placeholder="123,45"
-        currency="CHF"
-        label="Amount"
-        noMargin
-      />,
+      <CurrencyInput placeholder="123,45" currency="CHF" label="Amount" />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -62,7 +55,6 @@ describe('CurrencyInput', () => {
           currency="EUR"
           ref={tref}
           label="Amount"
-          noMargin
         />,
       );
       const input = container.querySelector('input');
@@ -71,7 +63,7 @@ describe('CurrencyInput', () => {
 
     it('should format a en-GB amount correctly', async () => {
       const { getByLabelText } = render(
-        <CurrencyInput locale="en-GB" currency="EUR" label="Amount" noMargin />,
+        <CurrencyInput locale="en-GB" currency="EUR" label="Amount" />,
       );
 
       const input = getByLabelText(/Amount/) as HTMLInputElement;
@@ -83,7 +75,7 @@ describe('CurrencyInput', () => {
 
     it('should format a de-DE amount correctly', async () => {
       const { getByLabelText } = render(
-        <CurrencyInput locale="de-DE" currency="EUR" label="Amount" noMargin />,
+        <CurrencyInput locale="de-DE" currency="EUR" label="Amount" />,
       );
 
       const input = getByLabelText(/Amount/) as HTMLInputElement;
@@ -102,7 +94,6 @@ describe('CurrencyInput', () => {
             currency="EUR"
             value={value}
             label="Amount"
-            noMargin
             onChange={(
               e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>,
             ) => setValue(e.target.value)}
@@ -126,12 +117,7 @@ describe('CurrencyInput', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <CurrencyInput
-        locale="de-DE"
-        currency="EUR"
-        label="Product price"
-        noMargin
-      />,
+      <CurrencyInput locale="de-DE" currency="EUR" label="Product price" />,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

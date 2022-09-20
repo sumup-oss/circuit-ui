@@ -19,7 +19,6 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
-import { DeprecationError } from '../../util/errors';
 
 type Size = 'one' | 'two';
 type Variant = 'ordered' | 'unordered';
@@ -33,12 +32,6 @@ export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
    * Whether the list should be presented as an ordered or unordered list. Defaults to `unordered`.
    */
   variant?: Variant;
-  /**
-   * We're moving away from built-in margins. The `noMargin` prop is now
-   * required and will be removed in v6 using codemods. Use the `spacing()`
-   * mixin to add margin.
-   */
-  noMargin: true;
   /**
    The ref to the HTML DOM element.
    */
@@ -88,53 +81,17 @@ const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
   `;
 };
 
-const marginStyles = ({
-  theme,
-  noMargin,
-  size = 'one',
-}: StyleProps & ListProps) => {
-  if (!noMargin) {
-    const sizeMap = {
-      one: theme.spacings.byte,
-      two: theme.spacings.kilo,
-    };
-    return css`
-      margin-bottom: ${theme.spacings.mega};
-
-      li:last-child,
-      ul:last-child,
-      ol:last-child {
-        margin-bottom: ${sizeMap[size]};
-      }
-    `;
-  }
-  return null;
-};
-
 const BaseList = styled('ul', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<ListProps>(baseStyles, sizeStyles, marginStyles);
+})<ListProps>(baseStyles, sizeStyles);
 
 /**
  * A list, which can be ordered or unordered.
  */
 export const List = forwardRef(
-  ({ variant, ...props }: ListProps, ref: ListProps['ref']) => {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !props.noMargin
-    ) {
-      throw new DeprecationError(
-        'List',
-        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
-      );
-    }
-    return (
-      <BaseList as={variant === 'ordered' ? 'ol' : 'ul'} {...props} ref={ref} />
-    );
-  },
+  ({ variant, ...props }: ListProps, ref: ListProps['ref']) => (
+    <BaseList as={variant === 'ordered' ? 'ol' : 'ul'} {...props} ref={ref} />
+  ),
 );
 
 List.displayName = 'List';

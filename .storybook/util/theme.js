@@ -26,12 +26,15 @@ export const theme = create({
 
 // FIXME: BaseStyles should only be included once, however, I couldn't find
 //        any other way to add it to the Docs page.
-const withThemeProvider = (Component, baseProps = {}) => (props = {}) => (
-  <ThemeProvider theme={light}>
-    <BaseStyles />
-    <Component {...baseProps} {...props} />
-  </ThemeProvider>
-);
+const withThemeProvider =
+  (Component, baseProps = {}) =>
+  (props = {}) =>
+    (
+      <ThemeProvider theme={light}>
+        <BaseStyles />
+        <Component {...baseProps} {...props} />
+      </ThemeProvider>
+    );
 
 const TEXT_SIZE = 'one';
 
@@ -53,62 +56,51 @@ export const components = {
     as: 'h1',
     size: 'one',
     css: headlineStyles,
-    noMargin: true,
   }),
   h2: withThemeProvider(Headline, {
     as: 'h2',
     size: 'two',
     css: headlineStyles,
-    noMargin: true,
   }),
   h3: withThemeProvider(Headline, {
     as: 'h3',
     size: 'three',
     css: headlineStyles,
-    noMargin: true,
   }),
   h4: withThemeProvider(Headline, {
     as: 'h4',
     size: 'four',
     css: spacing({ top: 'giga' }),
-    noMargin: true,
   }),
   h5: withThemeProvider(SubHeadline, {
     as: 'h5',
     css: spacing({ top: 'giga' }),
-    noMargin: true,
   }),
   p: withThemeProvider(Body, {
     as: 'p',
     size: TEXT_SIZE,
     css: spacing({ bottom: 'giga' }),
-    noMargin: true,
   }),
   li: withThemeProvider(Body, {
     as: 'li',
     size: TEXT_SIZE,
-    noMargin: true,
   }),
   strong: withThemeProvider(Body, {
     as: 'strong',
     size: TEXT_SIZE,
     variant: 'highlight',
-    noMargin: true,
   }),
   em: withThemeProvider(Body, {
     as: 'em',
     size: TEXT_SIZE,
     css: italicStyles,
-    noMargin: true,
   }),
   ul: withThemeProvider(List, {
     css: spacing({ bottom: 'giga' }),
-    noMargin: true,
   }),
   ol: withThemeProvider(List, {
     variant: 'ordered',
     css: spacing({ bottom: 'giga' }),
-    noMargin: true,
   }),
   a: withThemeProvider(Link, { size: TEXT_SIZE }),
 };

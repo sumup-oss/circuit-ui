@@ -55,6 +55,6 @@ export const TextAndImage = (args) => (
       src="/images/illustration-waves.jpg"
       alt="Aerial photo of turbulent blue ocean waves"
     />
-    <StyledHeadline noMargin>Get The SumUp Card Reader Today!</StyledHeadline>
+    <StyledHeadline>Get The SumUp Card Reader Today!</StyledHeadline>
   </Slide>
 );

@@ -26,7 +26,6 @@ import {
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Tooltip from '../Tooltip';
-import { DeprecationError } from '../../util/errors';
 import { FieldWrapper } from '../FieldAtoms';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -38,12 +37,6 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    * Warning or error message, displayed in a tooltip.
    */
   validationHint?: string;
-  /**
-   * We're moving away from built-in margins. The `noMargin` prop is now
-   * required and will be removed in v6 using codemods. Use the `spacing()`
-   * mixin to add margin.
-   */
-  noMargin: true;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -64,27 +57,11 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
 
 const CheckboxLabel = styled('label')(labelBaseStyles);
 
-type WrapperElProps = Pick<CheckboxProps, 'noMargin'>;
-
 const wrapperBaseStyles = () => css`
   position: relative;
 `;
 
-const wrapperNoMarginStyles = ({
-  theme,
-  noMargin,
-}: StyleProps & WrapperElProps) =>
-  !noMargin &&
-  css`
-    &:last-of-type {
-      margin-bottom: ${theme.spacings.mega};
-    }
-  `;
-
-const CheckboxWrapper = styled(FieldWrapper)<WrapperElProps>(
-  wrapperBaseStyles,
-  wrapperNoMarginStyles,
-);
+const CheckboxWrapper = styled(FieldWrapper)<CheckboxProps>(wrapperBaseStyles);
 
 type InputElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
 
@@ -212,34 +189,16 @@ export const Checkbox = forwardRef(
       className,
       style,
       invalid,
-      noMargin,
       tracking,
       ...props
     }: CheckboxProps,
     ref: CheckboxProps['ref'],
   ) => {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !noMargin
-    ) {
-      throw new DeprecationError(
-        'Checkbox',
-        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
-      );
-    }
-
     const id = customId || uniqueId('checkbox_');
     const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
     return (
-      <CheckboxWrapper
-        className={className}
-        style={style}
-        disabled={disabled}
-        noMargin={noMargin}
-      >
+      <CheckboxWrapper className={className} style={style} disabled={disabled}>
         <CheckboxInput
           {...props}
           id={id}

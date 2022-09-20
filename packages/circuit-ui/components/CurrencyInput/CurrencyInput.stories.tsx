@@ -32,7 +32,6 @@ const baseArgs = {
   validationHint: 'Excluding VAT',
   currency: 'EUR',
   locale: 'de-DE',
-  noMargin: true,
   style: { maxWidth: '250px' },
 };
 

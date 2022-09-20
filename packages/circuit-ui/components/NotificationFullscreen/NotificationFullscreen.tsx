@@ -111,18 +111,13 @@ export const NotificationFullscreen = ({
     <div css={wrapperStyles} {...props}>
       <NotificationImage image={image} />
       <Headline
-        noMargin
         css={cx(spacing({ top: 'giga', bottom: 'byte' }), centeredStyles)}
         size="two"
         as={headlineElement}
       >
         {headlineLabel}
       </Headline>
-      {body && (
-        <Body css={centeredStyles} noMargin>
-          {body}
-        </Body>
-      )}
+      {body && <Body css={centeredStyles}>{body}</Body>}
       {actions && (
         <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
       )}

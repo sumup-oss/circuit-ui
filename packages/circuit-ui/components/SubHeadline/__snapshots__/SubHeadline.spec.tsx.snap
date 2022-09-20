@@ -79,18 +79,3 @@ exports[`SubHeadline should render as h6 element 1`] = `
   h6 subheading
 </h6>
 `;
-
-exports[`SubHeadline should render with default spacing when there is no noMargin prop 1`] = `
-.circuit-0 {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  color: #000;
-  margin-bottom: 12px;
-}
-
-<h3
-  class="circuit-0"
-/>
-`;

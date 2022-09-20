@@ -40,10 +40,10 @@ export default {
 
 const defaultModalChildren = () => (
   <Fragment>
-    <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
+    <Headline as="h2" size="four" css={spacing({ bottom: 'giga' })}>
       Hello World!
     </Headline>
-    <Body noMargin>I am a modal.</Body>
+    <Body>I am a modal.</Body>
   </Fragment>
 );
 
@@ -115,10 +115,10 @@ export const PreventClose = (modal: ModalProps): JSX.Element => {
 PreventClose.args = {
   children: ({ onClose }: { onClose: ModalProps['onClose'] }) => (
     <Fragment>
-      <Headline as="h2" size="four" noMargin css={spacing({ bottom: 'giga' })}>
+      <Headline as="h2" size="four" css={spacing({ bottom: 'giga' })}>
         Complete the action
       </Headline>
-      <Body noMargin css={spacing({ bottom: 'giga' })}>
+      <Body css={spacing({ bottom: 'giga' })}>
         Users have to complete the action inside the modal to close it. The
         close button is hidden and clicking outside the modal or pressing the
         escape key does not close the modal either.
@@ -177,10 +177,10 @@ CustomStyles.args = {
           `
         }
       />
-      <Headline as="h2" size="four" css={spacing('giga')} noMargin>
+      <Headline as="h2" size="four" css={spacing('giga')}>
         Custom styles
       </Headline>
-      <Body css={spacing('giga')} noMargin>
+      <Body css={spacing('giga')}>
         Custom styles can be applied using the <code>css</code> prop.
       </Body>
     </Fragment>

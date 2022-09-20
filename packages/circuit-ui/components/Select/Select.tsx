@@ -29,7 +29,7 @@ import {
   FieldLabelText,
   FieldValidationHint,
 } from '../FieldAtoms';
-import { AccessibilityError, DeprecationError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors';
 
 export type SelectOption = {
   value: string | number;
@@ -70,12 +70,6 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    * String to show when no selection is made.
    */
   placeholder?: string;
-  /**
-   * We're moving away from built-in margins. The `noMargin` prop is now
-   * required and will be removed in v6 using codemods. Use the `spacing()`
-   * mixin to add margin.
-   */
-  noMargin: true;
   /**
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
@@ -123,7 +117,7 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
 
 const SelectWrapper = styled('div')(wrapperStyles);
 
-type SelectElProps = Omit<SelectProps, 'options' | 'label' | 'noMargin'> & {
+type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
   hasPrefix: boolean;
 };
 
@@ -237,7 +231,6 @@ export const Select = forwardRef(
       defaultValue,
       placeholder,
       disabled,
-      noMargin,
       invalid,
       required,
       options,
@@ -256,17 +249,6 @@ export const Select = forwardRef(
     }: SelectProps,
     ref?: SelectProps['ref'],
   ): ReturnType => {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !noMargin
-    ) {
-      throw new DeprecationError(
-        'Select',
-        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
-      );
-    }
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -287,12 +269,7 @@ export const Select = forwardRef(
     const handleChange = useClickEvent(onChange, tracking, 'select');
 
     return (
-      <FieldWrapper
-        className={className}
-        style={style}
-        disabled={disabled}
-        noMargin={noMargin}
-      >
+      <FieldWrapper className={className} style={style} disabled={disabled}>
         <FieldLabel htmlFor={id}>
           <FieldLabelText
             label={label}

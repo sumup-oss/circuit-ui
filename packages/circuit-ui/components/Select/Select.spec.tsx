@@ -34,41 +34,29 @@ describe('Select', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Select {...{ options }} label="Label" noMargin />);
+    const actual = create(<Select {...{ options }} label="Label" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with a visually-hidden label', () => {
-    const actual = create(
-      <Select {...{ options }} label="Label" noMargin hideLabel />,
-    );
+    const actual = create(<Select {...{ options }} label="Label" hideLabel />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styles when passed the disabled prop', () => {
-    const actual = create(
-      <Select {...{ options }} label="Label" noMargin disabled />,
-    );
+    const actual = create(<Select {...{ options }} label="Label" disabled />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with invalid styles when passed the invalid prop', () => {
-    const actual = create(
-      <Select {...{ options }} label="Label" noMargin invalid />,
-    );
+    const actual = create(<Select {...{ options }} label="Label" invalid />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should not render with invalid styles when also passed the disabled prop', () => {
     const actual = create(
-      <Select {...{ options }} label="Label" noMargin invalid disabled />,
+      <Select {...{ options }} label="Label" invalid disabled />,
     );
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with default spacing when there is no noMargin prop', () => {
-    /* @ts-expect-error the noMargin prop is required */
-    const actual = create(<Select {...{ options }} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -77,7 +65,6 @@ describe('Select', () => {
       <Select
         {...{ options }}
         label="Label"
-        noMargin
         validationHint="This field is required."
       />,
     );
@@ -92,7 +79,6 @@ describe('Select', () => {
       <Select
         {...{ options }}
         label="Label"
-        noMargin
         renderPrefix={({ className }) => <DummyElement className={className} />}
       />,
     );
@@ -104,7 +90,7 @@ describe('Select', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <Select {...{ options }} id="select" label="Label" noMargin />,
+      <Select {...{ options }} id="select" label="Label" />,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
@@ -119,11 +105,7 @@ describe('Select', () => {
         {label}
       </option>
     ));
-    const { getAllByRole } = render(
-      <Select label="Label" noMargin>
-        {children}
-      </Select>,
-    );
+    const { getAllByRole } = render(<Select label="Label">{children}</Select>);
     const optionEls = getAllByRole('option');
     expect(optionEls).toHaveLength(
       options.length + 1 /* Options plus placeholder */,
@@ -132,7 +114,7 @@ describe('Select', () => {
 
   it('should be disabled when passed the disabled prop', () => {
     const { getByRole } = render(
-      <Select options={options} label="Label" noMargin disabled />,
+      <Select options={options} label="Label" disabled />,
     );
     const selectEl = getByRole('combobox');
     expect(selectEl).toBeDisabled();
@@ -141,12 +123,7 @@ describe('Select', () => {
   it('should show the placeholder when no value or defaultValue is passed', () => {
     const placeholder = 'Placeholder';
     const { getByRole } = render(
-      <Select
-        options={options}
-        label="Label"
-        noMargin
-        placeholder={placeholder}
-      />,
+      <Select options={options} label="Label" placeholder={placeholder} />,
     );
     const selectEl = getByRole('combobox');
     expect(selectEl.firstChild).toHaveTextContent(placeholder);
@@ -159,7 +136,6 @@ describe('Select', () => {
       <Select
         options={options}
         label="Label"
-        noMargin
         placeholder={placeholder}
         defaultValue={defaultValue}
       />,
@@ -175,7 +151,6 @@ describe('Select', () => {
       <Select
         options={options}
         label="Label"
-        noMargin
         placeholder={placeholder}
         value={value}
       />,
@@ -190,9 +165,7 @@ describe('Select', () => {
      */
     it('should accept a working ref', () => {
       const tref = createRef<HTMLSelectElement>();
-      const { container } = render(
-        <Select ref={tref} label="Label" noMargin />,
-      );
+      const { container } = render(<Select ref={tref} label="Label" />);
       const select = container.querySelector('select');
       expect(tref.current).toBe(select);
     });

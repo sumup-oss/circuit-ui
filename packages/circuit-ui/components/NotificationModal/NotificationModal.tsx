@@ -246,11 +246,10 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
               as="h2"
               size="three"
               css={cx(spacing({ bottom: 'byte' }), noImageStyles(hasImage))}
-              noMargin
             >
               {headline}
             </Headline>
-            {body && <Body noMargin>{body}</Body>}
+            {body && <Body>{body}</Body>}
             {actions && (
               <ButtonGroup
                 actions={{

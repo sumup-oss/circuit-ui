@@ -270,7 +270,7 @@ export const ListItemGroup = forwardRef(
         <HeaderContainer isPlain={isPlain}>
           <LabelContainer hideLabel={hideLabel}>
             {typeof label === 'string' ? (
-              <Label as="h4" size="two" noMargin>
+              <Label as="h4" size="two">
                 {label}
               </Label>
             ) : (
@@ -280,9 +280,7 @@ export const ListItemGroup = forwardRef(
           {details && (
             <DetailsContainer>
               {typeof details === 'string' ? (
-                <Body size="two" noMargin>
-                  {details}
-                </Body>
+                <Body size="two">{details}</Body>
               ) : (
                 details
               )}

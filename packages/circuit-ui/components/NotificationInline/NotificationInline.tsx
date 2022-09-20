@@ -255,12 +255,11 @@ export function NotificationInline({
             <Body
               variant={'highlight'}
               as={isString(headline) ? 'h3' : headline.as}
-              noMargin
             >
               {isString(headline) ? headline : headline.label}
             </Body>
           )}
-          <Body noMargin>{body}</Body>
+          <Body>{body}</Body>
           {action && (
             <ActionButton {...action} variant="tertiary" size="kilo" />
           )}

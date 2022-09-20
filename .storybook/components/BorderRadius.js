@@ -41,13 +41,10 @@ const BorderRadius = ({ size, ...props }) => (
   <Wrapper>
     <Box size={size} {...props} />
     <div>
-      <Body as="span" noMargin>
-        {size}
-      </Body>
+      <Body as="span">{size}</Body>
       <Body
         size="two"
         as="span"
-        noMargin
         variant="subtle"
         css={spacing({ bottom: 'giga', left: 'kilo' })}
       >

@@ -24,7 +24,6 @@ import {
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
-import { DeprecationError } from '../../util/errors';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
@@ -59,12 +58,6 @@ export interface SelectorProps
    */
   multiple?: boolean;
   /**
-   * We're moving away from built-in margins. The `noMargin` prop is now
-   * required and will be removed in v6 using codemods. Use the `spacing()`
-   * mixin to add margin.
-   */
-  noMargin: true;
-  /**
    * The ref to the HTML DOM element
    */
   ref?: Ref<HTMLInputElement>;
@@ -74,7 +67,7 @@ export interface SelectorProps
   tracking?: TrackingProps;
 }
 
-type LabelElProps = Pick<SelectorProps, 'disabled' | 'size' | 'noMargin'>;
+type LabelElProps = Pick<SelectorProps, 'disabled' | 'size'>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: flex;
@@ -123,12 +116,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const disabledStyles = ({ disabled }: LabelElProps) =>
   disabled && css(disableVisually());
 
-const noMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
-  !noMargin &&
-  css`
-    margin-bottom: ${theme.spacings.mega};
-  `;
-
 const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   const sizeMap = {
     kilo: {
@@ -149,7 +136,6 @@ const SelectorLabel = styled('label')<LabelElProps>(
   baseStyles,
   sizeStyles,
   disabledStyles,
-  noMarginStyles,
 );
 
 const inputStyles = ({ theme }: StyleProps) => css`
@@ -191,24 +177,11 @@ export const Selector = forwardRef(
       tracking,
       className,
       style,
-      noMargin,
       size,
       ...props
     }: SelectorProps,
     ref: SelectorProps['ref'],
   ) => {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !noMargin
-    ) {
-      throw new DeprecationError(
-        'Selector',
-        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
-      );
-    }
-
     const inputId = id || uniqueId('selector_');
     const type = multiple ? 'checkbox' : 'radio';
     const handleChange = useClickEvent(onChange, tracking, 'selector');
@@ -234,7 +207,6 @@ export const Selector = forwardRef(
           size={size}
           className={className}
           style={style}
-          noMargin={noMargin}
         >
           {children}
         </SelectorLabel>

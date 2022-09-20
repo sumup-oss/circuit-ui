@@ -256,7 +256,7 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 >
   <label
     class="circuit-1"
-    for="input_30"
+    for="input_28"
   >
     <span
       class="circuit-2 circuit-3"
@@ -268,7 +268,7 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
     >
       <textarea
         class="circuit-5"
-        id="input_30"
+        id="input_28"
         rows="3"
         style="resize: none; overflow-y: hidden; height: auto;"
       />
@@ -352,7 +352,7 @@ exports[`TextArea should render rows props when passed 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_26"
+    for="input_24"
   >
     <span
       class="circuit-2 circuit-3"
@@ -364,7 +364,7 @@ exports[`TextArea should render rows props when passed 1`] = `
     >
       <textarea
         class="circuit-5"
-        id="input_26"
+        id="input_24"
         rows="3"
       />
     </div>
@@ -1000,100 +1000,6 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 </div>
 `;
 
-exports[`TextArea should render with no margin styles when passed the noMargin prop 1`] = `
-.circuit-1 {
-  display: block;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-.circuit-4 {
-  position: relative;
-}
-
-.circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
-  -webkit-appearance: none;
-  background-color: #FFF;
-  border: none;
-  outline: 0;
-  border-radius: 8px;
-  padding: 12px 16px;
-  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  box-shadow: 0 0 0 1px #999;
-  overflow: auto;
-  resize: vertical;
-}
-
-.circuit-5::-webkit-input-placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-5::-moz-placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-5:-ms-input-placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-5::placeholder {
-  color: #999;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
-}
-
-.circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
-}
-
-<div
-  class="circuit-0"
->
-  <label
-    class="circuit-1"
-    for="input_24"
-  >
-    <span
-      class="circuit-2 circuit-3"
-    >
-      Textarea
-    </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        id="input_24"
-      />
-    </div>
-  </label>
-</div>
-`;
-
 exports[`TextArea should render with readonly styles when passed the readonly prop 1`] = `
 .circuit-1 {
   display: block;
@@ -1469,7 +1375,7 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
 >
   <label
     class="circuit-1"
-    for="input_28"
+    for="input_26"
   >
     <span
       class="circuit-2 circuit-3"
@@ -1481,7 +1387,7 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
     >
       <textarea
         class="circuit-5"
-        id="input_28"
+        id="input_26"
         style="resize: none; overflow-y: hidden; height: auto;"
       />
     </div>

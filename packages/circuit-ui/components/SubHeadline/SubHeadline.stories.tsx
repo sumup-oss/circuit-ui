@@ -25,7 +25,5 @@ export default {
 };
 
 export const Base = (args: SubHeadlineProps) => (
-  <SubHeadline {...args} noMargin>
-    This is a subheadline
-  </SubHeadline>
+  <SubHeadline {...args}>This is a subheadline</SubHeadline>
 );

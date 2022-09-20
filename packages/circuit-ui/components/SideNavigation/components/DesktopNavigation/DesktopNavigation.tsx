@@ -152,7 +152,7 @@ export function DesktopNavigation({
             aria-label={secondaryNavigationLabel}
           >
             <Skeleton css={headlineStyles}>
-              <Headline as="h2" size="four" noMargin>
+              <Headline as="h2" size="four">
                 {activePrimaryLink && activePrimaryLink.label}
               </Headline>
             </Skeleton>

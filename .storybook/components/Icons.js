@@ -144,36 +144,28 @@ const Icons = () => {
           onChange={handleSearch}
           onClear={() => setSearch('')}
           clearLabel="Clear"
-          noMargin
         />
         <Select
           label="Select icon size"
           options={sizeOptions}
           value={size}
           onChange={handleSizeChange}
-          noMargin
         />
         <Select
           label="Select icon color"
           options={colorOptions}
           value={color}
           onChange={handleColorChange}
-          noMargin
         />
       </Filters>
 
       {activeIcons.length <= 0 ? (
-        <Body noMargin>No icons found</Body>
+        <Body>No icons found</Body>
       ) : (
         Object.entries(groupBy(activeIcons, 'category')).map(
           ([category, items]) => (
             <Category key={category}>
-              <Headline
-                as="h3"
-                size="three"
-                noMargin
-                css={spacing({ bottom: 'giga' })}
-              >
+              <Headline as="h3" size="three" css={spacing({ bottom: 'giga' })}>
                 {category}
               </Headline>
               <List>

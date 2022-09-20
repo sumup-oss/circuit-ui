@@ -108,7 +108,7 @@ export const Header = ({
         <ArrowLeft size="24" />
       </StyledIconButton>
     )}
-    <StyledHeadline id={id} size="four" as="h2" noMargin noBackButton={!onBack}>
+    <StyledHeadline id={id} size="four" as="h2" noBackButton={!onBack}>
       {headline}
     </StyledHeadline>
     {closeButtonLabel && (

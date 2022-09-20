@@ -44,39 +44,31 @@ The `children` prop passed to one of the SelectorGroup's `options` constitutes t
       {
         children: 'Do this',
         value: 'valid',
-        noMargin: true,
       },
       {
         children: (
           <>
-            <Body variant="highlight" noMargin css={spacing({ bottom: 'bit' })}>
+            <Body variant="highlight" css={spacing({ bottom: 'bit' })}>
               Bold text
             </Body>
-            <Body noMargin>⚠️ Avoid doing this</Body>
+            <Body>⚠️ Avoid doing this</Body>
           </>
         ),
         value: 'invalid',
-        noMargin: true,
       },
       {
         children: (
           <>
-            <Headline
-              as="h4"
-              size="four"
-              noMargin
-              css={spacing({ bottom: 'bit' })}
-            >
+            <Headline as="h4" size="four" css={spacing({ bottom: 'bit' })}>
               Headline
             </Headline>
-            <Body noMargin>
+            <Body>
               🚫 Don't do this. If you need to add details, write a paragraph
               above the SelectorGroup.
             </Body>
           </>
         ),
         value: 'invalid',
-        noMargin: true,
       },
     ]}
     label="Example"

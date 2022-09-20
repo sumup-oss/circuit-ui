@@ -177,7 +177,6 @@ export const SelectorGroup = forwardRef(
               checked={
                 multiple ? activeValue.includes(value) : value === activeValue
               }
-              noMargin
               {...optionRest}
             >
               {children}
