@@ -40,8 +40,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -58,8 +58,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-6 {
@@ -183,8 +183,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
 
 .circuit-11 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -326,8 +326,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-4 {
@@ -451,8 +451,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
 
 .circuit-9 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -585,8 +585,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -603,8 +603,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-6 {
@@ -728,8 +728,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
 
 .circuit-11 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -880,8 +880,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1009,8 +1009,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
 
 .circuit-9 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1143,8 +1143,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with interactive ite
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1287,8 +1287,8 @@ exports[`ListItemGroup styles should render a ListItemGroup with interactive ite
 
 .circuit-9 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1424,8 +1424,8 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1555,8 +1555,8 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
 
 .circuit-9 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1749,8 +1749,8 @@ exports[`ListItemGroup styles should render the focused item in a ListItemGroup 
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1816,8 +1816,8 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1945,8 +1945,8 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
 
 .circuit-9 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2158,8 +2158,8 @@ exports[`ListItemGroup styles should render the selected item in a ListItemGroup
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2312,8 +2312,8 @@ exports[`ListItemGroup styles should render the selected item in a plain ListIte
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;

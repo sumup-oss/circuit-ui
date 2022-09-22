@@ -9,8 +9,8 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -23,8 +23,8 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -100,8 +100,8 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -114,8 +114,8 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -184,8 +184,8 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 exports[`TextArea should render minRows props as rows when passed if rows is auto 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -198,8 +198,8 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -280,8 +280,8 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 exports[`TextArea should render rows props when passed 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -294,8 +294,8 @@ exports[`TextArea should render rows props when passed 1`] = `
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -375,8 +375,8 @@ exports[`TextArea should render rows props when passed 1`] = `
 exports[`TextArea should render with a Tooltip when passed the validationHint prop 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -389,8 +389,8 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -443,8 +443,8 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 }
 
 .circuit-6 {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   display: block;
   margin-top: 4px;
   color: #666;
@@ -484,8 +484,8 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 exports[`TextArea should render with a prefix when passed the prefix prop 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -507,8 +507,8 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 }
 
 .circuit-6 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -592,8 +592,8 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 exports[`TextArea should render with a suffix when passed the suffix prop 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -606,8 +606,8 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -704,8 +704,8 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 exports[`TextArea should render with default styles 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -718,8 +718,8 @@ exports[`TextArea should render with default styles 1`] = `
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -804,8 +804,8 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -818,8 +818,8 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -888,8 +888,8 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 exports[`TextArea should render with invalid styles when passed the invalid prop 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -902,8 +902,8 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -1003,8 +1003,8 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 exports[`TextArea should render with readonly styles when passed the readonly prop 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -1017,8 +1017,8 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -1099,8 +1099,8 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
 exports[`TextArea should render with valid styles when passed the showValid prop 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -1113,8 +1113,8 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -1193,8 +1193,8 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 exports[`TextArea should render with warning styles when passed the hasWarning prop 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -1207,8 +1207,8 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;
@@ -1303,8 +1303,8 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 exports[`TextArea should render without rows props when passed if rows is auto 1`] = `
 .circuit-1 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-2 {
@@ -1317,8 +1317,8 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   background-color: #FFF;
   border: none;

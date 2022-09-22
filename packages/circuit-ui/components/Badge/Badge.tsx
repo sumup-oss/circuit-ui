@@ -17,6 +17,7 @@ import { Ref, forwardRef, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { typography } from '../../styles/style-mixins';
 
 export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -60,8 +61,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
   border-radius: ${theme.borderRadius.pill};
   display: inline-block;
   padding: 2px ${theme.spacings.byte};
-  font-size: 14px;
-  line-height: 20px;
   font-weight: ${theme.fontWeight.bold};
   text-align: center;
   letter-spacing: 0.25px;
@@ -97,6 +96,7 @@ const circleStyles = ({ circle = false, children }: BadgeProps) =>
   `;
 
 const StyledBadge = styled('div')<BadgeProps>(
+  typography('two'),
   baseStyles,
   variantStyles,
   circleStyles,

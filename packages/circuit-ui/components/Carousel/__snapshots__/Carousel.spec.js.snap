@@ -224,8 +224,8 @@ exports[`Carousel styles should render with children as a function 1`] = `
 
 .circuit-41 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
   -webkit-flex: none;
   -ms-flex: none;
@@ -235,8 +235,8 @@ exports[`Carousel styles should render with children as a function 1`] = `
 
 @media (max-width: 479px) {
   .circuit-41 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 
@@ -302,8 +302,8 @@ exports[`Carousel styles should render with children as a function 1`] = `
 }
 
 .circuit-45 {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   margin-left: 8px;
   border: 0;
   clip: rect(0 0 0 0);
@@ -339,8 +339,8 @@ exports[`Carousel styles should render with children as a function 1`] = `
 }
 
 .circuit-49 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -902,8 +902,8 @@ exports[`Carousel styles should render with children as a node 1`] = `
 
 .circuit-41 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
   -webkit-flex: none;
   -ms-flex: none;
@@ -913,8 +913,8 @@ exports[`Carousel styles should render with children as a node 1`] = `
 
 @media (max-width: 479px) {
   .circuit-41 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 
@@ -980,8 +980,8 @@ exports[`Carousel styles should render with children as a node 1`] = `
 }
 
 .circuit-45 {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   margin-left: 8px;
   border: 0;
   clip: rect(0 0 0 0);
@@ -1017,8 +1017,8 @@ exports[`Carousel styles should render with children as a node 1`] = `
 }
 
 .circuit-49 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1579,8 +1579,8 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 
 .circuit-41 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
   -webkit-flex: none;
   -ms-flex: none;
@@ -1590,8 +1590,8 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 
 @media (max-width: 479px) {
   .circuit-41 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 
@@ -1657,8 +1657,8 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 }
 
 .circuit-45 {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   margin-left: 8px;
   border: 0;
   clip: rect(0 0 0 0);
@@ -1694,8 +1694,8 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 }
 
 .circuit-49 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -2227,8 +2227,8 @@ exports[`Carousel styles should render with default styles 1`] = `
 
 .circuit-41 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
   -webkit-flex: none;
   -ms-flex: none;
@@ -2238,8 +2238,8 @@ exports[`Carousel styles should render with default styles 1`] = `
 
 @media (max-width: 479px) {
   .circuit-41 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 
@@ -2305,8 +2305,8 @@ exports[`Carousel styles should render with default styles 1`] = `
 }
 
 .circuit-45 {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   margin-left: 8px;
   border: 0;
   clip: rect(0 0 0 0);
@@ -2342,8 +2342,8 @@ exports[`Carousel styles should render with default styles 1`] = `
 }
 
 .circuit-49 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

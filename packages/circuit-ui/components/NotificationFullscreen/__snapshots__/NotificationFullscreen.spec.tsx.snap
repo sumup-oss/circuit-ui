@@ -47,8 +47,8 @@ exports[`NotificationFullscreen styles should render with an svg component as th
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
   margin-top: 24px;
   margin-bottom: 8px;
   text-align: center;
@@ -83,8 +83,8 @@ exports[`NotificationFullscreen styles should render with an svg component as th
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -291,8 +291,8 @@ exports[`NotificationFullscreen styles should render with body text 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
   margin-top: 24px;
   margin-bottom: 8px;
   text-align: center;
@@ -300,8 +300,8 @@ exports[`NotificationFullscreen styles should render with body text 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   text-align: center;
 }
 
@@ -334,8 +334,8 @@ exports[`NotificationFullscreen styles should render with body text 1`] = `
 }
 
 .circuit-5 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -534,8 +534,8 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
   margin-top: 24px;
   margin-bottom: 8px;
   text-align: center;
@@ -570,8 +570,8 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
 }
 
 .circuit-4 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

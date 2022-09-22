@@ -66,8 +66,8 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 }
 
 .circuit-2 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -205,15 +205,15 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
   margin-bottom: 8px;
 }
 
 .circuit-10 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-11 {
@@ -245,8 +245,8 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 }
 
 .circuit-12 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -316,8 +316,8 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 }
 
 .circuit-16 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -380,8 +380,8 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 }
 
 .circuit-20 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -668,8 +668,8 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 }
 
 .circuit-2 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -806,15 +806,15 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
   margin-bottom: 8px;
 }
 
 .circuit-9 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-10 {
@@ -846,8 +846,8 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 }
 
 .circuit-11 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -917,8 +917,8 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 }
 
 .circuit-15 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -981,8 +981,8 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 }
 
 .circuit-19 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1253,8 +1253,8 @@ exports[`NotificationModal styles should render without an image 1`] = `
 }
 
 .circuit-2 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1380,8 +1380,8 @@ exports[`NotificationModal styles should render without an image 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
   margin-bottom: 8px;
   max-width: 80%;
   margin-right: auto;
@@ -1390,8 +1390,8 @@ exports[`NotificationModal styles should render without an image 1`] = `
 
 .circuit-8 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-9 {
@@ -1423,8 +1423,8 @@ exports[`NotificationModal styles should render without an image 1`] = `
 }
 
 .circuit-10 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1494,8 +1494,8 @@ exports[`NotificationModal styles should render without an image 1`] = `
 }
 
 .circuit-14 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1558,8 +1558,8 @@ exports[`NotificationModal styles should render without an image 1`] = `
 }
 
 .circuit-18 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
