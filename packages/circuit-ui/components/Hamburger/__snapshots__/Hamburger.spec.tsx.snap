@@ -18,8 +18,8 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 }
 
 .circuit-0 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -268,8 +268,8 @@ exports[`Hamburger should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -491,8 +491,8 @@ exports[`Hamburger should render with giga styles 1`] = `
 }
 
 .circuit-0 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -714,8 +714,8 @@ exports[`Hamburger should render with kilo styles 1`] = `
 }
 
 .circuit-0 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

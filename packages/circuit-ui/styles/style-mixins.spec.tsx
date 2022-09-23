@@ -161,14 +161,14 @@ describe('Style helpers', () => {
     it('should match the snapshot for size one', () => {
       const { styles } = typography('one')(light);
       expect(styles).toMatchInlineSnapshot(
-        '"font-size:16px;line-height:24px;;label:typography;"',
+        '"font-size:1rem;line-height:1.5rem;;label:typography;"',
       );
     });
 
     it('should match the snapshot for size two', () => {
       const { styles } = typography('two')(light);
       expect(styles).toMatchInlineSnapshot(
-        '"font-size:14px;line-height:20px;;label:typography;"',
+        '"font-size:0.875rem;line-height:1.25rem;;label:typography;"',
       );
     });
   });

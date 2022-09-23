@@ -88,8 +88,8 @@ exports[`Popover styles should render popover on bottom 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-4:hover {
@@ -157,8 +157,8 @@ exports[`Popover styles should render popover on bottom 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-7:hover {
@@ -355,8 +355,8 @@ exports[`Popover styles should render popover on left 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-4:hover {
@@ -424,8 +424,8 @@ exports[`Popover styles should render popover on left 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-7:hover {
@@ -622,8 +622,8 @@ exports[`Popover styles should render popover on right 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-4:hover {
@@ -691,8 +691,8 @@ exports[`Popover styles should render popover on right 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-7:hover {
@@ -889,8 +889,8 @@ exports[`Popover styles should render popover on top 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-4:hover {
@@ -958,8 +958,8 @@ exports[`Popover styles should render popover on top 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-7:hover {
@@ -1138,8 +1138,8 @@ exports[`Popover styles should render with closed styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-4:hover {
@@ -1207,8 +1207,8 @@ exports[`Popover styles should render with closed styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-7:hover {
@@ -1405,8 +1405,8 @@ exports[`Popover styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-4:hover {
@@ -1474,8 +1474,8 @@ exports[`Popover styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-7:hover {

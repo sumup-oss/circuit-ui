@@ -5,8 +5,8 @@ exports[`Headline should render as h1 element 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 2rem;
+  line-height: 2.25rem;
 }
 
 <h1
@@ -21,8 +21,8 @@ exports[`Headline should render as h2 element 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 2rem;
+  line-height: 2.25rem;
 }
 
 <h2
@@ -37,8 +37,8 @@ exports[`Headline should render as h3 element 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 2rem;
+  line-height: 2.25rem;
 }
 
 <h3
@@ -53,8 +53,8 @@ exports[`Headline should render as h4 element 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 2rem;
+  line-height: 2.25rem;
 }
 
 <h4
@@ -69,8 +69,8 @@ exports[`Headline should render as h5 element 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 2rem;
+  line-height: 2.25rem;
 }
 
 <h5
@@ -85,8 +85,8 @@ exports[`Headline should render as h6 element 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 2rem;
+  line-height: 2.25rem;
 }
 
 <h6
@@ -101,8 +101,8 @@ exports[`Headline should render with size four 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
 }
 
 <h2
@@ -117,8 +117,8 @@ exports[`Headline should render with size one 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 2rem;
+  line-height: 2.25rem;
 }
 
 <h2
@@ -133,8 +133,8 @@ exports[`Headline should render with size three 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
 }
 
 <h2
@@ -149,8 +149,8 @@ exports[`Headline should render with size two 1`] = `
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
 }
 
 <h2

@@ -92,8 +92,8 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 }
 
 .circuit-4 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -314,15 +314,15 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-13 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
 }
 
 @media (max-width: 1279px) {
   .circuit-13 {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -362,8 +362,8 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 .circuit-17 {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   color: #000;
 }
 
@@ -440,8 +440,8 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-21 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 <body
@@ -731,8 +731,8 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 }
 
 .circuit-4 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -948,14 +948,14 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 
 .circuit-13 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 @media (max-width: 1279px) {
   .circuit-13 {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
   }
 }
 

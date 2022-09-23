@@ -35,8 +35,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-1 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -164,8 +164,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-7 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -235,8 +235,8 @@ li:last-child .circuit-7 {
 }
 
 .circuit-11 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -306,8 +306,8 @@ li:last-child .circuit-11 {
 }
 
 .circuit-27 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -596,8 +596,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-1 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -714,8 +714,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 
 .circuit-7 {
   display: block;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-8 {
@@ -739,8 +739,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-11 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -828,8 +828,8 @@ select:not(:active)~.circuit-13 {
 }
 
 .circuit-15 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

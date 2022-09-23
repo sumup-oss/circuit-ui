@@ -2,11 +2,11 @@
 
 exports[`Badge should have the correct circle styles 1`] = `
 .circuit-0 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   border-radius: 999999px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
@@ -36,11 +36,11 @@ exports[`Badge should have the correct circle styles 1`] = `
 
 exports[`Badge should render with alert styles 1`] = `
 .circuit-0 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   border-radius: 999999px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
@@ -55,11 +55,11 @@ exports[`Badge should render with alert styles 1`] = `
 
 exports[`Badge should render with confirm styles 1`] = `
 .circuit-0 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   border-radius: 999999px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
@@ -74,11 +74,11 @@ exports[`Badge should render with confirm styles 1`] = `
 
 exports[`Badge should render with default styles 1`] = `
 .circuit-0 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   border-radius: 999999px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
@@ -93,11 +93,11 @@ exports[`Badge should render with default styles 1`] = `
 
 exports[`Badge should render with neutral styles 1`] = `
 .circuit-0 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   border-radius: 999999px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
@@ -112,11 +112,11 @@ exports[`Badge should render with neutral styles 1`] = `
 
 exports[`Badge should render with notify styles 1`] = `
 .circuit-0 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   border-radius: 999999px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
@@ -131,11 +131,11 @@ exports[`Badge should render with notify styles 1`] = `
 
 exports[`Badge should render with promo styles 1`] = `
 .circuit-0 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   border-radius: 999999px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
