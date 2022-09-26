@@ -7,5 +7,18 @@
     "@sumup/design-tokens": "4.0.0",
     "@sumup/icons": "2.12.0"
   },
-  "changesets": []
+  "changesets": [
+    "angry-boats-sing",
+    "dull-papayas-explain",
+    "gorgeous-cheetahs-shave",
+    "happy-geese-wash",
+    "hot-schools-attack",
+    "little-lemons-battle",
+    "long-spoons-end",
+    "old-cats-turn",
+    "shiny-onions-serve",
+    "slow-planets-behave",
+    "tough-rice-hear",
+    "wet-wasps-kneel"
+  ]
 }
