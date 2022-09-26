@@ -1,5 +1,38 @@
 # @sumup/circuit-ui
 
+## 6.0.0-next.0
+
+### Major Changes
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Wrapped the `ImageInput` component in a `div`. This aligns the component with other form components and makes it easier to apply style mixins such as `spacing`.
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `inline` prop from the `Input`, `Textarea`, and `Select` components. Use the `css` prop to apply custom styles instead.
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `Label` component from the public exports. Use the `label` prop on the form components instead. When building a custom form component, use a `label` element with the `typography('two')` style mixin (don't forget about the `for` prop).
+
+- [#1759](https://github.com/sumup-oss/circuit-ui/pull/1759) [`b03da80d`](https://github.com/sumup-oss/circuit-ui/commit/b03da80d1dd3d625c70bb3bf1824ff9beeac44ff) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the `noMargin` prop from Circuit UI form and typography components. Use the `spacing()` style mixin instead.
+
+- [#1661](https://github.com/sumup-oss/circuit-ui/pull/1661) [`177fe66f`](https://github.com/sumup-oss/circuit-ui/commit/177fe66f7ce73d9c4fe90605c94e08e5b9959e31) Thanks [@tranhoangan22](https://github.com/tranhoangan22)! - Migrated the Popover component from [Popper](https://popper.js.org/) to [Floating UI](https://floating-ui.com/). Popper's `modifiers` are no longer supported, use the `offset` prop for flexible placement of the floating element instead. The `placement` prop no longer accepts `auto*` values.
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed how custom styles are forwarded to the `Input` and `Textarea` components. The `className` and `style` props are now passed to the outermost `div` (this also applies to Emotion's `css` prop). The `labelStyles` prop has been removed. This aligns the components with other form components and makes it easier to apply style mixins such as `spacing`.
+
+- [#1760](https://github.com/sumup-oss/circuit-ui/pull/1760) [`b8f129ee`](https://github.com/sumup-oss/circuit-ui/commit/b8f129eed5673a00a4e4b5deeed4494e5ee93912) Thanks [@robinmetral](https://github.com/robinmetral)! - Switched typography units for the `Badge` component to use rem units. See [The Surprising Truth About Pixels and Accessibility](https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/).
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Restricted the `label` prop on all form components to the `string` type.
+
+- [#1766](https://github.com/sumup-oss/circuit-ui/pull/1766) [`47ef6962`](https://github.com/sumup-oss/circuit-ui/commit/47ef696295b0267e2cc50efa1034a7526308f835) Thanks [@robinmetral](https://github.com/robinmetral)! - Updated the browser support policy for Circuit UI. Moving forward, only browsers that support dynamic module imports will be supported.
+
+### Minor Changes
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for the `optionalLabel` and `disabled` props to the `RadioButtonGroup` component. This aligns the component with other form components.
+
+### Patch Changes
+
+- [#1738](https://github.com/sumup-oss/circuit-ui/pull/1738) [`b0e046d3`](https://github.com/sumup-oss/circuit-ui/commit/b0e046d39cbb83cfac2b3f53abdd06c6aa018f69) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the unnecessary `passive` option from the Popover component's scroll event listener.
+
+- Updated dependencies [[`b8f129ee`](https://github.com/sumup-oss/circuit-ui/commit/b8f129eed5673a00a4e4b5deeed4494e5ee93912)]:
+  - @sumup/design-tokens@5.0.0-next.0
+
 ## 5.3.1
 
 ### Patch Changes
