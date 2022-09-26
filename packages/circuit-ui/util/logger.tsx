@@ -64,11 +64,6 @@ export function withDeprecation<Props>(
       }
     }
 
-    /**
-     * FIXME: there is a clash between `React.ComponentType` and `@jsxImportSource @emotion/react`.
-     * See https://github.com/emotion-js/emotion/issues/2169
-     */
-    /* @ts-expect-error see above */
     return <Component {...props} ref={ref} />;
   });
 
