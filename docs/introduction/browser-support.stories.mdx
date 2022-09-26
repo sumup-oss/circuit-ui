@@ -11,19 +11,19 @@ import { Meta, Intro } from '../../.storybook/components';
 
 ## Browser support policy
 
-Circuit UI supports all browsers that support [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/):
+Circuit UI supports all browsers that support [dynamic module imports](https://caniuse.com/es6-module-dynamic-import):
 
 | Browser          | Version |
 | ---------------- | ------- |
-| Chrome           | 57+     |
-| Firefox          | 54+     |
-| Edge             | 16+     |
-| Safari iOS       | 10.3+   |
-| Safari macOS     | 10.1+   |
-| Opera            | 44+     |
-| Samsung Internet | 6.2+    |
+| Chrome           | 63+     |
+| Firefox          | 67+     |
+| Edge             | 79+     |
+| Safari iOS       | 11.0+   |
+| Safari macOS     | 11.1+   |
+| Opera            | 50+     |
+| Samsung Internet | 8.2+    |
 
-Starting in v5, Circuit UI does not need to be transpiled when bundling your application (unless you need to support legacy browsers: see below).
+Circuit UI does not need to be transpiled when bundling your application (unless you need to support legacy browsers: see below).
 
 _Did you notice a browser support bug in a Circuit UI component? [Open an issue!](https://github.com/sumup-oss/circuit-ui/issues/new?labels=&template=report-a-bug.md)_
 
@@ -31,7 +31,7 @@ _Did you notice a browser support bug in a Circuit UI component? [Open an issue!
 
 If your app needs to support older browsers such as Internet Explorer, you will need to transpile Circuit UI when bundling your application. This can be achieved in different ways depending on the framework/bundler that you use. For example, if using Next.js, you can use the [`next-transpile-module`](https://github.com/martpie/next-transpile-modules) plugin.
 
-You may also need to include polyfills in your bundled application. Some of the modern JavaScript and CSS features that Circuit UI uses are:
+You may also need to include polyfills in your bundled application. Some of the newer JavaScript and CSS features that Circuit UI uses are:
 
 - [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
