@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import { Ref, forwardRef, HTMLAttributes, useEffect, useState } from 'react';
+import { Ref, forwardRef, HTMLAttributes, useState, useEffect } from 'react';
 import { css, useTheme } from '@emotion/react';
+import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import Button, { ButtonProps } from '../Button';
@@ -66,24 +67,31 @@ const alignmentStyles = ({ align = 'center' }: WrapperProps) => css`
 
 const Wrapper = styled('div')<WrapperProps>(wrapperStyles, alignmentStyles);
 
+const getCurrentVariant = (theme: Theme) =>
+  window.matchMedia(theme.breakpoints.kilo).matches ? 'secondary' : 'tertiary';
 /**
  * The ButtonGroup component groups and formats two buttons.
  */
 export const ButtonGroup = forwardRef(
   ({ actions, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => {
     const theme = useTheme();
-    const [secondaryButtonVariant, setSecondaryButtonVariant] =
-      useState<ButtonProps['variant']>('secondary');
+
+    const [secondaryButtonVariant, setSecondaryButtonVariant] = useState<
+      ButtonProps['variant']
+    >(getCurrentVariant(theme));
 
     useEffect(() => {
-      const mq = window.matchMedia(theme.breakpoints.kilo);
       const callback = () =>
-        setSecondaryButtonVariant(mq.matches ? 'secondary' : 'tertiary');
+        setSecondaryButtonVariant(getCurrentVariant(theme));
 
-      mq.addEventListener('change', callback);
+      window
+        .matchMedia(theme.breakpoints.kilo)
+        .addEventListener('change', callback);
 
-      return mq.removeEventListener('change', callback);
-    }, [theme.breakpoints.kilo]);
+      return window
+        .matchMedia(theme.breakpoints.kilo)
+        .removeEventListener('change', callback);
+    }, [theme.breakpoints.kilo, theme]);
 
     return (
       <Wrapper {...props} ref={ref}>
