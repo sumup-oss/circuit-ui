@@ -42,9 +42,9 @@ export interface ButtonGroupProps
 }
 
 const alignmentMap = {
-  left: 'flex-start',
+  left: 'flex-end',
   center: 'center',
-  right: 'flex-end',
+  right: 'flex-start',
 } as const;
 
 type WrapperProps = Omit<ButtonGroupProps, 'actions'>;

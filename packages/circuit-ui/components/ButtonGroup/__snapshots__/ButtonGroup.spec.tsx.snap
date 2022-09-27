@@ -290,10 +290,10 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   align-items: center;
   width: 100%;
   gap: 16px;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 @media (min-width: 480px) {
@@ -549,10 +549,10 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   align-items: center;
   width: 100%;
   gap: 16px;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 @media (min-width: 480px) {
