@@ -15,11 +15,22 @@
 
 import { createRef } from 'react';
 
-import { create, render, renderToHtml, axe } from '../../util/test-utils';
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  setMediaMatches,
+} from '../../util/test-utils';
 
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
 
 describe('ButtonGroup', () => {
+  beforeAll(() => {
+    // By default we're testing kilo and above
+    setMediaMatches(true);
+  });
+
   const defaultProps: ButtonGroupProps = {
     actions: {
       primary: {
@@ -66,5 +77,15 @@ describe('ButtonGroup', () => {
     const wrapper = renderToHtml(<ButtonGroup {...defaultProps} />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
+  });
+
+  /**
+   * Media Query
+   */
+  it('should display a tertiary button for small screens', () => {
+    // testing untilKilo
+    setMediaMatches(false);
+    const actual = create(<ButtonGroup {...defaultProps} />);
+    expect(actual).toMatchSnapshot();
   });
 });

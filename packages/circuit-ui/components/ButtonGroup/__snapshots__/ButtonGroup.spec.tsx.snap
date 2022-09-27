@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonGroup should render aligned to the center 1`] = `
+exports[`ButtonGroup should display a tertiary button for small screens 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -219,6 +219,265 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
   color: #1A368E;
+}
+
+<div
+  class="circuit-0"
+>
+  <button
+    class="circuit-1"
+  >
+    <span
+      class="circuit-2"
+    >
+      <span
+        class="circuit-3"
+      />
+    </span>
+    <span
+      class="circuit-4"
+    >
+      Continue
+    </span>
+  </button>
+  <button
+    class="circuit-5"
+  >
+    <span
+      class="circuit-2"
+    >
+      <span
+        class="circuit-3"
+      />
+    </span>
+    <span
+      class="circuit-4"
+    >
+      Cancel
+    </span>
+  </button>
+</div>
+`;
+
+exports[`ButtonGroup should render aligned to the center 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+@media (min-width: 480px) {
+  .circuit-0 {
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+}
+
+.circuit-1 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  background-color: #234BC3;
+  border-color: #234BC3;
+}
+
+.circuit-1:active,
+.circuit-1[aria-expanded='true'],
+.circuit-1[aria-pressed='true'] {
+  background-color: #1A368E;
+  border-color: #1A368E;
+}
+
+.circuit-2 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-3 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: inherit;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-5 {
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
+  padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
+}
+
+.circuit-5:active,
+.circuit-5[aria-expanded='true'],
+.circuit-5[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <div
@@ -440,12 +699,10 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
   position: relative;
   overflow: hidden;
 }
@@ -471,13 +728,15 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 }
 
 .circuit-5:hover {
-  color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  color: #1A368E;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <div
@@ -699,12 +958,10 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
   position: relative;
   overflow: hidden;
 }
@@ -730,13 +987,15 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 }
 
 .circuit-5:hover {
-  color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  color: #1A368E;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <div
@@ -958,12 +1217,10 @@ exports[`ButtonGroup should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
   position: relative;
   overflow: hidden;
 }
@@ -989,13 +1246,15 @@ exports[`ButtonGroup should render with default styles 1`] = `
 }
 
 .circuit-5:hover {
-  color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  color: #1A368E;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <div
