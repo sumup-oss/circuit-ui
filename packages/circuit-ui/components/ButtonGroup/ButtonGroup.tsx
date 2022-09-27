@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Ref, forwardRef, HTMLAttributes } from 'react';
-import { css } from '@emotion/react';
+import { Ref, forwardRef, HTMLAttributes, useEffect, useState } from 'react';
+import { css, useTheme } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import Button, { ButtonProps } from '../Button';
@@ -53,9 +53,10 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  gap: ${theme.spacings.mega};
 
   ${theme.mq.kilo} {
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
 `;
 
@@ -65,39 +66,39 @@ const alignmentStyles = ({ align = 'center' }: WrapperProps) => css`
 
 const Wrapper = styled('div')<WrapperProps>(wrapperStyles, alignmentStyles);
 
-const secondaryButtonStyles = ({ theme }: StyleProps) => css`
-  margin-right: ${theme.spacings.mega};
-  ${theme.mq.untilKilo} {
-    display: none;
-  }
-`;
-
-const SecondaryButton = styled(Button)<ButtonProps>(secondaryButtonStyles);
-
-const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
-  margin-top: ${theme.spacings.mega};
-  ${theme.mq.kilo} {
-    display: none;
-  }
-`;
-
-const TertiaryButton = styled(Button)<ButtonProps>(tertiaryButtonStyles);
-
 /**
  * The ButtonGroup component groups and formats two buttons.
  */
 export const ButtonGroup = forwardRef(
-  ({ actions, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => (
-    <Wrapper {...props} ref={ref}>
-      {actions.secondary && (
-        <SecondaryButton {...actions.secondary} variant="secondary" />
-      )}
-      <Button {...actions.primary} variant="primary" />
-      {actions.secondary && (
-        <TertiaryButton {...actions.secondary} variant="tertiary" />
-      )}
-    </Wrapper>
-  ),
+  ({ actions, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => {
+    const theme = useTheme();
+    const [secondaryButtonVariant, setSecondaryButtonVariant] =
+      useState<ButtonProps['variant']>('secondary');
+
+    useEffect(() => {
+      const mq = window.matchMedia(theme.breakpoints.kilo);
+      const callback = () =>
+        setSecondaryButtonVariant(mq.matches ? 'secondary' : 'tertiary');
+
+      mq.addEventListener('change', callback);
+
+      return mq.removeEventListener('change', callback);
+    }, [theme.breakpoints.kilo]);
+
+    return (
+      <Wrapper {...props} ref={ref}>
+        <Button {...actions.primary} variant="primary" />
+        {actions.secondary && (
+          // key passed to avoid transitions at macthMedia change event
+          <Button
+            {...actions.secondary}
+            variant={secondaryButtonVariant}
+            key={secondaryButtonVariant}
+          />
+        )}
+      </Wrapper>
+    );
+  },
 );
 
 ButtonGroup.displayName = 'ButtonGroup';

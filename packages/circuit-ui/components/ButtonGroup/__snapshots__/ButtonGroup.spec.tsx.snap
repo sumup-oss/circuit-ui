@@ -30,6 +30,7 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  gap: 16px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -38,9 +39,9 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 
 @media (min-width: 480px) {
   .circuit-0 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 }
 
@@ -68,13 +69,12 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
 }
 
 .circuit-1:focus {
@@ -98,21 +98,15 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 }
 
 .circuit-1:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: #234BC3;
+  border-color: #234BC3;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-@media (max-width: 479px) {
-  .circuit-1 {
-    display: none;
-  }
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 .circuit-2 {
@@ -187,9 +181,9 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -216,86 +210,15 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 }
 
 .circuit-5:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
-}
-
-.circuit-9 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
-  position: relative;
-  overflow: hidden;
-  margin-top: 16px;
-}
-
-.circuit-9:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-9:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-9:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-9:disabled,
-.circuit-9[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-9:hover {
-  color: #234BC3;
-}
-
-.circuit-9:active,
-.circuit-9[aria-expanded='true'],
-.circuit-9[aria-pressed='true'] {
-  color: #1A368E;
-}
-
-@media (min-width: 480px) {
-  .circuit-9 {
-    display: none;
-  }
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <div
@@ -314,27 +237,11 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
     <span
       class="circuit-4"
     >
-      Cancel
-    </span>
-  </button>
-  <button
-    class="circuit-5"
-  >
-    <span
-      class="circuit-2"
-    >
-      <span
-        class="circuit-3"
-      />
-    </span>
-    <span
-      class="circuit-4"
-    >
       Continue
     </span>
   </button>
   <button
-    class="circuit-9"
+    class="circuit-5"
   >
     <span
       class="circuit-2"
@@ -382,6 +289,7 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  gap: 16px;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
@@ -390,9 +298,9 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 
 @media (min-width: 480px) {
   .circuit-0 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 }
 
@@ -420,13 +328,12 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
 }
 
 .circuit-1:focus {
@@ -450,21 +357,15 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 }
 
 .circuit-1:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: #234BC3;
+  border-color: #234BC3;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-@media (max-width: 479px) {
-  .circuit-1 {
-    display: none;
-  }
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 .circuit-2 {
@@ -539,9 +440,9 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -568,86 +469,15 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 }
 
 .circuit-5:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
-}
-
-.circuit-9 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
-  position: relative;
-  overflow: hidden;
-  margin-top: 16px;
-}
-
-.circuit-9:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-9:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-9:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-9:disabled,
-.circuit-9[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-9:hover {
-  color: #234BC3;
-}
-
-.circuit-9:active,
-.circuit-9[aria-expanded='true'],
-.circuit-9[aria-pressed='true'] {
-  color: #1A368E;
-}
-
-@media (min-width: 480px) {
-  .circuit-9 {
-    display: none;
-  }
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <div
@@ -666,27 +496,11 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
     <span
       class="circuit-4"
     >
-      Cancel
-    </span>
-  </button>
-  <button
-    class="circuit-5"
-  >
-    <span
-      class="circuit-2"
-    >
-      <span
-        class="circuit-3"
-      />
-    </span>
-    <span
-      class="circuit-4"
-    >
       Continue
     </span>
   </button>
   <button
-    class="circuit-9"
+    class="circuit-5"
   >
     <span
       class="circuit-2"
@@ -734,6 +548,7 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  gap: 16px;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
@@ -742,9 +557,9 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 
 @media (min-width: 480px) {
   .circuit-0 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 }
 
@@ -772,13 +587,12 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
 }
 
 .circuit-1:focus {
@@ -802,21 +616,15 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 }
 
 .circuit-1:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: #234BC3;
+  border-color: #234BC3;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-@media (max-width: 479px) {
-  .circuit-1 {
-    display: none;
-  }
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 .circuit-2 {
@@ -891,9 +699,9 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -920,86 +728,15 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 }
 
 .circuit-5:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
-}
-
-.circuit-9 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
-  position: relative;
-  overflow: hidden;
-  margin-top: 16px;
-}
-
-.circuit-9:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-9:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-9:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-9:disabled,
-.circuit-9[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-9:hover {
-  color: #234BC3;
-}
-
-.circuit-9:active,
-.circuit-9[aria-expanded='true'],
-.circuit-9[aria-pressed='true'] {
-  color: #1A368E;
-}
-
-@media (min-width: 480px) {
-  .circuit-9 {
-    display: none;
-  }
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <div
@@ -1018,27 +755,11 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
     <span
       class="circuit-4"
     >
-      Cancel
-    </span>
-  </button>
-  <button
-    class="circuit-5"
-  >
-    <span
-      class="circuit-2"
-    >
-      <span
-        class="circuit-3"
-      />
-    </span>
-    <span
-      class="circuit-4"
-    >
       Continue
     </span>
   </button>
   <button
-    class="circuit-9"
+    class="circuit-5"
   >
     <span
       class="circuit-2"
@@ -1086,6 +807,7 @@ exports[`ButtonGroup should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  gap: 16px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -1094,9 +816,9 @@ exports[`ButtonGroup should render with default styles 1`] = `
 
 @media (min-width: 480px) {
   .circuit-0 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 }
 
@@ -1124,13 +846,12 @@ exports[`ButtonGroup should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
 }
 
 .circuit-1:focus {
@@ -1154,21 +875,15 @@ exports[`ButtonGroup should render with default styles 1`] = `
 }
 
 .circuit-1:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: #234BC3;
+  border-color: #234BC3;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-@media (max-width: 479px) {
-  .circuit-1 {
-    display: none;
-  }
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 .circuit-2 {
@@ -1243,9 +958,9 @@ exports[`ButtonGroup should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -1272,86 +987,15 @@ exports[`ButtonGroup should render with default styles 1`] = `
 }
 
 .circuit-5:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
-}
-
-.circuit-9 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
-  position: relative;
-  overflow: hidden;
-  margin-top: 16px;
-}
-
-.circuit-9:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-9:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-9:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-9:disabled,
-.circuit-9[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-9:hover {
-  color: #234BC3;
-}
-
-.circuit-9:active,
-.circuit-9[aria-expanded='true'],
-.circuit-9[aria-pressed='true'] {
-  color: #1A368E;
-}
-
-@media (min-width: 480px) {
-  .circuit-9 {
-    display: none;
-  }
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <div
@@ -1370,27 +1014,11 @@ exports[`ButtonGroup should render with default styles 1`] = `
     <span
       class="circuit-4"
     >
-      Cancel
-    </span>
-  </button>
-  <button
-    class="circuit-5"
-  >
-    <span
-      class="circuit-2"
-    >
-      <span
-        class="circuit-3"
-      />
-    </span>
-    <span
-      class="circuit-4"
-    >
       Continue
     </span>
   </button>
   <button
-    class="circuit-9"
+    class="circuit-5"
   >
     <span
       class="circuit-2"
