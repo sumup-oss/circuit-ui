@@ -15445,10 +15445,10 @@ react-moment-proptypes@^1.6.0:
   dependencies:
     moment ">=1.6.0"
 
-react-number-format@^4.9.4:
-  version "4.9.4"
-  resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-4.9.4.tgz#013ae526000e676e491763ce14da66fb330a9bd8"
-  integrity sha512-Gq20Z3ugqPLFgeaidnx5on9cNpbQZntPN3QgNAL/WJrNNlQnNznY0LCx7g8xtssmRBw0/hw+SCqw6zAcajooiA==
+react-number-format@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-5.0.1.tgz#23a3a693c978c7be328fa9c00dee5135111ca32b"
+  integrity sha512-Tyv5Ygb77ZbC5vUNNAfXwE+zQKaN0LsTo7GwjudU/MckXa7beVAlFddq7QQnGobEglyq+4zsBltKvM9HMQD0GA==
   dependencies:
     prop-types "^15.7.2"
 
