@@ -14,7 +14,7 @@
  */
 
 import { forwardRef, useState, useEffect } from 'react';
-import NumberFormat from 'react-number-format';
+import { PatternFormat } from 'react-number-format';
 
 import styled from '../../styles/styled';
 import { Input, InputProps } from '../Input/Input';
@@ -65,8 +65,8 @@ export const DateInput = forwardRef(
     // TODO: Fallback explainer, with enforced format
     if (!supportsDate) {
       return (
-        <NumberFormat
-          // NumberFormat props
+        <PatternFormat
+          // react-number-format props
           placeholder={placeholder}
           format="####-##-##"
           mask={['y', 'y', 'y', 'y', 'm', 'm', 'd', 'd']}

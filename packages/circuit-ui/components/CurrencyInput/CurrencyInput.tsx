@@ -15,7 +15,7 @@
 
 import { Ref, forwardRef } from 'react';
 import { resolveCurrencyFormat } from '@sumup/intl';
-import NumberFormat from 'react-number-format';
+import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
 import styled from '../../styles/styled';
 import Input from '../Input';
@@ -47,7 +47,7 @@ export interface CurrencyInputProps
   /**
    * The ref to the HTML DOM element.
    */
-  ref?: Ref<NumberFormat<InputProps>>;
+  ref?: Ref<NumericFormatProps<InputProps>>;
   /**
    * The value of the input element.
    */
@@ -118,8 +118,8 @@ export const CurrencyInput = forwardRef(
         : undefined;
 
     return (
-      <NumberFormat
-        // NumberFormat props
+      <NumericFormat
+        // react-number-format props
         thousandSeparator={groupDelimiter}
         decimalSeparator={
           maximumFractionDigits > 0 ? decimalDelimiter : DUMMY_DELIMITER
