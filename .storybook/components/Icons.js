@@ -23,10 +23,10 @@ import {
   Headline,
   Body,
   InlineElements,
-  Label,
   SearchInput,
   Select,
   spacing,
+  typography,
 } from '@sumup/circuit-ui';
 
 function groupBy(icons, key) {
@@ -177,15 +177,15 @@ const Icons = () => {
                     <Wrapper key={id}>
                       <IconWrapper>
                         <Icon
-                          id={id}
+                          aria-labelledby={id}
                           size={icon.size}
                           css={iconStyles(color)}
                         />
                       </IconWrapper>
-                      <Label htmlFor="id">
+                      <span id={id} css={typography('two')}>
                         {icon.name}
                         {size === 'all' && <Size>{icon.size}</Size>}
-                      </Label>
+                      </span>
                     </Wrapper>
                   );
                 })}
