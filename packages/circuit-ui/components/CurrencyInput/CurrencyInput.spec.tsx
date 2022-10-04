@@ -14,7 +14,7 @@
  */
 
 import { ChangeEvent, createRef, useState } from 'react';
-import NumberFormat from 'react-number-format';
+import { NumericFormatProps } from 'react-number-format';
 
 import {
   create,
@@ -55,7 +55,7 @@ describe('CurrencyInput', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = createRef<NumberFormat<InputProps>>();
+      const tref = createRef<NumericFormatProps<InputProps>>();
       const { container } = render(
         <CurrencyInput
           locale="de-DE"
