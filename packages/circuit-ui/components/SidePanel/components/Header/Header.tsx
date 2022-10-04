@@ -38,7 +38,7 @@ const headerContainerStyles = ({ theme }: StyleProps) => css`
   display: flex;
   align-items: center;
   background-color: ${theme.colors.white};
-  z-index: ${theme.zIndex.absolute};
+  z-index: ${theme.zIndex.header};
 
   ${theme.mq.mega} {
     box-shadow: inset ${theme.borderWidth.kilo} 0px 0px ${theme.colors.n300};
