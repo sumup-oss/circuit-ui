@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.3.2
+
+### Patch Changes
+
+- [#1779](https://github.com/sumup-oss/circuit-ui/pull/1779) [`0be74924`](https://github.com/sumup-oss/circuit-ui/commit/0be74924a42bf179fabaa960ce7bf7f5d0dca97a) Thanks [@hris27](https://github.com/hris27)! - Fixed a z-index issue with the SidePanel header.
+
 ## 5.3.1
 
 ### Patch Changes
