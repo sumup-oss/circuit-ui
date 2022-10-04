@@ -67,7 +67,6 @@ exports[`NotificationFullscreen styles should render with an svg component as th
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  gap: 16px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -319,7 +318,6 @@ exports[`NotificationFullscreen styles should render with body text 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  gap: 16px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -556,7 +554,6 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  gap: 16px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;

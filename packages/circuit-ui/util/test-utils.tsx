@@ -75,28 +75,4 @@ const axe = configureAxe({
   },
 });
 
-function setMediaMatches(matches: boolean) {
-  Object.defineProperty(window, 'matchMedia', {
-    writable: true,
-    value: jest.fn().mockImplementation((query: string) => ({
-      matches,
-      media: query,
-      onchange: null,
-      addListener: jest.fn(), // Deprecated
-      removeListener: jest.fn(), // Deprecated
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    })),
-  });
-}
-
-export {
-  create,
-  render,
-  renderToHtml,
-  renderHook,
-  setMediaMatches,
-  userEvent,
-  axe,
-};
+export { create, render, renderToHtml, renderHook, userEvent, axe };

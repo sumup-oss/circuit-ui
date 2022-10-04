@@ -229,7 +229,6 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  gap: 16px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -333,14 +332,16 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
   position: relative;
   overflow: hidden;
+  margin-right: 16px;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
 }
 
 .circuit-16:focus {
@@ -364,13 +365,53 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 }
 
 .circuit-16:hover {
-  color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-16:active,
 .circuit-16[aria-expanded='true'],
 .circuit-16[aria-pressed='true'] {
-  color: #1A368E;
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+.circuit-16:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
+}
+
+.circuit-16:active,
+.circuit-16[aria-expanded='true'],
+.circuit-16[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+@media (max-width: 479px) {
+  .circuit-16 {
+    margin-right: 0;
+    margin-top: 16px;
+    background-color: transparent;
+    border-color: transparent;
+    color: #3063E9;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .circuit-16:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: #234BC3;
+  }
+
+  .circuit-16:active,
+  .circuit-16[aria-expanded='true'],
+  .circuit-16[aria-pressed='true'] {
+    background-color: transparent;
+    border-color: transparent;
+    color: #1A368E;
+  }
 }
 
 <body
@@ -737,7 +778,6 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  gap: 16px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -841,14 +881,16 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
   position: relative;
   overflow: hidden;
+  margin-right: 16px;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
 }
 
 .circuit-15:focus {
@@ -872,13 +914,53 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 }
 
 .circuit-15:hover {
-  color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-15:active,
 .circuit-15[aria-expanded='true'],
 .circuit-15[aria-pressed='true'] {
-  color: #1A368E;
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+.circuit-15:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
+}
+
+.circuit-15:active,
+.circuit-15[aria-expanded='true'],
+.circuit-15[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+@media (max-width: 479px) {
+  .circuit-15 {
+    margin-right: 0;
+    margin-top: 16px;
+    background-color: transparent;
+    border-color: transparent;
+    color: #3063E9;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .circuit-15:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: #234BC3;
+  }
+
+  .circuit-15:active,
+  .circuit-15[aria-expanded='true'],
+  .circuit-15[aria-pressed='true'] {
+    background-color: transparent;
+    border-color: transparent;
+    color: #1A368E;
+  }
 }
 
 <body
@@ -1221,7 +1303,6 @@ exports[`NotificationModal styles should render without an image 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  gap: 16px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -1325,14 +1406,16 @@ exports[`NotificationModal styles should render without an image 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
   position: relative;
   overflow: hidden;
+  margin-right: 16px;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
 }
 
 .circuit-14:focus {
@@ -1356,13 +1439,53 @@ exports[`NotificationModal styles should render without an image 1`] = `
 }
 
 .circuit-14:hover {
-  color: #234BC3;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-14:active,
 .circuit-14[aria-expanded='true'],
 .circuit-14[aria-pressed='true'] {
-  color: #1A368E;
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+.circuit-14:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
+}
+
+.circuit-14:active,
+.circuit-14[aria-expanded='true'],
+.circuit-14[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
+}
+
+@media (max-width: 479px) {
+  .circuit-14 {
+    margin-right: 0;
+    margin-top: 16px;
+    background-color: transparent;
+    border-color: transparent;
+    color: #3063E9;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .circuit-14:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: #234BC3;
+  }
+
+  .circuit-14:active,
+  .circuit-14[aria-expanded='true'],
+  .circuit-14[aria-pressed='true'] {
+    background-color: transparent;
+    border-color: transparent;
+    color: #1A368E;
+  }
 }
 
 <body

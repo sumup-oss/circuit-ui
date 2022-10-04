@@ -106,6 +106,57 @@ type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
+const spinnerBaseStyles = ({ theme }: StyleProps) => css`
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity ${theme.transitions.default},
+    visibility ${theme.transitions.default};
+`;
+
+const spinnerLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
+  isLoading &&
+  css`
+    opacity: 1;
+    visibility: inherit;
+  `;
+
+const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
+  spinnerBaseStyles,
+  spinnerLoadingStyles,
+);
+
+const LoadingLabel = styled.span(hideVisually);
+
+const iconStyles = (theme: Theme) => css`
+  flex-shrink: 0;
+  margin-right: ${theme.spacings.byte};
+`;
+
+const contentStyles = ({ theme }: StyleProps) => css`
+  display: inline-flex;
+  align-items: center;
+  opacity: 1;
+  visibility: inherit;
+  transform: scale3d(1, 1, 1);
+  transition: opacity ${theme.transitions.default},
+    transform ${theme.transitions.default},
+    visibility ${theme.transitions.default};
+`;
+
+const contentLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
+  isLoading &&
+  css`
+    opacity: 0;
+    visibility: hidden;
+    transform: scale3d(0, 0, 0);
+  `;
+
+const Content = styled.span<{ isLoading: boolean }>(
+  contentStyles,
+  contentLoadingStyles,
+);
+
 const COLOR_MAP = {
   default: {
     default: 'p500',
@@ -133,6 +184,11 @@ const SECONDARY_COLOR_MAP = {
     active: 'r900',
   },
 } as const;
+
+type StyledButtonProps = Pick<
+  ButtonProps,
+  'variant' | 'destructive' | 'size' | 'stretch'
+>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-flex;
@@ -162,7 +218,7 @@ const primaryStyles = ({
   theme,
   variant = 'secondary',
   destructive,
-}: ButtonProps & StyleProps) => {
+}: StyledButtonProps & StyleProps) => {
   if (variant !== 'primary') {
     return null;
   }
@@ -188,11 +244,11 @@ const primaryStyles = ({
   `;
 };
 
-const secondaryStyles = ({
+export const secondaryStyles = ({
   theme,
   variant = 'secondary',
   destructive,
-}: ButtonProps & StyleProps) => {
+}: StyledButtonProps & StyleProps) => {
   if (variant !== 'secondary') {
     return null;
   }
@@ -220,11 +276,11 @@ const secondaryStyles = ({
   `;
 };
 
-const tertiaryStyles = ({
+export const tertiaryStyles = ({
   theme,
   variant = 'secondary',
   destructive,
-}: ButtonProps & StyleProps) => {
+}: StyledButtonProps & StyleProps) => {
   if (variant !== 'tertiary') {
     return null;
   }
@@ -239,18 +295,25 @@ const tertiaryStyles = ({
     padding-right: 0;
 
     &:hover {
+      background-color: transparent;
+      border-color: transparent;
       color: ${theme.colors[colors.hover]};
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
+      background-color: transparent;
+      border-color: transparent;
       color: ${theme.colors[colors.active]};
     }
   `;
 };
 
-const sizeStyles = ({ theme, size = 'giga' }: ButtonProps & StyleProps) => {
+const sizeStyles = ({
+  theme,
+  size = 'giga',
+}: StyledButtonProps & StyleProps) => {
   const sizeMap = {
     kilo: {
       padding: `calc(${theme.spacings.bit} - ${theme.borderWidth.kilo}) calc(${theme.spacings.mega} - ${theme.borderWidth.kilo})`,
@@ -265,71 +328,20 @@ const sizeStyles = ({ theme, size = 'giga' }: ButtonProps & StyleProps) => {
   });
 };
 
-const stretchStyles = ({ stretch }: ButtonProps) =>
+const stretchStyles = ({ stretch }: StyledButtonProps) =>
   stretch &&
   css`
     width: 100%;
   `;
-
-const iconStyles = (theme: Theme) => css`
-  flex-shrink: 0;
-  margin-right: ${theme.spacings.byte};
-`;
 
 const loadingStyles = css`
   position: relative;
   overflow: hidden;
 `;
 
-const spinnerBaseStyles = ({ theme }: StyleProps) => css`
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity ${theme.transitions.default},
-    visibility ${theme.transitions.default};
-`;
-
-const spinnerLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
-  isLoading &&
-  css`
-    opacity: 1;
-    visibility: inherit;
-  `;
-
-const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
-  spinnerBaseStyles,
-  spinnerLoadingStyles,
-);
-
-const LoadingLabel = styled.span(hideVisually);
-
-const contentStyles = ({ theme }: StyleProps) => css`
-  display: inline-flex;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  transform: scale3d(1, 1, 1);
-  transition: opacity ${theme.transitions.default},
-    transform ${theme.transitions.default},
-    visibility ${theme.transitions.default};
-`;
-
-const contentLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
-  isLoading &&
-  css`
-    opacity: 0;
-    visibility: hidden;
-    transform: scale3d(0, 0, 0);
-  `;
-
-const Content = styled.span<{ isLoading: boolean }>(
-  contentStyles,
-  contentLoadingStyles,
-);
-
 const StyledButton = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<ButtonProps>(
+})<StyledButtonProps>(
   typography('one'),
   focusVisible,
   baseStyles,

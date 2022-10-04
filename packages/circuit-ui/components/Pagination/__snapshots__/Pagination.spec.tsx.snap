@@ -94,12 +94,16 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-1:hover {
+  background-color: transparent;
+  border-color: transparent;
   color: #234BC3;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
+  background-color: transparent;
+  border-color: transparent;
   color: #1A368E;
 }
 
@@ -292,12 +296,16 @@ li:last-child .circuit-7 {
 }
 
 .circuit-11:hover {
+  background-color: transparent;
+  border-color: transparent;
   color: #234BC3;
 }
 
 .circuit-11:active,
 .circuit-11[aria-expanded='true'],
 .circuit-11[aria-pressed='true'] {
+  background-color: transparent;
+  border-color: transparent;
   color: #1A368E;
 }
 
@@ -365,12 +373,16 @@ li:last-child .circuit-11 {
 }
 
 .circuit-27:hover {
+  background-color: transparent;
+  border-color: transparent;
   color: #234BC3;
 }
 
 .circuit-27:active,
 .circuit-27[aria-expanded='true'],
 .circuit-27[aria-pressed='true'] {
+  background-color: transparent;
+  border-color: transparent;
   color: #1A368E;
 }
 
@@ -655,12 +667,16 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-1:hover {
+  background-color: transparent;
+  border-color: transparent;
   color: #234BC3;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
+  background-color: transparent;
+  border-color: transparent;
   color: #1A368E;
 }
 
@@ -887,12 +903,16 @@ select:not(:active)~.circuit-13 {
 }
 
 .circuit-15:hover {
+  background-color: transparent;
+  border-color: transparent;
   color: #234BC3;
 }
 
 .circuit-15:active,
 .circuit-15[aria-expanded='true'],
 .circuit-15[aria-pressed='true'] {
+  background-color: transparent;
+  border-color: transparent;
   color: #1A368E;
 }
 
