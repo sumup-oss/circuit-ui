@@ -30,10 +30,6 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
 }
 
 @media (min-width: 480px) {
@@ -41,6 +37,10 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
   }
 }
 
@@ -330,10 +330,6 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
 }
 
 @media (min-width: 480px) {
@@ -341,6 +337,10 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
   }
 }
 
@@ -630,10 +630,6 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
 }
 
 @media (min-width: 480px) {
@@ -641,6 +637,10 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
   }
 }
 
@@ -930,10 +930,6 @@ exports[`ButtonGroup should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
 }
 
 @media (min-width: 480px) {
@@ -941,6 +937,10 @@ exports[`ButtonGroup should render with default styles 1`] = `
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
   }
 }
 
