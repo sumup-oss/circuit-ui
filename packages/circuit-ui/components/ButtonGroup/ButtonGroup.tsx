@@ -42,14 +42,17 @@ export interface ButtonGroupProps
 }
 
 const alignmentMap = {
-  left: 'flex-start',
+  left: 'flex-end',
   center: 'center',
-  right: 'flex-end',
+  right: 'flex-start',
 } as const;
 
 type WrapperProps = Omit<ButtonGroupProps, 'actions'>;
 
-const wrapperStyles = ({ theme }: StyleProps) => css`
+const wrapperStyles = ({
+  theme,
+  align = 'center',
+}: StyleProps & WrapperProps) => css`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,14 +60,11 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
 
   ${theme.mq.kilo} {
     flex-direction: row-reverse;
+    justify-content: ${alignmentMap[align]};
   }
 `;
 
-const alignmentStyles = ({ align = 'center' }: WrapperProps) => css`
-  justify-content: ${alignmentMap[align]};
-`;
-
-const Wrapper = styled('div')<WrapperProps>(wrapperStyles, alignmentStyles);
+const Wrapper = styled('div')<WrapperProps>(wrapperStyles);
 
 const secondaryButtonStyles = ({
   theme,
