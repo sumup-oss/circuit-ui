@@ -18,6 +18,7 @@ import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import Button, { ButtonProps } from '../Button';
+import { secondaryStyles, tertiaryStyles } from '../Button/Button';
 
 type Action = Omit<ButtonProps, 'variant'>;
 
@@ -41,47 +42,46 @@ export interface ButtonGroupProps
 }
 
 const alignmentMap = {
-  left: 'flex-start',
+  left: 'flex-end',
   center: 'center',
-  right: 'flex-end',
+  right: 'flex-start',
 } as const;
 
 type WrapperProps = Omit<ButtonGroupProps, 'actions'>;
 
-const wrapperStyles = ({ theme }: StyleProps) => css`
+const wrapperStyles = ({
+  theme,
+  align = 'center',
+}: StyleProps & WrapperProps) => css`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 
   ${theme.mq.kilo} {
-    flex-direction: row;
+    flex-direction: row-reverse;
+    justify-content: ${alignmentMap[align]};
   }
 `;
 
-const alignmentStyles = ({ align = 'center' }: WrapperProps) => css`
-  justify-content: ${alignmentMap[align]};
-`;
+const Wrapper = styled('div')<WrapperProps>(wrapperStyles);
 
-const Wrapper = styled('div')<WrapperProps>(wrapperStyles, alignmentStyles);
-
-const secondaryButtonStyles = ({ theme }: StyleProps) => css`
-  margin-right: ${theme.spacings.mega};
+const secondaryButtonStyles = ({
+  theme,
+  destructive,
+}: ButtonProps & StyleProps) => css`
+  ${theme.mq.kilo} {
+    margin-right: ${theme.spacings.mega};
+    ${secondaryStyles({ theme, variant: 'secondary', destructive })}
+  }
   ${theme.mq.untilKilo} {
-    display: none;
+    margin-right: 0;
+    margin-top: ${theme.spacings.mega};
+    ${tertiaryStyles({ theme, variant: 'tertiary', destructive })}
   }
 `;
 
 const SecondaryButton = styled(Button)<ButtonProps>(secondaryButtonStyles);
-
-const tertiaryButtonStyles = ({ theme }: StyleProps) => css`
-  margin-top: ${theme.spacings.mega};
-  ${theme.mq.kilo} {
-    display: none;
-  }
-`;
-
-const TertiaryButton = styled(Button)<ButtonProps>(tertiaryButtonStyles);
 
 /**
  * The ButtonGroup component groups and formats two buttons.
@@ -89,13 +89,8 @@ const TertiaryButton = styled(Button)<ButtonProps>(tertiaryButtonStyles);
 export const ButtonGroup = forwardRef(
   ({ actions, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => (
     <Wrapper {...props} ref={ref}>
-      {actions.secondary && (
-        <SecondaryButton {...actions.secondary} variant="secondary" />
-      )}
       <Button {...actions.primary} variant="primary" />
-      {actions.secondary && (
-        <TertiaryButton {...actions.secondary} variant="tertiary" />
-      )}
+      {actions.secondary && <SecondaryButton {...actions.secondary} />}
     </Wrapper>
   ),
 );

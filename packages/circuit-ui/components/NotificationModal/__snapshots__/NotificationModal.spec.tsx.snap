@@ -229,93 +229,22 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
   margin-top: 24px;
 }
 
 @media (min-width: 480px) {
   .circuit-11 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
   }
 }
 
 .circuit-12 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-  margin-right: 16px;
-}
-
-.circuit-12:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-12:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-12:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-12:disabled,
-.circuit-12[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-12:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
-
-.circuit-12:active,
-.circuit-12[aria-expanded='true'],
-.circuit-12[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-@media (max-width: 479px) {
-  .circuit-12 {
-    display: none;
-  }
-}
-
-.circuit-16 {
   font-size: 1rem;
   line-height: 1.5rem;
   display: -webkit-inline-box;
@@ -347,39 +276,39 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   overflow: hidden;
 }
 
-.circuit-16:focus {
+.circuit-12:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-16:focus::-moz-focus-inner {
+.circuit-12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-16:focus:not(:focus-visible) {
+.circuit-12:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-16:disabled,
-.circuit-16[disabled] {
+.circuit-12:disabled,
+.circuit-12[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-16:hover {
+.circuit-12:hover {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-16:active,
-.circuit-16[aria-expanded='true'],
-.circuit-16[aria-pressed='true'] {
+.circuit-12:active,
+.circuit-12[aria-expanded='true'],
+.circuit-12[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-20 {
+.circuit-16 {
   font-size: 1rem;
   line-height: 1.5rem;
   display: -webkit-inline-box;
@@ -403,50 +332,86 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
   position: relative;
   overflow: hidden;
-  margin-top: 16px;
 }
 
-.circuit-20:focus {
+.circuit-16:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-20:focus::-moz-focus-inner {
+.circuit-16:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-20:focus:not(:focus-visible) {
+.circuit-16:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-20:disabled,
-.circuit-20[disabled] {
+.circuit-16:disabled,
+.circuit-16[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-20:hover {
-  color: #234BC3;
+.circuit-16:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
-.circuit-20:active,
-.circuit-20[aria-expanded='true'],
-.circuit-20[aria-pressed='true'] {
-  color: #1A368E;
+.circuit-16:active,
+.circuit-16[aria-expanded='true'],
+.circuit-16[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 @media (min-width: 480px) {
-  .circuit-20 {
-    display: none;
+  .circuit-16 {
+    margin-right: 16px;
+    background-color: #FFF;
+    border-color: #999;
+    color: #000;
+  }
+
+  .circuit-16:hover {
+    background-color: #F5F5F5;
+    border-color: #666;
+  }
+
+  .circuit-16:active,
+  .circuit-16[aria-expanded='true'],
+  .circuit-16[aria-pressed='true'] {
+    background-color: #E6E6E6;
+    border-color: #333;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-16 {
+    margin-right: 0;
+    margin-top: 16px;
+    background-color: transparent;
+    border-color: transparent;
+    color: #3063E9;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .circuit-16:hover {
+    color: #234BC3;
+  }
+
+  .circuit-16:active,
+  .circuit-16[aria-expanded='true'],
+  .circuit-16[aria-pressed='true'] {
+    color: #1A368E;
   }
 }
 
@@ -560,27 +525,11 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
             <span
               class="circuit-5"
             >
-              Not now
-            </span>
-          </button>
-          <button
-            class="circuit-16"
-          >
-            <span
-              class="circuit-3"
-            >
-              <span
-                class="circuit-4"
-              />
-            </span>
-            <span
-              class="circuit-5"
-            >
               Update now
             </span>
           </button>
           <button
-            class="circuit-20"
+            class="circuit-16"
           >
             <span
               class="circuit-3"
@@ -830,93 +779,22 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
   margin-top: 24px;
 }
 
 @media (min-width: 480px) {
   .circuit-10 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
   }
 }
 
 .circuit-11 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-  margin-right: 16px;
-}
-
-.circuit-11:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-11:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-11:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-11:disabled,
-.circuit-11[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-11:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
-
-.circuit-11:active,
-.circuit-11[aria-expanded='true'],
-.circuit-11[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-@media (max-width: 479px) {
-  .circuit-11 {
-    display: none;
-  }
-}
-
-.circuit-15 {
   font-size: 1rem;
   line-height: 1.5rem;
   display: -webkit-inline-box;
@@ -948,39 +826,39 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   overflow: hidden;
 }
 
-.circuit-15:focus {
+.circuit-11:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-15:focus::-moz-focus-inner {
+.circuit-11:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-15:focus:not(:focus-visible) {
+.circuit-11:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-15:disabled,
-.circuit-15[disabled] {
+.circuit-11:disabled,
+.circuit-11[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-15:hover {
+.circuit-11:hover {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-15:active,
-.circuit-15[aria-expanded='true'],
-.circuit-15[aria-pressed='true'] {
+.circuit-11:active,
+.circuit-11[aria-expanded='true'],
+.circuit-11[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-19 {
+.circuit-15 {
   font-size: 1rem;
   line-height: 1.5rem;
   display: -webkit-inline-box;
@@ -1004,50 +882,86 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
   position: relative;
   overflow: hidden;
-  margin-top: 16px;
 }
 
-.circuit-19:focus {
+.circuit-15:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-19:focus::-moz-focus-inner {
+.circuit-15:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-19:focus:not(:focus-visible) {
+.circuit-15:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-19:disabled,
-.circuit-19[disabled] {
+.circuit-15:disabled,
+.circuit-15[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-19:hover {
-  color: #234BC3;
+.circuit-15:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
-.circuit-19:active,
-.circuit-19[aria-expanded='true'],
-.circuit-19[aria-pressed='true'] {
-  color: #1A368E;
+.circuit-15:active,
+.circuit-15[aria-expanded='true'],
+.circuit-15[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 @media (min-width: 480px) {
-  .circuit-19 {
-    display: none;
+  .circuit-15 {
+    margin-right: 16px;
+    background-color: #FFF;
+    border-color: #999;
+    color: #000;
+  }
+
+  .circuit-15:hover {
+    background-color: #F5F5F5;
+    border-color: #666;
+  }
+
+  .circuit-15:active,
+  .circuit-15[aria-expanded='true'],
+  .circuit-15[aria-pressed='true'] {
+    background-color: #E6E6E6;
+    border-color: #333;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-15 {
+    margin-right: 0;
+    margin-top: 16px;
+    background-color: transparent;
+    border-color: transparent;
+    color: #3063E9;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .circuit-15:hover {
+    color: #234BC3;
+  }
+
+  .circuit-15:active,
+  .circuit-15[aria-expanded='true'],
+  .circuit-15[aria-pressed='true'] {
+    color: #1A368E;
   }
 }
 
@@ -1145,27 +1059,11 @@ exports[`NotificationModal styles should render with default styles 1`] = `
             <span
               class="circuit-5"
             >
-              Not now
-            </span>
-          </button>
-          <button
-            class="circuit-15"
-          >
-            <span
-              class="circuit-3"
-            >
-              <span
-                class="circuit-4"
-              />
-            </span>
-            <span
-              class="circuit-5"
-            >
               Update now
             </span>
           </button>
           <button
-            class="circuit-19"
+            class="circuit-15"
           >
             <span
               class="circuit-3"
@@ -1407,93 +1305,22 @@ exports[`NotificationModal styles should render without an image 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
   margin-top: 24px;
 }
 
 @media (min-width: 480px) {
   .circuit-9 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
   }
 }
 
 .circuit-10 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-  margin-right: 16px;
-}
-
-.circuit-10:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-10:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-10:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-10:disabled,
-.circuit-10[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-10:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
-
-.circuit-10:active,
-.circuit-10[aria-expanded='true'],
-.circuit-10[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
-}
-
-@media (max-width: 479px) {
-  .circuit-10 {
-    display: none;
-  }
-}
-
-.circuit-14 {
   font-size: 1rem;
   line-height: 1.5rem;
   display: -webkit-inline-box;
@@ -1525,39 +1352,39 @@ exports[`NotificationModal styles should render without an image 1`] = `
   overflow: hidden;
 }
 
-.circuit-14:focus {
+.circuit-10:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-14:focus::-moz-focus-inner {
+.circuit-10:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-14:focus:not(:focus-visible) {
+.circuit-10:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-14:disabled,
-.circuit-14[disabled] {
+.circuit-10:disabled,
+.circuit-10[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-14:hover {
+.circuit-10:hover {
   background-color: #234BC3;
   border-color: #234BC3;
 }
 
-.circuit-14:active,
-.circuit-14[aria-expanded='true'],
-.circuit-14[aria-pressed='true'] {
+.circuit-10:active,
+.circuit-10[aria-expanded='true'],
+.circuit-10[aria-pressed='true'] {
   background-color: #1A368E;
   border-color: #1A368E;
 }
 
-.circuit-18 {
+.circuit-14 {
   font-size: 1rem;
   line-height: 1.5rem;
   display: -webkit-inline-box;
@@ -1581,50 +1408,86 @@ exports[`NotificationModal styles should render without an image 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFF;
+  border-color: #999;
+  color: #000;
   padding: calc(12px - 1px) calc(24px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: #3063E9;
-  padding-left: 0;
-  padding-right: 0;
   position: relative;
   overflow: hidden;
-  margin-top: 16px;
 }
 
-.circuit-18:focus {
+.circuit-14:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-18:focus::-moz-focus-inner {
+.circuit-14:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-18:focus:not(:focus-visible) {
+.circuit-14:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-18:disabled,
-.circuit-18[disabled] {
+.circuit-14:disabled,
+.circuit-14[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-18:hover {
-  color: #234BC3;
+.circuit-14:hover {
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
-.circuit-18:active,
-.circuit-18[aria-expanded='true'],
-.circuit-18[aria-pressed='true'] {
-  color: #1A368E;
+.circuit-14:active,
+.circuit-14[aria-expanded='true'],
+.circuit-14[aria-pressed='true'] {
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 @media (min-width: 480px) {
-  .circuit-18 {
-    display: none;
+  .circuit-14 {
+    margin-right: 16px;
+    background-color: #FFF;
+    border-color: #999;
+    color: #000;
+  }
+
+  .circuit-14:hover {
+    background-color: #F5F5F5;
+    border-color: #666;
+  }
+
+  .circuit-14:active,
+  .circuit-14[aria-expanded='true'],
+  .circuit-14[aria-pressed='true'] {
+    background-color: #E6E6E6;
+    border-color: #333;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-14 {
+    margin-right: 0;
+    margin-top: 16px;
+    background-color: transparent;
+    border-color: transparent;
+    color: #3063E9;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .circuit-14:hover {
+    color: #234BC3;
+  }
+
+  .circuit-14:active,
+  .circuit-14[aria-expanded='true'],
+  .circuit-14[aria-pressed='true'] {
+    color: #1A368E;
   }
 }
 
@@ -1723,27 +1586,11 @@ exports[`NotificationModal styles should render without an image 1`] = `
             <span
               class="circuit-5"
             >
-              Not now
-            </span>
-          </button>
-          <button
-            class="circuit-14"
-          >
-            <span
-              class="circuit-3"
-            >
-              <span
-                class="circuit-4"
-              />
-            </span>
-            <span
-              class="circuit-5"
-            >
               Update now
             </span>
           </button>
           <button
-            class="circuit-18"
+            class="circuit-14"
           >
             <span
               class="circuit-3"
