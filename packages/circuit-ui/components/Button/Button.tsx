@@ -295,16 +295,12 @@ export const tertiaryStyles = ({
     padding-right: 0;
 
     &:hover {
-      background-color: transparent;
-      border-color: transparent;
       color: ${theme.colors[colors.hover]};
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      background-color: transparent;
-      border-color: transparent;
       color: ${theme.colors[colors.active]};
     }
   `;

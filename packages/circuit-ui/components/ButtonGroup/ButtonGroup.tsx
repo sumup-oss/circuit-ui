@@ -70,8 +70,10 @@ const secondaryButtonStyles = ({
   theme,
   destructive,
 }: ButtonProps & StyleProps) => css`
-  margin-right: ${theme.spacings.mega};
-  ${secondaryStyles({ theme, variant: 'secondary', destructive })}
+  ${theme.mq.kilo} {
+    margin-right: ${theme.spacings.mega};
+    ${secondaryStyles({ theme, variant: 'secondary', destructive })}
+  }
   ${theme.mq.untilKilo} {
     margin-right: 0;
     margin-top: ${theme.spacings.mega};

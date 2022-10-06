@@ -206,16 +206,12 @@ li:last-child .circuit-1 {
 }
 
 .circuit-5:hover {
-  background-color: transparent;
-  border-color: transparent;
   color: #234BC3;
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: transparent;
-  border-color: transparent;
   color: #1A368E;
 }
 

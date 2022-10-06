@@ -650,16 +650,12 @@ exports[`NotificationInline styles should render notification toast with an acti
 }
 
 .circuit-6:hover {
-  background-color: transparent;
-  border-color: transparent;
   color: #234BC3;
 }
 
 .circuit-6:active,
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
-  background-color: transparent;
-  border-color: transparent;
   color: #1A368E;
 }
 

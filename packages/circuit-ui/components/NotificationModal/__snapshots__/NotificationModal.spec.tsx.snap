@@ -338,10 +338,6 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
 }
 
 .circuit-16:focus {
@@ -376,16 +372,25 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   border-color: #333;
 }
 
-.circuit-16:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
+@media (min-width: 480px) {
+  .circuit-16 {
+    margin-right: 16px;
+    background-color: #FFF;
+    border-color: #999;
+    color: #000;
+  }
 
-.circuit-16:active,
-.circuit-16[aria-expanded='true'],
-.circuit-16[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  .circuit-16:hover {
+    background-color: #F5F5F5;
+    border-color: #666;
+  }
+
+  .circuit-16:active,
+  .circuit-16[aria-expanded='true'],
+  .circuit-16[aria-pressed='true'] {
+    background-color: #E6E6E6;
+    border-color: #333;
+  }
 }
 
 @media (max-width: 479px) {
@@ -400,16 +405,12 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   }
 
   .circuit-16:hover {
-    background-color: transparent;
-    border-color: transparent;
     color: #234BC3;
   }
 
   .circuit-16:active,
   .circuit-16[aria-expanded='true'],
   .circuit-16[aria-pressed='true'] {
-    background-color: transparent;
-    border-color: transparent;
     color: #1A368E;
   }
 }
@@ -887,10 +888,6 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
 }
 
 .circuit-15:focus {
@@ -925,16 +922,25 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   border-color: #333;
 }
 
-.circuit-15:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
+@media (min-width: 480px) {
+  .circuit-15 {
+    margin-right: 16px;
+    background-color: #FFF;
+    border-color: #999;
+    color: #000;
+  }
 
-.circuit-15:active,
-.circuit-15[aria-expanded='true'],
-.circuit-15[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  .circuit-15:hover {
+    background-color: #F5F5F5;
+    border-color: #666;
+  }
+
+  .circuit-15:active,
+  .circuit-15[aria-expanded='true'],
+  .circuit-15[aria-pressed='true'] {
+    background-color: #E6E6E6;
+    border-color: #333;
+  }
 }
 
 @media (max-width: 479px) {
@@ -949,16 +955,12 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   }
 
   .circuit-15:hover {
-    background-color: transparent;
-    border-color: transparent;
     color: #234BC3;
   }
 
   .circuit-15:active,
   .circuit-15[aria-expanded='true'],
   .circuit-15[aria-pressed='true'] {
-    background-color: transparent;
-    border-color: transparent;
     color: #1A368E;
   }
 }
@@ -1412,10 +1414,6 @@ exports[`NotificationModal styles should render without an image 1`] = `
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
 }
 
 .circuit-14:focus {
@@ -1450,16 +1448,25 @@ exports[`NotificationModal styles should render without an image 1`] = `
   border-color: #333;
 }
 
-.circuit-14:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
+@media (min-width: 480px) {
+  .circuit-14 {
+    margin-right: 16px;
+    background-color: #FFF;
+    border-color: #999;
+    color: #000;
+  }
 
-.circuit-14:active,
-.circuit-14[aria-expanded='true'],
-.circuit-14[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  .circuit-14:hover {
+    background-color: #F5F5F5;
+    border-color: #666;
+  }
+
+  .circuit-14:active,
+  .circuit-14[aria-expanded='true'],
+  .circuit-14[aria-pressed='true'] {
+    background-color: #E6E6E6;
+    border-color: #333;
+  }
 }
 
 @media (max-width: 479px) {
@@ -1474,16 +1481,12 @@ exports[`NotificationModal styles should render without an image 1`] = `
   }
 
   .circuit-14:hover {
-    background-color: transparent;
-    border-color: transparent;
     color: #234BC3;
   }
 
   .circuit-14:active,
   .circuit-14[aria-expanded='true'],
   .circuit-14[aria-pressed='true'] {
-    background-color: transparent;
-    border-color: transparent;
     color: #1A368E;
   }
 }

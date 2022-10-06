@@ -186,10 +186,6 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
 }
 
 .circuit-5:focus {
@@ -224,16 +220,25 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   border-color: #333;
 }
 
-.circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
+@media (min-width: 480px) {
+  .circuit-5 {
+    margin-right: 16px;
+    background-color: #FFF;
+    border-color: #999;
+    color: #000;
+  }
 
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  .circuit-5:hover {
+    background-color: #F5F5F5;
+    border-color: #666;
+  }
+
+  .circuit-5:active,
+  .circuit-5[aria-expanded='true'],
+  .circuit-5[aria-pressed='true'] {
+    background-color: #E6E6E6;
+    border-color: #333;
+  }
 }
 
 @media (max-width: 479px) {
@@ -248,16 +253,12 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   }
 
   .circuit-5:hover {
-    background-color: transparent;
-    border-color: transparent;
     color: #234BC3;
   }
 
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    background-color: transparent;
-    border-color: transparent;
     color: #1A368E;
   }
 }
@@ -486,10 +487,6 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
 }
 
 .circuit-5:focus {
@@ -524,16 +521,25 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   border-color: #333;
 }
 
-.circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
+@media (min-width: 480px) {
+  .circuit-5 {
+    margin-right: 16px;
+    background-color: #FFF;
+    border-color: #999;
+    color: #000;
+  }
 
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  .circuit-5:hover {
+    background-color: #F5F5F5;
+    border-color: #666;
+  }
+
+  .circuit-5:active,
+  .circuit-5[aria-expanded='true'],
+  .circuit-5[aria-pressed='true'] {
+    background-color: #E6E6E6;
+    border-color: #333;
+  }
 }
 
 @media (max-width: 479px) {
@@ -548,16 +554,12 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   }
 
   .circuit-5:hover {
-    background-color: transparent;
-    border-color: transparent;
     color: #234BC3;
   }
 
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    background-color: transparent;
-    border-color: transparent;
     color: #1A368E;
   }
 }
@@ -786,10 +788,6 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
 }
 
 .circuit-5:focus {
@@ -824,16 +822,25 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   border-color: #333;
 }
 
-.circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
+@media (min-width: 480px) {
+  .circuit-5 {
+    margin-right: 16px;
+    background-color: #FFF;
+    border-color: #999;
+    color: #000;
+  }
 
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  .circuit-5:hover {
+    background-color: #F5F5F5;
+    border-color: #666;
+  }
+
+  .circuit-5:active,
+  .circuit-5[aria-expanded='true'],
+  .circuit-5[aria-pressed='true'] {
+    background-color: #E6E6E6;
+    border-color: #333;
+  }
 }
 
 @media (max-width: 479px) {
@@ -848,16 +855,12 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   }
 
   .circuit-5:hover {
-    background-color: transparent;
-    border-color: transparent;
     color: #234BC3;
   }
 
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    background-color: transparent;
-    border-color: transparent;
     color: #1A368E;
   }
 }
@@ -1086,10 +1089,6 @@ exports[`ButtonGroup should render with default styles 1`] = `
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
-  margin-right: 16px;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
 }
 
 .circuit-5:focus {
@@ -1124,16 +1123,25 @@ exports[`ButtonGroup should render with default styles 1`] = `
   border-color: #333;
 }
 
-.circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
-}
+@media (min-width: 480px) {
+  .circuit-5 {
+    margin-right: 16px;
+    background-color: #FFF;
+    border-color: #999;
+    color: #000;
+  }
 
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  .circuit-5:hover {
+    background-color: #F5F5F5;
+    border-color: #666;
+  }
+
+  .circuit-5:active,
+  .circuit-5[aria-expanded='true'],
+  .circuit-5[aria-pressed='true'] {
+    background-color: #E6E6E6;
+    border-color: #333;
+  }
 }
 
 @media (max-width: 479px) {
@@ -1148,16 +1156,12 @@ exports[`ButtonGroup should render with default styles 1`] = `
   }
 
   .circuit-5:hover {
-    background-color: transparent;
-    border-color: transparent;
     color: #234BC3;
   }
 
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    background-color: transparent;
-    border-color: transparent;
     color: #1A368E;
   }
 }
