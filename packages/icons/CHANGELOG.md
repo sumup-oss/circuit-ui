@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [#1785](https://github.com/sumup-oss/circuit-ui/pull/1785) [`851351bd`](https://github.com/sumup-oss/circuit-ui/commit/851351bd9108e4c5368a1825ac830cfda2fb969a) Thanks [@sumius](https://github.com/sumius)! - Add new Copy icon.
+- [#1785](https://github.com/sumup-oss/circuit-ui/pull/1785) [`851351bd`](https://github.com/sumup-oss/circuit-ui/commit/851351bd9108e4c5368a1825ac830cfda2fb969a) Thanks [@sumius](https://github.com/sumius)! - Added a new `Copy` icon.
 
 ## 2.14.0
 
