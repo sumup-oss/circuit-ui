@@ -509,14 +509,14 @@ exports[`ImageInput styles should render with an existing image 1`] = `
 }
 
 .circuit-4 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 12px;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
 }
 
 .circuit-5 {
@@ -884,14 +884,14 @@ exports[`ImageInput styles should render with default styles 1`] = `
 }
 
 .circuit-4 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 12px;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
 }
 
 .circuit-5 {
@@ -1264,14 +1264,14 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 }
 
 .circuit-4 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 12px;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
 }
 
 .circuit-5 {
@@ -1681,14 +1681,14 @@ exports[`ImageInput styles should render with smaller button 1`] = `
 }
 
 .circuit-4 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 12px;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
 }
 
 .circuit-5 {
