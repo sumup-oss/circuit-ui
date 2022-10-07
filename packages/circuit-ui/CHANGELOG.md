@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 5.4.0
+
+### Minor Changes
+
+- [#1786](https://github.com/sumup-oss/circuit-ui/pull/1786) [`242e1541`](https://github.com/sumup-oss/circuit-ui/commit/242e1541ef84f22fa3d1d3264cea961230eabd8b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the option of using initials as a placeholder for the `identity` variant of the `Avatar` component.
+
 ## 5.3.2
 
 ### Patch Changes
