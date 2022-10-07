@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useState, ChangeEvent, Fragment } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
@@ -91,17 +91,3 @@ Disabled.args = {
   value: 'true',
   disabled: true,
 };
-
-export const Multiple = (args: CheckboxProps) => (
-  <Fragment>
-    <CheckboxWithState {...args} value="apples" name="fruits">
-      Apples
-    </CheckboxWithState>
-    <CheckboxWithState {...args} value="bananas" name="fruits">
-      Bananas
-    </CheckboxWithState>
-    <CheckboxWithState {...args} value="oranges" name="fruits">
-      Oranges
-    </CheckboxWithState>
-  </Fragment>
-);
