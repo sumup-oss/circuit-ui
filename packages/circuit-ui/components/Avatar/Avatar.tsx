@@ -111,6 +111,8 @@ const initialStyles = ({ theme, size }: StyledProps & StyleProps) => css`
   justify-content: center;
   color: ${theme.colors.white};
   font-size: calc(${avatarSizes[size]} / 2);
+  font-weight: ${theme.fontWeight.bold};
+  user-select: none;
 `;
 
 const Initials = styled('div', {
