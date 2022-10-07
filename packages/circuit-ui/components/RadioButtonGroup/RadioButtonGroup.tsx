@@ -60,7 +60,7 @@ export interface RadioButtonGroupProps
    */
   ref?: Ref<HTMLFieldSetElement>;
   /**
-   * Warning/error/valid message, displayed below the radio buttons.
+   * An information, warning or error message, displayed below the input.
    */
   validationHint?: string;
   /**
