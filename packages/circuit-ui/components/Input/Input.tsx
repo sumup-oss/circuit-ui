@@ -273,6 +273,7 @@ export const Input = forwardRef(
     }
 
     const id = customId || uniqueId('input_');
+    const validationHintId = uniqueId('validation-hint_');
 
     const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
     const suffix = RenderSuffix && <RenderSuffix css={suffixStyles} />;
@@ -289,33 +290,35 @@ export const Input = forwardRef(
             optionalLabel={optionalLabel}
             required={required}
           />
-          <InputWrapper>
-            {prefix}
-            <StyledInput
-              as={as}
-              id={id}
-              value={value}
-              ref={ref}
-              invalid={invalid}
-              aria-invalid={invalid}
-              required={required}
-              disabled={disabled}
-              hasWarning={hasWarning}
-              hasPrefix={hasPrefix}
-              hasSuffix={hasSuffix}
-              css={inputStyles}
-              {...props}
-            />
-            {suffix}
-          </InputWrapper>
-          <FieldValidationHint
-            disabled={disabled}
-            invalid={invalid}
-            hasWarning={hasWarning}
-            showValid={showValid}
-            validationHint={validationHint}
-          />
         </FieldLabel>
+        <InputWrapper>
+          {prefix}
+          <StyledInput
+            as={as}
+            id={id}
+            value={value}
+            ref={ref}
+            aria-describedby={validationHintId}
+            invalid={invalid}
+            aria-invalid={invalid}
+            required={required}
+            disabled={disabled}
+            hasWarning={hasWarning}
+            hasPrefix={hasPrefix}
+            hasSuffix={hasSuffix}
+            css={inputStyles}
+            {...props}
+          />
+          {suffix}
+        </InputWrapper>
+        <FieldValidationHint
+          id={validationHintId}
+          disabled={disabled}
+          invalid={invalid}
+          hasWarning={hasWarning}
+          showValid={showValid}
+          validationHint={validationHint}
+        />
       </FieldWrapper>
     );
   },

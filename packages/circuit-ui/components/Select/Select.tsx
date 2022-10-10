@@ -261,6 +261,7 @@ export const Select = forwardRef(
       );
     }
     const id = customId || uniqueId('select_');
+    const validationHintId = uniqueId('validation-hint_');
 
     const prefix = RenderPrefix && (
       <RenderPrefix css={prefixStyles} value={value} />
@@ -278,50 +279,50 @@ export const Select = forwardRef(
             optionalLabel={optionalLabel}
             required={required}
           />
-
-          <SelectWrapper>
-            {prefix}
-            <SelectElement
-              id={id}
-              value={value}
-              ref={ref}
-              invalid={invalid}
-              aria-invalid={invalid}
-              required={required}
-              disabled={disabled}
-              hasPrefix={hasPrefix}
-              defaultValue={defaultValue}
-              {...props}
-              onChange={handleChange}
-            >
-              {!value && !defaultValue && (
-                /**
-                 * We need a key here just like when mapping over options.
-                 * We're prefixing the key with an underscore to avoid clashes
-                 * with option values.
-                 */
-                <option key="_placeholder" value="">
-                  {placeholder}
-                </option>
-              )}
-              {children ||
-                (options &&
-                  options.map(({ label: optionLabel, ...rest }) => (
-                    <option key={rest.value} {...rest}>
-                      {optionLabel}
-                    </option>
-                  )))}
-            </SelectElement>
-            <IconActive size="16" />
-            <IconInactive size="16" />
-          </SelectWrapper>
-
-          <FieldValidationHint
-            disabled={disabled}
-            invalid={invalid}
-            validationHint={validationHint}
-          />
         </FieldLabel>
+        <SelectWrapper>
+          {prefix}
+          <SelectElement
+            id={id}
+            value={value}
+            ref={ref}
+            aria-describedby={validationHintId}
+            invalid={invalid}
+            aria-invalid={invalid}
+            required={required}
+            disabled={disabled}
+            hasPrefix={hasPrefix}
+            defaultValue={defaultValue}
+            {...props}
+            onChange={handleChange}
+          >
+            {!value && !defaultValue && (
+              /**
+               * We need a key here just like when mapping over options.
+               * We're prefixing the key with an underscore to avoid clashes
+               * with option values.
+               */
+              <option key="_placeholder" value="">
+                {placeholder}
+              </option>
+            )}
+            {children ||
+              (options &&
+                options.map(({ label: optionLabel, ...rest }) => (
+                  <option key={rest.value} {...rest}>
+                    {optionLabel}
+                  </option>
+                )))}
+          </SelectElement>
+          <IconActive size="16" />
+          <IconInactive size="16" />
+        </SelectWrapper>
+        <FieldValidationHint
+          id={validationHintId}
+          disabled={disabled}
+          invalid={invalid}
+          validationHint={validationHint}
+        />
       </FieldWrapper>
     );
   },

@@ -124,9 +124,13 @@ export const RadioButtonGroup = forwardRef(
       );
     }
     const name = customName || uniqueId('radio-button-group_');
+    const validationHintId = uniqueId('validation-hint_');
     return (
       <FieldWrapper
         as="fieldset"
+        role="radiogroup"
+        aria-describedby={validationHintId}
+        aria-orientation="vertical"
         name={name}
         // @ts-expect-error TypeScript isn't smart enough to recognize the `as` prop.
         ref={ref}
@@ -158,6 +162,7 @@ export const RadioButtonGroup = forwardRef(
             ),
           )}
         <FieldValidationHint
+          id={validationHintId}
           invalid={invalid}
           showValid={showValid}
           disabled={disabled}
