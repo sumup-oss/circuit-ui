@@ -58,16 +58,16 @@ export interface SelectorGroupProps {
    */
   size?: SelectorSize;
   /**
-   * Whether the group should take the whole width available. Default: true.
+   * Whether the group should take the whole width available. Defaults to true.
    */
   stretch?: boolean;
   /**
-   * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the field can be inferred from other context.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
   /**
-   * The ref to the HTML DOM element
+   * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLFieldSetElement>;
 }

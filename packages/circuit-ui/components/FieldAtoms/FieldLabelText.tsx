@@ -31,8 +31,8 @@ export interface FieldLabelTextProps extends HTMLAttributes<HTMLSpanElement> {
    */
   optionalLabel?: string;
   /**
-   * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the field can be inferred from other context.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
   /**

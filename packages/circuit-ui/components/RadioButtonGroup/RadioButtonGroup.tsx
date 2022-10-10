@@ -34,8 +34,8 @@ import { AccessibilityError } from '../../util/errors';
 export interface RadioButtonGroupProps
   extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
-   * A collection of available options. Each option must have at least
-   * a value and a label.
+   * A collection of available options. Each option must have at least a value
+   * and a label.
    */
   options: Omit<RadioButtonProps, 'onChange'>[];
   /**
@@ -80,8 +80,8 @@ export interface RadioButtonGroupProps
    */
   required?: InputHTMLAttributes<HTMLInputElement>['required'];
   /**
-   * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the field can be inferred from other context.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
 }

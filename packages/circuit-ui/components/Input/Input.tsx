@@ -47,7 +47,8 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   as?: 'input' | 'textarea';
   /**
-   * A unique identifier for the input field. If not defined, a randomly generated id is used.
+   * A unique identifier for the input field. If not defined, a randomly
+   * generated id is used.
    */
   id?: string;
   /**
@@ -90,8 +91,8 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   textAlign?: 'left' | 'right';
   /**
-   * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the field can be inferred from other context.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
   /**
