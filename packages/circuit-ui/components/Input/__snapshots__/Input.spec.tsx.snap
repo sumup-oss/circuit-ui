@@ -68,25 +68,26 @@ exports[`Input should prioritize disabled over error styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_11"
+    for="input_21"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        aria-invalid="true"
-        class="circuit-5"
-        disabled=""
-        id="input_11"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_22"
+      aria-invalid="true"
+      class="circuit-5"
+      disabled=""
+      id="input_21"
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -158,24 +159,25 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_12"
+    for="input_23"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        disabled=""
-        id="input_12"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_24"
+      class="circuit-5"
+      disabled=""
+      id="input_23"
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -262,28 +264,30 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
 >
   <label
     class="circuit-1"
-    for="input_4"
+    for="input_7"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        id="input_4"
-        value=""
-      />
-    </div>
-    <span
-      class="circuit-6"
-    >
-      Validation hint
-    </span>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_8"
+      class="circuit-5"
+      id="input_7"
+      value=""
+    />
+  </div>
+  <span
+    class="circuit-6"
+    id="validation-hint_8"
+  >
+    Validation hint
+  </span>
 </div>
 `;
 
@@ -370,27 +374,28 @@ exports[`Input should render with a prefix when passed the prefix prop 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_2"
+    for="input_3"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <div
-        class="circuit-5"
-        style="width: 24px; height: 24px;"
-      />
-      <input
-        class="circuit-6"
-        id="input_2"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <div
+      class="circuit-5"
+      style="width: 24px; height: 24px;"
+    />
+    <input
+      aria-describedby="validation-hint_4"
+      class="circuit-6"
+      id="input_3"
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -481,27 +486,28 @@ exports[`Input should render with a suffix when passed the suffix prop 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_3"
+    for="input_5"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        id="input_3"
-        value=""
-      />
-      <div
-        class="circuit-6"
-        style="width: 24px; height: 24px;"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_6"
+      class="circuit-5"
+      id="input_5"
+      value=""
+    />
+    <div
+      class="circuit-6"
+      style="width: 24px; height: 24px;"
+    />
+  </div>
 </div>
 `;
 
@@ -583,23 +589,24 @@ exports[`Input should render with custom styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_13"
+    for="input_25"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        id="input_13"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_26"
+      class="circuit-5"
+      id="input_25"
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -683,16 +690,17 @@ exports[`Input should render with default styles 1`] = `
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        id="input_1"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_2"
+      class="circuit-5"
+      id="input_1"
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -764,24 +772,25 @@ exports[`Input should render with disabled styles when passed the disabled prop 
 >
   <label
     class="circuit-1"
-    for="input_10"
+    for="input_19"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        disabled=""
-        id="input_10"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_20"
+      class="circuit-5"
+      disabled=""
+      id="input_19"
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -878,24 +887,25 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
 >
   <label
     class="circuit-1"
-    for="input_6"
+    for="input_11"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        aria-invalid="true"
-        class="circuit-5"
-        id="input_6"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_12"
+      aria-invalid="true"
+      class="circuit-5"
+      id="input_11"
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -973,24 +983,25 @@ exports[`Input should render with readonly styles when passed the readOnly prop 
 >
   <label
     class="circuit-1"
-    for="input_9"
+    for="input_17"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        id="input_9"
-        readonly=""
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_18"
+      class="circuit-5"
+      id="input_17"
+      readonly=""
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -1068,23 +1079,24 @@ exports[`Input should render with right aligned text 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_8"
+    for="input_15"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        id="input_8"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_16"
+      class="circuit-5"
+      id="input_15"
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -1161,23 +1173,24 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
 >
   <label
     class="circuit-1"
-    for="input_7"
+    for="input_13"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        id="input_7"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_14"
+      class="circuit-5"
+      id="input_13"
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -1270,22 +1283,23 @@ exports[`Input should render with warning styles when passed the hasWarning prop
 >
   <label
     class="circuit-1"
-    for="input_5"
+    for="input_9"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Label
     </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-5"
-        id="input_5"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <input
+      aria-describedby="validation-hint_10"
+      class="circuit-5"
+      id="input_9"
+      value=""
+    />
+  </div>
 </div>
 `;

@@ -79,40 +79,41 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_2"
+    for="input_3"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Search
     </span>
-    <div
-      class="circuit-4"
-    >
-      <svg
-        class="circuit-5"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0zm-.81 5.608a7 7 0 1 1 1.418-1.418l3.102 3.103c.186.189.29.443.29.709a.999.999 0 0 1-.998.998c-.266 0-.52-.104-.71-.29l-3.102-3.102zM14 5.238v-.472c.004.157.004.315 0 .472z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-      <input
-        class="circuit-6"
-        disabled=""
-        id="input_2"
-        type="text"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <svg
+      class="circuit-5"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0zm-.81 5.608a7 7 0 1 1 1.418-1.418l3.102 3.103c.186.189.29.443.29.709a.999.999 0 0 1-.998.998c-.266 0-.52-.104-.71-.29l-3.102-3.102zM14 5.238v-.472c.004.157.004.315 0 .472z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+    <input
+      aria-describedby="validation-hint_4"
+      class="circuit-6"
+      disabled=""
+      id="input_3"
+      type="text"
+      value=""
+    />
+  </div>
 </div>
 `;
 
@@ -207,31 +208,32 @@ exports[`SearchInput should render with default styles 1`] = `
     >
       Search
     </span>
-    <div
-      class="circuit-4"
-    >
-      <svg
-        class="circuit-5"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0zm-.81 5.608a7 7 0 1 1 1.418-1.418l3.102 3.103c.186.189.29.443.29.709a.999.999 0 0 1-.998.998c-.266 0-.52-.104-.71-.29l-3.102-3.102zM14 5.238v-.472c.004.157.004.315 0 .472z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-      <input
-        class="circuit-6"
-        id="input_1"
-        type="text"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <svg
+      class="circuit-5"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0zm-.81 5.608a7 7 0 1 1 1.418-1.418l3.102 3.103c.186.189.29.443.29.709a.999.999 0 0 1-.998.998c-.266 0-.52-.104-.71-.29l-3.102-3.102zM14 5.238v-.472c.004.157.004.315 0 .472z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+    <input
+      aria-describedby="validation-hint_2"
+      class="circuit-6"
+      id="input_1"
+      type="text"
+      value=""
+    />
+  </div>
 </div>
 `;

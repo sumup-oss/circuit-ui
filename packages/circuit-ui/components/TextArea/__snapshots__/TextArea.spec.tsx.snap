@@ -37,6 +37,7 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   margin: 0;
   background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -70,24 +71,25 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_20"
+    for="input_39"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        aria-invalid="true"
-        class="circuit-5"
-        disabled=""
-        id="input_20"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_40"
+      aria-invalid="true"
+      class="circuit-5"
+      disabled=""
+      id="input_39"
+    />
+  </div>
 </div>
 `;
 
@@ -128,6 +130,7 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
   margin: 0;
   background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -161,23 +164,24 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_22"
+    for="input_43"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        disabled=""
-        id="input_22"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_44"
+      class="circuit-5"
+      disabled=""
+      id="input_43"
+    />
+  </div>
 </div>
 `;
 
@@ -211,6 +215,7 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
   width: 100%;
   margin: 0;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -256,24 +261,25 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 >
   <label
     class="circuit-1"
-    for="input_28"
+    for="input_55"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        id="input_28"
-        rows="3"
-        style="resize: none; overflow-y: hidden; height: auto;"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_56"
+      class="circuit-5"
+      id="input_55"
+      rows="3"
+      style="resize: none; overflow-y: hidden; height: auto;"
+    />
+  </div>
 </div>
 `;
 
@@ -307,6 +313,7 @@ exports[`TextArea should render rows props when passed 1`] = `
   width: 100%;
   margin: 0;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -352,23 +359,24 @@ exports[`TextArea should render rows props when passed 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_24"
+    for="input_47"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        id="input_24"
-        rows="3"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_48"
+      class="circuit-5"
+      id="input_47"
+      rows="3"
+    />
+  </div>
 </div>
 `;
 
@@ -402,6 +410,7 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   width: 100%;
   margin: 0;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -457,27 +466,29 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 >
   <label
     class="circuit-1"
-    for="input_8"
+    for="input_15"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        id="input_8"
-      />
-    </div>
-    <span
-      class="circuit-6"
-    >
-      Validation hint
-    </span>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_16"
+      class="circuit-5"
+      id="input_15"
+    />
+  </div>
+  <span
+    class="circuit-6"
+    id="validation-hint_16"
+  >
+    Validation hint
+  </span>
 </div>
 `;
 
@@ -521,6 +532,7 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   margin: 0;
   padding-left: 48px;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -566,26 +578,27 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 >
   <label
     class="circuit-1"
-    for="input_4"
+    for="input_7"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <div
-        class="circuit-5"
-        style="width: 24px; height: 24px;"
-      />
-      <textarea
-        class="circuit-6"
-        id="input_4"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <div
+      class="circuit-5"
+      style="width: 24px; height: 24px;"
+    />
+    <textarea
+      aria-describedby="validation-hint_8"
+      class="circuit-6"
+      id="input_7"
+    />
+  </div>
 </div>
 `;
 
@@ -620,6 +633,7 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
   margin: 0;
   padding-right: 48px;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -678,26 +692,27 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 >
   <label
     class="circuit-1"
-    for="input_6"
+    for="input_11"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        id="input_6"
-      />
-      <div
-        class="circuit-6"
-        style="width: 24px; height: 24px;"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_12"
+      class="circuit-5"
+      id="input_11"
+    />
+    <div
+      class="circuit-6"
+      style="width: 24px; height: 24px;"
+    />
+  </div>
 </div>
 `;
 
@@ -731,6 +746,7 @@ exports[`TextArea should render with default styles 1`] = `
   width: 100%;
   margin: 0;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -776,22 +792,23 @@ exports[`TextArea should render with default styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_2"
+    for="input_3"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        id="input_2"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_4"
+      class="circuit-5"
+      id="input_3"
+    />
+  </div>
 </div>
 `;
 
@@ -832,6 +849,7 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   margin: 0;
   background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -865,23 +883,24 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 >
   <label
     class="circuit-1"
-    for="input_18"
+    for="input_35"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        disabled=""
-        id="input_18"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_36"
+      class="circuit-5"
+      disabled=""
+      id="input_35"
+    />
+  </div>
 </div>
 `;
 
@@ -915,6 +934,7 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   width: 100%;
   margin: 0;
   box-shadow: 0 0 0 1px #D23F47;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -980,23 +1000,24 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 >
   <label
     class="circuit-1"
-    for="input_12"
+    for="input_23"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        aria-invalid="true"
-        class="circuit-5"
-        id="input_12"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_24"
+      aria-invalid="true"
+      class="circuit-5"
+      id="input_23"
+    />
+  </div>
 </div>
 `;
 
@@ -1031,6 +1052,7 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
   margin: 0;
   background-color: #F5F5F5;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -1076,23 +1098,24 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
 >
   <label
     class="circuit-1"
-    for="input_16"
+    for="input_31"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        id="input_16"
-        readonly=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_32"
+      class="circuit-5"
+      id="input_31"
+      readonly=""
+    />
+  </div>
 </div>
 `;
 
@@ -1126,6 +1149,7 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   width: 100%;
   margin: 0;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -1171,22 +1195,23 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 >
   <label
     class="circuit-1"
-    for="input_14"
+    for="input_27"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        id="input_14"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_28"
+      class="circuit-5"
+      id="input_27"
+    />
+  </div>
 </div>
 `;
 
@@ -1220,6 +1245,7 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   width: 100%;
   margin: 0;
   box-shadow: 0 0 0 1px #F5C625;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -1281,22 +1307,23 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 >
   <label
     class="circuit-1"
-    for="input_10"
+    for="input_19"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        id="input_10"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_20"
+      class="circuit-5"
+      id="input_19"
+    />
+  </div>
 </div>
 `;
 
@@ -1330,6 +1357,7 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
   width: 100%;
   margin: 0;
   box-shadow: 0 0 0 1px #999;
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 }
@@ -1375,22 +1403,23 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
 >
   <label
     class="circuit-1"
-    for="input_26"
+    for="input_51"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Textarea
     </span>
-    <div
-      class="circuit-4"
-    >
-      <textarea
-        class="circuit-5"
-        id="input_26"
-        style="resize: none; overflow-y: hidden; height: auto;"
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <textarea
+      aria-describedby="validation-hint_52"
+      class="circuit-5"
+      id="input_51"
+      style="resize: none; overflow-y: hidden; height: auto;"
+    />
+  </div>
 </div>
 `;

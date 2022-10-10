@@ -107,8 +107,11 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
 }
 
 <fieldset
+  aria-describedby="validation-hint_2"
+  aria-orientation="vertical"
   class="circuit-0"
   name="radio-button-group_1"
+  role="radiogroup"
 >
   <legend
     class="circuit-1"
@@ -122,31 +125,16 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   <div>
     <input
       class="circuit-4"
-      id="radio-button_2"
+      id="radio-button_3"
       name="radio-button-group_1"
       type="radio"
       value="first"
     />
     <label
       class="circuit-5"
-      for="radio-button_2"
-    >
-      Option 1
-    </label>
-  </div>
-  <div>
-    <input
-      class="circuit-4"
-      id="radio-button_3"
-      name="radio-button-group_1"
-      type="radio"
-      value="second"
-    />
-    <label
-      class="circuit-5"
       for="radio-button_3"
     >
-      Option 2
+      Option 1
     </label>
   </div>
   <div>
@@ -155,11 +143,26 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
       id="radio-button_4"
       name="radio-button-group_1"
       type="radio"
-      value="third"
+      value="second"
     />
     <label
       class="circuit-5"
       for="radio-button_4"
+    >
+      Option 2
+    </label>
+  </div>
+  <div>
+    <input
+      class="circuit-4"
+      id="radio-button_5"
+      name="radio-button-group_1"
+      type="radio"
+      value="third"
+    />
+    <label
+      class="circuit-5"
+      for="radio-button_5"
     >
       Option 3
     </label>
