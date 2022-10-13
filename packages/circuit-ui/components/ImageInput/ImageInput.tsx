@@ -478,6 +478,7 @@ export const ImageInput = ({
       </InputWrapper>
       <FieldValidationHint
         id={validationHintId}
+        aria-live="polite"
         validationHint={validationHint}
         invalid={invalid}
       />
