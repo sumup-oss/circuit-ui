@@ -25,8 +25,7 @@ import {
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
-import Tooltip from '../Tooltip';
-import { FieldWrapper } from '../FieldAtoms';
+import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -34,7 +33,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   invalid?: boolean;
   /**
-   * Warning or error message, displayed in a tooltip.
+   * An information or error message, displayed below the checkbox.
    */
   validationHint?: string;
   /**
@@ -167,12 +166,6 @@ const CheckboxInput = styled('input')<InputElProps>(
   inputDisabledStyles,
 );
 
-const tooltipStyles = ({ theme }: StyleProps) => css`
-  left: -${theme.spacings.kilo};
-`;
-
-const CheckboxTooltip = styled(Tooltip)(tooltipStyles);
-
 /**
  * Checkbox component for forms.
  */
@@ -214,10 +207,12 @@ export const Checkbox = forwardRef(
           {children}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>
-        {!disabled && validationHint && (
-          <CheckboxTooltip position={'top'} align={'right'}>
-            {validationHint}
-          </CheckboxTooltip>
+        {validationHint && (
+          <FieldValidationHint
+            disabled={disabled}
+            invalid={invalid}
+            validationHint={validationHint}
+          />
         )}
       </CheckboxWrapper>
     );

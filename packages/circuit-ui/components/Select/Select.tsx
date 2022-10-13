@@ -61,9 +61,9 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    */
   invalid?: boolean;
   /**
-   * Currently selected value. Matches the "value" property of
-   * the options objects. If value is falsy, Select will render
-   * the "placeholder" prop as currently selected.
+   * Currently selected value. Matches the "value" property of the options
+   * objects. If value is falsy, Select will render the "placeholder" prop as
+   * currently selected.
    */
   value?: string | number;
   /**
@@ -82,7 +82,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     className?: string;
   }) => JSX.Element;
   /**
-   * Warning or error message, displayed below the select.
+   * An information or error message, displayed below the select.
    */
   validationHint?: string;
   /**
@@ -91,16 +91,17 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    */
   optionalLabel?: string;
   /**
-   * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the field can be inferred from other context.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
   /**
-   * A unique identifier for the input field. If not defined, a randomly generated id is used.
+   * A unique identifier for the input field. If not defined, a randomly
+   * generated id is used.
    */
   id?: string;
   /**
-   * The ref to the HTML DOM element
+   * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLSelectElement>;
   /**

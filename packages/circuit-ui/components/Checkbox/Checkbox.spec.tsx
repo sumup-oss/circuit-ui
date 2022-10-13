@@ -15,13 +15,7 @@
 
 import { createRef } from 'react';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  userEvent,
-} from '../../util/test-utils';
+import { render, axe, userEvent } from '../../util/test-utils';
 
 import { Checkbox } from './Checkbox';
 
@@ -35,30 +29,29 @@ describe('Checkbox', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Checkbox {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Checkbox {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
 
-  it('should render with checked styles when passed the checked prop', () => {
-    const actual = create(<Checkbox checked {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+  it('should render with checked styles', () => {
+    const { container } = render(<Checkbox checked {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
 
-  it('should render with disabled styles when passed the disabled prop', () => {
-    const actual = create(<Checkbox disabled {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+  it('should render with disabled styles', () => {
+    const { container } = render(<Checkbox disabled {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
 
-  it('should render with invalid styles when passed the invalid prop', () => {
-    const actual = create(<Checkbox invalid {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with a tooltip when passed a validation hint', () => {
-    const actual = create(
-      <Checkbox validationHint="This field is required." {...defaultProps} />,
+  it('should render with invalid styles and an error message', () => {
+    const { container } = render(
+      <Checkbox
+        invalid
+        validationHint="This field is required."
+        {...defaultProps}
+      />,
     );
-    expect(actual).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   /**
@@ -103,12 +96,12 @@ describe('Checkbox', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
+    const { container } = render(
       <div>
         <Checkbox {...defaultProps}>Label</Checkbox>
       </div>,
     );
-    const actual = await axe(wrapper);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

@@ -61,7 +61,7 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   renderSuffix?: ({ className }: { className?: string }) => JSX.Element | null;
   /**
-   * Warning or error message, displayed below the input.
+   * An information, warning or error message, displayed below the input.
    */
   validationHint?: string;
   /**
