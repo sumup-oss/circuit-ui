@@ -188,6 +188,7 @@ export const Checkbox = forwardRef(
     ref: CheckboxProps['ref'],
   ) => {
     const id = customId || uniqueId('checkbox_');
+    const validationHintId = uniqueId('validation_hint-');
     const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
     return (
@@ -201,19 +202,19 @@ export const Checkbox = forwardRef(
           disabled={disabled}
           invalid={invalid}
           ref={ref}
+          aria-describedby={validationHintId}
           onChange={handleChange}
         />
         <CheckboxLabel htmlFor={id}>
           {children}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>
-        {validationHint && (
-          <FieldValidationHint
-            disabled={disabled}
-            invalid={invalid}
-            validationHint={validationHint}
-          />
-        )}
+        <FieldValidationHint
+          id={validationHintId}
+          disabled={disabled}
+          invalid={invalid}
+          validationHint={validationHint}
+        />
       </CheckboxWrapper>
     );
   },

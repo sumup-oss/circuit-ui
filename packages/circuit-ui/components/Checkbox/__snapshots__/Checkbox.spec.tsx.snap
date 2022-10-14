@@ -107,16 +107,17 @@ exports[`Checkbox should render with checked styles 1`] = `
     class="circuit-0"
   >
     <input
+      aria-describedby="validation_hint-4"
       checked=""
       class="circuit-1"
-      id="checkbox_2"
+      id="checkbox_3"
       name="name"
       type="checkbox"
       value=""
     />
     <label
       class="circuit-2"
-      for="checkbox_2"
+      for="checkbox_3"
     >
       <svg
         aria-hidden="true"
@@ -243,6 +244,7 @@ exports[`Checkbox should render with default styles 1`] = `
     class="circuit-0"
   >
     <input
+      aria-describedby="validation_hint-2"
       class="circuit-1"
       id="checkbox_1"
       name="name"
@@ -389,16 +391,17 @@ exports[`Checkbox should render with disabled styles 1`] = `
     class="circuit-0"
   >
     <input
+      aria-describedby="validation_hint-6"
       class="circuit-1"
       disabled=""
-      id="checkbox_3"
+      id="checkbox_5"
       name="name"
       type="checkbox"
       value=""
     />
     <label
       class="circuit-2"
-      for="checkbox_3"
+      for="checkbox_5"
     >
       <svg
         aria-hidden="true"
@@ -561,15 +564,16 @@ exports[`Checkbox should render with invalid styles and an error message 1`] = `
     class="circuit-0"
   >
     <input
+      aria-describedby="validation_hint-8"
       class="circuit-1"
-      id="checkbox_4"
+      id="checkbox_7"
       name="name"
       type="checkbox"
       value=""
     />
     <label
       class="circuit-2"
-      for="checkbox_4"
+      for="checkbox_7"
     >
       <svg
         aria-hidden="true"
@@ -587,6 +591,7 @@ exports[`Checkbox should render with invalid styles and an error message 1`] = `
     </label>
     <span
       class="circuit-3"
+      id="validation_hint-8"
     >
       <div
         class="circuit-4"
