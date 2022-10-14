@@ -212,6 +212,9 @@ select:not(:active)~.circuit-7 {
         />
       </svg>
     </div>
+    <span
+      aria-live="polite"
+    />
   </div>,
   .circuit-0 {
   margin-left: 12px;

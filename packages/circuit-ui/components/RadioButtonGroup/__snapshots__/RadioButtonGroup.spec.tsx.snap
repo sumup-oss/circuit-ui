@@ -167,5 +167,8 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
       Option 3
     </label>
   </div>
+  <span
+    aria-live="polite"
+  />
 </fieldset>
 `;

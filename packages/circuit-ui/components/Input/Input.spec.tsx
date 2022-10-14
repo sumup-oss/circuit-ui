@@ -53,7 +53,7 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with a Tooltip when passed the validationHint prop', () => {
+  it('should render with a description when passed the validationHint prop', () => {
     const actual = create(
       <Input validationHint="Validation hint" label="Label" />,
     );

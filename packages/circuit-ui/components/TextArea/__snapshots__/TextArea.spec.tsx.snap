@@ -90,6 +90,9 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
       id="input_39"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -182,6 +185,9 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
       id="input_43"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -280,6 +286,9 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
       style="resize: none; overflow-y: hidden; height: auto;"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -377,6 +386,9 @@ exports[`TextArea should render rows props when passed 1`] = `
       rows="3"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -489,6 +501,9 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   >
     Validation hint
   </span>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -599,6 +614,9 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
       id="input_7"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -713,6 +731,9 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
       style="width: 24px; height: 24px;"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -809,6 +830,9 @@ exports[`TextArea should render with default styles 1`] = `
       id="input_3"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -901,6 +925,9 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
       id="input_35"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1018,6 +1045,9 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
       id="input_23"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1116,6 +1146,9 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
       readonly=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1212,6 +1245,9 @@ exports[`TextArea should render with valid styles when passed the showValid prop
       id="input_27"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1324,6 +1360,9 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
       id="input_19"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1421,5 +1460,8 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
       style="resize: none; overflow-y: hidden; height: auto;"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;

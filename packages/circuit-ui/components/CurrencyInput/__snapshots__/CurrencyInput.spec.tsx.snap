@@ -123,6 +123,9 @@ exports[`CurrencyInput should adjust input padding and suffix width to match cur
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -248,5 +251,8 @@ exports[`CurrencyInput should render with default styles 1`] = `
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;

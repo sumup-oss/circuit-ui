@@ -1035,6 +1035,9 @@ select:not(:active)~.circuit-13 {
         />
       </svg>
     </div>
+    <span
+      aria-live="polite"
+    />
   </div>
   <span
     class="circuit-14"

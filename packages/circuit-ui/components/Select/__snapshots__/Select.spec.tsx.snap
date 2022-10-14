@@ -166,6 +166,9 @@ select:not(:active)~.circuit-7 {
       />
     </svg>
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -354,6 +357,9 @@ select:not(:active)~.circuit-8 {
       />
     </svg>
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -543,6 +549,9 @@ select:not(:active)~.circuit-7 {
   >
     This field is required.
   </span>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -725,6 +734,9 @@ select:not(:active)~.circuit-7 {
       />
     </svg>
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -898,6 +910,9 @@ select:not(:active)~.circuit-7 {
       />
     </svg>
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1066,6 +1081,9 @@ select:not(:active)~.circuit-7 {
       />
     </svg>
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1241,5 +1259,8 @@ select:not(:active)~.circuit-7 {
       />
     </svg>
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;

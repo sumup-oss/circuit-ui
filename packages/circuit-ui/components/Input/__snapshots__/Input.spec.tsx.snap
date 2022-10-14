@@ -88,6 +88,9 @@ exports[`Input should prioritize disabled over error styles 1`] = `
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -178,10 +181,13 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
-exports[`Input should render with a Tooltip when passed the validationHint prop 1`] = `
+exports[`Input should render with a description when passed the validationHint prop 1`] = `
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -288,6 +294,9 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
   >
     Validation hint
   </span>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -396,6 +405,9 @@ exports[`Input should render with a prefix when passed the prefix prop 1`] = `
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -508,6 +520,9 @@ exports[`Input should render with a suffix when passed the suffix prop 1`] = `
       style="width: 24px; height: 24px;"
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -607,6 +622,9 @@ exports[`Input should render with custom styles 1`] = `
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -701,6 +719,9 @@ exports[`Input should render with default styles 1`] = `
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -791,6 +812,9 @@ exports[`Input should render with disabled styles when passed the disabled prop 
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -906,6 +930,9 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1002,6 +1029,9 @@ exports[`Input should render with readonly styles when passed the readOnly prop 
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1097,6 +1127,9 @@ exports[`Input should render with right aligned text 1`] = `
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1191,6 +1224,9 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -1301,5 +1337,8 @@ exports[`Input should render with warning styles when passed the hasWarning prop
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;

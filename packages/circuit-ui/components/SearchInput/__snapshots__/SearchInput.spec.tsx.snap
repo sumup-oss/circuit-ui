@@ -114,6 +114,9 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
 
@@ -235,5 +238,8 @@ exports[`SearchInput should render with default styles 1`] = `
       value=""
     />
   </div>
+  <span
+    aria-live="polite"
+  />
 </div>
 `;
