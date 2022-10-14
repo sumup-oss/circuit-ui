@@ -1,5 +1,6 @@
 name: Markdown Links
 on:
+  push:
   schedule:
     # Every Monday at 9am UTC
     - cron: '0 9 * * 1'
