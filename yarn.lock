@@ -5949,6 +5949,13 @@ ast-types@0.14.2, ast-types@^0.14.1, ast-types@^0.14.2:
   dependencies:
     tslib "^2.0.1"
 
+ast-types@0.15.2:
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.15.2.tgz#39ae4809393c4b16df751ee563411423e85fb49d"
+  integrity sha512-c27loCv9QkZinsa5ProX751khO9DJl/AcB5c2KNtA6NRvHKS0PgLfcftz72KVq504vB0Gku5s2kUZzDBvQWvHg==
+  dependencies:
+    tslib "^2.0.1"
+
 astral-regex@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-2.0.0.tgz#483143c567aeed4785759c0865786dc77d7d2e31"
@@ -11983,10 +11990,10 @@ js-yaml@^3.10.0, js-yaml@^3.13.0, js-yaml@^3.13.1, js-yaml@^3.6.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-jscodeshift@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-0.13.1.tgz#69bfe51e54c831296380585c6d9e733512aecdef"
-  integrity sha512-lGyiEbGOvmMRKgWk4vf+lUrCWO/8YR8sUR3FKF1Cq5fovjZDlIcw3Hu5ppLHAnEXshVffvaM0eyuY/AbOeYpnQ==
+jscodeshift@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-0.14.0.tgz#7542e6715d6d2e8bde0b4e883f0ccea358b46881"
+  integrity sha512-7eCC1knD7bLUPuSCwXsMZUH51O8jIcoVyKtI6P0XM0IVzlGjckPy3FIwQlorzbN0Sg79oK+RlohN32Mqf/lrYA==
   dependencies:
     "@babel/core" "^7.13.16"
     "@babel/parser" "^7.13.16"
@@ -12001,10 +12008,10 @@ jscodeshift@^0.13.1:
     chalk "^4.1.2"
     flow-parser "0.*"
     graceful-fs "^4.2.4"
-    micromatch "^3.1.10"
+    micromatch "^4.0.4"
     neo-async "^2.5.0"
     node-dir "^0.1.17"
-    recast "^0.20.4"
+    recast "^0.21.0"
     temp "^0.8.4"
     write-file-atomic "^2.3.0"
 
@@ -15761,12 +15768,22 @@ readline-transform@1.0.0:
   resolved "https://registry.yarnpkg.com/readline-transform/-/readline-transform-1.0.0.tgz#3157f97428acaec0f05a5c1ff2c3120f4e6d904b"
   integrity sha512-7KA6+N9IGat52d83dvxnApAWN+MtVb1MiVuMR/cf1O4kYsJG+g/Aav0AHcHKsb6StinayfPLne0+fMX2sOzAKg==
 
-recast@^0.20.3, recast@^0.20.4:
+recast@^0.20.3:
   version "0.20.5"
   resolved "https://registry.yarnpkg.com/recast/-/recast-0.20.5.tgz#8e2c6c96827a1b339c634dd232957d230553ceae"
   integrity sha512-E5qICoPoNL4yU0H0NoBDntNB0Q5oMSNh9usFctYniLBluTthi3RsQVBXIJNbApOlvSwW/RGxIuokPcAc59J5fQ==
   dependencies:
     ast-types "0.14.2"
+    esprima "~4.0.0"
+    source-map "~0.6.1"
+    tslib "^2.0.1"
+
+recast@^0.21.0:
+  version "0.21.5"
+  resolved "https://registry.yarnpkg.com/recast/-/recast-0.21.5.tgz#e8cd22bb51bcd6130e54f87955d33a2b2e57b495"
+  integrity sha512-hjMmLaUXAm1hIuTqOdeYObMslq/q+Xff6QE3Y2P+uoHAg2nmVlLBps2hzh1UJDdMtDTMXOFewK6ky51JQIeECg==
+  dependencies:
+    ast-types "0.15.2"
     esprima "~4.0.0"
     source-map "~0.6.1"
     tslib "^2.0.1"
