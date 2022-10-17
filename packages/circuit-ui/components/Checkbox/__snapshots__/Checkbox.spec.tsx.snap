@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox should render with checked styles 1`] = `
+exports[`Checkbox Styles should render with checked styles 1`] = `
 .circuit-0 {
   position: relative;
 }
@@ -111,7 +111,6 @@ exports[`Checkbox should render with checked styles 1`] = `
       checked=""
       class="circuit-1"
       id="checkbox_3"
-      name="name"
       type="checkbox"
       value=""
     />
@@ -119,6 +118,7 @@ exports[`Checkbox should render with checked styles 1`] = `
       class="circuit-2"
       for="checkbox_3"
     >
+      Label
       <svg
         aria-hidden="true"
         fill="none"
@@ -141,7 +141,7 @@ exports[`Checkbox should render with checked styles 1`] = `
 </div>
 `;
 
-exports[`Checkbox should render with default styles 1`] = `
+exports[`Checkbox Styles should render with default styles 1`] = `
 .circuit-0 {
   position: relative;
 }
@@ -251,7 +251,6 @@ exports[`Checkbox should render with default styles 1`] = `
       aria-describedby="validation_hint-2"
       class="circuit-1"
       id="checkbox_1"
-      name="name"
       type="checkbox"
       value=""
     />
@@ -259,6 +258,7 @@ exports[`Checkbox should render with default styles 1`] = `
       class="circuit-2"
       for="checkbox_1"
     >
+      Label
       <svg
         aria-hidden="true"
         fill="none"
@@ -281,7 +281,7 @@ exports[`Checkbox should render with default styles 1`] = `
 </div>
 `;
 
-exports[`Checkbox should render with disabled styles 1`] = `
+exports[`Checkbox Styles should render with disabled styles 1`] = `
 .circuit-0 {
   opacity: 0.5;
   pointer-events: none;
@@ -403,7 +403,6 @@ exports[`Checkbox should render with disabled styles 1`] = `
       class="circuit-1"
       disabled=""
       id="checkbox_5"
-      name="name"
       type="checkbox"
       value=""
     />
@@ -411,6 +410,7 @@ exports[`Checkbox should render with disabled styles 1`] = `
       class="circuit-2"
       for="checkbox_5"
     >
+      Label
       <svg
         aria-hidden="true"
         fill="none"
@@ -433,7 +433,7 @@ exports[`Checkbox should render with disabled styles 1`] = `
 </div>
 `;
 
-exports[`Checkbox should render with invalid styles and an error message 1`] = `
+exports[`Checkbox Styles should render with invalid styles and an error message 1`] = `
 .circuit-0 {
   position: relative;
 }
@@ -579,7 +579,6 @@ exports[`Checkbox should render with invalid styles and an error message 1`] = `
       aria-describedby="validation_hint-8"
       class="circuit-1"
       id="checkbox_7"
-      name="name"
       type="checkbox"
       value=""
     />
@@ -587,6 +586,7 @@ exports[`Checkbox should render with invalid styles and an error message 1`] = `
       class="circuit-2"
       for="checkbox_7"
     >
+      Label
       <svg
         aria-hidden="true"
         fill="none"
