@@ -366,6 +366,7 @@ exports[`ImageInput styles should render a custom component 1`] = `
     </div>
     <span
       aria-live="polite"
+      role="status"
     />
   </div>
 </div>
@@ -748,6 +749,7 @@ exports[`ImageInput styles should render with an existing image 1`] = `
     </div>
     <span
       aria-live="polite"
+      role="status"
     />
   </div>
 </div>
@@ -1127,6 +1129,7 @@ exports[`ImageInput styles should render with default styles 1`] = `
     </div>
     <span
       aria-live="polite"
+      role="status"
     />
   </div>
 </div>
@@ -1535,6 +1538,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
     </div>
     <span
       aria-live="polite"
+      role="status"
     >
       <span
         class="circuit-13"
@@ -1944,6 +1948,7 @@ exports[`ImageInput styles should render with smaller button 1`] = `
     </div>
     <span
       aria-live="polite"
+      role="status"
     />
   </div>
 </div>

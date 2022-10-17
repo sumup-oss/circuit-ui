@@ -1037,6 +1037,7 @@ select:not(:active)~.circuit-13 {
     </div>
     <span
       aria-live="polite"
+      role="status"
     />
   </div>
   <span

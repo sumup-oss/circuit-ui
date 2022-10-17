@@ -135,6 +135,7 @@ exports[`Checkbox should render with checked styles 1`] = `
     </label>
     <span
       aria-live="polite"
+      role="status"
     />
   </div>
 </div>
@@ -274,6 +275,7 @@ exports[`Checkbox should render with default styles 1`] = `
     </label>
     <span
       aria-live="polite"
+      role="status"
     />
   </div>
 </div>
@@ -425,6 +427,7 @@ exports[`Checkbox should render with disabled styles 1`] = `
     </label>
     <span
       aria-live="polite"
+      role="status"
     />
   </div>
 </div>
@@ -600,6 +603,7 @@ exports[`Checkbox should render with invalid styles and an error message 1`] = `
     </label>
     <span
       aria-live="polite"
+      role="status"
     >
       <span
         class="circuit-3"

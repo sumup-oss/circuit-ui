@@ -161,7 +161,7 @@ export const FieldValidationHint = ({
           {validationHint}
         </Wrapper>
       )}
-      <span aria-live="polite">
+      <span role="status" aria-live="polite">
         {hasMessage && isStatusMessage && (
           <Wrapper {...props}>
             {icon}
