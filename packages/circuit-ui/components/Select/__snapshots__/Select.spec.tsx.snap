@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select should not render with invalid styles when also passed the disabled prop 1`] = `
+exports[`Select Styles should not render with invalid styles when also passed the disabled prop 1`] = `
 .circuit-0 {
   opacity: 0.5;
   pointer-events: none;
@@ -97,83 +97,85 @@ select:not(:active)~.circuit-7 {
   display: none;
 }
 
-<div
-  class="circuit-0"
->
-  <label
-    class="circuit-1"
-    for="select_9"
-  >
-    <span
-      class="circuit-2 circuit-3"
-    >
-      Label
-    </span>
-  </label>
+<div>
   <div
-    class="circuit-4"
+    class="circuit-0"
   >
-    <select
-      aria-describedby="validation-hint_10"
-      aria-invalid="true"
-      class="circuit-5"
-      disabled=""
-      id="select_9"
+    <label
+      class="circuit-1"
+      for="select_9"
     >
-      <option
-        value=""
-      />
-      <option
-        value="1"
+      <span
+        class="circuit-2 circuit-3"
       >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-6"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+        Label
+      </span>
+    </label>
+    <div
+      class="circuit-4"
     >
-      <path
-        d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
-        fill="currentColor"
-      />
-    </svg>
-    <svg
-      class="circuit-7"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
-        fill="currentColor"
-      />
-    </svg>
+      <select
+        aria-describedby="validation-hint_10"
+        aria-invalid="true"
+        class="circuit-5"
+        disabled=""
+        id="select_9"
+      >
+        <option
+          value=""
+        />
+        <option
+          value="1"
+        >
+          Option 1
+        </option>
+        <option
+          value="2"
+        >
+          Option 2
+        </option>
+        <option
+          value="3"
+        >
+          Option 3
+        </option>
+      </select>
+      <svg
+        class="circuit-6"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+          fill="currentColor"
+        />
+      </svg>
+      <svg
+        class="circuit-7"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <span
+      aria-live="polite"
+      role="status"
+    />
   </div>
-  <span
-    aria-live="polite"
-    role="status"
-  />
 </div>
 `;
 
-exports[`Select should render with a prefix when passed the prefix prop 1`] = `
+exports[`Select Styles should render with a prefix when passed the prefix prop 1`] = `
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -287,85 +289,87 @@ select:not(:active)~.circuit-8 {
   display: none;
 }
 
-<div
-  class="circuit-0"
->
-  <label
-    class="circuit-1"
-    for="select_13"
-  >
-    <span
-      class="circuit-2 circuit-3"
-    >
-      Label
-    </span>
-  </label>
+<div>
   <div
-    class="circuit-4"
+    class="circuit-0"
   >
+    <label
+      class="circuit-1"
+      for="select_13"
+    >
+      <span
+        class="circuit-2 circuit-3"
+      >
+        Label
+      </span>
+    </label>
     <div
-      class="circuit-5"
-      style="width: 24px; height: 24px;"
+      class="circuit-4"
+    >
+      <div
+        class="circuit-5"
+        style="width: 24px; height: 24px;"
+      />
+      <select
+        aria-describedby="validation-hint_14"
+        class="circuit-6"
+        id="select_13"
+      >
+        <option
+          value=""
+        />
+        <option
+          value="1"
+        >
+          Option 1
+        </option>
+        <option
+          value="2"
+        >
+          Option 2
+        </option>
+        <option
+          value="3"
+        >
+          Option 3
+        </option>
+      </select>
+      <svg
+        class="circuit-7"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+          fill="currentColor"
+        />
+      </svg>
+      <svg
+        class="circuit-8"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <span
+      aria-live="polite"
+      role="status"
     />
-    <select
-      aria-describedby="validation-hint_14"
-      class="circuit-6"
-      id="select_13"
-    >
-      <option
-        value=""
-      />
-      <option
-        value="1"
-      >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-7"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
-        fill="currentColor"
-      />
-    </svg>
-    <svg
-      class="circuit-8"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
-        fill="currentColor"
-      />
-    </svg>
   </div>
-  <span
-    aria-live="polite"
-    role="status"
-  />
 </div>
 `;
 
-exports[`Select should render with a tooltip when passed a validation hint 1`] = `
+exports[`Select Styles should render with a tooltip when passed a validation hint 1`] = `
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -478,87 +482,89 @@ select:not(:active)~.circuit-7 {
   transition: color 120ms ease-in-out;
 }
 
-<div
-  class="circuit-0"
->
-  <label
-    class="circuit-1"
-    for="select_11"
-  >
-    <span
-      class="circuit-2 circuit-3"
-    >
-      Label
-    </span>
-  </label>
+<div>
   <div
-    class="circuit-4"
+    class="circuit-0"
   >
-    <select
-      aria-describedby="validation-hint_12"
-      class="circuit-5"
-      id="select_11"
+    <label
+      class="circuit-1"
+      for="select_11"
     >
-      <option
-        value=""
-      />
-      <option
-        value="1"
+      <span
+        class="circuit-2 circuit-3"
       >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-6"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+        Label
+      </span>
+    </label>
+    <div
+      class="circuit-4"
     >
-      <path
-        d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
-        fill="currentColor"
-      />
-    </svg>
-    <svg
-      class="circuit-7"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+      <select
+        aria-describedby="validation-hint_12"
+        class="circuit-5"
+        id="select_11"
+      >
+        <option
+          value=""
+        />
+        <option
+          value="1"
+        >
+          Option 1
+        </option>
+        <option
+          value="2"
+        >
+          Option 2
+        </option>
+        <option
+          value="3"
+        >
+          Option 3
+        </option>
+      </select>
+      <svg
+        class="circuit-6"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+          fill="currentColor"
+        />
+      </svg>
+      <svg
+        class="circuit-7"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <span
+      class="circuit-8"
+      id="validation-hint_12"
     >
-      <path
-        d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
-        fill="currentColor"
-      />
-    </svg>
+      This field is required.
+    </span>
+    <span
+      aria-live="polite"
+      role="status"
+    />
   </div>
-  <span
-    class="circuit-8"
-    id="validation-hint_12"
-  >
-    This field is required.
-  </span>
-  <span
-    aria-live="polite"
-    role="status"
-  />
 </div>
 `;
 
-exports[`Select should render with a visually-hidden label 1`] = `
+exports[`Select Styles should render with a visually-hidden label 1`] = `
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -670,81 +676,83 @@ select:not(:active)~.circuit-7 {
   display: none;
 }
 
-<div
-  class="circuit-0"
->
-  <label
-    class="circuit-1"
-    for="select_3"
-  >
-    <span
-      class="circuit-2 circuit-3"
-    >
-      Label
-    </span>
-  </label>
+<div>
   <div
-    class="circuit-4"
+    class="circuit-0"
   >
-    <select
-      aria-describedby="validation-hint_4"
-      class="circuit-5"
-      id="select_3"
+    <label
+      class="circuit-1"
+      for="select_3"
     >
-      <option
-        value=""
-      />
-      <option
-        value="1"
+      <span
+        class="circuit-2 circuit-3"
       >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-6"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+        Label
+      </span>
+    </label>
+    <div
+      class="circuit-4"
     >
-      <path
-        d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
-        fill="currentColor"
-      />
-    </svg>
-    <svg
-      class="circuit-7"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
-        fill="currentColor"
-      />
-    </svg>
+      <select
+        aria-describedby="validation-hint_4"
+        class="circuit-5"
+        id="select_3"
+      >
+        <option
+          value=""
+        />
+        <option
+          value="1"
+        >
+          Option 1
+        </option>
+        <option
+          value="2"
+        >
+          Option 2
+        </option>
+        <option
+          value="3"
+        >
+          Option 3
+        </option>
+      </select>
+      <svg
+        class="circuit-6"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+          fill="currentColor"
+        />
+      </svg>
+      <svg
+        class="circuit-7"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <span
+      aria-live="polite"
+      role="status"
+    />
   </div>
-  <span
-    aria-live="polite"
-    role="status"
-  />
 </div>
 `;
 
-exports[`Select should render with default styles 1`] = `
+exports[`Select Styles should render with default styles 1`] = `
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -847,81 +855,83 @@ select:not(:active)~.circuit-7 {
   display: none;
 }
 
-<div
-  class="circuit-0"
->
-  <label
-    class="circuit-1"
-    for="select_1"
-  >
-    <span
-      class="circuit-2 circuit-3"
-    >
-      Label
-    </span>
-  </label>
+<div>
   <div
-    class="circuit-4"
+    class="circuit-0"
   >
-    <select
-      aria-describedby="validation-hint_2"
-      class="circuit-5"
-      id="select_1"
+    <label
+      class="circuit-1"
+      for="select_1"
     >
-      <option
-        value=""
-      />
-      <option
-        value="1"
+      <span
+        class="circuit-2 circuit-3"
       >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-6"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+        Label
+      </span>
+    </label>
+    <div
+      class="circuit-4"
     >
-      <path
-        d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
-        fill="currentColor"
-      />
-    </svg>
-    <svg
-      class="circuit-7"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
-        fill="currentColor"
-      />
-    </svg>
+      <select
+        aria-describedby="validation-hint_2"
+        class="circuit-5"
+        id="select_1"
+      >
+        <option
+          value=""
+        />
+        <option
+          value="1"
+        >
+          Option 1
+        </option>
+        <option
+          value="2"
+        >
+          Option 2
+        </option>
+        <option
+          value="3"
+        >
+          Option 3
+        </option>
+      </select>
+      <svg
+        class="circuit-6"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+          fill="currentColor"
+        />
+      </svg>
+      <svg
+        class="circuit-7"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <span
+      aria-live="polite"
+      role="status"
+    />
   </div>
-  <span
-    aria-live="polite"
-    role="status"
-  />
 </div>
 `;
 
-exports[`Select should render with disabled styles when passed the disabled prop 1`] = `
+exports[`Select Styles should render with disabled styles when passed the disabled prop 1`] = `
 .circuit-0 {
   opacity: 0.5;
   pointer-events: none;
@@ -1018,82 +1028,84 @@ select:not(:active)~.circuit-7 {
   display: none;
 }
 
-<div
-  class="circuit-0"
->
-  <label
-    class="circuit-1"
-    for="select_5"
-  >
-    <span
-      class="circuit-2 circuit-3"
-    >
-      Label
-    </span>
-  </label>
+<div>
   <div
-    class="circuit-4"
+    class="circuit-0"
   >
-    <select
-      aria-describedby="validation-hint_6"
-      class="circuit-5"
-      disabled=""
-      id="select_5"
+    <label
+      class="circuit-1"
+      for="select_5"
     >
-      <option
-        value=""
-      />
-      <option
-        value="1"
+      <span
+        class="circuit-2 circuit-3"
       >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-6"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+        Label
+      </span>
+    </label>
+    <div
+      class="circuit-4"
     >
-      <path
-        d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
-        fill="currentColor"
-      />
-    </svg>
-    <svg
-      class="circuit-7"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
-        fill="currentColor"
-      />
-    </svg>
+      <select
+        aria-describedby="validation-hint_6"
+        class="circuit-5"
+        disabled=""
+        id="select_5"
+      >
+        <option
+          value=""
+        />
+        <option
+          value="1"
+        >
+          Option 1
+        </option>
+        <option
+          value="2"
+        >
+          Option 2
+        </option>
+        <option
+          value="3"
+        >
+          Option 3
+        </option>
+      </select>
+      <svg
+        class="circuit-6"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+          fill="currentColor"
+        />
+      </svg>
+      <svg
+        class="circuit-7"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <span
+      aria-live="polite"
+      role="status"
+    />
   </div>
-  <span
-    aria-live="polite"
-    role="status"
-  />
 </div>
 `;
 
-exports[`Select should render with invalid styles when passed the invalid prop 1`] = `
+exports[`Select Styles should render with invalid styles when passed the invalid prop 1`] = `
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -1197,77 +1209,79 @@ select:not(:active)~.circuit-7 {
   display: none;
 }
 
-<div
-  class="circuit-0"
->
-  <label
-    class="circuit-1"
-    for="select_7"
-  >
-    <span
-      class="circuit-2 circuit-3"
-    >
-      Label
-    </span>
-  </label>
+<div>
   <div
-    class="circuit-4"
+    class="circuit-0"
   >
-    <select
-      aria-describedby="validation-hint_8"
-      aria-invalid="true"
-      class="circuit-5"
-      id="select_7"
+    <label
+      class="circuit-1"
+      for="select_7"
     >
-      <option
-        value=""
-      />
-      <option
-        value="1"
+      <span
+        class="circuit-2 circuit-3"
       >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-6"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+        Label
+      </span>
+    </label>
+    <div
+      class="circuit-4"
     >
-      <path
-        d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
-        fill="currentColor"
-      />
-    </svg>
-    <svg
-      class="circuit-7"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
-        fill="currentColor"
-      />
-    </svg>
+      <select
+        aria-describedby="validation-hint_8"
+        aria-invalid="true"
+        class="circuit-5"
+        id="select_7"
+      >
+        <option
+          value=""
+        />
+        <option
+          value="1"
+        >
+          Option 1
+        </option>
+        <option
+          value="2"
+        >
+          Option 2
+        </option>
+        <option
+          value="3"
+        >
+          Option 3
+        </option>
+      </select>
+      <svg
+        class="circuit-6"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
+          fill="currentColor"
+        />
+      </svg>
+      <svg
+        class="circuit-7"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <span
+      aria-live="polite"
+      role="status"
+    />
   </div>
-  <span
-    aria-live="polite"
-    role="status"
-  />
 </div>
 `;
