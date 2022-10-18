@@ -20,11 +20,14 @@ import { render, axe } from '../../util/test-utils';
 import Select from '.';
 
 describe('Select', () => {
-  const options = [
-    { value: '1', label: 'Option 1' },
-    { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' },
-  ];
+  const defaultProps = {
+    label: 'Label',
+    options: [
+      { value: '1', label: 'Option 1' },
+      { value: '2', label: 'Option 2' },
+      { value: '3', label: 'Option 3' },
+    ],
+  };
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -32,45 +35,35 @@ describe('Select', () => {
 
   describe('Styles', () => {
     it('should render with default styles', () => {
-      const { container } = render(<Select {...{ options }} label="Label" />);
+      const { container } = render(<Select {...defaultProps} />);
       expect(container).toMatchSnapshot();
     });
 
     it('should render with a visually-hidden label', () => {
-      const { container } = render(
-        <Select {...{ options }} label="Label" hideLabel />,
-      );
+      const { container } = render(<Select {...defaultProps} hideLabel />);
       expect(container).toMatchSnapshot();
     });
 
     it('should render with disabled styles when passed the disabled prop', () => {
-      const { container } = render(
-        <Select {...{ options }} label="Label" disabled />,
-      );
+      const { container } = render(<Select {...defaultProps} disabled />);
       expect(container).toMatchSnapshot();
     });
 
     it('should render with invalid styles when passed the invalid prop', () => {
-      const { container } = render(
-        <Select {...{ options }} label="Label" invalid />,
-      );
+      const { container } = render(<Select {...defaultProps} invalid />);
       expect(container).toMatchSnapshot();
     });
 
     it('should not render with invalid styles when also passed the disabled prop', () => {
       const { container } = render(
-        <Select {...{ options }} label="Label" invalid disabled />,
+        <Select {...defaultProps} invalid disabled />,
       );
       expect(container).toMatchSnapshot();
     });
 
     it('should render with a tooltip when passed a validation hint', () => {
       const { container } = render(
-        <Select
-          {...{ options }}
-          label="Label"
-          validationHint="This field is required."
-        />,
+        <Select {...defaultProps} validationHint="This field is required." />,
       );
       expect(container).toMatchSnapshot();
     });
@@ -81,8 +74,7 @@ describe('Select', () => {
       );
       const { container } = render(
         <Select
-          {...{ options }}
-          label="Label"
+          {...defaultProps}
           renderPrefix={({ className }) => (
             <DummyElement className={className} />
           )}
@@ -94,7 +86,7 @@ describe('Select', () => {
 
   describe('Logic', () => {
     it('should accept the options as children', () => {
-      const children = options.map(({ label, ...rest }) => (
+      const children = defaultProps.options.map(({ label, ...rest }) => (
         <option key={rest.value} {...rest}>
           {label}
         </option>
@@ -104,14 +96,12 @@ describe('Select', () => {
       );
       const optionEls = getAllByRole('option');
       expect(optionEls).toHaveLength(
-        options.length + 1 /* Options plus placeholder */,
+        defaultProps.options.length + 1 /* Options plus placeholder */,
       );
     });
 
     it('should be disabled when passed the disabled prop', () => {
-      const { getByRole } = render(
-        <Select options={options} label="Label" disabled />,
-      );
+      const { getByRole } = render(<Select {...defaultProps} disabled />);
       const selectEl = getByRole('combobox');
       expect(selectEl).toBeDisabled();
     });
@@ -119,7 +109,7 @@ describe('Select', () => {
     it('should show the placeholder when no value or defaultValue is passed', () => {
       const placeholder = 'Placeholder';
       const { getByRole } = render(
-        <Select options={options} label="Label" placeholder={placeholder} />,
+        <Select {...defaultProps} placeholder={placeholder} />,
       );
       const selectEl = getByRole('combobox');
       expect(selectEl.firstChild).toHaveTextContent(placeholder);
@@ -130,8 +120,7 @@ describe('Select', () => {
       const defaultValue = 2;
       const { getByRole } = render(
         <Select
-          options={options}
-          label="Label"
+          {...defaultProps}
           placeholder={placeholder}
           defaultValue={defaultValue}
         />,
@@ -145,10 +134,10 @@ describe('Select', () => {
       const value = 2;
       const { getByRole } = render(
         <Select
-          options={options}
-          label="Label"
+          {...defaultProps}
           placeholder={placeholder}
           value={value}
+          onChange={jest.fn}
         />,
       );
       const selectEl = getByRole('combobox');
@@ -157,7 +146,7 @@ describe('Select', () => {
 
     it('should accept a working ref', () => {
       const tref = createRef<HTMLSelectElement>();
-      const { container } = render(<Select ref={tref} label="Label" />);
+      const { container } = render(<Select {...defaultProps} ref={tref} />);
       const select = container.querySelector('select');
       expect(tref.current).toBe(select);
     });
@@ -165,11 +154,57 @@ describe('Select', () => {
 
   describe('Accessibility', () => {
     it('should have no violations', async () => {
-      const { container } = render(
-        <Select {...{ options }} id="select" label="Label" />,
-      );
+      const { container } = render(<Select {...defaultProps} />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
+    });
+
+    describe('Labeling', () => {
+      it('should have an accessible name', () => {
+        const { getByRole } = render(<Select {...defaultProps} />);
+        const inputEl = getByRole('combobox');
+
+        expect(inputEl).toHaveAccessibleName(defaultProps.label);
+      });
+
+      it('should optionally have an accessible description', () => {
+        const description = 'Description';
+        const { getByRole } = render(
+          <Select validationHint={description} {...defaultProps} />,
+        );
+        const inputEl = getByRole('combobox');
+
+        expect(inputEl).toHaveAccessibleDescription(description);
+      });
+    });
+
+    describe('Status messages', () => {
+      it('should render an empty live region on mount', () => {
+        const { getByRole } = render(<Select {...defaultProps} />);
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toBeEmptyDOMElement();
+      });
+
+      it('should render status messages in a live region', () => {
+        const statusMessage = 'This field is required';
+        const { getByRole } = render(
+          <Select invalid validationHint={statusMessage} {...defaultProps} />,
+        );
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toHaveTextContent(statusMessage);
+      });
+
+      it('should not render descriptions in a live region', () => {
+        const statusMessage = 'This field is required';
+        const { getByRole } = render(
+          <Select validationHint={statusMessage} {...defaultProps} />,
+        );
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toBeEmptyDOMElement();
+      });
     });
   });
 });
