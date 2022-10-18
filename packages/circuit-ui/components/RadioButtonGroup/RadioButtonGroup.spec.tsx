@@ -20,7 +20,7 @@ import { render, userEvent, axe } from '../../util/test-utils';
 import { RadioButtonGroup } from './RadioButtonGroup';
 
 describe('RadioButtonGroup', () => {
-  const baseProps = {
+  const defaultProps = {
     options: [
       {
         label: 'Option 1',
@@ -41,7 +41,7 @@ describe('RadioButtonGroup', () => {
 
   describe('Styles', () => {
     it('should render with default styles', () => {
-      const { container } = render(<RadioButtonGroup {...baseProps} />);
+      const { container } = render(<RadioButtonGroup {...defaultProps} />);
       expect(container).toMatchSnapshot();
     });
   });
@@ -50,7 +50,7 @@ describe('RadioButtonGroup', () => {
     it('should check the selected option', () => {
       const value = 'second';
       const { getByLabelText } = render(
-        <RadioButtonGroup {...baseProps} value={value} />,
+        <RadioButtonGroup {...defaultProps} value={value} />,
       );
       expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
       expect(getByLabelText('Option 2')).toHaveAttribute('checked');
@@ -59,7 +59,7 @@ describe('RadioButtonGroup', () => {
 
     it('should have a required attribute on each option when required is specified', () => {
       const { getByLabelText } = render(
-        <RadioButtonGroup {...baseProps} required />,
+        <RadioButtonGroup {...defaultProps} required />,
       );
       expect(getByLabelText('Option 1')).toHaveAttribute('required');
       expect(getByLabelText('Option 2')).toHaveAttribute('required');
@@ -69,7 +69,7 @@ describe('RadioButtonGroup', () => {
     it('should call the change handler when clicked', async () => {
       const onChange = jest.fn();
       const { getByLabelText } = render(
-        <RadioButtonGroup {...baseProps} onChange={onChange} />,
+        <RadioButtonGroup {...defaultProps} onChange={onChange} />,
       );
 
       await userEvent.click(getByLabelText('Option 3'));
@@ -80,7 +80,7 @@ describe('RadioButtonGroup', () => {
     it('should accept a working ref', () => {
       const tref = createRef<HTMLFieldSetElement>();
       const { container } = render(
-        <RadioButtonGroup {...baseProps} ref={tref} />,
+        <RadioButtonGroup {...defaultProps} ref={tref} />,
       );
       const fieldset = container.querySelector('fieldset');
       expect(tref.current).toBe(fieldset);
@@ -89,12 +89,62 @@ describe('RadioButtonGroup', () => {
 
   describe('Accessibility', () => {
     it('should have no violations', async () => {
-      const value = 'second';
-      const { container } = render(
-        <RadioButtonGroup {...baseProps} value={value} />,
-      );
+      const { container } = render(<RadioButtonGroup {...defaultProps} />);
       const actual = await axe(container);
+
       expect(actual).toHaveNoViolations();
+    });
+
+    describe('Labeling', () => {
+      it('should have an accessible name', () => {
+        const { getByRole } = render(<RadioButtonGroup {...defaultProps} />);
+        const inputEl = getByRole('radiogroup');
+
+        expect(inputEl).toHaveAccessibleName(defaultProps.label);
+      });
+
+      it('should optionally have an accessible description', () => {
+        const description = 'Description';
+        const { getByRole } = render(
+          <RadioButtonGroup validationHint={description} {...defaultProps} />,
+        );
+        const inputEl = getByRole('radiogroup');
+
+        expect(inputEl).toHaveAccessibleDescription(description);
+      });
+    });
+
+    describe('Status messages', () => {
+      it('should render an empty live region on mount', () => {
+        const { getByRole } = render(<RadioButtonGroup {...defaultProps} />);
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toBeEmptyDOMElement();
+      });
+
+      it('should render status messages in a live region', () => {
+        const statusMessage = 'This field is required';
+        const { getByRole } = render(
+          <RadioButtonGroup
+            invalid
+            validationHint={statusMessage}
+            {...defaultProps}
+          />,
+        );
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toHaveTextContent(statusMessage);
+      });
+
+      it('should not render descriptions in a live region', () => {
+        const statusMessage = 'This field is required';
+        const { getByRole } = render(
+          <RadioButtonGroup validationHint={statusMessage} {...defaultProps} />,
+        );
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toBeEmptyDOMElement();
+      });
     });
   });
 });
