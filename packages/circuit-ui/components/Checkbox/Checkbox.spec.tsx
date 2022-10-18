@@ -25,9 +25,6 @@ const defaultProps = {
 };
 
 describe('Checkbox', () => {
-  /**
-   * Style tests.
-   */
   describe('Styles', () => {
     it('should render with default styles', () => {
       const { container } = render(<Checkbox {...defaultProps} />);
@@ -56,9 +53,6 @@ describe('Checkbox', () => {
     });
   });
 
-  /**
-   * Logic tests.
-   */
   describe('Logic', () => {
     it('should be unchecked by default', () => {
       const { getByRole } = render(<Checkbox {...defaultProps} />);
@@ -85,9 +79,6 @@ describe('Checkbox', () => {
     });
   });
 
-  /**
-   * Accessibility tests.
-   */
   describe('Accessibility', () => {
     it('should have no violations', async () => {
       const { container } = render(<Checkbox {...defaultProps} />);
