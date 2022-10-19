@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Fixed unintended spacing below the `TextArea` component.
+Removed unintended spacing below the `TextArea` component.
