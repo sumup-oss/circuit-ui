@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox should render with checked styles 1`] = `
+exports[`Checkbox Styles should render with checked styles 1`] = `
 .circuit-0 {
   position: relative;
 }
@@ -107,17 +107,18 @@ exports[`Checkbox should render with checked styles 1`] = `
     class="circuit-0"
   >
     <input
+      aria-describedby="validation_hint-4"
       checked=""
       class="circuit-1"
-      id="checkbox_2"
-      name="name"
+      id="checkbox_3"
       type="checkbox"
       value=""
     />
     <label
       class="circuit-2"
-      for="checkbox_2"
+      for="checkbox_3"
     >
+      Label
       <svg
         aria-hidden="true"
         fill="none"
@@ -132,11 +133,15 @@ exports[`Checkbox should render with checked styles 1`] = `
         />
       </svg>
     </label>
+    <span
+      aria-live="polite"
+      role="status"
+    />
   </div>
 </div>
 `;
 
-exports[`Checkbox should render with default styles 1`] = `
+exports[`Checkbox Styles should render with default styles 1`] = `
 .circuit-0 {
   position: relative;
 }
@@ -243,9 +248,9 @@ exports[`Checkbox should render with default styles 1`] = `
     class="circuit-0"
   >
     <input
+      aria-describedby="validation_hint-2"
       class="circuit-1"
       id="checkbox_1"
-      name="name"
       type="checkbox"
       value=""
     />
@@ -253,6 +258,7 @@ exports[`Checkbox should render with default styles 1`] = `
       class="circuit-2"
       for="checkbox_1"
     >
+      Label
       <svg
         aria-hidden="true"
         fill="none"
@@ -267,11 +273,15 @@ exports[`Checkbox should render with default styles 1`] = `
         />
       </svg>
     </label>
+    <span
+      aria-live="polite"
+      role="status"
+    />
   </div>
 </div>
 `;
 
-exports[`Checkbox should render with disabled styles 1`] = `
+exports[`Checkbox Styles should render with disabled styles 1`] = `
 .circuit-0 {
   opacity: 0.5;
   pointer-events: none;
@@ -389,17 +399,18 @@ exports[`Checkbox should render with disabled styles 1`] = `
     class="circuit-0"
   >
     <input
+      aria-describedby="validation_hint-6"
       class="circuit-1"
       disabled=""
-      id="checkbox_3"
-      name="name"
+      id="checkbox_5"
       type="checkbox"
       value=""
     />
     <label
       class="circuit-2"
-      for="checkbox_3"
+      for="checkbox_5"
     >
+      Label
       <svg
         aria-hidden="true"
         fill="none"
@@ -414,11 +425,15 @@ exports[`Checkbox should render with disabled styles 1`] = `
         />
       </svg>
     </label>
+    <span
+      aria-live="polite"
+      role="status"
+    />
   </div>
 </div>
 `;
 
-exports[`Checkbox should render with invalid styles and an error message 1`] = `
+exports[`Checkbox Styles should render with invalid styles and an error message 1`] = `
 .circuit-0 {
   position: relative;
 }
@@ -561,16 +576,17 @@ exports[`Checkbox should render with invalid styles and an error message 1`] = `
     class="circuit-0"
   >
     <input
+      aria-describedby="validation_hint-8"
       class="circuit-1"
-      id="checkbox_4"
-      name="name"
+      id="checkbox_7"
       type="checkbox"
       value=""
     />
     <label
       class="circuit-2"
-      for="checkbox_4"
+      for="checkbox_7"
     >
+      Label
       <svg
         aria-hidden="true"
         fill="none"
@@ -586,26 +602,32 @@ exports[`Checkbox should render with invalid styles and an error message 1`] = `
       </svg>
     </label>
     <span
-      class="circuit-3"
+      aria-live="polite"
+      role="status"
     >
-      <div
-        class="circuit-4"
+      <span
+        class="circuit-3"
+        id="validation_hint-8"
       >
-        <svg
-          fill="none"
-          height="16"
-          role="presentation"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="circuit-4"
         >
-          <path
-            d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3 11a1 1 0 0 1-1.41 0L8 9.41 6.41 11A1 1 0 0 1 5 9.59L6.59 8 5 6.41A1 1 0 0 1 5 5a1 1 0 0 1 1.41 0L8 6.59 9.59 5A1 1 0 0 1 11 5a1 1 0 0 1 0 1.41L9.41 8 11 9.59A1 1 0 0 1 11 11z"
-            fill="currentColor"
-          />
-        </svg>
-      </div>
-      This field is required.
+          <svg
+            fill="none"
+            height="16"
+            role="presentation"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3 11a1 1 0 0 1-1.41 0L8 9.41 6.41 11A1 1 0 0 1 5 9.59L6.59 8 5 6.41A1 1 0 0 1 5 5a1 1 0 0 1 1.41 0L8 6.59 9.59 5A1 1 0 0 1 11 5a1 1 0 0 1 0 1.41L9.41 8 11 9.59A1 1 0 0 1 11 11z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        This field is required.
+      </span>
     </span>
   </div>
 </div>

@@ -97,31 +97,36 @@ exports[`CurrencyInput should adjust input padding and suffix width to match cur
 >
   <label
     class="circuit-1"
-    for="input_4"
+    for="input_7"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Amount
     </span>
-    <div
-      class="circuit-4"
-    >
-      <span
-        class="circuit-5"
-      >
-        CHF
-      </span>
-      <input
-        class="circuit-6"
-        id="input_4"
-        inputmode="decimal"
-        placeholder="123,45"
-        type="text"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <span
+      class="circuit-5"
+    >
+      CHF
+    </span>
+    <input
+      aria-describedby="validation-hint_8"
+      class="circuit-6"
+      id="input_7"
+      inputmode="decimal"
+      placeholder="123,45"
+      type="text"
+      value=""
+    />
+  </div>
+  <span
+    aria-live="polite"
+    role="status"
+  />
 </div>
 `;
 
@@ -222,29 +227,34 @@ exports[`CurrencyInput should render with default styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_2"
+    for="input_3"
   >
     <span
       class="circuit-2 circuit-3"
     >
       Amount
     </span>
-    <div
-      class="circuit-4"
-    >
-      <span
-        class="circuit-5"
-      >
-        €
-      </span>
-      <input
-        class="circuit-6"
-        id="input_2"
-        inputmode="decimal"
-        type="text"
-        value=""
-      />
-    </div>
   </label>
+  <div
+    class="circuit-4"
+  >
+    <span
+      class="circuit-5"
+    >
+      €
+    </span>
+    <input
+      aria-describedby="validation-hint_4"
+      class="circuit-6"
+      id="input_3"
+      inputmode="decimal"
+      type="text"
+      value=""
+    />
+  </div>
+  <span
+    aria-live="polite"
+    role="status"
+  />
 </div>
 `;

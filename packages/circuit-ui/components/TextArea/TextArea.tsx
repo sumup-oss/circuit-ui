@@ -36,6 +36,7 @@ export type TextAreaProps = Omit<InputProps, 'rows'> & {
 };
 
 const textAreaStyles = css`
+  vertical-align: top;
   overflow: auto;
   resize: vertical;
 `;

@@ -25,7 +25,7 @@ import {
   createEvent,
 } from '../../util/test-utils';
 
-import { ImageInput, ImageInputProps } from './ImageInput';
+import { ImageInput } from './ImageInput';
 
 const defaultProps = {
   label: 'Upload an image',
@@ -39,61 +39,54 @@ const defaultProps = {
 describe('ImageInput', () => {
   global.URL.createObjectURL = jest.fn();
 
-  function renderImageInput(
-    props: ImageInputProps = defaultProps,
-    options = {},
-  ) {
-    return render(<ImageInput {...props} />, options);
-  }
-
-  describe('styles', () => {
+  describe('Styles', () => {
     it('should render with default styles', () => {
-      const { container } = renderImageInput();
+      const { container } = render(<ImageInput {...defaultProps} />);
       expect(container).toMatchSnapshot();
     });
 
     it('should render with an existing image', () => {
-      const { container } = renderImageInput({
-        ...defaultProps,
-        src: '/images/illustration-coffee.jpg',
-      });
+      const { container } = render(
+        <ImageInput {...defaultProps} src="/images/illustration-coffee.jpg" />,
+      );
       expect(container).toMatchSnapshot();
     });
 
-    it('should render with invalid styles', () => {
-      const { container } = renderImageInput({
-        ...defaultProps,
-        invalid: true,
-        validationHint:
-          'The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB.',
-      });
+    it('should render with invalid styles and an error message', () => {
+      const { container } = render(
+        <ImageInput
+          {...defaultProps}
+          invalid={true}
+          validationHint="The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB."
+        />,
+      );
       expect(container).toMatchSnapshot();
     });
 
-    it('should render with smaller button', () => {
-      const { container } = renderImageInput({
-        ...defaultProps,
-        size: 'giga',
-      });
+    it('should render with a giga button', () => {
+      const { container } = render(
+        <ImageInput {...defaultProps} size="giga" />,
+      );
       expect(container).toMatchSnapshot();
     });
 
-    it('should render a custom component', () => {
-      const { container } = renderImageInput({
-        ...defaultProps,
-        src: '/images/illustration-coffee.jpg',
-        // eslint-disable-next-line react/display-name
-        component: ({ src }) => (
-          <img
-            style={{
-              width: '400px',
-              height: '100px',
-            }}
-            src={src}
-            alt=""
-          />
-        ),
-      });
+    it('should render with a custom component', () => {
+      const { container } = render(
+        <ImageInput
+          {...defaultProps}
+          src="/images/illustration-coffee.jpg"
+          component={({ src }) => (
+            <img
+              style={{
+                width: '400px',
+                height: '100px',
+              }}
+              src={src}
+              alt=""
+            />
+          )}
+        />,
+      );
       expect(container).toMatchSnapshot();
     });
   });
@@ -103,9 +96,6 @@ describe('ImageInput', () => {
     .mockResolvedValue('/images/illustration-coffee.jpg');
   const mockClearFn = jest.fn();
 
-  /**
-   * Copied from the component Stories
-   */
   function StatefulInput() {
     const [imageUrl, setImageUrl] = useState<string>('');
     const [error, setError] = useState<string>('');
@@ -141,7 +131,7 @@ describe('ImageInput', () => {
     );
   }
 
-  describe('business logic', () => {
+  describe('Logic', () => {
     const file = new File(['avatar'], 'avatar.png', { type: 'image/png' });
 
     it('should call the provided upload function', async () => {
@@ -244,11 +234,63 @@ describe('ImageInput', () => {
     });
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = render(<StatefulInput />);
+  describe('Accessibility', () => {
+    it('should have no violations', async () => {
+      const { container } = render(<ImageInput {...defaultProps} />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
+    });
+
+    describe('Labeling', () => {
+      it('should have an accessible name', () => {
+        const { getByLabelText } = render(<ImageInput {...defaultProps} />);
+        const inputEl = getByLabelText(defaultProps.label); // can't getByRole because input type=file is generic in jest-dom
+
+        expect(inputEl).toHaveAccessibleName(defaultProps.label);
+      });
+
+      it('should optionally have an accessible description', () => {
+        const description = 'Description';
+        const { getByLabelText } = render(
+          <ImageInput validationHint={description} {...defaultProps} />,
+        );
+        const inputEl = getByLabelText(defaultProps.label);
+
+        expect(inputEl).toHaveAccessibleDescription(description);
+      });
+    });
+
+    describe('Status messages', () => {
+      it('should render an empty live region on mount', () => {
+        const { getByRole } = render(<ImageInput {...defaultProps} />);
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toBeEmptyDOMElement();
+      });
+
+      it('should render status messages in a live region', () => {
+        const statusMessage = 'This field is required';
+        const { getByRole } = render(
+          <ImageInput
+            invalid
+            validationHint={statusMessage}
+            {...defaultProps}
+          />,
+        );
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toHaveTextContent(statusMessage);
+      });
+
+      it('should not render descriptions in a live region', () => {
+        const statusMessage = 'This field is required';
+        const { getByRole } = render(
+          <ImageInput validationHint={statusMessage} {...defaultProps} />,
+        );
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toBeEmptyDOMElement();
+      });
     });
   });
 });

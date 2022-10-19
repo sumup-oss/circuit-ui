@@ -35,7 +35,8 @@ interface BaseProps {
    */
   label: string;
   /**
-   * Visually hide the label. It will remain accessible to screen readers.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
 }

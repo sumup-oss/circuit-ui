@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RadioButtonGroup should render with default styles 1`] = `
+exports[`RadioButtonGroup Styles should render with default styles 1`] = `
 .circuit-1 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -106,63 +106,72 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
-<fieldset
-  class="circuit-0"
-  name="radio-button-group_1"
->
-  <legend
-    class="circuit-1"
+<div>
+  <fieldset
+    aria-describedby="validation-hint_2"
+    aria-orientation="vertical"
+    class="circuit-0"
+    name="radio-button-group_1"
+    role="radiogroup"
   >
+    <legend
+      class="circuit-1"
+    >
+      <span
+        class="circuit-2 circuit-3"
+      >
+        Choose an option
+      </span>
+    </legend>
+    <div>
+      <input
+        class="circuit-4"
+        id="radio-button_3"
+        name="radio-button-group_1"
+        type="radio"
+        value="first"
+      />
+      <label
+        class="circuit-5"
+        for="radio-button_3"
+      >
+        Option 1
+      </label>
+    </div>
+    <div>
+      <input
+        class="circuit-4"
+        id="radio-button_4"
+        name="radio-button-group_1"
+        type="radio"
+        value="second"
+      />
+      <label
+        class="circuit-5"
+        for="radio-button_4"
+      >
+        Option 2
+      </label>
+    </div>
+    <div>
+      <input
+        class="circuit-4"
+        id="radio-button_5"
+        name="radio-button-group_1"
+        type="radio"
+        value="third"
+      />
+      <label
+        class="circuit-5"
+        for="radio-button_5"
+      >
+        Option 3
+      </label>
+    </div>
     <span
-      class="circuit-2 circuit-3"
-    >
-      Choose an option
-    </span>
-  </legend>
-  <div>
-    <input
-      class="circuit-4"
-      id="radio-button_2"
-      name="radio-button-group_1"
-      type="radio"
-      value="first"
+      aria-live="polite"
+      role="status"
     />
-    <label
-      class="circuit-5"
-      for="radio-button_2"
-    >
-      Option 1
-    </label>
-  </div>
-  <div>
-    <input
-      class="circuit-4"
-      id="radio-button_3"
-      name="radio-button-group_1"
-      type="radio"
-      value="second"
-    />
-    <label
-      class="circuit-5"
-      for="radio-button_3"
-    >
-      Option 2
-    </label>
-  </div>
-  <div>
-    <input
-      class="circuit-4"
-      id="radio-button_4"
-      name="radio-button-group_1"
-      type="radio"
-      value="third"
-    />
-    <label
-      class="circuit-5"
-      for="radio-button_4"
-    >
-      Option 3
-    </label>
-  </div>
-</fieldset>
+  </fieldset>
+</div>
 `;

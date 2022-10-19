@@ -147,21 +147,28 @@ export const FieldValidationHint = ({
   validationHint,
   ...props
 }: FieldValidationHintProps): JSX.Element | null => {
-  if (!validationHint) {
-    return null;
-  }
-
   const icon = getIcon(props);
+  const hasMessage = Boolean(validationHint);
+  const isStatusMessage = Boolean(
+    props.invalid || props.hasWarning || props.showValid,
+  );
 
   return (
-    <Wrapper
-      {...props}
-      invalid={props.invalid}
-      showValid={props.showValid}
-      hasWarning={props.hasWarning}
-    >
-      {icon}
-      {validationHint}
-    </Wrapper>
+    <>
+      {hasMessage && !isStatusMessage && (
+        <Wrapper {...props}>
+          {icon}
+          {validationHint}
+        </Wrapper>
+      )}
+      <span role="status" aria-live="polite">
+        {hasMessage && isStatusMessage && (
+          <Wrapper {...props}>
+            {icon}
+            {validationHint}
+          </Wrapper>
+        )}
+      </span>
+    </>
   );
 };

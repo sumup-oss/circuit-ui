@@ -34,8 +34,8 @@ import { AccessibilityError } from '../../util/errors';
 export interface RadioButtonGroupProps
   extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
-   * A collection of available options. Each option must have at least
-   * a value and a label.
+   * A collection of available options. Each option must have at least a value
+   * and a label.
    */
   options: Omit<RadioButtonProps, 'onChange'>[];
   /**
@@ -80,8 +80,8 @@ export interface RadioButtonGroupProps
    */
   required?: InputHTMLAttributes<HTMLInputElement>['required'];
   /**
-   * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the field can be inferred from other context.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
 }
@@ -124,9 +124,13 @@ export const RadioButtonGroup = forwardRef(
       );
     }
     const name = customName || uniqueId('radio-button-group_');
+    const validationHintId = uniqueId('validation-hint_');
     return (
       <FieldWrapper
         as="fieldset"
+        role="radiogroup"
+        aria-describedby={validationHintId}
+        aria-orientation="vertical"
         name={name}
         // @ts-expect-error TypeScript isn't smart enough to recognize the `as` prop.
         ref={ref}
@@ -158,6 +162,7 @@ export const RadioButtonGroup = forwardRef(
             ),
           )}
         <FieldValidationHint
+          id={validationHintId}
           invalid={invalid}
           showValid={showValid}
           disabled={disabled}
