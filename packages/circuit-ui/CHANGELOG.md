@@ -1,5 +1,25 @@
 # @sumup/circuit-ui
 
+## 6.0.0-next.1
+
+### Major Changes
+
+- [#1772](https://github.com/sumup-oss/circuit-ui/pull/1772) [`817d7585`](https://github.com/sumup-oss/circuit-ui/commit/817d75851c295b0c1810aeacdd7474ee29afa6a6) Thanks [@a5e](https://github.com/a5e)! - Tweaked the `ButtonGroup` component to switch between a secondary button (on viewports of at least `mq.kilo`) and a tertiary button (on viewports narrower than `mq.kilo`) using CSS media queries instead of rendering three buttons. Tests (e.g. using `@testing-library`) can now query the secondary button without using `*AllBy` queries.
+
+- [#1789](https://github.com/sumup-oss/circuit-ui/pull/1789) [`3c0c98dd`](https://github.com/sumup-oss/circuit-ui/commit/3c0c98dd5cacceca1e53f30a298a8d62a35c5cc8) Thanks [@robinmetral](https://github.com/robinmetral)! - Rendered the `Checkbox`'s `validationHint` under the input instead of in a tooltip. This makes the behavior consistent with other form components and improves accessibility.
+
+- [#1795](https://github.com/sumup-oss/circuit-ui/pull/1795) [`426a0f63`](https://github.com/sumup-oss/circuit-ui/commit/426a0f639e38e949ce2ae5a36cefbb40c46dd791) Thanks [@robinmetral](https://github.com/robinmetral)! - Moved the `validationHint` outside the input `label`s and connected them to the inputs using `aria-describedby`. This affects form component markup and might be a breaking change in instances customizing input styles.
+
+- [#1781](https://github.com/sumup-oss/circuit-ui/pull/1781) [`5fe99fe8`](https://github.com/sumup-oss/circuit-ui/commit/5fe99fe86544ef7ae0ce6ef6756c6f8f73b0ae8a) Thanks [@robinmetral](https://github.com/robinmetral)! - Upgraded to `react-number-format` version 5. This could be a breaking change if you were relying on internal `react-number-format` props. Refer to the `react-number-format` [migration guide](https://s-yadav.github.io/react-number-format/docs/migration/) for details. Any explicit typings will also need to be updated.
+
+### Patch Changes
+
+- [#1795](https://github.com/sumup-oss/circuit-ui/pull/1795) [`426a0f63`](https://github.com/sumup-oss/circuit-ui/commit/426a0f639e38e949ce2ae5a36cefbb40c46dd791) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the size of the `Input` component's optional `prefix` and `suffix` (when passed as strings). They are now 16px (the size of the input's placeholder and value) instead of 14px (the size of the input's label).
+
+- [#1795](https://github.com/sumup-oss/circuit-ui/pull/1795) [`426a0f63`](https://github.com/sumup-oss/circuit-ui/commit/426a0f639e38e949ce2ae5a36cefbb40c46dd791) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed unintended spacing below the `TextArea` component.
+
+- [#1795](https://github.com/sumup-oss/circuit-ui/pull/1795) [`426a0f63`](https://github.com/sumup-oss/circuit-ui/commit/426a0f639e38e949ce2ae5a36cefbb40c46dd791) Thanks [@robinmetral](https://github.com/robinmetral)! - Improved the accessibility of the `RadioButtonGroup` component by adding the `role="radiogroup"` and `orientation="vertical"` attributes.
+
 ## 6.0.0-next.0
 
 ### Major Changes
