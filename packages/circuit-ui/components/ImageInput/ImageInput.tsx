@@ -428,7 +428,7 @@ export const ImageInput = ({
           onChange={handleInputChange}
           onClick={handleClick}
           disabled={disabled || isLoading}
-          aria-invalid={invalid}
+          aria-invalid={invalid && 'true'}
           aria-describedby={validationHintId}
           {...props}
         />
