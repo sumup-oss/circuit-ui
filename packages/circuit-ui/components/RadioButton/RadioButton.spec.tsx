@@ -15,36 +15,30 @@
 
 import { createRef } from 'react';
 
-import {
-  create,
-  renderToHtml,
-  axe,
-  render,
-  userEvent,
-} from '../../util/test-utils';
+import { render, userEvent, axe } from '../../util/test-utils';
 
 import RadioButton from '.';
 
 describe('RadioButton', () => {
   describe('Styles', () => {
     it('should render with default styles', () => {
-      const actual = create(<RadioButton label="Label" />);
-      expect(actual).toMatchSnapshot();
+      const { container } = render(<RadioButton label="Label" />);
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with checked styles', () => {
-      const actual = create(<RadioButton checked label="Label" />);
-      expect(actual).toMatchSnapshot();
+      const { container } = render(<RadioButton checked label="Label" />);
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with disabled styles', () => {
-      const actual = create(<RadioButton disabled label="Label" />);
-      expect(actual).toMatchSnapshot();
+      const { container } = render(<RadioButton disabled label="Label" />);
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with invalid styles', () => {
-      const actual = create(<RadioButton invalid label="Label" />);
-      expect(actual).toMatchSnapshot();
+      const { container } = render(<RadioButton invalid label="Label" />);
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -81,8 +75,8 @@ describe('RadioButton', () => {
 
   describe('Accessibility', () => {
     it('should have no violations', async () => {
-      const wrapper = renderToHtml(<RadioButton name="radio" label="Label" />);
-      const actual = await axe(wrapper);
+      const { container } = render(<RadioButton name="radio" label="Label" />);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
   });
