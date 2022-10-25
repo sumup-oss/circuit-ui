@@ -221,6 +221,7 @@ export const RadioButton = forwardRef(
           id={id}
           value={value}
           invalid={invalid}
+          aria-invalid={invalid && 'true'}
           disabled={disabled}
           checked={checked}
           onChange={handleChange}
