@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RadioButton should render with checked styles 1`] = `
+exports[`RadioButton Styles should render with checked styles 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -113,7 +113,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`RadioButton should render with default styles 1`] = `
+exports[`RadioButton Styles should render with default styles 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -225,7 +225,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`RadioButton should render with disabled styles 1`] = `
+exports[`RadioButton Styles should render with disabled styles 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -357,7 +357,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`RadioButton should render with invalid styles 1`] = `
+exports[`RadioButton Styles should render with invalid styles 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
