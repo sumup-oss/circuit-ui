@@ -27,7 +27,9 @@ describe('RadioButton', () => {
     });
 
     it('should render with checked styles', () => {
-      const { container } = render(<RadioButton checked label="Label" />);
+      const { container } = render(
+        <RadioButton checked onChange={jest.fn} label="Label" />,
+      );
       expect(container).toMatchSnapshot();
     });
 
@@ -78,6 +80,30 @@ describe('RadioButton', () => {
       const { container } = render(<RadioButton name="radio" label="Label" />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
+    });
+
+    describe('Input state', () => {
+      it.each([undefined, false])(
+        'should be valid when the invalid prop is %s',
+        (invalid) => {
+          const { getByRole } = render(
+            <RadioButton invalid={invalid} label="Label" />,
+          );
+          expect(getByRole('radio')).toBeValid();
+        },
+      );
+
+      it.each([true, 'Invalid value'])(
+        'should be invalid when the invalid prop %s',
+        (invalid) => {
+          const { getByRole } = render(
+            // @ts-expect-error we're testing that aria-invalid is properly set
+            // even when the invalid prop is a string
+            <RadioButton invalid={invalid} label="Label" />,
+          );
+          expect(getByRole('radio')).toBeInvalid();
+        },
+      );
     });
   });
 });
