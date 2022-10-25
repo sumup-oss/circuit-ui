@@ -416,6 +416,7 @@ HTMLCollection [
 }
 
 <input
+    aria-invalid="true"
     class="circuit-0"
     id="radio-button_4"
     type="radio"
