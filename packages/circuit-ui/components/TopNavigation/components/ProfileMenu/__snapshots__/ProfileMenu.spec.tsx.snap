@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProfileMenu styles should render with a profile picture 1`] = `
+exports[`ProfileMenu Styles should render with a profile picture 1`] = `
 .circuit-0 {
   display: inline-block;
 }
@@ -189,7 +189,7 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
 </div>
 `;
 
-exports[`ProfileMenu styles should render without a profile picture 1`] = `
+exports[`ProfileMenu Styles should render without a profile picture 1`] = `
 .circuit-0 {
   display: inline-block;
 }

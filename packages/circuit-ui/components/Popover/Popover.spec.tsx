@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
-
 import { FC } from 'react';
 import { Delete, Add, Download, IconProps } from '@sumup/icons';
 import { Placement } from '@floating-ui/react-dom';
@@ -47,7 +45,7 @@ describe('PopoverItem', () => {
     icon: Download as FC<IconProps>,
   };
 
-  describe('styles', () => {
+  describe('Styles', () => {
     it('should render as Link when an href (and onClick) is passed', () => {
       const props = {
         ...baseProps,
@@ -67,7 +65,7 @@ describe('PopoverItem', () => {
     });
   });
 
-  describe('business logic', () => {
+  describe('Logic', () => {
     it('should call onClick when rendered as Link', async () => {
       const props = {
         ...baseProps,
@@ -105,6 +103,20 @@ describe('Popover', () => {
       typeof state === 'boolean' ? state : state(initialState);
   }
 
+  /**
+   * Flushes microtasks to prevent act() warnings.
+   *
+   * From https://floating-ui.com/docs/react-dom#testing:
+   *
+   * > The position of floating elements is computed asynchronously, so a state
+   * > update occurs during a Promise microtask.
+   * >
+   * > The state update happens after tests complete, resulting in act warnings.
+   */
+  async function flushMicrotasks() {
+    await act(async () => {});
+  }
+
   const baseProps: PopoverProps = {
     component: (triggerProps) => <button {...triggerProps}>Button</button>,
     actions: [
@@ -126,32 +138,31 @@ describe('Popover', () => {
     tracking: { label: 'test-popover' },
   };
 
-  describe('styles', () => {
+  describe('Styles', () => {
     /**
-     * FIXME: some of these tests, including style snapshots, throw act()
-     * warnings. We should look into it.
-     *
-     * NOTE: we can't test the offset behavior enabled by the `offset`
-     * prop with `jsdom`. The logic is covered in Chromatic.
+     * Note: we can't test the offset behavior enabled by the `offset` prop
+     * with `jsdom`. The logic is covered in Chromatic.
      */
-    it('should render with default styles', () => {
+    it('should render with default styles', async () => {
       const { baseElement } = renderPopover(baseProps);
       expect(baseElement).toMatchSnapshot();
+      await flushMicrotasks();
     });
 
-    it('should render with closed styles', () => {
+    it('should render with closed styles', async () => {
       const { baseElement } = renderPopover({ ...baseProps, isOpen: false });
       expect(baseElement).toMatchSnapshot();
+      await flushMicrotasks();
     });
 
-    it.each(placements)('should render popover on %s', (placement) => {
+    it.each(placements)('should render popover on %s', async (placement) => {
       const { baseElement } = renderPopover({ ...baseProps, placement });
-
       expect(baseElement).toMatchSnapshot();
+      await flushMicrotasks();
     });
   });
 
-  describe('business logic', () => {
+  describe('Logic', () => {
     it('should open the popover when clicking the trigger element', async () => {
       const isOpen = false;
       const onToggle = jest.fn(createStateSetter(isOpen));
@@ -246,7 +257,7 @@ describe('Popover', () => {
       expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
-    it('should move focus to the first popover item after opening', () => {
+    it('should move focus to the first popover item after opening', async () => {
       const isOpen = false;
       const onToggle = jest.fn(createStateSetter(isOpen));
 
@@ -263,9 +274,11 @@ describe('Popover', () => {
       const popoverItems = getAllByRole('menuitem');
 
       expect(popoverItems[0]).toHaveFocus();
+
+      await flushMicrotasks();
     });
 
-    it('should move focus to the trigger element after closing', () => {
+    it('should move focus to the trigger element after closing', async () => {
       const { getByRole, rerender } = renderPopover(baseProps);
 
       act(() => {
@@ -275,15 +288,19 @@ describe('Popover', () => {
       const popoverTrigger = getByRole('button');
 
       expect(popoverTrigger).toHaveFocus();
+
+      await flushMicrotasks();
     });
   });
 
-  describe('accessibility', () => {
+  describe('Accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const { container } = renderPopover(baseProps);
 
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
+      await act(async () => {
+        const actual = await axe(container);
+        expect(actual).toHaveNoViolations();
+      });
     });
   });
 });
