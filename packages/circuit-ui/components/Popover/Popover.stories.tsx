@@ -15,7 +15,7 @@
 
 import { action } from '@storybook/addon-actions';
 import { Add, Edit, Delete } from '@sumup/icons';
-import { useState } from 'react';
+import { useState, ReactNode } from 'react';
 
 import Button from '../Button';
 
@@ -27,6 +27,11 @@ export default {
   component: Popover,
   parameters: {
     docs: { page: docs },
+    chromatic: {
+      // Fixes flakiness in UI tests. The popover is positioned asynchronously
+      // so we wait before taking the screenshot.
+      delay: 300,
+    },
   },
   argTypes: {
     children: { control: 'text' },
@@ -55,7 +60,7 @@ const actions = [
 
 // This wrapper is necessary because the Popover's floating element renders
 // in a Portal, and Chromatic excludes it from screenshots by default.
-function PopoverWrapper({ children }) {
+function PopoverWrapper({ children }: { children: ReactNode }) {
   return <div style={{ width: 200, height: 250 }}>{children}</div>;
 }
 
