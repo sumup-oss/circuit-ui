@@ -314,8 +314,8 @@ export const Select = forwardRef(
                   </option>
                 )))}
           </SelectElement>
-          <IconActive size="16" />
-          <IconInactive size="16" />
+          <IconActive size="16" aria-hidden="true" />
+          <IconInactive size="16" aria-hidden="true" />
         </SelectWrapper>
         <FieldValidationHint
           id={validationHintId}

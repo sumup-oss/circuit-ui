@@ -186,6 +186,7 @@ select:not(:active)~.circuit-7 {
         </option>
       </select>
       <svg
+        aria-hidden="true"
         class="circuit-6"
         fill="none"
         height="16"
@@ -199,6 +200,7 @@ select:not(:active)~.circuit-7 {
         />
       </svg>
       <svg
+        aria-hidden="true"
         class="circuit-7"
         fill="none"
         height="16"

@@ -206,5 +206,18 @@ describe('Select', () => {
         expect(liveRegionEl).toBeEmptyDOMElement();
       });
     });
+
+    it('should hide chevron icons from assistive technology', () => {
+      const { container } = render(<Select {...defaultProps} />);
+      /**
+       * We use querySelector because an element with `aria-hidden` is removed
+       * from the accessibility tree and cannot be queries with `getByRole()`.
+       */
+      const chevrons = container.querySelectorAll('svg');
+
+      chevrons.forEach((chevron) => {
+        expect(chevron).toHaveAttribute('aria-hidden', 'true');
+      });
+    });
   });
 });
