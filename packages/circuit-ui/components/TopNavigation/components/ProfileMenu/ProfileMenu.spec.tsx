@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { axe, render, renderToHtml } from '../../../../util/test-utils';
+import { act, axe, render } from '../../../../util/test-utils';
 import { PopoverProps } from '../../../Popover';
 
 import { ProfileMenu } from './ProfileMenu';
@@ -40,7 +40,7 @@ describe('ProfileMenu', () => {
     ] as PopoverProps['actions'],
   };
 
-  describe('styles', () => {
+  describe('Styles', () => {
     it('should render with a profile picture', () => {
       const { container } = render(
         <ProfileMenu
@@ -59,11 +59,14 @@ describe('ProfileMenu', () => {
     });
   });
 
-  describe('accessibility', () => {
+  describe('Accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<ProfileMenu {...baseProps} />);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
+      const { container } = render(<ProfileMenu {...baseProps} />);
+
+      await act(async () => {
+        const actual = await axe(container);
+        expect(actual).toHaveNoViolations();
+      });
     });
   });
 });
