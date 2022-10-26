@@ -106,5 +106,35 @@ describe('CurrencyInput', () => {
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
+
+    describe('Labeling', () => {
+      const EUR_CURRENCY_SYMBOL = '€'; // formatted by `@sumup/intl`
+      /**
+       * Note: further labeling logic is covered by the underlying `Input` component.
+       */
+      it('should have the currency symbol as part of its accessible description', () => {
+        const { getByRole } = render(<CurrencyInput {...defaultProps} />);
+        expect(getByRole('textbox')).toHaveAccessibleDescription(
+          EUR_CURRENCY_SYMBOL,
+        );
+      });
+
+      it('should accept a custom description via aria-describedby', () => {
+        const customDescription = 'Custom description';
+        const customDescriptionId = 'customDescriptionId';
+        const { getByRole } = render(
+          <>
+            <span id={customDescriptionId}>{customDescription}</span>
+            <CurrencyInput
+              {...defaultProps}
+              aria-describedby={customDescriptionId}
+            />
+          </>,
+        );
+        expect(getByRole('textbox')).toHaveAccessibleDescription(
+          `${customDescription} ${EUR_CURRENCY_SYMBOL}`,
+        );
+      });
+    });
   });
 });
