@@ -21,18 +21,21 @@ import { InputProps } from '../Input';
 
 import CurrencyInput, { CurrencyInputProps } from '.';
 
+const defaultProps = {
+  currency: 'EUR',
+  label: 'Amount',
+};
+
 describe('CurrencyInput', () => {
   describe('Styles', () => {
     it('should render with default styles', () => {
-      const { container } = render(
-        <CurrencyInput currency="EUR" label="Amount" />,
-      );
+      const { container } = render(<CurrencyInput {...defaultProps} />);
       expect(container).toMatchSnapshot();
     });
 
     it('should adjust input padding and suffix width to match currency symbol width', () => {
       const { container } = render(
-        <CurrencyInput placeholder="123,45" currency="CHF" label="Amount" />,
+        <CurrencyInput {...defaultProps} currency="CHF" />,
       );
       expect(container).toMatchSnapshot();
     });
@@ -42,12 +45,7 @@ describe('CurrencyInput', () => {
     it('should accept a working ref', () => {
       const tref = createRef<NumericFormatProps<InputProps>>();
       const { getByRole } = render(
-        <CurrencyInput
-          locale="de-DE"
-          currency="EUR"
-          ref={tref}
-          label="Amount"
-        />,
+        <CurrencyInput {...defaultProps} ref={tref} />,
       );
       const input = getByRole('textbox');
       expect(tref.current).toBe(input);
@@ -55,7 +53,7 @@ describe('CurrencyInput', () => {
 
     it('should format a en-GB amount correctly', async () => {
       const { getByRole } = render(
-        <CurrencyInput locale="en-GB" currency="EUR" label="Amount" />,
+        <CurrencyInput {...defaultProps} locale="en-GB" />,
       );
 
       const input = getByRole('textbox') as HTMLInputElement;
@@ -67,7 +65,7 @@ describe('CurrencyInput', () => {
 
     it('should format a de-DE amount correctly', async () => {
       const { getByRole } = render(
-        <CurrencyInput locale="de-DE" currency="EUR" label="Amount" />,
+        <CurrencyInput {...defaultProps} locale="de-DE" />,
       );
 
       const input = getByRole('textbox') as HTMLInputElement;
@@ -82,10 +80,8 @@ describe('CurrencyInput', () => {
         const [value, setValue] = useState<CurrencyInputProps['value']>(1234.5);
         return (
           <CurrencyInput
-            locale="de-DE"
-            currency="EUR"
+            {...defaultProps}
             value={value}
-            label="Amount"
             onChange={(
               e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>,
             ) => setValue(e.target.value)}
@@ -95,20 +91,18 @@ describe('CurrencyInput', () => {
       const { getByRole } = render(<ControlledCurrencyInput />);
 
       const input = getByRole('textbox') as HTMLInputElement;
-      expect(input.value).toBe('1.234,5');
+      expect(input.value).toBe('1,234.5');
 
       await userEvent.clear(input);
-      await userEvent.type(input, '1234,56');
+      await userEvent.type(input, '1234.56');
 
-      expect(input.value).toBe('1.234,56');
+      expect(input.value).toBe('1,234.56');
     });
   });
 
   describe('Accessibility', () => {
     it('should have no violations', async () => {
-      const { container } = render(
-        <CurrencyInput locale="de-DE" currency="EUR" label="Product price" />,
-      );
+      const { container } = render(<CurrencyInput {...defaultProps} />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });

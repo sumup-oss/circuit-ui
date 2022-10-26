@@ -120,7 +120,6 @@ exports[`CurrencyInput Styles should adjust input padding and suffix width to ma
         class="circuit-6"
         id="input_9"
         inputmode="decimal"
-        placeholder="123,45"
         type="text"
         value=""
       />
