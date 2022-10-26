@@ -1,5 +1,19 @@
 # @sumup/circuit-ui
 
+## 6.0.0-next.2
+
+### Patch Changes
+
+- [#1813](https://github.com/sumup-oss/circuit-ui/pull/1813) [`269d4a19`](https://github.com/sumup-oss/circuit-ui/commit/269d4a19094a4c6fd30a9807327deb5a28357813) Thanks [@robinmetral](https://github.com/robinmetral)! - Allowed passing a custom `aria-describedby` value to form components. The custom value (an element `id`, or list of `id`s separated by a space) will be combined with the generated `id` of the `validationHint` element.
+
+- [#1809](https://github.com/sumup-oss/circuit-ui/pull/1809) [`bd184b53`](https://github.com/sumup-oss/circuit-ui/commit/bd184b53a3d047ee878dab55813151ffb7bc8b52) Thanks [@robinmetral](https://github.com/robinmetral)! - Marked invalid radio buttons as invalid using `aria-invalid="true"`. This makes the state available to assistive technologies.
+
+- [#1814](https://github.com/sumup-oss/circuit-ui/pull/1814) [`befbeee4`](https://github.com/sumup-oss/circuit-ui/commit/befbeee41d292c91674fcf24c0fdb4acfd769e7d) Thanks [@robinmetral](https://github.com/robinmetral)! - Added the currency symbol to the `CurrencyInput`'s accessible description.
+
+- [#1811](https://github.com/sumup-oss/circuit-ui/pull/1811) [`0db1e468`](https://github.com/sumup-oss/circuit-ui/commit/0db1e4684b30fe4b7f28fdff615bf9361f56498e) Thanks [@robinmetral](https://github.com/robinmetral)! - Hid the decorative chevron icons in the `Select` component from assistive technology.
+
+- [#1809](https://github.com/sumup-oss/circuit-ui/pull/1809) [`bd184b53`](https://github.com/sumup-oss/circuit-ui/commit/bd184b53a3d047ee878dab55813151ffb7bc8b52) Thanks [@robinmetral](https://github.com/robinmetral)! - Ensured that `aria-invalid` is always either `'true'` or undefined (defaults to 'false'). This prevents errors in implementations not using TypeScript.
+
 ## 6.0.0-next.1
 
 ### Major Changes
