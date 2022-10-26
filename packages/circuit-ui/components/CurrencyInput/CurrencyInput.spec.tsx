@@ -16,37 +16,29 @@
 import { ChangeEvent, createRef, useState } from 'react';
 import { NumericFormatProps } from 'react-number-format';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  userEvent,
-} from '../../util/test-utils';
+import { render, userEvent, axe } from '../../util/test-utils';
 import { InputProps } from '../Input';
 
 import CurrencyInput, { CurrencyInputProps } from '.';
 
 describe('CurrencyInput', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<CurrencyInput currency="EUR" label="Amount" />);
-    expect(actual).toMatchSnapshot();
+  describe('Styles', () => {
+    it('should render with default styles', () => {
+      const { container } = render(
+        <CurrencyInput currency="EUR" label="Amount" />,
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should adjust input padding and suffix width to match currency symbol width', () => {
+      const { container } = render(
+        <CurrencyInput placeholder="123,45" currency="CHF" label="Amount" />,
+      );
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it('should adjust input padding and suffix width to match currency symbol width', () => {
-    const actual = create(
-      <CurrencyInput placeholder="123,45" currency="CHF" label="Amount" />,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  describe('business logic', () => {
-    /**
-     * Should accept a working ref
-     */
+  describe('Logic', () => {
     it('should accept a working ref', () => {
       const tref = createRef<NumericFormatProps<InputProps>>();
       const { container } = render(
@@ -112,14 +104,13 @@ describe('CurrencyInput', () => {
     });
   });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <CurrencyInput locale="de-DE" currency="EUR" label="Product price" />,
-    );
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
+  describe('Accessibility', () => {
+    it('should have no violations', async () => {
+      const { container } = render(
+        <CurrencyInput locale="de-DE" currency="EUR" label="Product price" />,
+      );
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
   });
 });
