@@ -41,7 +41,7 @@ describe('CurrencyInput', () => {
   describe('Logic', () => {
     it('should accept a working ref', () => {
       const tref = createRef<NumericFormatProps<InputProps>>();
-      const { container } = render(
+      const { getByRole } = render(
         <CurrencyInput
           locale="de-DE"
           currency="EUR"
@@ -49,16 +49,16 @@ describe('CurrencyInput', () => {
           label="Amount"
         />,
       );
-      const input = container.querySelector('input');
+      const input = getByRole('textbox');
       expect(tref.current).toBe(input);
     });
 
     it('should format a en-GB amount correctly', async () => {
-      const { getByLabelText } = render(
+      const { getByRole } = render(
         <CurrencyInput locale="en-GB" currency="EUR" label="Amount" />,
       );
 
-      const input = getByLabelText(/Amount/) as HTMLInputElement;
+      const input = getByRole('textbox') as HTMLInputElement;
 
       await userEvent.type(input, '1234.56');
 
@@ -66,11 +66,11 @@ describe('CurrencyInput', () => {
     });
 
     it('should format a de-DE amount correctly', async () => {
-      const { getByLabelText } = render(
+      const { getByRole } = render(
         <CurrencyInput locale="de-DE" currency="EUR" label="Amount" />,
       );
 
-      const input = getByLabelText(/Amount/) as HTMLInputElement;
+      const input = getByRole('textbox') as HTMLInputElement;
 
       await userEvent.type(input, '1234,56');
 
@@ -92,9 +92,9 @@ describe('CurrencyInput', () => {
           />
         );
       };
-      const { getByLabelText } = render(<ControlledCurrencyInput />);
+      const { getByRole } = render(<ControlledCurrencyInput />);
 
-      const input = getByLabelText(/Amount/) as HTMLInputElement;
+      const input = getByRole('textbox') as HTMLInputElement;
       expect(input.value).toBe('1.234,5');
 
       await userEvent.clear(input);
