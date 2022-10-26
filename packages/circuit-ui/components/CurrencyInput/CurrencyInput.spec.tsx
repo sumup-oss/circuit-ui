@@ -21,21 +21,31 @@ import { InputProps } from '../Input';
 
 import CurrencyInput, { CurrencyInputProps } from '.';
 
+// Note: these defaults render a '€' as an input suffix
 const defaultProps = {
+  locale: 'de-DE',
   currency: 'EUR',
   label: 'Amount',
 };
 
 describe('CurrencyInput', () => {
   describe('Styles', () => {
-    it('should render with default styles', () => {
+    it('should render with default styles and format', () => {
+      const { container } = render(
+        // @ts-expect-error the locale is intentionally left out to cover the default currency format
+        <CurrencyInput label={defaultProps.label} />,
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render a currency as a suffix', () => {
       const { container } = render(<CurrencyInput {...defaultProps} />);
       expect(container).toMatchSnapshot();
     });
 
-    it('should adjust input padding and suffix width to match currency symbol width', () => {
+    it('should render a currency as a prefix', () => {
       const { container } = render(
-        <CurrencyInput {...defaultProps} currency="CHF" />,
+        <CurrencyInput {...defaultProps} locale="de-CH" currency="CHF" />,
       );
       expect(container).toMatchSnapshot();
     });
@@ -53,7 +63,7 @@ describe('CurrencyInput', () => {
 
     it('should format a en-GB amount correctly', async () => {
       const { getByRole } = render(
-        <CurrencyInput {...defaultProps} locale="en-GB" />,
+        <CurrencyInput {...defaultProps} currency="GBP" locale="en-GB" />,
       );
 
       const input = getByRole('textbox') as HTMLInputElement;
@@ -65,7 +75,7 @@ describe('CurrencyInput', () => {
 
     it('should format a de-DE amount correctly', async () => {
       const { getByRole } = render(
-        <CurrencyInput {...defaultProps} locale="de-DE" />,
+        <CurrencyInput {...defaultProps} currency="EUR" locale="de-DE" />,
       );
 
       const input = getByRole('textbox') as HTMLInputElement;
@@ -91,12 +101,12 @@ describe('CurrencyInput', () => {
       const { getByRole } = render(<ControlledCurrencyInput />);
 
       const input = getByRole('textbox') as HTMLInputElement;
-      expect(input.value).toBe('1,234.5');
+      expect(input.value).toBe('1.234,5');
 
       await userEvent.clear(input);
-      await userEvent.type(input, '1234.56');
+      await userEvent.type(input, '1234,56');
 
-      expect(input.value).toBe('1,234.56');
+      expect(input.value).toBe('1.234,56');
     });
   });
 
