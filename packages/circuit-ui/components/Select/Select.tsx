@@ -236,16 +236,17 @@ export const Select = forwardRef(
       required,
       options,
       children,
-      renderPrefix: RenderPrefix,
+      'renderPrefix': RenderPrefix,
       validationHint,
       optionalLabel,
       label,
       hideLabel,
       className,
       style,
-      id: customId,
+      'id': customId,
       onChange,
       tracking,
+      'aria-describedby': descriptionId,
       ...props
     }: SelectProps,
     ref?: SelectProps['ref'],
@@ -262,6 +263,9 @@ export const Select = forwardRef(
     }
     const id = customId || uniqueId('select_');
     const validationHintId = uniqueId('validation-hint_');
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
 
     const prefix = RenderPrefix && (
       <RenderPrefix css={prefixStyles} value={value} />
@@ -286,7 +290,7 @@ export const Select = forwardRef(
             id={id}
             value={value}
             ref={ref}
-            aria-describedby={validationHintId}
+            aria-describedby={descriptionIds}
             invalid={invalid}
             aria-invalid={invalid && 'true'}
             required={required}

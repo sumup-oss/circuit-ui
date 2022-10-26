@@ -176,6 +176,50 @@ describe('Select', () => {
 
         expect(inputEl).toHaveAccessibleDescription(description);
       });
+
+      it('should accept a custom description via aria-describedby', () => {
+        const customDescription = 'Custom description';
+        const customDescriptionId = 'customDescriptionId';
+        const { getByRole } = render(
+          <>
+            <span id={customDescriptionId}>{customDescription}</span>
+            <Select aria-describedby={customDescriptionId} {...defaultProps} />,
+          </>,
+        );
+        const inputEl = getByRole('combobox');
+
+        expect(inputEl).toHaveAttribute(
+          'aria-describedby',
+          expect.stringContaining(customDescriptionId),
+        );
+        expect(inputEl).toHaveAccessibleDescription(customDescription);
+      });
+
+      it('should accept a custom description in addition to a validationHint', () => {
+        const customDescription = 'Custom description';
+        const customDescriptionId = 'customDescriptionId';
+        const description = 'Description';
+        const { getByRole } = render(
+          <>
+            <span id={customDescriptionId}>{customDescription}</span>
+            <Select
+              validationHint={description}
+              aria-describedby={customDescriptionId}
+              {...defaultProps}
+            />
+            ,
+          </>,
+        );
+        const inputEl = getByRole('combobox');
+
+        expect(inputEl).toHaveAttribute(
+          'aria-describedby',
+          expect.stringContaining(customDescriptionId),
+        );
+        expect(inputEl).toHaveAccessibleDescription(
+          `${customDescription} ${description}`,
+        );
+      });
     });
 
     describe('Status messages', () => {

@@ -240,8 +240,8 @@ export const Input = forwardRef(
   (
     {
       value,
-      renderPrefix: RenderPrefix,
-      renderSuffix: RenderSuffix,
+      'renderPrefix': RenderPrefix,
+      'renderSuffix': RenderSuffix,
       validationHint,
       optionalLabel,
       required,
@@ -253,9 +253,10 @@ export const Input = forwardRef(
       as,
       label,
       hideLabel,
-      id: customId,
+      'id': customId,
       className,
       style,
+      'aria-describedby': descriptionId,
       ...props
     }: InputProps,
     ref: InputProps['ref'],
@@ -274,6 +275,9 @@ export const Input = forwardRef(
 
     const id = customId || uniqueId('input_');
     const validationHintId = uniqueId('validation-hint_');
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
 
     const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
     const suffix = RenderSuffix && <RenderSuffix css={suffixStyles} />;
@@ -298,7 +302,7 @@ export const Input = forwardRef(
             id={id}
             value={value}
             ref={ref}
-            aria-describedby={validationHintId}
+            aria-describedby={descriptionIds}
             invalid={invalid}
             aria-invalid={invalid && 'true'}
             required={required}

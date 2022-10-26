@@ -290,7 +290,7 @@ export const ImageInput = ({
   src,
   alt,
   size = 'yotta',
-  id: customId,
+  'id': customId,
   clearButtonLabel,
   onChange,
   onClear,
@@ -298,9 +298,10 @@ export const ImageInput = ({
   validationHint,
   invalid = false,
   loadingLabel,
-  component: Component,
+  'component': Component,
   className,
   style,
+  'aria-describedby': descriptionId,
   ...props
 }: ImageInputProps): JSX.Element => {
   if (
@@ -330,6 +331,9 @@ export const ImageInput = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const id = customId || uniqueId('image-input_');
   const validationHintId = uniqueId('validation-hint_');
+  const descriptionIds = `${
+    descriptionId ? `${descriptionId} ` : ''
+  }${validationHintId}`;
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDragging, setDragging] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');
@@ -429,7 +433,7 @@ export const ImageInput = ({
           onClick={handleClick}
           disabled={disabled || isLoading}
           aria-invalid={invalid && 'true'}
-          aria-describedby={validationHintId}
+          aria-describedby={descriptionIds}
           {...props}
         />
         <Label
