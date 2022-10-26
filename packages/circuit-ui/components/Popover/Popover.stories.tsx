@@ -27,11 +27,6 @@ export default {
   component: Popover,
   parameters: {
     docs: { page: docs },
-    chromatic: {
-      // Fixes flakiness in UI tests. The popover is positioned asynchronously
-      // so we wait before taking the screenshot.
-      delay: 300,
-    },
   },
   argTypes: {
     children: { control: 'text' },
