@@ -16,6 +16,8 @@
 import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Plus } from '@sumup/icons';
+import { ThemeProvider } from '@emotion/react';
+import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components';
 import ButtonGroup from '../ButtonGroup';
@@ -124,3 +126,24 @@ Loading.args = {
   children: 'Things take time',
   loadingLabel: 'Loading',
 };
+
+const customTheme = (circuitTheme: Theme) => ({
+  ...circuitTheme,
+  colors: {
+    ...circuitTheme.colors,
+    p500: 'rebeccapurple',
+  },
+  spacings: {
+    ...circuitTheme.spacings,
+    kilo: circuitTheme.spacings.giga,
+    giga: circuitTheme.spacings.exa,
+  },
+});
+
+export const ThemedButton = (args: ButtonProps) => (
+  <ThemeProvider theme={customTheme}>
+    <Button {...args} variant="primary">
+      A big purple button
+    </Button>
+  </ThemeProvider>
+);
