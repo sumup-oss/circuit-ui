@@ -19,7 +19,9 @@ import { css } from '@emotion/react';
 import styled, { StyleProps } from '../../styles/styled';
 import Button, { ButtonProps } from '../Button';
 
-type Action = Omit<ButtonProps, 'variant'>;
+type Action = Omit<ButtonProps, 'variant'> & {
+  disableAutomaticClosing?: boolean;
+};
 
 export interface ButtonGroupProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'align'> {

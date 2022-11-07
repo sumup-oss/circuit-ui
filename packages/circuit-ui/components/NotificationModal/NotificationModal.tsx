@@ -223,9 +223,14 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
           ...props,
         };
 
-        function wrapOnClick(onClick?: ButtonProps['onClick']) {
+        function wrapOnClick(
+          onClick?: ButtonProps['onClick'],
+          disableAutomaticClosing?: boolean,
+        ) {
           return (event: ClickEvent) => {
-            handleClose?.(event);
+            if (!disableAutomaticClosing) {
+              handleClose?.(event);
+            }
             onClick?.(event);
           };
         }
@@ -256,11 +261,17 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
                 actions={{
                   primary: {
                     ...actions.primary,
-                    onClick: wrapOnClick(actions.primary.onClick),
+                    onClick: wrapOnClick(
+                      actions.primary.onClick,
+                      actions.primary.disableAutomaticClosing,
+                    ),
                   },
                   secondary: actions.secondary && {
                     ...actions.secondary,
-                    onClick: wrapOnClick(actions.secondary.onClick),
+                    onClick: wrapOnClick(
+                      actions.secondary.onClick,
+                      actions.secondary.disableAutomaticClosing,
+                    ),
                   },
                 }}
                 css={spacing({ top: 'giga' })}
