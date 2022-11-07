@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.0.0-next.3
+
+### Patch Changes
+
+- [`8c488274`](https://github.com/sumup-oss/circuit-ui/commit/8c488274e792273769590797da7f6c59c05150c6) Thanks [@robinmetral](https://github.com/robinmetral)! - Published a new prerelease version after merging the changes from `main` into `next`. (This will be removed from the changelog in the stable release.)
+
 ## 6.0.0-next.2
 
 ### Patch Changes
