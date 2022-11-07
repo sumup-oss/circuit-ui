@@ -2,14 +2,14 @@
 
 exports[`Avatar styles should render the giga size 1`] = `
 .circuit-0 {
-  display: block;
   width: 48px;
   height: 48px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 8px;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 8px;
 }
 
 <div>
@@ -23,14 +23,14 @@ exports[`Avatar styles should render the giga size 1`] = `
 
 exports[`Avatar styles should render the identity variant placeholder 1`] = `
 .circuit-0 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 100%;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 100%;
 }
 
 <div>
@@ -44,14 +44,14 @@ exports[`Avatar styles should render the identity variant placeholder 1`] = `
 
 exports[`Avatar styles should render the identity variant with an image 1`] = `
 .circuit-0 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 100%;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 100%;
 }
 
 <div>
@@ -63,16 +63,55 @@ exports[`Avatar styles should render the identity variant with an image 1`] = `
 </div>
 `;
 
-exports[`Avatar styles should render the object variant placeholder 1`] = `
+exports[`Avatar styles should render the identity variant with initials 1`] = `
 .circuit-0 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: #FFF;
+  font-size: calc(96px / 2);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+<div>
+  <div
+    aria-label=""
+    class="circuit-0"
+    role="img"
+  >
+    JD
+  </div>
+</div>
+`;
+
+exports[`Avatar styles should render the object variant placeholder 1`] = `
+.circuit-0 {
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  background-color: #CCC;
+  border-radius: 12px;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
 }
 
 <div>
@@ -86,14 +125,14 @@ exports[`Avatar styles should render the object variant placeholder 1`] = `
 
 exports[`Avatar styles should render the object variant with an image 1`] = `
 .circuit-0 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 12px;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
 }
 
 <div>
@@ -107,14 +146,14 @@ exports[`Avatar styles should render the object variant with an image 1`] = `
 
 exports[`Avatar styles should render the yotta size 1`] = `
 .circuit-0 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 12px;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
 }
 
 <div>
@@ -128,14 +167,14 @@ exports[`Avatar styles should render the yotta size 1`] = `
 
 exports[`Avatar styles should render with default styles 1`] = `
 .circuit-0 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 12px;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
 }
 
 <div>

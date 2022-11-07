@@ -27,6 +27,7 @@ export default {
 };
 
 export const Base = (args: AvatarProps): JSX.Element => <Avatar {...args} />;
+
 Base.args = {
   src: '/images/illustration-coffee.jpg',
   variant: 'object',
@@ -53,6 +54,7 @@ export const IdentityVariant = (): JSX.Element => (
       alt="A portrait of a grey cat"
     />
     <Avatar variant="identity" alt="" />
+    <Avatar variant="identity" alt="John Dorian" initials="JD" />
   </Stack>
 );
 
@@ -85,6 +87,10 @@ export const Sizes = (): JSX.Element => (
         size="giga"
         alt="A portrait of a grey cat"
       />
+    </Stack>
+    <Stack>
+      <Avatar variant="identity" alt="John Dorian" initials="JD" size="yotta" />
+      <Avatar variant="identity" alt="John Dorian" initials="JD" size="giga" />
     </Stack>
   </Stack>
 );

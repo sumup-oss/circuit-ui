@@ -62,6 +62,15 @@ describe('Avatar', () => {
       });
       expect(container).toMatchSnapshot();
     });
+
+    it('should render the identity variant with initials', () => {
+      const { container } = renderAvatar({
+        variant: 'identity',
+        alt: '',
+        initials: 'JD',
+      });
+      expect(container).toMatchSnapshot();
+    });
   });
 
   describe('accessibility', () => {

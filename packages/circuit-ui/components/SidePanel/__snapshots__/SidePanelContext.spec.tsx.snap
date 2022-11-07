@@ -101,7 +101,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
   -ms-flex-align: center;
   align-items: center;
   background-color: #FFF;
-  z-index: 1;
+  z-index: 600;
 }
 
 @media (min-width: 768px) {
@@ -441,7 +441,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
   -ms-flex-align: center;
   align-items: center;
   background-color: #FFF;
-  z-index: 1;
+  z-index: 600;
 }
 
 @media (min-width: 768px) {
@@ -780,7 +780,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
   -ms-flex-align: center;
   align-items: center;
   background-color: #FFF;
-  z-index: 1;
+  z-index: 600;
 }
 
 @media (min-width: 768px) {

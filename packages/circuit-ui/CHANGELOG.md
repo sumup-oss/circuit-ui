@@ -67,6 +67,18 @@
 - Updated dependencies [[`b8f129ee`](https://github.com/sumup-oss/circuit-ui/commit/b8f129eed5673a00a4e4b5deeed4494e5ee93912)]:
   - @sumup/design-tokens@5.0.0-next.0
 
+## 5.4.0
+
+### Minor Changes
+
+- [#1786](https://github.com/sumup-oss/circuit-ui/pull/1786) [`242e1541`](https://github.com/sumup-oss/circuit-ui/commit/242e1541ef84f22fa3d1d3264cea961230eabd8b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the option of using initials as a placeholder for the `identity` variant of the `Avatar` component.
+
+## 5.3.2
+
+### Patch Changes
+
+- [#1779](https://github.com/sumup-oss/circuit-ui/pull/1779) [`0be74924`](https://github.com/sumup-oss/circuit-ui/commit/0be74924a42bf179fabaa960ce7bf7f5d0dca97a) Thanks [@hris27](https://github.com/hris27)! - Fixed a z-index issue with the SidePanel header.
+
 ## 5.3.1
 
 ### Patch Changes

@@ -60,14 +60,14 @@ exports[`ProfileMenu Styles should render with a profile picture 1`] = `
 }
 
 .circuit-3 {
-  display: block;
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: #CCC;
+  border-radius: 100%;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-radius: 100%;
   width: 24px;
   height: 24px;
 }

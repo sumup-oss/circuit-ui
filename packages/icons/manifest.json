@@ -66,6 +66,11 @@
       "size": "16"
     },
     {
+      "name": "copy",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "crop",
       "category": "Action",
       "size": "24"

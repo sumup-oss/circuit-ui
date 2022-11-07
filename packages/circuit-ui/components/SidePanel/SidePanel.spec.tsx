@@ -21,20 +21,6 @@ jest.mock('../../util/id', () => ({
   uniqueId: () => 'the_one',
 }));
 
-/**
- * We need to patch the key event because `react-modal` uses the deprecated
- * `KeyboardEvent.keyCode`.
- * See https://github.com/testing-library/user-event/issues/969
- */
-function patchKeyEvent(e: KeyboardEvent) {
-  Object.defineProperty(e, 'keyCode', {
-    get: () => (e.code === 'Escape' ? 27 : 0),
-  });
-}
-beforeAll(() => {
-  document.addEventListener('keydown', patchKeyEvent, { capture: true });
-});
-
 describe('SidePanel', () => {
   const baseProps: SidePanelProps = {
     backButtonLabel: 'Back',
