@@ -50,6 +50,12 @@ type PreventCloseProps =
       preventClose?: never;
     };
 
+type NotificationModalAction<Type> = {
+  [Property in keyof Type]: Type[Property] & {
+    disableAutomaticClosing?: boolean;
+  };
+};
+
 export type NotificationModalProps = BaseModalProps &
   PreventCloseProps & {
     /**
@@ -70,7 +76,7 @@ export type NotificationModalProps = BaseModalProps &
     /**
      * Action buttons to allow users to act on the notification.
      */
-    actions: ButtonGroupProps['actions'];
+    actions: NotificationModalAction<ButtonGroupProps['actions']>;
   };
 
 const closeButtonStyles = (theme: Theme) => css`
