@@ -1,6 +1,10 @@
 # Migration <!-- omit in toc -->
 
 - [🤖 Codemods](#-codemods)
+- [From v5 to v6](#from-v5-to-v6)
+  - [No default component margins](#no-default-component-margins)
+  - [Form component consistency](#form-component-consistency)
+  - [Other changes](#other-changes)
 - [From v4 to v5](#from-v4-to-v5)
   - [Explicit browser support](#explicit-browser-support)
   - [New semantic color names](#new-semantic-color-names)
@@ -11,7 +15,7 @@
   - [Runtime errors for missing `noMargin` props](#runtime-errors-for-missing-nomargin-props)
   - [The `ListItemGroup` replaces the `CardList`](#the-listitemgroup-replaces-the-cardlist)
   - [Combined `LoadingButton` and `Button`](#combined-loadingbutton-and-button)
-  - [Other changes](#other-changes)
+  - [Other changes](#other-changes-1)
 - [From v3.x to v4](#from-v3x-to-v4)
   - [Emotion 11](#emotion-11)
     - [New package names](#new-package-names)
@@ -37,7 +41,7 @@
     - [Modal](#modal)
     - [Popover](#popover)
   - [Component heights](#component-heights)
-  - [Other changes](#other-changes-1)
+  - [Other changes](#other-changes-2)
   - [Cleaning up](#cleaning-up)
 - [From v1.x to v2](#from-v1x-to-v2)
   - [Library format](#library-format)
@@ -78,6 +82,26 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 > ```sh
 > ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
 > ```
+
+## From v5 to v6
+
+Circuit UI v6 contains two major changes: the removal of the `noMargin` prop, and changes to form components to improve consistency.
+
+> :warning: Note: this major version doesn't include codemods. The changes cannot be easily automated and should be manually migrated. Detailed migration steps for each change are listed below.
+
+### No default component margins
+
+Default component margins have been deprecated since v2, and the use of the `noMargin` prop was encouraged to ensure that UIs don't rely on the default margin. Omitting the prop [throws errors since v5](#runtime-errors-for-missing-nomargin-props).
+
+In v6, default margins have been removed from components. The now redundant `noMargin` prop has been removed as well.
+
+If you've already addressed all the errors throwing since v5, migration is straightforward: now that the `noMargin` prop isn't necessary anymore, you can simply remove it from your codebase. If you haven't, make sure to address all errors before migrating to v6. Failure to do so can result in unintended UI bugs.
+
+Removing the prop is easiest done using search and replace in your IDE.
+
+### Form component consistency
+
+### Other changes
 
 ## From v4 to v5
 
