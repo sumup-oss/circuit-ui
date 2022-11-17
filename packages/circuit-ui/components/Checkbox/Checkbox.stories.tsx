@@ -82,6 +82,7 @@ export const Indeterminate = (args: CheckboxProps) => (
 );
 
 Indeterminate.args = {
-  name: 'indeterminate',
-  value: 'true',
+  'name': 'indeterminate',
+  'value': 'true',
+  'aria-checked': 'mixed',
 };
