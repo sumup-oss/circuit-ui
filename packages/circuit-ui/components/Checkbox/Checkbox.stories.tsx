@@ -69,6 +69,7 @@ Disabled.args = {
   validationHint: 'Express shipping is unavailable in your region',
   disabled: true,
 };
+
 export const Indeterminate = (args: CheckboxProps) => (
   <Checkbox
     {...args}
@@ -83,6 +84,6 @@ export const Indeterminate = (args: CheckboxProps) => (
 
 Indeterminate.args = {
   'name': 'indeterminate',
-  'value': 'true',
+  'value': 'any value',
   'aria-checked': 'mixed',
 };
