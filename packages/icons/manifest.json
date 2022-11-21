@@ -371,6 +371,11 @@
       "size": "24"
     },
     {
+      "name": "postfinance",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "red_compra",
       "category": "Payment method",
       "size": "24"
