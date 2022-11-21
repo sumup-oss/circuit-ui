@@ -211,12 +211,27 @@
       "size": "24"
     },
     {
+      "name": "send",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "share",
       "category": "Action",
       "size": "24"
     },
     {
       "name": "share",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "stop",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "stop",
       "category": "Action",
       "size": "16"
     },
@@ -239,6 +254,11 @@
       "name": "view",
       "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "view",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "email_chat",
