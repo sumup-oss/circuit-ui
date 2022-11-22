@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 4.0.1
+
+### Patch Changes
+
+- [#1846](https://github.com/sumup-oss/circuit-ui/pull/1846) [`e08e252e`](https://github.com/sumup-oss/circuit-ui/commit/e08e252eeabbc1be44406d25fe8c5b39a95cb99c) Thanks [@robinmetral](https://github.com/robinmetral)! - Adjusted the `confirm`, `notify` and `alert` brand colors.
+
 ## 4.0.0
 
 ### Major Changes
