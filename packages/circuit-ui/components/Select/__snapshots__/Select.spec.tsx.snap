@@ -1416,7 +1416,7 @@ label+.circuit-2 {
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   padding-right: 56px;
-  box-shadow: 0 0 0 1px #D23F47;
+  box-shadow: 0 0 0 1px #DE331D;
 }
 
 .circuit-3:-moz-focusring {
@@ -1433,11 +1433,11 @@ label+.circuit-2 {
 }
 
 .circuit-3:focus {
-  box-shadow: 0 0 0 2px #D23F47;
+  box-shadow: 0 0 0 2px #DE331D;
 }
 
 .circuit-3:active {
-  box-shadow: 0 0 0 1px #D23F47;
+  box-shadow: 0 0 0 1px #DE331D;
 }
 
 .circuit-4 {

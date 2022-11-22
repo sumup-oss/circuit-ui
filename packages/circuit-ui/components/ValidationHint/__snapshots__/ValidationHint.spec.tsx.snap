@@ -27,7 +27,7 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
   color: #666;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
-  color: #D23F47;
+  color: #DE331D;
 }
 
 .circuit-1 {
@@ -37,7 +37,7 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
   height: 16px;
   vertical-align: text-top;
   margin-right: 4px;
-  color: #D23F47;
+  color: #DE331D;
 }
 
 <span
@@ -73,7 +73,7 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
   color: #666;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
-  color: #138849;
+  color: #018730;
 }
 
 .circuit-1 {
@@ -83,7 +83,7 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
   height: 16px;
   vertical-align: text-top;
   margin-right: 4px;
-  color: #138849;
+  color: #018730;
 }
 
 <span
@@ -129,7 +129,7 @@ exports[`ValidationHint styles should render with warning styles 1`] = `
   height: 16px;
   vertical-align: text-top;
   margin-right: 4px;
-  color: #F5C625;
+  color: #F5A720;
 }
 
 .circuit-1::before {

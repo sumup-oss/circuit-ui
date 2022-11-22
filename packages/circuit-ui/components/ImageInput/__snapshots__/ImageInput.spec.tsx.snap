@@ -168,8 +168,8 @@ exports[`ImageInput styles should render a custom component 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #D23F47;
-  border-color: #D23F47;
+  background-color: #DE331D;
+  border-color: #DE331D;
   color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
@@ -543,8 +543,8 @@ exports[`ImageInput styles should render with an existing image 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #D23F47;
-  border-color: #D23F47;
+  background-color: #DE331D;
+  border-color: #DE331D;
   color: #FFF;
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
@@ -1214,7 +1214,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
 }
 
 .circuit-2>*:last-child {
-  box-shadow: 0 0 0 2px #D23F47;
+  box-shadow: 0 0 0 2px #DE331D;
 }
 
 .circuit-2:hover>*:last-child {
@@ -1422,7 +1422,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   color: #666;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
-  color: #D23F47;
+  color: #DE331D;
 }
 
 .circuit-13 {
@@ -1432,7 +1432,7 @@ exports[`ImageInput styles should render with invalid styles 1`] = `
   height: 16px;
   vertical-align: text-top;
   margin-right: 4px;
-  color: #D23F47;
+  color: #DE331D;
 }
 
 <div>
