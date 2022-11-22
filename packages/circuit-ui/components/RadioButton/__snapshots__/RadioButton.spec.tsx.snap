@@ -412,7 +412,7 @@ HTMLCollection [
 }
 
 .circuit-0:checked+label::before {
-  border-color: #D23F47;
+  border-color: #DE331D;
 }
 
 <input
@@ -470,12 +470,12 @@ HTMLCollection [
 }
 
 .circuit-0:not(:focus)::before {
-  border-color: #D23F47;
+  border-color: #DE331D;
   background-color: #F4CBCB;
 }
 
 .circuit-0:not(:focus)::after {
-  background-color: #D23F47;
+  background-color: #DE331D;
 }
 
 <label

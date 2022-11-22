@@ -964,7 +964,7 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #D23F47;
+  box-shadow: 0 0 0 1px #DE331D;
   overflow: auto;
   resize: vertical;
 }
@@ -994,22 +994,22 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 }
 
 .circuit-3:not(:focus)::-webkit-input-placeholder {
-  color: #D23F47;
+  color: #DE331D;
   opacity: 0.5;
 }
 
 .circuit-3:not(:focus)::-moz-placeholder {
-  color: #D23F47;
+  color: #DE331D;
   opacity: 0.5;
 }
 
 .circuit-3:not(:focus):-ms-input-placeholder {
-  color: #D23F47;
+  color: #DE331D;
   opacity: 0.5;
 }
 
 .circuit-3:not(:focus)::placeholder {
-  color: #D23F47;
+  color: #DE331D;
   opacity: 0.5;
 }
 
@@ -1018,11 +1018,11 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 }
 
 .circuit-3:focus {
-  box-shadow: 0 0 0 2px #D23F47;
+  box-shadow: 0 0 0 2px #DE331D;
 }
 
 .circuit-3:active {
-  box-shadow: 0 0 0 1px #D23F47;
+  box-shadow: 0 0 0 1px #DE331D;
 }
 
 <label
@@ -1347,7 +1347,7 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #F5C625;
+  box-shadow: 0 0 0 1px #F5A720;
   overflow: auto;
   resize: vertical;
 }
@@ -1377,19 +1377,19 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 }
 
 .circuit-3:not(:focus)::-webkit-input-placeholder {
-  color: #F5C625;
+  color: #F5A720;
 }
 
 .circuit-3:not(:focus)::-moz-placeholder {
-  color: #F5C625;
+  color: #F5A720;
 }
 
 .circuit-3:not(:focus):-ms-input-placeholder {
-  color: #F5C625;
+  color: #F5A720;
 }
 
 .circuit-3:not(:focus)::placeholder {
-  color: #F5C625;
+  color: #F5A720;
 }
 
 .circuit-3:hover {
@@ -1397,11 +1397,11 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 }
 
 .circuit-3:focus {
-  box-shadow: 0 0 0 2px #F5C625;
+  box-shadow: 0 0 0 2px #F5A720;
 }
 
 .circuit-3:active {
-  box-shadow: 0 0 0 1px #F5C625;
+  box-shadow: 0 0 0 1px #F5A720;
 }
 
 <label

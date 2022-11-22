@@ -5,7 +5,7 @@ exports[`Body should render as a "alert" variant 1`] = `
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #D23F47;
+  color: #DE331D;
 }
 
 <p
@@ -21,7 +21,7 @@ exports[`Body should render as a "confirm" variant 1`] = `
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #138849;
+  color: #018730;
 }
 
 <p
