@@ -103,9 +103,9 @@ const misc = {
   bodyBg: white,
   bodyColor: neutrals.n900,
   info: '#3063E9',
-  confirm: '#138849',
-  alert: '#D23F47',
-  notify: '#F5C625',
+  confirm: '#018730',
+  alert: '#DE331D',
+  notify: '#F5A720',
 };
 
 export const colors: Colors = {
