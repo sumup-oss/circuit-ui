@@ -93,7 +93,7 @@ Circuit UI v6 contains two major changes: the removal of the `noMargin` prop, an
 
 Default component margins have been deprecated since v2, and the use of the `noMargin` prop was encouraged to ensure that UIs don't rely on the default margin. Omitting the prop [throws errors since v5](#runtime-errors-for-missing-nomargin-props).
 
-In v6, default margins have been removed from components. The now redundant `noMargin` prop has been removed as well.
+In v6, default margins have been removed from components. The `noMargin` prop, now redundant, has been removed as well.
 
 If you've already addressed all the errors throwing since v5, migration is straightforward: now that the `noMargin` prop isn't necessary anymore, you can simply remove it from your codebase. If you haven't, make sure to address all errors before migrating to v6. Failure to do so can result in unintended UI bugs.
 
