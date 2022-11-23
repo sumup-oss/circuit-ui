@@ -101,7 +101,30 @@ Removing the prop is easiest done using search and replace in your IDE.
 
 ### Form component consistency
 
+- checkbox validation hint
+- validationHint markup change
+- react-number-format v5
+- imageinput now wrapped in div (can be passed style mixins)
+- inline prop removed from input, textarea, select. Use css instead
+- label component removed. Use built-in label or use typography("two")
+- labelStyles removed from input and textarea, instead css will be applied to outermost div (for all form components)
+- label prop only accepts a string. Ignore in TS while migrating if necessary. Use optionalLabel.
+- various accessibility fixes, could affect snapshots or tests. e.g.:
+  - radiobutton role group => radiogroup, orientation=vertical
+  - chevron in select decorative only
+  - invalid radio buttons now have aria-invalid=true
+  - currencyinput currency symbol now part of the input's description 8via aria-describedby)
+- visual fixes
+  - font side of the input's prefix and suffix
+  - removed unintended spacing below a textarea
+
 ### Other changes
+
+- ButtonGroup markup change (affects tests)
+- Design tokens: rem units
+- Badge uses rem units
+- popover uses floating-ui (migration plus rec to migrate any uses of popper locally to avoid 2 deps)
+- browser support update (dynamic imports)
 
 ## From v4 to v5
 
