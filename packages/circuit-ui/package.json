@@ -67,6 +67,7 @@
     "@types/cross-spawn": "^6.0.2",
     "@types/jest-axe": "^3.5.5",
     "@types/jscodeshift": "^0.11.5",
+    "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "@types/react-modal": "^3.13.1",
@@ -79,7 +80,7 @@
     "react-docgen-annotation-resolver": "^2.0.0",
     "react-dom": "^18.2.0",
     "react-swipeable": "^7.0.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.3"
   },
   "peerDependencies": {
     "@emotion/cache": "11.x",
