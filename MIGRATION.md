@@ -4,6 +4,9 @@
 - [From v5 to v6](#from-v5-to-v6)
   - [No default component margins](#no-default-component-margins)
   - [Form component consistency](#form-component-consistency)
+    - [The `Label` component was removed](#the-label-component-was-removed)
+    - [The `inline` prop was removed](#the-inline-prop-was-removed)
+    - [The `labelStyles` prop was removed](#the-labelstyles-prop-was-removed)
   - [Other changes](#other-changes)
 - [From v4 to v5](#from-v4-to-v5)
   - [Explicit browser support](#explicit-browser-support)
@@ -105,28 +108,79 @@ In v6, form components follow a more consistent and accessible pattern:
 
 - form components are now all wrapped in a `div` that receives any styles passed through the `style` or `className` attributes, including via the Emotion.js `css` prop
 - an empty [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) is rendered below form components. If a `validationHint` is passed along with either the `invalid`, `hasWarning` or `showValid` props (indicating status messages), the message will be rendered inside the live region to be announced by screen readers
-- a provided `validationHint` is now programmatically associated to a form control via `aria-describedby`
-- the required `label` prop now only accepts a `string` in all form components. The label constitutes the input's [accessible name](https://www.tpgi.com/what-is-an-accessible-name/) and shouldn't contain any structure or functionality
+- a provided `validationHint` is now programmatically associated to a form control via `aria-describedby`, and consistently rendered below the control
+- the `label` prop now only accepts a `string` in all form components. The label constitutes the input's [accessible name](https://www.tpgi.com/what-is-an-accessible-name/) and shouldn't contain any structure or functionality
 - all form components now accept an `optionalLabel` prop. When provided, its value will be rendered in parentheses and subtle text next to the `label`
 - all form components now accept a `disabled` prop. The prop disables a component visually and programmatically
 
-...
+Here's the full list of breaking changes, along with migration recommendations:
 
-- checkbox validation hint
-- validationHint markup change
-- react-number-format v5
-- imageinput now wrapped in div (can be passed style mixins)
-- inline prop removed from input, textarea, select. Use css instead
-- label component removed. Use built-in label or use typography("two")
-- labelStyles removed from input and textarea, instead css will be applied to outermost div (for all form components)
+#### The `Label` component was removed
+
+In most cases, the `Label` component shouldn't be used: form components have a built-in `label` prop that ensures that controls are appropriately and accessibly labelled.
+
+In implementations where the `Label` doesn't label a form component, use a `<Body size="two" />` instead.
+
+Where the `Label` describes the purpose of a form component, use the built-in `label` prop instead. In edge cases and custom form component implementations, replace the `Label` by a `<label css={typography("two")} />`.
+
+#### The `inline` prop was removed
+
+The prop was removed from the `Input`, `TextArea` and `Select` components.
+
+It went again the principles of atomic design and was rarely used in implementations.
+
+Replace it with a custom CSS wrapper, for example using flexbox.
+
+Alternatively, to recreate the exact same functionality, pass `display: inline-block;` and a margin to the components:
+
+```tsx
+const inlineStyles = (theme) => css`
+  display: inline-block;
+  margin-right: ${theme.spacings.mega};
+`;
+
+function Address() {
+  return (
+    <>
+      <Input label="Postcode" css={inlineStyles} />
+      <Input label="City" css={inlineStyles} />
+    </>
+  );
+}
+```
+
+#### The `labelStyles` prop was removed
+
+The prop was from the `Input` and `TextArea` components.
+
+In v5, it is predominantly used to apply styles to the component's wrapper (previously the `label` element).
+
+It can be replaced by the Emotion.js `css` prop, since classes are now applied to a wrapper around all form components:
+
+```diff
+<Input
+  label="Name"
++ css={spacing({ bottom: "giga" })}
+- labelStyles={spacing({ bottom: "giga" })}
+/>
+```
+
+Note that if you were using the `labelStyles` in non-standard ways (for example using selectors such as `> div` to style component internals), you may need to refactor your implementation.
+
+---
+
 - label prop only accepts a string. Ignore in TS while migrating if necessary. Use optionalLabel.
+- checkbox validation hint
 - various accessibility fixes, could affect snapshots or tests. e.g.:
+  - validationHint markup change (incl. unique id)
   - radiobutton role group => radiogroup, orientation=vertical
   - chevron in select decorative only
   - invalid radio buttons now have aria-invalid=true
-  - currencyinput currency symbol now part of the input's description 8via aria-describedby)
-- visual fixes
-  - font side of the input's prefix and suffix
+  - currencyinput currency symbol now part of the input's description (via aria-describedby)
+- minor changes
+  - react-number-format v5
+  - imageinput now wrapped in div (can be passed style mixins)
+  - font size of the input's prefix and suffix
   - removed unintended spacing below a textarea
 
 ### Other changes
