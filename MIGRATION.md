@@ -85,7 +85,7 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 
 ## From v5 to v6
 
-Circuit UI v6 contains two major changes: the removal of the `noMargin` prop, and changes to form components to improve consistency.
+Circuit UI v6 contains two major changes: the removal of the `noMargin` prop, and changes to form components that improve consistency.
 
 > :warning: Note: this major version doesn't include codemods. The changes cannot be easily automated and should be manually migrated. Detailed migration steps for each change are listed below.
 
@@ -100,6 +100,17 @@ If you've already addressed all the errors throwing since v5, migration is strai
 Removing the prop is easiest done using search and replace in your IDE.
 
 ### Form component consistency
+
+In v6, form components follow a more consistent and accessible pattern:
+
+- form components are now all wrapped in a `div` that receives any styles passed through the `style` or `className` attributes, including via the Emotion.js `css` prop
+- an empty [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) is rendered below form components. If a `validationHint` is passed along with either the `invalid`, `hasWarning` or `showValid` props (indicating status messages), the message will be rendered inside the live region to be announced by screen readers
+- a provided `validationHint` is now programmatically associated to a form control via `aria-describedby`
+- the required `label` prop now only accepts a `string` in all form components. The label constitutes the input's [accessible name](https://www.tpgi.com/what-is-an-accessible-name/) and shouldn't contain any structure or functionality
+- all form components now accept an `optionalLabel` prop. When provided, its value will be rendered in parentheses and subtle text next to the `label`
+- all form components now accept a `disabled` prop. The prop disables a component visually and programmatically
+
+...
 
 - checkbox validation hint
 - validationHint markup change
