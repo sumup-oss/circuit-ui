@@ -40,8 +40,30 @@ export const Base = (args: RadioButtonGroupProps) => {
 };
 
 Base.args = {
-  name: 'radio-button-group',
+  name: 'radio-button-group-base',
   label: 'Choose your favourite fruit',
+  options: [
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
+  ],
+};
+
+export const Preselected = ({
+  value: preselectedValue,
+  ...rest
+}: RadioButtonGroupProps) => {
+  const [value, setValue] = useState(preselectedValue);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+  return <RadioButtonGroup {...rest} value={value} onChange={handleChange} />;
+};
+
+Preselected.args = {
+  name: 'radio-button-group-preselected',
+  label: 'Choose your favourite fruit',
+  value: 'banana',
   options: [
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' },
@@ -58,7 +80,7 @@ export const Invalid = (args: RadioButtonGroupProps) => {
 };
 
 Invalid.args = {
-  name: 'radio-button-group',
+  name: 'radio-button-group-invalid',
   label: 'Choose your favourite fruit',
   options: [
     { label: 'Apple', value: 'apple' },
@@ -78,7 +100,7 @@ export const Valid = (args: RadioButtonGroupProps) => {
 };
 
 Valid.args = {
-  name: 'radio-button-group',
+  name: 'radio-button-group-valid',
   label: 'Choose your favourite fruit',
   options: [
     { label: 'Apple', value: 'apple' },
@@ -98,8 +120,8 @@ export const Warning = (args: RadioButtonGroupProps) => {
 };
 
 Warning.args = {
-  name: 'radio-button-group',
-  label: 'Choose your favourite fruit',
+  name: 'radio-button-group-warning',
+  label: 'Warning: Choose your favourite fruit',
   options: [
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' },
