@@ -4513,10 +4513,10 @@
     semantic-release "^19.0.3"
     yargs "^17.5.1"
 
-"@sumup/intl@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@sumup/intl/-/intl-1.3.0.tgz#f306f09f3df7383a0f56045d4ccf2cbf47f7948e"
-  integrity sha512-e9Pe4rE+aaqX+jjht4as9ZPV2cG6cLiwwSGUQ193pBti0CjcCLDxC0NJlaVQuS3V9PFPxIWYiuhqjlAvDfHNHw==
+"@sumup/intl@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@sumup/intl/-/intl-1.3.1.tgz#353e1a513c31c9a8e50bcd5b9b4200b9b22e53df"
+  integrity sha512-bAHUSsSTKjBJhV+UKurEnt6dUFWS0iwHHu6ktkW5cgwXZPAcN1S7MgBLhwEg+bd4F2/DvkaZLU/vMBey/DMRIA==
   dependencies:
     intl-format-cache "^4.2.27"
 
