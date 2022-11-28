@@ -52,7 +52,7 @@ jobs:
         run: yarn lint:ci
 
       - name: Run unit tests
-        run: yarn test:ci -u
+        run: yarn test:ci
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v1.0.3
