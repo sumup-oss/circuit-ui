@@ -121,7 +121,7 @@ export const Warning = (args: RadioButtonGroupProps) => {
 
 Warning.args = {
   name: 'radio-button-group-warning',
-  label: 'Warning: Choose your favourite fruit',
+  label: 'Choose your favourite fruit',
   options: [
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' },
