@@ -150,15 +150,11 @@ export const CheckboxGroup = forwardRef(
       );
     }
 
-    // The CheckboxGroup is invalid when any of the individual Checkboxes are invalid.
-    // const isCheckboxGroupInvalid = options.some((option) => option.invalid);
-
     return (
       <FieldWrapper
         as="fieldset"
-        role="radiogroup"
+        role="group"
         aria-describedby={descriptionIds}
-        aria-orientation="vertical"
         name={name}
         // @ts-expect-error TypeScript isn't smart enough to recognize the `as` prop.
         ref={ref}
@@ -194,6 +190,7 @@ export const CheckboxGroup = forwardRef(
                     name,
                     required,
                     onChange,
+                    invalid: false,
                     checked:
                       !!checkboxValue &&
                       checkedCheckboxes[checkboxValue.toString()],
