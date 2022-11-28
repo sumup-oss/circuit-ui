@@ -190,7 +190,6 @@ export const CheckboxGroup = forwardRef(
                     name,
                     required,
                     onChange,
-                    invalid: false,
                     checked:
                       !!checkboxValue &&
                       checkedCheckboxes[checkboxValue.toString()],

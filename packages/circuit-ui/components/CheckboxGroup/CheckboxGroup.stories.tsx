@@ -134,10 +134,11 @@ const CheckboxGroupWithStateInvalid = ({
   const [value, setValue] = useState<CheckboxGroupProps['value']>(initialValue);
 
   const requiredFields = ['banana', 'apple'];
+
   const initialOptions: CheckboxGroupProps['options'] = defaultOptions.map(
     (option) => {
       const newOption = { ...option };
-      if (option?.value && requiredFields.includes(option?.value?.toString())) {
+      if (option.value && requiredFields.includes(option.value?.toString())) {
         newOption.invalid = true;
       }
       return newOption;
