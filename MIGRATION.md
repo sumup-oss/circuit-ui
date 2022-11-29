@@ -7,6 +7,7 @@
     - [The `Label` component was removed](#the-label-component-was-removed)
     - [The `inline` prop was removed](#the-inline-prop-was-removed)
     - [The `labelStyles` prop was removed](#the-labelstyles-prop-was-removed)
+    - [The `label` prop only accepts a string](#the-label-prop-only-accepts-a-string)
   - [Other changes](#other-changes)
 - [From v4 to v5](#from-v4-to-v5)
   - [Explicit browser support](#explicit-browser-support)
@@ -160,16 +161,41 @@ It can be replaced by the Emotion.js `css` prop, since classes are now applied t
 ```diff
 <Input
   label="Name"
-+ css={spacing({ bottom: "giga" })}
-- labelStyles={spacing({ bottom: "giga" })}
+-  labelStyles={spacing({ bottom: "giga" })}
++  css={spacing({ bottom: "giga" })}
 />
 ```
 
 Note that if you were using the `labelStyles` in non-standard ways (for example using selectors such as `> div` to style component internals), you may need to refactor your implementation.
 
----
+#### The `label` prop only accepts a string
 
-- label prop only accepts a string. Ignore in TS while migrating if necessary. Use optionalLabel.
+In v5, some form components (such as the `Input`) accepted any `ReactNode` as a label.
+
+This can be an accessibility issue, because the `label` prop value is exposed to assistive technology as the control's [accessible name](https://www.tpgi.com/what-is-an-accessible-name/). Accessible names don't have semantics or structure, so passing something like a tooltip to the `label` would wrongly be combined with the control's name.
+
+In v6, the `label` prop only accepts a `string`. The change is TypeScript-only (i.e. a `ReactNode` would still be rendered) but migration is encouraged.
+
+We've observed two common patterns affected by this change:
+
+If a `label` is used to render an optional label, it can be replaced with the `optionalLabel` prop:
+
+```diff
+- const optionalStyles = (theme) => css`
+-   color: ${theme.colors.n700};
+- `;
+
+<Input
+- label={<>Address line 2 <span css={optionalStyles}>(Optional)</span></>}
++ label="Address line 2"
++ optionalLabel="Optional"
+/>;
+```
+
+If a `label` is used to render a tooltip next to the label, replace the tooltip with a `validationHint`.
+
+If you need time to migrate, you can temporarily ignore the error (with `@ts-expect-error` if using TypeScript). Bear in mind that passing a `ReactNode` may stop working in a future minor.
+
 - checkbox validation hint
 - various accessibility fixes, could affect snapshots or tests. e.g.:
   - validationHint markup change (incl. unique id)
