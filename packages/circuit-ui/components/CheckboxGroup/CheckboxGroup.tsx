@@ -45,7 +45,7 @@ export interface CheckboxGroupProps
    */
   value?: CheckboxProps['value'][];
   /**
-   * A callback that is called when the any of the checkboxes change their values.
+   * A callback that is called when any of the checkboxes change their values.
    * Passed on to the Checkboxes.
    */
   onChange: CheckboxProps['onChange'];
