@@ -1,6 +1,6 @@
 # @sumup/design-tokens
 
-## 5.0.0-next.0
+## 5.0.0
 
 ### Major Changes
 
