@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useState, ChangeEvent, Fragment } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
@@ -43,7 +43,7 @@ const CheckboxWithState = ({
     setChecked((prev) => !prev);
   };
   return (
-    <Checkbox {...props} checked={checked} onChange={handleChange} noMargin>
+    <Checkbox {...props} checked={checked} onChange={handleChange}>
       {children || (checked ? 'Checked' : 'Unchecked')}
     </Checkbox>
   );
@@ -93,7 +93,7 @@ Disabled.args = {
 };
 
 export const Multiple = (args: CheckboxProps) => (
-  <Fragment>
+  <>
     <CheckboxWithState {...args} value="apples" name="fruits">
       Apples
     </CheckboxWithState>
@@ -103,5 +103,5 @@ export const Multiple = (args: CheckboxProps) => (
     <CheckboxWithState {...args} value="oranges" name="fruits">
       Oranges
     </CheckboxWithState>
-  </Fragment>
+  </>
 );

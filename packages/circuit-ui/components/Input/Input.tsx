@@ -18,22 +18,21 @@ import {
   Ref,
   InputHTMLAttributes,
   TextareaHTMLAttributes,
-  ReactNode,
 } from 'react';
 import { css, Interpolation } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  typography,
-  hideVisually,
-  inputOutline,
-} from '../../styles/style-mixins';
+import { typography, inputOutline } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import Label from '../Label';
-import ValidationHint from '../ValidationHint';
+import {
+  FieldWrapper,
+  FieldLabel,
+  FieldLabelText,
+  FieldValidationHint,
+} from '../FieldAtoms';
 import { ReturnType } from '../../types/return-type';
-import { AccessibilityError, DeprecationError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors';
 
 export type InputElement = HTMLInputElement & HTMLTextAreaElement;
 type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
@@ -42,13 +41,14 @@ export interface InputProps extends CircuitInputHTMLAttributes {
   /**
    * A clear and concise description of the input purpose.
    */
-  label: ReactNode;
+  label: string;
   /**
    * The HTML input element to render.
    */
   as?: 'input' | 'textarea';
   /**
-   * A unique identifier for the input field. If not defined, a randomly generated id is used.
+   * A unique identifier for the input field. If not defined, a randomly
+   * generated id is used.
    */
   id?: string;
   /**
@@ -62,7 +62,7 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   renderSuffix?: ({ className }: { className?: string }) => JSX.Element | null;
   /**
-   * Warning or error message, displayed below the input.
+   * An information, warning or error message, displayed below the input.
    */
   validationHint?: string;
   /**
@@ -87,22 +87,12 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   readOnly?: boolean;
   /**
-   * Trigger inline styles on the component.
-   */
-  inline?: boolean;
-  /**
-   * We're moving away from built-in margins. The `noMargin` prop is now
-   * required and will be removed in v6 using codemods. Use the `spacing()`
-   * mixin to add margin.
-   */
-  noMargin: true;
-  /**
    * Aligns text in the input
    */
   textAlign?: 'left' | 'right';
   /**
-   * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the field can be inferred from other context.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
   /**
@@ -110,32 +100,18 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   inputStyles?: Interpolation<Theme>;
   /**
-   * Emotion style object to overwrite the input label element styles.
-   */
-  labelStyles?: Interpolation<Theme>;
-  /**
    * The ref to the HTML DOM element
    */
   ref?: Ref<InputElement>;
 }
 
-const containerStyles = () => css`
+const wrapperStyles = () => css`
   position: relative;
 `;
 
-const InputContainer = styled('div')(containerStyles);
+const InputWrapper = styled('div')(wrapperStyles);
 
-type LabelElProps = Pick<InputProps, 'noMargin'>;
-
-const labelNoMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
-  !noMargin &&
-  css`
-    margin-bottom: ${theme.spacings.mega};
-  `;
-
-const InputLabel = styled(Label)<LabelElProps>(labelNoMarginStyles);
-
-type InputElProps = Omit<InputProps, 'label' | 'noMargin'> & {
+type InputElProps = Omit<InputProps, 'label'> & {
   hasPrefix: boolean;
   hasSuffix: boolean;
 };
@@ -257,28 +233,6 @@ const suffixStyles = (theme: Theme) => css`
   transition: right ${theme.transitions.default};
 `;
 
-const labelTextStyles = ({ theme }: StyleProps) => css`
-  display: inline-block;
-  margin-bottom: ${theme.spacings.bit};
-`;
-
-const labelTextHiddenStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
-  hideLabel &&
-  css`
-    ${hideVisually()};
-  `;
-
-const LabelText = styled('span')<{ hideLabel?: boolean }>(
-  labelTextStyles,
-  labelTextHiddenStyles,
-);
-
-const optionalLabelStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.n700};
-`;
-
-const OptionalLabel = styled('span')(optionalLabelStyles);
-
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
@@ -286,23 +240,23 @@ export const Input = forwardRef(
   (
     {
       value,
-      renderPrefix: RenderPrefix,
-      renderSuffix: RenderSuffix,
+      'renderPrefix': RenderPrefix,
+      'renderSuffix': RenderSuffix,
       validationHint,
       optionalLabel,
       required,
       invalid,
       hasWarning,
       showValid,
-      noMargin,
-      inline,
       disabled,
-      labelStyles,
       inputStyles,
       as,
       label,
       hideLabel,
-      id: customId,
+      'id': customId,
+      className,
+      style,
+      'aria-describedby': descriptionId,
       ...props
     }: InputProps,
     ref: InputProps['ref'],
@@ -318,19 +272,12 @@ export const Input = forwardRef(
         'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !noMargin
-    ) {
-      throw new DeprecationError(
-        'Input',
-        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
-      );
-    }
 
     const id = customId || uniqueId('input_');
+    const validationHintId = uniqueId('validation-hint_');
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
 
     const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
     const suffix = RenderSuffix && <RenderSuffix css={suffixStyles} />;
@@ -339,28 +286,25 @@ export const Input = forwardRef(
     const hasSuffix = Boolean(suffix);
 
     return (
-      <InputLabel
-        htmlFor={id}
-        inline={inline}
-        disabled={disabled}
-        noMargin={noMargin}
-        css={labelStyles}
-      >
-        <LabelText hideLabel={hideLabel}>
-          {label}
-          {optionalLabel && !required ? (
-            <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
-          ) : null}
-        </LabelText>
-        <InputContainer>
+      <FieldWrapper className={className} style={style} disabled={disabled}>
+        <FieldLabel htmlFor={id}>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
+            required={required}
+          />
+        </FieldLabel>
+        <InputWrapper>
           {prefix}
           <StyledInput
             as={as}
             id={id}
             value={value}
             ref={ref}
+            aria-describedby={descriptionIds}
             invalid={invalid}
-            aria-invalid={invalid}
+            aria-invalid={invalid && 'true'}
             required={required}
             disabled={disabled}
             hasWarning={hasWarning}
@@ -370,15 +314,16 @@ export const Input = forwardRef(
             {...props}
           />
           {suffix}
-        </InputContainer>
-        <ValidationHint
+        </InputWrapper>
+        <FieldValidationHint
+          id={validationHintId}
           disabled={disabled}
           invalid={invalid}
           hasWarning={hasWarning}
           showValid={showValid}
           validationHint={validationHint}
         />
-      </InputLabel>
+      </FieldWrapper>
     );
   },
 );

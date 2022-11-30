@@ -42,13 +42,12 @@ const Type = ({ size, component, name, fontWeight, ...props }) => {
         children: (
           <Fragment>
             This is {name} {size ? `size ${size}` : ''}
-            <TypePx as="span" variant="subtle" size="two" noMargin>
+            <TypePx as="span" variant="subtle" size="two">
               {weight ? `${weight}` : `${fontSize}, ${lineHeight}`}
             </TypePx>
           </Fragment>
         ),
         size,
-        noMargin: true,
         ...props,
       })}
     </ThemeProvider>

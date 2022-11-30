@@ -14,67 +14,59 @@
  */
 
 import { ChangeEvent, createRef, useState } from 'react';
-import NumberFormat from 'react-number-format';
+import { NumericFormatProps } from 'react-number-format';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  userEvent,
-} from '../../util/test-utils';
+import { render, userEvent, axe } from '../../util/test-utils';
 import { InputProps } from '../Input';
 
 import CurrencyInput, { CurrencyInputProps } from '.';
 
+// Note: these defaults render a '€' as an input suffix
+const defaultProps = {
+  locale: 'de-DE',
+  currency: 'EUR',
+  label: 'Amount',
+};
+
 describe('CurrencyInput', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(
-      <CurrencyInput currency="EUR" label="Amount" noMargin />,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should adjust input padding and suffix width to match currency symbol width', () => {
-    const actual = create(
-      <CurrencyInput
-        placeholder="123,45"
-        currency="CHF"
-        label="Amount"
-        noMargin
-      />,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  describe('business logic', () => {
-    /**
-     * Should accept a working ref
-     */
-    it('should accept a working ref', () => {
-      const tref = createRef<NumberFormat<InputProps>>();
+  describe('Styles', () => {
+    it('should render with default styles and format', () => {
       const { container } = render(
-        <CurrencyInput
-          locale="de-DE"
-          currency="EUR"
-          ref={tref}
-          label="Amount"
-          noMargin
-        />,
+        // @ts-expect-error the locale is intentionally left out to cover the default currency format
+        <CurrencyInput label={defaultProps.label} />,
       );
-      const input = container.querySelector('input');
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render a currency as a suffix', () => {
+      const { container } = render(<CurrencyInput {...defaultProps} />);
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render a currency as a prefix', () => {
+      const { container } = render(
+        <CurrencyInput {...defaultProps} locale="de-CH" currency="CHF" />,
+      );
+      expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe('Logic', () => {
+    it('should accept a working ref', () => {
+      const tref = createRef<NumericFormatProps<InputProps>>();
+      const { getByRole } = render(
+        <CurrencyInput {...defaultProps} ref={tref} />,
+      );
+      const input = getByRole('textbox');
       expect(tref.current).toBe(input);
     });
 
     it('should format a en-GB amount correctly', async () => {
-      const { getByLabelText } = render(
-        <CurrencyInput locale="en-GB" currency="EUR" label="Amount" noMargin />,
+      const { getByRole } = render(
+        <CurrencyInput {...defaultProps} currency="GBP" locale="en-GB" />,
       );
 
-      const input = getByLabelText(/Amount/) as HTMLInputElement;
+      const input = getByRole('textbox') as HTMLInputElement;
 
       await userEvent.type(input, '1234.56');
 
@@ -82,11 +74,11 @@ describe('CurrencyInput', () => {
     });
 
     it('should format a de-DE amount correctly', async () => {
-      const { getByLabelText } = render(
-        <CurrencyInput locale="de-DE" currency="EUR" label="Amount" noMargin />,
+      const { getByRole } = render(
+        <CurrencyInput {...defaultProps} currency="EUR" locale="de-DE" />,
       );
 
-      const input = getByLabelText(/Amount/) as HTMLInputElement;
+      const input = getByRole('textbox') as HTMLInputElement;
 
       await userEvent.type(input, '1234,56');
 
@@ -98,20 +90,17 @@ describe('CurrencyInput', () => {
         const [value, setValue] = useState<CurrencyInputProps['value']>(1234.5);
         return (
           <CurrencyInput
-            locale="de-DE"
-            currency="EUR"
+            {...defaultProps}
             value={value}
-            label="Amount"
-            noMargin
             onChange={(
               e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>,
             ) => setValue(e.target.value)}
           />
         );
       };
-      const { getByLabelText } = render(<ControlledCurrencyInput />);
+      const { getByRole } = render(<ControlledCurrencyInput />);
 
-      const input = getByLabelText(/Amount/) as HTMLInputElement;
+      const input = getByRole('textbox') as HTMLInputElement;
       expect(input.value).toBe('1.234,5');
 
       await userEvent.clear(input);
@@ -121,19 +110,41 @@ describe('CurrencyInput', () => {
     });
   });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <CurrencyInput
-        locale="de-DE"
-        currency="EUR"
-        label="Product price"
-        noMargin
-      />,
-    );
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
+  describe('Accessibility', () => {
+    it('should have no violations', async () => {
+      const { container } = render(<CurrencyInput {...defaultProps} />);
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
+
+    describe('Labeling', () => {
+      const EUR_CURRENCY_SYMBOL = '€'; // formatted by `@sumup/intl`
+      /**
+       * Note: further labeling logic is covered by the underlying `Input` component.
+       */
+      it('should have the currency symbol as part of its accessible description', () => {
+        const { getByRole } = render(<CurrencyInput {...defaultProps} />);
+        expect(getByRole('textbox')).toHaveAccessibleDescription(
+          EUR_CURRENCY_SYMBOL,
+        );
+      });
+
+      it('should accept a custom description via aria-describedby', () => {
+        const customDescription = 'Custom description';
+        const customDescriptionId = 'customDescriptionId';
+        const { getByRole } = render(
+          <>
+            <span id={customDescriptionId}>{customDescription}</span>
+            <CurrencyInput
+              {...defaultProps}
+              aria-describedby={customDescriptionId}
+            />
+          </>,
+        );
+        expect(getByRole('textbox')).toHaveAccessibleDescription(
+          `${customDescription} ${EUR_CURRENCY_SYMBOL}`,
+        );
+      });
+    });
   });
 });

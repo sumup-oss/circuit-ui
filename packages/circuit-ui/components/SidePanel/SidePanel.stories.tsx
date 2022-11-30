@@ -72,7 +72,7 @@ const basePlay = ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
 };
 
 const StoryInstructions = () => (
-  <Body noMargin css={spacing('mega')}>
+  <Body css={spacing('mega')}>
     Select an item to open its details in a side panel. When this story is
     viewed in canvas mode we simulate a selection of the third item.
   </Body>
@@ -96,17 +96,17 @@ const DefaultChildren = ({
   const { setSidePanel } = useSidePanel();
 
   if (showLoading) {
-    return <Body noMargin>{`Loading the details of ${label}...`}</Body>;
+    return <Body>{`Loading the details of ${label}...`}</Body>;
   }
 
   return (
     <>
-      <Body noMargin css={spacing({ bottom: 'mega' })}>
+      <Body css={spacing({ bottom: 'mega' })}>
         {showMoreInfo
           ? `These are the details of ${label}.`
           : `This is more information about ${label}.`}
       </Body>
-      <Body noMargin css={spacing({ bottom: 'mega' })}>
+      <Body css={spacing({ bottom: 'mega' })}>
         {
           'Lorem ipsum dolor amet swag pickled humblebrag retro farm-to-table, shoreditch typewriter deep v single-origin coffee green juice coloring book venmo chambray. Marfa authentic blue bottle mixtape tofu adaptogen. IPhone chia blog palo santo mlkshk tattooed jean shorts yr locavore ennui scenester. Wolf tousled pok pok sartorial scenester man bun salvia quinoa raclette sriracha roof party pour-over venmo hammock. Four dollar toast typewriter 3 wolf moon letterpress disrupt pabst. Neutra irony tousled iPhone banh mi wayfarers hoodie waistcoat.'
         }

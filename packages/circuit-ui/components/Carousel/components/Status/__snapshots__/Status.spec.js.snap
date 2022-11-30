@@ -3,15 +3,15 @@
 exports[`Status styles should render with default styles 1`] = `
 .circuit-1 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
 }
 
 @media (max-width: 479px) {
   .circuit-1 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 

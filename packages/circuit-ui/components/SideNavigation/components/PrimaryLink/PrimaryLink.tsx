@@ -210,11 +210,7 @@ export function PrimaryLink({
         <Icon role="presentation" size="24" />
       </Skeleton>
       <Skeleton>
-        <Label
-          variant={isActive || isOpen ? 'highlight' : undefined}
-          as="span"
-          noMargin
-        >
+        <Label variant={isActive || isOpen ? 'highlight' : undefined} as="span">
           {label}
         </Label>
       </Skeleton>

@@ -15,83 +15,95 @@
 
 import { createRef } from 'react';
 
-import {
-  create,
-  renderToHtml,
-  axe,
-  render,
-  userEvent,
-} from '../../util/test-utils';
+import { render, userEvent, axe } from '../../util/test-utils';
 
 import RadioButton from '.';
 
 describe('RadioButton', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<RadioButton label="Label" />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with checked styles', () => {
-    const actual = create(<RadioButton checked label="Label" />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with disabled styles', () => {
-    const actual = create(<RadioButton disabled label="Label" />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with invalid styles', () => {
-    const actual = create(<RadioButton invalid label="Label" />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<RadioButton name="radio" label="Label" />);
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
-  });
-
-  /**
-   * Logic tests.
-   */
-  it('should be unchecked by default', () => {
-    const { getByLabelText } = render(<RadioButton label="Label" />);
-    const inputEl = getByLabelText('Label', {
-      exact: false,
-    });
-    expect(inputEl).not.toHaveAttribute('checked');
-  });
-
-  it('should call the change handler when clicked', async () => {
-    const onChange = jest.fn();
-    const { getByLabelText } = render(
-      <RadioButton onChange={onChange} label="Label" />,
-    );
-    const inputEl = getByLabelText('Label', {
-      exact: false,
+  describe('Styles', () => {
+    it('should render with default styles', () => {
+      const { container } = render(<RadioButton label="Label" />);
+      expect(container).toMatchSnapshot();
     });
 
-    await userEvent.click(inputEl);
+    it('should render with checked styles', () => {
+      const { container } = render(
+        <RadioButton checked onChange={jest.fn} label="Label" />,
+      );
+      expect(container).toMatchSnapshot();
+    });
 
-    expect(onChange).toHaveBeenCalledTimes(1);
+    it('should render with disabled styles', () => {
+      const { container } = render(<RadioButton disabled label="Label" />);
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render with invalid styles', () => {
+      const { container } = render(<RadioButton invalid label="Label" />);
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  describe('business logic', () => {
-    /**
-     * Should accept a working ref
-     */
+  describe('Logic', () => {
+    it('should be unchecked by default', () => {
+      const { getByLabelText } = render(<RadioButton label="Label" />);
+      const inputEl = getByLabelText('Label', {
+        exact: false,
+      });
+      expect(inputEl).not.toHaveAttribute('checked');
+    });
+
+    it('should call the change handler when clicked', async () => {
+      const onChange = jest.fn();
+      const { getByLabelText } = render(
+        <RadioButton onChange={onChange} label="Label" />,
+      );
+      const inputEl = getByLabelText('Label', {
+        exact: false,
+      });
+
+      await userEvent.click(inputEl);
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
+
     it('should accept a working ref', () => {
       const tref = createRef<HTMLInputElement>();
       const { container } = render(<RadioButton ref={tref} label="Label" />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have no violations', async () => {
+      const { container } = render(<RadioButton name="radio" label="Label" />);
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
+
+    describe('Input state', () => {
+      it.each([undefined, false])(
+        'should be valid when the invalid prop is %s',
+        (invalid) => {
+          const { getByRole } = render(
+            <RadioButton invalid={invalid} label="Label" />,
+          );
+          expect(getByRole('radio')).toBeValid();
+        },
+      );
+
+      it.each([true, 'Invalid value'])(
+        'should be invalid when the invalid prop %s',
+        (invalid) => {
+          const { getByRole } = render(
+            // @ts-expect-error we're testing that aria-invalid is properly set
+            // even when the invalid prop is a string
+            <RadioButton invalid={invalid} label="Label" />,
+          );
+          expect(getByRole('radio')).toBeInvalid();
+        },
+      );
     });
   });
 });

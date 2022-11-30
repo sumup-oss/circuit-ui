@@ -114,8 +114,8 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -127,8 +127,8 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 }
 
 .circuit-6 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -454,8 +454,8 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -467,8 +467,8 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 }
 
 .circuit-6 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -793,8 +793,8 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
   font-weight: 700;
   color: #000;
   letter-spacing: -0.03em;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -806,8 +806,8 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 }
 
 .circuit-6 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

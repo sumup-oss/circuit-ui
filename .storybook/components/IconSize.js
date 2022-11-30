@@ -41,14 +41,13 @@ const IconSize = ({ size }) => (
     <Wrapper>
       <Box size={size} />
       <div>
-        <Body as="span" noMargin css={spacing({ bottom: 'giga' })}>
+        <Body as="span" css={spacing({ bottom: 'giga' })}>
           {size}
         </Body>
         <Body
           variant="subtle"
           size="two"
           as="span"
-          noMargin
           css={spacing({ bottom: 'giga', left: 'kilo' })}
         >
           {light.iconSizes[size]}

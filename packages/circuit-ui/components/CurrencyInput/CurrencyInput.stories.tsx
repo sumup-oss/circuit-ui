@@ -32,8 +32,7 @@ const baseArgs = {
   validationHint: 'Excluding VAT',
   currency: 'EUR',
   locale: 'de-DE',
-  noMargin: true,
-  labelStyles: { maxWidth: '250px' },
+  style: { maxWidth: '250px' },
 };
 
 export const Base = (args: CurrencyInputProps) => <CurrencyInput {...args} />;

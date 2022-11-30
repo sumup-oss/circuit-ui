@@ -373,17 +373,11 @@ export const ListItem = forwardRef(
         )}
         <ContentContainer>
           <MainContainer>
-            {isString(label) ? (
-              <Label size="one" noMargin>
-                {label}
-              </Label>
-            ) : (
-              label
-            )}
+            {isString(label) ? <Label size="one">{label}</Label> : label}
             {details && (
               <DetailsContainer>
                 {isString(details) ? (
-                  <Body size="two" variant="subtle" noMargin>
+                  <Body size="two" variant="subtle">
                     {details}
                   </Body>
                 ) : (
@@ -399,7 +393,7 @@ export const ListItem = forwardRef(
             >
               <TrailingChevronContainer>
                 {isString(trailingLabel) ? (
-                  <Body size="one" variant="highlight" noMargin>
+                  <Body size="one" variant="highlight">
                     {trailingLabel}
                   </Body>
                 ) : (
@@ -417,7 +411,7 @@ export const ListItem = forwardRef(
               {trailingDetails && (
                 <TrailingDetailsContainer isNavigation={isNavigation}>
                   {isString(trailingDetails) ? (
-                    <Body size="two" variant="subtle" noMargin>
+                    <Body size="two" variant="subtle">
                       {trailingDetails}
                     </Body>
                   ) : (

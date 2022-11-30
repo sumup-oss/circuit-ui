@@ -20,7 +20,6 @@ import {
   ChangeEvent,
   ClipboardEvent,
   DragEvent,
-  Fragment,
 } from 'react';
 import { css } from '@emotion/react';
 import { Delete, Plus } from '@sumup/icons';
@@ -29,10 +28,9 @@ import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import { focusOutline, hideVisually } from '../../styles/style-mixins';
-import Label from '../Label';
+import { FieldWrapper, FieldLabel, FieldValidationHint } from '../FieldAtoms';
 import IconButton, { IconButtonProps } from '../IconButton';
 import Spinner from '../Spinner';
-import ValidationHint from '../ValidationHint';
 import { AccessibilityError } from '../../util/errors';
 
 type Size = 'giga' | 'yotta';
@@ -94,8 +92,8 @@ const InputWrapper = styled.div`
 `;
 
 const HiddenInput = styled.input(
+  hideVisually,
   ({ theme }) => css`
-    ${hideVisually()};
     &:focus + label > *:last-child {
       ${focusOutline(theme)};
     }
@@ -106,7 +104,7 @@ const HiddenInput = styled.input(
   `,
 );
 
-type StyledLabelProps = {
+type LabelProps = {
   isLoading: boolean;
   isDragging: boolean;
   invalid: boolean;
@@ -142,10 +140,7 @@ const baseLabelStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const invalidLabelStyles = ({
-  theme,
-  invalid,
-}: StyledLabelProps & StyleProps) =>
+const invalidLabelStyles = ({ theme, invalid }: LabelProps & StyleProps) =>
   invalid &&
   css`
     > *:last-child {
@@ -156,7 +151,7 @@ const invalidLabelStyles = ({
     }
   `;
 
-const loadingLabelStyles = ({ isLoading }: StyledLabelProps) => {
+const loadingLabelStyles = ({ isLoading }: LabelProps) => {
   if (isLoading) {
     return css`
       &::before {
@@ -188,10 +183,7 @@ const loadingLabelStyles = ({ isLoading }: StyledLabelProps) => {
   `;
 };
 
-const draggingLabelStyles = ({
-  theme,
-  isDragging,
-}: StyledLabelProps & StyleProps) =>
+const draggingLabelStyles = ({ theme, isDragging }: LabelProps & StyleProps) =>
   isDragging &&
   css`
     *:last-child {
@@ -222,7 +214,7 @@ const addButtonStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const StyledLabel = styled(Label)<StyledLabelProps>(
+const Label = styled(FieldLabel)<LabelProps>(
   baseLabelStyles,
   invalidLabelStyles,
   loadingLabelStyles,
@@ -298,7 +290,7 @@ export const ImageInput = ({
   src,
   alt,
   size = 'yotta',
-  id: customId,
+  'id': customId,
   clearButtonLabel,
   onChange,
   onClear,
@@ -306,7 +298,10 @@ export const ImageInput = ({
   validationHint,
   invalid = false,
   loadingLabel,
-  component: Component,
+  'component': Component,
+  className,
+  style,
+  'aria-describedby': descriptionId,
   ...props
 }: ImageInputProps): JSX.Element => {
   if (
@@ -336,6 +331,9 @@ export const ImageInput = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const id = customId || uniqueId('image-input_');
   const validationHintId = uniqueId('validation-hint_');
+  const descriptionIds = `${
+    descriptionId ? `${descriptionId} ` : ''
+  }${validationHintId}`;
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDragging, setDragging] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');
@@ -424,7 +422,7 @@ export const ImageInput = ({
   };
 
   return (
-    <Fragment>
+    <FieldWrapper className={className} style={style} disabled={disabled}>
       <InputWrapper onPaste={handlePaste}>
         <HiddenInput
           ref={inputRef}
@@ -434,11 +432,11 @@ export const ImageInput = ({
           onChange={handleInputChange}
           onClick={handleClick}
           disabled={disabled || isLoading}
-          aria-invalid={invalid}
-          aria-describedby={validationHintId}
+          aria-invalid={invalid && 'true'}
+          aria-describedby={descriptionIds}
           {...props}
         />
-        <StyledLabel
+        <Label
           isLoading={isLoading}
           isDragging={isDragging}
           invalid={invalid}
@@ -450,7 +448,7 @@ export const ImageInput = ({
         >
           <span css={hideVisually()}>{label}</span>
           <Component src={src || previewImage} alt={alt || ''} />
-        </StyledLabel>
+        </Label>
         {src ? (
           <ActionButton
             type="button"
@@ -482,12 +480,11 @@ export const ImageInput = ({
           <LoadingLabel>{loadingLabel}</LoadingLabel>
         </LoadingIcon>
       </InputWrapper>
-      <ValidationHint
+      <FieldValidationHint
         id={validationHintId}
-        aria-live="polite"
         validationHint={validationHint}
         invalid={invalid}
       />
-    </Fragment>
+    </FieldWrapper>
   );
 };

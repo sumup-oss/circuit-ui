@@ -63,57 +63,57 @@ export const borderWidth: BorderWidth = {
 export const typography = {
   headline: {
     one: {
-      fontSize: '32px',
-      lineHeight: '36px',
+      fontSize: '2rem',
+      lineHeight: '2.25rem',
     },
     two: {
-      fontSize: '24px',
-      lineHeight: '28px',
+      fontSize: '1.5rem',
+      lineHeight: '1.75rem',
     },
     three: {
-      fontSize: '20px',
-      lineHeight: '24px',
+      fontSize: '1.25rem',
+      lineHeight: '1.5rem',
     },
     four: {
-      fontSize: '18px',
-      lineHeight: '24px',
+      fontSize: '1.125rem',
+      lineHeight: '1.5rem',
     },
   },
   title: {
     one: {
-      fontSize: '120px',
-      lineHeight: '120px',
+      fontSize: '7.5rem',
+      lineHeight: '7.5rem',
     },
     two: {
-      fontSize: '96px',
-      lineHeight: '96px',
+      fontSize: '6rem',
+      lineHeight: '6rem',
     },
     three: {
-      fontSize: '64px',
-      lineHeight: '64px',
+      fontSize: '4rem',
+      lineHeight: '4rem',
     },
     four: {
-      fontSize: '56px',
-      lineHeight: '56px',
+      fontSize: '3.5rem',
+      lineHeight: '3.5rem',
     },
   },
   subHeadline: {
-    fontSize: '14px',
-    lineHeight: '20px',
+    fontSize: '0.875rem',
+    lineHeight: '1.25rem',
   },
   body: {
     one: {
-      fontSize: '16px',
-      lineHeight: '24px',
+      fontSize: '1rem',
+      lineHeight: '1.5rem',
     },
     two: {
-      fontSize: '14px',
-      lineHeight: '20px',
+      fontSize: '0.875rem',
+      lineHeight: '1.25rem',
     },
   },
   bodyLarge: {
-    fontSize: '20px',
-    lineHeight: '28px',
+    fontSize: '1.25rem',
+    lineHeight: '1.75rem',
   },
 };
 

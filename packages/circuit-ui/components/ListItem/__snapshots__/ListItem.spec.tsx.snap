@@ -88,8 +88,8 @@ exports[`ListItem business logic should not render a trailing section with detai
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -213,8 +213,8 @@ exports[`ListItem business logic should render as a button when the onClick prop
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -338,8 +338,8 @@ exports[`ListItem business logic should render as a link when the href prop is p
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -454,8 +454,8 @@ exports[`ListItem styles should render a ListItem with a custom details line 1`]
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -472,13 +472,13 @@ exports[`ListItem styles should render a ListItem with a custom details line 1`]
   -ms-flex-align: center;
   align-items: center;
   max-width: 100%;
-  min-height: 24px;
+  min-height: 1.5rem;
 }
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 <div
@@ -597,8 +597,8 @@ exports[`ListItem styles should render a ListItem with a custom label 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 <div
@@ -685,11 +685,11 @@ exports[`ListItem styles should render a ListItem with a custom leading componen
 }
 
 .circuit-2 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   border-radius: 999999px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
@@ -747,8 +747,8 @@ exports[`ListItem styles should render a ListItem with a custom leading componen
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -871,8 +871,8 @@ exports[`ListItem styles should render a ListItem with a custom trailing compone
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -916,11 +916,11 @@ exports[`ListItem styles should render a ListItem with a custom trailing compone
 }
 
 .circuit-6 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   border-radius: 999999px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
@@ -1048,8 +1048,8 @@ exports[`ListItem styles should render a ListItem with a custom trailing label 1
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1094,8 +1094,8 @@ exports[`ListItem styles should render a ListItem with a custom trailing label 1
 
 .circuit-6 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
 }
 
@@ -1219,8 +1219,8 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1237,13 +1237,13 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
   -ms-flex-align: center;
   align-items: center;
   max-width: 100%;
-  min-height: 24px;
+  min-height: 1.5rem;
 }
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   color: #666;
 }
 
@@ -1374,8 +1374,8 @@ exports[`ListItem styles should render a ListItem with a leading icon 1`] = `
 
 .circuit-4 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1506,8 +1506,8 @@ exports[`ListItem styles should render a ListItem with a trailing label 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1552,8 +1552,8 @@ exports[`ListItem styles should render a ListItem with a trailing label 1`] = `
 
 .circuit-6 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
 }
 
@@ -1677,8 +1677,8 @@ exports[`ListItem styles should render a ListItem with custom trailing details 1
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1723,8 +1723,8 @@ exports[`ListItem styles should render a ListItem with custom trailing details 1
 
 .circuit-6 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
 }
 
@@ -1738,13 +1738,13 @@ exports[`ListItem styles should render a ListItem with custom trailing details 1
   -ms-flex-align: center;
   align-items: center;
   max-width: 100%;
-  min-height: 24px;
+  min-height: 1.5rem;
 }
 
 .circuit-8 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   color: #666;
 }
 
@@ -1877,8 +1877,8 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1923,8 +1923,8 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
 
 .circuit-6 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
 }
 
@@ -1938,13 +1938,13 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
   -ms-flex-align: center;
   align-items: center;
   max-width: 100%;
-  min-height: 24px;
+  min-height: 1.5rem;
 }
 
 .circuit-8 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   color: #666;
 }
 
@@ -2077,8 +2077,8 @@ exports[`ListItem styles should render a disabled ListItem 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2193,8 +2193,8 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2386,8 +2386,8 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2501,8 +2501,8 @@ exports[`ListItem styles should render the action variant ListItem by default 1`
 
 .circuit-3 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;

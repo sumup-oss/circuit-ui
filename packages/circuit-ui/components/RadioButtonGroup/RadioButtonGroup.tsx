@@ -19,20 +19,23 @@ import {
   Ref,
   forwardRef,
 } from 'react';
-import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { hideVisually, typography } from '../../styles/style-mixins';
+import styled from '../../styles/styled';
+import { typography } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
-import ValidationHint from '../ValidationHint';
+import {
+  FieldWrapper,
+  FieldLabelText,
+  FieldValidationHint,
+} from '../FieldAtoms';
 import { AccessibilityError } from '../../util/errors';
 
 export interface RadioButtonGroupProps
   extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
-   * A collection of available options. Each option must have at least
-   * a value and a label.
+   * A collection of available options. Each option must have at least a value
+   * and a label.
    */
   options: Omit<RadioButtonProps, 'onChange'>[];
   /**
@@ -44,6 +47,11 @@ export interface RadioButtonGroupProps
    */
   label: string;
   /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
+  /**
    * The value of the currently checked RadioButton.
    */
   value?: RadioButtonProps['value'];
@@ -52,7 +60,7 @@ export interface RadioButtonGroupProps
    */
   ref?: Ref<HTMLFieldSetElement>;
   /**
-   * Warning/error/valid message, displayed below the radio buttons.
+   * An information, warning or error message, displayed below the input.
    */
   validationHint?: string;
   /**
@@ -72,26 +80,15 @@ export interface RadioButtonGroupProps
    */
   required?: InputHTMLAttributes<HTMLInputElement>['required'];
   /**
-   * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the field can be inferred from other context.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
 }
 
 type LegendProps = Pick<RadioButtonGroupProps, 'hideLabel'>;
 
-const legendStyles = ({ theme }: StyleProps) => css`
-  margin-bottom: ${theme.spacings.bit};
-`;
-
-const legendHiddenStyles = ({ hideLabel }: LegendProps) =>
-  hideLabel && hideVisually();
-
-const Legend = styled('legend')<LegendProps>(
-  typography('two'),
-  legendStyles,
-  legendHiddenStyles,
-);
+const Legend = styled('legend')<LegendProps>(typography('two'));
 
 /**
  * A group of RadioButtons.
@@ -101,8 +98,8 @@ export const RadioButtonGroup = forwardRef(
     {
       options,
       onChange,
-      value: activeValue,
-      name: customName,
+      'value': activeValue,
+      'name': customName,
       label,
       invalid,
       validationHint,
@@ -110,7 +107,9 @@ export const RadioButtonGroup = forwardRef(
       disabled,
       hasWarning,
       hideLabel,
+      optionalLabel,
       required,
+      'aria-describedby': descriptionId,
       ...props
     }: RadioButtonGroupProps,
     ref: RadioButtonGroupProps['ref'],
@@ -126,9 +125,31 @@ export const RadioButtonGroup = forwardRef(
       );
     }
     const name = customName || uniqueId('radio-button-group_');
+    const validationHintId = uniqueId('validation-hint_');
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
+
     return (
-      <fieldset name={name} ref={ref} {...props}>
-        <Legend hideLabel={hideLabel}>{label}</Legend>
+      <FieldWrapper
+        as="fieldset"
+        role="radiogroup"
+        aria-describedby={descriptionIds}
+        aria-orientation="vertical"
+        name={name}
+        // @ts-expect-error TypeScript isn't smart enough to recognize the `as` prop.
+        ref={ref}
+        disabled={disabled}
+        {...props}
+      >
+        <Legend>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
+            required={required}
+          />
+        </Legend>
         {options &&
           options.map(
             ({ label: optionLabel, value, className, style, ...rest }) => (
@@ -145,14 +166,15 @@ export const RadioButtonGroup = forwardRef(
               </div>
             ),
           )}
-        <ValidationHint
+        <FieldValidationHint
+          id={validationHintId}
           invalid={invalid}
           showValid={showValid}
           disabled={disabled}
           hasWarning={hasWarning}
           validationHint={validationHint}
         />
-      </fieldset>
+      </FieldWrapper>
     );
   },
 );

@@ -75,7 +75,7 @@ describe('ListItemGroup', () => {
       const wrapper = renderListItemGroup(create, {
         ...baseProps,
         label: (
-          <Body as="h4" size="two" noMargin>
+          <Body as="h4" size="two">
             Group label
           </Body>
         ),
@@ -94,11 +94,7 @@ describe('ListItemGroup', () => {
     it('should render a ListItemGroup with a custom details line', () => {
       const wrapper = renderListItemGroup(create, {
         ...baseProps,
-        details: (
-          <Body size="two" noMargin>
-            Group details
-          </Body>
-        ),
+        details: <Body size="two">Group details</Body>,
       });
       expect(wrapper).toMatchSnapshot();
     });

@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RadioButtonGroup should render with default styles 1`] = `
-.circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+exports[`RadioButtonGroup Styles should render with default styles 1`] = `
+.circuit-1 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.circuit-2 {
+  display: inline-block;
   margin-bottom: 4px;
 }
 
-.circuit-1 {
+.circuit-4 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -19,34 +23,34 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-1:hover+label::before {
+.circuit-4:hover+label::before {
   border-color: #666;
 }
 
-.circuit-1:focus+label::before {
+.circuit-4:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
   border-color: #3063E9;
 }
 
-.circuit-1:focus+label::before::-moz-focus-inner {
+.circuit-4:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-1:focus:not(:focus-visible)+label::before {
+.circuit-4:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: #999;
 }
 
-.circuit-1:checked:focus:not(:focus-visible)+label::before {
+.circuit-4:checked:focus:not(:focus-visible)+label::before {
   border-color: #3063E9;
 }
 
-.circuit-1:checked+label::before {
+.circuit-4:checked+label::before {
   border-color: #3063E9;
 }
 
-.circuit-1:checked+label::after {
+.circuit-4:checked+label::after {
   -webkit-transform: translateY(-50%) scale(1, 1);
   -moz-transform: translateY(-50%) scale(1, 1);
   -ms-transform: translateY(-50%) scale(1, 1);
@@ -54,7 +58,7 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   opacity: 1;
 }
 
-.circuit-2 {
+.circuit-5 {
   color: #1A1A1A;
   display: inline-block;
   padding-left: 26px;
@@ -62,7 +66,7 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-5::before {
   box-sizing: border-box;
   height: 18px;
   width: 18px;
@@ -82,7 +86,7 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   transition: border 120ms ease-in-out;
 }
 
-.circuit-2::after {
+.circuit-5::after {
   box-sizing: border-box;
   height: 10px;
   width: 10px;
@@ -102,58 +106,72 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
-<fieldset
-  name="radio-button-group_1"
->
-  <legend
+<div>
+  <fieldset
+    aria-describedby="validation-hint_2"
+    aria-orientation="vertical"
     class="circuit-0"
+    name="radio-button-group_1"
+    role="radiogroup"
   >
-    Choose an option
-  </legend>
-  <div>
-    <input
+    <legend
       class="circuit-1"
-      id="radio-button_2"
-      name="radio-button-group_1"
-      type="radio"
-      value="first"
-    />
-    <label
-      class="circuit-2"
-      for="radio-button_2"
     >
-      Option 1
-    </label>
-  </div>
-  <div>
-    <input
-      class="circuit-1"
-      id="radio-button_3"
-      name="radio-button-group_1"
-      type="radio"
-      value="second"
+      <span
+        class="circuit-2 circuit-3"
+      >
+        Choose an option
+      </span>
+    </legend>
+    <div>
+      <input
+        class="circuit-4"
+        id="radio-button_3"
+        name="radio-button-group_1"
+        type="radio"
+        value="first"
+      />
+      <label
+        class="circuit-5"
+        for="radio-button_3"
+      >
+        Option 1
+      </label>
+    </div>
+    <div>
+      <input
+        class="circuit-4"
+        id="radio-button_4"
+        name="radio-button-group_1"
+        type="radio"
+        value="second"
+      />
+      <label
+        class="circuit-5"
+        for="radio-button_4"
+      >
+        Option 2
+      </label>
+    </div>
+    <div>
+      <input
+        class="circuit-4"
+        id="radio-button_5"
+        name="radio-button-group_1"
+        type="radio"
+        value="third"
+      />
+      <label
+        class="circuit-5"
+        for="radio-button_5"
+      >
+        Option 3
+      </label>
+    </div>
+    <span
+      aria-live="polite"
+      role="status"
     />
-    <label
-      class="circuit-2"
-      for="radio-button_3"
-    >
-      Option 2
-    </label>
-  </div>
-  <div>
-    <input
-      class="circuit-1"
-      id="radio-button_4"
-      name="radio-button-group_1"
-      type="radio"
-      value="third"
-    />
-    <label
-      class="circuit-2"
-      for="radio-button_4"
-    >
-      Option 3
-    </label>
-  </div>
-</fieldset>
+  </fieldset>
+</div>
 `;

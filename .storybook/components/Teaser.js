@@ -43,7 +43,7 @@ const Wrapper = styled(Card)(
 const Teaser = ({ title, children }) => (
   <ThemeProvider theme={light}>
     <Wrapper>
-      <Headline as="h2" size="three" noMargin css={spacing({ bottom: 'giga' })}>
+      <Headline as="h2" size="three" css={spacing({ bottom: 'giga' })}>
         {title}
       </Headline>
 

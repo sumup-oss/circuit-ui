@@ -46,7 +46,7 @@ const Status = ({ variant: status = 'stable' }) => {
 
 Status.Description = ({ children }) => (
   <ThemeProvider theme={light}>
-    <Body size="two" as="span" noMargin css={spacing({ bottom: 'giga' })}>
+    <Body size="two" as="span" css={spacing({ bottom: 'giga' })}>
       {children}
     </Body>
   </ThemeProvider>

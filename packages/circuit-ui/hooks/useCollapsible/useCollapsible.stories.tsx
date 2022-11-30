@@ -35,7 +35,7 @@ export const Example = (args: CollapsibleOptions) => {
       <Button {...getButtonProps()}>
         {isOpen ? 'Close section' : 'Open section'}
       </Button>
-      <Body {...getContentProps()} css={spacing({ top: 'kilo' })} noMargin>
+      <Body {...getContentProps()} css={spacing({ top: 'kilo' })}>
         {
           'Lorem ipsum dolor amet swag pickled humblebrag retro farm-to-table, shoreditch typewriter deep v single-origin coffee green juice coloring book venmo chambray. Marfa authentic blue bottle mixtape tofu adaptogen. IPhone chia blog palo santo mlkshk tattooed jean shorts yr locavore ennui scenester. Wolf tousled pok pok sartorial scenester man bun salvia quinoa raclette sriracha roof party pour-over venmo hammock. Four dollar toast typewriter 3 wolf moon letterpress disrupt pabst. Neutra irony tousled iPhone banh mi wayfarers hoodie waistcoat.'
         }

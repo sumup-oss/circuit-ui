@@ -72,8 +72,8 @@ exports[`NotificationInline styles should render notification inline with alert 
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 <body>
@@ -192,8 +192,8 @@ exports[`NotificationInline styles should render notification inline with confir
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 <body>
@@ -312,8 +312,8 @@ exports[`NotificationInline styles should render notification inline with info s
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 <body>
@@ -449,8 +449,8 @@ exports[`NotificationInline styles should render notification inline with notify
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 <body>
@@ -587,13 +587,13 @@ exports[`NotificationInline styles should render notification toast with an acti
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .circuit-6 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -837,8 +837,8 @@ exports[`NotificationInline styles should render with default styles 1`] = `
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 <body>

@@ -256,10 +256,8 @@ export function NotificationBanner({
       {...props}
     >
       <Content>
-        <ResponsiveHeadline as="h2" noMargin>
-          {headline}
-        </ResponsiveHeadline>
-        <ResponsiveBody noMargin>{body}</ResponsiveBody>
+        <ResponsiveHeadline as="h2">{headline}</ResponsiveHeadline>
+        <ResponsiveBody>{body}</ResponsiveBody>
         <ResponsiveButton {...action} />
       </Content>
       {image && image.src && <StyledImage {...image} />}

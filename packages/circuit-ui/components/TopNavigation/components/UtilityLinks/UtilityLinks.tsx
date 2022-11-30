@@ -105,7 +105,6 @@ function UtilityLink({
       <Skeleton>
         <UtilityLabel
           variant={props.isActive ? 'highlight' : undefined}
-          noMargin
           as="span"
         >
           {label}

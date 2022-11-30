@@ -35,8 +35,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-1 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -164,8 +164,8 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-7 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -235,8 +235,8 @@ li:last-child .circuit-7 {
 }
 
 .circuit-11 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -306,8 +306,8 @@ li:last-child .circuit-11 {
 }
 
 .circuit-27 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -596,8 +596,8 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-1 {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -712,21 +712,35 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-6 {
-  font-size: 14px;
-  line-height: 20px;
+.circuit-7 {
   display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .circuit-8 {
+  display: inline-block;
+  margin-bottom: 4px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-10 {
   color: #1A1A1A;
   display: block;
   position: relative;
 }
 
-.circuit-9 {
-  font-size: 16px;
-  line-height: 24px;
+.circuit-11 {
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -754,68 +768,68 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-9:-moz-focusring {
+.circuit-11:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-9::-ms-expand {
+.circuit-11::-ms-expand {
   display: none;
 }
 
-.circuit-9:hover {
+.circuit-11:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-9:focus {
+.circuit-11:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-9:active {
+.circuit-11:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
-.circuit-10 {
-  color: #666;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:active~.circuit-10 {
-  display: none;
-}
-
-.circuit-11 {
-  color: #666;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:not(:active)~.circuit-11 {
-  display: none;
-}
-
 .circuit-12 {
-  margin-left: 12px;
+  color: #666;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+select:active~.circuit-12 {
+  display: none;
 }
 
 .circuit-13 {
-  font-size: 16px;
-  line-height: 24px;
+  color: #666;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+select:not(:active)~.circuit-13 {
+  display: none;
+}
+
+.circuit-14 {
+  margin-left: 12px;
+}
+
+.circuit-15 {
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -852,33 +866,33 @@ select:not(:active)~.circuit-11 {
   flex-shrink: 0;
 }
 
-.circuit-13:focus {
+.circuit-15:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-13:focus::-moz-focus-inner {
+.circuit-15:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-13:focus:not(:focus-visible) {
+.circuit-15:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-13:disabled,
-.circuit-13[disabled] {
+.circuit-15:disabled,
+.circuit-15[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-13:hover {
+.circuit-15:hover {
   color: #234BC3;
 }
 
-.circuit-13:active,
-.circuit-13[aria-expanded='true'],
-.circuit-13[aria-pressed='true'] {
+.circuit-15:active,
+.circuit-15[aria-expanded='true'],
+.circuit-15[aria-pressed='true'] {
   color: #1A368E;
 }
 
@@ -922,20 +936,25 @@ select:not(:active)~.circuit-11 {
       </span>
     </span>
   </button>
-  <label
+  <div
     class="circuit-6"
-    for="select_1"
   >
-    <span
-      class="circuit-3"
+    <label
+      class="circuit-7"
+      for="select_1"
     >
-      Pagination
-    </span>
+      <span
+        class="circuit-8 circuit-9"
+      >
+        Pagination
+      </span>
+    </label>
     <div
-      class="circuit-8"
+      class="circuit-10"
     >
       <select
-        class="circuit-9"
+        aria-describedby="validation-hint_2"
+        class="circuit-11"
         id="select_1"
       >
         <option
@@ -990,7 +1009,8 @@ select:not(:active)~.circuit-11 {
         </option>
       </select>
       <svg
-        class="circuit-10"
+        aria-hidden="true"
+        class="circuit-12"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1003,7 +1023,8 @@ select:not(:active)~.circuit-11 {
         />
       </svg>
       <svg
-        class="circuit-11"
+        aria-hidden="true"
+        class="circuit-13"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1016,14 +1037,18 @@ select:not(:active)~.circuit-11 {
         />
       </svg>
     </div>
-  </label>
+    <span
+      aria-live="polite"
+      role="status"
+    />
+  </div>
   <span
-    class="circuit-12"
+    class="circuit-14"
   >
     of 10
   </span>
   <button
-    class="circuit-13"
+    class="circuit-15"
     title="Next"
   >
     <span

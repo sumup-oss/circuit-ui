@@ -15,18 +15,12 @@
 
 import { createRef } from 'react';
 
-import {
-  create,
-  renderToHtml,
-  axe,
-  render,
-  userEvent,
-} from '../../util/test-utils';
+import { render, userEvent, axe } from '../../util/test-utils';
 
 import { RadioButtonGroup } from './RadioButtonGroup';
 
 describe('RadioButtonGroup', () => {
-  const baseProps = {
+  const defaultProps = {
     options: [
       {
         label: 'Option 1',
@@ -45,68 +39,160 @@ describe('RadioButtonGroup', () => {
     label: 'Choose an option',
   };
 
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<RadioButtonGroup {...baseProps} />);
-    expect(actual).toMatchSnapshot();
+  describe('Styles', () => {
+    it('should render with default styles', () => {
+      const { container } = render(<RadioButtonGroup {...defaultProps} />);
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  /**
-   * Logic tests.
-   */
-  it('should check the selected option', () => {
-    const value = 'second';
-    const { getByLabelText } = render(
-      <RadioButtonGroup {...baseProps} value={value} />,
-    );
-    expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
-    expect(getByLabelText('Option 2')).toHaveAttribute('checked');
-    expect(getByLabelText('Option 3')).not.toHaveAttribute('checked');
+  describe('Logic', () => {
+    it('should check the selected option', () => {
+      const value = 'second';
+      const { getByLabelText } = render(
+        <RadioButtonGroup {...defaultProps} value={value} />,
+      );
+      expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
+      expect(getByLabelText('Option 2')).toHaveAttribute('checked');
+      expect(getByLabelText('Option 3')).not.toHaveAttribute('checked');
+    });
+
+    it('should have a required attribute on each option when required is specified', () => {
+      const { getByLabelText } = render(
+        <RadioButtonGroup {...defaultProps} required />,
+      );
+      expect(getByLabelText('Option 1')).toHaveAttribute('required');
+      expect(getByLabelText('Option 2')).toHaveAttribute('required');
+      expect(getByLabelText('Option 3')).toHaveAttribute('required');
+    });
+
+    it('should call the change handler when clicked', async () => {
+      const onChange = jest.fn();
+      const { getByLabelText } = render(
+        <RadioButtonGroup {...defaultProps} onChange={onChange} />,
+      );
+
+      await userEvent.click(getByLabelText('Option 3'));
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('should accept a working ref', () => {
+      const tref = createRef<HTMLFieldSetElement>();
+      const { container } = render(
+        <RadioButtonGroup {...defaultProps} ref={tref} />,
+      );
+      const fieldset = container.querySelector('fieldset');
+      expect(tref.current).toBe(fieldset);
+    });
   });
 
-  /**
-   * Required attribute tests.
-   */
-  it('should have a required attribute on each option when required is specified', () => {
-    const { getByLabelText } = render(
-      <RadioButtonGroup {...baseProps} required />,
-    );
-    expect(getByLabelText('Option 1')).toHaveAttribute('required');
-    expect(getByLabelText('Option 2')).toHaveAttribute('required');
-    expect(getByLabelText('Option 3')).toHaveAttribute('required');
-  });
+  describe('Accessibility', () => {
+    it('should have no violations', async () => {
+      const { container } = render(<RadioButtonGroup {...defaultProps} />);
+      const actual = await axe(container);
 
-  it('should call the change handler when clicked', async () => {
-    const onChange = jest.fn();
-    const { getByLabelText } = render(
-      <RadioButtonGroup {...baseProps} onChange={onChange} />,
-    );
+      expect(actual).toHaveNoViolations();
+    });
 
-    await userEvent.click(getByLabelText('Option 3'));
+    describe('Labeling', () => {
+      it('should have an accessible name', () => {
+        const { getByRole } = render(<RadioButtonGroup {...defaultProps} />);
+        const inputEl = getByRole('radiogroup');
 
-    expect(onChange).toHaveBeenCalledTimes(1);
-  });
+        expect(inputEl).toHaveAccessibleName(defaultProps.label);
+      });
 
-  it('should accept a working ref', () => {
-    const tref = createRef<HTMLFieldSetElement>();
-    const { container } = render(
-      <RadioButtonGroup {...baseProps} ref={tref} />,
-    );
-    const fieldset = container.querySelector('fieldset');
-    expect(tref.current).toBe(fieldset);
-  });
+      it('should optionally have an accessible description', () => {
+        const description = 'Description';
+        const { getByRole } = render(
+          <RadioButtonGroup validationHint={description} {...defaultProps} />,
+        );
+        const inputEl = getByRole('radiogroup');
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const value = 'second';
-    const wrapper = renderToHtml(
-      <RadioButtonGroup {...baseProps} value={value} />,
-    );
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
+        expect(inputEl).toHaveAccessibleDescription(description);
+      });
+
+      it('should accept a custom description via aria-describedby', () => {
+        const customDescription = 'Custom description';
+        const customDescriptionId = 'customDescriptionId';
+        const { getByRole } = render(
+          <>
+            <span id={customDescriptionId}>{customDescription}</span>
+            <RadioButtonGroup
+              aria-describedby={customDescriptionId}
+              {...defaultProps}
+            />
+            ,
+          </>,
+        );
+        const inputEl = getByRole('radiogroup');
+
+        expect(inputEl).toHaveAttribute(
+          'aria-describedby',
+          expect.stringContaining(customDescriptionId),
+        );
+        expect(inputEl).toHaveAccessibleDescription(customDescription);
+      });
+
+      it('should accept a custom description in addition to a validationHint', () => {
+        const customDescription = 'Custom description';
+        const customDescriptionId = 'customDescriptionId';
+        const description = 'Description';
+        const { getByRole } = render(
+          <>
+            <span id={customDescriptionId}>{customDescription}</span>
+            <RadioButtonGroup
+              validationHint={description}
+              aria-describedby={customDescriptionId}
+              {...defaultProps}
+            />
+            ,
+          </>,
+        );
+        const inputEl = getByRole('radiogroup');
+
+        expect(inputEl).toHaveAttribute(
+          'aria-describedby',
+          expect.stringContaining(customDescriptionId),
+        );
+        expect(inputEl).toHaveAccessibleDescription(
+          `${customDescription} ${description}`,
+        );
+      });
+    });
+
+    describe('Status messages', () => {
+      it('should render an empty live region on mount', () => {
+        const { getByRole } = render(<RadioButtonGroup {...defaultProps} />);
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toBeEmptyDOMElement();
+      });
+
+      it('should render status messages in a live region', () => {
+        const statusMessage = 'This field is required';
+        const { getByRole } = render(
+          <RadioButtonGroup
+            invalid
+            validationHint={statusMessage}
+            {...defaultProps}
+          />,
+        );
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toHaveTextContent(statusMessage);
+      });
+
+      it('should not render descriptions in a live region', () => {
+        const statusMessage = 'This field is required';
+        const { getByRole } = render(
+          <RadioButtonGroup validationHint={statusMessage} {...defaultProps} />,
+        );
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toBeEmptyDOMElement();
+      });
+    });
   });
 });

@@ -2,13 +2,15 @@
 
 exports[`PageSelect styles should render with default styles 1`] = `
 HTMLCollection [
-  .circuit-0 {
-  font-size: 14px;
-  line-height: 20px;
+  .circuit-1 {
   display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-.circuit-1 {
+.circuit-2 {
+  display: inline-block;
+  margin-bottom: 4px;
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -20,15 +22,15 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-2 {
+.circuit-4 {
   color: #1A1A1A;
   display: block;
   position: relative;
 }
 
-.circuit-3 {
-  font-size: 16px;
-  line-height: 24px;
+.circuit-5 {
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -56,28 +58,28 @@ HTMLCollection [
   box-shadow: 0 0 0 1px #999;
 }
 
-.circuit-3:-moz-focusring {
+.circuit-5:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-3::-ms-expand {
+.circuit-5::-ms-expand {
   display: none;
 }
 
-.circuit-3:hover {
+.circuit-5:hover {
   box-shadow: 0 0 0 1px #666;
 }
 
-.circuit-3:focus {
+.circuit-5:focus {
   box-shadow: 0 0 0 2px #3063E9;
 }
 
-.circuit-3:active {
+.circuit-5:active {
   box-shadow: 0 0 0 1px #3063E9;
 }
 
-.circuit-4 {
+.circuit-6 {
   color: #666;
   display: block;
   z-index: 21;
@@ -90,11 +92,11 @@ HTMLCollection [
   padding: 16px;
 }
 
-select:active~.circuit-4 {
+select:active~.circuit-6 {
   display: none;
 }
 
-.circuit-5 {
+.circuit-7 {
   color: #666;
   display: block;
   z-index: 21;
@@ -107,24 +109,29 @@ select:active~.circuit-4 {
   padding: 16px;
 }
 
-select:not(:active)~.circuit-5 {
+select:not(:active)~.circuit-7 {
   display: none;
 }
 
-<label
+<div
     class="circuit-0"
-    for="select_1"
   >
-    <span
+    <label
       class="circuit-1"
+      for="select_1"
     >
-      Pagination
-    </span>
+      <span
+        class="circuit-2 circuit-3"
+      >
+        Pagination
+      </span>
+    </label>
     <div
-      class="circuit-2"
+      class="circuit-4"
     >
       <select
-        class="circuit-3"
+        aria-describedby="validation-hint_2"
+        class="circuit-5"
         id="select_1"
       >
         <option
@@ -179,7 +186,8 @@ select:not(:active)~.circuit-5 {
         </option>
       </select>
       <svg
-        class="circuit-4"
+        aria-hidden="true"
+        class="circuit-6"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -192,7 +200,8 @@ select:not(:active)~.circuit-5 {
         />
       </svg>
       <svg
-        class="circuit-5"
+        aria-hidden="true"
+        class="circuit-7"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -205,7 +214,11 @@ select:not(:active)~.circuit-5 {
         />
       </svg>
     </div>
-  </label>,
+    <span
+      aria-live="polite"
+      role="status"
+    />
+  </div>,
   .circuit-0 {
   margin-left: 12px;
 }

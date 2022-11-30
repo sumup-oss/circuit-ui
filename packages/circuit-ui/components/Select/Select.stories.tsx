@@ -45,7 +45,6 @@ const baseArgs = {
       value: 'FR',
     },
   ],
-  noMargin: true,
 };
 
 const flagIconMap: { [key: string]: FC<IconProps<'16'>> } = {
@@ -84,7 +83,7 @@ export const WithPrefix = (args: SelectProps) => {
       }}
       renderPrefix={(props) => {
         const Icon = props.value && flagIconMap[props.value];
-        return Icon ? <Icon {...props} /> : null;
+        return Icon ? <Icon {...props} aria-hidden="true" /> : null;
       }}
     />
   );

@@ -20,16 +20,16 @@ import { Theme } from '@sumup/design-tokens';
 
 import { uniqueId } from '../../util/id';
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  typography,
-  hideVisually,
-  inputOutline,
-} from '../../styles/style-mixins';
+import { typography, inputOutline } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
-import Label from '../Label';
-import ValidationHint from '../ValidationHint';
-import { AccessibilityError, DeprecationError } from '../../util/errors';
+import {
+  FieldWrapper,
+  FieldLabel,
+  FieldLabelText,
+  FieldValidationHint,
+} from '../FieldAtoms';
+import { AccessibilityError } from '../../util/errors';
 
 export type SelectOption = {
   value: string | number;
@@ -43,7 +43,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   /**
    * A clear and concise description of the select purpose.
    */
-  label: ReactNode;
+  label: string;
   /**
    * Name of the select form element.
    */
@@ -61,25 +61,15 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    */
   invalid?: boolean;
   /**
-   * Currently selected value. Matches the "value" property of
-   * the options objects. If value is falsy, Select will render
-   * the "placeholder" prop as currently selected.
+   * Currently selected value. Matches the "value" property of the options
+   * objects. If value is falsy, Select will render the "placeholder" prop as
+   * currently selected.
    */
   value?: string | number;
   /**
    * String to show when no selection is made.
    */
   placeholder?: string;
-  /**
-   * Trigger inline styles on the component.
-   */
-  inline?: boolean;
-  /**
-   * We're moving away from built-in margins. The `noMargin` prop is now
-   * required and will be removed in v6 using codemods. Use the `spacing()`
-   * mixin to add margin.
-   */
-  noMargin: true;
   /**
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
@@ -92,7 +82,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     className?: string;
   }) => JSX.Element;
   /**
-   * Warning or error message, displayed below the select.
+   * An information or error message, displayed below the select.
    */
   validationHint?: string;
   /**
@@ -101,16 +91,17 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    */
   optionalLabel?: string;
   /**
-   * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the field can be inferred from other context.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
   /**
-   * A unique identifier for the input field. If not defined, a randomly generated id is used.
+   * A unique identifier for the input field. If not defined, a randomly
+   * generated id is used.
    */
   id?: string;
   /**
-   * The ref to the HTML DOM element
+   * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLSelectElement>;
   /**
@@ -119,51 +110,15 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   tracking?: TrackingProps;
 }
 
-const containerBaseStyles = ({ theme }: StyleProps) => css`
+const wrapperStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.bodyColor};
   display: block;
   position: relative;
 `;
 
-type ContainerElProps = Pick<SelectProps, 'hideLabel'>;
+const SelectWrapper = styled('div')(wrapperStyles);
 
-const containerHideLabelStyles = ({
-  theme,
-  hideLabel,
-}: StyleProps & ContainerElProps) =>
-  !hideLabel &&
-  css`
-    label &,
-    label + & {
-      margin-top: ${theme.spacings.bit};
-    }
-  `;
-
-const SelectContainer = styled('div')<ContainerElProps>(
-  containerBaseStyles,
-  containerHideLabelStyles,
-);
-
-type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
-
-const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
-  !noMargin &&
-  css`
-    margin-bottom: ${theme.spacings.mega};
-  `;
-
-const labelInlineStyles = ({ inline }: LabelElProps) =>
-  inline &&
-  css`
-    display: inline-block;
-  `;
-
-const SelectLabel = styled(Label)<LabelElProps>(
-  labelMarginStyles,
-  labelInlineStyles,
-);
-
-type SelectElProps = Omit<SelectProps, 'options' | 'label' | 'noMargin'> & {
+type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
   hasPrefix: boolean;
 };
 
@@ -225,17 +180,6 @@ const SelectElement = styled.select<SelectElProps>(
   inputOutline,
 );
 
-const labelTextStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
-  hideLabel && hideVisually();
-
-const LabelText = styled('span')(labelTextStyles);
-
-const optionalLabelStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.n700};
-`;
-
-const OptionalLabel = styled('span')(optionalLabelStyles);
-
 /**
  * Used with css prop directly, so it does not require prop
  * destructuring.
@@ -288,37 +232,25 @@ export const Select = forwardRef(
       defaultValue,
       placeholder,
       disabled,
-      noMargin,
-      inline,
       invalid,
       required,
       options,
       children,
-      renderPrefix: RenderPrefix,
+      'renderPrefix': RenderPrefix,
       validationHint,
       optionalLabel,
       label,
       hideLabel,
       className,
       style,
-      id: customId,
+      'id': customId,
       onChange,
       tracking,
+      'aria-describedby': descriptionId,
       ...props
     }: SelectProps,
     ref?: SelectProps['ref'],
   ): ReturnType => {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !noMargin
-    ) {
-      throw new DeprecationError(
-        'Select',
-        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
-      );
-    }
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -330,6 +262,10 @@ export const Select = forwardRef(
       );
     }
     const id = customId || uniqueId('select_');
+    const validationHintId = uniqueId('validation-hint_');
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
 
     const prefix = RenderPrefix && (
       <RenderPrefix css={prefixStyles} value={value} />
@@ -339,29 +275,24 @@ export const Select = forwardRef(
     const handleChange = useClickEvent(onChange, tracking, 'select');
 
     return (
-      <SelectLabel
-        className={className}
-        style={style}
-        htmlFor={id}
-        inline={inline}
-        disabled={disabled}
-        noMargin={noMargin}
-      >
-        <LabelText hideLabel={hideLabel}>
-          {label}
-          {optionalLabel && !required ? (
-            <OptionalLabel>{` (${optionalLabel})`}</OptionalLabel>
-          ) : null}
-        </LabelText>
-
-        <SelectContainer hideLabel={hideLabel}>
+      <FieldWrapper className={className} style={style} disabled={disabled}>
+        <FieldLabel htmlFor={id}>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
+            required={required}
+          />
+        </FieldLabel>
+        <SelectWrapper>
           {prefix}
           <SelectElement
             id={id}
             value={value}
             ref={ref}
+            aria-describedby={descriptionIds}
             invalid={invalid}
-            aria-invalid={invalid}
+            aria-invalid={invalid && 'true'}
             required={required}
             disabled={disabled}
             hasPrefix={hasPrefix}
@@ -387,16 +318,16 @@ export const Select = forwardRef(
                   </option>
                 )))}
           </SelectElement>
-          <IconActive size="16" />
-          <IconInactive size="16" />
-        </SelectContainer>
-
-        <ValidationHint
+          <IconActive size="16" aria-hidden="true" />
+          <IconInactive size="16" aria-hidden="true" />
+        </SelectWrapper>
+        <FieldValidationHint
+          id={validationHintId}
           disabled={disabled}
           invalid={invalid}
           validationHint={validationHint}
         />
-      </SelectLabel>
+      </FieldWrapper>
     );
   },
 );

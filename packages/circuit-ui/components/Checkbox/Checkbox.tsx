@@ -25,8 +25,7 @@ import {
 } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
-import Tooltip from '../Tooltip';
-import { DeprecationError } from '../../util/errors';
+import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -34,15 +33,9 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   invalid?: boolean;
   /**
-   * Warning or error message, displayed in a tooltip.
+   * An information or error message, displayed below the checkbox.
    */
   validationHint?: string;
-  /**
-   * We're moving away from built-in margins. The `noMargin` prop is now
-   * required and will be removed in v6 using codemods. Use the `spacing()`
-   * mixin to add margin.
-   */
-  noMargin: true;
   /**
    * Additional data that is dispatched with the tracking event.
    */
@@ -53,8 +46,6 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   ref?: Ref<HTMLInputElement>;
 }
 
-type LabelElProps = Pick<CheckboxProps, 'disabled'>;
-
 const labelBaseStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.bodyColor};
   display: inline-block;
@@ -63,37 +54,15 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
   cursor: pointer;
 `;
 
-const labelDisabledStyles = ({ disabled }: LabelElProps) =>
-  disabled && disableVisually;
-
-const CheckboxLabel = styled('label')<LabelElProps>(
-  labelBaseStyles,
-  labelDisabledStyles,
-);
-
-type WrapperElProps = Pick<CheckboxProps, 'noMargin'>;
+const CheckboxLabel = styled('label')(labelBaseStyles);
 
 const wrapperBaseStyles = () => css`
   position: relative;
 `;
 
-const wrapperNoMarginStyles = ({
-  theme,
-  noMargin,
-}: StyleProps & WrapperElProps) =>
-  !noMargin &&
-  css`
-    &:last-of-type {
-      margin-bottom: ${theme.spacings.mega};
-    }
-  `;
+const CheckboxWrapper = styled(FieldWrapper)<CheckboxProps>(wrapperBaseStyles);
 
-const CheckboxWrapper = styled('div')<WrapperElProps>(
-  wrapperBaseStyles,
-  wrapperNoMarginStyles,
-);
-
-type InputElProps = Omit<CheckboxProps, 'tracking'>;
+type InputElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
@@ -197,12 +166,6 @@ const CheckboxInput = styled('input')<InputElProps>(
   inputDisabledStyles,
 );
 
-const tooltipStyles = ({ theme }: StyleProps) => css`
-  left: -${theme.spacings.kilo};
-`;
-
-const CheckboxTooltip = styled(Tooltip)(tooltipStyles);
-
 /**
  * Checkbox component for forms.
  */
@@ -212,37 +175,28 @@ export const Checkbox = forwardRef(
       onChange,
       children,
       value,
-      id: customId,
+      'id': customId,
       name,
       disabled,
       validationHint,
       className,
       style,
       invalid,
-      noMargin,
       tracking,
+      'aria-describedby': descriptionId,
       ...props
     }: CheckboxProps,
     ref: CheckboxProps['ref'],
   ) => {
-    if (
-      process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS !== 'true' &&
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !noMargin
-    ) {
-      throw new DeprecationError(
-        'Checkbox',
-        'The `noMargin` prop is required since v5. Read more at https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md#runtime-errors-for-missing-nomargin-props.',
-      );
-    }
-
     const id = customId || uniqueId('checkbox_');
+    const validationHintId = uniqueId('validation_hint-');
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
     const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
     return (
-      <CheckboxWrapper className={className} style={style} noMargin={noMargin}>
-        {/* @ts-expect-error the noMargin prop is required */}
+      <CheckboxWrapper className={className} style={style} disabled={disabled}>
         <CheckboxInput
           {...props}
           id={id}
@@ -252,17 +206,19 @@ export const Checkbox = forwardRef(
           disabled={disabled}
           invalid={invalid}
           ref={ref}
+          aria-describedby={descriptionIds}
           onChange={handleChange}
         />
-        <CheckboxLabel htmlFor={id} disabled={disabled}>
+        <CheckboxLabel htmlFor={id}>
           {children}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>
-        {!disabled && validationHint && (
-          <CheckboxTooltip position={'top'} align={'right'}>
-            {validationHint}
-          </CheckboxTooltip>
-        )}
+        <FieldValidationHint
+          id={validationHintId}
+          disabled={disabled}
+          invalid={invalid}
+          validationHint={validationHint}
+        />
       </CheckboxWrapper>
     );
   },

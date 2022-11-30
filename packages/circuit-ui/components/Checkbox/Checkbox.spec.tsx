@@ -15,116 +15,172 @@
 
 import { createRef } from 'react';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  userEvent,
-} from '../../util/test-utils';
+import { render, axe, userEvent } from '../../util/test-utils';
 
 import { Checkbox } from './Checkbox';
 
 const defaultProps = {
-  name: 'name',
+  children: 'Label',
   onChange: jest.fn(),
 };
 
 describe('Checkbox', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<Checkbox noMargin {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with checked styles when passed the checked prop', () => {
-    const actual = create(<Checkbox noMargin checked {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with disabled styles when passed the disabled prop', () => {
-    const actual = create(<Checkbox noMargin disabled {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with invalid styles when passed the invalid prop', () => {
-    const actual = create(<Checkbox noMargin invalid {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with default spacing when there is no noMargin prop', () => {
-    /* @ts-expect-error the noMargin prop is required */
-    const actual = create(<Checkbox {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with a tooltip when passed a validation hint', () => {
-    const actual = create(
-      <Checkbox
-        noMargin
-        validationHint="This field is required."
-        {...defaultProps}
-      />,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  /**
-   * Logic tests.
-   */
-  it('should be unchecked by default', () => {
-    const { getByLabelText } = render(
-      <Checkbox noMargin {...defaultProps}>
-        Label
-      </Checkbox>,
-    );
-    const inputEl = getByLabelText('Label', {
-      exact: false,
-    });
-    expect(inputEl).not.toHaveAttribute('checked');
-  });
-
-  it('should call the change handler when clicked', async () => {
-    const { getByLabelText } = render(
-      <Checkbox noMargin {...defaultProps}>
-        Label
-      </Checkbox>,
-    );
-    const inputEl = getByLabelText('Label', {
-      exact: false,
+  describe('Styles', () => {
+    it('should render with default styles', () => {
+      const { container } = render(<Checkbox {...defaultProps} />);
+      expect(container).toMatchSnapshot();
     });
 
-    await userEvent.click(inputEl);
+    it('should render with checked styles', () => {
+      const { container } = render(<Checkbox checked {...defaultProps} />);
+      expect(container).toMatchSnapshot();
+    });
 
-    expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
+    it('should render with disabled styles', () => {
+      const { container } = render(<Checkbox disabled {...defaultProps} />);
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render with invalid styles and an error message', () => {
+      const { container } = render(
+        <Checkbox
+          invalid
+          validationHint="This field is required."
+          {...defaultProps}
+        />,
+      );
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  describe('business logic', () => {
-    /**
-     * Should accept a working ref
-     */
+  describe('Logic', () => {
+    it('should be unchecked by default', () => {
+      const { getByRole } = render(<Checkbox {...defaultProps} />);
+      const inputEl = getByRole('checkbox');
+
+      expect(inputEl).not.toHaveAttribute('checked');
+    });
+
+    it('should call the change handler when clicked', async () => {
+      const { getByRole } = render(<Checkbox {...defaultProps} />);
+      const inputEl = getByRole('checkbox');
+
+      await userEvent.click(inputEl);
+
+      expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
+    });
+
     it('should accept a working ref', () => {
       const tref = createRef<HTMLInputElement>();
-      const { container } = render(<Checkbox noMargin ref={tref} />);
-      const checkbox = container.querySelector('input');
-      expect(tref.current).toBe(checkbox);
+      const { getByRole } = render(<Checkbox ref={tref} {...defaultProps} />);
+      const inputEl = getByRole('checkbox');
+
+      expect(tref.current).toBe(inputEl);
     });
   });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <div>
-        <Checkbox noMargin {...defaultProps}>
-          Label
-        </Checkbox>
-      </div>,
-    );
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
+  describe('Accessibility', () => {
+    it('should have no violations', async () => {
+      const { container } = render(<Checkbox {...defaultProps} />);
+      const actual = await axe(container);
+
+      expect(actual).toHaveNoViolations();
+    });
+
+    describe('Labeling', () => {
+      it('should have an accessible name', () => {
+        const { getByRole } = render(<Checkbox {...defaultProps} />);
+        const inputEl = getByRole('checkbox');
+
+        expect(inputEl).toHaveAccessibleName(defaultProps.children);
+      });
+
+      it('should optionally have an accessible description', () => {
+        const description = 'Description';
+        const { getByRole } = render(
+          <Checkbox validationHint={description} {...defaultProps} />,
+        );
+        const inputEl = getByRole('checkbox');
+
+        expect(inputEl).toHaveAccessibleDescription(description);
+      });
+
+      it('should accept a custom description via aria-describedby', () => {
+        const customDescription = 'Custom description';
+        const customDescriptionId = 'customDescriptionId';
+        const { getByRole } = render(
+          <>
+            <span id={customDescriptionId}>{customDescription}</span>
+            <Checkbox
+              aria-describedby={customDescriptionId}
+              {...defaultProps}
+            />
+            ,
+          </>,
+        );
+        const inputEl = getByRole('checkbox');
+
+        expect(inputEl).toHaveAttribute(
+          'aria-describedby',
+          expect.stringContaining(customDescriptionId),
+        );
+        expect(inputEl).toHaveAccessibleDescription(customDescription);
+      });
+
+      it('should accept a custom description in addition to a validationHint', () => {
+        const customDescription = 'Custom description';
+        const customDescriptionId = 'customDescriptionId';
+        const description = 'Description';
+        const { getByRole } = render(
+          <>
+            <span id={customDescriptionId}>{customDescription}</span>
+            <Checkbox
+              validationHint={description}
+              aria-describedby={customDescriptionId}
+              {...defaultProps}
+            />
+            ,
+          </>,
+        );
+        const inputEl = getByRole('checkbox');
+
+        expect(inputEl).toHaveAttribute(
+          'aria-describedby',
+          expect.stringContaining(customDescriptionId),
+        );
+        expect(inputEl).toHaveAccessibleDescription(
+          `${customDescription} ${description}`,
+        );
+      });
+    });
+
+    describe('Status messages', () => {
+      it('should render an empty live region on mount', () => {
+        const { getByRole } = render(<Checkbox {...defaultProps} />);
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toBeEmptyDOMElement();
+      });
+
+      it('should render status messages in a live region', () => {
+        const statusMessage = 'This field is required';
+        const { getByRole } = render(
+          <Checkbox invalid validationHint={statusMessage} {...defaultProps} />,
+        );
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toHaveTextContent(statusMessage);
+      });
+
+      it('should not render descriptions in a live region', () => {
+        const statusMessage = 'This field is required';
+        const { getByRole } = render(
+          <Checkbox validationHint={statusMessage} {...defaultProps} />,
+        );
+        const liveRegionEl = getByRole('status');
+
+        expect(liveRegionEl).toBeEmptyDOMElement();
+      });
+    });
   });
 });

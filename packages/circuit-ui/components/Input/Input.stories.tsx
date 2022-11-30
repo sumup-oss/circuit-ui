@@ -14,6 +14,7 @@
  */
 
 import { css } from '@emotion/react';
+import { Theme } from '@sumup/design-tokens';
 
 import SearchInput from '../SearchInput';
 import CurrencyInput from '../CurrencyInput';
@@ -43,7 +44,6 @@ const baseArgs = {
   label: 'First name',
   placeholder: 'Jane',
   validationHint: 'Maximum 100 characters',
-  noMargin: true,
 };
 
 export const Base = (args: InputProps) => <Input {...args} css={inputStyles} />;
@@ -59,7 +59,6 @@ Valid.args = {
   placeholder: 'jane123',
   validationHint: 'Yay! That username is available.',
   showValid: true,
-  noMargin: true,
 };
 
 export const Invalid = (args: InputProps) => (
@@ -122,17 +121,22 @@ RightAligned.args = {
   textAlign: 'right',
 };
 
+const inlineInputs = (theme: Theme) => css`
+  display: flex;
+
+  > *:not(:last-child) {
+    margin-right: ${theme.spacings.mega};
+  }
+`;
+
 export const Inline = (args: InputProps) => (
-  <div>
+  <div css={inlineInputs}>
     <Input {...args} label="First name" placeholder="Jane" />
     <Input {...args} label="Last name" placeholder="Doe" />
   </div>
 );
 
-Inline.args = {
-  ...baseArgs,
-  inline: true,
-};
+Inline.args = baseArgs;
 
 export const HiddenLabel = (args: InputProps) => (
   <Input {...args} css={inputStyles} />

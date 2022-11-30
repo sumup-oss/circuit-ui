@@ -29,12 +29,13 @@ export type ItemProps = ListItemProps & { key: string | number };
 
 interface BaseProps {
   /**
-   * Choose between 'inset' (outer border and dividers) and 'plain' (only dividers) variant.
-   * Default: 'inset'.
+   * Choose between 'inset' (outer border and dividers) and 'plain' (only
+   * dividers) variant. Defaults to 'inset'.
    */
   variant?: Variant;
   /**
-   * List of ListItem prop objects to render as a group. Each item needs to have a unique `key`.
+   * List of ListItem prop objects to render as a group. Each item needs to
+   * have a unique `key`.
    */
   items: ItemProps[];
   /**
@@ -42,8 +43,8 @@ interface BaseProps {
    */
   label: ReactNode;
   /**
-   * Visually hide the label. This should only be used in rare cases and only if the
-   * purpose of the ListItemGroup can be inferred from other context.
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
   /**
@@ -51,7 +52,7 @@ interface BaseProps {
    */
   details?: ReactNode;
   /**
-   The ref to the HTML DOM element
+   * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLDivElement>;
 }
@@ -270,7 +271,7 @@ export const ListItemGroup = forwardRef(
         <HeaderContainer isPlain={isPlain}>
           <LabelContainer hideLabel={hideLabel}>
             {typeof label === 'string' ? (
-              <Label as="h4" size="two" noMargin>
+              <Label as="h4" size="two">
                 {label}
               </Label>
             ) : (
@@ -280,9 +281,7 @@ export const ListItemGroup = forwardRef(
           {details && (
             <DetailsContainer>
               {typeof details === 'string' ? (
-                <Body size="two" noMargin>
-                  {details}
-                </Body>
+                <Body size="two">{details}</Body>
               ) : (
                 details
               )}

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox should render with a tooltip when passed a validation hint 1`] = `
+exports[`Checkbox Styles should render with checked styles 1`] = `
 .circuit-0 {
   position: relative;
 }
@@ -102,84 +102,46 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   cursor: pointer;
 }
 
-.circuit-3 {
-  font-size: 14px;
-  line-height: 20px;
-  display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #1A1A1A;
-  color: #FFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 40;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  left: 50%;
-  left: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  left: -12px;
-}
-
-.circuit-3::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-3::after {
-  left: 12px;
-}
-
-.circuit-3::after {
-  top: 100%;
-  border-top-color: #1A1A1A;
-}
-
-<div
-  class="circuit-0"
->
-  <input
-    class="circuit-1"
-    id="checkbox_6"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    for="checkbox_6"
-  >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
-      />
-    </svg>
-  </label>
+<div>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
-    This field is required.
+    <input
+      aria-describedby="validation_hint-4"
+      checked=""
+      class="circuit-1"
+      id="checkbox_3"
+      type="checkbox"
+      value=""
+    />
+    <label
+      class="circuit-2"
+      for="checkbox_3"
+    >
+      Label
+      <svg
+        aria-hidden="true"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+          fill="currentColor"
+        />
+      </svg>
+    </label>
+    <span
+      aria-live="polite"
+      role="status"
+    />
   </div>
 </div>
 `;
 
-exports[`Checkbox should render with checked styles when passed the checked prop 1`] = `
+exports[`Checkbox Styles should render with default styles 1`] = `
 .circuit-0 {
   position: relative;
 }
@@ -281,310 +243,49 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   cursor: pointer;
 }
 
-<div
-  class="circuit-0"
->
-  <input
-    checked=""
-    class="circuit-1"
-    id="checkbox_2"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    for="checkbox_2"
+<div>
+  <div
+    class="circuit-0"
   >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+    <input
+      aria-describedby="validation_hint-2"
+      class="circuit-1"
+      id="checkbox_1"
+      type="checkbox"
+      value=""
+    />
+    <label
+      class="circuit-2"
+      for="checkbox_1"
     >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
-      />
-    </svg>
-  </label>
+      Label
+      <svg
+        aria-hidden="true"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+          fill="currentColor"
+        />
+      </svg>
+    </label>
+    <span
+      aria-live="polite"
+      role="status"
+    />
+  </div>
 </div>
 `;
 
-exports[`Checkbox should render with default spacing when there is no noMargin prop 1`] = `
+exports[`Checkbox Styles should render with disabled styles 1`] = `
 .circuit-0 {
-  position: relative;
-}
-
-.circuit-0:last-of-type {
-  margin-bottom: 16px;
-}
-
-.circuit-1 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-1+label::before {
-  height: 18px;
-  width: 18px;
-  box-sizing: border-box;
-  box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
-  border-radius: 3px;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-}
-
-.circuit-1+label svg {
-  height: 18px;
-  width: 18px;
-  padding: 2px;
-  box-sizing: border-box;
-  color: #FFF;
-  display: block;
-  line-height: 0;
-  opacity: 0;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%) scale(0, 0);
-  -moz-transform: translateY(-50%) scale(0, 0);
-  -ms-transform: translateY(-50%) scale(0, 0);
-  transform: translateY(-50%) scale(0, 0);
-  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
-}
-
-.circuit-1:hover+label::before {
-  border-color: #666;
-}
-
-.circuit-1:focus+label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
-}
-
-.circuit-1:focus+label::before::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-1:focus:not(:focus-visible)+label::before {
+  opacity: 0.5;
+  pointer-events: none;
   box-shadow: none;
-  border-color: #999;
-}
-
-.circuit-1:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
-}
-
-.circuit-1:checked+label>svg {
-  -webkit-transform: translateY(-50%) scale(1, 1);
-  -moz-transform: translateY(-50%) scale(1, 1);
-  -ms-transform: translateY(-50%) scale(1, 1);
-  transform: translateY(-50%) scale(1, 1);
-  opacity: 1;
-}
-
-.circuit-1:checked+label::before {
-  border-color: #3063E9;
-  background-color: #3063E9;
-}
-
-.circuit-2 {
-  color: #1A1A1A;
-  display: inline-block;
-  padding-left: 26px;
-  position: relative;
-  cursor: pointer;
-}
-
-<div
-  class="circuit-0"
->
-  <input
-    class="circuit-1"
-    id="checkbox_5"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    for="checkbox_5"
-  >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
-      />
-    </svg>
-  </label>
-</div>
-`;
-
-exports[`Checkbox should render with default styles 1`] = `
-.circuit-0 {
-  position: relative;
-}
-
-.circuit-1 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-1+label::before {
-  height: 18px;
-  width: 18px;
-  box-sizing: border-box;
-  box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
-  border-radius: 3px;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: border 120ms ease-in-out,background-color 120ms ease-in-out;
-}
-
-.circuit-1+label svg {
-  height: 18px;
-  width: 18px;
-  padding: 2px;
-  box-sizing: border-box;
-  color: #FFF;
-  display: block;
-  line-height: 0;
-  opacity: 0;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  -webkit-transform: translateY(-50%) scale(0, 0);
-  -moz-transform: translateY(-50%) scale(0, 0);
-  -ms-transform: translateY(-50%) scale(0, 0);
-  transform: translateY(-50%) scale(0, 0);
-  -webkit-transition: -webkit-transform 120ms ease-in-out,opacity 120ms ease-in-out;
-  transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
-}
-
-.circuit-1:hover+label::before {
-  border-color: #666;
-}
-
-.circuit-1:focus+label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
-}
-
-.circuit-1:focus+label::before::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-1:focus:not(:focus-visible)+label::before {
-  box-shadow: none;
-  border-color: #999;
-}
-
-.circuit-1:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
-}
-
-.circuit-1:checked+label>svg {
-  -webkit-transform: translateY(-50%) scale(1, 1);
-  -moz-transform: translateY(-50%) scale(1, 1);
-  -ms-transform: translateY(-50%) scale(1, 1);
-  transform: translateY(-50%) scale(1, 1);
-  opacity: 1;
-}
-
-.circuit-1:checked+label::before {
-  border-color: #3063E9;
-  background-color: #3063E9;
-}
-
-.circuit-2 {
-  color: #1A1A1A;
-  display: inline-block;
-  padding-left: 26px;
-  position: relative;
-  cursor: pointer;
-}
-
-<div
-  class="circuit-0"
->
-  <input
-    class="circuit-1"
-    id="checkbox_1"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    for="checkbox_1"
-  >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
-      />
-    </svg>
-  </label>
-</div>
-`;
-
-exports[`Checkbox should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-0 {
   position: relative;
 }
 
@@ -691,45 +392,48 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
 }
 
-<div
-  class="circuit-0"
->
-  <input
-    class="circuit-1"
-    disabled=""
-    id="checkbox_3"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    disabled=""
-    for="checkbox_3"
+<div>
+  <div
+    class="circuit-0"
   >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+    <input
+      aria-describedby="validation_hint-6"
+      class="circuit-1"
+      disabled=""
+      id="checkbox_5"
+      type="checkbox"
+      value=""
+    />
+    <label
+      class="circuit-2"
+      for="checkbox_5"
     >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
-      />
-    </svg>
-  </label>
+      Label
+      <svg
+        aria-hidden="true"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+          fill="currentColor"
+        />
+      </svg>
+    </label>
+    <span
+      aria-live="polite"
+      role="status"
+    />
+  </div>
 </div>
 `;
 
-exports[`Checkbox should render with invalid styles when passed the invalid prop 1`] = `
+exports[`Checkbox Styles should render with invalid styles and an error message 1`] = `
 .circuit-0 {
   position: relative;
 }
@@ -846,33 +550,85 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   cursor: pointer;
 }
 
-<div
-  class="circuit-0"
->
-  <input
-    class="circuit-1"
-    id="checkbox_4"
-    name="name"
-    type="checkbox"
-    value=""
-  />
-  <label
-    class="circuit-2"
-    for="checkbox_4"
+.circuit-3 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  display: block;
+  margin-top: 4px;
+  color: #666;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+  color: #DE331D;
+}
+
+.circuit-4 {
+  display: inline-block;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  vertical-align: text-top;
+  margin-right: 4px;
+  color: #DE331D;
+}
+
+<div>
+  <div
+    class="circuit-0"
   >
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+    <input
+      aria-describedby="validation_hint-8"
+      class="circuit-1"
+      id="checkbox_7"
+      type="checkbox"
+      value=""
+    />
+    <label
+      class="circuit-2"
+      for="checkbox_7"
     >
-      <path
-        d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-        fill="currentColor"
-      />
-    </svg>
-  </label>
+      Label
+      <svg
+        aria-hidden="true"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+          fill="currentColor"
+        />
+      </svg>
+    </label>
+    <span
+      aria-live="polite"
+      role="status"
+    >
+      <span
+        class="circuit-3"
+        id="validation_hint-8"
+      >
+        <div
+          class="circuit-4"
+        >
+          <svg
+            fill="none"
+            height="16"
+            role="presentation"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3 11a1 1 0 0 1-1.41 0L8 9.41 6.41 11A1 1 0 0 1 5 9.59L6.59 8 5 6.41A1 1 0 0 1 5 5a1 1 0 0 1 1.41 0L8 6.59 9.59 5A1 1 0 0 1 11 5a1 1 0 0 1 0 1.41L9.41 8 11 9.59A1 1 0 0 1 11 11z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        This field is required.
+      </span>
+    </span>
+  </div>
 </div>
 `;

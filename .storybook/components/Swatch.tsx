@@ -55,10 +55,10 @@ function Swatch({ colorName }: SwatchProps): JSX.Element {
       <ColorWrapper>
         <Color colorName={colorName} />
         <ColorName>
-          <Body variant="highlight" size="two" noMargin>
+          <Body variant="highlight" size="two">
             {colorName}
           </Body>
-          <Body variant="subtle" size="two" noMargin>
+          <Body variant="subtle" size="two">
             {light.colors[colorName]}
           </Body>
         </ColorName>

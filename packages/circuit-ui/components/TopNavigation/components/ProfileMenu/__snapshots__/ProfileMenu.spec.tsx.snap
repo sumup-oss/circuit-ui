@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProfileMenu styles should render with a profile picture 1`] = `
+exports[`ProfileMenu Styles should render with a profile picture 1`] = `
 .circuit-0 {
   display: inline-block;
 }
@@ -111,8 +111,8 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
 
 .circuit-6 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-weight: 700;
 }
 
@@ -189,7 +189,7 @@ exports[`ProfileMenu styles should render with a profile picture 1`] = `
 </div>
 `;
 
-exports[`ProfileMenu styles should render without a profile picture 1`] = `
+exports[`ProfileMenu Styles should render without a profile picture 1`] = `
 .circuit-0 {
   display: inline-block;
 }
@@ -280,8 +280,8 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
 
 .circuit-5 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-weight: 700;
 }
 
@@ -309,12 +309,12 @@ exports[`ProfileMenu styles should render without a profile picture 1`] = `
     class="circuit-0"
   >
     <button
-      aria-controls="popover_8"
+      aria-controls="popover_5"
       aria-expanded="false"
       aria-haspopup="true"
       aria-label="Open profile menu"
       class="circuit-1"
-      id="trigger_7"
+      id="trigger_4"
       title="Open profile menu"
       type="button"
     >

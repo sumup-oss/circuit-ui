@@ -22,17 +22,13 @@ describe('Body', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Body noMargin>Body</Body>);
+    const actual = create(<Body>Body</Body>);
     expect(actual).toMatchSnapshot();
   });
 
   const sizes: BodyProps['size'][] = ['one', 'two'];
   it.each(sizes)('should render with size "%s"', (size) => {
-    const actual = create(
-      <Body noMargin size={size}>
-        {size} Body
-      </Body>,
-    );
+    const actual = create(<Body size={size}>{size} Body</Body>);
     expect(actual).toMatchSnapshot();
   });
 
@@ -44,17 +40,7 @@ describe('Body', () => {
     'subtle',
   ] as BodyProps['variant'][];
   it.each(variants)('should render as a "%s" variant', (variant) => {
-    const actual = create(
-      <Body noMargin variant={variant}>
-        {variant} Body
-      </Body>,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with outer spacing when there is no noMargin prop', () => {
-    /* @ts-expect-error the noMargin prop is required */
-    const actual = create(<Body>noMargin Body</Body>);
+    const actual = create(<Body variant={variant}>{variant} Body</Body>);
     expect(actual).toMatchSnapshot();
   });
 
@@ -63,31 +49,19 @@ describe('Body', () => {
    */
   const elements = ['p', 'article', 'div'] as const;
   it.each(elements)('should render as a "%s" element', (as) => {
-    const { container } = render(
-      <Body noMargin as={as}>
-        {as} Body
-      </Body>,
-    );
+    const { container } = render(<Body as={as}>{as} Body</Body>);
     const actual = container.querySelector(as);
     expect(actual).toBeVisible();
   });
 
   it('should render the "highlight" variant as a "strong" element', () => {
-    const { container } = render(
-      <Body noMargin variant="highlight">
-        Highlight
-      </Body>,
-    );
+    const { container } = render(<Body variant="highlight">Highlight</Body>);
     const actual = container.querySelector('strong');
     expect(actual).toBeVisible();
   });
 
   it('should render the "quote" variant as a "blockquote" element', () => {
-    const { container } = render(
-      <Body noMargin variant="quote">
-        Quote
-      </Body>,
-    );
+    const { container } = render(<Body variant="quote">Quote</Body>);
     const actual = container.querySelector('blockquote');
     expect(actual).toBeVisible();
   });
@@ -96,7 +70,7 @@ describe('Body', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Body noMargin>Body</Body>);
+    const wrapper = renderToHtml(<Body>Body</Body>);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

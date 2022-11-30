@@ -38,13 +38,11 @@ const FormOne = ({ onNextClick }: FormProps) => (
       label="First Name"
       placeholder="John"
       css={spacing({ bottom: 'mega' })}
-      noMargin
     />
     <Input
       label="Second Name"
       placeholder="Doe"
       css={spacing({ bottom: 'mega' })}
-      noMargin
     />
     <Button variant="primary" onClick={() => onNextClick()}>
       Next
@@ -58,9 +56,8 @@ const FormTwo = ({ onNextClick, onBackClick }: FormProps) => (
       label="Street"
       placeholder="Madison Ave 5"
       css={spacing({ bottom: 'mega' })}
-      noMargin
     />
-    <Select label="State" css={spacing({ bottom: 'mega' })} noMargin>
+    <Select label="State" css={spacing({ bottom: 'mega' })}>
       <option>CA</option>
       <option>TX</option>
       <option>NY</option>
@@ -69,7 +66,6 @@ const FormTwo = ({ onNextClick, onBackClick }: FormProps) => (
       label="Postal Code"
       placeholder="10179"
       css={spacing({ bottom: 'mega' })}
-      noMargin
     />
     <ButtonGroup
       align="left"
@@ -89,9 +85,7 @@ const FormTwo = ({ onNextClick, onBackClick }: FormProps) => (
 
 const Thanks = () => (
   <section>
-    <Headline as="h3" noMargin>
-      Thanks!
-    </Headline>
+    <Headline as="h3">Thanks!</Headline>
   </section>
 );
 
@@ -114,12 +108,7 @@ export default function MultiStepForm(): JSX.Element {
 
         return (
           <Container>
-            <Headline
-              as="h2"
-              size="three"
-              noMargin
-              css={spacing({ bottom: 'giga' })}
-            >
+            <Headline as="h2" size="three" css={spacing({ bottom: 'giga' })}>
               Step {stepNumber} of {totalSteps}
             </Headline>
             <ProgressBar

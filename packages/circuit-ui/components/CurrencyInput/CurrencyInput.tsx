@@ -15,11 +15,12 @@
 
 import { Ref, forwardRef } from 'react';
 import { resolveCurrencyFormat } from '@sumup/intl';
-import NumberFormat from 'react-number-format';
+import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
 import styled from '../../styles/styled';
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
+import { uniqueId } from '../../util/id';
 
 import { formatPlaceholder } from './CurrencyInputService';
 
@@ -47,7 +48,7 @@ export interface CurrencyInputProps
   /**
    * The ref to the HTML DOM element.
    */
-  ref?: Ref<NumberFormat<InputProps>>;
+  ref?: Ref<NumericFormatProps<InputProps>>;
   /**
    * The value of the input element.
    */
@@ -77,15 +78,26 @@ const CurrencyIcon = styled('span')`
 `;
 
 /**
- * CurrencyInput component for forms. Automatically looks up
- * symbols and places the symbol according to the locale. The corresponding
- * service exports a parser for formatting values automatically.
+ * CurrencyInput component for forms. Automatically looks up symbols and places
+ * the symbol according to the locale. The corresponding service exports a
+ * parser for formatting values automatically.
  */
 export const CurrencyInput = forwardRef(
   (
-    { locale, currency, placeholder, ...props }: CurrencyInputProps,
+    {
+      locale,
+      currency,
+      placeholder,
+      'aria-describedby': descriptionId,
+      ...props
+    }: CurrencyInputProps,
     ref: CurrencyInputProps['ref'],
   ) => {
+    const currencySymbolId = uniqueId('currency-symbol_');
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${currencySymbolId}`;
+
     const currencyFormat =
       resolveCurrencyFormat(locale, currency) || DEFAULT_FORMAT;
     const {
@@ -110,20 +122,24 @@ export const CurrencyInput = forwardRef(
     const renderPrefix =
       currencyPosition === 'prefix'
         ? (prefixProps: { className?: string }) => (
-            <CurrencyIcon {...prefixProps}>{currencySymbol}</CurrencyIcon>
+            <CurrencyIcon {...prefixProps} id={currencySymbolId}>
+              {currencySymbol}
+            </CurrencyIcon>
           )
         : undefined;
 
     const renderSuffix =
       currencyPosition === 'suffix'
         ? (suffixProps: { className?: string }) => (
-            <CurrencyIcon {...suffixProps}>{currencySymbol}</CurrencyIcon>
+            <CurrencyIcon {...suffixProps} id={currencySymbolId}>
+              {currencySymbol}
+            </CurrencyIcon>
           )
         : undefined;
 
     return (
-      <NumberFormat
-        // NumberFormat props
+      <NumericFormat
+        // react-number-format props
         thousandSeparator={groupDelimiter}
         decimalSeparator={
           maximumFractionDigits > 0 ? decimalDelimiter : DUMMY_DELIMITER
@@ -139,6 +155,7 @@ export const CurrencyInput = forwardRef(
         textAlign="right"
         type="text"
         inputMode="decimal"
+        aria-describedby={descriptionIds}
         {...props}
       />
     );

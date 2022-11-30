@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, SumUp Ltd.
+ * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,27 @@
  * limitations under the License.
  */
 
-import { ValidationHint } from './ValidationHint';
+import { LabelHTMLAttributes } from 'react';
+import { css } from '@emotion/react';
 
-export default ValidationHint;
+import styled from '../../styles/styled';
+import { typography } from '../../styles/style-mixins';
+
+export interface FieldLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+  /**
+   * The identifier of the corresponding form element.
+   */
+  htmlFor: string;
+}
+
+const baseStyles = css`
+  display: block;
+`;
+
+/**
+ * @private
+ */
+export const FieldLabel = styled.label<FieldLabelProps>(
+  baseStyles,
+  typography('two'),
+);

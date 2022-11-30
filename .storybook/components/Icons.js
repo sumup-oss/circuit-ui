@@ -23,10 +23,10 @@ import {
   Headline,
   Body,
   InlineElements,
-  Label,
   SearchInput,
   Select,
   spacing,
+  typography,
 } from '@sumup/circuit-ui';
 
 function groupBy(icons, key) {
@@ -144,36 +144,28 @@ const Icons = () => {
           onChange={handleSearch}
           onClear={() => setSearch('')}
           clearLabel="Clear"
-          noMargin
         />
         <Select
           label="Select icon size"
           options={sizeOptions}
           value={size}
           onChange={handleSizeChange}
-          noMargin
         />
         <Select
           label="Select icon color"
           options={colorOptions}
           value={color}
           onChange={handleColorChange}
-          noMargin
         />
       </Filters>
 
       {activeIcons.length <= 0 ? (
-        <Body noMargin>No icons found</Body>
+        <Body>No icons found</Body>
       ) : (
         Object.entries(groupBy(activeIcons, 'category')).map(
           ([category, items]) => (
             <Category key={category}>
-              <Headline
-                as="h3"
-                size="three"
-                noMargin
-                css={spacing({ bottom: 'giga' })}
-              >
+              <Headline as="h3" size="three" css={spacing({ bottom: 'giga' })}>
                 {category}
               </Headline>
               <List>
@@ -185,15 +177,15 @@ const Icons = () => {
                     <Wrapper key={id}>
                       <IconWrapper>
                         <Icon
-                          id={id}
+                          aria-labelledby={id}
                           size={icon.size}
                           css={iconStyles(color)}
                         />
                       </IconWrapper>
-                      <Label htmlFor="id">
+                      <span id={id} css={typography('two')}>
                         {icon.name}
                         {size === 'all' && <Size>{icon.size}</Size>}
-                      </Label>
+                      </span>
                     </Wrapper>
                   );
                 })}

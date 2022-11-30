@@ -123,15 +123,13 @@ function Profile({ user, label, isActive, isOpen, ...props }: ProfileProps) {
       </Skeleton>
       <UserDetails>
         <Skeleton css={truncateStyles}>
-          <Body size="two" variant="highlight" noMargin>
+          <Body size="two" variant="highlight">
             {user.name}
           </Body>
         </Skeleton>
         {user.id && (
           <Skeleton css={truncateStyles}>
-            <Body size="two" noMargin>
-              {user.id}
-            </Body>
+            <Body size="two">{user.id}</Body>
           </Skeleton>
         )}
       </UserDetails>
@@ -166,7 +164,7 @@ export function ProfileMenu({
   tracking,
 }: ProfileMenuProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
-  const offsetModifier = { name: 'offset', options: { offset: [-16, 8] } };
+  const offset = { mainAxis: 8, crossAxis: -16 };
 
   return (
     <TrackingElement
@@ -187,7 +185,7 @@ export function ProfileMenu({
         )}
         actions={actions}
         placement="bottom-end"
-        modifiers={[offsetModifier]}
+        offset={offset}
         tracking={
           tracking ? { ...tracking, component: 'profile_menu' } : undefined
         }

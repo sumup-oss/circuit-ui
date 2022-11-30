@@ -26,12 +26,12 @@ describe('SearchInput', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<SearchInput {...baseProps} noMargin />);
+    const actual = create(<SearchInput {...baseProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should grey out icon when disabled', () => {
-    const actual = create(<SearchInput {...baseProps} disabled noMargin />);
+    const actual = create(<SearchInput {...baseProps} disabled />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -45,7 +45,6 @@ describe('SearchInput', () => {
         value="Search value"
         clearLabel={clearLabel}
         onClear={mockCallback}
-        noMargin
         /**
          * We set onChange to silence a warning about adding a `value` without
          * `onChange` or `readOnly`.
@@ -63,9 +62,7 @@ describe('SearchInput', () => {
      */
     it('should accept a working ref', () => {
       const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
-      const { container } = render(
-        <SearchInput {...baseProps} ref={tref} noMargin />,
-      );
+      const { container } = render(<SearchInput {...baseProps} ref={tref} />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
     });
@@ -75,7 +72,7 @@ describe('SearchInput', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<SearchInput {...baseProps} noMargin />);
+    const wrapper = renderToHtml(<SearchInput {...baseProps} />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

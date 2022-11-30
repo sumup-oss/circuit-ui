@@ -32,17 +32,13 @@ export default {
   },
 };
 
-export const Base = (args: BodyProps) => (
-  <Body {...args} noMargin>
-    {content}
-  </Body>
-);
+export const Base = (args: BodyProps) => <Body {...args}>{content}</Body>;
 
 const sizes = ['one', 'two'] as const;
 
 export const Sizes = (args: BodyProps) =>
   sizes.map((s) => (
-    <Body key={s} {...args} size={s} noMargin>
+    <Body key={s} {...args} size={s}>
       This is a body {s}. {content}
     </Body>
   ));
@@ -51,7 +47,7 @@ const variants = ['highlight', 'quote', 'confirm', 'alert', 'subtle'] as const;
 
 export const Variants = (args: BodyProps) =>
   variants.map((variant) => (
-    <Body key={variant} {...args} variant={variant} noMargin>
+    <Body key={variant} {...args} variant={variant}>
       This is a {variant} body
     </Body>
   ));

@@ -43,15 +43,12 @@ const BorderWidth = ({ size }) => (
     <Wrapper>
       <Box size={size} />
       <div>
-        <Body as="span" noMargin>
-          {size}
-        </Body>
+        <Body as="span">{size}</Body>
         <Body
           variant="subtle"
           size="two"
           as="span"
           css={spacing({ bottom: 'giga', left: 'kilo' })}
-          noMargin
         >
           {light.borderWidth[size]}
         </Body>
