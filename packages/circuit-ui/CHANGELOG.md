@@ -1,5 +1,64 @@
 # @sumup/circuit-ui
 
+## 6.0.0
+
+### Major Changes
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Wrapped the `ImageInput` component in a `div`. This aligns the component with other form components and makes it easier to apply style mixins such as `spacing`.
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `inline` prop from the `Input`, `Textarea`, and `Select` components. Use the `css` prop to apply custom styles instead.
+
+- [#1772](https://github.com/sumup-oss/circuit-ui/pull/1772) [`817d7585`](https://github.com/sumup-oss/circuit-ui/commit/817d75851c295b0c1810aeacdd7474ee29afa6a6) Thanks [@a5e](https://github.com/a5e)! - Tweaked the `ButtonGroup` component to switch between a secondary button (on viewports of at least `mq.kilo`) and a tertiary button (on viewports narrower than `mq.kilo`) using CSS media queries instead of rendering three buttons. Tests (e.g. using `@testing-library`) can now query the secondary button without using `*AllBy` queries.
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `Label` component from the public exports. Use the `label` prop on the form components instead. When building a custom form component, use a `label` element with the `typography('two')` style mixin (don't forget about the `for` prop).
+
+- [#1759](https://github.com/sumup-oss/circuit-ui/pull/1759) [`b03da80d`](https://github.com/sumup-oss/circuit-ui/commit/b03da80d1dd3d625c70bb3bf1824ff9beeac44ff) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the `noMargin` prop from Circuit UI form and typography components. Use the `spacing()` style mixin instead.
+
+- [#1661](https://github.com/sumup-oss/circuit-ui/pull/1661) [`177fe66f`](https://github.com/sumup-oss/circuit-ui/commit/177fe66f7ce73d9c4fe90605c94e08e5b9959e31) Thanks [@tranhoangan22](https://github.com/tranhoangan22)! - Migrated the Popover component from [Popper](https://popper.js.org/) to [Floating UI](https://floating-ui.com/). Popper's `modifiers` are no longer supported, use the `offset` prop for flexible placement of the floating element instead. The `placement` prop no longer accepts `auto*` values.
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed how custom styles are forwarded to the `Input` and `Textarea` components. The `className` and `style` props are now passed to the outermost `div` (this also applies to Emotion's `css` prop). The `labelStyles` prop has been removed. This aligns the components with other form components and makes it easier to apply style mixins such as `spacing`.
+
+- [#1760](https://github.com/sumup-oss/circuit-ui/pull/1760) [`b8f129ee`](https://github.com/sumup-oss/circuit-ui/commit/b8f129eed5673a00a4e4b5deeed4494e5ee93912) Thanks [@robinmetral](https://github.com/robinmetral)! - Switched typography units for the `Badge` component to use rem units. See [The Surprising Truth About Pixels and Accessibility](https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/).
+
+- [#1789](https://github.com/sumup-oss/circuit-ui/pull/1789) [`3c0c98dd`](https://github.com/sumup-oss/circuit-ui/commit/3c0c98dd5cacceca1e53f30a298a8d62a35c5cc8) Thanks [@robinmetral](https://github.com/robinmetral)! - Rendered the `Checkbox`'s `validationHint` under the input instead of in a tooltip. This makes the behavior consistent with other form components and improves accessibility.
+
+- [#1795](https://github.com/sumup-oss/circuit-ui/pull/1795) [`426a0f63`](https://github.com/sumup-oss/circuit-ui/commit/426a0f639e38e949ce2ae5a36cefbb40c46dd791) Thanks [@robinmetral](https://github.com/robinmetral)! - Moved the `validationHint` outside the input `label`s and connected them to the inputs using `aria-describedby`. This affects form component markup and might be a breaking change in instances customizing input styles.
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Restricted the `label` prop on all form components to the `string` type.
+
+- [#1766](https://github.com/sumup-oss/circuit-ui/pull/1766) [`47ef6962`](https://github.com/sumup-oss/circuit-ui/commit/47ef696295b0267e2cc50efa1034a7526308f835) Thanks [@robinmetral](https://github.com/robinmetral)! - Updated the browser support policy for Circuit UI. Moving forward, only browsers that support dynamic module imports will be supported.
+
+- [#1781](https://github.com/sumup-oss/circuit-ui/pull/1781) [`5fe99fe8`](https://github.com/sumup-oss/circuit-ui/commit/5fe99fe86544ef7ae0ce6ef6756c6f8f73b0ae8a) Thanks [@robinmetral](https://github.com/robinmetral)! - Upgraded to `react-number-format` version 5. This could be a breaking change if you were relying on internal `react-number-format` props. Refer to the `react-number-format` [migration guide](https://s-yadav.github.io/react-number-format/docs/migration/) for details. Any explicit typings will also need to be updated.
+
+### Minor Changes
+
+- [#1664](https://github.com/sumup-oss/circuit-ui/pull/1664) [`e7c6ed5e`](https://github.com/sumup-oss/circuit-ui/commit/e7c6ed5e60c57b9c3da322c33fba5987bde34ee9) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for the `optionalLabel` and `disabled` props to the `RadioButtonGroup` component. This aligns the component with other form components.
+
+### Patch Changes
+
+- [#1813](https://github.com/sumup-oss/circuit-ui/pull/1813) [`269d4a19`](https://github.com/sumup-oss/circuit-ui/commit/269d4a19094a4c6fd30a9807327deb5a28357813) Thanks [@robinmetral](https://github.com/robinmetral)! - Allowed passing a custom `aria-describedby` value to form components. The custom value (an element `id`, or list of `id`s separated by a space) will be combined with the generated `id` of the `validationHint` element.
+
+- [#1809](https://github.com/sumup-oss/circuit-ui/pull/1809) [`bd184b53`](https://github.com/sumup-oss/circuit-ui/commit/bd184b53a3d047ee878dab55813151ffb7bc8b52) Thanks [@robinmetral](https://github.com/robinmetral)! - Marked invalid radio buttons as invalid using `aria-invalid="true"`. This makes the state available to assistive technologies.
+
+- [#1795](https://github.com/sumup-oss/circuit-ui/pull/1795) [`426a0f63`](https://github.com/sumup-oss/circuit-ui/commit/426a0f639e38e949ce2ae5a36cefbb40c46dd791) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the size of the `Input` component's optional `prefix` and `suffix` (when passed as strings). They are now 16px (the size of the input's placeholder and value) instead of 14px (the size of the input's label).
+
+- [`8c488274`](https://github.com/sumup-oss/circuit-ui/commit/8c488274e792273769590797da7f6c59c05150c6) Thanks [@robinmetral](https://github.com/robinmetral)! - Published a new prerelease version after merging the changes from `main` into `next`. (This will be removed from the changelog in the stable release.)
+
+- [#1795](https://github.com/sumup-oss/circuit-ui/pull/1795) [`426a0f63`](https://github.com/sumup-oss/circuit-ui/commit/426a0f639e38e949ce2ae5a36cefbb40c46dd791) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed unintended spacing below the `TextArea` component.
+
+- [#1795](https://github.com/sumup-oss/circuit-ui/pull/1795) [`426a0f63`](https://github.com/sumup-oss/circuit-ui/commit/426a0f639e38e949ce2ae5a36cefbb40c46dd791) Thanks [@robinmetral](https://github.com/robinmetral)! - Improved the accessibility of the `RadioButtonGroup` component by adding the `role="radiogroup"` and `orientation="vertical"` attributes.
+
+- [#1814](https://github.com/sumup-oss/circuit-ui/pull/1814) [`befbeee4`](https://github.com/sumup-oss/circuit-ui/commit/befbeee41d292c91674fcf24c0fdb4acfd769e7d) Thanks [@robinmetral](https://github.com/robinmetral)! - Added the currency symbol to the `CurrencyInput`'s accessible description.
+
+- [#1811](https://github.com/sumup-oss/circuit-ui/pull/1811) [`0db1e468`](https://github.com/sumup-oss/circuit-ui/commit/0db1e4684b30fe4b7f28fdff615bf9361f56498e) Thanks [@robinmetral](https://github.com/robinmetral)! - Hid the decorative chevron icons in the `Select` component from assistive technology.
+
+- [#1738](https://github.com/sumup-oss/circuit-ui/pull/1738) [`b0e046d3`](https://github.com/sumup-oss/circuit-ui/commit/b0e046d39cbb83cfac2b3f53abdd06c6aa018f69) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the unnecessary `passive` option from the Popover component's scroll event listener.
+
+- [#1809](https://github.com/sumup-oss/circuit-ui/pull/1809) [`bd184b53`](https://github.com/sumup-oss/circuit-ui/commit/bd184b53a3d047ee878dab55813151ffb7bc8b52) Thanks [@robinmetral](https://github.com/robinmetral)! - Ensured that `aria-invalid` is always either `'true'` or undefined (defaults to 'false'). This prevents errors in implementations not using TypeScript.
+
+- Updated dependencies [[`b8f129ee`](https://github.com/sumup-oss/circuit-ui/commit/b8f129eed5673a00a4e4b5deeed4494e5ee93912)]:
+  - @sumup/design-tokens@5.0.0
+
 ## 6.0.0-next.3
 
 ### Patch Changes
