@@ -411,7 +411,7 @@ exports[`RadioButton Styles should render with invalid styles 1`] = `
 }
 
 .circuit-0:checked+label::before {
-  border-color: #D23F47;
+  border-color: #DE331D;
 }
 
 .circuit-1 {
@@ -463,12 +463,12 @@ exports[`RadioButton Styles should render with invalid styles 1`] = `
 }
 
 .circuit-1:not(:focus)::before {
-  border-color: #D23F47;
+  border-color: #DE331D;
   background-color: #F4CBCB;
 }
 
 .circuit-1:not(:focus)::after {
-  background-color: #D23F47;
+  background-color: #DE331D;
 }
 
 <div>

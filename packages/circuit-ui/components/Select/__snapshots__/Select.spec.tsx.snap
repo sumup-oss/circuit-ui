@@ -1163,7 +1163,7 @@ exports[`Select Styles should render with invalid styles when passed the invalid
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   padding-right: 56px;
-  box-shadow: 0 0 0 1px #D23F47;
+  box-shadow: 0 0 0 1px #DE331D;
 }
 
 .circuit-5:-moz-focusring {
@@ -1180,11 +1180,11 @@ exports[`Select Styles should render with invalid styles when passed the invalid
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #D23F47;
+  box-shadow: 0 0 0 2px #DE331D;
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #D23F47;
+  box-shadow: 0 0 0 1px #DE331D;
 }
 
 .circuit-6 {

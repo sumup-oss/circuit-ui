@@ -274,7 +274,7 @@ describe('Style helpers', () => {
         invalid: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px #D23F47;&:hover{box-shadow:0 0 0 1px #B22426;}&:focus{box-shadow:0 0 0 2px #D23F47;}&:active{box-shadow:0 0 0 1px #D23F47;};label:inputOutline;"',
+        '"box-shadow:0 0 0 1px #DE331D;&:hover{box-shadow:0 0 0 1px #B22426;}&:focus{box-shadow:0 0 0 2px #DE331D;}&:active{box-shadow:0 0 0 1px #DE331D;};label:inputOutline;"',
       );
     });
 
@@ -284,7 +284,7 @@ describe('Style helpers', () => {
         hasWarning: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px #F5C625;&:hover{box-shadow:0 0 0 1px #AD7A14;}&:focus{box-shadow:0 0 0 2px #F5C625;}&:active{box-shadow:0 0 0 1px #F5C625;};label:inputOutline;"',
+        '"box-shadow:0 0 0 1px #F5A720;&:hover{box-shadow:0 0 0 1px #AD7A14;}&:focus{box-shadow:0 0 0 2px #F5A720;}&:active{box-shadow:0 0 0 1px #F5A720;};label:inputOutline;"',
       );
     });
   });
@@ -303,7 +303,7 @@ describe('Style helpers', () => {
         destructive: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"background-color:#FFF;padding:12px 32px 12px 16px;border:0;color:#D23F47;text-decoration:none;position:relative;&:hover{background-color:#F5F5F5;cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;;;&:active{background-color:#E6E6E6;}&:disabled,&[disabled]{opacity:0.5;pointer-events:none;box-shadow:none;label:disableVisually;;;};label:listItem;"',
+        '"background-color:#FFF;padding:12px 32px 12px 16px;border:0;color:#DE331D;text-decoration:none;position:relative;&:hover{background-color:#F5F5F5;cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;;;&:active{background-color:#E6E6E6;}&:disabled,&[disabled]{opacity:0.5;pointer-events:none;box-shadow:none;label:disableVisually;;;};label:listItem;"',
       );
     });
   });

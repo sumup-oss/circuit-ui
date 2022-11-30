@@ -140,7 +140,7 @@ exports[`Popover Styles should render popover on bottom 1`] = `
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #D23F47;
+  color: #DE331D;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -407,7 +407,7 @@ exports[`Popover Styles should render popover on left 1`] = `
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #D23F47;
+  color: #DE331D;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -674,7 +674,7 @@ exports[`Popover Styles should render popover on right 1`] = `
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #D23F47;
+  color: #DE331D;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -941,7 +941,7 @@ exports[`Popover Styles should render popover on top 1`] = `
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #D23F47;
+  color: #DE331D;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -1190,7 +1190,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #D23F47;
+  color: #DE331D;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -1457,7 +1457,7 @@ exports[`Popover Styles should render with default styles 1`] = `
   background-color: #FFF;
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #D23F47;
+  color: #DE331D;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;

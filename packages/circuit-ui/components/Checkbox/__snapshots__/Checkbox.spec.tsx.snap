@@ -528,7 +528,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
 }
 
 .circuit-1+label::before {
-  border-color: #D23F47;
+  border-color: #DE331D;
   background-color: #F4CBCB;
 }
 
@@ -538,8 +538,8 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
 }
 
 .circuit-1:checked+label::before {
-  border-color: #D23F47;
-  background-color: #D23F47;
+  border-color: #DE331D;
+  background-color: #DE331D;
 }
 
 .circuit-2 {
@@ -558,7 +558,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   color: #666;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
-  color: #D23F47;
+  color: #DE331D;
 }
 
 .circuit-4 {
@@ -568,7 +568,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   height: 16px;
   vertical-align: text-top;
   margin-right: 4px;
-  color: #D23F47;
+  color: #DE331D;
 }
 
 <div>
