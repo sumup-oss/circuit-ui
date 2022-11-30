@@ -1,6 +1,17 @@
 # Migration <!-- omit in toc -->
 
 - [🤖 Codemods](#-codemods)
+- [From v5 to v6](#from-v5-to-v6)
+  - [No default component margins](#no-default-component-margins)
+  - [Form component consistency](#form-component-consistency)
+    - [Markup changes](#markup-changes)
+    - [The `Label` component was removed](#the-label-component-was-removed)
+    - [The `inline` prop was removed](#the-inline-prop-was-removed)
+    - [The `labelStyles` prop was removed](#the-labelstyles-prop-was-removed)
+    - [The `label` prop only accepts a string](#the-label-prop-only-accepts-a-string)
+    - [Improved `validationHint` for the `Checkbox` component](#improved-validationhint-for-the-checkbox-component)
+    - [Minor fixes](#minor-fixes)
+  - [Other changes](#other-changes)
 - [From v4 to v5](#from-v4-to-v5)
   - [Explicit browser support](#explicit-browser-support)
   - [New semantic color names](#new-semantic-color-names)
@@ -11,7 +22,7 @@
   - [Runtime errors for missing `noMargin` props](#runtime-errors-for-missing-nomargin-props)
   - [The `ListItemGroup` replaces the `CardList`](#the-listitemgroup-replaces-the-cardlist)
   - [Combined `LoadingButton` and `Button`](#combined-loadingbutton-and-button)
-  - [Other changes](#other-changes)
+  - [Other changes](#other-changes-1)
 - [From v3.x to v4](#from-v3x-to-v4)
   - [Emotion 11](#emotion-11)
     - [New package names](#new-package-names)
@@ -37,7 +48,7 @@
     - [Modal](#modal)
     - [Popover](#popover)
   - [Component heights](#component-heights)
-  - [Other changes](#other-changes-1)
+  - [Other changes](#other-changes-2)
   - [Cleaning up](#cleaning-up)
 - [From v1.x to v2](#from-v1x-to-v2)
   - [Library format](#library-format)
@@ -78,6 +89,144 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 > ```sh
 > ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
 > ```
+
+## From v5 to v6
+
+Circuit UI v6 contains two major changes: the removal of the `noMargin` prop, and changes to form components that improve consistency.
+
+> :warning: Note: this major version doesn't include codemods. The changes cannot be easily automated and should be manually migrated. Detailed migration steps for each change are listed below.
+
+### No default component margins
+
+Default component margins have been deprecated since v2, and the use of the `noMargin` prop was encouraged to ensure that UIs don't rely on the default margin. Omitting the prop [throws errors since v5](#runtime-errors-for-missing-nomargin-props).
+
+In v6, default margins have been removed from components. The `noMargin` prop, now redundant, has been removed as well.
+
+If you've already addressed all the errors throwing since v5, migration is straightforward: now that the `noMargin` prop isn't necessary anymore, you can simply remove it from your codebase. If you haven't, make sure to address all errors before migrating to v6. Failure to do so can result in unintended UI bugs.
+
+Removing the prop is easiest done using search and replace in your IDE.
+
+### Form component consistency
+
+In v6, form components follow a more consistent and accessible pattern.
+
+#### Markup changes
+
+Markup was adapted to improve consistency and accessibility across form components.
+
+- Form components are now all wrapped in a `div` that receives any styles passed through the `style` or `className` attributes, including via the Emotion.js `css` prop. This might break custom styles.
+- Form `<label>`s don't wrap inputs anymore. This might break styles previously passed to `labelStyles` (see also [The `labelStyles` prop was removed](#the-labelstyles-prop-was-removed)).
+- An empty [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) is now rendered below form components. If a `validationHint` is passed along with either the `invalid`, `hasWarning` or `showValid` props (indicating status messages), the message will be rendered inside the live region to be announced by screen readers.
+- The `validationHint` is now programmatically associated to a form control via `aria-describedby`. A unique `id` for it is generated internally. If a custom `id` is passed to a component with `aria-describedby`, the descriptions will be combined.
+
+Verify your forms visually. Look out for form components with custom styles and adapt them as needed.
+
+#### The `Label` component was removed
+
+In most cases, the `Label` component shouldn't be used: form components have a built-in `label` prop that ensures that controls are appropriately and accessibly labelled.
+
+In implementations where the `Label` doesn't label a form component, use a `<Body size="two" />` instead.
+
+Where the `Label` describes the purpose of a form component, use the built-in `label` prop instead. In edge cases and custom form component implementations, replace the `Label` by a `<label css={typography("two")} />`.
+
+#### The `inline` prop was removed
+
+The prop was removed from the `Input`, `TextArea` and `Select` components.
+
+It went again the principles of atomic design and was rarely used in implementations.
+
+Replace it with a custom CSS wrapper, for example using `display: flex;`.
+
+Alternatively, to recreate the exact same functionality, pass `display: inline-block;` and a margin to the components:
+
+```tsx
+const inlineStyles = (theme) => css`
+  display: inline-block;
+  margin-right: ${theme.spacings.mega};
+`;
+
+function Address() {
+  return (
+    <>
+      <Input label="Postcode" css={inlineStyles} />
+      <Input label="City" css={inlineStyles} />
+    </>
+  );
+}
+```
+
+#### The `labelStyles` prop was removed
+
+The prop was from the `Input` and `TextArea` components.
+
+In v5, it is predominantly used to apply styles to the component's wrapper (previously the `label` element).
+
+It can be replaced by the Emotion.js `css` prop, since classes are now applied to a wrapper around all form components:
+
+```diff
+<Input
+  label="Name"
+-  labelStyles={spacing({ bottom: "giga" })}
++  css={spacing({ bottom: "giga" })}
+/>
+```
+
+Note that if you were using the `labelStyles` in non-standard ways (for example using selectors such as `> div` to style component internals), you may need to refactor your implementation.
+
+#### The `label` prop only accepts a string
+
+In v5, some form components (such as the `Input`) accepted any `ReactNode` as a label.
+
+This can be an accessibility issue, because the `label` prop value is exposed to assistive technology as the control's [accessible name](https://www.tpgi.com/what-is-an-accessible-name/). Accessible names don't have semantics or structure, so rendering e.g. an anchor or a tooltip in the `label` is bad practice.
+
+In v6, the `label` prop only accepts a `string`. The change is TypeScript-only (i.e. a `ReactNode` would still be rendered) but migration is encouraged.
+
+We've observed two common patterns affected by this change:
+
+If a `label` is used to render an optional label, it can be replaced with the `optionalLabel` prop:
+
+```diff
+- const optionalStyles = (theme) => css`
+-   color: ${theme.colors.n700};
+- `;
+
+<Input
+- label={<>Address line 2 <span css={optionalStyles}>(Optional)</span></>}
++ label="Address line 2"
++ optionalLabel="Optional"
+/>;
+```
+
+If a `label` is used to render a tooltip next to the label, replace the tooltip with a `validationHint`.
+
+If you need time to migrate, you can temporarily ignore the change (with `@ts-expect-error` if using TypeScript). Bear in mind that passing a `ReactNode` may stop working in a future minor.
+
+#### Improved `validationHint` for the `Checkbox` component
+
+In v5, a `validationHint` passed to the `Checkbox` component (either as a description or as a status message) would render in a tooltip.
+
+This caused accessibility and UI issues (with the tooltip overlapping other controls) and wasn't consistent with other form components.
+
+In v6, a `validationHint` is rendered below the `Checkbox`.
+
+#### Minor fixes
+
+This version also includes a number of accessibility and visual fixes. While these aren't technically breaking changes, you may notice them in snapshots, so they are listed here for your convenience:
+
+- the `RadioButtonGroup`'s role was changed from the implicit `group` (from the `fieldset` element) to the explicit `radiogroup`. It also has `orientation="vertical"`
+- the chevron icon in the `Select` element was hidden from assistive technology using `aria-hidden`
+- invalid radio buttons are now programmatically marked as invalid using `aria-invalid`
+- the `CurrencyInput`'s currency code/symbol is now exposed to assistive technology as part of the input's description
+- the font size of any text rendered in an `Input`'s prefix or suffix was increased from 14px to 16px to match designs. This also affects the `CurrencyInput`'s currency code/symbol.
+- unintended spacing was removed from below the `TextArea` using `vertical-align: top;`
+
+### Other changes
+
+- `react-number-format` was upgraded to v5. This could be a breaking change if you were relying on internal `react-number-format` props. Refer to the `react-number-format` [migration guide](https://s-yadav.github.io/react-number-format/docs/migration/) for details. Any explicit typings will also need to be updated.
+- The `ButtonGroup` component now switches between a secondary button (on viewports of at least `mq.kilo`) and a tertiary button (on viewports narrower than `mq.kilo`) using CSS media queries, instead of rendering three buttons and conditionally hiding one. Tests (e.g. using `@testing-library`) should now query the secondary button without using `*AllBy` queries. Snapshots might also be affected.
+- Typography design tokens now use the `rem` unit. Ensure that your global styles do not override the root font-size. See [The Surprising Truth About Pixels and Accessibility](https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/).
+- The `Popover` component was migrated from Popper (deprecated) to Floating UI. If your app uses Popper directly, we recommend migrating to Floating UI to avoid duplicating dependencies. See [Migrating from Popper 2 to Floating UI](https://floating-ui.com/docs/migration#__next)
+- Circuit UI's browser support policy was updated. The library now supports browsers with support for [dynamic module imports](https://caniuse.com/es6-module-dynamic-import). See the [Browser Support](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) documentation for details.
 
 ## From v4 to v5
 
