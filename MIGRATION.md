@@ -4,10 +4,13 @@
 - [From v5 to v6](#from-v5-to-v6)
   - [No default component margins](#no-default-component-margins)
   - [Form component consistency](#form-component-consistency)
+    - [Markup changes](#markup-changes)
     - [The `Label` component was removed](#the-label-component-was-removed)
     - [The `inline` prop was removed](#the-inline-prop-was-removed)
     - [The `labelStyles` prop was removed](#the-labelstyles-prop-was-removed)
     - [The `label` prop only accepts a string](#the-label-prop-only-accepts-a-string)
+    - [Improved `validationHint` for the `Checkbox` component](#improved-validationhint-for-the-checkbox-component)
+    - [Minor fixes](#minor-fixes)
   - [Other changes](#other-changes)
 - [From v4 to v5](#from-v4-to-v5)
   - [Explicit browser support](#explicit-browser-support)
@@ -105,16 +108,18 @@ Removing the prop is easiest done using search and replace in your IDE.
 
 ### Form component consistency
 
-In v6, form components follow a more consistent and accessible pattern:
+In v6, form components follow a more consistent and accessible pattern.
 
-- form components are now all wrapped in a `div` that receives any styles passed through the `style` or `className` attributes, including via the Emotion.js `css` prop
-- an empty [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) is rendered below form components. If a `validationHint` is passed along with either the `invalid`, `hasWarning` or `showValid` props (indicating status messages), the message will be rendered inside the live region to be announced by screen readers
-- a provided `validationHint` is now programmatically associated to a form control via `aria-describedby`, and consistently rendered below the control
-- the `label` prop now only accepts a `string` in all form components. The label constitutes the input's [accessible name](https://www.tpgi.com/what-is-an-accessible-name/) and shouldn't contain any structure or functionality
-- all form components now accept an `optionalLabel` prop. When provided, its value will be rendered in parentheses and subtle text next to the `label`
-- all form components now accept a `disabled` prop. The prop disables a component visually and programmatically
+#### Markup changes
 
-Here's the full list of breaking changes, along with migration recommendations:
+Markup was adapted to improve consistency and accessibility across form components.
+
+- Form components are now all wrapped in a `div` that receives any styles passed through the `style` or `className` attributes, including via the Emotion.js `css` prop. This might break custom styles.
+- Form `<label>`s don't wrap inputs anymore. This might break styles previously passed to `labelStyles` (see also [The `labelStyles` prop was removed](#the-labelstyles-prop-was-removed)).
+- An empty [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) is now rendered below form components. If a `validationHint` is passed along with either the `invalid`, `hasWarning` or `showValid` props (indicating status messages), the message will be rendered inside the live region to be announced by screen readers.
+- The `validationHint` is now programmatically associated to a form control via `aria-describedby`. A unique `id` for it is generated internally. If a custom `id` is passed to a component with `aria-describedby`, the descriptions will be combined.
+
+Verify your forms visually. Look out for form components with custom styles and adapt them as needed.
 
 #### The `Label` component was removed
 
@@ -130,7 +135,7 @@ The prop was removed from the `Input`, `TextArea` and `Select` components.
 
 It went again the principles of atomic design and was rarely used in implementations.
 
-Replace it with a custom CSS wrapper, for example using flexbox.
+Replace it with a custom CSS wrapper, for example using `display: flex;`.
 
 Alternatively, to recreate the exact same functionality, pass `display: inline-block;` and a margin to the components:
 
@@ -172,7 +177,7 @@ Note that if you were using the `labelStyles` in non-standard ways (for example 
 
 In v5, some form components (such as the `Input`) accepted any `ReactNode` as a label.
 
-This can be an accessibility issue, because the `label` prop value is exposed to assistive technology as the control's [accessible name](https://www.tpgi.com/what-is-an-accessible-name/). Accessible names don't have semantics or structure, so passing something like a tooltip to the `label` would wrongly be combined with the control's name.
+This can be an accessibility issue, because the `label` prop value is exposed to assistive technology as the control's [accessible name](https://www.tpgi.com/what-is-an-accessible-name/). Accessible names don't have semantics or structure, so rendering e.g. an anchor or a tooltip in the `label` is bad practice.
 
 In v6, the `label` prop only accepts a `string`. The change is TypeScript-only (i.e. a `ReactNode` would still be rendered) but migration is encouraged.
 
@@ -194,28 +199,34 @@ If a `label` is used to render an optional label, it can be replaced with the `o
 
 If a `label` is used to render a tooltip next to the label, replace the tooltip with a `validationHint`.
 
-If you need time to migrate, you can temporarily ignore the error (with `@ts-expect-error` if using TypeScript). Bear in mind that passing a `ReactNode` may stop working in a future minor.
+If you need time to migrate, you can temporarily ignore the change (with `@ts-expect-error` if using TypeScript). Bear in mind that passing a `ReactNode` may stop working in a future minor.
 
-- checkbox validation hint
-- various accessibility fixes, could affect snapshots or tests. e.g.:
-  - validationHint markup change (incl. unique id)
-  - radiobutton role group => radiogroup, orientation=vertical
-  - chevron in select decorative only
-  - invalid radio buttons now have aria-invalid=true
-  - currencyinput currency symbol now part of the input's description (via aria-describedby)
-- minor changes
-  - react-number-format v5
-  - imageinput now wrapped in div (can be passed style mixins)
-  - font size of the input's prefix and suffix
-  - removed unintended spacing below a textarea
+#### Improved `validationHint` for the `Checkbox` component
+
+In v5, a `validationHint` passed to the `Checkbox` component (either as a description or as a status message) would render in a tooltip.
+
+This caused accessibility and UI issues (with the tooltip overlapping other controls) and wasn't consistent with other form components.
+
+In v6, a `validationHint` is rendered below the `Checkbox`.
+
+#### Minor fixes
+
+This version also includes a number of accessibility and visual fixes. While these aren't technically breaking changes, you may notice them in snapshots, so they are listed here for your convenience:
+
+- the `RadioButtonGroup`'s role was changed from the implicit `group` (from the `fieldset` element) to the explicit `radiogroup`. It also has `orientation="vertical"`
+- the chevron icon in the `Select` element was hidden from assistive technology using `aria-hidden`
+- invalid radio buttons are now programmatically marked as invalid using `aria-invalid`
+- the `CurrencyInput`'s currency code/symbol is now exposed to assistive technology as part of the input's description
+- the font size of any text rendered in an `Input`'s prefix or suffix was increased from 14px to 16px to match designs. This also affects the `CurrencyInput`'s currency code/symbol.
+- unintended spacing was removed from below the `TextArea` using `vertical-align: top;`
 
 ### Other changes
 
-- ButtonGroup markup change (affects tests)
-- Design tokens: rem units
-- Badge uses rem units
-- popover uses floating-ui (migration plus rec to migrate any uses of popper locally to avoid 2 deps)
-- browser support update (dynamic imports)
+- `react-number-format` was upgraded to v5. This could be a breaking change if you were relying on internal `react-number-format` props. Refer to the `react-number-format` [migration guide](https://s-yadav.github.io/react-number-format/docs/migration/) for details. Any explicit typings will also need to be updated.
+- The `ButtonGroup` component now switches between a secondary button (on viewports of at least `mq.kilo`) and a tertiary button (on viewports narrower than `mq.kilo`) using CSS media queries, instead of rendering three buttons and conditionally hiding one. Tests (e.g. using `@testing-library`) should now query the secondary button without using `*AllBy` queries. Snapshots might also be affected.
+- Typography design tokens now use the `rem` unit. Ensure that your global styles do not override the root font-size. See [The Surprising Truth About Pixels and Accessibility](https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/).
+- The `Popover` component was migrated from Popper (deprecated) to Floating UI. If your app uses Popper directly, we recommend migrating to Floating UI to avoid duplicating dependencies. See [Migrating from Popper 2 to Floating UI](https://floating-ui.com/docs/migration#__next)
+- Circuit UI's browser support policy was updated. The library now supports browsers with support for [dynamic module imports](https://caniuse.com/es6-module-dynamic-import). See the [Browser Support](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) documentation for details.
 
 ## From v4 to v5
 
