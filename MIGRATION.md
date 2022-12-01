@@ -227,6 +227,7 @@ This version also includes a number of accessibility and visual fixes. While the
 - Typography design tokens now use the `rem` unit. Ensure that your global styles do not override the root font-size. See [The Surprising Truth About Pixels and Accessibility](https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/).
 - The `Popover` component was migrated from Popper (deprecated) to Floating UI. If your app uses Popper directly, we recommend migrating to Floating UI to avoid duplicating dependencies. See [Migrating from Popper 2 to Floating UI](https://floating-ui.com/docs/migration#__next)
 - Circuit UI's browser support policy was updated. The library now supports browsers with support for [dynamic module imports](https://caniuse.com/es6-module-dynamic-import). See the [Browser Support](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) documentation for details.
+- If your app uses TypeScript, an upgrade of the `@types/react` package in Circuit UI may clash with the version installed in your app. If your app is on React 18, upgrade `@types/react` to `^18.0.25` to fix the issue. If your app is on React 17, upgrade `@types/react` to `^17.0.52` and [extend the React namespace](https://github.com/sumup-oss/circuit-ui/pull/1831#issuecomment-1307485956). More details on [the DefinitelyTyped PR that introduced the issue](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/63076).
 
 ## From v4 to v5
 
