@@ -157,17 +157,28 @@ function Address() {
 
 #### The `labelStyles` prop was removed
 
-The prop was from the `Input` and `TextArea` components.
+The prop was removed from the `Input` and `TextArea` components.
 
-In v5, it is predominantly used to apply styles to the component's wrapper (previously the `label` element).
+In v5, `labelStyles` is predominantly used to apply styles to a form component's wrapper, the `label` element. Wrapper styles can't be passed via the `style` or `className` prop, because these are forwarded to the underlying form element.
 
-It can be replaced by the Emotion.js `css` prop, since classes are now applied to a wrapper around all form components:
+In v6, form components are wrapped in a `div` that receives any `style` or `className` props, including via the Emotion.js `css` prop.
+
+Therefore, to migrate:
+
+- `labelStyles` should be replaced by the Emotion.js `css` prop
+- `css` (previously passed to the underlying form element) should be replaced by `inputStyles`
+
+For example:
 
 ```diff
 <Input
   label="Name"
+  /* wrapper styles */
 -  labelStyles={spacing({ bottom: "giga" })}
 +  css={spacing({ bottom: "giga" })}
+  /* input styles */
+-  css={customInputStyles}
++  inputStyles={customInputStyles}
 />
 ```
 
