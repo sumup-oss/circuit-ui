@@ -92,19 +92,27 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 
 ## From v5 to v6
 
-Circuit UI v6 contains two major changes: the removal of the `noMargin` prop, and changes to form components that improve consistency.
+Circuit UI v6 contains two major changes: the [removal of default component margins](#no-default-component-margins), and [changes to form components](#form-component-consistency) to improve consistency and accessibility.
 
-> :warning: Note: this major version doesn't include codemods. The changes cannot be easily automated and should be manually migrated. Detailed migration steps for each change are listed below.
+To get started, upgrade `@sumup/circuit-ui` and its peer dependencies:
+
+```sh
+yarn upgrade @sumup/circuit-ui @sumup/design-tokens @sumup/icons --latest
+```
+
+> For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
+
+> :warning: Note: this major version doesn't include codemods. The changes cannot easily be automated and should be migrated manually. Detailed migration steps for each change are listed below.
 
 ### No default component margins
 
 Default component margins have been deprecated since v2, and the use of the `noMargin` prop was encouraged to ensure that UIs don't rely on the default margin. Omitting the prop [throws errors since v5](#runtime-errors-for-missing-nomargin-props).
 
-In v6, default margins have been removed from components. The `noMargin` prop, now redundant, has been removed as well.
+In v6, default margins have been completely removed from components. The `noMargin` prop, now redundant, has been removed as well.
 
-If you've already addressed all the errors throwing since v5, migration is straightforward: now that the `noMargin` prop isn't necessary anymore, you can simply remove it from your codebase. If you haven't, make sure to address all errors before migrating to v6. Failure to do so can result in unintended UI bugs.
+If you've already addressed all the errors thrown in v5, migration is straightforward: now that the `noMargin` prop isn't necessary anymore, you can simply remove it from your codebase. If you haven't, make sure to address them before migrating to v6. Failure to do so can result in unintended UI bugs.
 
-Removing the prop is easiest done using search and replace in your IDE.
+Removing the prop from your codebase is easiest done using search and replace in your IDE.
 
 ### Form component consistency
 
