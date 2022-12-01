@@ -41,15 +41,11 @@ const NotFound: NextPage = () => (
         <Headline
           as="h1"
           size="one"
-          noMargin
           css={cx(center, spacing({ bottom: 'giga' }))}
         >
           {title}
         </Headline>
-        <Body noMargin css={spacing({ bottom: 'giga' })}>
-          {description}
-        </Body>
-
+        <Body css={spacing({ bottom: 'giga' })}>{description}</Body>
         <Link href="/" passHref>
           <Button variant="primary">Return to the homepage</Button>
         </Link>

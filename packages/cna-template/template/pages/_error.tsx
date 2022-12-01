@@ -45,17 +45,15 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
         <Headline
           as="h1"
           size="one"
-          noMargin
           css={cx(center, spacing({ bottom: 'giga' }))}
         >
           {title}
         </Headline>
-        <Body noMargin css={spacing({ bottom: 'giga' })}>
+        <Body css={spacing({ bottom: 'giga' })}>
           {statusCode
             ? `An error ${statusCode} occurred while loading the page.`
             : 'An error occurred while rendering the page.'}
         </Body>
-
         <ButtonGroup
           actions={{
             primary: {
