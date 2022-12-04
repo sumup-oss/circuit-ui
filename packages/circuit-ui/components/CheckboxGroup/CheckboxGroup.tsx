@@ -178,27 +178,24 @@ export const CheckboxGroup = forwardRef(
               label: checkboxLabel,
               ...rest
             }) => (
-              <div
+              <Checkbox
                 key={checkboxValue && checkboxValue.toString()}
                 className={className}
                 style={style}
+                {...{
+                  ...rest,
+                  value: checkboxValue,
+                  name,
+                  required,
+                  onChange,
+                  validationHint: undefined, // disallow `validationHint` for the single Checkbox
+                  checked:
+                    !!checkboxValue &&
+                    checkedCheckboxes[checkboxValue.toString()],
+                }}
               >
-                <Checkbox
-                  {...{
-                    ...rest,
-                    value: checkboxValue,
-                    name,
-                    required,
-                    onChange,
-                    validationHint: undefined, // disallow `validationHint` for the single Checkbox
-                    checked:
-                      !!checkboxValue &&
-                      checkedCheckboxes[checkboxValue.toString()],
-                  }}
-                >
-                  {checkboxLabel}
-                </Checkbox>
-              </div>
+                {checkboxLabel}
+              </Checkbox>
             ),
           )}
         <FieldValidationHint

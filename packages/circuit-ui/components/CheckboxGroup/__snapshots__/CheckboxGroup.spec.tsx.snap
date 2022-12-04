@@ -128,116 +128,110 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
         Choose an option
       </span>
     </legend>
-    <div>
-      <div
-        class="circuit-4"
+    <div
+      class="circuit-4"
+    >
+      <input
+        aria-describedby="validation_hint-4"
+        class="circuit-5"
+        id="checkbox_3"
+        name="checkbox-button-group_1"
+        type="checkbox"
+        value="first"
+      />
+      <label
+        class="circuit-6"
+        for="checkbox_3"
       >
-        <input
-          aria-describedby="validation_hint-4"
-          class="circuit-5"
-          id="checkbox_3"
-          name="checkbox-button-group_1"
-          type="checkbox"
-          value="first"
-        />
-        <label
-          class="circuit-6"
-          for="checkbox_3"
+        Option 1
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          Option 1
-          <svg
-            aria-hidden="true"
-            fill="none"
-            height="16"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-              fill="currentColor"
-            />
-          </svg>
-        </label>
-        <span
-          aria-live="polite"
-          role="status"
-        />
-      </div>
+          <path
+            d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+            fill="currentColor"
+          />
+        </svg>
+      </label>
+      <span
+        aria-live="polite"
+        role="status"
+      />
     </div>
-    <div>
-      <div
-        class="circuit-4"
+    <div
+      class="circuit-4"
+    >
+      <input
+        aria-describedby="validation_hint-6"
+        class="circuit-5"
+        id="checkbox_5"
+        name="checkbox-button-group_1"
+        type="checkbox"
+        value="second"
+      />
+      <label
+        class="circuit-6"
+        for="checkbox_5"
       >
-        <input
-          aria-describedby="validation_hint-6"
-          class="circuit-5"
-          id="checkbox_5"
-          name="checkbox-button-group_1"
-          type="checkbox"
-          value="second"
-        />
-        <label
-          class="circuit-6"
-          for="checkbox_5"
+        Option 2
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          Option 2
-          <svg
-            aria-hidden="true"
-            fill="none"
-            height="16"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-              fill="currentColor"
-            />
-          </svg>
-        </label>
-        <span
-          aria-live="polite"
-          role="status"
-        />
-      </div>
+          <path
+            d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+            fill="currentColor"
+          />
+        </svg>
+      </label>
+      <span
+        aria-live="polite"
+        role="status"
+      />
     </div>
-    <div>
-      <div
-        class="circuit-4"
+    <div
+      class="circuit-4"
+    >
+      <input
+        aria-describedby="validation_hint-8"
+        class="circuit-5"
+        id="checkbox_7"
+        name="checkbox-button-group_1"
+        type="checkbox"
+        value="third"
+      />
+      <label
+        class="circuit-6"
+        for="checkbox_7"
       >
-        <input
-          aria-describedby="validation_hint-8"
-          class="circuit-5"
-          id="checkbox_7"
-          name="checkbox-button-group_1"
-          type="checkbox"
-          value="third"
-        />
-        <label
-          class="circuit-6"
-          for="checkbox_7"
+        Option 3
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          Option 3
-          <svg
-            aria-hidden="true"
-            fill="none"
-            height="16"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
-              fill="currentColor"
-            />
-          </svg>
-        </label>
-        <span
-          aria-live="polite"
-          role="status"
-        />
-      </div>
+          <path
+            d="M5.992 14.5a.992.992 0 0 1-.707-.293l-5-5A1 1 0 0 1 1.7 7.794L5.909 12l8.308-10.125a1.001 1.001 0 1 1 1.563 1.251l-9.006 11a1 1 0 0 1-.726.375l-.056-.001z"
+            fill="currentColor"
+          />
+        </svg>
+      </label>
+      <span
+        aria-live="polite"
+        role="status"
+      />
     </div>
     <span
       aria-live="polite"
