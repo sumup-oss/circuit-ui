@@ -211,6 +211,7 @@ export const Valid = (args: CheckboxGroupProps) => (
 Valid.args = {
   name: 'radio-button-group',
   label: 'Choose your favourite fruit',
+  value: ['banana'],
   options: [
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' },
@@ -226,6 +227,7 @@ export const Warning = (args: CheckboxGroupProps) => (
 Warning.args = {
   name: 'radio-button-group',
   label: 'Choose your favourite fruit',
+  value: ['banana'],
   options: [
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' },
