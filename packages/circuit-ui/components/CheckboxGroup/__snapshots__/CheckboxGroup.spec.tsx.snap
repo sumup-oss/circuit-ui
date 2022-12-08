@@ -142,7 +142,6 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
             aria-describedby="validation_hint-4"
             class="circuit-6"
             id="checkbox_3"
-            name="checkbox-button-group_1"
             type="checkbox"
             value="first"
           />
@@ -179,7 +178,6 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
             aria-describedby="validation_hint-6"
             class="circuit-6"
             id="checkbox_5"
-            name="checkbox-button-group_1"
             type="checkbox"
             value="second"
           />
@@ -216,7 +214,6 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
             aria-describedby="validation_hint-8"
             class="circuit-6"
             id="checkbox_7"
-            name="checkbox-button-group_1"
             type="checkbox"
             value="third"
           />
