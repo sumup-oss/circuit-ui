@@ -17,9 +17,9 @@ import { createRef } from 'react';
 
 import { render, userEvent, axe, screen } from '../../util/test-utils';
 
-import { CheckboxGroup } from './CheckboxGroup';
+import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup';
 
-const defaultProps = {
+const defaultProps: CheckboxGroupProps = {
   options: [
     {
       label: 'Option 1',
@@ -56,7 +56,14 @@ describe('CheckboxGroup', () => {
     });
 
     it('should have a required attribute on each option when required is specified', () => {
-      render(<CheckboxGroup {...defaultProps} required />);
+      const newCheckBoxGroupOption = defaultProps.options.map((option) => ({
+        ...option,
+        required: true,
+      }));
+      const newProps: CheckboxGroupProps = { ...defaultProps };
+      newProps.options = newCheckBoxGroupOption;
+
+      render(<CheckboxGroup {...newProps} />);
       expect(screen.getByLabelText('Option 1')).toHaveAttribute('required');
       expect(screen.getByLabelText('Option 2')).toHaveAttribute('required');
       expect(screen.getByLabelText('Option 3')).toHaveAttribute('required');

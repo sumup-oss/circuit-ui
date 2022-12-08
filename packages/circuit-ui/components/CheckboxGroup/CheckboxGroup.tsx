@@ -31,15 +31,19 @@ import {
 } from '../FieldAtoms';
 import { AccessibilityError } from '../../util/errors';
 
+type CheckboxOptions = Omit<CheckboxProps, 'onChange' | 'validationHint'> & {
+  label: string;
+  required?: InputHTMLAttributes<HTMLInputElement>['required'];
+};
+
 export interface CheckboxGroupProps
   extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
    * A collection of available options. Each option must have at least a label and a value
    * for the respective Checkbox.
+   * Pass the optional `required` prop to indicate a Checkbox is required.
    */
-  options: (Omit<CheckboxProps, 'onChange' | 'validationHint'> & {
-    label: string;
-  })[];
+  options: CheckboxOptions[];
   /**
    * The values of the Checkboxes that are checked by default.
    */
@@ -54,18 +58,9 @@ export interface CheckboxGroupProps
    */
   label: string;
   /**
-   * Label to indicate that the input group is optional. Only displayed when the
-   * `required` prop is falsy.
-   */
-  optionalLabel?: string;
-  /**
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLFieldSetElement>;
-  /**
-   * Makes the input group required.
-   */
-  required?: InputHTMLAttributes<HTMLInputElement>['required'];
   /**
    * An information, warning or error message, displayed below the Checkboxes.
    */
@@ -114,8 +109,6 @@ export const CheckboxGroup = forwardRef(
       disabled,
       hasWarning,
       hideLabel,
-      optionalLabel,
-      required,
       'aria-describedby': descriptionId,
       ...props
     }: CheckboxGroupProps,
@@ -167,17 +160,12 @@ export const CheckboxGroup = forwardRef(
         {...props}
       >
         <Legend>
-          <FieldLabelText
-            label={label}
-            hideLabel={hideLabel}
-            optionalLabel={optionalLabel}
-            required={required}
-          />
+          <FieldLabelText label={label} hideLabel={hideLabel} />
         </Legend>
         <UnorderedList>
           {options.map(
             (
-              { value: checkboxValue, label: checkboxLabel, ...rest },
+              { value: checkboxValue, label: checkboxLabel, required, ...rest },
               index,
             ) => (
               <li key={checkboxValue && `${checkboxValue.toString()}-${index}`}>
