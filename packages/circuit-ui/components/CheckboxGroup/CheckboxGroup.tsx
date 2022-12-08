@@ -37,7 +37,7 @@ export interface CheckboxGroupProps
    * A collection of available options. Each option must have at least a label and a value
    * for the respective Checkbox.
    */
-  options: (Omit<CheckboxProps, 'onChange'> & {
+  options: (Omit<CheckboxProps, 'onChange' | 'validationHint'> & {
     label: string;
   })[];
   /**
@@ -89,7 +89,13 @@ export interface CheckboxGroupProps
   hideLabel?: boolean;
 }
 
-const Legend = styled('legend')<Record<string, unknown>>(typography('two'));
+const Legend = styled('legend')<Record<'children', JSX.Element>>(
+  typography('two'),
+);
+
+const UnorderedList = styled.ul`
+  list-style-type: none;
+`;
 
 /**
  * A group of Checkboxes.
@@ -153,7 +159,6 @@ export const CheckboxGroup = forwardRef(
     return (
       <FieldWrapper
         as="fieldset"
-        role="group"
         aria-describedby={descriptionIds}
         name={name}
         // @ts-expect-error TypeScript isn't smart enough to recognize the `as` prop.
@@ -169,35 +174,32 @@ export const CheckboxGroup = forwardRef(
             required={required}
           />
         </Legend>
-        {options &&
-          options.map(
-            ({
-              value: checkboxValue,
-              className,
-              style,
-              label: checkboxLabel,
-              ...rest
-            }) => (
-              <Checkbox
-                key={checkboxValue && checkboxValue.toString()}
-                className={className}
-                style={style}
-                {...{
-                  ...rest,
-                  value: checkboxValue,
-                  name,
-                  required,
-                  onChange,
-                  validationHint: undefined, // disallow `validationHint` for the single Checkbox
-                  checked:
-                    !!checkboxValue &&
-                    checkedCheckboxes[checkboxValue.toString()],
-                }}
-              >
-                {checkboxLabel}
-              </Checkbox>
+        <UnorderedList>
+          {options.map(
+            (
+              { value: checkboxValue, label: checkboxLabel, ...rest },
+              index,
+            ) => (
+              <li key={checkboxValue && `${checkboxValue.toString()}-${index}`}>
+                <Checkbox
+                  {...{
+                    ...rest,
+                    value: checkboxValue,
+                    name,
+                    required,
+                    onChange,
+                    validationHint: undefined, // disallow `validationHint` for the single Checkbox
+                    checked:
+                      !!checkboxValue &&
+                      checkedCheckboxes[checkboxValue.toString()],
+                  }}
+                >
+                  {checkboxLabel}
+                </Checkbox>
+              </li>
             ),
           )}
+        </UnorderedList>
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}
