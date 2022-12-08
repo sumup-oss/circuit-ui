@@ -173,7 +173,6 @@ export const CheckboxGroup = forwardRef(
                   {...{
                     ...rest,
                     value: checkboxValue,
-                    name,
                     required,
                     onChange,
                     validationHint: undefined, // disallow `validationHint` for the single Checkbox
