@@ -46,7 +46,7 @@
     "react-number-format": "^5.1.2",
     "use-latest": "^1.2.1",
     "use-previous": "^1.1.0",
-    "yargs": "^17.6.0"
+    "yargs": "^17.6.2"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.2",
