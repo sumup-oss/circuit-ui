@@ -139,26 +139,26 @@ export const createBaseStyles = ({
     --cui-border-normal-strong-hovered: #000000;
     --cui-border-normal-strong-pressed: #000000;
     // Accent borders
-    --cui-borders-accent-normal-idle: #3064e3;
-    --cui-borders-accent-normal-hovered: #1c51d3;
-    --cui-borders-accent-normal-pressed: #10399e;
-    --cui-borders-accent-normal-focused: #ebf4ff;
+    --cui-border-accent-normal-idle: #3064e3;
+    --cui-border-accent-normal-hovered: #1c51d3;
+    --cui-border-accent-normal-pressed: #10399e;
+    --cui-border-accent-normal-focused: #ebf4ff;
     // Success borders
-    --cui-borders-success-normal-idle: #018850;
-    --cui-borders-success-normal-hovered: #007a4e;
-    --cui-borders-success-normal-pressed: #016c26;
+    --cui-border-success-normal-idle: #018850;
+    --cui-border-success-normal-hovered: #007a4e;
+    --cui-border-success-normal-pressed: #016c26;
     // Warning borders
-    --cui-borders-warning-normal-idle: #e87c00;
-    --cui-borders-warning-normal-hovered: #cc6d00;
-    --cui-borders-warning-normal-pressed: #b25c00;
+    --cui-border-warning-normal-idle: #e87c00;
+    --cui-border-warning-normal-hovered: #cc6d00;
+    --cui-border-warning-normal-pressed: #b25c00;
     // Danger borders
-    --cui-borders-danger-normal-idle: #de331d;
-    --cui-borders-danger-normal-hovered: #bd2c19;
-    --cui-borders-danger-normal-pressed: #9e2415;
+    --cui-border-danger-normal-idle: #de331d;
+    --cui-border-danger-normal-hovered: #bd2c19;
+    --cui-border-danger-normal-pressed: #9e2415;
     // Promo borders
-    --cui-borders-promo-normal-idle: #9e33e0;
-    --cui-borders-promo-normal-hovered: #8a1ecc;
-    --cui-borders-promo-normal-pressed: #7219a9;
+    --cui-border-promo-normal-idle: #9e33e0;
+    --cui-border-promo-normal-hovered: #8a1ecc;
+    --cui-border-promo-normal-pressed: #7219a9;
     // aliases
     --cui-bg-normal: var(--cui-bg-normal-normal-idle);
     --cui-bg-normal-hovered: var(--cui-bg-normal-normal-hovered);
@@ -231,22 +231,22 @@ export const createBaseStyles = ({
     --cui-border-strong: var(--cui-border-normal-strong-idle);
     --cui-border-strong-hovered: var(--cui-border-normal-strong-hovered);
     --cui-border-strong-pressed: var(--cui-border-normal-strong-pressed);
-    --cui-borders-accent: var(--cui-borders-accent-normal-idle);
-    --cui-borders-accent-hovered: var(--cui-borders-accent-normal-hovered);
-    --cui-borders-accent-pressed: var(--cui-borders-accent-normal-pressed);
-    --cui-borders-accent-focused: var(--cui-borders-accent-normal-focused);
-    --cui-borders-success: var(--cui-borders-success-normal-idle);
-    --cui-borders-success-hovered: var(--cui-borders-success-normal-hovered);
-    --cui-borders-success-pressed: var(--cui-borders-success-normal-pressed);
-    --cui-borders-warning: var(--cui-borders-warning-normal-idle);
-    --cui-borders-warning-hovered: var(--cui-borders-warning-normal-hovered);
-    --cui-borders-warning-pressed: var(--cui-borders-warning-normal-pressed);
-    --cui-borders-danger: var(--cui-borders-danger-normal-idle);
-    --cui-borders-danger-hovered: var(--cui-borders-danger-normal-hovered);
-    --cui-borders-danger-pressed: var(--cui-borders-danger-normal-pressed);
-    --cui-borders-promo: var(--cui-borders-promo-normal-idle);
-    --cui-borders-promo-hovered: var(--cui-borders-promo-normal-hovered);
-    --cui-borders-promo-pressed: var(--cui-borders-promo-normal-pressed);
+    --cui-border-accent: var(--cui-border-accent-normal-idle);
+    --cui-border-accent-hovered: var(--cui-border-accent-normal-hovered);
+    --cui-border-accent-pressed: var(--cui-border-accent-normal-pressed);
+    --cui-border-accent-focused: var(--cui-border-accent-normal-focused);
+    --cui-border-success: var(--cui-border-success-normal-idle);
+    --cui-border-success-hovered: var(--cui-border-success-normal-hovered);
+    --cui-border-success-pressed: var(--cui-border-success-normal-pressed);
+    --cui-border-warning: var(--cui-border-warning-normal-idle);
+    --cui-border-warning-hovered: var(--cui-border-warning-normal-hovered);
+    --cui-border-warning-pressed: var(--cui-border-warning-normal-pressed);
+    --cui-border-danger: var(--cui-border-danger-normal-idle);
+    --cui-border-danger-hovered: var(--cui-border-danger-normal-hovered);
+    --cui-border-danger-pressed: var(--cui-border-danger-normal-pressed);
+    --cui-border-promo: var(--cui-border-promo-normal-idle);
+    --cui-border-promo-hovered: var(--cui-border-promo-normal-hovered);
+    --cui-border-promo-pressed: var(--cui-border-promo-normal-pressed);
   }
 
   /**
