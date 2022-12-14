@@ -173,9 +173,9 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -213,15 +213,17 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 }
 
 .circuit-2:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-2:active,
 .circuit-2[aria-expanded='true'],
 .circuit-2[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-3 {

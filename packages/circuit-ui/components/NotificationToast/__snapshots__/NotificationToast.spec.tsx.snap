@@ -123,9 +123,9 @@ exports[`NotificationToast styles should render with a headline 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -167,15 +167,17 @@ exports[`NotificationToast styles should render with a headline 1`] = `
 }
 
 .circuit-7:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-7:active,
 .circuit-7[aria-expanded='true'],
 .circuit-7[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-8 {
@@ -418,9 +420,9 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -462,15 +464,17 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
 }
 
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-6:active,
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-7 {
@@ -708,9 +712,9 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -752,15 +756,17 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
 }
 
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-6:active,
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-7 {
@@ -998,9 +1004,9 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -1042,15 +1048,17 @@ exports[`NotificationToast styles should render with default styles 1`] = `
 }
 
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-6:active,
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-7 {
@@ -1288,9 +1296,9 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -1332,15 +1340,17 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
 }
 
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-6:active,
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-7 {
@@ -1595,9 +1605,9 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -1639,15 +1649,17 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
 }
 
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-6:active,
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-7 {

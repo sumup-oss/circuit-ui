@@ -89,9 +89,9 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -123,15 +123,17 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 }
 
 .circuit-2:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-2:active,
 .circuit-2[aria-expanded='true'],
 .circuit-2[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 @media (min-width: 480px) {
@@ -268,9 +270,9 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -297,15 +299,17 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 }
 
 .circuit-12:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-12:active,
 .circuit-12[aria-expanded='true'],
 .circuit-12[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-16 {
@@ -332,9 +336,9 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -361,35 +365,39 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 }
 
 .circuit-16:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-16:active,
 .circuit-16[aria-expanded='true'],
 .circuit-16[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 @media (min-width: 480px) {
   .circuit-16 {
     margin-right: 16px;
-    background-color: #FFF;
-    border-color: #999;
-    color: #000;
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+    color: var(--cui-fg-normal);
   }
 
   .circuit-16:hover {
-    background-color: #F5F5F5;
-    border-color: #666;
+    background-color: var(--cui-bg-normal-hovered);
+    border-color: var(--cui-border-normal-hovered);
+    color: var(--cui-fg-normal-hovered);
   }
 
   .circuit-16:active,
   .circuit-16[aria-expanded='true'],
   .circuit-16[aria-pressed='true'] {
-    background-color: #E6E6E6;
-    border-color: #333;
+    background-color: var(--cui-bg-normal-pressed);
+    border-color: var(--cui-border-normal-pressed);
+    color: var(--cui-fg-normal-pressed);
   }
 }
 
@@ -399,13 +407,13 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
     margin-top: 16px;
     background-color: transparent;
     border-color: transparent;
-    color: #3063E9;
+    color: var(--cui-fg-accent);
     padding-left: 0;
     padding-right: 0;
   }
 
   .circuit-16:hover {
-    color: #234BC3;
+    color: var(--cui-fg-accent-hovered);
     background-color: transparent;
     border-color: transparent;
   }
@@ -413,7 +421,7 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   .circuit-16:active,
   .circuit-16[aria-expanded='true'],
   .circuit-16[aria-pressed='true'] {
-    color: #1A368E;
+    color: var(--cui-fg-accent-pressed);
     background-color: transparent;
     border-color: transparent;
   }
@@ -644,9 +652,9 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -678,15 +686,17 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 }
 
 .circuit-2:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-2:active,
 .circuit-2[aria-expanded='true'],
 .circuit-2[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 @media (min-width: 480px) {
@@ -822,9 +832,9 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -851,15 +861,17 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 }
 
 .circuit-11:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-11:active,
 .circuit-11[aria-expanded='true'],
 .circuit-11[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-15 {
@@ -886,9 +898,9 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -915,35 +927,39 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 }
 
 .circuit-15:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-15:active,
 .circuit-15[aria-expanded='true'],
 .circuit-15[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 @media (min-width: 480px) {
   .circuit-15 {
     margin-right: 16px;
-    background-color: #FFF;
-    border-color: #999;
-    color: #000;
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+    color: var(--cui-fg-normal);
   }
 
   .circuit-15:hover {
-    background-color: #F5F5F5;
-    border-color: #666;
+    background-color: var(--cui-bg-normal-hovered);
+    border-color: var(--cui-border-normal-hovered);
+    color: var(--cui-fg-normal-hovered);
   }
 
   .circuit-15:active,
   .circuit-15[aria-expanded='true'],
   .circuit-15[aria-pressed='true'] {
-    background-color: #E6E6E6;
-    border-color: #333;
+    background-color: var(--cui-bg-normal-pressed);
+    border-color: var(--cui-border-normal-pressed);
+    color: var(--cui-fg-normal-pressed);
   }
 }
 
@@ -953,13 +969,13 @@ exports[`NotificationModal styles should render with default styles 1`] = `
     margin-top: 16px;
     background-color: transparent;
     border-color: transparent;
-    color: #3063E9;
+    color: var(--cui-fg-accent);
     padding-left: 0;
     padding-right: 0;
   }
 
   .circuit-15:hover {
-    color: #234BC3;
+    color: var(--cui-fg-accent-hovered);
     background-color: transparent;
     border-color: transparent;
   }
@@ -967,7 +983,7 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   .circuit-15:active,
   .circuit-15[aria-expanded='true'],
   .circuit-15[aria-pressed='true'] {
-    color: #1A368E;
+    color: var(--cui-fg-accent-pressed);
     background-color: transparent;
     border-color: transparent;
   }
@@ -1182,9 +1198,9 @@ exports[`NotificationModal styles should render without an image 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -1216,15 +1232,17 @@ exports[`NotificationModal styles should render without an image 1`] = `
 }
 
 .circuit-2:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-2:active,
 .circuit-2[aria-expanded='true'],
 .circuit-2[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 @media (min-width: 480px) {
@@ -1352,9 +1370,9 @@ exports[`NotificationModal styles should render without an image 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -1381,15 +1399,17 @@ exports[`NotificationModal styles should render without an image 1`] = `
 }
 
 .circuit-10:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-10:active,
 .circuit-10[aria-expanded='true'],
 .circuit-10[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-14 {
@@ -1416,9 +1436,9 @@ exports[`NotificationModal styles should render without an image 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -1445,35 +1465,39 @@ exports[`NotificationModal styles should render without an image 1`] = `
 }
 
 .circuit-14:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-14:active,
 .circuit-14[aria-expanded='true'],
 .circuit-14[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 @media (min-width: 480px) {
   .circuit-14 {
     margin-right: 16px;
-    background-color: #FFF;
-    border-color: #999;
-    color: #000;
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+    color: var(--cui-fg-normal);
   }
 
   .circuit-14:hover {
-    background-color: #F5F5F5;
-    border-color: #666;
+    background-color: var(--cui-bg-normal-hovered);
+    border-color: var(--cui-border-normal-hovered);
+    color: var(--cui-fg-normal-hovered);
   }
 
   .circuit-14:active,
   .circuit-14[aria-expanded='true'],
   .circuit-14[aria-pressed='true'] {
-    background-color: #E6E6E6;
-    border-color: #333;
+    background-color: var(--cui-bg-normal-pressed);
+    border-color: var(--cui-border-normal-pressed);
+    color: var(--cui-fg-normal-pressed);
   }
 }
 
@@ -1483,13 +1507,13 @@ exports[`NotificationModal styles should render without an image 1`] = `
     margin-top: 16px;
     background-color: transparent;
     border-color: transparent;
-    color: #3063E9;
+    color: var(--cui-fg-accent);
     padding-left: 0;
     padding-right: 0;
   }
 
   .circuit-14:hover {
-    color: #234BC3;
+    color: var(--cui-fg-accent-hovered);
     background-color: transparent;
     border-color: transparent;
   }
@@ -1497,7 +1521,7 @@ exports[`NotificationModal styles should render without an image 1`] = `
   .circuit-14:active,
   .circuit-14[aria-expanded='true'],
   .circuit-14[aria-pressed='true'] {
-    color: #1A368E;
+    color: var(--cui-fg-accent-pressed);
     background-color: transparent;
     border-color: transparent;
   }
