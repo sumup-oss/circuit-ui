@@ -21,7 +21,7 @@ describe('Table utils', () => {
     describe('isArray', () => {
       it('should map the array to cells key', () => {
         const props = ['Foo'];
-        const expected = { cells: props };
+        const expected = { cells: props, isChild: false };
         const actual = utils.mapRowProps(props);
 
         expect(actual).toEqual(expected);
@@ -29,9 +29,29 @@ describe('Table utils', () => {
     });
 
     it('should forward the props object', () => {
-      const props = { cells: ['Foo'] };
+      const props = { cells: ['Foo'], isChild: false };
       const expected = props;
       const actual = utils.mapRowProps(props);
+
+      expect(actual).toEqual(expected);
+    });
+  });
+
+  describe('mapChildRowProps()', () => {
+    describe('isArray', () => {
+      it('should map the array to cells key', () => {
+        const props = ['Foo'];
+        const expected = { cells: props, isChild: true };
+        const actual = utils.mapChildRowProps(props);
+
+        expect(actual).toEqual(expected);
+      });
+    });
+
+    it('should forward the props object', () => {
+      const props = { cells: ['Foo'], isChild: true };
+      const expected = props;
+      const actual = utils.mapChildRowProps(props);
 
       expect(actual).toEqual(expected);
     });

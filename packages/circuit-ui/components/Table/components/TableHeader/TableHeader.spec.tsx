@@ -56,6 +56,24 @@ describe('TableHeader', () => {
       expect(actual).toMatchSnapshot();
     });
 
+    it('should render with chevron right when row closed', () => {
+      const actual = create(
+        <TableHeader isExpandable condensed>
+          {children}
+        </TableHeader>,
+      );
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with chevron down when row clicked', () => {
+      const actual = create(
+        <TableHeader isExpandable isOpen condensed>
+          {children}
+        </TableHeader>,
+      );
+      expect(actual).toMatchSnapshot();
+    });
+
     describe('sortable + sorted', () => {
       it('should render with sortable + sorted ascending styles', () => {
         const actual = create(

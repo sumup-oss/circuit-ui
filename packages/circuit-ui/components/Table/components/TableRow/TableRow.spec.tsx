@@ -38,6 +38,15 @@ describe('TableRow', () => {
       );
       expect(actual).toMatchSnapshot();
     });
+
+    it('should render with child styles', () => {
+      const actual = create(
+        <TableRow onClick={jest.fn()} isChild>
+          {children}
+        </TableRow>,
+      );
+      expect(actual).toMatchSnapshot();
+    });
   });
 
   describe('Logic tests', () => {

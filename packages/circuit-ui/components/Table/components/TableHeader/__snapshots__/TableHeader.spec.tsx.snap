@@ -1,5 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TableHeader Style tests should render with chevron down when row clicked 1`] = `
+.circuit-0 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #666;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  vertical-align: middle;
+  padding: 12px 16px 12px 24px;
+  padding: 8px 16px 8px 24px;
+}
+
+.circuit-1 {
+  margin: -6px 0 -6px -6px;
+}
+
+<th
+  class="circuit-0"
+  scope="col"
+>
+  <svg
+    class="circuit-1"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 15c-.265 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 7 10a1 1 0 0 1 1-1c.266 0 .52.104.71.29L12 12.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .265-.104.52-.29.71l-4 4c-.19.186-.445.29-.71.29z"
+      fill="currentColor"
+    />
+  </svg>
+  Foo
+</th>
+`;
+
+exports[`TableHeader Style tests should render with chevron right when row closed 1`] = `
+.circuit-0 {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #666;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  vertical-align: middle;
+  padding: 12px 16px 12px 24px;
+  padding: 8px 16px 8px 24px;
+}
+
+.circuit-1 {
+  margin: -6px 0 -6px -6px;
+}
+
+<th
+  class="circuit-0"
+  scope="col"
+>
+  <svg
+    class="circuit-1"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15 12c0 .265-.104.52-.29.71l-4 4c-.19.186-.445.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L12.58 12 9.29 8.71A1.013 1.013 0 0 1 9 8a1 1 0 0 1 1-1c.265 0 .52.104.71.29l4 4c.186.19.29.445.29.71z"
+      fill="currentColor"
+    />
+  </svg>
+  Foo
+</th>
+`;
+
 exports[`TableHeader Style tests should render with condensed styles 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);

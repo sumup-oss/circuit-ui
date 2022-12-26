@@ -13,6 +13,9 @@
  * limitations under the License.
  */
 
+import { screen, waitFor } from '@testing-library/react';
+import { fireEvent } from '@testing-library/dom';
+
 import { create, render, renderToHtml, axe } from '../../../../util/test-utils';
 
 import TableBody from '.';
@@ -66,6 +69,31 @@ describe('TableBody', () => {
           <TableBody sortHover={sortHover} rows={fixtureRows} />,
         );
         expect(wrapper).toMatchSnapshot();
+      });
+    });
+
+    describe('expandable behaviour', () => {
+      it('should toggle row with children', async () => {
+        const testId = 'row-1-testId';
+        const rows = [
+          {
+            'cells': ['Foo', 'Bar'],
+            'children': [{ cells: ['ABC', 'DEF'] }, { cells: ['123', '456'] }],
+            'data-testid': testId,
+          },
+        ];
+        render(<TableBody rows={rows} />);
+        const expandableRow = screen.getByTestId('row-1-testId');
+        fireEvent.click(expandableRow);
+        expect(screen.getByText('ABC')).toBeInTheDocument();
+        expect(screen.getByText('123')).toBeInTheDocument();
+        fireEvent.click(expandableRow);
+        await waitFor(() => {
+          expect(screen.queryByText('ABC')).not.toBeInTheDocument();
+        });
+        await waitFor(() => {
+          expect(screen.queryByText('123')).not.toBeInTheDocument();
+        });
       });
     });
 

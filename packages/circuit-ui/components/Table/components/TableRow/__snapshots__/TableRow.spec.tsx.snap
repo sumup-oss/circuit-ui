@@ -1,5 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TableRow Style tests should render with child styles 1`] = `
+.circuit-0 {
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+tbody .circuit-0:last-child th,
+tbody .circuit-0:last-child td {
+  border-bottom: none;
+}
+
+.circuit-0:focus {
+  z-index: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .circuit-0:focus td,
+tbody .circuit-0:hover td,
+tbody .circuit-0:focus th,
+tbody .circuit-0:hover th {
+  color: #3063E9;
+  background-color: #F5F5F5;
+}
+
+.circuit-0.isChild th {
+  padding-left: 48px;
+}
+
+<tr
+  class="isChild circuit-0 circuit-1"
+  tabindex="0"
+>
+  Foo
+</tr>
+`;
+
 exports[`TableRow Style tests should render with clickable styles 1`] = `
 .circuit-0 {
   vertical-align: middle;
@@ -44,8 +94,12 @@ tbody .circuit-0:active th {
   background-color: var(--cui-bg-normal-pressed);
 }
 
+.circuit-0.isChild th {
+  padding-left: 48px;
+}
+
 <tr
-  class="circuit-0 circuit-1"
+  class=" circuit-0 circuit-1"
   tabindex="0"
 >
   Foo
@@ -62,8 +116,12 @@ tbody .circuit-0:last-child td {
   border-bottom: none;
 }
 
+.circuit-0.isChild th {
+  padding-left: 48px;
+}
+
 <tr
-  class="circuit-0 circuit-1"
+  class=" circuit-0 circuit-1"
 >
   Foo
 </tr>
