@@ -21,8 +21,18 @@ import { focusOutline } from '../../../../styles/style-mixins';
 import { ClickEvent } from '../../../../types/events';
 
 type TableRowProps = {
+  isChild?: boolean;
   onClick?: (event: ClickEvent<HTMLTableRowElement>) => void;
 };
+
+const childStyles = () =>
+  css`
+    &.isChild {
+      th {
+        padding-left: 48px;
+      }
+    }
+  `;
 
 const baseStyles = () => css`
   vertical-align: middle;
@@ -74,13 +84,21 @@ const clickableStyles = ({ onClick }: TableRowProps) =>
     }
   `;
 
-const Tr = styled.tr(baseStyles, clickableStyles);
+const Tr = styled.tr(baseStyles, clickableStyles, childStyles);
 
 /**
  * TableRow for the Table component. The Table handles rendering it.
  */
 const TableRow: FC<PropsWithChildren<TableRowProps>> = ({
+  isChild = false,
   onClick,
   ...props
-}) => <Tr onClick={onClick} tabIndex={onClick ? 0 : undefined} {...props} />;
+}) => (
+  <Tr
+    onClick={onClick}
+    className={`${isChild ? 'isChild' : ''}`}
+    tabIndex={onClick ? 0 : undefined}
+    {...props}
+  />
+);
 export default TableRow;

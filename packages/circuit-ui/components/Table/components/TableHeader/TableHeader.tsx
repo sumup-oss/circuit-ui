@@ -16,6 +16,7 @@
 import { ThHTMLAttributes, FC, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
+import { ChevronRight, ChevronDown } from '@sumup/icons';
 
 import { focusOutline, typography } from '../../../../styles/style-mixins';
 import SortArrow from '../SortArrow';
@@ -56,6 +57,14 @@ export interface TableHeaderProps
    * Props related to table sorting. Defaults to not sortable.
    */
   sortParams?: SortParams;
+  /**
+   * Props related to table sorting. Defaults to not sortable.
+   */
+  isExpandable?: boolean;
+  /**
+   * Props related to table sorting. Defaults to not sortable.
+   */
+  isOpen?: boolean;
 }
 
 /**
@@ -185,6 +194,10 @@ const condensedColStyles = ({
       ${theme.spacings.byte} ${theme.spacings.giga};
   `;
 
+const chevronStyles = css`
+  margin: -6px 0 -6px -6px;
+`;
+
 const StyledHeader = styled('th', {
   shouldForwardProp: (prop) => isPropValid(prop),
 })<ThElProps>(
@@ -210,6 +223,8 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
   isHovered = false,
   sortParams = { sortable: false },
   onClick,
+  isExpandable,
+  isOpen,
   ...props
 }) => {
   if (
@@ -223,6 +238,7 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
       'The `sortLabel` prop is missing. Omit the `sortable` prop if you intend to disable the row sorting functionality.',
     );
   }
+  const CheveronToShow = isOpen ? ChevronDown : ChevronRight;
   return (
     <StyledHeader
       condensed={condensed}
@@ -246,6 +262,7 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
           onClick={onClick}
         />
       )}
+      {isExpandable && <CheveronToShow css={chevronStyles} />}
       {children}
     </StyledHeader>
   );

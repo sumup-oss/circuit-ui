@@ -13,7 +13,10 @@
  * limitations under the License.
  */
 
-import { mapRowProps, mapCellProps } from '../../utils';
+import {
+  mapCellProps,
+  useExpandableTableOptions,
+} from '../../utils';
 import { Row } from '../../types';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
@@ -52,40 +55,57 @@ const TableBody = ({
   rowHeaders = false,
   sortHover,
   onRowClick,
-}: TableBodyProps): JSX.Element => (
-  <tbody>
-    {rows.map((row, rowIndex) => {
-      const { cells, ...props } = mapRowProps(row);
-      return (
-        <TableRow
-          key={`table-row-${rowIndex}`}
-          onClick={onRowClick ? () => onRowClick(rowIndex) : undefined}
-          {...props}
-        >
-          {cells.map((cell, cellIndex) =>
-            rowHeaders && cellIndex === 0 ? (
-              <TableHeader
+}: TableBodyProps): JSX.Element => {
+  const { data, toggleState, expandableState, toggleRow } =
+    useExpandableTableOptions(rows);
+
+  const onTableRowClick = (index: number) => {
+    toggleRow(index);
+    if (onRowClick) {
+      onRowClick(index);
+    }
+  };
+
+  return (
+    <tbody>
+      {data.map((row, rowIndex) => {
+        const { cells, isChild, ...props } = row;
+        const isExpandable = expandableState[rowIndex];
+        const isOpen = toggleState[rowIndex];
+        return (
+          <TableRow
+            isChild={isChild}
+            key={`table-row-${rowIndex}`}
+            onClick={() => onTableRowClick(rowIndex)}
+            {...props}
+          >
+            {cells.map((cell, cellIndex) =>
+              rowHeaders && cellIndex === 0 ? (
+                <TableHeader
                 key={`table-cell-${rowIndex}-${cellIndex}`}
-                fixed
-                condensed={condensed}
-                scope="row"
-                isHovered={sortHover === cellIndex}
-                sortParams={{ sortable: false }}
-                {...mapCellProps(cell)}
-              />
-            ) : (
-              <TableCell
-                key={`table-cell-${rowIndex}-${cellIndex}`}
-                condensed={condensed}
-                isHovered={sortHover === cellIndex}
-                {...mapCellProps(cell)}
-              />
-            ),
-          )}
-        </TableRow>
-      );
-    })}
-  </tbody>
-);
+                    fixed
+                    condensed={condensed}
+                    scope="row"
+                    isOpen={isOpen}
+                    isExpandable={isExpandable}
+                    isHovered={sortHover === cellIndex}
+                    sortParams={{ sortable: false }}
+                    {...mapCellProps(cell)}
+                  />
+              ) : (
+                <TableCell
+                  key={`table-cell-${rowIndex}-${cellIndex}`}
+                  condensed={condensed}
+                  isHovered={sortHover === cellIndex}
+                  {...mapCellProps(cell)}
+                />
+              ),
+            )}
+          </TableRow>
+        );
+      })}
+    </tbody>
+  );
+};
 
 export default TableBody;

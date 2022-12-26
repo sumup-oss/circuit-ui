@@ -61,7 +61,7 @@ export type HeaderCell = Cell | HeaderCellObject;
 
 export type RowCell = Cell | RowCellObject;
 
-export type Row = RowCell[] | { cells: RowCell[] };
+export type Row = RowCell[] | { cells: RowCell[]; children?: Row[] };
 
 export type SortParams =
   | {

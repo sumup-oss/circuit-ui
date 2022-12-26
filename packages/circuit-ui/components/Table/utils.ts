@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactNode } from 'react';
+import { ReactNode, useCallback, useEffect, useState } from 'react';
 
 import { isArray, isFunction } from '../../util/type-check';
 
@@ -28,8 +28,71 @@ import {
   SortParams,
 } from './types';
 
-export const mapRowProps = (props: Row): { cells: RowCell[] } =>
-  isArray(props) ? { cells: props } : props;
+export const mapChildRowProps = (
+  props: Row,
+): { cells: RowCell[]; isChild: boolean } =>
+  isArray(props)
+    ? { cells: props, isChild: true }
+    : { cells: props.cells, isChild: true };
+
+export const mapRowProps = (
+  props: Row,
+): { cells: RowCell[]; children?: Row[]; isChild: boolean } =>
+  isArray(props)
+    ? { cells: props, isChild: false }
+    : { ...props, isChild: false };
+
+export const useExpandableTableOptions = (rows: Row[]) => {
+  const [toggleState, setToggleState] = useState<boolean[]>([]);
+  const [expandableState, setExpandableState] = useState<boolean[]>([]);
+
+  const [data, setData] = useState<{ cells: RowCell[]; isChild: boolean }[]>(
+    [],
+  );
+
+  const toggleRow = useCallback(
+    (rowIndex: number) => {
+      // get original row
+      const row = mapRowProps(rows[rowIndex]);
+      if (row.children) {
+        // if already open, close row and remove children from data array
+        if (toggleState[rowIndex]) {
+          const newData = [...data];
+          newData.splice(rowIndex + 1, row.children.length);
+          setData(newData);
+          // update toggle state
+          const newState = [...toggleState];
+          newState[rowIndex] = false;
+          setToggleState(newState);
+        } else {
+          // if row not open, insert children in new data array
+          const newData = [...data];
+          const newElements = row.children.map((el) => mapChildRowProps(el));
+          newData.splice(rowIndex + 1, 0, ...newElements);
+          setData(newData);
+          // update toggle state
+          const newState = [...toggleState];
+          newState[rowIndex] = true;
+          setToggleState(newState);
+        }
+      }
+    },
+    [toggleState, setToggleState, setData, data, rows],
+  );
+
+  useEffect(() => {
+    setToggleState(rows.map(() => false));
+    setExpandableState(rows.map((el) => !!mapRowProps(el).children));
+    setData(rows.map((el) => mapRowProps(el)));
+  }, [rows]);
+
+  return {
+    data,
+    toggleState,
+    expandableState,
+    toggleRow,
+  };
+};
 
 export const getRowCells = (props: Row): RowCell[] => mapRowProps(props).cells;
 
