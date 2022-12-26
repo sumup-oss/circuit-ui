@@ -86,6 +86,51 @@ WithComponentRows.args = {
   ],
 };
 
+export const Expandable = ({ onSortBy, ...args }: TableProps): JSX.Element => (
+  <Table {...args} />
+);
+
+Expandable.args = {
+  headers: [
+    { children: 'Name', sortable: true, sortLabel },
+    { children: 'Date added', sortable: true, sortLabel },
+  ],
+  rows: [
+    {
+      cells: ['Fruits', { children: '12/01/2017', sortByValue: 0 }],
+      children: [
+        [
+          { children: 'Apple' },
+          {
+            children: '12/12/18',
+            sortByValue: new Date('12/12/18'),
+          },
+        ],
+        {
+          cells: ['Banana', { children: '12/01/2017', sortByValue: 0 }],
+        },
+        {
+          cells: ['Orange', { children: '12/01/2017', sortByValue: 0 }],
+        },
+      ],
+    },
+    [
+      { children: 'Broccoli' },
+      {
+        children: '12/13/18',
+        sortByValue: new Date('12/13/18'),
+      },
+    ],
+    [
+      { children: 'Chickpeas' },
+      {
+        children: '12/14/18',
+        sortByValue: new Date('12/14/18'),
+      },
+    ],
+  ],
+};
+
 export const Sortable = ({ onSortBy, ...args }: TableProps): JSX.Element => (
   <Table {...args} />
 );

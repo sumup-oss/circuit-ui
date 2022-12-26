@@ -39,6 +39,23 @@ While headers and rows can accept strings as children, they can also accept obje
 
 <Story of={Stories.WithComponentRows} />
 
+### Expandable
+
+Add child elements to your data to have expandable rows:
+ ```rows = [
+            {
+                cells: ['foo', 'bar'],
+                children: [
+                    {cells: ['cell1.1', 'cell1.2']},
+                    {cells: ['cell2.1', 'cell2.2']}
+                    ]
+                }
+            ]
+```
+
+
+<Story id="components-table--expandable" />
+
 ### Sorting
 
 When creating a sortable table with the `sortable` prop in the headers object, always provide a `sortLabel` prop for visually impaired users.
