@@ -142,7 +142,6 @@ export const createBaseStyles = ({
     --cui-border-accent-normal-idle: #3064e3;
     --cui-border-accent-normal-hovered: #1c51d3;
     --cui-border-accent-normal-pressed: #10399e;
-    --cui-border-accent-normal-focused: #ebf4ff;
     /* Success borders */
     --cui-border-success-normal-idle: #018850;
     --cui-border-success-normal-hovered: #007a4e;
@@ -159,7 +158,10 @@ export const createBaseStyles = ({
     --cui-border-promo-normal-idle: #9e33e0;
     --cui-border-promo-normal-hovered: #8a1ecc;
     --cui-border-promo-normal-pressed: #7219a9;
-    /* aliases */
+    /* Special colors */
+    --cui-bg-overlay: rgba(0, 0, 0, 0.4);
+    --cui-border-focus: #ebf4ff;
+    /* Aliases */
     --cui-bg-normal: var(--cui-bg-neutral-normal-idle);
     --cui-bg-normal-hovered: var(--cui-bg-neutral-normal-hovered);
     --cui-bg-normal-pressed: var(--cui-bg-neutral-normal-pressed);
