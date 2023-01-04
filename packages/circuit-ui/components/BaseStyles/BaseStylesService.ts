@@ -44,19 +44,19 @@ export const createBaseStyles = ({
   }
 
   :root {
-    /* Normal backgrounds */
-    --cui-bg-normal-normal-idle: #ffffff;
-    --cui-bg-normal-normal-hovered: #f5f5f5;
-    --cui-bg-normal-normal-pressed: #e6e6e6;
-    --cui-bg-normal-subtle-idle: #f5f5f5;
-    --cui-bg-normal-subtle-hovered: #e6e6e6;
-    --cui-bg-normal-subtle-pressed: #cccccc;
-    --cui-bg-normal-highlight-idle: #e6e6e6;
-    --cui-bg-normal-highlight-hovered: #cccccc;
-    --cui-bg-normal-highlight-pressed: #999999;
-    --cui-bg-normal-strong-idle: #000000;
-    --cui-bg-normal-strong-hovered: #000000;
-    --cui-bg-normal-strong-pressed: #000000;
+    /* Neutral backgrounds */
+    --cui-bg-neutral-normal-idle: #ffffff;
+    --cui-bg-neutral-normal-hovered: #f5f5f5;
+    --cui-bg-neutral-normal-pressed: #e6e6e6;
+    --cui-bg-neutral-subtle-idle: #f5f5f5;
+    --cui-bg-neutral-subtle-hovered: #e6e6e6;
+    --cui-bg-neutral-subtle-pressed: #cccccc;
+    --cui-bg-neutral-highlight-idle: #e6e6e6;
+    --cui-bg-neutral-highlight-hovered: #cccccc;
+    --cui-bg-neutral-highlight-pressed: #999999;
+    --cui-bg-neutral-strong-idle: #000000;
+    --cui-bg-neutral-strong-hovered: #000000;
+    --cui-bg-neutral-strong-pressed: #000000;
     /* Accent backgrounds */
     --cui-bg-accent-normal-idle: #ebf4ff;
     --cui-bg-accent-normal-hovered: #dbe9ff;
@@ -92,19 +92,19 @@ export const createBaseStyles = ({
     --cui-bg-promo-strong-idle: #9e33e0;
     --cui-bg-promo-strong-hovered: #8a1ecc;
     --cui-bg-promo-strong-pressed: #7219a9;
-    /* Normal foregrounds */
-    --cui-fg-normal-normal-idle: #1a1a1a;
-    --cui-fg-normal-normal-hovered: #1a1a1a;
-    --cui-fg-normal-normal-pressed: #1a1a1a;
-    --cui-fg-normal-subtle-idle: #666666;
-    --cui-fg-normal-subtle-hovered: #333333;
-    --cui-fg-normal-subtle-pressed: #1a1a1a;
-    --cui-fg-normal-placeholder-idle: #999999;
-    --cui-fg-normal-placeholder-hovered: #999999;
-    --cui-fg-normal-placeholder-pressed: #999999;
-    --cui-fg-normal-on-strong-idle: #ffffff;
-    --cui-fg-normal-on-strong-hovered: #ffffff;
-    --cui-fg-normal-on-strong-pressed: #ffffff;
+    /* Neutral foregrounds */
+    --cui-fg-neutral-normal-idle: #1a1a1a;
+    --cui-fg-neutral-normal-hovered: #1a1a1a;
+    --cui-fg-neutral-normal-pressed: #1a1a1a;
+    --cui-fg-neutral-subtle-idle: #666666;
+    --cui-fg-neutral-subtle-hovered: #333333;
+    --cui-fg-neutral-subtle-pressed: #1a1a1a;
+    --cui-fg-neutral-placeholder-idle: #999999;
+    --cui-fg-neutral-placeholder-hovered: #999999;
+    --cui-fg-neutral-placeholder-pressed: #999999;
+    --cui-fg-neutral-on-strong-idle: #ffffff;
+    --cui-fg-neutral-on-strong-hovered: #ffffff;
+    --cui-fg-neutral-on-strong-pressed: #ffffff;
     /* Accent foregrounds */
     --cui-fg-accent-normal-idle: #3064e3;
     --cui-fg-accent-normal-hovered: #1c51d3;
@@ -125,19 +125,19 @@ export const createBaseStyles = ({
     --cui-fg-promo-normal-idle: #9e33e0;
     --cui-fg-promo-normal-hovered: #8a1ecc;
     --cui-fg-promo-normal-pressed: #7219a9;
-    /* Normal borders */
-    --cui-border-normal-normal-idle: #cccccc;
-    --cui-border-normal-normal-hovered: #999999;
-    --cui-border-normal-normal-pressed: #666666;
-    --cui-border-normal-subtle-idle: #e6e6e6;
-    --cui-border-normal-subtle-hovered: #cccccc;
-    --cui-border-normal-subtle-pressed: #999999;
-    --cui-border-normal-divider-idle: #cccccc;
-    --cui-border-normal-divider-hovered: #999999;
-    --cui-border-normal-divider-pressed: #666666;
-    --cui-border-normal-strong-idle: #1a1a1a;
-    --cui-border-normal-strong-hovered: #000000;
-    --cui-border-normal-strong-pressed: #000000;
+    /* Neutral borders */
+    --cui-border-neutral-normal-idle: #cccccc;
+    --cui-border-neutral-normal-hovered: #999999;
+    --cui-border-neutral-normal-pressed: #666666;
+    --cui-border-neutral-subtle-idle: #e6e6e6;
+    --cui-border-neutral-subtle-hovered: #cccccc;
+    --cui-border-neutral-subtle-pressed: #999999;
+    --cui-border-neutral-divider-idle: #cccccc;
+    --cui-border-neutral-divider-hovered: #999999;
+    --cui-border-neutral-divider-pressed: #666666;
+    --cui-border-neutral-strong-idle: #1a1a1a;
+    --cui-border-neutral-strong-hovered: #000000;
+    --cui-border-neutral-strong-pressed: #000000;
     /* Accent borders */
     --cui-border-accent-normal-idle: #3064e3;
     --cui-border-accent-normal-hovered: #1c51d3;
@@ -160,18 +160,18 @@ export const createBaseStyles = ({
     --cui-border-promo-normal-hovered: #8a1ecc;
     --cui-border-promo-normal-pressed: #7219a9;
     /* aliases */
-    --cui-bg-normal: var(--cui-bg-normal-normal-idle);
-    --cui-bg-normal-hovered: var(--cui-bg-normal-normal-hovered);
-    --cui-bg-normal-pressed: var(--cui-bg-normal-normal-pressed);
-    --cui-bg-subtle: var(--cui-bg-normal-subtle-idle);
-    --cui-bg-subtle-hovered: var(--cui-bg-normal-subtle-hovered);
-    --cui-bg-subtle-pressed: var(--cui-bg-normal-subtle-pressed);
-    --cui-bg-highlight: var(--cui-bg-normal-highlight-idle);
-    --cui-bg-highlight-hovered: var(--cui-bg-normal-highlight-hovered);
-    --cui-bg-highlight-pressed: var(--cui-bg-normal-highlight-pressed);
-    --cui-bg-strong: var(--cui-bg-normal-strong-idle);
-    --cui-bg-strong-hovered: var(--cui-bg-normal-strong-hovered);
-    --cui-bg-strong-pressed: var(--cui-bg-normal-strong-pressed);
+    --cui-bg-normal: var(--cui-bg-neutral-normal-idle);
+    --cui-bg-normal-hovered: var(--cui-bg-neutral-normal-hovered);
+    --cui-bg-normal-pressed: var(--cui-bg-neutral-normal-pressed);
+    --cui-bg-subtle: var(--cui-bg-neutral-subtle-idle);
+    --cui-bg-subtle-hovered: var(--cui-bg-neutral-subtle-hovered);
+    --cui-bg-subtle-pressed: var(--cui-bg-neutral-subtle-pressed);
+    --cui-bg-highlight: var(--cui-bg-neutral-highlight-idle);
+    --cui-bg-highlight-hovered: var(--cui-bg-neutral-highlight-hovered);
+    --cui-bg-highlight-pressed: var(--cui-bg-neutral-highlight-pressed);
+    --cui-bg-strong: var(--cui-bg-neutral-strong-idle);
+    --cui-bg-strong-hovered: var(--cui-bg-neutral-strong-hovered);
+    --cui-bg-strong-pressed: var(--cui-bg-neutral-strong-pressed);
     --cui-bg-accent: var(--cui-bg-accent-normal-idle);
     --cui-bg-accent-hovered: var(--cui-bg-accent-normal-hovered);
     --cui-bg-accent-pressed: var(--cui-bg-accent-normal-pressed);
@@ -192,18 +192,18 @@ export const createBaseStyles = ({
     --cui-bg-promo-hovered: var(--cui-bg-promo-normal-hovered);
     --cui-bg-promo-pressed: var(--cui-bg-promo-normal-pressed);
     --cui-bg-promo-strong: var(--cui-bg-promo-strong-idle);
-    --cui-fg-normal: var(--cui-fg-normal-normal-idle);
-    --cui-fg-normal-hovered: var(--cui-fg-normal-normal-hovered);
-    --cui-fg-normal-pressed: var(--cui-fg-normal-normal-pressed);
-    --cui-fg-subtle: var(--cui-fg-normal-subtle-idle);
-    --cui-fg-subtle-hovered: var(--cui-fg-normal-subtle-hovered);
-    --cui-fg-subtle-pressed: var(--cui-fg-normal-subtle-pressed);
-    --cui-fg-placeholder: var(--cui-fg-normal-placeholder-idle);
-    --cui-fg-placeholder-hovered: var(--cui-fg-normal-placeholder-hovered);
-    --cui-fg-placeholder-pressed: var(--cui-fg-normal-placeholder-pressed);
-    --cui-fg-on-strong: var(--cui-fg-normal-on-strong-idle);
-    --cui-fg-on-strong-hovered: var(--cui-fg-normal-on-strong-hovered);
-    --cui-fg-on-strong-pressed: var(--cui-fg-normal-on-strong-pressed);
+    --cui-fg-normal: var(--cui-fg-neutral-normal-idle);
+    --cui-fg-normal-hovered: var(--cui-fg-neutral-normal-hovered);
+    --cui-fg-normal-pressed: var(--cui-fg-neutral-normal-pressed);
+    --cui-fg-subtle: var(--cui-fg-neutral-subtle-idle);
+    --cui-fg-subtle-hovered: var(--cui-fg-neutral-subtle-hovered);
+    --cui-fg-subtle-pressed: var(--cui-fg-neutral-subtle-pressed);
+    --cui-fg-placeholder: var(--cui-fg-neutral-placeholder-idle);
+    --cui-fg-placeholder-hovered: var(--cui-fg-neutral-placeholder-hovered);
+    --cui-fg-placeholder-pressed: var(--cui-fg-neutral-placeholder-pressed);
+    --cui-fg-on-strong: var(--cui-fg-neutral-on-strong-idle);
+    --cui-fg-on-strong-hovered: var(--cui-fg-neutral-on-strong-hovered);
+    --cui-fg-on-strong-pressed: var(--cui-fg-neutral-on-strong-pressed);
     --cui-fg-accent: var(--cui-fg-accent-normal-idle);
     --cui-fg-accent-hovered: var(--cui-fg-accent-normal-hovered);
     --cui-fg-accent-pressed: var(--cui-fg-accent-normal-pressed);
@@ -219,18 +219,18 @@ export const createBaseStyles = ({
     --cui-fg-promo: var(--cui-fg-promo-normal-idle);
     --cui-fg-promo-hovered: var(--cui-fg-promo-normal-hovered);
     --cui-fg-promo-pressed: var(--cui-fg-promo-normal-pressed);
-    --cui-border-normal: var(--cui-border-normal-normal-idle);
-    --cui-border-normal-hovered: var(--cui-border-normal-normal-hovered);
-    --cui-border-normal-pressed: var(--cui-border-normal-normal-pressed);
-    --cui-border-subtle: var(--cui-border-normal-subtle-idle);
-    --cui-border-subtle-hovered: var(--cui-border-normal-subtle-hovered);
-    --cui-border-subtle-pressed: var(--cui-border-normal-subtle-pressed);
-    --cui-border-divider: var(--cui-border-normal-divider-idle);
-    --cui-border-divider-hovered: var(--cui-border-normal-divider-hovered);
-    --cui-border-divider-pressed: var(--cui-border-normal-divider-pressed);
-    --cui-border-strong: var(--cui-border-normal-strong-idle);
-    --cui-border-strong-hovered: var(--cui-border-normal-strong-hovered);
-    --cui-border-strong-pressed: var(--cui-border-normal-strong-pressed);
+    --cui-border-normal: var(--cui-border-neutral-normal-idle);
+    --cui-border-normal-hovered: var(--cui-border-neutral-normal-hovered);
+    --cui-border-normal-pressed: var(--cui-border-neutral-normal-pressed);
+    --cui-border-subtle: var(--cui-border-neutral-subtle-idle);
+    --cui-border-subtle-hovered: var(--cui-border-neutral-subtle-hovered);
+    --cui-border-subtle-pressed: var(--cui-border-neutral-subtle-pressed);
+    --cui-border-divider: var(--cui-border-neutral-divider-idle);
+    --cui-border-divider-hovered: var(--cui-border-neutral-divider-hovered);
+    --cui-border-divider-pressed: var(--cui-border-neutral-divider-pressed);
+    --cui-border-strong: var(--cui-border-neutral-strong-idle);
+    --cui-border-strong-hovered: var(--cui-border-neutral-strong-hovered);
+    --cui-border-strong-pressed: var(--cui-border-neutral-strong-pressed);
     --cui-border-accent: var(--cui-border-accent-normal-idle);
     --cui-border-accent-hovered: var(--cui-border-accent-normal-hovered);
     --cui-border-accent-pressed: var(--cui-border-accent-normal-pressed);
