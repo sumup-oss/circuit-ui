@@ -44,7 +44,7 @@ export const createBaseStyles = ({
   }
 
   :root {
-    // Normal backgrounds
+    /* Normal backgrounds */
     --cui-bg-normal-normal-idle: #ffffff;
     --cui-bg-normal-normal-hovered: #f5f5f5;
     --cui-bg-normal-normal-pressed: #e6e6e6;
@@ -57,42 +57,42 @@ export const createBaseStyles = ({
     --cui-bg-normal-strong-idle: #000000;
     --cui-bg-normal-strong-hovered: #000000;
     --cui-bg-normal-strong-pressed: #000000;
-    // Accent backgrounds
+    /* Accent backgrounds */
     --cui-bg-accent-normal-idle: #ebf4ff;
     --cui-bg-accent-normal-hovered: #dbe9ff;
     --cui-bg-accent-normal-pressed: #c7dbff;
     --cui-bg-accent-strong-idle: #3064e3;
     --cui-bg-accent-strong-hovered: #1c51d3;
     --cui-bg-accent-strong-pressed: #10399e;
-    // Success backgrounds
+    /* Success backgrounds */
     --cui-bg-success-normal-idle: #e9fbe9;
     --cui-bg-success-normal-hovered: #d7f8d7;
     --cui-bg-success-normal-pressed: #c1e8c1;
     --cui-bg-success-strong-idle: #018850;
     --cui-bg-success-strong-hovered: #007a4e;
     --cui-bg-success-strong-pressed: #016c26;
-    // Warning backgrounds
+    /* Warning backgrounds */
     --cui-bg-warning-normal-idle: #fdf4db;
     --cui-bg-warning-normal-hovered: #faeec6;
     --cui-bg-warning-normal-pressed: #f5dea3;
     --cui-bg-warning-strong-idle: #e87c00;
     --cui-bg-warning-strong-hovered: #cc6d00;
     --cui-bg-warning-strong-pressed: #b25c00;
-    // Danger backgrounds
+    /* Danger backgrounds */
     --cui-bg-danger-normal-idle: #b25c00;
     --cui-bg-danger-normal-hovered: #fcddd9;
     --cui-bg-danger-normal-pressed: #f7ccc7;
     --cui-bg-danger-strong-idle: #de331d;
     --cui-bg-danger-strong-hovered: #bd2c19;
     --cui-bg-danger-strong-pressed: #9e2415;
-    // Promo backgrounds
+    /* Promo backgrounds */
     --cui-bg-promo-normal-idle: #f5edfe;
     --cui-bg-promo-normal-hovered: #ede0fc;
     --cui-bg-promo-normal-pressed: #e0c9f8;
     --cui-bg-promo-strong-idle: #9e33e0;
     --cui-bg-promo-strong-hovered: #8a1ecc;
     --cui-bg-promo-strong-pressed: #7219a9;
-    // Normal foregrounds
+    /* Normal foregrounds */
     --cui-fg-normal-normal-idle: #1a1a1a;
     --cui-fg-normal-normal-hovered: #1a1a1a;
     --cui-fg-normal-normal-pressed: #1a1a1a;
@@ -105,27 +105,27 @@ export const createBaseStyles = ({
     --cui-fg-normal-on-strong-idle: #ffffff;
     --cui-fg-normal-on-strong-hovered: #ffffff;
     --cui-fg-normal-on-strong-pressed: #ffffff;
-    // Accent foregrounds
+    /* Accent foregrounds */
     --cui-fg-accent-normal-idle: #3064e3;
     --cui-fg-accent-normal-hovered: #1c51d3;
     --cui-fg-accent-normal-pressed: #10399e;
-    // Success foregrounds
+    /* Success foregrounds */
     --cui-fg-success-normal-idle: #018850;
     --cui-fg-success-normal-hovered: #007a4e;
     --cui-fg-success-normal-pressed: #016c26;
-    // Warning foregrounds
+    /* Warning foregrounds */
     --cui-fg-warning-normal-idle: #e27900;
     --cui-fg-warning-normal-hovered: #cc6d00;
     --cui-fg-warning-normal-pressed: #b25c00;
-    // Danger foregrounds
+    /* Danger foregrounds */
     --cui-fg-danger-normal-idle: #de331d;
     --cui-fg-danger-normal-hovered: #bd2c19;
     --cui-fg-danger-normal-pressed: #9e2415;
-    // Promo foregrounds
+    /* Promo foregrounds */
     --cui-fg-promo-normal-idle: #9e33e0;
     --cui-fg-promo-normal-hovered: #8a1ecc;
     --cui-fg-promo-normal-pressed: #7219a9;
-    // Normal borders
+    /* Normal borders */
     --cui-border-normal-normal-idle: #cccccc;
     --cui-border-normal-normal-hovered: #999999;
     --cui-border-normal-normal-pressed: #666666;
@@ -138,28 +138,28 @@ export const createBaseStyles = ({
     --cui-border-normal-strong-idle: #1a1a1a;
     --cui-border-normal-strong-hovered: #000000;
     --cui-border-normal-strong-pressed: #000000;
-    // Accent borders
+    /* Accent borders */
     --cui-border-accent-normal-idle: #3064e3;
     --cui-border-accent-normal-hovered: #1c51d3;
     --cui-border-accent-normal-pressed: #10399e;
     --cui-border-accent-normal-focused: #ebf4ff;
-    // Success borders
+    /* Success borders */
     --cui-border-success-normal-idle: #018850;
     --cui-border-success-normal-hovered: #007a4e;
     --cui-border-success-normal-pressed: #016c26;
-    // Warning borders
+    /* Warning borders */
     --cui-border-warning-normal-idle: #e87c00;
     --cui-border-warning-normal-hovered: #cc6d00;
     --cui-border-warning-normal-pressed: #b25c00;
-    // Danger borders
+    /* Danger borders */
     --cui-border-danger-normal-idle: #de331d;
     --cui-border-danger-normal-hovered: #bd2c19;
     --cui-border-danger-normal-pressed: #9e2415;
-    // Promo borders
+    /* Promo borders */
     --cui-border-promo-normal-idle: #9e33e0;
     --cui-border-promo-normal-hovered: #8a1ecc;
     --cui-border-promo-normal-pressed: #7219a9;
-    // aliases
+    /* aliases */
     --cui-bg-normal: var(--cui-bg-normal-normal-idle);
     --cui-bg-normal-hovered: var(--cui-bg-normal-normal-hovered);
     --cui-bg-normal-pressed: var(--cui-bg-normal-normal-pressed);
