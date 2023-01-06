@@ -27,9 +27,9 @@ The theme used throughout Circuit UI comes from SumUp's design token library, [`
 
 ### New semantic colors
 
-Theme colors are changing from color scales (e.g. `g900`) to semantic colors (e.g. `fg-success`). This makes theme customizations easier and more reliable, and enables theming for sub-brands or supporting multiple color modes.
+The Circuit UI theme is moving from color scales (e.g. `g900`) to semantic colors (e.g. `fg-success`). This makes theme customizations easier and more reliable, and enables theming for sub-brands or for supporting multiple color modes. For detailed documentation on the new semantic colors, refer to the [Figma documentation](https://www.figma.com/file/OgPQeoNZ2QoY7hZvy0ybk2/%F0%9F%8C%88-COLOR-TOKENS?node-id=913%3A3903&t=b9BsTOJnzKDomZ9E-4) (internal link).
 
-Additionally, colors are being moved from the JS theme (from `@sumup/design-tokens`) to CSS custom properties, declared in the Circuit UI `BaseStyles` from version 6.1.0. This has performance benefits over CSS-in-JS theming.
+Additionally, color tokens are moving from the JS theme (exported from `@sumup/design-tokens`) to [CSS custom properties](https://www.w3.org/TR/css-variables-1/), declared in the Circuit UI `BaseStyles` from version 6.1.0. This has performance benefits over CSS-in-JS theming. Eventually, all design tokens will be declared as CSS custom properties.
 
 #### Background colors
 
@@ -210,7 +210,7 @@ Additionally, colors are being moved from the JS theme (from `@sumup/design-toke
 
 ### Legacy colors
 
-Legacy colors are still available on the JS theme, but new semantic colors (see above) should be used on new pages from now on. The following lgacy colors will eventually be deprecated and removed from the theme.
+Legacy colors remain available on the JS theme, but semantic colors (see above) should be used on new pages from now on. The following legacy colors will eventually be deprecated and removed from the theme.
 
 ```
 theme.colors.<COLOR_NAME>
