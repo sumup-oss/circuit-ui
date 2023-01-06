@@ -70,7 +70,7 @@ export const components = {
   h4: withThemeProvider(Headline, {
     as: 'h4',
     size: 'four',
-    css: spacing({ top: 'giga' }),
+    css: spacing({ top: 'giga', bottom: 'mega' }),
   }),
   h5: withThemeProvider(SubHeadline, {
     as: 'h5',
