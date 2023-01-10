@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.1.0
+
+### Minor Changes
+
+- [#1880](https://github.com/sumup-oss/circuit-ui/pull/1880) [`38dcc5c1`](https://github.com/sumup-oss/circuit-ui/commit/38dcc5c13a44a2331a744d2ddda5c0b1617d4f72) Thanks [@robinmetral](https://github.com/robinmetral)! - Added semantic color tokens as CSS custom properties to the `BaseStyles`. See the [documentation](https://circuit.sumup.com/?path=/docs/features-theme--page) for details.
+
 ## 6.0.0
 
 ### Major Changes
