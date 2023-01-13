@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.17.0
+
+### Minor Changes
+
+- [#1906](https://github.com/sumup-oss/circuit-ui/pull/1906) [`5cf691e7`](https://github.com/sumup-oss/circuit-ui/commit/5cf691e78f768d907cb9abf9eff94b990f667df3) Thanks [@rcdutra](https://github.com/rcdutra)! - Added new card scheme icon for `Faster Payments`
+
 ## 2.15.0
 
 ### Minor Changes
