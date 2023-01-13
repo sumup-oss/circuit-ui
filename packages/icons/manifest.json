@@ -316,6 +316,11 @@
       "size": "24"
     },
     {
+      "name": "faster_payments",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "filter",
       "category": "Action",
       "size": "24"
