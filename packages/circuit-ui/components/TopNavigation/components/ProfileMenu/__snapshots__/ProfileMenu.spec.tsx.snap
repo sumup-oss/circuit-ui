@@ -309,12 +309,12 @@ exports[`ProfileMenu Styles should render without a profile picture 1`] = `
     class="circuit-0"
   >
     <button
-      aria-controls="popover_5"
+      aria-controls="popover_7"
       aria-expanded="false"
       aria-haspopup="true"
       aria-label="Open profile menu"
       class="circuit-1"
-      id="trigger_4"
+      id="trigger_6"
       title="Open profile menu"
       type="button"
     >
