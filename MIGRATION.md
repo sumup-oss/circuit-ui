@@ -84,7 +84,7 @@ You can only run one codemod at a time and we encourage you to apply the transfo
 
 Tip: Provide the `--transform`/`-t` argument at the end of the command, so that as you run further codemods you can easily replace the last argument and reuse the command to run the next codemod.
 
-> ⚠️ If you run into `'node\r': No such file or directory` when running the codemods with yarn, run them with node directly instead (this is a [known issue](https://github.com/facebook/jscodeshift/issues/424)).
+> ⚠️ If you run into `'node\r': No such file or directory` when running the codemods with yarn, run them with Node directly instead (this is a [known issue](https://github.com/facebook/jscodeshift/issues/424)).
 >
 > ```sh
 > ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
