@@ -11,8 +11,8 @@ A
 
 ## 💻 Prerequisites
 
-- You should have **Node.js** installed at a version equal or above **`v14.17.0`**. If you cannot do that, see the Troubleshooting section for ways around this requirement.
-- At the moment this project reqires **`yarn`** to be installed on your system. Yarn is a package manager for JavaScript. You can read how to install the Yarn CLI in [their documentation](https://yarnpkg.com/en/docs/install).
+- You should have **Node.js** installed at a version equal to or above **`v16.0.0`**.
+- At the moment this project requires **`yarn`** to be installed on your system. Yarn is a package manager for JavaScript. You can read how to install the Yarn CLI in [their documentation](https://yarnpkg.com/en/docs/install).
 
 ## ✨ Setting up a new SumUp Next.js project
 
@@ -20,7 +20,7 @@ A
 2. Navigate to the directory you would like to place your project in.
 3. Run `yarn create next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template/template" my-app`, where `my-app` is the name of your project.
 
-This will create the folder `my-app` and initialize a new project inside. The project will be based on [`Next.js`](https://github.com/vercel/next.js/) and will use SumUp's [`Circuit UI`](https://circuit.sumup.com/) component library and [`Foundry`](https://github.com/sumup-oss/foundry) toolkit, as well as [`lodash`](https://lodash.com/).
+This will create the folder `my-app` and initialize a new project inside. The project will be based on [`Next.js`](https://github.com/vercel/next.js/) and will use SumUp's [`Circuit UI`](https://circuit.sumup.com/) component library and [`Foundry`](https://github.com/sumup-oss/foundry) toolkit.
 
 ## 🛠 Development workflow
 
@@ -37,11 +37,11 @@ A linter is a tool that checks your code for
 - problems that will cause it to break when run, or
 - code style that violates a given set of rules the project is following.
 
-Linting serves as a first line of defence against evil bugs on production.​ Your project will be set up to use a version of the popular [ESLint](https://eslint.org) linter for TypeScript provided by Foundry. You can lint your code and apply automatic fixes by running `yarn lint`. Usually, your editor is able to integrate with ESLint. Check your options and refer to the [Tips](#setting-up-foundry-s-eslint-in-your-editor) section for details on how to make this work with Foundry.
+Linting serves as a first line of defense against evil bugs in production.​ Your project will be set up to use a version of the popular [ESLint](https://eslint.org) linter for TypeScript provided by Foundry. You can lint your code and apply automatic fixes by running `yarn lint`. Usually, your editor is able to integrate with ESLint. Check your options and refer to the [Tips](#setting-up-foundry-s-eslint-in-your-editor) section for details on how to make this work with Foundry.
 
 ### Writing tests
 
-Writing tests is great. Tests are the second line of defence against bugs ending up on production. By covering your application in unit and integration tests, you can be sure you did not break anything when, for example, shipping refactored code to production. Your new React project comes with testing built in. By running `yarn test` you will start the test runner, [Jest](https://jestjs.io/en/). As you add tests or make changes to your code, Jest will re-run tests and show you the results. The app will come with `react-testing-library` set up for writing UI tests for your React components. Check out `components/Anchor.spec.js` for examples.
+Writing tests is great. Tests are the second line of defense against bugs ending up in production. By covering your application in unit and integration tests, you can be sure you did not break anything when, for example, shipping refactored code to production. Your new React project comes with testing built in. By running `yarn test` you will start the test runner, [Jest](https://jestjs.io/en/). As you add tests or make changes to your code, Jest will re-run tests and show you the results. The app will come with `@testing-library/react` set up for writing UI tests for your React components. Check out `components/Anchor.spec.tsx` for examples.
 
 ## 📖 Useful resources
 
@@ -86,7 +86,7 @@ Error: Error watching file for changes: EMFILE
 error Command failed with exit code 1.
 ```
 
-Make sure you have watchman installed. On macOS and Homebrew as your package manager, you can install it with the following line.
+Make sure you have `watchman` installed. On macOS and Homebrew as your package manager, you can install it with the following line.
 
 ```bash
 brew install watchman

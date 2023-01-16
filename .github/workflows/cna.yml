@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [14, 16]
+        node: [16, 18]
     steps:
       - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1

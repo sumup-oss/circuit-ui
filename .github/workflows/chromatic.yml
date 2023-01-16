@@ -6,10 +6,10 @@ jobs:
   chromatic:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Node.js v16
+      - name: Setup Node.js v18
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: 18.x
 
       - name: Checkout repository
         uses: actions/checkout@v2

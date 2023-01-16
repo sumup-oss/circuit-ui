@@ -32,7 +32,7 @@ To start contributing to SumUp Open Source projects, please accept our [Contribu
 
 ### Prerequisites
 
-- [Node.js v16](https://nodejs.org/)
+- [Node.js v18](https://nodejs.org/)
 - [Yarn 1](https://classic.yarnpkg.com/en/docs/install)
 
 ### Installation
