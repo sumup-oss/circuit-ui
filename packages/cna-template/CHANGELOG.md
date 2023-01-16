@@ -1,5 +1,11 @@
 # @sumup/cna-template
 
+## 3.0.0
+
+### Major Changes
+
+- [#1913](https://github.com/sumup-oss/circuit-ui/pull/1913) [`036c6f5f`](https://github.com/sumup-oss/circuit-ui/commit/036c6f5fc5e4a0f1c23a1c9ef929054d4b4d579b) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the minimum required Node version to v16.
+
 ## 2.1.0
 
 ### Minor Changes
