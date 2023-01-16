@@ -1640,10 +1640,10 @@
   dependencies:
     "@floating-ui/core" "^1.0.5"
 
-"@floating-ui/react-dom@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@floating-ui/react-dom/-/react-dom-1.1.2.tgz#214d395adf0ed5277e824505f7ee0f5a367ec239"
-  integrity sha512-dtz6NGI9nfWll0TPcL5fZzhUoaWo7UpMSmhHYdABQoBA9V/BUVye4SiRa/affb4IocVZefN6HaX+ihrb3kj/dg==
+"@floating-ui/react-dom@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@floating-ui/react-dom/-/react-dom-1.2.0.tgz#bd152ab3d57dd84b27cb367e11fd8b6c1ac95b43"
+  integrity sha512-o1uQ9gPhgBajY/9T0boFNOw9MoxcuHOnVortmdlGCViM7I/aONbY+G1wejbqydHQ7+9j3p7hIsAUMrr3huV/JQ==
   dependencies:
     "@floating-ui/dom" "^1.1.0"
 
