@@ -52,6 +52,7 @@ export interface DesktopNavigationProps {
 }
 
 const PRIMARY_NAVIGATION_WIDTH = '48px';
+const PRIMARY_NAVIGATION_OPENED_WIDTH = '220px';
 
 const wrapperStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilTera} {
@@ -86,7 +87,16 @@ const primaryWrapperStyles = ({ theme }: StyleProps) => css`
   &:hover,
   &:focus-within {
     ${shadow(theme)};
-    width: 220px;
+    width: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
+  }
+
+  @media only screen and (min-width: 1920px) {
+    // media query hardcoded value cause we still don't have mq for such large screens
+    width: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
+    &:hover,
+    &:focus-within {
+      box-shadow: 1px 0 ${theme.colors.n300};
+    }
   }
 `;
 
@@ -106,6 +116,10 @@ const secondaryWrapperStyles = ({ theme }: StyleProps) => css`
   height: calc(100vh - ${TOP_NAVIGATION_HEIGHT});
   width: 200px;
   border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  @media only screen and (min-width: 1920px) {
+    // media query hardcoded value cause we still don't have mq for such large screens
+    margin-left: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
+  }
 `;
 
 const SecondaryNavigationWrapper = styled.nav(secondaryWrapperStyles);
