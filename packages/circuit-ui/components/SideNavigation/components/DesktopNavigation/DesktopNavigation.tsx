@@ -53,6 +53,7 @@ export interface DesktopNavigationProps {
 
 const PRIMARY_NAVIGATION_WIDTH = '48px';
 const PRIMARY_NAVIGATION_OPENED_WIDTH = '220px';
+const LARGE_SCREEN_BREAKPOINT = '1920px'; // max breakpoint in circuit-ui is 1280px therefore we decided to hardcode for now
 
 const wrapperStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilTera} {
@@ -90,8 +91,7 @@ const primaryWrapperStyles = ({ theme }: StyleProps) => css`
     width: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
   }
 
-  @media only screen and (min-width: 1920px) {
-    // media query hardcoded value cause we still don't have mq for such large screens
+  @media only screen and (min-width: ${LARGE_SCREEN_BREAKPOINT}) {
     width: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
     &:hover,
     &:focus-within {
@@ -116,8 +116,7 @@ const secondaryWrapperStyles = ({ theme }: StyleProps) => css`
   height: calc(100vh - ${TOP_NAVIGATION_HEIGHT});
   width: 200px;
   border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
-  @media only screen and (min-width: 1920px) {
-    // media query hardcoded value cause we still don't have mq for such large screens
+  @media only screen and (min-width: ${LARGE_SCREEN_BREAKPOINT}) {
     margin-left: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
   }
 `;
