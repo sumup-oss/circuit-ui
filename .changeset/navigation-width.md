@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': minor
 ---
 
-Adjust side navigation width in large screens
+Tweaked the `SideNavigation` to expand the primary navigation on large viewports.
