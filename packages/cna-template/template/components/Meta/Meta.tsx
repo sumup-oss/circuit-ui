@@ -25,17 +25,17 @@ export const Meta: FC<PropsWithChildren<MetaProps>> = ({
   title,
   description,
   path,
-  siteName = process.env.SITE_NAME,
+  siteName = process.env.NEXT_PUBLIC_SITE_NAME,
   type = 'website',
   image,
   updatedAt,
   index = true,
   follow = true,
-  locale = process.env.SITE_LOCALE,
+  locale = process.env.NEXT_PUBLIC_SITE_LOCALE,
   twitter,
   children,
 }) => {
-  const canonicalUrl = `${process.env.SITE_BASEURL}${path}`;
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_BASEURL}${path}`;
 
   const indexString = index ? 'index' : 'noindex';
   const followString = follow ? 'follow' : 'nofollow';

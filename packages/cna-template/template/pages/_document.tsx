@@ -41,9 +41,12 @@ export default function Document(): JSX.Element {
         />
         <meta
           name="apple-mobile-web-app-title"
-          content={process.env.SITE_NAME}
+          content={process.env.NEXT_PUBLIC_SITE_NAME}
         />
-        <meta name="application-name" content={process.env.SITE_NAME} />
+        <meta
+          name="application-name"
+          content={process.env.NEXT_PUBLIC_SITE_NAME}
+        />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
 
