@@ -23,7 +23,7 @@ describe('Link', () => {
   it('should render an anchor', () => {
     renderLink(defaultProps);
 
-    const link = screen.getByRole('link');
+    const link = screen.getByRole<HTMLAnchorElement>('link');
 
     expect(link).toHaveTextContent(defaultProps.children);
     expect(link.href).toBe(process.env.SITE_BASEURL + defaultProps.href);
