@@ -1,13 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Logo should render with default styles 1`] = `
-.emotion-0 {
-  display: block;
-  width: 120px;
-  color: #000;
-  margin: 32px 0;
-}
-
 <div>
   <a
     aria-label="Open SumUp's homepage in a new tab"
@@ -16,7 +9,7 @@ exports[`Logo should render with default styles 1`] = `
     target="_blank"
   >
     <svg
-      class="emotion-0"
+      class="css-bkvm6d-Logo"
       fill="currentColor"
       viewBox="0 0 214 63"
       xmlns="http://www.w3.org/2000/svg"
