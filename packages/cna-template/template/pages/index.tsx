@@ -62,7 +62,7 @@ const Page: NextPage = () => (
             <Anchor href="https://emotion.sh/" target="_blank">
               Emotion
             </Anchor>{' '}
-            support (incl. babel plugin)
+            support
           </li>
           <li>
             SumUp&apos;s default tooling provided by{' '}

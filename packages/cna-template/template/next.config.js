@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  compiler: {
+    emotion: true,
+  },
   /**
    * Environment variables can be used to inject dynamic configuration
    * into the Next.js app at built time. Learn more at
