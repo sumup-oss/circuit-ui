@@ -4322,10 +4322,10 @@
     semantic-release "^19.0.3"
     yargs "^17.5.1"
 
-"@sumup/intl@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@sumup/intl/-/intl-1.4.0.tgz#74b5542144e7e4537484e7f4baceb65b54e067f7"
-  integrity sha512-LlMqMUAeCyyUjTW6ASkFH/ixg5ceyADPOFWZcyylDC5JjskuBP2Grzc+FFuAOnjUCjk0kltkHiyJSwAYMuMOUg==
+"@sumup/intl@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@sumup/intl/-/intl-1.5.0.tgz#68238103fb5aa9dccbaefad3bbb14da48ab60e72"
+  integrity sha512-sDxcxg/3RNcyHoGprdm0cVz4snlGVfJMZMlwAXFarwKtkB5qF4TnXISlWEa1/hMPCjNK2cMQctlDO1dvp/iZjg==
   dependencies:
     intl-format-cache "^4.2.27"
 
