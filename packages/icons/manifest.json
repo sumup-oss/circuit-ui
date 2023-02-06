@@ -896,6 +896,11 @@
       "size": "24"
     },
     {
+      "name": "favorite",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
       "name": "gauge",
       "category": "Miscellaneous",
       "size": "24"
