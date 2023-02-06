@@ -1305,12 +1305,16 @@ exports[`Button styles should render a tertiary button 1`] = `
 
 .circuit-0:hover {
   color: #234BC3;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .circuit-0:active,
 .circuit-0[aria-expanded='true'],
 .circuit-0[aria-pressed='true'] {
   color: #1A368E;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .circuit-1 {
