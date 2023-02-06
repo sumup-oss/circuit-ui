@@ -1,15 +1,10 @@
 # @sumup/circuit-ui
 
-## 7.0.0
+## 6.2.0
 
 ### Minor Changes
 
 - [#1916](https://github.com/sumup-oss/circuit-ui/pull/1916) [`75a1b203`](https://github.com/sumup-oss/circuit-ui/commit/75a1b203d5af0bb392a953cd1b2486032702a3f0) Thanks [@tavarest](https://github.com/tavarest)! - Tweaked the `SideNavigation` to expand the primary navigation on large viewports.
-
-### Patch Changes
-
-- Updated dependencies [[`1400e62f`](https://github.com/sumup-oss/circuit-ui/commit/1400e62f9434e04c4da811a445a30d9bf3f07930)]:
-  - @sumup/icons@2.18.0
 
 ## 6.1.0
 
