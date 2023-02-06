@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.2.0
+
+### Minor Changes
+
+- [#1916](https://github.com/sumup-oss/circuit-ui/pull/1916) [`75a1b203`](https://github.com/sumup-oss/circuit-ui/commit/75a1b203d5af0bb392a953cd1b2486032702a3f0) Thanks [@tavarest](https://github.com/tavarest)! - Tweaked the `SideNavigation` to expand the primary navigation on large viewports.
+
 ## 6.1.0
 
 ### Minor Changes
