@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.18.0
+
+### Minor Changes
+
+- [#1928](https://github.com/sumup-oss/circuit-ui/pull/1928) [`1400e62f`](https://github.com/sumup-oss/circuit-ui/commit/1400e62f9434e04c4da811a445a30d9bf3f07930) Thanks [@Marczerwinski](https://github.com/Marczerwinski)! - Add new 16 size 'Favorite' icon
+
 ## 2.17.0
 
 ### Minor Changes
