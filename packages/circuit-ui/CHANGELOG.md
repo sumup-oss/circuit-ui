@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.2.1
+
+### Patch Changes
+
+- [#1938](https://github.com/sumup-oss/circuit-ui/pull/1938) [`18735f1c`](https://github.com/sumup-oss/circuit-ui/commit/18735f1c51dbdbc2b8d0b9175fd8179164c6b366) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the interactive styles of the secondary button inside a `ButtonGroup`.
+
 ## 6.2.0
 
 ### Minor Changes
