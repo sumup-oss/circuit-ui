@@ -15,13 +15,6 @@ import { toHaveNoViolations } from 'jest-axe';
 expect.extend(toHaveNoViolations);
 
 /**
- * Mocking the environment variables that are configured in next.config.js.
- */
-process.env.SITE_NAME = 'SumUp';
-process.env.SITE_LOCALE = 'en';
-process.env.SITE_BASEURL = 'https://example.sumup.com';
-
-/**
  * Mocking the IntersectionObserver to prevent `next/link` from causing
  * re-renderings of the `Link` component im specs.
  */

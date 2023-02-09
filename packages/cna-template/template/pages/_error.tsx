@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import {
@@ -13,7 +14,6 @@ import {
 } from '@sumup/circuit-ui';
 
 import { Logo } from '../components/Logo';
-import { Link } from '../components/Link';
 
 interface ErrorPageProps {
   statusCode?: number;
