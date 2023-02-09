@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-Added new `Payment Method` icons
+Added icons for the `Bancontact`, `Blik`, `EPS`, `Giropay`, `iDeal`, `MyBank`, `Przelewy24`, and `Satispay` payment methods.
