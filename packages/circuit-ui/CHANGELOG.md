@@ -1,5 +1,14 @@
 # @sumup/circuit-ui
 
+## 7.0.0
+
+### Patch Changes
+
+- [#1942](https://github.com/sumup-oss/circuit-ui/pull/1942) [`fd62d2f5`](https://github.com/sumup-oss/circuit-ui/commit/fd62d2f50a20dd58efa246b5ec3aba7ab3c63b03) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the height of the `DateInput` component.
+
+- Updated dependencies [[`fbaa82b7`](https://github.com/sumup-oss/circuit-ui/commit/fbaa82b7efaf9e4955b14af1a20413d4364ce2f4)]:
+  - @sumup/icons@2.19.0
+
 ## 6.2.1
 
 ### Patch Changes
