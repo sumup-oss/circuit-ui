@@ -14,9 +14,9 @@
  */
 
 import { forwardRef, useState, useEffect } from 'react';
+import { css } from '@emotion/react';
 import { PatternFormat } from 'react-number-format';
 
-import styled from '../../styles/styled';
 import { Input, InputProps } from '../Input/Input';
 
 export interface DateInputProps
@@ -34,7 +34,7 @@ export interface DateInputProps
   defaultValue?: string | number;
 }
 
-const BaseInput = styled(Input)`
+const dateInputStyles = css`
   height: 48px;
   min-width: 8ch;
 `;
@@ -81,9 +81,10 @@ export const DateInput = forwardRef(
     }
 
     return (
-      <BaseInput
+      <Input
         {...props}
         ref={ref}
+        inputStyles={dateInputStyles}
         type="date"
         pattern="\d{4}-\d{2}-\d{2}"
         placeholder={placeholder}
