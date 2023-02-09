@@ -276,7 +276,17 @@
       "size": "24"
     },
     {
+      "name": "bancontact",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "bitcoin",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "blik",
       "category": "Payment method",
       "size": "24"
     },
@@ -316,7 +326,17 @@
       "size": "24"
     },
     {
+      "name": "eps",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "faster_payments",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "giropay",
       "category": "Payment method",
       "size": "24"
     },
@@ -346,6 +366,11 @@
       "size": "24"
     },
     {
+      "name": "ideal",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "jcb",
       "category": "Payment method",
       "size": "24"
@@ -366,6 +391,11 @@
       "size": "24"
     },
     {
+      "name": "mybank",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "nfc_payment",
       "category": "Payment method",
       "size": "24"
@@ -381,12 +411,22 @@
       "size": "24"
     },
     {
+      "name": "przelewy24",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "red_compra",
       "category": "Payment method",
       "size": "24"
     },
     {
       "name": "samsung_pay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "satispay",
       "category": "Payment method",
       "size": "24"
     },
