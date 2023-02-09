@@ -1,5 +1,15 @@
 # @sumup/cna-template
 
+## 3.1.0
+
+### Minor Changes
+
+- [#1922](https://github.com/sumup-oss/circuit-ui/pull/1922) [`ee12d6b6`](https://github.com/sumup-oss/circuit-ui/commit/ee12d6b6e2ea0beeb7320b4fcbca31fb78e465d3) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded to Node 18.
+
+- [#1922](https://github.com/sumup-oss/circuit-ui/pull/1922) [`ee12d6b6`](https://github.com/sumup-oss/circuit-ui/commit/ee12d6b6e2ea0beeb7320b4fcbca31fb78e465d3) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched from Babel to SWC.
+
+- [#1922](https://github.com/sumup-oss/circuit-ui/pull/1922) [`ee12d6b6`](https://github.com/sumup-oss/circuit-ui/commit/ee12d6b6e2ea0beeb7320b4fcbca31fb78e465d3) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded to Next.js 13.1.
+
 ## 3.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.19.0
+
+### Minor Changes
+
+- [#1940](https://github.com/sumup-oss/circuit-ui/pull/1940) [`fbaa82b7`](https://github.com/sumup-oss/circuit-ui/commit/fbaa82b7efaf9e4955b14af1a20413d4364ce2f4) Thanks [@briannailiev](https://github.com/briannailiev)! - Added icons for the `Bancontact`, `Blik`, `EPS`, `Giropay`, `iDeal`, `MyBank`, `Przelewy24`, and `Satispay` payment methods.
+
 ## 2.18.0
 
 ### Minor Changes
