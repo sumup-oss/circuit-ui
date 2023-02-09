@@ -87,6 +87,7 @@ const TableBody = ({
                     condensed={condensed}
                     scope="row"
                     isOpen={isOpen}
+                    onChevronToggle={() => onTableRowClick(rowIndex)}
                     isExpandable={isExpandable}
                     isHovered={sortHover === cellIndex}
                     sortParams={{ sortable: false }}

@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { ThHTMLAttributes, FC, PropsWithChildren } from 'react';
+import {
+  ThHTMLAttributes,
+  FC,
+  PropsWithChildren,
+  EventHandler,
+  KeyboardEvent,
+  useRef,
+} from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { ChevronRight, ChevronDown } from '@sumup/icons';
@@ -24,6 +31,7 @@ import styled, { StyleProps } from '../../../../styles/styled';
 import { CellAlignment, SortParams } from '../../types';
 import { ClickEvent } from '../../../../types/events';
 import { AccessibilityError } from '../../../../util/errors';
+import IconButton from '../../../IconButton';
 
 export interface TableHeaderProps
   extends ThHTMLAttributes<HTMLTableCellElement> {
@@ -65,6 +73,10 @@ export interface TableHeaderProps
    * Props related to table sorting. Defaults to not sortable.
    */
   isOpen?: boolean;
+  /**
+   * Props related to table sorting. Defaults to not sortable.
+   */
+  onChevronToggle?: () => void;
 }
 
 /**
@@ -225,6 +237,7 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
   onClick,
   isExpandable,
   isOpen,
+  onChevronToggle,
   ...props
 }) => {
   if (
@@ -239,6 +252,14 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
     );
   }
   const CheveronToShow = isOpen ? ChevronDown : ChevronRight;
+  const cheveronReference = useRef<SVGSVGElement>(null);
+
+  const onChevronKeydown: EventHandler<KeyboardEvent<SVGSVGElement>> = (e) => {
+    if (e.key === 'Enter' && onChevronToggle) {
+      onChevronToggle();
+    }
+  };
+
   return (
     <StyledHeader
       condensed={condensed}
@@ -262,7 +283,21 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
           onClick={onClick}
         />
       )}
-      {isExpandable && <CheveronToShow css={chevronStyles} />}
+      {isExpandable && (
+        <IconButton
+          style={{ padding: 0 }}
+          label="expand"
+          aria-label="toggle-row"
+          variant="tertiary"
+        >
+          <CheveronToShow
+            data-testid="toggle-cheveron"
+            ref={cheveronReference}
+            onKeyDown={onChevronKeydown}
+            css={chevronStyles}
+          />
+        </IconButton>
+      )}
       {children}
     </StyledHeader>
   );

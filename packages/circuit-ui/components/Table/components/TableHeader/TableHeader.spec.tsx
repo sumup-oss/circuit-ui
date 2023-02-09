@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { screen, fireEvent } from '@testing-library/react';
+
 import { create, renderToHtml, axe } from '../../../../util/test-utils';
 
 import TableHeader from '.';
@@ -72,6 +74,19 @@ describe('TableHeader', () => {
         </TableHeader>,
       );
       expect(actual).toMatchSnapshot();
+    });
+
+    it('should fire onToggle on Enter keydown', () => {
+      const toggleSpy = jest.fn();
+      create(
+        <TableHeader isExpandable isOpen condensed onChevronToggle={toggleSpy}>
+          {children}
+        </TableHeader>,
+      );
+
+      const cheveron = screen.getByTestId('toggle-cheveron');
+      fireEvent.keyDown(cheveron, { key: 'Enter' });
+      expect(toggleSpy).toHaveBeenCalled();
     });
 
     describe('sortable + sorted', () => {
