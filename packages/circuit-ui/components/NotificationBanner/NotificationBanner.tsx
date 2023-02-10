@@ -110,8 +110,8 @@ const bannerWrapperStyles = ({
   position: relative;
   border-radius: ${theme.borderRadius.mega};
   background-color: ${variant === 'system'
-    ? theme.colors.p100
-    : theme.colors.n100};
+    ? 'var(--cui-bg-accent)'
+    : 'var(--cui-bg-subtle)'};
   overflow: hidden;
   transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
     visibility 200ms ease-in-out;
@@ -201,8 +201,8 @@ const closeButtonStyles = ({
   top: ${theme.spacings.byte};
   right: ${theme.spacings.byte};
   background-color: ${notificationVariant === 'system'
-    ? theme.colors.p100
-    : theme.colors.n100};
+    ? 'var(--cui-bg-accent)'
+    : 'var(--cui-bg-subtle)'};
 `;
 
 const StyledCloseButton = styled(CloseButton)(closeButtonStyles);

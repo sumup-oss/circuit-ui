@@ -30,7 +30,7 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
   justify-content: space-between;
   position: relative;
   border-radius: 16px;
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-subtle);
   overflow: hidden;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
   transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
@@ -298,7 +298,7 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   justify-content: space-between;
   position: relative;
   border-radius: 16px;
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
   overflow: hidden;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
   transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
