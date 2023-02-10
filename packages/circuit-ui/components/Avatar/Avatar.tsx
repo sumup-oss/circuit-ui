@@ -69,8 +69,8 @@ type StyledProps = {
 const baseStyles = ({ theme, size }: StyledProps & StyleProps) => css`
   width: ${avatarSizes[size]};
   height: ${avatarSizes[size]};
-  box-shadow: 0 0 0 ${theme.borderWidth.kilo} rgba(0, 0, 0, 0.1);
-  background-color: ${theme.colors.n300};
+  box-shadow: 0 0 0 ${theme.borderWidth.kilo} var(--cui-border-subtle);
+  background-color: var(--cui-bg-highlight);
 `;
 
 const imageStyles = () => css`
@@ -109,7 +109,7 @@ const initialStyles = ({ theme, size }: StyledProps & StyleProps) => css`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${theme.colors.white};
+  color: var(--cui-fg-on-strong);
   font-size: calc(${avatarSizes[size]} / 2);
   font-weight: ${theme.fontWeight.bold};
   user-select: none;
