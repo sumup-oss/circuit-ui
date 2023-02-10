@@ -14,7 +14,6 @@
  */
 
 import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components';
 
@@ -30,37 +29,29 @@ export default {
 
 export const Base = () => (
   <Spinner
-    css={(theme: Theme) =>
-      css`
-        color: ${theme.colors.p500};
-      `
-    }
+    css={css`
+      color: var(--cui-fg-accent);
+    `}
   />
 );
 export const Sizes = () => (
   <Stack>
     <Spinner
-      css={(theme: Theme) =>
-        css`
-          color: ${theme.colors.p500};
-        `
-      }
+      css={css`
+        color: var(--cui-fg-accent);
+      `}
       size="byte"
     />
     <Spinner
-      css={(theme: Theme) =>
-        css`
-          color: ${theme.colors.p500};
-        `
-      }
+      css={css`
+        color: var(--cui-fg-accent);
+      `}
       size="kilo"
     />
     <Spinner
-      css={(theme: Theme) =>
-        css`
-          color: ${theme.colors.p500};
-        `
-      }
+      css={css`
+        color: var(--cui-fg-accent);
+      `}
       size="giga"
     />
   </Stack>
