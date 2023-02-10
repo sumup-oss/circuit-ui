@@ -133,7 +133,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   height: 0;
   width: 100%;
   padding-top: 56%;
-  background: #F5F5F5;
+  background: var(--cui-bg-subtle);
 }
 
 .circuit-13 {
@@ -813,7 +813,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   height: 0;
   width: 100%;
   padding-top: 56%;
-  background: #F5F5F5;
+  background: var(--cui-bg-subtle);
 }
 
 .circuit-13 {
@@ -1492,7 +1492,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   height: 0;
   width: 100%;
   padding-top: 56%;
-  background: #F5F5F5;
+  background: var(--cui-bg-subtle);
 }
 
 .circuit-13 {
@@ -2142,7 +2142,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   height: 0;
   width: 100%;
   padding-top: 56%;
-  background: #F5F5F5;
+  background: var(--cui-bg-subtle);
 }
 
 .circuit-13 {
