@@ -52,8 +52,8 @@ const textWrapperStyles = ({ theme }: StyleProps) => css`
 
 const ToggleTextWrapper = styled('label')(textWrapperStyles);
 
-const explanationStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.n700};
+const explanationStyles = css`
+  color: var(--cui-fg-subtle);
 `;
 
 const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);

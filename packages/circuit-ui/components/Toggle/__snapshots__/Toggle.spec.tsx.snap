@@ -35,7 +35,7 @@ exports[`Toggle should render with default styles 1`] = `
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #CCC;
+  background-color: var(--cui-bg-highlight-hovered);
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -59,10 +59,14 @@ exports[`Toggle should render with default styles 1`] = `
   box-shadow: none;
 }
 
+.circuit-1:hover {
+  background-color: var(--cui-bg-highlight-pressed);
+}
+
 .circuit-2 {
   display: block;
-  background-color: #FFF;
-  box-shadow: 0 2px 0 0 #999;
+  background-color: var(--cui-fg-on-strong);
+  box-shadow: 0 2px 0 0 var(--cui-border-normal-pressed);
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px, -50%, 0);
@@ -111,7 +115,7 @@ exports[`Toggle should render with default styles 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
 }
 
 <div

@@ -13,7 +13,7 @@ exports[`Switch should have the correct default styles 1`] = `
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #CCC;
+  background-color: var(--cui-bg-highlight-hovered);
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -37,10 +37,14 @@ exports[`Switch should have the correct default styles 1`] = `
   box-shadow: none;
 }
 
+.circuit-0:hover {
+  background-color: var(--cui-bg-highlight-pressed);
+}
+
 .circuit-1 {
   display: block;
-  background-color: #FFF;
-  box-shadow: 0 2px 0 0 #999;
+  background-color: var(--cui-fg-on-strong);
+  box-shadow: 0 2px 0 0 var(--cui-border-normal-pressed);
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px, -50%, 0);
@@ -96,7 +100,7 @@ exports[`Switch should have the correct on styles 1`] = `
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #CCC;
+  background-color: var(--cui-bg-highlight-hovered);
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -105,7 +109,7 @@ exports[`Switch should have the correct on styles 1`] = `
   width: 40px;
   overflow: visible;
   cursor: pointer;
-  background-color: #3063E9;
+  background-color: var(--cui-bg-accent-strong);
 }
 
 .circuit-0:focus {
@@ -121,10 +125,18 @@ exports[`Switch should have the correct on styles 1`] = `
   box-shadow: none;
 }
 
+.circuit-0:hover {
+  background-color: var(--cui-bg-highlight-pressed);
+}
+
+.circuit-0:hover {
+  background-color: var(--cui-bg-accent-strong-hovered);
+}
+
 .circuit-1 {
   display: block;
-  background-color: #FFF;
-  box-shadow: 0 2px 0 0 #999;
+  background-color: var(--cui-fg-on-strong);
+  box-shadow: 0 2px 0 0 var(--cui-border-normal-pressed);
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px, -50%, 0);
@@ -136,7 +148,7 @@ exports[`Switch should have the correct on styles 1`] = `
   height: 16px;
   width: 16px;
   border-radius: 16px;
-  box-shadow: 0 2px 0 0 #234BC3;
+  box-shadow: 0 2px 0 0 var(--cui-border-accent-pressed);
   -webkit-transform: translate3d(
         calc(40px - 16px - 4px),
         -50%,
