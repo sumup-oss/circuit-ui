@@ -138,10 +138,10 @@ const TriggerElement = styled.div`
 
 const menuBaseStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.byte} 0px;
-  border: 1px solid ${theme.colors.n200};
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.byte};
-  background-color: ${theme.colors.white};
+  background-color: var(--cui-bg-normal);
   visibility: hidden;
   opacity: 0;
 
@@ -186,7 +186,7 @@ const overlayStyles = ({ theme }: StyleProps) => css`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: ${theme.colors.overlay};
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     transition: opacity ${theme.transitions.default},

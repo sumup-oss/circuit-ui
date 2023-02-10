@@ -12,7 +12,7 @@ exports[`Popover Styles should render popover on bottom 1`] = `
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -34,10 +34,10 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 .circuit-3 {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px 0px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
@@ -279,7 +279,7 @@ exports[`Popover Styles should render popover on left 1`] = `
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -301,10 +301,10 @@ exports[`Popover Styles should render popover on left 1`] = `
 .circuit-3 {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px 0px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
@@ -546,7 +546,7 @@ exports[`Popover Styles should render popover on right 1`] = `
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -568,10 +568,10 @@ exports[`Popover Styles should render popover on right 1`] = `
 .circuit-3 {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px 0px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
@@ -813,7 +813,7 @@ exports[`Popover Styles should render popover on top 1`] = `
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -835,10 +835,10 @@ exports[`Popover Styles should render popover on top 1`] = `
 .circuit-3 {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px 0px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
@@ -1080,7 +1080,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -1095,10 +1095,10 @@ exports[`Popover Styles should render with closed styles 1`] = `
 .circuit-3 {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px 0px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   visibility: hidden;
   opacity: 0;
 }
@@ -1329,7 +1329,7 @@ exports[`Popover Styles should render with default styles 1`] = `
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -1351,10 +1351,10 @@ exports[`Popover Styles should render with default styles 1`] = `
 .circuit-3 {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px 0px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
