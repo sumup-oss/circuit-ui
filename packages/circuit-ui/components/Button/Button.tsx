@@ -56,7 +56,7 @@ export interface BaseProps {
    */
   'disabled'?: boolean;
   /**
-   * Change the color from blue to red to signal to the user that the action
+   * Change the color from accent to danger to signal to the user that the action
    * is irreversible or otherwise dangerous.
    */
   'destructive'?: boolean;
@@ -157,33 +157,92 @@ const Content = styled.span<{ isLoading: boolean }>(
   contentLoadingStyles,
 );
 
-const COLOR_MAP = {
+const PRIMARY_COLOR_MAP = {
   default: {
-    default: 'p500',
-    hover: 'p700',
-    active: 'p900',
+    bg: {
+      idle: 'var(--cui-bg-accent-strong)',
+      hovered: 'var(--cui-bg-accent-strong-hovered)',
+      pressed: 'var(--cui-bg-accent-strong-pressed)',
+    },
+    fg: {
+      idle: 'var(--cui-fg-on-strong)',
+      hovered: 'var(--cui-fg-on-strong-hovered)',
+      pressed: 'var(--cui-fg-on-strong-pressed)',
+    },
+    border: {
+      idle: 'var(--cui-border-accent)',
+      hovered: 'var(--cui-border-accent-hovered)',
+      pressed: 'var(--cui-border-accent-pressed)',
+    },
   },
   destructive: {
-    default: 'alert',
-    hover: 'r700',
-    active: 'r900',
+    bg: {
+      idle: 'var(--cui-bg-danger-strong)',
+      hovered: 'var(--cui-bg-danger-strong-hovered)',
+      pressed: 'var(--cui-bg-danger-strong-pressed)',
+    },
+    fg: {
+      idle: 'var(--cui-fg-on-strong)',
+      hovered: 'var(--cui-fg-on-strong-hovered)',
+      pressed: 'var(--cui-fg-on-strong-pressed)',
+    },
+    border: {
+      idle: 'var(--cui-border-danger)',
+      hovered: 'var(--cui-border-danger-hovered)',
+      pressed: 'var(--cui-border-danger-pressed)',
+    },
   },
 } as const;
 
 const SECONDARY_COLOR_MAP = {
   default: {
-    text: 'black',
-    default: 'n500',
-    hover: 'n700',
-    active: 'n800',
+    bg: {
+      idle: 'var(--cui-bg-normal)',
+      hovered: 'var(--cui-bg-normal-hovered)',
+      pressed: 'var(--cui-bg-normal-pressed)',
+    },
+    fg: {
+      idle: 'var(--cui-fg-normal)',
+      hovered: 'var(--cui-fg-normal-hovered)',
+      pressed: 'var(--cui-fg-normal-pressed)',
+    },
+    border: {
+      idle: 'var(--cui-border-normal)',
+      hovered: 'var(--cui-border-normal-hovered)',
+      pressed: 'var(--cui-border-normal-pressed)',
+    },
   },
   destructive: {
-    text: 'alert',
-    default: 'alert',
-    hover: 'r700',
-    active: 'r900',
+    bg: {
+      idle: 'var(--cui-bg-normal)',
+      hovered: 'var(--cui-bg-normal-hovered)',
+      pressed: 'var(--cui-bg-normal-pressed)',
+    },
+    fg: {
+      idle: 'var(--cui-fg-danger)',
+      hovered: 'var(--cui-fg-danger-hovered)',
+      pressed: 'var(--cui-fg-danger-pressed)',
+    },
+    border: {
+      idle: 'var(--cui-border-danger)',
+      hovered: 'var(--cui-border-danger-hovered)',
+      pressed: 'var(--cui-border-danger-pressed)',
+    },
   },
 } as const;
+
+const TERTIARY_COLOR_MAP = {
+  default: {
+    idle: 'var(--cui-fg-accent)',
+    hovered: 'var(--cui-fg-accent-hovered)',
+    pressed: 'var(--cui-fg-accent-pressed)',
+  },
+  destructive: {
+    idle: 'var(--cui-fg-danger)',
+    hovered: 'var(--cui-fg-danger-hovered)',
+    pressed: 'var(--cui-fg-danger-pressed)',
+  },
+};
 
 type StyledButtonProps = Pick<
   ButtonProps,
@@ -215,40 +274,42 @@ const baseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const primaryStyles = ({
-  theme,
   variant = 'secondary',
   destructive,
-}: StyledButtonProps & StyleProps) => {
+}: StyledButtonProps) => {
   if (variant !== 'primary') {
     return null;
   }
 
-  const colors = destructive ? COLOR_MAP.destructive : COLOR_MAP.default;
+  const colors = destructive
+    ? PRIMARY_COLOR_MAP.destructive
+    : PRIMARY_COLOR_MAP.default;
 
   return css`
-    background-color: ${theme.colors[colors.default]};
-    border-color: ${theme.colors[colors.default]};
-    color: ${theme.colors.white};
+    background-color: ${colors.bg.idle};
+    border-color: ${colors.border.idle};
+    color: ${colors.fg.idle};
 
     &:hover {
-      background-color: ${theme.colors[colors.hover]};
-      border-color: ${theme.colors[colors.hover]};
+      background-color: ${colors.bg.hovered};
+      border-color: ${colors.border.hovered};
+      color: ${colors.fg.hovered};
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      background-color: ${theme.colors[colors.active]};
-      border-color: ${theme.colors[colors.active]};
+      background-color: ${colors.bg.pressed};
+      border-color: ${colors.border.pressed};
+      color: ${colors.fg.pressed};
     }
   `;
 };
 
 export const secondaryStyles = ({
-  theme,
   variant = 'secondary',
   destructive,
-}: StyledButtonProps & StyleProps) => {
+}: StyledButtonProps) => {
   if (variant !== 'secondary') {
     return null;
   }
@@ -258,44 +319,47 @@ export const secondaryStyles = ({
     : SECONDARY_COLOR_MAP.default;
 
   return css`
-    background-color: ${theme.colors.white};
-    border-color: ${theme.colors[colors.default]};
-    color: ${theme.colors[colors.text]};
+    background-color: ${colors.bg.idle};
+    border-color: ${colors.border.idle};
+    color: ${colors.fg.idle};
 
     &:hover {
-      background-color: ${theme.colors.n100};
-      border-color: ${theme.colors[colors.hover]};
+      background-color: ${colors.bg.hovered};
+      border-color: ${colors.border.hovered};
+      color: ${colors.fg.hovered};
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      background-color: ${theme.colors.n200};
-      border-color: ${theme.colors[colors.active]};
+      background-color: ${colors.bg.pressed};
+      border-color: ${colors.border.pressed};
+      color: ${colors.fg.pressed};
     }
   `;
 };
 
 export const tertiaryStyles = ({
-  theme,
   variant = 'secondary',
   destructive,
-}: StyledButtonProps & StyleProps) => {
+}: StyledButtonProps) => {
   if (variant !== 'tertiary') {
     return null;
   }
 
-  const colors = destructive ? COLOR_MAP.destructive : COLOR_MAP.default;
+  const colors = destructive
+    ? TERTIARY_COLOR_MAP.destructive
+    : TERTIARY_COLOR_MAP.default;
 
   return css`
     background-color: transparent;
     border-color: transparent;
-    color: ${theme.colors[colors.default]};
+    color: ${colors.idle};
     padding-left: 0;
     padding-right: 0;
 
     &:hover {
-      color: ${theme.colors[colors.hover]};
+      color: ${colors.hovered};
       background-color: transparent;
       border-color: transparent;
     }
@@ -303,7 +367,7 @@ export const tertiaryStyles = ({
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      color: ${theme.colors[colors.active]};
+      color: ${colors.pressed};
       background-color: transparent;
       border-color: transparent;
     }
