@@ -26,7 +26,7 @@ const Box = styled.div<IconSizeProps>(
   ({ theme, size }) => css`
     width: ${theme.iconSizes[size]};
     height: ${theme.iconSizes[size]};
-    background-color: ${theme.colors.r300};
+    background-color: var(--cui-bg-strong);
     margin-right: ${theme.spacings.mega};
   `,
 );

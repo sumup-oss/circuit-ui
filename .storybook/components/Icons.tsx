@@ -76,7 +76,7 @@ const Wrapper = styled.div`
 `;
 
 const Size = styled.p`
-  color: ${(p) => p.theme.colors.n700};
+  color: var(--cui-fg-subtle);
   font-style: italic;
 `;
 
@@ -91,10 +91,10 @@ const iconStyles = (color: keyof Theme['colors']) => (theme: Theme) =>
   css`
     transform: scale(2);
     max-width: 3rem;
-    color: ${theme.colors[color]};
-    background-color: ${color === 'white'
-      ? theme.colors.black
-      : theme.colors.bodyBg};
+    color: var(--cui-fg-${color});
+    background-color: ${color === 'on-strong'
+      ? 'var(--cui-bg-strong)'
+      : 'var(--cui-bg-normal)'};
   `;
 
 const Icons = () => {
@@ -122,13 +122,13 @@ const Icons = () => {
   ];
 
   const colorOptions = [
-    { label: 'Black', value: 'black' },
-    { label: 'Subtle', value: 'n700' },
-    { label: 'White', value: 'white' },
-    { label: 'Primary', value: 'p500' },
-    { label: 'Confirm', value: 'confirm' },
-    { label: 'Notify', value: 'notify' },
-    { label: 'Alert', value: 'alert' },
+    { label: 'Normal', value: 'normal' },
+    { label: 'Subtle', value: 'subtle' },
+    { label: 'Accent', value: 'accent' },
+    { label: 'Success', value: 'success' },
+    { label: 'Warning', value: 'warning' },
+    { label: 'Danger', value: 'danger' },
+    { label: 'On Strong', value: 'on-strong' },
   ];
 
   const activeIcons = iconsManifest.icons.filter(

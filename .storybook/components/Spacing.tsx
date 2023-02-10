@@ -26,7 +26,7 @@ const Box = styled.div<SpacingProps>(
   ({ theme, spacingName }) => css`
     width: ${theme.spacings[spacingName]};
     height: ${theme.spacings[spacingName]};
-    background-color: ${theme.colors.r300};
+    background-color: var(--cui-bg-strong);
     margin-right: ${theme.spacings.mega};
   `,
 );

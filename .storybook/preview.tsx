@@ -20,7 +20,7 @@ export const parameters = {
       {
         id: 'blue',
         title: 'Current',
-        url: 'theme/blue.css',
+        url: 'themes/blue.css',
       },
     ],
   },

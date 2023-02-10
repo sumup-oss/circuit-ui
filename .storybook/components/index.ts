@@ -34,7 +34,6 @@ export { default as BorderWidth } from './BorderWidth';
 export { default as BorderRadius } from './BorderRadius';
 export { default as IconSize } from './IconSize';
 export { default as Icons } from './Icons';
-export { Grid, Row, Col } from './Grid';
 export { default as Intro } from './Intro';
 export { default as Teaser } from './Teaser';
 export { default as Link } from './Link';
