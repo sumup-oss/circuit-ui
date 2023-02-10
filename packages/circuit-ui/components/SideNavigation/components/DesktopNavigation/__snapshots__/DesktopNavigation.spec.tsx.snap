@@ -245,7 +245,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #000;
+  color: var(--cui-fg-normal);
 }
 
 .circuit-14 {

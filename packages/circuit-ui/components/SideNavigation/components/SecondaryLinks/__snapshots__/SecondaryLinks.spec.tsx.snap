@@ -178,7 +178,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #000;
+  color: var(--cui-fg-normal);
 }
 
 <ul
