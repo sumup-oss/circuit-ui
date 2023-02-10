@@ -36,11 +36,11 @@ import {
 } from './style-mixins';
 
 describe('Style helpers', () => {
-  const red = (theme: Theme) => css`
-    color: ${theme.colors.r500};
+  const byte = (theme: Theme) => css`
+    margin: ${theme.spacings.byte};
   `;
-  const green = (theme: Theme) => css`
-    color: ${theme.colors.g500};
+  const kilo = (theme: Theme) => css`
+    color: ${theme.spacings.kilo};
   `;
   const purple = css`
     color: rebeccapurple;
@@ -48,12 +48,12 @@ describe('Style helpers', () => {
 
   describe('cx', () => {
     it('should call each style function with the theme', () => {
-      const actual = create(<div css={cx(red, green)} />);
+      const actual = create(<div css={cx(byte, kilo)} />);
 
       expect(actual).toMatchInlineSnapshot(`
         .circuit-0 {
-          color: #D23F47;
-          color: #8CC13F;
+          margin: 8px;
+          color: 12px;
         }
 
         <div
@@ -77,13 +77,13 @@ describe('Style helpers', () => {
     });
 
     it('should skip falsy style functions', () => {
-      const isGreen = false;
+      const isKilo = false;
 
-      const actual = create(<div css={cx(red, isGreen && green)} />);
+      const actual = create(<div css={cx(byte, isKilo && kilo)} />);
 
       expect(actual).toMatchInlineSnapshot(`
         .circuit-0 {
-          color: #D23F47;
+          margin: 8px;
         }
 
         <div
