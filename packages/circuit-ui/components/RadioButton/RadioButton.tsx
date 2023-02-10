@@ -49,7 +49,7 @@ export interface RadioButtonProps
 type LabelElProps = Pick<RadioButtonProps, 'invalid' | 'disabled'>;
 
 const labelBaseStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.bodyColor};
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -59,8 +59,8 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     box-sizing: border-box;
     height: 18px;
     width: 18px;
-    background-color: ${theme.colors.white};
-    border: 1px solid ${theme.colors.n500};
+    background-color: var(--cui-bg-normal);
+    border: 1px solid var(--cui-border-normal);
     border-radius: 100%;
     content: '';
     display: block;
@@ -75,7 +75,7 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     box-sizing: border-box;
     height: 10px;
     width: 10px;
-    background-color: ${theme.colors.p500};
+    background-color: var(--cui-fg-accent);
     border-radius: 100%;
     content: '';
     display: block;
@@ -89,33 +89,33 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
+const labelInvalidStyles = ({ invalid }: LabelElProps) =>
   invalid &&
   css`
     &:not(:focus)::before {
-      border-color: ${theme.colors.alert};
-      background-color: ${theme.colors.r100};
+      border-color: var(--cui-border-danger);
+      background-color: var(--cui-bg-danger);
     }
 
     &:not(:focus)::after {
-      background-color: ${theme.colors.alert};
+      background-color: var(--cui-fg-danger);
     }
   `;
 
-const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
+const labelDisabledStyles = ({ disabled }: LabelElProps) =>
   disabled &&
   css`
     ${disableVisually()};
 
     &::before {
       ${disableVisually()};
-      border-color: ${theme.colors.n700};
-      background-color: ${theme.colors.n200};
+      border-color: var(--cui-border-strong-disabled);
+      background-color: var(--cui-bg-normal-disabled);
     }
 
     &::after {
       ${disableVisually()};
-      background-color: ${theme.colors.n700};
+      background-color: var(--cui-fg-on-strong);
     }
   `;
 
@@ -131,26 +131,26 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
 
   &:hover + label::before {
-    border-color: ${theme.colors.n700};
+    border-color: var(--cui-border-normal-hovered);
   }
 
   &:focus + label::before {
     ${focusOutline(theme)};
-    border-color: ${theme.colors.p500};
+    border-color: var(--cui-border-accent);
   }
 
   &:focus:not(:focus-visible) + label::before {
     box-shadow: none;
-    border-color: ${theme.colors.n500};
+    border-color: var(--cui-border-normal);
   }
 
   &:checked:focus:not(:focus-visible) + label::before {
-    border-color: ${theme.colors.p500};
+    border-color: var(--cui-border-accent);
   }
 
   &:checked + label {
     &::before {
-      border-color: ${theme.colors.p500};
+      border-color: var(--cui-border-accent);
     }
 
     &::after {
@@ -160,16 +160,16 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
+const inputInvalidStyles = ({ invalid }: InputElProps) =>
   invalid &&
   css`
     &:hover + label::before,
     &:focus + label::before {
-      border-color: ${theme.colors.r700};
+      border-color: var(--cui-border-danger-hovered);
     }
 
     &:checked + label::before {
-      border-color: ${theme.colors.alert};
+      border-color: var(--cui-border-danger);
     }
   `;
 
