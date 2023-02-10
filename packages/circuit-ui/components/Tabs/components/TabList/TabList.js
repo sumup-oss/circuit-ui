@@ -26,7 +26,7 @@ const Wrapper = styled.div(
   ({ theme }) => css`
     ${shadow(theme)};
     ${hideScrollbar()}
-    background: ${theme.colors.white};
+    background: var(--cui-bg-normal);
     height: ${DEFAULT_HEIGHT};
     display: flex;
     overflow-x: auto;
