@@ -25,16 +25,16 @@ import { childrenPropType } from '../../../../util/shared-prop-types';
 
 import calendarInheritStyles from './CalendarImportedStyles';
 
-const dayDefault = (theme) => css`
+const dayDefault = css`
   .CalendarDay__default {
-    border: 1px solid ${theme.colors.n300};
-    color: ${theme.colors.bodyColor};
-    background: ${theme.colors.white};
+    border: 1px solid var(--cui-border-divider);
+    color: var(--cui-fg-normal);
+    background: var(--cui-bg-normal);
     vertical-align: middle;
 
     &:hover {
-      background: ${theme.colors.n300};
-      border: 1px double ${theme.colors.n500};
+      background: var(--cui-bg-normal-hovered);
+      border: 1px double var(--cui-border-normal-hovered);
       color: inherit;
     }
   }
@@ -42,54 +42,62 @@ const dayDefault = (theme) => css`
   .CalendarDay__hovered_span {
     &,
     &:hover {
-      background: ${theme.colors.p100};
-      border: 1px solid ${theme.colors.p500};
+      background: var(--cui-bg-accent-hovered);
+      border: 1px solid var(--cui-border-accent-hovered);
     }
 
     &:active {
-      background: ${theme.colors.p100};
-      border: 1px solid ${theme.colors.p500};
+      background: var(--cui-bg-accent-pressed);
+      border: 1px solid var(--cui-border-accent-pressed);
     }
   }
 `;
 
-const daySelection = (theme) => css`
+const daySelection = css`
   .CalendarDay__selected_span {
-    background: ${theme.colors.p100};
-    border: 1px solid ${theme.colors.p300};
+    background: var(--cui-bg-accent);
+    border: 1px solid var(--cui-border-accent);
 
     &:hover {
-      color: ${theme.colors.white};
-      background: ${theme.colors.p300};
-      border: 1px solid ${theme.colors.p500};
+      color: var(--cui-fg-normal-hovered);
+      background: var(--cui-bg-accent-hovered);
+      border: 1px solid var(--cui-border-accent-hovered);
     }
   }
   .CalendarDay__last_in_range {
-    border-right: ${theme.colors.p500};
+    border-right: var(--cui-border-accent);
   }
-  .CalendarDay__selected,
-  .CalendarDay__selected:active,
+  .CalendarDay__selected {
+    background: var(--cui-bg-accent-strong);
+    border: 1px solid var(--cui-border-accent);
+    color: var(--cui-fg-on-strong);
+  }
   .CalendarDay__selected:hover {
-    background: ${theme.colors.p500};
-    border: 1px solid ${theme.colors.p700};
-    color: ${theme.colors.white};
+    background: var(--cui-bg-accent-strong-hovered);
+    border: 1px solid var(--cui-border-accent-hovered);
+    color: var(--cui-fg-on-strong-hovered);
+  }
+  .CalendarDay__selected:active {
+    background: var(--cui-bg-accent-strong-pressed);
+    border: 1px solid var(--cui-border-accent-pressed);
+    color: var(--cui-fg-on-strong-pressed);
   }
 `;
 
-const blockedOutOfRange = (theme) => css`
+const blockedOutOfRange = css`
   .CalendarDay__blocked_out_of_range,
   .CalendarDay__blocked_out_of_range:active,
   .CalendarDay__blocked_out_of_range:hover {
     background: #fff;
-    border: 1px solid ${theme.colors.n300};
-    color: ${theme.colors.n300};
+    border: 1px solid var(--cui-border-divider);
+    color: var(--cui-fg-normal-disabled);
   }
 `;
 
 const dateRangePickerInput = (theme) => css`
   .DateRangePickerInput,
   .SingleDatePickerInput {
-    background-color: ${theme.colors.white};
+    background-color: var(--cui-bg-normal);
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
     transition: border-color ${theme.transitions.default};
     width: 100%;
@@ -100,13 +108,13 @@ const dateRangePickerInput = (theme) => css`
       border: none;
       border-radius: ${theme.borderRadius.byte};
       transition: box-shadow ${theme.transitions.default};
-      box-shadow: 0 0 0 1px ${theme.colors.n500};
+      box-shadow: 0 0 0 1px var(--cui-border-strong);
 
       &:hover {
-        box-shadow: 0 0 0 1px ${theme.colors.n700};
+        box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
       }
       &:focus-within {
-        box-shadow: 0 0 0 2px ${theme.colors.p500};
+        box-shadow: 0 0 0 2px var(--cui-border-accent);
       }
     }
 
@@ -116,7 +124,7 @@ const dateRangePickerInput = (theme) => css`
   }
 
   .DateRangePickerInput__disabled {
-    background: #f2f2f2;
+    background: var(--cui-bg-normal-disabled);
   }
 
   .DateRangePickerInput_arrow {
@@ -131,7 +139,7 @@ const dateRangePickerInput = (theme) => css`
   }
 
   .DateInput_input {
-    color: ${theme.colors.bodyColor};
+    color: var(--cui-fg-normal);
     ${typography('one')(theme)};
     font-weight: 200;
     background-color: inherit;
@@ -140,7 +148,7 @@ const dateRangePickerInput = (theme) => css`
     border: none;
 
     &::placeholder {
-      color: ${theme.colors.n500};
+      color: var(--cui-fg-placeholder);
       transition: color ${theme.transitions.default};
     }
   }
@@ -159,9 +167,9 @@ const navButtons = (theme) => css`
     height: auto;
     cursor: pointer;
     text-align: center;
-    border: 1px solid ${theme.colors.n500};
-    background-color: ${theme.colors.white};
-    color: ${theme.colors.n800};
+    border: 1px solid var(--cui-border-normal);
+    background-color: var(--cui-bg-normal);
+    color: var(--cui-fg-normal);
     padding: ${theme.spacings.byte};
     border-radius: ${theme.borderRadius.pill};
     transition: opacity ${theme.transitions.default},
@@ -170,13 +178,13 @@ const navButtons = (theme) => css`
       border-color ${theme.transitions.default};
 
     &:hover {
-      background-color: ${theme.colors.n100};
-      border-color: ${theme.colors.n700};
+      background-color: var(--cui-bg-normal-hovered);
+      border-color: var(--cui-border-normal-hovered);
     }
 
     &:active {
-      background-color: ${theme.colors.n200};
-      border-color: ${theme.colors.n800};
+      background-color: var(--cui-bg-normal-pressed);
+      border-color: var(--cui-border-normal-pressed);
     }
 
     ${focusVisible(theme)};
@@ -208,9 +216,9 @@ const closeButton = (theme) => css`
   }
 `;
 
-const calendarCaption = (theme) => css`
+const calendarCaption = css`
   .CalendarMonth_caption {
-    color: ${theme.colors.bodyColor};
+    color: var(--cui-fg-normal);
     font-size: 18px;
     text-align: center;
     padding-top: 22px;
@@ -221,7 +229,7 @@ const calendarCaption = (theme) => css`
 
 const calendarWeekHeader = (theme) => css`
   .DayPicker_weekHeader {
-    color: ${theme.colors.bodyColor};
+    color: var(--cui-fg-normal);
     position: absolute;
     top: 67px;
     z-index: 2;

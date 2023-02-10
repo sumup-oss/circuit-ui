@@ -22,12 +22,12 @@ import 'react-dates/initialize';
 import { CalendarWrapper } from './components';
 
 const ArrowIcon = styled(ArrowRight)`
-  color: ${({ theme }) => theme.colors.p500};
+  color: var(--cui-fg-normal);
 `;
 
 const CloseIcon = styled(Close)(
   ({ theme }) => css`
-    color: ${theme.colors.n700};
+    color: var(--cui-fg-normal);
     margin: ${theme.spacings.bit} ${theme.spacings.bit} 0 0; /* Adjust spacing to fit in the 32px customArrowIcon container */
   `,
 );
