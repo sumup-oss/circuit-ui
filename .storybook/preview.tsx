@@ -15,6 +15,15 @@ export const parameters = {
     },
   },
   docs: { theme: light, components, container: DocsContainer },
+  stylesheetToggle: {
+    stylesheets: [
+      {
+        id: 'blue',
+        title: 'Current',
+        url: 'theme/blue.css',
+      },
+    ],
+  },
 };
 
 export const decorators = [

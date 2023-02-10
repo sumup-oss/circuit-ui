@@ -15423,6 +15423,11 @@ store2@^2.14.2:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.14.2.tgz#56138d200f9fe5f582ad63bc2704dbc0e4a45068"
   integrity sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==
 
+storybook-stylesheet-toggle@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/storybook-stylesheet-toggle/-/storybook-stylesheet-toggle-0.1.3.tgz#e8b6226ae3617d57e306c2675df8c50f3f36db3b"
+  integrity sha512-yxpBbg985fXkv5Y+INO943DpFOWFRePY6vt2ENfKkzp94A/Bmm6/XXz+ybQQSunHP9ziQffVuV8JD8tYAx6wsg==
+
 storybook@^7.0.0-beta.50:
   version "7.0.0-beta.50"
   resolved "https://registry.yarnpkg.com/storybook/-/storybook-7.0.0-beta.50.tgz#8d8d2813a74620af294cb15cb40e73d1ec031cd3"
