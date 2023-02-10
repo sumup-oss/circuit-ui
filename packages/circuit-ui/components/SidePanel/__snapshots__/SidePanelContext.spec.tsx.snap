@@ -166,7 +166,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -508,7 +508,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -849,7 +849,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {

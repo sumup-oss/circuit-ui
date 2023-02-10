@@ -99,7 +99,7 @@ const tagRemovableStyles = ({ theme, removable }: StyleProps & TagElProps) =>
     padding-right: calc(${theme.spacings.bit} + ${theme.spacings.tera});
   `;
 
-const tagClickableStyles = ({ theme, onClick }: StyleProps & TagElProps) =>
+const tagClickableStyles = ({ onClick }: TagElProps) =>
   onClick &&
   css`
     cursor: pointer;
@@ -118,7 +118,7 @@ const tagClickableStyles = ({ theme, onClick }: StyleProps & TagElProps) =>
       border-color: var(--cui-border-normal-pressed);
     }
 
-    ${focusVisible(theme)};
+    ${focusVisible()};
   `;
 
 const tagSelectedStyles = ({ selected }: TagElProps) =>

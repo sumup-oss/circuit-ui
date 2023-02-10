@@ -25,7 +25,7 @@ exports[`ListItem business logic should not render a trailing section with detai
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -141,7 +141,7 @@ exports[`ListItem business logic should render as a button when the onClick prop
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -267,7 +267,7 @@ exports[`ListItem business logic should render as a link when the href prop is p
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -393,7 +393,7 @@ exports[`ListItem styles should render a ListItem with a custom details line 1`]
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -536,7 +536,7 @@ exports[`ListItem styles should render a ListItem with a custom label 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -647,7 +647,7 @@ exports[`ListItem styles should render a ListItem with a custom leading componen
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -810,7 +810,7 @@ exports[`ListItem styles should render a ListItem with a custom trailing compone
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -987,7 +987,7 @@ exports[`ListItem styles should render a ListItem with a custom trailing label 1
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1158,7 +1158,7 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1302,7 +1302,7 @@ exports[`ListItem styles should render a ListItem with a leading icon 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1445,7 +1445,7 @@ exports[`ListItem styles should render a ListItem with a trailing label 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1616,7 +1616,7 @@ exports[`ListItem styles should render a ListItem with custom trailing details 1
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1816,7 +1816,7 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -2016,7 +2016,7 @@ exports[`ListItem styles should render a disabled ListItem 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -2132,7 +2132,7 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -2307,7 +2307,7 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -2440,7 +2440,7 @@ exports[`ListItem styles should render the action variant ListItem by default 1`
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {

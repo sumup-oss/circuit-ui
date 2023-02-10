@@ -182,7 +182,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
 
 .circuit-5:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-5:focus::-moz-focus-inner {
@@ -569,7 +569,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -955,7 +955,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -1341,7 +1341,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -1735,7 +1735,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {

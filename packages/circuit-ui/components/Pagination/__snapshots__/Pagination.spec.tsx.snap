@@ -75,7 +75,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -204,7 +204,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 
 .circuit-7:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-7:focus::-moz-focus-inner {
@@ -279,7 +279,7 @@ li:last-child .circuit-7 {
 
 .circuit-11:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-11:focus::-moz-focus-inner {
@@ -356,7 +356,7 @@ li:last-child .circuit-11 {
 
 .circuit-27:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-27:focus::-moz-focus-inner {
@@ -650,7 +650,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -886,7 +886,7 @@ select:not(:active)~.circuit-13 {
 
 .circuit-15:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-15:focus::-moz-focus-inner {

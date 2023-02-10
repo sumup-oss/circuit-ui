@@ -187,7 +187,7 @@ const navButtons = (theme) => css`
       border-color: var(--cui-border-normal-pressed);
     }
 
-    ${focusVisible(theme)};
+    ${focusVisible()};
 
     &:disabled,
     &[disabled] {

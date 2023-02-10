@@ -128,7 +128,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-4:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-4:focus::-moz-focus-inner {
@@ -240,7 +240,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-10:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-10:focus::-moz-focus-inner {
@@ -414,7 +414,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-19:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-19:focus::-moz-focus-inner {
@@ -773,7 +773,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 
 .circuit-4:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-4:focus::-moz-focus-inner {
@@ -884,7 +884,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 
 .circuit-10:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-10:focus::-moz-focus-inner {

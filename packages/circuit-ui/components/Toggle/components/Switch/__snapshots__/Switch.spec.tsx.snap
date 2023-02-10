@@ -26,7 +26,7 @@ exports[`Switch should have the correct default styles 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -114,7 +114,7 @@ exports[`Switch should have the correct on styles 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {

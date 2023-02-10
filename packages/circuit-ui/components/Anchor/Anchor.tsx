@@ -79,7 +79,7 @@ const anchorStyles = (theme: Theme) => css`
     color: var(--cui-fg-accent-pressed);
   }
 
-  ${focusVisible(theme)};
+  ${focusVisible()};
 `;
 
 /**

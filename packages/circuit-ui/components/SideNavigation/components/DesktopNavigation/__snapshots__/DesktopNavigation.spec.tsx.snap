@@ -103,7 +103,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 
 .circuit-3:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-3:focus::-moz-focus-inner {
@@ -289,7 +289,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 
 .circuit-14:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-14:focus::-moz-focus-inner {
@@ -552,7 +552,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
 
 .circuit-3:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-3:focus::-moz-focus-inner {

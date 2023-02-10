@@ -226,38 +226,36 @@ export function focusOutline(
  * the user agent determines via heuristics that the focus should be
  * made evident on the element.
  */
+// TODO: Simplify the function signature in the next major.
 export function focusVisible(
   options: 'inset',
-): (args: ThemeArgs) => SerializedStyles;
-export function focusVisible(args: ThemeArgs): SerializedStyles;
+): (args?: ThemeArgs) => SerializedStyles;
+export function focusVisible(args?: ThemeArgs): SerializedStyles;
 export function focusVisible(
-  argsOrOptions: ThemeArgs | 'inset',
-): SerializedStyles | ((args: ThemeArgs) => SerializedStyles) {
+  argsOrOptions?: ThemeArgs | 'inset',
+): SerializedStyles | ((args?: ThemeArgs) => SerializedStyles) {
   if (typeof argsOrOptions === 'string') {
-    return (args: ThemeArgs): SerializedStyles => {
-      const theme = getTheme(args);
-      return css`
-        &:focus {
-          outline: 0;
-          box-shadow: inset 0 0 0 4px ${theme.colors.p300};
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    return (_args?: ThemeArgs): SerializedStyles => css`
+      &:focus {
+        outline: 0;
+        box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 
-          &::-moz-focus-inner {
-            border: 0;
-          }
+        &::-moz-focus-inner {
+          border: 0;
         }
+      }
 
-        &:focus:not(:focus-visible) {
-          box-shadow: none;
-        }
-      `;
-    };
+      &:focus:not(:focus-visible) {
+        box-shadow: none;
+      }
+    `;
   }
 
-  const theme = getTheme(argsOrOptions);
   return css`
     &:focus {
       outline: 0;
-      box-shadow: 0 0 0 4px ${theme.colors.p300};
+      box-shadow: 0 0 0 4px var(--cui-border-focus);
 
       &::-moz-focus-inner {
         border: 0;
@@ -400,7 +398,7 @@ export const listItem = (
       cursor: pointer;
     }
 
-    ${focusVisible('inset')(theme)};
+    ${focusVisible('inset')()};
 
     &:active {
       background-color: ${theme.colors.n200};
@@ -458,7 +456,7 @@ export const navigationItem = (
         : 'var(--cui-bg-normal-pressed)'};
     }
 
-    ${focusVisible('inset')(theme)};
+    ${focusVisible('inset')()};
 
     &:disabled {
       ${disableVisually()};

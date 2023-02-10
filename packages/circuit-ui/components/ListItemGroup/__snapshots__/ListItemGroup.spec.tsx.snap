@@ -120,7 +120,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
 
 .circuit-8:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-8:focus::-moz-focus-inner {
@@ -388,7 +388,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -665,7 +665,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
 
 .circuit-8:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-8:focus::-moz-focus-inner {
@@ -946,7 +946,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -1215,7 +1215,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with interactive ite
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -1493,7 +1493,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -1678,7 +1678,7 @@ exports[`ListItemGroup styles should render the focused item in a ListItemGroup 
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1884,7 +1884,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -2070,7 +2070,7 @@ exports[`ListItemGroup styles should render the selected item in a ListItemGroup
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -2218,7 +2218,7 @@ exports[`ListItemGroup styles should render the selected item in a plain ListIte
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {

@@ -136,7 +136,7 @@ HTMLCollection [
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -381,7 +381,7 @@ HTMLCollection [
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {

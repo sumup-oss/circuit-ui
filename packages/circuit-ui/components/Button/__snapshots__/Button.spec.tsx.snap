@@ -67,7 +67,7 @@ exports[`Button should render with loading styles 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -229,7 +229,7 @@ exports[`Button styles should render a button with icon 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -403,7 +403,7 @@ exports[`Button styles should render a disabled button 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -553,7 +553,7 @@ exports[`Button styles should render a giga button 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -702,7 +702,7 @@ exports[`Button styles should render a kilo button 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -851,7 +851,7 @@ exports[`Button styles should render a primary button by default 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1000,7 +1000,7 @@ exports[`Button styles should render a secondary button 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1150,7 +1150,7 @@ exports[`Button styles should render a stretched button 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1301,7 +1301,7 @@ exports[`Button styles should render a tertiary button 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
