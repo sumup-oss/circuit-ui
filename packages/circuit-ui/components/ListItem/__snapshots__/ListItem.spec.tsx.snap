@@ -693,8 +693,8 @@ exports[`ListItem styles should render a ListItem with a custom leading componen
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #D23F47;
-  color: #FFF;
+  background-color: var(--cui-bg-danger-strong);
+  color: var(--cui-fg-on-strong);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -924,8 +924,8 @@ exports[`ListItem styles should render a ListItem with a custom trailing compone
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #CA58FF;
-  color: #FFF;
+  background-color: var(--cui-bg-promo-strong);
+  color: var(--cui-fg-on-strong);
 }
 
 <div

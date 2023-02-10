@@ -10,8 +10,8 @@ exports[`Badge should have the correct circle styles 1`] = `
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #E6E6E6;
-  color: #1A1A1A;
+  background-color: var(--cui-bg-highlight);
+  color: var(--cui-fg-normal);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -44,8 +44,8 @@ exports[`Badge should render with alert styles 1`] = `
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #D23F47;
-  color: #FFF;
+  background-color: var(--cui-bg-danger-strong);
+  color: var(--cui-fg-on-strong);
 }
 
 <div
@@ -63,8 +63,8 @@ exports[`Badge should render with confirm styles 1`] = `
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #138849;
-  color: #FFF;
+  background-color: var(--cui-bg-success-strong);
+  color: var(--cui-fg-on-strong);
 }
 
 <div
@@ -82,8 +82,8 @@ exports[`Badge should render with default styles 1`] = `
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #E6E6E6;
-  color: #1A1A1A;
+  background-color: var(--cui-bg-highlight);
+  color: var(--cui-fg-normal);
 }
 
 <div
@@ -101,8 +101,8 @@ exports[`Badge should render with neutral styles 1`] = `
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #E6E6E6;
-  color: #1A1A1A;
+  background-color: var(--cui-bg-highlight);
+  color: var(--cui-fg-normal);
 }
 
 <div
@@ -120,8 +120,8 @@ exports[`Badge should render with notify styles 1`] = `
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #F6CC1B;
-  color: #1A1A1A;
+  background-color: var(--cui-bg-warning-strong);
+  color: var(--cui-fg-on-strong);
 }
 
 <div
@@ -139,8 +139,8 @@ exports[`Badge should render with promo styles 1`] = `
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #CA58FF;
-  color: #FFF;
+  background-color: var(--cui-bg-promo-strong);
+  color: var(--cui-fg-on-strong);
 }
 
 <div

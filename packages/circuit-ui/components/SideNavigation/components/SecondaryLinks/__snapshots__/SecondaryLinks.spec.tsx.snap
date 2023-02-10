@@ -91,8 +91,8 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #CA58FF;
-  color: #FFF;
+  background-color: var(--cui-bg-promo-strong);
+  color: var(--cui-fg-on-strong);
 }
 
 .circuit-9 {

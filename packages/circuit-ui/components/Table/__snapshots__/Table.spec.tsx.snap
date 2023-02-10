@@ -2397,8 +2397,8 @@ tbody .circuit-4:last-child td {
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #E6E6E6;
-  color: #1A1A1A;
+  background-color: var(--cui-bg-highlight);
+  color: var(--cui-fg-normal);
 }
 
 <div
