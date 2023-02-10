@@ -25,7 +25,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 .circuit-5 {
   position: absolute;
   pointer-events: none;
-  color: #666;
+  color: var(--cui-fg-subtle);
   padding: 12px 16px;
   height: 48px;
   width: 48px;
@@ -35,7 +35,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -44,32 +44,32 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-disabled);
   padding-left: 48px;
   padding-right: 48px;
   box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-6::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -140,7 +140,7 @@ exports[`SearchInput should render with default styles 1`] = `
 .circuit-5 {
   position: absolute;
   pointer-events: none;
-  color: #666;
+  color: var(--cui-fg-subtle);
   padding: 12px 16px;
   height: 48px;
   width: 48px;
@@ -150,7 +150,7 @@ exports[`SearchInput should render with default styles 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -165,25 +165,25 @@ exports[`SearchInput should render with default styles 1`] = `
 }
 
 .circuit-6::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }

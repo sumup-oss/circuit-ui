@@ -32,7 +32,7 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
   justify-content: center;
   position: absolute;
   pointer-events: none;
-  color: #666;
+  color: var(--cui-fg-subtle);
   padding: 12px 16px;
   height: 48px;
   width: 48px;
@@ -42,7 +42,7 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -57,25 +57,25 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
 }
 
 .circuit-6::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -152,7 +152,7 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -167,25 +167,25 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -220,7 +220,7 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
   top: 0;
   right: 0;
   pointer-events: none;
-  color: #666;
+  color: var(--cui-fg-subtle);
   padding: 12px 16px;
   height: 48px;
   width: 48px;
@@ -300,7 +300,7 @@ exports[`CurrencyInput Styles should render with default styles and format 1`] =
   justify-content: center;
   position: absolute;
   pointer-events: none;
-  color: #666;
+  color: var(--cui-fg-subtle);
   padding: 12px 16px;
   height: 48px;
   width: 48px;
@@ -310,7 +310,7 @@ exports[`CurrencyInput Styles should render with default styles and format 1`] =
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -325,25 +325,25 @@ exports[`CurrencyInput Styles should render with default styles and format 1`] =
 }
 
 .circuit-6::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }

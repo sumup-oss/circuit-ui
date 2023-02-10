@@ -26,7 +26,7 @@ exports[`Input Styles should prioritize disabled over error styles 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -35,30 +35,30 @@ exports[`Input Styles should prioritize disabled over error styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-disabled);
   box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -123,7 +123,7 @@ exports[`Input Styles should prioritize disabled over warning styles 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -132,30 +132,30 @@ exports[`Input Styles should prioritize disabled over warning styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-disabled);
   box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -213,7 +213,7 @@ exports[`Input Styles should render with a description when passed the validatio
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -226,25 +226,25 @@ exports[`Input Styles should render with a description when passed the validatio
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -328,7 +328,7 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
 .circuit-5 {
   position: absolute;
   pointer-events: none;
-  color: #666;
+  color: var(--cui-fg-subtle);
   padding: 12px 16px;
   height: 48px;
   width: 48px;
@@ -338,7 +338,7 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -352,25 +352,25 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
 }
 
 .circuit-6::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-6::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -443,7 +443,7 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -457,25 +457,25 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -497,7 +497,7 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
   top: 0;
   right: 0;
   pointer-events: none;
-  color: #666;
+  color: var(--cui-fg-subtle);
   padding: 12px 16px;
   height: 48px;
   width: 48px;
@@ -565,7 +565,7 @@ exports[`Input Styles should render with custom styles 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -579,25 +579,25 @@ exports[`Input Styles should render with custom styles 1`] = `
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -666,7 +666,7 @@ exports[`Input Styles should render with default styles 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -679,25 +679,25 @@ exports[`Input Styles should render with default styles 1`] = `
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -772,7 +772,7 @@ exports[`Input Styles should render with disabled styles when passed the disable
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -781,30 +781,30 @@ exports[`Input Styles should render with disabled styles when passed the disable
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-disabled);
   box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -862,7 +862,7 @@ exports[`Input Styles should render with invalid styles when passed the invalid 
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -875,47 +875,43 @@ exports[`Input Styles should render with invalid styles when passed the invalid 
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:not(:focus)::-webkit-input-placeholder {
-  color: #DE331D;
-  opacity: 0.5;
+  color: var(--cui-fg-danger);
 }
 
 .circuit-5:not(:focus)::-moz-placeholder {
-  color: #DE331D;
-  opacity: 0.5;
+  color: var(--cui-fg-danger);
 }
 
 .circuit-5:not(:focus):-ms-input-placeholder {
-  color: #DE331D;
-  opacity: 0.5;
+  color: var(--cui-fg-danger);
 }
 
 .circuit-5:not(:focus)::placeholder {
-  color: #DE331D;
-  opacity: 0.5;
+  color: var(--cui-fg-danger);
 }
 
 .circuit-5:hover {
@@ -983,7 +979,7 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -992,30 +988,30 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-subtle-disabled);
   box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -1085,7 +1081,7 @@ exports[`Input Styles should render with right aligned text 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -1099,25 +1095,25 @@ exports[`Input Styles should render with right aligned text 1`] = `
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -1186,7 +1182,7 @@ exports[`Input Styles should render with valid styles when passed the showValid 
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -1199,25 +1195,25 @@ exports[`Input Styles should render with valid styles when passed the showValid 
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -1286,7 +1282,7 @@ exports[`Input Styles should render with warning styles when passed the hasWarni
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -1299,43 +1295,43 @@ exports[`Input Styles should render with warning styles when passed the hasWarni
 }
 
 .circuit-5::-webkit-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
-  color: #999;
+  color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-5:not(:focus)::-webkit-input-placeholder {
-  color: #F5A720;
+  color: var(--cui-fg-warning);
 }
 
 .circuit-5:not(:focus)::-moz-placeholder {
-  color: #F5A720;
+  color: var(--cui-fg-warning);
 }
 
 .circuit-5:not(:focus):-ms-input-placeholder {
-  color: #F5A720;
+  color: var(--cui-fg-warning);
 }
 
 .circuit-5:not(:focus)::placeholder {
-  color: #F5A720;
+  color: var(--cui-fg-warning);
 }
 
 .circuit-5:hover {
