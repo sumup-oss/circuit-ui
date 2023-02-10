@@ -38,8 +38,8 @@ const headerStyles = ({ theme }: StyleProps) => css`
   align-items: center;
   width: 100%;
   height: ${TOP_NAVIGATION_HEIGHT};
-  background-color: ${theme.colors.bodyBg};
-  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  background-color: var(--cui-bg-normal);
+  border-bottom: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
 
   ${theme.mq.tera} {
     position: sticky;
@@ -58,7 +58,7 @@ const hamburgerStyles = (theme: Theme) => css`
 
   border-radius: 0;
   /* The !important below is necessary to override the default hover styles. */
-  border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n300} !important;
+  border-right: ${theme.borderWidth.kilo} solid var(--cui-border-divider) !important;
 
   ${theme.mq.tera} {
     display: none;
@@ -81,7 +81,7 @@ const logoStyles = ({ theme }: StyleProps) => css`
   }
 
   svg {
-    color: ${theme.colors.black};
+    color: var(--cui-fg-normal);
     height: ${theme.iconSizes.mega};
   }
 `;

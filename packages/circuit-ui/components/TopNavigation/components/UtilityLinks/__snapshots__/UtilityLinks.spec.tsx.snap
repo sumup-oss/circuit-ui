@@ -23,8 +23,8 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
   align-items: center;
   border: none;
   outline: none;
-  color: #1A1A1A;
-  background-color: #FFF;
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-normal);
   text-align: left;
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
@@ -33,15 +33,15 @@ exports[`UtilityLinks styles should match the snapshot 1`] = `
   text-decoration: none;
   height: 100%;
   padding: 0 16px;
-  border-left: 1px solid #CCC;
+  border-left: 1px solid var(--cui-border-divider);
 }
 
 .circuit-1:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-1:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-1:focus {

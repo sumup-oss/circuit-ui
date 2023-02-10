@@ -30,7 +30,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   text-decoration: none;
   height: 100%;
   padding: 0 ${theme.spacings.mega};
-  border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  border-left: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
 `;
 
 const UtilityAnchor = styled.a<NoTheme>(navigationItem, anchorStyles);

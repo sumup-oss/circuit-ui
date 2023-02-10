@@ -39,11 +39,11 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding-top: 12px;
   overflow-y: auto;
   overflow-x: hidden;
-  box-shadow: 1px 0 #CCC;
+  box-shadow: 1px 0 var(--cui-border-divider);
   -webkit-transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   -ms-overflow-style: none;
@@ -63,7 +63,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 
   .circuit-1:hover,
   .circuit-1:focus-within {
-    box-shadow: 1px 0 #CCC;
+    box-shadow: 1px 0 var(--cui-border-divider);
   }
 }
 
@@ -94,11 +94,11 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #000;
+  color: var(--cui-fg-normal);
   padding: 24px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
 }
 
 .circuit-3:focus {
@@ -115,11 +115,11 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 }
 
 .circuit-3:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-3:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-3:disabled {
@@ -141,7 +141,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid var(--cui-border-divider);
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }
@@ -157,7 +157,11 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 }
 
 .circuit-3:hover {
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent-hovered);
+}
+
+.circuit-3:active {
+  background-color: var(--cui-bg-accent-pressed);
 }
 
 .circuit-4 {
@@ -203,11 +207,11 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   overflow-y: auto;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   margin-left: 48px;
   height: calc(100vh - 57px);
   width: 200px;
-  border-right: 1px solid #CCC;
+  border-right: 1px solid var(--cui-border-divider);
 }
 
 @media only screen and (min-width: 1920px) {
@@ -255,8 +259,8 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   align-items: center;
   border: none;
   outline: none;
-  color: #1A1A1A;
-  background-color: #FFF;
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-normal);
   text-align: left;
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
@@ -276,11 +280,11 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 }
 
 .circuit-14:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-14:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-14:focus {
@@ -485,11 +489,11 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding-top: 12px;
   overflow-y: auto;
   overflow-x: hidden;
-  box-shadow: 1px 0 #CCC;
+  box-shadow: 1px 0 var(--cui-border-divider);
   -webkit-transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   transition: width 120ms ease-in-out,box-shadow 120ms ease-in-out;
   -ms-overflow-style: none;
@@ -509,7 +513,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
 
   .circuit-1:hover,
   .circuit-1:focus-within {
-    box-shadow: 1px 0 #CCC;
+    box-shadow: 1px 0 var(--cui-border-divider);
   }
 }
 
@@ -540,7 +544,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #000;
+  color: var(--cui-fg-normal);
   padding: 24px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
@@ -560,11 +564,11 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
 }
 
 .circuit-3:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-3:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-3:disabled {
@@ -586,7 +590,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid var(--cui-border-divider);
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }

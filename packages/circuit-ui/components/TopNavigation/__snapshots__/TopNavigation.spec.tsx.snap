@@ -31,8 +31,8 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   align-items: center;
   width: 100%;
   height: 57px;
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
 }
 
 @media (min-width: 1280px) {
@@ -99,7 +99,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   padding: 12px;
   padding: 16px;
   border-radius: 0;
-  border-right: 1px solid #CCC!important;
+  border-right: 1px solid var(--cui-border-divider)!important;
 }
 
 .circuit-3:focus {
@@ -290,7 +290,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 }
 
 .circuit-10 svg {
-  color: #000;
+  color: var(--cui-fg-normal);
   height: 24px;
 }
 
@@ -336,8 +336,8 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   align-items: center;
   border: none;
   outline: none;
-  color: #1A1A1A;
-  background-color: #FFF;
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-normal);
   text-align: left;
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
@@ -346,15 +346,15 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   text-decoration: none;
   height: 100%;
   padding: 0 16px;
-  border-left: 1px solid #CCC;
+  border-left: 1px solid var(--cui-border-divider);
 }
 
 .circuit-13:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-13:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-13:focus {
@@ -432,23 +432,23 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   align-items: center;
   border: none;
   outline: none;
-  color: #1A1A1A;
-  background-color: #FFF;
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-normal);
   text-align: left;
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   height: 100%;
   padding: 0 16px;
-  border-left: 1px solid #CCC;
+  border-left: 1px solid var(--cui-border-divider);
 }
 
 .circuit-18:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-18:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-18:focus {

@@ -438,10 +438,12 @@ export const navigationItem = (
     align-items: center;
     border: none;
     outline: none;
-    color: ${options.isActive ? theme.colors.p500 : theme.colors.bodyColor};
+    color: ${options.isActive
+      ? 'var(--cui-fg-accent)'
+      : 'var(--cui-fg-normal)'};
     background-color: ${options.isActive
-      ? theme.colors.p100
-      : theme.colors.white};
+      ? 'var(--cui-bg-accent)'
+      : 'var(--cui-bg-normal)'};
     text-align: left;
     cursor: pointer;
     transition: color ${theme.transitions.default},
@@ -449,12 +451,14 @@ export const navigationItem = (
 
     &:hover {
       background-color: ${options.isActive
-        ? theme.colors.p100
-        : theme.colors.n100};
+        ? 'var(--cui-bg-accent-hovered)'
+        : 'var(--cui-bg-normal-hovered)'};
     }
 
     &:active {
-      background-color: ${theme.colors.n200};
+      background-color: ${options.isActive
+        ? 'var(--cui-bg-accent-pressed)'
+        : 'var(--cui-bg-normal-pressed)'};
     }
 
     ${focusVisible('inset')(theme)};
