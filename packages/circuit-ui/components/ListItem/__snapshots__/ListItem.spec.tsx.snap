@@ -1244,7 +1244,7 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
 }
 
 <div
@@ -1745,7 +1745,7 @@ exports[`ListItem styles should render a ListItem with custom trailing details 1
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
 }
 
 <div
@@ -1945,7 +1945,7 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
 }
 
 <div
