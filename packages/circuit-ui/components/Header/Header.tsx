@@ -47,7 +47,7 @@ const containerStyles = ({ theme }: StyleProps) => css`
   display: flex;
   align-items: center;
   min-height: 64px;
-  background-color: ${theme.colors.n900};
+  background-color: var(--cui-bg-strong);
   padding: ${theme.spacings.mega};
   z-index: ${theme.zIndex.header};
   position: sticky;
