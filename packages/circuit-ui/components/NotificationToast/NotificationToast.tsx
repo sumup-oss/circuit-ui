@@ -13,9 +13,16 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
+import {
+  FC,
+  HTMLAttributes,
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { css } from '@emotion/react';
-import { Alert, Confirm, Info, NotifyCircle } from '@sumup/icons';
+import { Alert, Confirm, IconProps, Info, NotifyCircle } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
@@ -65,11 +72,19 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
     iconLabel?: string;
   };
 
-const iconMap = {
+const iconMap: Record<Variant, FC<IconProps<'16' | '24'>>> = {
   info: Info,
   confirm: Confirm,
   alert: Alert,
   notify: NotifyCircle,
+};
+
+// TODO: Align variant names with token names in the next major.
+const colorMap: Record<Variant, string> = {
+  info: 'accent',
+  confirm: 'success',
+  alert: 'danger',
+  notify: 'warning',
 };
 
 type NotificationToastWrapperProps = {
@@ -80,9 +95,9 @@ const toastWrapperStyles = ({
   theme,
   variant,
 }: NotificationToastWrapperProps & StyleProps) => css`
-  background-color: ${theme.colors.bodyBg};
+  background-color: var(--cui-bg-normal);
   border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};
+  border: ${theme.borderWidth.mega} solid var(--cui-border-${colorMap[variant]});
   overflow: hidden;
   will-change: height;
   transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
@@ -113,35 +128,14 @@ const contentStyles = ({ theme }: StyleProps) => css`
 const Content = styled('div')(contentStyles);
 
 const IconWrapper = styled.div(
-  ({ theme, variant }: StyleProps & { variant: Variant }) =>
+  ({ variant }: { variant: Variant }) =>
     css`
       position: relative;
       align-self: flex-start;
       flex-grow: 0;
       flex-shrink: 0;
       line-height: 0;
-      color: ${theme.colors[variant]};
-    `,
-  // Adds a black background behind the SVG icon to color just the exclamation mark black.
-  ({ theme, variant }: StyleProps & { variant: Variant }) =>
-    variant === 'notify' &&
-    css`
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: calc(100% - 4px);
-        height: calc(100% - 4px);
-        background: ${theme.colors.black};
-        border-radius: ${theme.borderRadius.circle};
-      }
-
-      svg {
-        position: relative;
-        z-index: 1;
-      }
+      color: var(--cui-fg-${colorMap[variant]});
     `,
 );
 

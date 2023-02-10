@@ -18,9 +18,9 @@ exports[`NotificationToast styles should render with a headline 1`] = `
 }
 
 .circuit-0 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-radius: 8px;
-  border: 2px solid #3063E9;
+  border: 2px solid var(--cui-border-accent);
   overflow: hidden;
   will-change: height;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
@@ -55,7 +55,7 @@ exports[`NotificationToast styles should render with a headline 1`] = `
   -ms-flex-negative: 0;
   flex-shrink: 0;
   line-height: 0;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
 }
 
 .circuit-3 {
@@ -322,9 +322,9 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
 }
 
 .circuit-0 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-radius: 8px;
-  border: 2px solid #DE331D;
+  border: 2px solid var(--cui-border-danger);
   overflow: hidden;
   will-change: height;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
@@ -359,7 +359,7 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
   -ms-flex-negative: 0;
   flex-shrink: 0;
   line-height: 0;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
 }
 
 .circuit-3 {
@@ -614,9 +614,9 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
 }
 
 .circuit-0 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-radius: 8px;
-  border: 2px solid #018730;
+  border: 2px solid var(--cui-border-success);
   overflow: hidden;
   will-change: height;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
@@ -651,7 +651,7 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
   -ms-flex-negative: 0;
   flex-shrink: 0;
   line-height: 0;
-  color: #018730;
+  color: var(--cui-fg-success);
 }
 
 .circuit-3 {
@@ -906,9 +906,9 @@ exports[`NotificationToast styles should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-radius: 8px;
-  border: 2px solid #3063E9;
+  border: 2px solid var(--cui-border-accent);
   overflow: hidden;
   will-change: height;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
@@ -943,7 +943,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   -ms-flex-negative: 0;
   flex-shrink: 0;
   line-height: 0;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
 }
 
 .circuit-3 {
@@ -1198,9 +1198,9 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
 }
 
 .circuit-0 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-radius: 8px;
-  border: 2px solid #3063E9;
+  border: 2px solid var(--cui-border-accent);
   overflow: hidden;
   will-change: height;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
@@ -1235,7 +1235,7 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
   -ms-flex-negative: 0;
   flex-shrink: 0;
   line-height: 0;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
 }
 
 .circuit-3 {
@@ -1490,9 +1490,9 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
 }
 
 .circuit-0 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-radius: 8px;
-  border: 2px solid #F5A720;
+  border: 2px solid var(--cui-border-warning);
   overflow: hidden;
   will-change: height;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
@@ -1527,24 +1527,7 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
   -ms-flex-negative: 0;
   flex-shrink: 0;
   line-height: 0;
-  color: #F5A720;
-}
-
-.circuit-2::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: calc(100% - 4px);
-  height: calc(100% - 4px);
-  background: #000;
-  border-radius: 100%;
-}
-
-.circuit-2 svg {
-  position: relative;
-  z-index: 1;
+  color: var(--cui-fg-warning);
 }
 
 .circuit-3 {
