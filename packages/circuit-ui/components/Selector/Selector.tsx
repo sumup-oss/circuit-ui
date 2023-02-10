@@ -75,7 +75,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: ${theme.colors.white};
+  background-color: var(--cui-bg-normal);
   text-align: center;
   position: relative;
   border-radius: ${theme.borderRadius.byte};
@@ -92,23 +92,23 @@ const baseStyles = ({ theme }: StyleProps) => css`
     width: 100%;
     height: 100%;
     border-radius: ${theme.borderRadius.byte};
-    border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+    border: ${theme.borderWidth.kilo} solid var(--cui-border-normal);
     transition: border ${theme.transitions.default};
   }
 
   &:hover {
-    background-color: ${theme.colors.n100};
+    background-color: var(--cui-bg-normal-hovered);
 
     &::before {
-      border-color: ${theme.colors.n500};
+      border-color: var(--cui-border-normal-hovered);
     }
   }
 
   &:active {
-    background-color: ${theme.colors.n200};
+    background-color: var(--cui-bg-normal-pressed);
 
     &::before {
-      border-color: ${theme.colors.n700};
+      border-color: var(--cui-border-normal-pressed);
     }
   }
 `;
@@ -150,10 +150,10 @@ const inputStyles = ({ theme }: StyleProps) => css`
   }
 
   &:checked + label {
-    background-color: ${theme.colors.p100};
+    background-color: var(--cui-bg-accent);
 
     &::before {
-      border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
+      border: ${theme.borderWidth.mega} solid var(--cui-border-accent);
     }
   }
 `;
