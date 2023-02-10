@@ -68,10 +68,10 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 }
 
 .circuit-4 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -93,7 +93,7 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -111,7 +111,7 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-4:disabled,
@@ -137,10 +137,10 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 }
 
 .circuit-7 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -162,7 +162,7 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 }
 
 .circuit-7:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -180,7 +180,7 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 }
 
 .circuit-7:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-7:disabled,
@@ -335,10 +335,10 @@ exports[`Popover Styles should render popover on left 1`] = `
 }
 
 .circuit-4 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -360,7 +360,7 @@ exports[`Popover Styles should render popover on left 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -378,7 +378,7 @@ exports[`Popover Styles should render popover on left 1`] = `
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-4:disabled,
@@ -404,10 +404,10 @@ exports[`Popover Styles should render popover on left 1`] = `
 }
 
 .circuit-7 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -429,7 +429,7 @@ exports[`Popover Styles should render popover on left 1`] = `
 }
 
 .circuit-7:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -447,7 +447,7 @@ exports[`Popover Styles should render popover on left 1`] = `
 }
 
 .circuit-7:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-7:disabled,
@@ -602,10 +602,10 @@ exports[`Popover Styles should render popover on right 1`] = `
 }
 
 .circuit-4 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -627,7 +627,7 @@ exports[`Popover Styles should render popover on right 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -645,7 +645,7 @@ exports[`Popover Styles should render popover on right 1`] = `
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-4:disabled,
@@ -671,10 +671,10 @@ exports[`Popover Styles should render popover on right 1`] = `
 }
 
 .circuit-7 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -696,7 +696,7 @@ exports[`Popover Styles should render popover on right 1`] = `
 }
 
 .circuit-7:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -714,7 +714,7 @@ exports[`Popover Styles should render popover on right 1`] = `
 }
 
 .circuit-7:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-7:disabled,
@@ -869,10 +869,10 @@ exports[`Popover Styles should render popover on top 1`] = `
 }
 
 .circuit-4 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -894,7 +894,7 @@ exports[`Popover Styles should render popover on top 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -912,7 +912,7 @@ exports[`Popover Styles should render popover on top 1`] = `
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-4:disabled,
@@ -938,10 +938,10 @@ exports[`Popover Styles should render popover on top 1`] = `
 }
 
 .circuit-7 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -963,7 +963,7 @@ exports[`Popover Styles should render popover on top 1`] = `
 }
 
 .circuit-7:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -981,7 +981,7 @@ exports[`Popover Styles should render popover on top 1`] = `
 }
 
 .circuit-7:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-7:disabled,
@@ -1118,10 +1118,10 @@ exports[`Popover Styles should render with closed styles 1`] = `
 }
 
 .circuit-4 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -1143,7 +1143,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -1161,7 +1161,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-4:disabled,
@@ -1187,10 +1187,10 @@ exports[`Popover Styles should render with closed styles 1`] = `
 }
 
 .circuit-7 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -1212,7 +1212,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
 }
 
 .circuit-7:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -1230,7 +1230,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
 }
 
 .circuit-7:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-7:disabled,
@@ -1385,10 +1385,10 @@ exports[`Popover Styles should render with default styles 1`] = `
 }
 
 .circuit-4 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -1410,7 +1410,7 @@ exports[`Popover Styles should render with default styles 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -1428,7 +1428,7 @@ exports[`Popover Styles should render with default styles 1`] = `
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-4:disabled,
@@ -1454,10 +1454,10 @@ exports[`Popover Styles should render with default styles 1`] = `
 }
 
 .circuit-7 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -1479,7 +1479,7 @@ exports[`Popover Styles should render with default styles 1`] = `
 }
 
 .circuit-7:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
@@ -1497,7 +1497,7 @@ exports[`Popover Styles should render with default styles 1`] = `
 }
 
 .circuit-7:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-7:disabled,

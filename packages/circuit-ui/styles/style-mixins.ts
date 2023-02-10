@@ -391,23 +391,25 @@ export const listItem = (
   const options = isTheme(args) ? { destructive: false } : args;
 
   return css`
-    background-color: ${theme.colors.white};
+    background-color: var(--cui-bg-normal);
     padding: ${theme.spacings.kilo} ${theme.spacings.tera}
       ${theme.spacings.kilo} ${theme.spacings.mega};
     border: 0;
-    color: ${options.destructive ? theme.colors.alert : theme.colors.bodyColor};
+    color: ${options.destructive
+      ? 'var(--cui-fg-danger)'
+      : 'var(--cui-fg-normal)'};
     text-decoration: none;
     position: relative;
 
     &:hover {
-      background-color: ${theme.colors.n100};
+      background-color: var(--cui-bg-normal-hovered);
       cursor: pointer;
     }
 
     ${focusVisible('inset')()};
 
     &:active {
-      background-color: ${theme.colors.n200};
+      background-color: var(--cui-bg-normal-pressed);
     }
 
     &:disabled,
