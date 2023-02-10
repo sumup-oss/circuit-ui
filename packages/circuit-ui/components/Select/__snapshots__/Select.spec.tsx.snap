@@ -19,7 +19,7 @@ exports[`Select Styles should not render with invalid styles when also passed th
 }
 
 .circuit-4 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
@@ -32,12 +32,12 @@ exports[`Select Styles should not render with invalid styles when also passed th
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: 12px;
   padding-right: 48px;
@@ -64,7 +64,7 @@ exports[`Select Styles should not render with invalid styles when also passed th
 }
 
 .circuit-6 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -81,7 +81,7 @@ select:active~.circuit-6 {
 }
 
 .circuit-7 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -190,7 +190,7 @@ exports[`Select Styles should render with a prefix when passed the prefix prop 1
 }
 
 .circuit-4 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
@@ -213,12 +213,12 @@ exports[`Select Styles should render with a prefix when passed the prefix prop 1
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: 12px;
   padding-right: 48px;
@@ -258,7 +258,7 @@ exports[`Select Styles should render with a prefix when passed the prefix prop 1
 }
 
 .circuit-7 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -275,7 +275,7 @@ select:active~.circuit-7 {
 }
 
 .circuit-8 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -386,7 +386,7 @@ exports[`Select Styles should render with a tooltip when passed a validation hin
 }
 
 .circuit-4 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
@@ -399,12 +399,12 @@ exports[`Select Styles should render with a tooltip when passed a validation hin
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: 12px;
   padding-right: 48px;
@@ -443,7 +443,7 @@ exports[`Select Styles should render with a tooltip when passed a validation hin
 }
 
 .circuit-6 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -460,7 +460,7 @@ select:active~.circuit-6 {
 }
 
 .circuit-7 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -592,7 +592,7 @@ exports[`Select Styles should render with a visually-hidden label 1`] = `
 }
 
 .circuit-4 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
@@ -605,12 +605,12 @@ exports[`Select Styles should render with a visually-hidden label 1`] = `
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: 12px;
   padding-right: 48px;
@@ -649,7 +649,7 @@ exports[`Select Styles should render with a visually-hidden label 1`] = `
 }
 
 .circuit-6 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -666,7 +666,7 @@ select:active~.circuit-6 {
 }
 
 .circuit-7 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -773,7 +773,7 @@ exports[`Select Styles should render with default styles 1`] = `
 }
 
 .circuit-4 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
@@ -786,12 +786,12 @@ exports[`Select Styles should render with default styles 1`] = `
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: 12px;
   padding-right: 48px;
@@ -830,7 +830,7 @@ exports[`Select Styles should render with default styles 1`] = `
 }
 
 .circuit-6 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -847,7 +847,7 @@ select:active~.circuit-6 {
 }
 
 .circuit-7 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -960,7 +960,7 @@ exports[`Select Styles should render with disabled styles when passed the disabl
 }
 
 .circuit-4 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
@@ -973,12 +973,12 @@ exports[`Select Styles should render with disabled styles when passed the disabl
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: 12px;
   padding-right: 48px;
@@ -1005,7 +1005,7 @@ exports[`Select Styles should render with disabled styles when passed the disabl
 }
 
 .circuit-6 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1022,7 +1022,7 @@ select:active~.circuit-6 {
 }
 
 .circuit-7 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1130,7 +1130,7 @@ exports[`Select Styles should render with invalid styles when passed the invalid
 }
 
 .circuit-4 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
@@ -1143,12 +1143,12 @@ exports[`Select Styles should render with invalid styles when passed the invalid
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: 12px;
   padding-right: 48px;
@@ -1188,7 +1188,7 @@ exports[`Select Styles should render with invalid styles when passed the invalid
 }
 
 .circuit-6 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1205,7 +1205,7 @@ select:active~.circuit-6 {
 }
 
 .circuit-7 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;

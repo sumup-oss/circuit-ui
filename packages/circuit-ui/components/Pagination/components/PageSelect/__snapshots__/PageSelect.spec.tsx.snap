@@ -23,7 +23,7 @@ HTMLCollection [
 }
 
 .circuit-4 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
@@ -36,12 +36,12 @@ HTMLCollection [
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: 12px;
   padding-right: 48px;
@@ -80,7 +80,7 @@ HTMLCollection [
 }
 
 .circuit-6 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -97,7 +97,7 @@ select:active~.circuit-6 {
 }
 
 .circuit-7 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;

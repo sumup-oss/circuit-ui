@@ -751,7 +751,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-10 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
@@ -764,12 +764,12 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: 12px;
   padding-right: 48px;
@@ -808,7 +808,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-12 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -825,7 +825,7 @@ select:active~.circuit-12 {
 }
 
 .circuit-13 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
