@@ -299,6 +299,7 @@ export const hideScrollbar = (): SerializedStyles => css`
  * Visually communicates to the user that an element is hovered, focused, or
  * active in the disabled, invalid, and warning states.
  */
+// TODO: Remove `theme` from the function signature in the next major.
 export const inputOutline = (
   args:
     | Theme
@@ -309,63 +310,68 @@ export const inputOutline = (
         hasWarning?: boolean;
       },
 ): SerializedStyles => {
-  const theme = getTheme(args);
   const options = isTheme(args)
     ? { disabled: false, invalid: false, hasWarning: false }
     : args;
 
-  if (options.disabled) {
-    return css`
-      box-shadow: 0 0 0 1px ${theme.colors.n500};
-    `;
-  }
-
-  let colors;
-
   switch (true) {
+    case options.disabled: {
+      return css`
+        box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
+      `;
+    }
     case options.invalid: {
-      colors = {
-        default: theme.colors.alert,
-        hover: theme.colors.r700,
-        focus: theme.colors.alert,
-        active: theme.colors.alert,
-      };
-      break;
+      return css`
+        box-shadow: 0 0 0 1px var(--cui-border-danger);
+
+        &:hover {
+          box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px var(--cui-border-danger);
+        }
+
+        &:active {
+          box-shadow: 0 0 0 1px var(--cui-border-danger-pressed);
+        }
+      `;
     }
     case options.hasWarning: {
-      colors = {
-        default: theme.colors.notify,
-        hover: theme.colors.y700,
-        focus: theme.colors.notify,
-        active: theme.colors.notify,
-      };
-      break;
+      return css`
+        box-shadow: 0 0 0 1px var(--cui-border-warning);
+
+        &:hover {
+          box-shadow: 0 0 0 1px var(--cui-border-warning-hovered);
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px var(--cui-border-warning);
+        }
+
+        &:active {
+          box-shadow: 0 0 0 1px var(--cui-border-warning-pressed);
+        }
+      `;
     }
     default: {
-      colors = {
-        default: theme.colors.n500,
-        hover: theme.colors.n700,
-        focus: theme.colors.p500,
-        active: theme.colors.p500,
-      };
+      return css`
+        box-shadow: 0 0 0 1px var(--cui-border-strong);
+
+        &:hover {
+          box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px var(--cui-border-accent);
+        }
+
+        &:active {
+          box-shadow: 0 0 0 1px var(--cui-border-accent);
+        }
+      `;
     }
   }
-
-  return css`
-    box-shadow: 0 0 0 1px ${colors.default};
-
-    &:hover {
-      box-shadow: 0 0 0 1px ${colors.hover};
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 2px ${colors.focus};
-    }
-
-    &:active {
-      box-shadow: 0 0 0 1px ${colors.active};
-    }
-  `;
 };
 
 /**

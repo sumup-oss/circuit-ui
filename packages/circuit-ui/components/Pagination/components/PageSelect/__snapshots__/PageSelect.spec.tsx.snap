@@ -55,7 +55,7 @@ HTMLCollection [
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
 }
 
 .circuit-5:-moz-focusring {
@@ -68,15 +68,15 @@ HTMLCollection [
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 .circuit-6 {

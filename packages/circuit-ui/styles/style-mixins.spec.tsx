@@ -254,7 +254,7 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = inputOutline(light);
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px #999;&:hover{box-shadow:0 0 0 1px #666;}&:focus{box-shadow:0 0 0 2px #3063E9;}&:active{box-shadow:0 0 0 1px #3063E9;};label:inputOutline;"',
+        '"box-shadow:0 0 0 1px var(--cui-border-strong);&:hover{box-shadow:0 0 0 1px var(--cui-border-strong-hovered);}&:focus{box-shadow:0 0 0 2px var(--cui-border-accent);}&:active{box-shadow:0 0 0 1px var(--cui-border-accent);};label:inputOutline;"',
       );
     });
 
@@ -264,7 +264,7 @@ describe('Style helpers', () => {
         disabled: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px #999;;label:inputOutline;"',
+        '"box-shadow:0 0 0 1px var(--cui-border-strong-disabled);label:inputOutline;"',
       );
     });
 
@@ -274,7 +274,7 @@ describe('Style helpers', () => {
         invalid: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px #DE331D;&:hover{box-shadow:0 0 0 1px #B22426;}&:focus{box-shadow:0 0 0 2px #DE331D;}&:active{box-shadow:0 0 0 1px #DE331D;};label:inputOutline;"',
+        '"box-shadow:0 0 0 1px var(--cui-border-danger);&:hover{box-shadow:0 0 0 1px var(--cui-border-danger-hovered);}&:focus{box-shadow:0 0 0 2px var(--cui-border-danger);}&:active{box-shadow:0 0 0 1px var(--cui-border-danger-pressed);};label:inputOutline;"',
       );
     });
 
@@ -284,7 +284,7 @@ describe('Style helpers', () => {
         hasWarning: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px #F5A720;&:hover{box-shadow:0 0 0 1px #AD7A14;}&:focus{box-shadow:0 0 0 2px #F5A720;}&:active{box-shadow:0 0 0 1px #F5A720;};label:inputOutline;"',
+        '"box-shadow:0 0 0 1px var(--cui-border-warning);&:hover{box-shadow:0 0 0 1px var(--cui-border-warning-hovered);}&:focus{box-shadow:0 0 0 2px var(--cui-border-warning);}&:active{box-shadow:0 0 0 1px var(--cui-border-warning-pressed);};label:inputOutline;"',
       );
     });
   });

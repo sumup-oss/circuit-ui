@@ -783,7 +783,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
 }
 
 .circuit-11:-moz-focusring {
@@ -796,15 +796,15 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-11:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-11:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-11:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 .circuit-12 {

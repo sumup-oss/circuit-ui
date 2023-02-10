@@ -36,7 +36,7 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -133,7 +133,7 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -222,7 +222,7 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -253,15 +253,15 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
@@ -324,7 +324,7 @@ exports[`TextArea should render rows props when passed 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -355,15 +355,15 @@ exports[`TextArea should render rows props when passed 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
@@ -425,7 +425,7 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -456,15 +456,15 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 .circuit-6 {
@@ -551,7 +551,7 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   width: 100%;
   margin: 0;
   padding-left: 48px;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -582,15 +582,15 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 }
 
 .circuit-6:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-6:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-6:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
@@ -656,7 +656,7 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
   width: 100%;
   margin: 0;
   padding-right: 48px;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -687,15 +687,15 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 .circuit-6 {
@@ -773,7 +773,7 @@ exports[`TextArea should render with default styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -804,15 +804,15 @@ exports[`TextArea should render with default styles 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
@@ -880,7 +880,7 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -969,7 +969,7 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #DE331D;
+  box-shadow: 0 0 0 1px var(--cui-border-danger);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -1016,15 +1016,15 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #B22426;
+  box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #DE331D;
+  box-shadow: 0 0 0 2px var(--cui-border-danger);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #DE331D;
+  box-shadow: 0 0 0 1px var(--cui-border-danger-pressed);
 }
 
 <div
@@ -1087,7 +1087,7 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-subtle-disabled);
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -1118,15 +1118,15 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
@@ -1188,7 +1188,7 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -1219,15 +1219,15 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
@@ -1288,7 +1288,7 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #F5A720;
+  box-shadow: 0 0 0 1px var(--cui-border-warning);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -1335,15 +1335,15 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #AD7A14;
+  box-shadow: 0 0 0 1px var(--cui-border-warning-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #F5A720;
+  box-shadow: 0 0 0 2px var(--cui-border-warning);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #F5A720;
+  box-shadow: 0 0 0 1px var(--cui-border-warning-pressed);
 }
 
 <div
@@ -1404,7 +1404,7 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
   vertical-align: top;
   overflow: auto;
   resize: vertical;
@@ -1435,15 +1435,15 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div

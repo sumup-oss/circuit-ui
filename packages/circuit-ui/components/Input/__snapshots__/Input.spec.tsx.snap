@@ -36,7 +36,7 @@ exports[`Input Styles should prioritize disabled over error styles 1`] = `
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -133,7 +133,7 @@ exports[`Input Styles should prioritize disabled over warning styles 1`] = `
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -222,7 +222,7 @@ exports[`Input Styles should render with a description when passed the validatio
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -250,15 +250,15 @@ exports[`Input Styles should render with a description when passed the validatio
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 .circuit-6 {
@@ -348,7 +348,7 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
   width: 100%;
   margin: 0;
   padding-left: 48px;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
 }
 
 .circuit-6::-webkit-input-placeholder {
@@ -376,15 +376,15 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
 }
 
 .circuit-6:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-6:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-6:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div>
@@ -453,7 +453,7 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
   width: 100%;
   margin: 0;
   padding-right: 48px;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -481,15 +481,15 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 .circuit-6 {
@@ -574,7 +574,7 @@ exports[`Input Styles should render with custom styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
   color: red;
 }
 
@@ -603,15 +603,15 @@ exports[`Input Styles should render with custom styles 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div>
@@ -675,7 +675,7 @@ exports[`Input Styles should render with default styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -703,15 +703,15 @@ exports[`Input Styles should render with default styles 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div>
@@ -782,7 +782,7 @@ exports[`Input Styles should render with disabled styles when passed the disable
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -871,7 +871,7 @@ exports[`Input Styles should render with invalid styles when passed the invalid 
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #DE331D;
+  box-shadow: 0 0 0 1px var(--cui-border-danger);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -915,15 +915,15 @@ exports[`Input Styles should render with invalid styles when passed the invalid 
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #B22426;
+  box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #DE331D;
+  box-shadow: 0 0 0 2px var(--cui-border-danger);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #DE331D;
+  box-shadow: 0 0 0 1px var(--cui-border-danger-pressed);
 }
 
 <div>
@@ -989,7 +989,7 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-subtle-disabled);
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -1017,15 +1017,15 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div>
@@ -1091,7 +1091,7 @@ exports[`Input Styles should render with right aligned text 1`] = `
   width: 100%;
   margin: 0;
   text-align: right;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -1119,15 +1119,15 @@ exports[`Input Styles should render with right aligned text 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div>
@@ -1191,7 +1191,7 @@ exports[`Input Styles should render with valid styles when passed the showValid 
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-strong);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -1219,15 +1219,15 @@ exports[`Input Styles should render with valid styles when passed the showValid 
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div>
@@ -1291,7 +1291,7 @@ exports[`Input Styles should render with warning styles when passed the hasWarni
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px #F5A720;
+  box-shadow: 0 0 0 1px var(--cui-border-warning);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -1335,15 +1335,15 @@ exports[`Input Styles should render with warning styles when passed the hasWarni
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px #AD7A14;
+  box-shadow: 0 0 0 1px var(--cui-border-warning-hovered);
 }
 
 .circuit-5:focus {
-  box-shadow: 0 0 0 2px #F5A720;
+  box-shadow: 0 0 0 2px var(--cui-border-warning);
 }
 
 .circuit-5:active {
-  box-shadow: 0 0 0 1px #F5A720;
+  box-shadow: 0 0 0 1px var(--cui-border-warning-pressed);
 }
 
 <div>
