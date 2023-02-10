@@ -112,7 +112,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 
 .circuit-5 {
   font-weight: 700;
-  color: #000;
+  color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
   font-size: 1.125rem;
   line-height: 1.5rem;
@@ -454,7 +454,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 
 .circuit-5 {
   font-weight: 700;
-  color: #000;
+  color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
   font-size: 1.125rem;
   line-height: 1.5rem;
@@ -795,7 +795,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 
 .circuit-5 {
   font-weight: 700;
-  color: #000;
+  color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
   font-size: 1.125rem;
   line-height: 1.5rem;
