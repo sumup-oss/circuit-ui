@@ -82,11 +82,11 @@ const tagBaseStyles = ({ theme }: StyleProps) => css`
   align-items: center;
   margin: 0;
   word-break: break-word;
-  border: ${BORDER_WIDTH} solid ${theme.colors.n300};
+  border: ${BORDER_WIDTH} solid var(--cui-border-normal);
   border-radius: ${theme.borderRadius.byte};
   padding: calc(${theme.spacings.bit} - 1px) ${theme.spacings.kilo};
   cursor: default;
-  background-color: ${theme.colors.white};
+  background-color: var(--cui-bg-normal);
   transition: opacity ${theme.transitions.default},
     color ${theme.transitions.default},
     background-color ${theme.transitions.default},
@@ -106,41 +106,43 @@ const tagClickableStyles = ({ theme, onClick }: StyleProps & TagElProps) =>
     outline: 0;
     text-align: left;
 
-    &:active {
-      color: ${theme.colors.bodyColor};
+    &:hover {
+      color: var(--cui-fg-normal-hovered);
+      background-color: var(--cui-bg-normal-hovered);
+      border-color: var(--cui-border-normal-hovered);
     }
 
-    &:hover {
-      background-color: ${theme.colors.n200};
-      border-color: ${theme.colors.n500};
+    &:active {
+      color: var(--cui-fg-normal-pressed);
+      background-color: var(--cui-bg-normal-pressed);
+      border-color: var(--cui-border-normal-pressed);
     }
 
     ${focusVisible(theme)};
   `;
 
-const tagSelectedStyles = ({ theme, selected }: StyleProps & TagElProps) =>
+const tagSelectedStyles = ({ selected }: TagElProps) =>
   selected &&
   css`
-    background-color: ${theme.colors.p500};
-    border-color: ${theme.colors.p700};
-    color: ${theme.colors.white};
+    background-color: var(--cui-bg-accent-strong);
+    border-color: var(--cui-border-accent);
+    color: var(--cui-fg-on-strong);
   `;
 
-const tagSelectedClickableStyles = ({
-  theme,
-  selected,
-  onClick,
-}: StyleProps & TagElProps) =>
+const tagSelectedClickableStyles = ({ selected, onClick }: TagElProps) =>
   selected &&
   onClick &&
   css`
-    &:active {
-      color: ${theme.colors.white};
+    &:hover {
+      color: var(--cui-fg-on-strong-hovered);
+      background-color: var(--cui-bg-accent-strong-hovered);
+      border-color: var(--cui-border-accent-hovered);
     }
 
-    &:hover {
-      background-color: ${theme.colors.p700};
-      border-color: ${theme.colors.p700};
+    &:active {
+      color: var(--cui-fg-on-strong-pressed);
+      background-color: var(--cui-bg-accent-strong-pressed);
+      border-color: var(--cui-border-accent-pressed);
     }
   `;
 
