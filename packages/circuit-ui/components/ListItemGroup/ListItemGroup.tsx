@@ -127,7 +127,7 @@ const itemsContainerBaseStyles = ({ theme }: StyleProps) => css`
   flex: auto;
   display: flex;
   flex-direction: column;
-  border: ${theme.borderWidth.mega} solid ${theme.colors.n200};
+  border: ${theme.borderWidth.mega} solid var(--cui-border-subtle);
   border-radius: ${theme.borderRadius.mega};
 `;
 
@@ -162,7 +162,7 @@ const liStyles = ({ theme }: StyleProps) => css`
       top: -${theme.spacings.kilo};
       left: 0;
       right: -${theme.spacings.mega};
-      border-top: ${theme.borderWidth.kilo} solid ${theme.colors.n200};
+      border-top: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
     }
   }
 `;

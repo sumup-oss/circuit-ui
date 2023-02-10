@@ -73,7 +73,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 2px solid #E6E6E6;
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
 }
 
@@ -91,13 +91,13 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
   top: -12px;
   left: 0;
   right: -16px;
-  border-top: 1px solid #E6E6E6;
+  border-top: 1px solid var(--cui-border-divider);
 }
 
 .circuit-8 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -137,7 +137,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
 }
 
 .circuit-8:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
@@ -341,7 +341,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 2px solid #E6E6E6;
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
 }
 
@@ -359,13 +359,13 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
   top: -12px;
   left: 0;
   right: -16px;
-  border-top: 1px solid #E6E6E6;
+  border-top: 1px solid var(--cui-border-divider);
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -405,7 +405,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
 }
 
 .circuit-6:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
@@ -618,7 +618,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 2px solid #E6E6E6;
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
 }
 
@@ -636,13 +636,13 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
   top: -12px;
   left: 0;
   right: -16px;
-  border-top: 1px solid #E6E6E6;
+  border-top: 1px solid var(--cui-border-divider);
 }
 
 .circuit-8 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -682,7 +682,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
 }
 
 .circuit-8:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
@@ -899,7 +899,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 2px solid #E6E6E6;
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
 }
 
@@ -917,13 +917,13 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
   top: -12px;
   left: 0;
   right: -16px;
-  border-top: 1px solid #E6E6E6;
+  border-top: 1px solid var(--cui-border-divider);
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -963,7 +963,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
 }
 
 .circuit-6:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
@@ -1162,7 +1162,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with interactive ite
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 2px solid #E6E6E6;
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
 }
 
@@ -1180,7 +1180,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with interactive ite
   top: -12px;
   left: 0;
   right: -16px;
-  border-top: 1px solid #E6E6E6;
+  border-top: 1px solid var(--cui-border-divider);
 }
 
 .circuit-5:hover:not(:first-of-type)>*>div:last-of-type:before,
@@ -1189,9 +1189,9 @@ exports[`ListItemGroup styles should render a ListItemGroup with interactive ite
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1232,7 +1232,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with interactive ite
 }
 
 .circuit-6:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
@@ -1244,12 +1244,13 @@ exports[`ListItemGroup styles should render a ListItemGroup with interactive ite
 }
 
 .circuit-6:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-subtle-hovered);
 }
 
 .circuit-6:active {
-  background-color: #E6E6E6;
-  border-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-subtle-pressed);
 }
 
 .circuit-7 {
@@ -1443,7 +1444,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 2px solid #E6E6E6;
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   border-width: 1px 0;
   border-radius: 0;
@@ -1463,13 +1464,13 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
   top: -12px;
   left: 0;
   right: -16px;
-  border-top: 1px solid #E6E6E6;
+  border-top: 1px solid var(--cui-border-divider);
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1509,7 +1510,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
 }
 
 .circuit-6:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
@@ -1651,9 +1652,9 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
 
 exports[`ListItemGroup styles should render the focused item in a ListItemGroup with interactive items 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1694,7 +1695,7 @@ exports[`ListItemGroup styles should render the focused item in a ListItemGroup 
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
@@ -1706,12 +1707,13 @@ exports[`ListItemGroup styles should render the focused item in a ListItemGroup 
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-subtle-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
-  border-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-subtle-pressed);
 }
 
 .circuit-1 {
@@ -1835,7 +1837,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 2px solid #E6E6E6;
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
 }
 
@@ -1853,13 +1855,13 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
   top: -12px;
   left: 0;
   right: -16px;
-  border-top: 1px solid #E6E6E6;
+  border-top: 1px solid var(--cui-border-divider);
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1899,7 +1901,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
 }
 
 .circuit-6:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
@@ -2041,9 +2043,9 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
 
 exports[`ListItemGroup styles should render the selected item in a ListItemGroup with interactive items 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2061,7 +2063,7 @@ exports[`ListItemGroup styles should render the selected item in a ListItemGroup
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
   border: none;
   border-radius: calc(16px - 2px);
 }
@@ -2085,7 +2087,7 @@ exports[`ListItemGroup styles should render the selected item in a ListItemGroup
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
@@ -2097,17 +2099,18 @@ exports[`ListItemGroup styles should render the selected item in a ListItemGroup
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-subtle-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
-  border-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-subtle-pressed);
 }
 
 .circuit-0:hover,
 .circuit-0:active {
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
 }
 
 .circuit-0:after {
@@ -2117,7 +2120,7 @@ exports[`ListItemGroup styles should render the selected item in a ListItemGroup
   bottom: -2px;
   left: -2px;
   right: -2px;
-  border: 2px solid #3063E9;
+  border: 2px solid var(--cui-border-accent);
   border-radius: 16px;
   z-index: 1;
   pointer-events: none;
@@ -2188,9 +2191,9 @@ exports[`ListItemGroup styles should render the selected item in a ListItemGroup
 
 exports[`ListItemGroup styles should render the selected item in a plain ListItemGroup with interactive items 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2208,7 +2211,7 @@ exports[`ListItemGroup styles should render the selected item in a plain ListIte
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
   border: none;
   border-radius: calc(16px - 2px);
 }
@@ -2232,7 +2235,7 @@ exports[`ListItemGroup styles should render the selected item in a plain ListIte
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
@@ -2244,17 +2247,18 @@ exports[`ListItemGroup styles should render the selected item in a plain ListIte
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-subtle-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
-  border-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-subtle-pressed);
 }
 
 .circuit-0:hover,
 .circuit-0:active {
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
 }
 
 .circuit-0:after {
@@ -2264,7 +2268,7 @@ exports[`ListItemGroup styles should render the selected item in a plain ListIte
   bottom: -2px;
   left: -2px;
   right: -2px;
-  border: 2px solid #3063E9;
+  border: 2px solid var(--cui-border-accent);
   border-radius: 16px;
   z-index: 1;
   pointer-events: none;
