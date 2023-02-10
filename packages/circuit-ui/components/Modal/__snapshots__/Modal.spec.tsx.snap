@@ -26,7 +26,7 @@ exports[`Modal should match the snapshot 1`] = `
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--cui-bg-overlay);
   z-index: 1000;
 }
 
@@ -40,7 +40,7 @@ exports[`Modal should match the snapshot 1`] = `
 .circuit-1 {
   position: fixed;
   outline: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   top: 0;
 }
 

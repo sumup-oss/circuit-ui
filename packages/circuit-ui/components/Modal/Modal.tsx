@@ -170,7 +170,7 @@ export const Modal: ModalComponent<ModalProps> = ({
             cssString`
               position: fixed;
               outline: none;
-              background-color: ${theme.colors.white};
+              background-color: var(--cui-bg-normal);
 
               &::after {
                 position: fixed;
@@ -256,7 +256,7 @@ export const Modal: ModalComponent<ModalProps> = ({
             right: 0;
             opacity: 0;
             transition: opacity ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
-            background: ${theme.colors.overlay};
+            background: var(--cui-bg-overlay);
             z-index: ${theme.zIndex.modal};
 
             ${theme.mq.kilo} {
