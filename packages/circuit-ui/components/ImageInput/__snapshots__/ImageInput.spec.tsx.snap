@@ -80,7 +80,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
   height: 100%;
   border-radius: 12px;
   pointer-events: none;
-  background-color: #000;
+  background-color: var(--cui-bg-strong);
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
@@ -123,13 +123,13 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
 }
 
 .circuit-3:hover>button {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>button {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
 }
 
 .circuit-4 {
@@ -281,7 +281,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
   visibility: hidden;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 }
 
@@ -454,7 +454,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
   height: 100%;
   border-radius: 12px;
   pointer-events: none;
-  background-color: #000;
+  background-color: var(--cui-bg-strong);
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
@@ -497,13 +497,13 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
 }
 
 .circuit-3:hover>button {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>button {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
 }
 
 .circuit-4 {
@@ -673,7 +673,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
   visibility: hidden;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 }
 
@@ -842,7 +842,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
   height: 100%;
   border-radius: 12px;
   pointer-events: none;
-  background-color: #000;
+  background-color: var(--cui-bg-strong);
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
@@ -885,13 +885,13 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
 }
 
 .circuit-3:hover>button {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>button {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
 }
 
 .circuit-4 {
@@ -1054,7 +1054,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
   visibility: hidden;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 }
 
@@ -1227,7 +1227,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
   height: 100%;
   border-radius: 12px;
   pointer-events: none;
-  background-color: #000;
+  background-color: var(--cui-bg-strong);
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
@@ -1270,13 +1270,13 @@ exports[`ImageInput Styles should render with default styles 1`] = `
 }
 
 .circuit-3:hover>button {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>button {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
 }
 
 .circuit-4 {
@@ -1440,7 +1440,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
   visibility: hidden;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 }
 
@@ -1609,7 +1609,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   height: 100%;
   border-radius: 12px;
   pointer-events: none;
-  background-color: #000;
+  background-color: var(--cui-bg-strong);
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
@@ -1632,11 +1632,15 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 }
 
 .circuit-3>*:last-child {
-  box-shadow: 0 0 0 2px #DE331D;
+  box-shadow: 0 0 0 2px var(--cui-border-danger);
 }
 
 .circuit-3:hover>*:last-child {
-  box-shadow: 0 0 0 2px #B22426;
+  box-shadow: 0 0 0 2px var(--cui-border-danger--hovered);
+}
+
+.circuit-3:active>*:last-child {
+  box-shadow: 0 0 0 2px var(--cui-border-danger--pressed);
 }
 
 .circuit-3:hover::before {
@@ -1660,13 +1664,13 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 }
 
 .circuit-3:hover>button {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>button {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
 }
 
 .circuit-4 {
@@ -1830,7 +1834,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   visibility: hidden;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 }
 

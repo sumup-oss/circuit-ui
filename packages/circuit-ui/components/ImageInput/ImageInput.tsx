@@ -122,7 +122,7 @@ const baseLabelStyles = ({ theme }: StyleProps) => css`
     height: 100%;
     border-radius: 12px;
     pointer-events: none;
-    background-color: ${theme.colors.black};
+    background-color: var(--cui-bg-strong);
     opacity: 0;
     transition: opacity ${theme.transitions.default};
   }
@@ -140,14 +140,17 @@ const baseLabelStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const invalidLabelStyles = ({ theme, invalid }: LabelProps & StyleProps) =>
+const invalidLabelStyles = ({ invalid }: LabelProps) =>
   invalid &&
   css`
     > *:last-child {
-      box-shadow: 0 0 0 2px ${theme.colors.alert};
+      box-shadow: 0 0 0 2px var(--cui-border-danger);
     }
     &:hover > *:last-child {
-      box-shadow: 0 0 0 2px ${theme.colors.r700};
+      box-shadow: 0 0 0 2px var(--cui-border-danger--hovered);
+    }
+    &:active > *:last-child {
+      box-shadow: 0 0 0 2px var(--cui-border-danger--pressed);
     }
   `;
 
@@ -199,17 +202,17 @@ const draggingLabelStyles = ({ theme, isDragging }: LabelProps & StyleProps) =>
     }
   `;
 
-const addButtonStyles = ({ theme }: StyleProps) => css`
+const addButtonStyles = css`
   &:hover {
     & > button {
-      background-color: ${theme.colors.p700};
-      border-color: ${theme.colors.p700};
+      background-color: var(--cui-bg-danger-hovered);
+      border-color: var(--cui-border-danger-hovered);
     }
   }
   &:active {
     & > button {
-      background-color: ${theme.colors.p900};
-      border-color: ${theme.colors.p900};
+      background-color: var(--cui-bg-danger-pressed);
+      border-color: var(--cui-border-danger-pressed);
     }
   }
 `;
@@ -264,7 +267,7 @@ const spinnerBaseStyles = ({ theme }: LoadingIconProps & StyleProps) => css`
   visibility: hidden;
   transition: opacity ${theme.transitions.default},
     visibility ${theme.transitions.default};
-  color: ${theme.colors.white};
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 `;
 
