@@ -112,12 +112,12 @@ const placeholderStyles = ({
   border-radius: ${circle
     ? theme.borderRadius.circle
     : theme.borderRadius.byte};
-  background-color: ${theme.colors.n200};
+  background-color: var(--cui-bg-highlight);
   background-image: linear-gradient(
     90deg,
-    ${theme.colors.n200},
-    ${theme.colors.n100},
-    ${theme.colors.n200}
+    var(--cui-bg-highlight),
+    var(--cui-bg-subtle),
+    var(--cui-bg-highlight)
   );
   background-size: ${PULSE_WIDTH} 100%;
   background-repeat: no-repeat;
