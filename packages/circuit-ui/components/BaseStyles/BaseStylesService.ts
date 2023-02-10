@@ -346,8 +346,8 @@ export const createBaseStyles = ({
   }
 
   body {
-    background-color: ${theme.colors.bodyBg};
-    color: ${theme.colors.bodyColor};
+    background-color: var(--cui-bg-normal);
+    color: var(--cui-fg-normal);
     ${typography('one')(theme)};
   }
 
