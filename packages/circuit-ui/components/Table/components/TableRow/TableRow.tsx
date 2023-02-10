@@ -61,8 +61,16 @@ const clickableStyles = ({ theme, onClick }: StyleProps & TableRowProps) =>
     tbody &:hover {
       td,
       th {
-        color: ${theme.colors.p500};
-        background-color: ${theme.colors.n100};
+        color: var(--cui-fg-accent-hovered);
+        background-color: var(--cui-bg-normal-hovered);
+      }
+    }
+
+    tbody &:active {
+      td,
+      th {
+        color: var(--cui-fg-accent-pressed);
+        background-color: var(--cui-bg-normal-pressed);
       }
     }
   `;

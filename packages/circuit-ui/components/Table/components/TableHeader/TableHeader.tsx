@@ -67,25 +67,25 @@ type ThElProps = Omit<TableHeaderProps, 'sortParams'> & {
 };
 
 const baseStyles = ({ theme, align }: StyleProps & ThElProps) => css`
-  background-color: ${theme.colors.white};
-  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  background-color: var(--cui-bg-normal);
+  border-bottom: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
   padding: ${theme.spacings.giga};
   text-align: ${align};
   transition: background-color ${theme.transitions.default},
     color ${theme.transitions.default};
 `;
 
-const hoveredStyles = ({ theme, isHovered }: StyleProps & ThElProps) =>
+const hoveredStyles = ({ isHovered }: ThElProps) =>
   isHovered &&
   css`
-    background-color: ${theme.colors.n100};
+    background-color: var(--cui-bg-normal-hovered);
   `;
 
 const colStyles = ({ theme, scope }: StyleProps & ThElProps) =>
   scope === 'col' &&
   css`
     ${typography('two')(theme)};
-    color: ${theme.colors.n700};
+    color: var(--cui-fg-subtle);
     font-weight: ${theme.fontWeight.bold};
     padding: ${theme.spacings.byte} ${theme.spacings.giga};
     vertical-align: middle;
@@ -127,12 +127,17 @@ const sortableStyles = ({ theme, sortable }: StyleProps & ThElProps) =>
 
     &:focus-within,
     &:hover {
-      background-color: ${theme.colors.n100};
-      color: ${theme.colors.p500};
+      background-color: var(--cui-bg-normal-hovered);
+      color: var(--cui-fg-accent-hovered);
 
       & > button {
         opacity: 1;
       }
+    }
+
+    &:active {
+      background-color: var(--cui-bg-normal-pressed);
+      color: var(--cui-fg-accent-pressed);
     }
   `;
 
