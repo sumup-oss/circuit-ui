@@ -46,8 +46,8 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   ref?: Ref<HTMLInputElement>;
 }
 
-const labelBaseStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.bodyColor};
+const labelBaseStyles = css`
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -72,8 +72,8 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     width: 18px;
     box-sizing: border-box;
     box-shadow: 0;
-    background-color: ${theme.colors.white};
-    border: 1px solid ${theme.colors.n500};
+    background-color: var(--cui-bg-normal);
+    border: 1px solid var(--cui-border-normal);
     border-radius: 3px;
     content: '';
     display: block;
@@ -90,7 +90,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     width: 18px;
     padding: 2px;
     box-sizing: border-box;
-    color: ${theme.colors.white};
+    color: var(--cui-fg-on-strong);
     display: block;
     line-height: 0;
     opacity: 0;
@@ -103,21 +103,21 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   }
 
   &:hover + label::before {
-    border-color: ${theme.colors.n700};
+    border-color: var(--cui-border-accent-hovered);
   }
 
   &:focus + label::before {
     ${focusOutline(theme)};
-    border-color: ${theme.colors.p500};
+    border-color: var(--cui-border-accent);
   }
 
   &:focus:not(:focus-visible) + label::before {
     box-shadow: none;
-    border-color: ${theme.colors.n500};
+    border-color: var(--cui-border-normal);
   }
 
   &:checked:focus:not(:focus-visible) + label::before {
-    border-color: ${theme.colors.p500};
+    border-color: var(--cui-border-accent);
   }
 
   &:checked + label > svg {
@@ -126,37 +126,38 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   }
 
   &:checked + label::before {
-    border-color: ${theme.colors.p500};
-    background-color: ${theme.colors.p500};
+    border-color: var(--cui-border-accent);
+    background-color: var(--cui-bg-accent-strong);
   }
 `;
 
-const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
+const inputInvalidStyles = ({ invalid }: InputElProps) =>
   invalid &&
   css`
     & + label::before {
-      border-color: ${theme.colors.alert};
-      background-color: ${theme.colors.r100};
+      border-color: var(--cui-border-danger);
+      background-color: var(--cui-bg-danger);
     }
 
     &:hover + label::before,
     &:focus + label::before {
-      border-color: ${theme.colors.r700};
+      border-color: var(--cui-border-danger-hovered);
     }
 
     &:checked + label::before {
-      border-color: ${theme.colors.alert};
-      background-color: ${theme.colors.alert};
+      border-color: var(--cui-border-danger);
+      background-color: var(--cui-bg-danger-strong);
     }
   `;
 
-const inputDisabledStyles = ({ theme, disabled }: StyleProps & InputElProps) =>
+const inputDisabledStyles = ({ disabled }: InputElProps) =>
   disabled &&
   css`
     & + label::before {
-      ${disableVisually()}
-      border-color: ${theme.colors.n700};
-      background-color: ${theme.colors.n200};
+      ${disableVisually()};
+      /* FIXME: Which colors should be used here? Account for reduced opacity */
+      border-color: var(--cui-border-strong-disabled);
+      background-color: var(--cui-bg-normal-disabled);
     }
   `;
 

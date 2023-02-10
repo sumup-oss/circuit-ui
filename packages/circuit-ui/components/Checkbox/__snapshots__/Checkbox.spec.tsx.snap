@@ -22,8 +22,8 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
   width: 18px;
   box-sizing: border-box;
   box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: 3px;
   content: '';
   display: block;
@@ -43,7 +43,7 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
   width: 18px;
   padding: 2px;
   box-sizing: border-box;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   display: block;
   line-height: 0;
   opacity: 0;
@@ -59,13 +59,13 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
 }
 
 .circuit-1:hover+label::before {
-  border-color: #666;
+  border-color: var(--cui-border-accent-hovered);
 }
 
 .circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-1:focus+label::before::-moz-focus-inner {
@@ -74,11 +74,11 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
 
 .circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: #999;
+  border-color: var(--cui-border-normal);
 }
 
 .circuit-1:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-1:checked+label>svg {
@@ -90,12 +90,12 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
 }
 
 .circuit-1:checked+label::before {
-  border-color: #3063E9;
-  background-color: #3063E9;
+  border-color: var(--cui-border-accent);
+  background-color: var(--cui-bg-accent-strong);
 }
 
 .circuit-2 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -163,8 +163,8 @@ exports[`Checkbox Styles should render with default styles 1`] = `
   width: 18px;
   box-sizing: border-box;
   box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: 3px;
   content: '';
   display: block;
@@ -184,7 +184,7 @@ exports[`Checkbox Styles should render with default styles 1`] = `
   width: 18px;
   padding: 2px;
   box-sizing: border-box;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   display: block;
   line-height: 0;
   opacity: 0;
@@ -200,13 +200,13 @@ exports[`Checkbox Styles should render with default styles 1`] = `
 }
 
 .circuit-1:hover+label::before {
-  border-color: #666;
+  border-color: var(--cui-border-accent-hovered);
 }
 
 .circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-1:focus+label::before::-moz-focus-inner {
@@ -215,11 +215,11 @@ exports[`Checkbox Styles should render with default styles 1`] = `
 
 .circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: #999;
+  border-color: var(--cui-border-normal);
 }
 
 .circuit-1:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-1:checked+label>svg {
@@ -231,12 +231,12 @@ exports[`Checkbox Styles should render with default styles 1`] = `
 }
 
 .circuit-1:checked+label::before {
-  border-color: #3063E9;
-  background-color: #3063E9;
+  border-color: var(--cui-border-accent);
+  background-color: var(--cui-bg-accent-strong);
 }
 
 .circuit-2 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -306,8 +306,8 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
   width: 18px;
   box-sizing: border-box;
   box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: 3px;
   content: '';
   display: block;
@@ -327,7 +327,7 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
   width: 18px;
   padding: 2px;
   box-sizing: border-box;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   display: block;
   line-height: 0;
   opacity: 0;
@@ -343,13 +343,13 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
 }
 
 .circuit-1:hover+label::before {
-  border-color: #666;
+  border-color: var(--cui-border-accent-hovered);
 }
 
 .circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-1:focus+label::before::-moz-focus-inner {
@@ -358,11 +358,11 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
 
 .circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: #999;
+  border-color: var(--cui-border-normal);
 }
 
 .circuit-1:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-1:checked+label>svg {
@@ -374,20 +374,20 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
 }
 
 .circuit-1:checked+label::before {
-  border-color: #3063E9;
-  background-color: #3063E9;
+  border-color: var(--cui-border-accent);
+  background-color: var(--cui-bg-accent-strong);
 }
 
 .circuit-1+label::before {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  border-color: #666;
-  background-color: #E6E6E6;
+  border-color: var(--cui-border-strong-disabled);
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-2 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -455,8 +455,8 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   width: 18px;
   box-sizing: border-box;
   box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: 3px;
   content: '';
   display: block;
@@ -476,7 +476,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   width: 18px;
   padding: 2px;
   box-sizing: border-box;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   display: block;
   line-height: 0;
   opacity: 0;
@@ -492,13 +492,13 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
 }
 
 .circuit-1:hover+label::before {
-  border-color: #666;
+  border-color: var(--cui-border-accent-hovered);
 }
 
 .circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-1:focus+label::before::-moz-focus-inner {
@@ -507,11 +507,11 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
 
 .circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: #999;
+  border-color: var(--cui-border-normal);
 }
 
 .circuit-1:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-1:checked+label>svg {
@@ -523,27 +523,27 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
 }
 
 .circuit-1:checked+label::before {
-  border-color: #3063E9;
-  background-color: #3063E9;
+  border-color: var(--cui-border-accent);
+  background-color: var(--cui-bg-accent-strong);
 }
 
 .circuit-1+label::before {
-  border-color: #DE331D;
-  background-color: #F4CBCB;
+  border-color: var(--cui-border-danger);
+  background-color: var(--cui-bg-danger);
 }
 
 .circuit-1:hover+label::before,
 .circuit-1:focus+label::before {
-  border-color: #B22426;
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-1:checked+label::before {
-  border-color: #DE331D;
-  background-color: #DE331D;
+  border-color: var(--cui-border-danger);
+  background-color: var(--cui-bg-danger-strong);
 }
 
 .circuit-2 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
