@@ -51,8 +51,8 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 .circuit-2 {
   height: 100%;
   outline: none;
-  background-color: #FFF;
-  box-shadow: inset 1px 0px 0px #CCC;
+  background-color: var(--cui-bg-normal);
+  box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
@@ -100,13 +100,13 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   z-index: 600;
 }
 
 @media (min-width: 768px) {
   .circuit-4 {
-    box-shadow: inset 1px 0px 0px #CCC;
+    box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   }
 }
 
@@ -394,7 +394,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 .circuit-2 {
   height: 100%;
   outline: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
@@ -442,13 +442,13 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   z-index: 600;
 }
 
 @media (min-width: 768px) {
   .circuit-4 {
-    box-shadow: inset 1px 0px 0px #CCC;
+    box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   }
 }
 
@@ -733,8 +733,8 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 .circuit-2 {
   height: 100%;
   outline: none;
-  background-color: #FFF;
-  box-shadow: inset 1px 0px 0px #CCC;
+  background-color: var(--cui-bg-normal);
+  box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
@@ -783,13 +783,13 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   z-index: 600;
 }
 
 @media (min-width: 768px) {
   .circuit-4 {
-    box-shadow: inset 1px 0px 0px #CCC;
+    box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   }
 }
 
