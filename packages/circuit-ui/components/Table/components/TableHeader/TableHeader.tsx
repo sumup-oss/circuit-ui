@@ -104,7 +104,7 @@ const fixedStyles = ({ theme, fixed }: StyleProps & ThElProps) =>
     }
   `;
 
-const sortableStyles = ({ theme, sortable }: StyleProps & ThElProps) =>
+const sortableStyles = ({ sortable }: ThElProps) =>
   sortable &&
   css`
     cursor: pointer;
@@ -122,7 +122,7 @@ const sortableStyles = ({ theme, sortable }: StyleProps & ThElProps) =>
       bottom: 0;
       left: 0;
       z-index: 1;
-      ${focusOutline(theme)};
+      ${focusOutline()};
     }
 
     &:focus-within,

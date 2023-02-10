@@ -107,7 +107,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   }
 
   &:focus + label::before {
-    ${focusOutline(theme)};
+    ${focusOutline()};
     border-color: var(--cui-border-accent);
   }
 

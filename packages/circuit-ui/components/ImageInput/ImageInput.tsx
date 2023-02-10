@@ -93,9 +93,9 @@ const InputWrapper = styled.div`
 
 const HiddenInput = styled.input(
   hideVisually,
-  ({ theme }) => css`
+  css`
     &:focus + label > *:last-child {
-      ${focusOutline(theme)};
+      ${focusOutline()};
     }
 
     &:focus:not(:focus-visible) + label > *:last-child {
@@ -186,11 +186,11 @@ const loadingLabelStyles = ({ isLoading }: LabelProps) => {
   `;
 };
 
-const draggingLabelStyles = ({ theme, isDragging }: LabelProps & StyleProps) =>
+const draggingLabelStyles = ({ isDragging }: LabelProps) =>
   isDragging &&
   css`
     *:last-child {
-      ${focusOutline(theme)};
+      ${focusOutline()};
     }
 
     &::before {

@@ -142,7 +142,7 @@ const inputStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
 
   &:focus + label::before {
-    ${focusOutline(theme)};
+    ${focusOutline()};
   }
 
   &:focus:not(:focus-visible) + label::before {

@@ -192,31 +192,28 @@ export const center = (): SerializedStyles => css`
 /**
  * Visually communicates to the user that an element is focused.
  */
+// TODO: Simplify the function signature in the next major.
 export function focusOutline(
   options: 'inset',
-): (args: ThemeArgs) => SerializedStyles;
-export function focusOutline(args: ThemeArgs): SerializedStyles;
+): (args?: ThemeArgs) => SerializedStyles;
+export function focusOutline(args?: ThemeArgs): SerializedStyles;
 export function focusOutline(
-  argsOrOptions: ThemeArgs | 'inset',
-): SerializedStyles | ((args: ThemeArgs) => SerializedStyles) {
+  argsOrOptions?: ThemeArgs | 'inset',
+): SerializedStyles | ((args?: ThemeArgs) => SerializedStyles) {
   if (typeof argsOrOptions === 'string') {
-    return (args: ThemeArgs): SerializedStyles => {
-      const theme = getTheme(args);
-      return css`
-        outline: 0;
-        box-shadow: inset 0 0 0 4px ${theme.colors.p300};
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    return (_args?: ThemeArgs): SerializedStyles => css`
+      outline: 0;
+      box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 
-        &::-moz-focus-inner {
-          border: 0;
-        }
-      `;
-    };
+      &::-moz-focus-inner {
+        border: 0;
+      }
+    `;
   }
-
-  const theme = getTheme(argsOrOptions);
   return css`
     outline: 0;
-    box-shadow: 0 0 0 4px ${theme.colors.p300};
+    box-shadow: 0 0 0 4px var(--cui-border-focus);
 
     &::-moz-focus-inner {
       border: 0;

@@ -18,7 +18,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 import { focusOutline } from '../../../../styles/style-mixins';
-import { StyleProps } from '../../../../styles/styled';
 import { ClickEvent } from '../../../../types/events';
 
 type TableRowProps = {
@@ -41,7 +40,7 @@ const baseStyles = () => css`
 // Chrome doesn't respect position: relative; on table elements
 // so the transform property is used to create a separate stacking context
 // which is needed to show the focus outline above the other table rows.
-const clickableStyles = ({ theme, onClick }: StyleProps & TableRowProps) =>
+const clickableStyles = ({ onClick }: TableRowProps) =>
   onClick &&
   css`
     cursor: pointer;
@@ -50,7 +49,7 @@ const clickableStyles = ({ theme, onClick }: StyleProps & TableRowProps) =>
     &:focus {
       z-index: 1;
       transform: translate(0, 0);
-      ${focusOutline(theme)};
+      ${focusOutline()};
     }
 
     &:focus:not(:focus-visible) {

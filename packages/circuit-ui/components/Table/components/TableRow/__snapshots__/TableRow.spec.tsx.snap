@@ -19,7 +19,7 @@ tbody .circuit-0:last-child td {
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {

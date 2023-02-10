@@ -98,7 +98,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -238,7 +238,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -889,7 +889,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -1029,7 +1029,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -1430,7 +1430,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -1582,7 +1582,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -1965,7 +1965,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -2648,7 +2648,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -2788,7 +2788,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -3184,7 +3184,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -3324,7 +3324,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -3719,7 +3719,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -3859,7 +3859,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {

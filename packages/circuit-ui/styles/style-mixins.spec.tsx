@@ -204,7 +204,7 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = focusOutline({ theme: light });
       expect(styles).toMatchInlineSnapshot(
-        '"outline:0;box-shadow:0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;};label:focusOutline;"',
+        '"outline:0;box-shadow:0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;};label:focusOutline;"',
       );
     });
 
@@ -212,6 +212,7 @@ describe('Style helpers', () => {
       const { styles } = focusOutline('inset')({ theme: light });
       expect(styles).toMatchInlineSnapshot(
         '"outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;};label:focusOutline;"',
+        '"outline:0;box-shadow:inset 0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;};label:focusOutline;"',
       );
     });
   });

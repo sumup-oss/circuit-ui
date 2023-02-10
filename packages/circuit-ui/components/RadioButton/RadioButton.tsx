@@ -127,7 +127,7 @@ const RadioButtonLabel = styled('label')<LabelElProps>(
 
 type InputElProps = Pick<RadioButtonProps, 'invalid'>;
 
-const inputBaseStyles = ({ theme }: StyleProps) => css`
+const inputBaseStyles = css`
   ${hideVisually()};
 
   &:hover + label::before {
@@ -135,7 +135,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   }
 
   &:focus + label::before {
-    ${focusOutline(theme)};
+    ${focusOutline()};
     border-color: var(--cui-border-accent);
   }
 
