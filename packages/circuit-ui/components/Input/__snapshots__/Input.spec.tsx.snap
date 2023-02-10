@@ -266,7 +266,7 @@ exports[`Input Styles should render with a description when passed the validatio
   line-height: 1.25rem;
   display: block;
   margin-top: 4px;
-  color: #666;
+  color: var(--cui-fg-subtle);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }

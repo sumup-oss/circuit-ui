@@ -555,10 +555,10 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   line-height: 1.25rem;
   display: block;
   margin-top: 4px;
-  color: #666;
+  color: var(--cui-fg-subtle);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
 }
 
 .circuit-4 {
@@ -568,7 +568,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   height: 16px;
   vertical-align: text-top;
   margin-right: 4px;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
 }
 
 <div>
@@ -611,6 +611,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
       >
         <div
           class="circuit-4"
+          id="validation_hint-8"
         >
           <svg
             fill="none"

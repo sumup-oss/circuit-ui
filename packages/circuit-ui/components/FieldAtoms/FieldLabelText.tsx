@@ -51,11 +51,9 @@ const hiddenStyles = ({ hideLabel }: Pick<FieldLabelTextProps, 'hideLabel'>) =>
 
 const Text = styled('span')(baseStyles, hiddenStyles);
 
-const optionalStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.n700};
+const Optional = styled('span')`
+  color: var(--cui-fg-subtle);
 `;
-
-const Optional = styled('span')(optionalStyles);
 
 /**
  * @private
