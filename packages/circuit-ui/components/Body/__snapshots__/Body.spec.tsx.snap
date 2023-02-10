@@ -111,6 +111,21 @@ exports[`Body should render with size "one" 1`] = `
 </p>
 `;
 
+exports[`Body should render with size "three" 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+<p
+  class="circuit-0"
+>
+  three
+   Body
+</p>
+`;
+
 exports[`Body should render with size "two" 1`] = `
 .circuit-0 {
   font-weight: 400;

@@ -214,6 +214,7 @@ export interface Theme {
     body: {
       one: Typography;
       two: Typography;
+      three: Typography;
     };
     bodyLarge: Typography;
   };

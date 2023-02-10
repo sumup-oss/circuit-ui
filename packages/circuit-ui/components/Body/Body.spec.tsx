@@ -26,7 +26,7 @@ describe('Body', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  const sizes: BodyProps['size'][] = ['one', 'two'];
+  const sizes: BodyProps['size'][] = ['one', 'two', 'three'];
   it.each(sizes)('should render with size "%s"', (size) => {
     const actual = create(<Body size={size}>{size} Body</Body>);
     expect(actual).toMatchSnapshot();

@@ -34,7 +34,7 @@ export default {
 
 export const Base = (args: BodyProps) => <Body {...args}>{content}</Body>;
 
-const sizes = ['one', 'two'] as const;
+const sizes = ['one', 'two', 'three'] as const;
 
 export const Sizes = (args: BodyProps) =>
   sizes.map((s) => (

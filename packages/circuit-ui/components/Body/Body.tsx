@@ -20,7 +20,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import styled, { StyleProps } from '../../styles/styled';
 import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
 
-type Size = 'one' | 'two';
+type Size = 'one' | 'two' | 'three';
 type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 
 export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {

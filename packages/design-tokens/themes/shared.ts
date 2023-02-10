@@ -110,6 +110,10 @@ export const typography = {
       fontSize: '0.875rem',
       lineHeight: '1.25rem',
     },
+    three: {
+      fontSize: '0.75rem',
+      lineHeight: '1rem',
+    },
   },
   bodyLarge: {
     fontSize: '1.25rem',

@@ -183,6 +183,10 @@ exports[`Themes light should match the snapshot 1`] = `
         "fontSize": "1rem",
         "lineHeight": "1.5rem",
       },
+      "three": {
+        "fontSize": "0.75rem",
+        "lineHeight": "1rem",
+      },
       "two": {
         "fontSize": "0.875rem",
         "lineHeight": "1.25rem",
