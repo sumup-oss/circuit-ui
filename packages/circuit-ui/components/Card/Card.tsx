@@ -26,9 +26,9 @@ export interface CardProps {
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  background-color: ${theme.colors.white};
+  background-color: var(--cui-bg-normal);
   border-radius: ${theme.borderRadius.mega};
-  border: ${theme.borderWidth.mega} solid ${theme.colors.n200};
+  border: ${theme.borderWidth.mega} solid var(--cui-border-subtle);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
