@@ -261,7 +261,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
 }
 
 .circuit-44 {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-highlight);
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -276,7 +276,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3063E9;
+  background-color: var(--cui-bg-accent-strong);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -284,7 +284,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
 }
 
 .circuit-44::after {
-  background-color: #1A1A1A;
+  background-color: var(--cui-bg-strong);
 }
 
 .circuit-44::after {
@@ -941,7 +941,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
 }
 
 .circuit-44 {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-highlight);
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -956,7 +956,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3063E9;
+  background-color: var(--cui-bg-accent-strong);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -964,7 +964,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
 }
 
 .circuit-44::after {
-  background-color: #1A1A1A;
+  background-color: var(--cui-bg-strong);
 }
 
 .circuit-44::after {
@@ -1620,7 +1620,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 }
 
 .circuit-44 {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-highlight);
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -1635,7 +1635,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3063E9;
+  background-color: var(--cui-bg-accent-strong);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -1643,7 +1643,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 }
 
 .circuit-44::after {
-  background-color: #1A1A1A;
+  background-color: var(--cui-bg-strong);
 }
 
 .circuit-44::after {
@@ -2270,7 +2270,7 @@ exports[`Carousel styles should render with default styles 1`] = `
 }
 
 .circuit-44 {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-highlight);
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -2285,7 +2285,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3063E9;
+  background-color: var(--cui-bg-accent-strong);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -2293,7 +2293,7 @@ exports[`Carousel styles should render with default styles 1`] = `
 }
 
 .circuit-44::after {
-  background-color: #1A1A1A;
+  background-color: var(--cui-bg-strong);
 }
 
 .circuit-44::after {
