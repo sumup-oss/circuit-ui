@@ -21,7 +21,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   display: block;
   width: 100%;
   border: 0;
-  border-top: 1px solid ${theme.colors.n300};
+  border-top: 1px solid var(--cui-border-divider);
   margin-top: ${theme.spacings.mega};
   margin-bottom: ${theme.spacings.mega};
 `;
