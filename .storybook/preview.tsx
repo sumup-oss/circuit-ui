@@ -13,7 +13,14 @@ export const parameters = {
   controls: { expanded: true },
   options: {
     storySort: {
-      order: ['Introduction', 'Features'],
+      order: [
+        'Introduction',
+        'Features',
+        '*',
+        'Experimental',
+        'Packages',
+        'Contributing',
+      ],
       includeName: true,
     },
   },

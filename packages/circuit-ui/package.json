@@ -14,6 +14,10 @@
       "types": "./dist/legacy.d.ts",
       "default": "./dist/legacy.js"
     },
+    "./experimental": {
+      "types": "./dist/experimental.d.ts",
+      "default": "./dist/experimental.js"
+    },
     "./styles.css": "./dist/style.css"
   },
   "typesVersions": {
@@ -47,8 +51,10 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.1",
+    "@lit-labs/react": "^2.0.1",
     "react-modal": "^3.16.1",
-    "react-number-format": "^5.2.2"
+    "react-number-format": "^5.2.2",
+    "wc-datepicker": "^0.5.1"
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
