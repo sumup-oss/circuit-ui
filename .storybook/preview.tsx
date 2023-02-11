@@ -10,7 +10,14 @@ export const parameters = {
   actions: { argTypesRegex: '^on.*' },
   options: {
     storySort: {
-      order: ['Introduction', 'Features'],
+      order: [
+        'Introduction',
+        'Features',
+        '*',
+        'Experimental',
+        'Packages',
+        'Contributing',
+      ],
       includeName: true,
     },
   },

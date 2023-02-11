@@ -212,3 +212,7 @@ export { useClickOutside } from './hooks/useClickOutside';
 export { useEscapeKey } from './hooks/useEscapeKey';
 export { useFocusList } from './hooks/useFocusList';
 export { useCollapsible } from './hooks/useCollapsible';
+
+// Experimental
+export { DatePicker } from './components/DatePicker';
+export type { DatePickerProps } from './components/DatePicker';
