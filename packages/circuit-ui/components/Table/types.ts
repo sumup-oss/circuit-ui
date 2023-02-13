@@ -88,3 +88,18 @@ export type SortParams =
       sortDirection?: never;
       isSorted?: never;
     };
+
+export type OnSortBy = (
+  index: number,
+  currentRows: Row[],
+  nextDirection?: Direction,
+) => Row[];
+
+export type RowWithInfo = {
+  cells: RowCell[];
+  children?: Row[];
+  isChild: boolean;
+  key: string;
+};
+
+export type StateInfo = { [key: string]: boolean };

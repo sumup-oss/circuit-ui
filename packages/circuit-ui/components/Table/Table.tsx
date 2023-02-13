@@ -22,7 +22,7 @@ import { throttle } from '../../util/helpers';
 
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
-import { defaultSortBy, getSortDirection } from './utils';
+import { getSortDirection, getSortedRows } from './utils';
 import { Direction, Row, HeaderCell } from './types';
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
@@ -207,16 +207,6 @@ class Table extends Component<TableProps, TableState> {
 
   componentDidUpdate(prevProps: TableProps): void {
     if (this.props.rows !== prevProps.rows) {
-      // Preserve existing sorting
-      if (this.state.sortedRow && this.state.sortDirection) {
-        const sortedRows = this.getSortedRows(
-          this.state.sortDirection,
-          this.state.sortedRow,
-        );
-        this.setState({ rows: sortedRows });
-        return;
-      }
-
       this.setState({ rows: this.props.rows });
     }
 
@@ -266,9 +256,7 @@ class Table extends Component<TableProps, TableState> {
     const { sortedRow, sortDirection } = this.state;
     const isActive = i === sortedRow;
     const nextDirection = getSortDirection(isActive, sortDirection);
-    const sortedRows = this.getSortedRows(nextDirection, i);
-
-    this.updateSort(i, nextDirection, sortedRows);
+    this.updateSort(i, nextDirection);
   };
 
   getInitialRows = (
@@ -277,23 +265,20 @@ class Table extends Component<TableProps, TableState> {
     initialSortedRow?: number | undefined,
   ): Row[] => {
     if (initialSortedRow && initialSortDirection) {
-      return this.getSortedRows(initialSortDirection, initialSortedRow);
+      return getSortedRows(
+        initialSortDirection,
+        initialSortedRow,
+        rows,
+        this.props.onSortBy,
+      );
     }
     return rows;
   };
 
-  getSortedRows = (sortDirection: Direction, sortedRow: number): Row[] => {
-    const { rows, onSortBy } = this.props;
-    return onSortBy
-      ? onSortBy(sortedRow, rows, sortDirection)
-      : defaultSortBy(sortedRow, rows, sortDirection);
-  };
-
-  updateSort = (i: number, nextDirection: Direction, sortedRows: Row[]): void =>
+  updateSort = (i: number, nextDirection: Direction): void =>
     this.setState({
       sortedRow: i,
       sortDirection: nextDirection,
-      rows: sortedRows,
     });
 
   handleScroll = (e: UIEvent<HTMLDivElement>): void => {
@@ -354,8 +339,11 @@ class Table extends Component<TableProps, TableState> {
             <TableBody
               condensed={condensed}
               rows={rows}
+              sortedRow={sortedRow}
+              sortDirection={sortDirection}
               rowHeaders={rowHeaders}
               sortHover={sortHover}
+              onSortBy={onSortBy}
               onRowClick={onRowClick}
             />
           </StyledTable>

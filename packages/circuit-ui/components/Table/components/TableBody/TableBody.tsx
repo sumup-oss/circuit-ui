@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
+import { useCallback } from 'react';
+
 import {
   mapCellProps,
   useExpandableTableOptions,
 } from '../../utils';
-import { Row } from '../../types';
+import { Direction, OnSortBy, Row } from '../../types';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
@@ -44,6 +46,18 @@ type TableBodyProps = {
    * A function to call when the row is clicked.
    */
   onRowClick?: (rowIndex: number) => void;
+  /**
+   * The current sortDirection
+   */
+  sortDirection?: Direction;
+  /**
+   * The current sorted row index
+   */
+  sortedRow?: number;
+  /**
+   * custom sort function
+   */
+  onSortBy?: OnSortBy;
 };
 
 /**
@@ -54,29 +68,35 @@ const TableBody = ({
   condensed,
   rowHeaders = false,
   sortHover,
+  sortDirection,
+  sortedRow,
+  onSortBy,
   onRowClick,
 }: TableBodyProps): JSX.Element => {
   const { data, toggleState, expandableState, toggleRow } =
-    useExpandableTableOptions(rows);
+    useExpandableTableOptions(rows, sortDirection, sortedRow, onSortBy);
 
-  const onTableRowClick = (index: number) => {
-    toggleRow(index);
-    if (onRowClick) {
-      onRowClick(index);
-    }
-  };
+  const onTableRowClick = useCallback(
+    (index: number, key: string) => {
+      toggleRow(key, index);
+      if (onRowClick) {
+        onRowClick(index);
+      }
+    },
+    [toggleRow, onRowClick],
+  );
 
   return (
     <tbody>
       {data.map((row, rowIndex) => {
-        const { cells, isChild, ...props } = row;
-        const isExpandable = expandableState[rowIndex];
-        const isOpen = toggleState[rowIndex];
+        const { cells, isChild, key, ...props } = row;
+        const isExpandable = expandableState[key];
+        const isOpen = toggleState[key];
         return (
           <TableRow
             isChild={isChild}
-            key={`table-row-${rowIndex}`}
-            onClick={() => onTableRowClick(rowIndex)}
+            key={key}
+            onClick={() => onTableRowClick(rowIndex, key)}
             {...props}
           >
             {cells.map((cell, cellIndex) =>
@@ -87,7 +107,7 @@ const TableBody = ({
                     condensed={condensed}
                     scope="row"
                     isOpen={isOpen}
-                    onChevronToggle={() => onTableRowClick(rowIndex)}
+                    onChevronToggle={() => onTableRowClick(rowIndex, key)}
                     isExpandable={isExpandable}
                     isHovered={sortHover === cellIndex}
                     sortParams={{ sortable: false }}
@@ -95,7 +115,7 @@ const TableBody = ({
                   />
               ) : (
                 <TableCell
-                  key={`table-cell-${rowIndex}-${cellIndex}`}
+                  key={`${key}-table-cell-${rowIndex}-${cellIndex}`}
                   condensed={condensed}
                   isHovered={sortHover === cellIndex}
                   {...mapCellProps(cell)}

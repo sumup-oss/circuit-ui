@@ -10,6 +10,10 @@ tbody .circuit-1:last-child td {
   border-bottom: none;
 }
 
+.circuit-1.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-3 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -144,7 +148,7 @@ tbody .circuit-1:last-child td {
   class="circuit-0"
 >
   <tr
-    class="circuit-1 circuit-2"
+    class=" circuit-1 circuit-2"
   >
     <th
       aria-label="Sort in ascending order"
@@ -215,6 +219,10 @@ exports[`TableHead Style tests should render with rowHeader styles 1`] = `
 tbody .circuit-1:last-child th,
 tbody .circuit-1:last-child td {
   border-bottom: none;
+}
+
+.circuit-1.isChild th {
+  padding-left: 48px;
 }
 
 .circuit-3 {
@@ -376,7 +384,7 @@ tbody .circuit-1:last-child td {
   class="circuit-0"
 >
   <tr
-    class="circuit-1 circuit-2"
+    class=" circuit-1 circuit-2"
   >
     <th
       aria-label="Sort in ascending order"

@@ -13,45 +13,50 @@
  * limitations under the License.
  */
 
-import { RowCell, Direction, SortParams } from './types';
+import { RowCell, Direction, SortParams, Row, RowWithInfo } from './types';
 import * as utils from './utils';
+import {
+  applyExpandAfterSort,
+  computeInitialsExpandableState,
+  computeInitialsToggleState,
+} from './utils';
 
 describe('Table utils', () => {
   describe('mapRowProps()', () => {
     describe('isArray', () => {
-      it('should map the array to cells key', () => {
+      it('should map the array to cells key - root', () => {
         const props = ['Foo'];
-        const expected = { cells: props, isChild: false };
-        const actual = utils.mapRowProps(props);
+        const expected = { cells: props, isChild: false, key: 'table-row-0' };
+        const actual = utils.mapRowProps(props, [props], false);
+
+        expect(actual).toEqual(expected);
+      });
+
+      it('should map the array to cells key - child', () => {
+        const props = ['Foo'];
+        const expected = {
+          cells: props,
+          isChild: true,
+          key: 'table-row-child-0',
+        };
+        const actual = utils.mapRowProps(props, [props], true);
 
         expect(actual).toEqual(expected);
       });
     });
 
-    it('should forward the props object', () => {
+    it('should forward the props object - root', () => {
       const props = { cells: ['Foo'], isChild: false };
-      const expected = props;
-      const actual = utils.mapRowProps(props);
+      const expected = { ...props, key: 'table-row-0' };
+      const actual = utils.mapRowProps(props, [props], false);
 
       expect(actual).toEqual(expected);
     });
-  });
 
-  describe('mapChildRowProps()', () => {
-    describe('isArray', () => {
-      it('should map the array to cells key', () => {
-        const props = ['Foo'];
-        const expected = { cells: props, isChild: true };
-        const actual = utils.mapChildRowProps(props);
-
-        expect(actual).toEqual(expected);
-      });
-    });
-
-    it('should forward the props object', () => {
-      const props = { cells: ['Foo'], isChild: true };
+    it('should forward the props object - child', () => {
+      const props = { cells: ['Foo'], isChild: true, key: 'table-row-child-0' };
       const expected = props;
-      const actual = utils.mapChildRowProps(props);
+      const actual = utils.mapRowProps(props, [props], true);
 
       expect(actual).toEqual(expected);
     });
@@ -62,7 +67,7 @@ describe('Table utils', () => {
       it('should return it', () => {
         const props = ['Foo'];
         const expected = props;
-        const actual = utils.getRowCells(props);
+        const actual = utils.getRowCells(props, [props]);
 
         expect(actual).toEqual(expected);
       });
@@ -71,7 +76,7 @@ describe('Table utils', () => {
     it('should return the cells prop', () => {
       const props = { cells: ['Foo'] };
       const expected = ['Foo'];
-      const actual = utils.getRowCells(props);
+      const actual = utils.getRowCells(props, [props]);
 
       expect(actual).toEqual(expected);
     });
@@ -180,7 +185,7 @@ describe('Table utils', () => {
       const index = 0;
       const arr = [[10], [7], [2]];
       const expected = [[2], [7], [10]];
-      const actual = [...arr].sort(utils.ascendingSort(index));
+      const actual = [...arr].sort(utils.ascendingSort(index, arr));
 
       expect(actual).toEqual(expected);
     });
@@ -191,7 +196,7 @@ describe('Table utils', () => {
       const index = 0;
       const arr = [[2], [7], [10]];
       const expected = [[10], [7], [2]];
-      const actual = [...arr].sort(utils.descendingSort(index));
+      const actual = [...arr].sort(utils.descendingSort(index, arr));
 
       expect(actual).toEqual(expected);
     });
@@ -266,6 +271,221 @@ describe('Table utils', () => {
       const expected = { sortable: false };
 
       expect(actual).toEqual(expected);
+    });
+  });
+
+  describe('computeInitialsToggleState', () => {
+    it('should compute correct toggle state from rows', () => {
+      // given
+      const rows: Row[] = [
+        {
+          cells: ['Fruits', { children: '12/01/2017', sortByValue: 0 }],
+          children: [
+            [
+              { children: 'Apple' },
+              {
+                children: '12/12/18',
+                sortByValue: new Date('12/12/18'),
+              },
+            ],
+            {
+              cells: ['Banana', { children: '12/01/2017', sortByValue: 0 }],
+            },
+            {
+              cells: ['Orange', { children: '12/01/2017', sortByValue: 0 }],
+            },
+          ],
+        },
+        [
+          { children: 'Broccoli' },
+          {
+            children: '12/13/18',
+            sortByValue: new Date('12/13/18'),
+          },
+        ],
+        [
+          { children: 'Chickpeas' },
+          {
+            children: '12/14/18',
+            sortByValue: new Date('12/14/18'),
+          },
+        ],
+      ];
+      const expected = {
+        'table-row-0': false,
+        'table-row-1': false,
+        'table-row-2': false,
+      };
+      // when
+      const result = computeInitialsToggleState(rows);
+      // then
+      expect(result).toEqual(expected);
+    });
+  });
+
+  describe('computeInitialsExpandableState', () => {
+    it('should compute correct expandable state from rows', () => {
+      // given
+      const rows: Row[] = [
+        {
+          cells: ['Fruits', { children: '12/01/2017', sortByValue: 0 }],
+          children: [
+            [
+              { children: 'Apple' },
+              {
+                children: '12/12/18',
+                sortByValue: new Date('12/12/18'),
+              },
+            ],
+            {
+              cells: ['Banana', { children: '12/01/2017', sortByValue: 0 }],
+            },
+            {
+              cells: ['Orange', { children: '12/01/2017', sortByValue: 0 }],
+            },
+          ],
+        },
+        [
+          { children: 'Broccoli' },
+          {
+            children: '12/13/18',
+            sortByValue: new Date('12/13/18'),
+          },
+        ],
+        [
+          { children: 'Chickpeas' },
+          {
+            children: '12/14/18',
+            sortByValue: new Date('12/14/18'),
+          },
+        ],
+      ];
+      const expected = {
+        'table-row-0': true,
+        'table-row-1': false,
+        'table-row-2': false,
+      };
+      // when
+      const result = computeInitialsExpandableState(rows);
+      // then
+      expect(result).toEqual(expected);
+    });
+  });
+  describe('applyExpandAfterSort', () => {
+    const rows: Row[] = [
+      {
+        cells: ['Fruits', { children: '12/01/2017', sortByValue: 0 }],
+        children: [
+          [
+            { children: 'Apple' },
+            {
+              children: '12/12/18',
+              sortByValue: new Date('12/12/18'),
+            },
+          ],
+          {
+            cells: ['Banana', { children: '12/01/2017', sortByValue: 0 }],
+          },
+          {
+            cells: ['Orange', { children: '12/01/2017', sortByValue: 0 }],
+          },
+        ],
+      },
+      [
+        { children: 'Broccoli' },
+        {
+          children: '12/13/18',
+          sortByValue: new Date('12/13/18'),
+        },
+      ],
+      [
+        { children: 'Chickpeas' },
+        {
+          children: '12/14/18',
+          sortByValue: new Date('12/14/18'),
+        },
+      ],
+    ];
+    it('should add missing rows if needed', () => {
+      // given
+      const data: Row[] = rows;
+      const toggleState = {
+        'table-row-0': true,
+        'table-row-1': false,
+        'table-row-2': false,
+      };
+      const expected: RowWithInfo[] = [
+        {
+          cells: ['Fruits', { children: '12/01/2017', sortByValue: 0 }],
+          children: [
+            [
+              { children: 'Apple' },
+              {
+                children: '12/12/18',
+                sortByValue: new Date('12/12/18'),
+              },
+            ],
+            {
+              cells: ['Banana', { children: '12/01/2017', sortByValue: 0 }],
+            },
+            {
+              cells: ['Orange', { children: '12/01/2017', sortByValue: 0 }],
+            },
+          ],
+          isChild: false,
+          key: 'table-row-0',
+        },
+        {
+          cells: [
+            { children: 'Apple' },
+            {
+              children: '12/12/18',
+              sortByValue: new Date('12/12/18'),
+            },
+          ],
+          isChild: true,
+          key: 'table-row-child-0',
+        },
+        {
+          cells: ['Banana', { children: '12/01/2017', sortByValue: 0 }],
+          isChild: true,
+          key: 'table-row-child-1',
+        },
+        {
+          cells: ['Orange', { children: '12/01/2017', sortByValue: 0 }],
+          isChild: true,
+          key: 'table-row-child-2',
+        },
+        {
+          cells: [
+            { children: 'Broccoli' },
+            {
+              children: '12/13/18',
+              sortByValue: new Date('12/13/18'),
+            },
+          ],
+          isChild: false,
+          key: 'table-row-1',
+        },
+        {
+          cells: [
+            { children: 'Chickpeas' },
+            {
+              children: '12/14/18',
+              sortByValue: new Date('12/14/18'),
+            },
+          ],
+          isChild: false,
+          key: 'table-row-2',
+        },
+      ];
+
+      // when
+      const result = applyExpandAfterSort(data, rows, toggleState);
+
+      // then
+      expect(result.length).toEqual(6);
+      expect(result).toEqual(expected);
     });
   });
 });

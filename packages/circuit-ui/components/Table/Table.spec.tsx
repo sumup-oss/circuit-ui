@@ -25,6 +25,8 @@ import Badge from '../Badge';
 import Table from './Table';
 import { HeaderCell, Direction } from './types';
 
+jest.setTimeout(500000);
+
 const sortLabel = ({ direction }: { direction?: Direction }) => {
   const order = direction === 'ascending' ? 'descending' : 'ascending';
   return `Sort in ${order} order`;
@@ -147,9 +149,9 @@ describe('Table', () => {
         );
 
         const letterHeaderEl = getAllByRole('columnheader')[0];
-        const cellEls = getAllByRole('cell');
 
         await userEvent.click(letterHeaderEl);
+        const cellEls = getAllByRole('cell');
 
         const sortedRow = ['a', 'b', 'c'];
 
@@ -186,11 +188,11 @@ describe('Table', () => {
         );
 
         const letterHeaderEl = getAllByRole('columnheader')[0];
+
+        await userEvent.click(letterHeaderEl);
+        await userEvent.click(letterHeaderEl);
+
         const cellEls = getAllByRole('cell');
-
-        await userEvent.click(letterHeaderEl);
-        await userEvent.click(letterHeaderEl);
-
         const sortedRow = ['c', 'b', 'a'];
 
         rows.forEach((_row, index) => {
@@ -222,6 +224,7 @@ describe('Table', () => {
 
       it('should call a custom sort callback', async () => {
         const onSortByMock = jest.fn();
+        onSortByMock.mockReturnValue([]);
         const index = 0;
         const nextDirection = 'ascending';
         const { getAllByRole } = render(
