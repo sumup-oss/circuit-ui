@@ -13,30 +13,33 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
+import { light, Theme } from '@sumup/design-tokens';
 import { Body, spacing } from '@sumup/circuit-ui';
 
-const Box = styled.div`
-  ${({ theme, size }) => css`
+interface IconSizeProps {
+  size: keyof Theme['iconSizes'];
+}
+
+const Box = styled.div<IconSizeProps>(
+  ({ theme, size }) => css`
     width: ${theme.iconSizes[size]};
     height: ${theme.iconSizes[size]};
     background-color: ${theme.colors.r300};
     margin-right: ${theme.spacings.mega};
-  `};
-`;
+  `,
+);
 
-const Wrapper = styled.div`
-  ${({ theme }) => css`
+const Wrapper = styled.div(
+  ({ theme }) => css`
     display: flex;
     align-items: center;
     margin-bottom: ${theme.spacings.mega};
-  `};
-`;
+  `,
+);
 
-const IconSize = ({ size }) => (
+const IconSize = ({ size }: IconSizeProps) => (
   <ThemeProvider theme={light}>
     <Wrapper>
       <Box size={size} />
@@ -56,9 +59,5 @@ const IconSize = ({ size }) => (
     </Wrapper>
   </ThemeProvider>
 );
-
-IconSize.propTypes = {
-  size: PropTypes.string.isRequired,
-};
 
 export default IconSize;

@@ -21,20 +21,20 @@ import {
   Col as OriginalCol,
 } from '@sumup/circuit-ui';
 
-export const Grid = styled(OriginalGrid)`
-  ${({ theme }) => css`
+export const Grid = styled(OriginalGrid)(
+  ({ theme }) => css`
     background-color: ${theme.colors.n100};
-  `};
-`;
+  `,
+);
 
-export const Row = styled(OriginalRow)`
-  ${({ theme }) => css`
+export const Row = styled(OriginalRow)(
+  ({ theme }) => css`
     color: ${theme.colors.white};
-  `};
-`;
+  `,
+);
 
-export const Col = styled(OriginalCol)`
-  ${({ theme }) => css`
+export const Col = styled(OriginalCol)(
+  ({ theme }) => css`
     &:nth-of-type(n) {
       background-color: ${theme.colors.b500};
     }
@@ -44,5 +44,5 @@ export const Col = styled(OriginalCol)`
     }
     color: ${theme.colors.white};
     text-align: center;
-  `};
-`;
+  `,
+);

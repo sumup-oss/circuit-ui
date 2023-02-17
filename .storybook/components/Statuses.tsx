@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/prop-types, react/display-name */
-
-import PropTypes from 'prop-types';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { Badge, Body, spacing } from '@sumup/circuit-ui';
+
+interface StatusProps {
+  variant: 'stable' | 'deprecated' | 'inReview' | 'experimental';
+}
 
 const variants = {
   stable: { variant: 'confirm', label: 'Stable' },
@@ -27,7 +28,7 @@ const variants = {
   experimental: { variant: 'notify', label: 'Experimental' },
 };
 
-const Status = ({ variant: status = 'stable' }) => {
+const Status = ({ variant: status = 'stable' }: StatusProps) => {
   const { variant, label } = variants[status];
 
   return (
@@ -52,21 +53,9 @@ Status.Description = ({ children }) => (
   </ThemeProvider>
 );
 
-Status.propTypes = {
-  variant: PropTypes.oneOf([
-    'stable',
-    'deprecated',
-    'inReview',
-    'experimental',
-  ]),
-};
+Status.Stable = () => <Status variant="stable" />;
+Status.Deprecated = () => <Status variant="deprecated" />;
+Status.InReview = () => <Status variant="inReview" />;
+Status.Experimental = () => <Status variant="experimental" />;
 
-Status.Stable = (props) => <Status {...props} variant="stable" />;
-Status.Deprecated = (props) => <Status {...props} variant="deprecated" />;
-Status.InReview = (props) => <Status {...props} variant="inReview" />;
-Status.Experimental = (props) => <Status {...props} variant="experimental" />;
-
-/**
- * @component
- */
 export default Status;

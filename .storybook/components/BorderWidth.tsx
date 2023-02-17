@@ -13,22 +13,25 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
+import { light, Theme } from '@sumup/design-tokens';
 import { Body, spacing } from '@sumup/circuit-ui';
 
-const Box = styled.div`
-  ${({ theme, size }) => css`
+interface BorderWidthProps {
+  size: keyof Theme['borderWidth'];
+}
+
+const Box = styled.div<BorderWidthProps>(
+  ({ theme, size }) => css`
     width: ${theme.spacings.tera};
     height: ${theme.spacings.tera};
     border-radius: ${theme.borderRadius.bit};
     border: ${theme.borderWidth[size]} solid ${theme.colors.r500};
     background-color: ${theme.colors.r300};
     margin-right: ${theme.spacings.mega};
-  `};
-`;
+  `,
+);
 
 const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -38,7 +41,7 @@ const Wrapper = styled.div`
   `};
 `;
 
-const BorderWidth = ({ size }) => (
+const BorderWidth = ({ size }: BorderWidthProps) => (
   <ThemeProvider theme={light}>
     <Wrapper>
       <Box size={size} />
@@ -56,9 +59,5 @@ const BorderWidth = ({ size }) => (
     </Wrapper>
   </ThemeProvider>
 );
-
-BorderWidth.propTypes = {
-  size: PropTypes.string.isRequired,
-};
 
 export default BorderWidth;

@@ -13,23 +13,35 @@
  * limitations under the License.
  */
 
-import { Fragment, createElement } from 'react';
-import PropTypes from 'prop-types';
+import { Fragment, createElement, ComponentType } from 'react';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 
 import { Body } from '@sumup/circuit-ui';
 
-const TypePx = styled(Body)`
-  ${({ theme }) => css`
+interface TypeProps {
+  component: ComponentType;
+  name: string;
+  size?: string;
+  fontWeight?: string;
+}
+
+const TypePx = styled(Body)(
+  ({ theme }) => css`
     margin-left: ${theme.spacings.mega};
     margin-bottom: ${theme.spacings.giga};
     text-transform: lowercase;
-  `};
-`;
+  `,
+);
 
-const Type = ({ size, component, name, fontWeight, ...props }) => {
+const Type = ({
+  size,
+  component,
+  name,
+  fontWeight = null,
+  ...props
+}: TypeProps) => {
   // The fontSize can be either on typography[name][size] (body, headline) or
   // on typography[name] directly (subHeadline).
   const { fontSize, lineHeight } =
@@ -52,17 +64,6 @@ const Type = ({ size, component, name, fontWeight, ...props }) => {
       })}
     </ThemeProvider>
   );
-};
-
-Type.propTypes = {
-  component: PropTypes.object.isRequired,
-  size: PropTypes.string,
-  fontWeight: PropTypes.string,
-  name: PropTypes.string.isRequired,
-};
-
-Type.defaultProps = {
-  fontWeight: null,
 };
 
 export default Type;

@@ -13,30 +13,33 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
+import { light, Theme } from '@sumup/design-tokens';
 import { Body, spacing } from '@sumup/circuit-ui';
 
-const Box = styled.div`
-  ${({ theme, spacingName }) => css`
+interface SpacingProps {
+  spacingName: keyof Theme['spacings'];
+}
+
+const Box = styled.div<SpacingProps>(
+  ({ theme, spacingName }) => css`
     width: ${theme.spacings[spacingName]};
     height: ${theme.spacings[spacingName]};
     background-color: ${theme.colors.r300};
     margin-right: ${theme.spacings.mega};
-  `};
-`;
+  `,
+);
 
-const Wrapper = styled.div`
-  ${({ theme }) => css`
+const Wrapper = styled.div(
+  ({ theme }) => css`
     display: flex;
     align-items: center;
     margin-bottom: ${theme.spacings.mega};
-  `};
-`;
+  `,
+);
 
-const Spacing = ({ spacingName }) => (
+const Spacing = ({ spacingName }: SpacingProps) => (
   <ThemeProvider theme={light}>
     <Wrapper>
       <Box spacingName={spacingName} />
@@ -56,9 +59,5 @@ const Spacing = ({ spacingName }) => (
     </Wrapper>
   </ThemeProvider>
 );
-
-Spacing.propTypes = {
-  spacingName: PropTypes.string.isRequired,
-};
 
 export default Spacing;

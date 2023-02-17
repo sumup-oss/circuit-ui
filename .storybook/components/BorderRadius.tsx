@@ -13,31 +13,34 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
+import { light, Theme } from '@sumup/design-tokens';
 import { Body, spacing } from '@sumup/circuit-ui';
 
-const Box = styled.div`
-  ${({ theme, size }) => css`
+interface BorderRadiusProps {
+  size: keyof Theme['borderRadius'];
+}
+
+const Box = styled.div<BorderRadiusProps>(
+  ({ theme, size }) => css`
     width: ${theme.spacings.tera};
     height: ${theme.spacings.tera};
     border-radius: ${theme.borderRadius[size]};
     background-color: ${theme.colors.r300};
     margin-right: ${theme.spacings.mega};
-  `};
-`;
+  `,
+);
 
-const Wrapper = styled.div`
-  ${({ theme }) => css`
+const Wrapper = styled.div(
+  ({ theme }) => css`
     display: flex;
     align-items: center;
     margin-bottom: ${theme.spacings.mega};
-  `};
-`;
+  `,
+);
 
-const BorderRadius = ({ size, ...props }) => (
+const BorderRadius = ({ size, ...props }: BorderRadiusProps) => (
   <Wrapper>
     <Box size={size} {...props} />
     <div>
@@ -53,9 +56,5 @@ const BorderRadius = ({ size, ...props }) => (
     </div>
   </Wrapper>
 );
-
-BorderRadius.propTypes = {
-  size: PropTypes.string.isRequired,
-};
 
 export default BorderRadius;

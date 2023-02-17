@@ -39,13 +39,15 @@ function Intro({
 }): JSX.Element {
   return (
     <ThemeProvider theme={light}>
-      <BodyLarge
-        variant="subtle"
-        css={cx(childrenBodyLargeStyles, spacing({ bottom: 'giga' }))}
-        {...props}
-      >
-        {children}
-      </BodyLarge>
+      <div>
+        <BodyLarge
+          variant="subtle"
+          css={cx(childrenBodyLargeStyles, spacing({ bottom: 'giga' }))}
+          {...props}
+        >
+          {children}
+        </BodyLarge>
+      </div>
     </ThemeProvider>
   );
 }

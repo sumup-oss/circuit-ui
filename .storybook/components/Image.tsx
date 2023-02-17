@@ -13,30 +13,14 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-import { css, ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Image as BaseImage } from '@sumup/circuit-ui';
+import { Image as BaseImage, ImageProps } from '@sumup/circuit-ui';
 
-const FULL_WIDTH = 'full-width';
-
-// HACK to escape the content-width container.
-const fullWidthStyles = ({ theme, variant }) =>
-  variant === FULL_WIDTH &&
-  css`
-    margin-left: calc(-1 * (100vw - 100%) / 2);
-    width: 100vw;
-    max-width: 100vw;
-  `;
-
-const StyledImage = styled(BaseImage)(fullWidthStyles);
-
-const Image = ({ children, ...props }) => (
+const Image = ({ children, ...props }: ImageProps) => (
   <ThemeProvider theme={light}>
-    <StyledImage {...props} />
+    <BaseImage {...props} />
   </ThemeProvider>
 );
-
-Image.FULL_WIDTH = FULL_WIDTH;
 
 export default Image;

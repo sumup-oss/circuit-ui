@@ -13,15 +13,29 @@
  * limitations under the License.
  */
 
-import { Canvas } from '@storybook/addon-docs';
-import { ThemeProvider } from '@emotion/react';
+import { useTheme, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
+import { Table } from '@sumup/circuit-ui';
 
-// eslint-disable-next-line react/prop-types
-const Preview = ({ children, ...props }) => (
-  <Canvas {...props}>
-    <ThemeProvider theme={light}>{children}</ThemeProvider>
-  </Canvas>
+const HEADERS = ['Breakpoint name', 'Query'];
+
+const TableWrapper = () => {
+  const theme = useTheme();
+  return (
+    <Table
+      headers={HEADERS}
+      rows={Object.keys(theme.breakpoints).map((bp) => [
+        bp,
+        theme.breakpoints[bp],
+      ])}
+    />
+  );
+};
+
+const MediaQueriesTable = () => (
+  <ThemeProvider theme={light}>
+    <TableWrapper />
+  </ThemeProvider>
 );
 
-export default Preview;
+export default MediaQueriesTable;
