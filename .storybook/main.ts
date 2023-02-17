@@ -1,4 +1,5 @@
-const path = require('path');
+import path from 'path';
+import remarkGfm from 'remark-gfm';
 
 const toPath = (_path) => path.join(process.cwd(), _path);
 
@@ -15,7 +16,17 @@ module.exports = {
         transpileManager: true,
       },
     },
-    '@storybook/addon-docs',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
+
     '@storybook/addon-storysource',
     '@storybook/addon-controls',
     '@storybook/addon-actions',
