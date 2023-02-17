@@ -1,42 +1,49 @@
-const webpack = require('webpack');
 const path = require('path');
-const toPath = _path => path.join(process.cwd(), _path);
+
+const toPath = (_path) => path.join(process.cwd(), _path);
+
 module.exports = {
   staticDirs: [toPath('.storybook/public')],
-  stories: ['../packages/**/*.@(mdx|stories.@(js|ts|tsx))', '../docs/**/*.@(mdx|stories.@(js|ts|tsx))'],
-  addons: [{
-    name: '@storybook/preset-typescript',
-    options: {
-      transpileManager: true
-    }
-  }, {
-    name: '@storybook/addon-docs',
-    options: {
-      sourceLoaderOptions: {
-        injectStoryParameters: false
-      }
-    }
-  }, '@storybook/addon-storysource', '@storybook/addon-controls', '@storybook/addon-actions', '@storybook/addon-a11y', '@storybook/addon-links', '@storybook/addon-viewport', '@storybook/addon-backgrounds', '@storybook/addon-interactions'],
-  features: {
-    postcss: false
-  },
+  stories: [
+    '../packages/**/*.@(mdx|stories.@(js|ts|tsx))',
+    '../docs/**/*.@(mdx|stories.@(js|ts|tsx))',
+  ],
+  addons: [
+    {
+      name: '@storybook/preset-typescript',
+      options: {
+        transpileManager: true,
+      },
+    },
+    '@storybook/addon-docs',
+    '@storybook/addon-storysource',
+    '@storybook/addon-controls',
+    '@storybook/addon-actions',
+    '@storybook/addon-a11y',
+    '@storybook/addon-links',
+    '@storybook/addon-viewport',
+    '@storybook/addon-backgrounds',
+    '@storybook/addon-interactions',
+  ],
   core: {
-    disableTelemetry: true
+    disableTelemetry: true,
   },
-  webpackFinal: createWebpackConfig,
-  managerWebpack: createWebpackConfig,
   framework: {
     name: '@storybook/react-webpack5',
-    options: {}
+    options: {},
   },
-  docs: {
-    autodocs: true
-  }
+  babel: async (options) => ({
+    ...options,
+    presets: [
+      ...options.presets,
+      // HACK: Storybook includes `@babel/preset-react` by default, which
+      // overrides the custom preset configuration in `babel.config.json`.
+      // This override overrides the override.
+      [
+        '@babel/preset-react',
+        { runtime: 'automatic', importSource: '@emotion/react' },
+        'preset-jsx-import-source',
+      ],
+    ],
+  }),
 };
-function createWebpackConfig(config) {
-  // Expose environment variables to Storybook
-  config.plugins = [...config.plugins, new webpack.DefinePlugin({
-    'process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS': JSON.stringify(process.env.UNSAFE_DISABLE_NO_MARGIN_ERRORS)
-  })];
-  return config;
-}
