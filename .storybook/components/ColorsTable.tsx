@@ -93,13 +93,15 @@ function ColorsTable({ customProperties }: { customProperties: string[] }) {
   return (
     <ThemeProvider theme={light}>
       <ToastProvider>
-        {colors && (
-          <Table
-            condensed
-            headers={['Property name', 'Color value', 'Preview']}
-            rows={getRows(colors)}
-          />
-        )}
+        <div className="sb-unstyled">
+          {colors && (
+            <Table
+              condensed
+              headers={['Property name', 'Color value', 'Preview']}
+              rows={getRows(colors)}
+            />
+          )}
+        </div>
       </ToastProvider>
     </ThemeProvider>
   );

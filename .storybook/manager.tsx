@@ -6,6 +6,6 @@ addons.setConfig({
   theme,
   isFullscreen: false,
   showPanel: true,
+  showToolbar: true,
   panelPosition: 'bottom',
-  isToolshown: true,
 });

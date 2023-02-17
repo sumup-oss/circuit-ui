@@ -24,6 +24,7 @@ const CARD_HEIGHT = '185px';
 
 const Wrapper = styled(Card)(
   ({ theme }) => css`
+    box-sizing: border-box;
     width: 100%;
     float: left;
     margin-top: ${theme.spacings.giga};
@@ -36,6 +37,15 @@ const Wrapper = styled(Card)(
 
     *:last-child {
       margin-bottom: 0;
+    }
+
+    h2 {
+      border: none;
+      padding: 0;
+    }
+
+    p {
+      margin-top: 0;
     }
   `,
 );

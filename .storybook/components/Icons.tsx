@@ -28,6 +28,7 @@ import {
   Select,
   spacing,
   typography,
+  BaseStyles,
 } from '@sumup/circuit-ui';
 
 function groupBy(icons: IconsManifest['icons'], key: string) {
@@ -137,6 +138,7 @@ const Icons = () => {
 
   return (
     <ThemeProvider theme={light}>
+      <BaseStyles />
       <Filters>
         <SearchInput
           label="Filter icons by name"

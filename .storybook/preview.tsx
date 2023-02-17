@@ -1,10 +1,11 @@
 import ReactDOM from 'react-dom';
 import { action } from '@storybook/addon-actions';
 import { ThemeProvider } from '@emotion/react';
+import { BaseStyles } from '@sumup/circuit-ui';
 import { light } from '@sumup/design-tokens';
 import { TrackingRoot, TrackingView } from '@sumup/collector';
 
-import { theme, components } from './theme';
+import { theme } from './theme';
 
 export const parameters = {
   layout: 'centered',
@@ -27,7 +28,7 @@ export const parameters = {
       includeName: true,
     },
   },
-  docs: { theme, components },
+  docs: { theme },
 };
 
 const withUnmountWhenHidden = (Story, context) => {
