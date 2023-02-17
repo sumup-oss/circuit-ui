@@ -1,7 +1,7 @@
 import LinkTo from '@storybook/addon-links/react';
 import { css } from '@emotion/react';
 
-import { isStoryName, splitStoryName } from '../util/story-helpers';
+const LINK_PREFIXES = ['/', 'http', 'mailto', '#', 'tel'];
 
 const styles = css`
   font: inherit;
@@ -10,8 +10,12 @@ const styles = css`
 const Link = ({ children, href, ...props }) => {
   const storyName = decodeURIComponent(href);
 
-  if (isStoryName(storyName)) {
-    const [group, component, name = 'base'] = splitStoryName(storyName);
+  const isStoryName = !LINK_PREFIXES.some((prefix) =>
+    storyName.startsWith(prefix),
+  );
+
+  if (isStoryName) {
+    const [group, component, name = 'base'] = storyName.split('/');
     const kind = `${group}/${component}`;
     return (
       <LinkTo {...props} kind={kind} story={name}>

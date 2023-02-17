@@ -4,56 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { TrackingRoot, TrackingView } from '@sumup/collector';
 
-import { BaseStyles } from '@sumup/circuit-ui';
-import { theme, components } from './util/theme';
-import { sortStories } from './util/story-helpers';
-
-// Add group and story names to the sort order to explicitly order them.
-// Items that are not included in the list are shown below the sorted items.
-const SORT_ORDER = {
-  Introduction: {
-    'Welcome': {},
-    'Getting Started': {},
-    'Browser Support': {},
-    'Contributing': {
-      'Overview': {},
-      'Code Conventions': {},
-      'Browser support (for contributors)': {},
-      'Testing': {},
-      'Release Process': {},
-      'Deprecations': {},
-    },
-  },
-  Features: {
-    'Theme': {},
-    'Icons': {},
-    'Style Mixins': {},
-    'Event Tracking': {},
-    'Base Components': {},
-    'Static CSS': {},
-  },
-  Typography: { Headline: {}, SubHeadline: {}, Body: {} },
-  Layout: {},
-  Forms: {},
-  Navigation: {
-    TopNavigation: {},
-    SideNavigation: {},
-    Pagination: {},
-    Tabs: {},
-    Sidebar: {},
-    Hamburger: {},
-  },
-  Notification: {},
-  Components: {},
-  Hooks: {},
-  Patterns: {},
-  Packages: {
-    'circuit-ui': {},
-    'design-tokens': {},
-    'icons': {},
-    'cna-template': {},
-  },
-};
+import { theme, components } from './theme';
 
 export const parameters = {
   layout: 'centered',
@@ -71,7 +22,10 @@ export const parameters = {
   previewTabs: { 'storybook/docs/panel': { index: -1 } },
   actions: { argTypesRegex: '^on.*' },
   options: {
-    storySort: sortStories(SORT_ORDER),
+    storySort: {
+      order: ['Introduction', 'Welcome', 'Features'],
+      includeName: true,
+    },
   },
   docs: { theme, components },
 };

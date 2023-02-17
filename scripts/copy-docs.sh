@@ -18,4 +18,4 @@ done
 
 # CONTRIBUTING.md
 
-echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Introduction/Contributing/Overview\" />\n\n$(cat "./CONTRIBUTING.md")" > "./docs/contributing/overview.stories.mdx"
+echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Contributing/Overview\" />\n\n$(cat "./CONTRIBUTING.md")" > "./docs/contributing/overview.stories.mdx"

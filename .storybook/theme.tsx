@@ -11,7 +11,7 @@ import {
   spacing,
 } from '@sumup/circuit-ui';
 
-import { Link } from '../components';
+import { Link } from './components';
 
 export const theme = create({
   base: 'light',
