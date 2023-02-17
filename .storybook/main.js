@@ -5,7 +5,7 @@ const toPath = (_path) => path.join(process.cwd(), _path);
 module.exports = {
   staticDirs: [toPath('.storybook/public')],
   stories: [
-    '../packages/**/*.@(mdx|stories.@(js|ts|tsx))',
+    '../packages/circuit-ui/**/*.@(mdx|stories.@(js|ts|tsx))',
     '../docs/**/*.@(mdx|stories.@(js|ts|tsx))',
   ],
   addons: [

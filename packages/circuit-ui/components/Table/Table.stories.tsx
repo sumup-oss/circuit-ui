@@ -18,7 +18,6 @@ import { action } from '@storybook/addon-actions';
 import Badge from '../Badge';
 import { isString } from '../../util/type-check';
 
-import docs from './Table.docs.mdx';
 import { TableProps } from './Table';
 import { Direction } from './types';
 
@@ -27,9 +26,6 @@ import Table from '.';
 export default {
   title: 'Components/Table',
   component: Table,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {

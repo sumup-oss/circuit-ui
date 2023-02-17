@@ -16,8 +16,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import docs from '../Grid.docs.mdx';
-
 import { Col } from './Col';
 
 const colControl = {
@@ -34,7 +32,6 @@ export default {
   component: Col,
   parameters: {
     layout: 'fullscreen',
-    docs: { page: docs },
   },
   argTypes: {
     span: colControl,

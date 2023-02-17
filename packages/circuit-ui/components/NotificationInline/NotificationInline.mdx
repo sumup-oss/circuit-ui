@@ -1,0 +1,54 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './NotificationInline.stories';
+
+<Meta of={Stories} />
+
+# NotificationInline
+
+<Status.Stable />
+
+The `NotificationInline` component renders an inline notification within the content flow. It is frequently used to provide additional guidance or to draw attention to a section of the interface.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Component variations
+
+### Notification variants
+
+<Story of={Stories.Variants} />
+
+- Use the 'Info' variant for informational, neutral messages.
+- Use the 'Confirm' variant the successful messages.
+- Use the 'Notify' variant for warning messages, and other information a user should be aware of.
+- Use the 'Alert' variant for error messages. Be descriptive and give users clear next steps.
+
+### Dismissable notifications
+
+The notification can optionally be made dismissable by passing an `onClose` method and a `closeButtonLabel`.
+
+<Story of={Stories.Dismissable} />
+
+### Notifications with a headline and/or action button
+
+If needed, an optional headline can be included above the body copy. Note that the headline can be passed as a string (renders an `h3`), or as an object with the properties `label` (the heading text) and `as` (the heading level, from `h2` to `h6`). Make sure to render the appropriate heading level based on your page's heading structure: refer to the [`Headline` component docs](Typography/Headline) for more details.
+
+Likewise, an optional action button will prompt the user to take a specific action in relation to the notification.
+
+<Story of={Stories.WithHeadlineAndAction} />
+
+## Accessibility
+
+### Best practices
+
+#### Place notifications close to their related content
+
+Inline notifications are part of the content flow, and should be placed near their related content. Make use of headings and semantic markup to programmatically group content into meaningful sections.
+
+#### Avoid dynamically rendering a notification
+
+If rendering a notification on the page dynamically, e.g. after a form submission, set up a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) to ensure that the new content is picked up by assistive technology.
+
+Alternatively, use the [`NotificationToast`](Notifications/NotificationToast), which comes with a live region built in.
+
+An even more robust pattern would be to navigate on form submission and to render an `InlineNotification` statically on a new page. This would also allow for a notification with an action, which toasts don't support.

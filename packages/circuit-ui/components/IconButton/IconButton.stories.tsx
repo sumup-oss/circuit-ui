@@ -15,16 +15,11 @@
 
 import { Plus } from '@sumup/icons';
 
-import docs from '../Button/Button.docs.mdx';
-
 import { IconButton, IconButtonProps } from './IconButton';
 
 export default {
   title: 'Components/Button/IconButton',
   component: IconButton,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 export const Base = (args: IconButtonProps) => (

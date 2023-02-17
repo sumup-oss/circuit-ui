@@ -1,0 +1,41 @@
+import { Meta, Status, Story } from '../../../../.storybook/components';
+import * as Stories from './Grid/Grid.stories';
+
+<Meta title="Layout/Grid" />
+
+# Grid
+
+<Status.Stable />
+
+## Static columns
+
+Sometimes you need the same type of grid behavior on all viewports. For that
+scenario, you can use the normal `span` attribute of the grid.
+
+<Story of={Stories.StaticColumns} />
+
+## Responsive columns
+
+You can use the following [breakpoints](Features/Theme) to define the
+responsive behavior of your grid:
+
+- `untilKilo`
+- `kilo`
+- `mega`
+- `giga`
+- `tera`
+
+<Story of={Stories.ResponsiveColumns} />
+
+Default refers to the smallest viewpoint.
+
+## Skipping columns
+
+Sometimes you want to skip a column. For that, you can use the `skip` prop on
+the `Col` component.
+
+<Story of={Stories.SkippingColumns} />
+
+## Responsive skipping
+
+<Story of={Stories.ResponsiveSkipping} />

@@ -1,0 +1,31 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+
+import * as Stories from './Tabs.stories';
+
+<Meta of={Stories} />
+
+# Tabs
+
+<Status.InReview />
+<Status.Description>
+  Does not handle content overflow on mobile. Unclear use case compared to
+  subnavigation.
+</Status.Description>
+
+<Story of={Stories.Base} />
+
+<Props />
+
+## Variations
+
+If you need more control on the tabs, you can build you own tabs list instead of passing an array of items to the `Tabs` component. This can be useful to style any of the components individually.
+
+<Story of={Stories.ControlledState} />
+
+## With links
+
+<Story of={Stories.Links} />
+
+## When to use it
+
+## Usage guidelines

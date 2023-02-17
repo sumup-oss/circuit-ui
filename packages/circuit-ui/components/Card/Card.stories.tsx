@@ -23,17 +23,12 @@ import Headline from '../Headline';
 import Body from '../Body';
 import ButtonGroup from '../ButtonGroup';
 
-import docs from './Card.docs.mdx';
-
 import Card, { CardHeader, CardFooter } from '.';
 
 export default {
   title: 'Components/Card',
   component: Card,
   subcomponents: { CardHeader, CardFooter },
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const cardStyles = () => css`

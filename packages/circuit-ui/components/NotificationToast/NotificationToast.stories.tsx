@@ -24,13 +24,9 @@ import {
   NotificationToastProps,
   useNotificationToast,
 } from './NotificationToast';
-import docs from './NotificationToast.docs.mdx';
 
 export default {
   title: 'Notification/NotificationToast',
-  parameters: {
-    docs: { page: docs },
-  },
   component: NotificationToast,
 };
 

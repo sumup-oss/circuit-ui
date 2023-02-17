@@ -1,0 +1,103 @@
+import { light } from '@sumup/design-tokens';
+import { ThemeProvider } from '@emotion/react';
+
+import { Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './SelectorGroup.stories';
+
+import { SelectorGroup, Headline, Body, spacing } from '../../index';
+
+<Meta of={Stories} />
+
+# SelectorGroup
+
+<Status.InReview />
+<Status.Description>
+  This component is under design review. Consider using radio buttons or
+  checkboxes instead.
+</Status.Description>
+
+The SelectorGroup component allows users to select a single or multiple options from a group.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Component variations
+
+### Multiple selection
+
+Pass the `multiple` prop to use a checkbox group under the hood instead of the default radio button group.
+
+<Story of={Stories.Multiple} />
+
+---
+
+## Accessibility
+
+Selectors are semantically either radio buttons or checkboxes. When it comes to accessibility, this means that they should be treated as input elements, with considerations such as proper labeling, keyboard operability, etc.
+
+### Best practices
+
+#### Write clear and concise labels
+
+The `children` prop passed to one of the SelectorGroup's `options` constitutes the Selector's label. This label should be clear and concise, and should not contain any formatted or semantic content (such as headings or lists).
+
+<ThemeProvider theme={light}>
+  <SelectorGroup
+    options={[
+      {
+        children: 'Do this',
+        value: 'valid',
+      },
+      {
+        children: (
+          <>
+            <Body variant="highlight" css={spacing({ bottom: 'bit' })}>
+              Bold text
+            </Body>
+            <Body>⚠️ Avoid doing this</Body>
+          </>
+        ),
+        value: 'invalid',
+      },
+      {
+        children: (
+          <>
+            <Headline as="h4" size="four" css={spacing({ bottom: 'bit' })}>
+              Headline
+            </Headline>
+            <Body>
+              🚫 Don't do this. If you need to add details, write a paragraph
+              above the SelectorGroup.
+            </Body>
+          </>
+        ),
+        value: 'invalid',
+      },
+    ]}
+    label="Example"
+    css={spacing({ bottom: 'giga' })}
+  />
+</ThemeProvider>
+
+This is because the label in this case is also the input's accessible name, exposed to assistive technology as plain text.
+
+For example, screen reader user arrowing through the options in the example above would hear:
+
+- "Do this, radio button, 1 of 3"
+- "Bold text avoid doing this, radio button, 2 of 3"
+- "Headline don't do this if you need to add details write a paragraph above the SelectorGroup, radio button, 3 of 3"
+
+Using non-phrasing content in a label element is also invalid HTML.
+
+### Resources
+
+#### Testing label accessibility
+
+Use a tool like [Wave](https://wave.webaim.org/) to turn off styles (in Wave, you can use the "Styles" toggle). _Note: this feature doesn't work on this page since Storybook renders the docs are rendered in an iframe._
+
+This will expose the component's underlying checkboxes or radio buttons. Verify that the labels are appropriate.
+
+#### Related WCAG success criteria
+
+- 2.4.6: [Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html)
+- 4.1.1: [Parsing](https://www.w3.org/WAI/WCAG21/Understanding/parsing)

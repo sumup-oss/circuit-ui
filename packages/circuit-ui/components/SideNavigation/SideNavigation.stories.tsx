@@ -20,14 +20,12 @@ import { ModalProvider } from '../ModalContext';
 import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation';
 
 import { SideNavigation, SideNavigationProps } from './SideNavigation';
-import docs from './SideNavigation.docs.mdx';
 
 export default {
   title: 'Navigation/SideNavigation',
   component: SideNavigation,
   parameters: {
     layout: 'fullscreen',
-    docs: { page: docs },
     chromatic: { viewports: [320, 960, 1280] },
   },
   excludeStories: /.*Args$/,

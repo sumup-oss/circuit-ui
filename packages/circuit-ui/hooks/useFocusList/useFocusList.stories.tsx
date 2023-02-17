@@ -20,13 +20,9 @@ import { action } from '@storybook/addon-actions';
 import { listItem } from '../../styles/style-mixins';
 
 import { useFocusList } from './useFocusList';
-import docs from './useFocusList.docs.mdx';
 
 export default {
   title: 'Hooks/useFocusList',
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const fruits = ['Apple', 'Banana', 'Mango'];

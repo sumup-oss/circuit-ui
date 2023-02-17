@@ -17,14 +17,10 @@ import { useState, ChangeEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
-import docs from './Checkbox.docs.mdx';
 
 export default {
   title: 'Forms/Checkbox',
   component: Checkbox,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     name: { control: 'text' },
     value: { control: 'text' },

@@ -1,0 +1,54 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './ImageInput.stories';
+
+<Meta of={Stories} />
+
+# ImageInput
+
+<Status.Stable />
+
+The ImageInput component allows users to upload images. It can be used on its own or as part of a form.
+
+<Story of={Stories.Base} />
+
+<Props />
+
+## Usage guidelines
+
+Refer to the `Stateful` component story for a simplified code usage example.
+
+- **Do** use the `onChange` callback to immediately trigger an image upload when the user has selected one, even when the component is being used as part of a form. Faster form submissions add to a delightful user experience.
+- **Do not** use the ImageInput component if the image is read-only for the user. Instead, use the visual component from the ImageInput's `component` prop by itself, for example the [Avatar](Components/Avatar).
+
+## Input states
+
+### Existing image
+
+When an `src` prop is provided, the ImageInput renders a "Clear" icon instead of the "Add" icon. It also forwards the prop to the visual component passed as a prop. Clicking the "Clear" icon clears the input.
+
+<Story of={Stories.WithImage} />
+
+### Invalid
+
+When an image upload fails, set the `invalid` prop to true to render invalid styles, and show the user a clear and concise error message using the `validationHint` prop.
+
+<Story of={Stories.Invalid} />
+
+## Custom component
+
+The ImageInput has drop-in support for the [Avatar](Components/Avatar) component as a visual element.
+
+However, a custom component can also be used in other cases to display an ImageInput with different dimensions.
+
+There are some caveats with this approach:
+
+- A custom placeholder will also need to be provided to match the custom aspect ratio. Refer to the `CustomComponent` stories for code examples.
+- Currently, the `ImageInput` only supports rectangular components in order to correctly apply state-specific styles. Please omit border-radius styles from your custom components, they will be set to a fixed 12px radius by the ImageInput.
+
+### Using an img element
+
+<Story of={Stories.CustomComponentImg} />
+
+### Using a div element
+
+<Story of={Stories.CustomComponentDiv} />

@@ -16,14 +16,10 @@
 import { Stack } from '../../../../.storybook/components';
 
 import { Badge, BadgeProps } from './Badge';
-import docs from './Badge.docs.mdx';
 
 export default {
   title: 'Components/Badge',
   component: Badge,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 /* eslint-disable no-param-reassign */

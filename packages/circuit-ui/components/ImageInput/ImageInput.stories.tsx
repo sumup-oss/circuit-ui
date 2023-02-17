@@ -17,7 +17,6 @@ import { useState } from 'react';
 
 import Avatar from '../Avatar';
 
-import docs from './ImageInput.docs.mdx';
 import { ImageInputProps } from './ImageInput';
 
 import ImageInput from '.';
@@ -25,9 +24,6 @@ import ImageInput from '.';
 export default {
   title: 'Forms/ImageInput',
   component: ImageInput,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 export const Base = (args: ImageInputProps): JSX.Element => (

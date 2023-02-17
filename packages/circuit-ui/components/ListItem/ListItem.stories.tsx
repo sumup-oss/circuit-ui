@@ -23,7 +23,6 @@ import Body from '../Body';
 import Badge from '../Badge';
 
 import { ListItem, ListItemProps } from './ListItem';
-import docs from './ListItem.docs.mdx';
 
 interface Item {
   title: string;
@@ -36,9 +35,6 @@ interface Item {
 export default {
   title: 'Components/ListItem',
   component: ListItem,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     label: { control: 'text' },
     details: { control: 'text' },
@@ -120,7 +116,7 @@ const baseArgs: ListItemProps = {
   trailingComponent: undefined,
   selected: undefined,
   disabled: undefined,
-  onClick: null,
+  onClick: undefined,
   href: undefined,
 };
 

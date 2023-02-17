@@ -17,16 +17,14 @@ import { css } from '@emotion/react';
 import { action } from '@storybook/addon-actions';
 import { Theme } from '@sumup/design-tokens';
 
-import docs from './ButtonGroup.docs.mdx';
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
 
 export default {
-  title: 'Components/Button/ButtonGroup',
+  title: 'Components/ButtonGroup',
   component: ButtonGroup,
   parameters: {
     // we don't want to center this story to be able to see the effects of the `align` prop
     layout: 'padded',
-    docs: { page: docs },
   },
 };
 

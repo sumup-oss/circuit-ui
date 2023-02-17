@@ -15,7 +15,6 @@
 
 import styled from '@emotion/styled';
 
-import docs from '../Grid.docs.mdx';
 import { Row, Col } from '..';
 
 export default {
@@ -24,7 +23,6 @@ export default {
   parameters: {
     layout: 'fullscreen',
     controls: { hideNoControlsWarning: true },
-    docs: { page: docs },
   },
 };
 

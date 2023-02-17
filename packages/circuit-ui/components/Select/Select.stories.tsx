@@ -17,14 +17,10 @@ import { useState, FC } from 'react';
 import { FlagDe, FlagUs, FlagFr, IconProps } from '@sumup/icons';
 
 import { Select, SelectProps } from './Select';
-import docs from './Select.docs.mdx';
 
 export default {
   title: 'Forms/Select',
   component: Select,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const baseArgs = {

@@ -17,16 +17,12 @@ import { Stack } from '../../../../.storybook/components';
 import SelectorGroup from '../SelectorGroup';
 import Body from '../Body';
 
-import docs from './Selector.docs.mdx';
 import { Selector, SelectorProps } from './Selector';
 
 export default {
   title: 'Forms/Selector',
   component: Selector,
   subcomponents: { SelectorGroup },
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const baseArgs = {

@@ -1,0 +1,29 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './BodyLarge.stories';
+
+<Meta of={Stories} />
+
+# BodyLarge
+
+<Status.Stable />
+
+The BodyLarge component is used to render content with large typography. Typically, large typography is intended for landing pages. In most cases, the [Body](Typography/Body) should be used instead.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Component variations
+
+### Variants
+
+The BodyLarge accepts five different variants—`highlight`, `quote`, `confirm`, `alert` and `subtle`—to tailor it according to the content we are presenting.
+
+The `highlight` variant will render a `<strong>` element by default, while the `quote` variant will render a `blockquote`.
+
+<Story of={Stories.Variants} />
+
+---
+
+## Accessibility
+
+All accessibility guidelines for the [Body component](Typography/Body) also apply to the BodyLarge component.

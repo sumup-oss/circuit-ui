@@ -23,14 +23,12 @@ import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigatio
 import { ModalProvider } from '../ModalContext';
 
 import { TopNavigation, TopNavigationProps } from './TopNavigation';
-import docs from './TopNavigation.docs.mdx';
 
 export default {
   title: 'Navigation/TopNavigation',
   component: TopNavigation,
   parameters: {
     layout: 'fullscreen',
-    docs: { page: docs },
     chromatic: { viewports: [320, 480, 960] },
   },
   excludeStories: /.*Args$/,

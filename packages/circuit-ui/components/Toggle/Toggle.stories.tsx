@@ -15,15 +15,11 @@
 
 import { useState } from 'react';
 
-import docs from './Toggle.docs.mdx';
 import { Toggle, ToggleProps } from './Toggle';
 
 export default {
   title: 'Forms/Toggle',
   component: Toggle,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const baseArgs = {

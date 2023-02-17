@@ -19,13 +19,9 @@ import Button from '../../components/Button';
 import Card from '../../components/Card';
 
 import { useClickOutside } from './useClickOutside';
-import docs from './useClickOutside.docs.mdx';
 
 export default {
   title: 'Hooks/useClickOutside',
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 export const Example = () => {

@@ -14,14 +14,10 @@
  */
 
 import { Headline, HeadlineProps } from './Headline';
-import docs from './Headline.docs.mdx';
 
 export default {
   title: 'Typography/Headline',
   component: Headline,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 export const Base = (args: HeadlineProps) => (

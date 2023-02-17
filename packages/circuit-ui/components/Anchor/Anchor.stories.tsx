@@ -14,14 +14,10 @@
  */
 
 import { Anchor, AnchorProps } from './Anchor';
-import docs from './Anchor.docs.mdx';
 
 export default {
   title: 'Typography/Anchor',
   component: Anchor,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     href: { control: 'text' },
     children: { control: 'text' },

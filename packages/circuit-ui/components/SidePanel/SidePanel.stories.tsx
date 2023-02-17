@@ -26,7 +26,6 @@ import { SideNavigation } from '../SideNavigation';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories';
 import { spacing } from '../../styles/style-mixins';
 
-import docs from './SidePanel.docs.mdx';
 import { SidePanelProvider } from './SidePanelContext';
 import {
   useSidePanel,
@@ -35,10 +34,9 @@ import {
 } from './useSidePanel';
 
 export default {
-  title: 'Components/SidePanel',
+  title: 'Navigation/SidePanel',
   parameters: {
     layout: 'fullscreen',
-    docs: { page: docs },
     chromatic: { viewports: [320, 960] },
   },
   argTypes: {
