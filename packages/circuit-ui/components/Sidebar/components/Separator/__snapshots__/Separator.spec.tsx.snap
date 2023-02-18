@@ -2,12 +2,6 @@
 
 exports[`Separator > should render with default styles 1`] = `
 .circuit-0 {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid var(--cui-border-divider);
-  margin-top: 16px;
-  margin-bottom: 16px;
   border: 1px solid #666;
 }
 
@@ -15,7 +9,7 @@ exports[`Separator > should render with default styles 1`] = `
   role="presentation"
 >
   <hr
-    class="circuit-0"
+    class="circuit-0 cui-h24vx9a"
   />
 </li>
 `;

@@ -127,12 +127,6 @@ exports[`Popover > Styles > should render popover on bottom 1`] = `
 }
 
 .circuit-6 {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid var(--cui-border-divider);
-  margin-top: 16px;
-  margin-bottom: 16px;
   margin: 8px 16px;
   width: calc(100% - 16px*2);
 }
@@ -242,7 +236,7 @@ exports[`Popover > Styles > should render popover on bottom 1`] = `
         Add
       </button>
       <hr
-        class="circuit-6"
+        class="circuit-6 cui-h24vx9a"
         role="presentation"
       />
       <button
@@ -397,12 +391,6 @@ exports[`Popover > Styles > should render popover on left 1`] = `
 }
 
 .circuit-6 {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid var(--cui-border-divider);
-  margin-top: 16px;
-  margin-bottom: 16px;
   margin: 8px 16px;
   width: calc(100% - 16px*2);
 }
@@ -512,7 +500,7 @@ exports[`Popover > Styles > should render popover on left 1`] = `
         Add
       </button>
       <hr
-        class="circuit-6"
+        class="circuit-6 cui-h24vx9a"
         role="presentation"
       />
       <button
@@ -667,12 +655,6 @@ exports[`Popover > Styles > should render popover on right 1`] = `
 }
 
 .circuit-6 {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid var(--cui-border-divider);
-  margin-top: 16px;
-  margin-bottom: 16px;
   margin: 8px 16px;
   width: calc(100% - 16px*2);
 }
@@ -782,7 +764,7 @@ exports[`Popover > Styles > should render popover on right 1`] = `
         Add
       </button>
       <hr
-        class="circuit-6"
+        class="circuit-6 cui-h24vx9a"
         role="presentation"
       />
       <button
@@ -937,12 +919,6 @@ exports[`Popover > Styles > should render popover on top 1`] = `
 }
 
 .circuit-6 {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid var(--cui-border-divider);
-  margin-top: 16px;
-  margin-bottom: 16px;
   margin: 8px 16px;
   width: calc(100% - 16px*2);
 }
@@ -1052,7 +1028,7 @@ exports[`Popover > Styles > should render popover on top 1`] = `
         Add
       </button>
       <hr
-        class="circuit-6"
+        class="circuit-6 cui-h24vx9a"
         role="presentation"
       />
       <button
@@ -1189,12 +1165,6 @@ exports[`Popover > Styles > should render with closed styles 1`] = `
 }
 
 .circuit-6 {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid var(--cui-border-divider);
-  margin-top: 16px;
-  margin-bottom: 16px;
   margin: 8px 16px;
   width: calc(100% - 16px*2);
 }
@@ -1304,7 +1274,7 @@ exports[`Popover > Styles > should render with closed styles 1`] = `
         Add
       </button>
       <hr
-        class="circuit-6"
+        class="circuit-6 cui-h24vx9a"
         role="presentation"
       />
       <button
@@ -1459,12 +1429,6 @@ exports[`Popover > Styles > should render with default styles 1`] = `
 }
 
 .circuit-6 {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid var(--cui-border-divider);
-  margin-top: 16px;
-  margin-bottom: 16px;
   margin: 8px 16px;
   width: calc(100% - 16px*2);
 }
@@ -1574,7 +1538,7 @@ exports[`Popover > Styles > should render with default styles 1`] = `
         Add
       </button>
       <hr
-        class="circuit-6"
+        class="circuit-6 cui-h24vx9a"
         role="presentation"
       />
       <button

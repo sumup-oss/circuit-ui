@@ -13,11 +13,14 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
+import { styled } from '@linaria/react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
+import { light as theme } from '@sumup/design-tokens';
 
-const baseStyles = ({ theme }: StyleProps) => css`
+/**
+ * A horizontal rule to visually and semantically separate content.
+ */
+export const Hr = styled.hr`
   display: block;
   width: 100%;
   border: 0;
@@ -25,8 +28,3 @@ const baseStyles = ({ theme }: StyleProps) => css`
   margin-top: ${theme.spacings.mega};
   margin-bottom: ${theme.spacings.mega};
 `;
-
-/**
- * A horizontal rule to visually and semantically separate content.
- */
-export const Hr = styled('hr')(baseStyles);
