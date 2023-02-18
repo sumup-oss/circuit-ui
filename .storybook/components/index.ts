@@ -21,6 +21,7 @@ export { Props };
 
 export { Meta, IconGallery, IconItem, Typeset } from '@storybook/addon-docs';
 
+export { default as DocsContainer } from './DocsContainer';
 export { default as Status } from './Statuses';
 export { default as Preview } from './Preview';
 export { default as Story } from './Story';

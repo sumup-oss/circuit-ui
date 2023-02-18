@@ -22,13 +22,15 @@ const HEADERS = ['Breakpoint name', 'Query'];
 const TableWrapper = () => {
   const theme = useTheme();
   return (
-    <Table
-      headers={HEADERS}
-      rows={Object.keys(theme.breakpoints).map((bp) => [
-        bp,
-        theme.breakpoints[bp],
-      ])}
-    />
+    <div className="sb-unstyled">
+      <Table
+        headers={HEADERS}
+        rows={Object.keys(theme.breakpoints).map((bp) => [
+          bp,
+          theme.breakpoints[bp],
+        ])}
+      />
+    </div>
   );
 };
 

@@ -1,25 +1,11 @@
-import ReactDOM from 'react-dom';
-import { action } from '@storybook/addon-actions';
-import { ThemeProvider } from '@emotion/react';
-import { BaseStyles } from '@sumup/circuit-ui';
-import { light } from '@sumup/design-tokens';
-import { TrackingRoot, TrackingView } from '@sumup/collector';
-
-import { theme } from './theme';
+import { light } from './themes';
+import { withThemeProvider } from './decorators/withThemeProvider';
+import { withTrackingAction } from './decorators/withTrackingAction';
+import { withUnmountWhenHidden } from './decorators/withUnmountWhenHidden';
+import { DocsContainer } from './components';
 
 export const parameters = {
   layout: 'centered',
-  backgrounds: {
-    default: 'light',
-    values: [
-      { name: 'light', value: light.colors.bodyBg },
-      { name: 'dark', value: light.colors.n900 },
-    ],
-    grid: {
-      disable: true,
-    },
-  },
-  viewMode: 'docs',
   previewTabs: { 'storybook/docs/panel': { index: -1 } },
   actions: { argTypesRegex: '^on.*' },
   options: {
@@ -28,39 +14,8 @@ export const parameters = {
       includeName: true,
     },
   },
-  docs: { theme },
+  docs: { theme: light, container: DocsContainer },
 };
-
-const withUnmountWhenHidden = (Story, context) => {
-  if (context.canvasElement) {
-    const config = { attributeFilter: ['hidden'] };
-
-    const observer = new MutationObserver(() => {
-      if (context.canvasElement.getAttribute('hidden') === 'true') {
-        ReactDOM.unmountComponentAtNode(context.canvasElement);
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(context.canvasElement, config);
-  }
-  return <Story />;
-};
-
-const withThemeProvider = (Story) => (
-  <ThemeProvider theme={light}>
-    <BaseStyles />
-    <Story />
-  </ThemeProvider>
-);
-
-const withTrackingAction = (Story) => (
-  <TrackingRoot name="tracking-root" onDispatch={action('Tracking event')}>
-    <TrackingView name="tracking-view">
-      <Story />
-    </TrackingView>
-  </TrackingRoot>
-);
 
 export const decorators = [
   withThemeProvider,

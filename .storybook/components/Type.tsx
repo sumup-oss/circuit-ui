@@ -35,13 +35,7 @@ const TypePx = styled(Body)(
   `,
 );
 
-const Type = ({
-  size,
-  component,
-  name,
-  fontWeight = null,
-  ...props
-}: TypeProps) => {
+const Type = ({ size, component, name, fontWeight, ...props }: TypeProps) => {
   // The fontSize can be either on typography[name][size] (body, headline) or
   // on typography[name] directly (subHeadline).
   const { fontSize, lineHeight } =
