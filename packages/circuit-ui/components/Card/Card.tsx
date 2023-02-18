@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
+import { styled } from '@linaria/react';
 
-import isPropValid from '../../styles/is-prop-valid.js';
-import styled, { StyleProps } from '../../styles/styled.js';
+import { light as theme } from '@sumup/design-tokens';
 
 export interface CardProps {
   /**
@@ -25,29 +24,17 @@ export interface CardProps {
   spacing?: 'mega' | 'giga';
 }
 
-const baseStyles = ({ theme }: StyleProps) => css`
+const spacingMap = {
+  mega: `${theme.spacings.mega} ${theme.spacings.mega}`,
+  giga: `${theme.spacings.mega} ${theme.spacings.giga}`,
+};
+
+export const Card = styled('div')<CardProps>`
   background-color: var(--cui-bg-normal);
   border-radius: ${theme.borderRadius.mega};
   border: ${theme.borderWidth.mega} solid var(--cui-border-subtle);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: ${({ spacing = 'giga' }) => spacingMap[spacing]};
 `;
-
-const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
-  const spacings = {
-    mega: `
-      ${theme.spacings.mega} ${theme.spacings.mega}
-    `,
-    giga: `
-      ${theme.spacings.mega} ${theme.spacings.giga}
-    `,
-  };
-  return css`
-    padding: ${spacings[spacing]};
-  `;
-};
-
-export const Card = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
-})<CardProps>(baseStyles, spacingStyles);
