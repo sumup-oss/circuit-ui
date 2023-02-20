@@ -15,9 +15,9 @@ import * as Stories from './style-mixins.stories';
 
 <Intro>
   Style mixins are small helper functions to apply common styles to an HTML
-  element or React component. They work great with{' '}
-  <a href="https://emotion.sh/docs/css-prop">Emotion's css prop</a> and{' '}
-  <a href="https://emotion.sh/docs/styled">styled components</a>.
+  element or React component. They work great with [Emotion's `css`
+  prop](https://emotion.sh/docs/css-prop) and [styled
+  components](https://emotion.sh/docs/styled).
 </Intro>
 
 ## Usage
@@ -46,7 +46,7 @@ const StyledComponent = styled.div(someStyles, clearfix);
 
 ## `cx`
 
-Combines multiple style mixins and calls each one with the `theme`. Modeled after the [`classNames`](https://github.com/JedWatson/classnames) package and [Emotion's (removed) `cx`](https://5bb1495273f2cf57a2cf39cc--emotion.netlify.app/docs/cx) helper.
+Combines multiple style mixins and calls each one with the `theme`. Modeled after the [`classNames`](https://github.com/JedWatson/classnames) package and [Emotion's (removed) `cx` helper](https://5bb1495273f2cf57a2cf39cc--emotion.netlify.app/docs/cx).
 
 ```tsx
 import { cx, clearfix, spacing, disableVisually } from '@sumup/circuit-ui';
@@ -62,7 +62,7 @@ const Conditional = ({ disabled }) => (
 
 ## `spacing`
 
-Adds margin to one or more sides of an element. For an overview of the supported values, have a look at the "Spacing" section on the [Theme](Features/Theme) page.
+Adds margin to one or more sides of an element. For an overview of the supported values, have a look at the "Spacing" section on the [Theme](Features/Theme/Docs) page.
 
 ```ts
 type Spacing = 0 | 'auto' | keyof Theme['spacings'];

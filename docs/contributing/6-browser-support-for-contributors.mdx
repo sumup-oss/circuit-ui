@@ -4,13 +4,13 @@ import { Meta } from '../../.storybook/components';
 
 # Browser Support (For Contributors)
 
-As a Circuit UI contributor, it is important to keep [`Browser Support`](Introduction/Browser-Support/page) in mind.
+As a Circuit UI contributor, it is important to keep [`Browser Support`](Introduction/Browser-Support/Docs) in mind.
 
 ## Context
 
 Circuit UI is built with [TypeScript](https://www.typescriptlang.org/) (and not [Babel](https://babeljs.io/)). TypeScript has limited options when it comes to transpiling code: [the compiler can only target JavaScript versions](https://www.typescriptlang.org/tsconfig#target), which generally don't match which features are actually supported by a given set of browsers.
 
-Circuit UI's [current browser support policy](Introduction/Browser-Support/page) supports [`es2017`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) (a.k.a. `es8`) entirely. Therefore, TypeScript is configured to compile Circuit UI for `es2017` (see [`tsconfig.json`](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/tsconfig.json)).
+Circuit UI's [current browser support policy](Introduction/Browser-Support/Docs) supports [`es2017`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) (a.k.a. `es8`) entirely. Therefore, TypeScript is configured to compile Circuit UI for `es2017` (see [`tsconfig.json`](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/tsconfig.json)).
 
 ## What features to avoid
 

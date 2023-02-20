@@ -15,7 +15,7 @@
 
 import { useEffect, useState } from 'react';
 import { css, ThemeProvider } from '@emotion/react';
-export { Unstyled } from '@storybook/addon-docs';
+import { Unstyled } from '@storybook/addon-docs';
 import { light } from '@sumup/design-tokens';
 import {
   Anchor,

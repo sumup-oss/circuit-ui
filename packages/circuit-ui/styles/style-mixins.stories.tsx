@@ -132,8 +132,8 @@ export const Clearfix = () => (
 
 export const FocusVisible = () => (
   <Stack>
-    <Box css={focusVisible} />
-    <Box css={focusVisible('inset')} />
+    <Box css={focusVisible} tabIndex={0} />
+    <Box css={focusVisible('inset')} tabIndex={0} />
   </Stack>
 );
 

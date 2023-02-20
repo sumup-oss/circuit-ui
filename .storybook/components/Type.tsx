@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { Unstyled } from '@storybook/addon-docs';
 import { Fragment, createElement, ComponentType } from 'react';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
@@ -43,20 +44,22 @@ const Type = ({ size, component, name, fontWeight, ...props }: TypeProps) => {
   const weight = light.fontWeight[fontWeight];
 
   return (
-    <ThemeProvider theme={light}>
-      {createElement(component, {
-        children: (
-          <Fragment>
-            This is {name} {size ? `size ${size}` : ''}
-            <TypePx as="span" variant="subtle" size="two">
-              {weight ? `${weight}` : `${fontSize}, ${lineHeight}`}
-            </TypePx>
-          </Fragment>
-        ),
-        size,
-        ...props,
-      })}
-    </ThemeProvider>
+    <Unstyled>
+      <ThemeProvider theme={light}>
+        {createElement(component, {
+          children: (
+            <Fragment>
+              This is {name} {size ? `size ${size}` : ''}
+              <TypePx as="span" variant="subtle" size="two">
+                {weight ? `${weight}` : `${fontSize}, ${lineHeight}`}
+              </TypePx>
+            </Fragment>
+          ),
+          size,
+          ...props,
+        })}
+      </ThemeProvider>
+    </Unstyled>
   );
 };
 
