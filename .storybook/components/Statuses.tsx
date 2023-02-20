@@ -13,49 +13,75 @@
  * limitations under the License.
  */
 
+import { Unstyled } from '@storybook/addon-docs';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Badge, Body, spacing } from '@sumup/circuit-ui';
+import { Badge, Body, cx, spacing } from '@sumup/circuit-ui';
+import { ReactNode } from 'react';
 
 interface StatusProps {
   variant: 'stable' | 'deprecated' | 'inReview' | 'experimental';
+  children?: ReactNode;
 }
+
+const descriptionStyles = css`
+  p {
+    display: inline;
+  }
+`;
 
 const variants = {
   stable: { variant: 'confirm', label: 'Stable' },
   deprecated: { variant: 'alert', label: 'Deprecated' },
   inReview: { variant: 'notify', label: 'In Review' },
   experimental: { variant: 'notify', label: 'Experimental' },
-};
+} as const;
 
-const Status = ({ variant: status = 'stable' }: StatusProps) => {
+const Status = ({ variant: status = 'stable', children }: StatusProps) => {
   const { variant, label } = variants[status];
 
   return (
     <ThemeProvider theme={light}>
-      <Badge
-        variant={variant}
-        css={(theme) => css`
-          margin-bottom: ${theme.spacings.mega};
-        `}
-      >
-        {label}
-      </Badge>
+      <Unstyled>
+        <Badge variant={variant}>{label}</Badge>
+        {children && (
+          <Body
+            size="two"
+            as="span"
+            css={cx(spacing({ left: 'byte' }), descriptionStyles)}
+            variant="subtle"
+          >
+            {children}
+          </Body>
+        )}
+      </Unstyled>
     </ThemeProvider>
   );
 };
 
-Status.Description = ({ children }) => (
-  <ThemeProvider theme={light}>
-    <Body size="two" as="span" css={spacing({ bottom: 'giga' })}>
-      {children}
-    </Body>
-  </ThemeProvider>
+/**
+ * @deprecated Use `<Status variant="stable" />` instead.
+ */
+Status.Stable = (props: Pick<StatusProps, 'children'>) => (
+  <Status variant="stable" {...props} />
 );
-
-Status.Stable = () => <Status variant="stable" />;
-Status.Deprecated = () => <Status variant="deprecated" />;
-Status.InReview = () => <Status variant="inReview" />;
-Status.Experimental = () => <Status variant="experimental" />;
+/**
+ * @deprecated Use `<Status variant="deprecated" />` instead.
+ */
+Status.Deprecated = (props: Pick<StatusProps, 'children'>) => (
+  <Status variant="deprecated" {...props} />
+);
+/**
+ * @deprecated Use `<Status variant="inReview" />` instead.
+ */
+Status.InReview = (props: Pick<StatusProps, 'children'>) => (
+  <Status variant="inReview" {...props} />
+);
+/**
+ * @deprecated Use `<Status variant="experimental" />` instead.
+ */
+Status.Experimental = (props: Pick<StatusProps, 'children'>) => (
+  <Status variant="experimental" {...props} />
+);
 
 export default Status;
