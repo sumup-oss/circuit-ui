@@ -1,5 +1,6 @@
 import { create } from '@storybook/theming';
 import { light as theme } from '@sumup/design-tokens';
+import { Link } from './components';
 
 const brand = {
   brandTitle: 'Circuit UI',
@@ -27,3 +28,7 @@ export const dark = create({
 export function getTheme(prefersDark: boolean) {
   return prefersDark ? dark : light;
 }
+
+export const components = {
+  a: Link,
+};

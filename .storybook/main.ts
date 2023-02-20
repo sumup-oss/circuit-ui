@@ -1,7 +1,7 @@
 import path from 'path';
 import remarkGfm from 'remark-gfm';
 
-const toPath = (_path) => path.join(process.cwd(), _path);
+const toPath = (_path: string) => path.join(process.cwd(), _path);
 
 module.exports = {
   staticDirs: [toPath('.storybook/public')],

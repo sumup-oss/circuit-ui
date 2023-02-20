@@ -1,11 +1,6 @@
 import LinkTo from '@storybook/addon-links/react';
-import { css } from '@emotion/react';
 
 const LINK_PREFIXES = ['/', 'http', 'mailto', '#', 'tel'];
-
-const styles = css`
-  font: inherit;
-`;
 
 const Link = ({ children, href, ...props }) => {
   const storyName = decodeURIComponent(href);
@@ -25,7 +20,7 @@ const Link = ({ children, href, ...props }) => {
   }
 
   return (
-    <a css={styles} href={href} {...props}>
+    <a href={href} {...props}>
       {children}
     </a>
   );

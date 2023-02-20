@@ -1,4 +1,4 @@
-import { light } from './themes';
+import { light, components } from './themes';
 import { withThemeProvider } from './decorators/withThemeProvider';
 import { withTrackingAction } from './decorators/withTrackingAction';
 import { withUnmountWhenHidden } from './decorators/withUnmountWhenHidden';
@@ -10,11 +10,11 @@ export const parameters = {
   actions: { argTypesRegex: '^on.*' },
   options: {
     storySort: {
-      order: ['Introduction', 'Welcome', 'Features'],
+      order: ['Introduction', 'Features'],
       includeName: true,
     },
   },
-  docs: { theme: light, container: DocsContainer },
+  docs: { theme: light, components, container: DocsContainer },
 };
 
 export const decorators = [
