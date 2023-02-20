@@ -351,14 +351,22 @@
     max-width: 800px;
   }
 
+  /**
+   * The selectors were copied from Storybook to avoid style leakage
+   */
+
   /* theme.typography.title.four */
-  .sbdocs h1 {
+  .sbdocs
+    :is(h1:not(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette, :is(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette)
+        h1)) {
     font-size: 3.5rem;
     line-height: 3.5rem;
     font-weight: bold;
   }
   /* theme.typography.headline.one */
-  .sbdocs h2 {
+  .sbdocs
+    :is(h2:not(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette, :is(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette)
+        h2)) {
     font-size: 2rem;
     line-height: 2.25rem;
     font-weight: bold;
@@ -366,22 +374,34 @@
     margin-bottom: 1rem;
   }
   /* theme.typography.headline.two */
-  .sbdocs h3 {
+  .sbdocs
+    :is(h3:not(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette, :is(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette)
+        h3)) {
     font-size: 1.5rem;
     line-height: 1.75rem;
+    font-weight: bold;
   }
   /* theme.typography.headline.two */
-  .sbdocs h4 {
+  .sbdocs
+    :is(h4:not(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette, :is(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette)
+        h4)) {
     font-size: 1.25rem;
     line-height: 1.5rem;
+    font-weight: bold;
   }
   /* theme.typography.body.one */
-  .sbdocs p,
-  .sbdocs li {
-    font-size: 1rem;
+  .sbdocs
+    :is(p:not(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette, :is(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette)
+        p)),
+  .sbdocs
+    :is(li:not(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette, :is(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette)
+        li)) {
+    font-size: 1.125rem;
     line-height: 1.5rem;
   }
-  .sbdocs a {
+  .sbdocs
+    :is(a:not(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette, :is(.sb-unstyled, .sbdocs-preview, .sbdocs-pre, .sb-story, .docblock-source, .docblock-argstable, .sbdocs-title, .sbdocs-subtitle, .docblock-icongallery, .docblock-emptyblock, .docblock-typeset, .docblock-colorpalette)
+        a)) {
     text-decoration: underline;
     text-underline-position: under;
   }
