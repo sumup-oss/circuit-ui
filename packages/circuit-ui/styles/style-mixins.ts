@@ -154,6 +154,8 @@ export function typography(
 }
 
 /**
+ * @deprecated Use the `disabled` state of the semantic color tokens instead.
+ *
  * Visually communicates to the user that an element is disabled
  * and prevents user interactions.
  */
