@@ -17,11 +17,7 @@ import { Fragment, Ref, InputHTMLAttributes, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  hideVisually,
-  disableVisually,
-  focusOutline,
-} from '../../styles/style-mixins';
+import { hideVisually, focusOutline } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 
@@ -76,6 +72,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   align-items: center;
   cursor: pointer;
   background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
   text-align: center;
   position: relative;
   border-radius: ${theme.borderRadius.byte};
@@ -98,6 +95,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
   &:hover {
     background-color: var(--cui-bg-normal-hovered);
+    color: var(--cui-fg-normal-hovered);
 
     &::before {
       border-color: var(--cui-border-normal-hovered);
@@ -106,15 +104,13 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
   &:active {
     background-color: var(--cui-bg-normal-pressed);
+    color: var(--cui-fg-normal-pressed);
 
     &::before {
       border-color: var(--cui-border-normal-pressed);
     }
   }
 `;
-
-const disabledStyles = ({ disabled }: LabelElProps) =>
-  disabled && css(disableVisually());
 
 const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   const sizeMap = {
@@ -132,11 +128,7 @@ const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   return css(sizeMap[size]);
 };
 
-const SelectorLabel = styled('label')<LabelElProps>(
-  baseStyles,
-  sizeStyles,
-  disabledStyles,
-);
+const SelectorLabel = styled('label')<LabelElProps>(baseStyles, sizeStyles);
 
 const inputStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
@@ -154,6 +146,26 @@ const inputStyles = ({ theme }: StyleProps) => css`
 
     &::before {
       border: ${theme.borderWidth.mega} solid var(--cui-border-accent);
+    }
+  }
+
+  &:disabled + label,
+  &[disabled] + label {
+    pointer-events: none;
+    background-color: var(--cui-bg-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
+
+    &::before {
+      border: ${theme.borderWidth.mega} solid var(--cui-border-normal-disabled);
+    }
+  }
+
+  &:disabled:checked + label,
+  &[disabled]:checked + label {
+    background-color: var(--cui-bg-accent-disabled);
+
+    &::before {
+      border: ${theme.borderWidth.mega} solid var(--cui-border-accent-disabled);
     }
   }
 `;
@@ -203,7 +215,6 @@ export const Selector = forwardRef(
         />
         <SelectorLabel
           htmlFor={inputId}
-          disabled={disabled}
           size={size}
           className={className}
           style={style}

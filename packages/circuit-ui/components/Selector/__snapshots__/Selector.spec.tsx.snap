@@ -35,6 +35,28 @@ HTMLCollection [
   border: 2px solid var(--cui-border-accent);
 }
 
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border: 2px solid var(--cui-border-normal-disabled);
+}
+
+.circuit-0:disabled:checked+label,
+.circuit-0[disabled]:checked+label {
+  background-color: var(--cui-bg-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border: 2px solid var(--cui-border-accent-disabled);
+}
+
 <input
     checked=""
     class="circuit-0"
@@ -61,6 +83,7 @@ HTMLCollection [
   align-items: center;
   cursor: pointer;
   background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
   text-align: center;
   position: relative;
   border-radius: 8px;
@@ -87,6 +110,7 @@ HTMLCollection [
 
 .circuit-0:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:hover::before {
@@ -95,6 +119,7 @@ HTMLCollection [
 
 .circuit-0:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-0:active::before {
@@ -145,6 +170,28 @@ HTMLCollection [
   border: 2px solid var(--cui-border-accent);
 }
 
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border: 2px solid var(--cui-border-normal-disabled);
+}
+
+.circuit-0:disabled:checked+label,
+.circuit-0[disabled]:checked+label {
+  background-color: var(--cui-bg-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border: 2px solid var(--cui-border-accent-disabled);
+}
+
 <input
     class="circuit-0"
     id="selector_1"
@@ -170,6 +217,7 @@ HTMLCollection [
   align-items: center;
   cursor: pointer;
   background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
   text-align: center;
   position: relative;
   border-radius: 8px;
@@ -196,6 +244,7 @@ HTMLCollection [
 
 .circuit-0:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:hover::before {
@@ -204,6 +253,7 @@ HTMLCollection [
 
 .circuit-0:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-0:active::before {
@@ -254,6 +304,28 @@ HTMLCollection [
   border: 2px solid var(--cui-border-accent);
 }
 
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border: 2px solid var(--cui-border-normal-disabled);
+}
+
+.circuit-0:disabled:checked+label,
+.circuit-0[disabled]:checked+label {
+  background-color: var(--cui-bg-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border: 2px solid var(--cui-border-accent-disabled);
+}
+
 <input
     class="circuit-0"
     disabled=""
@@ -280,15 +352,13 @@ HTMLCollection [
   align-items: center;
   cursor: pointer;
   background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
   text-align: center;
   position: relative;
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
   padding: calc(12px) 24px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0::before {
@@ -309,6 +379,7 @@ HTMLCollection [
 
 .circuit-0:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:hover::before {
@@ -317,6 +388,7 @@ HTMLCollection [
 
 .circuit-0:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-0:active::before {
@@ -325,7 +397,6 @@ HTMLCollection [
 
 <label
     class="circuit-0"
-    disabled=""
     for="selector_2"
   >
     Label
