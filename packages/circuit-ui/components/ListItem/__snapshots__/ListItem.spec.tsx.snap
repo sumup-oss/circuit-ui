@@ -48,9 +48,10 @@ exports[`ListItem business logic should not render a trailing section with detai
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -164,19 +165,22 @@ exports[`ListItem business logic should render as a button when the onClick prop
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-0:hover {
   background-color: var(--cui-bg-normal-hovered);
   border-color: var(--cui-border-subtle-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-subtle-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-1 {
@@ -290,19 +294,22 @@ exports[`ListItem business logic should render as a link when the href prop is p
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-0:hover {
   background-color: var(--cui-bg-normal-hovered);
   border-color: var(--cui-border-subtle-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-subtle-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-1 {
@@ -416,9 +423,10 @@ exports[`ListItem styles should render a ListItem with a custom details line 1`]
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -559,9 +567,10 @@ exports[`ListItem styles should render a ListItem with a custom label 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -670,9 +679,10 @@ exports[`ListItem styles should render a ListItem with a custom leading componen
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -833,9 +843,10 @@ exports[`ListItem styles should render a ListItem with a custom trailing compone
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1010,9 +1021,10 @@ exports[`ListItem styles should render a ListItem with a custom trailing label 1
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1181,9 +1193,10 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1325,9 +1338,10 @@ exports[`ListItem styles should render a ListItem with a leading icon 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1468,9 +1482,10 @@ exports[`ListItem styles should render a ListItem with a trailing label 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1639,9 +1654,10 @@ exports[`ListItem styles should render a ListItem with custom trailing details 1
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1839,9 +1855,10 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -2039,9 +2056,10 @@ exports[`ListItem styles should render a disabled ListItem 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -2155,9 +2173,10 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -2330,9 +2349,10 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-0:hover,
@@ -2463,9 +2483,10 @@ exports[`ListItem styles should render the action variant ListItem by default 1`
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {

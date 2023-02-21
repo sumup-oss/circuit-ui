@@ -27,11 +27,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import { ChevronRight, IconProps } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  disableVisually,
-  focusVisible,
-  spacing,
-} from '../../styles/style-mixins';
+import { focusVisible, spacing } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
 import { EmotionAsPropType } from '../../types/prop-types';
@@ -145,7 +141,10 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
   &:disabled,
   &[disabled] {
-    ${disableVisually()};
+    pointer-events: none;
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-subtle-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 `;
 
@@ -157,11 +156,13 @@ const interactiveStyles = ({ isInteractive }: StyledListItemProps) =>
     &:hover {
       background-color: var(--cui-bg-normal-hovered);
       border-color: var(--cui-border-subtle-hovered);
+      color: var(--cui-fg-normal-hovered);
     }
 
     &:active {
       background-color: var(--cui-bg-normal-pressed);
       border-color: var(--cui-border-subtle-pressed);
+      color: var(--cui-fg-normal-pressed);
     }
   `;
 

@@ -143,9 +143,10 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
 
 .circuit-8:disabled,
 .circuit-8[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-9 {
@@ -411,9 +412,10 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -688,9 +690,10 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
 
 .circuit-8:disabled,
 .circuit-8[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-9 {
@@ -969,9 +972,10 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -1238,19 +1242,22 @@ exports[`ListItemGroup styles should render a ListItemGroup with interactive ite
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-6:hover {
   background-color: var(--cui-bg-normal-hovered);
   border-color: var(--cui-border-subtle-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-6:active {
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-subtle-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-7 {
@@ -1516,9 +1523,10 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -1701,19 +1709,22 @@ exports[`ListItemGroup styles should render the focused item in a ListItemGroup 
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-0:hover {
   background-color: var(--cui-bg-normal-hovered);
   border-color: var(--cui-border-subtle-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-subtle-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-1 {
@@ -1907,9 +1918,10 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -2093,19 +2105,22 @@ exports[`ListItemGroup styles should render the selected item in a ListItemGroup
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-0:hover {
   background-color: var(--cui-bg-normal-hovered);
   border-color: var(--cui-border-subtle-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-subtle-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-0:hover,
@@ -2241,19 +2256,22 @@ exports[`ListItemGroup styles should render the selected item in a plain ListIte
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-0:hover {
   background-color: var(--cui-bg-normal-hovered);
   border-color: var(--cui-border-subtle-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-subtle-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-0:hover,
