@@ -40,7 +40,7 @@ describe('Style helpers', () => {
     margin: ${theme.spacings.byte};
   `;
   const kilo = (theme: Theme) => css`
-    color: ${theme.spacings.kilo};
+    margin: ${theme.spacings.kilo};
   `;
   const purple = css`
     color: rebeccapurple;
@@ -53,7 +53,7 @@ describe('Style helpers', () => {
       expect(actual).toMatchInlineSnapshot(`
         .circuit-0 {
           margin: 8px;
-          color: 12px;
+          margin: 12px;
         }
 
         <div
