@@ -42,13 +42,14 @@ const Wrapper = styled(Card)(
     h2 {
       border: none;
       padding: 0;
-      /* theme.typography.headline.two */
-      font-size: 1.5rem;
-      line-height: 1.75rem;
     }
 
     p {
       margin-top: 0;
+    }
+
+    a::after {
+      content: ' →';
     }
   `,
 );
