@@ -79,9 +79,7 @@ exports[`PageList styles should render with default styles 1`] = `
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
@@ -96,6 +94,13 @@ exports[`PageList styles should render with default styles 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 li:last-child .circuit-1 {
@@ -202,9 +207,7 @@ li:last-child .circuit-1 {
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
@@ -217,6 +220,13 @@ li:last-child .circuit-1 {
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
   color: var(--cui-fg-accent-pressed);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  color: var(--cui-fg-accent-disabled);
   background-color: transparent;
   border-color: transparent;
 }

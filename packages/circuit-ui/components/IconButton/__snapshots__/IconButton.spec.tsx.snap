@@ -65,9 +65,7 @@ exports[`IconButton should render with the default styles 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:hover {
@@ -82,6 +80,13 @@ exports[`IconButton should render with the default styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {

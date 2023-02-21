@@ -129,9 +129,7 @@ exports[`NotificationFullscreen styles should render with an svg component as th
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
@@ -146,6 +144,13 @@ exports[`NotificationFullscreen styles should render with an svg component as th
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-6 {
@@ -382,9 +387,7 @@ exports[`NotificationFullscreen styles should render with body text 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
@@ -399,6 +402,13 @@ exports[`NotificationFullscreen styles should render with body text 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-6 {
@@ -620,9 +630,7 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-4:hover {
@@ -637,6 +645,13 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-5 {

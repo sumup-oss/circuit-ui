@@ -116,9 +116,7 @@ exports[`Header should have a bottom separator when sticky 1`] = `
 
 .circuit-2:disabled,
 .circuit-2[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-2:hover {
@@ -133,6 +131,13 @@ exports[`Header should have a bottom separator when sticky 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-3 {
@@ -343,9 +348,7 @@ exports[`Header should match the snapshot 1`] = `
 
 .circuit-2:disabled,
 .circuit-2[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-2:hover {
@@ -360,6 +363,13 @@ exports[`Header should match the snapshot 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-3 {

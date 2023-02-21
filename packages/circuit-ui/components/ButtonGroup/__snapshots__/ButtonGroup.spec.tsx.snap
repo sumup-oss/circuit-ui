@@ -91,9 +91,7 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
@@ -108,6 +106,13 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-2 {
@@ -205,9 +210,7 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
@@ -222,6 +225,13 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
@@ -244,6 +254,13 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
     background-color: var(--cui-bg-normal-pressed);
     border-color: var(--cui-border-normal-pressed);
     color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -268,6 +285,13 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
     color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }
@@ -402,9 +426,7 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
@@ -419,6 +441,13 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-2 {
@@ -516,9 +545,7 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
@@ -533,6 +560,13 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
@@ -555,6 +589,13 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
     background-color: var(--cui-bg-normal-pressed);
     border-color: var(--cui-border-normal-pressed);
     color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -579,6 +620,13 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
     color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }
@@ -713,9 +761,7 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
@@ -730,6 +776,13 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-2 {
@@ -827,9 +880,7 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
@@ -844,6 +895,13 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
@@ -866,6 +924,13 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
     background-color: var(--cui-bg-normal-pressed);
     border-color: var(--cui-border-normal-pressed);
     color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -890,6 +955,13 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
     color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }
@@ -1024,9 +1096,7 @@ exports[`ButtonGroup should render with default styles 1`] = `
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
@@ -1041,6 +1111,13 @@ exports[`ButtonGroup should render with default styles 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-2 {
@@ -1138,9 +1215,7 @@ exports[`ButtonGroup should render with default styles 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
@@ -1155,6 +1230,13 @@ exports[`ButtonGroup should render with default styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
@@ -1177,6 +1259,13 @@ exports[`ButtonGroup should render with default styles 1`] = `
     background-color: var(--cui-bg-normal-pressed);
     border-color: var(--cui-border-normal-pressed);
     color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -1201,6 +1290,13 @@ exports[`ButtonGroup should render with default styles 1`] = `
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
     color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }

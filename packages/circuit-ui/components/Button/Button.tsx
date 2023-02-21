@@ -29,7 +29,6 @@ import { Theme } from '@sumup/design-tokens';
 import styled, { StyleProps } from '../../styles/styled';
 import {
   typography,
-  disableVisually,
   focusVisible,
   hideVisually,
 } from '../../styles/style-mixins';
@@ -157,93 +156,6 @@ const Content = styled.span<{ isLoading: boolean }>(
   contentLoadingStyles,
 );
 
-const PRIMARY_COLOR_MAP = {
-  default: {
-    bg: {
-      idle: 'var(--cui-bg-accent-strong)',
-      hovered: 'var(--cui-bg-accent-strong-hovered)',
-      pressed: 'var(--cui-bg-accent-strong-pressed)',
-    },
-    fg: {
-      idle: 'var(--cui-fg-on-strong)',
-      hovered: 'var(--cui-fg-on-strong-hovered)',
-      pressed: 'var(--cui-fg-on-strong-pressed)',
-    },
-    border: {
-      idle: 'var(--cui-border-accent)',
-      hovered: 'var(--cui-border-accent-hovered)',
-      pressed: 'var(--cui-border-accent-pressed)',
-    },
-  },
-  destructive: {
-    bg: {
-      idle: 'var(--cui-bg-danger-strong)',
-      hovered: 'var(--cui-bg-danger-strong-hovered)',
-      pressed: 'var(--cui-bg-danger-strong-pressed)',
-    },
-    fg: {
-      idle: 'var(--cui-fg-on-strong)',
-      hovered: 'var(--cui-fg-on-strong-hovered)',
-      pressed: 'var(--cui-fg-on-strong-pressed)',
-    },
-    border: {
-      idle: 'var(--cui-border-danger)',
-      hovered: 'var(--cui-border-danger-hovered)',
-      pressed: 'var(--cui-border-danger-pressed)',
-    },
-  },
-} as const;
-
-const SECONDARY_COLOR_MAP = {
-  default: {
-    bg: {
-      idle: 'var(--cui-bg-normal)',
-      hovered: 'var(--cui-bg-normal-hovered)',
-      pressed: 'var(--cui-bg-normal-pressed)',
-    },
-    fg: {
-      idle: 'var(--cui-fg-normal)',
-      hovered: 'var(--cui-fg-normal-hovered)',
-      pressed: 'var(--cui-fg-normal-pressed)',
-    },
-    border: {
-      idle: 'var(--cui-border-normal)',
-      hovered: 'var(--cui-border-normal-hovered)',
-      pressed: 'var(--cui-border-normal-pressed)',
-    },
-  },
-  destructive: {
-    bg: {
-      idle: 'var(--cui-bg-normal)',
-      hovered: 'var(--cui-bg-normal-hovered)',
-      pressed: 'var(--cui-bg-normal-pressed)',
-    },
-    fg: {
-      idle: 'var(--cui-fg-danger)',
-      hovered: 'var(--cui-fg-danger-hovered)',
-      pressed: 'var(--cui-fg-danger-pressed)',
-    },
-    border: {
-      idle: 'var(--cui-border-danger)',
-      hovered: 'var(--cui-border-danger-hovered)',
-      pressed: 'var(--cui-border-danger-pressed)',
-    },
-  },
-} as const;
-
-const TERTIARY_COLOR_MAP = {
-  default: {
-    idle: 'var(--cui-fg-accent)',
-    hovered: 'var(--cui-fg-accent-hovered)',
-    pressed: 'var(--cui-fg-accent-pressed)',
-  },
-  destructive: {
-    idle: 'var(--cui-fg-danger)',
-    hovered: 'var(--cui-fg-danger-hovered)',
-    pressed: 'var(--cui-fg-danger-pressed)',
-  },
-};
-
 type StyledButtonProps = Pick<
   ButtonProps,
   'variant' | 'destructive' | 'size' | 'stretch'
@@ -269,7 +181,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
   &:disabled,
   &[disabled] {
-    ${disableVisually()};
+    pointer-events: none;
   }
 `;
 
@@ -281,27 +193,59 @@ const primaryStyles = ({
     return null;
   }
 
-  const colors = destructive
-    ? PRIMARY_COLOR_MAP.destructive
-    : PRIMARY_COLOR_MAP.default;
+  if (destructive) {
+    return css`
+      background-color: var(--cui-bg-danger-strong);
+      border-color: var(--cui-border-danger);
+      color: var(--cui-fg-on-strong);
+
+      &:hover {
+        background-color: var(--cui-bg-danger-strong-hovered);
+        border-color: var(--cui-border-danger-hovered);
+        color: var(--cui-fg-on-strong-hovered);
+      }
+
+      &:active,
+      &[aria-expanded='true'],
+      &[aria-pressed='true'] {
+        background-color: var(--cui-bg-danger-strong-pressed);
+        border-color: var(--cui-border-danger-pressed);
+        color: var(--cui-fg-on-strong-pressed);
+      }
+
+      &:disabled,
+      &[disabled] {
+        background-color: var(--cui-bg-danger-strong-disabled);
+        border-color: var(--cui-border-danger-disabled);
+        color: var(--cui-fg-on-strong-disabled);
+      }
+    `;
+  }
 
   return css`
-    background-color: ${colors.bg.idle};
-    border-color: ${colors.border.idle};
-    color: ${colors.fg.idle};
+    background-color: var(--cui-bg-accent-strong);
+    border-color: var(--cui-border-accent);
+    color: var(--cui-fg-on-strong);
 
     &:hover {
-      background-color: ${colors.bg.hovered};
-      border-color: ${colors.border.hovered};
-      color: ${colors.fg.hovered};
+      background-color: var(--cui-bg-accent-strong-hovered);
+      border-color: var(--cui-border-accent-hovered);
+      color: var(--cui-fg-on-strong-hovered);
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      background-color: ${colors.bg.pressed};
-      border-color: ${colors.border.pressed};
-      color: ${colors.fg.pressed};
+      background-color: var(--cui-bg-accent-strong-pressed);
+      border-color: var(--cui-border-accent-pressed);
+      color: var(--cui-fg-on-strong-pressed);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background-color: var(--cui-bg-accent-strong-disabled);
+      border-color: var(--cui-border-accent-disabled);
+      color: var(--cui-fg-on-strong-disabled);
     }
   `;
 };
@@ -314,27 +258,59 @@ export const secondaryStyles = ({
     return null;
   }
 
-  const colors = destructive
-    ? SECONDARY_COLOR_MAP.destructive
-    : SECONDARY_COLOR_MAP.default;
+  if (destructive) {
+    return css`
+      background-color: var(--cui-bg-normal);
+      border-color: var(--cui-border-danger);
+      color: var(--cui-fg-danger);
+
+      &:hover {
+        background-color: var(--cui-bg-normal-hovered);
+        border-color: var(--cui-border-danger-hovered);
+        color: var(--cui-fg-danger-hovered);
+      }
+
+      &:active,
+      &[aria-expanded='true'],
+      &[aria-pressed='true'] {
+        background-color: var(--cui-bg-normal-pressed);
+        border-color: var(--cui-border-danger-pressed);
+        color: var(--cui-fg-danger-pressed);
+      }
+
+      &:disabled,
+      &[disabled] {
+        background-color: var(--cui-bg-normal-disabled);
+        border-color: var(--cui-border-danger-disabled);
+        color: var(--cui-fg-danger-disabled);
+      }
+    `;
+  }
 
   return css`
-    background-color: ${colors.bg.idle};
-    border-color: ${colors.border.idle};
-    color: ${colors.fg.idle};
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+    color: var(--cui-fg-normal);
 
     &:hover {
-      background-color: ${colors.bg.hovered};
-      border-color: ${colors.border.hovered};
-      color: ${colors.fg.hovered};
+      background-color: var(--cui-bg-normal-hovered);
+      border-color: var(--cui-border-normal-hovered);
+      color: var(--cui-fg-normal-hovered);
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      background-color: ${colors.bg.pressed};
-      border-color: ${colors.border.pressed};
-      color: ${colors.fg.pressed};
+      background-color: var(--cui-bg-normal-pressed);
+      border-color: var(--cui-border-normal-pressed);
+      color: var(--cui-fg-normal-pressed);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background-color: var(--cui-bg-normal-disabled);
+      border-color: var(--cui-border-normal-disabled);
+      color: var(--cui-fg-normal-disabled);
     }
   `;
 };
@@ -347,9 +323,22 @@ export const tertiaryStyles = ({
     return null;
   }
 
-  const colors = destructive
-    ? TERTIARY_COLOR_MAP.destructive
-    : TERTIARY_COLOR_MAP.default;
+  const colorMap = {
+    default: {
+      idle: 'var(--cui-fg-accent)',
+      hovered: 'var(--cui-fg-accent-hovered)',
+      pressed: 'var(--cui-fg-accent-pressed)',
+      disabled: 'var(--cui-fg-accent-disabled)',
+    },
+    destructive: {
+      idle: 'var(--cui-fg-danger)',
+      hovered: 'var(--cui-fg-danger-hovered)',
+      pressed: 'var(--cui-fg-danger-pressed)',
+      disabled: 'var(--cui-fg-danger-disabled)',
+    },
+  };
+
+  const colors = destructive ? colorMap.destructive : colorMap.default;
 
   return css`
     background-color: transparent;
@@ -368,6 +357,13 @@ export const tertiaryStyles = ({
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
       color: ${colors.pressed};
+      background-color: transparent;
+      border-color: transparent;
+    }
+
+    &:disabled,
+    &[disabled] {
+      color: ${colors.disabled};
       background-color: transparent;
       border-color: transparent;
     }

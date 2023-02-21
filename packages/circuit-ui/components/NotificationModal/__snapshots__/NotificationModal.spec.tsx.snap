@@ -117,9 +117,7 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 
 .circuit-2:disabled,
 .circuit-2[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-2:hover {
@@ -134,6 +132,13 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
@@ -293,9 +298,7 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 
 .circuit-12:disabled,
 .circuit-12[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-12:hover {
@@ -310,6 +313,13 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-12:disabled,
+.circuit-12[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-16 {
@@ -359,9 +369,7 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
 
 .circuit-16:disabled,
 .circuit-16[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-16:hover {
@@ -376,6 +384,13 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-16:disabled,
+.circuit-16[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
@@ -398,6 +413,13 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
     background-color: var(--cui-bg-normal-pressed);
     border-color: var(--cui-border-normal-pressed);
     color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-16:disabled,
+  .circuit-16[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -422,6 +444,13 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   .circuit-16[aria-expanded='true'],
   .circuit-16[aria-pressed='true'] {
     color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-16:disabled,
+  .circuit-16[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }
@@ -680,9 +709,7 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 
 .circuit-2:disabled,
 .circuit-2[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-2:hover {
@@ -697,6 +724,13 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
@@ -855,9 +889,7 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 
 .circuit-11:disabled,
 .circuit-11[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-11:hover {
@@ -872,6 +904,13 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-11:disabled,
+.circuit-11[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-15 {
@@ -921,9 +960,7 @@ exports[`NotificationModal styles should render with default styles 1`] = `
 
 .circuit-15:disabled,
 .circuit-15[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-15:hover {
@@ -938,6 +975,13 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-15:disabled,
+.circuit-15[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
@@ -960,6 +1004,13 @@ exports[`NotificationModal styles should render with default styles 1`] = `
     background-color: var(--cui-bg-normal-pressed);
     border-color: var(--cui-border-normal-pressed);
     color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-15:disabled,
+  .circuit-15[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -984,6 +1035,13 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   .circuit-15[aria-expanded='true'],
   .circuit-15[aria-pressed='true'] {
     color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-15:disabled,
+  .circuit-15[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }
@@ -1226,9 +1284,7 @@ exports[`NotificationModal styles should render without an image 1`] = `
 
 .circuit-2:disabled,
 .circuit-2[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-2:hover {
@@ -1243,6 +1299,13 @@ exports[`NotificationModal styles should render without an image 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
@@ -1393,9 +1456,7 @@ exports[`NotificationModal styles should render without an image 1`] = `
 
 .circuit-10:disabled,
 .circuit-10[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-10:hover {
@@ -1410,6 +1471,13 @@ exports[`NotificationModal styles should render without an image 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-10:disabled,
+.circuit-10[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-14 {
@@ -1459,9 +1527,7 @@ exports[`NotificationModal styles should render without an image 1`] = `
 
 .circuit-14:disabled,
 .circuit-14[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-14:hover {
@@ -1476,6 +1542,13 @@ exports[`NotificationModal styles should render without an image 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-14:disabled,
+.circuit-14[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
@@ -1498,6 +1571,13 @@ exports[`NotificationModal styles should render without an image 1`] = `
     background-color: var(--cui-bg-normal-pressed);
     border-color: var(--cui-border-normal-pressed);
     color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-14:disabled,
+  .circuit-14[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -1522,6 +1602,13 @@ exports[`NotificationModal styles should render without an image 1`] = `
   .circuit-14[aria-expanded='true'],
   .circuit-14[aria-pressed='true'] {
     color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-14:disabled,
+  .circuit-14[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }

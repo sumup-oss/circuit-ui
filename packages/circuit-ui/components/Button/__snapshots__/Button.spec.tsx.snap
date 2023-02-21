@@ -80,9 +80,7 @@ exports[`Button should render with loading styles 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:hover {
@@ -97,6 +95,13 @@ exports[`Button should render with loading styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -242,9 +247,7 @@ exports[`Button styles should render a button with icon 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:hover {
@@ -259,6 +262,13 @@ exports[`Button styles should render a button with icon 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -416,9 +426,7 @@ exports[`Button styles should render a disabled button 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:hover {
@@ -433,6 +441,13 @@ exports[`Button styles should render a disabled button 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -566,9 +581,7 @@ exports[`Button styles should render a giga button 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:hover {
@@ -583,6 +596,13 @@ exports[`Button styles should render a giga button 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -715,9 +735,7 @@ exports[`Button styles should render a kilo button 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:hover {
@@ -732,6 +750,13 @@ exports[`Button styles should render a kilo button 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -864,9 +889,7 @@ exports[`Button styles should render a primary button by default 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:hover {
@@ -881,6 +904,13 @@ exports[`Button styles should render a primary button by default 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1013,9 +1043,7 @@ exports[`Button styles should render a secondary button 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:hover {
@@ -1030,6 +1058,13 @@ exports[`Button styles should render a secondary button 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1163,9 +1198,7 @@ exports[`Button styles should render a stretched button 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:hover {
@@ -1180,6 +1213,13 @@ exports[`Button styles should render a stretched button 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1314,9 +1354,7 @@ exports[`Button styles should render a tertiary button 1`] = `
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:hover {
@@ -1329,6 +1367,13 @@ exports[`Button styles should render a tertiary button 1`] = `
 .circuit-0[aria-expanded='true'],
 .circuit-0[aria-pressed='true'] {
   color: var(--cui-fg-accent-pressed);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  color: var(--cui-fg-accent-disabled);
   background-color: transparent;
   border-color: transparent;
 }

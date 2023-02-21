@@ -627,9 +627,7 @@ exports[`NotificationInline styles should render notification toast with an acti
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-6:hover {
@@ -642,6 +640,13 @@ exports[`NotificationInline styles should render notification toast with an acti
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
   color: var(--cui-fg-accent-pressed);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  color: var(--cui-fg-accent-disabled);
   background-color: transparent;
   border-color: transparent;
 }

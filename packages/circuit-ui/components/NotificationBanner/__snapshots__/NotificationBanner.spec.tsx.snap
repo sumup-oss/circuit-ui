@@ -136,9 +136,7 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-4:hover {
@@ -153,6 +151,13 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 @media (min-width: 768px) {
@@ -404,9 +409,7 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-4:hover {
@@ -421,6 +424,13 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
   color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 @media (min-width: 768px) {

@@ -152,9 +152,7 @@ exports[`SidePanel should match the snapshot 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
@@ -169,6 +167,13 @@ exports[`SidePanel should match the snapshot 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-6 {
@@ -480,9 +485,7 @@ exports[`SidePanel when the panel is on mobile resolution should match the snaps
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
@@ -497,6 +500,13 @@ exports[`SidePanel when the panel is on mobile resolution should match the snaps
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-6 {

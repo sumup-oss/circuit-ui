@@ -387,9 +387,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
 
 .circuit-49:disabled,
 .circuit-49[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-49:hover {
@@ -404,6 +402,13 @@ exports[`Carousel styles should render with children as a function 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-49:disabled,
+.circuit-49[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-49:first-of-type {
@@ -1067,9 +1072,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
 
 .circuit-49:disabled,
 .circuit-49[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-49:hover {
@@ -1084,6 +1087,13 @@ exports[`Carousel styles should render with children as a node 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-49:disabled,
+.circuit-49[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-49:first-of-type {
@@ -1746,9 +1756,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 
 .circuit-49:disabled,
 .circuit-49[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-49:hover {
@@ -1763,6 +1771,13 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-49:disabled,
+.circuit-49[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-49:first-of-type {
@@ -2396,9 +2411,7 @@ exports[`Carousel styles should render with default styles 1`] = `
 
 .circuit-49:disabled,
 .circuit-49[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-49:hover {
@@ -2413,6 +2426,13 @@ exports[`Carousel styles should render with default styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-49:disabled,
+.circuit-49[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-49:first-of-type {
