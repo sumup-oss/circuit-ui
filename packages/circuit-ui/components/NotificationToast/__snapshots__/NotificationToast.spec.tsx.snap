@@ -148,7 +148,7 @@ exports[`NotificationToast styles should render with a headline 1`] = `
 
 .circuit-7:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-7:focus::-moz-focus-inner {
@@ -161,9 +161,7 @@ exports[`NotificationToast styles should render with a headline 1`] = `
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-7:hover {
@@ -178,6 +176,13 @@ exports[`NotificationToast styles should render with a headline 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-8 {
@@ -445,7 +450,7 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -458,9 +463,7 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-6:hover {
@@ -475,6 +478,13 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -737,7 +747,7 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -750,9 +760,7 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-6:hover {
@@ -767,6 +775,13 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -1029,7 +1044,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -1042,9 +1057,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-6:hover {
@@ -1059,6 +1072,13 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -1321,7 +1341,7 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -1334,9 +1354,7 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-6:hover {
@@ -1351,6 +1369,13 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -1613,7 +1638,7 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -1626,9 +1651,7 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-6:hover {
@@ -1643,6 +1666,13 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
