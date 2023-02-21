@@ -55,7 +55,7 @@ HTMLCollection [
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5:-moz-focusring {
@@ -68,7 +68,7 @@ HTMLCollection [
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {

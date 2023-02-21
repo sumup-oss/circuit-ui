@@ -317,7 +317,7 @@ export const inputOutline = (
   switch (true) {
     case options.disabled: {
       return css`
-        box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
+        box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
       `;
     }
     case options.invalid: {
@@ -356,10 +356,10 @@ export const inputOutline = (
     }
     default: {
       return css`
-        box-shadow: 0 0 0 1px var(--cui-border-strong);
+        box-shadow: 0 0 0 1px var(--cui-border-normal);
 
         &:hover {
-          box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+          box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
         }
 
         &:focus {

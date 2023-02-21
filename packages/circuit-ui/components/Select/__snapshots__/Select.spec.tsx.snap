@@ -51,7 +51,7 @@ exports[`Select Styles should not render with invalid styles when also passed th
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
 .circuit-5:-moz-focusring {
@@ -233,7 +233,7 @@ exports[`Select Styles should render with a prefix when passed the prefix prop 1
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   padding-left: 48px;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-6:-moz-focusring {
@@ -246,7 +246,7 @@ exports[`Select Styles should render with a prefix when passed the prefix prop 1
 }
 
 .circuit-6:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-6:focus {
@@ -418,7 +418,7 @@ exports[`Select Styles should render with a tooltip when passed a validation hin
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5:-moz-focusring {
@@ -431,7 +431,7 @@ exports[`Select Styles should render with a tooltip when passed a validation hin
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {
@@ -624,7 +624,7 @@ exports[`Select Styles should render with a visually-hidden label 1`] = `
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5:-moz-focusring {
@@ -637,7 +637,7 @@ exports[`Select Styles should render with a visually-hidden label 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {
@@ -805,7 +805,7 @@ exports[`Select Styles should render with default styles 1`] = `
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5:-moz-focusring {
@@ -818,7 +818,7 @@ exports[`Select Styles should render with default styles 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {
@@ -992,7 +992,7 @@ exports[`Select Styles should render with disabled styles when passed the disabl
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
 .circuit-5:-moz-focusring {

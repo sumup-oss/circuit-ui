@@ -53,7 +53,7 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
   margin: 0;
   text-align: right;
   padding-left: 48px;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-6::-webkit-input-placeholder {
@@ -81,7 +81,7 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
 }
 
 .circuit-6:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-6:focus {
@@ -163,7 +163,7 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
   margin: 0;
   text-align: right;
   padding-right: 48px;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -191,7 +191,7 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {
@@ -321,7 +321,7 @@ exports[`CurrencyInput Styles should render with default styles and format 1`] =
   margin: 0;
   text-align: right;
   padding-left: 48px;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-6::-webkit-input-placeholder {
@@ -349,7 +349,7 @@ exports[`CurrencyInput Styles should render with default styles and format 1`] =
 }
 
 .circuit-6:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-6:focus {

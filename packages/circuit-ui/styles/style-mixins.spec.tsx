@@ -254,7 +254,7 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = inputOutline(light);
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px var(--cui-border-strong);&:hover{box-shadow:0 0 0 1px var(--cui-border-strong-hovered);}&:focus{box-shadow:0 0 0 2px var(--cui-border-accent);}&:active{box-shadow:0 0 0 1px var(--cui-border-accent);};label:inputOutline;"',
+        '"box-shadow:0 0 0 1px var(--cui-border-normal);&:hover{box-shadow:0 0 0 1px var(--cui-border-normal-hovered);}&:focus{box-shadow:0 0 0 2px var(--cui-border-accent);}&:active{box-shadow:0 0 0 1px var(--cui-border-accent);};label:inputOutline;"',
       );
     });
 
@@ -264,7 +264,7 @@ describe('Style helpers', () => {
         disabled: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px var(--cui-border-strong-disabled);label:inputOutline;"',
+        '"box-shadow:0 0 0 1px var(--cui-border-normal-disabled);label:inputOutline;"',
       );
     });
 

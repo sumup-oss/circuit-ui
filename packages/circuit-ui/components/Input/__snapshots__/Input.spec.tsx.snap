@@ -36,7 +36,7 @@ exports[`Input Styles should prioritize disabled over error styles 1`] = `
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -133,7 +133,7 @@ exports[`Input Styles should prioritize disabled over warning styles 1`] = `
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -222,7 +222,7 @@ exports[`Input Styles should render with a description when passed the validatio
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -250,7 +250,7 @@ exports[`Input Styles should render with a description when passed the validatio
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {
@@ -348,7 +348,7 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
   width: 100%;
   margin: 0;
   padding-left: 48px;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-6::-webkit-input-placeholder {
@@ -376,7 +376,7 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
 }
 
 .circuit-6:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-6:focus {
@@ -453,7 +453,7 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
   width: 100%;
   margin: 0;
   padding-right: 48px;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -481,7 +481,7 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {
@@ -574,7 +574,7 @@ exports[`Input Styles should render with custom styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
   color: red;
 }
 
@@ -603,7 +603,7 @@ exports[`Input Styles should render with custom styles 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {
@@ -675,7 +675,7 @@ exports[`Input Styles should render with default styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -703,7 +703,7 @@ exports[`Input Styles should render with default styles 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {
@@ -782,7 +782,7 @@ exports[`Input Styles should render with disabled styles when passed the disable
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -989,7 +989,7 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
   width: 100%;
   margin: 0;
   background-color: var(--cui-bg-subtle-disabled);
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -1017,7 +1017,7 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {
@@ -1091,7 +1091,7 @@ exports[`Input Styles should render with right aligned text 1`] = `
   width: 100%;
   margin: 0;
   text-align: right;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -1119,7 +1119,7 @@ exports[`Input Styles should render with right aligned text 1`] = `
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {
@@ -1191,7 +1191,7 @@ exports[`Input Styles should render with valid styles when passed the showValid 
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -1219,7 +1219,7 @@ exports[`Input Styles should render with valid styles when passed the showValid 
 }
 
 .circuit-5:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-5:focus {

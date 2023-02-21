@@ -47,7 +47,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   background-color: var(--cui-bg-normal-disabled);
   padding-left: 48px;
   padding-right: 48px;
-  box-shadow: 0 0 0 1px var(--cui-border-strong-disabled);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
 .circuit-6::-webkit-input-placeholder {
@@ -161,7 +161,7 @@ exports[`SearchInput should render with default styles 1`] = `
   margin: 0;
   padding-left: 48px;
   padding-right: 48px;
-  box-shadow: 0 0 0 1px var(--cui-border-strong);
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-6::-webkit-input-placeholder {
@@ -189,7 +189,7 @@ exports[`SearchInput should render with default styles 1`] = `
 }
 
 .circuit-6:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-strong-hovered);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-6:focus {
