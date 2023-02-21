@@ -18,11 +18,7 @@ import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  disableVisually,
-  hideVisually,
-  focusOutline,
-} from '../../styles/style-mixins';
+import { hideVisually, focusOutline } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
@@ -73,7 +69,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     box-sizing: border-box;
     box-shadow: 0;
     background-color: var(--cui-bg-normal);
-    border: 1px solid var(--cui-border-normal);
+    border: 1px solid var(--cui-border-strong);
     border-radius: 3px;
     content: '';
     display: block;
@@ -113,7 +109,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
 
   &:focus:not(:focus-visible) + label::before {
     box-shadow: none;
-    border-color: var(--cui-border-normal);
+    border-color: var(--cui-border-strong);
   }
 
   &:checked:focus:not(:focus-visible) + label::before {
@@ -154,8 +150,7 @@ const inputDisabledStyles = ({ disabled }: InputElProps) =>
   disabled &&
   css`
     & + label::before {
-      ${disableVisually()};
-      /* FIXME: Which colors should be used here? Account for reduced opacity */
+      pointer-events: none;
       border-color: var(--cui-border-strong-disabled);
       background-color: var(--cui-bg-normal-disabled);
     }

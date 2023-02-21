@@ -23,7 +23,7 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
   box-sizing: border-box;
   box-shadow: 0;
   background-color: var(--cui-bg-normal);
-  border: 1px solid var(--cui-border-normal);
+  border: 1px solid var(--cui-border-strong);
   border-radius: 3px;
   content: '';
   display: block;
@@ -74,7 +74,7 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
 
 .circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: var(--cui-border-normal);
+  border-color: var(--cui-border-strong);
 }
 
 .circuit-1:checked:focus:not(:focus-visible)+label::before {
@@ -164,7 +164,7 @@ exports[`Checkbox Styles should render with default styles 1`] = `
   box-sizing: border-box;
   box-shadow: 0;
   background-color: var(--cui-bg-normal);
-  border: 1px solid var(--cui-border-normal);
+  border: 1px solid var(--cui-border-strong);
   border-radius: 3px;
   content: '';
   display: block;
@@ -215,7 +215,7 @@ exports[`Checkbox Styles should render with default styles 1`] = `
 
 .circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: var(--cui-border-normal);
+  border-color: var(--cui-border-strong);
 }
 
 .circuit-1:checked:focus:not(:focus-visible)+label::before {
@@ -307,7 +307,7 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
   box-sizing: border-box;
   box-shadow: 0;
   background-color: var(--cui-bg-normal);
-  border: 1px solid var(--cui-border-normal);
+  border: 1px solid var(--cui-border-strong);
   border-radius: 3px;
   content: '';
   display: block;
@@ -358,7 +358,7 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
 
 .circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: var(--cui-border-normal);
+  border-color: var(--cui-border-strong);
 }
 
 .circuit-1:checked:focus:not(:focus-visible)+label::before {
@@ -379,9 +379,7 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
 }
 
 .circuit-1+label::before {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
   border-color: var(--cui-border-strong-disabled);
   background-color: var(--cui-bg-normal-disabled);
 }
@@ -456,7 +454,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   box-sizing: border-box;
   box-shadow: 0;
   background-color: var(--cui-bg-normal);
-  border: 1px solid var(--cui-border-normal);
+  border: 1px solid var(--cui-border-strong);
   border-radius: 3px;
   content: '';
   display: block;
@@ -507,7 +505,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
 
 .circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: var(--cui-border-normal);
+  border-color: var(--cui-border-strong);
 }
 
 .circuit-1:checked:focus:not(:focus-visible)+label::before {
