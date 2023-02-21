@@ -20,6 +20,8 @@ import { Confirm, NotifyCircle, Alert } from '@sumup/icons';
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
 
+import { CLASS_DISABLED } from './constants';
+
 export interface FieldValidationHintProps
   extends HTMLAttributes<HTMLSpanElement> {
   validationHint?: string;
@@ -34,24 +36,40 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   margin-top: ${theme.spacings.bit};
   color: var(--cui-fg-subtle);
   transition: color ${theme.transitions.default};
+
+  .${CLASS_DISABLED} & {
+    color: var(--cui-fg-subtle-disabled);
+  }
 `;
 
 const validStyles = ({ showValid }: FieldValidationHintProps) =>
   showValid &&
   css`
     color: var(--cui-fg-success);
+
+    .${CLASS_DISABLED} & {
+      color: var(--cui-fg-success-disabled);
+    }
   `;
 
 const warningStyles = ({ hasWarning }: FieldValidationHintProps) =>
   hasWarning &&
   css`
     color: var(--cui-fg-warning);
+
+    .${CLASS_DISABLED} & {
+      color: var(--cui-fg-warning-disabled);
+    }
   `;
 
 const invalidStyles = ({ invalid }: FieldValidationHintProps) =>
   invalid &&
   css`
     color: var(--cui-fg-danger);
+
+    .${CLASS_DISABLED} & {
+      color: var(--cui-fg-danger-disabled);
+    }
   `;
 
 const Wrapper = styled('span')<FieldValidationHintProps>(

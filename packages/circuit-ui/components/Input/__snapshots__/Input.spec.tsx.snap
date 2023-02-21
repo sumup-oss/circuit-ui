@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input Styles should prioritize disabled over error styles 1`] = `
-.circuit-0 {
-  opacity: 0.5;
+.circuit-0 .cui-field-disabled {
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1 {
@@ -16,6 +14,10 @@ exports[`Input Styles should prioritize disabled over error styles 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -35,7 +37,6 @@ exports[`Input Styles should prioritize disabled over error styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: var(--cui-bg-normal-disabled);
   box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
@@ -61,6 +62,11 @@ exports[`Input Styles should prioritize disabled over error styles 1`] = `
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 <div>
@@ -98,10 +104,8 @@ exports[`Input Styles should prioritize disabled over error styles 1`] = `
 `;
 
 exports[`Input Styles should prioritize disabled over warning styles 1`] = `
-.circuit-0 {
-  opacity: 0.5;
+.circuit-0 .cui-field-disabled {
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1 {
@@ -113,6 +117,10 @@ exports[`Input Styles should prioritize disabled over warning styles 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -132,7 +140,6 @@ exports[`Input Styles should prioritize disabled over warning styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: var(--cui-bg-normal-disabled);
   box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
@@ -158,6 +165,11 @@ exports[`Input Styles should prioritize disabled over warning styles 1`] = `
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 <div>
@@ -194,6 +206,10 @@ exports[`Input Styles should prioritize disabled over warning styles 1`] = `
 `;
 
 exports[`Input Styles should render with a description when passed the validationHint prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -203,6 +219,10 @@ exports[`Input Styles should render with a description when passed the validatio
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -249,6 +269,11 @@ exports[`Input Styles should render with a description when passed the validatio
   transition: color 120ms ease-in-out;
 }
 
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
@@ -269,6 +294,10 @@ exports[`Input Styles should render with a description when passed the validatio
   color: var(--cui-fg-subtle);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.cui-field-disabled .circuit-6 {
+  color: var(--cui-fg-subtle-disabled);
 }
 
 <div>
@@ -310,6 +339,10 @@ exports[`Input Styles should render with a description when passed the validatio
 `;
 
 exports[`Input Styles should render with a prefix when passed the prefix prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -319,6 +352,10 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -375,6 +412,11 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
   transition: color 120ms ease-in-out;
 }
 
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-6:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
@@ -424,6 +466,10 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
 `;
 
 exports[`Input Styles should render with a suffix when passed the suffix prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -433,6 +479,10 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -478,6 +528,11 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-5:hover {
@@ -546,6 +601,10 @@ exports[`Input Styles should render with custom styles 1`] = `
   border: 1px solid red;
 }
 
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -555,6 +614,10 @@ exports[`Input Styles should render with custom styles 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -602,6 +665,11 @@ exports[`Input Styles should render with custom styles 1`] = `
   transition: color 120ms ease-in-out;
 }
 
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
@@ -647,6 +715,10 @@ exports[`Input Styles should render with custom styles 1`] = `
 `;
 
 exports[`Input Styles should render with default styles 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -656,6 +728,10 @@ exports[`Input Styles should render with default styles 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -700,6 +776,11 @@ exports[`Input Styles should render with default styles 1`] = `
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-5:hover {
@@ -747,10 +828,8 @@ exports[`Input Styles should render with default styles 1`] = `
 `;
 
 exports[`Input Styles should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-0 {
-  opacity: 0.5;
+.circuit-0 .cui-field-disabled {
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1 {
@@ -762,6 +841,10 @@ exports[`Input Styles should render with disabled styles when passed the disable
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -781,7 +864,6 @@ exports[`Input Styles should render with disabled styles when passed the disable
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: var(--cui-bg-normal-disabled);
   box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
@@ -807,6 +889,11 @@ exports[`Input Styles should render with disabled styles when passed the disable
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 <div>
@@ -843,6 +930,10 @@ exports[`Input Styles should render with disabled styles when passed the disable
 `;
 
 exports[`Input Styles should render with invalid styles when passed the invalid prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -852,6 +943,10 @@ exports[`Input Styles should render with invalid styles when passed the invalid 
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -914,6 +1009,11 @@ exports[`Input Styles should render with invalid styles when passed the invalid 
   color: var(--cui-fg-danger);
 }
 
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
 }
@@ -960,6 +1060,10 @@ exports[`Input Styles should render with invalid styles when passed the invalid 
 `;
 
 exports[`Input Styles should render with readonly styles when passed the readOnly prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -969,6 +1073,10 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -1014,6 +1122,11 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-5:hover {
@@ -1062,6 +1175,10 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
 `;
 
 exports[`Input Styles should render with right aligned text 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -1071,6 +1188,10 @@ exports[`Input Styles should render with right aligned text 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -1118,6 +1239,11 @@ exports[`Input Styles should render with right aligned text 1`] = `
   transition: color 120ms ease-in-out;
 }
 
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
@@ -1163,6 +1289,10 @@ exports[`Input Styles should render with right aligned text 1`] = `
 `;
 
 exports[`Input Styles should render with valid styles when passed the showValid prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -1172,6 +1302,10 @@ exports[`Input Styles should render with valid styles when passed the showValid 
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -1216,6 +1350,11 @@ exports[`Input Styles should render with valid styles when passed the showValid 
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-5:hover {
@@ -1263,6 +1402,10 @@ exports[`Input Styles should render with valid styles when passed the showValid 
 `;
 
 exports[`Input Styles should render with warning styles when passed the hasWarning prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -1272,6 +1415,10 @@ exports[`Input Styles should render with warning styles when passed the hasWarni
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -1332,6 +1479,11 @@ exports[`Input Styles should render with warning styles when passed the hasWarni
 
 .circuit-5:not(:focus)::placeholder {
   color: var(--cui-fg-warning);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-5:hover {

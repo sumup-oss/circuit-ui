@@ -158,11 +158,12 @@ const inputReadonlyStyles = ({ readOnly }: InputElProps) =>
     background-color: var(--cui-bg-subtle-disabled);
   `;
 
-const inputDisabledStyles = ({ disabled }: InputElProps) =>
-  disabled &&
-  css`
+const inputDisabledStyles = css`
+  &:disabled,
+  &[disabled] {
     background-color: var(--cui-bg-normal-disabled);
-  `;
+  }
+`;
 
 const inputTextAlignRightStyles = ({ textAlign }: InputElProps) =>
   textAlign === 'right' &&

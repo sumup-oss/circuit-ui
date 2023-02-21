@@ -5,6 +5,10 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
   position: relative;
 }
 
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   border: 0;
   clip: rect(0 0 0 0);
@@ -146,6 +150,10 @@ exports[`Checkbox Styles should render with default styles 1`] = `
   position: relative;
 }
 
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   border: 0;
   clip: rect(0 0 0 0);
@@ -283,10 +291,11 @@ exports[`Checkbox Styles should render with default styles 1`] = `
 
 exports[`Checkbox Styles should render with disabled styles 1`] = `
 .circuit-0 {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
   position: relative;
+}
+
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
 }
 
 .circuit-1 {
@@ -436,6 +445,10 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   position: relative;
 }
 
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   border: 0;
   clip: rect(0 0 0 0);
@@ -559,6 +572,14 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   color: var(--cui-fg-danger);
 }
 
+.cui-field-disabled .circuit-3 {
+  color: var(--cui-fg-subtle-disabled);
+}
+
+.cui-field-disabled .circuit-3 {
+  color: var(--cui-fg-danger-disabled);
+}
+
 .circuit-4 {
   display: inline-block;
   position: relative;
@@ -567,6 +588,10 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   vertical-align: text-top;
   margin-right: 4px;
   color: var(--cui-fg-danger);
+}
+
+.cui-field-disabled .circuit-4 {
+  color: var(--cui-fg-danger-disabled);
 }
 
 <div>

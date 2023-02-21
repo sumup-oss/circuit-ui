@@ -20,6 +20,8 @@ import styled from '@emotion/styled';
 import { hideVisually } from '../../styles/style-mixins';
 import { StyleProps } from '../../styles/styled';
 
+import { CLASS_DISABLED } from './constants';
+
 export interface FieldLabelTextProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * A clear and concise description of the input purpose.
@@ -44,6 +46,10 @@ export interface FieldLabelTextProps extends HTMLAttributes<HTMLSpanElement> {
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-block;
   margin-bottom: ${theme.spacings.bit};
+
+  .${CLASS_DISABLED} & {
+    color: var(--cui-fg-normal-disabled);
+  }
 `;
 
 const hiddenStyles = ({ hideLabel }: Pick<FieldLabelTextProps, 'hideLabel'>) =>
@@ -53,6 +59,10 @@ const Text = styled('span')(baseStyles, hiddenStyles);
 
 const Optional = styled('span')`
   color: var(--cui-fg-subtle);
+
+  .${CLASS_DISABLED} & {
+    color: var(--cui-fg-subtle-disabled);
+  }
 `;
 
 /**

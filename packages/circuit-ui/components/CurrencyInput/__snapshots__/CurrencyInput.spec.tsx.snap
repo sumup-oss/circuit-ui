@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -10,6 +14,10 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -80,6 +88,11 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
   transition: color 120ms ease-in-out;
 }
 
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-6:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
@@ -133,6 +146,10 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
 `;
 
 exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -142,6 +159,10 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -188,6 +209,11 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-5:hover {
@@ -269,6 +295,10 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
 `;
 
 exports[`CurrencyInput Styles should render with default styles and format 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -278,6 +308,10 @@ exports[`CurrencyInput Styles should render with default styles and format 1`] =
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -346,6 +380,11 @@ exports[`CurrencyInput Styles should render with default styles and format 1`] =
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-6:hover {

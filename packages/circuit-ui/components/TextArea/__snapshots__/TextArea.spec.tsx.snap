@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TextArea should prioritize disabled over error styles 1`] = `
-.circuit-0 {
-  opacity: 0.5;
+.circuit-0 .cui-field-disabled {
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1 {
@@ -16,6 +14,10 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -35,7 +37,6 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: var(--cui-bg-normal-disabled);
   box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
   vertical-align: top;
   overflow: auto;
@@ -64,6 +65,11 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 <div
@@ -98,10 +104,8 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 `;
 
 exports[`TextArea should prioritize disabled over warning styles 1`] = `
-.circuit-0 {
-  opacity: 0.5;
+.circuit-0 .cui-field-disabled {
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1 {
@@ -113,6 +117,10 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -132,7 +140,6 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: var(--cui-bg-normal-disabled);
   box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
   vertical-align: top;
   overflow: auto;
@@ -161,6 +168,11 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 <div
@@ -194,6 +206,10 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 `;
 
 exports[`TextArea should render minRows props as rows when passed if rows is auto 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -203,6 +219,10 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -250,6 +270,11 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-5:hover {
@@ -296,6 +321,10 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 `;
 
 exports[`TextArea should render rows props when passed 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -305,6 +334,10 @@ exports[`TextArea should render rows props when passed 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -352,6 +385,11 @@ exports[`TextArea should render rows props when passed 1`] = `
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-5:hover {
@@ -397,6 +435,10 @@ exports[`TextArea should render rows props when passed 1`] = `
 `;
 
 exports[`TextArea should render with a Tooltip when passed the validationHint prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -406,6 +448,10 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -455,6 +501,11 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   transition: color 120ms ease-in-out;
 }
 
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
@@ -475,6 +526,10 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   color: var(--cui-fg-subtle);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.cui-field-disabled .circuit-6 {
+  color: var(--cui-fg-subtle-disabled);
 }
 
 <div
@@ -513,6 +568,10 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 `;
 
 exports[`TextArea should render with a prefix when passed the prefix prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -522,6 +581,10 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -581,6 +644,11 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   transition: color 120ms ease-in-out;
 }
 
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-6:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
@@ -627,6 +695,10 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 `;
 
 exports[`TextArea should render with a suffix when passed the suffix prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -636,6 +708,10 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -684,6 +760,11 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-5:hover {
@@ -745,6 +826,10 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 `;
 
 exports[`TextArea should render with default styles 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -754,6 +839,10 @@ exports[`TextArea should render with default styles 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -803,6 +892,11 @@ exports[`TextArea should render with default styles 1`] = `
   transition: color 120ms ease-in-out;
 }
 
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
@@ -845,10 +939,8 @@ exports[`TextArea should render with default styles 1`] = `
 `;
 
 exports[`TextArea should render with disabled styled when passed the disabled prop 1`] = `
-.circuit-0 {
-  opacity: 0.5;
+.circuit-0 .cui-field-disabled {
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1 {
@@ -860,6 +952,10 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -879,7 +975,6 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
-  background-color: var(--cui-bg-normal-disabled);
   box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
   vertical-align: top;
   overflow: auto;
@@ -908,6 +1003,11 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 <div
@@ -941,6 +1041,10 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 `;
 
 exports[`TextArea should render with invalid styles when passed the invalid prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -950,6 +1054,10 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -1015,6 +1123,11 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   color: var(--cui-fg-danger);
 }
 
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
 }
@@ -1058,6 +1171,10 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 `;
 
 exports[`TextArea should render with readonly styles when passed the readonly prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -1067,6 +1184,10 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -1117,6 +1238,11 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
   transition: color 120ms ease-in-out;
 }
 
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
@@ -1160,6 +1286,10 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
 `;
 
 exports[`TextArea should render with valid styles when passed the showValid prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -1169,6 +1299,10 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -1218,6 +1352,11 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   transition: color 120ms ease-in-out;
 }
 
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
@@ -1260,6 +1399,10 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 `;
 
 exports[`TextArea should render with warning styles when passed the hasWarning prop 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -1269,6 +1412,10 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -1334,6 +1481,11 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   color: var(--cui-fg-warning);
 }
 
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+}
+
 .circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-warning-hovered);
 }
@@ -1376,6 +1528,10 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 `;
 
 exports[`TextArea should render without rows props when passed if rows is auto 1`] = `
+.circuit-0 .cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: block;
   font-size: 0.875rem;
@@ -1385,6 +1541,10 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -1432,6 +1592,11 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-5:hover {
