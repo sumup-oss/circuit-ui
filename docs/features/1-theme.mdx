@@ -1,0 +1,471 @@
+import {
+  Intro,
+  Meta,
+  Preview,
+  Swatch,
+  Spacing,
+  IconSize,
+  BorderRadius,
+  BorderWidth,
+  Type,
+  MediaQueriesTable,
+  ColorsTable,
+} from '../../.storybook/components';
+import { Headline, SubHeadline, Body } from '@sumup/circuit-ui';
+
+<Meta title="Features/Theme" />
+
+# Theme
+
+<Intro>
+
+The theme used throughout Circuit UI comes from SumUp's design token library, [`@sumup/design-tokens`](Packages/design-tokens/Docs), which is a required peer dependency of `@sumup/circuit-ui`. Refer to its [documentation](Packages/design-tokens/Docs) for usage instructions.
+
+</Intro>
+
+## Colors
+
+### New semantic colors
+
+The Circuit UI theme is moving from color scales (e.g. `g900`) to semantic colors (e.g. `fg-success`). This makes theme customizations easier and more reliable, and enables theming for sub-brands or for supporting multiple color modes. For detailed documentation on the new semantic colors, refer to the [Figma documentation](https://www.figma.com/file/OgPQeoNZ2QoY7hZvy0ybk2/%F0%9F%8C%88-COLOR-TOKENS?node-id=913%3A3903&t=b9BsTOJnzKDomZ9E-4) (_internal link_).
+
+Additionally, color tokens are moving from the JS theme (exported from `@sumup/design-tokens`) to [CSS custom properties](https://www.w3.org/TR/css-variables-1/), declared in the Circuit UI `BaseStyles` from version 6.1.0. This has performance benefits over CSS-in-JS theming. Eventually, all design tokens will be declared as CSS custom properties.
+
+#### Background colors
+
+<ColorsTable
+  customProperties={[
+    /* Neutral backgrounds */
+    '--cui-bg-normal',
+    '--cui-bg-normal-hovered',
+    '--cui-bg-normal-pressed',
+    '--cui-bg-normal-disabled',
+    '--cui-bg-subtle',
+    '--cui-bg-subtle-hovered',
+    '--cui-bg-subtle-pressed',
+    '--cui-bg-subtle-disabled',
+    '--cui-bg-highlight',
+    '--cui-bg-highlight-hovered',
+    '--cui-bg-highlight-pressed',
+    '--cui-bg-highlight-disabled',
+    '--cui-bg-strong',
+    '--cui-bg-strong-hovered',
+    '--cui-bg-strong-pressed',
+    '--cui-bg-strong-disabled',
+    /* Accent backgrounds */
+    '--cui-bg-accent',
+    '--cui-bg-accent-hovered',
+    '--cui-bg-accent-pressed',
+    '--cui-bg-accent-disabled',
+    '--cui-bg-accent-strong',
+    '--cui-bg-accent-strong-hovered',
+    '--cui-bg-accent-strong-pressed',
+    '--cui-bg-accent-strong-disabled',
+    /* Success backgrounds */
+    '--cui-bg-success',
+    '--cui-bg-success-hovered',
+    '--cui-bg-success-pressed',
+    '--cui-bg-success-disabled',
+    '--cui-bg-success-strong',
+    '--cui-bg-success-strong-hovered',
+    '--cui-bg-success-strong-pressed',
+    '--cui-bg-success-strong-disabled',
+    /* Warning backgrounds */
+    '--cui-bg-warning',
+    '--cui-bg-warning-hovered',
+    '--cui-bg-warning-pressed',
+    '--cui-bg-warning-disabled',
+    '--cui-bg-warning-strong',
+    '--cui-bg-warning-strong-hovered',
+    '--cui-bg-warning-strong-pressed',
+    '--cui-bg-warning-strong-disabled',
+    /* Danger backgrounds */
+    '--cui-bg-danger',
+    '--cui-bg-danger-hovered',
+    '--cui-bg-danger-pressed',
+    '--cui-bg-danger-disabled',
+    '--cui-bg-danger-strong',
+    '--cui-bg-danger-strong-hovered',
+    '--cui-bg-danger-strong-pressed',
+    '--cui-bg-danger-strong-disabled',
+    /* Promo backgrounds */
+    '--cui-bg-promo',
+    '--cui-bg-promo-hovered',
+    '--cui-bg-promo-pressed',
+    '--cui-bg-promo-disabled',
+    '--cui-bg-promo-strong',
+    '--cui-bg-promo-strong-hovered',
+    '--cui-bg-promo-strong-pressed',
+    '--cui-bg-promo-strong-disabled',
+  ]}
+/>
+
+#### Foreground colors
+
+<ColorsTable
+  customProperties={[
+    /* Neutral foregrounds */
+    '--cui-fg-normal',
+    '--cui-fg-normal-hovered',
+    '--cui-fg-normal-pressed',
+    '--cui-fg-normal-disabled',
+    '--cui-fg-subtle',
+    '--cui-fg-subtle-hovered',
+    '--cui-fg-subtle-pressed',
+    '--cui-fg-subtle-disabled',
+    '--cui-fg-placeholder',
+    '--cui-fg-placeholder-hovered',
+    '--cui-fg-placeholder-pressed',
+    '--cui-fg-placeholder-disabled',
+    '--cui-fg-on-strong',
+    '--cui-fg-on-strong-hovered',
+    '--cui-fg-on-strong-pressed',
+    '--cui-fg-on-strong-disabled',
+    /* Accent foregrounds */
+    '--cui-fg-accent',
+    '--cui-fg-accent-hovered',
+    '--cui-fg-accent-pressed',
+    '--cui-fg-accent-disabled',
+    /* Success foregrounds */
+    '--cui-fg-success',
+    '--cui-fg-success-hovered',
+    '--cui-fg-success-pressed',
+    '--cui-fg-success-disabled',
+    /* Warning foregrounds */
+    '--cui-fg-warning',
+    '--cui-fg-warning-hovered',
+    '--cui-fg-warning-pressed',
+    '--cui-fg-warning-disabled',
+    /* Danger foregrounds */
+    '--cui-fg-danger',
+    '--cui-fg-danger-hovered',
+    '--cui-fg-danger-pressed',
+    '--cui-fg-danger-disabled',
+    /* Promo foregrounds */
+    '--cui-fg-promo',
+    '--cui-fg-promo-hovered',
+    '--cui-fg-promo-pressed',
+    '--cui-fg-promo-disabled',
+  ]}
+/>
+
+#### Border colors
+
+<ColorsTable
+  customProperties={[
+    /* Neutral borders */
+    '--cui-border-normal',
+    '--cui-border-normal-hovered',
+    '--cui-border-normal-pressed',
+    '--cui-border-normal-disabled',
+    '--cui-border-subtle',
+    '--cui-border-subtle-hovered',
+    '--cui-border-subtle-pressed',
+    '--cui-border-subtle-disabled',
+    '--cui-border-divider',
+    '--cui-border-divider-hovered',
+    '--cui-border-divider-pressed',
+    '--cui-border-divider-disabled',
+    '--cui-border-strong',
+    '--cui-border-strong-hovered',
+    '--cui-border-strong-pressed',
+    '--cui-border-strong-disabled',
+    /* Accent borders */
+    '--cui-border-accent',
+    '--cui-border-accent-hovered',
+    '--cui-border-accent-pressed',
+    '--cui-border-accent-disabled',
+    /* Success borders */
+    '--cui-border-success',
+    '--cui-border-success-hovered',
+    '--cui-border-success-pressed',
+    '--cui-border-success-disabled',
+    /* Warning borders */
+    '--cui-border-warning',
+    '--cui-border-warning-hovered',
+    '--cui-border-warning-pressed',
+    '--cui-border-warning-disabled',
+    /* Danger borders */
+    '--cui-border-danger',
+    '--cui-border-danger-hovered',
+    '--cui-border-danger-pressed',
+    '--cui-border-danger-disabled',
+    /* Promo borders */
+    '--cui-border-promo',
+    '--cui-border-promo-hovered',
+    '--cui-border-promo-pressed',
+    '--cui-border-promo-disabled',
+  ]}
+/>
+
+#### Special colors
+
+<ColorsTable
+  customProperties={[
+    /* Special colors */
+    '--cui-bg-overlay',
+    '--cui-border-focus',
+  ]}
+/>
+
+### Legacy colors
+
+Legacy colors remain available on the JS theme, but semantic colors (see above) should be used on new pages from now on. The following legacy colors will eventually be deprecated and removed from the theme.
+
+```
+theme.colors.<COLOR_NAME>
+```
+
+When referring to a color that should be treated as _primary_ (such as a button or a link), be sure to use the "p" (primary) family of colors rather than the "b" (blue) family of colors.
+
+#### Primary
+
+<Swatch colorName="p100" />
+<Swatch colorName="p200" />
+<Swatch colorName="p300" />
+<Swatch colorName="p400" />
+<Swatch colorName="p500" />
+<Swatch colorName="p700" />
+<Swatch colorName="p900" />
+
+#### Neutrals
+
+<Swatch colorName="n100" />
+<Swatch colorName="n200" />
+<Swatch colorName="n300" />
+<Swatch colorName="n500" />
+<Swatch colorName="n700" />
+<Swatch colorName="n800" />
+<Swatch colorName="n900" />
+
+#### Blues
+
+<Swatch colorName="b100" />
+<Swatch colorName="b200" />
+<Swatch colorName="b300" />
+<Swatch colorName="b400" />
+<Swatch colorName="b500" />
+<Swatch colorName="b700" />
+<Swatch colorName="b900" />
+
+#### Greens
+
+<Swatch colorName="g100" />
+<Swatch colorName="g200" />
+<Swatch colorName="g300" />
+<Swatch colorName="g500" />
+<Swatch colorName="g700" />
+<Swatch colorName="g900" />
+
+#### Yellows
+
+<Swatch colorName="y100" />
+<Swatch colorName="y200" />
+<Swatch colorName="y300" />
+<Swatch colorName="y500" />
+<Swatch colorName="y700" />
+<Swatch colorName="y900" />
+
+#### Oranges
+
+<Swatch colorName="o100" />
+<Swatch colorName="o200" />
+<Swatch colorName="o300" />
+<Swatch colorName="o500" />
+<Swatch colorName="o700" />
+<Swatch colorName="o900" />
+
+#### Reds
+
+<Swatch colorName="r100" />
+<Swatch colorName="r200" />
+<Swatch colorName="r300" />
+<Swatch colorName="r500" />
+<Swatch colorName="r700" />
+<Swatch colorName="r900" />
+
+#### Violets
+
+<Swatch colorName="v100" />
+<Swatch colorName="v200" />
+<Swatch colorName="v300" />
+<Swatch colorName="v500" />
+<Swatch colorName="v700" />
+<Swatch colorName="v900" />
+
+#### Application colors
+
+<Swatch colorName="bodyBg" />
+<Swatch colorName="bodyColor" />
+<Swatch colorName="shadow" />
+<Swatch colorName="overlay" />
+
+#### Semantic colors
+
+<Swatch colorName="alert" />
+<Swatch colorName="confirm" />
+<Swatch colorName="notify" />
+
+## Spacings
+
+```
+theme.spacings.[bit|byte|kilo|mega|giga|tera|peta|exa|zetta]
+```
+
+Use spacings for gutters, margins, and paddings. Don't use it for border width, border radius, icon size, font size, or line height. Use the dedicated theme properties instead.
+
+<Preview>
+  <Spacing spacingName="bit" />
+  <Spacing spacingName="byte" />
+  <Spacing spacingName="kilo" />
+  <Spacing spacingName="mega" />
+  <Spacing spacingName="giga" />
+  <Spacing spacingName="tera" />
+  <Spacing spacingName="peta" />
+  <Spacing spacingName="exa" />
+  <Spacing spacingName="zetta" />
+</Preview>
+
+## Icon sizes
+
+```
+theme.iconSizes.[kilo|mega|giga]
+```
+
+<Preview>
+  <IconSize size="kilo" />
+  <IconSize size="mega" />
+  <IconSize size="giga" />
+</Preview>
+
+## Border radius
+
+```
+theme.borderRadius.[bit|byte|kilo|mega|circle|pill]
+```
+
+<Preview>
+  <BorderRadius size="bit" />
+  <BorderRadius size="byte" />
+  <BorderRadius size="kilo" />
+  <BorderRadius size="mega" />
+  <BorderRadius size="circle" />
+  <BorderRadius size="pill" style={{ height: '16px' }} />
+</Preview>
+
+## Border width
+
+```
+theme.borderWidth.[kilo|mega]
+```
+
+<Preview>
+  <BorderWidth size="kilo" />
+  <BorderWidth size="mega" />
+</Preview>
+
+## Typography
+
+```
+theme.typography.[headline|subHeadline|body].<SIZE_NAME>.[fontSize|lineHeight]
+```
+
+Avoid using `theme.typography` directly in your styles, rather use the specialized components [`Headline`](Typography/Headline/Base), [`SubHeadline`](Typography/SubHeadline/Base), and [`Body`](Typography/Body/Base).
+
+### Headlines
+
+<Preview>
+  <Type size="one" component={Headline} name="headline" />
+  <Type size="two" component={Headline} name="headline" />
+  <Type size="three" component={Headline} name="headline" />
+  <Type size="four" component={Headline} name="headline" />
+</Preview>
+
+### Subheadline
+
+<Preview>
+  <Type component={SubHeadline} name="subHeadline" />
+</Preview>
+
+### Body
+
+<Preview>
+  <Type size="one" component={Body} name="body" />
+  <Type size="two" component={Body} name="body" />
+</Preview>
+
+## Font stack
+
+```
+theme.fontStack.[default|mono]
+```
+
+## Font weight
+
+```
+theme.fontWeight.[regular|bold]
+```
+
+You can only toggle the boldness of `Body`, but not `Headline` or `SubHeadline`.
+
+<Preview>
+  <Type
+    size="one"
+    variant="highlight"
+    component={Body}
+    fontWeight="bold"
+    name="body"
+  />
+  <Type size="one" component={Body} fontWeight="regular" name="body" />
+</Preview>
+
+## Grid
+
+```
+theme.grid.<BREAKPOINT>.[priority|breakpoint|cols|maxWidth|gutter]
+```
+
+Refer to the [grid](Layout/Grid) documentation for an overview of the grid system.
+
+## Breakpoints and media queries
+
+```
+theme.mq.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera]
+theme.breakpoints.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera]
+```
+
+Avoid using `theme.breakpoints` directly, instead use the named media query helpers. The following media queries are available:
+
+<MediaQueriesTable />
+
+### Usage in code
+
+```js
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+
+const ResponsiveDiv = styled.div(
+  ({ theme }) => css`
+    ${theme.mq.mega} {
+      padding-top: ${theme.spacings.peta};
+    }
+  `,
+);
+```
+
+## Transitions
+
+```
+theme.transitions.[default|slow]
+```
+
+For now, there are just two transitions. In the future, when we
+have animations, there may be more :)
+
+## Z-index
+
+```
+theme.zIndex.[default|absolute|input|modal|popover|sidebar|tooltip]
+```
+
+Z-indices for various components to ensure they stack properly.

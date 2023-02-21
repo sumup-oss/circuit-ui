@@ -20,13 +20,9 @@ import {
   NotificationBanner,
   NotificationBannerProps,
 } from './NotificationBanner';
-import docs from './NotificationBanner.docs.mdx';
 
 export default {
   title: 'Notification/NotificationBanner',
-  parameters: {
-    docs: { page: docs },
-  },
   component: NotificationBanner,
 };
 

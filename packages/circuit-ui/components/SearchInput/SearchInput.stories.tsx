@@ -16,14 +16,10 @@
 import { useState, ChangeEvent } from 'react';
 
 import { SearchInput, SearchInputProps } from './SearchInput';
-import docs from './SearchInput.docs.mdx';
 
 export default {
   title: 'Forms/Input/SearchInput',
   component: SearchInput,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     placeholder: { control: 'text' },
   },

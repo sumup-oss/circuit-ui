@@ -1,0 +1,38 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Selector.stories';
+
+<Meta of={Stories} />
+
+# Selector
+
+<Status variant="inReview" >
+  This component is under design review. Consider using radio buttons or
+  checkboxes instead.
+</Status>
+
+The Selector component should only by used as options passed to the [SelectorGroup](Forms/Selector/SelectorGroup) component.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Component variations
+
+### Selected
+
+<Story of={Stories.Selected} />
+
+### Disabled
+
+<Story of={Stories.Disabled} />
+
+### Sizes
+
+The Selector's `size` determines its padding. There are three available sizes:
+
+- **mega**, the default size
+- **kilo**, used when there are sizing constraints
+- **flexible**, used for more complex content within selector which may define its own padding. Adds minimal equal padding on all sides.
+
+**Warning**: for accessibility reasons, we recommend against using the `flexible` size and may deprecate it in the future. Refer to the [SelectorGroup component](Forms/Selector/SelectorGroup)'s documentation for details.
+
+<Story of={Stories.Sizes} />

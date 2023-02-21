@@ -19,7 +19,6 @@ import { Theme } from '@sumup/design-tokens';
 import { Stack } from '../../../.storybook/components';
 import Button from '../components/Button';
 
-import docs from './style-mixins.docs.mdx';
 import {
   spacing,
   shadow,
@@ -35,9 +34,6 @@ import {
 
 export default {
   title: 'Features/Style Mixins',
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const spaceOptions = {
@@ -136,8 +132,8 @@ export const Clearfix = () => (
 
 export const FocusVisible = () => (
   <Stack>
-    <Box css={focusVisible} />
-    <Box css={focusVisible('inset')} />
+    <Box css={focusVisible} tabIndex={0} />
+    <Box css={focusVisible('inset')} tabIndex={0} />
   </Stack>
 );
 

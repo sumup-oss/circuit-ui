@@ -20,13 +20,9 @@ import Button from '../Button';
 
 import { NotificationModal, NotificationModalProps } from './NotificationModal';
 import { useNotificationModal } from './useNotificationModal';
-import docs from './NotificationModal.docs.mdx';
 
 export default {
   title: 'Notification/NotificationModal',
-  parameters: {
-    docs: { page: docs },
-  },
   component: NotificationModal,
 };
 

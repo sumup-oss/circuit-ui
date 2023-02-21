@@ -22,7 +22,6 @@ import { spacing } from '../../styles/style-mixins';
 import Body from '../Body';
 
 import { ListItemGroup, ListItemGroupProps } from './ListItemGroup';
-import docs from './ListItemGroup.docs.mdx';
 
 interface Item {
   id: number;
@@ -35,9 +34,6 @@ interface Item {
 export default {
   title: 'Components/ListItem/ListItemGroup',
   component: ListItemGroup,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     label: { control: 'text' },
     details: { control: 'text' },
@@ -159,7 +155,7 @@ PlainVariant.args = {
 } as ListItemGroupProps;
 
 export const SampleConfiguration = (args: ListItemGroupProps) => {
-  const [selectedId, setSelectedId] = useState<number>(null);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
 
   return (
     <ListItemGroup

@@ -26,16 +26,12 @@ import Image from '../Image';
 import { ModalProvider } from '../ModalContext';
 import { spacing } from '../../styles/style-mixins';
 
-import docs from './Modal.docs.mdx';
 import { Modal, ModalProps, useModal } from './Modal';
 
 export default {
   title: 'Components/Modal',
   component: Modal,
   subcomponents: { ModalProvider },
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const defaultModalChildren = () => (

@@ -16,15 +16,11 @@
 import { action } from '@storybook/addon-actions';
 import { Checkmark } from '@sumup/icons';
 
-import docs from './Tag.docs.mdx';
 import { Tag, TagProps } from './Tag';
 
 export default {
   title: 'Components/Tag',
   component: Tag,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 export const Base = ({ onRemove, ...args }: TagProps) => (
   <Tag {...args}>Transactions</Tag>

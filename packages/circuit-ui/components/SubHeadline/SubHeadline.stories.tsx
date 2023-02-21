@@ -14,14 +14,10 @@
  */
 
 import { SubHeadline, SubHeadlineProps } from './SubHeadline';
-import docs from './SubHeadline.docs.mdx';
 
 export default {
   title: 'Typography/SubHeadline',
   component: SubHeadline,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 export const Base = (args: SubHeadlineProps) => (

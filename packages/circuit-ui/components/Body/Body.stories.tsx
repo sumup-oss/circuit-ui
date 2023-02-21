@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import docs from './Body.docs.mdx';
 import { BodyProps } from './Body';
 
 import Body from '.';
@@ -24,9 +23,6 @@ const content =
 export default {
   title: 'Typography/Body',
   component: Body,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     as: { control: 'text' },
   },

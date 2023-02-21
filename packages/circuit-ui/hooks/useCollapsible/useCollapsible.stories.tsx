@@ -18,13 +18,9 @@ import Button from '../../components/Button';
 import { spacing } from '../../styles/style-mixins';
 
 import { CollapsibleOptions, useCollapsible } from './useCollapsible';
-import docs from './useCollapsible.docs.mdx';
 
 export default {
   title: 'Hooks/useCollapsible',
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 export const Example = (args: CollapsibleOptions) => {

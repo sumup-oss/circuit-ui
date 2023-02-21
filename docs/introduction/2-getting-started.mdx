@@ -1,0 +1,115 @@
+import { Meta, Intro } from '../../.storybook/components';
+
+<Meta title="Introduction/Getting Started" />
+
+# Getting Started
+
+<Intro>
+  The instructions below cover how to use Circuit UI with a React application.
+</Intro>
+
+## Creating a new app with Circuit UI
+
+Starting fresh? The best way to bootstrap a new project with Circuit UI is to use our [`Next.js template`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template).
+
+It will get generate a new [Next.js](https://nextjs.org/) app with Circuit UI and SumUp's [Foundry](https://github.com/sumup-oss/foundry) frontend toolkit, and get you started in minutes!
+
+## Adding Circuit UI to an existing app
+
+Already have a project? You can install Circuit UI via `yarn` or `npm`. In your current project directory, run the following command:
+
+```bash
+# With yarn:
+yarn add @sumup/circuit-ui
+# With npm:
+npm install @sumup/circuit-ui
+```
+
+Circuit UI relies on some mandatory peer dependencies, namely [@sumup/collector](https://www.npmjs.com/package/@sumup/collector), [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens), [@sumup/icons](https://www.npmjs.com/package/@sumup/icons), [@sumup/intl](https://www.npmjs.com/package/@sumup/intl), [React](https://reactjs.org/), and [Emotion](https://emotion.sh/). You should install them with the following command:
+
+```bash
+# With yarn:
+yarn add @sumup/collector @sumup/design-tokens @sumup/icons @sumup/intl react react-dom @emotion/react @emotion/styled
+# With npm:
+npm install --save @sumup/collector @sumup/design-tokens @sumup/icons @sumup/intl react react-dom @emotion/react @emotion/styled
+```
+
+### Configuring the theme
+
+SumUp's default themes are part of the [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) package. In most cases, they should cover your needs. Refer to the [Theme documentation](Features/Theme/Docs) to learn how to use and customize the theme.
+
+To make the theme available to Circuit UI, wrap the root of your application in the `ThemeProvider` from Emotion and add the `BaseStyles` component:
+
+```tsx
+// _app.tsx for Next.js or App.js for CRA
+import { ThemeProvider } from '@emotion/react';
+import { light } from '@sumup/design-tokens';
+import { BaseStyles } from '@sumup/circuit-ui';
+
+export default function App() {
+  return (
+    <ThemeProvider theme={light}>
+      <BaseStyles />
+      {/* Your app */}
+    </ThemeProvider>
+  );
+}
+```
+
+#### Typing the theme
+
+If you're using TypeScript, you might run into type conflicts when using the `theme` prop:
+
+```
+Type 'Theme' is not assignable to type 'ThemeArgs'.ts(2322)
+```
+
+Type the theme by extending the `@emotion/react` module declaration, for example in a new `types/emotion.d.ts` file (make sure the file is included in `typeRoots` in your `tsconfig.json`):
+
+```ts
+// types/emotion.d.ts
+import { Theme as CircuitTheme } from '@sumup/design-tokens';
+import {} from '@emotion/react/types/css-prop'; // See https://github.com/emotion-js/emotion/pull/1941
+
+declare module '@emotion/react' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface Theme extends CircuitTheme {}
+}
+```
+
+This will also enable Intellisense for the theme object.
+
+For more information, refer to [Emotion's TypeScript documentation](https://emotion.sh/docs/typescript#define-a-theme).
+
+### Configuring the viewport
+
+Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and that your app has the right padding to render inside [CSS safe areas](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>):
+
+```tsx
+// _app.tsx for Next.js or App.js for CRA
+import { ThemeProvider } from '@emotion/react';
+import { light } from '@sumup/design-tokens';
+import { BaseStyles } from '@sumup/circuit-ui';
+import Head from 'next/head'; // Add the meta tag directly in index.html with CRA
+
+const Layout = css`
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(
+      safe-area-inset-bottom
+    ) env(safe-area-inset-left);
+`;
+
+export default function App() {
+  return (
+    <ThemeProvider theme={light}>
+      <BaseStyles />
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+      </Head>
+      <Layout>{/* Your app */}</Layout>
+    </ThemeProvider>
+  );
+}
+```

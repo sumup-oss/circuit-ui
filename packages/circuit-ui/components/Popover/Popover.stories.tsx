@@ -20,14 +20,10 @@ import { useState, ReactNode } from 'react';
 import Button from '../Button';
 
 import { Popover, PopoverProps } from './Popover';
-import docs from './Popover.docs.mdx';
 
 export default {
   title: 'Components/Popover',
   component: Popover,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     children: { control: 'text' },
   },

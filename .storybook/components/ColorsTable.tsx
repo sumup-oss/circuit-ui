@@ -15,6 +15,7 @@
 
 import { useEffect, useState } from 'react';
 import { css, ThemeProvider } from '@emotion/react';
+import { Unstyled } from '@storybook/addon-docs';
 import { light } from '@sumup/design-tokens';
 import {
   Anchor,
@@ -93,13 +94,15 @@ function ColorsTable({ customProperties }: { customProperties: string[] }) {
   return (
     <ThemeProvider theme={light}>
       <ToastProvider>
-        {colors && (
-          <Table
-            condensed
-            headers={['Property name', 'Color value', 'Preview']}
-            rows={getRows(colors)}
-          />
-        )}
+        <Unstyled>
+          {colors && (
+            <Table
+              condensed
+              headers={['Property name', 'Color value', 'Preview']}
+              rows={getRows(colors)}
+            />
+          )}
+        </Unstyled>
       </ToastProvider>
     </ThemeProvider>
   );

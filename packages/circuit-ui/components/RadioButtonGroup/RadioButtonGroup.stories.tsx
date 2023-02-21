@@ -18,7 +18,7 @@ import { useState, ChangeEvent } from 'react';
 import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 
 export default {
-  title: 'Forms/RadioButton/RadioButtonGroup',
+  title: 'Forms/RadioButtonGroup',
   component: RadioButtonGroup,
   argTypes: {
     name: { control: 'text' },

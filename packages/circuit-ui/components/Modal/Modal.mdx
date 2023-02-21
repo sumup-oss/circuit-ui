@@ -1,0 +1,69 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Modal.stories';
+
+<Meta of={Stories} />
+
+# Modal
+
+<Status.Stable />
+
+The modal component displays self-contained tasks in a focused window that overlays the page content.
+
+<Story of={Stories.Base} />
+<Props />
+
+## When to use it
+
+Generally, use the modal component sparingly. Consider displaying more complex tasks and large amounts of information on a separate page instead.
+
+## Variants
+
+<Story of={Stories.Variants} />
+
+### Contextual
+
+Use this variant when the modal content requires the context of the page underneath to be understood. On small viewports, the modal component opens up from the bottom as a bottom sheet overlay on top of the page content, dimming the uncovered area while giving a visual context of the page underneath. The height of the bottom sheet can be manually adjusted depending on the use case and the amount of content needed to be displayed.
+
+### Immersive
+
+Use this variant to focus the user's attention on the modal content. On small viewports, the modal component opens up from the bottom as a fullscreen overlay on top of the page content and covers it entirely in favor of an immersive experience.
+
+## Usage in code
+
+First, wrap your application in the `ModalProvider` which keeps track of the open modals, prevents scrolling of the page when a modal is open, and ensures the accessibility of the modal.
+
+```tsx
+// _app.tsx for Next.js or App.js for CRA
+import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
+import { ModalProvider, BaseStyles } from '@sumup/circuit-ui';
+
+export default function App() {
+  return (
+    <ThemeProvider theme={light}>
+      <BaseStyles />
+      <ModalProvider>{/* Your content here... */}</ModalProvider>
+    </ThemeProvider>
+  );
+}
+```
+
+Then, use the `useModal` hook to open a modal from a component:
+
+```tsx
+import { useModal, Button, Body } from '@sumup/circuit-ui';
+
+export function SayHello({ name }) {
+  const { setModal } = useModal();
+
+  const handleClick = () => {
+    setModal({
+      children: <Body>Hello {name}</Body>,
+      variant: 'immersive',
+      closeButtonLabel: 'Close modal',
+    });
+  };
+
+  return <Button onClick={handleClick}>Say hello</Button>;
+}
+```

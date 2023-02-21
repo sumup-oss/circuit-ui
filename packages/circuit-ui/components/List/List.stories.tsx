@@ -18,15 +18,11 @@ import { Fragment } from 'react';
 import Body from '../Body';
 import { spacing } from '../../styles/style-mixins';
 
-import docs from './List.docs.mdx';
 import { List, ListProps } from './List';
 
 export default {
   title: 'Typography/List',
   component: List,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const ListItems = () => (

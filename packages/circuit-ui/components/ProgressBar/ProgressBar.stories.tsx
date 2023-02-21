@@ -16,15 +16,11 @@
 import { Fragment } from 'react';
 import { css } from '@emotion/react';
 
-import docs from './ProgressBar.docs.mdx';
 import { ProgressBar, ProgressBarProps } from './ProgressBar';
 
 export default {
   title: 'Components/ProgressBar',
   component: ProgressBar,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const variants = ['primary', 'secondary'] as const;

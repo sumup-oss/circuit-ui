@@ -14,14 +14,10 @@
  */
 
 import { TextArea, TextAreaProps } from './TextArea';
-import docs from './TextArea.docs.mdx';
 
 export default {
   title: 'Forms/TextArea',
   component: TextArea,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },

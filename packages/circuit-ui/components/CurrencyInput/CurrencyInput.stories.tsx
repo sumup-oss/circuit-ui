@@ -15,15 +15,11 @@
 
 import { Stack } from '../../../../.storybook/components';
 
-import docs from './CurrencyInput.docs.mdx';
 import { CurrencyInput, CurrencyInputProps } from './CurrencyInput';
 
 export default {
   title: 'Forms/Input/CurrencyInput',
   component: CurrencyInput,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const baseArgs = {
