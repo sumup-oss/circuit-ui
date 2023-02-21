@@ -116,9 +116,9 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -185,9 +185,9 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
 }
 
 <body>
@@ -383,9 +383,9 @@ exports[`Popover Styles should render popover on left 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -452,9 +452,9 @@ exports[`Popover Styles should render popover on left 1`] = `
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
 }
 
 <body>
@@ -650,9 +650,9 @@ exports[`Popover Styles should render popover on right 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -719,9 +719,9 @@ exports[`Popover Styles should render popover on right 1`] = `
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
 }
 
 <body>
@@ -917,9 +917,9 @@ exports[`Popover Styles should render popover on top 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -986,9 +986,9 @@ exports[`Popover Styles should render popover on top 1`] = `
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
 }
 
 <body>
@@ -1166,9 +1166,9 @@ exports[`Popover Styles should render with closed styles 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -1235,9 +1235,9 @@ exports[`Popover Styles should render with closed styles 1`] = `
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
 }
 
 <body>
@@ -1433,9 +1433,9 @@ exports[`Popover Styles should render with default styles 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -1502,9 +1502,9 @@ exports[`Popover Styles should render with default styles 1`] = `
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
 }
 
 <body>

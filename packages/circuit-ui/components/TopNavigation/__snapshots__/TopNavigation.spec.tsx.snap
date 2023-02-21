@@ -356,10 +356,12 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 .circuit-13:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-13:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-13:focus {
@@ -375,10 +377,11 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   box-shadow: none;
 }
 
-.circuit-13:disabled {
-  opacity: 0.5;
+.circuit-13:disabled,
+.circuit-13[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-14 {
@@ -450,10 +453,12 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 .circuit-18:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-18:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-18:focus {
@@ -469,10 +474,11 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   box-shadow: none;
 }
 
-.circuit-18:disabled {
-  opacity: 0.5;
+.circuit-18:disabled,
+.circuit-18[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 767px) {

@@ -414,7 +414,11 @@ export const listItem = (
 
     &:disabled,
     &[disabled] {
-      ${disableVisually()};
+      pointer-events: none;
+      background-color: var(--cui-bg-normal-disabled);
+      color: ${options.destructive
+        ? 'var(--cui-fg-danger-disabled)'
+        : 'var(--cui-fg-normal-disabled)'};
     }
   `;
 };
@@ -456,18 +460,31 @@ export const navigationItem = (
       background-color: ${options.isActive
         ? 'var(--cui-bg-accent-hovered)'
         : 'var(--cui-bg-normal-hovered)'};
+      color: ${options.isActive
+        ? 'var(--cui-fg-accent-hovered)'
+        : 'var(--cui-fg-normal-hovered)'};
     }
 
     &:active {
       background-color: ${options.isActive
         ? 'var(--cui-bg-accent-pressed)'
         : 'var(--cui-bg-normal-pressed)'};
+      color: ${options.isActive
+        ? 'var(--cui-fg-accent-pressed)'
+        : 'var(--cui-fg-normal-pressed)'};
     }
 
     ${focusVisible('inset')()};
 
-    &:disabled {
-      ${disableVisually()};
+    &:disabled,
+    &[disabled] {
+      pointer-events: none;
+      background-color: ${options.isActive
+        ? 'var(--cui-bg-accent-disabled)'
+        : 'var(--cui-bg-normal-disabled)'};
+      color: ${options.isActive
+        ? 'var(--cui-fg-accent-disabled)'
+        : 'var(--cui-fg-normal-disabled)'};
     }
   `;
 };

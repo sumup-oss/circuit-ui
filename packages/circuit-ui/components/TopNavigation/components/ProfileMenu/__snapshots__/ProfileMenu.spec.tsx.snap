@@ -29,10 +29,12 @@ exports[`ProfileMenu Styles should render with a profile picture 1`] = `
 
 .circuit-1:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-1:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-1:focus {
@@ -48,10 +50,11 @@ exports[`ProfileMenu Styles should render with a profile picture 1`] = `
   box-shadow: none;
 }
 
-.circuit-1:disabled {
-  opacity: 0.5;
+.circuit-1:disabled,
+.circuit-1[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-2 {
@@ -218,10 +221,12 @@ exports[`ProfileMenu Styles should render without a profile picture 1`] = `
 
 .circuit-1:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-1:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-1:focus {
@@ -237,10 +242,11 @@ exports[`ProfileMenu Styles should render without a profile picture 1`] = `
   box-shadow: none;
 }
 
-.circuit-1:disabled {
-  opacity: 0.5;
+.circuit-1:disabled,
+.circuit-1[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-2 {

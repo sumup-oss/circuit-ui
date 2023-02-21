@@ -258,16 +258,19 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-10:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-10:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-10:disabled {
-  opacity: 0.5;
+.circuit-10:disabled,
+.circuit-10[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 1279px) {
@@ -411,10 +414,12 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 
 .circuit-19:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-19:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-19:focus {
@@ -430,10 +435,11 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   box-shadow: none;
 }
 
-.circuit-19:disabled {
-  opacity: 0.5;
+.circuit-19:disabled,
+.circuit-19[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 1280px) {
@@ -907,16 +913,19 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
 
 .circuit-10:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-10:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-10:disabled {
-  opacity: 0.5;
+.circuit-10:disabled,
+.circuit-10[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 1279px) {

@@ -38,10 +38,12 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
 
 .circuit-2:hover {
   background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-2:active {
   background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-2:focus {
@@ -57,10 +59,11 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-.circuit-2:disabled {
-  opacity: 0.5;
+.circuit-2:disabled,
+.circuit-2[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 1280px) {
@@ -128,10 +131,12 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
 
 .circuit-9:hover {
   background-color: var(--cui-bg-accent-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-9:active {
   background-color: var(--cui-bg-accent-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-9:focus {
@@ -147,10 +152,11 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-.circuit-9:disabled {
-  opacity: 0.5;
+.circuit-9:disabled,
+.circuit-9[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-accent-disabled);
+  color: var(--cui-fg-accent-disabled);
 }
 
 @media (min-width: 1280px) {

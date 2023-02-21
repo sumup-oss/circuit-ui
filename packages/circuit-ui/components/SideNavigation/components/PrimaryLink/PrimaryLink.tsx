@@ -19,11 +19,7 @@ import { Theme } from '@sumup/design-tokens';
 import { ArrowRight } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../../../styles/styled';
-import {
-  focusVisible,
-  disableVisually,
-  cx,
-} from '../../../../styles/style-mixins';
+import { cx, focusVisible } from '../../../../styles/style-mixins';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { ClickEvent } from '../../../../types/events';
 import { EmotionAsPropType } from '../../../../types/prop-types';
@@ -64,14 +60,19 @@ const anchorStyles = ({ theme }: StyleProps) => css`
 
   &:hover {
     background-color: var(--cui-bg-normal-hovered);
+    color: var(--cui-fg-normal-hovered);
   }
 
   &:active {
     background-color: var(--cui-bg-normal-pressed);
+    color: var(--cui-fg-normal-pressed);
   }
 
-  &:disabled {
-    ${disableVisually()};
+  &:disabled,
+  &[disabled] {
+    pointer-events: none;
+    background-color: var(--cui-bg-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 
   ${theme.mq.untilTera} {
