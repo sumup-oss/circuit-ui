@@ -48,6 +48,33 @@ exports[`RadioButton Styles should render with checked styles 1`] = `
   opacity: 1;
 }
 
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border-color: var(--cui-border-strong-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-0:disabled+label::after,
+.circuit-0[disabled]+label::after {
+  background-color: var(--cui-fg-on-strong-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::after,
+.circuit-0[disabled]:checked+label::after {
+  background-color: var(--cui-fg-accent-disabled);
+}
+
 .circuit-1 {
   color: var(--cui-fg-normal);
   display: inline-block;
@@ -159,6 +186,33 @@ exports[`RadioButton Styles should render with default styles 1`] = `
   -ms-transform: translateY(-50%) scale(1, 1);
   transform: translateY(-50%) scale(1, 1);
   opacity: 1;
+}
+
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border-color: var(--cui-border-strong-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-0:disabled+label::after,
+.circuit-0[disabled]+label::after {
+  background-color: var(--cui-fg-on-strong-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::after,
+.circuit-0[disabled]:checked+label::after {
+  background-color: var(--cui-fg-accent-disabled);
 }
 
 .circuit-1 {
@@ -273,15 +327,39 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
   opacity: 1;
 }
 
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border-color: var(--cui-border-strong-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-0:disabled+label::after,
+.circuit-0[disabled]+label::after {
+  background-color: var(--cui-fg-on-strong-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::after,
+.circuit-0[disabled]:checked+label::after {
+  background-color: var(--cui-fg-accent-disabled);
+}
+
 .circuit-1 {
   color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1::before {
@@ -324,21 +402,6 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
-.circuit-1::before {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-  border-color: var(--cui-border-strong-disabled);
-  background-color: var(--cui-bg-normal-disabled);
-}
-
-.circuit-1::after {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-  background-color: var(--cui-fg-on-strong);
-}
-
 <div>
   <input
     class="circuit-0"
@@ -349,7 +412,6 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
   />
   <label
     class="circuit-1"
-    disabled=""
     for="radio-button_3"
   >
     Label
@@ -403,6 +465,33 @@ exports[`RadioButton Styles should render with invalid styles 1`] = `
   -ms-transform: translateY(-50%) scale(1, 1);
   transform: translateY(-50%) scale(1, 1);
   opacity: 1;
+}
+
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border-color: var(--cui-border-strong-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-0:disabled+label::after,
+.circuit-0[disabled]+label::after {
+  background-color: var(--cui-fg-on-strong-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::after,
+.circuit-0[disabled]:checked+label::after {
+  background-color: var(--cui-fg-accent-disabled);
 }
 
 .circuit-0:hover+label::before,

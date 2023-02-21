@@ -17,11 +17,7 @@ import { Fragment, InputHTMLAttributes, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  disableVisually,
-  hideVisually,
-  focusOutline,
-} from '../../styles/style-mixins';
+import { hideVisually, focusOutline } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { AccessibilityError } from '../../util/errors';
@@ -46,7 +42,7 @@ export interface RadioButtonProps
   tracking?: TrackingProps;
 }
 
-type LabelElProps = Pick<RadioButtonProps, 'invalid' | 'disabled'>;
+type LabelElProps = Pick<RadioButtonProps, 'invalid'>;
 
 const labelBaseStyles = ({ theme }: StyleProps) => css`
   color: var(--cui-fg-normal);
@@ -102,26 +98,8 @@ const labelInvalidStyles = ({ invalid }: LabelElProps) =>
     }
   `;
 
-const labelDisabledStyles = ({ disabled }: LabelElProps) =>
-  disabled &&
-  css`
-    ${disableVisually()};
-
-    &::before {
-      ${disableVisually()};
-      border-color: var(--cui-border-strong-disabled);
-      background-color: var(--cui-bg-normal-disabled);
-    }
-
-    &::after {
-      ${disableVisually()};
-      background-color: var(--cui-fg-on-strong);
-    }
-  `;
-
 const RadioButtonLabel = styled('label')<LabelElProps>(
   labelBaseStyles,
-  labelDisabledStyles,
   labelInvalidStyles,
 );
 
@@ -156,6 +134,32 @@ const inputBaseStyles = css`
     &::after {
       transform: translateY(-50%) scale(1, 1);
       opacity: 1;
+    }
+  }
+
+  &:disabled + label,
+  &[disabled] + label {
+    pointer-events: none;
+    color: var(--cui-fg-normal-disabled);
+
+    &::before {
+      border-color: var(--cui-border-strong-disabled);
+      background-color: var(--cui-bg-normal-disabled);
+    }
+
+    &::after {
+      background-color: var(--cui-fg-on-strong-disabled);
+    }
+  }
+
+  &:disabled:checked + label,
+  &[disabled]:checked + label {
+    &::before {
+      border-color: var(--cui-border-accent-disabled);
+    }
+
+    &::after {
+      background-color: var(--cui-fg-accent-disabled);
     }
   }
 `;
@@ -229,7 +233,6 @@ export const RadioButton = forwardRef(
         />
         <RadioButtonLabel
           htmlFor={id}
-          disabled={disabled}
           invalid={invalid}
           className={className}
           style={style}
