@@ -146,13 +146,17 @@ const inputInvalidStyles = ({ invalid }: InputElProps) =>
     }
   `;
 
-const inputDisabledStyles = ({ disabled }: InputElProps) =>
-  disabled &&
+const inputDisabledStyles = () =>
   css`
-    & + label::before {
+    &:disabled + label,
+    &[disabled] + label {
       pointer-events: none;
-      border-color: var(--cui-border-normal-disabled);
-      background-color: var(--cui-bg-normal-disabled);
+      color: var(--cui-fg-normal-disabled);
+
+      &::before {
+        border-color: var(--cui-border-normal-disabled);
+        background-color: var(--cui-bg-normal-disabled);
+      }
     }
   `;
 
