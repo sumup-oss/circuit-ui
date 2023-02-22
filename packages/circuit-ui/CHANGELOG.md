@@ -1,5 +1,14 @@
 # @sumup/circuit-ui
 
+## 7.0.0
+
+### Patch Changes
+
+- [#1959](https://github.com/sumup-oss/circuit-ui/pull/1959) [`f5c48588`](https://github.com/sumup-oss/circuit-ui/commit/f5c485888b63099ba07f40447cf1339d25720c8c) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the value of the `--cui-bg-danger` color token.
+
+- Updated dependencies [[`f8f266df`](https://github.com/sumup-oss/circuit-ui/commit/f8f266df54c69b987d6c1d5b47228e856af741f0)]:
+  - @sumup/icons@2.20.0
+
 ## 6.2.2
 
 ### Patch Changes
