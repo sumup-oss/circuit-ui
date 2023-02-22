@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButtonGroup Styles should render with default styles 1`] = `
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 

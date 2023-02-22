@@ -31,7 +31,7 @@ export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
 
 const wrapperStyles = () =>
   css`
-    .${CLASS_DISABLED} {
+    &.${CLASS_DISABLED} {
       pointer-events: none;
     }
   `;
@@ -43,16 +43,17 @@ const Wrapper = styled('div')(wrapperStyles);
  */
 export const FieldWrapper = forwardRef(
   (
-    { children, disabled, ...props }: FieldWrapperProps,
+    { children, disabled, className = '', ...props }: FieldWrapperProps,
     ref: Ref<HTMLDivElement>,
-  ) => {
-    const className = disabled ? CLASS_DISABLED : '';
-    return (
-      <Wrapper ref={ref} className={className} {...props}>
-        {children}
-      </Wrapper>
-    );
-  },
+  ) => (
+    <Wrapper
+      ref={ref}
+      className={disabled ? `${className} ${CLASS_DISABLED}` : className}
+      {...props}
+    >
+      {children}
+    </Wrapper>
+  ),
 );
 
 FieldWrapper.displayName = 'FieldWrapper';

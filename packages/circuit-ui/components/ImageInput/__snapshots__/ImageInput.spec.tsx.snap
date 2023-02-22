@@ -33,7 +33,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
   }
 }
 
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -296,7 +296,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <div
       class="circuit-1"
@@ -416,7 +416,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
   }
 }
 
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -697,7 +697,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <div
       class="circuit-1"
@@ -813,7 +813,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
   }
 }
 
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -1087,7 +1087,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <div
       class="circuit-1"
@@ -1207,7 +1207,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
   }
 }
 
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -1482,7 +1482,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <div
       class="circuit-1"
@@ -1598,7 +1598,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   }
 }
 
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -1918,7 +1918,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <div
       class="circuit-1"

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select Styles should not render with invalid styles when also passed the disabled prop 1`] = `
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -101,7 +101,7 @@ select:not(:active)~.circuit-7 {
 
 <div>
   <div
-    class="circuit-0"
+    class=" cui-field-disabled circuit-0"
   >
     <label
       class="circuit-1"
@@ -180,7 +180,7 @@ select:not(:active)~.circuit-7 {
 `;
 
 exports[`Select Styles should render with a prefix when passed the prefix prop 1`] = `
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -303,7 +303,7 @@ select:not(:active)~.circuit-8 {
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <label
       class="circuit-1"
@@ -384,7 +384,7 @@ select:not(:active)~.circuit-8 {
 `;
 
 exports[`Select Styles should render with a tooltip when passed a validation hint 1`] = `
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -510,7 +510,7 @@ select:not(:active)~.circuit-7 {
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <label
       class="circuit-1"
@@ -593,7 +593,7 @@ select:not(:active)~.circuit-7 {
 `;
 
 exports[`Select Styles should render with a visually-hidden label 1`] = `
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -714,7 +714,7 @@ select:not(:active)~.circuit-7 {
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <label
       class="circuit-1"
@@ -791,7 +791,7 @@ select:not(:active)~.circuit-7 {
 `;
 
 exports[`Select Styles should render with default styles 1`] = `
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -903,7 +903,7 @@ select:not(:active)~.circuit-7 {
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <label
       class="circuit-1"
@@ -980,7 +980,7 @@ select:not(:active)~.circuit-7 {
 `;
 
 exports[`Select Styles should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -1080,7 +1080,7 @@ select:not(:active)~.circuit-7 {
 
 <div>
   <div
-    class="circuit-0"
+    class=" cui-field-disabled circuit-0"
   >
     <label
       class="circuit-1"
@@ -1158,7 +1158,7 @@ select:not(:active)~.circuit-7 {
 `;
 
 exports[`Select Styles should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -1271,7 +1271,7 @@ select:not(:active)~.circuit-7 {
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <label
       class="circuit-1"

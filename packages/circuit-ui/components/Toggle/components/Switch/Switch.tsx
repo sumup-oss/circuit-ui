@@ -74,20 +74,34 @@ const trackBaseStyles = css`
   }
 `;
 
-const trackOnStyles = ({ checked }: TrackElProps) =>
-  checked &&
+const trackOnStyles = () =>
   css`
-    background-color: var(--cui-bg-accent-strong);
+    &[aria-checked='true'] {
+      background-color: var(--cui-bg-accent-strong);
 
-    &:hover {
-      background-color: var(--cui-bg-accent-strong-hovered);
+      &:hover {
+        background-color: var(--cui-bg-accent-strong-hovered);
+      }
     }
   `;
+
+const trackDisabledStyles = () => css`
+  &:disabled,
+  &[disabled] {
+    background-color: var(--cui-bg-highlight-disabled);
+  }
+
+  &[aria-checked='true']:disabled,
+  &[aria-checked='true'][disabled] {
+    background-color: var(--cui-bg-accent-strong-disabled);
+  }
+`;
 
 const SwitchTrack = styled('button')<TrackElProps>(
   focusVisible,
   trackBaseStyles,
   trackOnStyles,
+  trackDisabledStyles,
 );
 
 type KnobElProps = Pick<SwitchProps, 'checked'>;
@@ -105,18 +119,35 @@ const knobBaseStyles = ({ theme }: StyleProps) => css`
   border-radius: ${KNOB_SIZE};
 `;
 
-const knobOnStyles = ({ theme, checked }: StyleProps & KnobElProps) =>
-  checked &&
+const knobOnStyles = ({ theme }: StyleProps) =>
   css`
-    box-shadow: ${knobShadow('var(--cui-border-accent-pressed)')};
-    transform: translate3d(
-      calc(${TRACK_WIDTH} - ${KNOB_SIZE} - ${theme.spacings.bit}),
-      -50%,
-      0
-    );
+    [aria-checked='true'] & {
+      box-shadow: ${knobShadow('var(--cui-border-accent-pressed)')};
+      transform: translate3d(
+        calc(${TRACK_WIDTH} - ${KNOB_SIZE} - ${theme.spacings.bit}),
+        -50%,
+        0
+      );
+    }
   `;
 
-const SwitchKnob = styled('span')<KnobElProps>(knobBaseStyles, knobOnStyles);
+const knobDisabledStyles = () => css`
+  button:disabled &,
+  button[disabled] & {
+    box-shadow: ${knobShadow('var(--cui-border-normal-disabled)')};
+  }
+
+  button[aria-checked='true']:disabled &,
+  button[aria-checked='true'][disabled] & {
+    box-shadow: ${knobShadow('var(--cui-border-accent-disabled)')};
+  }
+`;
+
+const SwitchKnob = styled('span')<KnobElProps>(
+  knobBaseStyles,
+  knobOnStyles,
+  knobDisabledStyles,
+);
 
 // Important for accessibility
 const SwitchLabel = styled('span')(hideVisually);
@@ -158,13 +189,12 @@ export const Switch = forwardRef(
       <SwitchTrack
         type="button"
         onClick={handleChange}
-        checked={checked}
         role="switch"
         aria-checked={checked}
         {...props}
         ref={ref}
       >
-        <SwitchKnob checked={checked} />
+        <SwitchKnob />
         <SwitchLabel>{checked ? checkedLabel : uncheckedLabel}</SwitchLabel>
       </SwitchTrack>
     );

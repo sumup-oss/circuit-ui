@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchInput should grey out icon when disabled 1`] = `
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -81,7 +81,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 }
 
 <div
-  class="circuit-0"
+  class=" cui-field-disabled circuit-0"
 >
   <label
     class="circuit-1"
@@ -128,7 +128,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 `;
 
 exports[`SearchInput should render with default styles 1`] = `
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -220,7 +220,7 @@ exports[`SearchInput should render with default styles 1`] = `
 }
 
 <div
-  class="circuit-0"
+  class=" circuit-0"
 >
   <label
     class="circuit-1"

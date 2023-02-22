@@ -5,7 +5,7 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
   position: relative;
 }
 
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -150,7 +150,7 @@ exports[`Checkbox Styles should render with default styles 1`] = `
   position: relative;
 }
 
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -294,7 +294,7 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
   position: relative;
 }
 
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
@@ -403,7 +403,7 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
 
 <div>
   <div
-    class="circuit-0"
+    class="cui-field-disabled circuit-0"
   >
     <input
       aria-describedby="validation_hint-6"
@@ -445,7 +445,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   position: relative;
 }
 
-.circuit-0 .cui-field-disabled {
+.circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
