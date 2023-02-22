@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.20.0
+
+### Minor Changes
+
+- [#1957](https://github.com/sumup-oss/circuit-ui/pull/1957) [`f8f266df`](https://github.com/sumup-oss/circuit-ui/commit/f8f266df54c69b987d6c1d5b47228e856af741f0) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `IconsManifest` type to the exports. It describes the shape of `@sumup/icons/manifest.json`.
+
 ## 2.19.0
 
 ### Minor Changes
