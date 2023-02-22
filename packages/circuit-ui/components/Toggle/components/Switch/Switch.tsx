@@ -60,7 +60,7 @@ const trackBaseStyles = css`
   outline: 0;
   appearance: none;
   flex: 0 0 ${TRACK_WIDTH};
-  background-color: var(--cui-bg-highlight-hovered);
+  background-color: var(--cui-bg-highlight);
   border-radius: ${TRACK_HEIGHT};
   position: relative;
   transition: background-color ${ANIMATION_TIMING};
@@ -70,6 +70,9 @@ const trackBaseStyles = css`
   cursor: pointer;
 
   &:hover {
+    background-color: var(--cui-bg-highlight-hovered);
+  }
+  &:active {
     background-color: var(--cui-bg-highlight-pressed);
   }
 `;
@@ -81,6 +84,9 @@ const trackOnStyles = () =>
 
       &:hover {
         background-color: var(--cui-bg-accent-strong-hovered);
+      }
+      &:active {
+        background-color: var(--cui-bg-accent-strong-pressed);
       }
     }
   `;
