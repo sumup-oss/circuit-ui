@@ -69,7 +69,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     box-sizing: border-box;
     box-shadow: 0;
     background-color: var(--cui-bg-normal);
-    border: 1px solid var(--cui-border-strong);
+    border: 1px solid var(--cui-border-normal);
     border-radius: 3px;
     content: '';
     display: block;
@@ -109,7 +109,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
 
   &:focus:not(:focus-visible) + label::before {
     box-shadow: none;
-    border-color: var(--cui-border-strong);
+    border-color: var(--cui-border-normal);
   }
 
   &:checked:focus:not(:focus-visible) + label::before {
@@ -151,7 +151,7 @@ const inputDisabledStyles = ({ disabled }: InputElProps) =>
   css`
     & + label::before {
       pointer-events: none;
-      border-color: var(--cui-border-strong-disabled);
+      border-color: var(--cui-border-normal-disabled);
       background-color: var(--cui-bg-normal-disabled);
     }
   `;

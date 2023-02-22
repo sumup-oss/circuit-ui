@@ -124,6 +124,7 @@ export const spacing = (
  * Adds a drop shadow to an element to visually elevate it above the
  * surrounding content.
  */
+// TODO: Simplify the function signature in the next major.
 export function shadow(options?: never): (args: ThemeArgs) => SerializedStyles;
 export function shadow(args: ThemeArgs): SerializedStyles;
 export function shadow(
