@@ -89,7 +89,7 @@ export const createBaseStyles = ({
     --cui-bg-warning-strong-pressed: #b25c00;
     --cui-bg-warning-strong-disabled: rgba(232, 124, 0, 0.4);
     /* Danger backgrounds */
-    --cui-bg-danger: #b25c00;
+    --cui-bg-danger: #fbe9e7;
     --cui-bg-danger-hovered: #fcddd9;
     --cui-bg-danger-pressed: #f7ccc7;
     --cui-bg-danger-disabled: rgba(247, 204, 199, 0.4);
