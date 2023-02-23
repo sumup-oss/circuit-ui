@@ -32,6 +32,7 @@ import { FieldWrapper, FieldLabel, FieldValidationHint } from '../FieldAtoms';
 import IconButton, { IconButtonProps } from '../IconButton';
 import Spinner from '../Spinner';
 import { AccessibilityError } from '../../util/errors';
+import { CLASS_DISABLED } from '../FieldAtoms/constants';
 
 type Size = 'giga' | 'yotta';
 
@@ -45,7 +46,15 @@ export interface ImageInputProps
    * The visual component to render as an image input. It should accept an src
    * prop to render the image.
    */
-  component: ({ src, alt }: { src?: string; alt: string }) => JSX.Element;
+  component: ({
+    src,
+    alt,
+    role,
+  }: {
+    src?: string;
+    alt: string;
+    role: 'presentation';
+  }) => JSX.Element;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -202,6 +211,12 @@ const draggingLabelStyles = ({ isDragging }: LabelProps) =>
     }
   `;
 
+const disabledLabelStyles = css`
+  .${CLASS_DISABLED} & {
+    opacity: 0.4;
+  }
+`;
+
 const addButtonStyles = css`
   &:hover {
     & > button {
@@ -222,6 +237,7 @@ const Label = styled(FieldLabel)<LabelProps>(
   invalidLabelStyles,
   loadingLabelStyles,
   draggingLabelStyles,
+  disabledLabelStyles,
   addButtonStyles,
 );
 
@@ -450,7 +466,7 @@ export const ImageInput = ({
           onDrop={handleDrop}
         >
           <span css={hideVisually()}>{label}</span>
-          <Component src={src || previewImage} alt={alt || ''} />
+          <Component src={src || previewImage} alt="" role="presentation" />
         </Label>
         {src ? (
           <ActionButton
@@ -460,7 +476,7 @@ export const ImageInput = ({
             destructive
             label={clearButtonLabel}
             onClick={handleClear}
-            disabled={isLoading}
+            disabled={isLoading || disabled}
             buttonSize={size}
           >
             <Delete size="16" />
@@ -473,7 +489,7 @@ export const ImageInput = ({
             aria-hidden="true"
             tabIndex={-1}
             label="-" // We need to pass a label here to prevent IconButton from throwing
-            disabled={isLoading}
+            disabled={isLoading || disabled}
             buttonSize={size}
           >
             <Plus size="16" />

@@ -5,19 +5,51 @@ exports[`Avatar styles should render the giga size 1`] = `
   width: 48px;
   height: 48px;
   box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-highlight);
+  background-color: var(--cui-bg-subtle);
   border-radius: 8px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: var(--cui-fg-placeholder);
+  font-size: calc(48px / 2);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-0 svg {
+  width: 24px;
+  height: 24px;
 }
 
 <div>
-  <img
-    alt=""
+  <div
+    aria-label=""
     class="circuit-0"
-    src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"/></svg>"
-  />
+    role="img"
+  >
+    <svg
+      fill="none"
+      viewBox="0 0 96 96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
 </div>
 `;
 
@@ -26,19 +58,53 @@ exports[`Avatar styles should render the identity variant placeholder 1`] = `
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-highlight);
+  background-color: var(--cui-bg-subtle);
   border-radius: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: var(--cui-fg-placeholder);
+  font-size: calc(96px / 2);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-0 svg {
+  width: 24px;
+  height: 24px;
 }
 
 <div>
-  <img
-    alt=""
+  <div
+    aria-label=""
     class="circuit-0"
-    src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M48 18c-7.732 0-14 6.268-14 14s6.268 14 14 14 14-6.268 14-14-6.268-14-14-14zM47.9998 88C61.53 88 73.4913 81.2822 80.73 71c-7.2387-10.2822-19.2-17-32.7303-17-13.5302 0-25.4914 6.7178-32.7302 17 7.2388 10.2822 19.2 17 32.7303 17z"/></svg>"
-  />
+    role="img"
+  >
+    <svg
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M22.981 21.22A11.074 11.074 0 0 0 12 12a11.074 11.074 0 0 0-10.981 9.22A1.576 1.576 0 0 0 2.6 23h18.8a1.576 1.576 0 0 0 1.581-1.78zM12 19.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5-14a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
 </div>
 `;
 
@@ -47,7 +113,7 @@ exports[`Avatar styles should render the identity variant with an image 1`] = `
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-highlight);
+  background-color: var(--cui-bg-subtle);
   border-radius: 100%;
   display: block;
   object-fit: cover;
@@ -68,7 +134,7 @@ exports[`Avatar styles should render the identity variant with initials 1`] = `
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-highlight);
+  background-color: var(--cui-bg-subtle);
   border-radius: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -82,13 +148,18 @@ exports[`Avatar styles should render the identity variant with initials 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  color: var(--cui-fg-on-strong);
+  color: var(--cui-fg-placeholder);
   font-size: calc(96px / 2);
   font-weight: 700;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.circuit-0 svg {
+  width: 24px;
+  height: 24px;
 }
 
 <div>
@@ -107,19 +178,51 @@ exports[`Avatar styles should render the object variant placeholder 1`] = `
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-highlight);
+  background-color: var(--cui-bg-subtle);
   border-radius: 12px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: var(--cui-fg-placeholder);
+  font-size: calc(96px / 2);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-0 svg {
+  width: 24px;
+  height: 24px;
 }
 
 <div>
-  <img
-    alt=""
+  <div
+    aria-label=""
     class="circuit-0"
-    src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"/></svg>"
-  />
+    role="img"
+  >
+    <svg
+      fill="none"
+      viewBox="0 0 96 96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
 </div>
 `;
 
@@ -128,7 +231,7 @@ exports[`Avatar styles should render the object variant with an image 1`] = `
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-highlight);
+  background-color: var(--cui-bg-subtle);
   border-radius: 12px;
   display: block;
   object-fit: cover;
@@ -149,19 +252,51 @@ exports[`Avatar styles should render the yotta size 1`] = `
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-highlight);
+  background-color: var(--cui-bg-subtle);
   border-radius: 12px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: var(--cui-fg-placeholder);
+  font-size: calc(96px / 2);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-0 svg {
+  width: 24px;
+  height: 24px;
 }
 
 <div>
-  <img
-    alt=""
+  <div
+    aria-label=""
     class="circuit-0"
-    src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"/></svg>"
-  />
+    role="img"
+  >
+    <svg
+      fill="none"
+      viewBox="0 0 96 96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
 </div>
 `;
 
@@ -170,18 +305,50 @@ exports[`Avatar styles should render with default styles 1`] = `
   width: 96px;
   height: 96px;
   box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-highlight);
+  background-color: var(--cui-bg-subtle);
   border-radius: 12px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: var(--cui-fg-placeholder);
+  font-size: calc(96px / 2);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-0 svg {
+  width: 24px;
+  height: 24px;
 }
 
 <div>
-  <img
-    alt=""
+  <div
+    aria-label=""
     class="circuit-0"
-    src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"/></svg>"
-  />
+    role="img"
+  >
+    <svg
+      fill="none"
+      viewBox="0 0 96 96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
 </div>
 `;

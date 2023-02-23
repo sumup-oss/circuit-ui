@@ -180,31 +180,31 @@ describe('ImageInput', () => {
     });
 
     it('should render a successfully uploaded image', async () => {
-      const { getByLabelText, getByRole } = render(<StatefulInput />);
+      const { getByLabelText, findByRole } = render(<StatefulInput />);
       const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
-      const imageEl = getByRole('img') as HTMLImageElement;
 
       await userEvent.upload(inputEl, file);
 
-      await waitFor(() => {
-        expect(imageEl.src).toBe(
-          'http://localhost/images/illustration-coffee.jpg',
-        );
-      });
+      const imageEl = (await findByRole('img')) as HTMLImageElement;
+
+      expect(imageEl.src).toBe(
+        'http://localhost/images/illustration-coffee.jpg',
+      );
     });
 
     it('should clear an uploaded image', async () => {
-      const { getByLabelText, getByRole } = render(<StatefulInput />);
+      const { getByLabelText, getByRole, findByRole } = render(
+        <StatefulInput />,
+      );
       const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
-      const imageEl = getByRole('img') as HTMLImageElement;
 
       await userEvent.upload(inputEl, file);
 
-      await waitFor(() => {
-        expect(imageEl.src).toBe(
-          'http://localhost/images/illustration-coffee.jpg',
-        );
-      });
+      const imageEl = (await findByRole('presentation')) as HTMLImageElement;
+
+      expect(imageEl.src).toBe(
+        'http://localhost/images/illustration-coffee.jpg',
+      );
 
       await userEvent.click(
         getByRole('button', { name: defaultProps.clearButtonLabel }),
@@ -212,10 +212,9 @@ describe('ImageInput', () => {
 
       await waitFor(() => {
         expect(mockClearFn).toHaveBeenCalledTimes(1);
-        expect(imageEl.src).not.toBe(
-          'http://localhost/images/illustration-coffee.jpg',
-        );
       });
+
+      expect(imageEl).not.toBeInTheDocument();
     });
 
     it('should render an error message when the upload fails', async () => {
