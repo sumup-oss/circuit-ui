@@ -25,7 +25,7 @@
     "lint:ci": "yarn lint --format github",
     "docs": "yarn docs:start",
     "docs:start": "storybook dev -p 6006",
-    "docs:build": "storybook build -c .storybook -o public && cp -R ./packages/icons/web ./public/icons",
+    "docs:build": "storybook build -c .storybook -o public --webpack-stats-json && cp -R ./packages/icons/web ./public/icons",
     "vercel-build": "yarn copy-docs && yarn build && yarn docs:build",
     "check:security": "audit-ci --critical",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
