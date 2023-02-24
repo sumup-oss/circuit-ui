@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar styles should render the giga size 1`] = `
+exports[`Avatar Styles should render the giga size 1`] = `
 .circuit-0 {
   width: 48px;
   height: 48px;
@@ -35,9 +35,8 @@ exports[`Avatar styles should render the giga size 1`] = `
 
 <div>
   <div
-    aria-label=""
+    aria-hidden="true"
     class="circuit-0"
-    role="img"
   >
     <svg
       fill="none"
@@ -53,7 +52,7 @@ exports[`Avatar styles should render the giga size 1`] = `
 </div>
 `;
 
-exports[`Avatar styles should render the identity variant placeholder 1`] = `
+exports[`Avatar Styles should render the identity variant placeholder 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -88,9 +87,8 @@ exports[`Avatar styles should render the identity variant placeholder 1`] = `
 
 <div>
   <div
-    aria-label=""
+    aria-hidden="true"
     class="circuit-0"
-    role="img"
   >
     <svg
       fill="none"
@@ -108,7 +106,7 @@ exports[`Avatar styles should render the identity variant placeholder 1`] = `
 </div>
 `;
 
-exports[`Avatar styles should render the identity variant with an image 1`] = `
+exports[`Avatar Styles should render the identity variant with an image 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -129,7 +127,7 @@ exports[`Avatar styles should render the identity variant with an image 1`] = `
 </div>
 `;
 
-exports[`Avatar styles should render the identity variant with initials 1`] = `
+exports[`Avatar Styles should render the identity variant with initials 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -164,16 +162,15 @@ exports[`Avatar styles should render the identity variant with initials 1`] = `
 
 <div>
   <div
-    aria-label=""
+    aria-hidden="true"
     class="circuit-0"
-    role="img"
   >
     JD
   </div>
 </div>
 `;
 
-exports[`Avatar styles should render the object variant placeholder 1`] = `
+exports[`Avatar Styles should render the object variant placeholder 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -208,9 +205,8 @@ exports[`Avatar styles should render the object variant placeholder 1`] = `
 
 <div>
   <div
-    aria-label=""
+    aria-hidden="true"
     class="circuit-0"
-    role="img"
   >
     <svg
       fill="none"
@@ -226,7 +222,7 @@ exports[`Avatar styles should render the object variant placeholder 1`] = `
 </div>
 `;
 
-exports[`Avatar styles should render the object variant with an image 1`] = `
+exports[`Avatar Styles should render the object variant with an image 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -247,7 +243,7 @@ exports[`Avatar styles should render the object variant with an image 1`] = `
 </div>
 `;
 
-exports[`Avatar styles should render the yotta size 1`] = `
+exports[`Avatar Styles should render the yotta size 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -282,9 +278,8 @@ exports[`Avatar styles should render the yotta size 1`] = `
 
 <div>
   <div
-    aria-label=""
+    aria-hidden="true"
     class="circuit-0"
-    role="img"
   >
     <svg
       fill="none"
@@ -300,7 +295,7 @@ exports[`Avatar styles should render the yotta size 1`] = `
 </div>
 `;
 
-exports[`Avatar styles should render with default styles 1`] = `
+exports[`Avatar Styles should render with default styles 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -335,9 +330,8 @@ exports[`Avatar styles should render with default styles 1`] = `
 
 <div>
   <div
-    aria-label=""
+    aria-hidden="true"
     class="circuit-0"
-    role="img"
   >
     <svg
       fill="none"

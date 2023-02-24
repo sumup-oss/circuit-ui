@@ -37,10 +37,12 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * The variant of the Avatar, either identity or object. Refer to the docs for usage guidelines.
    * The variant also changes which placeholder is rendered when the `src` prop is not provided.
+   * Defaults to `object`.
    */
   variant?: AvatarVariant;
   /**
    * One of two available sizes for the Avatar, either giga or yotta.
+   * Defaults to `yotta`.
    */
   size?: AvatarSize;
   /**
@@ -57,6 +59,7 @@ const avatarSizes = {
 
 const placeholders = {
   object: (
+    // TODO: this icon should be designed for a viewBox of `0 0 24 24`
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96">
       <path
         fill="currentColor"
@@ -137,7 +140,7 @@ const Placeholder = styled('div', {
  */
 export const Avatar = ({
   src,
-  alt = '',
+  alt,
   variant = 'object',
   size = 'yotta',
   initials,
@@ -180,8 +183,9 @@ export const Avatar = ({
 
   return (
     <Placeholder
-      aria-label={alt}
-      role="img"
+      {...(alt
+        ? { 'role': 'img', 'aria-label': alt }
+        : { 'aria-hidden': 'true' })}
       size={size}
       variant={variant}
       {...props}
