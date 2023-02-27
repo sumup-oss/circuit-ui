@@ -31,9 +31,9 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    */
   src?: string;
   /**
-   * Alt text for the Avatar image. Set it to "" if the image is presentational.
+   * Alt text for the Avatar image. Defaults to to "".
    */
-  alt: string;
+  alt?: string;
   /**
    * The variant of the Avatar, either identity or object. Refer to the docs for usage guidelines.
    * The variant also changes which placeholder is rendered when the `src` prop is not provided.
@@ -140,7 +140,7 @@ const Placeholder = styled('div', {
  */
 export const Avatar = ({
   src,
-  alt,
+  alt = '',
   variant = 'object',
   size = 'yotta',
   initials,
