@@ -37,7 +37,7 @@
     "@types/babel__core": "^7.20.0",
     "@types/dedent": "^0.7.0",
     "@types/lodash": "^4.14.191",
-    "babel-plugin-inline-react-svg": "^2.0.1",
+    "babel-plugin-inline-react-svg": "^2.0.2",
     "dedent": "^0.7.0",
     "lodash": "^4.17.15",
     "ts-node": "^10.9.1",
