@@ -46,15 +46,7 @@ export interface ImageInputProps
    * The visual component to render as an image input. It should accept an src
    * prop to render the image.
    */
-  component: ({
-    src,
-    alt,
-    role,
-  }: {
-    src?: string;
-    alt: string;
-    role: 'presentation';
-  }) => JSX.Element;
+  component: ({ src }: { src?: string }) => JSX.Element;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -466,7 +458,7 @@ export const ImageInput = ({
           onDrop={handleDrop}
         >
           <span css={hideVisually()}>{label}</span>
-          <Component src={src || previewImage} alt="" role="presentation" />
+          <Component src={src || previewImage} aria-hidden="true" />
         </Label>
         {src ? (
           <ActionButton

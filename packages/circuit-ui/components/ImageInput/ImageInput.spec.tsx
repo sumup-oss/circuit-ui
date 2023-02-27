@@ -180,29 +180,29 @@ describe('ImageInput', () => {
     });
 
     it('should render a successfully uploaded image', async () => {
-      const { getByLabelText, findByRole } = render(<StatefulInput />);
+      const { getByLabelText, container } = render(<StatefulInput />);
       const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
 
       await userEvent.upload(inputEl, file);
 
-      const imageEl = (await findByRole('img')) as HTMLImageElement;
+      const imageEl = container.querySelector('img');
 
-      expect(imageEl.src).toBe(
+      expect(imageEl?.src).toBe(
         'http://localhost/images/illustration-coffee.jpg',
       );
     });
 
     it('should clear an uploaded image', async () => {
-      const { getByLabelText, getByRole, findByRole } = render(
+      const { getByLabelText, getByRole, container } = render(
         <StatefulInput />,
       );
       const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
 
       await userEvent.upload(inputEl, file);
 
-      const imageEl = (await findByRole('presentation')) as HTMLImageElement;
+      const imageEl = container.querySelector('img');
 
-      expect(imageEl.src).toBe(
+      expect(imageEl?.src).toBe(
         'http://localhost/images/illustration-coffee.jpg',
       );
 
@@ -214,6 +214,7 @@ describe('ImageInput', () => {
         expect(mockClearFn).toHaveBeenCalledTimes(1);
       });
 
+      // not in the document because the placeholder Avatar is a <div aria-hidden="true" />
       expect(imageEl).not.toBeInTheDocument();
     });
 

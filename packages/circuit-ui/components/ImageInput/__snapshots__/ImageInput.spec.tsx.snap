@@ -749,9 +749,8 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
           Upload an image
         </span>
         <div
-          aria-label=""
+          aria-hidden="true"
           class="circuit-5"
-          role="presentation"
         >
           <svg
             fill="none"
@@ -1155,8 +1154,8 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
         </span>
         <img
           alt=""
+          aria-hidden="true"
           class="circuit-5"
-          role="presentation"
           src="/images/illustration-coffee.jpg"
         />
       </label>
@@ -1575,9 +1574,8 @@ exports[`ImageInput Styles should render with default styles 1`] = `
           Upload an image
         </span>
         <div
-          aria-label=""
+          aria-hidden="true"
           class="circuit-5"
-          role="presentation"
         >
           <svg
             fill="none"
@@ -2047,9 +2045,8 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
           Upload an image
         </span>
         <div
-          aria-label=""
+          aria-hidden="true"
           class="circuit-5"
-          role="presentation"
         >
           <svg
             fill="none"
