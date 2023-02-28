@@ -299,7 +299,6 @@ const LoadingLabel = styled.span(hideVisually);
 export const ImageInput = ({
   label,
   src,
-  alt,
   size = 'yotta',
   'id': customId,
   clearButtonLabel,
