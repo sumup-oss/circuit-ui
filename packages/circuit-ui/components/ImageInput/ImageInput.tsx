@@ -43,10 +43,11 @@ export interface ImageInputProps
    */
   label: string;
   /**
-   * The visual component to render as an image input. It should accept an src
-   * prop to render the image.
+   * The visual component to render as an image input.
+   * It should accept an `src` prop to render the image, and `aria-hidden` to
+   * hide it from assistive technology.
    */
-  component: ({ src }: { src?: string }) => JSX.Element;
+  component: (props: { 'src'?: string; 'aria-hidden': 'true' }) => JSX.Element;
   /**
    * A callback function to call when the user has selected an image.
    */
