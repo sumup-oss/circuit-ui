@@ -115,12 +115,6 @@ const placeholderStyles = ({ theme, size }: StyledProps & StyleProps) => css`
   font-size: calc(${avatarSizes[size]} / 2);
   font-weight: ${theme.fontWeight.bold};
   user-select: none;
-
-  /* Illustration */
-  svg {
-    width: 24px;
-    height: 24px;
-  }
 `;
 
 const Placeholder = styled('div', {

@@ -28,11 +28,6 @@ exports[`Avatar Styles should render the giga size 1`] = `
   user-select: none;
 }
 
-.circuit-0 svg {
-  width: 24px;
-  height: 24px;
-}
-
 <div>
   <div
     aria-hidden="true"
@@ -80,11 +75,6 @@ exports[`Avatar Styles should render the identity variant placeholder 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.circuit-0 svg {
-  width: 24px;
-  height: 24px;
 }
 
 <div>
@@ -157,11 +147,6 @@ exports[`Avatar Styles should render the identity variant with initials 1`] = `
   user-select: none;
 }
 
-.circuit-0 svg {
-  width: 24px;
-  height: 24px;
-}
-
 <div>
   <div
     aria-hidden="true"
@@ -198,11 +183,6 @@ exports[`Avatar Styles should render the object variant placeholder 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.circuit-0 svg {
-  width: 24px;
-  height: 24px;
 }
 
 <div>
@@ -275,11 +255,6 @@ exports[`Avatar Styles should render the yotta size 1`] = `
   user-select: none;
 }
 
-.circuit-0 svg {
-  width: 24px;
-  height: 24px;
-}
-
 <div>
   <div
     aria-hidden="true"
@@ -327,11 +302,6 @@ exports[`Avatar Styles should render with default styles 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.circuit-0 svg {
-  width: 24px;
-  height: 24px;
 }
 
 <div>
