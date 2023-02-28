@@ -16,7 +16,7 @@
 import { ImgHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
-import { Profile } from '@sumup/icons';
+import { Profile, Image as ImageIcon } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { CircuitError } from '../../util/errors';
@@ -58,15 +58,7 @@ const avatarSizes = {
 };
 
 const placeholders = {
-  object: (
-    // TODO: this icon should be designed for a viewBox of `0 0 24 24`
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96">
-      <path
-        fill="currentColor"
-        d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"
-      />
-    </svg>
-  ),
+  object: <ImageIcon />,
   identity: <Profile />,
 };
 
