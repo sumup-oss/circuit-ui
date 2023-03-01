@@ -87,12 +87,12 @@ const IconWrapper = styled.div`
   height: 64px; /* 2 * 32px icon */
 `;
 
-const iconStyles = (color: keyof Theme['colors']) => (theme: Theme) =>
+const iconStyles = (color: string) =>
   css`
     transform: scale(2);
     max-width: 3rem;
-    color: var(--cui-fg-${color});
-    background-color: ${color === 'on-strong'
+    color: ${color};
+    background-color: ${color === 'var(--cui-fg-on-strong)'
       ? 'var(--cui-bg-strong)'
       : 'var(--cui-bg-normal)'};
   `;
@@ -100,7 +100,7 @@ const iconStyles = (color: keyof Theme['colors']) => (theme: Theme) =>
 const Icons = () => {
   const [search, setSearch] = useState('');
   const [size, setSize] = useState('all');
-  const [color, setColor] = useState('n900');
+  const [color, setColor] = useState('--cui-fg-normal');
 
   const handleSearch = (event) => {
     setSearch(event.target.value);
@@ -122,13 +122,13 @@ const Icons = () => {
   ];
 
   const colorOptions = [
-    { label: 'Normal', value: 'normal' },
-    { label: 'Subtle', value: 'subtle' },
-    { label: 'Accent', value: 'accent' },
-    { label: 'Success', value: 'success' },
-    { label: 'Warning', value: 'warning' },
-    { label: 'Danger', value: 'danger' },
-    { label: 'On Strong', value: 'on-strong' },
+    { label: 'Normal', value: 'var(--cui-fg-normal)' },
+    { label: 'Subtle', value: 'var(--cui-fg-subtle)' },
+    { label: 'Accent', value: 'var(--cui-fg-accent)' },
+    { label: 'Success', value: 'var(--cui-fg-success)' },
+    { label: 'Warning', value: 'var(--cui-fg-warning)' },
+    { label: 'Danger', value: 'var(--cui-fg-danger)' },
+    { label: 'On Strong', value: 'var(--cui-fg-on-strong)' },
   ];
 
   const activeIcons = iconsManifest.icons.filter(
@@ -169,7 +169,7 @@ const Icons = () => {
           groupBy(activeIcons, 'category'),
         ).map(([category, items]) => (
           <Category key={category}>
-            <Headline as="h3" size="three" css={spacing({ bottom: 'giga' })}>
+            <Headline as="h3" size="three">
               {category}
             </Headline>
             <List>
