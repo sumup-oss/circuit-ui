@@ -99,7 +99,7 @@ const iconStyles = (color: string) =>
 const Icons = () => {
   const [search, setSearch] = useState('');
   const [size, setSize] = useState('all');
-  const [color, setColor] = useState('--cui-fg-normal');
+  const [color, setColor] = useState('var(--cui-fg-normal)');
 
   const handleSearch = (event) => {
     setSearch(event.target.value);
