@@ -13,25 +13,47 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes } from 'react';
-import isPropValid from '@emotion/is-prop-valid';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
+import { css } from '@emotion/react';
 
 import styled from '../../styles/styled';
-import { disableVisually } from '../../styles/style-mixins';
+import { EmotionAsPropType } from '../../types/prop-types';
+
+import { CLASS_DISABLED } from './constants';
 
 export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
+  as?: EmotionAsPropType;
   /**
    * Trigger disabled styles on the component.
    */
   disabled?: boolean;
 }
 
-const disabledStyles = ({ disabled }: FieldWrapperProps) =>
-  disabled && disableVisually();
+const wrapperStyles = () =>
+  css`
+    &.${CLASS_DISABLED} {
+      pointer-events: none;
+    }
+  `;
+
+const Wrapper = styled('div')(wrapperStyles);
 
 /**
  * @private
  */
-export const FieldWrapper = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled',
-})<FieldWrapperProps>(disabledStyles);
+export const FieldWrapper = forwardRef(
+  (
+    { children, disabled, className = '', ...props }: FieldWrapperProps,
+    ref: Ref<HTMLDivElement>,
+  ) => (
+    <Wrapper
+      ref={ref}
+      className={disabled ? `${className} ${CLASS_DISABLED}` : className}
+      {...props}
+    >
+      {children}
+    </Wrapper>
+  ),
+);
+
+FieldWrapper.displayName = 'FieldWrapper';

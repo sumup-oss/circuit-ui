@@ -38,7 +38,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   opacity: 0;
   transform: translateY(-50%);
   transition: opacity ${theme.transitions.default};
-  color: ${theme.colors.p500};
+  color: var(--cui-fg-accent);
   border: 0;
   background: none;
   outline: 0;

@@ -118,7 +118,7 @@ type InputElProps = Omit<InputProps, 'label'> & {
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
   -webkit-appearance: none;
-  background-color: ${theme.colors.white};
+  background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
   border-radius: ${theme.borderRadius.byte};
@@ -129,49 +129,41 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   margin: 0;
 
   &::placeholder {
-    color: ${theme.colors.n500};
+    color: var(--cui-fg-placeholder);
     transition: color ${theme.transitions.default};
   }
 `;
 
-const inputWarningStyles = ({
-  theme,
-  hasWarning,
-  disabled,
-}: StyleProps & InputElProps) =>
+const inputWarningStyles = ({ hasWarning, disabled }: InputElProps) =>
   !disabled &&
   hasWarning &&
   css`
     &:not(:focus)::placeholder {
-      color: ${theme.colors.notify};
+      color: var(--cui-fg-warning);
     }
   `;
 
-const inputInvalidStyles = ({
-  theme,
-  invalid,
-  disabled,
-}: StyleProps & InputElProps) =>
+const inputInvalidStyles = ({ invalid, disabled }: InputElProps) =>
   !disabled &&
   invalid &&
   css`
     &:not(:focus)::placeholder {
-      color: ${theme.colors.alert};
-      opacity: 0.5;
+      color: var(--cui-fg-danger);
     }
   `;
 
-const inputReadonlyStyles = ({ theme, readOnly }: StyleProps & InputElProps) =>
+const inputReadonlyStyles = ({ readOnly }: InputElProps) =>
   readOnly &&
   css`
-    background-color: ${theme.colors.n100};
+    background-color: var(--cui-bg-subtle-disabled);
   `;
 
-const inputDisabledStyles = ({ theme, disabled }: StyleProps & InputElProps) =>
-  disabled &&
-  css`
-    background-color: ${theme.colors.n200};
-  `;
+const inputDisabledStyles = css`
+  &:disabled,
+  &[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+  }
+`;
 
 const inputTextAlignRightStyles = ({ textAlign }: InputElProps) =>
   textAlign === 'right' &&
@@ -211,7 +203,7 @@ const StyledInput = styled('input')<InputElProps>(
 const prefixStyles = (theme: Theme) => css`
   position: absolute;
   pointer-events: none;
-  color: ${theme.colors.n700};
+  color: var(--cui-fg-subtle);
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   height: ${theme.spacings.exa};
   width: ${theme.spacings.exa};
@@ -226,7 +218,7 @@ const suffixStyles = (theme: Theme) => css`
   top: 0;
   right: 0;
   pointer-events: none;
-  color: ${theme.colors.n700};
+  color: var(--cui-fg-subtle);
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   height: ${theme.spacings.exa};
   width: ${theme.spacings.exa};

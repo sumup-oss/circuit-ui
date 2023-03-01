@@ -27,11 +27,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import { ChevronRight, IconProps } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  disableVisually,
-  focusVisible,
-  spacing,
-} from '../../styles/style-mixins';
+import { focusVisible, spacing } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
 import { EmotionAsPropType } from '../../types/prop-types';
@@ -120,9 +116,9 @@ type StyledListItemProps = Pick<BaseProps, 'selected'> &
   ButtonElProps;
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  background-color: ${theme.colors.white};
-  color: ${theme.colors.bodyColor};
-  border: ${theme.borderWidth.mega} solid ${theme.colors.n200};
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: ${theme.borderWidth.mega} solid var(--cui-border-subtle);
   border-radius: ${theme.borderRadius.mega};
   display: flex;
   align-items: center;
@@ -139,31 +135,34 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 
   &:focus:not(:focus-visible) {
-    border-color: ${theme.colors.n200};
+    border-color: var(--cui-border-subtle);
     z-index: auto;
   }
 
   &:disabled,
   &[disabled] {
-    ${disableVisually()};
+    pointer-events: none;
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-subtle-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 `;
 
-const interactiveStyles = ({
-  theme,
-  isInteractive,
-}: StyleProps & StyledListItemProps) =>
+const interactiveStyles = ({ isInteractive }: StyledListItemProps) =>
   isInteractive &&
   css`
     cursor: pointer;
 
     &:hover {
-      background-color: ${theme.colors.n100};
+      background-color: var(--cui-bg-normal-hovered);
+      border-color: var(--cui-border-subtle-hovered);
+      color: var(--cui-fg-normal-hovered);
     }
 
     &:active {
-      background-color: ${theme.colors.n200};
-      border-color: ${theme.colors.n200};
+      background-color: var(--cui-bg-normal-pressed);
+      border-color: var(--cui-border-subtle-pressed);
+      color: var(--cui-fg-normal-pressed);
     }
   `;
 
@@ -173,11 +172,11 @@ const selectedStyles = ({
 }: StyleProps & StyledListItemProps) =>
   selected &&
   css`
-    background-color: ${theme.colors.p100};
+    background-color: var(--cui-bg-accent);
 
     &:hover,
     &:active {
-      background-color: ${theme.colors.p100};
+      background-color: var(--cui-bg-accent);
     }
 
     &:after {
@@ -187,7 +186,7 @@ const selectedStyles = ({
       bottom: -${theme.borderWidth.mega};
       left: -${theme.borderWidth.mega};
       right: -${theme.borderWidth.mega};
-      border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
+      border: ${theme.borderWidth.mega} solid var(--cui-border-accent);
       border-radius: ${theme.borderRadius.mega};
       z-index: 1;
       pointer-events: none;

@@ -113,7 +113,7 @@ const shadowStyles = ({
 }: TableContainerElProps & StyleProps) =>
   !noShadow &&
   css`
-    border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+    border: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
   `;
 
 const TableContainer = styled.div<TableContainerElProps>(
@@ -160,8 +160,8 @@ const ScrollContainer = styled.div<ScrollContainerElProps>(
  */
 type TableElProps = Pick<TableProps, 'borderCollapsed' | 'rowHeaders'>;
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  background-color: ${theme.colors.white};
+const baseStyles = css`
+  background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
 `;

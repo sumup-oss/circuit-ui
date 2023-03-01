@@ -64,7 +64,7 @@ const detailsStyles = css`
 
 const statusIconStyles = (theme: Theme) => css`
   margin-right: ${theme.spacings.bit};
-  color: ${theme.colors.confirm};
+  color: var(--cui-fg-success);
 `;
 
 const Details = (

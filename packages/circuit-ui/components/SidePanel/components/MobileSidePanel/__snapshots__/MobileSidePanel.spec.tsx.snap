@@ -15,7 +15,7 @@ exports[`MobileSidePanel should match the snapshot 1`] = `
 .circuit-1 {
   height: 100%;
   outline: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
@@ -59,7 +59,7 @@ exports[`MobileSidePanel should slide out towards the bottom when the side panel
 .circuit-0 {
   height: 100%;
   outline: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
@@ -87,7 +87,7 @@ exports[`MobileSidePanel should slide out towards the bottom when the side panel
 .circuit-0 {
   height: 100%;
   outline: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
@@ -115,7 +115,7 @@ exports[`MobileSidePanel should slide out towards the right when the side panel 
 .circuit-0 {
   height: 100%;
   outline: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);

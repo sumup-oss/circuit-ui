@@ -63,7 +63,7 @@ const anchorStyles = (theme: Theme) => css`
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
-  color: ${theme.colors.p500};
+  color: var(--cui-fg-accent);
   border-radius: ${theme.borderRadius.byte};
   transition: opacity ${theme.transitions.default},
     color ${theme.transitions.default},
@@ -71,24 +71,15 @@ const anchorStyles = (theme: Theme) => css`
     border-color ${theme.transitions.default};
 
   &:hover {
-    color: ${theme.colors.p700};
+    color: var(--cui-fg-accent-hovered);
     cursor: pointer;
   }
 
   &:active {
-    color: ${theme.colors.p900};
+    color: var(--cui-fg-accent-pressed);
   }
 
-  &:visited {
-    color: ${theme.colors.v700};
-
-    &:hover,
-    &:active {
-      color: ${theme.colors.v900};
-    }
-  }
-
-  ${focusVisible(theme)};
+  ${focusVisible()};
 `;
 
 /**

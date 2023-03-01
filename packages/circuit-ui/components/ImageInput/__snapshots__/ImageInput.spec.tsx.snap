@@ -33,6 +33,10 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
   }
 }
 
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: inline-block;
   position: relative;
@@ -53,7 +57,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
 
 .circuit-2:focus+label>*:last-child {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus+label>*:last-child::-moz-focus-inner {
@@ -80,7 +84,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
   height: 100%;
   border-radius: 12px;
   pointer-events: none;
-  background-color: #000;
+  background-color: var(--cui-bg-strong);
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
@@ -122,14 +126,18 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
   }
 }
 
+.cui-field-disabled .circuit-3 {
+  opacity: 0.4;
+}
+
 .circuit-3:hover>button {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>button {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
 }
 
 .circuit-4 {
@@ -168,9 +176,9 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #DE331D;
-  border-color: #DE331D;
-  color: #FFF;
+  background-color: var(--cui-bg-danger-strong);
+  border-color: var(--cui-border-danger);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -182,7 +190,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
 
 .circuit-5:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-5:focus::-moz-focus-inner {
@@ -195,21 +203,28 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
-  background-color: #B22426;
-  border-color: #B22426;
+  background-color: var(--cui-bg-danger-strong-hovered);
+  border-color: var(--cui-border-danger-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #941618;
-  border-color: #941618;
+  background-color: var(--cui-bg-danger-strong-pressed);
+  border-color: var(--cui-border-danger-pressed);
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-danger-strong-disabled);
+  border-color: var(--cui-border-danger-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-6 {
@@ -279,13 +294,13 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
   visibility: hidden;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 }
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <div
       class="circuit-1"
@@ -405,6 +420,10 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
   }
 }
 
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: inline-block;
   position: relative;
@@ -425,7 +444,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
 
 .circuit-2:focus+label>*:last-child {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus+label>*:last-child::-moz-focus-inner {
@@ -452,7 +471,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
   height: 100%;
   border-radius: 12px;
   pointer-events: none;
-  background-color: #000;
+  background-color: var(--cui-bg-strong);
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
@@ -494,14 +513,18 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
   }
 }
 
+.cui-field-disabled .circuit-3 {
+  opacity: 0.4;
+}
+
 .circuit-3:hover>button {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>button {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
 }
 
 .circuit-4 {
@@ -519,12 +542,28 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
 .circuit-5 {
   width: 96px;
   height: 96px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-  background-color: #CCC;
+  box-shadow: 0 0 0 1px var(--cui-border-subtle);
+  background-color: var(--cui-bg-subtle);
   border-radius: 12px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: var(--cui-fg-placeholder);
+  font-size: calc(96px / 2);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .circuit-6 {
@@ -551,9 +590,9 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -567,7 +606,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -580,21 +619,28 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-6:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-6:active,
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-6 svg {
@@ -669,13 +715,13 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
   visibility: hidden;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 }
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <div
       class="circuit-1"
@@ -697,11 +743,23 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
         >
           Upload an image
         </span>
-        <img
-          alt=""
+        <div
+          aria-hidden="true"
           class="circuit-5"
-          src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"/></svg>"
-        />
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 2H5a3 3 0 0 0-3 3v13.63l5.23-6.27a.971.971 0 0 1 .72-.36.987.987 0 0 1 .75.29l2.14 2.14 3.32-4.98a1.04 1.04 0 0 1 1.67 0L22 18.71V5a3 3 0 0 0-3-3zM9 10a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 1.8-3.17 4.75a.99.99 0 0 1-1.54.161L8.06 14.48 2.7 20.92A2.962 2.962 0 0 0 5 22h14a2.966 2.966 0 0 0 2.17-.94L15 11.8z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
       </label>
       <button
         aria-hidden="true"
@@ -791,6 +849,10 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
   }
 }
 
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: inline-block;
   position: relative;
@@ -811,7 +873,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
 
 .circuit-2:focus+label>*:last-child {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus+label>*:last-child::-moz-focus-inner {
@@ -838,7 +900,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
   height: 100%;
   border-radius: 12px;
   pointer-events: none;
-  background-color: #000;
+  background-color: var(--cui-bg-strong);
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
@@ -880,14 +942,18 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
   }
 }
 
+.cui-field-disabled .circuit-3 {
+  opacity: 0.4;
+}
+
 .circuit-3:hover>button {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>button {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
 }
 
 .circuit-4 {
@@ -905,8 +971,8 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
 .circuit-5 {
   width: 96px;
   height: 96px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-  background-color: #CCC;
+  box-shadow: 0 0 0 1px var(--cui-border-subtle);
+  background-color: var(--cui-bg-subtle);
   border-radius: 12px;
   display: block;
   object-fit: cover;
@@ -937,9 +1003,9 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #DE331D;
-  border-color: #DE331D;
-  color: #FFF;
+  background-color: var(--cui-bg-danger-strong);
+  border-color: var(--cui-border-danger);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -951,7 +1017,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -964,21 +1030,28 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-6:hover {
-  background-color: #B22426;
-  border-color: #B22426;
+  background-color: var(--cui-bg-danger-strong-hovered);
+  border-color: var(--cui-border-danger-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-6:active,
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
-  background-color: #941618;
-  border-color: #941618;
+  background-color: var(--cui-bg-danger-strong-pressed);
+  border-color: var(--cui-border-danger-pressed);
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-danger-strong-disabled);
+  border-color: var(--cui-border-danger-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-7 {
@@ -1048,13 +1121,13 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
   visibility: hidden;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 }
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <div
       class="circuit-1"
@@ -1078,6 +1151,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
         </span>
         <img
           alt=""
+          aria-hidden="true"
           class="circuit-5"
           src="/images/illustration-coffee.jpg"
         />
@@ -1174,6 +1248,10 @@ exports[`ImageInput Styles should render with default styles 1`] = `
   }
 }
 
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: inline-block;
   position: relative;
@@ -1194,7 +1272,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
 
 .circuit-2:focus+label>*:last-child {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus+label>*:last-child::-moz-focus-inner {
@@ -1221,7 +1299,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
   height: 100%;
   border-radius: 12px;
   pointer-events: none;
-  background-color: #000;
+  background-color: var(--cui-bg-strong);
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
@@ -1263,14 +1341,18 @@ exports[`ImageInput Styles should render with default styles 1`] = `
   }
 }
 
+.cui-field-disabled .circuit-3 {
+  opacity: 0.4;
+}
+
 .circuit-3:hover>button {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>button {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
 }
 
 .circuit-4 {
@@ -1288,12 +1370,28 @@ exports[`ImageInput Styles should render with default styles 1`] = `
 .circuit-5 {
   width: 96px;
   height: 96px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-  background-color: #CCC;
+  box-shadow: 0 0 0 1px var(--cui-border-subtle);
+  background-color: var(--cui-bg-subtle);
   border-radius: 12px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: var(--cui-fg-placeholder);
+  font-size: calc(96px / 2);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .circuit-6 {
@@ -1320,9 +1418,9 @@ exports[`ImageInput Styles should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -1335,7 +1433,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -1348,21 +1446,28 @@ exports[`ImageInput Styles should render with default styles 1`] = `
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-6:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-6:active,
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-7 {
@@ -1432,13 +1537,13 @@ exports[`ImageInput Styles should render with default styles 1`] = `
   visibility: hidden;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 }
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <div
       class="circuit-1"
@@ -1460,11 +1565,23 @@ exports[`ImageInput Styles should render with default styles 1`] = `
         >
           Upload an image
         </span>
-        <img
-          alt=""
+        <div
+          aria-hidden="true"
           class="circuit-5"
-          src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"/></svg>"
-        />
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 2H5a3 3 0 0 0-3 3v13.63l5.23-6.27a.971.971 0 0 1 .72-.36.987.987 0 0 1 .75.29l2.14 2.14 3.32-4.98a1.04 1.04 0 0 1 1.67 0L22 18.71V5a3 3 0 0 0-3-3zM9 10a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 1.8-3.17 4.75a.99.99 0 0 1-1.54.161L8.06 14.48 2.7 20.92A2.962 2.962 0 0 0 5 22h14a2.966 2.966 0 0 0 2.17-.94L15 11.8z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
       </label>
       <button
         aria-hidden="true"
@@ -1554,6 +1671,10 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   }
 }
 
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   display: inline-block;
   position: relative;
@@ -1574,7 +1695,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 
 .circuit-2:focus+label>*:last-child {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus+label>*:last-child::-moz-focus-inner {
@@ -1601,7 +1722,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   height: 100%;
   border-radius: 12px;
   pointer-events: none;
-  background-color: #000;
+  background-color: var(--cui-bg-strong);
   opacity: 0;
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
@@ -1624,11 +1745,15 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 }
 
 .circuit-3>*:last-child {
-  box-shadow: 0 0 0 2px #DE331D;
+  box-shadow: 0 0 0 2px var(--cui-border-danger);
 }
 
 .circuit-3:hover>*:last-child {
-  box-shadow: 0 0 0 2px #B22426;
+  box-shadow: 0 0 0 2px var(--cui-border-danger--hovered);
+}
+
+.circuit-3:active>*:last-child {
+  box-shadow: 0 0 0 2px var(--cui-border-danger--pressed);
 }
 
 .circuit-3:hover::before {
@@ -1651,14 +1776,18 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   }
 }
 
+.cui-field-disabled .circuit-3 {
+  opacity: 0.4;
+}
+
 .circuit-3:hover>button {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>button {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
 }
 
 .circuit-4 {
@@ -1676,12 +1805,28 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 .circuit-5 {
   width: 96px;
   height: 96px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-  background-color: #CCC;
+  box-shadow: 0 0 0 1px var(--cui-border-subtle);
+  background-color: var(--cui-bg-subtle);
   border-radius: 12px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: var(--cui-fg-placeholder);
+  font-size: calc(96px / 2);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .circuit-6 {
@@ -1708,9 +1853,9 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -1723,7 +1868,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -1736,21 +1881,28 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-6:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-6:active,
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-7 {
@@ -1820,7 +1972,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   visibility: hidden;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 }
 
@@ -1829,10 +1981,18 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   line-height: 1.25rem;
   display: block;
   margin-top: 4px;
-  color: #666;
+  color: var(--cui-fg-subtle);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
+}
+
+.cui-field-disabled .circuit-13 {
+  color: var(--cui-fg-subtle-disabled);
+}
+
+.cui-field-disabled .circuit-13 {
+  color: var(--cui-fg-danger-disabled);
 }
 
 .circuit-14 {
@@ -1842,12 +2002,16 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   height: 16px;
   vertical-align: text-top;
   margin-right: 4px;
-  color: #DE331D;
+  color: var(--cui-fg-danger);
+}
+
+.cui-field-disabled .circuit-14 {
+  color: var(--cui-fg-danger-disabled);
 }
 
 <div>
   <div
-    class="circuit-0"
+    class=" circuit-0"
   >
     <div
       class="circuit-1"
@@ -1869,11 +2033,23 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
         >
           Upload an image
         </span>
-        <img
-          alt=""
+        <div
+          aria-hidden="true"
           class="circuit-5"
-          src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96"><path fill="white" d="M30 25c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9-9-4.0294-9-9zM41.1571 60.5691L30.6742 48.3905c-1.6438-1.9097-4.6225-1.8422-6.1782.1399L8 69.5483v12.4515c0 3.3137 2.6863 6 6 6h5.9592l21.1979-27.4307zM70.4856 32.878c1.5553-2.002 4.5569-2.0705 6.202-.1417l11.312 13.2623v36c0 3.3137-2.6863 6-6 6H27.6611L70.4856 32.878z"/></svg>"
-        />
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 2H5a3 3 0 0 0-3 3v13.63l5.23-6.27a.971.971 0 0 1 .72-.36.987.987 0 0 1 .75.29l2.14 2.14 3.32-4.98a1.04 1.04 0 0 1 1.67 0L22 18.71V5a3 3 0 0 0-3-3zM9 10a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 1.8-3.17 4.75a.99.99 0 0 1-1.54.161L8.06 14.48 2.7 20.92A2.962 2.962 0 0 0 5 22h14a2.966 2.966 0 0 0 2.17-.94L15 11.8z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
       </label>
       <button
         aria-hidden="true"
@@ -1932,6 +2108,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
       >
         <div
           class="circuit-14"
+          id="validation-hint_6"
         >
           <svg
             fill="none"

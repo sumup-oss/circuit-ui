@@ -34,29 +34,6 @@ export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   ref?: Ref<HTMLDivElement>;
 }
 
-const COLOR_MAP = {
-  confirm: {
-    text: 'white',
-    background: 'g700',
-  },
-  notify: {
-    text: 'bodyColor',
-    background: 'y300',
-  },
-  alert: {
-    text: 'white',
-    background: 'r500',
-  },
-  neutral: {
-    text: 'bodyColor',
-    background: 'n200',
-  },
-  promo: {
-    text: 'white',
-    background: 'v500',
-  },
-} as const;
-
 const baseStyles = ({ theme }: StyleProps) => css`
   border-radius: ${theme.borderRadius.pill};
   display: inline-block;
@@ -66,15 +43,43 @@ const baseStyles = ({ theme }: StyleProps) => css`
   letter-spacing: 0.25px;
 `;
 
-const variantStyles = ({
-  theme,
-  variant = 'neutral',
-}: StyleProps & BadgeProps) => {
-  const currentColor = COLOR_MAP[variant];
-  return css`
-    background-color: ${theme.colors[currentColor.background]};
-    color: ${theme.colors[currentColor.text]};
-  `;
+const variantStyles = ({ variant = 'neutral' }: BadgeProps) => {
+  // TODO: Align variant names with token names in the next major.
+  switch (variant) {
+    case 'confirm': {
+      return css`
+        background-color: var(--cui-bg-success-strong);
+        color: var(--cui-fg-on-strong);
+      `;
+    }
+    case 'notify': {
+      return css`
+        background-color: var(--cui-bg-warning-strong);
+        color: var(--cui-fg-on-strong);
+      `;
+    }
+    case 'alert': {
+      return css`
+        background-color: var(--cui-bg-danger-strong);
+        color: var(--cui-fg-on-strong);
+      `;
+    }
+    case 'neutral': {
+      return css`
+        background-color: var(--cui-bg-highlight);
+        color: var(--cui-fg-normal);
+      `;
+    }
+    case 'promo': {
+      return css`
+        background-color: var(--cui-bg-promo-strong);
+        color: var(--cui-fg-on-strong);
+      `;
+    }
+    default: {
+      return null;
+    }
+  }
 };
 
 const isDynamicWidth = (children: BadgeProps['children']) => {

@@ -11,15 +11,15 @@ tbody .circuit-1:last-child td {
 }
 
 .circuit-3 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -44,7 +44,7 @@ tbody .circuit-1:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-3:focus-within::after::-moz-focus-inner {
@@ -53,13 +53,18 @@ tbody .circuit-1:last-child td {
 
 .circuit-3:focus-within,
 .circuit-3:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-3:focus-within>button,
 .circuit-3:hover>button {
   opacity: 1;
+}
+
+.circuit-3:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-4 {
@@ -86,7 +91,7 @@ tbody .circuit-1:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   border: 0;
   background: none;
   outline: 0;
@@ -120,15 +125,15 @@ tbody .circuit-1:last-child td {
 }
 
 .circuit-8 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -213,15 +218,15 @@ tbody .circuit-1:last-child td {
 }
 
 .circuit-3 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -256,7 +261,7 @@ tbody .circuit-1:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-3:focus-within::after::-moz-focus-inner {
@@ -265,13 +270,18 @@ tbody .circuit-1:last-child td {
 
 .circuit-3:focus-within,
 .circuit-3:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-3:focus-within>button,
 .circuit-3:hover>button {
   opacity: 1;
+}
+
+.circuit-3:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-4 {
@@ -298,7 +308,7 @@ tbody .circuit-1:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   border: 0;
   background: none;
   outline: 0;
@@ -332,8 +342,8 @@ tbody .circuit-1:last-child td {
 }
 
 .circuit-8 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -358,15 +368,15 @@ tbody .circuit-1:last-child td {
 }
 
 .circuit-9 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;

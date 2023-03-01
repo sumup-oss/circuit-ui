@@ -16,7 +16,7 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
-import { light, Theme } from '@sumup/design-tokens';
+import { light } from '@sumup/design-tokens';
 import * as iconComponents from '@sumup/icons';
 import type { IconsManifest } from '@sumup/icons';
 import iconsManifest from '@sumup/icons/manifest.json';
@@ -26,7 +26,6 @@ import {
   InlineElements,
   SearchInput,
   Select,
-  spacing,
   typography,
   BaseStyles,
 } from '@sumup/circuit-ui';
@@ -76,7 +75,7 @@ const Wrapper = styled.div`
 `;
 
 const Size = styled.p`
-  color: ${(p) => p.theme.colors.n700};
+  color: var(--cui-fg-subtle);
   font-style: italic;
 `;
 
@@ -87,20 +86,20 @@ const IconWrapper = styled.div`
   height: 64px; /* 2 * 32px icon */
 `;
 
-const iconStyles = (color: keyof Theme['colors']) => (theme: Theme) =>
+const iconStyles = (color: string) =>
   css`
     transform: scale(2);
     max-width: 3rem;
-    color: ${theme.colors[color]};
-    background-color: ${color === 'white'
-      ? theme.colors.black
-      : theme.colors.bodyBg};
+    color: ${color};
+    background-color: ${color === 'var(--cui-fg-on-strong)'
+      ? 'var(--cui-bg-strong)'
+      : 'var(--cui-bg-normal)'};
   `;
 
 const Icons = () => {
   const [search, setSearch] = useState('');
   const [size, setSize] = useState('all');
-  const [color, setColor] = useState('n900');
+  const [color, setColor] = useState('var(--cui-fg-normal)');
 
   const handleSearch = (event) => {
     setSearch(event.target.value);
@@ -122,13 +121,13 @@ const Icons = () => {
   ];
 
   const colorOptions = [
-    { label: 'Black', value: 'black' },
-    { label: 'Subtle', value: 'n700' },
-    { label: 'White', value: 'white' },
-    { label: 'Primary', value: 'p500' },
-    { label: 'Confirm', value: 'confirm' },
-    { label: 'Notify', value: 'notify' },
-    { label: 'Alert', value: 'alert' },
+    { label: 'Normal', value: 'var(--cui-fg-normal)' },
+    { label: 'Subtle', value: 'var(--cui-fg-subtle)' },
+    { label: 'Accent', value: 'var(--cui-fg-accent)' },
+    { label: 'Success', value: 'var(--cui-fg-success)' },
+    { label: 'Warning', value: 'var(--cui-fg-warning)' },
+    { label: 'Danger', value: 'var(--cui-fg-danger)' },
+    { label: 'On Strong', value: 'var(--cui-fg-on-strong)' },
   ];
 
   const activeIcons = iconsManifest.icons.filter(
@@ -169,7 +168,7 @@ const Icons = () => {
           groupBy(activeIcons, 'category'),
         ).map(([category, items]) => (
           <Category key={category}>
-            <Headline as="h3" size="three" css={spacing({ bottom: 'giga' })}>
+            <Headline as="h3" size="three">
               {category}
             </Headline>
             <List>

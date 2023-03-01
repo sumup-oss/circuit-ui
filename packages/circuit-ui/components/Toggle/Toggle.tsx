@@ -15,12 +15,14 @@
 
 import { Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
+import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import { Body, BodyProps } from '../Body/Body';
 import { AccessibilityError } from '../../util/errors';
 import { FieldWrapper } from '../FieldAtoms';
+import { CLASS_DISABLED } from '../FieldAtoms/constants';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
 
@@ -48,19 +50,21 @@ const textWrapperStyles = ({ theme }: StyleProps) => css`
     margin-left: 0;
     margin-right: ${theme.spacings.kilo};
   }
+
+  .${CLASS_DISABLED} & {
+    color: var(--cui-fg-normal-disabled);
+  }
 `;
 
 const ToggleTextWrapper = styled('label')(textWrapperStyles);
 
-const explanationStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.n700};
+const explanationStyles = css`
+  color: var(--cui-fg-subtle);
 `;
 
 const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);
 
-type WrapperElProps = Pick<ToggleProps, 'disabled'>;
-
-const wrapperStyles = ({ theme }: StyleProps) => css`
+const wrapperStyles = (theme: Theme) => css`
   display: flex;
   align-items: flex-start;
 
@@ -69,8 +73,6 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
     justify-content: space-between;
   }
 `;
-
-const ToggleWrapper = styled(FieldWrapper)<WrapperElProps>(wrapperStyles);
 
 /**
  * A toggle component with support for labels and additional explanations.
@@ -88,7 +90,7 @@ export const Toggle = forwardRef(
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
     return (
-      <ToggleWrapper disabled={props.disabled}>
+      <FieldWrapper disabled={props.disabled} css={wrapperStyles}>
         <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
         <ToggleTextWrapper id={labelId} htmlFor={switchId}>
           <Body>{label}</Body>
@@ -96,7 +98,7 @@ export const Toggle = forwardRef(
             <ToggleExplanation size="two">{explanation}</ToggleExplanation>
           )}
         </ToggleTextWrapper>
-      </ToggleWrapper>
+      </FieldWrapper>
     );
   },
 );

@@ -13,9 +13,16 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
+import {
+  FC,
+  HTMLAttributes,
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { css } from '@emotion/react';
-import { Alert, Confirm, Info, NotifyCircle } from '@sumup/icons';
+import { Alert, Confirm, IconProps, Info, NotifyCircle } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
@@ -89,11 +96,19 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
 
 export type NotificationInlineProps = BaseProps & CloseProps;
 
-const iconMap = {
+const iconMap: Record<Variant, FC<IconProps<'16' | '24'>>> = {
   info: Info,
   confirm: Confirm,
   alert: Alert,
   notify: NotifyCircle,
+};
+
+// TODO: Align variant names with token names in the next major.
+const colorMap: Record<Variant, string> = {
+  info: 'accent',
+  confirm: 'success',
+  alert: 'danger',
+  notify: 'warning',
 };
 
 const inlineWrapperStyles = () => css`
@@ -117,10 +132,10 @@ const contentWrapperStyles = ({
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${theme.colors.bodyBg};
+  background-color: var(--cui-bg-normal);
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};
+  border: ${theme.borderWidth.mega} solid var(--cui-border-${colorMap[variant]});
 `;
 
 const ContentWrapper = styled('div')<ContentWrapperProps>(contentWrapperStyles);
@@ -139,52 +154,31 @@ const actionButtonStyles = ({ theme }: StyleProps & ButtonProps) =>
   css`
     font-weight: bold;
     text-decoration-line: underline;
-    color: ${theme.colors.black};
+    color: var(--cui-fg-normal);
     margin-top: ${theme.spacings.byte};
 
     &:hover {
-      color: ${theme.colors.n800};
+      color: var(--cui-fg-normal-hovered);
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      color: ${theme.colors.n700};
+      color: var(--cui-fg-normal-pressed);
     }
   `;
 
 const ActionButton = styled(Button)(actionButtonStyles);
 
 const IconWrapper = styled.div(
-  ({ theme, variant }: StyleProps & { variant: Variant }) =>
+  ({ variant }: { variant: Variant }) =>
     css`
       position: relative;
       align-self: flex-start;
       flex-grow: 0;
       flex-shrink: 0;
       line-height: 0;
-      color: ${theme.colors[variant]};
-    `,
-  // Adds a black background behind the SVG icon to color just the exclamation mark black.
-  ({ theme, variant }: StyleProps & { variant: Variant }) =>
-    variant === 'notify' &&
-    css`
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: calc(100% - 4px);
-        height: calc(100% - 4px);
-        background: ${theme.colors.black};
-        border-radius: ${theme.borderRadius.circle};
-      }
-
-      svg {
-        position: relative;
-        z-index: 1;
-      }
+      color: var(--cui-fg-${colorMap[variant]});
     `,
 );
 

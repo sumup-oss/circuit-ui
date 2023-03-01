@@ -36,11 +36,11 @@ import {
 } from './style-mixins';
 
 describe('Style helpers', () => {
-  const red = (theme: Theme) => css`
-    color: ${theme.colors.r500};
+  const byte = (theme: Theme) => css`
+    margin: ${theme.spacings.byte};
   `;
-  const green = (theme: Theme) => css`
-    color: ${theme.colors.g500};
+  const kilo = (theme: Theme) => css`
+    margin: ${theme.spacings.kilo};
   `;
   const purple = css`
     color: rebeccapurple;
@@ -48,12 +48,12 @@ describe('Style helpers', () => {
 
   describe('cx', () => {
     it('should call each style function with the theme', () => {
-      const actual = create(<div css={cx(red, green)} />);
+      const actual = create(<div css={cx(byte, kilo)} />);
 
       expect(actual).toMatchInlineSnapshot(`
         .circuit-0 {
-          color: #D23F47;
-          color: #8CC13F;
+          margin: 8px;
+          margin: 12px;
         }
 
         <div
@@ -77,13 +77,13 @@ describe('Style helpers', () => {
     });
 
     it('should skip falsy style functions', () => {
-      const isGreen = false;
+      const isKilo = false;
 
-      const actual = create(<div css={cx(red, isGreen && green)} />);
+      const actual = create(<div css={cx(byte, isKilo && kilo)} />);
 
       expect(actual).toMatchInlineSnapshot(`
         .circuit-0 {
-          color: #D23F47;
+          margin: 8px;
         }
 
         <div
@@ -202,32 +202,32 @@ describe('Style helpers', () => {
 
   describe('focusOutline', () => {
     it('should match the snapshot', () => {
-      const { styles } = focusOutline({ theme: light });
+      const { styles } = focusOutline();
       expect(styles).toMatchInlineSnapshot(
-        '"outline:0;box-shadow:0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;};label:focusOutline;"',
+        '"outline:0;box-shadow:0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;};label:focusOutline;"',
       );
     });
 
     it('should match the snapshot with an inset outline', () => {
-      const { styles } = focusOutline('inset')({ theme: light });
+      const { styles } = focusOutline('inset')();
       expect(styles).toMatchInlineSnapshot(
-        '"outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;};label:focusOutline;"',
+        '"outline:0;box-shadow:inset 0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;};label:focusOutline;"',
       );
     });
   });
 
   describe('focusVisible', () => {
     it('should match the snapshot', () => {
-      const { styles } = focusVisible({ theme: light });
+      const { styles } = focusVisible();
       expect(styles).toMatchInlineSnapshot(
-        '"&:focus{outline:0;box-shadow:0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;"',
+        '"&:focus{outline:0;box-shadow:0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;"',
       );
     });
 
     it('should match the snapshot with an inset outline', () => {
-      const { styles } = focusVisible('inset')({ theme: light });
+      const { styles } = focusVisible('inset')();
       expect(styles).toMatchInlineSnapshot(
-        '"&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;"',
+        '"&:focus{outline:0;box-shadow:inset 0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;"',
       );
     });
   });
@@ -254,7 +254,7 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = inputOutline(light);
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px #999;&:hover{box-shadow:0 0 0 1px #666;}&:focus{box-shadow:0 0 0 2px #3063E9;}&:active{box-shadow:0 0 0 1px #3063E9;};label:inputOutline;"',
+        '"box-shadow:0 0 0 1px var(--cui-border-normal);&:hover{box-shadow:0 0 0 1px var(--cui-border-normal-hovered);}&:focus{box-shadow:0 0 0 2px var(--cui-border-accent);}&:active{box-shadow:0 0 0 1px var(--cui-border-accent);};label:inputOutline;"',
       );
     });
 
@@ -264,7 +264,7 @@ describe('Style helpers', () => {
         disabled: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px #999;;label:inputOutline;"',
+        '"box-shadow:0 0 0 1px var(--cui-border-normal-disabled);label:inputOutline;"',
       );
     });
 
@@ -274,7 +274,7 @@ describe('Style helpers', () => {
         invalid: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px #DE331D;&:hover{box-shadow:0 0 0 1px #B22426;}&:focus{box-shadow:0 0 0 2px #DE331D;}&:active{box-shadow:0 0 0 1px #DE331D;};label:inputOutline;"',
+        '"box-shadow:0 0 0 1px var(--cui-border-danger);&:hover{box-shadow:0 0 0 1px var(--cui-border-danger-hovered);}&:focus{box-shadow:0 0 0 2px var(--cui-border-danger);}&:active{box-shadow:0 0 0 1px var(--cui-border-danger-pressed);};label:inputOutline;"',
       );
     });
 
@@ -284,7 +284,7 @@ describe('Style helpers', () => {
         hasWarning: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 0 0 1px #F5A720;&:hover{box-shadow:0 0 0 1px #AD7A14;}&:focus{box-shadow:0 0 0 2px #F5A720;}&:active{box-shadow:0 0 0 1px #F5A720;};label:inputOutline;"',
+        '"box-shadow:0 0 0 1px var(--cui-border-warning);&:hover{box-shadow:0 0 0 1px var(--cui-border-warning-hovered);}&:focus{box-shadow:0 0 0 2px var(--cui-border-warning);}&:active{box-shadow:0 0 0 1px var(--cui-border-warning-pressed);};label:inputOutline;"',
       );
     });
   });
@@ -293,7 +293,7 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = listItem(light);
       expect(styles).toMatchInlineSnapshot(
-        '"background-color:#FFF;padding:12px 32px 12px 16px;border:0;color:#1A1A1A;text-decoration:none;position:relative;&:hover{background-color:#F5F5F5;cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;;;&:active{background-color:#E6E6E6;}&:disabled,&[disabled]{opacity:0.5;pointer-events:none;box-shadow:none;label:disableVisually;;;};label:listItem;"',
+        '"background-color:var(--cui-bg-normal);padding:12px 32px 12px 16px;border:0;color:var(--cui-fg-normal);text-decoration:none;position:relative;&:hover{background-color:var(--cui-bg-normal-hovered);cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;;;&:active{background-color:var(--cui-bg-normal-pressed);}&:disabled,&[disabled]{pointer-events:none;background-color:var(--cui-bg-normal-disabled);color:var(--cui-fg-normal-disabled);};label:listItem;"',
       );
     });
 
@@ -303,7 +303,7 @@ describe('Style helpers', () => {
         destructive: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"background-color:#FFF;padding:12px 32px 12px 16px;border:0;color:#DE331D;text-decoration:none;position:relative;&:hover{background-color:#F5F5F5;cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;;;&:active{background-color:#E6E6E6;}&:disabled,&[disabled]{opacity:0.5;pointer-events:none;box-shadow:none;label:disableVisually;;;};label:listItem;"',
+        '"background-color:var(--cui-bg-normal);padding:12px 32px 12px 16px;border:0;color:var(--cui-fg-danger);text-decoration:none;position:relative;&:hover{background-color:var(--cui-bg-normal-hovered);cursor:pointer;}&:focus{outline:0;box-shadow:inset 0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;;;&:active{background-color:var(--cui-bg-normal-pressed);}&:disabled,&[disabled]{pointer-events:none;background-color:var(--cui-bg-normal-disabled);color:var(--cui-fg-danger-disabled);};label:listItem;"',
       );
     });
   });
@@ -312,7 +312,7 @@ describe('Style helpers', () => {
     it('should match the snapshot', () => {
       const { styles } = navigationItem(light);
       expect(styles).toMatchInlineSnapshot(
-        '"display:flex;align-items:center;border:none;outline:none;color:#1A1A1A;background-color:#FFF;text-align:left;cursor:pointer;transition:color 120ms ease-in-out,background-color 120ms ease-in-out;&:hover{background-color:#F5F5F5;}&:active{background-color:#E6E6E6;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;;;&:disabled{opacity:0.5;pointer-events:none;box-shadow:none;label:disableVisually;;;};label:navigationItem;"',
+        '"display:flex;align-items:center;border:none;outline:none;color:var(--cui-fg-normal);background-color:var(--cui-bg-normal);text-align:left;cursor:pointer;transition:color 120ms ease-in-out,background-color 120ms ease-in-out;&:hover{background-color:var(--cui-bg-normal-hovered);color:var(--cui-fg-normal-hovered);}&:active{background-color:var(--cui-bg-normal-pressed);color:var(--cui-fg-normal-pressed);}&:focus{outline:0;box-shadow:inset 0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;;;&:disabled,&[disabled]{pointer-events:none;background-color:var(--cui-bg-normal-disabled);color:var(--cui-fg-normal-disabled);};label:navigationItem;"',
       );
     });
 
@@ -322,7 +322,7 @@ describe('Style helpers', () => {
         isActive: true,
       });
       expect(styles).toMatchInlineSnapshot(
-        '"display:flex;align-items:center;border:none;outline:none;color:#3063E9;background-color:#F0F6FF;text-align:left;cursor:pointer;transition:color 120ms ease-in-out,background-color 120ms ease-in-out;&:hover{background-color:#F0F6FF;}&:active{background-color:#E6E6E6;}&:focus{outline:0;box-shadow:inset 0 0 0 4px #AFD0FE;&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;;;&:disabled{opacity:0.5;pointer-events:none;box-shadow:none;label:disableVisually;;;};label:navigationItem;"',
+        '"display:flex;align-items:center;border:none;outline:none;color:var(--cui-fg-accent);background-color:var(--cui-bg-accent);text-align:left;cursor:pointer;transition:color 120ms ease-in-out,background-color 120ms ease-in-out;&:hover{background-color:var(--cui-bg-accent-hovered);color:var(--cui-fg-accent-hovered);}&:active{background-color:var(--cui-bg-accent-pressed);color:var(--cui-fg-accent-pressed);}&:focus{outline:0;box-shadow:inset 0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;;;&:disabled,&[disabled]{pointer-events:none;background-color:var(--cui-bg-accent-disabled);color:var(--cui-fg-accent-disabled);};label:navigationItem;"',
       );
     });
   });

@@ -45,6 +45,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const variantStyles = ({ theme, variant }: BodyLargeProps & StyleProps) => {
+  // TODO: Align variant names with token names in the next major.
   switch (variant) {
     case 'highlight': {
       return css`
@@ -55,22 +56,22 @@ const variantStyles = ({ theme, variant }: BodyLargeProps & StyleProps) => {
       return css`
         font-style: italic;
         padding-left: ${theme.spacings.kilo};
-        border-left: ${theme.borderWidth.mega} solid ${theme.colors.p500};
+        border-left: ${theme.borderWidth.mega} solid var(--cui-border-accent);
       `;
     }
     case 'confirm': {
       return css`
-        color: ${theme.colors.confirm};
+        color: var(--cui-fg-success);
       `;
     }
     case 'alert': {
       return css`
-        color: ${theme.colors.alert};
+        color: var(--cui-fg-danger);
       `;
     }
     case 'subtle': {
       return css`
-        color: ${theme.colors.n700};
+        color: var(--cui-fg-subtle);
       `;
     }
     default: {

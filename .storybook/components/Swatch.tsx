@@ -19,7 +19,7 @@ import { light, Theme } from '@sumup/design-tokens';
 import { Body } from '@sumup/circuit-ui';
 
 type StyleProps = { theme: Theme };
-type SwatchProps = { colorName: string };
+type SwatchProps = { colorName: keyof Theme['colors'] };
 
 const SWATCH_WIDTH = '99px';
 const SWATCH_HEIGHT = '99px';

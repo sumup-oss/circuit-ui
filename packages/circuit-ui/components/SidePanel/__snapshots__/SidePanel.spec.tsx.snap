@@ -24,8 +24,8 @@ exports[`SidePanel should match the snapshot 1`] = `
 .circuit-1 {
   height: 100%;
   outline: none;
-  background-color: #FFF;
-  box-shadow: inset 1px 0px 0px #CCC;
+  background-color: var(--cui-bg-normal);
+  box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
@@ -73,19 +73,19 @@ exports[`SidePanel should match the snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   z-index: 600;
 }
 
 @media (min-width: 768px) {
   .circuit-3 {
-    box-shadow: inset 1px 0px 0px #CCC;
+    box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   }
 }
 
 .circuit-4 {
   font-weight: 700;
-  color: #000;
+  color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
   font-size: 1.125rem;
   line-height: 1.5rem;
@@ -123,9 +123,9 @@ exports[`SidePanel should match the snapshot 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -139,7 +139,7 @@ exports[`SidePanel should match the snapshot 1`] = `
 
 .circuit-5:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-5:focus::-moz-focus-inner {
@@ -152,21 +152,28 @@ exports[`SidePanel should match the snapshot 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-6 {
@@ -351,7 +358,7 @@ exports[`SidePanel when the panel is on mobile resolution should match the snaps
 .circuit-1 {
   height: 100%;
   outline: none;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
@@ -399,19 +406,19 @@ exports[`SidePanel when the panel is on mobile resolution should match the snaps
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   z-index: 600;
 }
 
 @media (min-width: 768px) {
   .circuit-3 {
-    box-shadow: inset 1px 0px 0px #CCC;
+    box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   }
 }
 
 .circuit-4 {
   font-weight: 700;
-  color: #000;
+  color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
   font-size: 1.125rem;
   line-height: 1.5rem;
@@ -449,9 +456,9 @@ exports[`SidePanel when the panel is on mobile resolution should match the snaps
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -465,7 +472,7 @@ exports[`SidePanel when the panel is on mobile resolution should match the snaps
 
 .circuit-5:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-5:focus::-moz-focus-inner {
@@ -478,21 +485,28 @@ exports[`SidePanel when the panel is on mobile resolution should match the snaps
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-6 {

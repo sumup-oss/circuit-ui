@@ -31,7 +31,7 @@ import { TrackingProps } from '../../../../hooks/useClickEvent';
 const profileWrapperStyles = ({ theme }: StyleProps) => css`
   height: 100%;
   padding: 0 ${theme.spacings.mega};
-  border-left: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  border-left: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
 `;
 
 const ProfileWrapper = styled.button<NoTheme>(

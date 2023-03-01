@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButtonGroup Styles should render with default styles 1`] = `
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -9,6 +13,10 @@ exports[`RadioButtonGroup Styles should render with default styles 1`] = `
 .circuit-2 {
   display: inline-block;
   margin-bottom: 4px;
+}
+
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-4 {
@@ -24,13 +32,13 @@ exports[`RadioButtonGroup Styles should render with default styles 1`] = `
 }
 
 .circuit-4:hover+label::before {
-  border-color: #666;
+  border-color: var(--cui-border-normal-hovered);
 }
 
 .circuit-4:focus+label::before {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-4:focus+label::before::-moz-focus-inner {
@@ -39,15 +47,15 @@ exports[`RadioButtonGroup Styles should render with default styles 1`] = `
 
 .circuit-4:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: #999;
+  border-color: var(--cui-border-normal);
 }
 
 .circuit-4:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-4:checked+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-4:checked+label::after {
@@ -58,8 +66,35 @@ exports[`RadioButtonGroup Styles should render with default styles 1`] = `
   opacity: 1;
 }
 
+.circuit-4:disabled+label,
+.circuit-4[disabled]+label {
+  pointer-events: none;
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-4:disabled+label::before,
+.circuit-4[disabled]+label::before {
+  border-color: var(--cui-border-strong-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-4:disabled+label::after,
+.circuit-4[disabled]+label::after {
+  background-color: var(--cui-fg-on-strong-disabled);
+}
+
+.circuit-4:disabled:checked+label::before,
+.circuit-4[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+}
+
+.circuit-4:disabled:checked+label::after,
+.circuit-4[disabled]:checked+label::after {
+  background-color: var(--cui-fg-accent-disabled);
+}
+
 .circuit-5 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -70,8 +105,8 @@ exports[`RadioButtonGroup Styles should render with default styles 1`] = `
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: 100%;
   content: '';
   display: block;
@@ -90,7 +125,7 @@ exports[`RadioButtonGroup Styles should render with default styles 1`] = `
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  background-color: #3063E9;
+  background-color: var(--cui-fg-accent);
   border-radius: 100%;
   content: '';
   display: block;
@@ -110,7 +145,7 @@ exports[`RadioButtonGroup Styles should render with default styles 1`] = `
   <fieldset
     aria-describedby="validation-hint_2"
     aria-orientation="vertical"
-    class="circuit-0"
+    class=" circuit-0"
     name="radio-button-group_1"
     role="radiogroup"
   >

@@ -37,11 +37,12 @@ const headerContainerStyles = ({ theme }: StyleProps) => css`
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: ${theme.colors.white};
+  background-color: var(--cui-bg-normal);
   z-index: ${theme.zIndex.header};
 
   ${theme.mq.mega} {
-    box-shadow: inset ${theme.borderWidth.kilo} 0px 0px ${theme.colors.n300};
+    box-shadow: inset ${theme.borderWidth.kilo} 0px 0px
+      var(--cui-border-divider);
   }
 `;
 
@@ -51,11 +52,11 @@ const headerContainerStickyStyles = ({
 }: StyleProps & HeaderStickyProps) =>
   isSticky &&
   css`
-    box-shadow: inset 0px -${theme.borderWidth.kilo} 0px ${theme.colors.n300};
+    box-shadow: inset 0px -${theme.borderWidth.kilo} 0px var(--cui-border-divider);
 
     ${theme.mq.mega} {
       box-shadow: inset ${theme.borderWidth.kilo} -${theme.borderWidth.kilo} 0px
-        ${theme.colors.n300};
+        var(--cui-border-divider);
     }
   `;
 

@@ -52,25 +52,9 @@ Base.args = {
   value: 'true',
 };
 
-export const Invalid = (args: CheckboxProps) => {
-  const [checked, setChecked] = useState(false);
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    action('Checkbox clicked')(event);
-    setChecked((prev) => !prev);
-  };
-  const invalid = !checked;
-  return (
-    <Checkbox
-      {...args}
-      checked={checked}
-      onChange={handleChange}
-      validationHint={invalid ? args.validationHint : undefined}
-      invalid={invalid}
-    >
-      {checked ? 'Checked' : 'Unchecked'}
-    </Checkbox>
-  );
-};
+export const Invalid = (args: CheckboxProps) => (
+  <CheckboxWithState {...args} validationHint={args.validationHint} invalid />
+);
 
 Invalid.args = {
   name: 'invalid',

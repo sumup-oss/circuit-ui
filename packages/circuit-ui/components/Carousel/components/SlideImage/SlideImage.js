@@ -21,8 +21,8 @@ import Image from '../../../Image';
 import AspectRatio from '../../../AspectRatio';
 import { ASPECT_RATIO } from '../../constants';
 
-const backgroundStyles = ({ theme }) => css`
-  background: ${theme.colors.n100};
+const backgroundStyles = css`
+  background: var(--cui-bg-subtle);
 `;
 const StyledAspectRatio = styled(AspectRatio)(backgroundStyles);
 

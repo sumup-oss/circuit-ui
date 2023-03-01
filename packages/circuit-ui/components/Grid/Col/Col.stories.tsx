@@ -14,9 +14,8 @@
  */
 
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 
-import { Col } from './Col';
+import { Col, ColProps } from './Col';
 
 const colControl = {
   control: {
@@ -39,19 +38,17 @@ export default {
   },
 };
 
-const StyledCol = styled(Col)(
-  ({ theme }) => css`
-    background-color: ${theme.colors.n300};
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 24px;
-    height: 48px;
-    padding: 12px;
-  `,
-);
+const StyledCol = styled(Col)`
+  background-color: var(--cui-bg-highlight);
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  height: 48px;
+  padding: 12px;
+`;
 
-export const Base = (args) => <StyledCol {...args}>Column</StyledCol>;
+export const Base = (args: ColProps) => <StyledCol {...args}>Column</StyledCol>;
 
 Base.args = {
   span: 12,

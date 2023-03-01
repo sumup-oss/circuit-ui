@@ -88,11 +88,11 @@ const chevronStyles = ({ theme }: StyleProps) => css`
   transition: transform ${theme.transitions.default};
 `;
 
-const chevronOpenStyles = ({ theme, isOpen }: StyleProps & ChevronProps) =>
+const chevronOpenStyles = ({ isOpen }: ChevronProps) =>
   isOpen &&
   css`
     transform: rotate(-180deg);
-    color: ${theme.colors.p500};
+    color: var(--cui-fg-accent);
   `;
 
 const Chevron = styled(ChevronDown, {
@@ -100,7 +100,7 @@ const Chevron = styled(ChevronDown, {
 })<ChevronProps>(chevronStyles, chevronOpenStyles);
 
 const groupStyles = (theme: Theme) => css`
-  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  border-bottom: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
   margin-bottom: -1px;
 
   > *:last-child {
@@ -221,10 +221,10 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
                 width: 100%;
                 opacity: 0;
                 transform: translateY(-25%);
-                transition: opacity ${TRANSITION_DURATION}ms ease-in-out, 
+                transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
                   transform ${TRANSITION_DURATION}ms ease-in-out;
                 outline: none;
-                background-color: ${theme.colors.white};
+                background-color: var(--cui-bg-normal);
                 overflow: hidden;
 
                 &::after {
@@ -263,7 +263,7 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
                 right: 0;
                 opacity: 0;
                 transition: opacity ${TRANSITION_DURATION}ms ease-in-out;
-                background: ${theme.colors.overlay};
+                background: var(--cui-bg-overlay);
                 z-index: ${theme.zIndex.modal};
               `,
               afterOpen: cssString`

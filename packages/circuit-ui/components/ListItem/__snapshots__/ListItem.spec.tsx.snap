@@ -2,9 +2,9 @@
 
 exports[`ListItem business logic should not render a trailing section with details but no label 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -25,7 +25,7 @@ exports[`ListItem business logic should not render a trailing section with detai
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -42,15 +42,16 @@ exports[`ListItem business logic should not render a trailing section with detai
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -117,9 +118,9 @@ exports[`ListItem business logic should not render a trailing section with detai
 
 exports[`ListItem business logic should render as a button when the onClick prop is passed 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -141,7 +142,7 @@ exports[`ListItem business logic should render as a button when the onClick prop
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -158,24 +159,28 @@ exports[`ListItem business logic should render as a button when the onClick prop
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-subtle-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
-  border-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-subtle-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-1 {
@@ -242,9 +247,9 @@ exports[`ListItem business logic should render as a button when the onClick prop
 
 exports[`ListItem business logic should render as a link when the href prop is passed 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -266,7 +271,7 @@ exports[`ListItem business logic should render as a link when the href prop is p
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -283,24 +288,28 @@ exports[`ListItem business logic should render as a link when the href prop is p
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-subtle-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
-  border-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-subtle-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-1 {
@@ -368,9 +377,9 @@ exports[`ListItem business logic should render as a link when the href prop is p
 
 exports[`ListItem styles should render a ListItem with a custom details line 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -391,7 +400,7 @@ exports[`ListItem styles should render a ListItem with a custom details line 1`]
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -408,15 +417,16 @@ exports[`ListItem styles should render a ListItem with a custom details line 1`]
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -511,9 +521,9 @@ exports[`ListItem styles should render a ListItem with a custom details line 1`]
 
 exports[`ListItem styles should render a ListItem with a custom label 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -534,7 +544,7 @@ exports[`ListItem styles should render a ListItem with a custom label 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -551,15 +561,16 @@ exports[`ListItem styles should render a ListItem with a custom label 1`] = `
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -622,9 +633,9 @@ exports[`ListItem styles should render a ListItem with a custom label 1`] = `
 
 exports[`ListItem styles should render a ListItem with a custom leading component 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -645,7 +656,7 @@ exports[`ListItem styles should render a ListItem with a custom leading componen
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -662,15 +673,16 @@ exports[`ListItem styles should render a ListItem with a custom leading componen
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -693,8 +705,8 @@ exports[`ListItem styles should render a ListItem with a custom leading componen
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #D23F47;
-  color: #FFF;
+  background-color: var(--cui-bg-danger-strong);
+  color: var(--cui-fg-on-strong);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -785,9 +797,9 @@ exports[`ListItem styles should render a ListItem with a custom leading componen
 
 exports[`ListItem styles should render a ListItem with a custom trailing component 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -808,7 +820,7 @@ exports[`ListItem styles should render a ListItem with a custom trailing compone
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -825,15 +837,16 @@ exports[`ListItem styles should render a ListItem with a custom trailing compone
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -924,8 +937,8 @@ exports[`ListItem styles should render a ListItem with a custom trailing compone
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #CA58FF;
-  color: #FFF;
+  background-color: var(--cui-bg-promo-strong);
+  color: var(--cui-fg-on-strong);
 }
 
 <div
@@ -962,9 +975,9 @@ exports[`ListItem styles should render a ListItem with a custom trailing compone
 
 exports[`ListItem styles should render a ListItem with a custom trailing label 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -985,7 +998,7 @@ exports[`ListItem styles should render a ListItem with a custom trailing label 1
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1002,15 +1015,16 @@ exports[`ListItem styles should render a ListItem with a custom trailing label 1
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1133,9 +1147,9 @@ exports[`ListItem styles should render a ListItem with a custom trailing label 1
 
 exports[`ListItem styles should render a ListItem with a details line 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1156,7 +1170,7 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1173,15 +1187,16 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1244,7 +1259,7 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
 }
 
 <div
@@ -1277,9 +1292,9 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
 
 exports[`ListItem styles should render a ListItem with a leading icon 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1300,7 +1315,7 @@ exports[`ListItem styles should render a ListItem with a leading icon 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1317,15 +1332,16 @@ exports[`ListItem styles should render a ListItem with a leading icon 1`] = `
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1420,9 +1436,9 @@ exports[`ListItem styles should render a ListItem with a leading icon 1`] = `
 
 exports[`ListItem styles should render a ListItem with a trailing label 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1443,7 +1459,7 @@ exports[`ListItem styles should render a ListItem with a trailing label 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1460,15 +1476,16 @@ exports[`ListItem styles should render a ListItem with a trailing label 1`] = `
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1591,9 +1608,9 @@ exports[`ListItem styles should render a ListItem with a trailing label 1`] = `
 
 exports[`ListItem styles should render a ListItem with custom trailing details 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1614,7 +1631,7 @@ exports[`ListItem styles should render a ListItem with custom trailing details 1
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1631,15 +1648,16 @@ exports[`ListItem styles should render a ListItem with custom trailing details 1
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1745,7 +1763,7 @@ exports[`ListItem styles should render a ListItem with custom trailing details 1
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
 }
 
 <div
@@ -1791,9 +1809,9 @@ exports[`ListItem styles should render a ListItem with custom trailing details 1
 
 exports[`ListItem styles should render a ListItem with trailing details 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1814,7 +1832,7 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -1831,15 +1849,16 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -1945,7 +1964,7 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
 }
 
 <div
@@ -1991,9 +2010,9 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
 
 exports[`ListItem styles should render a disabled ListItem 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2014,7 +2033,7 @@ exports[`ListItem styles should render a disabled ListItem 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -2031,15 +2050,16 @@ exports[`ListItem styles should render a disabled ListItem 1`] = `
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -2107,9 +2127,9 @@ exports[`ListItem styles should render a disabled ListItem 1`] = `
 
 exports[`ListItem styles should render a navigation variant ListItem 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2130,7 +2150,7 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -2147,15 +2167,16 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {
@@ -2281,9 +2302,9 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
 
 exports[`ListItem styles should render a selected ListItem 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2300,12 +2321,12 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
 }
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -2322,20 +2343,21 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-0:hover,
 .circuit-0:active {
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
 }
 
 .circuit-0:after {
@@ -2345,7 +2367,7 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
   bottom: -2px;
   left: -2px;
   right: -2px;
-  border: 2px solid #3063E9;
+  border: 2px solid var(--cui-border-accent);
   border-radius: 16px;
   z-index: 1;
   pointer-events: none;
@@ -2415,9 +2437,9 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
 
 exports[`ListItem styles should render the action variant ListItem by default 1`] = `
 .circuit-0 {
-  background-color: #FFF;
-  color: #1A1A1A;
-  border: 2px solid #E6E6E6;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
   border-radius: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2438,7 +2460,7 @@ exports[`ListItem styles should render the action variant ListItem by default 1`
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -2455,15 +2477,16 @@ exports[`ListItem styles should render the action variant ListItem by default 1`
 }
 
 .circuit-0:focus:not(:focus-visible) {
-  border-color: #E6E6E6;
+  border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
 .circuit-0:disabled,
 .circuit-0[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-1 {

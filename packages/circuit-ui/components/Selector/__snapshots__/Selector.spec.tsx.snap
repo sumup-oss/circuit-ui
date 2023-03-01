@@ -16,7 +16,7 @@ HTMLCollection [
 
 .circuit-0:focus+label::before {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus+label::before::-moz-focus-inner {
@@ -28,11 +28,33 @@ HTMLCollection [
 }
 
 .circuit-0:checked+label {
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
 }
 
 .circuit-0:checked+label::before {
-  border: 2px solid #3063E9;
+  border: 2px solid var(--cui-border-accent);
+}
+
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border: 2px solid var(--cui-border-normal-disabled);
+}
+
+.circuit-0:disabled:checked+label,
+.circuit-0[disabled]:checked+label {
+  background-color: var(--cui-bg-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border: 2px solid var(--cui-border-accent-disabled);
 }
 
 <input
@@ -60,7 +82,8 @@ HTMLCollection [
   -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
   text-align: center;
   position: relative;
   border-radius: 8px;
@@ -80,25 +103,27 @@ HTMLCollection [
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-normal);
   -webkit-transition: border 120ms ease-in-out;
   transition: border 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:hover::before {
-  border-color: #999;
+  border-color: var(--cui-border-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-0:active::before {
-  border-color: #666;
+  border-color: var(--cui-border-normal-pressed);
 }
 
 <label
@@ -126,7 +151,7 @@ HTMLCollection [
 
 .circuit-0:focus+label::before {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus+label::before::-moz-focus-inner {
@@ -138,11 +163,33 @@ HTMLCollection [
 }
 
 .circuit-0:checked+label {
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
 }
 
 .circuit-0:checked+label::before {
-  border: 2px solid #3063E9;
+  border: 2px solid var(--cui-border-accent);
+}
+
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border: 2px solid var(--cui-border-normal-disabled);
+}
+
+.circuit-0:disabled:checked+label,
+.circuit-0[disabled]:checked+label {
+  background-color: var(--cui-bg-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border: 2px solid var(--cui-border-accent-disabled);
 }
 
 <input
@@ -169,7 +216,8 @@ HTMLCollection [
   -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
   text-align: center;
   position: relative;
   border-radius: 8px;
@@ -189,25 +237,27 @@ HTMLCollection [
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-normal);
   -webkit-transition: border 120ms ease-in-out;
   transition: border 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:hover::before {
-  border-color: #999;
+  border-color: var(--cui-border-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-0:active::before {
-  border-color: #666;
+  border-color: var(--cui-border-normal-pressed);
 }
 
 <label
@@ -235,7 +285,7 @@ HTMLCollection [
 
 .circuit-0:focus+label::before {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus+label::before::-moz-focus-inner {
@@ -247,11 +297,33 @@ HTMLCollection [
 }
 
 .circuit-0:checked+label {
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
 }
 
 .circuit-0:checked+label::before {
-  border: 2px solid #3063E9;
+  border: 2px solid var(--cui-border-accent);
+}
+
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border: 2px solid var(--cui-border-normal-disabled);
+}
+
+.circuit-0:disabled:checked+label,
+.circuit-0[disabled]:checked+label {
+  background-color: var(--cui-bg-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border: 2px solid var(--cui-border-accent-disabled);
 }
 
 <input
@@ -279,16 +351,14 @@ HTMLCollection [
   -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
   text-align: center;
   position: relative;
   border-radius: 8px;
   -webkit-transition: box-shadow 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out;
   padding: calc(12px) 24px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0::before {
@@ -302,30 +372,31 @@ HTMLCollection [
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-normal);
   -webkit-transition: border 120ms ease-in-out;
   transition: border 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:hover::before {
-  border-color: #999;
+  border-color: var(--cui-border-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-0:active::before {
-  border-color: #666;
+  border-color: var(--cui-border-normal-pressed);
 }
 
 <label
     class="circuit-0"
-    disabled=""
     for="selector_2"
   >
     Label

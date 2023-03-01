@@ -34,6 +34,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-viewport',
     '@storybook/addon-interactions',
+    '@storybook/addon-toolbars',
   ],
   core: {
     disableTelemetry: true,

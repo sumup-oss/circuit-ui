@@ -21,7 +21,7 @@ import 'react-dates/initialize';
 import { CalendarWrapper } from './components';
 
 const CloseIcon = styled(Close)`
-  color: ${({ theme }) => theme.colors.n700};
+  color: var(--cui-fg-normal);
 `;
 
 const SingleDayPicker = (props) => (

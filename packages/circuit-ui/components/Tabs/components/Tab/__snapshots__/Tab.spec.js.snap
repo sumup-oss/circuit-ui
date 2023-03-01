@@ -5,11 +5,11 @@ exports[`Tab styles should render with default styles 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   padding: 12px 32px;
-  color: #666;
+  color: var(--cui-fg-subtle);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -34,7 +34,7 @@ exports[`Tab styles should render with default styles 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -46,11 +46,11 @@ exports[`Tab styles should render with default styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 <button
@@ -68,11 +68,11 @@ exports[`Tab styles should render with selected styles 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   padding: 12px 32px;
-  color: #666;
+  color: var(--cui-fg-subtle);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -94,12 +94,12 @@ exports[`Tab styles should render with selected styles 1`] = `
   justify-content: center;
   outline: none;
   position: relative;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
 }
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -111,11 +111,11 @@ exports[`Tab styles should render with selected styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-0::after {
@@ -126,7 +126,7 @@ exports[`Tab styles should render with selected styles 1`] = `
   right: 0;
   width: 100%;
   height: 4px;
-  background: #3063E9;
+  background: var(--cui-border-accent);
 }
 
 <button

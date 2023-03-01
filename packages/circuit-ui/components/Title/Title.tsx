@@ -35,7 +35,7 @@ export interface TitleProps {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.bold};
-  color: ${theme.colors.black};
+  color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
 `;
 

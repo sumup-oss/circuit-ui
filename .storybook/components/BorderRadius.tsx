@@ -27,7 +27,7 @@ const Box = styled.div<BorderRadiusProps>(
     width: ${theme.spacings.tera};
     height: ${theme.spacings.tera};
     border-radius: ${theme.borderRadius[size]};
-    background-color: ${theme.colors.r300};
+    background-color: var(--cui-bg-accent-strong);
     margin-right: ${theme.spacings.mega};
   `,
 );

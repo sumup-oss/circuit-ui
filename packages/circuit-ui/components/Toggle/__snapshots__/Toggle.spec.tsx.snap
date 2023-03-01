@@ -12,6 +12,10 @@ exports[`Toggle should render with default styles 1`] = `
   align-items: flex-start;
 }
 
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 @media (max-width: 479px) {
   .circuit-0 {
     -webkit-flex-direction: row-reverse;
@@ -35,7 +39,7 @@ exports[`Toggle should render with default styles 1`] = `
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #CCC;
+  background-color: var(--cui-bg-highlight);
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -48,7 +52,7 @@ exports[`Toggle should render with default styles 1`] = `
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -59,10 +63,40 @@ exports[`Toggle should render with default styles 1`] = `
   box-shadow: none;
 }
 
+.circuit-1:hover {
+  background-color: var(--cui-bg-highlight-hovered);
+}
+
+.circuit-1:active {
+  background-color: var(--cui-bg-highlight-pressed);
+}
+
+.circuit-1[aria-checked='true'] {
+  background-color: var(--cui-bg-accent-strong);
+}
+
+.circuit-1[aria-checked='true']:hover {
+  background-color: var(--cui-bg-accent-strong-hovered);
+}
+
+.circuit-1[aria-checked='true']:active {
+  background-color: var(--cui-bg-accent-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-highlight-disabled);
+}
+
+.circuit-1[aria-checked='true']:disabled,
+.circuit-1[aria-checked='true'][disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+}
+
 .circuit-2 {
   display: block;
-  background-color: #FFF;
-  box-shadow: 0 2px 0 0 #999;
+  background-color: var(--cui-fg-on-strong);
+  box-shadow: 0 2px 0 0 var(--cui-border-normal-pressed);
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px, -50%, 0);
@@ -74,6 +108,40 @@ exports[`Toggle should render with default styles 1`] = `
   height: 16px;
   width: 16px;
   border-radius: 16px;
+}
+
+[aria-checked='true'] .circuit-2 {
+  box-shadow: 0 2px 0 0 var(--cui-border-accent-pressed);
+  -webkit-transform: translate3d(
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
+  -moz-transform: translate3d(
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
+  -ms-transform: translate3d(
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
+  transform: translate3d(
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
+}
+
+button:disabled .circuit-2,
+button[disabled] .circuit-2 {
+  box-shadow: 0 2px 0 0 var(--cui-border-normal-disabled);
+}
+
+button[aria-checked='true']:disabled .circuit-2,
+button[aria-checked='true'][disabled] .circuit-2 {
+  box-shadow: 0 2px 0 0 var(--cui-border-accent-disabled);
 }
 
 .circuit-3 {
@@ -101,6 +169,10 @@ exports[`Toggle should render with default styles 1`] = `
   }
 }
 
+.cui-field-disabled .circuit-4 {
+  color: var(--cui-fg-normal-disabled);
+}
+
 .circuit-5 {
   font-weight: 400;
   font-size: 1rem;
@@ -111,7 +183,7 @@ exports[`Toggle should render with default styles 1`] = `
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
 }
 
 <div

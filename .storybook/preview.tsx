@@ -17,6 +17,35 @@ export const parameters = {
   docs: { theme: light, components, container: DocsContainer },
 };
 
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    defaultValue: 'legacy',
+    toolbar: {
+      title: 'Theme',
+      icon: 'paintbrush',
+      items: [
+        {
+          title: 'Legacy',
+          value: 'legacy',
+          icon: 'paintbrush',
+        },
+        {
+          title: 'Light',
+          value: 'light',
+          icon: 'circle',
+        },
+        {
+          title: 'Dark',
+          value: 'dark',
+          icon: 'circlehollow',
+        },
+      ],
+    },
+  },
+};
+
 export const decorators = [
   withThemeProvider,
   withTrackingAction,

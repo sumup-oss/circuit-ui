@@ -13,7 +13,7 @@ exports[`Switch should have the correct default styles 1`] = `
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #CCC;
+  background-color: var(--cui-bg-highlight);
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -26,7 +26,7 @@ exports[`Switch should have the correct default styles 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -37,10 +37,40 @@ exports[`Switch should have the correct default styles 1`] = `
   box-shadow: none;
 }
 
+.circuit-0:hover {
+  background-color: var(--cui-bg-highlight-hovered);
+}
+
+.circuit-0:active {
+  background-color: var(--cui-bg-highlight-pressed);
+}
+
+.circuit-0[aria-checked='true'] {
+  background-color: var(--cui-bg-accent-strong);
+}
+
+.circuit-0[aria-checked='true']:hover {
+  background-color: var(--cui-bg-accent-strong-hovered);
+}
+
+.circuit-0[aria-checked='true']:active {
+  background-color: var(--cui-bg-accent-strong-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-highlight-disabled);
+}
+
+.circuit-0[aria-checked='true']:disabled,
+.circuit-0[aria-checked='true'][disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+}
+
 .circuit-1 {
   display: block;
-  background-color: #FFF;
-  box-shadow: 0 2px 0 0 #999;
+  background-color: var(--cui-fg-on-strong);
+  box-shadow: 0 2px 0 0 var(--cui-border-normal-pressed);
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px, -50%, 0);
@@ -52,6 +82,40 @@ exports[`Switch should have the correct default styles 1`] = `
   height: 16px;
   width: 16px;
   border-radius: 16px;
+}
+
+[aria-checked='true'] .circuit-1 {
+  box-shadow: 0 2px 0 0 var(--cui-border-accent-pressed);
+  -webkit-transform: translate3d(
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
+  -moz-transform: translate3d(
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
+  -ms-transform: translate3d(
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
+  transform: translate3d(
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
+}
+
+button:disabled .circuit-1,
+button[disabled] .circuit-1 {
+  box-shadow: 0 2px 0 0 var(--cui-border-normal-disabled);
+}
+
+button[aria-checked='true']:disabled .circuit-1,
+button[aria-checked='true'][disabled] .circuit-1 {
+  box-shadow: 0 2px 0 0 var(--cui-border-accent-disabled);
 }
 
 .circuit-2 {
@@ -96,7 +160,7 @@ exports[`Switch should have the correct on styles 1`] = `
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #CCC;
+  background-color: var(--cui-bg-highlight);
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -105,12 +169,11 @@ exports[`Switch should have the correct on styles 1`] = `
   width: 40px;
   overflow: visible;
   cursor: pointer;
-  background-color: #3063E9;
 }
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -121,10 +184,40 @@ exports[`Switch should have the correct on styles 1`] = `
   box-shadow: none;
 }
 
+.circuit-0:hover {
+  background-color: var(--cui-bg-highlight-hovered);
+}
+
+.circuit-0:active {
+  background-color: var(--cui-bg-highlight-pressed);
+}
+
+.circuit-0[aria-checked='true'] {
+  background-color: var(--cui-bg-accent-strong);
+}
+
+.circuit-0[aria-checked='true']:hover {
+  background-color: var(--cui-bg-accent-strong-hovered);
+}
+
+.circuit-0[aria-checked='true']:active {
+  background-color: var(--cui-bg-accent-strong-pressed);
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  background-color: var(--cui-bg-highlight-disabled);
+}
+
+.circuit-0[aria-checked='true']:disabled,
+.circuit-0[aria-checked='true'][disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+}
+
 .circuit-1 {
   display: block;
-  background-color: #FFF;
-  box-shadow: 0 2px 0 0 #999;
+  background-color: var(--cui-fg-on-strong);
+  box-shadow: 0 2px 0 0 var(--cui-border-normal-pressed);
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px, -50%, 0);
@@ -136,27 +229,40 @@ exports[`Switch should have the correct on styles 1`] = `
   height: 16px;
   width: 16px;
   border-radius: 16px;
-  box-shadow: 0 2px 0 0 #234BC3;
+}
+
+[aria-checked='true'] .circuit-1 {
+  box-shadow: 0 2px 0 0 var(--cui-border-accent-pressed);
   -webkit-transform: translate3d(
-        calc(40px - 16px - 4px),
-        -50%,
-        0
-      );
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
   -moz-transform: translate3d(
-        calc(40px - 16px - 4px),
-        -50%,
-        0
-      );
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
   -ms-transform: translate3d(
-        calc(40px - 16px - 4px),
-        -50%,
-        0
-      );
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
   transform: translate3d(
-        calc(40px - 16px - 4px),
-        -50%,
-        0
-      );
+          calc(40px - 16px - 4px),
+          -50%,
+          0
+        );
+}
+
+button:disabled .circuit-1,
+button[disabled] .circuit-1 {
+  box-shadow: 0 2px 0 0 var(--cui-border-normal-disabled);
+}
+
+button[aria-checked='true']:disabled .circuit-1,
+button[aria-checked='true'][disabled] .circuit-1 {
+  box-shadow: 0 2px 0 0 var(--cui-border-accent-disabled);
 }
 
 .circuit-2 {

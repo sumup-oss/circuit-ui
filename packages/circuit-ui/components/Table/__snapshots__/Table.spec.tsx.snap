@@ -3,7 +3,7 @@
 exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
 .circuit-0 {
   position: relative;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-divider);
 }
 
 .circuit-1 {
@@ -19,7 +19,7 @@ exports[`Table Style tests should not render a scrollable table if the rowHeader
 }
 
 .circuit-2 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
 }
@@ -55,15 +55,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -98,7 +98,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -107,13 +107,18 @@ tbody .circuit-4:last-child td {
 
 .circuit-6:focus-within,
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-6:focus-within>button,
 .circuit-6:hover>button {
   opacity: 1;
+}
+
+.circuit-6:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-7 {
@@ -140,7 +145,7 @@ tbody .circuit-4:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   border: 0;
   background: none;
   outline: 0;
@@ -174,8 +179,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-11 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -200,15 +205,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-12 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -233,7 +238,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -242,8 +247,8 @@ tbody .circuit-4:last-child td {
 
 .circuit-12:focus-within,
 .circuit-12:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-12:focus-within>button,
@@ -251,16 +256,21 @@ tbody .circuit-4:last-child td {
   opacity: 1;
 }
 
+.circuit-12:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
+}
+
 .circuit-17 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -268,8 +278,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-20 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -287,8 +297,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-21 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -308,8 +318,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-22 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -529,7 +539,7 @@ tbody .circuit-4:last-child td {
 exports[`Table Style tests should render "null" or "undefined" cells 1`] = `
 .circuit-0 {
   position: relative;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-divider);
 }
 
 .circuit-1 {
@@ -545,7 +555,7 @@ exports[`Table Style tests should render "null" or "undefined" cells 1`] = `
 }
 
 .circuit-2 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
 }
@@ -581,15 +591,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -607,8 +617,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-7 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -633,15 +643,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-8 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -649,8 +659,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-11 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -668,8 +678,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-12 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -689,8 +699,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-13 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -783,7 +793,7 @@ tbody .circuit-4:last-child td {
 exports[`Table Style tests should render a collapsed table 1`] = `
 .circuit-0 {
   position: relative;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-divider);
 }
 
 .circuit-1 {
@@ -799,7 +809,7 @@ exports[`Table Style tests should render a collapsed table 1`] = `
 }
 
 .circuit-2 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
   border-collapse: collapse;
@@ -836,15 +846,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -879,7 +889,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -888,13 +898,18 @@ tbody .circuit-4:last-child td {
 
 .circuit-6:focus-within,
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-6:focus-within>button,
 .circuit-6:hover>button {
   opacity: 1;
+}
+
+.circuit-6:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-7 {
@@ -921,7 +936,7 @@ tbody .circuit-4:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   border: 0;
   background: none;
   outline: 0;
@@ -955,8 +970,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-11 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -981,15 +996,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-12 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -1014,7 +1029,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -1023,8 +1038,8 @@ tbody .circuit-4:last-child td {
 
 .circuit-12:focus-within,
 .circuit-12:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-12:focus-within>button,
@@ -1032,16 +1047,21 @@ tbody .circuit-4:last-child td {
   opacity: 1;
 }
 
+.circuit-12:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
+}
+
 .circuit-17 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -1049,8 +1069,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-20 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -1068,8 +1088,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-21 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -1089,8 +1109,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-22 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -1310,7 +1330,7 @@ tbody .circuit-4:last-child td {
 exports[`Table Style tests should render a condensed table 1`] = `
 .circuit-0 {
   position: relative;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-divider);
 }
 
 .circuit-1 {
@@ -1326,7 +1346,7 @@ exports[`Table Style tests should render a condensed table 1`] = `
 }
 
 .circuit-2 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
 }
@@ -1362,15 +1382,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -1410,7 +1430,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -1419,13 +1439,18 @@ tbody .circuit-4:last-child td {
 
 .circuit-6:focus-within,
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-6:focus-within>button,
 .circuit-6:hover>button {
   opacity: 1;
+}
+
+.circuit-6:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-7 {
@@ -1452,7 +1477,7 @@ tbody .circuit-4:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   border: 0;
   background: none;
   outline: 0;
@@ -1486,8 +1511,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-11 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -1519,15 +1544,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-12 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -1557,7 +1582,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -1566,8 +1591,8 @@ tbody .circuit-4:last-child td {
 
 .circuit-12:focus-within,
 .circuit-12:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-12:focus-within>button,
@@ -1575,16 +1600,21 @@ tbody .circuit-4:last-child td {
   opacity: 1;
 }
 
+.circuit-12:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
+}
+
 .circuit-17 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -1597,8 +1627,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-20 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -1620,8 +1650,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-21 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -1647,8 +1677,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-22 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -1872,7 +1902,7 @@ exports[`Table Style tests should render a scrollable table 1`] = `
 .circuit-0 {
   position: relative;
   height: 100%;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-divider);
 }
 
 @media (max-width: 767px) {
@@ -1887,7 +1917,7 @@ exports[`Table Style tests should render a scrollable table 1`] = `
 }
 
 .circuit-2 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
 }
@@ -1902,15 +1932,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -1935,7 +1965,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -1944,13 +1974,18 @@ tbody .circuit-4:last-child td {
 
 .circuit-6:focus-within,
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-6:focus-within>button,
 .circuit-6:hover>button {
   opacity: 1;
+}
+
+.circuit-6:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-7 {
@@ -1977,7 +2012,7 @@ tbody .circuit-4:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   border: 0;
   background: none;
   outline: 0;
@@ -2011,15 +2046,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-16 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -2027,8 +2062,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-19 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2218,7 +2253,7 @@ tbody .circuit-4:last-child td {
 exports[`Table Style tests should render with component cells 1`] = `
 .circuit-0 {
   position: relative;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-divider);
 }
 
 .circuit-1 {
@@ -2234,7 +2269,7 @@ exports[`Table Style tests should render with component cells 1`] = `
 }
 
 .circuit-2 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
 }
@@ -2270,15 +2305,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -2296,8 +2331,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-7 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2322,15 +2357,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-8 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -2338,8 +2373,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-11 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -2357,8 +2392,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-12 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2378,8 +2413,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-13 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2397,8 +2432,8 @@ tbody .circuit-4:last-child td {
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #E6E6E6;
-  color: #1A1A1A;
+  background-color: var(--cui-bg-highlight);
+  color: var(--cui-fg-normal);
 }
 
 <div
@@ -2518,7 +2553,7 @@ tbody .circuit-4:last-child td {
 exports[`Table Style tests should render with default styles 1`] = `
 .circuit-0 {
   position: relative;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-divider);
 }
 
 .circuit-1 {
@@ -2534,7 +2569,7 @@ exports[`Table Style tests should render with default styles 1`] = `
 }
 
 .circuit-2 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
 }
@@ -2570,15 +2605,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -2613,7 +2648,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -2622,13 +2657,18 @@ tbody .circuit-4:last-child td {
 
 .circuit-6:focus-within,
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-6:focus-within>button,
 .circuit-6:hover>button {
   opacity: 1;
+}
+
+.circuit-6:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-7 {
@@ -2655,7 +2695,7 @@ tbody .circuit-4:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   border: 0;
   background: none;
   outline: 0;
@@ -2689,8 +2729,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-11 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2715,15 +2755,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-12 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -2748,7 +2788,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -2757,8 +2797,8 @@ tbody .circuit-4:last-child td {
 
 .circuit-12:focus-within,
 .circuit-12:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-12:focus-within>button,
@@ -2766,16 +2806,21 @@ tbody .circuit-4:last-child td {
   opacity: 1;
 }
 
+.circuit-12:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
+}
+
 .circuit-17 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -2783,8 +2828,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-20 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -2802,8 +2847,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-21 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2823,8 +2868,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-22 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -3044,7 +3089,7 @@ tbody .circuit-4:last-child td {
 exports[`Table Style tests should render with rowHeader styles 1`] = `
 .circuit-0 {
   position: relative;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-divider);
 }
 
 .circuit-1 {
@@ -3060,7 +3105,7 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
 }
 
 .circuit-2 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
 }
@@ -3096,15 +3141,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -3139,7 +3184,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -3148,13 +3193,18 @@ tbody .circuit-4:last-child td {
 
 .circuit-6:focus-within,
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-6:focus-within>button,
 .circuit-6:hover>button {
   opacity: 1;
+}
+
+.circuit-6:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-7 {
@@ -3181,7 +3231,7 @@ tbody .circuit-4:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   border: 0;
   background: none;
   outline: 0;
@@ -3215,8 +3265,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-11 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -3241,15 +3291,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-12 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -3274,7 +3324,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -3283,8 +3333,8 @@ tbody .circuit-4:last-child td {
 
 .circuit-12:focus-within,
 .circuit-12:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-12:focus-within>button,
@@ -3292,16 +3342,21 @@ tbody .circuit-4:last-child td {
   opacity: 1;
 }
 
+.circuit-12:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
+}
+
 .circuit-17 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -3309,8 +3364,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-20 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -3328,8 +3383,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-21 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -3349,8 +3404,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-22 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -3585,7 +3640,7 @@ exports[`Table Style tests should render without the table shadow 1`] = `
 }
 
 .circuit-2 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
 }
@@ -3621,15 +3676,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -3664,7 +3719,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus-within::after::-moz-focus-inner {
@@ -3673,13 +3728,18 @@ tbody .circuit-4:last-child td {
 
 .circuit-6:focus-within,
 .circuit-6:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-6:focus-within>button,
 .circuit-6:hover>button {
   opacity: 1;
+}
+
+.circuit-6:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-7 {
@@ -3706,7 +3766,7 @@ tbody .circuit-4:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   border: 0;
   background: none;
   outline: 0;
@@ -3740,8 +3800,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-11 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -3766,15 +3826,15 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-12 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -3799,7 +3859,7 @@ tbody .circuit-4:last-child td {
   left: 0;
   z-index: 1;
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-12:focus-within::after::-moz-focus-inner {
@@ -3808,8 +3868,8 @@ tbody .circuit-4:last-child td {
 
 .circuit-12:focus-within,
 .circuit-12:hover {
-  background-color: #F5F5F5;
-  color: #3063E9;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-12:focus-within>button,
@@ -3817,16 +3877,21 @@ tbody .circuit-4:last-child td {
   opacity: 1;
 }
 
+.circuit-12:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-accent-pressed);
+}
+
 .circuit-17 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -3834,8 +3899,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-20 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -3853,8 +3918,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-21 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -3874,8 +3939,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-22 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;

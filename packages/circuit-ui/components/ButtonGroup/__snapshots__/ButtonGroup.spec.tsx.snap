@@ -68,9 +68,9 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -78,7 +78,7 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -91,21 +91,28 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-2 {
@@ -180,9 +187,9 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -190,7 +197,7 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 
 .circuit-5:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-5:focus::-moz-focus-inner {
@@ -203,41 +210,57 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
   .circuit-5 {
     margin-right: 16px;
-    background-color: #FFF;
-    border-color: #999;
-    color: #000;
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+    color: var(--cui-fg-normal);
   }
 
   .circuit-5:hover {
-    background-color: #F5F5F5;
-    border-color: #666;
+    background-color: var(--cui-bg-normal-hovered);
+    border-color: var(--cui-border-normal-hovered);
+    color: var(--cui-fg-normal-hovered);
   }
 
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    background-color: #E6E6E6;
-    border-color: #333;
+    background-color: var(--cui-bg-normal-pressed);
+    border-color: var(--cui-border-normal-pressed);
+    color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -247,13 +270,13 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
     margin-top: 16px;
     background-color: transparent;
     border-color: transparent;
-    color: #3063E9;
+    color: var(--cui-fg-accent);
     padding-left: 0;
     padding-right: 0;
   }
 
   .circuit-5:hover {
-    color: #234BC3;
+    color: var(--cui-fg-accent-hovered);
     background-color: transparent;
     border-color: transparent;
   }
@@ -261,7 +284,14 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    color: #1A368E;
+    color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }
@@ -373,9 +403,9 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -383,7 +413,7 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -396,21 +426,28 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-2 {
@@ -485,9 +522,9 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -495,7 +532,7 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 
 .circuit-5:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-5:focus::-moz-focus-inner {
@@ -508,41 +545,57 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
   .circuit-5 {
     margin-right: 16px;
-    background-color: #FFF;
-    border-color: #999;
-    color: #000;
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+    color: var(--cui-fg-normal);
   }
 
   .circuit-5:hover {
-    background-color: #F5F5F5;
-    border-color: #666;
+    background-color: var(--cui-bg-normal-hovered);
+    border-color: var(--cui-border-normal-hovered);
+    color: var(--cui-fg-normal-hovered);
   }
 
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    background-color: #E6E6E6;
-    border-color: #333;
+    background-color: var(--cui-bg-normal-pressed);
+    border-color: var(--cui-border-normal-pressed);
+    color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -552,13 +605,13 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
     margin-top: 16px;
     background-color: transparent;
     border-color: transparent;
-    color: #3063E9;
+    color: var(--cui-fg-accent);
     padding-left: 0;
     padding-right: 0;
   }
 
   .circuit-5:hover {
-    color: #234BC3;
+    color: var(--cui-fg-accent-hovered);
     background-color: transparent;
     border-color: transparent;
   }
@@ -566,7 +619,14 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    color: #1A368E;
+    color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }
@@ -678,9 +738,9 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -688,7 +748,7 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -701,21 +761,28 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-2 {
@@ -790,9 +857,9 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -800,7 +867,7 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 
 .circuit-5:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-5:focus::-moz-focus-inner {
@@ -813,41 +880,57 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
   .circuit-5 {
     margin-right: 16px;
-    background-color: #FFF;
-    border-color: #999;
-    color: #000;
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+    color: var(--cui-fg-normal);
   }
 
   .circuit-5:hover {
-    background-color: #F5F5F5;
-    border-color: #666;
+    background-color: var(--cui-bg-normal-hovered);
+    border-color: var(--cui-border-normal-hovered);
+    color: var(--cui-fg-normal-hovered);
   }
 
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    background-color: #E6E6E6;
-    border-color: #333;
+    background-color: var(--cui-bg-normal-pressed);
+    border-color: var(--cui-border-normal-pressed);
+    color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -857,13 +940,13 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
     margin-top: 16px;
     background-color: transparent;
     border-color: transparent;
-    color: #3063E9;
+    color: var(--cui-fg-accent);
     padding-left: 0;
     padding-right: 0;
   }
 
   .circuit-5:hover {
-    color: #234BC3;
+    color: var(--cui-fg-accent-hovered);
     background-color: transparent;
     border-color: transparent;
   }
@@ -871,7 +954,14 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    color: #1A368E;
+    color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }
@@ -983,9 +1073,9 @@ exports[`ButtonGroup should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -993,7 +1083,7 @@ exports[`ButtonGroup should render with default styles 1`] = `
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -1006,21 +1096,28 @@ exports[`ButtonGroup should render with default styles 1`] = `
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-2 {
@@ -1095,9 +1192,9 @@ exports[`ButtonGroup should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -1105,7 +1202,7 @@ exports[`ButtonGroup should render with default styles 1`] = `
 
 .circuit-5:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-5:focus::-moz-focus-inner {
@@ -1118,41 +1215,57 @@ exports[`ButtonGroup should render with default styles 1`] = `
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-5:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-5:active,
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 480px) {
   .circuit-5 {
     margin-right: 16px;
-    background-color: #FFF;
-    border-color: #999;
-    color: #000;
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+    color: var(--cui-fg-normal);
   }
 
   .circuit-5:hover {
-    background-color: #F5F5F5;
-    border-color: #666;
+    background-color: var(--cui-bg-normal-hovered);
+    border-color: var(--cui-border-normal-hovered);
+    color: var(--cui-fg-normal-hovered);
   }
 
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    background-color: #E6E6E6;
-    border-color: #333;
+    background-color: var(--cui-bg-normal-pressed);
+    border-color: var(--cui-border-normal-pressed);
+    color: var(--cui-fg-normal-pressed);
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    background-color: var(--cui-bg-normal-disabled);
+    border-color: var(--cui-border-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 }
 
@@ -1162,13 +1275,13 @@ exports[`ButtonGroup should render with default styles 1`] = `
     margin-top: 16px;
     background-color: transparent;
     border-color: transparent;
-    color: #3063E9;
+    color: var(--cui-fg-accent);
     padding-left: 0;
     padding-right: 0;
   }
 
   .circuit-5:hover {
-    color: #234BC3;
+    color: var(--cui-fg-accent-hovered);
     background-color: transparent;
     border-color: transparent;
   }
@@ -1176,7 +1289,14 @@ exports[`ButtonGroup should render with default styles 1`] = `
   .circuit-5:active,
   .circuit-5[aria-expanded='true'],
   .circuit-5[aria-pressed='true'] {
-    color: #1A368E;
+    color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .circuit-5:disabled,
+  .circuit-5[disabled] {
+    color: var(--cui-fg-accent-disabled);
     background-color: transparent;
     border-color: transparent;
   }

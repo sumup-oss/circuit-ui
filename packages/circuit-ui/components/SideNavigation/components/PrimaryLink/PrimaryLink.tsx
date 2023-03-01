@@ -19,11 +19,7 @@ import { Theme } from '@sumup/design-tokens';
 import { ArrowRight } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../../../styles/styled';
-import {
-  focusVisible,
-  disableVisually,
-  cx,
-} from '../../../../styles/style-mixins';
+import { cx, focusVisible } from '../../../../styles/style-mixins';
 import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { ClickEvent } from '../../../../types/events';
 import { EmotionAsPropType } from '../../../../types/prop-types';
@@ -57,21 +53,26 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   text-align: left;
   cursor: pointer;
   text-decoration: none;
-  color: ${theme.colors.black};
+  color: var(--cui-fg-normal);
   padding: ${theme.spacings.giga};
   transition: color ${theme.transitions.default},
     background-color ${theme.transitions.default};
 
   &:hover {
-    background-color: ${theme.colors.n100};
+    background-color: var(--cui-bg-normal-hovered);
+    color: var(--cui-fg-normal-hovered);
   }
 
   &:active {
-    background-color: ${theme.colors.n200};
+    background-color: var(--cui-bg-normal-pressed);
+    color: var(--cui-fg-normal-pressed);
   }
 
-  &:disabled {
-    ${disableVisually()};
+  &:disabled,
+  &[disabled] {
+    pointer-events: none;
+    background-color: var(--cui-bg-normal-disabled);
+    color: var(--cui-fg-normal-disabled);
   }
 
   ${theme.mq.untilTera} {
@@ -85,7 +86,7 @@ const anchorStyles = ({ theme }: StyleProps) => css`
       right: ${theme.spacings.giga};
       left: ${theme.spacings.giga};
       width: calc(100% - 2 * ${theme.spacings.giga});
-      border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+      border-bottom: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
       transition: width ${theme.transitions.default},
         right ${theme.transitions.default}, left ${theme.transitions.default};
     }
@@ -99,13 +100,17 @@ const anchorStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const anchorActiveStyles = ({ theme, isActive }: StyleProps & AnchorProps) =>
+const anchorActiveStyles = ({ isActive }: StyleProps & AnchorProps) =>
   isActive &&
   css`
-    color: ${theme.colors.p500};
+    color: var(--cui-fg-accent);
 
     &:hover {
-      background-color: ${theme.colors.p100};
+      background-color: var(--cui-bg-accent-hovered);
+    }
+
+    &:active {
+      background-color: var(--cui-bg-accent-pressed);
     }
   `;
 
@@ -147,7 +152,7 @@ const iconWithBadgeStyles = (theme: Theme) => css`
     right: -8px;
     width: 10px;
     height: 10px;
-    background-color: ${theme.colors.v500};
+    background-color: var(--cui-fg-promo);
     border-radius: ${theme.borderRadius.circle};
   }
 `;

@@ -27,8 +27,8 @@ const Box = styled.div<BorderWidthProps>(
     width: ${theme.spacings.tera};
     height: ${theme.spacings.tera};
     border-radius: ${theme.borderRadius.bit};
-    border: ${theme.borderWidth[size]} solid ${theme.colors.r500};
-    background-color: ${theme.colors.r300};
+    border: ${theme.borderWidth[size]} solid var(--cui-border-accent);
+    background-color: var(--cui-bg-normal);
     margin-right: ${theme.spacings.mega};
   `,
 );

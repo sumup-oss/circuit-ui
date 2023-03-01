@@ -39,7 +39,7 @@ const buttonBase = ({ theme, primary }) => css`
   ${typography('two')(theme)};
   margin-left: ${theme.spacings.kilo}};
   cursor: pointer;
-  color: ${primary ? theme.colors.p500 : theme.colors.bodyColor};
+  color: ${primary ? 'var(--cui-fg-accent)' : 'var(--cui-fg-normal'};
 `;
 
 const InfoButton = styled('span')(buttonBase);
