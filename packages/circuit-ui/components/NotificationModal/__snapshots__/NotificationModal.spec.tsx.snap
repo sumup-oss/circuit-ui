@@ -49,7 +49,7 @@ exports[`NotificationModal styles should render with an SVG 1`] = `
   max-width: 420px;
   max-height: calc(100vh - 16px * 2);
   outline: none;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: 16px;
   padding: 24px;
   text-align: center;
@@ -641,7 +641,7 @@ exports[`NotificationModal styles should render with default styles 1`] = `
   max-width: 420px;
   max-height: calc(100vh - 16px * 2);
   outline: none;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: 16px;
   padding: 24px;
   text-align: center;
@@ -1216,7 +1216,7 @@ exports[`NotificationModal styles should render without an image 1`] = `
   max-width: 420px;
   max-height: calc(100vh - 16px * 2);
   outline: none;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: 16px;
   padding: 24px;
   text-align: center;

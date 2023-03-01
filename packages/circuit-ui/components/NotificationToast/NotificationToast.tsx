@@ -95,7 +95,7 @@ const toastWrapperStyles = ({
   theme,
   variant,
 }: NotificationToastWrapperProps & StyleProps) => css`
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: ${theme.borderRadius.byte};
   border: ${theme.borderWidth.mega} solid var(--cui-border-${colorMap[variant]});
   overflow: hidden;

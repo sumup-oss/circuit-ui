@@ -167,7 +167,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
             max-width: 420px;
             max-height: calc(100vh - ${theme.spacings.mega} * 2);
             outline: none;
-            background-color: var(--cui-bg-normal);
+            background-color: var(--cui-bg-elevated);
             border-radius: ${theme.borderRadius.mega};
             padding: ${theme.spacings.giga};
             text-align: center;

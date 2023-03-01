@@ -37,7 +37,7 @@ exports[`Popover Styles should render popover on bottom 1`] = `
   border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
@@ -304,7 +304,7 @@ exports[`Popover Styles should render popover on left 1`] = `
   border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
@@ -571,7 +571,7 @@ exports[`Popover Styles should render popover on right 1`] = `
   border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
@@ -838,7 +838,7 @@ exports[`Popover Styles should render popover on top 1`] = `
   border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
@@ -1098,7 +1098,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
   border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
 }
@@ -1354,7 +1354,7 @@ exports[`Popover Styles should render with default styles 1`] = `
   border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
   opacity: 1;

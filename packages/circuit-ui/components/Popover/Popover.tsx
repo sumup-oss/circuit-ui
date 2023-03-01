@@ -141,7 +141,7 @@ const menuBaseStyles = ({ theme }: StyleProps) => css`
   border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.byte};
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
 

@@ -18,7 +18,7 @@ exports[`NotificationToast styles should render with a headline 1`] = `
 }
 
 .circuit-0 {
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: 8px;
   border: 2px solid var(--cui-border-accent);
   overflow: hidden;
@@ -327,7 +327,7 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
 }
 
 .circuit-0 {
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: 8px;
   border: 2px solid var(--cui-border-danger);
   overflow: hidden;
@@ -624,7 +624,7 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
 }
 
 .circuit-0 {
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: 8px;
   border: 2px solid var(--cui-border-success);
   overflow: hidden;
@@ -921,7 +921,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: 8px;
   border: 2px solid var(--cui-border-accent);
   overflow: hidden;
@@ -1218,7 +1218,7 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
 }
 
 .circuit-0 {
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: 8px;
   border: 2px solid var(--cui-border-accent);
   overflow: hidden;
@@ -1515,7 +1515,7 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
 }
 
 .circuit-0 {
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: 8px;
   border: 2px solid var(--cui-border-warning);
   overflow: hidden;

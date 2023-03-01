@@ -170,7 +170,7 @@ export const Modal: ModalComponent<ModalProps> = ({
             cssString`
               position: fixed;
               outline: none;
-              background-color: var(--cui-bg-normal);
+              background-color: var(--cui-bg-elevated);
 
               &::after {
                 position: fixed;
