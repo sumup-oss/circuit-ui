@@ -13,7 +13,6 @@ exports[`Table Style tests should not render a scrollable table if the rowHeader
 @media (max-width: 767px) {
   .circuit-1 {
     height: unset;
-    margin-left: 145px;
     overflow-x: auto;
   }
 }
@@ -22,27 +21,6 @@ exports[`Table Style tests should not render a scrollable table if the rowHeader
   background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
-}
-
-@media (max-width: 767px) {
-  .circuit-2 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-2:after {
-    content: '';
-    background-image: linear-gradient(
-              90deg,
-              rgba(0, 0, 0, 0.12),
-              transparent
-            );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
 }
 
 .circuit-4 {
@@ -79,10 +57,25 @@ tbody .circuit-4:last-child td {
 @media (max-width: 767px) {
   .circuit-6 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-6:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
@@ -183,32 +176,6 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  padding: 8px 24px;
-  white-space: nowrap;
-}
-
-@media (max-width: 767px) {
-  .circuit-11 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-12 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
@@ -226,7 +193,7 @@ tbody .circuit-4:last-child td {
   user-select: none;
 }
 
-.circuit-12:focus-within::after {
+.circuit-11:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -241,27 +208,27 @@ tbody .circuit-4:last-child td {
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-12:focus-within::after::-moz-focus-inner {
+.circuit-11:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-12:focus-within,
-.circuit-12:hover {
+.circuit-11:focus-within,
+.circuit-11:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-accent-hovered);
 }
 
-.circuit-12:focus-within>button,
-.circuit-12:hover>button {
+.circuit-11:focus-within>button,
+.circuit-11:hover>button {
   opacity: 1;
 }
 
-.circuit-12:active {
+.circuit-11:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-accent-pressed);
 }
 
-.circuit-17 {
+.circuit-16 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -277,7 +244,7 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
-.circuit-20 {
+.circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -287,37 +254,31 @@ tbody .circuit-4:last-child td {
 }
 
 @media (max-width: 767px) {
-  .circuit-20 {
+  .circuit-19 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-19:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
-.circuit-21 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .circuit-21 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-22 {
+.circuit-20 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -388,17 +349,10 @@ tbody .circuit-4:last-child td {
             </button>
             Letters
           </th>
-          <td
-            aria-hidden="true"
-            class="circuit-11"
-            role="presentation"
-          >
-            Letters
-          </td>
           <th
             aria-label="Sort in ascending order"
             aria-sort="none"
-            class="circuit-12"
+            class="circuit-11"
             scope="col"
           >
             <button
@@ -441,7 +395,7 @@ tbody .circuit-4:last-child td {
             Numbers
           </th>
           <th
-            class="circuit-17"
+            class="circuit-16"
             scope="col"
           >
             Words
@@ -453,25 +407,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             b
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            b
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Foo
           </td>
@@ -480,25 +427,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             a
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            a
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Bar
           </td>
@@ -507,25 +447,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             c
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            c
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Baz
           </td>
@@ -549,7 +482,6 @@ exports[`Table Style tests should render "null" or "undefined" cells 1`] = `
 @media (max-width: 767px) {
   .circuit-1 {
     height: unset;
-    margin-left: 145px;
     overflow-x: auto;
   }
 }
@@ -558,27 +490,6 @@ exports[`Table Style tests should render "null" or "undefined" cells 1`] = `
   background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
-}
-
-@media (max-width: 767px) {
-  .circuit-2 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-2:after {
-    content: '';
-    background-image: linear-gradient(
-              90deg,
-              rgba(0, 0, 0, 0.12),
-              transparent
-            );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
 }
 
 .circuit-4 {
@@ -609,40 +520,29 @@ tbody .circuit-4:last-child td {
 @media (max-width: 767px) {
   .circuit-6 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-6:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
 .circuit-7 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  padding: 8px 24px;
-  white-space: nowrap;
-}
-
-@media (max-width: 767px) {
-  .circuit-7 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-8 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -658,7 +558,7 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
-.circuit-11 {
+.circuit-10 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -668,37 +568,31 @@ tbody .circuit-4:last-child td {
 }
 
 @media (max-width: 767px) {
-  .circuit-11 {
+  .circuit-10 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-10:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
-.circuit-12 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .circuit-12 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-13 {
+.circuit-11 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -730,15 +624,8 @@ tbody .circuit-4:last-child td {
           >
             Name
           </th>
-          <td
-            aria-hidden="true"
-            class="circuit-7"
-            role="presentation"
-          >
-            Name
-          </td>
           <th
-            class="circuit-8"
+            class="circuit-7"
             scope="col"
           >
             Type
@@ -750,16 +637,11 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-11"
+            class="circuit-10"
             scope="row"
           />
           <td
-            aria-hidden="true"
-            class="circuit-12"
-            role="presentation"
-          />
-          <td
-            class="circuit-13"
+            class="circuit-11"
           >
             Fruit
           </td>
@@ -768,20 +650,13 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-11"
+            class="circuit-10"
             scope="row"
           >
             Broccoli
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-12"
-            role="presentation"
-          >
-            Broccoli
-          </td>
-          <td
-            class="circuit-13"
+            class="circuit-11"
           />
         </tr>
       </tbody>
@@ -803,7 +678,6 @@ exports[`Table Style tests should render a collapsed table 1`] = `
 @media (max-width: 767px) {
   .circuit-1 {
     height: unset;
-    margin-left: 145px;
     overflow-x: auto;
   }
 }
@@ -813,27 +687,6 @@ exports[`Table Style tests should render a collapsed table 1`] = `
   border-collapse: separate;
   width: 100%;
   border-collapse: collapse;
-}
-
-@media (max-width: 767px) {
-  .circuit-2 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-2:after {
-    content: '';
-    background-image: linear-gradient(
-              90deg,
-              rgba(0, 0, 0, 0.12),
-              transparent
-            );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
 }
 
 .circuit-4 {
@@ -870,10 +723,25 @@ tbody .circuit-4:last-child td {
 @media (max-width: 767px) {
   .circuit-6 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-6:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
@@ -974,32 +842,6 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  padding: 8px 24px;
-  white-space: nowrap;
-}
-
-@media (max-width: 767px) {
-  .circuit-11 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-12 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
@@ -1017,7 +859,7 @@ tbody .circuit-4:last-child td {
   user-select: none;
 }
 
-.circuit-12:focus-within::after {
+.circuit-11:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -1032,27 +874,27 @@ tbody .circuit-4:last-child td {
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-12:focus-within::after::-moz-focus-inner {
+.circuit-11:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-12:focus-within,
-.circuit-12:hover {
+.circuit-11:focus-within,
+.circuit-11:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-accent-hovered);
 }
 
-.circuit-12:focus-within>button,
-.circuit-12:hover>button {
+.circuit-11:focus-within>button,
+.circuit-11:hover>button {
   opacity: 1;
 }
 
-.circuit-12:active {
+.circuit-11:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-accent-pressed);
 }
 
-.circuit-17 {
+.circuit-16 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -1068,7 +910,7 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
-.circuit-20 {
+.circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -1078,37 +920,31 @@ tbody .circuit-4:last-child td {
 }
 
 @media (max-width: 767px) {
-  .circuit-20 {
+  .circuit-19 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-19:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
-.circuit-21 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .circuit-21 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-22 {
+.circuit-20 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -1179,17 +1015,10 @@ tbody .circuit-4:last-child td {
             </button>
             Letters
           </th>
-          <td
-            aria-hidden="true"
-            class="circuit-11"
-            role="presentation"
-          >
-            Letters
-          </td>
           <th
             aria-label="Sort in ascending order"
             aria-sort="none"
-            class="circuit-12"
+            class="circuit-11"
             scope="col"
           >
             <button
@@ -1232,7 +1061,7 @@ tbody .circuit-4:last-child td {
             Numbers
           </th>
           <th
-            class="circuit-17"
+            class="circuit-16"
             scope="col"
           >
             Words
@@ -1244,25 +1073,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             b
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            b
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Foo
           </td>
@@ -1271,25 +1093,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             a
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            a
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Bar
           </td>
@@ -1298,25 +1113,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             c
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            c
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Baz
           </td>
@@ -1340,7 +1148,6 @@ exports[`Table Style tests should render a condensed table 1`] = `
 @media (max-width: 767px) {
   .circuit-1 {
     height: unset;
-    margin-left: 145px;
     overflow-x: auto;
   }
 }
@@ -1349,27 +1156,6 @@ exports[`Table Style tests should render a condensed table 1`] = `
   background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
-}
-
-@media (max-width: 767px) {
-  .circuit-2 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-2:after {
-    content: '';
-    background-image: linear-gradient(
-              90deg,
-              rgba(0, 0, 0, 0.12),
-              transparent
-            );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
 }
 
 .circuit-4 {
@@ -1411,10 +1197,25 @@ tbody .circuit-4:last-child td {
 @media (max-width: 767px) {
   .circuit-6 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-6:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
@@ -1515,39 +1316,6 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  padding: 12px 16px 12px 24px;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  display: none;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  padding: 8px 24px;
-  white-space: nowrap;
-  padding: 12px 16px 12px 24px;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  padding: 8px 16px 8px 24px;
-}
-
-@media (max-width: 767px) {
-  .circuit-11 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-12 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
@@ -1570,7 +1338,7 @@ tbody .circuit-4:last-child td {
   padding: 8px 16px 8px 24px;
 }
 
-.circuit-12:focus-within::after {
+.circuit-11:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -1585,27 +1353,27 @@ tbody .circuit-4:last-child td {
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-12:focus-within::after::-moz-focus-inner {
+.circuit-11:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-12:focus-within,
-.circuit-12:hover {
+.circuit-11:focus-within,
+.circuit-11:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-accent-hovered);
 }
 
-.circuit-12:focus-within>button,
-.circuit-12:hover>button {
+.circuit-11:focus-within>button,
+.circuit-11:hover>button {
   opacity: 1;
 }
 
-.circuit-12:active {
+.circuit-11:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-accent-pressed);
 }
 
-.circuit-17 {
+.circuit-16 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -1626,7 +1394,7 @@ tbody .circuit-4:last-child td {
   padding: 8px 16px 8px 24px;
 }
 
-.circuit-20 {
+.circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -1640,43 +1408,31 @@ tbody .circuit-4:last-child td {
 }
 
 @media (max-width: 767px) {
-  .circuit-20 {
+  .circuit-19 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-19:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
-.circuit-21 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  padding: 12px 16px 12px 24px;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  display: none;
-  padding: 12px 16px 12px 24px;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-@media (max-width: 767px) {
-  .circuit-21 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-22 {
+.circuit-20 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -1750,17 +1506,10 @@ tbody .circuit-4:last-child td {
             </button>
             Letters
           </th>
-          <td
-            aria-hidden="true"
-            class="circuit-11"
-            role="presentation"
-          >
-            Letters
-          </td>
           <th
             aria-label="Sort in ascending order"
             aria-sort="none"
-            class="circuit-12"
+            class="circuit-11"
             scope="col"
           >
             <button
@@ -1803,7 +1552,7 @@ tbody .circuit-4:last-child td {
             Numbers
           </th>
           <th
-            class="circuit-17"
+            class="circuit-16"
             scope="col"
           >
             Words
@@ -1815,25 +1564,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             b
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            b
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Foo
           </td>
@@ -1842,25 +1584,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             a
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            a
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Bar
           </td>
@@ -1869,25 +1604,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             c
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            c
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Baz
           </td>
@@ -1903,12 +1631,6 @@ exports[`Table Style tests should render a scrollable table 1`] = `
   position: relative;
   height: 100%;
   border: 1px solid var(--cui-border-divider);
-}
-
-@media (max-width: 767px) {
-  .circuit-0 {
-    height: 100%;
-  }
 }
 
 .circuit-1 {
@@ -2263,7 +1985,6 @@ exports[`Table Style tests should render with component cells 1`] = `
 @media (max-width: 767px) {
   .circuit-1 {
     height: unset;
-    margin-left: 145px;
     overflow-x: auto;
   }
 }
@@ -2272,27 +1993,6 @@ exports[`Table Style tests should render with component cells 1`] = `
   background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
-}
-
-@media (max-width: 767px) {
-  .circuit-2 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-2:after {
-    content: '';
-    background-image: linear-gradient(
-              90deg,
-              rgba(0, 0, 0, 0.12),
-              transparent
-            );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
 }
 
 .circuit-4 {
@@ -2323,40 +2023,29 @@ tbody .circuit-4:last-child td {
 @media (max-width: 767px) {
   .circuit-6 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-6:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
 .circuit-7 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  padding: 8px 24px;
-  white-space: nowrap;
-}
-
-@media (max-width: 767px) {
-  .circuit-7 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-8 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -2372,7 +2061,7 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
-.circuit-11 {
+.circuit-10 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -2382,16 +2071,31 @@ tbody .circuit-4:last-child td {
 }
 
 @media (max-width: 767px) {
-  .circuit-11 {
+  .circuit-10 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-10:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
-.circuit-12 {
+.circuit-11 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -2400,30 +2104,9 @@ tbody .circuit-4:last-child td {
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   overflow-wrap: break-word;
-  display: none;
 }
 
-@media (max-width: 767px) {
-  .circuit-12 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-13 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-}
-
-.circuit-24 {
+.circuit-20 {
   font-size: 0.875rem;
   line-height: 1.25rem;
   border-radius: 999999px;
@@ -2457,15 +2140,8 @@ tbody .circuit-4:last-child td {
           >
             Name
           </th>
-          <td
-            aria-hidden="true"
-            class="circuit-7"
-            role="presentation"
-          >
-            Name
-          </td>
           <th
-            class="circuit-8"
+            class="circuit-7"
             scope="col"
           >
             Type
@@ -2477,20 +2153,13 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-11"
+            class="circuit-10"
             scope="row"
           >
             Apple
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-12"
-            role="presentation"
-          >
-            Apple
-          </td>
-          <td
-            class="circuit-13"
+            class="circuit-11"
           >
             Fruit
           </td>
@@ -2499,20 +2168,13 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-11"
+            class="circuit-10"
             scope="row"
           >
             Broccoli
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-12"
-            role="presentation"
-          >
-            Broccoli
-          </td>
-          <td
-            class="circuit-13"
+            class="circuit-11"
           >
             Vegetable
           </td>
@@ -2521,23 +2183,16 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-11"
+            class="circuit-10"
             scope="row"
           >
             Chickpeas
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-12"
-            role="presentation"
-          >
-            Chickpeas
-          </td>
-          <td
-            class="circuit-13"
+            class="circuit-11"
           >
             <div
-              class="circuit-24"
+              class="circuit-20"
               color="warning"
             >
               Unknown
@@ -2563,7 +2218,6 @@ exports[`Table Style tests should render with default styles 1`] = `
 @media (max-width: 767px) {
   .circuit-1 {
     height: unset;
-    margin-left: 145px;
     overflow-x: auto;
   }
 }
@@ -2572,27 +2226,6 @@ exports[`Table Style tests should render with default styles 1`] = `
   background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
-}
-
-@media (max-width: 767px) {
-  .circuit-2 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-2:after {
-    content: '';
-    background-image: linear-gradient(
-              90deg,
-              rgba(0, 0, 0, 0.12),
-              transparent
-            );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
 }
 
 .circuit-4 {
@@ -2629,10 +2262,25 @@ tbody .circuit-4:last-child td {
 @media (max-width: 767px) {
   .circuit-6 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-6:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
@@ -2733,32 +2381,6 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  padding: 8px 24px;
-  white-space: nowrap;
-}
-
-@media (max-width: 767px) {
-  .circuit-11 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-12 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
@@ -2776,7 +2398,7 @@ tbody .circuit-4:last-child td {
   user-select: none;
 }
 
-.circuit-12:focus-within::after {
+.circuit-11:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -2791,27 +2413,27 @@ tbody .circuit-4:last-child td {
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-12:focus-within::after::-moz-focus-inner {
+.circuit-11:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-12:focus-within,
-.circuit-12:hover {
+.circuit-11:focus-within,
+.circuit-11:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-accent-hovered);
 }
 
-.circuit-12:focus-within>button,
-.circuit-12:hover>button {
+.circuit-11:focus-within>button,
+.circuit-11:hover>button {
   opacity: 1;
 }
 
-.circuit-12:active {
+.circuit-11:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-accent-pressed);
 }
 
-.circuit-17 {
+.circuit-16 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -2827,7 +2449,7 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
-.circuit-20 {
+.circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -2837,37 +2459,31 @@ tbody .circuit-4:last-child td {
 }
 
 @media (max-width: 767px) {
-  .circuit-20 {
+  .circuit-19 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-19:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
-.circuit-21 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .circuit-21 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-22 {
+.circuit-20 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -2938,17 +2554,10 @@ tbody .circuit-4:last-child td {
             </button>
             Letters
           </th>
-          <td
-            aria-hidden="true"
-            class="circuit-11"
-            role="presentation"
-          >
-            Letters
-          </td>
           <th
             aria-label="Sort in ascending order"
             aria-sort="none"
-            class="circuit-12"
+            class="circuit-11"
             scope="col"
           >
             <button
@@ -2991,7 +2600,7 @@ tbody .circuit-4:last-child td {
             Numbers
           </th>
           <th
-            class="circuit-17"
+            class="circuit-16"
             scope="col"
           >
             Words
@@ -3003,25 +2612,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             b
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            b
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Foo
           </td>
@@ -3030,25 +2632,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             a
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            a
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Bar
           </td>
@@ -3057,25 +2652,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             c
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            c
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Baz
           </td>
@@ -3099,7 +2687,6 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
 @media (max-width: 767px) {
   .circuit-1 {
     height: unset;
-    margin-left: 145px;
     overflow-x: auto;
   }
 }
@@ -3108,27 +2695,6 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
   background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
-}
-
-@media (max-width: 767px) {
-  .circuit-2 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-2:after {
-    content: '';
-    background-image: linear-gradient(
-              90deg,
-              rgba(0, 0, 0, 0.12),
-              transparent
-            );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
 }
 
 .circuit-4 {
@@ -3165,10 +2731,25 @@ tbody .circuit-4:last-child td {
 @media (max-width: 767px) {
   .circuit-6 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-6:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
@@ -3269,32 +2850,6 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  padding: 8px 24px;
-  white-space: nowrap;
-}
-
-@media (max-width: 767px) {
-  .circuit-11 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-12 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
@@ -3312,7 +2867,7 @@ tbody .circuit-4:last-child td {
   user-select: none;
 }
 
-.circuit-12:focus-within::after {
+.circuit-11:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -3327,27 +2882,27 @@ tbody .circuit-4:last-child td {
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-12:focus-within::after::-moz-focus-inner {
+.circuit-11:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-12:focus-within,
-.circuit-12:hover {
+.circuit-11:focus-within,
+.circuit-11:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-accent-hovered);
 }
 
-.circuit-12:focus-within>button,
-.circuit-12:hover>button {
+.circuit-11:focus-within>button,
+.circuit-11:hover>button {
   opacity: 1;
 }
 
-.circuit-12:active {
+.circuit-11:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-accent-pressed);
 }
 
-.circuit-17 {
+.circuit-16 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -3363,7 +2918,7 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
-.circuit-20 {
+.circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -3373,37 +2928,31 @@ tbody .circuit-4:last-child td {
 }
 
 @media (max-width: 767px) {
-  .circuit-20 {
+  .circuit-19 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-19:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
-.circuit-21 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .circuit-21 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-22 {
+.circuit-20 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -3474,17 +3023,10 @@ tbody .circuit-4:last-child td {
             </button>
             Letters
           </th>
-          <td
-            aria-hidden="true"
-            class="circuit-11"
-            role="presentation"
-          >
-            Letters
-          </td>
           <th
             aria-label="Sort in ascending order"
             aria-sort="none"
-            class="circuit-12"
+            class="circuit-11"
             scope="col"
           >
             <button
@@ -3527,7 +3069,7 @@ tbody .circuit-4:last-child td {
             Numbers
           </th>
           <th
-            class="circuit-17"
+            class="circuit-16"
             scope="col"
           >
             Words
@@ -3539,25 +3081,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             b
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            b
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Foo
           </td>
@@ -3566,25 +3101,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             a
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            a
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Bar
           </td>
@@ -3593,25 +3121,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             c
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            c
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Baz
           </td>
@@ -3634,7 +3155,6 @@ exports[`Table Style tests should render without the table shadow 1`] = `
 @media (max-width: 767px) {
   .circuit-1 {
     height: unset;
-    margin-left: 145px;
     overflow-x: auto;
   }
 }
@@ -3643,27 +3163,6 @@ exports[`Table Style tests should render without the table shadow 1`] = `
   background-color: var(--cui-bg-normal);
   border-collapse: separate;
   width: 100%;
-}
-
-@media (max-width: 767px) {
-  .circuit-2 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-2:after {
-    content: '';
-    background-image: linear-gradient(
-              90deg,
-              rgba(0, 0, 0, 0.12),
-              transparent
-            );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
 }
 
 .circuit-4 {
@@ -3700,10 +3199,25 @@ tbody .circuit-4:last-child td {
 @media (max-width: 767px) {
   .circuit-6 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-6:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
@@ -3804,32 +3318,6 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  padding: 8px 24px;
-  white-space: nowrap;
-}
-
-@media (max-width: 767px) {
-  .circuit-11 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-12 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
@@ -3847,7 +3335,7 @@ tbody .circuit-4:last-child td {
   user-select: none;
 }
 
-.circuit-12:focus-within::after {
+.circuit-11:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -3862,27 +3350,27 @@ tbody .circuit-4:last-child td {
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-12:focus-within::after::-moz-focus-inner {
+.circuit-11:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-12:focus-within,
-.circuit-12:hover {
+.circuit-11:focus-within,
+.circuit-11:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-accent-hovered);
 }
 
-.circuit-12:focus-within>button,
-.circuit-12:hover>button {
+.circuit-11:focus-within>button,
+.circuit-11:hover>button {
   opacity: 1;
 }
 
-.circuit-12:active {
+.circuit-11:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-accent-pressed);
 }
 
-.circuit-17 {
+.circuit-16 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -3898,7 +3386,7 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
-.circuit-20 {
+.circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -3908,37 +3396,31 @@ tbody .circuit-4:last-child td {
 }
 
 @media (max-width: 767px) {
-  .circuit-20 {
+  .circuit-19 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-19:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
-.circuit-21 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .circuit-21 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-22 {
+.circuit-20 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -4009,17 +3491,10 @@ tbody .circuit-4:last-child td {
             </button>
             Letters
           </th>
-          <td
-            aria-hidden="true"
-            class="circuit-11"
-            role="presentation"
-          >
-            Letters
-          </td>
           <th
             aria-label="Sort in ascending order"
             aria-sort="none"
-            class="circuit-12"
+            class="circuit-11"
             scope="col"
           >
             <button
@@ -4062,7 +3537,7 @@ tbody .circuit-4:last-child td {
             Numbers
           </th>
           <th
-            class="circuit-17"
+            class="circuit-16"
             scope="col"
           >
             Words
@@ -4074,25 +3549,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             b
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            b
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             3
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Foo
           </td>
@@ -4101,25 +3569,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             a
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            a
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             1
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Bar
           </td>
@@ -4128,25 +3589,18 @@ tbody .circuit-4:last-child td {
           class="circuit-4 circuit-5"
         >
           <th
-            class="circuit-20"
+            class="circuit-19"
             scope="row"
           >
             c
           </th>
           <td
-            aria-hidden="true"
-            class="circuit-21"
-            role="presentation"
-          >
-            c
-          </td>
-          <td
-            class="circuit-22"
+            class="circuit-20"
           >
             2
           </td>
           <td
-            class="circuit-22"
+            class="circuit-20"
           >
             Baz
           </td>

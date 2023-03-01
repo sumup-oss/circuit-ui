@@ -97,10 +97,24 @@ const fixedStyles = ({ theme, fixed }: StyleProps & ThElProps) =>
   css`
     ${theme.mq.untilMega} {
       left: 0;
-      top: auto;
-      position: absolute;
+      position: sticky;
       width: 145px;
       overflow-wrap: break-word;
+      z-index: ${theme.zIndex.absolute};
+
+      &:after {
+        content: '';
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.12),
+          rgba(255, 255, 255, 0)
+        );
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 6px;
+      }
     }
   `;
 
