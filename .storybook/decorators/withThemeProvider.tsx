@@ -153,6 +153,7 @@ const lightTheme = css`
     --cui-border-promo-disabled: rgba(149, 53, 208, 0.4);
     /* Special colors */
     --cui-bg-overlay: rgba(0, 0, 0, 0.4);
+    --cui-bg-elevated: #ffffff;
     --cui-border-focus: #d8dde1;
   }
 `;
@@ -307,6 +308,7 @@ const darkTheme = css`
     --cui-border-promo-disabled: rgba(149, 53, 208, 0.4);
     /* Special colors */
     --cui-bg-overlay: rgba(0, 0, 0, 0.4);
+    --cui-bg-elevated: #ffffff;
     --cui-border-focus: #ebf4ff;
   }
 `;
