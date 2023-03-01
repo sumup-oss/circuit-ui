@@ -1,5 +1,24 @@
 # @sumup/circuit-ui
 
+## 7.0.0
+
+### Minor Changes
+
+- [#1944](https://github.com/sumup-oss/circuit-ui/pull/1944) [`5e1bbb6a`](https://github.com/sumup-oss/circuit-ui/commit/5e1bbb6a4729873a3cbd4ab7e6f9849d50e187f3) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated all components to use the new semantic color tokens. There are minor visual differences between colors. You will also notice the change in snapshots.
+
+- [#1944](https://github.com/sumup-oss/circuit-ui/pull/1944) [`5e1bbb6a`](https://github.com/sumup-oss/circuit-ui/commit/5e1bbb6a4729873a3cbd4ab7e6f9849d50e187f3) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `--cui-bg-elevated` color token to use as background for elevated elements such as modals, popovers, etc.
+
+- [#1944](https://github.com/sumup-oss/circuit-ui/pull/1944) [`5e1bbb6a`](https://github.com/sumup-oss/circuit-ui/commit/5e1bbb6a4729873a3cbd4ab7e6f9849d50e187f3) Thanks [@connor-baer](https://github.com/connor-baer)! - Adapted the warning state of form components `validationHint` to the new color tokens. Both the warning icon and copy are now orange with the default Circuit UI theme.
+
+- [#1944](https://github.com/sumup-oss/circuit-ui/pull/1944) [`5e1bbb6a`](https://github.com/sumup-oss/circuit-ui/commit/5e1bbb6a4729873a3cbd4ab7e6f9849d50e187f3) Thanks [@connor-baer](https://github.com/connor-baer)! - Adjusted the Avatar component's design to work with new semantic color tokens.
+
+### Patch Changes
+
+- [#1944](https://github.com/sumup-oss/circuit-ui/pull/1944) [`5e1bbb6a`](https://github.com/sumup-oss/circuit-ui/commit/5e1bbb6a4729873a3cbd4ab7e6f9849d50e187f3) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the ImageInput component's disabled state.
+
+- Updated dependencies [[`197f6851`](https://github.com/sumup-oss/circuit-ui/commit/197f6851c729512904112558cdac019d6fc1ed8e)]:
+  - @sumup/design-tokens@5.1.0
+
 ## 6.2.3
 
 ### Patch Changes
