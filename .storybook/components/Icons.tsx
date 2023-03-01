@@ -16,7 +16,7 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
-import { light, Theme } from '@sumup/design-tokens';
+import { light } from '@sumup/design-tokens';
 import * as iconComponents from '@sumup/icons';
 import type { IconsManifest } from '@sumup/icons';
 import iconsManifest from '@sumup/icons/manifest.json';
@@ -26,7 +26,6 @@ import {
   InlineElements,
   SearchInput,
   Select,
-  spacing,
   typography,
   BaseStyles,
 } from '@sumup/circuit-ui';
