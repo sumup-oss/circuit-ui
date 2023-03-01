@@ -25,7 +25,7 @@
  * Additionally, color tokens are moving from the JS theme (exported from
  * `@sumup/design-tokens`) to CSS custom properties, declared in
  * `@sumup/circuit-ui`'s `BaseStyles` component (v6.1+). For a list of all
- * available CSS custom properties, refer to the [Circuit UI theme documentation](https://circuit.sumup.com/?path=/docs/features-theme--page).
+ * available CSS custom properties, refer to the [Circuit UI theme documentation](https://circuit.sumup.com/?path=/docs/features-theme--docs).
  */
 export type Colors = {
   /**
@@ -407,7 +407,7 @@ export interface Theme {
    * Additionally, color tokens are moving from the JS theme (exported from
    * `@sumup/design-tokens`) to CSS custom properties, declared in
    * `@sumup/circuit-ui`'s `BaseStyles` component (v6.1+). For a list of all
-   * available CSS custom properties, refer to the [Circuit UI theme documentation](https://circuit.sumup.com/?path=/docs/features-theme--page).
+   * available CSS custom properties, refer to the [Circuit UI theme documentation](https://circuit.sumup.com/?path=/docs/features-theme--docs).
    */
   colors: Colors;
   spacings: Spacings;
