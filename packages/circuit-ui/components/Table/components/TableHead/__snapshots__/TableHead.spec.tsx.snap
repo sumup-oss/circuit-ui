@@ -242,10 +242,25 @@ tbody .circuit-1:last-child td {
 @media (max-width: 767px) {
   .circuit-3 {
     left: 0;
-    top: auto;
-    position: absolute;
+    position: -webkit-sticky;
+    position: sticky;
     width: 145px;
     overflow-wrap: break-word;
+    z-index: 1;
+  }
+
+  .circuit-3:after {
+    content: '';
+    background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(255, 255, 255, 0)
+            );
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
   }
 }
 
@@ -346,32 +361,6 @@ tbody .circuit-1:last-child td {
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 120ms ease-in-out;
-  transition: background-color 120ms ease-in-out;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  display: none;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  padding: 8px 24px;
-  white-space: nowrap;
-}
-
-@media (max-width: 767px) {
-  .circuit-8 {
-    display: table-cell;
-    min-width: 145px;
-    max-width: 145px;
-    width: 145px;
-  }
-}
-
-.circuit-9 {
-  background-color: var(--cui-bg-normal);
-  border-bottom: 1px solid var(--cui-border-divider);
-  padding: 24px;
-  text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
@@ -434,21 +423,14 @@ tbody .circuit-1:last-child td {
       </button>
       Foo
     </th>
-    <td
-      aria-hidden="true"
-      class="circuit-8"
-      role="presentation"
-    >
-      Foo
-    </td>
     <th
-      class="circuit-9"
+      class="circuit-8"
       scope="col"
     >
       Bar
     </th>
     <th
-      class="circuit-9"
+      class="circuit-8"
       scope="col"
     >
       Baz

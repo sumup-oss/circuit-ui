@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-import { Fragment } from 'react';
-
-import { mapRowProps, mapCellProps, getCellChildren } from '../../utils';
+import { mapRowProps, mapCellProps } from '../../utils';
 import { Row } from '../../types';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
@@ -66,23 +64,15 @@ const TableBody = ({
         >
           {cells.map((cell, cellIndex) =>
             rowHeaders && cellIndex === 0 ? (
-              <Fragment key={`table-cell-${rowIndex}-${cellIndex}`}>
-                <TableHeader
-                  fixed
-                  condensed={condensed}
-                  scope="row"
-                  isHovered={sortHover === cellIndex}
-                  sortParams={{ sortable: false }}
-                  {...mapCellProps(cell)}
-                />
-                <TableCell
-                  role="presentation"
-                  condensed={condensed}
-                  aria-hidden="true"
-                >
-                  {getCellChildren(cell)}
-                </TableCell>
-              </Fragment>
+              <TableHeader
+                key={`table-cell-${rowIndex}-${cellIndex}`}
+                fixed
+                condensed={condensed}
+                scope="row"
+                isHovered={sortHover === cellIndex}
+                sortParams={{ sortable: false }}
+                {...mapCellProps(cell)}
+              />
             ) : (
               <TableCell
                 key={`table-cell-${rowIndex}-${cellIndex}`}

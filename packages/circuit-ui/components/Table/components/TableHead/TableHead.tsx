@@ -18,8 +18,7 @@ import { css } from '@emotion/react';
 
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
-import TableCell from '../TableCell';
-import { mapCellProps, getCellChildren, getSortParams } from '../../utils';
+import { mapCellProps, getSortParams } from '../../utils';
 import { Direction, HeaderCell } from '../../types';
 import styled, { StyleProps } from '../../../../styles/styled';
 
@@ -147,16 +146,6 @@ const TableHead = ({
                 }
                 sortParams={sortParams}
               />
-              {rowHeaders && i === 0 && (
-                <TableCell
-                  header
-                  condensed={condensed}
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  {getCellChildren(header)}
-                </TableCell>
-              )}
             </Fragment>
           );
         })}

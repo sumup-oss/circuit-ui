@@ -85,10 +85,7 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
  * The position: relative; container is necessary because ShadowContainer
  * is a position: absolute; element
  */
-type TableContainerElProps = Pick<
-  TableProps,
-  'scrollable' | 'rowHeaders' | 'noShadow'
->;
+type TableContainerElProps = Pick<TableProps, 'scrollable' | 'noShadow'>;
 
 const tableContainerBaseStyles = () => css`
   position: relative;
@@ -96,15 +93,10 @@ const tableContainerBaseStyles = () => css`
 
 const tableContainerScrollableStyles = ({
   scrollable,
-  rowHeaders,
-  theme,
-}: TableContainerElProps & StyleProps) =>
+}: TableContainerElProps) =>
   scrollable &&
   css`
     height: 100%;
-    ${theme.mq.untilMega} {
-      height: ${rowHeaders ? 'unset' : '100%'};
-    }
   `;
 
 const shadowStyles = ({
@@ -138,7 +130,6 @@ const containerStyles = ({
     border-radius: ${theme.borderRadius.bit};
     ${theme.mq.untilMega} {
       height: unset;
-      margin-left: 145px;
       overflow-x: auto;
     }
   `;
@@ -166,29 +157,6 @@ const baseStyles = css`
   width: 100%;
 `;
 
-const responsiveStyles = ({ theme, rowHeaders }: TableElProps & StyleProps) =>
-  rowHeaders &&
-  css`
-    ${theme.mq.untilMega} {
-      margin-left: -145px;
-      width: calc(100% + 145px);
-
-      &:after {
-        content: '';
-        background-image: linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.12),
-          transparent
-        );
-        height: 100%;
-        left: 145px;
-        position: absolute;
-        top: 0;
-        width: 6px;
-      }
-    }
-  `;
-
 const borderCollapsedStyles = ({ borderCollapsed }: TableElProps) =>
   borderCollapsed &&
   css`
@@ -197,7 +165,6 @@ const borderCollapsedStyles = ({ borderCollapsed }: TableElProps) =>
 
 const StyledTable = styled.table<TableElProps>(
   baseStyles,
-  responsiveStyles,
   borderCollapsedStyles,
 );
 
@@ -359,7 +326,6 @@ class Table extends Component<TableProps, TableState> {
       <TableContainer
         ref={this.tableRef}
         scrollable={scrollable}
-        rowHeaders={rowHeaders}
         noShadow={noShadow}
         {...props}
       >
