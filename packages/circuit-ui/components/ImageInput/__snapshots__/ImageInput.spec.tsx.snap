@@ -1151,7 +1151,6 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
         </span>
         <img
           alt=""
-          aria-hidden="true"
           class="circuit-5"
           src="/images/illustration-coffee.jpg"
         />
