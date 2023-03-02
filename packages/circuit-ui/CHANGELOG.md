@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 6.3.1
+
+### Patch Changes
+
+- [#1969](https://github.com/sumup-oss/circuit-ui/pull/1969) [`c723f68e`](https://github.com/sumup-oss/circuit-ui/commit/c723f68e4d54d6c9c3db97e01ce2410fa76150a7) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `Table` component's sticky row header on narrow viewports.
+
+- [#1970](https://github.com/sumup-oss/circuit-ui/pull/1970) [`3b6c0de0`](https://github.com/sumup-oss/circuit-ui/commit/3b6c0de041104a75e96bdf0074c893325b9dd81f) Thanks [@robinmetral](https://github.com/robinmetral)! - Reverted a breaking change in the ImageInput component API.
+
 ## 6.3.0
 
 ### Minor Changes
