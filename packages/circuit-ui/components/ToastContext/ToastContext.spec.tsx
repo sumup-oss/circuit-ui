@@ -14,7 +14,6 @@
  */
 
 import { useContext } from 'react';
-import * as Collector from '@sumup/collector';
 
 import {
   render,
@@ -24,8 +23,6 @@ import {
 
 import { ToastProvider, ToastContext } from './ToastContext';
 import type { ToastComponent } from './types';
-
-jest.mock('@sumup/collector');
 
 const openButtonLabel = 'Open toast';
 const toastMessage = "You've got mail!";
@@ -57,17 +54,11 @@ describe('ToastContext', () => {
   const userEvent = baseUserEvent.setup({ delay: null });
 
   describe('ToastProvider', () => {
-    const dispatch = jest.fn();
-    // @ts-expect-error TypeScript doesn't allow assigning to the read-only
-    // useClickTrigger
-    Collector.useClickTrigger = jest.fn(() => dispatch);
-
     const onClose = jest.fn();
     const toast = {
       id: 'initial',
       component: Toast,
       onClose,
-      tracking: { label: 'test-toast' },
     };
 
     it('should open a toast when the context function is called', async () => {

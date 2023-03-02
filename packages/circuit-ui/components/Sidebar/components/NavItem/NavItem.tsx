@@ -18,7 +18,6 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../../../styles/styled';
-import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import { ClickEvent } from '../../../../types/events';
 import { EmotionAsPropType } from '../../../../types/prop-types';
 import { useComponents } from '../../../ComponentsContext';
@@ -58,12 +57,6 @@ export interface NavItemProps {
    * The onClick method to handle the click event on NavItems
    */
   onClick?: (event: ClickEvent) => void;
-  /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
@@ -128,12 +121,9 @@ export function NavItem({
   selected = false,
   disabled = false,
   onClick,
-  tracking,
   ...props
 }: NavItemProps): JSX.Element {
   const { Link } = useComponents();
-
-  const handleClick = useClickEvent(onClick, tracking, 'sidebar-nav-item');
 
   const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
 
@@ -146,7 +136,7 @@ export function NavItem({
     >
       <NavLink
         as={Link as EmotionAsPropType}
-        onClick={!disabled ? handleClick : undefined}
+        onClick={!disabled ? onClick : undefined}
         selected={selected}
         secondary={secondary}
         visible={visible}

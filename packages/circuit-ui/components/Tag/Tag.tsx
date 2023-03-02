@@ -20,7 +20,6 @@ import { Theme } from '@sumup/design-tokens';
 import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
 import { typography, focusVisible } from '../../styles/style-mixins';
-import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import CloseButton, { CloseButtonProps } from '../CloseButton';
 import { AccessibilityError } from '../../util/errors';
 
@@ -41,12 +40,6 @@ type BaseProps = {
    * Function that's called when the button is clicked.
    */
   onClick?: (event: ClickEvent) => void;
-  /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
   /**
    *  The ref to the DOM element
    */
@@ -194,7 +187,6 @@ export const Tag = forwardRef(
       removeButtonLabel,
       selected,
       onClick,
-      tracking,
       className,
       style,
       ...props
@@ -213,15 +205,14 @@ export const Tag = forwardRef(
       );
     }
     const as = onClick ? 'button' : 'div';
-    const handleClick = useClickEvent(onClick, tracking, 'tag');
 
     return (
       <Container className={className} style={style}>
         <TagElement
           removable={Boolean(onRemove)}
           selected={selected}
-          onClick={handleClick}
           type={onClick && 'button'}
+          onClick={onClick}
           as={as}
           ref={ref}
           {...props}
@@ -241,9 +232,6 @@ export const Tag = forwardRef(
             data-testid="tag-close"
             size="kilo"
             onClick={onRemove}
-            tracking={
-              tracking ? { component: 'tag-remove', ...tracking } : undefined
-            }
           />
         )}
       </Container>

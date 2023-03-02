@@ -20,8 +20,6 @@ import { ArrowRight } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { cx, focusVisible } from '../../../../styles/style-mixins';
-import { useClickEvent } from '../../../../hooks/useClickEvent';
-import { ClickEvent } from '../../../../types/events';
 import { EmotionAsPropType } from '../../../../types/prop-types';
 import { useComponents } from '../../../ComponentsContext';
 import Body from '../../../Body';
@@ -181,23 +179,15 @@ const Label = styled(Body)(labelStyles);
 export function PrimaryLink({
   icon: Icon,
   label,
-  onClick,
   isActive,
   isOpen,
   isExternal,
   suffix: Suffix,
   badge,
-  tracking,
   secondaryGroups,
   ...props
 }: PrimaryLinkProps): JSX.Element {
   const { Link } = useComponents();
-
-  const handleClick = useClickEvent<ClickEvent>(
-    onClick,
-    tracking,
-    'primary-link',
-  );
 
   const suffix = Suffix && <Suffix css={suffixStyles} role="presentation" />;
   const isExternalLink = isExternal || props.target === '_blank';
@@ -205,7 +195,6 @@ export function PrimaryLink({
   return (
     <Anchor
       {...props}
-      onClick={handleClick}
       isActive={isActive}
       isOpen={isOpen}
       aria-current={isActive ? 'page' : undefined}

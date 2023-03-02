@@ -15,12 +15,10 @@
 
 import { useState, useEffect, ReactElement } from 'react';
 import { css } from '@emotion/react';
-import { TrackingElement } from '@sumup/collector';
 
 import { ClickEvent } from '../../../../types/events';
 import { isEmpty } from '../../../../util/helpers';
 import styled, { StyleProps } from '../../../../styles/styled';
-import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import { Child, hasSelectedChild, getIcon } from '../../SidebarService';
 import { SubNavList } from '../SubNavList';
 import { NavLabel } from '../NavLabel';
@@ -51,12 +49,6 @@ export interface AggregatorProps {
    * The onClick method to handle the click event on the NavAggregator
    */
   onClick?: (event: ClickEvent) => void;
-  /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
 }
 
 type Disabled = { disabled?: boolean };
@@ -113,8 +105,6 @@ const AggregatorContainer = styled('button')<Disabled & Selected>(
   disabledStyles,
 );
 
-const TRACKING_ELEMENT = 'aggregator';
-
 export function Aggregator({
   children,
   label,
@@ -122,7 +112,6 @@ export function Aggregator({
   selectedIcon,
   disabled,
   onClick,
-  tracking,
   ...props
 }: AggregatorProps): JSX.Element {
   if (
@@ -134,7 +123,7 @@ export function Aggregator({
   }
   const [isOpen, setIsOpen] = useState(false);
   const selectedChild = hasSelectedChild(children);
-  const baseHandleClick = (event: ClickEvent) => {
+  const handleClick = (event: ClickEvent) => {
     if (onClick) {
       onClick(event);
     }
@@ -145,11 +134,6 @@ export function Aggregator({
 
     setIsOpen((open) => !open);
   };
-  const handleClick = useClickEvent(
-    baseHandleClick,
-    tracking,
-    'sidebar-nav-aggregator',
-  );
 
   useEffect(() => {
     setIsOpen(selectedChild);
@@ -175,9 +159,7 @@ export function Aggregator({
         <NavLabel secondary={false}>{label}</NavLabel>
       </AggregatorContainer>
       {!isEmpty(children) && !disabled && (
-        <TrackingElement name={TRACKING_ELEMENT}>
-          <SubNavList visible={isOpen}>{children}</SubNavList>
-        </TrackingElement>
+        <SubNavList visible={isOpen}>{children}</SubNavList>
       )}
     </li>
   );

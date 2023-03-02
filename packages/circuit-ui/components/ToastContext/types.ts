@@ -14,7 +14,6 @@
  */
 
 import { ClickEvent } from '../../types/events';
-import { TrackingProps } from '../../hooks/useClickEvent';
 
 type OnClose = (event?: ClickEvent) => void;
 
@@ -23,12 +22,6 @@ export interface BaseToastProps {
    * Callback function that is called when the Toast is closed.
    */
   onClose?: OnClose;
-  /**
-   * @deprecated
-   *
-   * Dispatch user interaction events when calling `setToast` and `removeToast` instead.
-   */
-  tracking?: TrackingProps;
   /**
    * Toast duration, defaults to 6000ms.
    */

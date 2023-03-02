@@ -28,7 +28,6 @@ import { css } from '@emotion/react';
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
 import Body from '../Body';
-import { TrackingProps } from '../../hooks/useClickEvent';
 import CloseButton from '../CloseButton';
 import { hideVisually } from '../../styles/style-mixins';
 import Button, { ButtonProps } from '../Button';
@@ -90,12 +89,6 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
    * Whether the notification is visible.
    */
   isVisible?: boolean;
-  /**
-   * @deprecated
-   *
-   * Use an `onClose` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
   /**
    * A text replacement for the icon in the context of the notification, if its
    * body copy isn't self-explanatory. Defaults to an empty string.
@@ -206,7 +199,6 @@ export const NotificationInline = forwardRef<
       closeButtonLabel,
       iconLabel = '',
       isVisible = true,
-      tracking,
       ...props
     },
     ref,
@@ -279,11 +271,6 @@ export const NotificationInline = forwardRef<
               label={closeButtonLabel}
               size="kilo"
               onClick={onClose}
-              tracking={
-                tracking
-                  ? { component: 'notification-close', ...tracking }
-                  : undefined
-              }
             />
           )}
         </ContentWrapper>

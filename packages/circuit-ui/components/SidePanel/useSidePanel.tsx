@@ -22,7 +22,6 @@ import {
   useEffect,
 } from 'react';
 
-import { TrackingProps } from '../../hooks/useClickEvent';
 import { uniqueId } from '../../util/id';
 
 import { SidePanelContext, SidePanelContextProps } from './SidePanelContext';
@@ -61,12 +60,6 @@ export type SidePanelHookProps = {
    * Callback function that is called when the side panel is closed.
    */
   onClose?: Callback;
-  /**
-   * @deprecated
-   *
-   * Dispatch user interaction events when calling `setSidePanel` and `removeSidePanel` instead.
-   */
-  tracking?: TrackingProps;
 };
 
 type SetSidePanel = (props: SidePanelHookProps) => void;

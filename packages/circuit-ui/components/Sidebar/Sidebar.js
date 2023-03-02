@@ -17,9 +17,6 @@ import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { TrackingElement } from '@sumup/collector';
-
-import { useClickEvent } from '../../hooks/useClickEvent';
 
 import { Aggregator } from './components/Aggregator';
 import { Backdrop } from './components/Backdrop';
@@ -59,37 +56,20 @@ const openStyles = ({ theme, open }) =>
 
 const Drawer = styled('nav')(baseStyles, openStyles);
 
-const TRACKING_ELEMENT = 'sidebar';
-
-const Sidebar = ({
-  children,
-  open,
-  closeButtonLabel,
-  onClose,
-  tracking,
-  ...props
-}) => {
-  const handleClose = useClickEvent(onClose, tracking, 'sidebar-close');
-
-  return (
-    <Fragment>
-      <Drawer open={open} {...props}>
-        <TrackingElement name={TRACKING_ELEMENT}>{children}</TrackingElement>
-      </Drawer>
-      <Backdrop
-        visible={open}
-        onClick={handleClose}
-        data-testid="sidebar-backdrop"
-      />
-      <CloseButton
-        visible={open}
-        label={closeButtonLabel}
-        onClick={handleClose}
-        data-testid="sidebar-close-button"
-      />
-    </Fragment>
-  );
-};
+const Sidebar = ({ children, open, closeButtonLabel, onClose, ...props }) => (
+  <Fragment>
+    <Drawer open={open} {...props}>
+      {children}
+    </Drawer>
+    <Backdrop visible={open} onClick={onClose} data-testid="sidebar-backdrop" />
+    <CloseButton
+      visible={open}
+      label={closeButtonLabel}
+      onClick={onClose}
+      data-testid="sidebar-close-button"
+    />
+  </Fragment>
+);
 
 Sidebar.propTypes = {
   /**
@@ -108,14 +88,6 @@ Sidebar.propTypes = {
    * A function to handle the sidebar close
    */
   onClose: PropTypes.func,
-  /**
-   * Additional data that is dispatched with the close tracking event.
-   */
-  tracking: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    component: PropTypes.string,
-    customParameters: PropTypes.object,
-  }),
 };
 
 Sidebar.Header = Header;

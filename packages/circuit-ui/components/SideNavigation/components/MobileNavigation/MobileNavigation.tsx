@@ -19,7 +19,6 @@ import { ClassNames, css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { ChevronDown } from '@sumup/icons';
-import { TrackingElement } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import {
@@ -41,7 +40,6 @@ import {
   ComponentsContextType,
 } from '../../../ComponentsContext';
 import { defaultComponents } from '../../../ComponentsContext/ComponentsContext';
-import { TRACKING_ELEMENTS } from '../../constants';
 
 const TRANSITION_DURATION = 120;
 const HEADER_HEIGHT = 56;
@@ -143,7 +141,6 @@ function Group({
         {...getContentProps()}
         css={groupStyles}
         secondaryGroups={mappedSecondaryGroups}
-        trackingLabel={props.tracking && props.tracking.label}
       />
     </Fragment>
   );
@@ -205,13 +202,12 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
 
   return (
     <ComponentsContext.Provider value={UNSAFE_components}>
-      <TrackingElement name={TRACKING_ELEMENTS.SIDE_NAVIGATION}>
-        <ClassNames>
-          {({ css: cssString, theme }) => {
-            // React Modal styles
-            // https://reactcommunity.org/react-modal/styles/classes/
-            const styles = {
-              base: cssString`
+      <ClassNames>
+        {({ css: cssString, theme }) => {
+          // React Modal styles
+          // https://reactcommunity.org/react-modal/styles/classes/
+          const styles = {
+            base: cssString`
                 position: fixed;
                 top: 0;
                 right: 0;
@@ -242,20 +238,20 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
                   );
                 }
               `,
-              // The !important below is necessary because of some weird
-              // style specificity issues in Emotion.
-              afterOpen: cssString`
+            // The !important below is necessary because of some weird
+            // style specificity issues in Emotion.
+            afterOpen: cssString`
                 opacity: 1 !important;
                 transform: translateY(0) !important;
               `,
-              beforeClose: cssString`
+            beforeClose: cssString`
                 opacity: 0 !important;
                 transform: translateY(-25%) !important;
               `,
-            };
+          };
 
-            const overlayStyles = {
-              base: cssString`
+          const overlayStyles = {
+            base: cssString`
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -266,70 +262,66 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
                 background: var(--cui-bg-overlay);
                 z-index: ${theme.zIndex.modal};
               `,
-              afterOpen: cssString`
+            afterOpen: cssString`
                 opacity: 1;
               `,
-              beforeClose: cssString`
+            beforeClose: cssString`
                 opacity: 0;
               `,
-            };
+          };
 
-            const reactModalProps = {
-              className: styles,
-              overlayClassName: overlayStyles,
-              onRequestClose: onClose,
-              closeTimeoutMS: TRANSITION_DURATION,
-              shouldCloseOnOverlayClick: true,
-              shouldCloseOnEsc: true,
-              ...props,
-            };
+          const reactModalProps = {
+            className: styles,
+            overlayClassName: overlayStyles,
+            onRequestClose: onClose,
+            closeTimeoutMS: TRANSITION_DURATION,
+            shouldCloseOnOverlayClick: true,
+            shouldCloseOnEsc: true,
+            ...props,
+          };
 
-            return (
-              <StackContext.Provider value={theme.zIndex.modal}>
-                <ReactModal {...reactModalProps}>
-                  <Content>
-                    <Header>
-                      <CloseButton
-                        onClick={onClose}
-                        label={closeButtonLabel}
-                        css={closeButtonStyles}
-                      />
-                    </Header>
+          return (
+            <StackContext.Provider value={theme.zIndex.modal}>
+              <ReactModal {...reactModalProps}>
+                <Content>
+                  <Header>
+                    <CloseButton
+                      onClick={onClose}
+                      label={closeButtonLabel}
+                      css={closeButtonStyles}
+                    />
+                  </Header>
 
-                    <nav aria-label={primaryNavigationLabel}>
-                      <ul css={listStyles}>
-                        {primaryLinks.map(
-                          ({ secondaryGroups, onClick, ...link }) => (
-                            <li key={link.label}>
-                              {secondaryGroups && secondaryGroups.length > 0 ? (
-                                <Group
-                                  {...link}
-                                  secondaryGroups={secondaryGroups}
-                                  onClose={onClose}
-                                  {...focusProps}
-                                />
-                              ) : (
-                                <PrimaryLink
-                                  {...link}
-                                  {...focusProps}
-                                  onClick={combineClickHandlers(
-                                    onClick,
-                                    onClose,
-                                  )}
-                                />
-                              )}
-                            </li>
-                          ),
-                        )}
-                      </ul>
-                    </nav>
-                  </Content>
-                </ReactModal>
-              </StackContext.Provider>
-            );
-          }}
-        </ClassNames>
-      </TrackingElement>
+                  <nav aria-label={primaryNavigationLabel}>
+                    <ul css={listStyles}>
+                      {primaryLinks.map(
+                        ({ secondaryGroups, onClick, ...link }) => (
+                          <li key={link.label}>
+                            {secondaryGroups && secondaryGroups.length > 0 ? (
+                              <Group
+                                {...link}
+                                secondaryGroups={secondaryGroups}
+                                onClose={onClose}
+                                {...focusProps}
+                              />
+                            ) : (
+                              <PrimaryLink
+                                {...link}
+                                {...focusProps}
+                                onClick={combineClickHandlers(onClick, onClose)}
+                              />
+                            )}
+                          </li>
+                        ),
+                      )}
+                    </ul>
+                  </nav>
+                </Content>
+              </ReactModal>
+            </StackContext.Provider>
+          );
+        }}
+      </ClassNames>
     </ComponentsContext.Provider>
   );
 };

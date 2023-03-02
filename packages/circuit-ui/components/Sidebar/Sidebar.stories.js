@@ -71,7 +71,6 @@ export const Base = (args) => {
             onClick={() => setSelected(1)}
             defaultIcon={<Home />}
             selectedIcon={<Home />}
-            tracking={{ label: 'trackingId-home' }}
           />
           <Sidebar.Aggregator
             key="list"

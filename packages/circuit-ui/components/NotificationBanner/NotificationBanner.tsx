@@ -33,7 +33,6 @@ import Body from '../Body';
 import Image, { ImageProps } from '../Image';
 import CloseButton from '../CloseButton';
 import { useAnimation } from '../../hooks/useAnimation';
-import { TrackingProps } from '../../hooks/useClickEvent';
 import { applyMultipleRefs } from '../../util/refs';
 
 type Action = ButtonProps & {
@@ -90,12 +89,6 @@ interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
    * communicated content. It can be a `primary` or `tertiary` button.
    */
   action: Action;
-  /**
-   * @deprecated
-   *
-   * Use an `onClose` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
   /**
    * Whether the NotificationBanner is visible.
    */
@@ -228,7 +221,6 @@ export const NotificationBanner = forwardRef<
       image,
       onClose,
       closeButtonLabel,
-      tracking,
       isVisible = true,
       ...props
     },
@@ -278,11 +270,6 @@ export const NotificationBanner = forwardRef<
             label={closeButtonLabel}
             size="kilo"
             onClick={onClose}
-            tracking={
-              tracking
-                ? { component: 'notification-close', ...tracking }
-                : undefined
-            }
           />
         )}
       </NotificationBannerWrapper>

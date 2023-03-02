@@ -18,7 +18,6 @@ import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, focusOutline } from '../../styles/style-mixins';
-import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
@@ -56,12 +55,6 @@ export interface SelectorProps
    * The ref to the HTML DOM element
    */
   ref?: Ref<HTMLInputElement>;
-  /**
-   * @deprecated
-   *
-   * Use an `onChange` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
 }
 
 type LabelElProps = Pick<SelectorProps, 'disabled' | 'size'>;
@@ -187,7 +180,6 @@ export const Selector = forwardRef(
       disabled,
       multiple,
       onChange,
-      tracking,
       className,
       style,
       size,
@@ -198,7 +190,6 @@ export const Selector = forwardRef(
     const id = useId();
     const inputId = customId || id;
     const type = multiple ? 'checkbox' : 'radio';
-    const handleChange = useClickEvent(onChange, tracking, 'selector');
 
     return (
       <Fragment>
@@ -209,7 +200,7 @@ export const Selector = forwardRef(
           value={value}
           disabled={disabled}
           // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
-          onClick={handleChange}
+          onClick={onChange}
           // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
           onChange={() => {}}
           ref={ref}

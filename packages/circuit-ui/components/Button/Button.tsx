@@ -36,7 +36,6 @@ import { ReturnType } from '../../types/return-type';
 import { ClickEvent } from '../../types/events';
 import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
 import { useComponents } from '../ComponentsContext';
-import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import Spinner from '../Spinner';
 import { AccessibilityError } from '../../util/errors';
 
@@ -75,12 +74,6 @@ export interface BaseProps {
    * Function that's called when the button is clicked.
    */
   'onClick'?: (event: ClickEvent) => void;
-  /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  'tracking'?: TrackingProps;
   /**
    The ref to the HTML DOM element
    */
@@ -427,7 +420,6 @@ export const Button = forwardRef(
       isLoading,
       loadingLabel,
       icon: Icon,
-      tracking,
       as,
       ...props
     }: ButtonProps,
@@ -447,8 +439,6 @@ export const Button = forwardRef(
     const { Link } = useComponents();
     const linkOrButton = props.href ? Link : 'button';
 
-    const handleClick = useClickEvent(props.onClick, tracking, 'button');
-
     return (
       <StyledButton
         {...props}
@@ -460,7 +450,6 @@ export const Button = forwardRef(
         disabled={disabled || isLoading}
         ref={ref}
         as={(as || linkOrButton) as EmotionAsPropType}
-        onClick={handleClick}
       >
         <LoadingIcon isLoading={Boolean(isLoading)} size="byte">
           <LoadingLabel>{loadingLabel}</LoadingLabel>

@@ -18,7 +18,6 @@ import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { focusVisible, hideVisually } from '../../../../styles/style-mixins';
-import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import { AccessibilityError } from '../../../../util/errors';
 
 export interface SwitchProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -34,12 +33,6 @@ export interface SwitchProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Label for the 'off' state. Important for accessibility.
    */
   uncheckedLabel: string;
-  /**
-   * @deprecated
-   *
-   * Use an `onChange` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
   /**
    * The ref to the HTML DOM button element
    */
@@ -153,7 +146,6 @@ export const Switch = forwardRef(
       onChange,
       checkedLabel,
       uncheckedLabel,
-      tracking,
       ...props
     }: SwitchProps,
     ref: SwitchProps['ref'],
@@ -175,11 +167,11 @@ export const Switch = forwardRef(
         );
       }
     }
-    const handleChange = useClickEvent(onChange, tracking, 'toggle');
+
     return (
       <SwitchTrack
         type="button"
-        onClick={handleChange}
+        onClick={onChange}
         role="switch"
         aria-checked={checked}
         {...props}

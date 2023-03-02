@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { TrackingProps } from '../../hooks/useClickEvent';
 import { ClickEvent } from '../../types/events';
 
 export type Play = () => void;
@@ -115,10 +114,4 @@ export interface StepOptions {
    * Function called when go to previous step action is triggered.
    */
   onPrevious?: (stateAndHelpers: StateAndHelpers) => void;
-  /**
-   * @deprecated
-   *
-   * Use custom event handlers to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
 }

@@ -15,7 +15,6 @@
 
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import { TrackingElement } from '@sumup/collector';
 
 import styled from '../../../../styles/styled';
 
@@ -34,14 +33,10 @@ const baseStyles = () => css`
 
 const StyledList = styled('ul')(baseStyles);
 
-const TRACKING_ELEMENT = 'navList';
-
 export function NavList({ children, ...props }: NavListProps): JSX.Element {
   return (
-    <TrackingElement name={TRACKING_ELEMENT}>
-      <StyledList {...props} role="list">
-        {children}
-      </StyledList>
-    </TrackingElement>
+    <StyledList {...props} role="list">
+      {children}
+    </StyledList>
   );
 }

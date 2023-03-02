@@ -55,7 +55,6 @@ describe('useSidePanel', () => {
     group: undefined,
     headline: 'Side panel title',
     onClose: undefined,
-    tracking: { label: 'test-side-panel' },
   };
 
   it('should open the side panel when setSidePanel is called', () => {
