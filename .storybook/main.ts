@@ -1,9 +1,11 @@
+import type { StorybookConfig } from '@storybook/react-webpack5';
+import type { PluginItem } from '@babel/core';
 import path from 'path';
 import remarkGfm from 'remark-gfm';
 
 const toPath = (_path: string) => path.join(process.cwd(), _path);
 
-module.exports = {
+const config: StorybookConfig = {
   staticDirs: [toPath('.storybook/public')],
   stories: [
     '../packages/circuit-ui/**/*.@(mdx|stories.@(js|ts|tsx))',
@@ -26,7 +28,6 @@ module.exports = {
         },
       },
     },
-
     '@storybook/addon-storysource',
     '@storybook/addon-controls',
     '@storybook/addon-actions',
@@ -46,7 +47,7 @@ module.exports = {
   babel: async (options) => ({
     ...options,
     presets: [
-      ...options.presets,
+      ...(options.presets as PluginItem[]),
       // HACK: Storybook includes `@babel/preset-react` by default, which
       // overrides the custom preset configuration in `babel.config.json`.
       // This override overrides the override.
@@ -58,3 +59,5 @@ module.exports = {
     ],
   }),
 };
+
+export default config;
