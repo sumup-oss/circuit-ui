@@ -19,7 +19,6 @@
     "target": "es2017"
   },
   "include": [
-    "cli/**/*",
     "components/**/*",
     "hooks/**/*",
     "styles/**/*",
