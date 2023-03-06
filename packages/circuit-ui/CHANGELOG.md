@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.3.2
+
+### Patch Changes
+
+- [#1973](https://github.com/sumup-oss/circuit-ui/pull/1973) [`226e6cd9`](https://github.com/sumup-oss/circuit-ui/commit/226e6cd927ec71bb91538b57cf5fe474443ccabb) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed codemods for legacy Circuit UI versions and removed the obsolete `circuit-ui` CLI. The library doesn't support skipping major versions when upgrading.
+
 ## 6.3.1
 
 ### Patch Changes
