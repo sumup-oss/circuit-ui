@@ -1,9 +1,4 @@
-import { Meta, Status, Props, Story } from '../../../../.storybook/components';
-
-import RangePicker from './RangePicker';
-import SingleDayPicker from './SingleDayPicker';
-import CalendarTag from '../CalendarTag';
-import CalendarTagTwoStep from '../CalendarTagTwoStep';
+import { Meta, Status, Story } from '../../../../.storybook/components';
 
 <Meta title="Forms/Calendar/Calendar" />
 
@@ -38,8 +33,6 @@ for instance when a user needs to pick a time period within a form.
 
 <Story id="components-calendar-rangepicker--base" />
 
-<Props of={RangePicker} />
-
 ### Single Day Picker
 
 <Status.InReview />
@@ -47,8 +40,6 @@ for instance when a user needs to pick a time period within a form.
 Used when you the user only needs to select a single specific date.
 
 <Story id="components-calendar-singledaypicker--base" />
-
-<Props of={SingleDayPicker} />
 
 ### Calendar Tag
 
@@ -58,8 +49,6 @@ Used for cases where the user needs to select dates within the same month and th
 
 <Story id="components-calendar-calendartag--base" />
 
-<Props of={CalendarTag} />
-
 ### Calendar Tag Two Step
 
 <Status.InReview />
@@ -67,5 +56,3 @@ Used for cases where the user needs to select dates within the same month and th
 Used for cases where the user needs to select dates that could be outside the same month and that selection affects the data displayed.
 
 <Story id="components-calendar-calendartagtwostep--base" />
-
-<Props of={CalendarTagTwoStep} />
