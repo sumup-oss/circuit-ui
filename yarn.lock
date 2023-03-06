@@ -1329,7 +1329,7 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@emotion/babel-plugin@^11.10.2", "@emotion/babel-plugin@^11.10.5", "@emotion/babel-plugin@^11.10.6":
+"@emotion/babel-plugin@^11.10.2", "@emotion/babel-plugin@^11.10.6":
   version "11.10.6"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.10.6.tgz#a68ee4b019d661d6f37dec4b8903255766925ead"
   integrity sha512-p2dAqtVrkhSa7xz1u/m9eHYdLi+en8NowrmXeF/dKtJpU8lCWli8RUAati7NcSl0afsBott48pdnANuD0wh9QQ==
@@ -1428,13 +1428,13 @@
   resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-1.2.1.tgz#0767e0305230e894897cadb6c8df2c51e61a6c2c"
   integrity sha512-zxRBwl93sHMsOj4zs+OslQKg/uhF38MB+OMKoCrVuS0nyTkqnau+BM3WGEoOptg9Oz45T/aIGs1qbVAsEFo3nA==
 
-"@emotion/styled@^11.10.5":
-  version "11.10.5"
-  resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-11.10.5.tgz#1fe7bf941b0909802cb826457e362444e7e96a79"
-  integrity sha512-8EP6dD7dMkdku2foLoruPCNkRevzdcBaY6q0l0OsbyJK+x8D9HWjX27ARiSIKNF634hY9Zdoedh8bJCiva8yZw==
+"@emotion/styled@^11.10.6":
+  version "11.10.6"
+  resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-11.10.6.tgz#d886afdc51ef4d66c787ebde848f3cc8b117ebba"
+  integrity sha512-OXtBzOmDSJo5Q0AFemHCfl+bUueT8BIcPSxu0EGTpGk6DmI5dnhSzQANm1e1ze0YZL7TDyAyy6s/b/zmGOS3Og==
   dependencies:
     "@babel/runtime" "^7.18.3"
-    "@emotion/babel-plugin" "^11.10.5"
+    "@emotion/babel-plugin" "^11.10.6"
     "@emotion/is-prop-valid" "^1.2.0"
     "@emotion/serialize" "^1.1.1"
     "@emotion/use-insertion-effect-with-fallbacks" "^1.0.0"
