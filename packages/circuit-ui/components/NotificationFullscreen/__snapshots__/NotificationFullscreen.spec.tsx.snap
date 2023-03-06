@@ -107,7 +107,7 @@ exports[`NotificationFullscreen styles should render with an svg component as th
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: var(--cui-bg-accent-strong);
-  border-color: var(--cui-border-accent);
+  border-color: transparent;
   color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
@@ -134,7 +134,7 @@ exports[`NotificationFullscreen styles should render with an svg component as th
 
 .circuit-5:hover {
   background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: var(--cui-border-accent-hovered);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-hovered);
 }
 
@@ -142,14 +142,14 @@ exports[`NotificationFullscreen styles should render with an svg component as th
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
   background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: var(--cui-border-accent-pressed);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
   background-color: var(--cui-bg-accent-strong-disabled);
-  border-color: var(--cui-border-accent-disabled);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-disabled);
 }
 
@@ -365,7 +365,7 @@ exports[`NotificationFullscreen styles should render with body text 1`] = `
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: var(--cui-bg-accent-strong);
-  border-color: var(--cui-border-accent);
+  border-color: transparent;
   color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
@@ -392,7 +392,7 @@ exports[`NotificationFullscreen styles should render with body text 1`] = `
 
 .circuit-5:hover {
   background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: var(--cui-border-accent-hovered);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-hovered);
 }
 
@@ -400,14 +400,14 @@ exports[`NotificationFullscreen styles should render with body text 1`] = `
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
   background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: var(--cui-border-accent-pressed);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
   background-color: var(--cui-bg-accent-strong-disabled);
-  border-color: var(--cui-border-accent-disabled);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-disabled);
 }
 
@@ -608,7 +608,7 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: var(--cui-bg-accent-strong);
-  border-color: var(--cui-border-accent);
+  border-color: transparent;
   color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
@@ -635,7 +635,7 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
 
 .circuit-4:hover {
   background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: var(--cui-border-accent-hovered);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-hovered);
 }
 
@@ -643,14 +643,14 @@ exports[`NotificationFullscreen styles should render with default styles 1`] = `
 .circuit-4[aria-expanded='true'],
 .circuit-4[aria-pressed='true'] {
   background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: var(--cui-border-accent-pressed);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
   background-color: var(--cui-bg-accent-strong-disabled);
-  border-color: var(--cui-border-accent-disabled);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-disabled);
 }
 

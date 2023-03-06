@@ -196,12 +196,12 @@ const primaryStyles = ({
   if (destructive) {
     return css`
       background-color: var(--cui-bg-danger-strong);
-      border-color: var(--cui-border-danger);
+      border-color: transparent;
       color: var(--cui-fg-on-strong);
 
       &:hover {
         background-color: var(--cui-bg-danger-strong-hovered);
-        border-color: var(--cui-border-danger-hovered);
+        border-color: transparent;
         color: var(--cui-fg-on-strong-hovered);
       }
 
@@ -209,14 +209,14 @@ const primaryStyles = ({
       &[aria-expanded='true'],
       &[aria-pressed='true'] {
         background-color: var(--cui-bg-danger-strong-pressed);
-        border-color: var(--cui-border-danger-pressed);
+        border-color: transparent;
         color: var(--cui-fg-on-strong-pressed);
       }
 
       &:disabled,
       &[disabled] {
         background-color: var(--cui-bg-danger-strong-disabled);
-        border-color: var(--cui-border-danger-disabled);
+        border-color: transparent;
         color: var(--cui-fg-on-strong-disabled);
       }
     `;
@@ -224,12 +224,12 @@ const primaryStyles = ({
 
   return css`
     background-color: var(--cui-bg-accent-strong);
-    border-color: var(--cui-border-accent);
+    border-color: transparent;
     color: var(--cui-fg-on-strong);
 
     &:hover {
       background-color: var(--cui-bg-accent-strong-hovered);
-      border-color: var(--cui-border-accent-hovered);
+      border-color: transparent;
       color: var(--cui-fg-on-strong-hovered);
     }
 
@@ -237,14 +237,14 @@ const primaryStyles = ({
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
       background-color: var(--cui-bg-accent-strong-pressed);
-      border-color: var(--cui-border-accent-pressed);
+      border-color: transparent;
       color: var(--cui-fg-on-strong-pressed);
     }
 
     &:disabled,
     &[disabled] {
       background-color: var(--cui-bg-accent-strong-disabled);
-      border-color: var(--cui-border-accent-disabled);
+      border-color: transparent;
       color: var(--cui-fg-on-strong-disabled);
     }
   `;
