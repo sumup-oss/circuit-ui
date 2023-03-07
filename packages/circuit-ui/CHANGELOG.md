@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.3.3
+
+### Patch Changes
+
+- [#1980](https://github.com/sumup-oss/circuit-ui/pull/1980) [`261e1850`](https://github.com/sumup-oss/circuit-ui/commit/261e1850a03564aa2ba5104bd19f3b1b655f238e) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the border from the Button's `primary` variant.
+
 ## 6.3.2
 
 ### Patch Changes
