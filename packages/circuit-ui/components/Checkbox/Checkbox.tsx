@@ -144,6 +144,14 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     border-color: var(--cui-border-accent);
     background-color: var(--cui-bg-accent-strong);
   }
+
+  &:checked:disabled + label::before,
+  &:checked[disabled] + label::before,
+  &:indeterminate:disabled + label::before,
+  &:indeterminate[disabled] + label::before {
+    border-color: var(--cui-border-accent-disabled);
+    background-color: var(--cui-bg-accent-strong-disabled);
+  }
 `;
 
 const inputInvalidStyles = ({ invalid }: InputElProps) =>
@@ -164,6 +172,14 @@ const inputInvalidStyles = ({ invalid }: InputElProps) =>
       border-color: var(--cui-border-danger);
       background-color: var(--cui-bg-danger-strong);
     }
+
+    &:checked:disabled + label::before,
+    &:indeterminate:disabled + label::before,
+    &:checked[disabled] + label::before,
+    &:indeterminate[disabled] + label::before {
+      border-color: var(--cui-border-danger-disabled);
+      background-color: var(--cui-bg-danger-strong-disabled);
+    }
   `;
 
 const inputDisabledStyles = () =>
@@ -172,11 +188,11 @@ const inputDisabledStyles = () =>
     &[disabled] + label {
       pointer-events: none;
       color: var(--cui-fg-normal-disabled);
-
-      &::before {
-        border-color: var(--cui-border-normal-disabled);
-        background-color: var(--cui-bg-normal-disabled);
-      }
+    }
+    &:disabled + label::before,
+    &[disabled] + label::before {
+      border-color: var(--cui-border-normal-disabled);
+      background-color: var(--cui-bg-normal-disabled);
     }
 
     &:disabled:checked + label::before,
