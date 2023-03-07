@@ -177,7 +177,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: var(--cui-bg-danger-strong);
-  border-color: var(--cui-border-danger);
+  border-color: transparent;
   color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
@@ -208,7 +208,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
 
 .circuit-5:hover {
   background-color: var(--cui-bg-danger-strong-hovered);
-  border-color: var(--cui-border-danger-hovered);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-hovered);
 }
 
@@ -216,14 +216,14 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
 .circuit-5[aria-expanded='true'],
 .circuit-5[aria-pressed='true'] {
   background-color: var(--cui-bg-danger-strong-pressed);
-  border-color: var(--cui-border-danger-pressed);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-5:disabled,
 .circuit-5[disabled] {
   background-color: var(--cui-bg-danger-strong-disabled);
-  border-color: var(--cui-border-danger-disabled);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-disabled);
 }
 
@@ -591,7 +591,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: var(--cui-bg-accent-strong);
-  border-color: var(--cui-border-accent);
+  border-color: transparent;
   color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
@@ -624,7 +624,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
 
 .circuit-6:hover {
   background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: var(--cui-border-accent-hovered);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-hovered);
 }
 
@@ -632,14 +632,14 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
   background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: var(--cui-border-accent-pressed);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
   background-color: var(--cui-bg-accent-strong-disabled);
-  border-color: var(--cui-border-accent-disabled);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-disabled);
 }
 
@@ -1004,7 +1004,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: var(--cui-bg-danger-strong);
-  border-color: var(--cui-border-danger);
+  border-color: transparent;
   color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
@@ -1035,7 +1035,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
 
 .circuit-6:hover {
   background-color: var(--cui-bg-danger-strong-hovered);
-  border-color: var(--cui-border-danger-hovered);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-hovered);
 }
 
@@ -1043,14 +1043,14 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
   background-color: var(--cui-bg-danger-strong-pressed);
-  border-color: var(--cui-border-danger-pressed);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
   background-color: var(--cui-bg-danger-strong-disabled);
-  border-color: var(--cui-border-danger-disabled);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-disabled);
 }
 
@@ -1418,7 +1418,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: var(--cui-bg-accent-strong);
-  border-color: var(--cui-border-accent);
+  border-color: transparent;
   color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
@@ -1450,7 +1450,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
 
 .circuit-6:hover {
   background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: var(--cui-border-accent-hovered);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-hovered);
 }
 
@@ -1458,14 +1458,14 @@ exports[`ImageInput Styles should render with default styles 1`] = `
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
   background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: var(--cui-border-accent-pressed);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
   background-color: var(--cui-bg-accent-strong-disabled);
-  border-color: var(--cui-border-accent-disabled);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-disabled);
 }
 
@@ -1853,7 +1853,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: var(--cui-bg-accent-strong);
-  border-color: var(--cui-border-accent);
+  border-color: transparent;
   color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
@@ -1885,7 +1885,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 
 .circuit-6:hover {
   background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: var(--cui-border-accent-hovered);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-hovered);
 }
 
@@ -1893,14 +1893,14 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 .circuit-6[aria-expanded='true'],
 .circuit-6[aria-pressed='true'] {
   background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: var(--cui-border-accent-pressed);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-pressed);
 }
 
 .circuit-6:disabled,
 .circuit-6[disabled] {
   background-color: var(--cui-bg-accent-strong-disabled);
-  border-color: var(--cui-border-accent-disabled);
+  border-color: transparent;
   color: var(--cui-fg-on-strong-disabled);
 }
 
