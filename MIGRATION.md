@@ -90,7 +90,37 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 > ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
 > ```
 
-## From v5 to v6
+## From v6.x to v6.3
+
+Although not a major version, Circuit UI v6.3 comes with a few important visual changes related to color that we wanted to mention here for visibility.
+
+To get started, upgrade `@sumup/circuit-ui` and `@sumup/design-tokens`:
+
+```sh
+yarn upgrade @sumup/circuit-ui @sumup/design-tokens --latest
+```
+
+### New semantic color tokens
+
+In [v6.1](https://github.com/sumup-oss/circuit-ui/releases/tag/%40sumup%2Fcircuit-ui%406.1.0), we released new semantic color tokens, which are meant to replace the existing color tokens from `@sumup/design-tokens` to enable use cases like theming, as well as more robust customizations. The new tokens were declared as CSS custom properties in the Circuit UI `BaseStyles`.
+
+Starting in [v6.3](https://github.com/sumup-oss/circuit-ui/releases/tag/%40sumup%2Fcircuit-ui%406.3.0), all Circuit UI components (except the legacy `Sidebar` component) use these semantic color tokens under the hood. Legacy color tokens from `@sumup/design-tokens` have been deprecated and will be removed in a future major version.
+
+### Visual component changes
+
+A number of components were adjusted to the new color system. Most notably:
+
+- The `Avatar` component's default placeholder (visible when no `src` is passed) was changed to match the new colors and to use SVG icons from `@sumup/icons`.
+- All form components `validationHint`s, in their warning state, are now orange instead of gray.
+- Warning icons are now orange on white, instead of yellow with a black exclamation mark `!`.
+- The warning color changed from yellow (2.01:1 contrast ratio) to orange (3.01:1 contrast ratio).
+- The `Button` component's disabled state styles were visually aligned with iOS and Android styles. Contrast is now effectively lower.
+
+### Other changes
+
+- We've received a report that the upgrade surfaced a [long-standing JSDOM bug](https://github.com/jsdom/jsdom/issues/3232) where a `<fieldset>` element is considered `:disabled` if it contains a `<legend>`. This might cause issues with unit tests that use `user-event`, since it will throw when trying to interact with a `:disabled` element. This is seemingly unrelated to Circuit UI, but if you run into the issue, you can work around it by turning off `user-event`'s `pointerEventsCheck`: `userEvent.click(element, { pointerEventsCheck: 0 }`.
+
+## From v5.x to v6
 
 Circuit UI v6 contains two major changes: the [removal of default component margins](#no-default-component-margins), and [changes to form components](#form-component-consistency) to improve consistency and accessibility.
 
@@ -248,7 +278,7 @@ This version also includes a number of accessibility and visual fixes. While the
 - Circuit UI's browser support policy was updated. The library now supports browsers with support for [dynamic module imports](https://caniuse.com/es6-module-dynamic-import). See the [Browser Support](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) documentation for details.
 - If your app uses TypeScript, an upgrade of the `@types/react` package in Circuit UI may clash with the version installed in your app. If your app is on React 18, upgrade `@types/react` to `^18.0.25` to fix the issue. If your app is on React 17, upgrade `@types/react` to `^17.0.52` and [extend the React namespace](https://github.com/sumup-oss/circuit-ui/pull/1831#issuecomment-1307485956). More details on [the DefinitelyTyped PR that introduced the issue](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/63076).
 
-## From v4 to v5
+## From v4.x to v5
 
 Circuit UI v5 is a maintenance release, primarily removing deprecated components and props.
 
