@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 6.3.4
+
+### Patch Changes
+
+- [#1983](https://github.com/sumup-oss/circuit-ui/pull/1983) [`e2bc1c8f`](https://github.com/sumup-oss/circuit-ui/commit/e2bc1c8f953465cf8a04079cbd539f89f93a58fc) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the design of the Toggle component.
+
+- [#1984](https://github.com/sumup-oss/circuit-ui/pull/1984) [`f2e04479`](https://github.com/sumup-oss/circuit-ui/commit/f2e04479e452be3d5e1dbf6f65b64c3d45011aa7) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the `notify` icon for the NotificationInline and NotificationToast components and the form field validation hint.
+
 ## 6.3.3
 
 ### Patch Changes
