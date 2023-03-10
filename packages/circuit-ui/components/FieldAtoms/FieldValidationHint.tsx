@@ -15,7 +15,7 @@
 
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import { Confirm, NotifyCircle, Alert } from '@sumup/icons';
+import { Confirm, Notify, Alert } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
@@ -112,7 +112,7 @@ const getIcon = (props: FieldValidationHintProps) => {
     case props.hasWarning: {
       return (
         <IconWrapper {...props}>
-          <NotifyCircle role="presentation" size="16" />
+          <Notify role="presentation" size="16" />
         </IconWrapper>
       );
     }
