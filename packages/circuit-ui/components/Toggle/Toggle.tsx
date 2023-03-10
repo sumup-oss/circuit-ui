@@ -60,6 +60,10 @@ const ToggleTextWrapper = styled('label')(textWrapperStyles);
 
 const explanationStyles = css`
   color: var(--cui-fg-subtle);
+
+  .${CLASS_DISABLED} & {
+    color: var(--cui-fg-normal-disabled);
+  }
 `;
 
 const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);

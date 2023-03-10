@@ -49,8 +49,6 @@ const TRACK_HEIGHT = '24px';
 const KNOB_SIZE = '16px';
 const ANIMATION_TIMING = '200ms ease-in-out';
 
-const knobShadow = (color: string) => `0 2px 0 0 ${color}`;
-
 type TrackElProps = Omit<SwitchProps, 'checkedLabel' | 'uncheckedLabel'>;
 
 const trackBaseStyles = css`
@@ -115,7 +113,7 @@ type KnobElProps = Pick<SwitchProps, 'checked'>;
 const knobBaseStyles = ({ theme }: StyleProps) => css`
   display: block;
   background-color: var(--cui-fg-on-strong);
-  box-shadow: ${knobShadow('var(--cui-border-normal-pressed)')};
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   position: absolute;
   top: 50%;
   transform: translate3d(${theme.spacings.bit}, -50%, 0);
@@ -123,37 +121,22 @@ const knobBaseStyles = ({ theme }: StyleProps) => css`
   height: ${KNOB_SIZE};
   width: ${KNOB_SIZE};
   border-radius: ${KNOB_SIZE};
-`;
 
-const knobOnStyles = ({ theme }: StyleProps) =>
-  css`
-    [aria-checked='true'] & {
-      box-shadow: ${knobShadow('var(--cui-border-accent-pressed)')};
-      transform: translate3d(
-        calc(${TRACK_WIDTH} - ${KNOB_SIZE} - ${theme.spacings.bit}),
-        -50%,
-        0
-      );
-    }
-  `;
-
-const knobDisabledStyles = () => css`
-  button:disabled &,
-  button[disabled] & {
-    box-shadow: ${knobShadow('var(--cui-border-normal-disabled)')};
+  [aria-checked='true'] & {
+    transform: translate3d(
+      calc(${TRACK_WIDTH} - ${KNOB_SIZE} - ${theme.spacings.bit}),
+      -50%,
+      0
+    );
   }
 
-  button[aria-checked='true']:disabled &,
-  button[aria-checked='true'][disabled] & {
-    box-shadow: ${knobShadow('var(--cui-border-accent-disabled)')};
+  &:disabled &,
+  &[disabled] & {
+    background-color: var(--cui-fg-on-strong-disabled);
   }
 `;
 
-const SwitchKnob = styled('span')<KnobElProps>(
-  knobBaseStyles,
-  knobOnStyles,
-  knobDisabledStyles,
-);
+const SwitchKnob = styled('span')<KnobElProps>(knobBaseStyles);
 
 // Important for accessibility
 const SwitchLabel = styled('span')(hideVisually);

@@ -96,7 +96,7 @@ exports[`Toggle should render with default styles 1`] = `
 .circuit-2 {
   display: block;
   background-color: var(--cui-fg-on-strong);
-  box-shadow: 0 2px 0 0 var(--cui-border-normal-pressed);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px, -50%, 0);
@@ -111,37 +111,31 @@ exports[`Toggle should render with default styles 1`] = `
 }
 
 [aria-checked='true'] .circuit-2 {
-  box-shadow: 0 2px 0 0 var(--cui-border-accent-pressed);
   -webkit-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   -moz-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   -ms-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
 }
 
-button:disabled .circuit-2,
-button[disabled] .circuit-2 {
-  box-shadow: 0 2px 0 0 var(--cui-border-normal-disabled);
-}
-
-button[aria-checked='true']:disabled .circuit-2,
-button[aria-checked='true'][disabled] .circuit-2 {
-  box-shadow: 0 2px 0 0 var(--cui-border-accent-disabled);
+.circuit-2:disabled .circuit-2,
+.circuit-2[disabled] .circuit-2 {
+  background-color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-3 {
@@ -184,6 +178,10 @@ button[aria-checked='true'][disabled] .circuit-2 {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: var(--cui-fg-subtle);
+}
+
+.cui-field-disabled .circuit-6 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 <div
