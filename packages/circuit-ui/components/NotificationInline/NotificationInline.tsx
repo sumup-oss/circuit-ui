@@ -22,7 +22,7 @@ import {
   useState,
 } from 'react';
 import { css } from '@emotion/react';
-import { Alert, Confirm, IconProps, Info, NotifyCircle } from '@sumup/icons';
+import { Alert, Confirm, IconProps, Info, Notify } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
@@ -100,7 +100,7 @@ const iconMap: Record<Variant, FC<IconProps<'16' | '24'>>> = {
   info: Info,
   confirm: Confirm,
   alert: Alert,
-  notify: NotifyCircle,
+  notify: Notify,
 };
 
 // TODO: Align variant names with token names in the next major.
