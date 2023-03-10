@@ -121,20 +121,22 @@ const knobBaseStyles = ({ theme }: StyleProps) => css`
   height: ${KNOB_SIZE};
   width: ${KNOB_SIZE};
   border-radius: ${KNOB_SIZE};
+
+  [aria-checked='true'] & {
+    transform: translate3d(
+      calc(${TRACK_WIDTH} - ${KNOB_SIZE} - ${theme.spacings.bit}),
+      -50%,
+      0
+    );
+  }
+
+  &:disabled &,
+  &[disabled] & {
+    background-color: var(--cui-fg-on-strong-disabled);
+  }
 `;
 
-const knobOnStyles = ({ theme }: StyleProps) =>
-  css`
-    [aria-checked='true'] & {
-      transform: translate3d(
-        calc(${TRACK_WIDTH} - ${KNOB_SIZE} - ${theme.spacings.bit}),
-        -50%,
-        0
-      );
-    }
-  `;
-
-const SwitchKnob = styled('span')<KnobElProps>(knobBaseStyles, knobOnStyles);
+const SwitchKnob = styled('span')<KnobElProps>(knobBaseStyles);
 
 // Important for accessibility
 const SwitchLabel = styled('span')(hideVisually);

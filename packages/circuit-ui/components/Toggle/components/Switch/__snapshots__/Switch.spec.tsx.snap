@@ -86,25 +86,30 @@ exports[`Switch should have the correct default styles 1`] = `
 
 [aria-checked='true'] .circuit-1 {
   -webkit-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   -moz-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   -ms-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
+}
+
+.circuit-1:disabled .circuit-1,
+.circuit-1[disabled] .circuit-1 {
+  background-color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-2 {
@@ -222,25 +227,30 @@ exports[`Switch should have the correct on styles 1`] = `
 
 [aria-checked='true'] .circuit-1 {
   -webkit-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   -moz-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   -ms-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
+}
+
+.circuit-1:disabled .circuit-1,
+.circuit-1[disabled] .circuit-1 {
+  background-color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-2 {

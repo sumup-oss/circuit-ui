@@ -112,25 +112,30 @@ exports[`Toggle should render with default styles 1`] = `
 
 [aria-checked='true'] .circuit-2 {
   -webkit-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   -moz-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   -ms-transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
   transform: translate3d(
-          calc(40px - 16px - 4px),
-          -50%,
-          0
-        );
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
+}
+
+.circuit-2:disabled .circuit-2,
+.circuit-2[disabled] .circuit-2 {
+  background-color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-3 {
@@ -173,6 +178,10 @@ exports[`Toggle should render with default styles 1`] = `
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: var(--cui-fg-subtle);
+}
+
+.cui-field-disabled .circuit-6 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 <div
