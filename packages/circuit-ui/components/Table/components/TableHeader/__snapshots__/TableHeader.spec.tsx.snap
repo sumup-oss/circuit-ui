@@ -18,15 +18,15 @@ exports[`TableHeader Style tests should render with chevron down when row clicke
 }
 
 .circuit-0 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -65,7 +65,7 @@ exports[`TableHeader Style tests should render with chevron down when row clicke
   padding: calc(12px - 1px) calc(24px - 1px);
   background-color: transparent;
   border-color: transparent;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   padding-left: 0;
   padding-right: 0;
   position: relative;
@@ -75,7 +75,7 @@ exports[`TableHeader Style tests should render with chevron down when row clicke
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -88,13 +88,11 @@ exports[`TableHeader Style tests should render with chevron down when row clicke
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
-  color: #234BC3;
+  color: var(--cui-fg-accent-hovered);
   background-color: transparent;
   border-color: transparent;
 }
@@ -102,7 +100,14 @@ exports[`TableHeader Style tests should render with chevron down when row clicke
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  color: #1A368E;
+  color: var(--cui-fg-accent-pressed);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  color: var(--cui-fg-accent-disabled);
   background-color: transparent;
   border-color: transparent;
 }
@@ -164,7 +169,7 @@ exports[`TableHeader Style tests should render with chevron down when row clicke
   scope="col"
 >
   <button
-    aria-label="toggle-row"
+    aria-label="expand 0 items"
     class="circuit-1"
     style="padding: 0px;"
     title="expand"
@@ -180,6 +185,7 @@ exports[`TableHeader Style tests should render with chevron down when row clicke
       class="circuit-4"
     >
       <svg
+        aria-expanded="true"
         class="circuit-5"
         data-testid="toggle-cheveron"
         fill="none"
@@ -223,15 +229,15 @@ exports[`TableHeader Style tests should render with chevron right when row close
 }
 
 .circuit-0 {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
@@ -270,7 +276,7 @@ exports[`TableHeader Style tests should render with chevron right when row close
   padding: calc(12px - 1px) calc(24px - 1px);
   background-color: transparent;
   border-color: transparent;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   padding-left: 0;
   padding-right: 0;
   position: relative;
@@ -280,7 +286,7 @@ exports[`TableHeader Style tests should render with chevron right when row close
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -293,13 +299,11 @@ exports[`TableHeader Style tests should render with chevron right when row close
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
-  color: #234BC3;
+  color: var(--cui-fg-accent-hovered);
   background-color: transparent;
   border-color: transparent;
 }
@@ -307,7 +311,14 @@ exports[`TableHeader Style tests should render with chevron right when row close
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  color: #1A368E;
+  color: var(--cui-fg-accent-pressed);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  color: var(--cui-fg-accent-disabled);
   background-color: transparent;
   border-color: transparent;
 }
@@ -369,7 +380,7 @@ exports[`TableHeader Style tests should render with chevron right when row close
   scope="col"
 >
   <button
-    aria-label="toggle-row"
+    aria-label="expand 0 items"
     class="circuit-1"
     style="padding: 0px;"
     title="expand"

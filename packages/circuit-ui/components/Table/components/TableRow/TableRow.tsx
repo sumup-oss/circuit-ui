@@ -22,6 +22,7 @@ import { ClickEvent } from '../../../../types/events';
 
 type TableRowProps = {
   isChild?: boolean;
+  id?: string;
   onClick?: (event: ClickEvent<HTMLTableRowElement>) => void;
 };
 
@@ -91,10 +92,12 @@ const Tr = styled.tr(baseStyles, clickableStyles, childStyles);
  */
 const TableRow: FC<PropsWithChildren<TableRowProps>> = ({
   isChild = false,
+  id,
   onClick,
   ...props
 }) => (
   <Tr
+    id={id}
     onClick={onClick}
     className={`${isChild ? 'isChild' : ''}`}
     tabIndex={onClick ? 0 : undefined}

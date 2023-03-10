@@ -16,6 +16,7 @@
 import { useCallback } from 'react';
 
 import {
+  generateRowIds,
   mapCellProps,
   useExpandableTableOptions,
 } from '../../utils';
@@ -73,7 +74,7 @@ const TableBody = ({
   onSortBy,
   onRowClick,
 }: TableBodyProps): JSX.Element => {
-  const { data, toggleState, expandableState, toggleRow } =
+  const { data, toggleState, childCountState, toggleRow } =
     useExpandableTableOptions(rows, sortDirection, sortedRow, onSortBy);
 
   const onTableRowClick = useCallback(
@@ -90,29 +91,31 @@ const TableBody = ({
     <tbody>
       {data.map((row, rowIndex) => {
         const { cells, isChild, key, ...props } = row;
-        const isExpandable = expandableState[key];
+        const childrenCount = childCountState[key];
         const isOpen = toggleState[key];
         return (
           <TableRow
             isChild={isChild}
             key={key}
+            id={key}
             onClick={() => onTableRowClick(rowIndex, key)}
             {...props}
           >
             {cells.map((cell, cellIndex) =>
               rowHeaders && cellIndex === 0 ? (
                 <TableHeader
-                key={`table-cell-${rowIndex}-${cellIndex}`}
-                    fixed
-                    condensed={condensed}
-                    scope="row"
-                    isOpen={isOpen}
-                    onChevronToggle={() => onTableRowClick(rowIndex, key)}
-                    isExpandable={isExpandable}
-                    isHovered={sortHover === cellIndex}
-                    sortParams={{ sortable: false }}
-                    {...mapCellProps(cell)}
-                  />
+                  key={`table-cell-${rowIndex}-${cellIndex}`}
+                  fixed
+                  condensed={condensed}
+                  scope="row"
+                  isOpen={isOpen}
+                  childIds={generateRowIds(rowIndex, childrenCount)}
+                  onChevronToggle={() => onTableRowClick(rowIndex, key)}
+                  isExpandable={childrenCount > 0}
+                  isHovered={sortHover === cellIndex}
+                  sortParams={{ sortable: false }}
+                  {...mapCellProps(cell)}
+                />
               ) : (
                 <TableCell
                   key={`${key}-table-cell-${rowIndex}-${cellIndex}`}

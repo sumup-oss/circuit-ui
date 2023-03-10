@@ -74,6 +74,10 @@ export interface TableHeaderProps
    */
   isOpen?: boolean;
   /**
+   * A string of space-separated ids of the children the row can expand.
+   */
+  childIds?: string;
+  /**
    * Props related to table sorting. Defaults to not sortable.
    */
   onChevronToggle?: () => void;
@@ -237,6 +241,7 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
   onClick,
   isExpandable,
   isOpen,
+  childIds,
   onChevronToggle,
   ...props
 }) => {
@@ -287,10 +292,12 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
         <IconButton
           style={{ padding: 0 }}
           label="expand"
-          aria-label="toggle-row"
+          aria-label={`expand ${childIds?.split(' ').length ?? 0} items`}
           variant="tertiary"
         >
           <CheveronToShow
+            aria-expanded={isOpen}
+            aria-controls={childIds}
             data-testid="toggle-cheveron"
             ref={cheveronReference}
             onKeyDown={onChevronKeydown}

@@ -35,6 +35,7 @@ export const mapRowProps = (
   props: Row,
   originalRows: Row[],
   isChild: boolean,
+  parentIndex?: number,
 ): RowWithInfo => {
   // eslint-disable-next-line no-nested-ternary
 
@@ -42,14 +43,16 @@ export const mapRowProps = (
     return {
       cells: props,
       isChild,
-      key: `table-row${isChild ? '-child' : ''}-${originalRows.indexOf(props)}`,
+      key: `table-row${
+        isChild ? `-${parentIndex!}-child` : ''
+      }-${originalRows.indexOf(props)}`,
     };
   }
   return isChild
     ? {
         cells: props.cells,
         isChild,
-        key: `table-row-child-${originalRows.indexOf(props)}`,
+        key: `table-row-${parentIndex!}-child-${originalRows.indexOf(props)}`,
       }
     : {
         ...props,
@@ -75,11 +78,13 @@ export const computeInitialsToggleState = (rows: Row[]): StateInfo => {
   });
   return initialState;
 };
-export const computeInitialsExpandableState = (rows: Row[]): StateInfo => {
-  const initialState: StateInfo = {};
+export const computeInitialsExpandableState = (
+  rows: Row[],
+): { [key: string]: number } => {
+  const initialState: { [key: string]: number } = {};
   rows.forEach((row, index) => {
-    initialState[`table-row-${index}`] = !!mapRowProps(row, rows, false)
-      .children;
+    initialState[`table-row-${index}`] =
+      mapRowProps(row, rows, false).children?.length ?? 0;
   });
   return initialState;
 };
@@ -100,7 +105,12 @@ export const applyExpandAfterSort = (
     result.push(rowWithChildren);
     if (toggleState[`table-row-${positionInOriginalRows}`]) {
       const newElements = rowWithChildren.children!.map((el) =>
-        mapRowProps(el, rowWithChildren.children ?? [], true),
+        mapRowProps(
+          el,
+          rowWithChildren.children ?? [],
+          true,
+          positionInOriginalRows,
+        ),
       );
       result.splice(index + 1, 0, ...newElements);
     }
@@ -118,8 +128,8 @@ export const useExpandableTableOptions = (
   const [toggleState, setToggleState] = useState<StateInfo>(
     useMemo(() => computeInitialsToggleState(rows), [rows]),
   );
-  const [expandableState, setExpandableState] = useState<{
-    [key: string]: boolean;
+  const [childCountState, setChildCountState] = useState<{
+    [key: string]: number;
   }>(useMemo(() => computeInitialsExpandableState(rows), [rows]));
 
   const [data, setData] = useState<RowWithInfo[]>([]);
@@ -144,7 +154,7 @@ export const useExpandableTableOptions = (
           // if row not open, insert children in new data array
           const newData = [...data];
           const newElements = rowWithInfo.children.map((el) =>
-            mapRowProps(el, rowWithInfo.children ?? [], true),
+            mapRowProps(el, rowWithInfo.children ?? [], true, originalIndex),
           );
           newData.splice(index + 1, 0, ...newElements);
           setData(newData);
@@ -160,7 +170,7 @@ export const useExpandableTableOptions = (
 
   useEffect(() => {
     setToggleState(computeInitialsToggleState(rows));
-    setExpandableState(computeInitialsExpandableState(rows));
+    setChildCountState(computeInitialsExpandableState(rows));
     setData(rows.map((el) => mapRowProps(el, rows, false)));
   }, [rows]);
 
@@ -174,7 +184,6 @@ export const useExpandableTableOptions = (
       );
       // update data with Expand state
       const dataToView = applyExpandAfterSort(newData, rows, toggleState);
-      console.log('dataToView');
       setData(dataToView);
     }
   }, [sortDirection, sortedRow, onSortBy, rows, toggleState]);
@@ -182,7 +191,7 @@ export const useExpandableTableOptions = (
   return {
     data,
     toggleState,
-    expandableState,
+    childCountState,
     toggleRow,
   };
 };
@@ -310,3 +319,11 @@ export function defaultSortBy(
 
   return [...rows].sort(sortFn(i, rows));
 }
+
+export const generateRowIds = (parentIndex: number, count: number): string => {
+  const ids: string[] = [];
+  for (let i = 0; i < count; i += 1) {
+    ids.push(`table-row-${parentIndex}-child-${i}`);
+  }
+  return ids.join(' ');
+};

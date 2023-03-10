@@ -19,7 +19,7 @@ tbody .circuit-0:last-child td {
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -34,8 +34,14 @@ tbody .circuit-0:focus td,
 tbody .circuit-0:hover td,
 tbody .circuit-0:focus th,
 tbody .circuit-0:hover th {
-  color: #3063E9;
-  background-color: #F5F5F5;
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-0:active td,
+tbody .circuit-0:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-0.isChild th {
@@ -56,6 +62,7 @@ tbody .circuit-0:hover th {
 <tbody>
   <tr
     class=" circuit-0 circuit-1"
+    id="table-row-0"
     tabindex="0"
   >
     <td
@@ -91,7 +98,7 @@ tbody .circuit-0:last-child td {
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -106,8 +113,14 @@ tbody .circuit-0:focus td,
 tbody .circuit-0:hover td,
 tbody .circuit-0:focus th,
 tbody .circuit-0:hover th {
-  color: #3063E9;
-  background-color: #F5F5F5;
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-0:active td,
+tbody .circuit-0:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-0.isChild th {
@@ -162,6 +175,7 @@ tbody .circuit-0:hover th {
 <tbody>
   <tr
     class=" circuit-0 circuit-1"
+    id="table-row-0"
     tabindex="0"
   >
     <th
@@ -198,7 +212,7 @@ tbody .circuit-0:last-child td {
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -213,8 +227,14 @@ tbody .circuit-0:focus td,
 tbody .circuit-0:hover td,
 tbody .circuit-0:focus th,
 tbody .circuit-0:hover th {
-  color: #3063E9;
-  background-color: #F5F5F5;
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-0:active td,
+tbody .circuit-0:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-0.isChild th {
@@ -235,6 +255,7 @@ tbody .circuit-0:hover th {
 <tbody>
   <tr
     class=" circuit-0 circuit-1"
+    id="table-row-0"
     tabindex="0"
   >
     <td
@@ -270,7 +291,7 @@ tbody .circuit-0:last-child td {
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -285,8 +306,14 @@ tbody .circuit-0:focus td,
 tbody .circuit-0:hover td,
 tbody .circuit-0:focus th,
 tbody .circuit-0:hover th {
-  color: #3063E9;
-  background-color: #F5F5F5;
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-0:active td,
+tbody .circuit-0:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-0.isChild th {
@@ -319,6 +346,7 @@ tbody .circuit-0:hover th {
 <tbody>
   <tr
     class=" circuit-0 circuit-1"
+    id="table-row-0"
     tabindex="0"
   >
     <td

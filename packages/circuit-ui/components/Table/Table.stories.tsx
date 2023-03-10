@@ -114,6 +114,24 @@ Expandable.args = {
         },
       ],
     },
+    {
+      cells: ['Veggies', { children: '12/01/2017', sortByValue: 0 }],
+      children: [
+        [
+          { children: 'Potato' },
+          {
+            children: '12/12/18',
+            sortByValue: new Date('12/12/18'),
+          },
+        ],
+        {
+          cells: ['Bell Pepper', { children: '12/01/2017', sortByValue: 0 }],
+        },
+        {
+          cells: ['Pumpkin', { children: '12/01/2017', sortByValue: 0 }],
+        },
+      ],
+    },
     [
       { children: 'Broccoli' },
       {

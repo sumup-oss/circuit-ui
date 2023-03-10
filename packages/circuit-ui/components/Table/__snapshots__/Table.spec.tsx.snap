@@ -32,6 +32,10 @@ tbody .circuit-4:last-child td {
   border-bottom: none;
 }
 
+.circuit-4.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-6 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -244,6 +248,53 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
+.circuit-17 {
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+tbody .circuit-17:last-child th,
+tbody .circuit-17:last-child td {
+  border-bottom: none;
+}
+
+.circuit-17:focus {
+  z-index: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-17:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-17:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .circuit-17:focus td,
+tbody .circuit-17:hover td,
+tbody .circuit-17:focus th,
+tbody .circuit-17:hover th {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-17:active td,
+tbody .circuit-17:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-17.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -302,7 +353,7 @@ tbody .circuit-4:last-child td {
         class="circuit-3"
       >
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-4 circuit-5"
         >
           <th
             aria-label="Sort in ascending order"
@@ -404,7 +455,9 @@ tbody .circuit-4:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-0"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -424,7 +477,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-1"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -444,7 +499,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-2"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -499,6 +556,10 @@ exports[`Table Style tests should render "null" or "undefined" cells 1`] = `
 tbody .circuit-4:last-child th,
 tbody .circuit-4:last-child td {
   border-bottom: none;
+}
+
+.circuit-4.isChild th {
+  padding-left: 48px;
 }
 
 .circuit-6 {
@@ -556,6 +617,53 @@ tbody .circuit-4:last-child td {
   padding: 8px 24px;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+.circuit-8 {
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+tbody .circuit-8:last-child th,
+tbody .circuit-8:last-child td {
+  border-bottom: none;
+}
+
+.circuit-8:focus {
+  z-index: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-8:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-8:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .circuit-8:focus td,
+tbody .circuit-8:hover td,
+tbody .circuit-8:focus th,
+tbody .circuit-8:hover th {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-8:active td,
+tbody .circuit-8:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-8.isChild th {
+  padding-left: 48px;
 }
 
 .circuit-10 {
@@ -616,7 +724,7 @@ tbody .circuit-4:last-child td {
         class="circuit-3"
       >
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-4 circuit-5"
         >
           <th
             class="circuit-6"
@@ -634,7 +742,9 @@ tbody .circuit-4:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-8 circuit-5"
+          id="table-row-0"
+          tabindex="0"
         >
           <th
             class="circuit-10"
@@ -647,7 +757,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-8 circuit-5"
+          id="table-row-1"
+          tabindex="0"
         >
           <th
             class="circuit-10"
@@ -696,6 +808,10 @@ exports[`Table Style tests should render a collapsed table 1`] = `
 tbody .circuit-4:last-child th,
 tbody .circuit-4:last-child td {
   border-bottom: none;
+}
+
+.circuit-4.isChild th {
+  padding-left: 48px;
 }
 
 .circuit-6 {
@@ -910,6 +1026,53 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
+.circuit-17 {
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+tbody .circuit-17:last-child th,
+tbody .circuit-17:last-child td {
+  border-bottom: none;
+}
+
+.circuit-17:focus {
+  z-index: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-17:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-17:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .circuit-17:focus td,
+tbody .circuit-17:hover td,
+tbody .circuit-17:focus th,
+tbody .circuit-17:hover th {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-17:active td,
+tbody .circuit-17:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-17.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -968,7 +1131,7 @@ tbody .circuit-4:last-child td {
         class="circuit-3"
       >
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-4 circuit-5"
         >
           <th
             aria-label="Sort in ascending order"
@@ -1070,7 +1233,9 @@ tbody .circuit-4:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-0"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -1090,7 +1255,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-1"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -1110,7 +1277,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-2"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -1167,6 +1336,10 @@ tbody .circuit-4:last-child td {
   border-bottom: none;
 }
 
+.circuit-4.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-6 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -1394,6 +1567,53 @@ tbody .circuit-4:last-child td {
   padding: 8px 16px 8px 24px;
 }
 
+.circuit-17 {
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+tbody .circuit-17:last-child th,
+tbody .circuit-17:last-child td {
+  border-bottom: none;
+}
+
+.circuit-17:focus {
+  z-index: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-17:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-17:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .circuit-17:focus td,
+tbody .circuit-17:hover td,
+tbody .circuit-17:focus th,
+tbody .circuit-17:hover th {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-17:active td,
+tbody .circuit-17:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-17.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -1459,7 +1679,7 @@ tbody .circuit-4:last-child td {
         class="circuit-3"
       >
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-4 circuit-5"
         >
           <th
             aria-label="Sort in ascending order"
@@ -1561,7 +1781,9 @@ tbody .circuit-4:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-0"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -1581,7 +1803,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-1"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -1601,7 +1825,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-2"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -1651,6 +1877,10 @@ exports[`Table Style tests should render a scrollable table 1`] = `
 tbody .circuit-4:last-child th,
 tbody .circuit-4:last-child td {
   border-bottom: none;
+}
+
+.circuit-4.isChild th {
+  padding-left: 48px;
 }
 
 .circuit-6 {
@@ -1783,6 +2013,53 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
+.circuit-17 {
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+tbody .circuit-17:last-child th,
+tbody .circuit-17:last-child td {
+  border-bottom: none;
+}
+
+.circuit-17:focus {
+  z-index: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-17:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-17:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .circuit-17:focus td,
+tbody .circuit-17:hover td,
+tbody .circuit-17:focus th,
+tbody .circuit-17:hover th {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-17:active td,
+tbody .circuit-17:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-17.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -1808,7 +2085,7 @@ tbody .circuit-4:last-child td {
         class="circuit-3"
       >
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-4 circuit-5"
         >
           <th
             aria-label="Sort in ascending order"
@@ -1910,7 +2187,9 @@ tbody .circuit-4:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-0"
+          tabindex="0"
         >
           <td
             class="circuit-19"
@@ -1929,7 +2208,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-1"
+          tabindex="0"
         >
           <td
             class="circuit-19"
@@ -1948,7 +2229,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-2"
+          tabindex="0"
         >
           <td
             class="circuit-19"
@@ -2002,6 +2285,10 @@ exports[`Table Style tests should render with component cells 1`] = `
 tbody .circuit-4:last-child th,
 tbody .circuit-4:last-child td {
   border-bottom: none;
+}
+
+.circuit-4.isChild th {
+  padding-left: 48px;
 }
 
 .circuit-6 {
@@ -2059,6 +2346,53 @@ tbody .circuit-4:last-child td {
   padding: 8px 24px;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+.circuit-8 {
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+tbody .circuit-8:last-child th,
+tbody .circuit-8:last-child td {
+  border-bottom: none;
+}
+
+.circuit-8:focus {
+  z-index: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-8:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-8:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .circuit-8:focus td,
+tbody .circuit-8:hover td,
+tbody .circuit-8:focus th,
+tbody .circuit-8:hover th {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-8:active td,
+tbody .circuit-8:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-8.isChild th {
+  padding-left: 48px;
 }
 
 .circuit-10 {
@@ -2132,7 +2466,7 @@ tbody .circuit-4:last-child td {
         class="circuit-3"
       >
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-4 circuit-5"
         >
           <th
             class="circuit-6"
@@ -2150,7 +2484,9 @@ tbody .circuit-4:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-8 circuit-5"
+          id="table-row-0"
+          tabindex="0"
         >
           <th
             class="circuit-10"
@@ -2165,7 +2501,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-8 circuit-5"
+          id="table-row-1"
+          tabindex="0"
         >
           <th
             class="circuit-10"
@@ -2180,7 +2518,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-8 circuit-5"
+          id="table-row-2"
+          tabindex="0"
         >
           <th
             class="circuit-10"
@@ -2237,6 +2577,10 @@ tbody .circuit-4:last-child td {
   border-bottom: none;
 }
 
+.circuit-4.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-6 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -2449,6 +2793,53 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
+.circuit-17 {
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+tbody .circuit-17:last-child th,
+tbody .circuit-17:last-child td {
+  border-bottom: none;
+}
+
+.circuit-17:focus {
+  z-index: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-17:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-17:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .circuit-17:focus td,
+tbody .circuit-17:hover td,
+tbody .circuit-17:focus th,
+tbody .circuit-17:hover th {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-17:active td,
+tbody .circuit-17:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-17.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -2507,7 +2898,7 @@ tbody .circuit-4:last-child td {
         class="circuit-3"
       >
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-4 circuit-5"
         >
           <th
             aria-label="Sort in ascending order"
@@ -2609,7 +3000,9 @@ tbody .circuit-4:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-0"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -2629,7 +3022,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-1"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -2649,7 +3044,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-2"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -2706,6 +3103,10 @@ tbody .circuit-4:last-child td {
   border-bottom: none;
 }
 
+.circuit-4.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-6 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -2918,6 +3319,53 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
+.circuit-17 {
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+tbody .circuit-17:last-child th,
+tbody .circuit-17:last-child td {
+  border-bottom: none;
+}
+
+.circuit-17:focus {
+  z-index: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-17:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-17:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .circuit-17:focus td,
+tbody .circuit-17:hover td,
+tbody .circuit-17:focus th,
+tbody .circuit-17:hover th {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-17:active td,
+tbody .circuit-17:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-17.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -2976,7 +3424,7 @@ tbody .circuit-4:last-child td {
         class="circuit-3"
       >
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-4 circuit-5"
         >
           <th
             aria-label="Sort in ascending order"
@@ -3078,7 +3526,9 @@ tbody .circuit-4:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-0"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -3098,7 +3548,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-1"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -3118,7 +3570,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-2"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -3174,6 +3628,10 @@ tbody .circuit-4:last-child td {
   border-bottom: none;
 }
 
+.circuit-4.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-6 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -3386,6 +3844,53 @@ tbody .circuit-4:last-child td {
   white-space: nowrap;
 }
 
+.circuit-17 {
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+tbody .circuit-17:last-child th,
+tbody .circuit-17:last-child td {
+  border-bottom: none;
+}
+
+.circuit-17:focus {
+  z-index: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-17:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-17:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .circuit-17:focus td,
+tbody .circuit-17:hover td,
+tbody .circuit-17:focus th,
+tbody .circuit-17:hover th {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .circuit-17:active td,
+tbody .circuit-17:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-17.isChild th {
+  padding-left: 48px;
+}
+
 .circuit-19 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
@@ -3444,7 +3949,7 @@ tbody .circuit-4:last-child td {
         class="circuit-3"
       >
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-4 circuit-5"
         >
           <th
             aria-label="Sort in ascending order"
@@ -3546,7 +4051,9 @@ tbody .circuit-4:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-0"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -3566,7 +4073,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-1"
+          tabindex="0"
         >
           <th
             class="circuit-19"
@@ -3586,7 +4095,9 @@ tbody .circuit-4:last-child td {
           </td>
         </tr>
         <tr
-          class="circuit-4 circuit-5"
+          class=" circuit-17 circuit-5"
+          id="table-row-2"
+          tabindex="0"
         >
           <th
             class="circuit-19"

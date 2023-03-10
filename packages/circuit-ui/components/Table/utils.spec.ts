@@ -19,6 +19,7 @@ import {
   applyExpandAfterSort,
   computeInitialsExpandableState,
   computeInitialsToggleState,
+  generateRowIds,
 } from './utils';
 
 describe('Table utils', () => {
@@ -37,9 +38,9 @@ describe('Table utils', () => {
         const expected = {
           cells: props,
           isChild: true,
-          key: 'table-row-child-0',
+          key: 'table-row-0-child-0',
         };
-        const actual = utils.mapRowProps(props, [props], true);
+        const actual = utils.mapRowProps(props, [props], true, 0);
 
         expect(actual).toEqual(expected);
       });
@@ -54,9 +55,13 @@ describe('Table utils', () => {
     });
 
     it('should forward the props object - child', () => {
-      const props = { cells: ['Foo'], isChild: true, key: 'table-row-child-0' };
+      const props = {
+        cells: ['Foo'],
+        isChild: true,
+        key: 'table-row-0-child-0',
+      };
       const expected = props;
-      const actual = utils.mapRowProps(props, [props], true);
+      const actual = utils.mapRowProps(props, [props], true, 0);
 
       expect(actual).toEqual(expected);
     });
@@ -361,9 +366,9 @@ describe('Table utils', () => {
         ],
       ];
       const expected = {
-        'table-row-0': true,
-        'table-row-1': false,
-        'table-row-2': false,
+        'table-row-0': 3,
+        'table-row-1': 0,
+        'table-row-2': 0,
       };
       // when
       const result = computeInitialsExpandableState(rows);
@@ -444,17 +449,17 @@ describe('Table utils', () => {
             },
           ],
           isChild: true,
-          key: 'table-row-child-0',
+          key: 'table-row-0-child-0',
         },
         {
           cells: ['Banana', { children: '12/01/2017', sortByValue: 0 }],
           isChild: true,
-          key: 'table-row-child-1',
+          key: 'table-row-0-child-1',
         },
         {
           cells: ['Orange', { children: '12/01/2017', sortByValue: 0 }],
           isChild: true,
-          key: 'table-row-child-2',
+          key: 'table-row-0-child-2',
         },
         {
           cells: [
@@ -486,6 +491,19 @@ describe('Table utils', () => {
       // then
       expect(result.length).toEqual(6);
       expect(result).toEqual(expected);
+    });
+  });
+
+  describe('generateRowIds', () => {
+    test('should return concatenated ids if correct params supplied', () => {
+      const result = generateRowIds(0, 3);
+      expect(result).toEqual(
+        'table-row-0-child-0 table-row-0-child-1 table-row-0-child-2',
+      );
+    });
+    test('should return empty string if count 0', () => {
+      const result = generateRowIds(0, 0);
+      expect(result).toEqual('');
     });
   });
 });
