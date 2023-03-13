@@ -1,0 +1,32 @@
+{
+  "name": "@sumup/eslint-plugin",
+  "version": "1.0.0",
+  "description": "ESLint rules to lint Circuit UI.",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "directory": "packages/eslint-plugin",
+    "url": "git+https://github.com/sumup-oss/circuit-ui.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sumup-oss/circuit-ui/issues"
+  },
+  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin/README.md",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@typescript-eslint/utils": "^5.54.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "typescript": "^4.9.5"
+  }
+}

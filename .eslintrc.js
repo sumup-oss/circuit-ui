@@ -1,4 +1,8 @@
 module.exports = require('@sumup/foundry/eslint')({
+  plugins: ['@sumup'],
+  rules: {
+    '@sumup/no-invalid-custom-properties': 'error',
+  },
   parserOptions: {
     project: ['./packages/*/tsconfig.json', './tsconfig.eslint.json'],
     tsconfigRootDir: __dirname,
