@@ -82,7 +82,7 @@
     "storybook": "^7.0.0-beta.60",
     "svgo": "^3.0.2",
     "typescript": "^4.9.5",
-    "webpack": "^5.75.0"
+    "webpack": "^5.76.1"
   },
   "resolutions": {
     "prettier": "^2.6.2"
