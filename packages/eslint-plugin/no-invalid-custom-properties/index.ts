@@ -32,7 +32,7 @@ export const noInvalidCustomProperties = createRule({
     schema: [],
     docs: {
       description:
-        'Custom properties prefixed in `--cui` should be valid Circuit UI color tokens.',
+        'Custom properties prefixed with `--cui` should be valid Circuit UI color tokens.',
       recommended: 'error',
     },
     messages: {

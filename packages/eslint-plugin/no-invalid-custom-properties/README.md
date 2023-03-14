@@ -1,4 +1,4 @@
-# Do not invalid Circuit UI custom properties (`no-invalid-custom-properties`)
+# Do not use invalid Circuit UI custom properties (`no-invalid-custom-properties`)
 
 Circuit UI exports a number of CSS custom properties (a.k.a. CSS variables) prefixed with `--cui`. This rule checks that custom properties using that prefix are valid.
 
