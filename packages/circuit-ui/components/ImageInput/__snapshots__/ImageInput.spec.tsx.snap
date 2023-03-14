@@ -2001,11 +2001,6 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   height: 16px;
   vertical-align: text-top;
   margin-right: 4px;
-  color: var(--cui-fg-danger);
-}
-
-.cui-field-disabled .circuit-14 {
-  color: var(--cui-fg-danger-disabled);
 }
 
 <div>
@@ -2107,7 +2102,6 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
       >
         <div
           class="circuit-14"
-          id="validation-hint_6"
         >
           <svg
             fill="none"
