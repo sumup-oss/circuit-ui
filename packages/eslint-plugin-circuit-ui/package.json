@@ -1,5 +1,5 @@
 {
-  "name": "@sumup/eslint-plugin",
+  "name": "@sumup/eslint-plugin-circuit-ui",
   "version": "1.0.0",
   "description": "ESLint rules to lint Circuit UI.",
   "main": "dist/index.js",
@@ -11,14 +11,14 @@
   ],
   "repository": {
     "type": "git",
-    "directory": "packages/eslint-plugin",
+    "directory": "packages/eslint-plugin-circuit-ui",
     "url": "git+https://github.com/sumup-oss/circuit-ui.git"
   },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/sumup-oss/circuit-ui/issues"
   },
-  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin/README.md",
+  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/README.md",
   "scripts": {
     "build": "tsc"
   },
