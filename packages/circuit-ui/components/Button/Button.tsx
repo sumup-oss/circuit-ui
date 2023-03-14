@@ -43,7 +43,7 @@ import { AccessibilityError } from '../../util/errors';
 export interface BaseProps {
   'children': ReactNode;
   /**
-   * Choose from 3 style variants. Default: 'primary'.
+   * Choose from 3 style variants. Default: 'secondary'.
    */
   'variant'?: 'primary' | 'secondary' | 'tertiary';
   /**
