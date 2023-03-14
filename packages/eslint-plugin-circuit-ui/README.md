@@ -34,7 +34,7 @@ Rules are configured under the rules section:
 ```json
 {
   "rules": {
-    "@sumup/<rule-name>": "error"
+    "@sumup/circuit-ui/<rule-name>": "error"
   }
 }
 ```
