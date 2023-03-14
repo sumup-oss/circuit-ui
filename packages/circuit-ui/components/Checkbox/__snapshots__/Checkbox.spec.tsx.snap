@@ -629,11 +629,6 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   height: 16px;
   vertical-align: text-top;
   margin-right: 4px;
-  color: var(--cui-fg-danger);
-}
-
-.cui-field-disabled .circuit-4 {
-  color: var(--cui-fg-danger-disabled);
 }
 
 <div>
@@ -676,7 +671,6 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
       >
         <div
           class="circuit-4"
-          id="validation_hint-8"
         >
           <svg
             fill="none"

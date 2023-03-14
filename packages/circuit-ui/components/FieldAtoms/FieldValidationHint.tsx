@@ -104,21 +104,21 @@ const getIcon = (props: FieldValidationHintProps) => {
     }
     case props.invalid: {
       return (
-        <IconWrapper {...props}>
+        <IconWrapper>
           <Alert role="presentation" size="16" />
         </IconWrapper>
       );
     }
     case props.hasWarning: {
       return (
-        <IconWrapper {...props}>
+        <IconWrapper>
           <Notify role="presentation" size="16" />
         </IconWrapper>
       );
     }
     case props.showValid: {
       return (
-        <IconWrapper {...props}>
+        <IconWrapper>
           <Confirm role="presentation" size="16" />
         </IconWrapper>
       );
