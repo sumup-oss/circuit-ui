@@ -16,14 +16,14 @@
 import {
   ReactNode,
   useContext,
-  useMemo,
   useCallback,
+  useId,
   useRef,
   useEffect,
 } from 'react';
 
-import { uniqueId } from '../../util/id';
 import { TrackingProps } from '../../hooks/useClickEvent';
+import { uniqueId } from '../../util/id';
 
 import { SidePanelContext, SidePanelContextProps } from './SidePanelContext';
 
@@ -84,7 +84,7 @@ type UseSidePanelHook = () => {
 };
 
 export const useSidePanel: UseSidePanelHook = () => {
-  const defaultGroup = useMemo(uniqueId, []);
+  const defaultGroup = useId();
   const bottomSidePanelGroupRef = useRef<
     SidePanelContextProps['group'] | undefined
   >();

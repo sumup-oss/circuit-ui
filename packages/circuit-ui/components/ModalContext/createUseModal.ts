@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-import { useContext, useMemo, useCallback, useRef } from 'react';
-
-import { uniqueId } from '../../util/id';
+import { useContext, useCallback, useRef, useId } from 'react';
 
 import { ModalContext } from './ModalContext';
 import type { BaseModalProps, ModalComponent } from './types';
@@ -27,7 +25,7 @@ export function createUseModal<T extends BaseModalProps>(
     setModal: (props: Omit<T, 'isOpen'>) => void;
     removeModal: () => void;
   } => {
-    const id = useMemo(uniqueId, []);
+    const id = useId();
     const modalRef = useRef<Omit<T, 'isOpen'> | null>(null);
     const context = useContext(ModalContext);
 

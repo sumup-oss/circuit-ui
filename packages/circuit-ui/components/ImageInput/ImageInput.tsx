@@ -20,13 +20,13 @@ import {
   ChangeEvent,
   ClipboardEvent,
   DragEvent,
+  useId,
 } from 'react';
 import { css } from '@emotion/react';
 import { Delete, Plus } from '@sumup/icons';
 
 import { ClickEvent } from '../../types/events';
 import styled, { StyleProps } from '../../styles/styled';
-import { uniqueId } from '../../util/id';
 import { focusOutline, hideVisually } from '../../styles/style-mixins';
 import { FieldWrapper, FieldLabel, FieldValidationHint } from '../FieldAtoms';
 import IconButton, { IconButtonProps } from '../IconButton';
@@ -339,8 +339,9 @@ export const ImageInput = ({
   }
 
   const inputRef = useRef<HTMLInputElement>(null);
-  const id = customId || uniqueId('image-input_');
-  const validationHintId = uniqueId('validation-hint_');
+  const id = useId();
+  const inputId = customId || id;
+  const validationHintId = useId();
   const descriptionIds = `${
     descriptionId ? `${descriptionId} ` : ''
   }${validationHintId}`;
@@ -436,7 +437,7 @@ export const ImageInput = ({
       <InputWrapper onPaste={handlePaste}>
         <HiddenInput
           ref={inputRef}
-          id={id}
+          id={inputId}
           type="file"
           accept="image/*"
           onChange={handleInputChange}
@@ -450,7 +451,7 @@ export const ImageInput = ({
           isLoading={isLoading}
           isDragging={isDragging}
           invalid={invalid}
-          htmlFor={id}
+          htmlFor={inputId}
           onDragEnter={handleDragging}
           onDragOver={handleDragging}
           onDragLeave={handleDragLeave}

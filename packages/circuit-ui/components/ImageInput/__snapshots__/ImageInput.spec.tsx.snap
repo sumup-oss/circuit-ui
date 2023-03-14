@@ -307,15 +307,15 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
     >
       <input
         accept="image/*"
-        aria-describedby="validation-hint_10"
+        aria-describedby=":r9:"
         aria-invalid="false"
         class="circuit-2"
-        id="image-input_9"
+        id=":r8:"
         type="file"
       />
       <label
         class="circuit-3"
-        for="image-input_9"
+        for=":r8:"
       >
         <span
           class="circuit-4"
@@ -728,15 +728,15 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
     >
       <input
         accept="image/*"
-        aria-describedby="validation-hint_8"
+        aria-describedby=":r7:"
         aria-invalid="false"
         class="circuit-2"
-        id="image-input_7"
+        id=":r6:"
         type="file"
       />
       <label
         class="circuit-3"
-        for="image-input_7"
+        for=":r6:"
       >
         <span
           class="circuit-4"
@@ -1134,15 +1134,15 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
     >
       <input
         accept="image/*"
-        aria-describedby="validation-hint_4"
+        aria-describedby=":r3:"
         aria-invalid="false"
         class="circuit-2"
-        id="image-input_3"
+        id=":r2:"
         type="file"
       />
       <label
         class="circuit-3"
-        for="image-input_3"
+        for=":r2:"
       >
         <span
           class="circuit-4"
@@ -1549,15 +1549,15 @@ exports[`ImageInput Styles should render with default styles 1`] = `
     >
       <input
         accept="image/*"
-        aria-describedby="validation-hint_2"
+        aria-describedby=":r1:"
         aria-invalid="false"
         class="circuit-2"
-        id="image-input_1"
+        id=":r0:"
         type="file"
       />
       <label
         class="circuit-3"
-        for="image-input_1"
+        for=":r0:"
       >
         <span
           class="circuit-4"
@@ -2012,15 +2012,15 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
     >
       <input
         accept="image/*"
-        aria-describedby="validation-hint_6"
+        aria-describedby=":r5:"
         aria-invalid="true"
         class="circuit-2"
-        id="image-input_5"
+        id=":r4:"
         type="file"
       />
       <label
         class="circuit-3"
-        for="image-input_5"
+        for=":r4:"
       >
         <span
           class="circuit-4"
@@ -2098,7 +2098,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
     >
       <span
         class="circuit-13"
-        id="validation-hint_6"
+        id=":r5:"
       >
         <div
           class="circuit-14"

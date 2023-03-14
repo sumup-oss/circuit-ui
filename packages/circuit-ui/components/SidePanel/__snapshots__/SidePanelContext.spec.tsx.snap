@@ -292,7 +292,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
       class="ReactModal__Overlay circuit-1"
     >
       <div
-        aria-labelledby="side-panel-header_2"
+        aria-labelledby=":r0:"
         aria-modal="true"
         class="circuit-2"
         role="dialog"
@@ -306,7 +306,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
           >
             <h2
               class="circuit-5"
-              id="side-panel-header_2"
+              id=":r0:"
             >
               Side panel title
             </h2>
@@ -642,7 +642,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
       class="circuit-1"
     >
       <div
-        aria-labelledby="side-panel-header_4"
+        aria-labelledby=":r1:"
         aria-modal="true"
         class="circuit-2"
         role="dialog"
@@ -656,7 +656,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
           >
             <h2
               class="circuit-5"
-              id="side-panel-header_4"
+              id=":r1:"
             >
               Side panel title
             </h2>
@@ -991,7 +991,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
       class="ReactModal__Overlay circuit-1"
     >
       <div
-        aria-labelledby="side-panel-header_6"
+        aria-labelledby=":r2:"
         aria-modal="true"
         class="circuit-2"
         role="dialog"
@@ -1005,7 +1005,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
           >
             <h2
               class="circuit-5"
-              id="side-panel-header_6"
+              id=":r2:"
             >
               Side panel title
             </h2>

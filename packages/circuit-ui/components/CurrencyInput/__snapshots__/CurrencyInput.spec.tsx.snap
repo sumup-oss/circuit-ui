@@ -111,7 +111,7 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
   >
     <label
       class="circuit-1"
-      for="input_14"
+      for=":r7:"
     >
       <span
         class="circuit-2 circuit-3"
@@ -124,14 +124,14 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
     >
       <span
         class="circuit-5"
-        id="currency-symbol_11"
+        id=":r6:"
       >
         CHF
       </span>
       <input
-        aria-describedby="currency-symbol_11 validation-hint_15"
+        aria-describedby=":r6: :r8:"
         class="circuit-6"
-        id="input_14"
+        id=":r7:"
         inputmode="decimal"
         type="text"
         value=""
@@ -260,7 +260,7 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
   >
     <label
       class="circuit-1"
-      for="input_9"
+      for=":r4:"
     >
       <span
         class="circuit-2 circuit-3"
@@ -272,16 +272,16 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
       class="circuit-4"
     >
       <input
-        aria-describedby="currency-symbol_6 validation-hint_10"
+        aria-describedby=":r3: :r5:"
         class="circuit-5"
-        id="input_9"
+        id=":r4:"
         inputmode="decimal"
         type="text"
         value=""
       />
       <span
         class="circuit-6"
-        id="currency-symbol_6"
+        id=":r3:"
       >
         €
       </span>
@@ -405,7 +405,7 @@ exports[`CurrencyInput Styles should render with default styles and format 1`] =
   >
     <label
       class="circuit-1"
-      for="input_4"
+      for=":r1:"
     >
       <span
         class="circuit-2 circuit-3"
@@ -418,14 +418,14 @@ exports[`CurrencyInput Styles should render with default styles and format 1`] =
     >
       <span
         class="circuit-5"
-        id="currency-symbol_1"
+        id=":r0:"
       >
         $
       </span>
       <input
-        aria-describedby="currency-symbol_1 validation-hint_5"
+        aria-describedby=":r0: :r2:"
         class="circuit-6"
-        id="input_4"
+        id=":r1:"
         inputmode="decimal"
         type="text"
         value=""

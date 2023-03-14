@@ -17,10 +17,6 @@ import { render, userEvent, axe, waitFor } from '../../util/test-utils';
 
 import { SidePanel, SidePanelProps } from './SidePanel';
 
-jest.mock('../../util/id', () => ({
-  uniqueId: () => 'the_one',
-}));
-
 describe('SidePanel', () => {
   const baseProps: SidePanelProps = {
     backButtonLabel: 'Back',

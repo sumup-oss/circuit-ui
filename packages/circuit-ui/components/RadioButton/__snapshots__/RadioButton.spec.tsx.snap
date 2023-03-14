@@ -127,13 +127,13 @@ exports[`RadioButton Styles should render with checked styles 1`] = `
   <input
     checked=""
     class="circuit-0"
-    id="radio-button_2"
+    id=":r1:"
     type="radio"
     value=""
   />
   <label
     class="circuit-1"
-    for="radio-button_2"
+    for=":r1:"
   >
     Label
   </label>
@@ -266,13 +266,13 @@ exports[`RadioButton Styles should render with default styles 1`] = `
 <div>
   <input
     class="circuit-0"
-    id="radio-button_1"
+    id=":r0:"
     type="radio"
     value=""
   />
   <label
     class="circuit-1"
-    for="radio-button_1"
+    for=":r0:"
   >
     Label
   </label>
@@ -406,13 +406,13 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
   <input
     class="circuit-0"
     disabled=""
-    id="radio-button_3"
+    id=":r2:"
     type="radio"
     value=""
   />
   <label
     class="circuit-1"
-    for="radio-button_3"
+    for=":r2:"
   >
     Label
   </label>
@@ -564,13 +564,13 @@ exports[`RadioButton Styles should render with invalid styles 1`] = `
   <input
     aria-invalid="true"
     class="circuit-0"
-    id="radio-button_4"
+    id=":r3:"
     type="radio"
     value=""
   />
   <label
     class="circuit-1"
-    for="radio-button_4"
+    for=":r3:"
   >
     Label
   </label>

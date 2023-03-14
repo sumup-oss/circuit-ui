@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-import { useState, useRef, useCallback, RefObject } from 'react';
+import { useState, useRef, useCallback, RefObject, useId } from 'react';
 
 import { ClickEvent } from '../../types/events';
-import { uniqueId } from '../../util/id';
 import { useAnimation } from '../useAnimation';
 
 const DEFAULT_HEIGHT = 'auto';
@@ -64,9 +63,10 @@ type Collapsible<T> = {
 export function useCollapsible<T extends HTMLElement = HTMLElement>({
   initialOpen = false,
   duration = 200,
-  id,
+  id: customId,
 }: CollapsibleOptions = {}): Collapsible<T> {
-  const contentId = id || uniqueId('collapsible_');
+  const id = useId();
+  const contentId = customId || id;
   const contentElement = useRef<T>(null);
   const [isOpen, setOpen] = useState(initialOpen);
   const [height, setHeight] = useState(getHeight(contentElement));

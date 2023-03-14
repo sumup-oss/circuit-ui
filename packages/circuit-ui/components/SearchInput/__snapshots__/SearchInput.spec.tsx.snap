@@ -85,7 +85,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_3"
+    for=":r2:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -112,10 +112,10 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
       />
     </svg>
     <input
-      aria-describedby="validation-hint_4"
+      aria-describedby=":r3:"
       class="circuit-6"
       disabled=""
-      id="input_3"
+      id=":r2:"
       type="text"
       value=""
     />
@@ -224,7 +224,7 @@ exports[`SearchInput should render with default styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_1"
+    for=":r0:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -251,9 +251,9 @@ exports[`SearchInput should render with default styles 1`] = `
       />
     </svg>
     <input
-      aria-describedby="validation-hint_2"
+      aria-describedby=":r1:"
       class="circuit-6"
-      id="input_1"
+      id=":r0:"
       type="text"
       value=""
     />

@@ -18,11 +18,11 @@ import {
   InputHTMLAttributes,
   Ref,
   forwardRef,
+  useId,
 } from 'react';
 
 import styled from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
-import { uniqueId } from '../../util/id';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
 import {
   FieldWrapper,
@@ -124,8 +124,9 @@ export const RadioButtonGroup = forwardRef(
         'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-    const name = customName || uniqueId('radio-button-group_');
-    const validationHintId = uniqueId('validation-hint_');
+    const name = useId();
+    const groupName = customName || name;
+    const validationHintId = useId();
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
@@ -136,7 +137,7 @@ export const RadioButtonGroup = forwardRef(
         role="radiogroup"
         aria-describedby={descriptionIds}
         aria-orientation="vertical"
-        name={name}
+        name={groupName}
         // @ts-expect-error The `as` prop above changes the HTML element.
         ref={ref}
         disabled={disabled}
@@ -159,7 +160,7 @@ export const RadioButtonGroup = forwardRef(
                 style={style}
               >
                 <RadioButton
-                  {...{ ...rest, value, name, required, onChange }}
+                  {...{ ...rest, value, name: groupName, required, onChange }}
                   checked={value === activeValue}
                   label={optionLabel}
                 />

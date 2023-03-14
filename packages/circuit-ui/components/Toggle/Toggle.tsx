@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import { Ref, forwardRef } from 'react';
+import { Ref, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { uniqueId } from '../../util/id';
 import { Body, BodyProps } from '../Body/Body';
 import { AccessibilityError } from '../../util/errors';
 import { FieldWrapper } from '../FieldAtoms';
@@ -103,13 +102,14 @@ export const Toggle = forwardRef(
       throw new AccessibilityError('Toggle', 'The `label` prop is missing.');
     }
 
-    const switchId = uniqueId('toggle-switch_');
-    const labelId = uniqueId('toggle-label_');
-    const explanationId = explanation ? uniqueId('toggle-explanation_') : '';
+    const switchId = useId();
+    const labelId = useId();
+    const explanationId = useId();
 
-    const descriptionIds = [descriptionId, explanationId]
+    const descriptionIds = [descriptionId, explanation && explanationId]
       .filter(Boolean)
       .join(' ');
+
     return (
       <FieldWrapper disabled={props.disabled} css={wrapperStyles}>
         <Switch

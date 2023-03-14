@@ -18,7 +18,7 @@ import { renderHook } from '../../util/test-utils';
 import { useSidePanel } from './useSidePanel';
 import { SidePanelContext } from './SidePanelContext';
 
-const defaultId = 'the_one';
+const defaultId = '1';
 const testId = 'test';
 
 jest.mock('../../util/id', () => ({
@@ -26,6 +26,10 @@ jest.mock('../../util/id', () => ({
 }));
 
 describe('useSidePanel', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   const setSidePanel = jest.fn();
   const updateSidePanel = jest.fn();
   const removeSidePanel = jest.fn().mockResolvedValue(undefined);
@@ -61,8 +65,8 @@ describe('useSidePanel', () => {
 
     const expected = {
       ...panel,
-      group: defaultId,
-      id: defaultId,
+      group: ':r0:',
+      id: '1',
     };
     expect(setSidePanel).toHaveBeenCalledWith(expected);
   });
@@ -90,7 +94,7 @@ describe('useSidePanel', () => {
 
     const expected = {
       children: <p data-testid="children">Updated content</p>,
-      group: defaultId,
+      group: ':r2:',
     };
     expect(updateSidePanel).toHaveBeenCalledWith(expected);
   });
@@ -116,7 +120,7 @@ describe('useSidePanel', () => {
     result.current.setSidePanel(panel);
     result.current.removeSidePanel();
 
-    const expected = defaultId;
+    const expected = ':r4:';
     expect(removeSidePanel).toHaveBeenCalledWith(expected);
   });
 
@@ -141,7 +145,7 @@ describe('useSidePanel', () => {
 
     unmount();
 
-    const expected = defaultId;
+    const expected = ':r6:';
     expect(removeSidePanel).toHaveBeenCalledWith(expected);
   });
 });

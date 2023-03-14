@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import { Fragment, InputHTMLAttributes, Ref, forwardRef } from 'react';
+import { Fragment, InputHTMLAttributes, Ref, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, focusOutline } from '../../styles/style-mixins';
-import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { AccessibilityError } from '../../util/errors';
 
@@ -216,7 +215,8 @@ export const RadioButton = forwardRef(
         'The `label` prop is missing.',
       );
     }
-    const id = customId || uniqueId('radio-button_');
+    const id = useId();
+    const inputId = customId || id;
     const handleChange = useClickEvent(onChange, tracking, 'radio-button');
 
     return (
@@ -225,7 +225,7 @@ export const RadioButton = forwardRef(
           {...props}
           type="radio"
           name={name}
-          id={id}
+          id={inputId}
           value={value}
           invalid={invalid}
           aria-invalid={invalid && 'true'}
@@ -235,7 +235,7 @@ export const RadioButton = forwardRef(
           ref={ref}
         />
         <RadioButtonLabel
-          htmlFor={id}
+          htmlFor={inputId}
           invalid={invalid}
           className={className}
           style={style}

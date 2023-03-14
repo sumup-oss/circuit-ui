@@ -77,7 +77,7 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_39"
+    for=":ri:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -89,11 +89,11 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_40"
+      aria-describedby=":rj:"
       aria-invalid="true"
       class="circuit-5"
       disabled=""
-      id="input_39"
+      id=":ri:"
     />
   </div>
   <span
@@ -180,7 +180,7 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_43"
+    for=":rk:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -192,10 +192,10 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_44"
+      aria-describedby=":rl:"
       class="circuit-5"
       disabled=""
-      id="input_43"
+      id=":rk:"
     />
   </div>
   <span
@@ -294,7 +294,7 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 >
   <label
     class="circuit-1"
-    for="input_55"
+    for=":rq:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -306,9 +306,9 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_56"
+      aria-describedby=":rr:"
       class="circuit-5"
-      id="input_55"
+      id=":rq:"
       rows="3"
       style="resize: none; overflow-y: hidden; height: auto;"
     />
@@ -409,7 +409,7 @@ exports[`TextArea should render rows props when passed 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_47"
+    for=":rm:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -421,9 +421,9 @@ exports[`TextArea should render rows props when passed 1`] = `
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_48"
+      aria-describedby=":rn:"
       class="circuit-5"
-      id="input_47"
+      id=":rm:"
       rows="3"
     />
   </div>
@@ -537,7 +537,7 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 >
   <label
     class="circuit-1"
-    for="input_15"
+    for=":r6:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -549,14 +549,14 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_16"
+      aria-describedby=":r7:"
       class="circuit-5"
-      id="input_15"
+      id=":r6:"
     />
   </div>
   <span
     class="circuit-6"
-    id="validation-hint_16"
+    id=":r7:"
   >
     Validation hint
   </span>
@@ -666,7 +666,7 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 >
   <label
     class="circuit-1"
-    for="input_7"
+    for=":r2:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -682,9 +682,9 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
       style="width: 24px; height: 24px;"
     />
     <textarea
-      aria-describedby="validation-hint_8"
+      aria-describedby=":r3:"
       class="circuit-6"
-      id="input_7"
+      id=":r2:"
     />
   </div>
   <span
@@ -797,7 +797,7 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 >
   <label
     class="circuit-1"
-    for="input_11"
+    for=":r4:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -809,9 +809,9 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_12"
+      aria-describedby=":r5:"
       class="circuit-5"
-      id="input_11"
+      id=":r4:"
     />
     <div
       class="circuit-6"
@@ -914,7 +914,7 @@ exports[`TextArea should render with default styles 1`] = `
 >
   <label
     class="circuit-1"
-    for="input_3"
+    for=":r0:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -926,9 +926,9 @@ exports[`TextArea should render with default styles 1`] = `
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_4"
+      aria-describedby=":r1:"
       class="circuit-5"
-      id="input_3"
+      id=":r0:"
     />
   </div>
   <span
@@ -1015,7 +1015,7 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 >
   <label
     class="circuit-1"
-    for="input_35"
+    for=":rg:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -1027,10 +1027,10 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_36"
+      aria-describedby=":rh:"
       class="circuit-5"
       disabled=""
-      id="input_35"
+      id=":rg:"
     />
   </div>
   <span
@@ -1145,7 +1145,7 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 >
   <label
     class="circuit-1"
-    for="input_23"
+    for=":ra:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -1157,10 +1157,10 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_24"
+      aria-describedby=":rb:"
       aria-invalid="true"
       class="circuit-5"
-      id="input_23"
+      id=":ra:"
     />
   </div>
   <span
@@ -1260,7 +1260,7 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
 >
   <label
     class="circuit-1"
-    for="input_31"
+    for=":re:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -1272,9 +1272,9 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_32"
+      aria-describedby=":rf:"
       class="circuit-5"
-      id="input_31"
+      id=":re:"
       readonly=""
     />
   </div>
@@ -1374,7 +1374,7 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 >
   <label
     class="circuit-1"
-    for="input_27"
+    for=":rc:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -1386,9 +1386,9 @@ exports[`TextArea should render with valid styles when passed the showValid prop
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_28"
+      aria-describedby=":rd:"
       class="circuit-5"
-      id="input_27"
+      id=":rc:"
     />
   </div>
   <span
@@ -1503,7 +1503,7 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 >
   <label
     class="circuit-1"
-    for="input_19"
+    for=":r8:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -1515,9 +1515,9 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_20"
+      aria-describedby=":r9:"
       class="circuit-5"
-      id="input_19"
+      id=":r8:"
     />
   </div>
   <span
@@ -1616,7 +1616,7 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
 >
   <label
     class="circuit-1"
-    for="input_51"
+    for=":ro:"
   >
     <span
       class="circuit-2 circuit-3"
@@ -1628,9 +1628,9 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
     class="circuit-4"
   >
     <textarea
-      aria-describedby="validation-hint_52"
+      aria-describedby=":rp:"
       class="circuit-5"
-      id="input_51"
+      id=":ro:"
       style="resize: none; overflow-y: hidden; height: auto;"
     />
   </div>

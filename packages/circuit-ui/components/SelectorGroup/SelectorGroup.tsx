@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import { ReactNode, Ref, forwardRef, ChangeEventHandler } from 'react';
+import { ReactNode, Ref, forwardRef, ChangeEventHandler, useId } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { uniqueId } from '../../util/id';
 import Selector from '../Selector';
 import { SelectorSize } from '../Selector/Selector';
 import { hideVisually, typography } from '../../styles/style-mixins';
@@ -154,7 +153,8 @@ export const SelectorGroup = forwardRef(
         'The `label` prop is required. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-    const name = customName || uniqueId('selector-group_');
+    const name = useId();
+    const groupName = customName || name;
 
     if (!options) {
       return null;
@@ -166,7 +166,7 @@ export const SelectorGroup = forwardRef(
         {options.map(({ children, value, ...optionRest }) => (
           <OptionItem key={value}>
             <Selector
-              name={name}
+              name={groupName}
               onChange={onChange}
               multiple={multiple}
               value={value}

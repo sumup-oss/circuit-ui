@@ -539,11 +539,11 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
             >
               <li>
                 <button
-                  aria-controls="collapsible_2"
+                  aria-controls=":r1:"
                   aria-current="page"
                   aria-expanded="false"
                   class="circuit-10"
-                  data-focus-list="1"
+                  data-focus-list=":r0:"
                 >
                   <span
                     class="circuit-11"
@@ -591,7 +591,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                 <ul
                   aria-hidden="true"
                   class="circuit-15"
-                  id="collapsible_2"
+                  id=":r1:"
                   role="list"
                   style="overflow-y: hidden; will-change: height; opacity: 0; height: 0px; visibility: hidden; transition: all 200ms ease-in-out;"
                 >
@@ -612,7 +612,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                       <li>
                         <a
                           class="circuit-19"
-                          data-focus-list="3"
+                          data-focus-list=":r2:"
                           href="/shop/toys"
                         >
                           <span
@@ -629,7 +629,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                       <li>
                         <a
                           class="circuit-19"
-                          data-focus-list="3"
+                          data-focus-list=":r2:"
                           href="/shop/books"
                         >
                           <span
@@ -1068,7 +1068,7 @@ exports[`MobileNavigation styles should render without secondary links 1`] = `
               <li>
                 <a
                   class="circuit-10"
-                  data-focus-list="4"
+                  data-focus-list=":r3:"
                   href="/"
                 >
                   <span

@@ -348,7 +348,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
           <a
             aria-current="page"
             class="circuit-3"
-            data-focus-list="1"
+            data-focus-list=":r0:"
             href="/shop"
           >
             <span
@@ -417,7 +417,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
             <li>
               <a
                 class="circuit-14"
-                data-focus-list="2"
+                data-focus-list=":r1:"
                 href="/shop/toys"
               >
                 <span
@@ -434,7 +434,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
             <li>
               <a
                 class="circuit-14"
-                data-focus-list="2"
+                data-focus-list=":r1:"
                 href="/shop/books"
               >
                 <span
@@ -660,7 +660,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
         <li>
           <a
             class="circuit-3"
-            data-focus-list="3"
+            data-focus-list=":r2:"
             href="/"
           >
             <span
