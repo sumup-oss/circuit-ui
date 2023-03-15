@@ -87,7 +87,7 @@ const primaryWrapperStyles = ({ theme }: StyleProps) => css`
 
   &:hover,
   &:focus-within {
-    ${shadow(theme)};
+    ${shadow()};
     width: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
   }
 

@@ -124,18 +124,7 @@ export const spacing = (
  * Adds a drop shadow to an element to visually elevate it above the
  * surrounding content.
  */
-// TODO: Simplify the function signature in the next major.
-export function shadow(options?: never): (args: ThemeArgs) => SerializedStyles;
-export function shadow(args: ThemeArgs): SerializedStyles;
-export function shadow(
-  argsOrOptions?: ThemeArgs | never,
-): SerializedStyles | ((args: ThemeArgs) => SerializedStyles) {
-  if (!argsOrOptions) {
-    return (): SerializedStyles => css`
-      box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-    `;
-  }
-
+export function shadow(): SerializedStyles {
   return css`
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   `;
@@ -195,17 +184,9 @@ export const center = (): SerializedStyles => css`
 /**
  * Visually communicates to the user that an element is focused.
  */
-// TODO: Simplify the function signature in the next major.
-export function focusOutline(
-  options: 'inset',
-): (args?: ThemeArgs) => SerializedStyles;
-export function focusOutline(args?: ThemeArgs): SerializedStyles;
-export function focusOutline(
-  argsOrOptions?: ThemeArgs | 'inset',
-): SerializedStyles | ((args?: ThemeArgs) => SerializedStyles) {
-  if (typeof argsOrOptions === 'string') {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    return (_args?: ThemeArgs): SerializedStyles => css`
+export function focusOutline(options?: 'inset' | ThemeArgs): SerializedStyles {
+  if (options === 'inset') {
+    return css`
       outline: 0;
       box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 
@@ -229,17 +210,9 @@ export function focusOutline(
  * the user agent determines via heuristics that the focus should be
  * made evident on the element.
  */
-// TODO: Simplify the function signature in the next major.
-export function focusVisible(
-  options: 'inset',
-): (args?: ThemeArgs) => SerializedStyles;
-export function focusVisible(args?: ThemeArgs): SerializedStyles;
-export function focusVisible(
-  argsOrOptions?: ThemeArgs | 'inset',
-): SerializedStyles | ((args?: ThemeArgs) => SerializedStyles) {
-  if (typeof argsOrOptions === 'string') {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    return (_args?: ThemeArgs): SerializedStyles => css`
+export function focusVisible(options?: 'inset' | ThemeArgs): SerializedStyles {
+  if (options === 'inset') {
+    return css`
       &:focus {
         outline: 0;
         box-shadow: inset 0 0 0 4px var(--cui-border-focus);
@@ -302,21 +275,11 @@ export const hideScrollbar = (): SerializedStyles => css`
  * Visually communicates to the user that an element is hovered, focused, or
  * active in the disabled, invalid, and warning states.
  */
-// TODO: Remove `theme` from the function signature in the next major.
-export const inputOutline = (
-  args:
-    | Theme
-    | {
-        theme: Theme;
-        disabled?: boolean;
-        invalid?: boolean;
-        hasWarning?: boolean;
-      },
-): SerializedStyles => {
-  const options = isTheme(args)
-    ? { disabled: false, invalid: false, hasWarning: false }
-    : args;
-
+export const inputOutline = (options: {
+  disabled?: boolean;
+  invalid?: boolean;
+  hasWarning?: boolean;
+}): SerializedStyles => {
   switch (true) {
     case options.disabled: {
       return css`
@@ -409,7 +372,7 @@ export const listItem = (
       cursor: pointer;
     }
 
-    ${focusVisible('inset')()};
+    ${focusVisible('inset')};
 
     &:active {
       background-color: var(--cui-bg-normal-pressed);
@@ -477,7 +440,7 @@ export const navigationItem = (
         : 'var(--cui-fg-normal-pressed)'};
     }
 
-    ${focusVisible('inset')()};
+    ${focusVisible('inset')};
 
     &:disabled,
     &[disabled] {

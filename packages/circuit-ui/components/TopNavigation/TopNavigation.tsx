@@ -54,7 +54,7 @@ const Header = styled.header(headerStyles);
 
 const hamburgerStyles = (theme: Theme) => css`
   padding: ${theme.spacings.mega};
-  ${focusVisible('inset')()};
+  ${focusVisible('inset')};
 
   border-radius: 0;
   /* The !important below is necessary to override the default hover styles. */
@@ -77,7 +77,7 @@ const logoStyles = ({ theme }: StyleProps) => css`
 
   a,
   button {
-    ${focusVisible('inset')()};
+    ${focusVisible('inset')};
   }
 
   svg {
