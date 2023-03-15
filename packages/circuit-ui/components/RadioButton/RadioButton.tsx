@@ -40,6 +40,7 @@ export interface RadioButtonProps
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
+  children?: never;
 }
 
 type LabelElProps = Pick<RadioButtonProps, 'invalid'>;
