@@ -13,4 +13,67 @@
  * limitations under the License.
  */
 
-// TODO
+// We disable the rule in this file because we explicitly test invalid cases
+/* eslint-disable @sumup/circuit-ui/no-invalid-custom-properties */
+
+import { ESLintUtils } from '@typescript-eslint/utils';
+
+import { noInvalidCustomProperties } from '.';
+
+const ruleTester = new ESLintUtils.RuleTester({
+  parser: '@typescript-eslint/parser',
+});
+
+ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
+  valid: [
+    {
+      name: 'Custom properties in JS object',
+      code: `
+        const COLOR_MAP = {
+          default: "var(--cui-fg-normal)",
+          active: "var(--cui-fg-normal-pressed)",
+        }
+      `,
+    },
+    {
+      name: 'THIS SHOULD NOT BE VALID (valid name with trailing [\\w]+)',
+      code: `
+        const color = "var(--cui-fg-normallllllllllllll)";
+      `,
+    },
+  ],
+  invalid: [
+    {
+      code: `
+        const COLOR_MAP = {
+          default: "var(--cui-fg-norml)",
+          active: "var(--cui-fg-normal-active)",
+        }
+      `,
+      errors: [
+        {
+          messageId: 'invalid', // first occurrence: typo
+        },
+        {
+          messageId: 'invalid', // second occurrence: should be `--cui-fg-normal-pressed`
+        },
+      ],
+    },
+    {
+      code: `
+        const COLOR_MAP = {
+          default: "var(--cui-fg-norml)",
+          active: "var(--cui-fg-normal-active)",
+        }
+      `,
+      errors: [
+        {
+          messageId: 'invalid', // first occurrence: typo
+        },
+        {
+          messageId: 'invalid', // second occurrence: should be `--cui-fg-normal-pressed`
+        },
+      ],
+    },
+  ],
+});
