@@ -27,7 +27,7 @@ const ruleTester = new ESLintUtils.RuleTester({
 ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
   valid: [
     {
-      name: 'Custom properties in JS object',
+      name: 'custom properties in a JS object',
       code: `
         const COLOR_MAP = {
           default: "var(--cui-fg-normal)",
@@ -35,43 +35,39 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
         }
       `,
     },
-    {
-      name: 'THIS SHOULD NOT BE VALID (valid name with trailing [\\w]+)',
-      code: `
-        const color = "var(--cui-fg-normallllllllllllll)";
-      `,
-    },
   ],
   invalid: [
     {
+      name: 'custom properties in a JS object',
       code: `
         const COLOR_MAP = {
           default: "var(--cui-fg-norml)",
-          active: "var(--cui-fg-normal-active)",
+          active: "var(--cui-fg-pressedd)",
         }
       `,
       errors: [
         {
-          messageId: 'invalid', // first occurrence: typo
+          messageId: 'invalid',
         },
         {
-          messageId: 'invalid', // second occurrence: should be `--cui-fg-normal-pressed`
+          messageId: 'invalid',
         },
       ],
     },
     {
+      name: 'custom properties in a tagged template literal',
       code: `
-        const COLOR_MAP = {
-          default: "var(--cui-fg-norml)",
-          active: "var(--cui-fg-normal-active)",
-        }
+        const styles = css\`
+          color: var(--cui-fg-norml);
+          background-color: var(--cui-bg-pressedd);
+        \`;
       `,
       errors: [
         {
-          messageId: 'invalid', // first occurrence: typo
+          messageId: 'invalid',
         },
         {
-          messageId: 'invalid', // second occurrence: should be `--cui-fg-normal-pressed`
+          messageId: 'invalid',
         },
       ],
     },
