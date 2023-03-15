@@ -168,11 +168,9 @@ const VALID_CUSTOM_PROPERTIES_WITHOUT_PREFIX = [
   'border-focus',
 ];
 
-/* eslint-disable no-useless-escape */
 const REGEX_STRING = `(?:--cui-)(?!(?:${VALID_CUSTOM_PROPERTIES_WITHOUT_PREFIX.join(
   '|',
-)})[^\w-])[a-zA-Z0-9-]+`;
-/* eslint-enable no-useless-escape */
+)})[^\\w-])[\\w-]+`;
 const REGEX = new RegExp(REGEX_STRING, 'g');
 
 const createRule = ESLintUtils.RuleCreator(
