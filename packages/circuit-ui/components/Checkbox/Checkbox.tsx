@@ -22,8 +22,14 @@ import { hideVisually, focusOutline } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
+import { deprecate } from '../../util/logger';
+import { AccessibilityError } from '../../util/errors';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * A clear and concise description of the option's purpose.
+   */
+  label?: string;
   /**
    * Triggers error styles on the component.
    */
@@ -40,6 +46,12 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLInputElement>;
+  /**
+   * @deprecated
+   *
+   * Use the `label` prop instead.
+   */
+  children?: InputHTMLAttributes<HTMLInputElement>['children'];
 }
 
 const labelBaseStyles = css`
@@ -173,6 +185,7 @@ export const Checkbox = forwardRef(
   (
     {
       onChange,
+      label,
       children,
       value,
       'id': customId,
@@ -188,6 +201,22 @@ export const Checkbox = forwardRef(
     }: CheckboxProps,
     ref: CheckboxProps['ref'],
   ) => {
+    if (process.env.NODE_ENV !== 'production' && children) {
+      deprecate(
+        'Checkbox',
+        'The `children` has been deprecated. Use the `label` prop instead.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label &&
+      !children
+    ) {
+      throw new AccessibilityError('Checkbox', 'The `label` prop is missing.');
+    }
+
     const id = customId || uniqueId('checkbox_');
     const validationHintId = uniqueId('validation_hint-');
     const descriptionIds = `${
@@ -210,7 +239,7 @@ export const Checkbox = forwardRef(
           onChange={handleChange}
         />
         <CheckboxLabel htmlFor={id}>
-          {children}
+          {label || children}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>
         <FieldValidationHint
