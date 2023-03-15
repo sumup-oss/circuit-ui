@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.3.5
+
+### Patch Changes
+
+- [#1993](https://github.com/sumup-oss/circuit-ui/pull/1993) [`167ec183`](https://github.com/sumup-oss/circuit-ui/commit/167ec18375e6393fc82bc912e3a0805517d439dc) Thanks [@connor-baer](https://github.com/connor-baer)! - Remove duplicate id from the validation hint icon in form components.
+
 ## 6.3.4
 
 ### Patch Changes
