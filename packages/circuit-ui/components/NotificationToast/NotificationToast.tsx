@@ -13,16 +13,8 @@
  * limitations under the License.
  */
 
-import {
-  FC,
-  HTMLAttributes,
-  RefObject,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/react';
-import { Alert, Confirm, IconProps, Info, Notify } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
@@ -32,18 +24,23 @@ import CloseButton from '../CloseButton';
 import { ClickEvent } from '../../types/events';
 import { BaseToastProps, createUseToast } from '../ToastContext';
 import { hideVisually } from '../../styles/style-mixins';
+import { deprecate } from '../../util/logger';
+import {
+  DEPRECATED_VARIANTS,
+  NOTIFICATION_COLORS,
+  NOTIFICATION_ICONS,
+  NotificationVariant,
+} from '../Notification/constants';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
 
-type Variant = 'info' | 'confirm' | 'notify' | 'alert';
-
 export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
   BaseToastProps & {
     /**
-     * The toast's variant. Defaults to `info`.
+     * The toast's variant. Default: `info`.
      */
-    variant?: Variant;
+    variant?: NotificationVariant;
     /**
      * An optional headline for structured toast content.
      */
@@ -74,23 +71,8 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
     iconLabel?: string;
   };
 
-const iconMap: Record<Variant, FC<IconProps<'16' | '24'>>> = {
-  info: Info,
-  confirm: Confirm,
-  alert: Alert,
-  notify: Notify,
-};
-
-// TODO: Align variant names with token names in the next major.
-const colorMap: Record<Variant, string> = {
-  info: 'accent',
-  confirm: 'success',
-  alert: 'danger',
-  notify: 'warning',
-};
-
 type NotificationToastWrapperProps = {
-  variant: Variant;
+  variant: NotificationVariant;
 };
 
 const toastWrapperStyles = ({
@@ -99,7 +81,8 @@ const toastWrapperStyles = ({
 }: NotificationToastWrapperProps & StyleProps) => css`
   background-color: var(--cui-bg-elevated);
   border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid var(--cui-border-${colorMap[variant]});
+  border: ${theme.borderWidth.mega} solid
+    var(${NOTIFICATION_COLORS[variant].border});
   overflow: hidden;
   will-change: height;
   transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
@@ -130,14 +113,14 @@ const contentStyles = ({ theme }: StyleProps) => css`
 const Content = styled('div')(contentStyles);
 
 const IconWrapper = styled.div(
-  ({ variant }: { variant: Variant }) =>
+  ({ variant }: { variant: NotificationVariant }) =>
     css`
       position: relative;
       align-self: flex-start;
       flex-grow: 0;
       flex-shrink: 0;
       line-height: 0;
-      color: var(--cui-fg-${colorMap[variant]});
+      color: var(${NOTIFICATION_COLORS[variant].fg});
     `,
 );
 
@@ -163,6 +146,15 @@ export function NotificationToast({
   duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
   ...props
 }: NotificationToastProps): JSX.Element {
+  if (process.env.NODE_ENV !== 'production') {
+    if (DEPRECATED_VARIANTS[variant]) {
+      deprecate(
+        'NotificationToast',
+        `The "${variant}" variant has been deprecated. Use "${DEPRECATED_VARIANTS[variant]}" instead.`,
+      );
+    }
+  }
+
   const contentElement = useRef(null);
   const [isOpen, setOpen] = useState(false);
   const [height, setHeight] = useState(getHeight(contentElement));
@@ -185,7 +177,7 @@ export function NotificationToast({
     });
   }, [isVisible, setAnimating]);
 
-  const Icon = iconMap[variant];
+  const Icon = NOTIFICATION_ICONS[variant];
 
   return (
     <NotificationToastWrapper

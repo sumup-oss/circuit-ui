@@ -22,52 +22,42 @@ export default {
   component: Badge,
 };
 
-/* eslint-disable no-param-reassign */
-export const Base = (args: BadgeProps) => {
-  delete args.onClick;
-  return <Badge {...args} />;
-};
+export const Base = (args: BadgeProps) => <Badge {...args} />;
 
 Base.args = {
   children: 'Badge',
 };
 
-export const Variants = (args: BadgeProps) => {
-  delete args.onClick;
-  return (
-    <Stack>
-      <Badge {...args} variant="neutral">
-        Neutral
-      </Badge>
-      <Badge {...args} variant="confirm">
-        Confirm
-      </Badge>
-      <Badge {...args} variant="notify">
-        Notify
-      </Badge>
-      <Badge {...args} variant="alert">
-        Alert
-      </Badge>
-      <Badge {...args} variant="promo">
-        Promo
-      </Badge>
-    </Stack>
-  );
-};
+export const Variants = (args: BadgeProps) => (
+  <Stack>
+    <Badge {...args} variant="neutral">
+      Neutral
+    </Badge>
+    <Badge {...args} variant="success">
+      Success
+    </Badge>
+    <Badge {...args} variant="warning">
+      Warning
+    </Badge>
+    <Badge {...args} variant="danger">
+      Danger
+    </Badge>
+    <Badge {...args} variant="promo">
+      Promo
+    </Badge>
+  </Stack>
+);
 
-export const Circular = (args: BadgeProps) => {
-  delete args.onClick;
-  return (
-    <Stack>
-      <Badge {...args} circle>
-        1
-      </Badge>
-      <Badge {...args} circle>
-        42
-      </Badge>
-      <Badge {...args} circle>
-        999
-      </Badge>
-    </Stack>
-  );
-};
+export const Circular = (args: BadgeProps) => (
+  <Stack>
+    <Badge {...args} circle>
+      1
+    </Badge>
+    <Badge {...args} circle>
+      42
+    </Badge>
+    <Badge {...args} circle>
+      999
+    </Badge>
+  </Stack>
+);

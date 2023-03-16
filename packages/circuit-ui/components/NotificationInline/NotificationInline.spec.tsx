@@ -47,8 +47,11 @@ describe('NotificationInline', () => {
 
     const variants: NotificationInlineProps['variant'][] = [
       'info',
+      'success',
       'confirm',
+      'warning',
       'notify',
+      'danger',
       'alert',
     ];
 

@@ -27,7 +27,7 @@ export default {
   component: NotificationInline,
 };
 
-const variants = ['info', 'confirm', 'notify', 'alert'] as const;
+const variants = ['info', 'success', 'warning', 'danger'] as const;
 
 const StackInlineMessages = styled.div`
   display: flex;
