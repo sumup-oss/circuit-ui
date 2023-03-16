@@ -14,7 +14,6 @@
  */
 
 import { Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { START_DATE } from 'react-dates/constants';
@@ -46,11 +45,15 @@ class CalendarTag extends Component {
       component: PropTypes.string,
       customParameters: PropTypes.object,
     }),
+    /**
+     * Function that's called when the date tag is clicked.
+     */
+    onClick: PropTypes.func,
   };
 
   state = { startDate: null, endDate: null, focusedInput: null };
 
-  buttonRef = null; // eslint-disable-line react/sort-comp
+  tagRef = null; // eslint-disable-line react/sort-comp
 
   handleDatesChange = ({ startDate, endDate }) => {
     this.setState({ startDate, endDate });
@@ -64,10 +67,14 @@ class CalendarTag extends Component {
     this.setState({ focusedInput });
   };
 
-  handleButtonClick = () =>
+  handleTagClick = (event) => {
+    if (this.props.onClick) {
+      this.props.onClick(event);
+    }
     this.setState(({ focusedInput }) => ({
       focusedInput: focusedInput !== null ? null : START_DATE,
     }));
+  };
 
   getDateRangePreview = () => {
     const { startDate, endDate } = this.state;
@@ -79,19 +86,13 @@ class CalendarTag extends Component {
     return `${toDate(startDate)} - ${toDate(endDate)}`;
   };
 
-  handleButtonRef = (ref) => {
-    this.buttonRef = ref;
+  handleTagRef = (ref) => {
+    this.tagRef = ref;
   };
 
   handleOutsideClick = ({ target }) => {
-    if (this.buttonRef) {
-      // TODO: May be implement forwardRef after we upgrade to 16.3 or elementRef
-      // eslint-disable-next-line react/no-find-dom-node
-      const buttonDomNode = findDOMNode(this.buttonRef);
-
-      if (!buttonDomNode.contains(target)) {
-        this.handleFocusChange(null);
-      }
+    if (this.tagRef && !this.tagRef.contains(target)) {
+      this.handleFocusChange(null);
     }
   };
 
@@ -104,8 +105,8 @@ class CalendarTag extends Component {
       <div {...props}>
         <Tag
           selected={isOpen}
-          ref={this.handleButtonRef}
-          onClick={this.handleButtonClick}
+          ref={this.handleTagRef}
+          onClick={this.handleTagClick}
           tracking={{
             component: 'calendar-tag',
             ...tracking,
