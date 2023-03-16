@@ -62,7 +62,9 @@ export type SidePanelHookProps = {
    */
   onClose?: Callback;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Dispatch user interaction events when calling `setSidePanel` and `removeSidePanel` instead.
    */
   tracking?: TrackingProps;
 };

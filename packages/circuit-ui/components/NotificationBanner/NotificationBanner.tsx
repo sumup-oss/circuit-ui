@@ -89,7 +89,9 @@ interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
    */
   action: Action;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onClose` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
   /**

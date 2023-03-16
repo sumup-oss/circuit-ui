@@ -52,7 +52,9 @@ export interface PrimaryLinkProps
    */
   secondaryGroups?: SecondaryGroupProps[];
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onClick` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
 }
@@ -68,6 +70,8 @@ export interface SecondaryGroupProps {
    */
   secondaryLinks: SecondaryLinkProps[];
   /**
+   * @deprecated
+   *
    * An optional label that is added to the element tree when clicking a nested
    * secondary navigation link.
    */
@@ -92,7 +96,9 @@ export interface SecondaryLinkProps {
    */
   isActive?: boolean;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onClick` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
   /**

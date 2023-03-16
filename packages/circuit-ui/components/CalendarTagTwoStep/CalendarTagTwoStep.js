@@ -73,7 +73,9 @@ export default class CalendarTagTwoStep extends Component {
      */
     confirmText: PropTypes.string,
     /**
-     * Additional data that is dispatched with the tracking event.
+     * @deprecated
+     *
+     * Use an `onClick` handler to dispatch user interaction events instead.
      */
     tracking: PropTypes.shape({
       label: PropTypes.string.isRequired,

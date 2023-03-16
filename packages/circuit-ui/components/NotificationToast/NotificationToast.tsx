@@ -57,7 +57,9 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
      */
     isVisible: boolean;
     /**
-     * Additional data that is dispatched with the tracking event.
+     * @deprecated
+     *
+     * Use an `onClose` handler to dispatch user interaction events instead.
      */
     tracking?: TrackingProps;
     /**

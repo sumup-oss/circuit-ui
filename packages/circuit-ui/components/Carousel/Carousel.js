@@ -227,7 +227,9 @@ Carousel.propTypes = {
    */
   children: PropTypes.oneOfType([childrenPropType, childrenRenderPropType]),
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use custom event handlers to dispatch user interaction events instead.
    */
   tracking: PropTypes.shape({
     label: PropTypes.string.isRequired,

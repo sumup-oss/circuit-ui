@@ -126,6 +126,9 @@ function SecondaryGroup({
 
 export interface SecondaryLinksProps {
   secondaryGroups: SecondaryGroupProps[];
+  /**
+   * @deprecated
+   */
   trackingLabel?: string;
 }
 

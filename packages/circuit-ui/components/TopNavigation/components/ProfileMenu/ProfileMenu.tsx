@@ -145,12 +145,16 @@ export interface ProfileMenuProps extends ProfileProps {
    */
   actions: PopoverProps['actions'];
   /**
+   * @deprecated
+   *
    * An optional label that is added to the element tree when clicking
    * a profile action.
    */
   trackingLabel?: string;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * TODO: Figure out alternative.
    */
   tracking?: TrackingProps;
 }
