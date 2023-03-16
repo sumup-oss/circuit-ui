@@ -21,7 +21,7 @@ import {
   waitForElementToBeRemoved,
 } from '../../util/test-utils';
 import Button from '../Button';
-import { ToastProvider } from '../ToastContext';
+import { ToastProvider } from '../ToastContext/ToastContext';
 
 import {
   NotificationToast,

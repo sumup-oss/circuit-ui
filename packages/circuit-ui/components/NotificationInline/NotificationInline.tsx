@@ -13,16 +13,8 @@
  * limitations under the License.
  */
 
-import {
-  FC,
-  HTMLAttributes,
-  RefObject,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/react';
-import { Alert, Confirm, IconProps, Info, Notify } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
@@ -33,11 +25,16 @@ import { hideVisually } from '../../styles/style-mixins';
 import Button, { ButtonProps } from '../Button';
 import { ClickEvent } from '../../types/events';
 import { isString } from '../../util/type-check';
+import {
+  DEPRECATED_VARIANTS,
+  NOTIFICATION_COLORS,
+  NOTIFICATION_ICONS,
+  NotificationVariant,
+} from '../Notification/constants';
+import { deprecate } from '../../util/logger';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
-
-type Variant = 'info' | 'confirm' | 'notify' | 'alert';
 
 type Action = ButtonProps;
 
@@ -60,7 +57,7 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * The notification's variant. Defaults to `info`.
    */
-  variant?: Variant;
+  variant?: NotificationVariant;
   /**
    * An optional headline for structured content. Can be a string (an `h3`
    * heading label) or object containing a label and heading level.
@@ -96,21 +93,6 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
 
 export type NotificationInlineProps = BaseProps & CloseProps;
 
-const iconMap: Record<Variant, FC<IconProps<'16' | '24'>>> = {
-  info: Info,
-  confirm: Confirm,
-  alert: Alert,
-  notify: Notify,
-};
-
-// TODO: Align variant names with token names in the next major.
-const colorMap: Record<Variant, string> = {
-  info: 'accent',
-  confirm: 'success',
-  alert: 'danger',
-  notify: 'warning',
-};
-
 const inlineWrapperStyles = () => css`
   overflow: hidden;
   will-change: height;
@@ -122,7 +104,7 @@ const inlineWrapperStyles = () => css`
 const NotificationInlineWrapper = styled('div')(inlineWrapperStyles);
 
 type ContentWrapperProps = {
-  variant: Variant;
+  variant: NotificationVariant;
 };
 
 const contentWrapperStyles = ({
@@ -135,7 +117,8 @@ const contentWrapperStyles = ({
   background-color: var(--cui-bg-normal);
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid var(--cui-border-${colorMap[variant]});
+  border: ${theme.borderWidth.mega} solid
+    var(${NOTIFICATION_COLORS[variant].border});
 `;
 
 const ContentWrapper = styled('div')<ContentWrapperProps>(contentWrapperStyles);
@@ -171,14 +154,14 @@ const actionButtonStyles = ({ theme }: StyleProps & ButtonProps) =>
 const ActionButton = styled(Button)(actionButtonStyles);
 
 const IconWrapper = styled.div(
-  ({ variant }: { variant: Variant }) =>
+  ({ variant }: { variant: NotificationVariant }) =>
     css`
       position: relative;
       align-self: flex-start;
       flex-grow: 0;
       flex-shrink: 0;
       line-height: 0;
-      color: var(--cui-fg-${colorMap[variant]});
+      color: var(${NOTIFICATION_COLORS[variant].fg});
     `,
 );
 
@@ -205,6 +188,15 @@ export function NotificationInline({
   tracking,
   ...props
 }: NotificationInlineProps): JSX.Element {
+  if (process.env.NODE_ENV !== 'production') {
+    if (DEPRECATED_VARIANTS[variant]) {
+      deprecate(
+        'NotificationInline',
+        `The "${variant}" variant has been deprecated. Use "${DEPRECATED_VARIANTS[variant]}" instead.`,
+      );
+    }
+  }
+
   const contentElement = useRef(null);
   const [isOpen, setOpen] = useState(isVisible);
   const [height, setHeight] = useState(getHeight(contentElement));
@@ -227,7 +219,7 @@ export function NotificationInline({
     });
   }, [isVisible, setAnimating]);
 
-  const Icon = iconMap[variant];
+  const Icon = NOTIFICATION_ICONS[variant];
 
   return (
     <NotificationInlineWrapper

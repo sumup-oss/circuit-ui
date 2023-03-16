@@ -13,16 +13,8 @@
  * limitations under the License.
  */
 
-import {
-  FC,
-  HTMLAttributes,
-  RefObject,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/react';
-import { Alert, Confirm, IconProps, Info, Notify } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
@@ -33,34 +25,22 @@ import { ClickEvent } from '../../types/events';
 import { BaseToastProps, createUseToast } from '../ToastContext';
 import { hideVisually } from '../../styles/style-mixins';
 import { deprecate } from '../../util/logger';
+import {
+  DEPRECATED_VARIANTS,
+  NOTIFICATION_COLORS,
+  NOTIFICATION_ICONS,
+  NotificationVariant,
+} from '../Notification/constants';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
-
-type Variant =
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'danger'
-  /**
-   * @deprecated
-   */
-  | 'confirm'
-  /**
-   * @deprecated
-   */
-  | 'notify'
-  /**
-   * @deprecated
-   */
-  | 'alert';
 
 export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
   BaseToastProps & {
     /**
      * The toast's variant. Default: `info`.
      */
-    variant?: Variant;
+    variant?: NotificationVariant;
     /**
      * An optional headline for structured toast content.
      */
@@ -89,49 +69,8 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
     iconLabel?: string;
   };
 
-const iconMap: Record<Variant, FC<IconProps<'16' | '24'>>> = {
-  info: Info,
-  success: Confirm,
-  confirm: Confirm,
-  warning: Notify,
-  notify: Notify,
-  danger: Alert,
-  alert: Alert,
-};
-
-const colorMap: Record<Variant, { border: string; fg: string }> = {
-  info: {
-    border: '--cui-border-accent',
-    fg: '--cui-fg-accent',
-  },
-  success: {
-    border: '--cui-border-success',
-    fg: '--cui-fg-success',
-  },
-  confirm: {
-    border: '--cui-border-success',
-    fg: '--cui-fg-success',
-  },
-  warning: {
-    border: '--cui-border-warning',
-    fg: '--cui-fg-warning',
-  },
-  notify: {
-    border: '--cui-border-warning',
-    fg: '--cui-fg-warning',
-  },
-  danger: {
-    border: '--cui-border-danger',
-    fg: '--cui-fg-danger',
-  },
-  alert: {
-    border: '--cui-border-danger',
-    fg: '--cui-fg-danger',
-  },
-};
-
 type NotificationToastWrapperProps = {
-  variant: Variant;
+  variant: NotificationVariant;
 };
 
 const toastWrapperStyles = ({
@@ -140,7 +79,8 @@ const toastWrapperStyles = ({
 }: NotificationToastWrapperProps & StyleProps) => css`
   background-color: var(--cui-bg-elevated);
   border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid var(${colorMap[variant].border});
+  border: ${theme.borderWidth.mega} solid
+    var(${NOTIFICATION_COLORS[variant].border});
   overflow: hidden;
   will-change: height;
   transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
@@ -171,14 +111,14 @@ const contentStyles = ({ theme }: StyleProps) => css`
 const Content = styled('div')(contentStyles);
 
 const IconWrapper = styled.div(
-  ({ variant }: { variant: Variant }) =>
+  ({ variant }: { variant: NotificationVariant }) =>
     css`
       position: relative;
       align-self: flex-start;
       flex-grow: 0;
       flex-shrink: 0;
       line-height: 0;
-      color: var(${colorMap[variant].fg});
+      color: var(${NOTIFICATION_COLORS[variant].fg});
     `,
 );
 
@@ -205,16 +145,10 @@ export function NotificationToast({
   ...props
 }: NotificationToastProps): JSX.Element {
   if (process.env.NODE_ENV !== 'production') {
-    const deprecatedMap: Record<string, string> = {
-      confirm: 'success',
-      notify: 'warning',
-      alert: 'danger',
-    };
-
-    if (deprecatedMap[variant]) {
+    if (DEPRECATED_VARIANTS[variant]) {
       deprecate(
         'NotificationToast',
-        `The "${variant}" variant has been deprecated. Use "${deprecatedMap[variant]}" instead.`,
+        `The "${variant}" variant has been deprecated. Use "${DEPRECATED_VARIANTS[variant]}" instead.`,
       );
     }
   }
@@ -241,7 +175,7 @@ export function NotificationToast({
     });
   }, [isVisible, setAnimating]);
 
-  const Icon = iconMap[variant];
+  const Icon = NOTIFICATION_ICONS[variant];
 
   return (
     <NotificationToastWrapper
