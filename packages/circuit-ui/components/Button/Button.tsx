@@ -76,7 +76,9 @@ export interface BaseProps {
    */
   'onClick'?: (event: ClickEvent) => void;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onClick` handler to dispatch user interaction events instead.
    */
   'tracking'?: TrackingProps;
   /**

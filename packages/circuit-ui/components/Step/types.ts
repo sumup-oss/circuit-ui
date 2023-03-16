@@ -116,7 +116,9 @@ export interface StepOptions {
    */
   onPrevious?: (stateAndHelpers: StateAndHelpers) => void;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use custom event handlers to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
 }

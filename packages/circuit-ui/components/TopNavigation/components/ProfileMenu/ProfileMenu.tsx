@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useState, ButtonHTMLAttributes } from 'react';
+import { useState, ButtonHTMLAttributes, useEffect } from 'react';
 import { css } from '@emotion/react';
 import { ChevronDown, Profile as ProfileIcon } from '@sumup/icons';
 import { TrackingElement } from '@sumup/collector';
@@ -145,14 +145,22 @@ export interface ProfileMenuProps extends ProfileProps {
    */
   actions: PopoverProps['actions'];
   /**
+   * @deprecated
+   *
    * An optional label that is added to the element tree when clicking
    * a profile action.
    */
   trackingLabel?: string;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onToggle` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
+  /**
+   * Function that is called when opening and closing the ProfileMenu.
+   */
+  onToggle?: (isOpen: boolean) => void;
 }
 
 export function ProfileMenu({
@@ -160,11 +168,18 @@ export function ProfileMenu({
   label,
   actions,
   isActive,
+  onToggle,
   trackingLabel,
   tracking,
 }: ProfileMenuProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
   const offset = { mainAxis: 8, crossAxis: -16 };
+
+  useEffect(() => {
+    if (onToggle) {
+      onToggle(isOpen);
+    }
+  }, [onToggle, isOpen]);
 
   return (
     <TrackingElement

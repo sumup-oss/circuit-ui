@@ -77,7 +77,9 @@ export interface BaseProps {
    */
   disabled?: boolean;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onClick` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
   /**
@@ -226,7 +228,7 @@ export interface PopoverProps {
    */
   isOpen: boolean;
   /**
-   * Function that is called when toggles the Popover.
+   * Function that is called when opening and closing the Popover.
    */
   onToggle: OnToggle;
   /**
@@ -263,7 +265,9 @@ export interface PopoverProps {
     'aria-expanded': boolean;
   }) => JSX.Element;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onToggle` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
 }

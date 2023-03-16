@@ -33,7 +33,9 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   validationHint?: string;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onChange` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
   /**
