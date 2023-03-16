@@ -27,7 +27,7 @@ import { AccessibilityError } from '../../util/errors';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
-   * A clear and concise description of the option's purpose.
+   * A clear and concise description of the input's purpose.
    */
   label?: string;
   /**
@@ -204,7 +204,7 @@ export const Checkbox = forwardRef(
     if (process.env.NODE_ENV !== 'production' && children) {
       deprecate(
         'Checkbox',
-        'The `children` has been deprecated. Use the `label` prop instead.',
+        'The `children` prop has been deprecated. Use the `label` prop instead.',
       );
     }
 

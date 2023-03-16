@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': minor
 ---
 
-Deprecated the Checkbox's `children` prop. Use the `label` prop instead. This matches the RadioButton component.
+Added an optional `label` prop to the `Checkbox` component, and deprecated the legacy `children` prop. The `label` prop will become required in v7. This aligns with the `RadioButton` component's API.
