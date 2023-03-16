@@ -228,7 +228,7 @@ export interface PopoverProps {
    */
   isOpen: boolean;
   /**
-   * Function that is called when toggles the Popover.
+   * Function that is called when opening and closing the Popover.
    */
   onToggle: OnToggle;
   /**
