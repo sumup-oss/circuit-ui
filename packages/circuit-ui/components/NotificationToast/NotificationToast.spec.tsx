@@ -69,8 +69,11 @@ describe('NotificationToast', () => {
 
     const variants: NotificationToastProps['variant'][] = [
       'info',
+      'success',
       'confirm',
+      'warning',
       'notify',
+      'danger',
       'alert',
     ];
 

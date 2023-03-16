@@ -32,16 +32,33 @@ import CloseButton from '../CloseButton';
 import { ClickEvent } from '../../types/events';
 import { BaseToastProps, createUseToast } from '../ToastContext';
 import { hideVisually } from '../../styles/style-mixins';
+import { deprecate } from '../../util/logger';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
 
-type Variant = 'info' | 'confirm' | 'notify' | 'alert';
+type Variant =
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  /**
+   * @deprecated
+   */
+  | 'confirm'
+  /**
+   * @deprecated
+   */
+  | 'notify'
+  /**
+   * @deprecated
+   */
+  | 'alert';
 
 export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
   BaseToastProps & {
     /**
-     * The toast's variant. Defaults to `info`.
+     * The toast's variant. Default: `info`.
      */
     variant?: Variant;
     /**
@@ -74,17 +91,43 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
 
 const iconMap: Record<Variant, FC<IconProps<'16' | '24'>>> = {
   info: Info,
+  success: Confirm,
   confirm: Confirm,
-  alert: Alert,
+  warning: Notify,
   notify: Notify,
+  danger: Alert,
+  alert: Alert,
 };
 
-// TODO: Align variant names with token names in the next major.
-const colorMap: Record<Variant, string> = {
-  info: 'accent',
-  confirm: 'success',
-  alert: 'danger',
-  notify: 'warning',
+const colorMap: Record<Variant, { border: string; fg: string }> = {
+  info: {
+    border: '--cui-border-accent',
+    fg: '--cui-fg-accent',
+  },
+  success: {
+    border: '--cui-border-success',
+    fg: '--cui-fg-success',
+  },
+  confirm: {
+    border: '--cui-border-success',
+    fg: '--cui-fg-success',
+  },
+  warning: {
+    border: '--cui-border-warning',
+    fg: '--cui-fg-warning',
+  },
+  notify: {
+    border: '--cui-border-warning',
+    fg: '--cui-fg-warning',
+  },
+  danger: {
+    border: '--cui-border-danger',
+    fg: '--cui-fg-danger',
+  },
+  alert: {
+    border: '--cui-border-danger',
+    fg: '--cui-fg-danger',
+  },
 };
 
 type NotificationToastWrapperProps = {
@@ -97,7 +140,7 @@ const toastWrapperStyles = ({
 }: NotificationToastWrapperProps & StyleProps) => css`
   background-color: var(--cui-bg-elevated);
   border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid var(--cui-border-${colorMap[variant]});
+  border: ${theme.borderWidth.mega} solid var(${colorMap[variant].border});
   overflow: hidden;
   will-change: height;
   transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
@@ -135,7 +178,7 @@ const IconWrapper = styled.div(
       flex-grow: 0;
       flex-shrink: 0;
       line-height: 0;
-      color: var(--cui-fg-${colorMap[variant]});
+      color: var(${colorMap[variant].fg});
     `,
 );
 
@@ -161,6 +204,21 @@ export function NotificationToast({
   duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
   ...props
 }: NotificationToastProps): JSX.Element {
+  if (process.env.NODE_ENV !== 'production') {
+    const deprecatedMap: Record<string, string> = {
+      confirm: 'success',
+      notify: 'warning',
+      alert: 'danger',
+    };
+
+    if (deprecatedMap[variant]) {
+      deprecate(
+        'NotificationToast',
+        `The "${variant}" variant has been deprecated. Use "${deprecatedMap[variant]}" instead.`,
+      );
+    }
+  }
+
   const contentElement = useRef(null);
   const [isOpen, setOpen] = useState(false);
   const [height, setHeight] = useState(getHeight(contentElement));
