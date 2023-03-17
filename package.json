@@ -59,7 +59,7 @@
     "@storybook/source-loader": "^7.0.0-beta.60",
     "@storybook/testing-library": "^0.0.14-next.1",
     "@storybook/theming": "^7.0.0-beta.60",
-    "@sumup/eslint-plugin-circuit-ui": "^1.0.0",
+    "@sumup/eslint-plugin-circuit-ui": "^0.0.1",
     "@sumup/foundry": "^5.1.0",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.3",
