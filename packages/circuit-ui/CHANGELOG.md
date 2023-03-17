@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.5.0
+
+### Minor Changes
+
+- [#1996](https://github.com/sumup-oss/circuit-ui/pull/1996) [`6d7c5de4`](https://github.com/sumup-oss/circuit-ui/commit/6d7c5de41e933409992d6d762d9a424390cda5d8) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an optional `label` prop to the `Checkbox` component, and deprecated the legacy `children` prop. The `label` prop will become required in the next major version. This aligns with the `RadioButton` component's API.
+
 ## 6.4.0
 
 ### Minor Changes
