@@ -42,6 +42,7 @@ export interface RadioButtonProps
    * Use an `onChange` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
+  children?: never;
 }
 
 type LabelElProps = Pick<RadioButtonProps, 'invalid'>;
