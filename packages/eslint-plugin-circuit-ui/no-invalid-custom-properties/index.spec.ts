@@ -22,6 +22,11 @@ import { noInvalidCustomProperties } from '.';
 
 const ruleTester = new ESLintUtils.RuleTester({
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
 });
 
 ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
@@ -35,6 +40,29 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
         }
       `,
     },
+    {
+      name: 'custom properties in a tagged template literal',
+      code: `
+        const styles = css\`
+          color: var(--cui-fg-normal);
+          background-color: var(--cui-fg-normal-pressed);
+        \`;
+      `,
+    },
+    {
+      name: 'custom properties in inline styles',
+      code: `
+        function Component() {
+          return (
+            <p
+              style="color:var(--cui-fg-normal);background-color:var(--cui-fg-normal-pressed);"
+            >
+              Success
+            </p>
+          );
+        }
+      `,
+    },
   ],
   invalid: [
     {
@@ -42,7 +70,7 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
       code: `
         const COLOR_MAP = {
           default: "var(--cui-fg-norml)",
-          active: "var(--cui-fg-pressedd)",
+          active: "var(--cui-fg-normal-pressedd)",
         }
       `,
       errors: [
@@ -59,8 +87,30 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
       code: `
         const styles = css\`
           color: var(--cui-fg-norml);
-          background-color: var(--cui-bg-pressedd);
+          background-color: var(--cui-fg-normal-pressedd);
         \`;
+      `,
+      errors: [
+        {
+          messageId: 'invalid',
+        },
+        {
+          messageId: 'invalid',
+        },
+      ],
+    },
+    {
+      name: 'custom properties in inline styles',
+      code: `
+        function Component() {
+          return (
+            <p
+              style="color:var(--cui-fg-norml);background-color:var(--cui-fg-normal-pressedd);"
+            >
+              Success
+            </p>
+          );
+        }
       `,
       errors: [
         {
