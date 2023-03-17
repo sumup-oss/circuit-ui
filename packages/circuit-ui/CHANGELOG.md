@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 6.4.0
+
+### Minor Changes
+
+- [#1997](https://github.com/sumup-oss/circuit-ui/pull/1997) [`9a348fd2`](https://github.com/sumup-oss/circuit-ui/commit/9a348fd233d87871db21356862b3c9ca383445c2) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the `tracking` and `trackingLabel` props in all components. Use event handlers to dispatch user interaction events instead. `@sumup/collector` will be removed from `@sumup/circuit-ui` in the next major version.
+
+- [#1998](https://github.com/sumup-oss/circuit-ui/pull/1998) [`81e3ea06`](https://github.com/sumup-oss/circuit-ui/commit/81e3ea0604945a5f366c6221243b000b53db50f1) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the `uniqueId` util. If your app is already using React 18, use the official [`useId` hook](https://beta.reactjs.org/reference/react/useId) instead. `uniqueId` will be removed from Circuit UI v7, along with dropping support for React <18.
+
+- [#2000](https://github.com/sumup-oss/circuit-ui/pull/2000) [`757e0c1e`](https://github.com/sumup-oss/circuit-ui/commit/757e0c1e0ff3f350fdaaaf6cf329cc6d8818c1b2) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `success`, `warning`, and `danger` variants to the Badge, NotificationInline, and NotificationToast components and deprecated the `confirm`, `notify`, and `alert` variants.
+
 ## 6.3.5
 
 ### Patch Changes
