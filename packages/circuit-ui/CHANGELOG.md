@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 6.6.0
+
+### Minor Changes
+
+- [#2007](https://github.com/sumup-oss/circuit-ui/pull/2007) [`8ab8c209`](https://github.com/sumup-oss/circuit-ui/commit/8ab8c2098967d04634e9a6f47830c54bee603e99) Thanks [@connor-baer](https://github.com/connor-baer)! - Forward `ref`s to the NotificationBanner, NotificationFullscreen, and NotificationInline components.
+
+### Patch Changes
+
+- [#1991](https://github.com/sumup-oss/circuit-ui/pull/1991) [`401ac252`](https://github.com/sumup-oss/circuit-ui/commit/401ac252d883c74cc14ea343dab0b7e0b5fac8f5) Thanks [@robinmetral](https://github.com/robinmetral)! - Fixed the `ImageInput` component's invalid label box-shadow color.
+
 ## 6.5.0
 
 ### Minor Changes
