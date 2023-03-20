@@ -1748,11 +1748,11 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 }
 
 .circuit-3:hover>*:last-child {
-  box-shadow: 0 0 0 2px var(--cui-border-danger--hovered);
+  box-shadow: 0 0 0 2px var(--cui-border-danger-hovered);
 }
 
 .circuit-3:active>*:last-child {
-  box-shadow: 0 0 0 2px var(--cui-border-danger--pressed);
+  box-shadow: 0 0 0 2px var(--cui-border-danger-pressed);
 }
 
 .circuit-3:hover::before {

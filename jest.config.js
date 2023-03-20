@@ -27,5 +27,6 @@ module.exports = {
     '!<rootDir>/packages/**/index.{ts,tsx,js,jsx}',
     '!<rootDir>/packages/**/*.stories.{ts,tsx,js,jsx}',
     '!<rootDir>/packages/**/*.docs.mdx',
+    '!<rootDir>/packages/**/*.config.js',
   ],
 };

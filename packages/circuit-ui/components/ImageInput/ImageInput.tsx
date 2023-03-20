@@ -148,10 +148,10 @@ const invalidLabelStyles = ({ invalid }: LabelProps) =>
       box-shadow: 0 0 0 2px var(--cui-border-danger);
     }
     &:hover > *:last-child {
-      box-shadow: 0 0 0 2px var(--cui-border-danger--hovered);
+      box-shadow: 0 0 0 2px var(--cui-border-danger-hovered);
     }
     &:active > *:last-child {
-      box-shadow: 0 0 0 2px var(--cui-border-danger--pressed);
+      box-shadow: 0 0 0 2px var(--cui-border-danger-pressed);
     }
   `;
 
