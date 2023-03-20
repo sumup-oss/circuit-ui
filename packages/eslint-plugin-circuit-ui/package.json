@@ -1,6 +1,6 @@
 {
   "name": "@sumup/eslint-plugin-circuit-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ESLint rules to lint Circuit UI.",
   "main": "dist/index.js",
   "files": [
