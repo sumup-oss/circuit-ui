@@ -41,4 +41,4 @@ Rules are configured under the rules section:
 
 ## Supported Rules
 
-- [`no-invalid-custom-properties`](./no-invalid-custom-properties/)
+- [`no-invalid-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-invalid-custom-properties)

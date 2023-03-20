@@ -31,6 +31,8 @@ The Circuit UI theme is moving from color scales (e.g. `g900`) to semantic color
 
 Additionally, color tokens are moving from the JS theme (exported from `@sumup/design-tokens`) to [CSS custom properties](https://www.w3.org/TR/css-variables-1/), declared in the Circuit UI `BaseStyles` from version 6.1.0. This has performance benefits over CSS-in-JS theming. Eventually, all design tokens will be declared as CSS custom properties.
 
+To make it easier to work with custom properties, we recommend using the [`@sumup/eslint-plugin-circuit-ui`](Packages/eslint-plugin-circuit-ui/Docs) ESLint plugin, and turning on the `no-invalid-custom-properties` rule.
+
 #### Background colors
 
 <ColorsTable
