@@ -121,5 +121,18 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
         },
       ],
     },
+    {
+      name: 'string interpolation in custom properties',
+      code: `
+        const styles = css\`
+          color: var(--cui-fg-\${variant});
+        \`;
+      `,
+      errors: [
+        {
+          messageId: 'invalid',
+        },
+      ],
+    },
   ],
 });
