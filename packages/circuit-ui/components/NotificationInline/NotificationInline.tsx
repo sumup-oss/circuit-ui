@@ -13,7 +13,16 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
+import {
+  ForwardRefExoticComponent,
+  HTMLAttributes,
+  RefAttributes,
+  RefObject,
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -32,6 +41,7 @@ import {
   NotificationVariant,
 } from '../Notification/constants';
 import { deprecate } from '../../util/logger';
+import { applyMultipleRefs } from '../../util/refs';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
@@ -94,6 +104,10 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 export type NotificationInlineProps = BaseProps & CloseProps;
+
+type NotificationInlineComponent = ForwardRefExoticComponent<
+  NotificationInlineProps & RefAttributes<HTMLDivElement>
+> & { TIMEOUT: number };
 
 const inlineWrapperStyles = () => css`
   overflow: hidden;
@@ -178,97 +192,105 @@ const closeButtonStyles = ({ theme }: StyleProps) => css`
 
 const StyledCloseButton = styled(CloseButton)(closeButtonStyles);
 
-export function NotificationInline({
-  variant = 'info',
-  body,
-  headline,
-  action,
-  onClose,
-  closeButtonLabel,
-  iconLabel = '',
-  isVisible = true,
-  tracking,
-  ...props
-}: NotificationInlineProps): JSX.Element {
-  if (process.env.NODE_ENV !== 'production') {
-    if (DEPRECATED_VARIANTS[variant]) {
-      deprecate(
-        'NotificationInline',
-        `The "${variant}" variant has been deprecated. Use "${DEPRECATED_VARIANTS[variant]}" instead.`,
-      );
+export const NotificationInline = forwardRef<
+  HTMLDivElement,
+  NotificationInlineProps
+>(
+  (
+    {
+      variant = 'info',
+      body,
+      headline,
+      action,
+      onClose,
+      closeButtonLabel,
+      iconLabel = '',
+      isVisible = true,
+      tracking,
+      ...props
+    },
+    ref,
+  ): JSX.Element => {
+    if (process.env.NODE_ENV !== 'production') {
+      if (DEPRECATED_VARIANTS[variant]) {
+        deprecate(
+          'NotificationInline',
+          `The "${variant}" variant has been deprecated. Use "${DEPRECATED_VARIANTS[variant]}" instead.`,
+        );
+      }
     }
-  }
 
-  const contentElement = useRef(null);
-  const [isOpen, setOpen] = useState(isVisible);
-  const [height, setHeight] = useState(getHeight(contentElement));
-  const [, setAnimating] = useAnimation();
+    const contentElement = useRef<HTMLDivElement>(null);
+    const [isOpen, setOpen] = useState(isVisible);
+    const [height, setHeight] = useState(getHeight(contentElement));
+    const [, setAnimating] = useAnimation();
 
-  useEffect(() => {
-    setAnimating({
-      duration: TRANSITION_DURATION,
-      onStart: () => {
-        setHeight(getHeight(contentElement));
-        // Delaying the state update until the next animation frame ensures that
-        // the browsers renders the new height before the animation starts.
-        window.requestAnimationFrame(() => {
-          setOpen(isVisible);
-        });
-      },
-      onEnd: () => {
-        setHeight(DEFAULT_HEIGHT);
-      },
-    });
-  }, [isVisible, setAnimating]);
+    useEffect(() => {
+      setAnimating({
+        duration: TRANSITION_DURATION,
+        onStart: () => {
+          setHeight(getHeight(contentElement));
+          // Delaying the state update until the next animation frame ensures that
+          // the browsers renders the new height before the animation starts.
+          window.requestAnimationFrame(() => {
+            setOpen(isVisible);
+          });
+        },
+        onEnd: () => {
+          setHeight(DEFAULT_HEIGHT);
+        },
+      });
+    }, [isVisible, setAnimating]);
 
-  const Icon = NOTIFICATION_ICONS[variant];
+    const Icon = NOTIFICATION_ICONS[variant];
 
-  return (
-    <NotificationInlineWrapper
-      ref={contentElement}
-      style={{
-        opacity: isOpen ? 1 : 0,
-        height: isOpen ? height : 0,
-        visibility: isOpen ? 'visible' : 'hidden',
-      }}
-      {...props}
-    >
-      <ContentWrapper variant={variant}>
-        <IconWrapper variant={variant}>
-          <Icon role="presentation" />
-        </IconWrapper>
-        <span css={hideVisually}>{iconLabel}</span>
-        <Content>
-          {headline && (
-            <Body
-              variant={'highlight'}
-              as={isString(headline) ? 'h3' : headline.as}
-            >
-              {isString(headline) ? headline : headline.label}
-            </Body>
+    return (
+      <NotificationInlineWrapper
+        ref={applyMultipleRefs(ref, contentElement)}
+        style={{
+          opacity: isOpen ? 1 : 0,
+          height: isOpen ? height : 0,
+          visibility: isOpen ? 'visible' : 'hidden',
+        }}
+        {...props}
+      >
+        <ContentWrapper variant={variant}>
+          <IconWrapper variant={variant}>
+            <Icon role="presentation" />
+          </IconWrapper>
+          <span css={hideVisually}>{iconLabel}</span>
+          <Content>
+            {headline && (
+              <Body
+                variant={'highlight'}
+                as={isString(headline) ? 'h3' : headline.as}
+              >
+                {isString(headline) ? headline : headline.label}
+              </Body>
+            )}
+            <Body>{body}</Body>
+            {action && (
+              <ActionButton {...action} variant="tertiary" size="kilo" />
+            )}
+          </Content>
+
+          {onClose && closeButtonLabel && (
+            <StyledCloseButton
+              label={closeButtonLabel}
+              size="kilo"
+              onClick={onClose}
+              tracking={
+                tracking
+                  ? { component: 'notification-close', ...tracking }
+                  : undefined
+              }
+            />
           )}
-          <Body>{body}</Body>
-          {action && (
-            <ActionButton {...action} variant="tertiary" size="kilo" />
-          )}
-        </Content>
-
-        {onClose && closeButtonLabel && (
-          <StyledCloseButton
-            label={closeButtonLabel}
-            size="kilo"
-            onClick={onClose}
-            tracking={
-              tracking
-                ? { component: 'notification-close', ...tracking }
-                : undefined
-            }
-          />
-        )}
-      </ContentWrapper>
-    </NotificationInlineWrapper>
-  );
-}
+        </ContentWrapper>
+      </NotificationInlineWrapper>
+    );
+  },
+) as NotificationInlineComponent;
 
 NotificationInline.TIMEOUT = TRANSITION_DURATION;
 
