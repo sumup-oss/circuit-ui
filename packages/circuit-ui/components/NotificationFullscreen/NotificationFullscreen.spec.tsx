@@ -14,6 +14,7 @@
  */
 
 import { Plus } from '@sumup/icons';
+import { createRef } from 'react';
 
 import { render, axe } from '../../util/test-utils';
 
@@ -58,6 +59,15 @@ describe('NotificationFullscreen', () => {
       const props = { ...baseProps, image: { svg: Plus, alt: '' } };
       const { container } = renderNotificationFullscreen(props);
       expect(container).toMatchSnapshot();
+    });
+
+    it('should accept a working ref', () => {
+      const ref = createRef<HTMLDivElement>();
+      const { container } = render(
+        <NotificationFullscreen ref={ref} {...baseProps} />,
+      );
+      const wrapper = container.querySelector('div');
+      expect(ref.current).toBe(wrapper);
     });
   });
 

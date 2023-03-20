@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { createRef } from 'react';
+
 import { render, axe, userEvent } from '../../util/test-utils';
 
 import {
@@ -68,6 +70,15 @@ describe('NotificationBanner', () => {
       expect(container.querySelector('img')).toHaveStyle(
         'object-position: bottom',
       );
+    });
+
+    it('should accept a working ref', () => {
+      const ref = createRef<HTMLDivElement>();
+      const { container } = render(
+        <NotificationBanner ref={ref} {...baseProps} />,
+      );
+      const wrapper = container.querySelector('div');
+      expect(ref.current).toBe(wrapper);
     });
   });
 

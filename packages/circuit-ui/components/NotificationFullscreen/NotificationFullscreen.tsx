@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC, HTMLAttributes, ReactNode, SVGProps } from 'react';
+import { FC, HTMLAttributes, ReactNode, SVGProps, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import Body from '../Body';
@@ -98,17 +98,14 @@ const centeredStyles = css`
  * The `NotificationFullscreen` component provides important information or
  * feedback as part of a process flow.
  */
-export const NotificationFullscreen = ({
-  image,
-  headline,
-  body,
-  actions,
-  ...props
-}: NotificationFullscreenProps): JSX.Element => {
+export const NotificationFullscreen = forwardRef<
+  HTMLDivElement,
+  NotificationFullscreenProps
+>(({ image, headline, body, actions, ...props }, ref): JSX.Element => {
   const headlineLabel = isString(headline) ? headline : headline.label;
   const headlineElement = isString(headline) ? 'h2' : headline.as;
   return (
-    <div css={wrapperStyles} {...props}>
+    <div ref={ref} css={wrapperStyles} {...props}>
       <NotificationImage image={image} />
       <Headline
         css={cx(spacing({ top: 'giga', bottom: 'byte' }), centeredStyles)}
@@ -123,4 +120,4 @@ export const NotificationFullscreen = ({
       )}
     </div>
   );
-};
+});
