@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { InputHTMLAttributes, Ref, forwardRef } from 'react';
+import { InputHTMLAttributes, forwardRef, useEffect, useRef } from 'react';
 import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 
@@ -24,6 +24,7 @@ import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
 import { deprecate } from '../../util/logger';
 import { AccessibilityError } from '../../util/errors';
+import { applyMultipleRefs } from '../../util/refs';
 
 import { IndeterminateIcon } from './IndeterminateIcon';
 
@@ -37,6 +38,10 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   invalid?: boolean;
   /**
+   * Triggers indeterminate styles on the component.
+   */
+  indeterminate?: boolean;
+  /**
    * An information or error message, displayed below the checkbox.
    */
   validationHint?: string;
@@ -46,10 +51,6 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    * Use an `onChange` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
-  /**
-   * The ref to the HTML DOM element.
-   */
-  ref?: Ref<HTMLInputElement>;
   /**
    * @deprecated
    *
@@ -133,7 +134,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     border-color: var(--cui-border-accent);
   }
 
-  &:checked + label > svg[data-symbol='checked'],
+  &:checked:not(:indeterminate) + label > svg[data-symbol='checked'],
   &:indeterminate + label > svg[data-symbol='indeterminate'] {
     transform: translateY(-50%) scale(1, 1);
     opacity: 1;
@@ -211,7 +212,7 @@ const CheckboxInput = styled('input')<InputElProps>(
 /**
  * Checkbox component for forms.
  */
-export const Checkbox = forwardRef(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       onChange,
@@ -226,10 +227,11 @@ export const Checkbox = forwardRef(
       style,
       invalid,
       tracking,
+      indeterminate = false,
       'aria-describedby': descriptionId,
       ...props
-    }: CheckboxProps,
-    ref: CheckboxProps['ref'],
+    },
+    passedRef,
   ) => {
     if (process.env.NODE_ENV !== 'production' && children) {
       deprecate(
@@ -254,6 +256,15 @@ export const Checkbox = forwardRef(
     }${validationHintId}`;
     const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
+    const localRef = useRef<HTMLInputElement>(null);
+    useEffect(() => {
+      if (!localRef.current) {
+        return;
+      }
+
+      localRef.current.indeterminate = indeterminate;
+    }, [indeterminate]);
+
     return (
       <CheckboxWrapper className={className} style={style} disabled={disabled}>
         <CheckboxInput
@@ -264,14 +275,15 @@ export const Checkbox = forwardRef(
           type="checkbox"
           disabled={disabled}
           invalid={invalid}
-          ref={ref}
+          ref={applyMultipleRefs(localRef, passedRef)}
           aria-describedby={descriptionIds}
           onChange={handleChange}
+          {...(indeterminate && { 'aria-checked': 'mixed' })}
         />
         <CheckboxLabel htmlFor={id}>
           {label || children}
-          <Checkmark aria-hidden="true" />
-          <IndeterminateIcon aria-hidden="true" />
+          <Checkmark aria-hidden="true" data-symbol="checked" />
+          <IndeterminateIcon aria-hidden="true" data-symbol="indeterminate" />
         </CheckboxLabel>
         <FieldValidationHint
           id={validationHintId}
