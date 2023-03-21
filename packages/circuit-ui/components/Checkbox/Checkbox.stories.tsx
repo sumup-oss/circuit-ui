@@ -86,4 +86,5 @@ Indeterminate.args = {
   'name': 'indeterminate',
   'value': 'any value',
   'aria-checked': 'mixed',
+  'indeterminate': true,
 };
