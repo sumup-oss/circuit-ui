@@ -258,13 +258,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
     const localRef = useRef<HTMLInputElement>(null);
     useEffect(() => {
-      if (!localRef.current) {
-        return;
+      if (localRef.current) {
+        localRef.current.indeterminate = indeterminate;
       }
-
-      localRef.current.indeterminate = indeterminate;
       // Because it came from a props, we are keeping the `indeterminate` state even if the `checked` one is changed:
-    }, [props.defaultChecked, props.checked, indeterminate]);
+    }, [props.checked, indeterminate]);
 
     return (
       <CheckboxWrapper className={className} style={style} disabled={disabled}>
