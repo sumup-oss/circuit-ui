@@ -14,7 +14,7 @@ color: var(--cui-invalid-property);
 
 Examples of **correct** code for this rule:
 
-```js
+```css
 color: var(--cui-bg-normal);
 ```
 
