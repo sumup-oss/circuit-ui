@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [#2009](https://github.com/sumup-oss/circuit-ui/pull/2009) [`b51f23a2`](https://github.com/sumup-oss/circuit-ui/commit/b51f23a2a0819ec94bb7150c2e83d768df6ff9be) Thanks [@tavarest](https://github.com/tavarest)! - Added 24px Payment Link icon in the Product and feature category.
+- [#2009](https://github.com/sumup-oss/circuit-ui/pull/2009) [`b51f23a2`](https://github.com/sumup-oss/circuit-ui/commit/b51f23a2a0819ec94bb7150c2e83d768df6ff9be) Thanks [@tavarest](https://github.com/tavarest)! - Added a new size 24 `PaymentLink` icon to the Product and feature category.
 
 ## 2.20.0
 
@@ -22,7 +22,7 @@
 
 ### Minor Changes
 
-- [#1928](https://github.com/sumup-oss/circuit-ui/pull/1928) [`1400e62f`](https://github.com/sumup-oss/circuit-ui/commit/1400e62f9434e04c4da811a445a30d9bf3f07930) Thanks [@Marczerwinski](https://github.com/Marczerwinski)! - Add new 16 size 'Favorite' icon
+- [#1928](https://github.com/sumup-oss/circuit-ui/pull/1928) [`1400e62f`](https://github.com/sumup-oss/circuit-ui/commit/1400e62f9434e04c4da811a445a30d9bf3f07930) Thanks [@Marczerwinski](https://github.com/Marczerwinski)! - Added a new size 16 'Favorite' icon
 
 ## 2.17.0
 
