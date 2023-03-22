@@ -1196,6 +1196,11 @@
       "size": "24"
     },
     {
+      "name": "payment_link",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "payment_methods",
       "category": "Product and feature",
       "size": "24"
