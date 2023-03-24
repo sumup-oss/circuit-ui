@@ -61,7 +61,7 @@ const labelStyles = () => css`
   }
 `;
 
-// This component is rendered with as a `label` element below.
+// This component is rendered as a `label` element below.
 const ToggleLabel = styled(Body)<{ htmlFor: string }>(labelStyles);
 
 const explanationStyles = () => css`
