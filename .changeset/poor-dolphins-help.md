@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': patch
 ---
 
-Changed the Toggle's `explanation` to be associated with the switch button as its description instead of being included in its label. This provides a better experience to screen reader users.
+Moved the Toggle's `explanation` outside the switch button's `label` and connected it to the switch button using `aria-describedby` to provide a better experience to screen reader users. This affects the component's markup and might be a breaking change in instances customizing the Toggle's styles.
