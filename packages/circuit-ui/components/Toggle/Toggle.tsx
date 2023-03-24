@@ -44,25 +44,29 @@ export interface ToggleProps extends SwitchProps {
 const textWrapperStyles = ({ theme }: StyleProps) => css`
   display: block;
   margin-left: ${theme.spacings.kilo};
-  cursor: pointer;
 
   ${theme.mq.untilKilo} {
     margin-left: 0;
     margin-right: ${theme.spacings.kilo};
   }
+`;
+
+const ToggleTextWrapper = styled('div')(textWrapperStyles);
+
+const labelStyles = () => css`
+  cursor: pointer;
 
   .${CLASS_DISABLED} & {
     color: var(--cui-fg-normal-disabled);
   }
 `;
 
-const ToggleTextWrapper = styled('label')(textWrapperStyles);
+// This component is rendered as a `label` element below.
+const ToggleLabel = styled(Body)<{ htmlFor: string }>(labelStyles);
 
-const explanationStyles = css`
-  color: var(--cui-fg-subtle);
-
+const explanationStyles = () => css`
   .${CLASS_DISABLED} & {
-    color: var(--cui-fg-normal-disabled);
+    color: var(--cui-fg-subtle-disabled);
   }
 `;
 
@@ -82,7 +86,15 @@ const wrapperStyles = (theme: Theme) => css`
  * A toggle component with support for labels and additional explanations.
  */
 export const Toggle = forwardRef(
-  ({ label, explanation, ...props }: ToggleProps, ref: ToggleProps['ref']) => {
+  (
+    {
+      label,
+      explanation,
+      'aria-describedby': descriptionId,
+      ...props
+    }: ToggleProps,
+    ref: ToggleProps['ref'],
+  ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -93,13 +105,28 @@ export const Toggle = forwardRef(
 
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
+    const explanationId = explanation ? uniqueId('toggle-explanation_') : '';
+
+    const descriptionIds = [descriptionId, explanationId]
+      .filter(Boolean)
+      .join(' ');
     return (
       <FieldWrapper disabled={props.disabled} css={wrapperStyles}>
-        <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
-        <ToggleTextWrapper id={labelId} htmlFor={switchId}>
-          <Body>{label}</Body>
+        <Switch
+          {...props}
+          aria-labelledby={labelId}
+          aria-describedby={descriptionIds}
+          id={switchId}
+          ref={ref}
+        />
+        <ToggleTextWrapper>
+          <ToggleLabel as="label" id={labelId} htmlFor={switchId}>
+            {label}
+          </ToggleLabel>
           {explanation && (
-            <ToggleExplanation size="two">{explanation}</ToggleExplanation>
+            <ToggleExplanation size="two" variant="subtle" id={explanationId}>
+              {explanation}
+            </ToggleExplanation>
           )}
         </ToggleTextWrapper>
       </FieldWrapper>
