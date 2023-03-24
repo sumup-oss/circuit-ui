@@ -86,7 +86,15 @@ const wrapperStyles = (theme: Theme) => css`
  * A toggle component with support for labels and additional explanations.
  */
 export const Toggle = forwardRef(
-  ({ label, explanation, ...props }: ToggleProps, ref: ToggleProps['ref']) => {
+  (
+    {
+      label,
+      explanation,
+      'aria-describedby': descriptionId,
+      ...props
+    }: ToggleProps,
+    ref: ToggleProps['ref'],
+  ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -97,13 +105,17 @@ export const Toggle = forwardRef(
 
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
-    const descriptionId = explanation ? uniqueId('toggle-explanation_') : '';
+    const explanationId = explanation ? uniqueId('toggle-explanation_') : '';
+
+    const descriptionIds = [descriptionId, explanationId]
+      .filter(Boolean)
+      .join(' ');
     return (
       <FieldWrapper disabled={props.disabled} css={wrapperStyles}>
         <Switch
           {...props}
           aria-labelledby={labelId}
-          aria-describedby={descriptionId}
+          aria-describedby={descriptionIds}
           id={switchId}
           ref={ref}
         />
@@ -112,7 +124,7 @@ export const Toggle = forwardRef(
             {label}
           </ToggleLabel>
           {explanation && (
-            <ToggleExplanation size="two" variant="subtle" id={descriptionId}>
+            <ToggleExplanation size="two" variant="subtle" id={explanationId}>
               {explanation}
             </ToggleExplanation>
           )}
