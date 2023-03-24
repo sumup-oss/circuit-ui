@@ -153,7 +153,6 @@ exports[`Toggle should render with default styles 1`] = `
 .circuit-4 {
   display: block;
   margin-left: 12px;
-  cursor: pointer;
 }
 
 @media (max-width: 479px) {
@@ -163,14 +162,15 @@ exports[`Toggle should render with default styles 1`] = `
   }
 }
 
-.cui-field-disabled .circuit-4 {
-  color: var(--cui-fg-normal-disabled);
-}
-
 .circuit-5 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
+  cursor: pointer;
+}
+
+.cui-field-disabled .circuit-5 {
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-6 {
@@ -181,7 +181,7 @@ exports[`Toggle should render with default styles 1`] = `
 }
 
 .cui-field-disabled .circuit-6 {
-  color: var(--cui-fg-normal-disabled);
+  color: var(--cui-fg-subtle-disabled);
 }
 
 <div
@@ -189,6 +189,7 @@ exports[`Toggle should render with default styles 1`] = `
 >
   <button
     aria-checked="false"
+    aria-describedby="toggle-explanation_3"
     aria-labelledby="toggle-label_2"
     class="circuit-1"
     id="toggle-switch_1"
@@ -204,21 +205,22 @@ exports[`Toggle should render with default styles 1`] = `
       off
     </span>
   </button>
-  <label
+  <div
     class="circuit-4"
-    for="toggle-switch_1"
-    id="toggle-label_2"
   >
-    <p
+    <label
       class="circuit-5"
+      for="toggle-switch_1"
+      id="toggle-label_2"
     >
       Label
-    </p>
+    </label>
     <p
       class="circuit-6"
+      id="toggle-explanation_3"
     >
       A longer explanation
     </p>
-  </label>
+  </div>
 </div>
 `;

@@ -26,6 +26,7 @@ const baseArgs = {
   label: 'Short label',
   checkedLabel: 'on',
   uncheckedLabel: 'off',
+  disabled: false,
 };
 
 export const Base = (args: ToggleProps) => {
