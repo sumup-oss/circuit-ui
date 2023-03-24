@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.6.1
+
+### Patch Changes
+
+- [#2011](https://github.com/sumup-oss/circuit-ui/pull/2011) [`2728e9da`](https://github.com/sumup-oss/circuit-ui/commit/2728e9da5a32762c11e4d34cc9ffd45c5bbd2f97) Thanks [@connor-baer](https://github.com/connor-baer)! - Moved the Toggle's `explanation` outside the switch button's `label` and connected it to the switch button using `aria-describedby` to provide a better experience to screen reader users. This affects the component's markup and might be a breaking change in instances customizing the Toggle's styles.
+
 ## 6.6.0
 
 ### Minor Changes
