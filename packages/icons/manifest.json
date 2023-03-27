@@ -221,6 +221,16 @@
       "size": "16"
     },
     {
+      "name": "stop",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "stop",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "upload",
       "category": "Action",
       "size": "24"
@@ -1081,6 +1091,16 @@
       "size": "24"
     },
     {
+      "name": "active",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "active",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
       "name": "alert",
       "category": "Notification",
       "size": "24"
@@ -1137,6 +1157,26 @@
     },
     {
       "name": "notify_circle",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "paused",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "paused",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "stopped",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "stopped",
       "category": "Notification",
       "size": "16"
     },
