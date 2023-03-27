@@ -921,7 +921,17 @@
       "size": "24"
     },
     {
+      "name": "basket",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "battery",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "briefcase",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -944,6 +954,11 @@
       "name": "checkmark",
       "category": "Miscellaneous",
       "size": "16"
+    },
+    {
+      "name": "clothing",
+      "category": "Miscellaneous",
+      "size": "24"
     },
     {
       "name": "company",
@@ -976,6 +991,11 @@
       "size": "24"
     },
     {
+      "name": "health",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "hospitality",
       "category": "Miscellaneous",
       "size": "24"
@@ -992,6 +1012,11 @@
     },
     {
       "name": "location",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "mcc",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -1032,6 +1057,11 @@
     },
     {
       "name": "secure_payments",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "services",
       "category": "Miscellaneous",
       "size": "24"
     },
