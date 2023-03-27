@@ -806,6 +806,11 @@
       "size": "24"
     },
     {
+      "name": "card_reader_solo_lite",
+      "category": "Device",
+      "size": "24"
+    },
+    {
       "name": "laptop",
       "category": "Device",
       "size": "24"
@@ -822,6 +827,11 @@
     },
     {
       "name": "printer",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "tablet",
       "category": "Device",
       "size": "24"
     },
@@ -927,6 +937,11 @@
     },
     {
       "name": "company",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "customize",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -1212,6 +1227,11 @@
     },
     {
       "name": "pix",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "promote",
       "category": "Product and feature",
       "size": "24"
     },
