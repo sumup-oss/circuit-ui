@@ -1,12 +1,5 @@
 # @sumup/circuit-ui
 
-## 7.0.0
-
-### Patch Changes
-
-- Updated dependencies [[`03a440d4`](https://github.com/sumup-oss/circuit-ui/commit/03a440d42bd740f71bc1ca39995b8b0aae76fcd9)]:
-  - @sumup/icons@2.22.0
-
 ## 6.6.1
 
 ### Patch Changes
