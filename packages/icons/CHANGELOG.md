@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.22.0
+
+### Minor Changes
+
+- [#2018](https://github.com/sumup-oss/circuit-ui/pull/2018) [`03a440d4`](https://github.com/sumup-oss/circuit-ui/commit/03a440d42bd740f71bc1ca39995b8b0aae76fcd9) Thanks [@robinmetral](https://github.com/robinmetral)! - Added new icons to the library. Action: `Stop` in size 16 and 24; Device: `CardReaderSoloLite` and `Tablet` in size 24; Miscellaneous: `Basket`, `Briefcase`, `Clothing`, `Customize`, `Health`, `Mcc` and `Services` in size 24; Notification: `Active`, `Paused` and `Stopped` in size 16 and 24; Product and feature: `Promote` in size 24.
+
 ## 2.21.0
 
 ### Minor Changes
