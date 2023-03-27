@@ -221,6 +221,16 @@
       "size": "16"
     },
     {
+      "name": "stop",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "stop",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "upload",
       "category": "Action",
       "size": "24"
@@ -806,6 +816,11 @@
       "size": "24"
     },
     {
+      "name": "card_reader_solo_lite",
+      "category": "Device",
+      "size": "24"
+    },
+    {
       "name": "laptop",
       "category": "Device",
       "size": "24"
@@ -822,6 +837,11 @@
     },
     {
       "name": "printer",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "tablet",
       "category": "Device",
       "size": "24"
     },
@@ -901,7 +921,17 @@
       "size": "24"
     },
     {
+      "name": "basket",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "battery",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "briefcase",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -926,7 +956,17 @@
       "size": "16"
     },
     {
+      "name": "clothing",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "company",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "customize",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -951,6 +991,11 @@
       "size": "24"
     },
     {
+      "name": "health",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "hospitality",
       "category": "Miscellaneous",
       "size": "24"
@@ -967,6 +1012,11 @@
     },
     {
       "name": "location",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "mcc",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -1007,6 +1057,11 @@
     },
     {
       "name": "secure_payments",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "services",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -1066,6 +1121,16 @@
       "size": "24"
     },
     {
+      "name": "active",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "active",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
       "name": "alert",
       "category": "Notification",
       "size": "24"
@@ -1122,6 +1187,26 @@
     },
     {
       "name": "notify_circle",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "paused",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "paused",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "stopped",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "stopped",
       "category": "Notification",
       "size": "16"
     },
@@ -1212,6 +1297,11 @@
     },
     {
       "name": "pix",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "promote",
       "category": "Product and feature",
       "size": "24"
     },
