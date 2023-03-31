@@ -559,7 +559,6 @@ exports[`Carousel styles should render with children as a function 1`] = `
         class="circuit-44"
         loop=""
         role="progressbar"
-        title="1 / 3"
       />
       <span
         class="circuit-45"
@@ -1244,7 +1243,6 @@ exports[`Carousel styles should render with children as a node 1`] = `
         class="circuit-44"
         loop=""
         role="progressbar"
-        title="1 / 3"
       />
       <span
         class="circuit-45"
@@ -1928,7 +1926,6 @@ exports[`Carousel styles should render with default paused styles 1`] = `
         class="circuit-44"
         loop=""
         role="progressbar"
-        title="1 / 3"
       />
       <span
         class="circuit-45"
@@ -2583,7 +2580,6 @@ exports[`Carousel styles should render with default styles 1`] = `
         class="circuit-44"
         loop=""
         role="progressbar"
-        title="1 / 3"
       />
       <span
         class="circuit-45"
