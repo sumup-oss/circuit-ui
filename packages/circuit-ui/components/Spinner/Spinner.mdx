@@ -1,0 +1,35 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Spinner.stories';
+
+<Meta of={Stories} />
+
+# Spinner
+
+<Status.InReview />
+
+The Spinner component is used to visually represent the loading state of a UI component.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage guidelines
+
+> This section is a stub. Contributions welcome!
+
+If possible, prefer using the [Skeleton component](Components/Skeleton) instead of a Spinner for a loading state.
+
+## Component variations
+
+### Sizes
+
+The Spinner component is available in three sizes.
+
+<Story of={Stories.Sizes} />
+
+## Accessibility
+
+> This section is a stub. Contributions welcome!
+
+- The Spinner component doesn't accept a `label` prop. If your UI loads in a significant amount of time, make sure to add alternative text for users with vision deficiencies, for example using `aria-label`.
+- Rendering a Spinner is not sufficient to make a loading state accessible. Set [`aria-busy`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-busy) on the loading area and decide whether it makes sense to announce any updated content using a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
+- The Spinner's animation can be considered essential when a UI is loading, therefore the pattern doesn't fail [2.2.2 Pause Stop Hide](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html)

@@ -1,0 +1,28 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Skeleton.stories';
+
+<Meta of={Stories} />
+
+# Skeleton
+
+<Status.InReview />
+
+The Skeleton component is used to visually represent the loading state of a UI component.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage guidelines
+
+> This section is a stub. Contributions welcome!
+
+## Component variations
+
+> Stories are missing for this component. Contributions welcome!
+
+## Accessibility
+
+> This section is a stub. Contributions welcome!
+
+- Rendering a Skeleton UI is not sufficient to make a loading state accessible. Set [`aria-busy`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-busy) on the loading area and decide whether it makes sense to announce any updated content using a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
+- The Skeleton's animation can be considered essential when a UI is loading, therefore the pattern doesn't fail [2.2.2 Pause Stop Hide](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html). The animation is disabled if the [`prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) media query evaluates to `reduce`.
