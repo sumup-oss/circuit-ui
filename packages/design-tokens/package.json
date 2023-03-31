@@ -27,7 +27,7 @@
     "build:es": "tsc",
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "npm run lint --fix",
+    "lint:fix": "npm run lint -- --fix",
     "test": "jest --watch"
   },
   "dependencies": {

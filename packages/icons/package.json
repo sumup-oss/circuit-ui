@@ -26,7 +26,7 @@
     "start": "ts-node-dev --respawn --watch web ./scripts/web.ts",
     "build": "ts-node ./scripts/web.ts",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
-    "lint:fix": "npm run lint --fix",
+    "lint:fix": "npm run lint -- --fix",
     "prepublish": "npm run build && cp web/v1/* .",
     "postpublish": "rm -f *.svg"
   },

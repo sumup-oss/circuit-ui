@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Install template dependencies
-        run: cd packages/cna-template/template && npm run --no-lockfile --prefer-offline --ignore-scripts
+        run: cd packages/cna-template/template && npm ci
 
       - name: Check dependency licenses
         run: npm run check:licenses
