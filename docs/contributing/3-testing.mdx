@@ -9,7 +9,7 @@ import { Meta } from '../../.storybook/components';
 We use [Jest](https://jestjs.io/) and [@testing-library/react](https://github.com/testing-library/react-testing-library) to unit test our components. Since most components are purely visual, we rely a lot on snapshot tests. Business logic should be tested with more specific assertions. To start unit tests in watch mode, run:
 
 ```bash
-yarn test
+npm run test
 ```
 
 ## Visual tests
@@ -23,7 +23,7 @@ Chromatic builds the Storybook on every commit, takes a snapshot of each story a
 As for linting and formatting, you can configure your editor to automatically lint and format your code on save. For this purpose, we're using [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) as part of SumUp's frontend toolkit, [Foundry](https://github.com/sumup-oss/foundry). If you need to do it manually, you can run:
 
 ```bash
-yarn lint
+npm run lint
 # Automatically fix (some) issues
-yarn lint:fix
+npm run lint:fix
 ```

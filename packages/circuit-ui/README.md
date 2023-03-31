@@ -13,19 +13,19 @@ A React component library designed to help developers build inclusive, performan
 Depending on your preference, run one of the following in your terminal:
 
 ```sh
-# With yarn
-yarn add @sumup/circuit-ui
 # With npm
 npm install --save @sumup/circuit-ui
+# With yarn v1
+yarn add @sumup/circuit-ui
 ```
 
 `@sumup/circuit-ui` has a number of required peer dependencies. If your project doesn't have them already, you can install them by running:
 
 ```sh
-# With yarn
-yarn add react react-dom @emotion/react @emotion/styled @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
 # With npm
 npm install --save react react-dom @emotion/react @emotion/styled @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
+# With yarn v1
+yarn add react react-dom @emotion/react @emotion/styled @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
 ```
 
 ## Usage

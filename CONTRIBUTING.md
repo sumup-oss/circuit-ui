@@ -33,34 +33,33 @@ To start contributing to SumUp Open Source projects, please accept our [Contribu
 ### Prerequisites
 
 - [Node.js v18](https://nodejs.org/)
-- [Yarn 1](https://classic.yarnpkg.com/en/docs/install)
 
 ### Installation
 
-- Run `yarn` in the repository's root directory to install everything you need for development.
-- Run `yarn bootstrap` in the root directory to build and set up the packages.
+- Run `npm install` in the repository's root directory to install everything you need for development.
+- Run `npm run bootstrap` in the root directory to build and set up the packages.
 
 ### Available Scripts
 
-All packages related to the design system are organized in this monorepo. Thanks to [`yarn workspaces`](https://classic.yarnpkg.com/en/docs/workspaces) packages that depend on each other always use the latest version. [`lerna`](https://lerna.js.org/) makes it possible to run scripts across all packages at the same time. The list of scripts below can be run in each package directory individually, or in the repository's root directory for all packages at once.
+All packages related to the design system are organized in this monorepo. Thanks to [`npm workspaces`](https://docs.npmjs.com/cli/v9/using-npm/workspaces) packages that depend on each other always use the latest version. [`lerna`](https://lerna.js.org/) makes it possible to run scripts across all packages at the same time. The list of scripts below can be run in each package directory individually, or in the repository's root directory for all packages at once.
 
-- `yarn start` — will build packages on every change
-- `yarn build` — will build packages once
-- `yarn test` — will run unit tests on every change
-- `yarn lint` — will lint the code once
-- `yarn docs` — will run the [Storybook](https://circuit.sumup.com) in development mode
+- `npm run start` — will build packages on every change
+- `npm run build` — will build packages once
+- `npm run test` — will run unit tests on every change
+- `npm run lint` — will lint the code once
+- `npm run docs` — will run the [Storybook](https://circuit.sumup.com) in development mode
 
 Refer to the `package.json` files in each package for other helpful scripts.
 
 ### Changesets
 
-Circuit UI uses [changesets](https://github.com/atlassian/changesets) for versioning. As a contributor you can add a changeset for your changes by running `yarn changeset`. Read more in our [release process docs](https://circuit.sumup.com/?path=/docs/introduction-contributing-release-process--page).
+Circuit UI uses [changesets](https://github.com/atlassian/changesets) for versioning. As a contributor you can add a changeset for your changes by running `npm run changeset`. Read more in our [release process docs](https://circuit.sumup.com/?path=/docs/introduction-contributing-release-process--page).
 
 ### Troubleshooting
 
 **Changes in one package aren't recognized in another package**
 
-You need to rebuild a package after making changes to it. The easiest way to do so is to run `yarn start` in the repository's root directory which will continuously rebuild all packages on change.
+You need to rebuild a package after making changes to it. The easiest way to do so is to run `npm run start` in the repository's root directory which will continuously rebuild all packages on change.
 
 If the changes aren't picked up even after a rebuild, try restarting or reloading your editor.
 

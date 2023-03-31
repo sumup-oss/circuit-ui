@@ -13,10 +13,11 @@ ESLint rules to lint Circuit UI.
 Depending on your preference, run one of the following in your terminal:
 
 ```sh
-# With Yarn
-yarn add @sumup/eslint-plugin-circuit-ui
 # With npm
 npm install @sumup/eslint-plugin-circuit-ui
+
+# With yarn v1
+yarn add @sumup/eslint-plugin-circuit-ui
 ```
 
 ## Usage

@@ -26,9 +26,9 @@
     "clean": "rm -rf ./dist",
     "build:es": "tsc --project tsconfig.es.json",
     "build:cjs": "tsc --project tsconfig.cjs.json",
-    "build": "yarn build:es && yarn build:cjs",
+    "build": "npm run build:es && npm run build:cjs",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "npm run lint --fix",
     "test": "jest --watch"
   },
   "dependencies": {

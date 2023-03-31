@@ -16,22 +16,23 @@ It will get generate a new [Next.js](https://nextjs.org/) app with Circuit UI an
 
 ## Adding Circuit UI to an existing app
 
-Already have a project? You can install Circuit UI via `yarn` or `npm`. In your current project directory, run the following command:
+Already have a project? You can install Circuit UI via `npm` or `yarn`. In your current project directory, run the following command:
 
-```bash
-# With yarn:
-yarn add @sumup/circuit-ui
+```sh
 # With npm:
 npm install @sumup/circuit-ui
+
+# With yarn v1
+yarn add @sumup/circuit-ui
 ```
 
 Circuit UI relies on some mandatory peer dependencies, namely [@sumup/collector](https://www.npmjs.com/package/@sumup/collector), [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens), [@sumup/icons](https://www.npmjs.com/package/@sumup/icons), [@sumup/intl](https://www.npmjs.com/package/@sumup/intl), [React](https://reactjs.org/), and [Emotion](https://emotion.sh/). You should install them with the following command:
 
-```bash
-# With yarn:
-yarn add @sumup/collector @sumup/design-tokens @sumup/icons @sumup/intl react react-dom @emotion/react @emotion/styled
+```sh
 # With npm:
 npm install --save @sumup/collector @sumup/design-tokens @sumup/icons @sumup/intl react react-dom @emotion/react @emotion/styled
+# With yarn v1
+yarn add @sumup/collector @sumup/design-tokens @sumup/icons @sumup/intl react react-dom @emotion/react @emotion/styled
 ```
 
 We also recommend installing and configuring the [`@sumup/eslint-plugin-circuit-ui`](Packages/eslint-plugin-circuit-ui/Docs) ESLint plugin. It will lint [Circuit UI custom properties](Features/Theme/Docs) and will include codemods for future Circuit UI breaking changes.
