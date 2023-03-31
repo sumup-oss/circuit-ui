@@ -13,22 +13,23 @@ jobs:
         node: [16, 18]
     steps:
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+          cache: 'npm'
 
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Bootstrap app
-        run: yarn create next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template/template" test-app
+        run: npm run create next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template/template" test-app
 
       - name: Build app
         working-directory: ./test-app
-        run: yarn build
+        run: npm run build
 
       - name: Install test dependencies
-        run: yarn add puppeteer -W
+        run: npm install puppeteer
 
       - name: Test app
         working-directory: ./test-app
