@@ -19,7 +19,7 @@
     "build": "lerna run build",
     "clean": "lerna run clean",
     "test": "jest --watch",
-    "test:ci": "mkdir -p __reports__ && jest --json --outputFile=__reports__/jest-results.json --ci --coverage --runInBand",
+    "test:ci": "mkdir -p __reports__ && jest --json --outputFile=__reports__/jest-results.json --ci --coverage --runInBand --reporters default --reporters \"github-actions\"",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "docs": "npm run docs:start",
