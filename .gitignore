@@ -1,6 +1,6 @@
 # Project #
 
-package-lock.json
+yarn.lock
 .stylelintcache
 .eslintcache
 *.swp

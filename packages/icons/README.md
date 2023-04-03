@@ -13,11 +13,11 @@ A collection of icons for the web, part of the SumUp Circuit Design System.
 Depending on your preference, run one of the following in your terminal:
 
 ```sh
-# With Yarn
-yarn add @sumup/icons
-
 # With npm
 npm install @sumup/icons
+
+# With yarn v1
+yarn add @sumup/icons
 ```
 
 ## Usage
