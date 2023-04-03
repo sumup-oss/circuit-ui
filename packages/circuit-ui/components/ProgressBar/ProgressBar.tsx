@@ -235,13 +235,11 @@ export function ProgressBar({
     throw new AccessibilityError('ProgressBar', 'The `label` prop is missing.');
   }
   const ariaId = uniqueId('progress-bar_');
-  const title = hideLabel ? label : undefined;
   return (
     <ProgressBarWrapper {...props}>
       {max || value ? (
         <TaskProgress
           role="progressbar"
-          title={title}
           aria-valuenow={value}
           aria-valuemin={0}
           aria-valuemax={max}
@@ -254,7 +252,6 @@ export function ProgressBar({
       ) : (
         <TimeProgress
           role="progressbar"
-          title={title}
           aria-labelledby={ariaId}
           duration={duration}
           loop={loop}
