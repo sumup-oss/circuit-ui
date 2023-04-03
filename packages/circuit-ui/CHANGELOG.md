@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.6.2
+
+### Patch Changes
+
+- [#2021](https://github.com/sumup-oss/circuit-ui/pull/2021) [`c6fb3aed`](https://github.com/sumup-oss/circuit-ui/commit/c6fb3aed99bb5f70b0255dc226c10074bea0f470) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the `title` attribute from the `ProgressBar` component. The `ProgressBar` already has an accessible label, so the `title` is redundant. You might need to update your snapshots.
+
 ## 6.6.1
 
 ### Patch Changes
