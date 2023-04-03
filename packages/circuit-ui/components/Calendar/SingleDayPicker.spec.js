@@ -15,7 +15,7 @@
 
 import { SingleDayPicker } from '.';
 
-const props = { onDateChange: () => {}, onFocusChange: () => {} };
+const props = { onDateChange: jest.fn(), onFocusChange: jest.fn() };
 
 describe('SingleDayPicker', () => {
   /**
