@@ -279,7 +279,7 @@ This version also includes a number of accessibility and visual fixes. While the
 - The `ButtonGroup` component now switches between a secondary button (on viewports of at least `mq.kilo`) and a tertiary button (on viewports narrower than `mq.kilo`) using CSS media queries, instead of rendering three buttons and conditionally hiding one. Tests (e.g. using `@testing-library`) should now query the secondary button without using `*AllBy` queries. Snapshots might also be affected.
 - Typography design tokens now use the `rem` unit. Ensure that your global styles do not override the root font-size. See [The Surprising Truth About Pixels and Accessibility](https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/).
 - The `Popover` component was migrated from Popper (deprecated) to Floating UI. If your app uses Popper directly, we recommend migrating to Floating UI to avoid duplicating dependencies. See [Migrating from Popper 2 to Floating UI](https://floating-ui.com/docs/migration#__next)
-- Circuit UI's browser support policy was updated. The library now supports browsers with support for [dynamic module imports](https://caniuse.com/es6-module-dynamic-import). See the [Browser Support](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) documentation for details.
+- Circuit UI's browser support policy was updated. The library now supports browsers with support for [dynamic module imports](https://caniuse.com/es6-module-dynamic-import). See the [Browser Support](https://circuit.sumup.com/?path=/docs/introduction-browser-support--docs) documentation for details.
 - If your app uses TypeScript, an upgrade of the `@types/react` package in Circuit UI may clash with the version installed in your app. If your app is on React 18, upgrade `@types/react` to `^18.0.25` to fix the issue. If your app is on React 17, upgrade `@types/react` to `^17.0.52` and [extend the React namespace](https://github.com/sumup-oss/circuit-ui/pull/1831#issuecomment-1307485956). More details on [the DefinitelyTyped PR that introduced the issue](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/63076).
 
 ## From v4.x to v5
@@ -290,7 +290,7 @@ Circuit UI v5 is a maintenance release, primarily removing deprecated components
 
 ### Explicit browser support
 
-Starting in v5, Circuit UI is explicit about which browsers it supports. Refer to the [browser support documentation](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) for details.
+Starting in v5, Circuit UI is explicit about which browsers it supports. Refer to the [browser support documentation](https://circuit.sumup.com/?path=/docs/contributing-browser-support--docs) for details.
 
 Here's what you need to be mindful of when migrating:
 
@@ -530,7 +530,7 @@ module.exports = {
 
 ### New brand icons
 
-Circuit v4 ships with the [new brand icons](https://circuit.sumup.com/?path=/story/features-icons--page) from `@sumup/icons` v2.
+Circuit v4 ships with the [new brand icons](https://circuit.sumup.com/?path=/docs/features-icons--docs) from `@sumup/icons` v2.
 
 #### Overview of `@sumup/icons` v2
 
@@ -716,7 +716,7 @@ Modals in Circuit v3 are accessible by default, have a streamlined UI and behavi
 
 Refer to [the Modal stories](https://circuit.sumup.com/?path=/story/components-modal--base) for usage examples.
 
-> ⚠️ You might notice browser UI obscuring parts of your application on mobile viewports. Your application needs to ensure its content stays within CSS safe areas using [CSS `env`](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>). See [Getting started](https://circuit.sumup.com/?path=/docs/introduction-getting-started--page) for help with configuring the viewport.
+> ⚠️ You might notice browser UI obscuring parts of your application on mobile viewports. Your application needs to ensure its content stays within CSS safe areas using [CSS `env`](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>). See [Getting started](https://circuit.sumup.com/?path=/docs/introduction-getting-started--docs) for help with configuring the viewport.
 
 #### Popover
 

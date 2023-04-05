@@ -13,9 +13,9 @@
 Here are a few helpful links for getting started with Circuit UI:
 
 - [Documentation](https://circuit.sumup.com/) - Learn how to use Circuit UI and view the components in Storybook.
-- [Getting started](https://circuit.sumup.com/?path=/docs/introduction-getting-started--page) - Set up a new app with Circuit UI or add it to an existing project.
-- [Theming](https://circuit.sumup.com/?path=/docs/features-theme--page) - Learn about our foundations such as colors, spacing, and typography.
-- [Contribute](https://circuit.sumup.com/?path=/docs/introduction-contributing-overview--page) - File a bug report, suggest a change, or open a pull request.
+- [Getting started](https://circuit.sumup.com/?path=/docs/introduction-getting-started--docs) - Set up a new app with Circuit UI or add it to an existing project.
+- [Theming](https://circuit.sumup.com/?path=/docs/features-theme--docs) - Learn about our foundations such as colors, spacing, and typography.
+- [Contribute](https://circuit.sumup.com/?path=/docs/contributing-overview--docs) - File a bug report, suggest a change, or open a pull request.
 
 ## Packages
 

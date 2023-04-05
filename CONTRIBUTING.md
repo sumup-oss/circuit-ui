@@ -53,7 +53,7 @@ Refer to the `package.json` files in each package for other helpful scripts.
 
 ### Changesets
 
-Circuit UI uses [changesets](https://github.com/atlassian/changesets) for versioning. As a contributor you can add a changeset for your changes by running `npm run changeset`. Read more in our [release process docs](https://circuit.sumup.com/?path=/docs/introduction-contributing-release-process--page).
+Circuit UI uses [changesets](https://github.com/atlassian/changesets) for versioning. As a contributor you can add a changeset for your changes by running `npm run changeset`. Read more in our [release process docs](https://circuit.sumup.com/?path=/docs/contributing-release-process--docs).
 
 ### Troubleshooting
 

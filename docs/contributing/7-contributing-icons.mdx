@@ -16,7 +16,7 @@ This page outlines the process of contributing an icon to the `@sumup/icons` pac
 3. Paste the SVG into your file and verify the code — refer to the "Caveats" section below.
 4. Commit the icons, they will automatically be optimized in the precommit hook using `svgo`.
 5. Add an icon object to the icons manifest file at [`packages/icons/manifest.json`](https://github.com/sumup-oss/circuit-ui/blob/9146e47a21dcd6880f437d1a47a0c54d5a164bfd/packages/icons/manifest.json). The icons are manually ordered alphabetically by icon category, then name (should match the file name), and finally by size (descending).
-6. Build the icons package (`npx lerna run build --scope=@sumup/icons`) and run the Storybook (`npm run docs`). Verify that your icon renders correctly on the [Icons page](http://localhost:6006/?path=/docs/features-icons--page) (local link).
+6. Build the icons package (`npx lerna run build --scope=@sumup/icons`) and run the Storybook (`npm run docs`). Verify that your icon renders correctly on the [Icons page](http://localhost:6006/?path=/docs/features-icons--docs) (local link).
 
 ## Caveats
 
@@ -31,7 +31,7 @@ Unless icons are a brand logo (e.g. the Mastercard logo), all SVG fills should a
 </svg>
 ```
 
-You can test this by running Storybook and changing the icons color on the [Icons page](http://localhost:6006/?path=/docs/features-icons--page) (local link).
+You can test this by running Storybook and changing the icons color on the [Icons page](http://localhost:6006/?path=/docs/features-icons--docs) (local link).
 
 ### Correct icon size
 
