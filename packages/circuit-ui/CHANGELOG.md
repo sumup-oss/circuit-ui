@@ -116,7 +116,7 @@
 
 ### Minor Changes
 
-- [#1880](https://github.com/sumup-oss/circuit-ui/pull/1880) [`38dcc5c1`](https://github.com/sumup-oss/circuit-ui/commit/38dcc5c13a44a2331a744d2ddda5c0b1617d4f72) Thanks [@robinmetral](https://github.com/robinmetral)! - Added semantic color tokens as CSS custom properties to the `BaseStyles`. See the [documentation](https://circuit.sumup.com/?path=/docs/features-theme--page) for details.
+- [#1880](https://github.com/sumup-oss/circuit-ui/pull/1880) [`38dcc5c1`](https://github.com/sumup-oss/circuit-ui/commit/38dcc5c13a44a2331a744d2ddda5c0b1617d4f72) Thanks [@robinmetral](https://github.com/robinmetral)! - Added semantic color tokens as CSS custom properties to the `BaseStyles`. See the [documentation](https://circuit.sumup.com/?path=/docs/features-theme--docs) for details.
 
 ## 6.0.0
 
@@ -305,7 +305,7 @@
 
 * [#1529](https://github.com/sumup-oss/circuit-ui/pull/1529) [`fa2101e5`](https://github.com/sumup-oss/circuit-ui/commit/fa2101e56031d8341cc392817aa1436308f2d181) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `showValid` option from the `inputOutline` style mixin.
 
-- [#1542](https://github.com/sumup-oss/circuit-ui/pull/1542) [`2c62d308`](https://github.com/sumup-oss/circuit-ui/commit/2c62d3087a7a772e5feb0126cc39ad5c84b564f4) Thanks [@robinmetral](https://github.com/robinmetral)! - Optimized Circuit UI for modern browsers. Refer to the [browser support policy](https://circuit.sumup.com/?path=/docs/introduction-browser-support--page) for details.
+- [#1542](https://github.com/sumup-oss/circuit-ui/pull/1542) [`2c62d308`](https://github.com/sumup-oss/circuit-ui/commit/2c62d3087a7a772e5feb0126cc39ad5c84b564f4) Thanks [@robinmetral](https://github.com/robinmetral)! - Optimized Circuit UI for modern browsers. Refer to the [browser support policy](https://circuit.sumup.com/?path=/docs/introduction-browser-support--docs) for details.
 
 * [#1552](https://github.com/sumup-oss/circuit-ui/pull/1552) [`4e6a3750`](https://github.com/sumup-oss/circuit-ui/commit/4e6a375010aed43dcf5abc6b57c0503747b42b4b) Thanks [@robinmetral](https://github.com/robinmetral)! - Removed the deprecated `children` prop from the `ButtonGroup` component. Use the `actions` prop instead.
 
