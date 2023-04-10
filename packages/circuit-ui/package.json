@@ -67,7 +67,7 @@
     "component-playground": "^3.2.1",
     "cross-env": "^7.0.2",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
-    "jest-axe": "^7.0.0",
+    "jest-axe": "^7.0.1",
     "react": "^18.2.0",
     "react-docgen": "^5.4.3",
     "react-docgen-annotation-resolver": "^2.0.0",
