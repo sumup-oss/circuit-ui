@@ -52,7 +52,6 @@
     "@storybook/addon-toolbars": "^7.0.2",
     "@storybook/addon-viewport": "^7.0.2",
     "@storybook/addons": "^7.0.2",
-    "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^7.0.2",
     "@storybook/react-webpack5": "^7.0.2",
     "@storybook/source-loader": "^7.0.2",
