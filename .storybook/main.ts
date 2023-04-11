@@ -13,12 +13,6 @@ const config: StorybookConfig = {
   ],
   addons: [
     {
-      name: '@storybook/preset-typescript',
-      options: {
-        transpileManager: true,
-      },
-    },
-    {
       name: '@storybook/addon-docs',
       options: {
         mdxPluginOptions: {
@@ -56,6 +50,7 @@ const config: StorybookConfig = {
         { runtime: 'automatic', importSource: '@emotion/react' },
         'preset-jsx-import-source',
       ],
+      '@babel/preset-typescript',
     ],
   }),
 };

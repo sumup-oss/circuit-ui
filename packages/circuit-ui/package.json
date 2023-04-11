@@ -73,7 +73,7 @@
     "react-docgen-annotation-resolver": "^2.0.0",
     "react-dom": "^18.2.0",
     "react-swipeable": "^7.0.0",
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
     "@emotion/cache": "11.x",
