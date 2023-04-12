@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.6.3
+
+### Patch Changes
+
+- [#2037](https://github.com/sumup-oss/circuit-ui/pull/2037) [`e72d1ce2`](https://github.com/sumup-oss/circuit-ui/commit/e72d1ce261fa8b637426e682d1f281bcb4ae2b7c) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the alignment of wrapped Popover items.
+
 ## 6.6.2
 
 ### Patch Changes
