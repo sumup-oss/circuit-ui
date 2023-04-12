@@ -100,6 +100,7 @@ const itemWrapperStyles = () => css`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  text-align: left;
 `;
 
 const PopoverItemWrapper = styled('button', {
