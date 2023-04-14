@@ -9,8 +9,7 @@
   "sideEffects": false,
   "files": [
     "dist",
-    "README.md",
-    "LICENSE"
+    "*.css"
   ],
   "repository": {
     "type": "git",
