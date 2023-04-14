@@ -9,8 +9,10 @@ import {
   Type,
   MediaQueriesTable,
   ColorsTable,
+  filterCustomProperties,
 } from '../../.storybook/components';
 import { Headline, SubHeadline, Body } from '@sumup/circuit-ui';
+import { schema } from '@sumup/design-tokens';
 
 <Meta title="Features/Theme" />
 
@@ -32,170 +34,15 @@ To make it easier to work with custom properties, we recommend using the [`@sumu
 
 ### Background colors
 
-<ColorsTable
-  customProperties={[
-    /* Neutral backgrounds */
-    '--cui-bg-normal',
-    '--cui-bg-normal-hovered',
-    '--cui-bg-normal-pressed',
-    '--cui-bg-normal-disabled',
-    '--cui-bg-subtle',
-    '--cui-bg-subtle-hovered',
-    '--cui-bg-subtle-pressed',
-    '--cui-bg-subtle-disabled',
-    '--cui-bg-highlight',
-    '--cui-bg-highlight-hovered',
-    '--cui-bg-highlight-pressed',
-    '--cui-bg-highlight-disabled',
-    '--cui-bg-strong',
-    '--cui-bg-strong-hovered',
-    '--cui-bg-strong-pressed',
-    '--cui-bg-strong-disabled',
-    /* Accent backgrounds */
-    '--cui-bg-accent',
-    '--cui-bg-accent-hovered',
-    '--cui-bg-accent-pressed',
-    '--cui-bg-accent-disabled',
-    '--cui-bg-accent-strong',
-    '--cui-bg-accent-strong-hovered',
-    '--cui-bg-accent-strong-pressed',
-    '--cui-bg-accent-strong-disabled',
-    /* Success backgrounds */
-    '--cui-bg-success',
-    '--cui-bg-success-hovered',
-    '--cui-bg-success-pressed',
-    '--cui-bg-success-disabled',
-    '--cui-bg-success-strong',
-    '--cui-bg-success-strong-hovered',
-    '--cui-bg-success-strong-pressed',
-    '--cui-bg-success-strong-disabled',
-    /* Warning backgrounds */
-    '--cui-bg-warning',
-    '--cui-bg-warning-hovered',
-    '--cui-bg-warning-pressed',
-    '--cui-bg-warning-disabled',
-    '--cui-bg-warning-strong',
-    '--cui-bg-warning-strong-hovered',
-    '--cui-bg-warning-strong-pressed',
-    '--cui-bg-warning-strong-disabled',
-    /* Danger backgrounds */
-    '--cui-bg-danger',
-    '--cui-bg-danger-hovered',
-    '--cui-bg-danger-pressed',
-    '--cui-bg-danger-disabled',
-    '--cui-bg-danger-strong',
-    '--cui-bg-danger-strong-hovered',
-    '--cui-bg-danger-strong-pressed',
-    '--cui-bg-danger-strong-disabled',
-    /* Promo backgrounds */
-    '--cui-bg-promo',
-    '--cui-bg-promo-hovered',
-    '--cui-bg-promo-pressed',
-    '--cui-bg-promo-disabled',
-    '--cui-bg-promo-strong',
-    '--cui-bg-promo-strong-hovered',
-    '--cui-bg-promo-strong-pressed',
-    '--cui-bg-promo-strong-disabled',
-  ]}
-/>
+<ColorsTable customProperties={filterCustomProperties(schema, 'bg')} />
 
 ### Foreground colors
 
-<ColorsTable
-  customProperties={[
-    /* Neutral foregrounds */
-    '--cui-fg-normal',
-    '--cui-fg-normal-hovered',
-    '--cui-fg-normal-pressed',
-    '--cui-fg-normal-disabled',
-    '--cui-fg-subtle',
-    '--cui-fg-subtle-hovered',
-    '--cui-fg-subtle-pressed',
-    '--cui-fg-subtle-disabled',
-    '--cui-fg-placeholder',
-    '--cui-fg-placeholder-hovered',
-    '--cui-fg-placeholder-pressed',
-    '--cui-fg-placeholder-disabled',
-    '--cui-fg-on-strong',
-    '--cui-fg-on-strong-hovered',
-    '--cui-fg-on-strong-pressed',
-    '--cui-fg-on-strong-disabled',
-    /* Accent foregrounds */
-    '--cui-fg-accent',
-    '--cui-fg-accent-hovered',
-    '--cui-fg-accent-pressed',
-    '--cui-fg-accent-disabled',
-    /* Success foregrounds */
-    '--cui-fg-success',
-    '--cui-fg-success-hovered',
-    '--cui-fg-success-pressed',
-    '--cui-fg-success-disabled',
-    /* Warning foregrounds */
-    '--cui-fg-warning',
-    '--cui-fg-warning-hovered',
-    '--cui-fg-warning-pressed',
-    '--cui-fg-warning-disabled',
-    /* Danger foregrounds */
-    '--cui-fg-danger',
-    '--cui-fg-danger-hovered',
-    '--cui-fg-danger-pressed',
-    '--cui-fg-danger-disabled',
-    /* Promo foregrounds */
-    '--cui-fg-promo',
-    '--cui-fg-promo-hovered',
-    '--cui-fg-promo-pressed',
-    '--cui-fg-promo-disabled',
-  ]}
-/>
+<ColorsTable customProperties={filterCustomProperties(schema, 'fg')} />
 
 ### Border colors
 
-<ColorsTable
-  customProperties={[
-    /* Neutral borders */
-    '--cui-border-normal',
-    '--cui-border-normal-hovered',
-    '--cui-border-normal-pressed',
-    '--cui-border-normal-disabled',
-    '--cui-border-subtle',
-    '--cui-border-subtle-hovered',
-    '--cui-border-subtle-pressed',
-    '--cui-border-subtle-disabled',
-    '--cui-border-divider',
-    '--cui-border-divider-hovered',
-    '--cui-border-divider-pressed',
-    '--cui-border-divider-disabled',
-    '--cui-border-strong',
-    '--cui-border-strong-hovered',
-    '--cui-border-strong-pressed',
-    '--cui-border-strong-disabled',
-    /* Accent borders */
-    '--cui-border-accent',
-    '--cui-border-accent-hovered',
-    '--cui-border-accent-pressed',
-    '--cui-border-accent-disabled',
-    /* Success borders */
-    '--cui-border-success',
-    '--cui-border-success-hovered',
-    '--cui-border-success-pressed',
-    '--cui-border-success-disabled',
-    /* Warning borders */
-    '--cui-border-warning',
-    '--cui-border-warning-hovered',
-    '--cui-border-warning-pressed',
-    '--cui-border-warning-disabled',
-    /* Danger borders */
-    '--cui-border-danger',
-    '--cui-border-danger-hovered',
-    '--cui-border-danger-pressed',
-    '--cui-border-danger-disabled',
-    /* Promo borders */
-    '--cui-border-promo',
-    '--cui-border-promo-hovered',
-    '--cui-border-promo-pressed',
-    '--cui-border-promo-disabled',
-  ]}
-/>
+<ColorsTable customProperties={filterCustomProperties(schema, 'border')} />
 
 ### Special colors
 

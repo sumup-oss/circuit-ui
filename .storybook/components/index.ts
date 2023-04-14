@@ -28,7 +28,7 @@ export { default as Story } from './Story';
 export { default as Type } from './Type';
 export { default as Spacing } from './Spacing';
 export { default as MediaQueriesTable } from './MediaQueriesTable';
-export { default as ColorsTable } from './ColorsTable';
+export { default as ColorsTable, filterCustomProperties } from './ColorsTable';
 export { default as BorderWidth } from './BorderWidth';
 export { default as BorderRadius } from './BorderRadius';
 export { default as IconSize } from './IconSize';

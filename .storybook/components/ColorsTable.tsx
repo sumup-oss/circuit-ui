@@ -25,9 +25,21 @@ import {
   useNotificationToast,
 } from '@sumup/circuit-ui';
 
-const getCustomProperty = (property: string) => {
+export function filterCustomProperties(
+  schema: { name: string; type: string }[],
+  usage: string,
+): string[] {
+  return schema
+    .filter(
+      (token) =>
+        token.type === 'color' && token.name.startsWith(`--cui-${usage}`),
+    )
+    .map((token) => token.name);
+}
+
+function getCustomProperty(property: string) {
   return getComputedStyle(document.documentElement).getPropertyValue(property);
-};
+}
 
 function Copy({ property }: { property: string }) {
   const { setToast } = useNotificationToast();
