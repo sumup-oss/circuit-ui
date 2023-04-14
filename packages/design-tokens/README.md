@@ -22,7 +22,18 @@ yarn add @sumup/design-tokens
 
 ## Usage
 
-The package currently exports a single `light` theme that is meant to be used with SumUp's React component library, [Circuit UI](https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui). Pass the theme to Emotion's [`ThemeProvider`](https://emotion.sh/docs/theming):
+> **Warning**
+> The design tokens are gradually being migrated from a JavaScript object to CSS custom properties. During the migration, you need to include both the JS object and CSS file in your application.
+
+### CSS custom properties
+
+```ts
+import '@sumup/design-tokens/light.css';
+```
+
+### JavaScript theme
+
+The package currently exports a single `light` theme that is meant to be used with SumUp's React component library, [Circuit UI](https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui). Pass the theme to Emotion.js' [`ThemeProvider`](https://emotion.sh/docs/theming):
 
 ```jsx
 import { light } from '@sumup/design-tokens';
@@ -33,43 +44,24 @@ const Bold = styled.strong`
   font-weight: ${(p) => p.theme.fontWeight.bold};
 `;
 
-const App = () => (
-  <ThemeProvider theme={light}>
-    <Bold>This styled component has access to the theme.</Bold>
-  </ThemeProvider>
-);
-```
-
-The theme is a plain JavaScript object, so you can use it in other ways, too.
-
-### With prop types
-
-The package exports a `themePropType` which can be used to check the `theme` prop:
-
-```js
-import PropTypes from 'prop-types';
-import { withTheme } from '@emotion/react';
-import { themePropType } from '@sumup/design-tokens';
-
-function ComponentWithInlineStyles({ theme, label }) {
-  return <div style={{ color: theme.colors.p500 }}>{label}</div>;
+function App() {
+  return (
+    <ThemeProvider theme={light}>
+      <Bold>This styled component has access to the theme.</Bold>
+    </ThemeProvider>
+  );
 }
-
-ComponentWithInlineStyles.propTypes = {
-  theme: themePropType.isRequired,
-  label: PropTypes.string,
-};
-
-export default function withTheme(ComponentWithInlineStyles);
 ```
 
-### With TypeScript
+#### With TypeScript
 
-The package exports a `Theme` interface which can be used to type Emotion's `styled` function. Create a custom `styled` instance as described in the [Emotion docs](https://emotion.sh/docs/typescript):
+The package exports a `Theme` interface that can be used to type the `theme` prop. This can be done globally by extending Emotion.js' type declarations via your own declarations file as described in the [Emotion.js docs](https://emotion.sh/docs/typescript#define-a-theme):
 
 ```tsx
-import styled, { CreateStyled } from '@emotion/styled';
-import { Theme } from '@sumup/design-tokens';
+import '@emotion/react';
+import { Theme as CircuitTheme } from '@sumup/design-tokens';
 
-export default styled as CreateStyled<Theme>;
+declare module '@emotion/react' {
+  export interface Theme extends CircuitTheme {}
+}
 ```
