@@ -1,7 +1,3 @@
-import { Meta } from '../../.storybook/components';
-
-<Meta title="Contributing/Contributing Icons" />
-
 # Contributing Icons
 
 This page outlines the process of contributing an icon to the `@sumup/icons` package.
@@ -12,8 +8,8 @@ This page outlines the process of contributing an icon to the `@sumup/icons` pac
 
 1. Create a new SVG file for each icon size in [`packages/web/icons/v2/`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/web/v2) with the name `name_size.svg` (e.g. `add_items_24`—this will generate an `<AddItems />` component).
 2. Export the icon as SVG from the [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link). If the icon isn't in the library, make a request with the design team first.
-   ![Right click on the group in Figma and choose "export as SVG"](/images/contributing-icons-export.png)
-3. Paste the SVG into your file and verify the code — refer to the "Caveats" section below.
+   ![Right click on the group in Figma and choose "Copy as SVG"](https://github.com/sumup-oss/circuit-ui/raw/main/assets/contributing-icons-export.png)
+3. Paste the SVG into your file and verify the code — refer to the ["Caveats"](#caveats) section below.
 4. Commit the icons, they will automatically be optimized in the precommit hook using `svgo`.
 5. Add an icon object to the icons manifest file at [`packages/icons/manifest.json`](https://github.com/sumup-oss/circuit-ui/blob/9146e47a21dcd6880f437d1a47a0c54d5a164bfd/packages/icons/manifest.json). The icons are manually ordered alphabetically by icon category, then name (should match the file name), and finally by size (descending).
 6. Build the icons package (`npx lerna run build --scope=@sumup/icons`) and run the Storybook (`npm run docs`). Verify that your icon renders correctly on the [Icons page](http://localhost:6006/?path=/docs/features-icons--docs) (local link).
@@ -72,11 +68,11 @@ If the SVG includes a `<g clip-path="">` element, there's a chance that the icon
 
 This is usually because the icon is placed off-grid on the Figma canvas:
 
-![An icon in Figma is wrongly placed between "pixels" on the grid](/images/contributing-icons-off-grid.png)
+![An icon in Figma is wrongly placed between "pixels" on the grid](https://github.com/sumup-oss/circuit-ui/raw/main/assets/contributing-icons-off-grid.png)
 
 To fix this, copy the icon and paste it on a draft Figma file. Make sure that it's placed on the grid and copy the SVG into the icon file again.
 
-![An icon in Figma is correctly placed on the "pixels" grid](/images/contributing-icons-on-grid.png)
+![An icon in Figma is correctly placed on the "pixels" grid](https://github.com/sumup-oss/circuit-ui/raw/main/assets/contributing-icons-on-grid.png)
 
 <details>
 <summary>Example of a good icon</summary>

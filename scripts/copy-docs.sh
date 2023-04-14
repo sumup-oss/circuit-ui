@@ -19,3 +19,4 @@ done
 # CONTRIBUTING.md
 
 echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Contributing/Overview\" />\n\n$(cat "./CONTRIBUTING.md")" > "./docs/contributing/1-overview.mdx"
+echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Contributing/Contributing Icons\" />\n\n$(cat "./packages/icons/CONTRIBUTING.md")" > "./docs/contributing/7-contributing-icons.mdx"
