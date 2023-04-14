@@ -22,5 +22,12 @@ module.exports = require('@sumup/foundry/eslint')({
         'node/no-unpublished-require': 'off',
       },
     },
+    {
+      files: ['packages/design-tokens/cli/*'],
+      rules: {
+        'no-console': 'off',
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
   ],
 });

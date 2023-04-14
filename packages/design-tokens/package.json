@@ -2,6 +2,7 @@
   "name": "@sumup/design-tokens",
   "version": "5.3.0",
   "description": "Visual primitives such as typography, color, and spacing that are shared across platforms.",
+  "bin": "./dist/cjs/cli/index.js",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "types": "dist/es/index.d.ts",
@@ -23,14 +24,17 @@
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens/README.md",
   "scripts": {
     "start": "tsc --watch",
-    "build": "npm run build:es && npm run build:cjs",
+    "build": "npm run build:es && npm run build:cjs && npm run build:executable",
     "build:es": "tsc",
     "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:executable": "chmod +x ./dist/cjs/cli/index.js",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest --watch"
   },
   "dependencies": {
+    "browserslist": "^4.21.5",
+    "lightningcss": "^1.19.0",
     "prop-types": "^15.8.1"
   },
   "devDependencies": {
