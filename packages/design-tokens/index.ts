@@ -16,6 +16,8 @@
 import * as Types from './types';
 import * as lightBase from './themes/light';
 
+export { schema } from './themes/schema';
+
 export { themePropType } from './utils/theme-prop-type';
 
 // HACK: Copy the theme, otherwise, it gets exported as 'module'.

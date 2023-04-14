@@ -442,3 +442,26 @@ export interface Theme {
   transitions: Transitions;
   zIndex: ZIndex;
 }
+
+export type TokenName = `--cui-${string}`;
+
+export type TokenType = Token['type'];
+
+export type Token = ColorToken;
+
+interface BaseToken {
+  name: TokenName;
+  description?: string;
+  type: string;
+  value: unknown;
+}
+
+interface ColorToken extends BaseToken {
+  type: 'color';
+  value: Color;
+}
+export type Color =
+  | `#${string}`
+  | `rgb(${number},${number},${number})`
+  | `rgb(${number},${number},${number},${number})`
+  | `rgba(${number},${number},${number},${number})`;
