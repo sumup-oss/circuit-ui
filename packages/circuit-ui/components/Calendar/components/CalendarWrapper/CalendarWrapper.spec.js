@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
+import { render } from '../../../../util/test-utils';
+
 import CalendarWrapper from '.';
 
 describe('CalendarWrapper', () => {
   it('should render with default styles', () => {
-    const actual = create(<CalendarWrapper />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<CalendarWrapper />);
+    expect(container).toMatchSnapshot();
   });
 });

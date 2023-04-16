@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { act, axe, fireEvent, render } from '../../util/test-utils';
+
 import Sidebar from './Sidebar';
 
 describe('Sidebar', () => {
@@ -26,8 +28,8 @@ describe('Sidebar', () => {
       open: false,
       onClose: jest.fn(),
     };
-    const actual = create(<Sidebar {...props} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Sidebar {...props} />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render and match snapshot when open', () => {
@@ -36,8 +38,8 @@ describe('Sidebar', () => {
       open: true,
       onClose: jest.fn(),
     };
-    const actual = create(<Sidebar {...props} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Sidebar {...props} />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should dispatch onClose when CloseButton is clicked', () => {
@@ -68,8 +70,8 @@ describe('Sidebar', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Sidebar {...baseProps} />);
-      const actual = await axe(wrapper);
+      const { container } = render(<Sidebar {...baseProps} />);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
   });

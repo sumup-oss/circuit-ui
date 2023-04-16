@@ -162,28 +162,30 @@ exports[`Tabs styles should render with default styles 1`] = `
   background: var(--cui-border-accent);
 }
 
-<div
-  class="circuit-0 circuit-1"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
-    role="tablist"
+    class="circuit-0 circuit-1"
   >
-    <button
-      aria-selected="false"
-      class="circuit-4 circuit-5"
-      role="tab"
-      tabindex="-1"
+    <div
+      class="circuit-2 circuit-3"
+      role="tablist"
     >
-      tab #1
-    </button>
-    <button
-      aria-selected="true"
-      class="circuit-6 circuit-5"
-      role="tab"
-    >
-      tab #2
-    </button>
+      <button
+        aria-selected="false"
+        class="circuit-4 circuit-5"
+        role="tab"
+        tabindex="-1"
+      >
+        tab #1
+      </button>
+      <button
+        aria-selected="true"
+        class="circuit-6 circuit-5"
+        role="tab"
+      >
+        tab #2
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -361,28 +363,30 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   background: var(--cui-border-accent);
 }
 
-<div
-  class="circuit-0 circuit-1"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
-    role="tablist"
+    class="circuit-0 circuit-1"
   >
-    <button
-      aria-selected="false"
-      class="circuit-4 circuit-5"
-      role="tab"
-      tabindex="-1"
+    <div
+      class="circuit-2 circuit-3"
+      role="tablist"
     >
-      tab #1
-    </button>
-    <button
-      aria-selected="true"
-      class="circuit-6 circuit-5"
-      role="tab"
-    >
-      tab #2
-    </button>
+      <button
+        aria-selected="false"
+        class="circuit-4 circuit-5"
+        role="tab"
+        tabindex="-1"
+      >
+        tab #1
+      </button>
+      <button
+        aria-selected="true"
+        class="circuit-6 circuit-5"
+        role="tab"
+      >
+        tab #2
+      </button>
+    </div>
   </div>
 </div>
 `;

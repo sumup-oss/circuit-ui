@@ -15,11 +15,13 @@ exports[`Status styles should render with default styles 1`] = `
   }
 }
 
-<strong
-  class="circuit-0 circuit-1"
->
-  2
-   / 
-  3
-</strong>
+<div>
+  <strong
+    class="circuit-0 circuit-1"
+  >
+    2
+     / 
+    3
+  </strong>
+</div>
 `;

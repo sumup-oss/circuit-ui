@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { axe, render } from '../../util/test-utils';
+
 import CalendarTag from '.';
 
 describe('CalendarTag', () => {
@@ -20,16 +22,16 @@ describe('CalendarTag', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CalendarTag />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<CalendarTag />);
+    expect(container).toMatchSnapshot();
   });
 
   /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CalendarTag />);
-    const actual = await axe(wrapper);
+    const { container } = render(<CalendarTag />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

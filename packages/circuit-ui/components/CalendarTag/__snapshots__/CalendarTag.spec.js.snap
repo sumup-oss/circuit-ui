@@ -56,15 +56,17 @@ exports[`CalendarTag should render with default styles 1`] = `
 }
 
 <div>
-  <div
-    class="circuit-0"
-  >
-    <button
-      class="circuit-1"
-      type="button"
+  <div>
+    <div
+      class="circuit-0"
     >
-      Dates
-    </button>
+      <button
+        class="circuit-1"
+        type="button"
+      >
+        Dates
+      </button>
+    </div>
   </div>
 </div>
 `;

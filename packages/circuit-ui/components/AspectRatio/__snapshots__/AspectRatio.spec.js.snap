@@ -16,12 +16,14 @@ exports[`AspectRatio should render with default styles 1`] = `
   width: 100%;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
+<div>
   <div
-    class="circuit-2"
-  />
+    class="circuit-0 circuit-1"
+  >
+    <div
+      class="circuit-2"
+    />
+  </div>
 </div>
 `;
 
@@ -54,11 +56,13 @@ exports[`AspectRatio should render with fixed aspect ratio styles 1`] = `
   z-index: 2;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
+<div>
   <div
-    class="circuit-2"
-  />
+    class="circuit-0 circuit-1"
+  >
+    <div
+      class="circuit-2"
+    />
+  </div>
 </div>
 `;
