@@ -18,6 +18,7 @@ circuit-ui-global.css
 # These are generated in CI from other files.
 docs/packages/
 docs/contributing/1-overview.mdx
+docs/contributing/*-contributing-*.mdx
 
 # Packages #
 
