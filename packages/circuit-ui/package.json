@@ -48,7 +48,7 @@
     "@emotion/jest": "^11.10.5",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@sumup/collector": "^1.6.0",
+    "@sumup/collector": "^1.6.1",
     "@sumup/design-tokens": "^5.0.0",
     "@sumup/icons": "^2.9.0",
     "@sumup/intl": "^1.5.0",
