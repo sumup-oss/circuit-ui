@@ -18,8 +18,9 @@ import { render } from '../../../../util/test-utils';
 import CalendarWrapper from '.';
 
 describe('CalendarWrapper', () => {
-  it('should render with default styles', () => {
-    const { container } = render(<CalendarWrapper />);
-    expect(container).toMatchSnapshot();
+  it('should render its children', () => {
+    const children = 'children';
+    const { getByText } = render(<CalendarWrapper>{children}</CalendarWrapper>);
+    expect(getByText(children)).toBeVisible();
   });
 });

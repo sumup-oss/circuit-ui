@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type { ReactNode } from 'react';
+import type { Theme } from '@sumup/design-tokens';
 import { css, Global } from '@emotion/react';
 
 import {
@@ -21,7 +23,6 @@ import {
   disableVisually,
   cx,
 } from '../../../../styles/style-mixins';
-import { childrenPropType } from '../../../../util/shared-prop-types';
 
 import calendarInheritStyles from './CalendarImportedStyles';
 
@@ -94,7 +95,7 @@ const blockedOutOfRange = css`
   }
 `;
 
-const dateRangePickerInput = (theme) => css`
+const dateRangePickerInput = (theme: Theme) => css`
   .DateRangePickerInput,
   .SingleDatePickerInput {
     background-color: var(--cui-bg-normal);
@@ -158,7 +159,7 @@ const dateRangePickerInput = (theme) => css`
   }
 `;
 
-const navButtons = (theme) => css`
+const navButtons = (theme: Theme) => css`
   .DayPickerNavigation_button__horizontal {
     display: flex;
     align-items: center;
@@ -207,7 +208,7 @@ const navButtons = (theme) => css`
   }
 `;
 
-const closeButton = (theme) => css`
+const closeButton = (theme: Theme) => css`
   .DateRangePickerInput_clearDates {
     margin: 0;
     width: ${theme.spacings.tera};
@@ -227,7 +228,7 @@ const calendarCaption = css`
   }
 `;
 
-const calendarWeekHeader = (theme) => css`
+const calendarWeekHeader = (theme: Theme) => css`
   .DayPicker_weekHeader {
     color: var(--cui-fg-normal);
     position: absolute;
@@ -242,41 +243,35 @@ const calendarWeekHeader = (theme) => css`
   }
 `;
 
-const withPortal = (theme) => css`
+const withPortal = (theme: Theme) => css`
   .DateRangePicker_picker,
   .SingleDatePicker_picker {
     z-index: ${theme.zIndex.modal};
   }
 `;
 
-/**
- * Describe your component here.
- */
-const CalendarWrapper = ({ children }) => (
-  <div>
-    <Global
-      styles={cx(
-        calendarInheritStyles,
-        dayDefault,
-        daySelection,
-        blockedOutOfRange,
-        dateRangePickerInput,
-        navButtons,
-        closeButton,
-        calendarCaption,
-        calendarWeekHeader,
-        withPortal,
-      )}
-    />
-    {children}
-  </div>
-);
+interface CalendarWrapperProps {
+  children: ReactNode;
+}
 
-CalendarWrapper.propTypes = {
-  children: childrenPropType,
-};
-
-/**
- * @component
- */
-export default CalendarWrapper;
+export default function CalendarWrapper({ children }: CalendarWrapperProps) {
+  return (
+    <div>
+      <Global
+        styles={cx(
+          calendarInheritStyles,
+          dayDefault,
+          daySelection,
+          blockedOutOfRange,
+          dateRangePickerInput,
+          navButtons,
+          closeButton,
+          calendarCaption,
+          calendarWeekHeader,
+          withPortal,
+        )}
+      />
+      {children}
+    </div>
+  );
+}
