@@ -15,18 +15,20 @@
 
 import { createRef } from 'react';
 
+import { render } from '../../../../util/test-utils';
+
 import Tab from './Tab';
 
 describe('Tab', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = create(<Tab>content</Tab>);
-      expect(actual).toMatchSnapshot();
+      const { container } = render(<Tab>content</Tab>);
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with selected styles', () => {
-      const actual = create(<Tab selected>content</Tab>);
-      expect(actual).toMatchSnapshot();
+      const { container } = render(<Tab selected>content</Tab>);
+      expect(container).toMatchSnapshot();
     });
   });
 

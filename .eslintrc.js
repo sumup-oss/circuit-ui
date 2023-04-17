@@ -2,6 +2,7 @@ module.exports = require('@sumup/foundry/eslint')({
   plugins: ['@sumup/circuit-ui'],
   rules: {
     '@sumup/circuit-ui/no-invalid-custom-properties': 'error',
+    'react/no-unknown-property': ['error', { ignore: ['css'] }],
   },
   parserOptions: {
     project: ['./packages/*/tsconfig.json', './tsconfig.eslint.json'],

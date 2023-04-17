@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { axe, render } from '../../../../util/test-utils';
+
 import { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons';
 
 const renderButtons = () => (
@@ -27,16 +29,16 @@ const renderButtons = () => (
 describe('Buttons', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = create(renderButtons());
+      const { container } = render(renderButtons());
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(renderButtons());
-      const actual = await axe(wrapper);
+      const { container } = render(renderButtons());
+      const actual = await axe(container);
 
       expect(actual).toHaveNoViolations();
     });

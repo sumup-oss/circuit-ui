@@ -141,7 +141,7 @@ describe('useAutoExpand hook', () => {
         }),
       );
 
-      expect(valueSetter).toBeCalledWith(placeholderString);
+      expect(valueSetter).toHaveBeenCalledWith(placeholderString);
     });
 
     test('should have a rows props when minRows is defined', () => {

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { axe, render } from '../../util/test-utils';
+
 import CalendarTagTwoStep from '.';
 
 describe('CalendarTagTwoStep', () => {
@@ -20,16 +22,16 @@ describe('CalendarTagTwoStep', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CalendarTagTwoStep />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<CalendarTagTwoStep />);
+    expect(container).toMatchSnapshot();
   });
 
   /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CalendarTagTwoStep />);
-    const actual = await axe(wrapper);
+    const { container } = render(<CalendarTagTwoStep />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

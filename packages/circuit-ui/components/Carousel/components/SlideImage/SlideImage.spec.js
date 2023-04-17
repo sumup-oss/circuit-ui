@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { axe, render } from '../../../../util/test-utils';
+
 import SlideImage from './SlideImage';
 
 const image = {
@@ -23,26 +25,28 @@ const image = {
 describe('SlideImage', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = create(<SlideImage src={image.src} alt={image.alt} />);
+      const { container } = render(
+        <SlideImage src={image.src} alt={image.alt} />,
+      );
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with custom aspect ratio', () => {
-      const actual = create(
+      const { container } = render(
         <SlideImage src={image.src} alt={image.alt} aspectRatio={2} />,
       );
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(
+      const { container } = render(
         <SlideImage src={image.src} alt={image.alt} />,
       );
-      const actual = await axe(wrapper);
+      const actual = await axe(container);
 
       expect(actual).toHaveNoViolations();
     });

@@ -49,17 +49,19 @@ exports[`Slide styles should render with backward animation styles 1`] = `
   width: 800px;
 }
 
-<div
-  class="circuit-0 circuit-1"
-  width="800px"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-0 circuit-1"
+    width="800px"
   >
     <div
-      class="circuit-4 circuit-5"
-      width="800px"
-    />
+      class="circuit-2 circuit-3"
+    >
+      <div
+        class="circuit-4 circuit-5"
+        width="800px"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -97,17 +99,19 @@ exports[`Slide styles should render with default styles 1`] = `
   width: 100%;
 }
 
-<div
-  class="circuit-0 circuit-1"
-  width="100%"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-0 circuit-1"
+    width="100%"
   >
     <div
-      class="circuit-4 circuit-5"
-      width="100%"
-    />
+      class="circuit-2 circuit-3"
+    >
+      <div
+        class="circuit-4 circuit-5"
+        width="100%"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -161,17 +165,19 @@ exports[`Slide styles should render with forward animation styles 1`] = `
   width: 800px;
 }
 
-<div
-  class="circuit-0 circuit-1"
-  width="800px"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-0 circuit-1"
+    width="800px"
   >
     <div
-      class="circuit-4 circuit-5"
-      width="800px"
-    />
+      class="circuit-2 circuit-3"
+    >
+      <div
+        class="circuit-4 circuit-5"
+        width="800px"
+      />
+    </div>
   </div>
 </div>
 `;

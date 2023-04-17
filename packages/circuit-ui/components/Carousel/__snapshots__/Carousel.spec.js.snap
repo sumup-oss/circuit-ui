@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Carousel styles should not render without slides data 1`] = `null`;
+exports[`Carousel styles should not render without slides data 1`] = `<div />`;
 
 exports[`Carousel styles should render with children as a function 1`] = `
 @keyframes animation-0 {
@@ -463,226 +463,228 @@ exports[`Carousel styles should render with children as a function 1`] = `
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-<div
-  aria-label="gallery"
-  class="circuit-0 circuit-1"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
+    aria-label="gallery"
+    class="circuit-0 circuit-1"
   >
     <div
-      class="circuit-4 circuit-5"
-      width="100%"
+      class="circuit-2 circuit-3"
     >
       <div
-        class="circuit-6 circuit-7"
+        class="circuit-4 circuit-5"
+        width="100%"
       >
         <div
-          class="circuit-8 circuit-9"
-          width="100%"
+          class="circuit-6 circuit-7"
         >
           <div
-            class="circuit-10 circuit-11 circuit-12"
+            class="circuit-8 circuit-9"
+            width="100%"
           >
-            <img
-              alt="Aerial photo of turbulent blue ocean waves"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves.jpg"
-            />
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent blue ocean waves"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-15 circuit-5"
+        width="100%"
+      >
+        <div
+          class="circuit-6 circuit-7"
+        >
+          <div
+            class="circuit-8 circuit-9"
+            width="100%"
+          >
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent turquoise ocean waves"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves-2.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-26 circuit-5"
+        width="100%"
+      >
+        <div
+          class="circuit-6 circuit-7"
+        >
+          <div
+            class="circuit-8 circuit-9"
+            width="100%"
+          >
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent ocean water with white foam"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves-3.jpg"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="circuit-15 circuit-5"
-      width="100%"
+      class="circuit-37 circuit-38"
     >
-      <div
-        class="circuit-6 circuit-7"
+      <strong
+        class="circuit-39 circuit-40 circuit-41"
       >
-        <div
-          class="circuit-8 circuit-9"
-          width="100%"
+        1
+         / 
+        3
+      </strong>
+      <div
+        aria-hidden="true"
+        class="circuit-42 circuit-43"
+      >
+        <span
+          aria-labelledby="progress-bar_6"
+          class="circuit-44"
+          loop=""
+          role="progressbar"
+        />
+        <span
+          class="circuit-45"
+          id="progress-bar_6"
         >
-          <div
-            class="circuit-10 circuit-11 circuit-12"
+          1 / 3
+        </span>
+      </div>
+      <div
+        class="circuit-46 circuit-47"
+      >
+        <button
+          aria-label="pause"
+          class="circuit-48 circuit-49"
+          title="Pause"
+        >
+          <span
+            class="circuit-50"
           >
-            <img
-              alt="Aerial photo of turbulent turquoise ocean waves"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves-2.jpg"
+            <span
+              class="circuit-51"
             />
-          </div>
-        </div>
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Pause
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="previous"
+          class="circuit-48 circuit-49"
+          title="Previous"
+        >
+          <span
+            class="circuit-50"
+          >
+            <span
+              class="circuit-51"
+            />
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Previous
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="next"
+          class="circuit-48 circuit-49"
+          title="Next"
+        >
+          <span
+            class="circuit-50"
+          >
+            <span
+              class="circuit-51"
+            />
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Next
+            </span>
+          </span>
+        </button>
       </div>
     </div>
-    <div
-      class="circuit-26 circuit-5"
-      width="100%"
-    >
-      <div
-        class="circuit-6 circuit-7"
-      >
-        <div
-          class="circuit-8 circuit-9"
-          width="100%"
-        >
-          <div
-            class="circuit-10 circuit-11 circuit-12"
-          >
-            <img
-              alt="Aerial photo of turbulent ocean water with white foam"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves-3.jpg"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    <h1>
+      Carousel heading for step #
+      0
+    </h1>
   </div>
-  <div
-    class="circuit-37 circuit-38"
-  >
-    <strong
-      class="circuit-39 circuit-40 circuit-41"
-    >
-      1
-       / 
-      3
-    </strong>
-    <div
-      aria-hidden="true"
-      class="circuit-42 circuit-43"
-    >
-      <span
-        aria-labelledby="progress-bar_6"
-        class="circuit-44"
-        loop=""
-        role="progressbar"
-      />
-      <span
-        class="circuit-45"
-        id="progress-bar_6"
-      >
-        1 / 3
-      </span>
-    </div>
-    <div
-      class="circuit-46 circuit-47"
-    >
-      <button
-        aria-label="pause"
-        class="circuit-48 circuit-49"
-        title="Pause"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Pause
-          </span>
-        </span>
-      </button>
-      <button
-        aria-label="previous"
-        class="circuit-48 circuit-49"
-        title="Previous"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
-              fill="currentColor"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Previous
-          </span>
-        </span>
-      </button>
-      <button
-        aria-label="next"
-        class="circuit-48 circuit-49"
-        title="Next"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
-              fill="currentColor"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Next
-          </span>
-        </span>
-      </button>
-    </div>
-  </div>
-  <h1>
-    Carousel heading for step #
-    0
-  </h1>
 </div>
 `;
 
@@ -1147,225 +1149,227 @@ exports[`Carousel styles should render with children as a node 1`] = `
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-<div
-  aria-label="gallery"
-  class="circuit-0 circuit-1"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
+    aria-label="gallery"
+    class="circuit-0 circuit-1"
   >
     <div
-      class="circuit-4 circuit-5"
-      width="100%"
+      class="circuit-2 circuit-3"
     >
       <div
-        class="circuit-6 circuit-7"
+        class="circuit-4 circuit-5"
+        width="100%"
       >
         <div
-          class="circuit-8 circuit-9"
-          width="100%"
+          class="circuit-6 circuit-7"
         >
           <div
-            class="circuit-10 circuit-11 circuit-12"
+            class="circuit-8 circuit-9"
+            width="100%"
           >
-            <img
-              alt="Aerial photo of turbulent blue ocean waves"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves.jpg"
-            />
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent blue ocean waves"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-15 circuit-5"
+        width="100%"
+      >
+        <div
+          class="circuit-6 circuit-7"
+        >
+          <div
+            class="circuit-8 circuit-9"
+            width="100%"
+          >
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent turquoise ocean waves"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves-2.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-26 circuit-5"
+        width="100%"
+      >
+        <div
+          class="circuit-6 circuit-7"
+        >
+          <div
+            class="circuit-8 circuit-9"
+            width="100%"
+          >
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent ocean water with white foam"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves-3.jpg"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="circuit-15 circuit-5"
-      width="100%"
+      class="circuit-37 circuit-38"
     >
-      <div
-        class="circuit-6 circuit-7"
+      <strong
+        class="circuit-39 circuit-40 circuit-41"
       >
-        <div
-          class="circuit-8 circuit-9"
-          width="100%"
+        1
+         / 
+        3
+      </strong>
+      <div
+        aria-hidden="true"
+        class="circuit-42 circuit-43"
+      >
+        <span
+          aria-labelledby="progress-bar_8"
+          class="circuit-44"
+          loop=""
+          role="progressbar"
+        />
+        <span
+          class="circuit-45"
+          id="progress-bar_8"
         >
-          <div
-            class="circuit-10 circuit-11 circuit-12"
+          1 / 3
+        </span>
+      </div>
+      <div
+        class="circuit-46 circuit-47"
+      >
+        <button
+          aria-label="pause"
+          class="circuit-48 circuit-49"
+          title="Pause"
+        >
+          <span
+            class="circuit-50"
           >
-            <img
-              alt="Aerial photo of turbulent turquoise ocean waves"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves-2.jpg"
+            <span
+              class="circuit-51"
             />
-          </div>
-        </div>
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Pause
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="previous"
+          class="circuit-48 circuit-49"
+          title="Previous"
+        >
+          <span
+            class="circuit-50"
+          >
+            <span
+              class="circuit-51"
+            />
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Previous
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="next"
+          class="circuit-48 circuit-49"
+          title="Next"
+        >
+          <span
+            class="circuit-50"
+          >
+            <span
+              class="circuit-51"
+            />
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Next
+            </span>
+          </span>
+        </button>
       </div>
     </div>
-    <div
-      class="circuit-26 circuit-5"
-      width="100%"
-    >
-      <div
-        class="circuit-6 circuit-7"
-      >
-        <div
-          class="circuit-8 circuit-9"
-          width="100%"
-        >
-          <div
-            class="circuit-10 circuit-11 circuit-12"
-          >
-            <img
-              alt="Aerial photo of turbulent ocean water with white foam"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves-3.jpg"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    <h1>
+      Carousel heading
+    </h1>
   </div>
-  <div
-    class="circuit-37 circuit-38"
-  >
-    <strong
-      class="circuit-39 circuit-40 circuit-41"
-    >
-      1
-       / 
-      3
-    </strong>
-    <div
-      aria-hidden="true"
-      class="circuit-42 circuit-43"
-    >
-      <span
-        aria-labelledby="progress-bar_8"
-        class="circuit-44"
-        loop=""
-        role="progressbar"
-      />
-      <span
-        class="circuit-45"
-        id="progress-bar_8"
-      >
-        1 / 3
-      </span>
-    </div>
-    <div
-      class="circuit-46 circuit-47"
-    >
-      <button
-        aria-label="pause"
-        class="circuit-48 circuit-49"
-        title="Pause"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Pause
-          </span>
-        </span>
-      </button>
-      <button
-        aria-label="previous"
-        class="circuit-48 circuit-49"
-        title="Previous"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
-              fill="currentColor"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Previous
-          </span>
-        </span>
-      </button>
-      <button
-        aria-label="next"
-        class="circuit-48 circuit-49"
-        title="Next"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
-              fill="currentColor"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Next
-          </span>
-        </span>
-      </button>
-    </div>
-  </div>
-  <h1>
-    Carousel heading
-  </h1>
 </div>
 `;
 
@@ -1830,220 +1834,222 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-<div
-  aria-label="gallery"
-  class="circuit-0 circuit-1"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
+    aria-label="gallery"
+    class="circuit-0 circuit-1"
   >
     <div
-      class="circuit-4 circuit-5"
-      width="100%"
+      class="circuit-2 circuit-3"
     >
       <div
-        class="circuit-6 circuit-7"
+        class="circuit-4 circuit-5"
+        width="100%"
       >
         <div
-          class="circuit-8 circuit-9"
-          width="100%"
+          class="circuit-6 circuit-7"
         >
           <div
-            class="circuit-10 circuit-11 circuit-12"
+            class="circuit-8 circuit-9"
+            width="100%"
           >
-            <img
-              alt="Aerial photo of turbulent blue ocean waves"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves.jpg"
-            />
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent blue ocean waves"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-15 circuit-5"
+        width="100%"
+      >
+        <div
+          class="circuit-6 circuit-7"
+        >
+          <div
+            class="circuit-8 circuit-9"
+            width="100%"
+          >
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent turquoise ocean waves"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves-2.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-26 circuit-5"
+        width="100%"
+      >
+        <div
+          class="circuit-6 circuit-7"
+        >
+          <div
+            class="circuit-8 circuit-9"
+            width="100%"
+          >
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent ocean water with white foam"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves-3.jpg"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="circuit-15 circuit-5"
-      width="100%"
+      class="circuit-37 circuit-38"
     >
+      <strong
+        class="circuit-39 circuit-40 circuit-41"
+      >
+        1
+         / 
+        3
+      </strong>
       <div
-        class="circuit-6 circuit-7"
+        aria-hidden="true"
+        class="circuit-42 circuit-43"
       >
-        <div
-          class="circuit-8 circuit-9"
-          width="100%"
+        <span
+          aria-labelledby="progress-bar_4"
+          class="circuit-44"
+          loop=""
+          role="progressbar"
+        />
+        <span
+          class="circuit-45"
+          id="progress-bar_4"
         >
-          <div
-            class="circuit-10 circuit-11 circuit-12"
-          >
-            <img
-              alt="Aerial photo of turbulent turquoise ocean waves"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves-2.jpg"
-            />
-          </div>
-        </div>
+          1 / 3
+        </span>
       </div>
-    </div>
-    <div
-      class="circuit-26 circuit-5"
-      width="100%"
-    >
       <div
-        class="circuit-6 circuit-7"
+        class="circuit-46 circuit-47"
       >
-        <div
-          class="circuit-8 circuit-9"
-          width="100%"
+        <button
+          aria-label="play"
+          class="circuit-48 circuit-49"
+          title="Play"
         >
-          <div
-            class="circuit-10 circuit-11 circuit-12"
+          <span
+            class="circuit-50"
           >
-            <img
-              alt="Aerial photo of turbulent ocean water with white foam"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves-3.jpg"
+            <span
+              class="circuit-51"
             />
-          </div>
-        </div>
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M15 8c-.001.247-.064.49-.182.703a1.383 1.383 0 0 1-.491.515l-9.334 5.6c-.2.121-.428.184-.66.182a1.306 1.306 0 0 1-.941-.411A1.44 1.44 0 0 1 3 13.6V2.4a1.44 1.44 0 0 1 .392-.989c.25-.262.588-.41.941-.41.232-.003.46.06.66.181l9.334 5.6c.203.124.373.301.49.515.119.214.182.456.183.703z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Play
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="previous"
+          class="circuit-48 circuit-49"
+          title="Previous"
+        >
+          <span
+            class="circuit-50"
+          >
+            <span
+              class="circuit-51"
+            />
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Previous
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="next"
+          class="circuit-48 circuit-49"
+          title="Next"
+        >
+          <span
+            class="circuit-50"
+          >
+            <span
+              class="circuit-51"
+            />
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Next
+            </span>
+          </span>
+        </button>
       </div>
-    </div>
-  </div>
-  <div
-    class="circuit-37 circuit-38"
-  >
-    <strong
-      class="circuit-39 circuit-40 circuit-41"
-    >
-      1
-       / 
-      3
-    </strong>
-    <div
-      aria-hidden="true"
-      class="circuit-42 circuit-43"
-    >
-      <span
-        aria-labelledby="progress-bar_4"
-        class="circuit-44"
-        loop=""
-        role="progressbar"
-      />
-      <span
-        class="circuit-45"
-        id="progress-bar_4"
-      >
-        1 / 3
-      </span>
-    </div>
-    <div
-      class="circuit-46 circuit-47"
-    >
-      <button
-        aria-label="play"
-        class="circuit-48 circuit-49"
-        title="Play"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M15 8c-.001.247-.064.49-.182.703a1.383 1.383 0 0 1-.491.515l-9.334 5.6c-.2.121-.428.184-.66.182a1.306 1.306 0 0 1-.941-.411A1.44 1.44 0 0 1 3 13.6V2.4a1.44 1.44 0 0 1 .392-.989c.25-.262.588-.41.941-.41.232-.003.46.06.66.181l9.334 5.6c.203.124.373.301.49.515.119.214.182.456.183.703z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Play
-          </span>
-        </span>
-      </button>
-      <button
-        aria-label="previous"
-        class="circuit-48 circuit-49"
-        title="Previous"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
-              fill="currentColor"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Previous
-          </span>
-        </span>
-      </button>
-      <button
-        aria-label="next"
-        class="circuit-48 circuit-49"
-        title="Next"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
-              fill="currentColor"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Next
-          </span>
-        </span>
-      </button>
     </div>
   </div>
 </div>
@@ -2484,223 +2490,225 @@ exports[`Carousel styles should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-<div
-  aria-label="gallery"
-  class="circuit-0 circuit-1"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
+    aria-label="gallery"
+    class="circuit-0 circuit-1"
   >
     <div
-      class="circuit-4 circuit-5"
-      width="100%"
+      class="circuit-2 circuit-3"
     >
       <div
-        class="circuit-6 circuit-7"
+        class="circuit-4 circuit-5"
+        width="100%"
       >
         <div
-          class="circuit-8 circuit-9"
-          width="100%"
+          class="circuit-6 circuit-7"
         >
           <div
-            class="circuit-10 circuit-11 circuit-12"
+            class="circuit-8 circuit-9"
+            width="100%"
           >
-            <img
-              alt="Aerial photo of turbulent blue ocean waves"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves.jpg"
-            />
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent blue ocean waves"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-15 circuit-5"
+        width="100%"
+      >
+        <div
+          class="circuit-6 circuit-7"
+        >
+          <div
+            class="circuit-8 circuit-9"
+            width="100%"
+          >
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent turquoise ocean waves"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves-2.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-26 circuit-5"
+        width="100%"
+      >
+        <div
+          class="circuit-6 circuit-7"
+        >
+          <div
+            class="circuit-8 circuit-9"
+            width="100%"
+          >
+            <div
+              class="circuit-10 circuit-11 circuit-12"
+            >
+              <img
+                alt="Aerial photo of turbulent ocean water with white foam"
+                class="circuit-13 circuit-14"
+                src="/images/illustration-waves-3.jpg"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="circuit-15 circuit-5"
-      width="100%"
+      class="circuit-37 circuit-38"
     >
+      <strong
+        class="circuit-39 circuit-40 circuit-41"
+      >
+        1
+         / 
+        3
+      </strong>
       <div
-        class="circuit-6 circuit-7"
+        aria-hidden="true"
+        class="circuit-42 circuit-43"
       >
-        <div
-          class="circuit-8 circuit-9"
-          width="100%"
+        <span
+          aria-labelledby="progress-bar_2"
+          class="circuit-44"
+          loop=""
+          role="progressbar"
+        />
+        <span
+          class="circuit-45"
+          id="progress-bar_2"
         >
-          <div
-            class="circuit-10 circuit-11 circuit-12"
-          >
-            <img
-              alt="Aerial photo of turbulent turquoise ocean waves"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves-2.jpg"
-            />
-          </div>
-        </div>
+          1 / 3
+        </span>
       </div>
-    </div>
-    <div
-      class="circuit-26 circuit-5"
-      width="100%"
-    >
       <div
-        class="circuit-6 circuit-7"
+        class="circuit-46 circuit-47"
       >
-        <div
-          class="circuit-8 circuit-9"
-          width="100%"
+        <button
+          aria-label="pause"
+          class="circuit-48 circuit-49"
+          title="Pause"
         >
-          <div
-            class="circuit-10 circuit-11 circuit-12"
+          <span
+            class="circuit-50"
           >
-            <img
-              alt="Aerial photo of turbulent ocean water with white foam"
-              class="circuit-13 circuit-14"
-              src="/images/illustration-waves-3.jpg"
+            <span
+              class="circuit-51"
             />
-          </div>
-        </div>
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Pause
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="previous"
+          class="circuit-48 circuit-49"
+          title="Previous"
+        >
+          <span
+            class="circuit-50"
+          >
+            <span
+              class="circuit-51"
+            />
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Previous
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="next"
+          class="circuit-48 circuit-49"
+          title="Next"
+        >
+          <span
+            class="circuit-50"
+          >
+            <span
+              class="circuit-51"
+            />
+          </span>
+          <span
+            class="circuit-52"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-51"
+            >
+              Next
+            </span>
+          </span>
+        </button>
       </div>
-    </div>
-  </div>
-  <div
-    class="circuit-37 circuit-38"
-  >
-    <strong
-      class="circuit-39 circuit-40 circuit-41"
-    >
-      1
-       / 
-      3
-    </strong>
-    <div
-      aria-hidden="true"
-      class="circuit-42 circuit-43"
-    >
-      <span
-        aria-labelledby="progress-bar_2"
-        class="circuit-44"
-        loop=""
-        role="progressbar"
-      />
-      <span
-        class="circuit-45"
-        id="progress-bar_2"
-      >
-        1 / 3
-      </span>
-    </div>
-    <div
-      class="circuit-46 circuit-47"
-    >
-      <button
-        aria-label="pause"
-        class="circuit-48 circuit-49"
-        title="Pause"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Pause
-          </span>
-        </span>
-      </button>
-      <button
-        aria-label="previous"
-        class="circuit-48 circuit-49"
-        title="Previous"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
-              fill="currentColor"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Previous
-          </span>
-        </span>
-      </button>
-      <button
-        aria-label="next"
-        class="circuit-48 circuit-49"
-        title="Next"
-      >
-        <span
-          class="circuit-50"
-        >
-          <span
-            class="circuit-51"
-          />
-        </span>
-        <span
-          class="circuit-52"
-        >
-          <svg
-            fill="none"
-            height="16"
-            role="presentation"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
-              fill="currentColor"
-            />
-          </svg>
-          <span
-            class="circuit-51"
-          >
-            Next
-          </span>
-        </span>
-      </button>
     </div>
   </div>
 </div>
 `;
 
-exports[`Carousel styles should render without controls 1`] = `null`;
+exports[`Carousel styles should render without controls 1`] = `<div />`;
