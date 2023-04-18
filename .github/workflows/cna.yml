@@ -33,4 +33,4 @@ jobs:
 
       - name: Test app
         working-directory: ./test-app
-        run: npx start-server-and-test start http://localhost:3000 "node ../scripts/verify-template.js"
+        run: npx start-server-and-test start 0.0.0.0:3000 "node ../scripts/verify-template.js"
