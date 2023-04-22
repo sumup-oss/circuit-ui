@@ -143,14 +143,7 @@ describe('Style helpers', () => {
 
   describe('shadow', () => {
     it('should match the snapshot', () => {
-      const { styles } = shadow({ theme: light });
-      expect(styles).toMatchInlineSnapshot(
-        '"box-shadow:0 3px 8px 0 rgba(0, 0, 0, 0.2);label:shadow;"',
-      );
-    });
-
-    it('should match the snapshot with options', () => {
-      const { styles } = shadow()({ theme: light });
+      const { styles } = shadow();
       expect(styles).toMatchInlineSnapshot(
         '"box-shadow:0 3px 8px 0 rgba(0, 0, 0, 0.2);label:shadow;"',
       );
@@ -209,7 +202,7 @@ describe('Style helpers', () => {
     });
 
     it('should match the snapshot with an inset outline', () => {
-      const { styles } = focusOutline('inset')();
+      const { styles } = focusOutline('inset');
       expect(styles).toMatchInlineSnapshot(
         '"outline:0;box-shadow:inset 0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;};label:focusOutline;"',
       );
@@ -225,7 +218,7 @@ describe('Style helpers', () => {
     });
 
     it('should match the snapshot with an inset outline', () => {
-      const { styles } = focusVisible('inset')();
+      const { styles } = focusVisible('inset');
       expect(styles).toMatchInlineSnapshot(
         '"&:focus{outline:0;box-shadow:inset 0 0 0 4px var(--cui-border-focus);&::-moz-focus-inner{border:0;}}&:focus:not(:focus-visible){box-shadow:none;};label:focusVisible;"',
       );
@@ -252,7 +245,7 @@ describe('Style helpers', () => {
 
   describe('inputOutline', () => {
     it('should match the snapshot', () => {
-      const { styles } = inputOutline(light);
+      const { styles } = inputOutline({});
       expect(styles).toMatchInlineSnapshot(
         '"box-shadow:0 0 0 1px var(--cui-border-normal);&:hover{box-shadow:0 0 0 1px var(--cui-border-normal-hovered);}&:focus{box-shadow:0 0 0 2px var(--cui-border-accent);}&:active{box-shadow:0 0 0 1px var(--cui-border-accent);};label:inputOutline;"',
       );
@@ -260,7 +253,6 @@ describe('Style helpers', () => {
 
     it('should match the snapshot when disabled', () => {
       const { styles } = inputOutline({
-        theme: light,
         disabled: true,
       });
       expect(styles).toMatchInlineSnapshot(
@@ -270,7 +262,6 @@ describe('Style helpers', () => {
 
     it('should match the snapshot when invalid', () => {
       const { styles } = inputOutline({
-        theme: light,
         invalid: true,
       });
       expect(styles).toMatchInlineSnapshot(
@@ -280,7 +271,6 @@ describe('Style helpers', () => {
 
     it('should match the snapshot when it has a warning', () => {
       const { styles } = inputOutline({
-        theme: light,
         hasWarning: true,
       });
       expect(styles).toMatchInlineSnapshot(
