@@ -1,0 +1,12 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "@sumup/circuit-ui": "6.6.3",
+    "@sumup/cna-template": "3.1.0",
+    "@sumup/design-tokens": "5.1.0",
+    "@sumup/eslint-plugin-circuit-ui": "0.0.1",
+    "@sumup/icons": "2.22.0"
+  },
+  "changesets": []
+}
