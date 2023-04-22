@@ -15,7 +15,6 @@
 
 import { useReducer, useEffect, useRef } from 'react';
 
-import { useClickEvent } from '../../../hooks/useClickEvent';
 import { CircuitError } from '../../../util/errors';
 import { isFunction } from '../../../util/type-check';
 import * as StepService from '../StepService';
@@ -29,7 +28,6 @@ export function useStep({
   stepInterval = 1,
   animationDuration = 0,
   stepDuration = 0,
-  tracking,
   onNext,
   onPrevious,
   onPause,
@@ -64,26 +62,6 @@ export function useStep({
   const animationEndCallback = useRef<ReturnType<typeof setTimeout> | null>(
     null,
   );
-  const handleNext = useClickEvent(
-    onNext,
-    { label: 'next', ...tracking },
-    'carousel',
-  );
-  const handlePrevious = useClickEvent(
-    onPrevious,
-    { label: 'previous', ...tracking },
-    'carousel',
-  );
-  const handlePause = useClickEvent(
-    onPause,
-    { label: 'pause', ...tracking },
-    'carousel',
-  );
-  const handlePlay = useClickEvent(
-    onPlay,
-    { label: 'play', ...tracking },
-    'carousel',
-  );
 
   useEffect(() => {
     const playable = shouldPlay();
@@ -108,8 +86,8 @@ export function useStep({
     });
 
     updateSlide(newStep, () => {
-      if (isFunction(handleNext)) {
-        handleNext(getStateAndHelpers());
+      if (isFunction(onNext)) {
+        onNext(getStateAndHelpers());
       }
     });
   }
@@ -123,8 +101,8 @@ export function useStep({
     });
 
     updateSlide(newStep, () => {
-      if (isFunction(handlePrevious)) {
-        handlePrevious(getStateAndHelpers());
+      if (isFunction(onPrevious)) {
+        onPrevious(getStateAndHelpers());
       }
     });
   }
@@ -132,16 +110,16 @@ export function useStep({
   function pause() {
     updatePause(true);
 
-    if (isFunction(handlePause)) {
-      handlePause(getStateAndHelpers());
+    if (isFunction(onPause)) {
+      onPause(getStateAndHelpers());
     }
   }
 
   function play() {
     updatePause(false);
 
-    if (isFunction(handlePlay)) {
-      handlePlay(getStateAndHelpers());
+    if (isFunction(onPlay)) {
+      onPlay(getStateAndHelpers());
     }
   }
 

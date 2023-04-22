@@ -16,7 +16,6 @@
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { TrackingProps } from '../../hooks/useClickEvent';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
 import { Skeleton } from '../Skeleton';
 import { AccessibilityError } from '../../util/errors';
@@ -37,12 +36,6 @@ export interface HamburgerProps
    * Label for the 'inactive' state. Important for accessibility.
    */
   inactiveLabel: string;
-  /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
   isLoading?: never;
   loadingLabel?: never;
 }
@@ -169,7 +162,6 @@ export const Hamburger = ({
   activeLabel,
   inactiveLabel,
   size = 'giga',
-  tracking,
   ...props
 }: HamburgerProps): JSX.Element => {
   if (
@@ -195,7 +187,6 @@ export const Hamburger = ({
       {...props}
       size={size}
       label={isActive ? activeLabel : inactiveLabel}
-      tracking={tracking ? { component: 'hamburger', ...tracking } : undefined}
       type="button"
     >
       <Box size={size}>

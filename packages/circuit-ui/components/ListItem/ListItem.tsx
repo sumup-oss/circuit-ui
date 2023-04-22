@@ -33,7 +33,6 @@ import { ClickEvent } from '../../types/events';
 import { EmotionAsPropType } from '../../types/prop-types';
 import { isFunction, isString } from '../../util/type-check';
 import { CircuitError } from '../../util/errors';
-import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { useComponents } from '../ComponentsContext';
 import Body from '../Body';
 
@@ -88,12 +87,6 @@ interface BaseProps {
    * Link to another part of the application or external page.
    */
   href?: string;
-  /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
   /**
    * The ref to the HTML DOM element
    */
@@ -317,7 +310,6 @@ export const ListItem = forwardRef(
       trailingLabel,
       trailingDetails,
       trailingComponent,
-      tracking,
       ...props
     }: ListItemProps,
     ref?: BaseProps['ref'],
@@ -348,8 +340,6 @@ export const ListItem = forwardRef(
       as = 'button';
     }
 
-    const handleClick = useClickEvent(props.onClick, tracking, 'ListItem');
-
     const isInteractive = !!props.href || !!props.onClick;
     const isNavigation = variant === 'navigation';
     const hasTrailing = !!trailingLabel || !!trailingComponent;
@@ -361,7 +351,6 @@ export const ListItem = forwardRef(
         ref={ref}
         as={as}
         isInteractive={isInteractive}
-        onClick={handleClick}
       >
         {LeadingComponent && (
           <LeadingContainer>

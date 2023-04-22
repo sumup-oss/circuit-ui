@@ -17,7 +17,6 @@ import { ReactElement } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import { ChevronLeft, ChevronRight } from '@sumup/icons';
-import { Dispatch as TrackingProps, useClickTrigger } from '@sumup/collector';
 
 import styled from '../../styles/styled';
 import IconButton from '../IconButton';
@@ -62,12 +61,6 @@ export interface PaginationProps {
    * called with the total number of pages, e.g. "of 10"
    */
   totalLabel?: (totalPages: number) => string;
-  /**
-   * @deprecated
-   *
-   * Use an `onChange` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
 }
 
 const Nav = styled.nav`
@@ -102,7 +95,6 @@ export const Pagination = ({
   nextLabel,
   pageLabel = (page) => `Go to page ${page}`,
   totalLabel,
-  tracking = {},
   ...props
 }: PaginationProps): ReactElement | null => {
   if (
@@ -129,23 +121,6 @@ export const Pagination = ({
     }
   }
 
-  // Can't use our custom useClickEvent here because it doesn't allow us
-  // to add the page number as label. So we implement it from scratch:
-  const dispatch = useClickTrigger();
-  const handleChange = (pageNumber: number): void => {
-    const {
-      label: trackingLabel = pageNumber.toString(),
-      component = 'pagination',
-      customParameters,
-    } = tracking;
-
-    if (label) {
-      dispatch({ label: trackingLabel, component, customParameters });
-    }
-
-    onChange(pageNumber);
-  };
-
   if (!totalPages || totalPages < 2) {
     return null;
   }
@@ -160,7 +135,7 @@ export const Pagination = ({
         size="kilo"
         variant="tertiary"
         disabled={currentPage <= 1}
-        onClick={() => handleChange(currentPage - 1)}
+        onClick={() => onChange(currentPage - 1)}
         css={prevButtonStyles}
       >
         <ChevronLeft size="16" />
@@ -168,7 +143,7 @@ export const Pagination = ({
 
       {showList ? (
         <PageList
-          onChange={handleChange}
+          onChange={onChange}
           pageLabel={pageLabel}
           pages={pages}
           currentPage={currentPage}
@@ -176,7 +151,7 @@ export const Pagination = ({
       ) : (
         <PageSelect
           label={label}
-          onChange={handleChange}
+          onChange={onChange}
           pages={pages}
           currentPage={currentPage}
           totalPages={totalPages}
@@ -189,7 +164,7 @@ export const Pagination = ({
         size="kilo"
         variant="tertiary"
         disabled={currentPage >= totalPages}
-        onClick={() => handleChange(currentPage + 1)}
+        onClick={() => onChange(currentPage + 1)}
         css={nextButtonStyles}
       >
         <ChevronRight size="16" />

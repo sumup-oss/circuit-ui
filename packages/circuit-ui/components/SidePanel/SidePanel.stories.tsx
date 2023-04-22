@@ -56,8 +56,7 @@ const baseArgs: SidePanelHookProps = {
   closeButtonLabel: 'Close',
   group: undefined,
   headline: 'Item details',
-  onClose: null,
-  tracking: undefined,
+  onClose: undefined,
 };
 
 const basePlay = ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
@@ -162,7 +161,7 @@ const DefaultChildren = ({
 };
 
 const ComponentWithSidePanel = (props: SidePanelHookProps) => {
-  const [selectedItem, setSelectedItem] = useState<string>(null);
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const { setSidePanel } = useSidePanel();
 
   return (

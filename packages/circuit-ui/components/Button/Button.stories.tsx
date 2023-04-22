@@ -14,7 +14,6 @@
  */
 
 import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
 import { Plus } from '@sumup/icons';
 
 import { Stack } from '../../../../.storybook/components';
@@ -88,19 +87,6 @@ export const WithIcon = (args: ButtonProps) => (
     )}
   >
     Add
-  </Button>
-);
-
-export const Tracking = (args: ButtonProps) => (
-  <Button
-    {...args}
-    onClick={action('Button Click')}
-    tracking={{
-      label: 'track-button',
-      customParameters: { key: 'value' },
-    }}
-  >
-    Track me
   </Button>
 );
 

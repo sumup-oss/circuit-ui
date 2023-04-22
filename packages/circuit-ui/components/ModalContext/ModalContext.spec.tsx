@@ -14,7 +14,6 @@
  */
 
 import { useContext } from 'react';
-import * as Collector from '@sumup/collector';
 
 import {
   render,
@@ -25,8 +24,6 @@ import {
 
 import { ModalProvider, ModalContext } from './ModalContext';
 import type { ModalComponent } from './types';
-
-jest.mock('@sumup/collector');
 
 const Modal: ModalComponent = ({ onClose }) => (
   <div role="dialog" aria-label="Modal">
@@ -54,17 +51,11 @@ describe('ModalContext', () => {
   const userEvent = baseUserEvent.setup({ delay: null });
 
   describe('ModalProvider', () => {
-    const dispatch = jest.fn();
-    // @ts-expect-error TypeScript doesn't allow assigning to the read-only
-    // useClickTrigger
-    Collector.useClickTrigger = jest.fn(() => dispatch);
-
     const onClose = jest.fn();
     const modal = {
       id: 'initial',
       component: Modal,
       onClose,
-      tracking: { label: 'test-modal' },
     };
     const initialState = [modal];
 
@@ -124,7 +115,6 @@ describe('ModalContext', () => {
 
       expect(queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
-      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it('should close the modal when the onClose method is called', async () => {
@@ -142,7 +132,6 @@ describe('ModalContext', () => {
 
       expect(queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
-      expect(dispatch).toHaveBeenCalledTimes(1);
     });
   });
 });

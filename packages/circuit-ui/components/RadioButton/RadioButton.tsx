@@ -18,7 +18,6 @@ import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, focusOutline } from '../../styles/style-mixins';
-import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { AccessibilityError } from '../../util/errors';
 
 export interface RadioButtonProps
@@ -35,12 +34,6 @@ export interface RadioButtonProps
    * The ref to the HTML DOM element
    */
   ref?: Ref<HTMLInputElement>;
-  /**
-   * @deprecated
-   *
-   * Use an `onChange` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
   children?: never;
 }
 
@@ -190,7 +183,6 @@ const RadioButtonInput = styled('input')<InputElProps>(
 export const RadioButton = forwardRef(
   (
     {
-      onChange,
       label,
       id: customId,
       name,
@@ -198,7 +190,6 @@ export const RadioButton = forwardRef(
       checked,
       invalid,
       disabled,
-      tracking,
       className,
       style,
       ...props
@@ -217,7 +208,6 @@ export const RadioButton = forwardRef(
     }
     const id = useId();
     const inputId = customId || id;
-    const handleChange = useClickEvent(onChange, tracking, 'radio-button');
 
     return (
       <Fragment>
@@ -231,7 +221,6 @@ export const RadioButton = forwardRef(
           aria-invalid={invalid && 'true'}
           disabled={disabled}
           checked={checked}
-          onChange={handleChange}
           ref={ref}
         />
         <RadioButtonLabel

@@ -17,7 +17,6 @@
 
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
-import { TrackingElement } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { shadow, hideScrollbar } from '../../../../styles/style-mixins';
@@ -26,7 +25,6 @@ import { TOP_NAVIGATION_HEIGHT } from '../../../TopNavigation/TopNavigation';
 import Headline from '../../../Headline';
 import { Skeleton, SkeletonContainer } from '../../../Skeleton';
 import { PrimaryLinkProps } from '../../types';
-import { TRACKING_ELEMENTS } from '../../constants';
 import { SecondaryLinks } from '../SecondaryLinks';
 import { PrimaryLink } from '../PrimaryLink';
 
@@ -145,39 +143,29 @@ export function DesktopNavigation({
     activePrimaryLink && activePrimaryLink.secondaryGroups;
 
   return (
-    <TrackingElement name={TRACKING_ELEMENTS.SIDE_NAVIGATION}>
-      <Wrapper isLoading={Boolean(isLoading)}>
-        <PrimaryNavigationWrapper
+    <Wrapper isLoading={Boolean(isLoading)}>
+      <PrimaryNavigationWrapper {...props} aria-label={primaryNavigationLabel}>
+        <ul role="list" css={listStyles}>
+          {primaryLinks.map((link) => (
+            <li key={link.label}>
+              <PrimaryLink {...link} {...focusProps} />
+            </li>
+          ))}
+        </ul>
+      </PrimaryNavigationWrapper>
+      {secondaryGroups && secondaryGroups.length > 0 && (
+        <SecondaryNavigationWrapper
           {...props}
-          aria-label={primaryNavigationLabel}
+          aria-label={secondaryNavigationLabel}
         >
-          <ul role="list" css={listStyles}>
-            {primaryLinks.map((link) => (
-              <li key={link.label}>
-                <PrimaryLink {...link} {...focusProps} />
-              </li>
-            ))}
-          </ul>
-        </PrimaryNavigationWrapper>
-        {secondaryGroups && secondaryGroups.length > 0 && (
-          <SecondaryNavigationWrapper
-            {...props}
-            aria-label={secondaryNavigationLabel}
-          >
-            <Skeleton css={headlineStyles}>
-              <Headline as="h2" size="four">
-                {activePrimaryLink && activePrimaryLink.label}
-              </Headline>
-            </Skeleton>
-            <SecondaryLinks
-              secondaryGroups={secondaryGroups}
-              trackingLabel={
-                activePrimaryLink.tracking && activePrimaryLink.tracking.label
-              }
-            />
-          </SecondaryNavigationWrapper>
-        )}
-      </Wrapper>
-    </TrackingElement>
+          <Skeleton css={headlineStyles}>
+            <Headline as="h2" size="four">
+              {activePrimaryLink && activePrimaryLink.label}
+            </Headline>
+          </Skeleton>
+          <SecondaryLinks secondaryGroups={secondaryGroups} />
+        </SecondaryNavigationWrapper>
+      )}
+    </Wrapper>
   );
 }

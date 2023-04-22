@@ -33,12 +33,6 @@ import {
   SidePanelContextProps,
 } from './SidePanelContext';
 
-const mockSendEvent = jest.fn();
-
-jest.mock('@sumup/collector', () => ({
-  useClickTrigger: () => mockSendEvent,
-}));
-
 jest.mock('../../hooks/useMedia');
 
 describe('SidePanelContext', () => {
@@ -74,7 +68,6 @@ describe('SidePanelContext', () => {
       headline: 'Side panel title',
       id: uniqueId(),
       onClose: undefined,
-      tracking: undefined,
       // Silences the warning about the missing app element.
       // In user land, the side panel is always rendered by the SidePanelProvider,
       // which takes care of setting the app element.
@@ -257,24 +250,6 @@ describe('SidePanelContext', () => {
           expect(getAllByRole('dialog')).toHaveLength(1);
         });
       });
-
-      it('should send an open tracking event', async () => {
-        const Trigger = () => {
-          const { setSidePanel } = useContext(SidePanelContext);
-          return renderOpenButton(setSidePanel, {
-            tracking: { label: 'test-side-panel' },
-          });
-        };
-
-        const { getByText } = renderComponent(Trigger);
-
-        await userEvent.click(getByText('Open panel'));
-
-        expect(mockSendEvent).toHaveBeenCalledWith({
-          component: 'side-panel',
-          label: 'test-side-panel|open',
-        });
-      });
     });
 
     describe('removeSidePanel', () => {
@@ -419,37 +394,6 @@ describe('SidePanelContext', () => {
         });
 
         expect(onClose).toHaveBeenCalled();
-      });
-
-      it('should send a close tracking event', async () => {
-        const Trigger = () => {
-          const { setSidePanel, removeSidePanel } =
-            useContext(SidePanelContext);
-          return (
-            <>
-              {renderOpenButton(setSidePanel, {
-                tracking: { label: 'test-side-panel' },
-              })}
-              {renderCloseButton(removeSidePanel)}
-            </>
-          );
-        };
-
-        const { getByRole, getByText } = renderComponent(Trigger);
-
-        await userEvent.click(getByText('Open panel'));
-
-        expect(getByRole('dialog')).toBeVisible();
-
-        await userEvent.click(getByText('Close panel'));
-        act(() => {
-          jest.runAllTimers();
-        });
-
-        expect(mockSendEvent).toHaveBeenCalledWith({
-          component: 'side-panel',
-          label: 'test-side-panel|close',
-        });
       });
     });
 

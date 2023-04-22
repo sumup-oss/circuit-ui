@@ -16,7 +16,6 @@
 import { ReactNode } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
-import { TrackingElement } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { focusVisible } from '../../styles/style-mixins';
@@ -25,7 +24,6 @@ import { SkeletonContainer } from '../Skeleton';
 
 import { ProfileMenu, ProfileMenuProps } from './components/ProfileMenu';
 import { UtilityLinks, UtilityLinksProps } from './components/UtilityLinks';
-import { TRACKING_ELEMENTS } from './constants';
 import { UserProps } from './types';
 
 const CONTENT_HEIGHT = '56px';
@@ -112,21 +110,19 @@ export function TopNavigation({
   ...props
 }: TopNavigationProps): JSX.Element {
   return (
-    <TrackingElement name={TRACKING_ELEMENTS.TOP_NAVIGATION}>
-      <Header role="banner" {...props}>
-        <div css={wrapperStyles}>
-          {hamburger && (
-            <SkeletonContainer isLoading={Boolean(isLoading)}>
-              <Hamburger {...hamburger} css={hamburgerStyles} />
-            </SkeletonContainer>
-          )}
-          <Logo>{logo}</Logo>
-        </div>
-        <SkeletonContainer css={wrapperStyles} isLoading={Boolean(isLoading)}>
-          {links && <UtilityLinks links={links} />}
-          <ProfileMenu {...profileMenu} user={user} />
-        </SkeletonContainer>
-      </Header>
-    </TrackingElement>
+    <Header role="banner" {...props}>
+      <div css={wrapperStyles}>
+        {hamburger && (
+          <SkeletonContainer isLoading={Boolean(isLoading)}>
+            <Hamburger {...hamburger} css={hamburgerStyles} />
+          </SkeletonContainer>
+        )}
+        <Logo>{logo}</Logo>
+      </div>
+      <SkeletonContainer css={wrapperStyles} isLoading={Boolean(isLoading)}>
+        {links && <UtilityLinks links={links} />}
+        <ProfileMenu {...profileMenu} user={user} />
+      </SkeletonContainer>
+    </Header>
   );
 }

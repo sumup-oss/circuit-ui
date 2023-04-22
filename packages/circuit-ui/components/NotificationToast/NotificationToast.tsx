@@ -19,7 +19,6 @@ import { css } from '@emotion/react';
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
 import Body from '../Body';
-import { TrackingProps } from '../../hooks/useClickEvent';
 import CloseButton from '../CloseButton';
 import { ClickEvent } from '../../types/events';
 import { BaseToastProps, createUseToast } from '../ToastContext';
@@ -53,12 +52,6 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
      * Whether the notification toast is visible.
      */
     isVisible: boolean;
-    /**
-     * @deprecated
-     *
-     * Use an `onClose` handler to dispatch user interaction events instead.
-     */
-    tracking?: TrackingProps;
     /**
      * An optional callback that is called when the toast is dismissed,
      * manually or after a timeout.
@@ -142,7 +135,6 @@ export function NotificationToast({
   onClose,
   iconLabel = '',
   isVisible,
-  tracking,
   duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
   ...props
 }: NotificationToastProps): JSX.Element {
@@ -209,11 +201,6 @@ export function NotificationToast({
           aria-hidden="true"
           size="kilo"
           onClick={onClose}
-          tracking={
-            tracking
-              ? { component: 'notification-close', ...tracking }
-              : undefined
-          }
           tabIndex={-1}
         />
       </ContentWrapper>

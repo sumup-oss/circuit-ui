@@ -58,7 +58,6 @@ export const Clickable = ({
 
 Clickable.args = {
   onClick: action('Tag clicked'),
-  tracking: { label: 'trackingId' },
 };
 
 export const Removable = (args: TagProps) => <Tag {...args}>Transactions</Tag>;
@@ -66,5 +65,4 @@ export const Removable = (args: TagProps) => <Tag {...args}>Transactions</Tag>;
 Removable.args = {
   onRemove: action('Tag removed'),
   removeButtonLabel: 'Remove',
-  tracking: { label: 'trackingId' },
 };

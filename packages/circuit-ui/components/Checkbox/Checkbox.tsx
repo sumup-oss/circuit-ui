@@ -19,7 +19,6 @@ import { Checkmark } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, focusOutline } from '../../styles/style-mixins';
-import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
 import { deprecate } from '../../util/logger';
 import { AccessibilityError } from '../../util/errors';
@@ -37,12 +36,6 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    * An information or error message, displayed below the checkbox.
    */
   validationHint?: string;
-  /**
-   * @deprecated
-   *
-   * Use an `onChange` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
   /**
    * The ref to the HTML DOM element.
    */
@@ -185,7 +178,6 @@ const CheckboxInput = styled('input')<InputElProps>(
 export const Checkbox = forwardRef(
   (
     {
-      onChange,
       label,
       children,
       value,
@@ -196,7 +188,6 @@ export const Checkbox = forwardRef(
       className,
       style,
       invalid,
-      tracking,
       'aria-describedby': descriptionId,
       ...props
     }: CheckboxProps,
@@ -224,7 +215,6 @@ export const Checkbox = forwardRef(
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
-    const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
     return (
       <CheckboxWrapper className={className} style={style} disabled={disabled}>
@@ -238,7 +228,6 @@ export const Checkbox = forwardRef(
           invalid={invalid}
           ref={ref}
           aria-describedby={descriptionIds}
-          onChange={handleChange}
         />
         <CheckboxLabel htmlFor={checkboxId}>
           {label || children}

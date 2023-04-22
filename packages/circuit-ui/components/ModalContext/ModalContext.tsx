@@ -22,7 +22,6 @@ import {
 } from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { Global, css } from '@emotion/react';
-import { useClickTrigger } from '@sumup/collector';
 
 import { useStack, StackItem } from '../../hooks/useStack';
 import { warn } from '../../util/logger';
@@ -89,32 +88,17 @@ export function ModalProvider<TProps extends BaseModalProps>({
   htmlOpenClassName = 'ReactModal__Html--open',
   ...defaultModalProps
 }: ModalProviderProps<TProps>): JSX.Element {
-  const sendEvent = useClickTrigger();
   const [modals, dispatch] = useStack<ModalState<TProps>>(initialState);
 
   const setModal = useCallback(
     (modal: ModalState<TProps>) => {
-      if (modal.tracking && modal.tracking.label) {
-        sendEvent({
-          component: 'modal',
-          ...modal.tracking,
-          label: `${modal.tracking.label}|open`,
-        });
-      }
       dispatch({ type: 'push', item: modal });
     },
-    [dispatch, sendEvent],
+    [dispatch],
   );
 
   const removeModal = useCallback(
     (modal: ModalState<TProps>) => {
-      if (modal.tracking && modal.tracking.label) {
-        sendEvent({
-          component: 'modal',
-          ...modal.tracking,
-          label: `${modal.tracking.label}|close`,
-        });
-      }
       if (modal.onClose) {
         modal.onClose();
       }
@@ -126,7 +110,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
         },
       });
     },
-    [dispatch, sendEvent],
+    [dispatch],
   );
 
   const activeModal = modals[modals.length - 1];

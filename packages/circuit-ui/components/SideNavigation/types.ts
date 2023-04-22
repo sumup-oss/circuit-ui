@@ -16,7 +16,6 @@
 import { FC, MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
 import { IconProps } from '@sumup/icons';
 
-import { TrackingProps } from '../../hooks/useClickEvent';
 import { BadgeProps } from '../Badge';
 
 export interface PrimaryLinkProps
@@ -51,12 +50,6 @@ export interface PrimaryLinkProps
    * A collection of secondary groups with nested secondary navigation links.
    */
   secondaryGroups?: SecondaryGroupProps[];
-  /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
 }
 
 export interface SecondaryGroupProps {
@@ -69,13 +62,6 @@ export interface SecondaryGroupProps {
    * A collection of secondary navigation links.
    */
   secondaryLinks: SecondaryLinkProps[];
-  /**
-   * @deprecated
-   *
-   * An optional label that is added to the element tree when clicking a nested
-   * secondary navigation link.
-   */
-  trackingLabel?: string;
 }
 
 export interface SecondaryLinkProps {
@@ -95,12 +81,6 @@ export interface SecondaryLinkProps {
    * Whether the link is the currently active page.
    */
   isActive?: boolean;
-  /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
   /**
    * An optional badge to highlight the secondary link, e.g. to promote
    * a new link or to indicate new content.

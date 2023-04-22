@@ -16,7 +16,6 @@
 import { useState, ButtonHTMLAttributes, useEffect } from 'react';
 import { css } from '@emotion/react';
 import { ChevronDown, Profile as ProfileIcon } from '@sumup/icons';
-import { TrackingElement } from '@sumup/collector';
 
 import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
@@ -24,9 +23,7 @@ import Avatar from '../../../Avatar';
 import Body from '../../../Body';
 import Popover, { PopoverProps } from '../../../Popover';
 import { Skeleton } from '../../../Skeleton';
-import { TRACKING_ELEMENTS } from '../../constants';
 import { UserProps } from '../../types';
-import { TrackingProps } from '../../../../hooks/useClickEvent';
 
 const profileWrapperStyles = ({ theme }: StyleProps) => css`
   height: 100%;
@@ -145,19 +142,6 @@ export interface ProfileMenuProps extends ProfileProps {
    */
   actions: PopoverProps['actions'];
   /**
-   * @deprecated
-   *
-   * An optional label that is added to the element tree when clicking
-   * a profile action.
-   */
-  trackingLabel?: string;
-  /**
-   * @deprecated
-   *
-   * Use an `onToggle` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
-  /**
    * Function that is called when opening and closing the ProfileMenu.
    */
   onToggle?: (isOpen: boolean) => void;
@@ -169,8 +153,6 @@ export function ProfileMenu({
   actions,
   isActive,
   onToggle,
-  trackingLabel,
-  tracking,
 }: ProfileMenuProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
   const offset = { mainAxis: 8, crossAxis: -16 };
@@ -182,29 +164,21 @@ export function ProfileMenu({
   }, [onToggle, isOpen]);
 
   return (
-    <TrackingElement
-      name={TRACKING_ELEMENTS.PROFILE_SECTION}
-      label={trackingLabel}
-    >
-      <Popover
-        isOpen={isOpen}
-        onToggle={setOpen}
-        component={(popoverProps) => (
-          <Profile
-            {...popoverProps}
-            isOpen={isOpen}
-            label={label}
-            user={user}
-            isActive={isActive}
-          />
-        )}
-        actions={actions}
-        placement="bottom-end"
-        offset={offset}
-        tracking={
-          tracking ? { ...tracking, component: 'profile_menu' } : undefined
-        }
-      />
-    </TrackingElement>
+    <Popover
+      isOpen={isOpen}
+      onToggle={setOpen}
+      component={(popoverProps) => (
+        <Profile
+          {...popoverProps}
+          isOpen={isOpen}
+          label={label}
+          user={user}
+          isActive={isActive}
+        />
+      )}
+      actions={actions}
+      placement="bottom-end"
+      offset={offset}
+    />
   );
 }

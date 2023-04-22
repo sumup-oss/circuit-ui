@@ -24,7 +24,6 @@ import {
 } from 'react';
 import { css, useTheme } from '@emotion/react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
-import { useClickTrigger } from '@sumup/collector';
 
 import styled from '../../styles/styled';
 import { useMedia } from '../../hooks/useMedia';
@@ -147,7 +146,6 @@ export const SidePanelProvider = ({
   const isTopNavigationSticky = useMedia(theme.breakpoints.tera);
   const isMobile = useMedia(theme.breakpoints.untilMega);
   const [sidePanels, dispatch] = useStack<SidePanelContextItem>();
-  const sendEvent = useClickTrigger();
   const [sidePanelTop, setSidePanelTop] = useState(
     withTopNavigation ? TOP_NAVIGATION_HEIGHT : '0px',
   );
@@ -187,19 +185,6 @@ export const SidePanelProvider = ({
     };
   }, [withTopNavigation, isTopNavigationSticky, isMobile]);
 
-  const sendTrackingEvent = useCallback(
-    (sidePanel: SidePanelContextProps, eventType: string) => {
-      if (sidePanel.tracking && sidePanel.tracking.label) {
-        sendEvent({
-          component: 'side-panel',
-          ...sidePanel.tracking,
-          label: `${sidePanel.tracking.label}|${eventType}`,
-        });
-      }
-    },
-    [sendEvent],
-  );
-
   const findSidePanel = useCallback(
     (group: SidePanelContextProps['group']) =>
       sidePanelsRef.current.find(
@@ -230,8 +215,6 @@ export const SidePanelProvider = ({
           .map(
             (sidePanel) =>
               new Promise<void>((res) => {
-                sendTrackingEvent(sidePanel, 'close');
-
                 if (sidePanel.onClose) {
                   sidePanel.onClose();
                 }
@@ -260,7 +243,7 @@ export const SidePanelProvider = ({
           ),
       );
     },
-    [findSidePanel, sendTrackingEvent, dispatch, transitionDuration],
+    [findSidePanel, dispatch, transitionDuration],
   );
 
   const setSidePanel = useCallback<SetSidePanel>(
@@ -269,7 +252,6 @@ export const SidePanelProvider = ({
 
       const pushPanel = (isInstantOpen: boolean) => {
         setIsPrimaryContentResized(true);
-        sendTrackingEvent(sidePanel, 'open');
         dispatch({
           type: 'push',
           item: { ...sidePanel, isInstantOpen },
@@ -284,7 +266,7 @@ export const SidePanelProvider = ({
         pushPanel(false);
       }
     },
-    [findSidePanel, sendTrackingEvent, dispatch, removeSidePanel],
+    [findSidePanel, dispatch, removeSidePanel],
   );
 
   const updateSidePanel = useCallback<UpdateSidePanel>(

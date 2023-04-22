@@ -22,7 +22,6 @@ import {
   CloseButton,
   CloseButtonProps,
 } from '../../../CloseButton/CloseButton';
-import { TrackingProps } from '../../../../hooks/useClickEvent';
 import { isArray } from '../../../../util/type-check';
 
 type CloseProps =
@@ -45,12 +44,6 @@ export type CardHeaderProps = {
    * Headline to be shown.
    */
   children?: ReactNode;
-  /**
-   * @deprecated
-   *
-   * Use an `onClose` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
 } & CloseProps &
   HTMLAttributes<HTMLDivElement>;
 
@@ -92,19 +85,12 @@ export const CardHeader: FC<PropsWithChildren<CardHeaderProps>> = ({
   onClose,
   children,
   closeButtonLabel,
-  tracking,
   ...props
 }) => (
   <CardHeaderContainer {...props}>
     {children}
     {onClose && closeButtonLabel && (
-      <CardHeaderCloseButton
-        onClick={onClose}
-        label={closeButtonLabel}
-        tracking={
-          tracking ? { component: 'close-button', ...tracking } : undefined
-        }
-      />
+      <CardHeaderCloseButton onClick={onClose} label={closeButtonLabel} />
     )}
   </CardHeaderContainer>
 );

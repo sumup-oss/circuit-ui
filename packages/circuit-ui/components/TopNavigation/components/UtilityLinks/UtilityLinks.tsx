@@ -21,7 +21,6 @@ import { IconProps } from '@sumup/icons';
 import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
 import { EmotionAsPropType } from '../../../../types/prop-types';
-import { useClickEvent, TrackingProps } from '../../../../hooks/useClickEvent';
 import Body from '../../../Body';
 import { useComponents } from '../../../ComponentsContext';
 import { Skeleton } from '../../../Skeleton';
@@ -76,29 +75,14 @@ export interface UtilityLinkProps
    * Whether the link is the currently active page.
    */
   isActive?: boolean;
-  /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
 }
 
-function UtilityLink({
-  icon: Icon,
-  label,
-  onClick,
-  tracking,
-  ...props
-}: UtilityLinkProps) {
+function UtilityLink({ icon: Icon, label, ...props }: UtilityLinkProps) {
   const { Link } = useComponents();
-
-  const handleClick = useClickEvent(onClick, tracking, 'utility-link');
 
   return (
     <UtilityAnchor
       {...props}
-      onClick={handleClick}
       as={props.href ? (Link as EmotionAsPropType) : 'button'}
     >
       <Skeleton css={iconStyles}>

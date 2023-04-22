@@ -21,7 +21,6 @@ import { Theme } from '@sumup/design-tokens';
 import styled, { StyleProps } from '../../styles/styled';
 import { typography, inputOutline } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
-import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import {
   FieldWrapper,
   FieldLabel,
@@ -103,12 +102,6 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLSelectElement>;
-  /**
-   * @deprecated
-   *
-   * Use an `onChange` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
 }
 
 const wrapperStyles = css`
@@ -245,8 +238,6 @@ export const Select = forwardRef(
       className,
       style,
       'id': customId,
-      onChange,
-      tracking,
       'aria-describedby': descriptionId,
       ...props
     }: SelectProps,
@@ -274,8 +265,6 @@ export const Select = forwardRef(
     );
     const hasPrefix = Boolean(prefix);
 
-    const handleChange = useClickEvent(onChange, tracking, 'select');
-
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
         <FieldLabel htmlFor={selectId}>
@@ -300,7 +289,6 @@ export const Select = forwardRef(
             hasPrefix={hasPrefix}
             defaultValue={defaultValue}
             {...props}
-            onChange={handleChange}
           >
             {!value && !defaultValue && (
               /**

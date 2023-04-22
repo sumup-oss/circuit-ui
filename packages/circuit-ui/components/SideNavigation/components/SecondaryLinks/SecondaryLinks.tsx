@@ -15,15 +15,13 @@
 
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
-import { forwardRef, KeyboardEvent, MouseEvent, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
-import { TrackingElement } from '@sumup/collector';
 
 import styled, { StyleProps, NoTheme } from '../../../../styles/styled';
 import { navigationItem } from '../../../../styles/style-mixins';
 import { EmotionAsPropType } from '../../../../types/prop-types';
-import { useClickEvent } from '../../../../hooks/useClickEvent';
 import { useFocusList, FocusProps } from '../../../../hooks/useFocusList';
 import SubHeadline from '../../../SubHeadline';
 import Body from '../../../Body';
@@ -31,7 +29,6 @@ import Badge from '../../../Badge';
 import { useComponents } from '../../../ComponentsContext';
 import { Skeleton } from '../../../Skeleton';
 import { SecondaryGroupProps, SecondaryLinkProps } from '../../types';
-import { TRACKING_ELEMENTS } from '../../constants';
 
 const anchorStyles = ({ theme }: StyleProps) => css`
   flex-wrap: wrap;
@@ -56,26 +53,13 @@ const labelStyles = (theme: Theme) => css`
   margin-right: ${theme.spacings.byte};
 `;
 
-function SecondaryLink({
-  label,
-  onClick,
-  tracking,
-  badge,
-  ...props
-}: SecondaryLinkProps) {
+function SecondaryLink({ label, badge, ...props }: SecondaryLinkProps) {
   const { Link } = useComponents();
-
-  const handleClick = useClickEvent<MouseEvent | KeyboardEvent>(
-    onClick,
-    tracking,
-    'utility-link',
-  );
 
   return (
     <li>
       <SecondaryAnchor
         {...props}
-        onClick={handleClick}
         aria-current={props.isActive ? 'page' : undefined}
         as={props.href ? (Link as EmotionAsPropType) : 'button'}
       >
@@ -98,54 +82,39 @@ function SecondaryGroup({
   label,
   secondaryLinks,
   focusProps,
-  trackingLabel,
 }: SecondaryGroupProps & { focusProps: FocusProps }): JSX.Element {
   return (
-    <TrackingElement
-      name={TRACKING_ELEMENTS.SECONDARY_NAVIGATION_GROUP}
-      label={trackingLabel}
-    >
-      <li>
-        {label && (
-          <Skeleton css={subHeadlineStyles}>
-            <SubHeadline as="h3">{label}</SubHeadline>
-          </Skeleton>
-        )}
-        <ul role="list" css={listStyles}>
-          {secondaryLinks.map((link) => (
-            <SecondaryLink key={link.label} {...link} {...focusProps} />
-          ))}
-        </ul>
-      </li>
-    </TrackingElement>
+    <li>
+      {label && (
+        <Skeleton css={subHeadlineStyles}>
+          <SubHeadline as="h3">{label}</SubHeadline>
+        </Skeleton>
+      )}
+      <ul role="list" css={listStyles}>
+        {secondaryLinks.map((link) => (
+          <SecondaryLink key={link.label} {...link} {...focusProps} />
+        ))}
+      </ul>
+    </li>
   );
 }
 
 export interface SecondaryLinksProps {
   secondaryGroups: SecondaryGroupProps[];
-  /**
-   * @deprecated
-   */
-  trackingLabel?: string;
 }
 
 export const SecondaryLinks = forwardRef(
   (
-    { secondaryGroups, trackingLabel, ...props }: SecondaryLinksProps,
+    { secondaryGroups, ...props }: SecondaryLinksProps,
     ref: Ref<HTMLUListElement>,
   ): JSX.Element => {
     const focusProps = useFocusList();
     return (
-      <TrackingElement
-        name={TRACKING_ELEMENTS.SECONDARY_NAVIGATION}
-        label={trackingLabel}
-      >
-        <ul role="list" ref={ref} css={listStyles} {...props}>
-          {secondaryGroups.map((group, index) => (
-            <SecondaryGroup key={index} {...group} focusProps={focusProps} />
-          ))}
-        </ul>
-      </TrackingElement>
+      <ul role="list" ref={ref} css={listStyles} {...props}>
+        {secondaryGroups.map((group, index) => (
+          <SecondaryGroup key={index} {...group} focusProps={focusProps} />
+        ))}
+      </ul>
     );
   },
 );

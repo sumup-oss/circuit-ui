@@ -16,7 +16,6 @@
 import { FC } from 'react';
 import { Delete, Add, Download, IconProps } from '@sumup/icons';
 import { Placement } from '@floating-ui/react-dom';
-import * as Collector from '@sumup/collector';
 
 import { act, axe, RenderFn, render, userEvent } from '../../util/test-utils';
 import { ClickEvent } from '../../types/events';
@@ -27,8 +26,6 @@ import {
   Popover,
   PopoverProps,
 } from './Popover';
-
-jest.mock('@sumup/collector');
 
 const placements: Placement[] = ['top', 'bottom', 'left', 'right'];
 
@@ -93,11 +90,6 @@ describe('Popover', () => {
     return render(<Popover {...props} />);
   }
 
-  const dispatch = jest.fn();
-  // @ts-expect-error TypeScript doesn't allow assigning to the read-only
-  // useClickTrigger
-  Collector.useClickTrigger = jest.fn(() => dispatch);
-
   function createStateSetter(initialState: boolean) {
     return (state: boolean | ((prev: boolean) => boolean)) =>
       typeof state === 'boolean' ? state : state(initialState);
@@ -135,7 +127,6 @@ describe('Popover', () => {
     ],
     isOpen: true,
     onToggle: jest.fn(createStateSetter(true)),
-    tracking: { label: 'test-popover' },
   };
 
   describe('Styles', () => {
@@ -173,7 +164,6 @@ describe('Popover', () => {
       await userEvent.click(popoverTrigger);
 
       expect(onToggle).toHaveBeenCalledTimes(1);
-      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it.each([
@@ -194,7 +184,6 @@ describe('Popover', () => {
         await userEvent.keyboard(key);
 
         expect(onToggle).toHaveBeenCalledTimes(1);
-        expect(dispatch).toHaveBeenCalledTimes(1);
       },
     );
 
@@ -204,7 +193,6 @@ describe('Popover', () => {
       await userEvent.click(document.body);
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it('should close the popover when clicking the trigger element', async () => {
@@ -215,7 +203,6 @@ describe('Popover', () => {
       await userEvent.click(popoverTrigger);
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it.each([
@@ -233,7 +220,6 @@ describe('Popover', () => {
         await userEvent.keyboard(key);
 
         expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-        expect(dispatch).toHaveBeenCalledTimes(1);
       },
     );
 
@@ -243,7 +229,6 @@ describe('Popover', () => {
       await userEvent.keyboard('{Escape}');
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it('should close the popover when clicking a popover item', async () => {
@@ -254,7 +239,6 @@ describe('Popover', () => {
       await userEvent.click(popoverItems[0]);
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-      expect(dispatch).toHaveBeenCalledTimes(1);
     });
 
     it('should move focus to the first popover item after opening', async () => {

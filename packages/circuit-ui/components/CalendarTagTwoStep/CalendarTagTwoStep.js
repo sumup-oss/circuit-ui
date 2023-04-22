@@ -72,16 +72,6 @@ export default class CalendarTagTwoStep extends Component {
      */
     confirmText: PropTypes.string,
     /**
-     * @deprecated
-     *
-     * Use an `onClick` handler to dispatch user interaction events instead.
-     */
-    tracking: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      component: PropTypes.string,
-      customParameters: PropTypes.object,
-    }),
-    /**
      * Function that's called when the date tag is clicked.
      */
     onClick: PropTypes.func,
@@ -90,7 +80,6 @@ export default class CalendarTagTwoStep extends Component {
   static defaultProps = {
     clearText: 'Clear',
     confirmText: 'Apply',
-    tracking: {},
   };
 
   state = { startDate: null, endDate: null, focusedInput: null };
@@ -149,8 +138,7 @@ export default class CalendarTagTwoStep extends Component {
   };
 
   render() {
-    const { clearText, confirmText, onDatesRangeChange, tracking, ...props } =
-      this.props;
+    const { clearText, confirmText, onDatesRangeChange, ...props } = this.props;
     const { focusedInput, startDate, endDate } = this.state;
     const isOpen = focusedInput !== null;
     const isFilled = !!(startDate && endDate);
@@ -161,7 +149,6 @@ export default class CalendarTagTwoStep extends Component {
           selected={isOpen || isFilled}
           ref={this.handleTagRef}
           onClick={this.handleTagClick}
-          tracking={{ component: 'calendar-tag-two-step', ...tracking }}
         >
           {this.getDateRangePreview()}
         </Tag>

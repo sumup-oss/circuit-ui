@@ -36,16 +36,6 @@ class CalendarTag extends Component {
      */
     onDatesRangeChange: PropTypes.func.isRequired,
     /**
-     * @deprecated
-     *
-     * Use an `onClick` handler to dispatch user interaction events instead.
-     */
-    tracking: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      component: PropTypes.string,
-      customParameters: PropTypes.object,
-    }),
-    /**
      * Function that's called when the date tag is clicked.
      */
     onClick: PropTypes.func,
@@ -97,7 +87,7 @@ class CalendarTag extends Component {
   };
 
   render() {
-    const { onDatesRangeChange, tracking, ...props } = this.props;
+    const { onDatesRangeChange, ...props } = this.props;
     const { focusedInput, startDate, endDate } = this.state;
     const isOpen = focusedInput !== null;
 
@@ -107,10 +97,6 @@ class CalendarTag extends Component {
           selected={isOpen}
           ref={this.handleTagRef}
           onClick={this.handleTagClick}
-          tracking={{
-            component: 'calendar-tag',
-            ...tracking,
-          }}
         >
           {this.getDateRangePreview()}
         </Tag>

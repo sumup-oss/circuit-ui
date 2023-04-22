@@ -1,6 +1,5 @@
 import { light, components } from './themes';
 import { withThemeProvider } from './decorators/withThemeProvider';
-import { withTrackingAction } from './decorators/withTrackingAction';
 import { withUnmountWhenHidden } from './decorators/withUnmountWhenHidden';
 import { DocsContainer } from './components';
 
@@ -46,8 +45,4 @@ export const globalTypes = {
   },
 };
 
-export const decorators = [
-  withThemeProvider,
-  withTrackingAction,
-  withUnmountWhenHidden,
-];
+export const decorators = [withThemeProvider, withUnmountWhenHidden];

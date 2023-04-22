@@ -20,7 +20,6 @@ import {
   useEffect,
   useMemo,
 } from 'react';
-import { useClickTrigger } from '@sumup/collector';
 import { css } from '@emotion/react';
 
 import { useStack, StackItem } from '../../hooks/useStack';
@@ -76,36 +75,20 @@ const LiveRegion = styled('div')(liveRegionStyles);
 export function ToastProvider<TProps extends BaseToastProps>({
   children,
 }: ToastProviderProps): JSX.Element {
-  const sendEvent = useClickTrigger();
   const [toasts, dispatch] = useStack<ToastState<TProps>>([]);
 
   const setToast = useCallback(
     (toast: ToastState<TProps>) => {
-      if (toast.tracking && toast.tracking.label) {
-        sendEvent({
-          component: 'toast',
-          ...toast.tracking,
-          label: `${toast.tracking.label}|open`,
-        });
-      }
-
       dispatch({
         type: 'push',
         item: toast,
       });
     },
-    [dispatch, sendEvent],
+    [dispatch],
   );
 
   const removeToast = useCallback(
     (toast: ToastState<TProps>) => {
-      if (toast.tracking && toast.tracking.label) {
-        sendEvent({
-          component: 'toast',
-          ...toast.tracking,
-          label: `${toast.tracking.label}|close`,
-        });
-      }
       if (toast.onClose) {
         toast.onClose();
       }
@@ -117,7 +100,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
         },
       });
     },
-    [dispatch, sendEvent],
+    [dispatch],
   );
 
   const context = useMemo(

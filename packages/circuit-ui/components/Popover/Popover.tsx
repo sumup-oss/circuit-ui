@@ -36,13 +36,11 @@ import {
 } from '@floating-ui/react-dom';
 import isPropValid from '@emotion/is-prop-valid';
 import { IconProps } from '@sumup/icons';
-import { useClickTrigger } from '@sumup/collector';
 
 import { ClickEvent } from '../../types/events';
 import { EmotionAsPropType } from '../../types/prop-types';
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
-import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { useFocusList } from '../../hooks/useFocusList';
@@ -76,12 +74,6 @@ export interface BaseProps {
    */
   disabled?: boolean;
   /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
-  /**
    * The ref to the HTML DOM element
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -113,18 +105,13 @@ const iconStyles = (theme: Theme) => css`
 export const PopoverItem = ({
   children,
   icon: Icon,
-  onClick,
-  tracking,
   ...props
 }: PopoverItemProps): JSX.Element => {
   const { Link } = useComponents();
 
-  const handleClick = useClickEvent(onClick, tracking, 'popover-item');
-
   return (
     <PopoverItemWrapper
       as={props.href ? (Link as EmotionAsPropType) : 'button'}
-      onClick={handleClick}
       role="menuitem"
       {...props}
     >
@@ -264,12 +251,6 @@ export interface PopoverProps {
     'aria-controls': string;
     'aria-expanded': boolean;
   }) => JSX.Element;
-  /**
-   * @deprecated
-   *
-   * Use an `onToggle` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
 }
 
 type TriggerKey = 'ArrowUp' | 'ArrowDown';
@@ -281,7 +262,6 @@ export const Popover = ({
   placement = 'bottom',
   fallbackPlacements = ['top', 'right', 'left'],
   component: Component,
-  tracking,
   offset,
   ...props
 }: PopoverProps): JSX.Element | null => {
@@ -291,8 +271,6 @@ export const Popover = ({
   const menuEl = useRef<HTMLDivElement>(null);
   const triggerId = useId();
   const menuId = useId();
-
-  const sendEvent = useClickTrigger();
 
   const { x, y, reference, floating, strategy, refs, update } =
     useFloating<HTMLElement>({
@@ -322,19 +300,7 @@ export const Popover = ({
   } as const;
 
   const handleToggle: OnToggle = (state) => {
-    onToggle((prev) => {
-      const next = isFunction(state) ? state(prev) : state;
-
-      if (tracking && tracking.label) {
-        sendEvent({
-          component: 'popover',
-          ...tracking,
-          label: `${tracking.label}|${next ? 'open' : 'close'}`,
-        });
-      }
-
-      return next;
-    });
+    onToggle((prev) => (isFunction(state) ? state(prev) : state));
   };
 
   const handleTriggerClick = (event: ClickEvent) => {

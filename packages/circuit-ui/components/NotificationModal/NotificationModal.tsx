@@ -18,7 +18,6 @@ import { FC, ReactNode, SVGProps } from 'react';
 import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
-import { useClickEvent } from '../../hooks/useClickEvent';
 import { ClickEvent } from '../../types/events';
 import { ModalComponent, BaseModalProps } from '../ModalContext';
 import Image, { ImageProps } from '../Image';
@@ -140,7 +139,6 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
   onClose,
   closeButtonLabel,
   preventClose = false,
-  tracking,
   className,
   ...props
 }) => {
@@ -151,7 +149,6 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
     );
   }
 
-  const handleClose = useClickEvent(onClose, tracking, 'modal-close');
   return (
     <ClassNames>
       {({ css: cssString, theme }) => {
@@ -216,7 +213,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
         const reactModalProps = {
           className: styles,
           overlayClassName: overlayStyles,
-          onRequestClose: handleClose,
+          onRequestClose: onClose,
           closeTimeoutMS: TRANSITION_DURATION,
           shouldCloseOnOverlayClick: !preventClose,
           shouldCloseOnEsc: !preventClose,
@@ -225,7 +222,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
 
         function wrapOnClick(onClick?: ButtonProps['onClick']) {
           return (event: ClickEvent) => {
-            handleClose?.(event);
+            onClose?.(event);
             onClick?.(event);
           };
         }

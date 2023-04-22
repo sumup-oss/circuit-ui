@@ -29,7 +29,6 @@ import { ClickEvent } from '../../types/events';
 import { AsPropType } from '../../types/prop-types';
 import { Body, BodyProps } from '../Body/Body';
 import { useComponents } from '../ComponentsContext';
-import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 
 export interface BaseProps extends BodyProps {
   children: ReactNode;
@@ -37,12 +36,6 @@ export interface BaseProps extends BodyProps {
    * Function that's called when the button is clicked.
    */
   onClick?: (event: ClickEvent) => void;
-  /**
-   * @deprecated
-   *
-   * Use an `onClick` handler to dispatch user interaction events instead.
-   */
-  tracking?: TrackingProps;
   /**
    * The ref to the HTML DOM element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
    */
@@ -89,37 +82,19 @@ const anchorStyles = (theme: Theme) => css`
  * a hyperlink. Based on the Body component, so it also supports its props.
  */
 export const Anchor = forwardRef(
-  ({ tracking, ...props }: AnchorProps, ref?: BaseProps['ref']): ReturnType => {
+  (props: AnchorProps, ref?: BaseProps['ref']): ReturnType => {
     const components = useComponents();
     const Link = components.Link as AsPropType;
-
-    const handleClick = useClickEvent(props.onClick, tracking, 'anchor');
 
     if (!props.href && !props.onClick) {
       return <Body as="span" {...props} ref={ref} />;
     }
 
     if (props.href) {
-      return (
-        <Body
-          {...props}
-          css={anchorStyles}
-          as={Link}
-          ref={ref}
-          onClick={handleClick}
-        />
-      );
+      return <Body {...props} css={anchorStyles} as={Link} ref={ref} />;
     }
 
-    return (
-      <Body
-        as="button"
-        {...props}
-        css={anchorStyles}
-        ref={ref}
-        onClick={handleClick}
-      />
-    );
+    return <Body as="button" {...props} css={anchorStyles} ref={ref} />;
   },
 );
 

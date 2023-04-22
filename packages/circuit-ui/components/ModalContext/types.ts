@@ -16,7 +16,6 @@
 import { Props as ReactModalProps } from 'react-modal';
 
 import { ClickEvent } from '../../types/events';
-import { TrackingProps } from '../../hooks/useClickEvent';
 
 type OnClose = (event?: ClickEvent) => void;
 
@@ -29,12 +28,6 @@ export interface BaseModalProps
    * Callback function that is called when the modal is closed.
    */
   onClose?: OnClose;
-  /**
-   * @deprecated
-   *
-   * Dispatch user interaction events when calling `setModal` and `removeModal` instead.
-   */
-  tracking?: TrackingProps;
 }
 
 export type ModalComponent<TProps extends BaseModalProps = BaseModalProps> = ((
