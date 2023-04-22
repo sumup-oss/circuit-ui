@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.7.0-canary.0
+
+### Minor Changes
+
+- [`050979f7`](https://github.com/sumup-oss/circuit-ui/commit/050979f7c52cff4eeabd3cb9118e9202e87b5543) Thanks [@connor-baer](https://github.com/connor-baer)! - Add experimental `DatePicker` component. The component is under active development and is likely to change significantly. Use at your own risk.
+
 ## 6.6.3
 
 ### Patch Changes
