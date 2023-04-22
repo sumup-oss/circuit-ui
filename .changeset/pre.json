@@ -8,5 +8,7 @@
     "@sumup/eslint-plugin-circuit-ui": "0.0.1",
     "@sumup/icons": "2.22.0"
   },
-  "changesets": []
+  "changesets": [
+    "stale-apes-type"
+  ]
 }
