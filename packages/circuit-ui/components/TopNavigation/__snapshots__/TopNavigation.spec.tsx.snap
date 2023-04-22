@@ -683,12 +683,12 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
         class="circuit-17"
       >
         <button
-          aria-controls="popover_2"
+          aria-controls=":r1:"
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Open profile menu"
           class="circuit-18"
-          id="trigger_1"
+          id=":r0:"
           title="Open profile menu"
           type="button"
         >

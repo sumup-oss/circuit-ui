@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import { Fragment, Ref, InputHTMLAttributes, forwardRef } from 'react';
+import { Fragment, Ref, InputHTMLAttributes, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, focusOutline } from '../../styles/style-mixins';
-import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
@@ -183,7 +182,7 @@ export const Selector = forwardRef(
     {
       children,
       value,
-      id,
+      id: customId,
       name,
       disabled,
       multiple,
@@ -196,7 +195,8 @@ export const Selector = forwardRef(
     }: SelectorProps,
     ref: SelectorProps['ref'],
   ) => {
-    const inputId = id || uniqueId('selector_');
+    const id = useId();
+    const inputId = customId || id;
     const type = multiple ? 'checkbox' : 'radio';
     const handleChange = useClickEvent(onChange, tracking, 'selector');
 

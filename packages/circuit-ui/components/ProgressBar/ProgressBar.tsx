@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
+import { useId } from 'react';
 import { css, keyframes } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography, hideVisually } from '../../styles/style-mixins';
-import { uniqueId } from '../../util/id';
 import { ReturnType } from '../../types/return-type';
 import { AccessibilityError } from '../../util/errors';
 
@@ -234,7 +234,7 @@ export function ProgressBar({
   ) {
     throw new AccessibilityError('ProgressBar', 'The `label` prop is missing.');
   }
-  const ariaId = uniqueId('progress-bar_');
+  const ariaId = useId();
   return (
     <ProgressBarWrapper {...props}>
       {max || value ? (

@@ -556,14 +556,14 @@ exports[`Carousel styles should render with children as a function 1`] = `
         class="circuit-42 circuit-43"
       >
         <span
-          aria-labelledby="progress-bar_6"
+          aria-labelledby=":r2:"
           class="circuit-44"
           loop=""
           role="progressbar"
         />
         <span
           class="circuit-45"
-          id="progress-bar_6"
+          id=":r2:"
         >
           1 / 3
         </span>
@@ -1242,14 +1242,14 @@ exports[`Carousel styles should render with children as a node 1`] = `
         class="circuit-42 circuit-43"
       >
         <span
-          aria-labelledby="progress-bar_8"
+          aria-labelledby=":r3:"
           class="circuit-44"
           loop=""
           role="progressbar"
         />
         <span
           class="circuit-45"
-          id="progress-bar_8"
+          id=":r3:"
         >
           1 / 3
         </span>
@@ -1927,14 +1927,14 @@ exports[`Carousel styles should render with default paused styles 1`] = `
         class="circuit-42 circuit-43"
       >
         <span
-          aria-labelledby="progress-bar_4"
+          aria-labelledby=":r1:"
           class="circuit-44"
           loop=""
           role="progressbar"
         />
         <span
           class="circuit-45"
-          id="progress-bar_4"
+          id=":r1:"
         >
           1 / 3
         </span>
@@ -2583,14 +2583,14 @@ exports[`Carousel styles should render with default styles 1`] = `
         class="circuit-42 circuit-43"
       >
         <span
-          aria-labelledby="progress-bar_2"
+          aria-labelledby=":r0:"
           class="circuit-44"
           loop=""
           role="progressbar"
         />
         <span
           class="circuit-45"
-          id="progress-bar_2"
+          id=":r0:"
         >
           1 / 3
         </span>

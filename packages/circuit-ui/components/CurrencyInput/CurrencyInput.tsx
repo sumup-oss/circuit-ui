@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 
-import { Ref, forwardRef } from 'react';
+import { Ref, forwardRef, useId } from 'react';
 import { resolveCurrencyFormat } from '@sumup/intl';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
 import styled from '../../styles/styled';
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
-import { uniqueId } from '../../util/id';
 
 import { formatPlaceholder } from './CurrencyInputService';
 
@@ -93,7 +92,7 @@ export const CurrencyInput = forwardRef(
     }: CurrencyInputProps,
     ref: CurrencyInputProps['ref'],
   ) => {
-    const currencySymbolId = uniqueId('currency-symbol_');
+    const currencySymbolId = useId();
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${currencySymbolId}`;

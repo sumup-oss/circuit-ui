@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { UIEventHandler, useEffect, useMemo, useState } from 'react';
+import { UIEventHandler, useEffect, useId, useState } from 'react';
 import { css } from '@emotion/react';
 import { Props as ReactModalProps } from 'react-modal';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { isFunction } from '../../util/type-check';
-import { uniqueId } from '../../util/id';
 import { AccessibilityError } from '../../util/errors';
 
 import { MobileSidePanel } from './components/MobileSidePanel';
@@ -145,7 +144,7 @@ export const SidePanel = ({
   }
 
   const [isHeaderSticky, setHeaderSticky] = useState(false);
-  const headerAriaId = useMemo(() => uniqueId('side-panel-header_'), []);
+  const headerAriaId = useId();
 
   useEffect(() => {
     setHeaderSticky(false);

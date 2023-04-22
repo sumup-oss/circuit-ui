@@ -18,13 +18,13 @@ import {
   Ref,
   InputHTMLAttributes,
   TextareaHTMLAttributes,
+  useId,
 } from 'react';
 import { css, Interpolation } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography, inputOutline } from '../../styles/style-mixins';
-import { uniqueId } from '../../util/id';
 import {
   FieldWrapper,
   FieldLabel,
@@ -265,8 +265,9 @@ export const Input = forwardRef(
       );
     }
 
-    const id = customId || uniqueId('input_');
-    const validationHintId = uniqueId('validation-hint_');
+    const id = useId();
+    const inputId = customId || id;
+    const validationHintId = useId();
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
@@ -279,7 +280,7 @@ export const Input = forwardRef(
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
-        <FieldLabel htmlFor={id}>
+        <FieldLabel htmlFor={inputId}>
           <FieldLabelText
             label={label}
             hideLabel={hideLabel}
@@ -291,7 +292,7 @@ export const Input = forwardRef(
           {prefix}
           <StyledInput
             as={as}
-            id={id}
+            id={inputId}
             value={value}
             ref={ref}
             aria-describedby={descriptionIds}

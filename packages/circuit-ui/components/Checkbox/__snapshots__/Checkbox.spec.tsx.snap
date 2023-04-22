@@ -123,16 +123,16 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
     class="circuit-0"
   >
     <input
-      aria-describedby="validation_hint-4"
+      aria-describedby=":r3:"
       checked=""
       class="circuit-1"
-      id="checkbox_3"
+      id=":r2:"
       type="checkbox"
       value=""
     />
     <label
       class="circuit-2"
-      for="checkbox_3"
+      for=":r2:"
     >
       Label
       <svg
@@ -280,15 +280,15 @@ exports[`Checkbox Styles should render with default styles 1`] = `
     class="circuit-0"
   >
     <input
-      aria-describedby="validation_hint-2"
+      aria-describedby=":r1:"
       class="circuit-1"
-      id="checkbox_1"
+      id=":r0:"
       type="checkbox"
       value=""
     />
     <label
       class="circuit-2"
-      for="checkbox_1"
+      for=":r0:"
     >
       Label
       <svg
@@ -436,16 +436,16 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
     class="cui-field-disabled circuit-0"
   >
     <input
-      aria-describedby="validation_hint-6"
+      aria-describedby=":r5:"
       class="circuit-1"
       disabled=""
-      id="checkbox_5"
+      id=":r4:"
       type="checkbox"
       value=""
     />
     <label
       class="circuit-2"
-      for="checkbox_5"
+      for=":r4:"
     >
       Label
       <svg
@@ -636,15 +636,15 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
     class="circuit-0"
   >
     <input
-      aria-describedby="validation_hint-8"
+      aria-describedby=":r7:"
       class="circuit-1"
-      id="checkbox_7"
+      id=":r6:"
       type="checkbox"
       value=""
     />
     <label
       class="circuit-2"
-      for="checkbox_7"
+      for=":r6:"
     >
       Label
       <svg
@@ -667,7 +667,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
     >
       <span
         class="circuit-3"
-        id="validation_hint-8"
+        id=":r7:"
       >
         <div
           class="circuit-4"

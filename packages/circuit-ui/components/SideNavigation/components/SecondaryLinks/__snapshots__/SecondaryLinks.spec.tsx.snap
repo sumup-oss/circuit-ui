@@ -199,7 +199,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
       <li>
         <a
           class="circuit-2"
-          data-focus-list="1"
+          data-focus-list=":r0:"
           href="/shop/shirts"
         >
           <span
@@ -216,7 +216,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
       <li>
         <a
           class="circuit-2"
-          data-focus-list="1"
+          data-focus-list=":r0:"
           href="/shop/pants"
         >
           <span
@@ -239,7 +239,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
         <a
           aria-current="page"
           class="circuit-9"
-          data-focus-list="1"
+          data-focus-list=":r0:"
           href="/shop/socks"
         >
           <span
@@ -272,7 +272,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
       <li>
         <a
           class="circuit-2"
-          data-focus-list="1"
+          data-focus-list=":r0:"
           href="/shop/toys"
         >
           <span
@@ -289,7 +289,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
       <li>
         <a
           class="circuit-2"
-          data-focus-list="1"
+          data-focus-list=":r0:"
           href="/shop/books"
         >
           <span

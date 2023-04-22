@@ -1,6 +1,6 @@
 import { create } from '@storybook/theming';
 import { light as theme } from '@sumup/design-tokens';
-import { Link } from './components';
+import Link from './components/Link';
 
 const brand = {
   brandTitle: 'Circuit UI',

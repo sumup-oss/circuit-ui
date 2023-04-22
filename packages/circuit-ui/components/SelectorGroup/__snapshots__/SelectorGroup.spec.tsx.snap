@@ -175,14 +175,14 @@ exports[`SelectorGroup should render with default styles 1`] = `
     >
       <input
         class="circuit-3"
-        id="selector_2"
-        name="selector-group_1"
+        id=":r1:"
+        name=":r0:"
         type="radio"
         value="first"
       />
       <label
         class="circuit-4"
-        for="selector_2"
+        for=":r1:"
       >
         Option 1
       </label>
@@ -192,14 +192,14 @@ exports[`SelectorGroup should render with default styles 1`] = `
     >
       <input
         class="circuit-3"
-        id="selector_3"
-        name="selector-group_1"
+        id=":r2:"
+        name=":r0:"
         type="radio"
         value="second"
       />
       <label
         class="circuit-4"
-        for="selector_3"
+        for=":r2:"
       >
         Option 2
       </label>
@@ -209,14 +209,14 @@ exports[`SelectorGroup should render with default styles 1`] = `
     >
       <input
         class="circuit-3"
-        id="selector_4"
-        name="selector-group_1"
+        id=":r3:"
+        name=":r0:"
         type="radio"
         value="third"
       />
       <label
         class="circuit-4"
-        for="selector_4"
+        for=":r3:"
       >
         Option 3
       </label>
@@ -400,14 +400,14 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
     >
       <input
         class="circuit-3"
-        id="selector_18"
-        name="selector-group_17"
+        id=":rh:"
+        name=":rg:"
         type="radio"
         value="first"
       />
       <label
         class="circuit-4"
-        for="selector_18"
+        for=":rh:"
       >
         Option 1
       </label>
@@ -417,14 +417,14 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
     >
       <input
         class="circuit-3"
-        id="selector_19"
-        name="selector-group_17"
+        id=":ri:"
+        name=":rg:"
         type="radio"
         value="second"
       />
       <label
         class="circuit-4"
-        for="selector_19"
+        for=":ri:"
       >
         Option 2
       </label>
@@ -434,14 +434,14 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
     >
       <input
         class="circuit-3"
-        id="selector_20"
-        name="selector-group_17"
+        id=":rj:"
+        name=":rg:"
         type="radio"
         value="third"
       />
       <label
         class="circuit-4"
-        for="selector_20"
+        for=":rj:"
       >
         Option 3
       </label>

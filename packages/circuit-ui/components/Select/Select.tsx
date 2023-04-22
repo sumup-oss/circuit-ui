@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import { ReactNode, Ref, SelectHTMLAttributes, forwardRef } from 'react';
+import { ReactNode, Ref, SelectHTMLAttributes, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
-import { uniqueId } from '../../util/id';
 import styled, { StyleProps } from '../../styles/styled';
 import { typography, inputOutline } from '../../styles/style-mixins';
 import { ReturnType } from '../../types/return-type';
@@ -263,8 +262,9 @@ export const Select = forwardRef(
         'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-    const id = customId || uniqueId('select_');
-    const validationHintId = uniqueId('validation-hint_');
+    const id = useId();
+    const selectId = customId || id;
+    const validationHintId = useId();
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
@@ -278,7 +278,7 @@ export const Select = forwardRef(
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
-        <FieldLabel htmlFor={id}>
+        <FieldLabel htmlFor={selectId}>
           <FieldLabelText
             label={label}
             hideLabel={hideLabel}
@@ -289,7 +289,7 @@ export const Select = forwardRef(
         <SelectWrapper>
           {prefix}
           <SelectElement
-            id={id}
+            id={selectId}
             value={value}
             ref={ref}
             aria-describedby={descriptionIds}

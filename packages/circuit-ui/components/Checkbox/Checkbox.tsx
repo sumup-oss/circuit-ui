@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { InputHTMLAttributes, Ref, forwardRef } from 'react';
+import { InputHTMLAttributes, Ref, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, focusOutline } from '../../styles/style-mixins';
-import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
 import { deprecate } from '../../util/logger';
@@ -219,8 +218,9 @@ export const Checkbox = forwardRef(
       throw new AccessibilityError('Checkbox', 'The `label` prop is missing.');
     }
 
-    const id = customId || uniqueId('checkbox_');
-    const validationHintId = uniqueId('validation_hint-');
+    const id = useId();
+    const checkboxId = customId || id;
+    const validationHintId = useId();
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
@@ -230,7 +230,7 @@ export const Checkbox = forwardRef(
       <CheckboxWrapper className={className} style={style} disabled={disabled}>
         <CheckboxInput
           {...props}
-          id={id}
+          id={checkboxId}
           name={name}
           value={value}
           type="checkbox"
@@ -240,7 +240,7 @@ export const Checkbox = forwardRef(
           aria-describedby={descriptionIds}
           onChange={handleChange}
         />
-        <CheckboxLabel htmlFor={id}>
+        <CheckboxLabel htmlFor={checkboxId}>
           {label || children}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>

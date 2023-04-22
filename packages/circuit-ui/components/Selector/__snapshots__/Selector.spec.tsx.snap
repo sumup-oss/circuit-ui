@@ -60,7 +60,7 @@ HTMLCollection [
 <input
     checked=""
     class="circuit-0"
-    id="selector_3"
+    id=":r2:"
     name="name"
     type="radio"
     value="value"
@@ -128,7 +128,7 @@ HTMLCollection [
 
 <label
     class="circuit-0"
-    for="selector_3"
+    for=":r2:"
   >
     Label
   </label>,
@@ -194,7 +194,7 @@ HTMLCollection [
 
 <input
     class="circuit-0"
-    id="selector_1"
+    id=":r0:"
     name="name"
     type="radio"
     value="value"
@@ -262,7 +262,7 @@ HTMLCollection [
 
 <label
     class="circuit-0"
-    for="selector_1"
+    for=":r0:"
   >
     Label
   </label>,
@@ -329,7 +329,7 @@ HTMLCollection [
 <input
     class="circuit-0"
     disabled=""
-    id="selector_2"
+    id=":r1:"
     name="name"
     type="radio"
     value="value"
@@ -397,7 +397,7 @@ HTMLCollection [
 
 <label
     class="circuit-0"
-    for="selector_2"
+    for=":r1:"
   >
     Label
   </label>,

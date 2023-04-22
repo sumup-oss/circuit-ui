@@ -257,7 +257,7 @@ exports[`SidePanel should match the snapshot 1`] = `
       class="ReactModal__Overlay circuit-0"
     >
       <div
-        aria-labelledby="the_one"
+        aria-labelledby=":r0:"
         aria-modal="true"
         class="circuit-1"
         role="dialog"
@@ -271,7 +271,7 @@ exports[`SidePanel should match the snapshot 1`] = `
           >
             <h2
               class="circuit-4"
-              id="the_one"
+              id=":r0:"
             >
               Side panel title
             </h2>
@@ -590,7 +590,7 @@ exports[`SidePanel when the panel is on mobile resolution should match the snaps
       class="circuit-0"
     >
       <div
-        aria-labelledby="the_one"
+        aria-labelledby=":rd:"
         aria-modal="true"
         class="circuit-1"
         role="dialog"
@@ -604,7 +604,7 @@ exports[`SidePanel when the panel is on mobile resolution should match the snaps
           >
             <h2
               class="circuit-4"
-              id="the_one"
+              id=":rd:"
             >
               Side panel title
             </h2>

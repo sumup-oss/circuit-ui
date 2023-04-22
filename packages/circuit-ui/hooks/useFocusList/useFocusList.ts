@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import { KeyboardEvent, useCallback, useRef } from 'react';
+import { KeyboardEvent, useCallback, useId } from 'react';
 
-import { uniqueId } from '../../util/id';
 import { isArrowDown, isArrowUp } from '../../util/key-codes';
 
 export type FocusProps = {
@@ -28,29 +27,32 @@ export type FocusProps = {
  * Spread the props returned by the hook onto each list item.
  */
 export function useFocusList(): FocusProps {
-  const name = useRef(uniqueId());
+  const name = useId();
 
-  const onKeyDown = useCallback((event: KeyboardEvent) => {
-    if (!isArrowUp(event) && !isArrowDown(event)) {
-      return;
-    }
+  const onKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (!isArrowUp(event) && !isArrowDown(event)) {
+        return;
+      }
 
-    event.preventDefault();
+      event.preventDefault();
 
-    const items = document.querySelectorAll<HTMLElement>(
-      `[data-focus-list="${name.current}"]`,
-    );
-    const currentEl = event.target as HTMLElement;
-    const currentIndex = Array.from(items).indexOf(currentEl);
-    const newIndex = isArrowUp(event)
-      ? getPrevIndex(currentIndex, items.length)
-      : getNextIndex(currentIndex, items.length);
-    const newEl = items.item(newIndex);
+      const items = document.querySelectorAll<HTMLElement>(
+        `[data-focus-list="${name}"]`,
+      );
+      const currentEl = event.target as HTMLElement;
+      const currentIndex = Array.from(items).indexOf(currentEl);
+      const newIndex = isArrowUp(event)
+        ? getPrevIndex(currentIndex, items.length)
+        : getNextIndex(currentIndex, items.length);
+      const newEl = items.item(newIndex);
 
-    newEl.focus();
-  }, []);
+      newEl.focus();
+    },
+    [name],
+  );
 
-  return { 'data-focus-list': name.current, onKeyDown };
+  return { 'data-focus-list': name, onKeyDown };
 }
 
 function getPrevIndex(currentIndex: number, length: number): number {

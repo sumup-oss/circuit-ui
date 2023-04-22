@@ -20,7 +20,7 @@ import {
   Fragment,
   Ref,
   useEffect,
-  useMemo,
+  useId,
   useRef,
   KeyboardEvent,
   AnchorHTMLAttributes,
@@ -42,7 +42,6 @@ import { ClickEvent } from '../../types/events';
 import { EmotionAsPropType } from '../../types/prop-types';
 import styled, { StyleProps } from '../../styles/styled';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
-import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useClickOutside } from '../../hooks/useClickOutside';
@@ -290,8 +289,8 @@ export const Popover = ({
   const zIndex = useStackContext();
   const triggerKey = useRef<TriggerKey | null>(null);
   const menuEl = useRef<HTMLDivElement>(null);
-  const triggerId = useMemo(() => uniqueId('trigger_'), []);
-  const menuId = useMemo(() => uniqueId('popover_'), []);
+  const triggerId = useId();
+  const menuId = useId();
 
   const sendEvent = useClickTrigger();
 
