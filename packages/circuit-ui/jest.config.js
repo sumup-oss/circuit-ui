@@ -25,4 +25,8 @@ module.exports = {
   rootDir: '../..',
   roots: [`<rootDir>/packages/${packageName}`],
   setupFilesAfterEnv: [`<rootDir>/packages/${packageName}/jest.setup.js`],
+  transformIgnorePatterns: [
+    '<rootDir>/node_modules/(?!(@lit-labs|wc-datepicker|@stencil)).+\\.js$',
+    '<rootDir>/packages/circuit-ui/node_modules/(?!(@lit-labs|wc-datepicker|@stencil)).+\\.js$',
+  ],
 };
