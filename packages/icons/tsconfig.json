@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   },
   "include": ["scripts/*"]
 }

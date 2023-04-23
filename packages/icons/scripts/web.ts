@@ -13,29 +13,25 @@
  * limitations under the License.
  */
 
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import dedent from 'dedent';
-import { entries, flow, groupBy, map } from 'lodash/fp';
 import { transformSync } from '@babel/core';
 
-import manifest from '../manifest.json';
+import manifest from '../manifest.json' assert { type: 'json' };
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const BASE_DIR = path.join(__dirname, '..');
 const ICON_DIR = path.join(BASE_DIR, './web/v2');
 const DIST_DIR = path.join(BASE_DIR, 'dist');
 
-enum IconSize {
-  SIZE_16 = '16',
-  SIZE_24 = '24',
-  SIZE_32 = '32',
-}
-
 type Icon = {
   name: string;
   category: string;
-  size: IconSize;
+  size: '16' | '24' | '32';
 };
 
 type Component = {
@@ -76,7 +72,7 @@ function buildComponentFile(component: Component): string {
   }' icon. Please use one of the available sizes: '${sizes.join("', '")}'.`;
 
   /**
-   * TODO look into whether we still need the React import here
+   * TODO: look into whether we still need the React import here
    */
   return dedent`
     import React from 'react';
@@ -118,7 +114,7 @@ function buildDeclarationFile(components: Component[]): string {
   });
   const exportNames = components.map((file) => file.name);
   return dedent`
-    import { FC, SVGProps } from 'react';
+    import type { FC, SVGProps } from 'react';
 
     export interface IconProps<Sizes = '16' | '24' | '32'> extends SVGProps<SVGSVGElement> {
       /**
@@ -141,26 +137,15 @@ function buildDeclarationFile(components: Component[]): string {
   `;
 }
 
-function transpileMain(fileName: string, code: string): void {
-  const distDir = path.join(DIST_DIR, 'cjs');
-  const output = transformSync(code, {
-    cwd: BASE_DIR,
-    presets: ['@babel/preset-env', '@babel/preset-react'],
-    plugins: [['inline-react-svg', { svgo: false }]],
-    filename: fileName,
-  })?.code as string;
-  writeFile(distDir, fileName, output);
-}
-
 function transpileModule(fileName: string, code: string): void {
-  const distDir = path.join(DIST_DIR, 'es');
   const output = transformSync(code, {
     cwd: BASE_DIR,
+    targets: { esmodules: true },
     presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
     plugins: [['inline-react-svg', { svgo: false }]],
     filename: fileName,
   })?.code as string;
-  writeFile(distDir, fileName, output);
+  writeFile(DIST_DIR, fileName, output);
 }
 
 function writeFile(dir: string, fileName: string, fileContent: string): void {
@@ -177,14 +162,18 @@ function writeFile(dir: string, fileName: string, fileContent: string): void {
 }
 
 function main(): void {
-  const components = flow(
-    groupBy('name'),
-    entries,
-    map((group: [string, Icon[]]) => ({
-      name: getComponentName(group[0]),
-      icons: group[1],
-    })),
-  )(manifest.icons) as Component[];
+  const icons = manifest.icons as Icon[];
+  const iconsByName = icons.reduce((acc, icon) => {
+    acc[icon.name] = acc[icon.name] || [];
+    acc[icon.name].push(icon);
+    return acc;
+  }, {} as Record<string, Icon[]>);
+  const components: Component[] = Object.entries(iconsByName).map(
+    ([name, icons]) => ({
+      name: getComponentName(name),
+      icons,
+    }),
+  );
 
   const indexRaw = buildIndexFile(components);
   const declarationFile = buildDeclarationFile(components);
@@ -192,11 +181,9 @@ function main(): void {
   components.forEach((component) => {
     const componentFileName = `${component.name}.js`;
     const componentRaw = buildComponentFile(component);
-    transpileMain(componentFileName, componentRaw);
     transpileModule(componentFileName, componentRaw);
   });
 
-  transpileMain('index.js', indexRaw);
   transpileModule('index.js', indexRaw);
 
   writeFile(DIST_DIR, 'index.d.ts', declarationFile);
