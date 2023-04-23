@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ButtonGroup should render aligned to the center 1`] = `
+exports[`ButtonGroup > should render aligned to the center 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -335,7 +335,7 @@ exports[`ButtonGroup should render aligned to the center 1`] = `
 </div>
 `;
 
-exports[`ButtonGroup should render aligned to the left 1`] = `
+exports[`ButtonGroup > should render aligned to the left 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -670,7 +670,7 @@ exports[`ButtonGroup should render aligned to the left 1`] = `
 </div>
 `;
 
-exports[`ButtonGroup should render aligned to the right 1`] = `
+exports[`ButtonGroup > should render aligned to the right 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -1005,7 +1005,7 @@ exports[`ButtonGroup should render aligned to the right 1`] = `
 </div>
 `;
 
-exports[`ButtonGroup should render with default styles 1`] = `
+exports[`ButtonGroup > should render with default styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);

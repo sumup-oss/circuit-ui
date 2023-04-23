@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { afterEach, describe, expect, it, vi } from 'vitest';
+
 import * as StepService from './StepService';
 
 describe('StepService', () => {
@@ -98,14 +100,14 @@ describe('StepService', () => {
 
   describe('generatePropGetters', () => {
     afterEach(() => {
-      jest.resetAllMocks();
+      vi.resetAllMocks();
     });
 
     const actions = {
-      play: jest.fn(),
-      pause: jest.fn(),
-      next: jest.fn(),
-      previous: jest.fn(),
+      play: vi.fn(),
+      pause: vi.fn(),
+      next: vi.fn(),
+      previous: vi.fn(),
     };
 
     it('should return all necessary getters', () => {
@@ -155,7 +157,7 @@ describe('StepService', () => {
       const getters = StepService.generatePropGetters(actions);
       const customProps = {
         foo: 'bar',
-        onCopy: jest.fn(),
+        onCopy: vi.fn(),
       };
 
       expect(getters.getPlayControlProps(customProps)).toMatchObject(
@@ -174,7 +176,7 @@ describe('StepService', () => {
 
     it('should not allow custom props to overwrite action onclick handler', () => {
       const customProps = {
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       };
       const getters = StepService.generatePropGetters(actions);
 

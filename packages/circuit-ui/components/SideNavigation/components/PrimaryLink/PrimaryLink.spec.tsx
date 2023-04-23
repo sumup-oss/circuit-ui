@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { FC } from 'react';
 import { IconProps, Plus } from '@sumup/icons';
 
@@ -39,7 +40,7 @@ describe('PrimaryLink', () => {
     icon: Plus as FC<IconProps>,
     label: 'Label',
     href: '/url',
-    onClick: jest.fn(),
+    onClick: vi.fn(),
   };
 
   describe('styles', () => {
@@ -88,7 +89,7 @@ describe('PrimaryLink', () => {
     it('should call the onClick handler when clicked', async () => {
       const props = {
         ...baseProps,
-        onClick: jest.fn((event: ClickEvent) => {
+        onClick: vi.fn((event: ClickEvent) => {
           event.preventDefault();
         }),
       };

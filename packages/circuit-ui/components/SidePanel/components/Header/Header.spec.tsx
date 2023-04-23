@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { render, userEvent, axe } from '../../../../util/test-utils';
 
 import { Header, HeaderProps } from './Header';
@@ -47,7 +49,7 @@ describe('Header', () => {
   });
 
   it('should call the onClose callback from the close button', async () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const { getByTitle } = renderComponent({ onClose });
 
     await userEvent.click(getByTitle(baseProps.closeButtonLabel));
@@ -56,7 +58,7 @@ describe('Header', () => {
   });
 
   it('should show the back button when onBack is passed', () => {
-    const onBack = jest.fn();
+    const onBack = vi.fn();
     const { getByTitle } = renderComponent({
       onBack,
     });
@@ -65,7 +67,7 @@ describe('Header', () => {
   });
 
   it('should call the onBack callback from the back button', async () => {
-    const onBack = jest.fn();
+    const onBack = vi.fn();
     const { getByTitle } = renderComponent({
       onBack,
     });

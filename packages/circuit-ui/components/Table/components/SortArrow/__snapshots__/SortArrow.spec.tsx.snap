@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SortArrow Style tests should render with ascending arrow styles 1`] = `
+exports[`SortArrow > Style tests > should render with ascending arrow styles 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -84,7 +84,7 @@ exports[`SortArrow Style tests should render with ascending arrow styles 1`] = `
 </button>
 `;
 
-exports[`SortArrow Style tests should render with both arrows styles 1`] = `
+exports[`SortArrow > Style tests > should render with both arrows styles 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -181,7 +181,7 @@ exports[`SortArrow Style tests should render with both arrows styles 1`] = `
 </button>
 `;
 
-exports[`SortArrow Style tests should render with descending arrow styles 1`] = `
+exports[`SortArrow > Style tests > should render with descending arrow styles 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;

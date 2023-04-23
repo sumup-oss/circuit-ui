@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Popover Styles should render popover on bottom 1`] = `
+exports[`Popover > Styles > should render popover on bottom 1`] = `
 .circuit-0 {
   display: inline-block;
 }
@@ -269,7 +269,7 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 </body>
 `;
 
-exports[`Popover Styles should render popover on left 1`] = `
+exports[`Popover > Styles > should render popover on left 1`] = `
 .circuit-0 {
   display: inline-block;
 }
@@ -538,7 +538,7 @@ exports[`Popover Styles should render popover on left 1`] = `
 </body>
 `;
 
-exports[`Popover Styles should render popover on right 1`] = `
+exports[`Popover > Styles > should render popover on right 1`] = `
 .circuit-0 {
   display: inline-block;
 }
@@ -807,7 +807,7 @@ exports[`Popover Styles should render popover on right 1`] = `
 </body>
 `;
 
-exports[`Popover Styles should render popover on top 1`] = `
+exports[`Popover > Styles > should render popover on top 1`] = `
 .circuit-0 {
   display: inline-block;
 }
@@ -1076,7 +1076,7 @@ exports[`Popover Styles should render popover on top 1`] = `
 </body>
 `;
 
-exports[`Popover Styles should render with closed styles 1`] = `
+exports[`Popover > Styles > should render with closed styles 1`] = `
 .circuit-0 {
   display: inline-block;
 }
@@ -1327,7 +1327,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
 </body>
 `;
 
-exports[`Popover Styles should render with default styles 1`] = `
+exports[`Popover > Styles > should render with default styles 1`] = `
 .circuit-0 {
   display: inline-block;
 }

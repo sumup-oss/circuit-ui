@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tooltip should override alignment styles with position styles 1`] = `
+exports[`Tooltip > should override alignment styles with position styles 1`] = `
 .circuit-0 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -49,13 +49,13 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Tooltip content
 </div>
 `;
 
-exports[`Tooltip should render with align bottom, when passed "bottom" for the align prop 1`] = `
+exports[`Tooltip > should render with align bottom, when passed "bottom" for the align prop 1`] = `
 .circuit-0 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -97,13 +97,13 @@ exports[`Tooltip should render with align bottom, when passed "bottom" for the a
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Tooltip content
 </div>
 `;
 
-exports[`Tooltip should render with align center, when passed "center" for the align prop 1`] = `
+exports[`Tooltip > should render with align center, when passed "center" for the align prop 1`] = `
 .circuit-0 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -152,13 +152,13 @@ exports[`Tooltip should render with align center, when passed "center" for the a
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Tooltip content
 </div>
 `;
 
-exports[`Tooltip should render with align left, when passed "left" for the align prop 1`] = `
+exports[`Tooltip > should render with align left, when passed "left" for the align prop 1`] = `
 .circuit-0 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -207,13 +207,13 @@ exports[`Tooltip should render with align left, when passed "left" for the align
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Tooltip content
 </div>
 `;
 
-exports[`Tooltip should render with align right, when passed "right" for the align prop 1`] = `
+exports[`Tooltip > should render with align right, when passed "right" for the align prop 1`] = `
 .circuit-0 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -262,13 +262,13 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Tooltip content
 </div>
 `;
 
-exports[`Tooltip should render with align top, when passed "top" for the align prop 1`] = `
+exports[`Tooltip > should render with align top, when passed "top" for the align prop 1`] = `
 .circuit-0 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -310,13 +310,13 @@ exports[`Tooltip should render with align top, when passed "top" for the align p
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Tooltip content
 </div>
 `;
 
-exports[`Tooltip should render with position bottom, when passed "bottom" for the position prop 1`] = `
+exports[`Tooltip > should render with position bottom, when passed "bottom" for the position prop 1`] = `
 .circuit-0 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -365,13 +365,13 @@ exports[`Tooltip should render with position bottom, when passed "bottom" for th
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Tooltip content
 </div>
 `;
 
-exports[`Tooltip should render with position left, when passed "left" for the position prop 1`] = `
+exports[`Tooltip > should render with position left, when passed "left" for the position prop 1`] = `
 .circuit-0 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -420,13 +420,13 @@ exports[`Tooltip should render with position left, when passed "left" for the po
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Tooltip content
 </div>
 `;
 
-exports[`Tooltip should render with position right, when passed "right" for the position prop 1`] = `
+exports[`Tooltip > should render with position right, when passed "right" for the position prop 1`] = `
 .circuit-0 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -475,13 +475,13 @@ exports[`Tooltip should render with position right, when passed "right" for the 
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Tooltip content
 </div>
 `;
 
-exports[`Tooltip should render with position top, when passed "top" for the position prop 1`] = `
+exports[`Tooltip > should render with position top, when passed "top" for the position prop 1`] = `
 .circuit-0 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -530,7 +530,7 @@ exports[`Tooltip should render with position top, when passed "top" for the posi
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Tooltip content
 </div>

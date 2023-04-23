@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   isArray,
   isFunction,
@@ -25,7 +27,7 @@ import {
 describe('type check', () => {
   describe('isFunction', () => {
     it('should return true for a function', () => {
-      const actual = isFunction(jest.fn());
+      const actual = isFunction(vi.fn());
       expect(actual).toBeTruthy();
     });
 
@@ -131,7 +133,7 @@ describe('type check', () => {
     });
 
     it('should return false for a function', () => {
-      const actual = isArray(jest.fn());
+      const actual = isArray(vi.fn());
       expect(actual).toBeFalsy();
     });
 
@@ -158,7 +160,7 @@ describe('type check', () => {
     });
 
     it('should return false for a function', () => {
-      const actual = isObject(jest.fn());
+      const actual = isObject(vi.fn());
       expect(actual).toBeFalsy();
     });
 
@@ -190,7 +192,7 @@ describe('type check', () => {
     });
 
     it('should return false for a function', () => {
-      const actual = isNil(jest.fn());
+      const actual = isNil(vi.fn());
       expect(actual).toBeFalsy();
     });
 

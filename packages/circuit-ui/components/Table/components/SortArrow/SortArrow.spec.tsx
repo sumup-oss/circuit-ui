@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   create,
   render,
@@ -43,7 +45,7 @@ describe('SortArrow', () => {
 
   describe('Logic tests', () => {
     it('should call the onClick callback', async () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       const { getByTestId } = render(
         <SortArrow label="Sort" onClick={onClick} data-testid="sort" />,
       );

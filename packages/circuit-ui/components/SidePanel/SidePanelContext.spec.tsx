@@ -13,6 +13,17 @@
  * limitations under the License.
  */
 
+import {
+  Mock,
+  afterAll,
+  afterEach,
+  beforeAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { useContext } from 'react';
 
 import {
@@ -33,24 +44,24 @@ import {
   SidePanelContextProps,
 } from './SidePanelContext';
 
-jest.mock('../../hooks/useMedia');
+vi.mock('../../hooks/useMedia');
 
 describe('SidePanelContext', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   beforeEach(() => {
-    (useMedia as jest.Mock).mockReturnValue(false);
+    (useMedia as Mock).mockReturnValue(false);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
-    jest.resetModules();
+    vi.useRealTimers();
+    vi.resetModules();
   });
 
   /**
@@ -144,7 +155,7 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        (useMedia as jest.Mock).mockReturnValue(true);
+        (useMedia as Mock).mockReturnValue(true);
 
         const { baseElement, getByText } = renderComponent(Trigger);
 
@@ -274,7 +285,7 @@ describe('SidePanelContext', () => {
         await userEvent.click(getByText('Close panel'));
 
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(queryByRole('dialog')).toBeNull();
@@ -307,7 +318,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Close panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(queryByRole('dialog')).toBeNull();
@@ -339,7 +350,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Close panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(getAllByRole('dialog')).toHaveLength(1);
@@ -365,14 +376,14 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Close panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(getByRole('dialog')).toBeVisible();
       });
 
       it('should call the onClose callback of the side panel', async () => {
-        const onClose = jest.fn();
+        const onClose = vi.fn();
         const Trigger = () => {
           const { setSidePanel, removeSidePanel } =
             useContext(SidePanelContext);
@@ -390,7 +401,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Close panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(onClose).toHaveBeenCalled();
@@ -420,7 +431,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Update panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(getByTestId('children')).toHaveTextContent('Updated content');
@@ -452,7 +463,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Update panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(getByTestId('children')).toHaveTextContent('Side panel content');

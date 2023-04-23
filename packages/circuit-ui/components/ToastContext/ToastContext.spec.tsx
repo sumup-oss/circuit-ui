@@ -13,6 +13,15 @@
  * limitations under the License.
  */
 
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { useContext } from 'react';
 
 import {
@@ -37,14 +46,14 @@ Toast.TRANSITION_DURATION = 200;
 
 describe('ToastContext', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
   afterAll(() => {
-    jest.useRealTimers();
-    jest.resetModules();
+    vi.useRealTimers();
+    vi.resetModules();
   });
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   /**
@@ -54,7 +63,7 @@ describe('ToastContext', () => {
   const userEvent = baseUserEvent.setup({ delay: null });
 
   describe('ToastProvider', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const toast = {
       id: 'initial',
       component: Toast,

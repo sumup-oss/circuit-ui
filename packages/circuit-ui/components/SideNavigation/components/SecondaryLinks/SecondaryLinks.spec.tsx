@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { ClickEvent } from '../../../../types/events';
 import {
   create,
@@ -39,18 +41,18 @@ describe('SecondaryLinks', () => {
           {
             label: 'Shirts',
             href: '/shop/shirts',
-            onClick: jest.fn(),
+            onClick: vi.fn(),
           },
           {
             label: 'Pants',
             href: '/shop/pants',
-            onClick: jest.fn(),
+            onClick: vi.fn(),
             badge: { children: 'New' },
           },
           {
             label: 'Socks',
             href: '/shop/socks',
-            onClick: jest.fn(),
+            onClick: vi.fn(),
             isActive: true,
           },
         ],
@@ -61,12 +63,12 @@ describe('SecondaryLinks', () => {
           {
             label: 'Toys',
             href: '/shop/toys',
-            onClick: jest.fn(),
+            onClick: vi.fn(),
           },
           {
             label: 'Books',
             href: '/shop/books',
-            onClick: jest.fn(),
+            onClick: vi.fn(),
           },
         ],
       },
@@ -82,7 +84,7 @@ describe('SecondaryLinks', () => {
 
   describe('business logic', () => {
     it('should call the onClick handler when clicked', async () => {
-      const onClick = jest.fn((event: ClickEvent) => {
+      const onClick = vi.fn((event: ClickEvent) => {
         event.preventDefault();
       });
       const props = {

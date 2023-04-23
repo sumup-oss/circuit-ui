@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { render } from '../../util/test-utils';
 
 import { SingleDayPicker } from '.';
 
-const props = { onDateChange: jest.fn(), onFocusChange: jest.fn() };
+const props = { onDateChange: vi.fn(), onFocusChange: vi.fn() };
 
 describe('SingleDayPicker', () => {
   /**

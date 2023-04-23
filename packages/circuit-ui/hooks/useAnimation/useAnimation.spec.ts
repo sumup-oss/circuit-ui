@@ -13,13 +13,15 @@
  * limitations under the License.
  */
 
+import { beforeAll, describe, expect, it, vi } from 'vitest';
+
 import { renderHook, act } from '../../util/test-utils';
 
 import { useAnimation } from './useAnimation';
 
 describe('useAnimation', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   it('should return the animation state and a callback', () => {
@@ -33,8 +35,8 @@ describe('useAnimation', () => {
   it('should run the animation when the callback is called', () => {
     const animation = {
       duration: 500,
-      onStart: jest.fn(),
-      onEnd: jest.fn(),
+      onStart: vi.fn(),
+      onEnd: vi.fn(),
     };
     const { result } = renderHook(() => useAnimation());
     const [, animateFn] = result.current;
@@ -46,7 +48,7 @@ describe('useAnimation', () => {
     expect(result.current[0]).toBeTruthy();
 
     act(() => {
-      jest.advanceTimersByTime(animation.duration);
+      vi.advanceTimersByTime(animation.duration);
     });
 
     expect(result.current[0]).toBeFalsy();
@@ -55,8 +57,8 @@ describe('useAnimation', () => {
   it('should call onStart at the start of the animation', () => {
     const animation = {
       duration: 500,
-      onStart: jest.fn(),
-      onEnd: jest.fn(),
+      onStart: vi.fn(),
+      onEnd: vi.fn(),
     };
     const { result } = renderHook(() => useAnimation());
     const [, animateFn] = result.current;
@@ -68,7 +70,7 @@ describe('useAnimation', () => {
     expect(animation.onStart).toHaveBeenCalledTimes(1);
 
     act(() => {
-      jest.advanceTimersByTime(animation.duration);
+      vi.advanceTimersByTime(animation.duration);
     });
 
     expect(animation.onStart).toHaveBeenCalledTimes(1);
@@ -77,8 +79,8 @@ describe('useAnimation', () => {
   it('should call onEnd at the end of the animation', () => {
     const animation = {
       duration: 500,
-      onStart: jest.fn(),
-      onEnd: jest.fn(),
+      onStart: vi.fn(),
+      onEnd: vi.fn(),
     };
     const { result } = renderHook(() => useAnimation());
     const [, animateFn] = result.current;
@@ -90,7 +92,7 @@ describe('useAnimation', () => {
     expect(animation.onEnd).not.toHaveBeenCalled();
 
     act(() => {
-      jest.advanceTimersByTime(animation.duration);
+      vi.advanceTimersByTime(animation.duration);
     });
 
     expect(animation.onEnd).toHaveBeenCalledTimes(1);

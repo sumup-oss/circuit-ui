@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { renderHook, act } from '../../util/test-utils';
 
 import { createUseModal } from './createUseModal';
@@ -29,8 +31,8 @@ Modal.TRANSITION_DURATION = 200;
 describe('createUseModal', () => {
   const useModal = createUseModal(Modal);
 
-  const setModal = jest.fn();
-  const removeModal = jest.fn();
+  const setModal = vi.fn();
+  const removeModal = vi.fn();
 
   const wrapper = ({ children }) => (
     <ModalContext.Provider value={{ setModal, removeModal }}>

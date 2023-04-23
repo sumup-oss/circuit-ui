@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it } from 'vitest';
+
 import * as PaginationService from './PaginationService';
 
 describe('PaginationService', () => {

@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { IconProps, More } from '@sumup/icons';
 import { KeyboardEvent, MouseEvent, FC } from 'react';
 
@@ -32,7 +33,7 @@ describe('UtilityLinks', () => {
         icon: More as FC<IconProps>,
         label: 'More',
         href: '/more',
-        onClick: jest.fn((event: MouseEvent | KeyboardEvent) => {
+        onClick: vi.fn((event: MouseEvent | KeyboardEvent) => {
           event.preventDefault();
         }),
       },

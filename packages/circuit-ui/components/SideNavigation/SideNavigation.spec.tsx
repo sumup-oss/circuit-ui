@@ -14,6 +14,7 @@
  */
 
 /* eslint-disable react/display-name */
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { Shop } from '@sumup/icons';
 
 import { render, axe, RenderFn, waitFor } from '../../util/test-utils';
@@ -25,15 +26,15 @@ describe('SideNavigation', () => {
   function setMediaMatches(matches: boolean) {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: jest.fn().mockImplementation((query: string) => ({
+      value: vi.fn().mockImplementation((query: string) => ({
         matches,
         media: query,
         onchange: null,
-        addListener: jest.fn(), // Deprecated
-        removeListener: jest.fn(), // Deprecated
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
+        addListener: vi.fn(), // Deprecated
+        removeListener: vi.fn(), // Deprecated
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
       })),
     });
   }
@@ -51,7 +52,7 @@ describe('SideNavigation', () => {
 
   const baseProps = {
     isOpen: false,
-    onClose: jest.fn(),
+    onClose: vi.fn(),
     closeButtonLabel: 'Close navigation modal',
     primaryNavigationLabel: 'Primary',
     secondaryNavigationLabel: 'Secondary',
@@ -64,7 +65,7 @@ describe('SideNavigation', () => {
         icon: (iconProps) => <Shop {...iconProps} size="24" />,
         label: 'Shop',
         href: '/shop',
-        onClick: jest.fn(),
+        onClick: vi.fn(),
         isActive: true,
         secondaryGroups: [
           {
@@ -73,12 +74,12 @@ describe('SideNavigation', () => {
               {
                 label: 'Toys',
                 href: '/shop/toys',
-                onClick: jest.fn(),
+                onClick: vi.fn(),
               },
               {
                 label: 'Books',
                 href: '/shop/books',
-                onClick: jest.fn(),
+                onClick: vi.fn(),
               },
             ],
           },

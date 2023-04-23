@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   create,
   render,
@@ -41,7 +43,7 @@ describe('CardHeader', () => {
     const closeButtonLabel = 'Close';
 
     const { getByRole } = render(
-      <CardHeader closeButtonLabel="Close" onClose={jest.fn()}>
+      <CardHeader closeButtonLabel="Close" onClose={vi.fn()}>
         {children}
       </CardHeader>,
     );
@@ -52,7 +54,7 @@ describe('CardHeader', () => {
   });
 
   it('should call the onClose prop when the close button is clicked', async () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
 
     const { getByRole } = render(
       <CardHeader closeButtonLabel="Close" onClose={onClose}>

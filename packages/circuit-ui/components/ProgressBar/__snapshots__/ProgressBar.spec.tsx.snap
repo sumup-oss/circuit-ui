@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ProgressBar step-based should render with a hidden label 1`] = `
+exports[`ProgressBar > step-based > should render with a hidden label 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -80,7 +80,7 @@ exports[`ProgressBar step-based should render with a hidden label 1`] = `
 </div>
 `;
 
-exports[`ProgressBar step-based should render with default styles 1`] = `
+exports[`ProgressBar > step-based > should render with default styles 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -151,7 +151,7 @@ exports[`ProgressBar step-based should render with default styles 1`] = `
 </div>
 `;
 
-exports[`ProgressBar time-based should render with a hidden label 1`] = `
+exports[`ProgressBar > time-based > should render with a hidden label 1`] = `
 @keyframes animation-0 {
   0% {
     width: 0%;
@@ -246,7 +246,7 @@ exports[`ProgressBar time-based should render with a hidden label 1`] = `
 </div>
 `;
 
-exports[`ProgressBar time-based should render with default styles 1`] = `
+exports[`ProgressBar > time-based > should render with default styles 1`] = `
 @keyframes animation-0 {
   0% {
     width: 0%;
@@ -332,7 +332,7 @@ exports[`ProgressBar time-based should render with default styles 1`] = `
 </div>
 `;
 
-exports[`ProgressBar time-based should render with loop styles 1`] = `
+exports[`ProgressBar > time-based > should render with loop styles 1`] = `
 @keyframes animation-0 {
   0% {
     width: 0%;
@@ -435,7 +435,7 @@ exports[`ProgressBar time-based should render with loop styles 1`] = `
 </div>
 `;
 
-exports[`ProgressBar time-based should render with paused styles 1`] = `
+exports[`ProgressBar > time-based > should render with paused styles 1`] = `
 @keyframes animation-0 {
   0% {
     width: 0%;

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { act, axe, fireEvent, render } from '../../util/test-utils';
 
 import Sidebar from './Sidebar';
@@ -26,7 +28,7 @@ describe('Sidebar', () => {
     const props = {
       ...baseProps,
       open: false,
-      onClose: jest.fn(),
+      onClose: vi.fn(),
     };
     const { container } = render(<Sidebar {...props} />);
     expect(container).toMatchSnapshot();
@@ -36,7 +38,7 @@ describe('Sidebar', () => {
     const props = {
       ...baseProps,
       open: true,
-      onClose: jest.fn(),
+      onClose: vi.fn(),
     };
     const { container } = render(<Sidebar {...props} />);
     expect(container).toMatchSnapshot();
@@ -46,7 +48,7 @@ describe('Sidebar', () => {
     const props = {
       ...baseProps,
       open: true,
-      onClose: jest.fn(),
+      onClose: vi.fn(),
     };
     const { getByTestId } = render(<Sidebar {...props} />);
     act(() => {
@@ -59,7 +61,7 @@ describe('Sidebar', () => {
     const props = {
       ...baseProps,
       open: true,
-      onClose: jest.fn(),
+      onClose: vi.fn(),
     };
     const { getByTestId } = render(<Sidebar {...props} />);
     act(() => {

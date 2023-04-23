@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { render, axe } from '../../util/test-utils';
@@ -30,7 +31,7 @@ describe('Select', () => {
   };
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('Styles', () => {
@@ -137,7 +138,7 @@ describe('Select', () => {
           {...defaultProps}
           placeholder={placeholder}
           value={value}
-          onChange={jest.fn}
+          onChange={vi.fn}
         />,
       );
       const selectEl = getByRole('combobox');

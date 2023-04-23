@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import {
@@ -104,7 +105,7 @@ describe('ListItemGroup', () => {
         ...baseProps,
         items: baseProps.items.map((item) => ({
           ...item,
-          onClick: jest.fn(),
+          onClick: vi.fn(),
         })),
       });
 
@@ -116,7 +117,7 @@ describe('ListItemGroup', () => {
         ...baseProps,
         items: baseProps.items.map((item) => ({
           ...item,
-          onClick: jest.fn(),
+          onClick: vi.fn(),
         })),
       });
 
@@ -131,7 +132,7 @@ describe('ListItemGroup', () => {
         ...baseProps,
         items: baseProps.items.map((item) => ({
           ...item,
-          onClick: jest.fn(),
+          onClick: vi.fn(),
           selected: item.key === 1,
         })),
       });
@@ -144,7 +145,7 @@ describe('ListItemGroup', () => {
         ...baseProps,
         items: baseProps.items.map((item) => ({
           ...item,
-          onClick: jest.fn(),
+          onClick: vi.fn(),
           selected: item.key === 1,
         })),
         variant: 'plain',
@@ -182,7 +183,7 @@ describe('ListItemGroup', () => {
         ...baseProps,
         items: baseProps.items.map((item) => ({
           ...item,
-          onClick: jest.fn(),
+          onClick: vi.fn(),
           selected: item.key === 1,
         })),
       });

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`NavLabel styles should render and match snapshot when secondary 1`] = `
+exports[`NavLabel > styles > should render and match snapshot when secondary 1`] = `
 .circuit-0 {
   display: block;
   margin-left: 12px;
@@ -18,7 +18,7 @@ exports[`NavLabel styles should render and match snapshot when secondary 1`] = `
 </span>
 `;
 
-exports[`NavLabel styles should render and match snapshot when visible 1`] = `
+exports[`NavLabel > styles > should render and match snapshot when visible 1`] = `
 .circuit-0 {
   display: block;
   margin-left: 12px;
@@ -31,7 +31,7 @@ exports[`NavLabel styles should render and match snapshot when visible 1`] = `
 </span>
 `;
 
-exports[`NavLabel styles should render with default styles 1`] = `
+exports[`NavLabel > styles > should render with default styles 1`] = `
 .circuit-0 {
   display: block;
   margin-left: 12px;

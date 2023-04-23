@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { render, axe, act } from '../../../../util/test-utils';
 
 import { DesktopSidePanel, DesktopSidePanelProps } from './DesktopSidePanel';
@@ -35,11 +37,11 @@ describe('DesktopSidePanel', () => {
     render(<DesktopSidePanel {...baseProps} {...props} />);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should match the snapshot', () => {
@@ -60,7 +62,7 @@ describe('DesktopSidePanel', () => {
   it('should open without animation when isInstantOpen is true', () => {
     const { getByRole } = renderComponent({ isInstantOpen: true });
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     expect(getByRole('dialog')).toHaveStyle('transition: none');
   });
@@ -74,7 +76,7 @@ describe('DesktopSidePanel', () => {
    * FIXME: calling axe here triggers an act() warning.
    */
   it('should meet accessibility guidelines', async () => {
-    jest.useRealTimers();
+    vi.useRealTimers();
     const { container } = renderComponent();
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();

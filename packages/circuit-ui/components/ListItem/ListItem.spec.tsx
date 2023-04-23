@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef, FC } from 'react';
 import { IconProps, SumUpCard } from '@sumup/icons';
 
@@ -183,7 +184,7 @@ describe('ListItem', () => {
     it('should render as a button when the onClick prop is passed', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -191,7 +192,7 @@ describe('ListItem', () => {
     it('should call the onClick handler when clicked', async () => {
       const props = {
         ...baseProps,
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       };
       const { getByRole } = renderListItem(render, props);
 
@@ -220,7 +221,7 @@ describe('ListItem', () => {
         details: 'Details',
         trailingLabel: 'Trailing label',
         trailingDetails: 'Trailing details',
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       });
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

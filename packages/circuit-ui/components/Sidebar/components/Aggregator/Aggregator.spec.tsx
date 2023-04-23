@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   create,
   renderToHtml,
@@ -30,7 +32,7 @@ const ProxyComponent = ({ children, selected, visible, ...rest }: any) => (
 
 const defaultProps: AggregatorProps = {
   label: 'Aggregator',
-  onClick: jest.fn(),
+  onClick: vi.fn(),
   defaultIcon: <svg id="default-icon" />,
   selectedIcon: <svg id="selected-icon" />,
   disabled: false,
@@ -75,7 +77,7 @@ describe('Aggregator', () => {
 
   describe('interactions', () => {
     it('should show children and call onClick when clicking the aggregator', async () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       const { getByTestId } = renderComponent(render, { onClick });
       const aggregatorEl = getByTestId('aggregator');
       const childEl = getByTestId('child');
@@ -108,7 +110,7 @@ describe('Aggregator', () => {
           child
         </ProxyComponent>
       );
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       const { getByTestId } = renderComponent(render, { onClick, children });
 
       const aggregatorEl = getByTestId('aggregator');
@@ -127,7 +129,7 @@ describe('Aggregator', () => {
     });
 
     it('should close when there are no selected children', async () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       const { getByTestId } = renderComponent(render, { onClick });
       const aggregatorEl = getByTestId('aggregator');
       const childEl = getByTestId('child');

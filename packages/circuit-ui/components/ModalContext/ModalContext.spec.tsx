@@ -13,6 +13,15 @@
  * limitations under the License.
  */
 
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { useContext } from 'react';
 
 import {
@@ -34,14 +43,14 @@ Modal.TRANSITION_DURATION = 200;
 
 describe('ModalContext', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
   afterAll(() => {
-    jest.useRealTimers();
-    jest.resetModules();
+    vi.useRealTimers();
+    vi.resetModules();
   });
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   /**
@@ -51,7 +60,7 @@ describe('ModalContext', () => {
   const userEvent = baseUserEvent.setup({ delay: null });
 
   describe('ModalProvider', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const modal = {
       id: 'initial',
       component: Modal,
@@ -93,7 +102,7 @@ describe('ModalContext', () => {
       await userEvent.click(getByRole('button', { name: 'Close modal' }));
 
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       expect(queryByRole('dialog')).toBeNull();
@@ -110,7 +119,7 @@ describe('ModalContext', () => {
         fireEvent.popState(window);
       });
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       expect(queryByRole('dialog')).toBeNull();
@@ -127,7 +136,7 @@ describe('ModalContext', () => {
       const closeButton = queryByRole('button') as HTMLButtonElement;
       await userEvent.click(closeButton);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       expect(queryByRole('dialog')).toBeNull();

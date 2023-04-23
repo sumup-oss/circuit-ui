@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it } from 'vitest';
+
 import { RowCell, Direction, SortParams } from './types';
 import * as utils from './utils';
 

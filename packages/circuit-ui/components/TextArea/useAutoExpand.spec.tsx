@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, test, vi } from 'vitest';
 import { MutableRefObject, FormEvent } from 'react';
 
 import { renderHook, userEvent, render, screen } from '../../util/test-utils';
@@ -48,7 +49,7 @@ describe('useAutoExpand hook', () => {
 
     test('should pass provided `onInput` as is', () => {
       const ref = createTextAreaRef();
-      const onInputHandler = jest.fn();
+      const onInputHandler = vi.fn();
 
       const {
         result: { current: modifiedProps },
@@ -82,7 +83,7 @@ describe('useAutoExpand hook', () => {
 
     test('should pass provided `onInput` as is', () => {
       const ref = createTextAreaRef();
-      const onInputHandler = jest.fn();
+      const onInputHandler = vi.fn();
 
       const {
         result: { current: modifiedProps },
@@ -112,9 +113,9 @@ describe('useAutoExpand hook', () => {
     test('should use scrollHeight as style.height', () => {
       const ref = createTextAreaRef();
       const mockedScrollHeight = 123;
-      jest
-        .spyOn(ref.current, 'scrollHeight', 'get')
-        .mockImplementation(() => mockedScrollHeight);
+      vi.spyOn(ref.current, 'scrollHeight', 'get').mockImplementation(
+        () => mockedScrollHeight,
+      );
 
       renderHook(() =>
         useAutoExpand(ref, {
@@ -129,9 +130,9 @@ describe('useAutoExpand hook', () => {
 
     test('should use placeholder as value if empty', () => {
       const ref = createTextAreaRef();
-      const valueSetter = jest.fn();
+      const valueSetter = vi.fn();
       const placeholderString = 'random string';
-      jest.spyOn(ref.current, 'value', 'set').mockImplementation(valueSetter);
+      vi.spyOn(ref.current, 'value', 'set').mockImplementation(valueSetter);
 
       renderHook(() =>
         useAutoExpand(ref, {
@@ -160,7 +161,7 @@ describe('useAutoExpand hook', () => {
 
     test('should modify provided `onInput`', async () => {
       const ref = createTextAreaRef();
-      const onInputHandler = jest.fn();
+      const onInputHandler = vi.fn();
 
       const {
         result: { current: modifiedProps },
@@ -181,17 +182,17 @@ describe('useAutoExpand hook', () => {
     });
 
     test('should allow preventing resize from onInput handler', async () => {
-      const onInputHandler = jest
+      const onInputHandler = vi
         .fn()
         .mockImplementation((e: FormEvent<InputElement>) => {
           e.preventDefault();
         });
 
       const ref = createTextAreaRef({ onInput: onInputHandler });
-      const scrollHeightGetter = jest.fn();
-      jest
-        .spyOn(ref.current, 'scrollHeight', 'get')
-        .mockImplementation(scrollHeightGetter);
+      const scrollHeightGetter = vi.fn();
+      vi.spyOn(ref.current, 'scrollHeight', 'get').mockImplementation(
+        scrollHeightGetter,
+      );
 
       renderHook(() =>
         useAutoExpand(ref, {

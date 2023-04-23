@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   act,
   axe,
@@ -30,16 +32,16 @@ describe('ProfileMenu', () => {
     label: 'Open profile menu',
     actions: [
       {
-        onClick: jest.fn(),
+        onClick: vi.fn(),
         children: 'View profile',
       },
       {
-        onClick: jest.fn(),
+        onClick: vi.fn(),
         children: 'Settings',
       },
       { type: 'divider' },
       {
-        onClick: jest.fn(),
+        onClick: vi.fn(),
         children: 'Logout',
         destructive: true,
       },
@@ -67,7 +69,7 @@ describe('ProfileMenu', () => {
 
   describe('Logic', () => {
     it('should call the onToggle callback with the popover open state', async () => {
-      const onToggle = jest.fn();
+      const onToggle = vi.fn();
 
       render(<ProfileMenu {...baseProps} onToggle={onToggle} />);
 

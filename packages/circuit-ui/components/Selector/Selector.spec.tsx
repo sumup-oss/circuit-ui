@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import {
@@ -28,7 +29,7 @@ import { Selector } from './Selector';
 const defaultProps = {
   name: 'name',
   value: 'value',
-  onChange: jest.fn(),
+  onChange: vi.fn(),
 };
 
 describe('Selector', () => {

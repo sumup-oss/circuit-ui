@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Aggregator styles should render and match snapshot when open 1`] = `
+exports[`Aggregator > styles > should render and match snapshot when open 1`] = `
 HTMLCollection [
   .circuit-0 {
   display: -webkit-box;
@@ -94,7 +94,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Aggregator styles should render with default styles 1`] = `
+exports[`Aggregator > styles > should render with default styles 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -180,7 +180,7 @@ exports[`Aggregator styles should render with default styles 1`] = `
 </ul>
 `;
 
-exports[`Aggregator styles should render with disabled state styles and match the snapshot 1`] = `
+exports[`Aggregator > styles > should render with disabled state styles and match the snapshot 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;

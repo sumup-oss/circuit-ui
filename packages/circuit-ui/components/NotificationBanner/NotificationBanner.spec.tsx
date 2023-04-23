@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { render, axe, userEvent } from '../../util/test-utils';
@@ -30,7 +31,7 @@ describe('NotificationBanner', () => {
     headline: 'Software update',
     body: 'There is updated firmware available for your card reader',
     action: {
-      onClick: jest.fn(),
+      onClick: vi.fn(),
       children: 'Update',
       variant: 'primary',
     },
@@ -97,7 +98,7 @@ describe('NotificationBanner', () => {
     it('should render a close button', () => {
       const { getByRole } = renderNotificationBanner({
         ...baseProps,
-        onClose: jest.fn(),
+        onClose: vi.fn(),
         closeButtonLabel: 'Close notification',
       });
 
@@ -107,7 +108,7 @@ describe('NotificationBanner', () => {
     it('should call onClose when closed', async () => {
       const props = {
         ...baseProps,
-        onClose: jest.fn(),
+        onClose: vi.fn(),
         closeButtonLabel: 'Close notification',
       };
       const { getByRole } = renderNotificationBanner(props);

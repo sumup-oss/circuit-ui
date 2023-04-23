@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TableBody Style tests should render with default styles 1`] = `
+exports[`TableBody > Style tests > should render with default styles 1`] = `
 .circuit-0 {
   vertical-align: middle;
 }
@@ -10,7 +10,7 @@ tbody .circuit-0:last-child td {
   border-bottom: none;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -23,15 +23,15 @@ tbody .circuit-0:last-child td {
 
 <tbody>
   <tr
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <td
-      class="circuit-2"
+      class="circuit-1"
     >
       Foo
     </td>
     <td
-      class="circuit-2"
+      class="circuit-1"
     >
       Bar
     </td>
@@ -39,7 +39,7 @@ tbody .circuit-0:last-child td {
 </tbody>
 `;
 
-exports[`TableBody Style tests should render with fixed header styles 1`] = `
+exports[`TableBody > Style tests > should render with fixed header styles 1`] = `
 .circuit-0 {
   vertical-align: middle;
 }
@@ -49,7 +49,7 @@ tbody .circuit-0:last-child td {
   border-bottom: none;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -59,7 +59,7 @@ tbody .circuit-0:last-child td {
 }
 
 @media (max-width: 767px) {
-  .circuit-2 {
+  .circuit-1 {
     left: 0;
     position: -webkit-sticky;
     position: sticky;
@@ -68,7 +68,7 @@ tbody .circuit-0:last-child td {
     z-index: 1;
   }
 
-  .circuit-2:after {
+  .circuit-1:after {
     content: '';
     background: linear-gradient(
               90deg,
@@ -83,7 +83,7 @@ tbody .circuit-0:last-child td {
   }
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -96,16 +96,16 @@ tbody .circuit-0:last-child td {
 
 <tbody>
   <tr
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <th
-      class="circuit-2"
+      class="circuit-1"
       scope="row"
     >
       Foo
     </th>
     <td
-      class="circuit-3"
+      class="circuit-2"
     >
       Bar
     </td>
@@ -113,7 +113,7 @@ tbody .circuit-0:last-child td {
 </tbody>
 `;
 
-exports[`TableBody logic tests sortHover should not render a cell with hovered styles if its column is not currently hovered 1`] = `
+exports[`TableBody > logic tests > sortHover > should not render a cell with hovered styles if its column is not currently hovered 1`] = `
 .circuit-0 {
   vertical-align: middle;
 }
@@ -123,7 +123,7 @@ tbody .circuit-0:last-child td {
   border-bottom: none;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -136,15 +136,15 @@ tbody .circuit-0:last-child td {
 
 <tbody>
   <tr
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <td
-      class="circuit-2"
+      class="circuit-1"
     >
       Foo
     </td>
     <td
-      class="circuit-2"
+      class="circuit-1"
     >
       Bar
     </td>
@@ -152,7 +152,7 @@ tbody .circuit-0:last-child td {
 </tbody>
 `;
 
-exports[`TableBody logic tests sortHover should render a cell with hovered styles if its column is currently hovered 1`] = `
+exports[`TableBody > logic tests > sortHover > should render a cell with hovered styles if its column is currently hovered 1`] = `
 .circuit-0 {
   vertical-align: middle;
 }
@@ -162,7 +162,7 @@ tbody .circuit-0:last-child td {
   border-bottom: none;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -174,7 +174,7 @@ tbody .circuit-0:last-child td {
   background-color: var(--cui-bg-normal-hovered);
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -187,15 +187,15 @@ tbody .circuit-0:last-child td {
 
 <tbody>
   <tr
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <td
-      class="circuit-2"
+      class="circuit-1"
     >
       Foo
     </td>
     <td
-      class="circuit-3"
+      class="circuit-2"
     >
       Bar
     </td>

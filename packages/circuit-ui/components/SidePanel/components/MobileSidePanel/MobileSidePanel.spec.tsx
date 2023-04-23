@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it } from 'vitest';
+
 import { render, act, axe } from '../../../../util/test-utils';
 
 import { MobileSidePanel, MobileSidePanelProps } from './MobileSidePanel';

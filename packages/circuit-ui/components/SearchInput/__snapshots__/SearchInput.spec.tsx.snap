@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SearchInput should grey out icon when disabled 1`] = `
+exports[`SearchInput > should grey out icon when disabled 1`] = `
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -20,11 +20,11 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-4 {
+.circuit-3 {
   position: relative;
 }
 
-.circuit-5 {
+.circuit-4 {
   position: absolute;
   pointer-events: none;
   color: var(--cui-fg-subtle);
@@ -33,7 +33,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   width: 48px;
 }
 
-.circuit-6 {
+.circuit-5 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -51,32 +51,32 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
-.circuit-6::-webkit-input-placeholder {
+.circuit-5::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-6::-moz-placeholder {
+.circuit-5::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-6:-ms-input-placeholder {
+.circuit-5:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-6::placeholder {
+.circuit-5::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-6:disabled,
-.circuit-6[disabled] {
+.circuit-5:disabled,
+.circuit-5[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
@@ -88,16 +88,16 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
     for=":r2:"
   >
     <span
-      class="circuit-2 circuit-3"
+      class="circuit-2"
     >
       Search
     </span>
   </label>
   <div
-    class="circuit-4"
+    class="circuit-3"
   >
     <svg
-      class="circuit-5"
+      class="circuit-4"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -113,7 +113,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
     </svg>
     <input
       aria-describedby=":r3:"
-      class="circuit-6"
+      class="circuit-5"
       disabled=""
       id=":r2:"
       type="text"
@@ -127,7 +127,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 </div>
 `;
 
-exports[`SearchInput should render with default styles 1`] = `
+exports[`SearchInput > should render with default styles 1`] = `
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -147,11 +147,11 @@ exports[`SearchInput should render with default styles 1`] = `
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-4 {
+.circuit-3 {
   position: relative;
 }
 
-.circuit-5 {
+.circuit-4 {
   position: absolute;
   pointer-events: none;
   color: var(--cui-fg-subtle);
@@ -160,7 +160,7 @@ exports[`SearchInput should render with default styles 1`] = `
   width: 48px;
 }
 
-.circuit-6 {
+.circuit-5 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -178,44 +178,44 @@ exports[`SearchInput should render with default styles 1`] = `
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
-.circuit-6::-webkit-input-placeholder {
+.circuit-5::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-6::-moz-placeholder {
+.circuit-5::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-6:-ms-input-placeholder {
+.circuit-5:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-6::placeholder {
+.circuit-5::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-6:disabled,
-.circuit-6[disabled] {
+.circuit-5:disabled,
+.circuit-5[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-6:hover {
+.circuit-5:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-6:focus {
+.circuit-5:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-6:active {
+.circuit-5:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
@@ -227,16 +227,16 @@ exports[`SearchInput should render with default styles 1`] = `
     for=":r0:"
   >
     <span
-      class="circuit-2 circuit-3"
+      class="circuit-2"
     >
       Search
     </span>
   </label>
   <div
-    class="circuit-4"
+    class="circuit-3"
   >
     <svg
-      class="circuit-5"
+      class="circuit-4"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -252,7 +252,7 @@ exports[`SearchInput should render with default styles 1`] = `
     </svg>
     <input
       aria-describedby=":r1:"
-      class="circuit-6"
+      class="circuit-5"
       id=":r0:"
       type="text"
       value=""

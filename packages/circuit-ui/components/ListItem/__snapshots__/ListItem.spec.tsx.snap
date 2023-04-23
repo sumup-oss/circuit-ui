@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ListItem business logic should not render a trailing section with details but no label 1`] = `
+exports[`ListItem > business logic > should not render a trailing section with details but no label 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -116,7 +116,7 @@ exports[`ListItem business logic should not render a trailing section with detai
 </div>
 `;
 
-exports[`ListItem business logic should render as a button when the onClick prop is passed 1`] = `
+exports[`ListItem > business logic > should render as a button when the onClick prop is passed 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -245,7 +245,7 @@ exports[`ListItem business logic should render as a button when the onClick prop
 </button>
 `;
 
-exports[`ListItem business logic should render as a link when the href prop is passed 1`] = `
+exports[`ListItem > business logic > should render as a link when the href prop is passed 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -375,7 +375,7 @@ exports[`ListItem business logic should render as a link when the href prop is p
 </a>
 `;
 
-exports[`ListItem styles should render a ListItem with a custom details line 1`] = `
+exports[`ListItem > styles > should render a ListItem with a custom details line 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -519,7 +519,7 @@ exports[`ListItem styles should render a ListItem with a custom details line 1`]
 </div>
 `;
 
-exports[`ListItem styles should render a ListItem with a custom label 1`] = `
+exports[`ListItem > styles > should render a ListItem with a custom label 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -631,7 +631,7 @@ exports[`ListItem styles should render a ListItem with a custom label 1`] = `
 </div>
 `;
 
-exports[`ListItem styles should render a ListItem with a custom leading component 1`] = `
+exports[`ListItem > styles > should render a ListItem with a custom leading component 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -795,7 +795,7 @@ exports[`ListItem styles should render a ListItem with a custom leading componen
 </div>
 `;
 
-exports[`ListItem styles should render a ListItem with a custom trailing component 1`] = `
+exports[`ListItem > styles > should render a ListItem with a custom trailing component 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -973,7 +973,7 @@ exports[`ListItem styles should render a ListItem with a custom trailing compone
 </div>
 `;
 
-exports[`ListItem styles should render a ListItem with a custom trailing label 1`] = `
+exports[`ListItem > styles > should render a ListItem with a custom trailing label 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -1145,7 +1145,7 @@ exports[`ListItem styles should render a ListItem with a custom trailing label 1
 </div>
 `;
 
-exports[`ListItem styles should render a ListItem with a details line 1`] = `
+exports[`ListItem > styles > should render a ListItem with a details line 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -1290,7 +1290,7 @@ exports[`ListItem styles should render a ListItem with a details line 1`] = `
 </div>
 `;
 
-exports[`ListItem styles should render a ListItem with a leading icon 1`] = `
+exports[`ListItem > styles > should render a ListItem with a leading icon 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -1434,7 +1434,7 @@ exports[`ListItem styles should render a ListItem with a leading icon 1`] = `
 </div>
 `;
 
-exports[`ListItem styles should render a ListItem with a trailing label 1`] = `
+exports[`ListItem > styles > should render a ListItem with a trailing label 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -1606,208 +1606,7 @@ exports[`ListItem styles should render a ListItem with a trailing label 1`] = `
 </div>
 `;
 
-exports[`ListItem styles should render a ListItem with custom trailing details 1`] = `
-.circuit-0 {
-  background-color: var(--cui-bg-normal);
-  color: var(--cui-fg-normal);
-  border: 2px solid var(--cui-border-subtle);
-  border-radius: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 12px 16px;
-  margin: 0;
-  width: 100%;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: relative;
-}
-
-.circuit-0:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-0:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-0:focus {
-  border-color: transparent;
-  z-index: 2;
-}
-
-.circuit-0:focus:not(:focus-visible) {
-  border-color: var(--cui-border-subtle);
-  z-index: auto;
-}
-
-.circuit-0:disabled,
-.circuit-0[disabled] {
-  pointer-events: none;
-  background-color: var(--cui-bg-normal-disabled);
-  border-color: var(--cui-border-subtle-disabled);
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-1 {
-  -webkit-flex: auto;
-  -ms-flex: auto;
-  flex: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  min-width: 0;
-}
-
-.circuit-2 {
-  -webkit-flex: auto;
-  -ms-flex: auto;
-  flex: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  min-width: 0;
-}
-
-.circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  max-width: 100%;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.circuit-4 {
-  -webkit-flex: none;
-  -ms-flex: none;
-  flex: none;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  margin-left: 16px;
-}
-
-.circuit-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.circuit-6 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
-.circuit-7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  max-width: 100%;
-  min-height: 1.5rem;
-}
-
-.circuit-8 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: var(--cui-fg-subtle);
-}
-
-<div
-  class="circuit-0"
->
-  <div
-    class="circuit-1"
-  >
-    <div
-      class="circuit-2"
-    >
-      <p
-        class="circuit-3"
-      >
-        Label
-      </p>
-    </div>
-    <div
-      class="circuit-4"
-    >
-      <div
-        class="circuit-5"
-      >
-        <strong
-          class="circuit-6"
-        >
-          Trailing label
-        </strong>
-      </div>
-      <div
-        class="circuit-7"
-      >
-        <p
-          class="circuit-8"
-        >
-          Trailing details
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ListItem styles should render a ListItem with trailing details 1`] = `
+exports[`ListItem > styles > should render a ListItem with custom trailing details 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -2008,7 +1807,208 @@ exports[`ListItem styles should render a ListItem with trailing details 1`] = `
 </div>
 `;
 
-exports[`ListItem styles should render a disabled ListItem 1`] = `
+exports[`ListItem > styles > should render a ListItem with trailing details 1`] = `
+.circuit-0 {
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  border: 2px solid var(--cui-border-subtle);
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-0:focus {
+  border-color: transparent;
+  z-index: 2;
+}
+
+.circuit-0:focus:not(:focus-visible) {
+  border-color: var(--cui-border-subtle);
+  z-index: auto;
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-subtle-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-1 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.circuit-2 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-4 {
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  margin-left: 16px;
+}
+
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.circuit-6 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+}
+
+.circuit-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 100%;
+  min-height: 1.5rem;
+}
+
+.circuit-8 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--cui-fg-subtle);
+}
+
+<div
+  class="circuit-0"
+>
+  <div
+    class="circuit-1"
+  >
+    <div
+      class="circuit-2"
+    >
+      <p
+        class="circuit-3"
+      >
+        Label
+      </p>
+    </div>
+    <div
+      class="circuit-4"
+    >
+      <div
+        class="circuit-5"
+      >
+        <strong
+          class="circuit-6"
+        >
+          Trailing label
+        </strong>
+      </div>
+      <div
+        class="circuit-7"
+      >
+        <p
+          class="circuit-8"
+        >
+          Trailing details
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListItem > styles > should render a disabled ListItem 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -2125,7 +2125,7 @@ exports[`ListItem styles should render a disabled ListItem 1`] = `
 </div>
 `;
 
-exports[`ListItem styles should render a navigation variant ListItem 1`] = `
+exports[`ListItem > styles > should render a navigation variant ListItem 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -2300,7 +2300,7 @@ exports[`ListItem styles should render a navigation variant ListItem 1`] = `
 </div>
 `;
 
-exports[`ListItem styles should render a selected ListItem 1`] = `
+exports[`ListItem > styles > should render a selected ListItem 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -2435,7 +2435,7 @@ exports[`ListItem styles should render a selected ListItem 1`] = `
 </div>
 `;
 
-exports[`ListItem styles should render the action variant ListItem by default 1`] = `
+exports[`ListItem > styles > should render the action variant ListItem by default 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);

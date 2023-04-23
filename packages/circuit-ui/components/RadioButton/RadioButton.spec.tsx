@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { render, userEvent, axe } from '../../util/test-utils';
@@ -28,7 +29,7 @@ describe('RadioButton', () => {
 
     it('should render with checked styles', () => {
       const { container } = render(
-        <RadioButton checked onChange={jest.fn} label="Label" />,
+        <RadioButton checked onChange={vi.fn} label="Label" />,
       );
       expect(container).toMatchSnapshot();
     });
@@ -54,7 +55,7 @@ describe('RadioButton', () => {
     });
 
     it('should call the change handler when clicked', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByLabelText } = render(
         <RadioButton onChange={onChange} label="Label" />,
       );

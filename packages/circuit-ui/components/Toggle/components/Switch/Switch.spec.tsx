@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { create, render, userEvent } from '../../../../util/test-utils';
@@ -42,7 +43,7 @@ describe('Switch', () => {
    * Logic tests.
    */
   it('should call the change handler when toggled', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByTestId } = render(
       <Switch {...defaultProps} onChange={onChange} data-testid="switch" />,
     );

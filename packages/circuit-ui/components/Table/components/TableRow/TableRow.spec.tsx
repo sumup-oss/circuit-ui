@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   create,
   render,
@@ -33,16 +35,14 @@ describe('TableRow', () => {
     });
 
     it('should render with clickable styles', () => {
-      const actual = create(
-        <TableRow onClick={jest.fn()}>{children}</TableRow>,
-      );
+      const actual = create(<TableRow onClick={vi.fn()}>{children}</TableRow>);
       expect(actual).toMatchSnapshot();
     });
   });
 
   describe('Logic tests', () => {
     it('should call the onClick when clicked', async () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       const { getByTestId } = render(
         <TableRow onClick={onClick} data-testid="row">
           {children}
@@ -57,7 +57,7 @@ describe('TableRow', () => {
     });
 
     it('should call the onClick when navigating with the keyboard', async () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       const { getByTestId } = render(
         <TableRow onClick={onClick} data-testid="row">
           {children}

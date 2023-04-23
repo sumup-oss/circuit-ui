@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { Plus } from '@sumup/icons';
 import { createRef } from 'react';
 
@@ -36,7 +37,7 @@ describe('NotificationFullscreen', () => {
     actions: {
       primary: {
         children: 'Update now',
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       },
     },
   };

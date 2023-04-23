@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { useState } from 'react';
 
 import Avatar from '../Avatar';
@@ -37,7 +38,7 @@ const defaultProps = {
 } as const;
 
 describe('ImageInput', () => {
-  global.URL.createObjectURL = jest.fn();
+  global.URL.createObjectURL = vi.fn();
 
   describe('Styles', () => {
     it('should render with default styles', () => {
@@ -91,10 +92,10 @@ describe('ImageInput', () => {
     });
   });
 
-  const mockUploadFn = jest
-    .fn<Promise<string>, [File]>()
+  const mockUploadFn = vi
+    .fn<[File], Promise<string>>()
     .mockResolvedValue('/images/illustration-coffee.jpg');
-  const mockClearFn = jest.fn();
+  const mockClearFn = vi.fn();
 
   function StatefulInput() {
     const [imageUrl, setImageUrl] = useState<string>('');
@@ -188,7 +189,7 @@ describe('ImageInput', () => {
       const imageEl = container.querySelector('img');
 
       expect(imageEl?.src).toBe(
-        'http://localhost/images/illustration-coffee.jpg',
+        'http://localhost:3000/images/illustration-coffee.jpg',
       );
     });
 
@@ -203,7 +204,7 @@ describe('ImageInput', () => {
       const imageEl = container.querySelector('img');
 
       expect(imageEl?.src).toBe(
-        'http://localhost/images/illustration-coffee.jpg',
+        'http://localhost:3000/images/illustration-coffee.jpg',
       );
 
       await userEvent.click(

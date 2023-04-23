@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`DesktopNavigation styles should render with secondary links 1`] = `
+exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
 .circuit-0[aria-busy='true'] {
   pointer-events: none;
   -webkit-user-select: none;
@@ -237,6 +237,10 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   line-height: 1.5rem;
 }
 
+.circuit-10 {
+  list-style: none;
+}
+
 .circuit-11 {
   display: inline-block;
   line-height: 0;
@@ -249,6 +253,10 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: var(--cui-fg-normal);
+}
+
+.circuit-13 {
+  list-style: none;
 }
 
 .circuit-14 {
@@ -397,7 +405,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
         </h2>
       </span>
       <ul
-        class="circuit-2"
+        class="circuit-10"
         role="list"
       >
         <li>
@@ -411,7 +419,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
             </h3>
           </span>
           <ul
-            class="circuit-2"
+            class="circuit-13"
             role="list"
           >
             <li>
@@ -456,7 +464,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
 </div>
 `;
 
-exports[`DesktopNavigation styles should render without secondary links 1`] = `
+exports[`DesktopNavigation > styles > should render without secondary links 1`] = `
 .circuit-0[aria-busy='true'] {
   pointer-events: none;
   -webkit-user-select: none;

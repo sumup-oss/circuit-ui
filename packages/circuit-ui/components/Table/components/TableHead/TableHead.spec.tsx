@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   create,
   render,
@@ -50,7 +52,7 @@ describe('TableHead', () => {
   describe('onClick', () => {
     it('should not dispatch the onSortBy handler when the column is not sortable', async () => {
       const headers = ['Foo'];
-      const onSortByMock = jest.fn();
+      const onSortByMock = vi.fn();
       const { getByRole } = render(
         <TableHead onSortBy={onSortByMock} headers={headers} />,
       );
@@ -64,7 +66,7 @@ describe('TableHead', () => {
       const headers: HeaderCell[] = [
         { children: 'Foo', sortable: true, sortLabel },
       ];
-      const onSortByMock = jest.fn();
+      const onSortByMock = vi.fn();
       const { getByRole } = render(
         <TableHead onSortBy={onSortByMock} headers={headers} />,
       );
@@ -79,7 +81,7 @@ describe('TableHead', () => {
   describe('onSortEnter', () => {
     it('should not dispatch the onSortEnter handler when the column is not sortable', async () => {
       const headers = ['Foo'];
-      const onSortEnterMock = jest.fn();
+      const onSortEnterMock = vi.fn();
       const { getByRole } = render(
         <TableHead onSortEnter={onSortEnterMock} headers={headers} />,
       );
@@ -93,7 +95,7 @@ describe('TableHead', () => {
       const headers: HeaderCell[] = [
         { children: 'Foo', sortable: true, sortLabel },
       ];
-      const onSortEnterMock = jest.fn();
+      const onSortEnterMock = vi.fn();
       const { getByRole } = render(
         <TableHead onSortEnter={onSortEnterMock} headers={headers} />,
       );
@@ -110,7 +112,7 @@ describe('TableHead', () => {
       const headers: HeaderCell[] = [
         { children: 'Foo', sortable: true, sortLabel },
       ];
-      const onSortLeaveMock = jest.fn();
+      const onSortLeaveMock = vi.fn();
       const { getByRole } = render(
         <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,
       );
@@ -123,7 +125,7 @@ describe('TableHead', () => {
 
     it('should not dispatch the onSortLeave handler when the column is not sortable', async () => {
       const headers = ['Foo'];
-      const onSortLeaveMock = jest.fn();
+      const onSortLeaveMock = vi.fn();
       const { getByRole } = render(
         <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,
       );

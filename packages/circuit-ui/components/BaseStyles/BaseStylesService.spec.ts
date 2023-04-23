@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it } from 'vitest';
 import { light } from '@sumup/design-tokens';
 
 import { createBaseStyles } from './BaseStylesService';

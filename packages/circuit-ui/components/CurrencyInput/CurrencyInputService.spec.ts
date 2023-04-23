@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { formatPlaceholder } from './CurrencyInputService';
 
 describe('CurrencyInputService', () => {
   beforeEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   describe('formatPlaceholder', () => {

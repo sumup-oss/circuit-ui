@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   create,
   render,
@@ -30,7 +32,7 @@ describe('PageList', () => {
   }
 
   const baseProps: PageListProps = {
-    onChange: jest.fn(),
+    onChange: vi.fn(),
     pageLabel: (page) => `Go to page ${page}`,
     pages: [1, 2, 3],
     currentPage: 1,
@@ -45,7 +47,7 @@ describe('PageList', () => {
 
   describe('business logic', () => {
     it('should call the onChange callback', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByText } = renderPageList(render, { ...baseProps, onChange });
       const pageFour = getByText('3');
 

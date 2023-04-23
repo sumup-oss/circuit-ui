@@ -14,6 +14,7 @@
  */
 
 /* eslint-disable react/display-name */
+import { describe, expect, it, vi } from 'vitest';
 import { Home, Shop } from '@sumup/icons';
 
 import { render, axe, RenderFn } from '../../../../util/test-utils';
@@ -40,7 +41,7 @@ describe('DesktopNavigation', () => {
         icon: (iconProps) => <Shop {...iconProps} size="24" />,
         label: 'Shop',
         href: '/shop',
-        onClick: jest.fn(),
+        onClick: vi.fn(),
         isActive: true,
         secondaryGroups: [
           {
@@ -49,12 +50,12 @@ describe('DesktopNavigation', () => {
               {
                 label: 'Toys',
                 href: '/shop/toys',
-                onClick: jest.fn(),
+                onClick: vi.fn(),
               },
               {
                 label: 'Books',
                 href: '/shop/books',
-                onClick: jest.fn(),
+                onClick: vi.fn(),
               },
             ],
           },
@@ -84,7 +85,7 @@ describe('DesktopNavigation', () => {
             icon: (iconProps) => <Home {...iconProps} size="24" />,
             label: 'Home',
             href: '/',
-            onClick: jest.fn(),
+            onClick: vi.fn(),
             secondaryGroups: [],
           },
         ],

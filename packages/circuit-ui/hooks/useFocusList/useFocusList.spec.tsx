@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it } from 'vitest';
+
 import { render, act, userEvent } from '../../util/test-utils';
 
 import { useFocusList } from './useFocusList';

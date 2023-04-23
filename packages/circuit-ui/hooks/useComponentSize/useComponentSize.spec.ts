@@ -13,17 +13,19 @@
  * limitations under the License.
  */
 
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
+
 import { renderHook, act } from '../../util/test-utils';
 
 import { useComponentSize } from './useComponentSize';
 
-jest.mock('../../util/helpers', () => ({
-  throttle: jest.fn(<T>(fn: T) => fn),
+vi.mock('../../util/helpers', () => ({
+  throttle: vi.fn(<T>(fn: T) => fn),
 }));
 
 describe('useComponentSize', () => {
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   it('should return the current element size', () => {
@@ -41,14 +43,14 @@ describe('useComponentSize', () => {
   describe('when ResizeObserver is supported', () => {
     let originalResizeObserver: typeof global.ResizeObserver;
 
-    const observe = jest.fn();
-    const unobserve = jest.fn();
-    const disconnect = jest.fn();
+    const observe = vi.fn();
+    const unobserve = vi.fn();
+    const disconnect = vi.fn();
 
     beforeAll(() => {
       originalResizeObserver = global.ResizeObserver;
 
-      global.ResizeObserver = jest.fn(() => ({
+      global.ResizeObserver = vi.fn(() => ({
         observe,
         disconnect,
         unobserve,

@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { FC } from 'react';
 import { Delete, Add, Download, IconProps } from '@sumup/icons';
 import { Placement } from '@floating-ui/react-dom';
@@ -47,7 +48,7 @@ describe('PopoverItem', () => {
       const props = {
         ...baseProps,
         href: 'https://sumup.com',
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       };
       const { container } = renderPopoverItem(render, props);
       const anchorEl = container.querySelector('a');
@@ -55,7 +56,7 @@ describe('PopoverItem', () => {
     });
 
     it('should render as a `button` when an onClick is passed', () => {
-      const props = { ...baseProps, onClick: jest.fn() };
+      const props = { ...baseProps, onClick: vi.fn() };
       const { container } = renderPopoverItem(render, props);
       const buttonEl = container.querySelector('button');
       expect(buttonEl).toBeVisible();
@@ -67,7 +68,7 @@ describe('PopoverItem', () => {
       const props = {
         ...baseProps,
         href: 'https://sumup.com',
-        onClick: jest.fn((event: ClickEvent) => {
+        onClick: vi.fn((event: ClickEvent) => {
           event.preventDefault();
         }),
       };
@@ -83,7 +84,7 @@ describe('PopoverItem', () => {
 
 describe('Popover', () => {
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   function renderPopover(props: PopoverProps) {
@@ -113,20 +114,20 @@ describe('Popover', () => {
     component: (triggerProps) => <button {...triggerProps}>Button</button>,
     actions: [
       {
-        onClick: jest.fn(),
+        onClick: vi.fn(),
         children: 'Add',
         icon: Add as FC<IconProps>,
       },
       { type: 'divider' },
       {
-        onClick: jest.fn(),
+        onClick: vi.fn(),
         children: 'Remove',
         icon: Delete as FC<IconProps>,
         destructive: true,
       },
     ],
     isOpen: true,
-    onToggle: jest.fn(createStateSetter(true)),
+    onToggle: vi.fn(createStateSetter(true)),
   };
 
   describe('Styles', () => {
@@ -156,7 +157,7 @@ describe('Popover', () => {
   describe('Logic', () => {
     it('should open the popover when clicking the trigger element', async () => {
       const isOpen = false;
-      const onToggle = jest.fn(createStateSetter(isOpen));
+      const onToggle = vi.fn(createStateSetter(isOpen));
       const { getByRole } = renderPopover({ ...baseProps, isOpen, onToggle });
 
       const popoverTrigger = getByRole('button');
@@ -175,7 +176,7 @@ describe('Popover', () => {
       'should open the popover when pressing the %s key on the trigger element',
       async (_, key) => {
         const isOpen = false;
-        const onToggle = jest.fn(createStateSetter(isOpen));
+        const onToggle = vi.fn(createStateSetter(isOpen));
         const { getByRole } = renderPopover({ ...baseProps, isOpen, onToggle });
 
         const popoverTrigger = getByRole('button');
@@ -243,7 +244,7 @@ describe('Popover', () => {
 
     it('should move focus to the first popover item after opening', async () => {
       const isOpen = false;
-      const onToggle = jest.fn(createStateSetter(isOpen));
+      const onToggle = vi.fn(createStateSetter(isOpen));
 
       const { getAllByRole, rerender } = renderPopover({
         ...baseProps,

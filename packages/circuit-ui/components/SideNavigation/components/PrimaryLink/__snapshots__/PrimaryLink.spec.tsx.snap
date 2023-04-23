@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PrimaryLink styles should render with active styles 1`] = `
+exports[`PrimaryLink > styles > should render with active styles 1`] = `
 .circuit-0 {
   position: relative;
   display: -webkit-box;
@@ -158,7 +158,7 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
 </a>
 `;
 
-exports[`PrimaryLink styles should render with badge styles 1`] = `
+exports[`PrimaryLink > styles > should render with badge styles 1`] = `
 .circuit-0 {
   position: relative;
   display: -webkit-box;
@@ -317,7 +317,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
 </a>
 `;
 
-exports[`PrimaryLink styles should render with default styles 1`] = `
+exports[`PrimaryLink > styles > should render with default styles 1`] = `
 .circuit-0 {
   position: relative;
   display: -webkit-box;
@@ -464,7 +464,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
 </a>
 `;
 
-exports[`PrimaryLink styles should render with open styles 1`] = `
+exports[`PrimaryLink > styles > should render with open styles 1`] = `
 .circuit-0 {
   position: relative;
   display: -webkit-box;

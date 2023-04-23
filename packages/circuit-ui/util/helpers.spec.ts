@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
+
 import { clamp, eachFn, isEmpty, throttle } from './helpers';
 
 describe('helpers', () => {
@@ -56,7 +58,7 @@ describe('helpers', () => {
 
   describe('eachFn', () => {
     it('should call each function with the passed arguments', () => {
-      const fns = [jest.fn(), jest.fn(), jest.fn()];
+      const fns = [vi.fn(), vi.fn(), vi.fn()];
       const combinedFns = eachFn(fns);
 
       combinedFns('foo');
@@ -68,7 +70,7 @@ describe('helpers', () => {
     });
 
     it('should ignore non-function values', () => {
-      const fns = [jest.fn(), undefined, null, 1, 'foo'] as ((
+      const fns = [vi.fn(), undefined, null, 1, 'foo'] as ((
         ...args: any[]
       ) => any)[];
       const combinedFns = eachFn(fns);
@@ -125,27 +127,27 @@ describe('helpers', () => {
     });
 
     it('should return false for unrecognized type', () => {
-      const actual = isEmpty(jest.fn());
+      const actual = isEmpty(vi.fn());
       expect(actual).toBeFalsy();
     });
   });
 
   describe('throttle', () => {
     beforeAll(() => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
     });
     afterAll(() => {
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     it('should trigger the function at most once per timeout when called rapidly', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const timeout = 100;
       const throttledFn = throttle(fn, timeout);
 
       const interval = setInterval(throttledFn, 15);
 
-      jest.advanceTimersByTime(500);
+      vi.advanceTimersByTime(500);
 
       clearInterval(interval);
 
@@ -153,13 +155,13 @@ describe('helpers', () => {
     });
 
     it('should trigger the function at most once per timeout  when called infrequently', () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const timeout = 100;
       const throttledFn = throttle(fn, timeout);
 
       const interval = setInterval(throttledFn, 150);
 
-      jest.advanceTimersByTime(500);
+      vi.advanceTimersByTime(500);
 
       clearInterval(interval);
 

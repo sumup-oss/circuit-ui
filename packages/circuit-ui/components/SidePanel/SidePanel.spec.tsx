@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { render, userEvent, axe, waitFor } from '../../util/test-utils';
 
 import { SidePanel, SidePanelProps } from './SidePanel';
@@ -66,7 +68,7 @@ describe('SidePanel', () => {
   });
 
   it('should call the onClose callback from the close button', async () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const { getByTitle } = renderComponent({ onClose });
 
     await userEvent.click(getByTitle(baseProps.closeButtonLabel));
@@ -75,7 +77,7 @@ describe('SidePanel', () => {
   });
 
   it('should call the onClose callback from the onClose render prop', async () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const { getByTestId } = renderComponent({
       children: ({ onClose: onCloseRenderProp }) => (
         <button data-testid="close" onClick={onCloseRenderProp}>
@@ -91,7 +93,7 @@ describe('SidePanel', () => {
   });
 
   it('should call the onClose callback when Esc is pressed', async () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const { getByText } = renderComponent({ onClose });
 
     const sidePanel = getByText('Close');
@@ -113,7 +115,7 @@ describe('SidePanel', () => {
 
   describe('when the panel is stacked', () => {
     it('should show the back button', () => {
-      const onBack = jest.fn();
+      const onBack = vi.fn();
       const { getByTitle } = renderComponent({
         isStacked: true,
         onBack,
@@ -123,7 +125,7 @@ describe('SidePanel', () => {
     });
 
     it('should call the onBack callback from the back button', async () => {
-      const onBack = jest.fn();
+      const onBack = vi.fn();
       const { getByTitle } = renderComponent({
         isStacked: true,
         onBack,
@@ -135,7 +137,7 @@ describe('SidePanel', () => {
     });
 
     it('should call the onBack callback from the onBack render prop', async () => {
-      const onBack = jest.fn();
+      const onBack = vi.fn();
       const { getByTestId } = renderComponent({
         children: ({ onBack: onBackRenderProp }) => (
           <button data-testid="back" onClick={onBackRenderProp}>
@@ -152,7 +154,7 @@ describe('SidePanel', () => {
     });
 
     it('should call the onBack callback when Esc is pressed', async () => {
-      const onBack = jest.fn();
+      const onBack = vi.fn();
       renderComponent({
         isStacked: true,
         onBack,

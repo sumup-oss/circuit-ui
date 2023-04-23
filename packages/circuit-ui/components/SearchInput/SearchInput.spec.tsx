@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
@@ -36,7 +37,7 @@ describe('SearchInput', () => {
   });
 
   it('should display a clear icon when not empty and an onClear callback is provided', () => {
-    const mockCallback = jest.fn();
+    const mockCallback = vi.fn();
     const clearLabel = 'Clear';
 
     const { getByRole } = render(

@@ -13,16 +13,18 @@
  * limitations under the License.
  */
 
+import { Mock, afterAll, describe, expect, it, vi } from 'vitest';
+
 import { create, render } from '../../util/test-utils';
 
 import Step from './Step';
 import { useStep } from './hooks/useStep';
 
-jest.mock('./hooks/useStep', () => ({ useStep: jest.fn(() => ({})) }));
+vi.mock('./hooks/useStep', () => ({ useStep: vi.fn(() => ({})) }));
 
 describe('Step', () => {
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   it('should throw error without children as a function', () => {
@@ -44,9 +46,9 @@ describe('Step', () => {
 
   it('should pass state and helpers to children', () => {
     const data = { step: 1, previousStep: 0 };
-    const children = jest.fn(() => <div />);
+    const children = vi.fn(() => <div />);
 
-    (useStep as jest.Mock).mockReturnValue(data);
+    (useStep as Mock).mockReturnValue(data);
 
     render(<Step>{children}</Step>);
 

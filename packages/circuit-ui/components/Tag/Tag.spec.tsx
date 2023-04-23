@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import {
@@ -42,7 +43,7 @@ describe('Tag', () => {
 
   describe('when is clickable', () => {
     const props = {
-      onClick: jest.fn(),
+      onClick: vi.fn(),
     };
 
     it('should render with clickable styles', () => {
@@ -70,7 +71,7 @@ describe('Tag', () => {
 
     it('should change the close icon color', () => {
       const component = create(
-        <Tag {...props} onRemove={jest.fn()} removeButtonLabel="Remove">
+        <Tag {...props} onRemove={vi.fn()} removeButtonLabel="Remove">
           SomeTest
         </Tag>,
       );
@@ -85,7 +86,7 @@ describe('Tag', () => {
      */
     it('should accept a working ref', () => {
       const tref = createRef<HTMLButtonElement & HTMLDivElement>();
-      const { container } = render(<Tag ref={tref} onClick={jest.fn()} />);
+      const { container } = render(<Tag ref={tref} onClick={vi.fn()} />);
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);
     });
@@ -105,7 +106,7 @@ describe('Tag', () => {
    */
   describe('when is removable', () => {
     const props = {
-      onRemove: jest.fn(),
+      onRemove: vi.fn(),
       removeButtonLabel: 'Remove',
     };
 
