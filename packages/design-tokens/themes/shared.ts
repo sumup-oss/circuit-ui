@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { createMediaQueries } from '../utils/media-queries';
 import {
   Spacings,
   IconSizes,
@@ -187,7 +186,19 @@ export const breakpoints: Breakpoints = {
   untilTera: '(max-width: 1279px)',
 };
 
-export const mq: MediaQueries = createMediaQueries(breakpoints);
+export const mq: MediaQueries = {
+  untilKilo: '@media (max-width: 479px)',
+  kilo: '@media (min-width: 480px)',
+  kiloToMega: '@media (min-width: 480px) and (max-width: 767px)',
+  mega: '@media (min-width: 768px)',
+  untilMega: '@media (max-width: 767px)',
+  megaToGiga: '@media (min-width: 768px) and (max-width: 959px)',
+  giga: '@media (min-width: 960px)',
+  untilGiga: '@media (max-width: 959px)',
+  gigaToTera: '@media (min-width: 960px) and (max-width: 1279px)',
+  tera: '@media (min-width: 1280px)',
+  untilTera: '@media (max-width: 1279px)',
+};
 
 export const transitions = {
   default: '120ms ease-in-out',
