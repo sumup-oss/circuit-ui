@@ -28,16 +28,14 @@
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest --watch"
+    "test": "vitest"
   },
   "dependencies": {
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
     "@types/prop-types": "^15.7.5",
-    "jest": "^29.5.0",
     "typescript": "^5.0.4"
   }
 }

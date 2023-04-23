@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, SumUp Ltd.
+ * Copyright 2023, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { describe, it, expect } from 'vitest';
+import { defineConfig } from 'vitest/config';
 
-import { light } from '..';
-
-describe('Themes', () => {
-  describe('light', () => {
-    it('should match the snapshot', () => {
-      expect(light).toMatchSnapshot();
-    });
-  });
+export default defineConfig({
+  test: {
+    globals: false,
+    environment: 'node',
+  },
 });
