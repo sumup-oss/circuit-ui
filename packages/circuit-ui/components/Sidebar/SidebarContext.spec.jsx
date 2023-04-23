@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it } from 'vitest';
 import { useContext } from 'react';
 
 import { act, fireEvent, render } from '../../util/test-utils';

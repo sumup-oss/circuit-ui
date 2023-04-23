@@ -7,15 +7,69 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the non-r
   transition: width 200ms ease-in-out;
 }
 
-<body>
-  <div>
-    <div
-      class="circuit-0"
-    >
-      <button>
-        Open panel
-      </button>
-    </div>
+<div>
+  <div
+    class="circuit-0"
+  >
+    <button>
+      Open panel
+    </button>
   </div>
-</body>
+</div>
+`;
+
+exports[`SidePanelContext > SidePanelProvider > render > should render the side panel and the resized container 1`] = `
+.circuit-0 {
+  width: 100%;
+  -webkit-transition: width 200ms ease-in-out;
+  transition: width 200ms ease-in-out;
+  width: calc(100% - 400px);
+}
+
+<div>
+  <div
+    class="circuit-0"
+  >
+    <button>
+      Open panel
+    </button>
+  </div>
+</div>
+`;
+
+exports[`SidePanelContext > SidePanelProvider > render > should render the side panel on mobile resolutions 1`] = `
+.circuit-0 {
+  width: 100%;
+  -webkit-transition: width 240ms ease-in-out;
+  transition: width 240ms ease-in-out;
+}
+
+<div>
+  <div
+    class="circuit-0"
+  >
+    <button>
+      Open panel
+    </button>
+  </div>
+</div>
+`;
+
+exports[`SidePanelContext > SidePanelProvider > render > should render the side panel with offset for the top navigation 1`] = `
+.circuit-0 {
+  width: 100%;
+  -webkit-transition: width 200ms ease-in-out;
+  transition: width 200ms ease-in-out;
+  width: calc(100% - 400px);
+}
+
+<div>
+  <div
+    class="circuit-0"
+  >
+    <button>
+      Open panel
+    </button>
+  </div>
+</div>
 `;

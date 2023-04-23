@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SingleDayPicker > should render with default styles 1`] = `
+<div>
+  <div>
+    <div
+      class="SingleDatePicker SingleDatePicker_1"
+    >
+      <div>
+        <div
+          class="SingleDatePickerInput SingleDatePickerInput_1 SingleDatePickerInput__withBorder SingleDatePickerInput__withBorder_2"
+        >
+          <div
+            class="DateInput DateInput_1"
+          >
+            <input
+              aria-describedby="DateInput__screen-reader-message-date"
+              aria-label="Date"
+              autocomplete="off"
+              class="DateInput_input DateInput_input_1"
+              id="date"
+              name="date"
+              placeholder="Date"
+              type="text"
+              value=""
+            />
+            <p
+              class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
+              id="DateInput__screen-reader-message-date"
+            >
+              Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

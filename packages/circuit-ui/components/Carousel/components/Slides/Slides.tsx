@@ -14,15 +14,14 @@
  */
 
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 
-const baseStyles = ({ theme }) => css`
-  width: 100%;
+const Slides = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: ${theme.spacings.mega};
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
 `;
-const Controls = styled('div')(baseStyles);
 
-export default Controls;
+export default Slides;

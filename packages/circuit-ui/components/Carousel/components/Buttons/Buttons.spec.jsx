@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it } from 'vitest';
+
 import { axe, render } from '../../../../util/test-utils';
 
 import { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons';

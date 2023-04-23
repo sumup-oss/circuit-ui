@@ -16,11 +16,14 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-const baseStyles = css`
-  width: 100%;
-  height: auto;
-  position: relative;
-`;
-const Container = styled('div')(baseStyles);
+const Controls = styled('div')(
+  ({ theme }) => css`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: ${theme.spacings.mega};
+  `,
+);
 
-export default Container;
+export default Controls;
