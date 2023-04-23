@@ -8,8 +8,8 @@ const toPath = (_path: string) => path.join(process.cwd(), _path);
 const config: StorybookConfig = {
   staticDirs: [toPath('.storybook/public')],
   stories: [
-    '../packages/circuit-ui/**/*.@(mdx|stories.@(js|ts|tsx))',
-    '../docs/**/*.@(mdx|stories.@(js|ts|tsx))',
+    '../packages/circuit-ui/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
+    '../docs/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
   addons: [
     {
