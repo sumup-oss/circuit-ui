@@ -3,14 +3,15 @@
   "version": "2.22.0",
   "description": "A collection of icons by SumUp",
   "type": "module",
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./manifest.json": "./manifest.json",
+    "./*.svg": "./web/v2/*.svg"
+  },
   "sideEffects": false,
   "files": [
     "dist",
-    "README.md",
-    "*.svg",
+    "web",
     "manifest.json"
   ],
   "repository": {
@@ -28,8 +29,7 @@
     "build": "tsx ./scripts/web.ts",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "npm run lint -- --fix",
-    "prepublish": "npm run build && cp web/v1/* .",
-    "postpublish": "rm -f *.svg"
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
