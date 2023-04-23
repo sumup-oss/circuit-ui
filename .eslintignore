@@ -9,7 +9,6 @@ __coverage__/
 __reports__/
 *.config.js
 *rc.js
-jest.*.js
 scripts/
 # disable linting for the template because it will have its own rules when used in a new app
 packages/cna-template/template

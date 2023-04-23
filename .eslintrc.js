@@ -16,7 +16,7 @@ module.exports = require('@sumup/foundry/eslint')({
       },
     },
     {
-      files: ['vitest.*'],
+      files: ['vite.*', 'vitest.*'],
       rules: {
         'import/no-extraneous-dependencies': 'off',
       },

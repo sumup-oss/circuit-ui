@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2023, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,20 +13,13 @@
  * limitations under the License.
  */
 
-module.exports = {
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-  // HACK: See https://github.com/storybookjs/storybook/pull/9292
-  moduleNameMapper: {
-    'react-syntax-highlighter/dist/esm/(.*)':
-      'react-syntax-highlighter/dist/cjs/$1',
+import { defineConfig } from 'vitest/config';
+import GithubActionsReporter from 'vitest-github-actions-reporter';
+
+export default defineConfig({
+  test: {
+    reporters: process.env.GITHUB_ACTIONS
+      ? ['default', new GithubActionsReporter()]
+      : 'default',
   },
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
-    '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js',
-  },
-  testEnvironment: 'jsdom',
-  testEnvironmentOptions: {
-    url: 'http://localhost',
-  },
-  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-};
+});
