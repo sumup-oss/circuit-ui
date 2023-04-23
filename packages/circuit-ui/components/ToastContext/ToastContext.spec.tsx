@@ -13,20 +13,12 @@
  * limitations under the License.
  */
 
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import { useContext } from 'react';
 
 import {
   render,
-  userEvent as baseUserEvent,
+  userEvent,
   waitForElementToBeRemoved,
 } from '../../util/test-utils';
 
@@ -45,22 +37,12 @@ const Toast: ToastComponent = ({ onClose }) => (
 Toast.TRANSITION_DURATION = 200;
 
 describe('ToastContext', () => {
-  beforeAll(() => {
-    vi.useFakeTimers();
-  });
   afterAll(() => {
-    vi.useRealTimers();
     vi.resetModules();
   });
   afterEach(() => {
     vi.clearAllMocks();
   });
-
-  /**
-   * We need to set up userEvent with delay=null to address this issue:
-   * https://github.com/testing-library/user-event/issues/833
-   */
-  const userEvent = baseUserEvent.setup({ delay: null });
 
   describe('ToastProvider', () => {
     const onClose = vi.fn();

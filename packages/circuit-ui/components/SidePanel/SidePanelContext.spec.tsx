@@ -17,21 +17,15 @@ import {
   Mock,
   afterAll,
   afterEach,
-  beforeAll,
   beforeEach,
   describe,
   expect,
   it,
   vi,
 } from 'vitest';
-import { useContext } from 'react';
+import { ComponentType, useContext } from 'react';
 
-import {
-  render,
-  act,
-  userEvent as baseUserEvent,
-  waitFor,
-} from '../../util/test-utils';
+import { render, userEvent, waitFor } from '../../util/test-utils';
 import { uniqueId } from '../../util/id';
 import { useMedia } from '../../hooks/useMedia';
 
@@ -47,10 +41,6 @@ import {
 vi.mock('../../hooks/useMedia');
 
 describe('SidePanelContext', () => {
-  beforeAll(() => {
-    vi.useFakeTimers();
-  });
-
   beforeEach(() => {
     (useMedia as Mock).mockReturnValue(false);
   });
@@ -60,15 +50,8 @@ describe('SidePanelContext', () => {
   });
 
   afterAll(() => {
-    vi.useRealTimers();
     vi.resetModules();
   });
-
-  /**
-   * We need to set up userEvent with delay=null to address this issue:
-   * https://github.com/testing-library/user-event/issues/833
-   */
-  const userEvent = baseUserEvent.setup({ delay: null });
 
   describe('SidePanelProvider', () => {
     const getPanel = () => ({
@@ -86,7 +69,7 @@ describe('SidePanelContext', () => {
       ariaHideApp: false,
     });
 
-    const renderComponent = (Trigger, props = {}) =>
+    const renderComponent = (Trigger: ComponentType, props = {}) =>
       render(
         <SidePanelProvider {...props}>
           <Trigger />
@@ -131,9 +114,9 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        const { baseElement } = renderComponent(Trigger);
+        const { container } = renderComponent(Trigger);
 
-        expect(baseElement).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
       });
 
       it('should render the side panel and the resized container', async () => {
@@ -142,11 +125,15 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        const { baseElement, getByText } = renderComponent(Trigger);
+        const { container, getByText, getByRole } = renderComponent(Trigger);
 
         await userEvent.click(getByText('Open panel'));
 
-        expect(baseElement).toMatchSnapshot();
+        await waitFor(() => {
+          expect(getByRole('dialog')).toBeVisible();
+        });
+
+        expect(container).toMatchSnapshot();
       });
 
       it('should render the side panel on mobile resolutions', async () => {
@@ -157,11 +144,15 @@ describe('SidePanelContext', () => {
 
         (useMedia as Mock).mockReturnValue(true);
 
-        const { baseElement, getByText } = renderComponent(Trigger);
+        const { container, getByText, getByRole } = renderComponent(Trigger);
 
         await userEvent.click(getByText('Open panel'));
 
-        expect(baseElement).toMatchSnapshot();
+        await waitFor(() => {
+          expect(getByRole('dialog')).toBeVisible();
+        });
+
+        expect(container).toMatchSnapshot();
       });
 
       it('should render the side panel with offset for the top navigation', async () => {
@@ -170,13 +161,17 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        const { baseElement, getByText } = renderComponent(Trigger, {
+        const { container, getByText, getByRole } = renderComponent(Trigger, {
           withTopNavigation: true,
         });
 
         await userEvent.click(getByText('Open panel'));
 
-        expect(baseElement).toMatchSnapshot();
+        await waitFor(() => {
+          expect(getByRole('dialog')).toBeVisible();
+        });
+
+        expect(container).toMatchSnapshot();
       });
     });
 
@@ -284,11 +279,9 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Close panel'));
 
-        act(() => {
-          vi.runAllTimers();
+        await waitFor(() => {
+          expect(queryByRole('dialog')).toBeNull();
         });
-
-        expect(queryByRole('dialog')).toBeNull();
       });
 
       it('should close all side panels stacked above the one being closed', async () => {
@@ -317,11 +310,10 @@ describe('SidePanelContext', () => {
         expect(getAllByRole('dialog')).toHaveLength(2);
 
         await userEvent.click(getByText('Close panel'));
-        act(() => {
-          vi.runAllTimers();
-        });
 
-        expect(queryByRole('dialog')).toBeNull();
+        await waitFor(() => {
+          expect(queryByRole('dialog')).toBeNull();
+        });
       });
 
       it('should not close side panels stacked below the one being closed', async () => {
@@ -349,11 +341,10 @@ describe('SidePanelContext', () => {
         expect(getAllByRole('dialog')).toHaveLength(2);
 
         await userEvent.click(getByText('Close panel'));
-        act(() => {
-          vi.runAllTimers();
-        });
 
-        expect(getAllByRole('dialog')).toHaveLength(1);
+        await waitFor(() => {
+          expect(getAllByRole('dialog')).toHaveLength(1);
+        });
       });
 
       it('should not close the side panel when there is no match', async () => {
@@ -375,11 +366,10 @@ describe('SidePanelContext', () => {
         expect(getByRole('dialog')).toBeVisible();
 
         await userEvent.click(getByText('Close panel'));
-        act(() => {
-          vi.runAllTimers();
-        });
 
-        expect(getByRole('dialog')).toBeVisible();
+        await waitFor(() => {
+          expect(getByRole('dialog')).toBeVisible();
+        });
       });
 
       it('should call the onClose callback of the side panel', async () => {
@@ -400,11 +390,10 @@ describe('SidePanelContext', () => {
         await userEvent.click(getByText('Open panel'));
 
         await userEvent.click(getByText('Close panel'));
-        act(() => {
-          vi.runAllTimers();
-        });
 
-        expect(onClose).toHaveBeenCalled();
+        await waitFor(() => {
+          expect(onClose).toHaveBeenCalled();
+        });
       });
     });
 
@@ -430,11 +419,10 @@ describe('SidePanelContext', () => {
         expect(getByTestId('children')).toHaveTextContent('Side panel content');
 
         await userEvent.click(getByText('Update panel'));
-        act(() => {
-          vi.runAllTimers();
-        });
 
-        expect(getByTestId('children')).toHaveTextContent('Updated content');
+        await waitFor(() => {
+          expect(getByTestId('children')).toHaveTextContent('Updated content');
+        });
       });
 
       it('should not update the side panel when there is no match', async () => {
@@ -462,11 +450,12 @@ describe('SidePanelContext', () => {
         expect(getByTestId('children')).toHaveTextContent('Side panel content');
 
         await userEvent.click(getByText('Update panel'));
-        act(() => {
-          vi.runAllTimers();
-        });
 
-        expect(getByTestId('children')).toHaveTextContent('Side panel content');
+        await waitFor(() => {
+          expect(getByTestId('children')).toHaveTextContent(
+            'Side panel content',
+          );
+        });
       });
     });
   });

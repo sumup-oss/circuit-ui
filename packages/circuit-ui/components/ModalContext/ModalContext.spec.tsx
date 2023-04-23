@@ -13,22 +13,15 @@
  * limitations under the License.
  */
 
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import { useContext } from 'react';
 
 import {
   render,
   act,
-  userEvent as baseUserEvent,
+  userEvent,
   fireEvent,
+  waitFor,
 } from '../../util/test-utils';
 
 import { ModalProvider, ModalContext } from './ModalContext';
@@ -42,22 +35,12 @@ const Modal: ModalComponent = ({ onClose }) => (
 Modal.TRANSITION_DURATION = 200;
 
 describe('ModalContext', () => {
-  beforeAll(() => {
-    vi.useFakeTimers();
-  });
   afterAll(() => {
-    vi.useRealTimers();
     vi.resetModules();
   });
   afterEach(() => {
     vi.clearAllMocks();
   });
-
-  /**
-   * We need to set up userEvent with delay=null to address this issue:
-   * https://github.com/testing-library/user-event/issues/833
-   */
-  const userEvent = baseUserEvent.setup({ delay: null });
 
   describe('ModalProvider', () => {
     const onClose = vi.fn();
@@ -90,7 +73,7 @@ describe('ModalContext', () => {
       };
 
       const { getByRole, queryByRole } = render(
-        <ModalProvider ariaHideApp={false}>
+        <ModalProvider>
           <Trigger />
         </ModalProvider>,
       );
@@ -99,30 +82,29 @@ describe('ModalContext', () => {
 
       expect(getByRole('dialog')).toBeVisible();
 
-      await userEvent.click(getByRole('button', { name: 'Close modal' }));
+      await userEvent.click(getByRole('button', { name: 'Close' }));
 
-      act(() => {
-        vi.runAllTimers();
+      await waitFor(() => {
+        expect(queryByRole('dialog')).toBeNull();
       });
-
-      expect(queryByRole('dialog')).toBeNull();
     });
 
-    it('should close the modal when the user navigates back', () => {
+    it('should close the modal when the user navigates back', async () => {
       const { queryByRole } = render(
         <ModalProvider initialState={initialState} ariaHideApp={false}>
           <div />
         </ModalProvider>,
       );
 
+      expect(queryByRole('dialog')).toBeVisible();
+
       act(() => {
         fireEvent.popState(window);
       });
-      act(() => {
-        vi.runAllTimers();
-      });
 
-      expect(queryByRole('dialog')).toBeNull();
+      await waitFor(() => {
+        expect(queryByRole('dialog')).toBeNull();
+      });
       expect(onClose).toHaveBeenCalledTimes(1);
     });
 
@@ -135,11 +117,10 @@ describe('ModalContext', () => {
 
       const closeButton = queryByRole('button') as HTMLButtonElement;
       await userEvent.click(closeButton);
-      act(() => {
-        vi.runAllTimers();
-      });
 
-      expect(queryByRole('dialog')).toBeNull();
+      await waitFor(() => {
+        expect(queryByRole('dialog')).toBeNull();
+      });
       expect(onClose).toHaveBeenCalledTimes(1);
     });
   });
