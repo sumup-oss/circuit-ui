@@ -30,7 +30,7 @@ import { useAnimation } from '../../hooks/useAnimation';
 import Body from '../Body';
 import { TrackingProps } from '../../hooks/useClickEvent';
 import CloseButton from '../CloseButton';
-import { hideVisually } from '../../styles/style-mixins';
+import { hideVisually, spacing } from '../../styles/style-mixins';
 import Button, { ButtonProps } from '../Button';
 import { ClickEvent } from '../../types/events';
 import { isString } from '../../util/type-check';
@@ -42,6 +42,7 @@ import {
 } from '../Notification/constants';
 import { deprecate } from '../../util/logger';
 import { applyMultipleRefs } from '../../util/refs';
+import ButtonGroup from '../ButtonGroup';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
@@ -86,6 +87,10 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
    * An optional call-to-action button.
    */
   action?: Action;
+  /**
+   * An optional array of call-to-action buttons.
+   */
+  actions?: Action[];
   /**
    * Whether the notification is visible.
    */
@@ -202,6 +207,7 @@ export const NotificationInline = forwardRef<
       body,
       headline,
       action,
+      actions,
       onClose,
       closeButtonLabel,
       iconLabel = '',
@@ -269,8 +275,24 @@ export const NotificationInline = forwardRef<
               </Body>
             )}
             <Body>{body}</Body>
-            {action && (
+            {action && !actions && (
               <ActionButton {...action} variant="tertiary" size="kilo" />
+            )}
+            {!action && actions && (
+              <ButtonGroup
+                css={spacing({ top: 'byte' })}
+                actions={{
+                  primary: {
+                    ...actions[0],
+                    size: 'kilo',
+                  },
+                  secondary: {
+                    ...actions[1],
+                    size: 'kilo',
+                  },
+                }}
+                align="left"
+              />
             )}
           </Content>
 

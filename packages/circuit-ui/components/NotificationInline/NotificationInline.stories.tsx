@@ -93,3 +93,25 @@ WithHeadlineAndAction.args = {
     children: 'Click here',
   },
 } as NotificationInlineProps;
+
+export const WithMultipleActions = (
+  args: NotificationInlineProps,
+): JSX.Element => <NotificationInline {...args} isVisible={args.isVisible} />;
+
+WithMultipleActions.args = {
+  headline: 'Information',
+  body: 'You successfully updated your data.',
+  variant: 'info',
+  actions: [
+    {
+      onClick: action('Action clicked'),
+      variant: 'secondary',
+      children: 'Click there',
+    },
+    {
+      onClick: action('Action clicked'),
+      variant: 'primary',
+      children: 'Click here',
+    },
+  ],
+} as NotificationInlineProps;

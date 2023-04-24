@@ -108,6 +108,25 @@ describe('NotificationInline', () => {
       expect(baseElement).toMatchSnapshot();
     });
 
+    it('should render notification toast with multiple actions buttons', () => {
+      const { baseElement } = renderNotificationInline({
+        ...baseProps,
+        actions: [
+          {
+            onClick: jest.fn(),
+            variant: 'secondary',
+            children: 'First action',
+          },
+          {
+            onClick: jest.fn(),
+            variant: 'primary',
+            children: 'Second Action',
+          },
+        ],
+      });
+      expect(baseElement).toMatchSnapshot();
+    });
+
     it('should accept a working ref', () => {
       const ref = createRef<HTMLDivElement>();
       const { container } = render(
