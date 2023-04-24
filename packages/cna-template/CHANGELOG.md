@@ -1,5 +1,11 @@
 # @sumup/cna-template
 
+## 3.1.1
+
+### Patch Changes
+
+- [#2059](https://github.com/sumup-oss/circuit-ui/pull/2059) [`86c309c1`](https://github.com/sumup-oss/circuit-ui/commit/86c309c11e63eeca21c0ec22408a70320ff45b83) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `postinstall` script to initialize Foundry.
+
 ## 3.1.0
 
 ### Minor Changes
