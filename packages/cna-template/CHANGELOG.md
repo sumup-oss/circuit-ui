@@ -1,5 +1,11 @@
 # @sumup/cna-template
 
+## 3.2.0-next.0
+
+### Minor Changes
+
+- [#1972](https://github.com/sumup-oss/circuit-ui/pull/1972) [`0f29f87b`](https://github.com/sumup-oss/circuit-ui/commit/0f29f87bf28878f70e047ae42dd18c98660a2ffd) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed `@sumup/collector` from the peer dependencies and removed the related `tracking` and `trackingLabel` props (deprecated since v6.4).
+
 ## 3.1.1
 
 ### Patch Changes
