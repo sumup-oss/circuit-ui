@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-
-import Image from '../../../Image';
+import styled from '../../../../styles/styled.js';
+import Image from '../../../Image/index.js';
 import AspectRatio from '../../../AspectRatio/index.js';
 import { ASPECT_RATIO } from '../../constants.js';
 

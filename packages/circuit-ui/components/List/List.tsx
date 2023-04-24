@@ -15,8 +15,8 @@
 
 import { forwardRef, Ref, OlHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 
+import isPropValid from '../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../styles/styled.js';
 import { typography } from '../../styles/style-mixins.js';
 

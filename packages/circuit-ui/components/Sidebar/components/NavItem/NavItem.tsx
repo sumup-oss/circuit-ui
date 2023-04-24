@@ -15,8 +15,8 @@
 
 import { ReactElement } from 'react';
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 
+import isPropValid from '../../../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../../../styles/styled.js';
 import { ClickEvent } from '../../../../types/events.js';
 import { EmotionAsPropType } from '../../../../types/prop-types.js';

@@ -23,9 +23,9 @@ import {
   FC,
 } from 'react';
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 import { ChevronRight, IconProps } from '@sumup/icons';
 
+import isPropValid from '../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../styles/styled.js';
 import { focusVisible, spacing } from '../../styles/style-mixins.js';
 import { ReturnType } from '../../types/return-type.js';

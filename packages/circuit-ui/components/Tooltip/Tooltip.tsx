@@ -14,8 +14,8 @@
  */
 
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 
+import styled from '../../styles/styled.js';
 import type { StyleProps } from '../../styles/styled.js';
 import { typography, shadow } from '../../styles/style-mixins.js';
 

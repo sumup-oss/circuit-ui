@@ -16,8 +16,8 @@
 import { css } from '@emotion/react';
 import { ChevronLeft, ChevronRight, Pause, Play } from '@sumup/icons';
 
-import IconButton, { IconButtonProps } from '../../../IconButton';
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { StyleProps } from '../../../../styles/styled.js';
+import IconButton, { IconButtonProps } from '../../../IconButton/index.js';
 
 const buttonListStyles = css`
   display: flex;

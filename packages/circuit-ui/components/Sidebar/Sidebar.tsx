@@ -16,16 +16,16 @@
 import { Fragment, ReactNode } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 
-import { Aggregator } from './components/Aggregator';
-import { Backdrop } from './components/Backdrop';
-import { CloseButton } from './components/CloseButton';
-import { Footer } from './components/Footer';
-import { Header } from './components/Header';
-import { NavItem } from './components/NavItem';
-import { NavList } from './components/NavList';
-import { Separator } from './components/Separator';
+import { Aggregator } from './components/Aggregator/index.js';
+import { Backdrop } from './components/Backdrop/index.js';
+import { CloseButton } from './components/CloseButton/index.js';
+import { Footer } from './components/Footer/index.js';
+import { Header } from './components/Header/index.js';
+import { NavItem } from './components/NavItem/index.js';
+import { NavList } from './components/NavList/index.js';
+import { Separator } from './components/Separator/index.js';
 
 export interface SidebarProps {
   /**

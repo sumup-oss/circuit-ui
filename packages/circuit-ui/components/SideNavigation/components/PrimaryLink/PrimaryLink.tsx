@@ -14,10 +14,10 @@
  */
 
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { ArrowRight } from '@sumup/icons';
 
+import isPropValid from '../../../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../../../styles/styled.js';
 import { cx, focusVisible } from '../../../../styles/style-mixins.js';
 import { EmotionAsPropType } from '../../../../types/prop-types.js';

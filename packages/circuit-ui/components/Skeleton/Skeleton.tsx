@@ -15,8 +15,8 @@
 
 import { createContext, useContext, ReactNode, forwardRef, Ref } from 'react';
 import { css, keyframes } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 
+import isPropValid from '../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../styles/styled.js';
 
 const SkeletonContext = createContext(false);

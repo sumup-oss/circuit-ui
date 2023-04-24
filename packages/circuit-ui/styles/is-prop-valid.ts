@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2023, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,27 +13,10 @@
  * limitations under the License.
  */
 
-import styled from '../../styles/styled.ts';
+import _isPropValid from '@emotion/is-prop-valid';
 
-import { AspectRatio, AspectRatioProps } from './AspectRatio.js';
+const isPropValid = (_isPropValid.default || _isPropValid) as (
+  prop: string,
+) => boolean;
 
-const Background = styled('div')`
-  background: lightgrey;
-`;
-
-export default {
-  title: 'Components/AspectRatio',
-  component: AspectRatio,
-};
-
-export const Base = (args: AspectRatioProps) => (
-  <div style={{ width: '50vw' }}>
-    <AspectRatio {...args}>
-      <Background />
-    </AspectRatio>
-  </div>
-);
-
-Base.args = {
-  aspectRatio: 1.5,
-};
+export default isPropValid;

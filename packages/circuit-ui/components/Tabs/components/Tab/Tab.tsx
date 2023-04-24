@@ -16,10 +16,10 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
-import { typography, focusVisible } from '../../../../styles/style-mixins';
-import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
-import { useComponents } from '../../../ComponentsContext';
-import { EmotionAsPropType } from '../../../../types/prop-types';
+import { typography, focusVisible } from '../../../../styles/style-mixins.js';
+import styled, { NoTheme, StyleProps } from '../../../../styles/styled.js';
+import { useComponents } from '../../../ComponentsContext/index.js';
+import { EmotionAsPropType } from '../../../../types/prop-types.js';
 
 export interface BaseProps {
   /**

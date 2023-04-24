@@ -16,10 +16,10 @@
 import { Fragment } from 'react';
 import ReactModal from 'react-modal';
 import { ClassNames, css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { ChevronDown } from '@sumup/icons';
 
+import isPropValid from '../../../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../../../styles/styled.js';
 import {
   BaseModalProps,

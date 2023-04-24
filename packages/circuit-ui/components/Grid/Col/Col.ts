@@ -14,9 +14,9 @@
  */
 
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 
+import isPropValid from '../../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../../styles/styled.js';
 import { isNumber, isString } from '../../../util/type-check.js';
 import { clamp } from '../../../util/helpers.js';

@@ -16,8 +16,8 @@
 /* istanbul ignore file */
 
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 
+import styled from '../../../styles/styled.js';
 import Headline from '../../Headline/index.js';
 import Button from '../../Button/index.js';
 import ButtonGroup from '../../ButtonGroup/index.js';

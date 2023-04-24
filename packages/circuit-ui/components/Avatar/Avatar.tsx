@@ -15,9 +15,9 @@
 
 import { ImgHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 import { Profile, Image as ImageIcon } from '@sumup/icons';
 
+import isPropValid from '../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../styles/styled.js';
 import { CircuitError } from '../../util/errors.js';
 

@@ -15,8 +15,8 @@
 
 import { ThHTMLAttributes, FC, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 
+import isPropValid from '../../../../styles/is-prop-valid.js';
 import { focusOutline, typography } from '../../../../styles/style-mixins.js';
 import SortArrow from '../SortArrow/index.js';
 import styled, { StyleProps } from '../../../../styles/styled.js';

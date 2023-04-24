@@ -14,11 +14,11 @@
  */
 
 import { Component, createRef } from 'react';
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import type { Moment } from 'moment';
 
 import type { ClickEvent } from '../../types/events.js';
+import styled from '../../styles/styled.js';
 import { RangePickerController } from '../Calendar/index.js';
 import Tag from '../Tag/index.js';
 import ButtonGroup from '../ButtonGroup/index.js';
