@@ -59,7 +59,7 @@
     "@storybook/theming": "^7.0.5",
     "@sumup/eslint-plugin-circuit-ui": "^0.0.1",
     "@sumup/foundry": "^6.0.0",
-    "@types/jest": "^29.5.0",
+    "@types/jest": "^29.5.1",
     "@types/node": "^18.15.11",
     "audit-ci": "^6.6.1",
     "babel-jest": "^29.5.0",
