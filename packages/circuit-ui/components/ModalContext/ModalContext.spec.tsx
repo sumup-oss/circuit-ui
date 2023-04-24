@@ -51,6 +51,9 @@ describe('ModalContext', () => {
     };
     const initialState = [modal];
 
+    // `react-modal` tries to access `document` to hide the app which fails in
+    // the simulated DOM environment of the unit tests. That's why we need to
+    // set `ariaHideApp="false"`. This should not be done in production apps.
     it('should render the initial modals', () => {
       const { getByRole } = render(
         <ModalProvider initialState={initialState} ariaHideApp={false}>
