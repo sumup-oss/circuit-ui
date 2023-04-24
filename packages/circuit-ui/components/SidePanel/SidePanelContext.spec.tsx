@@ -114,9 +114,9 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        const { container } = renderComponent(Trigger);
+        const { baseElement } = renderComponent(Trigger);
 
-        expect(container).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
       });
 
       it('should render the side panel and the resized container', async () => {
@@ -125,7 +125,7 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        const { container, getByText, getByRole } = renderComponent(Trigger);
+        const { baseElement, getByText, getByRole } = renderComponent(Trigger);
 
         await userEvent.click(getByText('Open panel'));
 
@@ -133,7 +133,7 @@ describe('SidePanelContext', () => {
           expect(getByRole('dialog')).toBeVisible();
         });
 
-        expect(container).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
       });
 
       it('should render the side panel on mobile resolutions', async () => {
@@ -144,7 +144,7 @@ describe('SidePanelContext', () => {
 
         (useMedia as Mock).mockReturnValue(true);
 
-        const { container, getByText, getByRole } = renderComponent(Trigger);
+        const { baseElement, getByText, getByRole } = renderComponent(Trigger);
 
         await userEvent.click(getByText('Open panel'));
 
@@ -152,7 +152,7 @@ describe('SidePanelContext', () => {
           expect(getByRole('dialog')).toBeVisible();
         });
 
-        expect(container).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
       });
 
       it('should render the side panel with offset for the top navigation', async () => {
@@ -161,7 +161,7 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        const { container, getByText, getByRole } = renderComponent(Trigger, {
+        const { baseElement, getByText, getByRole } = renderComponent(Trigger, {
           withTopNavigation: true,
         });
 
@@ -171,7 +171,7 @@ describe('SidePanelContext', () => {
           expect(getByRole('dialog')).toBeVisible();
         });
 
-        expect(container).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
       });
     });
 
