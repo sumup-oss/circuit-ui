@@ -18,7 +18,7 @@ import { css } from '@emotion/react';
 import styled, { StyleProps } from '../../../../styles/styled.js';
 import BaseButton, {
   CloseButtonProps as BaseButtonProps,
-} from '../../../CloseButton';
+} from '../../../CloseButton/index.js';
 
 export interface CloseButtonProps extends BaseButtonProps {
   /**

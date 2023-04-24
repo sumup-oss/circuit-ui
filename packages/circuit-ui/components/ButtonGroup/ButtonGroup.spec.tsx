@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils.jsx';
 
-import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
+import { ButtonGroup, ButtonGroupProps } from './ButtonGroup.jsx';
 
 describe('ButtonGroup', () => {
   const defaultProps: ButtonGroupProps = {

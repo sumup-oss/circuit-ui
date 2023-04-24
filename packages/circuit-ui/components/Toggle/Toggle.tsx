@@ -18,9 +18,9 @@ import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled.js';
-import { Body, BodyProps } from '../Body/Body';
+import { Body, BodyProps } from '../Body/Body.jsx';
 import { AccessibilityError } from '../../util/errors.js';
-import { FieldWrapper } from '../FieldAtoms';
+import { FieldWrapper } from '../FieldAtoms/index.js';
 import { CLASS_DISABLED } from '../FieldAtoms/constants.js';
 
 import { Switch, SwitchProps } from './components/Switch/Switch.jsx';

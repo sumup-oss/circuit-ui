@@ -22,7 +22,7 @@ import {
   focusVisible,
   disableVisually,
   cx,
-} from '../../../../styles/style-mixins';
+} from '../../../../styles/style-mixins.js';
 
 import calendarInheritStyles from './CalendarImportedStyles.js';
 

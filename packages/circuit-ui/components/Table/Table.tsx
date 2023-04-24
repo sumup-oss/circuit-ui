@@ -20,8 +20,8 @@ import styled, { StyleProps } from '../../styles/styled.js';
 import { isNil } from '../../util/type-check.js';
 import { throttle } from '../../util/helpers.js';
 
-import TableHead from './components/TableHead';
-import TableBody from './components/TableBody';
+import TableHead from './components/TableHead/index.js';
+import TableBody from './components/TableBody/index.js';
 import { defaultSortBy, getSortDirection } from './utils.js';
 import { Direction, Row, HeaderCell } from './types.js';
 

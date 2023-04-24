@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render } from '../../util/test-utils.jsx';
+import { axe, render } from '../../util/test-utils.js';
 
 import { Carousel } from './Carousel.js';
 import { SLIDES } from './__fixtures__/index.js';

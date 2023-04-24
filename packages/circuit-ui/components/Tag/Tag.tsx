@@ -19,8 +19,8 @@ import { Theme } from '@sumup/design-tokens';
 
 import { ClickEvent } from '../../types/events.js';
 import styled, { StyleProps } from '../../styles/styled.js';
-import { typography, focusVisible } from '../../styles/style-mixins';
-import CloseButton, { CloseButtonProps } from '../CloseButton';
+import { typography, focusVisible } from '../../styles/style-mixins.js';
+import CloseButton, { CloseButtonProps } from '../CloseButton/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 
 type BaseProps = {

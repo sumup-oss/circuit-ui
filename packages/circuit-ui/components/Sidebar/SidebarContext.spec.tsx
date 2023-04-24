@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { useContext } from 'react';
 
-import { act, fireEvent, render } from '../../util/test-utils.jsx';
+import { act, fireEvent, render } from '../../util/test-utils.tsx';
 
 import {
   SidebarContext,

@@ -17,9 +17,9 @@ import { ReactNode, Ref, forwardRef, ChangeEventHandler, useId } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
-import Selector from '../Selector';
-import { SelectorSize } from '../Selector/Selector';
-import { hideVisually, typography } from '../../styles/style-mixins';
+import Selector from '../Selector/index.js';
+import { SelectorSize } from '../Selector/Selector.jsx';
+import { hideVisually, typography } from '../../styles/style-mixins.js';
 import { AccessibilityError } from '../../util/errors.js';
 
 export interface SelectorGroupProps {

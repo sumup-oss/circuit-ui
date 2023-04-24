@@ -17,11 +17,11 @@ import { useState } from 'react';
 import { Plus } from '@sumup/icons';
 
 import { Stack } from '../../../../.storybook/components';
-import ButtonGroup from '../ButtonGroup';
-import IconButton from '../IconButton';
-import CloseButton from '../CloseButton';
+import ButtonGroup from '../ButtonGroup/index.js';
+import IconButton from '../IconButton/index.js';
+import CloseButton from '../CloseButton/index.js';
 
-import { Button, ButtonProps } from './Button';
+import { Button, ButtonProps } from './Button.jsx';
 
 export default {
   title: 'Components/Button',

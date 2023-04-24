@@ -18,12 +18,18 @@ import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled.js';
-import { focusVisible } from '../../styles/style-mixins';
-import Hamburger, { HamburgerProps } from '../Hamburger';
-import { SkeletonContainer } from '../Skeleton';
+import { focusVisible } from '../../styles/style-mixins.js';
+import Hamburger, { HamburgerProps } from '../Hamburger/index.js';
+import { SkeletonContainer } from '../Skeleton/index.js';
 
-import { ProfileMenu, ProfileMenuProps } from './components/ProfileMenu';
-import { UtilityLinks, UtilityLinksProps } from './components/UtilityLinks';
+import {
+  ProfileMenu,
+  ProfileMenuProps,
+} from './components/ProfileMenu/index.js';
+import {
+  UtilityLinks,
+  UtilityLinksProps,
+} from './components/UtilityLinks/index.js';
 import { UserProps } from './types.js';
 
 const CONTENT_HEIGHT = '56px';

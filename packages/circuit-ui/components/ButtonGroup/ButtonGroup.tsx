@@ -17,8 +17,8 @@ import { Ref, forwardRef, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
-import Button, { ButtonProps } from '../Button';
-import { secondaryStyles, tertiaryStyles } from '../Button/Button';
+import Button, { ButtonProps } from '../Button/index.js';
+import { secondaryStyles, tertiaryStyles } from '../Button/Button.jsx';
 
 type Action = Omit<ButtonProps, 'variant'>;
 

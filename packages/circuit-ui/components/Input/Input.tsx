@@ -24,13 +24,13 @@ import { css, Interpolation } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled.js';
-import { typography, inputOutline } from '../../styles/style-mixins';
+import { typography, inputOutline } from '../../styles/style-mixins.js';
 import {
   FieldWrapper,
   FieldLabel,
   FieldLabelText,
   FieldValidationHint,
-} from '../FieldAtoms';
+} from '../FieldAtoms/index.js';
 import { ReturnType } from '../../types/return-type.js';
 import { AccessibilityError } from '../../util/errors.js';
 

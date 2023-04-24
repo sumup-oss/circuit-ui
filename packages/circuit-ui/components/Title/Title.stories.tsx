@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Title, TitleProps } from './Title';
+import { Title, TitleProps } from './Title.jsx';
 
 export default {
   title: 'Typography/Title',

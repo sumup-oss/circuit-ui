@@ -15,10 +15,10 @@
 
 import { useState } from 'react';
 
-import Avatar from '../Avatar';
+import Avatar from '../Avatar/index.js';
 import { Stack } from '../../../../.storybook/components';
 
-import { ImageInputProps } from './ImageInput';
+import { ImageInputProps } from './ImageInput.jsx';
 
 import ImageInput from '.';
 

@@ -17,8 +17,8 @@ import { ThHTMLAttributes, FC, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
-import { focusOutline, typography } from '../../../../styles/style-mixins';
-import SortArrow from '../SortArrow';
+import { focusOutline, typography } from '../../../../styles/style-mixins.js';
+import SortArrow from '../SortArrow/index.js';
 import styled, { StyleProps } from '../../../../styles/styled.js';
 import { CellAlignment, SortParams } from '../../types.js';
 import { ClickEvent } from '../../../../types/events.js';

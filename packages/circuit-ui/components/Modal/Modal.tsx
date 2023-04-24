@@ -23,9 +23,9 @@ import {
   ModalComponent,
   BaseModalProps,
   createUseModal,
-} from '../ModalContext';
-import CloseButton from '../CloseButton';
-import { StackContext } from '../StackContext';
+} from '../ModalContext/index.js';
+import CloseButton from '../CloseButton/index.js';
+import { StackContext } from '../StackContext/index.js';
 import styled, { StyleProps } from '../../styles/styled.js';
 import { AccessibilityError } from '../../util/errors.js';
 

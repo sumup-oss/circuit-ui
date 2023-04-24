@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 
 import { create, renderToHtml, axe, render } from '../../util/test-utils.jsx';
 
-import { BodyLarge, BodyLargeProps } from './BodyLarge';
+import { BodyLarge, BodyLargeProps } from './BodyLarge.jsx';
 
 describe('BodyLarge', () => {
   /**

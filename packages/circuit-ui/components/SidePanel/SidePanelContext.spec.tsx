@@ -32,7 +32,7 @@ import {
   waitFor,
 } from '../../util/test-utils.jsx';
 import { uniqueId } from '../../util/id.js';
-import { useMedia } from '../../hooks/useMedia';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
 import {
   SidePanelProvider,

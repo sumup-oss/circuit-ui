@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe } from '../../util/test-utils.jsx';
 
-import { Badge } from './Badge';
+import { Badge } from './Badge.jsx';
 
 describe('Badge', () => {
   /**

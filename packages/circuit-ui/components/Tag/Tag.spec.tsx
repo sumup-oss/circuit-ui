@@ -24,7 +24,7 @@ import {
   userEvent,
 } from '../../util/test-utils.jsx';
 
-import { Tag } from './Tag';
+import { Tag } from './Tag.jsx';
 
 const DummyIcon = (props: any) => <div data-testid="tag-icon" {...props} />;
 

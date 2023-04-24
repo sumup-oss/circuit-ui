@@ -16,7 +16,7 @@
 import { css, SerializedStyles } from '@emotion/react';
 
 import { StyleProps } from '../../styles/styled.js';
-import { typography } from '../../styles/style-mixins';
+import { typography } from '../../styles/style-mixins.js';
 
 const FONTS_BASE_URL = 'https://static.sumup.com/fonts/latin-greek-cyrillic';
 

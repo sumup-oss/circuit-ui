@@ -15,7 +15,7 @@
 
 import { useState, ChangeEvent } from 'react';
 
-import { SearchInput, SearchInputProps } from './SearchInput';
+import { SearchInput, SearchInputProps } from './SearchInput.jsx';
 
 export default {
   title: 'Forms/Input/SearchInput',

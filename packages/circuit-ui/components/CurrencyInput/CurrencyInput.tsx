@@ -18,8 +18,8 @@ import { resolveCurrencyFormat } from '@sumup/intl';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
 import styled from '../../styles/styled.js';
-import Input from '../Input';
-import { InputProps } from '../Input/Input';
+import Input from '../Input/index.js';
+import { InputProps } from '../Input/Input.jsx';
 
 import { formatPlaceholder } from './CurrencyInputService.js';
 

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Hamburger from '../Hamburger';
+import Hamburger from '../Hamburger/index.js';
 
 import { Header, HeaderProps } from './Header.jsx';
 

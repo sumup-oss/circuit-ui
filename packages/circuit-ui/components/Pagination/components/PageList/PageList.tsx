@@ -17,7 +17,7 @@ import { FC, OlHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../../../styles/styled.js';
-import Button, { ButtonProps } from '../../../Button';
+import Button, { ButtonProps } from '../../../Button/index.js';
 
 export interface PageListProps
   extends Omit<OlHTMLAttributes<HTMLOListElement>, 'onChange'> {

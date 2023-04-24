@@ -21,7 +21,7 @@ import { render, axe, userEvent } from '../../util/test-utils.jsx';
 import {
   NotificationBanner,
   NotificationBannerProps,
-} from './NotificationBanner';
+} from './NotificationBanner.jsx';
 
 describe('NotificationBanner', () => {
   const renderNotificationBanner = (props: NotificationBannerProps) =>

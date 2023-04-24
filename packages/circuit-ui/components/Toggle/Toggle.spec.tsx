@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe } from '../../util/test-utils.jsx';
 
-import { Toggle } from './Toggle';
+import { Toggle } from './Toggle.jsx';
 
 const defaultProps = {
   label: 'Label',

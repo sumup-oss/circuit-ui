@@ -16,15 +16,15 @@
 import { useState } from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 
-import Body from '../Body';
-import Button from '../Button';
-import ListItemGroup from '../ListItemGroup';
-import { ModalProvider } from '../ModalContext';
-import { TopNavigation } from '../TopNavigation';
+import Body from '../Body/index.js';
+import Button from '../Button/index.js';
+import ListItemGroup from '../ListItemGroup/index.js';
+import { ModalProvider } from '../ModalContext/index.js';
+import { TopNavigation } from '../TopNavigation/index.js';
 import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories';
-import { SideNavigation } from '../SideNavigation';
+import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories';
-import { spacing } from '../../styles/style-mixins';
+import { spacing } from '../../styles/style-mixins.js';
 
 import { SidePanelProvider } from './SidePanelContext.jsx';
 import {

@@ -17,7 +17,7 @@ import { FC, PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { focusOutline } from '../../../../styles/style-mixins';
+import { focusOutline } from '../../../../styles/style-mixins.js';
 import { ClickEvent } from '../../../../types/events.js';
 
 type TableRowProps = {

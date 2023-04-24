@@ -17,9 +17,12 @@ import { Card } from './Card.jsx';
 
 export type { CardProps } from './Card.jsx';
 
-export { Header as CardHeader, Footer as CardFooter } from './components.jsx';
+export {
+  Header as CardHeader,
+  Footer as CardFooter,
+} from './components/index.js';
 
-export type { HeaderProps as CardHeaderProps } from './components.jsx';
-export type { FooterProps as CardFooterProps } from './components.jsx';
+export type { HeaderProps as CardHeaderProps } from './components/index.js';
+export type { FooterProps as CardFooterProps } from './components/index.js';
 
 export default Card;

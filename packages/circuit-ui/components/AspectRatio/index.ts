@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AspectRatio } from './AspectRatio';
+import { AspectRatio } from './AspectRatio.js';
 
-export type { AspectRatioProps } from './AspectRatio';
+export type { AspectRatioProps } from './AspectRatio.js';
 
 export default AspectRatio;

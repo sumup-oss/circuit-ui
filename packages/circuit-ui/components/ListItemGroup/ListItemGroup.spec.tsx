@@ -24,9 +24,9 @@ import {
   RenderFn,
   userEvent,
 } from '../../util/test-utils.jsx';
-import Body from '../Body';
+import Body from '../Body/index.js';
 
-import { ListItemGroup, ListItemGroupProps } from './ListItemGroup';
+import { ListItemGroup, ListItemGroupProps } from './ListItemGroup.jsx';
 
 describe('ListItemGroup', () => {
   function renderListItemGroup<T>(

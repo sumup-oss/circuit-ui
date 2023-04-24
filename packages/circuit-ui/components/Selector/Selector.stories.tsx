@@ -14,10 +14,10 @@
  */
 
 import { Stack } from '../../../../.storybook/components';
-import SelectorGroup from '../SelectorGroup';
-import Body from '../Body';
+import SelectorGroup from '../SelectorGroup/index.js';
+import Body from '../Body/index.js';
 
-import { Selector, SelectorProps } from './Selector';
+import { Selector, SelectorProps } from './Selector.jsx';
 
 export default {
   title: 'Forms/Selector',

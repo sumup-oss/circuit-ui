@@ -25,10 +25,10 @@ import {
   RenderFn,
   userEvent,
 } from '../../util/test-utils.jsx';
-import Body from '../Body';
-import Badge from '../Badge';
+import Body from '../Body/index.js';
+import Badge from '../Badge/index.js';
 
-import { ListItem, ListItemProps } from './ListItem';
+import { ListItem, ListItemProps } from './ListItem.jsx';
 
 describe('ListItem', () => {
   function renderListItem<T>(renderFn: RenderFn<T>, props: ListItemProps) {

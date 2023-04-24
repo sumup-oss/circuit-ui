@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { axe, render, screen } from '../../util/test-utils.jsx';
 
-import { SelectorGroup } from './SelectorGroup';
+import { SelectorGroup } from './SelectorGroup.jsx';
 
 describe('SelectorGroup', () => {
   const defaultProps = {

@@ -25,20 +25,20 @@ import {
   BaseModalProps,
   createUseModal,
   ModalComponent,
-} from '../../../ModalContext';
-import { StackContext } from '../../../StackContext';
-import CloseButton from '../../../CloseButton';
-import { useCollapsible } from '../../../../hooks/useCollapsible';
-import { useFocusList } from '../../../../hooks/useFocusList';
+} from '../../../ModalContext/index.js';
+import { StackContext } from '../../../StackContext/index.js';
+import CloseButton from '../../../CloseButton/index.js';
+import { useCollapsible } from '../../../../hooks/useCollapsible/index.js';
+import { useFocusList } from '../../../../hooks/useFocusList/index.js';
 import { PrimaryLinkProps } from '../../types.js';
-import { PrimaryLink } from '../PrimaryLink';
-import { SecondaryLinks } from '../SecondaryLinks';
+import { PrimaryLink } from '../PrimaryLink/index.js';
+import { SecondaryLinks } from '../SecondaryLinks/index.js';
 import { Require } from '../../../../types/util.js';
 import { ClickEvent } from '../../../../types/events.js';
 import {
   ComponentsContext,
   ComponentsContextType,
-} from '../../../ComponentsContext';
+} from '../../../ComponentsContext/index.js';
 import { defaultComponents } from '../../../ComponentsContext/ComponentsContext.js';
 
 const TRANSITION_DURATION = 120;

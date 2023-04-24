@@ -22,9 +22,9 @@ import {
 } from 'react';
 import { css } from '@emotion/react';
 
-import { useStack, StackItem } from '../../hooks/useStack';
+import { useStack, StackItem } from '../../hooks/useStack/index.js';
 import styled, { StyleProps } from '../../styles/styled.js';
-import { spacing } from '../../styles/style-mixins';
+import { spacing } from '../../styles/style-mixins.js';
 
 import { BaseToastProps, ToastComponent } from './types.js';
 

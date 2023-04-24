@@ -18,7 +18,10 @@ import { Plus } from '@sumup/icons';
 
 import { axe, render, userEvent, waitFor } from '../../util/test-utils.jsx';
 
-import { NotificationModal, NotificationModalProps } from './NotificationModal';
+import {
+  NotificationModal,
+  NotificationModalProps,
+} from './NotificationModal.jsx';
 
 describe('NotificationModal', () => {
   const renderNotificationModal = (props: NotificationModalProps) =>

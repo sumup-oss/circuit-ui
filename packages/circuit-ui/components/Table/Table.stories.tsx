@@ -15,10 +15,10 @@
 
 import { action } from '@storybook/addon-actions';
 
-import Badge from '../Badge';
+import Badge from '../Badge/index.js';
 import { isString } from '../../util/type-check.js';
 
-import { TableProps } from './Table';
+import { TableProps } from './Table.jsx';
 import { Direction } from './types.js';
 
 import Table from '.';

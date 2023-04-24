@@ -20,9 +20,9 @@ import isPropValid from '@emotion/is-prop-valid';
 import styled, { StyleProps } from '../../../../styles/styled.js';
 import { ClickEvent } from '../../../../types/events.js';
 import { EmotionAsPropType } from '../../../../types/prop-types.js';
-import { useComponents } from '../../../ComponentsContext';
+import { useComponents } from '../../../ComponentsContext/index.js';
 import { getIcon } from '../../SidebarService.jsx';
-import { NavLabel } from '../NavLabel';
+import { NavLabel } from '../NavLabel/index.js';
 
 export interface NavItemProps {
   /**

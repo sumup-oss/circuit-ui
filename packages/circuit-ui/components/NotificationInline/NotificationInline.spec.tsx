@@ -21,7 +21,7 @@ import { axe, render, userEvent, waitFor } from '../../util/test-utils.jsx';
 import {
   NotificationInline,
   NotificationInlineProps,
-} from './NotificationInline';
+} from './NotificationInline.jsx';
 
 describe('NotificationInline', () => {
   const renderNotificationInline = (props: NotificationInlineProps) =>

@@ -18,7 +18,7 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled.js';
-import { typography } from '../../styles/style-mixins';
+import { typography } from '../../styles/style-mixins.js';
 
 type Size = 'one' | 'two';
 type Variant = 'ordered' | 'unordered';

@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { useState } from 'react';
 
-import Avatar from '../Avatar';
+import Avatar from '../Avatar/index.js';
 import {
   render,
   axe,
@@ -26,7 +26,7 @@ import {
   createEvent,
 } from '../../util/test-utils.jsx';
 
-import { ImageInput } from './ImageInput';
+import { ImageInput } from './ImageInput.jsx';
 
 const defaultProps = {
   label: 'Upload an image',

@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { useCollapsible } from './useCollapsible';
+export { useCollapsible } from './useCollapsible.js';

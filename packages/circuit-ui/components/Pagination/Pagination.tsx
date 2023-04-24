@@ -19,11 +19,11 @@ import { Theme } from '@sumup/design-tokens';
 import { ChevronLeft, ChevronRight } from '@sumup/icons';
 
 import styled from '../../styles/styled.js';
-import IconButton from '../IconButton';
+import IconButton from '../IconButton/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 
-import { PageSelect } from './components/PageSelect';
-import { PageList } from './components/PageList';
+import { PageSelect } from './components/PageSelect/index.js';
+import { PageList } from './components/PageList/index.js';
 import * as PaginationService from './PaginationService.js';
 
 export interface PaginationProps {

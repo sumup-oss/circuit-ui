@@ -16,7 +16,7 @@
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../../../styles/styled.js';
-import { typography } from '../../../../styles/style-mixins';
+import { typography } from '../../../../styles/style-mixins.js';
 
 const PRESENTATION = 'presentation';
 

@@ -15,10 +15,10 @@
 
 import { Fragment } from 'react';
 
-import Body from '../Body';
-import { spacing } from '../../styles/style-mixins';
+import Body from '../Body/index.js';
+import { spacing } from '../../styles/style-mixins.js';
 
-import { List, ListProps } from './List';
+import { List, ListProps } from './List.jsx';
 
 export default {
   title: 'Typography/List',

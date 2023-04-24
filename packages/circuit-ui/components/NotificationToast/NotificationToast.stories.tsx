@@ -16,14 +16,14 @@
 
 import styled from '@emotion/styled';
 
-import Button from '../Button';
-import { ToastProvider } from '../ToastContext';
+import Button from '../Button/index.js';
+import { ToastProvider } from '../ToastContext/index.js';
 
 import {
   NotificationToast,
   NotificationToastProps,
   useNotificationToast,
-} from './NotificationToast';
+} from './NotificationToast.jsx';
 
 export default {
   title: 'Notification/NotificationToast',

@@ -22,9 +22,9 @@ import {
   axe,
   userEvent,
 } from '../../util/test-utils.jsx';
-import Badge from '../Badge';
+import Badge from '../Badge/index.js';
 
-import Table from './Table';
+import Table from './Table.jsx';
 import { HeaderCell, Direction } from './types.js';
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {

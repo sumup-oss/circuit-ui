@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { act, axe, fireEvent, render } from '../../util/test-utils.jsx';
+import { act, axe, fireEvent, render } from '../../util/test-utils.js';
 
 import { TabPanel } from './components/TabPanel/index.js';
 import { TabList } from './components/TabList/index.js';

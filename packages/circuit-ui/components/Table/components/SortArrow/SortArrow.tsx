@@ -18,7 +18,7 @@ import { css } from '@emotion/react';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../../../styles/styled.js';
-import { hideVisually } from '../../../../styles/style-mixins';
+import { hideVisually } from '../../../../styles/style-mixins.js';
 import { Direction } from '../../types.js';
 
 interface SortArrowProps extends HTMLAttributes<HTMLButtonElement> {

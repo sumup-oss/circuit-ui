@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { create, renderToHtml, axe, render } from '../../util/test-utils.jsx';
 
-import { SubHeadline } from './SubHeadline';
+import { SubHeadline } from './SubHeadline.jsx';
 
 describe('SubHeadline', () => {
   /**

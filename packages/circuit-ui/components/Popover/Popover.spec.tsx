@@ -32,7 +32,7 @@ import {
   PopoverItemProps,
   Popover,
   PopoverProps,
-} from './Popover';
+} from './Popover.jsx';
 
 const placements: Placement[] = ['top', 'bottom', 'left', 'right'];
 

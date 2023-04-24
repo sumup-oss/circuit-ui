@@ -20,8 +20,8 @@ import { ClickEvent } from '../../../../types/events.js';
 import { isEmpty } from '../../../../util/helpers.js';
 import styled, { StyleProps } from '../../../../styles/styled.js';
 import { Child, hasSelectedChild, getIcon } from '../../SidebarService.jsx';
-import { SubNavList } from '../SubNavList';
-import { NavLabel } from '../NavLabel';
+import { SubNavList } from '../SubNavList/index.js';
+import { NavLabel } from '../NavLabel/index.js';
 import { AccessibilityError } from '../../../../util/errors.js';
 
 export interface AggregatorProps {

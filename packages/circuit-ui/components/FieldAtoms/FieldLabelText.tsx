@@ -15,10 +15,9 @@
 
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 
-import { hideVisually } from '../../styles/style-mixins';
-import { StyleProps } from '../../styles/styled.js';
+import { hideVisually } from '../../styles/style-mixins.js';
+import styled, { StyleProps } from '../../styles/styled.js';
 
 import { CLASS_DISABLED } from './constants.js';
 

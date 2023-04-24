@@ -20,14 +20,17 @@ import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps, NoTheme } from '../../../../styles/styled.js';
-import { navigationItem } from '../../../../styles/style-mixins';
+import { navigationItem } from '../../../../styles/style-mixins.js';
 import { EmotionAsPropType } from '../../../../types/prop-types.js';
-import { useFocusList, FocusProps } from '../../../../hooks/useFocusList';
-import SubHeadline from '../../../SubHeadline';
-import Body from '../../../Body';
-import Badge from '../../../Badge';
-import { useComponents } from '../../../ComponentsContext';
-import { Skeleton } from '../../../Skeleton';
+import {
+  useFocusList,
+  FocusProps,
+} from '../../../../hooks/useFocusList/index.js';
+import SubHeadline from '../../../SubHeadline/index.js';
+import Body from '../../../Body/index.js';
+import Badge from '../../../Badge/index.js';
+import { useComponents } from '../../../ComponentsContext/index.js';
+import { Skeleton } from '../../../Skeleton/index.js';
 import { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
 
 const anchorStyles = ({ theme }: StyleProps) => css`

@@ -18,9 +18,9 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import Image from '../../Image';
-import Button from '../../Button';
-import Step, { StepProps } from '../Step';
+import Image from '../../Image/index.js';
+import Button from '../../Button/index.js';
+import Step, { StepProps } from '../Step.js';
 import { StyleProps } from '../../../styles/styled.js';
 
 const SLIDE_WIDTH = 400;

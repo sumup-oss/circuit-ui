@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render } from '../../util/test-utils.jsx';
+import { render } from '../../util/test-utils.tsx';
 
 import { AspectRatio } from './AspectRatio.jsx';
 

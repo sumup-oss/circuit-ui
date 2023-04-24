@@ -16,7 +16,7 @@
 import { FC, MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
 import { IconProps } from '@sumup/icons';
 
-import { BadgeProps } from '../Badge';
+import { BadgeProps } from '../Badge/index.js';
 
 export interface PrimaryLinkProps
   extends AnchorHTMLAttributes<HTMLAnchorElement> {

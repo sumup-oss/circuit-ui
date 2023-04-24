@@ -26,11 +26,11 @@ import { css, useTheme } from '@emotion/react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
 import styled from '../../styles/styled.js';
-import { useMedia } from '../../hooks/useMedia';
-import { useStack, StackItem } from '../../hooks/useStack';
+import { useMedia } from '../../hooks/useMedia/index.js';
+import { useStack, StackItem } from '../../hooks/useStack/index.js';
 import { Require } from '../../types/util.js';
 import { warn } from '../../util/logger.jsx';
-import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation';
+import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation.jsx';
 
 import {
   SidePanel,
@@ -38,7 +38,7 @@ import {
   SIDE_PANEL_WIDTH,
   TRANSITION_DURATION_DESKTOP,
   TRANSITION_DURATION_MOBILE,
-} from './SidePanel';
+} from './SidePanel.jsx';
 import { SidePanelHookProps } from './useSidePanel.jsx';
 
 // It is important for users of screen readers that other page content be hidden

@@ -19,11 +19,14 @@ import { Theme } from '@sumup/design-tokens';
 import { IconProps } from '@sumup/icons';
 
 import styled, { NoTheme, StyleProps } from '../../../../styles/styled.js';
-import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
+import {
+  hideVisually,
+  navigationItem,
+} from '../../../../styles/style-mixins.js';
 import { EmotionAsPropType } from '../../../../types/prop-types.js';
-import Body from '../../../Body';
-import { useComponents } from '../../../ComponentsContext';
-import { Skeleton } from '../../../Skeleton';
+import Body from '../../../Body/index.js';
+import { useComponents } from '../../../ComponentsContext/index.js';
+import { Skeleton } from '../../../Skeleton/index.js';
 
 const anchorStyles = ({ theme }: StyleProps) => css`
   text-decoration: none;

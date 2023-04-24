@@ -15,7 +15,7 @@
 
 import { useState } from 'react';
 
-import { Pagination, PaginationProps } from './Pagination';
+import { Pagination, PaginationProps } from './Pagination.jsx';
 
 export default {
   title: 'Navigation/Pagination',

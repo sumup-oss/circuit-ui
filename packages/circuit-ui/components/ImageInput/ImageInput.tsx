@@ -27,10 +27,14 @@ import { Delete, Plus } from '@sumup/icons';
 
 import { ClickEvent } from '../../types/events.js';
 import styled, { StyleProps } from '../../styles/styled.js';
-import { focusOutline, hideVisually } from '../../styles/style-mixins';
-import { FieldWrapper, FieldLabel, FieldValidationHint } from '../FieldAtoms';
-import IconButton, { IconButtonProps } from '../IconButton';
-import Spinner from '../Spinner';
+import { focusOutline, hideVisually } from '../../styles/style-mixins.js';
+import {
+  FieldWrapper,
+  FieldLabel,
+  FieldValidationHint,
+} from '../FieldAtoms/index.js';
+import IconButton, { IconButtonProps } from '../IconButton/index.js';
+import Spinner from '../Spinner/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 import { CLASS_DISABLED } from '../FieldAtoms/constants.js';
 

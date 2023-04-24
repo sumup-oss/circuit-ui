@@ -22,13 +22,13 @@ import {
 } from 'react';
 
 import styled from '../../styles/styled.js';
-import { typography } from '../../styles/style-mixins';
-import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
+import { typography } from '../../styles/style-mixins.js';
+import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton.jsx';
 import {
   FieldWrapper,
   FieldLabelText,
   FieldValidationHint,
-} from '../FieldAtoms';
+} from '../FieldAtoms/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 
 export interface RadioButtonGroupProps

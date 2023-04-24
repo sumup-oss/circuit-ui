@@ -20,7 +20,7 @@ import { useState } from 'react';
 import {
   NotificationInline,
   NotificationInlineProps,
-} from './NotificationInline';
+} from './NotificationInline.jsx';
 
 export default {
   title: 'Notification/NotificationInline',

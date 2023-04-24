@@ -16,11 +16,11 @@
 import { FC, HTMLAttributes, ReactNode, SVGProps, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
-import Body from '../Body';
-import Headline from '../Headline';
-import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
-import { spacing, cx } from '../../styles/style-mixins';
-import Image, { ImageProps } from '../Image';
+import Body from '../Body/index.js';
+import Headline from '../Headline/index.js';
+import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup/index.js';
+import { spacing, cx } from '../../styles/style-mixins.js';
+import Image, { ImageProps } from '../Image/index.js';
 import { isString } from '../../util/type-check.js';
 
 export interface NotificationFullscreenProps

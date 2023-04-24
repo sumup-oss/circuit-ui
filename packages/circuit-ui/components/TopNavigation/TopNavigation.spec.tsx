@@ -17,9 +17,9 @@ import { describe, expect, it, vi } from 'vitest';
 import { Shop, SumUpLogo } from '@sumup/icons';
 
 import { axe, render, renderToHtml } from '../../util/test-utils.jsx';
-import { PopoverProps } from '../Popover';
+import { PopoverProps } from '../Popover/index.js';
 
-import { TopNavigation, TopNavigationProps } from './TopNavigation';
+import { TopNavigation, TopNavigationProps } from './TopNavigation.jsx';
 
 describe('TopNavigation', () => {
   const baseProps: TopNavigationProps = {

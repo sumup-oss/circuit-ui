@@ -15,9 +15,9 @@
 
 import { mapRowProps, mapCellProps } from '../../utils.js';
 import { Row } from '../../types.js';
-import TableRow from '../TableRow';
-import TableHeader from '../TableHeader';
-import TableCell from '../TableCell';
+import TableRow from '../TableRow/index.js';
+import TableHeader from '../TableHeader/index.js';
+import TableCell from '../TableCell/index.js';
 
 type TableBodyProps = {
   /**

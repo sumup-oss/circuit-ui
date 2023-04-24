@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { useFocusList } from './useFocusList';
+export { useFocusList } from './useFocusList.js';
 
-export type { FocusProps } from './useFocusList';
+export type { FocusProps } from './useFocusList.js';

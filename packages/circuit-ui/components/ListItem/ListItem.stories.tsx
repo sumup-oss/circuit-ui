@@ -18,11 +18,11 @@ import { action } from '@storybook/addon-actions';
 import { SumUpCard, Confirm } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
-import { spacing } from '../../styles/style-mixins';
-import Body from '../Body';
-import Badge from '../Badge';
+import { spacing } from '../../styles/style-mixins.js';
+import Body from '../Body/index.js';
+import Badge from '../Badge/index.js';
 
-import { ListItem, ListItemProps } from './ListItem';
+import { ListItem, ListItemProps } from './ListItem.jsx';
 
 interface Item {
   title: string;

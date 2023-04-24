@@ -26,9 +26,9 @@ import {
   SwipeDirections,
 } from 'react-swipeable';
 
-import Image from '../../Image';
-import Button from '../../Button';
-import Step, { StepProps } from '../Step';
+import Image from '../../Image/index.js';
+import Button from '../../Button/index.js';
+import Step, { StepProps } from '../Step.js';
 import { StyleProps } from '../../../styles/styled.js';
 import { Actions } from '../types.js';
 

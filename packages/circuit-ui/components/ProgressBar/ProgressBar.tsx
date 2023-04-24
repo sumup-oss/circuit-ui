@@ -17,7 +17,7 @@ import { useId } from 'react';
 import { css, keyframes } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
-import { typography, hideVisually } from '../../styles/style-mixins';
+import { typography, hideVisually } from '../../styles/style-mixins.js';
 import { ReturnType } from '../../types/return-type.js';
 import { AccessibilityError } from '../../util/errors.js';
 

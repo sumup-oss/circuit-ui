@@ -19,14 +19,14 @@ import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../../../styles/styled.js';
-import { shadow, hideScrollbar } from '../../../../styles/style-mixins';
-import { useFocusList } from '../../../../hooks/useFocusList';
-import { TOP_NAVIGATION_HEIGHT } from '../../../TopNavigation/TopNavigation';
-import Headline from '../../../Headline';
-import { Skeleton, SkeletonContainer } from '../../../Skeleton';
+import { shadow, hideScrollbar } from '../../../../styles/style-mixins.js';
+import { useFocusList } from '../../../../hooks/useFocusList/index.js';
+import { TOP_NAVIGATION_HEIGHT } from '../../../TopNavigation/TopNavigation.jsx';
+import Headline from '../../../Headline/index.js';
+import { Skeleton, SkeletonContainer } from '../../../Skeleton/index.js';
 import { PrimaryLinkProps } from '../../types.js';
-import { SecondaryLinks } from '../SecondaryLinks';
-import { PrimaryLink } from '../PrimaryLink';
+import { SecondaryLinks } from '../SecondaryLinks/index.js';
+import { PrimaryLink } from '../PrimaryLink/index.js';
 
 export interface DesktopNavigationProps {
   /**

@@ -18,7 +18,7 @@ import { ChangeEvent, createRef, useState } from 'react';
 import { NumericFormatProps } from 'react-number-format';
 
 import { render, userEvent, axe } from '../../util/test-utils.jsx';
-import { InputProps } from '../Input';
+import { InputProps } from '../Input/index.js';
 
 import CurrencyInput, { CurrencyInputProps } from '.';
 

@@ -18,9 +18,9 @@ import { action } from '@storybook/addon-actions';
 import { css } from '@emotion/react';
 
 import { Stack } from '../../../../.storybook/components';
-import Headline from '../Headline';
-import Body from '../Body';
-import ButtonGroup from '../ButtonGroup';
+import Headline from '../Headline/index.js';
+import Body from '../Body/index.js';
+import ButtonGroup from '../ButtonGroup/index.js';
 
 import Card, { CardHeader, CardFooter } from '.';
 

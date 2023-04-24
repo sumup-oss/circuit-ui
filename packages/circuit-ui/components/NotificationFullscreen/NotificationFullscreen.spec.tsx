@@ -22,7 +22,7 @@ import { render, axe } from '../../util/test-utils.jsx';
 import {
   NotificationFullscreen,
   NotificationFullscreenProps,
-} from './NotificationFullscreen';
+} from './NotificationFullscreen.jsx';
 
 describe('NotificationFullscreen', () => {
   const renderNotificationFullscreen = (props: NotificationFullscreenProps) =>

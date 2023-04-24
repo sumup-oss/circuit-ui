@@ -21,9 +21,9 @@ import styled, { StyleProps } from '../../styles/styled.js';
 import { isFunction } from '../../util/type-check.js';
 import { AccessibilityError } from '../../util/errors.js';
 
-import { MobileSidePanel } from './components/MobileSidePanel';
-import { DesktopSidePanel } from './components/DesktopSidePanel';
-import { Header } from './components/Header';
+import { MobileSidePanel } from './components/MobileSidePanel/index.js';
+import { DesktopSidePanel } from './components/DesktopSidePanel/index.js';
+import { Header } from './components/Header/index.js';
 import { SidePanelHookProps, Callback } from './useSidePanel.jsx';
 
 const BODY_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Body--open';

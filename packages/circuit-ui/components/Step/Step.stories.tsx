@@ -15,7 +15,7 @@
 
 import { action } from '@storybook/addon-actions';
 
-import Step from './Step';
+import Step from './Step.js';
 import CarouselSlider from './examples/CarouselSlider.jsx';
 import YesOrNoSlider from './examples/YesOrNoSlider.jsx';
 import MultiStepForm from './examples/MultiStepForm.jsx';

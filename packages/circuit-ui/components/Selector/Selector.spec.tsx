@@ -24,7 +24,7 @@ import {
   axe,
 } from '../../util/test-utils.jsx';
 
-import { Selector } from './Selector';
+import { Selector } from './Selector.jsx';
 
 const defaultProps = {
   name: 'name',

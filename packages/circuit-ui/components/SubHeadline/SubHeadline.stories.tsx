@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { SubHeadline, SubHeadlineProps } from './SubHeadline';
+import { SubHeadline, SubHeadlineProps } from './SubHeadline.jsx';
 
 export default {
   title: 'Typography/SubHeadline',

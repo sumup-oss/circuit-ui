@@ -18,7 +18,7 @@ import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
 
-import Title from './components/Title';
+import Title from './components/Title/index.js';
 
 export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
   /**

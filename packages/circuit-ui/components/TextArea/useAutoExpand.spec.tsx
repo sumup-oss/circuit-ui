@@ -24,7 +24,7 @@ import {
 } from '../../util/test-utils.jsx';
 import { InputElement } from '../Input/Input';
 
-import { TextArea, TextAreaProps } from './TextArea';
+import { TextArea, TextAreaProps } from './TextArea.jsx';
 import { useAutoExpand } from './useAutoExpand.js';
 
 const baseTextareaProps: TextAreaProps = {

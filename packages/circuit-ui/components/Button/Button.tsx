@@ -31,12 +31,12 @@ import {
   typography,
   focusVisible,
   hideVisually,
-} from '../../styles/style-mixins';
+} from '../../styles/style-mixins.js';
 import { ReturnType } from '../../types/return-type.js';
 import { ClickEvent } from '../../types/events.js';
 import { AsPropType, EmotionAsPropType } from '../../types/prop-types.js';
-import { useComponents } from '../ComponentsContext';
-import Spinner from '../Spinner';
+import { useComponents } from '../ComponentsContext/index.js';
+import Spinner from '../Spinner/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 
 export interface BaseProps {

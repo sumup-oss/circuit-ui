@@ -19,8 +19,8 @@ import { ArrowLeft, Close } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../../../styles/styled.js';
 import { IconButton } from '../../../IconButton/IconButton.jsx';
-import Headline from '../../../Headline';
-import { SidePanelProps } from '../../SidePanel';
+import Headline from '../../../Headline/index.js';
+import { SidePanelProps } from '../../SidePanel.jsx';
 
 type HeaderStickyProps = { isSticky: boolean };
 

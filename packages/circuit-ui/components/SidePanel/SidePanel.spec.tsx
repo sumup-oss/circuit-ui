@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { render, userEvent, axe, waitFor } from '../../util/test-utils.jsx';
 
-import { SidePanel, SidePanelProps } from './SidePanel';
+import { SidePanel, SidePanelProps } from './SidePanel.jsx';
 
 describe('SidePanel', () => {
   const baseProps: SidePanelProps = {

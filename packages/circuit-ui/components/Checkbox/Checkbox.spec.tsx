@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe, userEvent } from '../../util/test-utils.jsx';
 
-import { Checkbox } from './Checkbox';
+import { Checkbox } from './Checkbox.jsx';
 
 const defaultProps = {
   label: 'Label',

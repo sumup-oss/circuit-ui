@@ -17,8 +17,8 @@ import { describe, expect, it } from 'vitest';
 
 import { create, renderToHtml, axe } from '../../util/test-utils.jsx';
 
-import type { Position, Alignment } from './Tooltip';
-import { Tooltip } from './Tooltip';
+import type { Position, Alignment } from './Tooltip.jsx';
+import { Tooltip } from './Tooltip.jsx';
 
 describe('Tooltip', () => {
   /**

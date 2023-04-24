@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { render, userEvent, axe, waitFor } from '../../util/test-utils.jsx';
 
-import { Modal, ModalProps } from './Modal';
+import { Modal, ModalProps } from './Modal.jsx';
 
 describe('Modal', () => {
   const defaultModal: ModalProps = {
