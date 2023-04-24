@@ -25,7 +25,12 @@ import {
 } from 'vitest';
 import { ComponentType, useContext } from 'react';
 
-import { render, userEvent, waitFor } from '../../util/test-utils';
+import {
+  render,
+  act,
+  userEvent as baseUserEvent,
+  waitFor,
+} from '../../util/test-utils';
 import { uniqueId } from '../../util/id';
 import { useMedia } from '../../hooks/useMedia';
 
@@ -41,6 +46,24 @@ import {
 vi.mock('../../hooks/useMedia');
 
 describe('SidePanelContext', () => {
+  beforeAll(() => {
+    vi.useFakeTimers();
+
+    // HACK: Temporary workaround for a bug in @testing-library/react when
+    // using  @testing-library/user-event with fake timers.
+    // https://github.com/testing-library/react-testing-library/issues/1197
+    const originalJest = globalThis.jest;
+
+    globalThis.jest = {
+      ...globalThis.jest,
+      advanceTimersByTime: vi.advanceTimersByTime.bind(vi),
+    };
+
+    return () => {
+      globalThis.jest = originalJest;
+    };
+  });
+
   beforeEach(() => {
     (useMedia as Mock).mockReturnValue(false);
   });
@@ -50,7 +73,12 @@ describe('SidePanelContext', () => {
   });
 
   afterAll(() => {
+    vi.useRealTimers();
     vi.resetModules();
+  });
+
+  const userEvent = baseUserEvent.setup({
+    advanceTimers: vi.advanceTimersByTime,
   });
 
   describe('SidePanelProvider', () => {
@@ -125,13 +153,9 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        const { baseElement, getByText, getByRole } = renderComponent(Trigger);
+        const { baseElement, getByText } = renderComponent(Trigger);
 
         await userEvent.click(getByText('Open panel'));
-
-        await waitFor(() => {
-          expect(getByRole('dialog')).toBeVisible();
-        });
 
         expect(baseElement).toMatchSnapshot();
       });
@@ -144,13 +168,9 @@ describe('SidePanelContext', () => {
 
         (useMedia as Mock).mockReturnValue(true);
 
-        const { baseElement, getByText, getByRole } = renderComponent(Trigger);
+        const { baseElement, getByText } = renderComponent(Trigger);
 
         await userEvent.click(getByText('Open panel'));
-
-        await waitFor(() => {
-          expect(getByRole('dialog')).toBeVisible();
-        });
 
         expect(baseElement).toMatchSnapshot();
       });
@@ -161,15 +181,11 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        const { baseElement, getByText, getByRole } = renderComponent(Trigger, {
+        const { baseElement, getByText } = renderComponent(Trigger, {
           withTopNavigation: true,
         });
 
         await userEvent.click(getByText('Open panel'));
-
-        await waitFor(() => {
-          expect(getByRole('dialog')).toBeVisible();
-        });
 
         expect(baseElement).toMatchSnapshot();
       });
@@ -279,9 +295,11 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Close panel'));
 
-        await waitFor(() => {
-          expect(queryByRole('dialog')).toBeNull();
+        act(() => {
+          vi.runAllTimers();
         });
+
+        expect(queryByRole('dialog')).toBeNull();
       });
 
       it('should close all side panels stacked above the one being closed', async () => {
@@ -310,10 +328,11 @@ describe('SidePanelContext', () => {
         expect(getAllByRole('dialog')).toHaveLength(2);
 
         await userEvent.click(getByText('Close panel'));
-
-        await waitFor(() => {
-          expect(queryByRole('dialog')).toBeNull();
+        act(() => {
+          vi.runAllTimers();
         });
+
+        expect(queryByRole('dialog')).toBeNull();
       });
 
       it('should not close side panels stacked below the one being closed', async () => {
@@ -341,10 +360,11 @@ describe('SidePanelContext', () => {
         expect(getAllByRole('dialog')).toHaveLength(2);
 
         await userEvent.click(getByText('Close panel'));
-
-        await waitFor(() => {
-          expect(getAllByRole('dialog')).toHaveLength(1);
+        act(() => {
+          vi.runAllTimers();
         });
+
+        expect(getAllByRole('dialog')).toHaveLength(1);
       });
 
       it('should not close the side panel when there is no match', async () => {
@@ -366,10 +386,11 @@ describe('SidePanelContext', () => {
         expect(getByRole('dialog')).toBeVisible();
 
         await userEvent.click(getByText('Close panel'));
-
-        await waitFor(() => {
-          expect(getByRole('dialog')).toBeVisible();
+        act(() => {
+          vi.runAllTimers();
         });
+
+        expect(getByRole('dialog')).toBeVisible();
       });
 
       it('should call the onClose callback of the side panel', async () => {
@@ -390,10 +411,11 @@ describe('SidePanelContext', () => {
         await userEvent.click(getByText('Open panel'));
 
         await userEvent.click(getByText('Close panel'));
-
-        await waitFor(() => {
-          expect(onClose).toHaveBeenCalled();
+        act(() => {
+          vi.runAllTimers();
         });
+
+        expect(onClose).toHaveBeenCalled();
       });
     });
 
@@ -419,10 +441,11 @@ describe('SidePanelContext', () => {
         expect(getByTestId('children')).toHaveTextContent('Side panel content');
 
         await userEvent.click(getByText('Update panel'));
-
-        await waitFor(() => {
-          expect(getByTestId('children')).toHaveTextContent('Updated content');
+        act(() => {
+          vi.runAllTimers();
         });
+
+        expect(getByTestId('children')).toHaveTextContent('Updated content');
       });
 
       it('should not update the side panel when there is no match', async () => {
@@ -450,12 +473,11 @@ describe('SidePanelContext', () => {
         expect(getByTestId('children')).toHaveTextContent('Side panel content');
 
         await userEvent.click(getByText('Update panel'));
-
-        await waitFor(() => {
-          expect(getByTestId('children')).toHaveTextContent(
-            'Side panel content',
-          );
+        act(() => {
+          vi.runAllTimers();
         });
+
+        expect(getByTestId('children')).toHaveTextContent('Side panel content');
       });
     });
   });

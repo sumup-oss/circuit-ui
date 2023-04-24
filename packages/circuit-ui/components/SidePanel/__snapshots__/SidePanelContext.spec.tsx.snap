@@ -62,13 +62,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-3 {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
-}
-
-.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -89,12 +82,12 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 @media (min-width: 768px) {
-  .circuit-4 {
+  .circuit-3 {
     padding-left: 0;
   }
 }
 
-.circuit-5 {
+.circuit-4 {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -112,12 +105,12 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 @media (min-width: 768px) {
-  .circuit-5 {
+  .circuit-4 {
     box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   }
 }
 
-.circuit-6 {
+.circuit-5 {
   font-weight: 700;
   color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
@@ -133,7 +126,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
   margin-left: 56px;
 }
 
-.circuit-7 {
+.circuit-6 {
   font-size: 1rem;
   line-height: 1.5rem;
   display: -webkit-inline-box;
@@ -171,46 +164,46 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
   border-color: transparent!important;
 }
 
-.circuit-7:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-7:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-7:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-7:disabled,
-.circuit-7[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   pointer-events: none;
 }
 
-.circuit-7:hover {
+.circuit-6:hover {
   background-color: var(--cui-bg-normal-hovered);
   border-color: var(--cui-border-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-7:active,
-.circuit-7[aria-expanded='true'],
-.circuit-7[aria-pressed='true'] {
+.circuit-6:active,
+.circuit-6[aria-expanded='true'],
+.circuit-6[aria-pressed='true'] {
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-7:disabled,
-.circuit-7[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   background-color: var(--cui-bg-normal-disabled);
   border-color: var(--cui-border-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-8 {
+.circuit-7 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -227,7 +220,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-9 {
+.circuit-8 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -239,7 +232,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
   width: 1px;
 }
 
-.circuit-10 {
+.circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -258,14 +251,14 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-12 {
+.circuit-11 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-12 {
+  .circuit-11 {
     padding: 0 24px;
   }
 }
@@ -296,41 +289,41 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
     class="ReactModalPortal__SidePanel"
   >
     <div
-      class="ReactModal__Overlay ReactModal__Overlay--after-open circuit-1"
+      class="ReactModal__Overlay circuit-1"
     >
       <div
         aria-labelledby=":r0:"
         aria-modal="true"
-        class="circuit-2 circuit-3"
+        class="circuit-2"
         role="dialog"
         tabindex="-1"
       >
         <div
-          class="circuit-4"
+          class="circuit-3"
         >
           <div
-            class="circuit-5"
+            class="circuit-4"
           >
             <h2
-              class="circuit-6"
+              class="circuit-5"
               id=":r0:"
             >
               Side panel title
             </h2>
             <button
-              class="circuit-7"
+              class="circuit-6"
               title="Close"
               type="button"
             >
               <span
-                class="circuit-8"
+                class="circuit-7"
               >
                 <span
-                  class="circuit-9"
+                  class="circuit-8"
                 />
               </span>
               <span
-                class="circuit-10"
+                class="circuit-9"
               >
                 <svg
                   fill="none"
@@ -346,7 +339,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
                   />
                 </svg>
                 <span
-                  class="circuit-9"
+                  class="circuit-8"
                 >
                   Close
                 </span>
@@ -354,7 +347,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             </button>
           </div>
           <div
-            class="circuit-12"
+            class="circuit-11"
           >
             <p
               data-testid="children"

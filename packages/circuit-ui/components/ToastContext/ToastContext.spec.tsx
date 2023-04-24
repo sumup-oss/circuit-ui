@@ -18,7 +18,7 @@ import { useContext } from 'react';
 
 import {
   render,
-  userEvent,
+  userEvent as baseUserEvent,
   waitForElementToBeRemoved,
 } from '../../util/test-utils';
 
@@ -37,11 +37,33 @@ const Toast: ToastComponent = ({ onClose }) => (
 Toast.TRANSITION_DURATION = 200;
 
 describe('ToastContext', () => {
+  beforeAll(() => {
+    vi.useFakeTimers();
+
+    // HACK: Temporary workaround for a bug in @testing-library/react when
+    // using  @testing-library/user-event with fake timers.
+    // https://github.com/testing-library/react-testing-library/issues/1197
+    const originalJest = globalThis.jest;
+
+    globalThis.jest = {
+      ...globalThis.jest,
+      advanceTimersByTime: vi.advanceTimersByTime.bind(vi),
+    };
+
+    return () => {
+      globalThis.jest = originalJest;
+    };
+  });
   afterAll(() => {
+    vi.useRealTimers();
     vi.resetModules();
   });
   afterEach(() => {
     vi.clearAllMocks();
+  });
+
+  const userEvent = baseUserEvent.setup({
+    advanceTimers: vi.advanceTimersByTime,
   });
 
   describe('ToastProvider', () => {
