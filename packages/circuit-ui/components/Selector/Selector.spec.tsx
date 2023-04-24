@@ -22,7 +22,7 @@ import {
   userEvent,
   renderToHtml,
   axe,
-} from '../../util/test-utils';
+} from '../../util/test-utils.jsx';
 
 import { Selector } from './Selector';
 

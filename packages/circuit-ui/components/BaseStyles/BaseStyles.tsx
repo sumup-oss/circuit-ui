@@ -17,7 +17,7 @@ import { FunctionComponent } from 'react';
 import { Global } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import { createBaseStyles } from './BaseStylesService';
+import { createBaseStyles } from './BaseStylesService.js';
 
 export const BaseStyles: FunctionComponent = () => (
   <Global styles={(theme: Theme) => createBaseStyles({ theme })} />

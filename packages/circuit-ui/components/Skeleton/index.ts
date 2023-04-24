@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Skeleton, SkeletonContainer } from './Skeleton';
+export { Skeleton, SkeletonContainer } from './Skeleton.jsx';
 
-export type { SkeletonProps, SkeletonContainerProps } from './Skeleton';
+export type { SkeletonProps, SkeletonContainerProps } from './Skeleton.jsx';

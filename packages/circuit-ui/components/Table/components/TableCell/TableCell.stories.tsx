@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { TableCellProps } from './TableCell';
+import { TableCellProps } from './TableCell.js';
 
 import TableCell from '.';
 

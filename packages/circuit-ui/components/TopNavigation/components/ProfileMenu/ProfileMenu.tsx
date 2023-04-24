@@ -17,13 +17,13 @@ import { useState, ButtonHTMLAttributes, useEffect } from 'react';
 import { css } from '@emotion/react';
 import { ChevronDown, Profile as ProfileIcon } from '@sumup/icons';
 
-import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../../../styles/styled.js';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
 import Avatar from '../../../Avatar';
 import Body from '../../../Body';
 import Popover, { PopoverProps } from '../../../Popover';
 import { Skeleton } from '../../../Skeleton';
-import { UserProps } from '../../types';
+import { UserProps } from '../../types.js';
 
 const profileWrapperStyles = ({ theme }: StyleProps) => css`
   height: 100%;

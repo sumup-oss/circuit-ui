@@ -22,9 +22,9 @@ import {
   render,
   renderToHtml,
   userEvent,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.jsx';
 
-import { UtilityLinks } from './UtilityLinks';
+import { UtilityLinks } from './UtilityLinks.jsx';
 
 describe('UtilityLinks', () => {
   const baseProps = {

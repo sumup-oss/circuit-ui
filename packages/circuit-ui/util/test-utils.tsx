@@ -29,7 +29,7 @@ import { light } from '@sumup/design-tokens';
 import {
   ComponentsContext,
   defaultComponents,
-} from '../components/ComponentsContext/ComponentsContext';
+} from '../components/ComponentsContext/ComponentsContext.js';
 
 export * from '@testing-library/react';
 

@@ -17,7 +17,7 @@ import { forwardRef, Ref, OlHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 import { typography } from '../../styles/style-mixins';
 
 type Size = 'one' | 'two';

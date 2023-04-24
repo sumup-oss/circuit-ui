@@ -26,14 +26,14 @@ import {
 import { css } from '@emotion/react';
 
 import Button, { ButtonProps } from '../Button';
-import styled, { NoTheme, StyleProps } from '../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../styles/styled.js';
 import { spacing } from '../../styles/style-mixins';
 import Headline from '../Headline';
 import Body from '../Body';
 import Image, { ImageProps } from '../Image';
 import CloseButton from '../CloseButton';
 import { useAnimation } from '../../hooks/useAnimation';
-import { applyMultipleRefs } from '../../util/refs';
+import { applyMultipleRefs } from '../../util/refs.js';
 
 type Action = ButtonProps & {
   variant: 'primary' | 'tertiary';

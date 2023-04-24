@@ -16,7 +16,7 @@
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
-import styled from '../../../../styles/styled';
+import styled from '../../../../styles/styled.js';
 
 export type NavListProps = HTMLAttributes<HTMLUListElement>;
 

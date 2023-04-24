@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { useRef, useState } from 'react';
 
-import { render, userEvent } from '../../util/test-utils';
+import { render, userEvent } from '../../util/test-utils.jsx';
 
 import { useClickOutside } from './useClickOutside';
 

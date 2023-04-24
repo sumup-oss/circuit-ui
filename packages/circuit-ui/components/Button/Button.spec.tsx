@@ -24,7 +24,7 @@ import {
   axe,
   RenderFn,
   userEvent,
-} from '../../util/test-utils';
+} from '../../util/test-utils.jsx';
 
 import { Button, ButtonProps } from './Button';
 

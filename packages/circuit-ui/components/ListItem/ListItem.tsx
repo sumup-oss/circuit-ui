@@ -26,13 +26,13 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { ChevronRight, IconProps } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 import { focusVisible, spacing } from '../../styles/style-mixins';
-import { ReturnType } from '../../types/return-type';
-import { ClickEvent } from '../../types/events';
-import { EmotionAsPropType } from '../../types/prop-types';
-import { isFunction, isString } from '../../util/type-check';
-import { CircuitError } from '../../util/errors';
+import { ReturnType } from '../../types/return-type.js';
+import { ClickEvent } from '../../types/events.js';
+import { EmotionAsPropType } from '../../types/prop-types.js';
+import { isFunction, isString } from '../../util/type-check.js';
+import { CircuitError } from '../../util/errors.js';
 import { useComponents } from '../ComponentsContext';
 import Body from '../Body';
 

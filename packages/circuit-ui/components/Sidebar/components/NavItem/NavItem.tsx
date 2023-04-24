@@ -17,11 +17,11 @@ import { ReactElement } from 'react';
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
-import styled, { StyleProps } from '../../../../styles/styled';
-import { ClickEvent } from '../../../../types/events';
-import { EmotionAsPropType } from '../../../../types/prop-types';
+import styled, { StyleProps } from '../../../../styles/styled.js';
+import { ClickEvent } from '../../../../types/events.js';
+import { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { useComponents } from '../../../ComponentsContext';
-import { getIcon } from '../../SidebarService';
+import { getIcon } from '../../SidebarService.jsx';
 import { NavLabel } from '../NavLabel';
 
 export interface NavItemProps {

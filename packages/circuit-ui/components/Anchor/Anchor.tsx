@@ -23,12 +23,12 @@ import {
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import { focusVisible } from '../../styles/style-mixins';
-import { ReturnType } from '../../types/return-type';
-import { ClickEvent } from '../../types/events';
-import { AsPropType } from '../../types/prop-types';
-import { Body, BodyProps } from '../Body/Body';
-import { useComponents } from '../ComponentsContext';
+import { focusVisible } from '../../styles/style-mixins.js';
+import { ReturnType } from '../../types/return-type.js';
+import { ClickEvent } from '../../types/events.js';
+import { AsPropType } from '../../types/prop-types.js';
+import { Body, BodyProps } from '../Body/Body.jsx';
+import { useComponents } from '../ComponentsContext/index.js';
 
 export interface BaseProps extends BodyProps {
   children: ReactNode;

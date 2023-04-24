@@ -15,7 +15,7 @@
 
 import { useCallback, FunctionComponent, ChangeEvent, Fragment } from 'react';
 
-import styled from '../../../../styles/styled';
+import styled from '../../../../styles/styled.js';
 import { Select, SelectProps } from '../../../Select/Select';
 
 export interface PageSelectProps extends Omit<SelectProps, 'onChange'> {

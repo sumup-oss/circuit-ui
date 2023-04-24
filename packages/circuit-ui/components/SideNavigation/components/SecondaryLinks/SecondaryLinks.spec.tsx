@@ -15,16 +15,16 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { ClickEvent } from '../../../../types/events';
+import { ClickEvent } from '../../../../types/events.js';
 import {
   create,
   render,
   axe,
   RenderFn,
   userEvent,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.jsx';
 
-import { SecondaryLinks, SecondaryLinksProps } from './SecondaryLinks';
+import { SecondaryLinks, SecondaryLinksProps } from './SecondaryLinks.jsx';
 
 describe('SecondaryLinks', () => {
   function renderSecondaryLinks<T>(

@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import { CircuitError } from '../../util/errors';
-import { isFunction } from '../../util/type-check';
+import { CircuitError } from '../../util/errors.js';
+import { isFunction } from '../../util/type-check.js';
 
-import { useStep } from './hooks/useStep';
-import { StateAndHelpers, StepOptions } from './types';
+import { useStep } from './hooks/useStep.js';
+import { StateAndHelpers, StepOptions } from './types.js';
 
 export interface StepProps extends StepOptions {
   /**

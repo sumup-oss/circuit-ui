@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render } from '../../util/test-utils';
+import { render } from '../../util/test-utils.jsx';
 
-import { Portal } from './Portal';
+import { Portal } from './Portal.js';
 
 describe('Portal', () => {
   it('should append its children to the document body by default', () => {

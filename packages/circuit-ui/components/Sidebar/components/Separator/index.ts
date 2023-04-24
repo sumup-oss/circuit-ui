@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Separator } from './Separator';
+export { Separator } from './Separator.jsx';

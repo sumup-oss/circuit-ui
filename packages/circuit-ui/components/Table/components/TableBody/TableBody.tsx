@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { mapRowProps, mapCellProps } from '../../utils';
-import { Row } from '../../types';
+import { mapRowProps, mapCellProps } from '../../utils.js';
+import { Row } from '../../types.js';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';

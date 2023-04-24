@@ -21,9 +21,9 @@ import {
   renderToHtml,
   axe,
   userEvent,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.jsx';
 
-import { CardHeader } from './Header';
+import { CardHeader } from './Header.jsx';
 
 describe('CardHeader', () => {
   const children = <p>This is a content.</p>;

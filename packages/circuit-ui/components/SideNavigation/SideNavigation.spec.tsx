@@ -17,7 +17,7 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { Shop } from '@sumup/icons';
 
-import { render, axe, RenderFn, waitFor } from '../../util/test-utils';
+import { render, axe, RenderFn, waitFor } from '../../util/test-utils.jsx';
 import { ModalProvider } from '../ModalContext';
 
 import { SideNavigation, SideNavigationProps } from './SideNavigation';

@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { useMedia } from './useMedia';
+export { useMedia } from './useMedia.js';

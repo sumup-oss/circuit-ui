@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../../../util/test-utils';
+import { create, renderToHtml, axe } from '../../../../util/test-utils.jsx';
 
-import { Backdrop } from './Backdrop';
+import { Backdrop } from './Backdrop.js';
 
 describe('Backdrop', () => {
   describe('styles', () => {

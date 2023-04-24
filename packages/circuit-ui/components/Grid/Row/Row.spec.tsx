@@ -16,9 +16,14 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, renderToHtml, axe } from '../../../util/test-utils';
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+} from '../../../util/test-utils.jsx';
 
-import { Row } from './Row';
+import { Row } from './Row.js';
 
 describe('Row', () => {
   /**

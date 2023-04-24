@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, renderToHtml, axe } from '../../../../util/test-utils';
+import { render, renderToHtml, axe } from '../../../../util/test-utils.jsx';
 
-import { Link } from './Link';
+import { Link } from './Link.jsx';
 
 describe('Link', () => {
   const defaultProps = {

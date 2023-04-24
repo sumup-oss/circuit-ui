@@ -24,7 +24,7 @@ import {
   fireEvent,
   waitFor,
   createEvent,
-} from '../../util/test-utils';
+} from '../../util/test-utils.jsx';
 
 import { ImageInput } from './ImageInput';
 

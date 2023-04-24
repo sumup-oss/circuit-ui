@@ -15,11 +15,11 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { renderHook, act } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils.jsx';
 
-import { createUseModal } from './createUseModal';
-import { ModalContext } from './ModalContext';
-import type { ModalComponent } from './types';
+import { createUseModal } from './createUseModal.js';
+import { ModalContext } from './ModalContext.jsx';
+import type { ModalComponent } from './types.js';
 
 const Modal: ModalComponent = ({ onClose }) => (
   <div role="dialog">

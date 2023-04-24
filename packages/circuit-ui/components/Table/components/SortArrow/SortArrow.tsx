@@ -17,9 +17,9 @@ import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { StyleProps } from '../../../../styles/styled.js';
 import { hideVisually } from '../../../../styles/style-mixins';
-import { Direction } from '../../types';
+import { Direction } from '../../types.js';
 
 interface SortArrowProps extends HTMLAttributes<HTMLButtonElement> {
   direction?: Direction;

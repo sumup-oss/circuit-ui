@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, userEvent, axe } from '../../../../util/test-utils';
+import { render, userEvent, axe } from '../../../../util/test-utils.jsx';
 
-import { Header, HeaderProps } from './Header';
+import { Header, HeaderProps } from './Header.jsx';
 
 describe('Header', () => {
   const baseProps: HeaderProps = {

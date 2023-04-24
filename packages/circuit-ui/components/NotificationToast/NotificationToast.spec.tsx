@@ -21,9 +21,9 @@ import {
   render,
   waitFor,
   waitForElementToBeRemoved,
-} from '../../util/test-utils';
+} from '../../util/test-utils.jsx';
 import Button from '../Button';
-import { ToastProvider } from '../ToastContext/ToastContext';
+import { ToastProvider } from '../ToastContext/ToastContext.jsx';
 
 import {
   NotificationToast,

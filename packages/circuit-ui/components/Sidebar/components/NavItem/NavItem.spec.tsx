@@ -21,10 +21,10 @@ import {
   render,
   renderToHtml,
   axe,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.jsx';
 import { NavList } from '../NavList';
 
-import { NavItem } from './NavItem';
+import { NavItem } from './NavItem.jsx';
 
 describe('NavItem', () => {
   describe('styles', () => {

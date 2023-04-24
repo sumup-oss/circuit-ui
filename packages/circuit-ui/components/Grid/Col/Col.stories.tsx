@@ -15,7 +15,7 @@
 
 import styled from '@emotion/styled';
 
-import { Col, ColProps } from './Col';
+import { Col, ColProps } from './Col.js';
 
 const colControl = {
   control: {

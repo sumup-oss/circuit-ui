@@ -22,9 +22,9 @@ import {
   RenderFn,
   renderToHtml,
   axe,
-} from '../../util/test-utils';
+} from '../../util/test-utils.jsx';
 
-import { Header, HeaderProps } from './Header';
+import { Header, HeaderProps } from './Header.jsx';
 
 describe('Header', () => {
   const baseProps = {

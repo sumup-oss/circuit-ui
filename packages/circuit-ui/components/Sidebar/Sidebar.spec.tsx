@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { axe, userEvent, render } from '../../util/test-utils';
+import { axe, userEvent, render } from '../../util/test-utils.js';
 
-import { Sidebar } from './Sidebar';
+import { Sidebar } from './Sidebar.js';
 
 describe('Sidebar', () => {
   const baseProps = {

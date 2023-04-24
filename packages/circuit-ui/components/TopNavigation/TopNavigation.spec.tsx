@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Shop, SumUpLogo } from '@sumup/icons';
 
-import { axe, render, renderToHtml } from '../../util/test-utils';
+import { axe, render, renderToHtml } from '../../util/test-utils.jsx';
 import { PopoverProps } from '../Popover';
 
 import { TopNavigation, TopNavigationProps } from './TopNavigation';

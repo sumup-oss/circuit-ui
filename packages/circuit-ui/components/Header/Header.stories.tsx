@@ -15,7 +15,7 @@
 
 import Hamburger from '../Hamburger';
 
-import { Header, HeaderProps } from './Header';
+import { Header, HeaderProps } from './Header.jsx';
 
 export default {
   title: 'Navigation/Header',

@@ -15,7 +15,7 @@
 
 import { ReactNode } from 'react';
 
-import { isArray, isFunction } from '../../util/type-check';
+import { isArray, isFunction } from '../../util/type-check.js';
 
 import {
   Direction,
@@ -26,7 +26,7 @@ import {
   RowCell,
   Row,
   SortParams,
-} from './types';
+} from './types.js';
 
 export const mapRowProps = (props: Row): { cells: RowCell[] } =>
   isArray(props) ? { cells: props } : props;

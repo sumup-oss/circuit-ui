@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import * as regex from './regex';
+import * as regex from './regex.js';
 
 describe('currency', () => {
   describe('currencyToRegex()', () => {

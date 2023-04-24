@@ -15,10 +15,10 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render } from '../../util/test-utils';
+import { render } from '../../util/test-utils.jsx';
 
-import { BaseStyles } from './BaseStyles';
-import { createBaseStyles } from './BaseStylesService';
+import { BaseStyles } from './BaseStyles.jsx';
+import { createBaseStyles } from './BaseStylesService.js';
 
 vi.mock('./BaseStylesService', () => ({
   createBaseStyles: vi.fn(),

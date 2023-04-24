@@ -18,10 +18,10 @@ import usePrevious from 'use-previous';
 import { useTheme } from '@emotion/react';
 
 import { useMedia } from '../../hooks/useMedia';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 
 import { DesktopNavigation } from './components/DesktopNavigation';
-import { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation';
+import { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation.jsx';
 import {
   MobileNavigationProps,
   useMobileNavigation,

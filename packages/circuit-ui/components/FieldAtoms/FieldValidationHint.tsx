@@ -17,10 +17,10 @@ import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import { Confirm, Notify, Alert } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 import { typography } from '../../styles/style-mixins';
 
-import { CLASS_DISABLED } from './constants';
+import { CLASS_DISABLED } from './constants.js';
 
 export interface FieldValidationHintProps
   extends HTMLAttributes<HTMLSpanElement> {

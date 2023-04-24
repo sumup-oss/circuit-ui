@@ -17,11 +17,11 @@ import { Ref, forwardRef, HTMLAttributes, ButtonHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import { ClickEvent } from '../../types/events';
-import styled, { StyleProps } from '../../styles/styled';
+import { ClickEvent } from '../../types/events.js';
+import styled, { StyleProps } from '../../styles/styled.js';
 import { typography, focusVisible } from '../../styles/style-mixins';
 import CloseButton, { CloseButtonProps } from '../CloseButton';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 
 type BaseProps = {
   /**

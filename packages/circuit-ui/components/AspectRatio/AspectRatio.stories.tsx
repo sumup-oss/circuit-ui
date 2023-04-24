@@ -15,7 +15,7 @@
 
 import styled from '@emotion/styled';
 
-import { AspectRatio, AspectRatioProps } from './AspectRatio';
+import { AspectRatio, AspectRatioProps } from './AspectRatio.js';
 
 const Background = styled('div')`
   background: lightgrey;

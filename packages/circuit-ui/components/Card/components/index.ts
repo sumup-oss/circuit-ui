@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { CardHeader as Header } from './Header/Header';
-import { CardFooter as Footer } from './Footer/Footer';
+import { CardHeader as Header } from './Header/Header.jsx';
+import { CardFooter as Footer } from './Footer/Footer.jsx';
 
-export type { CardHeaderProps as HeaderProps } from './Header/Header';
-export type { CardFooterProps as FooterProps } from './Footer/Footer';
+export type { CardHeaderProps as HeaderProps } from './Header/Header.jsx';
+export type { CardFooterProps as FooterProps } from './Footer/Footer.jsx';
 
 export { Header, Footer };

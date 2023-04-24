@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe, RenderFn } from '../../util/test-utils';
+import { create, renderToHtml, axe, RenderFn } from '../../util/test-utils.jsx';
 
-import { InlineElements, InlineElementsProps } from './InlineElements';
+import { InlineElements, InlineElementsProps } from './InlineElements.jsx';
 
 describe('InlineElements', () => {
   function renderInlineElements<T>(

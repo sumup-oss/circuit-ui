@@ -19,7 +19,7 @@ import { ModalProvider } from '../ModalContext';
 import Button from '../Button';
 
 import { NotificationModal, NotificationModalProps } from './NotificationModal';
-import { useNotificationModal } from './useNotificationModal';
+import { useNotificationModal } from './useNotificationModal.js';
 
 export default {
   title: 'Notification/NotificationModal',

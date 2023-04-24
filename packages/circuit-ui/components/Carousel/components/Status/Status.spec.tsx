@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render } from '../../../../util/test-utils';
+import { axe, render } from '../../../../util/test-utils.jsx';
 
-import { Status } from './Status';
+import { Status } from './Status.js';
 
 describe('Status', () => {
   describe('styles', () => {

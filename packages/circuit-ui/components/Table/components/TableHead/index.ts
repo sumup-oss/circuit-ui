@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import TableHead from './TableHead';
+import TableHead from './TableHead.jsx';
 
 export default TableHead;

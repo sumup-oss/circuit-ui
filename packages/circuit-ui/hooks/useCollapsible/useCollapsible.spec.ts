@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { MouseEvent } from 'react';
 
-import { renderHook, act, waitFor } from '../../util/test-utils';
+import { renderHook, act, waitFor } from '../../util/test-utils.jsx';
 
 import { useCollapsible, getHeight } from './useCollapsible';
 

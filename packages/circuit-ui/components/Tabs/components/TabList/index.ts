@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { TabList } from './TabList';
+export { TabList } from './TabList.js';
 
-export type { TabListProps } from './TabList';
+export type { TabListProps } from './TabList.js';

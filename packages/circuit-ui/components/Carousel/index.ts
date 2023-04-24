@@ -13,21 +13,21 @@
  * limitations under the License.
  */
 
-import { Container } from './components/Container';
-import { Controls } from './components/Controls';
-import { Slide } from './components/Slide';
-import { Slides } from './components/Slides';
-import { SlideImage } from './components/SlideImage';
-import { Status } from './components/Status';
+import { Container } from './components/Container/index.js';
+import { Controls } from './components/Controls/index.js';
+import { Slide } from './components/Slide/index.js';
+import { Slides } from './components/Slides/index.js';
+import { SlideImage } from './components/SlideImage/index.js';
+import { Status } from './components/Status/index.js';
 import {
   ButtonList,
   PlayButton,
   NextButton,
   PrevButton,
-} from './components/Buttons';
-import { Carousel } from './Carousel';
+} from './components/Buttons/index.js';
+import { Carousel } from './Carousel.js';
 
-export type { CarouselProps } from './Carousel';
+export type { CarouselProps } from './Carousel.js';
 
 export const CarouselComposer = {
   Container,

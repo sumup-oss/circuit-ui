@@ -15,9 +15,9 @@
 
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { renderHook, act } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils.jsx';
 
-import { useComponentSize } from './useComponentSize';
+import { useComponentSize } from './useComponentSize.js';
 
 vi.mock('../../util/helpers', () => ({
   throttle: vi.fn(<T>(fn: T) => fn),

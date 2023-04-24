@@ -16,9 +16,9 @@
 import { action } from '@storybook/addon-actions';
 
 import Step from './Step';
-import CarouselSlider from './examples/CarouselSlider';
-import YesOrNoSlider from './examples/YesOrNoSlider';
-import MultiStepForm from './examples/MultiStepForm';
+import CarouselSlider from './examples/CarouselSlider.jsx';
+import YesOrNoSlider from './examples/YesOrNoSlider.jsx';
+import MultiStepForm from './examples/MultiStepForm.jsx';
 
 const IMAGES = [
   '/images/illustration-waves.jpg',

@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import { BaseStyles } from './BaseStyles';
+import { BaseStyles } from './BaseStyles.jsx';
 
 export default BaseStyles;

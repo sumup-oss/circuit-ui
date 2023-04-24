@@ -16,7 +16,7 @@
 import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 
 type Size = 'one' | 'two' | 'three' | 'four';
 

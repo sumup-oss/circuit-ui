@@ -20,7 +20,7 @@ import { DateRangePicker } from 'react-dates';
 import type { DateRangePickerShape } from 'react-dates';
 import 'react-dates/initialize';
 
-import { CalendarWrapper } from './components';
+import { CalendarWrapper } from './components/index.js';
 
 const ArrowIcon = styled(ArrowRight)`
   color: var(--cui-fg-normal);

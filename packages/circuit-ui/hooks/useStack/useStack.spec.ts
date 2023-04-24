@@ -15,9 +15,9 @@
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { renderHook, act } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils.jsx';
 
-import { useStack } from './useStack';
+import { useStack } from './useStack.js';
 
 describe('useStack', () => {
   beforeEach(() => {

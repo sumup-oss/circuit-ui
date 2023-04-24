@@ -16,11 +16,11 @@
 import { describe, expect, it, vi } from 'vitest';
 import { ReactElement } from 'react';
 
-import { renderHook, act } from '../../util/test-utils';
+import { renderHook, act } from '../../util/test-utils.jsx';
 
-import { createUseToast } from './createUseToast';
-import { ToastContext } from './ToastContext';
-import type { ToastComponent } from './types';
+import { createUseToast } from './createUseToast.js';
+import { ToastContext } from './ToastContext.jsx';
+import type { ToastComponent } from './types.js';
 
 const Toast: ToastComponent = ({ onClose }) => (
   <div role="dialog" aria-label="Toast">

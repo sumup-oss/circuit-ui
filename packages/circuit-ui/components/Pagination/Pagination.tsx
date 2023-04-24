@@ -18,13 +18,13 @@ import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import { ChevronLeft, ChevronRight } from '@sumup/icons';
 
-import styled from '../../styles/styled';
+import styled from '../../styles/styled.js';
 import IconButton from '../IconButton';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 
 import { PageSelect } from './components/PageSelect';
 import { PageList } from './components/PageList';
-import * as PaginationService from './PaginationService';
+import * as PaginationService from './PaginationService.js';
 
 export interface PaginationProps {
   /**

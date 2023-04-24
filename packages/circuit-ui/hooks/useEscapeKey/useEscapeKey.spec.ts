@@ -15,7 +15,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { renderHook, userEvent } from '../../util/test-utils';
+import { renderHook, userEvent } from '../../util/test-utils.jsx';
 
 import { useEscapeKey } from './useEscapeKey';
 

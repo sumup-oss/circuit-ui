@@ -16,7 +16,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { InlineElements } from './InlineElements';
+import { InlineElements } from './InlineElements.jsx';
 
 export default {
   title: 'Layout/InlineElements',

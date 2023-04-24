@@ -15,10 +15,10 @@
 
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { IconButton, IconButtonProps } from '../IconButton/IconButton';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { IconButton, IconButtonProps } from '../IconButton/IconButton.jsx';
 import { Skeleton } from '../Skeleton';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 
 export type HamburgerRef = HTMLButtonElement;
 

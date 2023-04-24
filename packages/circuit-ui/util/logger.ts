@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { DeprecationError } from './errors';
+import { DeprecationError } from './errors.js';
 
 /**
  * Always wrap in `process.env.NODE_ENV !== 'production'` to enable dead code

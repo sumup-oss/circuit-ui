@@ -15,7 +15,12 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, render, renderToHtml, axe } from '../../../../util/test-utils';
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+} from '../../../../util/test-utils.jsx';
 
 import TableBody from '.';
 

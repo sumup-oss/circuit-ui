@@ -16,9 +16,9 @@
 import { Fragment, InputHTMLAttributes, Ref, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 import { hideVisually, focusOutline } from '../../styles/style-mixins';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 
 export interface RadioButtonProps
   extends InputHTMLAttributes<HTMLInputElement> {

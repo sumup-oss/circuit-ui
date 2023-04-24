@@ -23,7 +23,7 @@ import {
 import { css, Interpolation } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 import { typography, inputOutline } from '../../styles/style-mixins';
 import {
   FieldWrapper,
@@ -31,8 +31,8 @@ import {
   FieldLabelText,
   FieldValidationHint,
 } from '../FieldAtoms';
-import { ReturnType } from '../../types/return-type';
-import { AccessibilityError } from '../../util/errors';
+import { ReturnType } from '../../types/return-type.js';
+import { AccessibilityError } from '../../util/errors.js';
 
 export type InputElement = HTMLInputElement & HTMLTextAreaElement;
 type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &

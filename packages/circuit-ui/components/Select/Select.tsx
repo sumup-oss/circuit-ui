@@ -18,16 +18,16 @@ import { css } from '@emotion/react';
 import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 import { typography, inputOutline } from '../../styles/style-mixins';
-import { ReturnType } from '../../types/return-type';
+import { ReturnType } from '../../types/return-type.js';
 import {
   FieldWrapper,
   FieldLabel,
   FieldLabelText,
   FieldValidationHint,
 } from '../FieldAtoms';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 
 export type SelectOption = {
   value: string | number;

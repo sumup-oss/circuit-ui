@@ -18,9 +18,9 @@ import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import { IconProps } from '@sumup/icons';
 
-import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
+import styled, { NoTheme, StyleProps } from '../../../../styles/styled.js';
 import { hideVisually, navigationItem } from '../../../../styles/style-mixins';
-import { EmotionAsPropType } from '../../../../types/prop-types';
+import { EmotionAsPropType } from '../../../../types/prop-types.js';
 import Body from '../../../Body';
 import { useComponents } from '../../../ComponentsContext';
 import { Skeleton } from '../../../Skeleton';

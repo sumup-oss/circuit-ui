@@ -15,7 +15,7 @@
 
 import { useState, useRef, useCallback, RefObject, useId } from 'react';
 
-import { ClickEvent } from '../../types/events';
+import { ClickEvent } from '../../types/events.js';
 import { useAnimation } from '../useAnimation';
 
 const DEFAULT_HEIGHT = 'auto';

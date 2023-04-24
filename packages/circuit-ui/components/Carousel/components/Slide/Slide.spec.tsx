@@ -15,10 +15,10 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render } from '../../../../util/test-utils';
-import { SLIDE_DIRECTIONS } from '../../constants';
+import { axe, render } from '../../../../util/test-utils.jsx';
+import { SLIDE_DIRECTIONS } from '../../constants.js';
 
-import { Slide } from './Slide';
+import { Slide } from './Slide.js';
 
 describe('Slide', () => {
   describe('styles', () => {

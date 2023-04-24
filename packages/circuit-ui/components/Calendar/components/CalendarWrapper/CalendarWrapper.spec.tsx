@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render } from '../../../../util/test-utils';
+import { render } from '../../../../util/test-utils.jsx';
 
 import { CalendarWrapper } from '.';
 

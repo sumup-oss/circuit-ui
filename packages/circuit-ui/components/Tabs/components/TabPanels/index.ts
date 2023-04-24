@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import { TabPanels } from './TabPanels';
+import { TabPanels } from './TabPanels.jsx';
 
 export default TabPanels;

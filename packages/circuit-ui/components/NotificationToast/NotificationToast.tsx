@@ -16,18 +16,18 @@
 import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { useAnimation } from '../../hooks/useAnimation';
-import Body from '../Body';
-import CloseButton from '../CloseButton';
-import { ClickEvent } from '../../types/events';
-import { BaseToastProps, createUseToast } from '../ToastContext';
-import { hideVisually } from '../../styles/style-mixins';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { useAnimation } from '../../hooks/useAnimation/index.js';
+import Body from '../Body/index.js';
+import CloseButton from '../CloseButton/index.js';
+import { ClickEvent } from '../../types/events.js';
+import { BaseToastProps, createUseToast } from '../ToastContext/index.js';
+import { hideVisually } from '../../styles/style-mixins.js';
 import {
   NOTIFICATION_COLORS,
   NOTIFICATION_ICONS,
   NotificationVariant,
-} from '../Notification/constants';
+} from '../Notification/constants.js';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';

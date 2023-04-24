@@ -17,11 +17,11 @@ import { forwardRef } from 'react';
 import { css } from '@emotion/react';
 import { Search, Close } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
 import IconButton from '../IconButton';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 
 type ClearProps =
   | { onClear?: never; clearLabel?: never }

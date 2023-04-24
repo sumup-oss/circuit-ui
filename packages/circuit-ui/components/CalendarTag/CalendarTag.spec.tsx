@@ -15,7 +15,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { axe, render } from '../../util/test-utils';
+import { axe, render } from '../../util/test-utils.jsx';
 
 import CalendarTag from '.';
 

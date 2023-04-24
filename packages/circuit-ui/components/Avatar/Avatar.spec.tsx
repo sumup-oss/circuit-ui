@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, axe } from '../../util/test-utils';
+import { render, axe } from '../../util/test-utils.jsx';
 
 import { Avatar, AvatarProps } from './Avatar';
 

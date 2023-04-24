@@ -37,19 +37,19 @@ import {
 import isPropValid from '@emotion/is-prop-valid';
 import { IconProps } from '@sumup/icons';
 
-import { ClickEvent } from '../../types/events';
-import { EmotionAsPropType } from '../../types/prop-types';
-import styled, { StyleProps } from '../../styles/styled';
+import { ClickEvent } from '../../types/events.js';
+import { EmotionAsPropType } from '../../types/prop-types.js';
+import styled, { StyleProps } from '../../styles/styled.js';
 import { listItem, shadow, typography } from '../../styles/style-mixins';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { useFocusList } from '../../hooks/useFocusList';
-import { isArrowDown, isArrowUp } from '../../util/key-codes';
+import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
 import { useComponents } from '../ComponentsContext';
 import Portal from '../Portal';
 import Hr from '../Hr';
 import { useStackContext } from '../StackContext';
-import { isFunction } from '../../util/type-check';
+import { isFunction } from '../../util/type-check.js';
 
 export interface BaseProps {
   /**

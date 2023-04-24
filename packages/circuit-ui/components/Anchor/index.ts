@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Anchor } from './Anchor';
+import { Anchor } from './Anchor.js';
 
-export type { AnchorProps } from './Anchor';
+export type { AnchorProps } from './Anchor.js';
 
 export default Anchor;

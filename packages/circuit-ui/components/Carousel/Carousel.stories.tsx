@@ -15,16 +15,24 @@
 
 import { useState } from 'react';
 
-import { Container } from './components/Container';
-import { Slides } from './components/Slides';
-import { Slide } from './components/Slide';
-import { SlideImage } from './components/SlideImage';
-import { Controls } from './components/Controls';
-import { ButtonList, NextButton, PrevButton } from './components/Buttons';
-import { Status } from './components/Status';
-import { Carousel, CarouselProps } from './Carousel';
-import { ASPECT_RATIO, ANIMATION_DURATION, SLIDE_DURATION } from './constants';
-import { SLIDES } from './__fixtures__';
+import { Container } from './components/Container/index.js';
+import { Slides } from './components/Slides/index.js';
+import { Slide } from './components/Slide/index.js';
+import { SlideImage } from './components/SlideImage/index.js';
+import { Controls } from './components/Controls/index.js';
+import {
+  ButtonList,
+  NextButton,
+  PrevButton,
+} from './components/Buttons/index.js';
+import { Status } from './components/Status/index.js';
+import { Carousel, CarouselProps } from './Carousel.js';
+import {
+  ASPECT_RATIO,
+  ANIMATION_DURATION,
+  SLIDE_DURATION,
+} from './constants.js';
+import { SLIDES } from './__fixtures__/index.js';
 
 export default {
   title: 'Components/Carousel',

@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils';
+import { render, axe } from '../../util/test-utils.jsx';
 
 import { Toggle } from './Toggle';
 

@@ -19,9 +19,9 @@ import { Theme } from '@sumup/design-tokens';
 import { IconProps } from '@sumup/icons';
 
 import { hideVisually } from '../../styles/style-mixins';
-import styled from '../../styles/styled';
+import styled from '../../styles/styled.js';
 import { Button, ButtonProps } from '../Button/Button';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 
 export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
   /**

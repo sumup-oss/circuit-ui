@@ -18,13 +18,13 @@
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { StyleProps } from '../../../../styles/styled.js';
 import { shadow, hideScrollbar } from '../../../../styles/style-mixins';
 import { useFocusList } from '../../../../hooks/useFocusList';
 import { TOP_NAVIGATION_HEIGHT } from '../../../TopNavigation/TopNavigation';
 import Headline from '../../../Headline';
 import { Skeleton, SkeletonContainer } from '../../../Skeleton';
-import { PrimaryLinkProps } from '../../types';
+import { PrimaryLinkProps } from '../../types.js';
 import { SecondaryLinks } from '../SecondaryLinks';
 import { PrimaryLink } from '../PrimaryLink';
 

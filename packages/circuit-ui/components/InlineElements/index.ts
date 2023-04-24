@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { InlineElements } from './InlineElements';
+import { InlineElements } from './InlineElements.jsx';
 
-export type { InlineElementsProps } from './InlineElements';
+export type { InlineElementsProps } from './InlineElements.jsx';
 
 export default InlineElements;

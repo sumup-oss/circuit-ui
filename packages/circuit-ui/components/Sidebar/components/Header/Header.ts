@@ -15,7 +15,7 @@
 
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { StyleProps } from '../../../../styles/styled.js';
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: flex;

@@ -21,8 +21,8 @@ import {
   renderToHtml,
   axe,
   userEvent,
-} from '../../../../util/test-utils';
-import { HeaderCell, Direction } from '../../types';
+} from '../../../../util/test-utils.jsx';
+import { HeaderCell, Direction } from '../../types.js';
 
 import TableHead from '.';
 

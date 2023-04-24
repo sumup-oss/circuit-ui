@@ -15,8 +15,8 @@
 
 import Step from './Step';
 
-export { useStep } from './hooks/useStep';
+export { useStep } from './hooks/useStep.js';
 
-export type { StepOptions } from './types';
+export type { StepOptions } from './types.js';
 export type { StepProps } from './Step';
 export default Step;

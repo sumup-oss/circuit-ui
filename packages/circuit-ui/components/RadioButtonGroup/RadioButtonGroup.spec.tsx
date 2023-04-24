@@ -16,9 +16,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, userEvent, axe } from '../../util/test-utils';
+import { render, userEvent, axe } from '../../util/test-utils.jsx';
 
-import { RadioButtonGroup } from './RadioButtonGroup';
+import { RadioButtonGroup } from './RadioButtonGroup.jsx';
 
 describe('RadioButtonGroup', () => {
   const defaultProps = {

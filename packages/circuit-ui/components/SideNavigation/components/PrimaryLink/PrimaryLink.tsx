@@ -18,13 +18,13 @@ import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { ArrowRight } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { StyleProps } from '../../../../styles/styled.js';
 import { cx, focusVisible } from '../../../../styles/style-mixins';
-import { EmotionAsPropType } from '../../../../types/prop-types';
+import { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { useComponents } from '../../../ComponentsContext';
 import Body from '../../../Body';
 import { Skeleton } from '../../../Skeleton';
-import { PrimaryLinkProps as PrimaryLinkType } from '../../types';
+import { PrimaryLinkProps as PrimaryLinkType } from '../../types.js';
 
 export interface PrimaryLinkProps extends PrimaryLinkType {
   isOpen?: boolean;

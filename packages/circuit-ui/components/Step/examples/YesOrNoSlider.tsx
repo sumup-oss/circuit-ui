@@ -29,8 +29,8 @@ import {
 import Image from '../../Image';
 import Button from '../../Button';
 import Step, { StepProps } from '../Step';
-import { StyleProps } from '../../../styles/styled';
-import { Actions } from '../types';
+import { StyleProps } from '../../../styles/styled.js';
+import { Actions } from '../types.js';
 
 const SLIDE_WIDTH = 400;
 const ANIMATION_DURATION = 200;

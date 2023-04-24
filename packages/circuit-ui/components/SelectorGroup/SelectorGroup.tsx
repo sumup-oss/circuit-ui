@@ -16,11 +16,11 @@
 import { ReactNode, Ref, forwardRef, ChangeEventHandler, useId } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 import Selector from '../Selector';
 import { SelectorSize } from '../Selector/Selector';
 import { hideVisually, typography } from '../../styles/style-mixins';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 
 export interface SelectorGroupProps {
   /**

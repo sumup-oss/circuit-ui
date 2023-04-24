@@ -25,20 +25,20 @@ import {
 } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { useAnimation } from '../../hooks/useAnimation';
-import Body from '../Body';
-import CloseButton from '../CloseButton';
-import { hideVisually } from '../../styles/style-mixins';
-import Button, { ButtonProps } from '../Button';
-import { ClickEvent } from '../../types/events';
-import { isString } from '../../util/type-check';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { useAnimation } from '../../hooks/useAnimation/index.js';
+import Body from '../Body/index.js';
+import CloseButton from '../CloseButton/index.js';
+import { hideVisually } from '../../styles/style-mixins.js';
+import Button, { ButtonProps } from '../Button/index.js';
+import { ClickEvent } from '../../types/events.js';
+import { isString } from '../../util/type-check.js';
 import {
   NOTIFICATION_COLORS,
   NOTIFICATION_ICONS,
   NotificationVariant,
-} from '../Notification/constants';
-import { applyMultipleRefs } from '../../util/refs';
+} from '../Notification/constants.js';
+import { applyMultipleRefs } from '../../util/refs.js';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';

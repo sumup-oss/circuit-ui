@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 import { ChangeEvent, createRef, useState } from 'react';
 import { NumericFormatProps } from 'react-number-format';
 
-import { render, userEvent, axe } from '../../util/test-utils';
+import { render, userEvent, axe } from '../../util/test-utils.jsx';
 import { InputProps } from '../Input';
 
 import CurrencyInput, { CurrencyInputProps } from '.';

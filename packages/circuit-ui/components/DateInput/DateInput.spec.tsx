@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, renderToHtml, axe } from '../../util/test-utils';
+import { render, renderToHtml, axe } from '../../util/test-utils.jsx';
 
 import DateInput from '.';
 

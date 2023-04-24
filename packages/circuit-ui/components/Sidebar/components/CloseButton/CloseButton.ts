@@ -15,7 +15,7 @@
 
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { StyleProps } from '../../../../styles/styled.js';
 import BaseButton, {
   CloseButtonProps as BaseButtonProps,
 } from '../../../CloseButton';

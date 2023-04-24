@@ -16,8 +16,8 @@
 import { Children, ReactElement } from 'react';
 import { SecurePayments } from '@sumup/icons';
 
-import { isArray } from '../../util/type-check';
-import { isEmpty } from '../../util/helpers';
+import { isArray } from '../../util/type-check.js';
+import { isEmpty } from '../../util/helpers.js';
 
 export type Child = {
   props: {

@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Controls } from './Controls';
+export { Controls } from './Controls.js';

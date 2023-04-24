@@ -21,7 +21,7 @@ import Headline from '../Headline';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
 import { spacing, cx } from '../../styles/style-mixins';
 import Image, { ImageProps } from '../Image';
-import { isString } from '../../util/type-check';
+import { isString } from '../../util/type-check.js';
 
 export interface NotificationFullscreenProps
   extends HTMLAttributes<HTMLDivElement> {

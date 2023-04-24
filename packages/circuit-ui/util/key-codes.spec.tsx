@@ -23,7 +23,7 @@ import {
   isEnter,
   isEscape,
   isSpacebar,
-} from './key-codes';
+} from './key-codes.js';
 
 describe('key codes', () => {
   const events = {

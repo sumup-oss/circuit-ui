@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render } from '../../../../util/test-utils';
+import { axe, render } from '../../../../util/test-utils.jsx';
 
-import { SlideImage } from './SlideImage';
+import { SlideImage } from './SlideImage.js';
 
 const image = {
   src: '/images/illustration-waves.jpg',

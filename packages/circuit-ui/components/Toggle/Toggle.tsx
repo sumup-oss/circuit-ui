@@ -17,13 +17,13 @@ import { Ref, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 import { Body, BodyProps } from '../Body/Body';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 import { FieldWrapper } from '../FieldAtoms';
-import { CLASS_DISABLED } from '../FieldAtoms/constants';
+import { CLASS_DISABLED } from '../FieldAtoms/constants.js';
 
-import { Switch, SwitchProps } from './components/Switch/Switch';
+import { Switch, SwitchProps } from './components/Switch/Switch.jsx';
 
 export interface ToggleProps extends SwitchProps {
   /**

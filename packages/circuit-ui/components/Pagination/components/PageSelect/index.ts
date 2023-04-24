@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { PageSelect } from './PageSelect';
+export { PageSelect } from './PageSelect.jsx';

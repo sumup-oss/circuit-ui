@@ -18,7 +18,7 @@ import { FC, ReactNode, SVGProps } from 'react';
 import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
-import { ClickEvent } from '../../types/events';
+import { ClickEvent } from '../../types/events.js';
 import { ModalComponent, BaseModalProps } from '../ModalContext';
 import Image, { ImageProps } from '../Image';
 import Headline from '../Headline';
@@ -27,7 +27,7 @@ import { ButtonProps } from '../Button';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
 import CloseButton from '../CloseButton';
 import { cx, spacing } from '../../styles/style-mixins';
-import { CircuitError } from '../../util/errors';
+import { CircuitError } from '../../util/errors.js';
 
 const TRANSITION_DURATION = 200;
 

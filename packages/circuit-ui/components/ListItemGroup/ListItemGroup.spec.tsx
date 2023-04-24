@@ -23,7 +23,7 @@ import {
   axe,
   RenderFn,
   userEvent,
-} from '../../util/test-utils';
+} from '../../util/test-utils.jsx';
 import Body from '../Body';
 
 import { ListItemGroup, ListItemGroupProps } from './ListItemGroup';

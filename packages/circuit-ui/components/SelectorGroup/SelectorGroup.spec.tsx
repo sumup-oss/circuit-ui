@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render, screen } from '../../util/test-utils';
+import { axe, render, screen } from '../../util/test-utils.jsx';
 
 import { SelectorGroup } from './SelectorGroup';
 

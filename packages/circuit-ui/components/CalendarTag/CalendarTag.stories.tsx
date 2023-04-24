@@ -15,7 +15,7 @@
 
 import { action } from '@storybook/addon-actions';
 
-import { CalendarTag, CalendarTagProps } from './CalendarTag';
+import { CalendarTag, CalendarTagProps } from './CalendarTag.js';
 
 export default {
   title: 'Forms/Calendar/CalendarTag',

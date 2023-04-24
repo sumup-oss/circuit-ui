@@ -21,7 +21,7 @@ import {
   useId,
 } from 'react';
 
-import styled from '../../styles/styled';
+import styled from '../../styles/styled.js';
 import { typography } from '../../styles/style-mixins';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
 import {
@@ -29,7 +29,7 @@ import {
   FieldLabelText,
   FieldValidationHint,
 } from '../FieldAtoms';
-import { AccessibilityError } from '../../util/errors';
+import { AccessibilityError } from '../../util/errors.js';
 
 export interface RadioButtonGroupProps
   extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {

@@ -19,7 +19,7 @@ import { SingleDatePicker } from 'react-dates';
 import type { SingleDatePickerShape } from 'react-dates';
 import 'react-dates/initialize';
 
-import { CalendarWrapper } from './components';
+import { CalendarWrapper } from './components/index.js';
 
 const CloseIcon = styled(Close)`
   color: var(--cui-fg-normal);

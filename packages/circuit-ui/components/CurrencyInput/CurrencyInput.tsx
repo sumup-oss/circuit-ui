@@ -17,11 +17,11 @@ import { Ref, forwardRef, useId } from 'react';
 import { resolveCurrencyFormat } from '@sumup/intl';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
-import styled from '../../styles/styled';
+import styled from '../../styles/styled.js';
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
 
-import { formatPlaceholder } from './CurrencyInputService';
+import { formatPlaceholder } from './CurrencyInputService.js';
 
 export interface CurrencyInputProps
   extends Omit<

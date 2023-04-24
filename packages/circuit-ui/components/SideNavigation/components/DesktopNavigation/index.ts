@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { DesktopNavigation } from './DesktopNavigation';
+export { DesktopNavigation } from './DesktopNavigation.jsx';

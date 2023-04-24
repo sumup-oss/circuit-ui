@@ -20,7 +20,7 @@ import type {
   RowCell as TableRowCell,
   HeaderCell as TableHeaderCell,
   Row as TableRow,
-} from './types';
+} from './types.js';
 
 /**
  * @deprecated

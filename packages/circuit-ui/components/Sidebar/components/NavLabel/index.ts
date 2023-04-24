@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { NavLabel } from './NavLabel';
+export { NavLabel } from './NavLabel.js';
 
-export type { NavLabelProps } from './NavLabel';
+export type { NavLabelProps } from './NavLabel.js';

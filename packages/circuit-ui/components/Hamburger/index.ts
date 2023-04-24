@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Hamburger } from './Hamburger';
+import { Hamburger } from './Hamburger.jsx';
 
-export type { HamburgerProps } from './Hamburger';
+export type { HamburgerProps } from './Hamburger.jsx';
 
 export default Hamburger;

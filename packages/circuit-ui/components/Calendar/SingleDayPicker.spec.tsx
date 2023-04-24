@@ -15,7 +15,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render } from '../../util/test-utils';
+import { render } from '../../util/test-utils.jsx';
 
 import { SingleDayPicker } from '.';
 

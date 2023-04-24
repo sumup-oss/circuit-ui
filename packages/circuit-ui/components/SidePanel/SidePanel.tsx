@@ -17,14 +17,14 @@ import { UIEventHandler, useEffect, useId, useState } from 'react';
 import { css } from '@emotion/react';
 import { Props as ReactModalProps } from 'react-modal';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { isFunction } from '../../util/type-check';
-import { AccessibilityError } from '../../util/errors';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { isFunction } from '../../util/type-check.js';
+import { AccessibilityError } from '../../util/errors.js';
 
 import { MobileSidePanel } from './components/MobileSidePanel';
 import { DesktopSidePanel } from './components/DesktopSidePanel';
 import { Header } from './components/Header';
-import { SidePanelHookProps, Callback } from './useSidePanel';
+import { SidePanelHookProps, Callback } from './useSidePanel.jsx';
 
 const BODY_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Body--open';
 export const HTML_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Html--open';

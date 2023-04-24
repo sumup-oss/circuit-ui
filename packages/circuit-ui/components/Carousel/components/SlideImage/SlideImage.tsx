@@ -16,8 +16,8 @@
 import styled from '@emotion/styled';
 
 import Image from '../../../Image';
-import AspectRatio from '../../../AspectRatio';
-import { ASPECT_RATIO } from '../../constants';
+import AspectRatio from '../../../AspectRatio.js';
+import { ASPECT_RATIO } from '../../constants.js';
 
 export interface SlideImageProps {
   /**

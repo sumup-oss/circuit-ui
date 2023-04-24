@@ -22,7 +22,7 @@ import {
   axe,
   render,
   userEvent,
-} from '../../util/test-utils';
+} from '../../util/test-utils.jsx';
 
 import { Tag } from './Tag';
 

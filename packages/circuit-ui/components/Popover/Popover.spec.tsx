@@ -18,8 +18,14 @@ import { FC } from 'react';
 import { Delete, Add, Download, IconProps } from '@sumup/icons';
 import { Placement } from '@floating-ui/react-dom';
 
-import { act, axe, RenderFn, render, userEvent } from '../../util/test-utils';
-import { ClickEvent } from '../../types/events';
+import {
+  act,
+  axe,
+  RenderFn,
+  render,
+  userEvent,
+} from '../../util/test-utils.jsx';
+import { ClickEvent } from '../../types/events.js';
 
 import {
   PopoverItem,

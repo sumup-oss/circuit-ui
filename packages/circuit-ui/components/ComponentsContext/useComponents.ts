@@ -19,7 +19,7 @@ import {
   ComponentsContext,
   ComponentsContextType,
   defaultComponents,
-} from './ComponentsContext';
+} from './ComponentsContext.js';
 
 /**
  * Subscribe to the components context with a hook.

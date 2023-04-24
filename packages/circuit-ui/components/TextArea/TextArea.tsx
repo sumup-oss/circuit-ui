@@ -18,9 +18,9 @@ import { css } from '@emotion/react';
 
 import Input from '../Input';
 import { InputElement, InputProps } from '../Input/Input';
-import { applyMultipleRefs } from '../../util/refs';
+import { applyMultipleRefs } from '../../util/refs.js';
 
-import { useAutoExpand } from './useAutoExpand';
+import { useAutoExpand } from './useAutoExpand.js';
 
 export type TextAreaProps = Omit<InputProps, 'rows'> & {
   /**

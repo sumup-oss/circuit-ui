@@ -16,14 +16,14 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, axe, RenderFn } from '../../util/test-utils';
+import { create, render, axe, RenderFn } from '../../util/test-utils.jsx';
 
 import {
   Skeleton,
   SkeletonProps,
   SkeletonContainer,
   SkeletonContainerProps,
-} from './Skeleton';
+} from './Skeleton.jsx';
 
 describe('Skeleton', () => {
   function renderSkeleton<T>(

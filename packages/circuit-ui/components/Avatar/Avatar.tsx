@@ -18,8 +18,8 @@ import { css } from '@emotion/react';
 import isPropValid from '@emotion/is-prop-valid';
 import { Profile, Image as ImageIcon } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { CircuitError } from '../../util/errors';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { CircuitError } from '../../util/errors.js';
 
 type AvatarSize = 'giga' | 'yotta';
 type AvatarVariant = 'object' | 'identity';

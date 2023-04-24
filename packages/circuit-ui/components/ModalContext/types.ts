@@ -15,7 +15,7 @@
 
 import { Props as ReactModalProps } from 'react-modal';
 
-import { ClickEvent } from '../../types/events';
+import { ClickEvent } from '../../types/events.js';
 
 type OnClose = (event?: ClickEvent) => void;
 

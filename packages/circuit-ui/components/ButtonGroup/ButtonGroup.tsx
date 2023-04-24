@@ -16,7 +16,7 @@
 import { Ref, forwardRef, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 import Button, { ButtonProps } from '../Button';
 import { secondaryStyles, tertiaryStyles } from '../Button/Button';
 

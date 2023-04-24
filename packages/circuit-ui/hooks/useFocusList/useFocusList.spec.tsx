@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, act, userEvent } from '../../util/test-utils';
+import { render, act, userEvent } from '../../util/test-utils.jsx';
 
 import { useFocusList } from './useFocusList';
 

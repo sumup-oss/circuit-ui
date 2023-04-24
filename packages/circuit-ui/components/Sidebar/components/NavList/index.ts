@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { NavList } from './NavList';
+export { NavList } from './NavList.jsx';

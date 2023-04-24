@@ -21,4 +21,4 @@ export type {
   PrimaryLinkProps,
   SecondaryGroupProps,
   SecondaryLinkProps,
-} from './types';
+} from './types.js';

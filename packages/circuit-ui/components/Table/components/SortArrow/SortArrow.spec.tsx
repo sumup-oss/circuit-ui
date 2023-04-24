@@ -21,7 +21,7 @@ import {
   renderToHtml,
   axe,
   userEvent,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.jsx';
 
 import SortArrow from '.';
 

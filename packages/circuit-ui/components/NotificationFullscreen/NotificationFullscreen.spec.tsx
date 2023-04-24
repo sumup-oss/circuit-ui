@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Plus } from '@sumup/icons';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils';
+import { render, axe } from '../../util/test-utils.jsx';
 
 import {
   NotificationFullscreen,

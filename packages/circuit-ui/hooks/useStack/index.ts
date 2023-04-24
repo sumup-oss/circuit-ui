@@ -13,5 +13,5 @@
  * limitations under the License.
  */
 
-export { useStack } from './useStack';
-export type { StackItem } from './useStack';
+export { useStack } from './useStack.js';
+export type { StackItem } from './useStack.js';

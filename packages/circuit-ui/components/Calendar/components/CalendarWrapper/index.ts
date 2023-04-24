@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { CalendarWrapper } from './CalendarWrapper';
+export { CalendarWrapper } from './CalendarWrapper.js';

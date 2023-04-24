@@ -18,9 +18,9 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { hideVisually } from '../../styles/style-mixins';
-import { StyleProps } from '../../styles/styled';
+import { StyleProps } from '../../styles/styled.js';
 
-import { CLASS_DISABLED } from './constants';
+import { CLASS_DISABLED } from './constants.js';
 
 export interface FieldLabelTextProps extends HTMLAttributes<HTMLSpanElement> {
   /**

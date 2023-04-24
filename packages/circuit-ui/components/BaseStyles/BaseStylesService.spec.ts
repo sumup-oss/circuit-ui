@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { light } from '@sumup/design-tokens';
 
-import { createBaseStyles } from './BaseStylesService';
+import { createBaseStyles } from './BaseStylesService.js';
 
 describe('BaseStylesService', () => {
   it('should return the global base styles', () => {

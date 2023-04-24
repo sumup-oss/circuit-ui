@@ -19,16 +19,16 @@ import { forwardRef, Ref } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import styled, { StyleProps, NoTheme } from '../../../../styles/styled';
+import styled, { StyleProps, NoTheme } from '../../../../styles/styled.js';
 import { navigationItem } from '../../../../styles/style-mixins';
-import { EmotionAsPropType } from '../../../../types/prop-types';
+import { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { useFocusList, FocusProps } from '../../../../hooks/useFocusList';
 import SubHeadline from '../../../SubHeadline';
 import Body from '../../../Body';
 import Badge from '../../../Badge';
 import { useComponents } from '../../../ComponentsContext';
 import { Skeleton } from '../../../Skeleton';
-import { SecondaryGroupProps, SecondaryLinkProps } from '../../types';
+import { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
 
 const anchorStyles = ({ theme }: StyleProps) => css`
   flex-wrap: wrap;

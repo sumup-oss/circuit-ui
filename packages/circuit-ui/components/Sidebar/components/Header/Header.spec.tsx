@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../../../util/test-utils';
+import { create, renderToHtml, axe } from '../../../../util/test-utils.jsx';
 
-import { Header } from './Header';
+import { Header } from './Header.js';
 
 describe('Header', () => {
   describe('styles', () => {

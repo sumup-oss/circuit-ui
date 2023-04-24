@@ -13,5 +13,5 @@
  * limitations under the License.
  */
 
-export { Link } from './Link';
-export type { LinkProps } from './Link';
+export { Link } from './Link.jsx';
+export type { LinkProps } from './Link.jsx';

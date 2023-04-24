@@ -16,11 +16,11 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import Headline, { HeadlineProps } from '../../../Headline';
-import Image from '../../../Image';
-import { spacing } from '../../../../styles/style-mixins';
+import Headline, { HeadlineProps } from '../../../Headline/index.js';
+import Image from '../../../Image/index.js';
+import { spacing } from '../../../../styles/style-mixins.js';
 
-import { Slide, SlideProps } from './Slide';
+import { Slide, SlideProps } from './Slide.js';
 
 export default {
   title: 'Components/Carousel/Slide',

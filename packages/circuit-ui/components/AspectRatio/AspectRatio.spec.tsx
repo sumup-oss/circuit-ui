@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render } from '../../util/test-utils';
+import { render } from '../../util/test-utils.jsx';
 
-import { AspectRatio } from './AspectRatio';
+import { AspectRatio } from './AspectRatio.jsx';
 
 describe('AspectRatio', () => {
   it('should render with default styles', () => {

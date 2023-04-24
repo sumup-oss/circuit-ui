@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { SlideImage } from './SlideImage';
+export { SlideImage } from './SlideImage.js';

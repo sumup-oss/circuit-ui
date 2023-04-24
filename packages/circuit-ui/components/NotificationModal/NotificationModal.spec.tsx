@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Plus } from '@sumup/icons';
 
-import { axe, render, userEvent, waitFor } from '../../util/test-utils';
+import { axe, render, userEvent, waitFor } from '../../util/test-utils.jsx';
 
 import { NotificationModal, NotificationModalProps } from './NotificationModal';
 
