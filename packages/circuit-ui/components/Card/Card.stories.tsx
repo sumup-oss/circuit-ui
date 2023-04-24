@@ -17,7 +17,7 @@ import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 import { css } from '@emotion/react';
 
-import { Stack } from '../../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components/index.js';
 import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
 import ButtonGroup from '../ButtonGroup/index.js';

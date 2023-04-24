@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
 import { Info } from '@sumup/icons';
+
+import styled from '../../styles/styled.js';
 
 import { Tooltip } from './Tooltip.jsx';
 

@@ -15,8 +15,8 @@
 
 import styled from '@emotion/styled';
 
-import { Stack } from '../../../.storybook/components';
-import Button from '../components/Button';
+import { Stack } from '../../../.storybook/components/index.js';
+import Button from '../components/Button/index.js';
 
 import {
   spacing,
@@ -29,7 +29,7 @@ import {
   hideScrollbar,
   SpacingValue,
   center,
-} from './style-mixins';
+} from './style-mixins.js';
 
 export default {
   title: 'Features/Style Mixins',

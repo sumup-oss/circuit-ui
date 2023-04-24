@@ -18,7 +18,7 @@ import { Fragment } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import { Stack } from '../../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components/index.js';
 import Button from '../Button/index.js';
 import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';

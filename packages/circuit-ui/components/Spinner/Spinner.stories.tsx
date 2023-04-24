@@ -15,7 +15,7 @@
 
 import { css } from '@emotion/react';
 
-import { Stack } from '../../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components/index.js';
 
 import { Spinner } from './Spinner.jsx';
 

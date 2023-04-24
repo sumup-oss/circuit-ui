@@ -16,7 +16,7 @@
 import { useState } from 'react';
 import { Plus } from '@sumup/icons';
 
-import { Stack } from '../../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components/index.js';
 import ButtonGroup from '../ButtonGroup/index.js';
 import IconButton from '../IconButton/index.js';
 import CloseButton from '../CloseButton/index.js';

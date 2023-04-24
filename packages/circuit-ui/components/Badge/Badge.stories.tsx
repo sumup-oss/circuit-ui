@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Stack } from '../../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components/index.js';
 
 import { Badge, BadgeProps } from './Badge.jsx';
 

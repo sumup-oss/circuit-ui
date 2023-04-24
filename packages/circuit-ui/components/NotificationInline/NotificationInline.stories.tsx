@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
 import { action } from '@storybook/addon-actions';
 import { useState } from 'react';
+
+import styled from '../../styles/styled.js';
 
 import {
   NotificationInline,

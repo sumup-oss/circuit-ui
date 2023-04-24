@@ -34,9 +34,9 @@ import {
   offset as offsetMiddleware,
   Placement,
 } from '@floating-ui/react-dom';
-import isPropValid from '@emotion/is-prop-valid';
 import { IconProps } from '@sumup/icons';
 
+import isPropValid from '../../styles/is-prop-valid.js';
 import { ClickEvent } from '../../types/events.js';
 import { EmotionAsPropType } from '../../types/prop-types.js';
 import styled, { StyleProps } from '../../styles/styled.js';

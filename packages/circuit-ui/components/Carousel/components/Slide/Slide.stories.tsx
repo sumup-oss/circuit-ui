@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
+import styled from '../../../../styles/styled.js';
 import Headline, { HeadlineProps } from '../../../Headline/index.js';
 import Image from '../../../Image/index.js';
 import { spacing } from '../../../../styles/style-mixins.js';

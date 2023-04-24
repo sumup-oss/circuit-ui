@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-
+import styled from '../../styles/styled.js';
 import Button from '../Button/index.js';
 import { ToastProvider } from '../ToastContext/index.js';
 

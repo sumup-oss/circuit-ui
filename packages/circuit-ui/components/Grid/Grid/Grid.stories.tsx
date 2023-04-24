@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-
+import styled from '../../../styles/styled.js';
 import { Grid, Row, Col } from '..';
 
 export default {

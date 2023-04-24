@@ -15,9 +15,9 @@
 
 import { useState } from 'react';
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 import { Home, Profile, Sales, Shop } from '@sumup/icons';
 
+import styled from '../../styles/styled.ts';
 import Button from '../Button';
 
 import { Separator } from './components/Separator';
