@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import { useContext } from 'react';
 
 import {
@@ -34,24 +35,36 @@ Modal.TRANSITION_DURATION = 200;
 
 describe('ModalContext', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
+
+    // HACK: Temporary workaround for a bug in @testing-library/react when
+    // using  @testing-library/user-event with fake timers.
+    // https://github.com/testing-library/react-testing-library/issues/1197
+    const originalJest = globalThis.jest;
+
+    globalThis.jest = {
+      ...globalThis.jest,
+      advanceTimersByTime: vi.advanceTimersByTime.bind(vi),
+    };
+
+    return () => {
+      globalThis.jest = originalJest;
+    };
   });
   afterAll(() => {
-    jest.useRealTimers();
-    jest.resetModules();
+    vi.useRealTimers();
+    vi.resetModules();
   });
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
-  /**
-   * We need to set up userEvent with delay=null to address this issue:
-   * https://github.com/testing-library/user-event/issues/833
-   */
-  const userEvent = baseUserEvent.setup({ delay: null });
+  const userEvent = baseUserEvent.setup({
+    advanceTimers: vi.advanceTimersByTime,
+  });
 
   describe('ModalProvider', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const modal = {
       id: 'initial',
       component: Modal,
@@ -59,6 +72,9 @@ describe('ModalContext', () => {
     };
     const initialState = [modal];
 
+    // `react-modal` tries to access `document` to hide the app which fails in
+    // the simulated DOM environment of the unit tests. That's why we need to
+    // set `ariaHideApp="false"`. This should not be done in production apps.
     it('should render the initial modals', () => {
       const { getByRole } = render(
         <ModalProvider initialState={initialState} ariaHideApp={false}>
@@ -90,10 +106,10 @@ describe('ModalContext', () => {
 
       expect(getByRole('dialog')).toBeVisible();
 
-      await userEvent.click(getByRole('button', { name: 'Close modal' }));
+      await userEvent.click(getByRole('button', { name: 'Close' }));
 
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       expect(queryByRole('dialog')).toBeNull();
@@ -110,7 +126,7 @@ describe('ModalContext', () => {
         fireEvent.popState(window);
       });
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       expect(queryByRole('dialog')).toBeNull();
@@ -127,7 +143,7 @@ describe('ModalContext', () => {
       const closeButton = queryByRole('button') as HTMLButtonElement;
       await userEvent.click(closeButton);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       expect(queryByRole('dialog')).toBeNull();

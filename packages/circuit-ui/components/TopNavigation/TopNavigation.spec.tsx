@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { Shop, SumUpLogo } from '@sumup/icons';
 
 import { axe, render, renderToHtml } from '../../util/test-utils';
@@ -34,7 +35,7 @@ describe('TopNavigation', () => {
     ),
     hamburger: {
       isActive: false,
-      onClick: jest.fn(),
+      onClick: vi.fn(),
       activeLabel: 'Close menu',
       inactiveLabel: 'Open menu',
     },
@@ -46,16 +47,16 @@ describe('TopNavigation', () => {
       label: 'Open profile menu',
       actions: [
         {
-          onClick: jest.fn(),
+          onClick: vi.fn(),
           children: 'View profile',
         },
         {
-          onClick: jest.fn(),
+          onClick: vi.fn(),
           children: 'Settings',
         },
         { type: 'divider' },
         {
-          onClick: jest.fn(),
+          onClick: vi.fn(),
           children: 'Logout',
           destructive: true,
         },
@@ -66,7 +67,7 @@ describe('TopNavigation', () => {
         icon: Shop,
         label: 'Shop',
         href: '/shop',
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       },
     ],
   };

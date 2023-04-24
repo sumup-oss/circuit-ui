@@ -13,13 +13,15 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { renderHook, userEvent } from '../../util/test-utils';
 
 import { useEscapeKey } from './useEscapeKey';
 
 describe('useEscapeKey', () => {
   it('should call the callback when the escape key is pressed', async () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     renderHook(() => useEscapeKey(callback));
 
     await userEvent.keyboard('{Escape}');
@@ -28,7 +30,7 @@ describe('useEscapeKey', () => {
   });
 
   it('should not call the callback when the hook is inactive', async () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     renderHook(() => useEscapeKey(callback, false));
 
     await userEvent.keyboard('{Escape}');

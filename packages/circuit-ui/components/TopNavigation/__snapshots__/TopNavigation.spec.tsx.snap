@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TopNavigation styles should match the snapshot 1`] = `
+exports[`TopNavigation > styles > should match the snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);

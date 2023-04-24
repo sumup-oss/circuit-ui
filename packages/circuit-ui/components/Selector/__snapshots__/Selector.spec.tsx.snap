@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Selector should render a checked selector 1`] = `
+exports[`Selector > should render a checked selector 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -135,7 +135,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Selector should render a default selector 1`] = `
+exports[`Selector > should render a default selector 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -269,7 +269,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Selector should render a disabled selector 1`] = `
+exports[`Selector > should render a disabled selector 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;

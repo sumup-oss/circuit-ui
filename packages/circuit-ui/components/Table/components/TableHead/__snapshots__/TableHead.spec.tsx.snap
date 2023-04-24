@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TableHead Style tests should render with default styles 1`] = `
+exports[`TableHead > Style tests > should render with default styles 1`] = `
 .circuit-1 {
   vertical-align: middle;
 }
@@ -10,7 +10,7 @@ tbody .circuit-1:last-child td {
   border-bottom: none;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -32,7 +32,7 @@ tbody .circuit-1:last-child td {
   user-select: none;
 }
 
-.circuit-3:focus-within::after {
+.circuit-2:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -47,27 +47,27 @@ tbody .circuit-1:last-child td {
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-3:focus-within::after::-moz-focus-inner {
+.circuit-2:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus-within,
-.circuit-3:hover {
+.circuit-2:focus-within,
+.circuit-2:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-accent-hovered);
 }
 
-.circuit-3:focus-within>button,
-.circuit-3:hover>button {
+.circuit-2:focus-within>button,
+.circuit-2:hover>button {
   opacity: 1;
 }
 
-.circuit-3:active {
+.circuit-2:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-accent-pressed);
 }
 
-.circuit-4 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -100,19 +100,19 @@ tbody .circuit-1:last-child td {
   cursor: pointer;
 }
 
-.circuit-4:focus {
+.circuit-3:focus {
   opacity: 1;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5 {
+.circuit-4 {
   margin: -2px 0;
 }
 
-.circuit-7 {
+.circuit-6 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -124,7 +124,7 @@ tbody .circuit-1:last-child td {
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-7 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -144,21 +144,21 @@ tbody .circuit-1:last-child td {
   class="circuit-0"
 >
   <tr
-    class="circuit-1 circuit-2"
+    class="circuit-1"
   >
     <th
       aria-label="Sort in ascending order"
       aria-sort="none"
-      class="circuit-3"
+      class="circuit-2"
       scope="col"
     >
       <button
-        class="circuit-4"
+        class="circuit-3"
         role="button"
         title="Sort in ascending order"
       >
         <svg
-          class="circuit-5"
+          class="circuit-4"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -171,7 +171,7 @@ tbody .circuit-1:last-child td {
           />
         </svg>
         <svg
-          class="circuit-5"
+          class="circuit-4"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -184,7 +184,7 @@ tbody .circuit-1:last-child td {
           />
         </svg>
         <span
-          class="circuit-7"
+          class="circuit-6"
         >
           Sort in ascending order
         </span>
@@ -192,13 +192,13 @@ tbody .circuit-1:last-child td {
       Foo
     </th>
     <th
-      class="circuit-8"
+      class="circuit-7"
       scope="col"
     >
       Bar
     </th>
     <th
-      class="circuit-8"
+      class="circuit-7"
       scope="col"
     >
       Baz
@@ -207,7 +207,7 @@ tbody .circuit-1:last-child td {
 </thead>
 `;
 
-exports[`TableHead Style tests should render with rowHeader styles 1`] = `
+exports[`TableHead > Style tests > should render with rowHeader styles 1`] = `
 .circuit-1 {
   vertical-align: middle;
 }
@@ -217,7 +217,7 @@ tbody .circuit-1:last-child td {
   border-bottom: none;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -240,7 +240,7 @@ tbody .circuit-1:last-child td {
 }
 
 @media (max-width: 767px) {
-  .circuit-3 {
+  .circuit-2 {
     left: 0;
     position: -webkit-sticky;
     position: sticky;
@@ -249,7 +249,7 @@ tbody .circuit-1:last-child td {
     z-index: 1;
   }
 
-  .circuit-3:after {
+  .circuit-2:after {
     content: '';
     background: linear-gradient(
               90deg,
@@ -264,7 +264,7 @@ tbody .circuit-1:last-child td {
   }
 }
 
-.circuit-3:focus-within::after {
+.circuit-2:focus-within::after {
   content: '';
   display: block;
   width: 100%;
@@ -279,27 +279,27 @@ tbody .circuit-1:last-child td {
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-3:focus-within::after::-moz-focus-inner {
+.circuit-2:focus-within::after::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus-within,
-.circuit-3:hover {
+.circuit-2:focus-within,
+.circuit-2:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-accent-hovered);
 }
 
-.circuit-3:focus-within>button,
-.circuit-3:hover>button {
+.circuit-2:focus-within>button,
+.circuit-2:hover>button {
   opacity: 1;
 }
 
-.circuit-3:active {
+.circuit-2:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-accent-pressed);
 }
 
-.circuit-4 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -332,19 +332,19 @@ tbody .circuit-1:last-child td {
   cursor: pointer;
 }
 
-.circuit-4:focus {
+.circuit-3:focus {
   opacity: 1;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5 {
+.circuit-4 {
   margin: -2px 0;
 }
 
-.circuit-7 {
+.circuit-6 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -356,7 +356,7 @@ tbody .circuit-1:last-child td {
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-7 {
   background-color: var(--cui-bg-normal);
   border-bottom: 1px solid var(--cui-border-divider);
   padding: 24px;
@@ -376,21 +376,21 @@ tbody .circuit-1:last-child td {
   class="circuit-0"
 >
   <tr
-    class="circuit-1 circuit-2"
+    class="circuit-1"
   >
     <th
       aria-label="Sort in ascending order"
       aria-sort="none"
-      class="circuit-3"
+      class="circuit-2"
       scope="col"
     >
       <button
-        class="circuit-4"
+        class="circuit-3"
         role="button"
         title="Sort in ascending order"
       >
         <svg
-          class="circuit-5"
+          class="circuit-4"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -403,7 +403,7 @@ tbody .circuit-1:last-child td {
           />
         </svg>
         <svg
-          class="circuit-5"
+          class="circuit-4"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -416,7 +416,7 @@ tbody .circuit-1:last-child td {
           />
         </svg>
         <span
-          class="circuit-7"
+          class="circuit-6"
         >
           Sort in ascending order
         </span>
@@ -424,13 +424,13 @@ tbody .circuit-1:last-child td {
       Foo
     </th>
     <th
-      class="circuit-8"
+      class="circuit-7"
       scope="col"
     >
       Bar
     </th>
     <th
-      class="circuit-8"
+      class="circuit-7"
       scope="col"
     >
       Baz

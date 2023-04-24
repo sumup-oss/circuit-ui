@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   create,
   render,
@@ -30,7 +32,7 @@ describe('Pagination', () => {
   }
 
   const baseProps: PaginationProps = {
-    onChange: jest.fn(),
+    onChange: vi.fn(),
     totalPages: 5,
     label: 'Pagination',
     previousLabel: 'Previous',
@@ -60,7 +62,7 @@ describe('Pagination', () => {
   });
 
   it('should go to the previous page', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByText } = renderPagination(render, {
       ...baseProps,
       onChange,
@@ -76,7 +78,7 @@ describe('Pagination', () => {
   });
 
   it('should go to the next page', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByText } = renderPagination(render, { ...baseProps, onChange });
 
     const nextButtonEl = getByText('Next');

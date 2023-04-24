@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Spinner should render a byte spinner 1`] = `
+exports[`Spinner > should render a byte spinner 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -50,7 +50,7 @@ exports[`Spinner should render a byte spinner 1`] = `
 />
 `;
 
-exports[`Spinner should render a giga spinner 1`] = `
+exports[`Spinner > should render a giga spinner 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -116,7 +116,7 @@ exports[`Spinner should render a giga spinner 1`] = `
 />
 `;
 
-exports[`Spinner should render a kilo spinner 1`] = `
+exports[`Spinner > should render a kilo spinner 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -166,7 +166,7 @@ exports[`Spinner should render a kilo spinner 1`] = `
 />
 `;
 
-exports[`Spinner should render with default styles 1`] = `
+exports[`Spinner > should render with default styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);

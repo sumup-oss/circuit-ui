@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TableRow Style tests should render with clickable styles 1`] = `
+exports[`TableRow > Style tests > should render with clickable styles 1`] = `
 .circuit-0 {
   vertical-align: middle;
   cursor: pointer;
@@ -45,14 +45,14 @@ tbody .circuit-0:active th {
 }
 
 <tr
-  class="circuit-0 circuit-1"
+  class="circuit-0"
   tabindex="0"
 >
   Foo
 </tr>
 `;
 
-exports[`TableRow Style tests should render with default styles 1`] = `
+exports[`TableRow > Style tests > should render with default styles 1`] = `
 .circuit-0 {
   vertical-align: middle;
 }
@@ -63,7 +63,7 @@ tbody .circuit-0:last-child td {
 }
 
 <tr
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Foo
 </tr>

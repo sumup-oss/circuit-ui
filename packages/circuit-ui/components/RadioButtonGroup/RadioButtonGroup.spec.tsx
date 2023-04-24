@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { render, userEvent, axe } from '../../util/test-utils';
@@ -35,7 +36,7 @@ describe('RadioButtonGroup', () => {
         value: 'third',
       },
     ],
-    onChange: jest.fn(),
+    onChange: vi.fn(),
     label: 'Choose an option',
   };
 
@@ -67,7 +68,7 @@ describe('RadioButtonGroup', () => {
     });
 
     it('should call the change handler when clicked', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByLabelText } = render(
         <RadioButtonGroup {...defaultProps} onChange={onChange} />,
       );

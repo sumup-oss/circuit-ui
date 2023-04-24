@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import {
   axe,
   userEvent,
@@ -30,7 +32,9 @@ import {
 } from './NotificationToast';
 
 describe('NotificationToast', () => {
-  beforeEach(() => jest.clearAllMocks());
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
 
   const renderStaticNotificationToast = (props: NotificationToastProps) =>
     render(<NotificationToast {...props} />);
@@ -53,7 +57,7 @@ describe('NotificationToast', () => {
   };
 
   const baseNotificationToast: NotificationToastProps = {
-    onClose: jest.fn(),
+    onClose: vi.fn(),
     iconLabel: '',
     isVisible: false,
     body: 'This is a toast message',
@@ -95,10 +99,6 @@ describe('NotificationToast', () => {
   });
 
   describe('business logic', () => {
-    /**
-     * FIXME: these tests should use jest fake timers instead of waiting for
-     * NotificationToast timers to run.
-     */
     it('should open a toast', async () => {
       const { findByRole, getByText } = renderNotificationToast(
         baseNotificationToast,

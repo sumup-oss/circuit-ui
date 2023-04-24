@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it } from 'vitest';
+
 import { uniqueId } from './id';
 
 describe('Id', () => {

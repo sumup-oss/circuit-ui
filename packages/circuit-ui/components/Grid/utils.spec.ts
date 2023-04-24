@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { light as theme } from '@sumup/design-tokens';
 
 import { composeBreakpoints, normalizeToNumber, wrapStyles } from './utils';
@@ -38,7 +39,9 @@ describe('Grid utils', () => {
       const styles = 'padding: 0';
       const actual = wrapStyles(theme, breakpoint, styles);
 
-      expect(actual.styles).toContain('@media (min-width: 480px){padding: 0;}');
+      expect(actual.styles.replace(/\s+/g, ' ')).toContain(
+        '@media (min-width: 480px) { padding: 0 }',
+      );
     });
 
     it('should return the plain styles for the default breakpoint', () => {
@@ -46,7 +49,7 @@ describe('Grid utils', () => {
       const styles = 'padding: 0';
       const actual = wrapStyles(theme, breakpoint, styles);
 
-      expect(actual.styles).toContain('padding: 0;');
+      expect(actual.styles).toContain('padding: 0');
       expect(actual.styles).not.toContain('@media');
     });
   });
@@ -59,7 +62,7 @@ describe('Grid utils', () => {
     });
 
     it('should throw on unsupported breakpoints in development', () => {
-      const fn = jest.fn((_, __, option: number) => option);
+      const fn = vi.fn((_, __, option: number) => option);
       const breakpoints = {
         default: 0,
         mega: 1,
@@ -76,7 +79,7 @@ describe('Grid utils', () => {
     it('should filter out unsupported breakpoints in production', () => {
       process.env.NODE_ENV = 'production';
 
-      const fn = jest.fn((_, __, option: number) => option);
+      const fn = vi.fn((_, __, option: number) => option);
       const breakpoints = {
         default: 0,
         mega: 1,
@@ -89,7 +92,7 @@ describe('Grid utils', () => {
     });
 
     it('should sort the breakpoints by their priority', () => {
-      const fn = jest.fn((_, __, option: number) => option);
+      const fn = vi.fn((_, __, option: number) => option);
       const breakpoints = {
         default: 0,
         mega: 1,
@@ -102,7 +105,7 @@ describe('Grid utils', () => {
     });
 
     it('should call the create style function for each breakpoint', () => {
-      const fn = jest.fn((_, __, option: number) => option);
+      const fn = vi.fn((_, __, option: number) => option);
       const breakpoints = {
         default: 0,
         mega: 1,

@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { MouseEvent } from 'react';
 
 import { renderHook, act, waitFor } from '../../util/test-utils';
@@ -49,7 +50,7 @@ describe('useCollapsible', () => {
   });
 
   it('should call a custom onClick prop on the button element', () => {
-    const customProps = { onClick: jest.fn() };
+    const customProps = { onClick: vi.fn() };
     const event = { fizz: 'buzz' } as unknown as MouseEvent;
     const { result } = renderHook(() => useCollapsible());
     const { getButtonProps } = result.current;

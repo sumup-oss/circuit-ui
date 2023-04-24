@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   create,
   screen,
@@ -29,7 +31,7 @@ describe('NavItem', () => {
     it('should render with default styles and match the snapshot', () => {
       const props = {
         selected: false,
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       };
       const actual = create(<NavItem {...props} />);
       expect(actual).toMatchSnapshot();
@@ -39,7 +41,7 @@ describe('NavItem', () => {
       const props = {
         secondary: true,
         selected: false,
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       };
       const actual = create(<NavItem {...props} />);
       expect(actual).toMatchSnapshot();
@@ -48,7 +50,7 @@ describe('NavItem', () => {
     it('should render with selected state styles and match the snapshot', () => {
       const props = {
         selected: true,
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       };
       const actual = create(<NavItem {...props} />);
       expect(actual).toMatchSnapshot();
@@ -74,7 +76,7 @@ describe('NavItem', () => {
   describe('when disabled', () => {
     it('should ignore clicks', () => {
       const label = 'Disabled';
-      const mockOnClick = jest.fn();
+      const mockOnClick = vi.fn();
       render(
         <NavItem
           disabled={true}

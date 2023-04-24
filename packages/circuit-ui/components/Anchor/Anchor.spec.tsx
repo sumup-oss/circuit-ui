@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 import { css } from '@emotion/react';
 
@@ -55,20 +56,20 @@ describe('Anchor', () => {
 
     it('should render as an `a` when an href (and onClick) is passed', () => {
       const { container } = render(
-        <Anchor {...baseProps} href="https://sumup.com" onClick={jest.fn} />,
+        <Anchor {...baseProps} href="https://sumup.com" onClick={vi.fn} />,
       );
       const actual = container.querySelector('a');
       expect(actual).toBeVisible();
     });
 
     it('should render as a `button` when an onClick is passed', () => {
-      const { container } = render(<Anchor {...baseProps} onClick={jest.fn} />);
+      const { container } = render(<Anchor {...baseProps} onClick={vi.fn} />);
       const actual = container.querySelector('button');
       expect(actual).toBeVisible();
     });
 
     it('should call the onClick handler when rendered as a link', async () => {
-      const onClick = jest.fn((event: ClickEvent) => {
+      const onClick = vi.fn((event: ClickEvent) => {
         event.preventDefault(); // navigation is not implemented in jsdom
       });
       render(
@@ -81,7 +82,7 @@ describe('Anchor', () => {
     });
 
     it('should call the onClick handler when rendered as a button', async () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       render(<Anchor {...baseProps} onClick={onClick} />);
 
       await userEvent.click(screen.getByRole('button'));
@@ -92,7 +93,7 @@ describe('Anchor', () => {
     it('should accept a working ref for a button', () => {
       const tref = createRef<any>();
       const { container } = render(
-        <Anchor {...baseProps} onClick={jest.fn} ref={tref} />,
+        <Anchor {...baseProps} onClick={vi.fn} ref={tref} />,
       );
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);
@@ -118,7 +119,7 @@ describe('Anchor', () => {
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const { container } = render(
-        <Anchor {...baseProps} href="https://sumup.com" onClick={jest.fn} />,
+        <Anchor {...baseProps} href="https://sumup.com" onClick={vi.fn} />,
       );
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();

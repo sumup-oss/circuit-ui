@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { useRef, useState } from 'react';
 
 import { render, userEvent } from '../../util/test-utils';
@@ -20,7 +21,7 @@ import { render, userEvent } from '../../util/test-utils';
 import { useClickOutside } from './useClickOutside';
 
 describe('useClickOutside', () => {
-  function MockComponent({ onClickOutside = jest.fn(), isActive = true }) {
+  function MockComponent({ onClickOutside = vi.fn(), isActive = true }) {
     const ref = useRef<HTMLButtonElement>(null);
 
     useClickOutside(ref, onClickOutside, isActive);
@@ -29,7 +30,7 @@ describe('useClickOutside', () => {
   }
 
   it('should call the callback when clicking outside the element', async () => {
-    const onClickOutside = jest.fn();
+    const onClickOutside = vi.fn();
     render(<MockComponent onClickOutside={onClickOutside} />);
     await userEvent.click(document.body);
 
@@ -37,7 +38,7 @@ describe('useClickOutside', () => {
   });
 
   it('should not call the callback when clicking (inside) the element', async () => {
-    const onClickOutside = jest.fn();
+    const onClickOutside = vi.fn();
     const { getByRole } = render(
       <MockComponent onClickOutside={onClickOutside} />,
     );
@@ -49,7 +50,7 @@ describe('useClickOutside', () => {
 
   it('should not call the callback when clicking inside the element and the target element is removed', async () => {
     function MockRemoveComponent({
-      onClickOutside = jest.fn(),
+      onClickOutside = vi.fn(),
       isActive = true,
     }) {
       const ref = useRef<HTMLDivElement>(null);
@@ -66,7 +67,7 @@ describe('useClickOutside', () => {
       );
     }
 
-    const onClickOutside = jest.fn();
+    const onClickOutside = vi.fn();
     const { getByRole } = render(
       <MockRemoveComponent onClickOutside={onClickOutside} />,
     );
@@ -77,7 +78,7 @@ describe('useClickOutside', () => {
   });
 
   it('should not call the callback when the listener is inactive', async () => {
-    const onClickOutside = jest.fn();
+    const onClickOutside = vi.fn();
     render(<MockComponent onClickOutside={onClickOutside} isActive={false} />);
 
     await userEvent.click(document.body);

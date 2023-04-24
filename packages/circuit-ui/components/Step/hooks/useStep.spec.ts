@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { act, renderHook, waitFor } from '../../../util/test-utils';
 
 import { useStep } from './useStep';
@@ -298,10 +300,10 @@ describe('useStep', () => {
   });
 
   it('should support onPlay action handler props', () => {
-    const onPlay = jest.fn();
-    const onPause = jest.fn();
-    const onNext = jest.fn();
-    const onPrevious = jest.fn();
+    const onPlay = vi.fn();
+    const onPause = vi.fn();
+    const onNext = vi.fn();
+    const onPrevious = vi.fn();
     const { result, unmount } = renderHook(() =>
       useStep({ onPlay, onPause, onNext, onPrevious }),
     );

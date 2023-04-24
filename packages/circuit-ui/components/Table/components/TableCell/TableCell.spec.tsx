@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it } from 'vitest';
+
 import { create, renderToHtml, axe } from '../../../../util/test-utils';
 
 import TableCell from '.';

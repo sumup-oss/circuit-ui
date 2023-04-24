@@ -6,8 +6,7 @@ yarn.lock
 *.swp
 node_modules
 jest-test-results.json
-__coverage__
-__reports__
+coverage
 dist
 /public
 lib

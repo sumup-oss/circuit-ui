@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Headline should render as h1 element 1`] = `
+exports[`Headline > should render as h1 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   color: var(--cui-fg-normal);
@@ -16,7 +16,7 @@ exports[`Headline should render as h1 element 1`] = `
 </h1>
 `;
 
-exports[`Headline should render as h2 element 1`] = `
+exports[`Headline > should render as h2 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   color: var(--cui-fg-normal);
@@ -32,7 +32,7 @@ exports[`Headline should render as h2 element 1`] = `
 </h2>
 `;
 
-exports[`Headline should render as h3 element 1`] = `
+exports[`Headline > should render as h3 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   color: var(--cui-fg-normal);
@@ -48,7 +48,7 @@ exports[`Headline should render as h3 element 1`] = `
 </h3>
 `;
 
-exports[`Headline should render as h4 element 1`] = `
+exports[`Headline > should render as h4 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   color: var(--cui-fg-normal);
@@ -64,7 +64,7 @@ exports[`Headline should render as h4 element 1`] = `
 </h4>
 `;
 
-exports[`Headline should render as h5 element 1`] = `
+exports[`Headline > should render as h5 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   color: var(--cui-fg-normal);
@@ -80,7 +80,7 @@ exports[`Headline should render as h5 element 1`] = `
 </h5>
 `;
 
-exports[`Headline should render as h6 element 1`] = `
+exports[`Headline > should render as h6 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   color: var(--cui-fg-normal);
@@ -96,7 +96,7 @@ exports[`Headline should render as h6 element 1`] = `
 </h6>
 `;
 
-exports[`Headline should render with size four 1`] = `
+exports[`Headline > should render with size four 1`] = `
 .circuit-0 {
   font-weight: 700;
   color: var(--cui-fg-normal);
@@ -112,7 +112,7 @@ exports[`Headline should render with size four 1`] = `
 </h2>
 `;
 
-exports[`Headline should render with size one 1`] = `
+exports[`Headline > should render with size one 1`] = `
 .circuit-0 {
   font-weight: 700;
   color: var(--cui-fg-normal);
@@ -128,7 +128,7 @@ exports[`Headline should render with size one 1`] = `
 </h2>
 `;
 
-exports[`Headline should render with size three 1`] = `
+exports[`Headline > should render with size three 1`] = `
 .circuit-0 {
   font-weight: 700;
   color: var(--cui-fg-normal);
@@ -144,7 +144,7 @@ exports[`Headline should render with size three 1`] = `
 </h2>
 `;
 
-exports[`Headline should render with size two 1`] = `
+exports[`Headline > should render with size two 1`] = `
 .circuit-0 {
   font-weight: 700;
   color: var(--cui-fg-normal);

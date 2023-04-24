@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it } from 'vitest';
 import { SecurePayments } from '@sumup/icons';
 
 import {

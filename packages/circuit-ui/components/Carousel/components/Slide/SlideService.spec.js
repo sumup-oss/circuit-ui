@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-/* eslint-disable max-len */
+import { describe, expect, it } from 'vitest';
+
 import { SLIDE_DIRECTIONS } from '../../constants';
 
 import * as SlideService from './SlideService';

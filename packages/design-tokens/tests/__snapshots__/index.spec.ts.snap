@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Themes light should match the snapshot 1`] = `
+exports[`Themes > light > should match the snapshot 1`] = `
 {
   "borderRadius": {
     "bit": "4px",
@@ -91,7 +91,7 @@ exports[`Themes light should match the snapshot 1`] = `
     "y900": "#725514",
   },
   "fontStack": {
-    "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"",
+    "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", Roboto, Helvetica, Arial, sans-serif, \\"Apple Color Emoji\\", \\"Segoe UI Emoji\\", \\"Segoe UI Symbol\\"",
     "mono": "Consolas, monaco, monospace",
   },
   "fontWeight": {

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Body should render as a "alert" variant 1`] = `
+exports[`Body > should render as a "alert" variant 1`] = `
 .circuit-0 {
   font-weight: 400;
   font-size: 1rem;
@@ -16,7 +16,7 @@ exports[`Body should render as a "alert" variant 1`] = `
 </p>
 `;
 
-exports[`Body should render as a "confirm" variant 1`] = `
+exports[`Body > should render as a "confirm" variant 1`] = `
 .circuit-0 {
   font-weight: 400;
   font-size: 1rem;
@@ -32,7 +32,7 @@ exports[`Body should render as a "confirm" variant 1`] = `
 </p>
 `;
 
-exports[`Body should render as a "highlight" variant 1`] = `
+exports[`Body > should render as a "highlight" variant 1`] = `
 .circuit-0 {
   font-weight: 400;
   font-size: 1rem;
@@ -48,7 +48,7 @@ exports[`Body should render as a "highlight" variant 1`] = `
 </strong>
 `;
 
-exports[`Body should render as a "quote" variant 1`] = `
+exports[`Body > should render as a "quote" variant 1`] = `
 .circuit-0 {
   font-weight: 400;
   font-size: 1rem;
@@ -66,7 +66,7 @@ exports[`Body should render as a "quote" variant 1`] = `
 </blockquote>
 `;
 
-exports[`Body should render as a "subtle" variant 1`] = `
+exports[`Body > should render as a "subtle" variant 1`] = `
 .circuit-0 {
   font-weight: 400;
   font-size: 1rem;
@@ -82,7 +82,7 @@ exports[`Body should render as a "subtle" variant 1`] = `
 </p>
 `;
 
-exports[`Body should render with default styles 1`] = `
+exports[`Body > should render with default styles 1`] = `
 .circuit-0 {
   font-weight: 400;
   font-size: 1rem;
@@ -96,7 +96,7 @@ exports[`Body should render with default styles 1`] = `
 </p>
 `;
 
-exports[`Body should render with size "one" 1`] = `
+exports[`Body > should render with size "one" 1`] = `
 .circuit-0 {
   font-weight: 400;
   font-size: 1rem;
@@ -111,7 +111,7 @@ exports[`Body should render with size "one" 1`] = `
 </p>
 `;
 
-exports[`Body should render with size "two" 1`] = `
+exports[`Body > should render with size "two" 1`] = `
 .circuit-0 {
   font-weight: 400;
   font-size: 0.875rem;

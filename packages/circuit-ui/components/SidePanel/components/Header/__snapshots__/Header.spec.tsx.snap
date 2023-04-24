@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Header should have a bottom separator when sticky 1`] = `
+exports[`Header > should have a bottom separator when sticky 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -239,7 +239,7 @@ exports[`Header should have a bottom separator when sticky 1`] = `
 </body>
 `;
 
-exports[`Header should match the snapshot 1`] = `
+exports[`Header > should match the snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);

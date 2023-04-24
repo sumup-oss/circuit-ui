@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   create,
   renderToHtml,
@@ -58,7 +60,7 @@ describe('Hamburger', () => {
    * Logic tests.
    */
   it('should call the onClick prop when clicked', async () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { getByTestId } = renderHamburger(render, {
       ...baseProps,
       onClick,

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { render } from '../../util/test-utils';
 
 import { Portal } from './Portal';
@@ -37,7 +39,7 @@ describe('Portal', () => {
 
     const testId = 'children';
 
-    const getContainer = jest.fn(() => container);
+    const getContainer = vi.fn(() => container);
     const { getByTestId } = render(
       <Portal getContainer={getContainer}>
         <div data-testid={testId} />

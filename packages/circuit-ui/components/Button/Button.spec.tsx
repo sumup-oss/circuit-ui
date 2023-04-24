@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 import { Download } from '@sumup/icons';
 
@@ -96,7 +97,7 @@ describe('Button', () => {
       const props = {
         ...baseProps,
         'href': '#',
-        'onClick': jest.fn(),
+        'onClick': vi.fn(),
         'data-testid': 'link-button',
       };
       const { getByTestId } = renderButton(render, props);
@@ -137,7 +138,7 @@ describe('Button', () => {
     it('should call the onClick handler when clicked', async () => {
       const props = {
         ...baseProps,
-        'onClick': jest.fn(),
+        'onClick': vi.fn(),
         'data-testid': 'link-button',
       };
       const { getByTestId } = renderButton(render, props);

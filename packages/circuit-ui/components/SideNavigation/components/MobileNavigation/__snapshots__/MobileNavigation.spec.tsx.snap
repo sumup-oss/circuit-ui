@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MobileNavigation styles should render with secondary links 1`] = `
+exports[`MobileNavigation > styles > should render with secondary links 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -381,6 +381,10 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
   color: var(--cui-fg-normal);
 }
 
+.circuit-18 {
+  list-style: none;
+}
+
 .circuit-19 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -606,7 +610,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
                       </h3>
                     </span>
                     <ul
-                      class="circuit-9"
+                      class="circuit-18"
                       role="list"
                     >
                       <li>
@@ -656,7 +660,7 @@ exports[`MobileNavigation styles should render with secondary links 1`] = `
 </body>
 `;
 
-exports[`MobileNavigation styles should render without secondary links 1`] = `
+exports[`MobileNavigation > styles > should render without secondary links 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);

@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { fireEvent } from '@testing-library/dom';
 
 import {
@@ -31,7 +32,7 @@ describe('PageSelect', () => {
   }
 
   const baseProps: PageSelectProps = {
-    onChange: jest.fn(),
+    onChange: vi.fn(),
     label: 'Pagination',
     totalLabel: (total) => `of ${total}`,
     pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -49,7 +50,7 @@ describe('PageSelect', () => {
   describe('business logic', () => {
     it('should call the onChange callback', () => {
       const testId = 'select-page';
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByTestId } = renderPageSelect(render, {
         ...baseProps,
         onChange,

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import {
   create,
   render,
@@ -50,7 +52,7 @@ const rows = [
 const rowLength = rows[0].length;
 
 describe('Table', () => {
-  beforeEach(jest.clearAllMocks);
+  beforeEach(vi.clearAllMocks);
 
   describe('Style tests', () => {
     it('should render with default styles', () => {
@@ -125,7 +127,7 @@ describe('Table', () => {
 
   describe('Interaction tests', () => {
     it('should call the row click callback', async () => {
-      const onRowClickMock = jest.fn();
+      const onRowClickMock = vi.fn();
       const index = 0;
       const { getAllByRole } = render(
         <Table onRowClick={onRowClickMock} headers={headers} rows={rows} />,
@@ -221,7 +223,7 @@ describe('Table', () => {
       });
 
       it('should call a custom sort callback', async () => {
-        const onSortByMock = jest.fn();
+        const onSortByMock = vi.fn();
         const index = 0;
         const nextDirection = 'ascending';
         const { getAllByRole } = render(

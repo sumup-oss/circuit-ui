@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { axe, render, screen } from '../../util/test-utils';
@@ -21,7 +22,7 @@ import { SelectorGroup } from './SelectorGroup';
 
 describe('SelectorGroup', () => {
   const defaultProps = {
-    onChange: jest.fn(),
+    onChange: vi.fn(),
     value: '',
     label: 'Choose an option',
     options: [

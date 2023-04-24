@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { Plus } from '@sumup/icons';
 
 import { axe, render, userEvent, waitFor } from '../../util/test-utils';
@@ -26,7 +27,7 @@ describe('NotificationModal', () => {
   const baseNotificationModal = {
     isOpen: true,
     closeButtonLabel: 'Close modal',
-    onClose: jest.fn(),
+    onClose: vi.fn(),
     image: {
       src: '/images/illustration-update-browser.svg',
       alt: '',
@@ -36,11 +37,11 @@ describe('NotificationModal', () => {
     actions: {
       primary: {
         children: 'Update now',
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       },
       secondary: {
         children: 'Not now',
-        onClick: jest.fn(),
+        onClick: vi.fn(),
       },
     },
     ariaHideApp: false,

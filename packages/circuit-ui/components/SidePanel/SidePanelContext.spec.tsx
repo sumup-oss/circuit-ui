@@ -13,7 +13,17 @@
  * limitations under the License.
  */
 
-import { useContext } from 'react';
+import {
+  Mock,
+  afterAll,
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
+import { ComponentType, useContext } from 'react';
 
 import {
   render,
@@ -33,31 +43,43 @@ import {
   SidePanelContextProps,
 } from './SidePanelContext';
 
-jest.mock('../../hooks/useMedia');
+vi.mock('../../hooks/useMedia');
 
 describe('SidePanelContext', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
+
+    // HACK: Temporary workaround for a bug in @testing-library/react when
+    // using  @testing-library/user-event with fake timers.
+    // https://github.com/testing-library/react-testing-library/issues/1197
+    const originalJest = globalThis.jest;
+
+    globalThis.jest = {
+      ...globalThis.jest,
+      advanceTimersByTime: vi.advanceTimersByTime.bind(vi),
+    };
+
+    return () => {
+      globalThis.jest = originalJest;
+    };
   });
 
   beforeEach(() => {
-    (useMedia as jest.Mock).mockReturnValue(false);
+    (useMedia as Mock).mockReturnValue(false);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
-    jest.resetModules();
+    vi.useRealTimers();
+    vi.resetModules();
   });
 
-  /**
-   * We need to set up userEvent with delay=null to address this issue:
-   * https://github.com/testing-library/user-event/issues/833
-   */
-  const userEvent = baseUserEvent.setup({ delay: null });
+  const userEvent = baseUserEvent.setup({
+    advanceTimers: vi.advanceTimersByTime,
+  });
 
   describe('SidePanelProvider', () => {
     const getPanel = () => ({
@@ -75,7 +97,7 @@ describe('SidePanelContext', () => {
       ariaHideApp: false,
     });
 
-    const renderComponent = (Trigger, props = {}) =>
+    const renderComponent = (Trigger: ComponentType, props = {}) =>
       render(
         <SidePanelProvider {...props}>
           <Trigger />
@@ -144,7 +166,7 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        (useMedia as jest.Mock).mockReturnValue(true);
+        (useMedia as Mock).mockReturnValue(true);
 
         const { baseElement, getByText } = renderComponent(Trigger);
 
@@ -274,7 +296,7 @@ describe('SidePanelContext', () => {
         await userEvent.click(getByText('Close panel'));
 
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(queryByRole('dialog')).toBeNull();
@@ -307,7 +329,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Close panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(queryByRole('dialog')).toBeNull();
@@ -339,7 +361,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Close panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(getAllByRole('dialog')).toHaveLength(1);
@@ -365,14 +387,14 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Close panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(getByRole('dialog')).toBeVisible();
       });
 
       it('should call the onClose callback of the side panel', async () => {
-        const onClose = jest.fn();
+        const onClose = vi.fn();
         const Trigger = () => {
           const { setSidePanel, removeSidePanel } =
             useContext(SidePanelContext);
@@ -390,7 +412,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Close panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(onClose).toHaveBeenCalled();
@@ -420,7 +442,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Update panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(getByTestId('children')).toHaveTextContent('Updated content');
@@ -452,7 +474,7 @@ describe('SidePanelContext', () => {
 
         await userEvent.click(getByText('Update panel'));
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         expect(getByTestId('children')).toHaveTextContent('Side panel content');

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { render, userEvent, axe, waitFor } from '../../util/test-utils';
 
 import { Modal, ModalProps } from './Modal';
@@ -22,7 +24,7 @@ describe('Modal', () => {
     variant: 'immersive',
     isOpen: true,
     closeButtonLabel: 'Close modal',
-    onClose: jest.fn(),
+    onClose: vi.fn(),
     // eslint-disable-next-line react/prop-types, react/display-name
     children: <p data-testid="children">Hello world!</p>,
     // Silences the warning about the missing app element.

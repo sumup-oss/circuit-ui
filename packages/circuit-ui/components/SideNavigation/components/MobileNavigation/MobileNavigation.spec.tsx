@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Home, Shop } from '@sumup/icons';
 
 import { ClickEvent } from '../../../../types/events';
@@ -41,7 +42,7 @@ describe('MobileNavigation', () => {
     // http://reactcommunity.org/react-modal/accessibility/#app-element
     ariaHideApp: false,
     isOpen: true,
-    onClose: jest.fn(),
+    onClose: vi.fn(),
     closeButtonLabel: 'Close navigation modal',
     primaryNavigationLabel: 'Primary',
   };
@@ -53,7 +54,7 @@ describe('MobileNavigation', () => {
         icon: (iconProps) => <Shop {...iconProps} size="24" />,
         label: 'Shop',
         href: '/shop',
-        onClick: jest.fn(),
+        onClick: vi.fn(),
         isActive: true,
         secondaryGroups: [
           {
@@ -62,12 +63,12 @@ describe('MobileNavigation', () => {
               {
                 label: 'Toys',
                 href: '/shop/toys',
-                onClick: jest.fn(),
+                onClick: vi.fn(),
               },
               {
                 label: 'Books',
                 href: '/shop/books',
-                onClick: jest.fn(),
+                onClick: vi.fn(),
               },
             ],
           },
@@ -77,7 +78,7 @@ describe('MobileNavigation', () => {
   };
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('styles', () => {
@@ -94,7 +95,7 @@ describe('MobileNavigation', () => {
             icon: (iconProps) => <Home {...iconProps} size="24" />,
             label: 'Home',
             href: '/',
-            onClick: jest.fn(),
+            onClick: vi.fn(),
             secondaryGroups: [],
           },
         ],
@@ -136,7 +137,7 @@ describe('MobileNavigation', () => {
     });
 
     it('should close the modal when clicking a primary link', async () => {
-      const onClick = jest.fn((event: ClickEvent) => {
+      const onClick = vi.fn((event: ClickEvent) => {
         event.preventDefault();
       });
       const props = {
@@ -161,7 +162,7 @@ describe('MobileNavigation', () => {
     });
 
     it('should close the modal when clicking a secondary link', async () => {
-      const onClick = jest.fn((event: ClickEvent) => {
+      const onClick = vi.fn((event: ClickEvent) => {
         event.preventDefault();
       });
       const props = {
@@ -171,7 +172,7 @@ describe('MobileNavigation', () => {
             icon: (iconProps) => <Shop {...iconProps} size="24" />,
             label: 'Shop',
             href: '/shop',
-            onClick: jest.fn(),
+            onClick: vi.fn(),
             isActive: true,
             secondaryGroups: [
               {

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RadioButton Styles should render with checked styles 1`] = `
+exports[`RadioButton > Styles > should render with checked styles 1`] = `
 .circuit-0 {
   border: 0;
   clip: rect(0 0 0 0);
@@ -140,7 +140,7 @@ exports[`RadioButton Styles should render with checked styles 1`] = `
 </div>
 `;
 
-exports[`RadioButton Styles should render with default styles 1`] = `
+exports[`RadioButton > Styles > should render with default styles 1`] = `
 .circuit-0 {
   border: 0;
   clip: rect(0 0 0 0);
@@ -279,7 +279,7 @@ exports[`RadioButton Styles should render with default styles 1`] = `
 </div>
 `;
 
-exports[`RadioButton Styles should render with disabled styles 1`] = `
+exports[`RadioButton > Styles > should render with disabled styles 1`] = `
 .circuit-0 {
   border: 0;
   clip: rect(0 0 0 0);
@@ -419,7 +419,7 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
 </div>
 `;
 
-exports[`RadioButton Styles should render with invalid styles 1`] = `
+exports[`RadioButton > Styles > should render with invalid styles 1`] = `
 .circuit-0 {
   border: 0;
   clip: rect(0 0 0 0);

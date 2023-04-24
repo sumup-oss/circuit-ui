@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SidePanelContext SidePanelProvider render should render the non-resized container 1`] = `
+exports[`SidePanelContext > SidePanelProvider > render > should render the non-resized container 1`] = `
 .circuit-0 {
   width: 100%;
   -webkit-transition: width 200ms ease-in-out;
@@ -20,7 +20,7 @@ exports[`SidePanelContext SidePanelProvider render should render the non-resized
 </body>
 `;
 
-exports[`SidePanelContext SidePanelProvider render should render the side panel and the resized container 1`] = `
+exports[`SidePanelContext > SidePanelProvider > render > should render the side panel and the resized container 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -362,7 +362,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 </body>
 `;
 
-exports[`SidePanelContext SidePanelProvider render should render the side panel on mobile resolutions 1`] = `
+exports[`SidePanelContext > SidePanelProvider > render > should render the side panel on mobile resolutions 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -712,7 +712,7 @@ exports[`SidePanelContext SidePanelProvider render should render the side panel 
 </body>
 `;
 
-exports[`SidePanelContext SidePanelProvider render should render the side panel with offset for the top navigation 1`] = `
+exports[`SidePanelContext > SidePanelProvider > render > should render the side panel with offset for the top navigation 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);

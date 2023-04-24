@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Avatar Styles should render the giga size 1`] = `
+exports[`Avatar > Styles > should render the giga size 1`] = `
 .circuit-0 {
   width: 48px;
   height: 48px;
@@ -49,7 +49,7 @@ exports[`Avatar Styles should render the giga size 1`] = `
 </div>
 `;
 
-exports[`Avatar Styles should render the identity variant placeholder 1`] = `
+exports[`Avatar > Styles > should render the identity variant placeholder 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -98,7 +98,7 @@ exports[`Avatar Styles should render the identity variant placeholder 1`] = `
 </div>
 `;
 
-exports[`Avatar Styles should render the identity variant with an image 1`] = `
+exports[`Avatar > Styles > should render the identity variant with an image 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -119,7 +119,7 @@ exports[`Avatar Styles should render the identity variant with an image 1`] = `
 </div>
 `;
 
-exports[`Avatar Styles should render the identity variant with initials 1`] = `
+exports[`Avatar > Styles > should render the identity variant with initials 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -157,7 +157,7 @@ exports[`Avatar Styles should render the identity variant with initials 1`] = `
 </div>
 `;
 
-exports[`Avatar Styles should render the object variant placeholder 1`] = `
+exports[`Avatar > Styles > should render the object variant placeholder 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -206,7 +206,7 @@ exports[`Avatar Styles should render the object variant placeholder 1`] = `
 </div>
 `;
 
-exports[`Avatar Styles should render the object variant with an image 1`] = `
+exports[`Avatar > Styles > should render the object variant with an image 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -227,7 +227,7 @@ exports[`Avatar Styles should render the object variant with an image 1`] = `
 </div>
 `;
 
-exports[`Avatar Styles should render the yotta size 1`] = `
+exports[`Avatar > Styles > should render the yotta size 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;
@@ -276,7 +276,7 @@ exports[`Avatar Styles should render the yotta size 1`] = `
 </div>
 `;
 
-exports[`Avatar Styles should render with default styles 1`] = `
+exports[`Avatar > Styles > should render with default styles 1`] = `
 .circuit-0 {
   width: 96px;
   height: 96px;

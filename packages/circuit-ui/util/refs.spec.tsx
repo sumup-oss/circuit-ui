@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, test, vi } from 'vitest';
 import { useRef } from 'react';
 
 import { render, renderHook } from './test-utils';
@@ -29,7 +30,7 @@ describe('applyMultipleRefs function', () => {
   });
 
   test("should call a ref if it's a function", () => {
-    const refAsFunction = jest.fn();
+    const refAsFunction = vi.fn();
 
     render(<div ref={applyMultipleRefs(refAsFunction)} />);
 
@@ -42,7 +43,7 @@ describe('applyMultipleRefs function', () => {
       result: { current: refAsObject },
     } = renderHook(() => useRef<HTMLDivElement>());
 
-    const refAsFunction = jest.fn();
+    const refAsFunction = vi.fn();
 
     render(<div ref={applyMultipleRefs(refAsObject, refAsFunction)} />);
 

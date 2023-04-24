@@ -13,17 +13,19 @@
  * limitations under the License.
  */
 
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { renderHook, act } from '../../util/test-utils';
 
 import { useStack } from './useStack';
 
 describe('useStack', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   const initialStack = [
@@ -88,7 +90,7 @@ describe('useStack', () => {
       expect(result.current[0]).toHaveLength(3);
 
       act(() => {
-        jest.advanceTimersByTime(transition.duration);
+        vi.advanceTimersByTime(transition.duration);
       });
 
       expect(result.current[0]).toHaveLength(2);
@@ -117,7 +119,7 @@ describe('useStack', () => {
       expect(result.current[0]).toHaveLength(3);
 
       act(() => {
-        jest.advanceTimersByTime(200);
+        vi.advanceTimersByTime(200);
       });
 
       expect(result.current[0]).toHaveLength(2);

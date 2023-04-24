@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
+exports[`Pagination > with 2 to 5 pages > should render with default styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -595,7 +595,7 @@ li:last-child .circuit-11 {
 </nav>
 `;
 
-exports[`Pagination with more than 5 pages should render with default styles 1`] = `
+exports[`Pagination > with more than 5 pages > should render with default styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -783,13 +783,13 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-10 {
+.circuit-9 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-11 {
+.circuit-10 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -819,25 +819,42 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
-.circuit-11:-moz-focusring {
+.circuit-10:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-11::-ms-expand {
+.circuit-10::-ms-expand {
   display: none;
 }
 
-.circuit-11:hover {
+.circuit-10:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-11:focus {
+.circuit-10:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-11:active {
+.circuit-10:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
+}
+
+.circuit-11 {
+  color: var(--cui-fg-subtle);
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+select:active~.circuit-11 {
+  display: none;
 }
 
 .circuit-12 {
@@ -853,32 +870,15 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   padding: 16px;
 }
 
-select:active~.circuit-12 {
+select:not(:active)~.circuit-12 {
   display: none;
 }
 
 .circuit-13 {
-  color: var(--cui-fg-subtle);
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:not(:active)~.circuit-13 {
-  display: none;
-}
-
-.circuit-14 {
   margin-left: 12px;
 }
 
-.circuit-15 {
+.circuit-14 {
   font-size: 1rem;
   line-height: 1.5rem;
   display: -webkit-inline-box;
@@ -917,40 +917,40 @@ select:not(:active)~.circuit-13 {
   flex-shrink: 0;
 }
 
-.circuit-15:focus {
+.circuit-14:focus {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-15:focus::-moz-focus-inner {
+.circuit-14:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-15:focus:not(:focus-visible) {
+.circuit-14:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-15:disabled,
-.circuit-15[disabled] {
+.circuit-14:disabled,
+.circuit-14[disabled] {
   pointer-events: none;
 }
 
-.circuit-15:hover {
+.circuit-14:hover {
   color: var(--cui-fg-accent-hovered);
   background-color: transparent;
   border-color: transparent;
 }
 
-.circuit-15:active,
-.circuit-15[aria-expanded='true'],
-.circuit-15[aria-pressed='true'] {
+.circuit-14:active,
+.circuit-14[aria-expanded='true'],
+.circuit-14[aria-pressed='true'] {
   color: var(--cui-fg-accent-pressed);
   background-color: transparent;
   border-color: transparent;
 }
 
-.circuit-15:disabled,
-.circuit-15[disabled] {
+.circuit-14:disabled,
+.circuit-14[disabled] {
   color: var(--cui-fg-accent-disabled);
   background-color: transparent;
   border-color: transparent;
@@ -1004,17 +1004,17 @@ select:not(:active)~.circuit-13 {
       for=":r0:"
     >
       <span
-        class="circuit-8 circuit-9"
+        class="circuit-8"
       >
         Pagination
       </span>
     </label>
     <div
-      class="circuit-10"
+      class="circuit-9"
     >
       <select
         aria-describedby=":r1:"
-        class="circuit-11"
+        class="circuit-10"
         id=":r0:"
       >
         <option
@@ -1070,7 +1070,7 @@ select:not(:active)~.circuit-13 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-12"
+        class="circuit-11"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1084,7 +1084,7 @@ select:not(:active)~.circuit-13 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-13"
+        class="circuit-12"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1103,12 +1103,12 @@ select:not(:active)~.circuit-13 {
     />
   </div>
   <span
-    class="circuit-14"
+    class="circuit-13"
   >
     of 10
   </span>
   <button
-    class="circuit-15"
+    class="circuit-14"
     title="Next"
   >
     <span

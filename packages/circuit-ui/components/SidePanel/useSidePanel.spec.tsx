@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { renderHook } from '../../util/test-utils';
 
 import { useSidePanel } from './useSidePanel';
@@ -21,18 +23,18 @@ import { SidePanelContext } from './SidePanelContext';
 const defaultId = '1';
 const testId = 'test';
 
-jest.mock('../../util/id', () => ({
+vi.mock('../../util/id', () => ({
   uniqueId: () => defaultId,
 }));
 
 describe('useSidePanel', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
-  const setSidePanel = jest.fn();
-  const updateSidePanel = jest.fn();
-  const removeSidePanel = jest.fn().mockResolvedValue(undefined);
+  const setSidePanel = vi.fn();
+  const updateSidePanel = vi.fn();
+  const removeSidePanel = vi.fn().mockResolvedValue(undefined);
 
   const wrapper = ({ children }) => (
     <SidePanelContext.Provider

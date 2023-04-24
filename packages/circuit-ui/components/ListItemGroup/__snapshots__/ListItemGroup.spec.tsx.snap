@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ListItemGroup styles should render a ListItemGroup with a custom details line 1`] = `
+exports[`ListItemGroup > styles > should render a ListItemGroup with a custom details line 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -287,7 +287,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom detail
 </div>
 `;
 
-exports[`ListItemGroup styles should render a ListItemGroup with a custom label 1`] = `
+exports[`ListItemGroup > styles > should render a ListItemGroup with a custom label 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -547,7 +547,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a custom label 
 </div>
 `;
 
-exports[`ListItemGroup styles should render a ListItemGroup with a details line 1`] = `
+exports[`ListItemGroup > styles > should render a ListItemGroup with a details line 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -834,7 +834,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a details line 
 </div>
 `;
 
-exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 1`] = `
+exports[`ListItemGroup > styles > should render a ListItemGroup with a hidden label 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1107,7 +1107,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with a hidden label 
 </div>
 `;
 
-exports[`ListItemGroup styles should render a ListItemGroup with interactive items 1`] = `
+exports[`ListItemGroup > styles > should render a ListItemGroup with interactive items 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1391,7 +1391,7 @@ exports[`ListItemGroup styles should render a ListItemGroup with interactive ite
 </div>
 `;
 
-exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = `
+exports[`ListItemGroup > styles > should render a plain variant ListItemGroup 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1658,7 +1658,7 @@ exports[`ListItemGroup styles should render a plain variant ListItemGroup 1`] = 
 </div>
 `;
 
-exports[`ListItemGroup styles should render the focused item in a ListItemGroup with interactive items 1`] = `
+exports[`ListItemGroup > styles > should render the focused item in a ListItemGroup with interactive items 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -1789,7 +1789,7 @@ exports[`ListItemGroup styles should render the focused item in a ListItemGroup 
 </button>
 `;
 
-exports[`ListItemGroup styles should render the inset variant ListItemGroup by default 1`] = `
+exports[`ListItemGroup > styles > should render the inset variant ListItemGroup by default 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2053,7 +2053,7 @@ exports[`ListItemGroup styles should render the inset variant ListItemGroup by d
 </div>
 `;
 
-exports[`ListItemGroup styles should render the selected item in a ListItemGroup with interactive items 1`] = `
+exports[`ListItemGroup > styles > should render the selected item in a ListItemGroup with interactive items 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
@@ -2204,7 +2204,7 @@ exports[`ListItemGroup styles should render the selected item in a ListItemGroup
 </button>
 `;
 
-exports[`ListItemGroup styles should render the selected item in a plain ListItemGroup with interactive items 1`] = `
+exports[`ListItemGroup > styles > should render the selected item in a plain ListItemGroup with interactive items 1`] = `
 .circuit-0 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);

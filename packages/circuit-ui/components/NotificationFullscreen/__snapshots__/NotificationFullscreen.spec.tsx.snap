@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`NotificationFullscreen styles should render with an svg component as the image 1`] = `
+exports[`NotificationFullscreen > styles > should render with an svg component as the image 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -252,7 +252,7 @@ exports[`NotificationFullscreen styles should render with an svg component as th
 </div>
 `;
 
-exports[`NotificationFullscreen styles should render with body text 1`] = `
+exports[`NotificationFullscreen > styles > should render with body text 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -502,7 +502,7 @@ exports[`NotificationFullscreen styles should render with body text 1`] = `
 </div>
 `;
 
-exports[`NotificationFullscreen styles should render with default styles 1`] = `
+exports[`NotificationFullscreen > styles > should render with default styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);

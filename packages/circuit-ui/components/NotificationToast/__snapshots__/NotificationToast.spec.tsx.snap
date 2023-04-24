@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`NotificationToast styles should render with a headline 1`] = `
+exports[`NotificationToast > styles > should render with a headline 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -202,6 +202,18 @@ exports[`NotificationToast styles should render with a headline 1`] = `
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-9 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-10 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -275,7 +287,7 @@ exports[`NotificationToast styles should render with a headline 1`] = `
             class="circuit-8"
           >
             <span
-              class="circuit-3"
+              class="circuit-9"
             />
           </span>
           <span
@@ -297,7 +309,7 @@ exports[`NotificationToast styles should render with a headline 1`] = `
               />
             </svg>
             <span
-              class="circuit-3"
+              class="circuit-9"
             >
               -
             </span>
@@ -309,7 +321,7 @@ exports[`NotificationToast styles should render with a headline 1`] = `
 </body>
 `;
 
-exports[`NotificationToast styles should render with alert variant styles 1`] = `
+exports[`NotificationToast > styles > should render with alert variant styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -504,6 +516,18 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-8 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -572,7 +596,7 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
             class="circuit-7"
           >
             <span
-              class="circuit-3"
+              class="circuit-8"
             />
           </span>
           <span
@@ -594,7 +618,7 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
               />
             </svg>
             <span
-              class="circuit-3"
+              class="circuit-8"
             >
               -
             </span>
@@ -606,7 +630,7 @@ exports[`NotificationToast styles should render with alert variant styles 1`] = 
 </body>
 `;
 
-exports[`NotificationToast styles should render with confirm variant styles 1`] = `
+exports[`NotificationToast > styles > should render with confirm variant styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -801,6 +825,18 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-8 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -869,7 +905,7 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
             class="circuit-7"
           >
             <span
-              class="circuit-3"
+              class="circuit-8"
             />
           </span>
           <span
@@ -891,7 +927,7 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
               />
             </svg>
             <span
-              class="circuit-3"
+              class="circuit-8"
             >
               -
             </span>
@@ -903,7 +939,7 @@ exports[`NotificationToast styles should render with confirm variant styles 1`] 
 </body>
 `;
 
-exports[`NotificationToast styles should render with danger variant styles 1`] = `
+exports[`NotificationToast > styles > should render with danger variant styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -1098,6 +1134,18 @@ exports[`NotificationToast styles should render with danger variant styles 1`] =
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-8 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -1166,7 +1214,7 @@ exports[`NotificationToast styles should render with danger variant styles 1`] =
             class="circuit-7"
           >
             <span
-              class="circuit-3"
+              class="circuit-8"
             />
           </span>
           <span
@@ -1188,7 +1236,7 @@ exports[`NotificationToast styles should render with danger variant styles 1`] =
               />
             </svg>
             <span
-              class="circuit-3"
+              class="circuit-8"
             >
               -
             </span>
@@ -1200,7 +1248,7 @@ exports[`NotificationToast styles should render with danger variant styles 1`] =
 </body>
 `;
 
-exports[`NotificationToast styles should render with default styles 1`] = `
+exports[`NotificationToast > styles > should render with default styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -1395,6 +1443,18 @@ exports[`NotificationToast styles should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-8 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -1463,7 +1523,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
             class="circuit-7"
           >
             <span
-              class="circuit-3"
+              class="circuit-8"
             />
           </span>
           <span
@@ -1485,7 +1545,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
               />
             </svg>
             <span
-              class="circuit-3"
+              class="circuit-8"
             >
               -
             </span>
@@ -1497,7 +1557,7 @@ exports[`NotificationToast styles should render with default styles 1`] = `
 </body>
 `;
 
-exports[`NotificationToast styles should render with info variant styles 1`] = `
+exports[`NotificationToast > styles > should render with info variant styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -1692,6 +1752,18 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-8 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -1760,7 +1832,7 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
             class="circuit-7"
           >
             <span
-              class="circuit-3"
+              class="circuit-8"
             />
           </span>
           <span
@@ -1782,7 +1854,7 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
               />
             </svg>
             <span
-              class="circuit-3"
+              class="circuit-8"
             >
               -
             </span>
@@ -1794,7 +1866,7 @@ exports[`NotificationToast styles should render with info variant styles 1`] = `
 </body>
 `;
 
-exports[`NotificationToast styles should render with notify variant styles 1`] = `
+exports[`NotificationToast > styles > should render with notify variant styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -1989,6 +2061,18 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-8 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -2059,7 +2143,7 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
             class="circuit-7"
           >
             <span
-              class="circuit-3"
+              class="circuit-8"
             />
           </span>
           <span
@@ -2081,7 +2165,7 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
               />
             </svg>
             <span
-              class="circuit-3"
+              class="circuit-8"
             >
               -
             </span>
@@ -2093,7 +2177,7 @@ exports[`NotificationToast styles should render with notify variant styles 1`] =
 </body>
 `;
 
-exports[`NotificationToast styles should render with success variant styles 1`] = `
+exports[`NotificationToast > styles > should render with success variant styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -2288,6 +2372,18 @@ exports[`NotificationToast styles should render with success variant styles 1`] 
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-8 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -2356,7 +2452,7 @@ exports[`NotificationToast styles should render with success variant styles 1`] 
             class="circuit-7"
           >
             <span
-              class="circuit-3"
+              class="circuit-8"
             />
           </span>
           <span
@@ -2378,7 +2474,7 @@ exports[`NotificationToast styles should render with success variant styles 1`] 
               />
             </svg>
             <span
-              class="circuit-3"
+              class="circuit-8"
             >
               -
             </span>
@@ -2390,7 +2486,7 @@ exports[`NotificationToast styles should render with success variant styles 1`] 
 </body>
 `;
 
-exports[`NotificationToast styles should render with warning variant styles 1`] = `
+exports[`NotificationToast > styles > should render with warning variant styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -2585,6 +2681,18 @@ exports[`NotificationToast styles should render with warning variant styles 1`] 
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-8 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -2655,7 +2763,7 @@ exports[`NotificationToast styles should render with warning variant styles 1`] 
             class="circuit-7"
           >
             <span
-              class="circuit-3"
+              class="circuit-8"
             />
           </span>
           <span
@@ -2677,7 +2785,7 @@ exports[`NotificationToast styles should render with warning variant styles 1`] 
               />
             </svg>
             <span
-              class="circuit-3"
+              class="circuit-8"
             >
               -
             </span>

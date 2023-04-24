@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { render, axe, userEvent } from '../../util/test-utils';
@@ -21,7 +22,7 @@ import { Checkbox } from './Checkbox';
 
 const defaultProps = {
   label: 'Label',
-  onChange: jest.fn(),
+  onChange: vi.fn(),
 };
 
 describe('Checkbox', () => {

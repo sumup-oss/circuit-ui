@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { ReactElement } from 'react';
 
 import { renderHook, act } from '../../util/test-utils';
@@ -31,8 +32,8 @@ Toast.TRANSITION_DURATION = 200;
 describe('createUseToast', () => {
   const useToast = createUseToast(Toast);
 
-  const setToast = jest.fn();
-  const removeToast = jest.fn();
+  const setToast = vi.fn();
+  const removeToast = vi.fn();
 
   const wrapper = ({ children }: { children: ReactElement }) => (
     <ToastContext.Provider value={{ setToast, removeToast }}>

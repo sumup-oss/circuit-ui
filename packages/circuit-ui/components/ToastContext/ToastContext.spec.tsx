@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import { useContext } from 'react';
 
 import {
@@ -37,24 +38,36 @@ Toast.TRANSITION_DURATION = 200;
 
 describe('ToastContext', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
+
+    // HACK: Temporary workaround for a bug in @testing-library/react when
+    // using  @testing-library/user-event with fake timers.
+    // https://github.com/testing-library/react-testing-library/issues/1197
+    const originalJest = globalThis.jest;
+
+    globalThis.jest = {
+      ...globalThis.jest,
+      advanceTimersByTime: vi.advanceTimersByTime.bind(vi),
+    };
+
+    return () => {
+      globalThis.jest = originalJest;
+    };
   });
   afterAll(() => {
-    jest.useRealTimers();
-    jest.resetModules();
+    vi.useRealTimers();
+    vi.resetModules();
   });
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
-  /**
-   * We need to set up userEvent with delay=null to address this issue:
-   * https://github.com/testing-library/user-event/issues/833
-   */
-  const userEvent = baseUserEvent.setup({ delay: null });
+  const userEvent = baseUserEvent.setup({
+    advanceTimers: vi.advanceTimersByTime,
+  });
 
   describe('ToastProvider', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const toast = {
       id: 'initial',
       component: Toast,

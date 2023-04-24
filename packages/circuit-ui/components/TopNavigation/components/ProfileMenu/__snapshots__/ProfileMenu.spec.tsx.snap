@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ProfileMenu Styles should render with a profile picture 1`] = `
+exports[`ProfileMenu > Styles > should render with a profile picture 1`] = `
 .circuit-0 {
   display: inline-block;
 }
@@ -192,7 +192,7 @@ exports[`ProfileMenu Styles should render with a profile picture 1`] = `
 </div>
 `;
 
-exports[`ProfileMenu Styles should render without a profile picture 1`] = `
+exports[`ProfileMenu > Styles > should render without a profile picture 1`] = `
 .circuit-0 {
   display: inline-block;
 }

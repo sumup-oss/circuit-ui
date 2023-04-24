@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Skeleton styles should render with circular styles 1`] = `
+exports[`Skeleton > styles > should render with circular styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-background-position: -8rem 0;
@@ -86,7 +86,7 @@ exports[`Skeleton styles should render with circular styles 1`] = `
 </div>
 `;
 
-exports[`Skeleton styles should render with loading styles 1`] = `
+exports[`Skeleton > styles > should render with loading styles 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-background-position: -8rem 0;

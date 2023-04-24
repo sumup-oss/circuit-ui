@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SidePanel should match the snapshot 1`] = `
+exports[`SidePanel > should match the snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -327,7 +327,7 @@ exports[`SidePanel should match the snapshot 1`] = `
 </body>
 `;
 
-exports[`SidePanel when the panel is on mobile resolution should match the snapshot 1`] = `
+exports[`SidePanel > when the panel is on mobile resolution > should match the snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);

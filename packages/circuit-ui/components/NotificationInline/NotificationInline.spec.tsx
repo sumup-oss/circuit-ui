@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { axe, render, userEvent, waitFor } from '../../util/test-utils';
@@ -101,7 +102,7 @@ describe('NotificationInline', () => {
       const { baseElement } = renderNotificationInline({
         ...baseProps,
         action: {
-          onClick: jest.fn(),
+          onClick: vi.fn(),
           children: 'Click here',
         },
       });
@@ -123,7 +124,7 @@ describe('NotificationInline', () => {
       const props = {
         ...baseProps,
         action: {
-          onClick: jest.fn(),
+          onClick: vi.fn(),
           children: 'Click here',
         },
       };
@@ -137,7 +138,7 @@ describe('NotificationInline', () => {
     it('should close the notification inline when the onClose method is called', async () => {
       const props = {
         ...baseProps,
-        onClose: jest.fn(),
+        onClose: vi.fn(),
         closeButtonLabel: 'Close notification',
       };
       const { getByRole } = renderNotificationInline(props);

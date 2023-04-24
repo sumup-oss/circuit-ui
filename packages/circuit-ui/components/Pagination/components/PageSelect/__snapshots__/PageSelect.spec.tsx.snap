@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageSelect styles should render with default styles 1`] = `
+exports[`PageSelect > styles > should render with default styles 1`] = `
 HTMLCollection [
   .circuit-0.cui-field-disabled {
   pointer-events: none;
@@ -30,13 +30,13 @@ HTMLCollection [
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-4 {
+.circuit-3 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-5 {
+.circuit-4 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -66,25 +66,42 @@ HTMLCollection [
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
-.circuit-5:-moz-focusring {
+.circuit-4:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-5::-ms-expand {
+.circuit-4::-ms-expand {
   display: none;
 }
 
-.circuit-5:hover {
+.circuit-4:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-5:focus {
+.circuit-4:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-5:active {
+.circuit-4:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
+}
+
+.circuit-5 {
+  color: var(--cui-fg-subtle);
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+select:active~.circuit-5 {
+  display: none;
 }
 
 .circuit-6 {
@@ -100,24 +117,7 @@ HTMLCollection [
   padding: 16px;
 }
 
-select:active~.circuit-6 {
-  display: none;
-}
-
-.circuit-7 {
-  color: var(--cui-fg-subtle);
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:not(:active)~.circuit-7 {
+select:not(:active)~.circuit-6 {
   display: none;
 }
 
@@ -129,17 +129,17 @@ select:not(:active)~.circuit-7 {
       for=":r0:"
     >
       <span
-        class="circuit-2 circuit-3"
+        class="circuit-2"
       >
         Pagination
       </span>
     </label>
     <div
-      class="circuit-4"
+      class="circuit-3"
     >
       <select
         aria-describedby=":r1:"
-        class="circuit-5"
+        class="circuit-4"
         id=":r0:"
       >
         <option
@@ -195,7 +195,7 @@ select:not(:active)~.circuit-7 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-6"
+        class="circuit-5"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -209,7 +209,7 @@ select:not(:active)~.circuit-7 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-7"
+        class="circuit-6"
         fill="none"
         height="16"
         viewBox="0 0 16 16"

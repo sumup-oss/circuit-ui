@@ -13,13 +13,15 @@
  * limitations under the License.
  */
 
+import { describe, expect, it, vi } from 'vitest';
+
 import { render } from '../../util/test-utils';
 
 import { BaseStyles } from './BaseStyles';
 import { createBaseStyles } from './BaseStylesService';
 
-jest.mock('./BaseStylesService', () => ({
-  createBaseStyles: jest.fn(),
+vi.mock('./BaseStylesService', () => ({
+  createBaseStyles: vi.fn(),
 }));
 
 describe('BaseStyles', () => {
