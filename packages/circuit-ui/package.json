@@ -2,9 +2,8 @@
   "name": "@sumup/circuit-ui",
   "version": "7.0.0-next.0",
   "description": "SumUp's React UI component library",
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
-  "types": "dist/es/index.d.ts",
+  "type": "module",
+  "exports": "./dist/index.js",
   "sideEffects": false,
   "files": [
     "dist",
@@ -24,9 +23,7 @@
   "scripts": {
     "start": "tsc --watch",
     "clean": "rm -rf ./dist",
-    "build:es": "tsc --project tsconfig.es.json",
-    "build:cjs": "tsc --project tsconfig.cjs.json",
-    "build": "npm run build:es && npm run build:cjs",
+    "build": "tsc --project tsconfig.build.json",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "test": "vitest"
