@@ -1,5 +1,19 @@
 # @sumup/circuit-ui
 
+## 7.0.0-next.0
+
+### Major Changes
+
+- [#1992](https://github.com/sumup-oss/circuit-ui/pull/1992) [`0b7fb453`](https://github.com/sumup-oss/circuit-ui/commit/0b7fb453e6eb714561ab4ff8311ef3d4853006c5) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum version of the `react` and `react-dom` peer dependencies to >=18.
+
+- [#1972](https://github.com/sumup-oss/circuit-ui/pull/1972) [`0f29f87b`](https://github.com/sumup-oss/circuit-ui/commit/0f29f87bf28878f70e047ae42dd18c98660a2ffd) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed `@sumup/collector` from the peer dependencies and removed the related `tracking` and `trackingLabel` props (deprecated since v6.4).
+
+- [#1995](https://github.com/sumup-oss/circuit-ui/pull/1995) [`1267c69c`](https://github.com/sumup-oss/circuit-ui/commit/1267c69cee8dc7c30520753b7c2d662c222c5f03) Thanks [@connor-baer](https://github.com/connor-baer)! - Simplified the function signature of the style mixins that no longer require the `theme` parameter (`shadow`, `focusOutline`, `focusVisible`, and `inputOutline`).
+
+### Minor Changes
+
+- [#1992](https://github.com/sumup-oss/circuit-ui/pull/1992) [`0b7fb453`](https://github.com/sumup-oss/circuit-ui/commit/0b7fb453e6eb714561ab4ff8311ef3d4853006c5) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the `uniqueId` util. Use the official [`useId` hook](https://beta.reactjs.org/reference/react/useId) instead.
+
 ## 6.6.4
 
 ### Patch Changes
