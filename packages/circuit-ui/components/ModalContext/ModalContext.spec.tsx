@@ -73,7 +73,7 @@ describe('ModalContext', () => {
       };
 
       const { getByRole, queryByRole } = render(
-        <ModalProvider>
+        <ModalProvider ariaHideApp={false}>
           <Trigger />
         </ModalProvider>,
       );
