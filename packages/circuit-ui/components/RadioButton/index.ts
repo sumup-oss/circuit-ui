@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { RadioButton } from './RadioButton';
+import { RadioButton } from './RadioButton.jsx';
 
-export type { RadioButtonProps } from './RadioButton';
+export type { RadioButtonProps } from './RadioButton.jsx';
 
 export default RadioButton;

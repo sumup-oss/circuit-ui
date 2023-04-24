@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { NotificationInline } from './NotificationInline';
+import { NotificationInline } from './NotificationInline.jsx';
 
-export type { NotificationInlineProps } from './NotificationInline';
+export type { NotificationInlineProps } from './NotificationInline.jsx';
 
 export default NotificationInline;

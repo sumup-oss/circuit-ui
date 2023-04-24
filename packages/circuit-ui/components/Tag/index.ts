@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Tag } from './Tag';
+import { Tag } from './Tag.jsx';
 
-export type { TagProps } from './Tag';
+export type { TagProps } from './Tag.jsx';
 
 export default Tag;

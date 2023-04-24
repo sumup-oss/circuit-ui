@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Checkbox } from './Checkbox';
+import { Checkbox } from './Checkbox.jsx';
 
-export type { CheckboxProps } from './Checkbox';
+export type { CheckboxProps } from './Checkbox.jsx';
 
 export default Checkbox;

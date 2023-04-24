@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { List } from './List';
+import { List } from './List.jsx';
 
-export type { ListProps } from './List';
+export type { ListProps } from './List.jsx';
 
 export default List;

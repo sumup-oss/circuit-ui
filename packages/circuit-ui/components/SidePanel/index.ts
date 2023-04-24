@@ -15,7 +15,7 @@
 
 export { SidePanelProvider } from './SidePanelContext.jsx';
 export { useSidePanel } from './useSidePanel.jsx';
-export { SIDE_PANEL_WIDTH } from './SidePanel';
+export { SIDE_PANEL_WIDTH } from './SidePanel.jsx';
 
 export type { SidePanelProviderProps } from './SidePanelContext.jsx';
 export type { SidePanelHookProps } from './useSidePanel.jsx';

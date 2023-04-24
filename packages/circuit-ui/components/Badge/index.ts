@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Badge } from './Badge';
+import { Badge } from './Badge.jsx';
 
-export type { BadgeProps } from './Badge';
+export type { BadgeProps } from './Badge.jsx';
 
 export default Badge;

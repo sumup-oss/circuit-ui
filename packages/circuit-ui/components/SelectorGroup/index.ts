@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { SelectorGroup } from './SelectorGroup';
+import { SelectorGroup } from './SelectorGroup.jsx';
 
-export type { SelectorGroupProps } from './SelectorGroup';
+export type { SelectorGroupProps } from './SelectorGroup.jsx';
 
 export default SelectorGroup;

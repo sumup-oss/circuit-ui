@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ProgressBar } from './ProgressBar';
+import { ProgressBar } from './ProgressBar.jsx';
 
-export type { ProgressBarProps } from './ProgressBar';
+export type { ProgressBarProps } from './ProgressBar.jsx';
 
 export default ProgressBar;

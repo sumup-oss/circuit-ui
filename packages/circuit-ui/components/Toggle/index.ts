@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Toggle } from './Toggle';
+import { Toggle } from './Toggle.jsx';
 
-export type { ToggleProps } from './Toggle';
+export type { ToggleProps } from './Toggle.jsx';
 
 export default Toggle;

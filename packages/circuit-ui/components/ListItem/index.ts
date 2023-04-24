@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ListItem } from './ListItem';
+import { ListItem } from './ListItem.jsx';
 
-export type { ListItemProps } from './ListItem';
+export type { ListItemProps } from './ListItem.jsx';
 
 export default ListItem;

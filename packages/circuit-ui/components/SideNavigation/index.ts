@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-export { SideNavigation } from './SideNavigation';
+export { SideNavigation } from './SideNavigation.jsx';
 
-export type { SideNavigationProps } from './SideNavigation';
+export type { SideNavigationProps } from './SideNavigation.jsx';
 
 export type {
   PrimaryLinkProps,

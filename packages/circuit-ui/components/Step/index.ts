@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import Step from './Step';
+import Step from './Step.jsx';
 
 export { useStep } from './hooks/useStep.js';
 
 export type { StepOptions } from './types.js';
-export type { StepProps } from './Step';
+export type { StepProps } from './Step.jsx';
 export default Step;
