@@ -24,7 +24,7 @@ import { css } from '@emotion/react';
 
 import { useStack, StackItem } from '../../hooks/useStack';
 import styled, { StyleProps } from '../../styles/styled';
-import { spacing } from '../..';
+import { spacing } from '../../styles/style-mixins';
 
 import { BaseToastProps, ToastComponent } from './types';
 

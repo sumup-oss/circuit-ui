@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 5.1.1
+
+### Patch Changes
+
+- [#2051](https://github.com/sumup-oss/circuit-ui/pull/2051) [`6b82b360`](https://github.com/sumup-oss/circuit-ui/commit/6b82b360e517fb4778c613739bb9c90466d24393) Thanks [@connor-baer](https://github.com/connor-baer)! - Refactored the theme to be fully static.
+
 ## 5.1.0
 
 ### Minor Changes
