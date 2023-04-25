@@ -20,7 +20,6 @@ import { Checkmark } from '@sumup/icons';
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, focusOutline } from '../../styles/style-mixins';
 import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
-import { deprecate } from '../../util/logger';
 import { AccessibilityError } from '../../util/errors';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -40,12 +39,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLInputElement>;
-  /**
-   * @deprecated
-   *
-   * Use the `label` prop instead.
-   */
-  children?: InputHTMLAttributes<HTMLInputElement>['children'];
+  children?: never;
 }
 
 const labelBaseStyles = css`
@@ -179,7 +173,6 @@ export const Checkbox = forwardRef(
   (
     {
       label,
-      children,
       value,
       'id': customId,
       name,
@@ -193,18 +186,10 @@ export const Checkbox = forwardRef(
     }: CheckboxProps,
     ref: CheckboxProps['ref'],
   ) => {
-    if (process.env.NODE_ENV !== 'production' && children) {
-      deprecate(
-        'Checkbox',
-        'The `children` prop has been deprecated. Use the `label` prop instead.',
-      );
-    }
-
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !label &&
-      !children
+      !label
     ) {
       throw new AccessibilityError('Checkbox', 'The `label` prop is missing.');
     }
@@ -230,7 +215,7 @@ export const Checkbox = forwardRef(
           aria-describedby={descriptionIds}
         />
         <CheckboxLabel htmlFor={checkboxId}>
-          {label || children}
+          {label}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>
         <FieldValidationHint
