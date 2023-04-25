@@ -52,11 +52,13 @@ const labelBaseStyles = css`
 
 const CheckboxLabel = styled('label')(labelBaseStyles);
 
+type WrapperElProps = Pick<CheckboxProps, 'className' | 'style' | 'disabled'>;
+
 const wrapperBaseStyles = () => css`
   position: relative;
 `;
 
-const CheckboxWrapper = styled(FieldWrapper)<CheckboxProps>(wrapperBaseStyles);
+const CheckboxWrapper = styled(FieldWrapper)<WrapperElProps>(wrapperBaseStyles);
 
 type InputElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
 

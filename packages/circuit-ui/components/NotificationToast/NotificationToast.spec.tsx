@@ -74,11 +74,8 @@ describe('NotificationToast', () => {
     const variants: NotificationToastProps['variant'][] = [
       'info',
       'success',
-      'confirm',
       'warning',
-      'notify',
       'danger',
-      'alert',
     ];
 
     it.each(variants)('should render with %s variant styles', (variant) => {

@@ -65,7 +65,7 @@ describe('ListItem', () => {
       const wrapper = renderListItem(create, {
         ...baseProps,
         leadingComponent: (
-          <Badge variant="alert" circle>
+          <Badge variant="danger" circle>
             3
           </Badge>
         ),

@@ -30,7 +30,7 @@ export default {
 
 const CheckboxWithState = ({
   checked: initial = false,
-  children,
+  label,
   ...props
 }: CheckboxProps) => {
   const [checked, setChecked] = useState(initial);
@@ -39,9 +39,12 @@ const CheckboxWithState = ({
     setChecked((prev) => !prev);
   };
   return (
-    <Checkbox {...props} checked={checked} onChange={handleChange}>
-      {children || (checked ? 'Checked' : 'Unchecked')}
-    </Checkbox>
+    <Checkbox
+      {...props}
+      label={label || (checked ? 'Checked' : 'Unchecked')}
+      checked={checked}
+      onChange={handleChange}
+    />
   );
 };
 
@@ -74,14 +77,18 @@ Disabled.args = {
 
 export const Multiple = (args: CheckboxProps) => (
   <>
-    <CheckboxWithState {...args} value="apples" name="fruits">
-      Apples
-    </CheckboxWithState>
-    <CheckboxWithState {...args} value="bananas" name="fruits">
-      Bananas
-    </CheckboxWithState>
-    <CheckboxWithState {...args} value="oranges" name="fruits">
-      Oranges
-    </CheckboxWithState>
+    <CheckboxWithState {...args} value="apples" name="fruits" label="Apples" />
+    <CheckboxWithState
+      {...args}
+      value="bananas"
+      name="fruits"
+      label="Bananas"
+    />
+    <CheckboxWithState
+      {...args}
+      value="oranges"
+      name="fruits"
+      label="Oranges"
+    />
   </>
 );
