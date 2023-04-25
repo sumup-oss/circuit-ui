@@ -18,30 +18,12 @@ import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
-import { withDeprecation } from '../../util/logger';
 
 export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Choose the style variant. Default: 'neutral'.
    */
-  variant?:
-    | 'neutral'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'promo'
-    /**
-     * @deprecated
-     */
-    | 'confirm'
-    /**
-     * @deprecated
-     */
-    | 'notify'
-    /**
-     * @deprecated
-     */
-    | 'alert';
+  variant?: 'neutral' | 'success' | 'warning' | 'danger' | 'promo';
   /**
    * Use the circular badge to indicate a count of items related to an element.
    */
@@ -63,22 +45,19 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const variantStyles = ({ variant = 'neutral' }: BadgeProps) => {
   switch (variant) {
-    case 'success':
-    case 'confirm': {
+    case 'success': {
       return css`
         background-color: var(--cui-bg-success-strong);
         color: var(--cui-fg-on-strong);
       `;
     }
-    case 'warning':
-    case 'notify': {
+    case 'warning': {
       return css`
         background-color: var(--cui-bg-warning-strong);
         color: var(--cui-fg-on-strong);
       `;
     }
-    case 'danger':
-    case 'alert': {
+    case 'danger': {
       return css`
         background-color: var(--cui-bg-danger-strong);
         color: var(--cui-fg-on-strong);
@@ -124,28 +103,11 @@ const circleStyles = ({ circle = false, children }: BadgeProps) =>
  * A badge communicates the status of an element or the count of items
  * related to an element.
  */
-const StyledBadge = styled('div')<BadgeProps>(
+export const Badge = styled('div')<BadgeProps>(
   typography('two'),
   baseStyles,
   variantStyles,
   circleStyles,
 );
 
-StyledBadge.displayName = 'Badge';
-
-export const Badge =
-  process.env.NODE_ENV === 'production'
-    ? StyledBadge
-    : withDeprecation(StyledBadge, ({ variant }) => {
-        const deprecatedMap: Record<string, string> = {
-          confirm: 'success',
-          notify: 'warning',
-          alert: 'danger',
-        };
-
-        if (variant && deprecatedMap[variant]) {
-          return `The "${variant}" variant has been deprecated. Use "${deprecatedMap[variant]}" instead.`;
-        }
-
-        return null;
-      });
+Badge.displayName = 'Badge';

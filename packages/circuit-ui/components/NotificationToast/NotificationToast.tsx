@@ -23,9 +23,7 @@ import CloseButton from '../CloseButton';
 import { ClickEvent } from '../../types/events';
 import { BaseToastProps, createUseToast } from '../ToastContext';
 import { hideVisually } from '../../styles/style-mixins';
-import { deprecate } from '../../util/logger';
 import {
-  DEPRECATED_VARIANTS,
   NOTIFICATION_COLORS,
   NOTIFICATION_ICONS,
   NotificationVariant,
@@ -138,15 +136,6 @@ export function NotificationToast({
   duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
   ...props
 }: NotificationToastProps): JSX.Element {
-  if (process.env.NODE_ENV !== 'production') {
-    if (DEPRECATED_VARIANTS[variant]) {
-      deprecate(
-        'NotificationToast',
-        `The "${variant}" variant has been deprecated. Use "${DEPRECATED_VARIANTS[variant]}" instead.`,
-      );
-    }
-  }
-
   const contentElement = useRef(null);
   const [isOpen, setOpen] = useState(false);
   const [height, setHeight] = useState(getHeight(contentElement));

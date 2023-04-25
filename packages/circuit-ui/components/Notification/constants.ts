@@ -16,23 +16,7 @@
 import { FC } from 'react';
 import { Alert, Confirm, IconProps, Info, Notify } from '@sumup/icons';
 
-export type NotificationVariant =
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'danger'
-  /**
-   * @deprecated
-   */
-  | 'confirm'
-  /**
-   * @deprecated
-   */
-  | 'notify'
-  /**
-   * @deprecated
-   */
-  | 'alert';
+export type NotificationVariant = 'info' | 'success' | 'warning' | 'danger';
 
 export const NOTIFICATION_ICONS: Record<
   NotificationVariant,
@@ -40,11 +24,8 @@ export const NOTIFICATION_ICONS: Record<
 > = {
   info: Info,
   success: Confirm,
-  confirm: Confirm,
   warning: Notify,
-  notify: Notify,
   danger: Alert,
-  alert: Alert,
 };
 
 export const NOTIFICATION_COLORS: Record<
@@ -59,15 +40,7 @@ export const NOTIFICATION_COLORS: Record<
     border: '--cui-border-success',
     fg: '--cui-fg-success',
   },
-  confirm: {
-    border: '--cui-border-success',
-    fg: '--cui-fg-success',
-  },
   warning: {
-    border: '--cui-border-warning',
-    fg: '--cui-fg-warning',
-  },
-  notify: {
     border: '--cui-border-warning',
     fg: '--cui-fg-warning',
   },
@@ -75,14 +48,4 @@ export const NOTIFICATION_COLORS: Record<
     border: '--cui-border-danger',
     fg: '--cui-fg-danger',
   },
-  alert: {
-    border: '--cui-border-danger',
-    fg: '--cui-fg-danger',
-  },
-};
-
-export const DEPRECATED_VARIANTS: Record<string, string> = {
-  confirm: 'success',
-  notify: 'warning',
-  alert: 'danger',
 };

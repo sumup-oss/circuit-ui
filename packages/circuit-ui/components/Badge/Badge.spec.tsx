@@ -35,9 +35,6 @@ describe('Badge', () => {
     'warning',
     'danger',
     'promo',
-    'confirm',
-    'notify',
-    'alert',
   ] as const;
 
   it.each(variants)('should render with %s styles', (variant) => {

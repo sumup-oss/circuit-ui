@@ -52,7 +52,7 @@ const item: Item = {
 };
 
 const LeadingBadge = (
-  <Badge variant="alert" circle>
+  <Badge variant="danger" circle>
     3
   </Badge>
 );

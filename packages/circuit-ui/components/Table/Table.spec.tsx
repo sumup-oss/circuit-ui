@@ -52,7 +52,9 @@ const rows = [
 const rowLength = rows[0].length;
 
 describe('Table', () => {
-  beforeEach(vi.clearAllMocks);
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
 
   describe('Style tests', () => {
     it('should render with default styles', () => {
