@@ -15,6 +15,8 @@
 
 import { useState, Fragment } from 'react';
 
+import { TabsProps } from './Tabs';
+
 import { Tabs, TabList, TabPanel, Tab } from '.';
 
 export default {
@@ -33,7 +35,7 @@ const tabs = [
   { id: 'four', tab: 'Tab 4', panel: 'Content 4' },
 ];
 
-export const Base = (args) => <Tabs {...args} />;
+export const Base = (args: TabsProps) => <Tabs {...args} />;
 
 Base.args = {
   items: tabs,
@@ -42,14 +44,10 @@ Base.args = {
 export const Links = () => (
   <TabList>
     <Tab selected>Home</Tab>
-    <Tab as="a" href="https://github.com/sumup-oss/circuit-ui" target="_blank">
+    <Tab href="https://github.com/sumup-oss/circuit-ui" target="_blank">
       GitHub
     </Tab>
-    <Tab
-      as="a"
-      href="https://www.npmjs.com/package/@sumup/circuit-ui"
-      target="_blank"
-    >
+    <Tab href="https://www.npmjs.com/package/@sumup/circuit-ui" target="_blank">
       NPM
     </Tab>
   </TabList>
@@ -75,7 +73,7 @@ export const ControlledState = () => {
           </Tab>
         ))}
       </TabList>
-      <TabPanel>{tabs[selected].content}</TabPanel>
+      <TabPanel>{tabs[selected].panel}</TabPanel>
     </Fragment>
   );
 };

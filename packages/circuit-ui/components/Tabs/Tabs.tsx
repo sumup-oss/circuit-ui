@@ -13,54 +13,58 @@
  * limitations under the License.
  */
 
-import { Component, Fragment, createRef } from 'react';
-import PropTypes from 'prop-types';
+import { Component, Fragment, ReactElement, ReactNode, createRef } from 'react';
 
 import { isArrowLeft, isArrowRight, isArrowDown } from '../../util/key-codes';
 
-import TabList from './components/TabList';
-import Tab from './components/Tab';
-import TabPanel from './components/TabPanel';
+import { TabList } from './components/TabList';
+import { Tab } from './components/Tab';
+import { TabPanel } from './components/TabPanel';
 
-class Tabs extends Component {
-  static propTypes = {
-    /**
-     * The index of the initially selected tab.
-     */
-    initialSelectedIndex: PropTypes.number,
-    /**
-     * A collection of tabs with an id, the tab label, and panel content.
-     */
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        tab: PropTypes.node.isRequired,
-        panel: PropTypes.node.isRequired,
-      }),
-    ).isRequired,
-  };
+export interface TabsProps {
+  /**
+   * The index of the initially selected tab.
+   */
+  initialSelectedIndex?: number;
+  /**
+   * A collection of tabs with an id, the tab label, and panel content.
+   */
+  items: {
+    id: string;
+    tab: ReactNode;
+    panel: ReactNode;
+  }[];
+}
 
+type TabsState = {
+  selectedIndex: number;
+};
+
+export class Tabs extends Component<TabsProps, TabsState> {
   static defaultProps = {
     initialSelectedIndex: 0,
   };
 
-  state = { selectedIndex: this.props.initialSelectedIndex };
+  state = {
+    selectedIndex:
+      this.props.initialSelectedIndex || Tabs.defaultProps.initialSelectedIndex,
+  };
 
   tabPanelsRefs = createRefs(this.props.items.length);
 
-  handleChange = (selectedIndex) => this.setState({ selectedIndex });
+  handleChange = (selectedIndex: number) => this.setState({ selectedIndex });
 
-  handleTabKeyDown = (e) => {
+  handleTabKeyDown = (event: KeyboardEvent | React.KeyboardEvent) => {
     const { selectedIndex } = this.state;
     const nextTab = Math.min(this.props.items.length - 1, selectedIndex + 1);
     const previousTab = Math.max(0, selectedIndex - 1);
     const panelRef = this.tabPanelsRefs[selectedIndex].current;
 
-    if (isArrowLeft(e)) {
+    if (isArrowLeft(event)) {
       this.setState({ selectedIndex: previousTab });
-    } else if (isArrowRight(e)) {
+    } else if (isArrowRight(event)) {
       this.setState({ selectedIndex: nextTab });
-    } else if (isArrowDown(e)) {
+    } else if (isArrowDown(event)) {
       if (panelRef) {
         panelRef.focus();
       }
@@ -105,7 +109,13 @@ class Tabs extends Component {
           panels: [...aggr.panels, tabPanelElement],
         };
       },
-      { tabs: [], panels: [] },
+      {
+        tabs: [],
+        panels: [],
+      } as {
+        tabs: ReactElement[];
+        panels: ReactElement[];
+      },
     );
 
     return (
@@ -117,15 +127,15 @@ class Tabs extends Component {
   }
 }
 
-function getIds(id) {
+function getIds(id: string) {
   return {
     tabId: `tab-${id}`,
     panelId: `panel-${id}`,
   };
 }
 
-function createRefs(length) {
-  return Array.from(Array(length).keys()).map(createRef);
+function createRefs(length: number) {
+  return Array.from(Array(length).keys()).map(() =>
+    createRef<HTMLDivElement>(),
+  );
 }
-
-export default Tabs;

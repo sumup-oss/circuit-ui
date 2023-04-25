@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Tab from './Tab';
+export { TabPanel } from './TabPanel';
 
-export default Tab;
+export type { TabPanelProps } from './TabPanel';

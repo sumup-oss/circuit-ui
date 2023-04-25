@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render } from '../../../../util/test-utils';
 
-import Tab from './Tab';
+import { Tab } from './Tab';
 
 describe('Tab', () => {
   describe('styles', () => {

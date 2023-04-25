@@ -123,6 +123,12 @@ export type {
   SecondaryLinkProps,
 } from './components/SideNavigation';
 export { Tabs, TabList, TabPanel, Tab } from './components/Tabs';
+export type {
+  TabsProps,
+  TabListProps,
+  TabPanelProps,
+  TabProps,
+} from './components/Tabs';
 export { default as Sidebar } from './components/Sidebar';
 export {
   SidebarContextProvider,

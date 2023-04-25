@@ -13,17 +13,6 @@
  * limitations under the License.
  */
 
-import { Children } from 'react';
+export { Tab } from './Tab';
 
-/**
- * TabPanel wrapping content being showed by tabs
- */
-export function TabPanels({ selectedIndex, children }) {
-  return Children.map(children, (child, index) => {
-    if (index === selectedIndex) {
-      return child;
-    }
-
-    return null;
-  });
-}
+export type { TabProps } from './Tab';

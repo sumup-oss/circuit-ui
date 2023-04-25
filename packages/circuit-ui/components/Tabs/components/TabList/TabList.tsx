@@ -13,48 +13,52 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { Children, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
 import { shadow, hideScrollbar } from '../../../../styles/style-mixins';
+import styled, { StyleProps } from '../../../../styles/styled';
+
+export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
+  stretched?: boolean;
+}
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 const DEFAULT_HEIGHT = '48px';
 
-const Wrapper = styled.div(
-  ({ theme }) => css`
-    ${shadow(theme)};
-    ${hideScrollbar()}
-    background: var(--cui-bg-normal);
-    height: ${DEFAULT_HEIGHT};
-    display: flex;
-    overflow-x: auto;
-  `,
-);
+const Wrapper = styled.div`
+  ${shadow()};
+  ${hideScrollbar()}
+  background: var(--cui-bg-normal);
+  height: ${DEFAULT_HEIGHT};
+  display: flex;
+  overflow-x: auto;
+`;
 
 const navigationBaseStyles = css`
   display: flex;
   flex-wrap: nowrap;
 `;
 
-const stretchedStyles = ({ children, theme }) => css`
+const stretchedStyles = ({ children, theme }: StyleProps & TabListProps) => css`
   width: 100%;
 
   & [role='tab'] {
     flex: 1 1 auto;
     padding: 0 ${theme.spacings.kilo};
-    width: ${Math.floor(100 / children.length)}%;
+    width: ${Math.floor(100 / Children.toArray(children).length)}%;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 `;
 
-const navigationChildrenStyles = ({ stretched, ...props }) =>
-  stretched && stretchedStyles(props);
+const navigationChildrenStyles = ({
+  stretched,
+  ...props
+}: StyleProps & TabListProps) => stretched && stretchedStyles(props);
 
-const navigationResponsiveChildrenStyles = (props) =>
-  props.children.length <= MOBILE_AUTOSTRETCH_ITEMS_MAX &&
+const navigationResponsiveChildrenStyles = (props: StyleProps & TabListProps) =>
+  Children.toArray(props.children).length <= MOBILE_AUTOSTRETCH_ITEMS_MAX &&
   css`
     ${props.theme.mq.untilKilo} {
       ${stretchedStyles(props)};
@@ -70,18 +74,10 @@ const Navigation = styled.div(
 /**
  * TabList component that wraps the Tab components
  */
-export function TabList({ className, style, ...props }) {
+export function TabList({ className, style, ...props }: TabListProps) {
   return (
     <Wrapper className={className} style={style}>
       <Navigation {...props} role="tablist" />
     </Wrapper>
   );
 }
-
-TabList.propTypes = {
-  /**
-   * Override styles for the TabList component.
-   */
-  className: PropTypes.string,
-  style: PropTypes.object,
-};

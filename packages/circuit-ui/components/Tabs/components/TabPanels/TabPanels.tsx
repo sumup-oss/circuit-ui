@@ -13,7 +13,22 @@
  * limitations under the License.
  */
 
-export { default as Tabs } from './Tabs';
-export { default as Tab } from './components/Tab';
-export { default as TabPanel } from './components/TabPanel';
-export { default as TabList } from './components/TabList';
+import { Children, ReactNode } from 'react';
+
+export interface TabPanelsProps {
+  selectedIndex: number;
+  children: ReactNode;
+}
+
+/**
+ * TabPanel wrapping content being showed by tabs
+ */
+export function TabPanels({ selectedIndex, children }: TabPanelsProps) {
+  return Children.map(children, (child, index) => {
+    if (index === selectedIndex) {
+      return child;
+    }
+
+    return null;
+  });
+}

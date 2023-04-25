@@ -78,7 +78,7 @@ exports[`Tabs > styles > should render with default styles 1`] = `
 
 .circuit-2:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus::-moz-focus-inner {
@@ -97,61 +97,12 @@ exports[`Tabs > styles > should render with default styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
 }
 
-.circuit-3 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  padding: 12px 32px;
-  color: var(--cui-fg-subtle);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  cursor: pointer;
-  background-color: var(--cui-bg-normal);
-  border: none;
-  white-space: nowrap;
-  height: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  float: left;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  outline: none;
+.circuit-2[aria-selected='true'] {
   position: relative;
   color: var(--cui-fg-normal);
 }
 
-.circuit-3:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-3:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-3:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-3:hover {
-  background-color: var(--cui-bg-normal-hovered);
-}
-
-.circuit-3:active {
-  background-color: var(--cui-bg-normal-pressed);
-}
-
-.circuit-3::after {
+.circuit-2[aria-selected='true']::after {
   content: ' ';
   position: absolute;
   bottom: 0;
@@ -180,7 +131,7 @@ exports[`Tabs > styles > should render with default styles 1`] = `
       </button>
       <button
         aria-selected="true"
-        class="circuit-3"
+        class="circuit-2"
         role="tab"
       >
         tab #2
@@ -279,7 +230,7 @@ exports[`Tabs > styles > should render with stretched styles 1`] = `
 
 .circuit-2:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus::-moz-focus-inner {
@@ -298,61 +249,12 @@ exports[`Tabs > styles > should render with stretched styles 1`] = `
   background-color: var(--cui-bg-normal-pressed);
 }
 
-.circuit-3 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  padding: 12px 32px;
-  color: var(--cui-fg-subtle);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  cursor: pointer;
-  background-color: var(--cui-bg-normal);
-  border: none;
-  white-space: nowrap;
-  height: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  float: left;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  outline: none;
+.circuit-2[aria-selected='true'] {
   position: relative;
   color: var(--cui-fg-normal);
 }
 
-.circuit-3:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-3:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-3:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-3:hover {
-  background-color: var(--cui-bg-normal-hovered);
-}
-
-.circuit-3:active {
-  background-color: var(--cui-bg-normal-pressed);
-}
-
-.circuit-3::after {
+.circuit-2[aria-selected='true']::after {
   content: ' ';
   position: absolute;
   bottom: 0;
@@ -381,7 +283,7 @@ exports[`Tabs > styles > should render with stretched styles 1`] = `
       </button>
       <button
         aria-selected="true"
-        class="circuit-3"
+        class="circuit-2"
         role="tab"
       >
         tab #2

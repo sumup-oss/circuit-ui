@@ -13,14 +13,27 @@
  * limitations under the License.
  */
 
-import { forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import { typography, focusVisible } from '../../../../styles/style-mixins';
+import styled, { NoTheme, StyleProps } from '../../../../styles/styled';
+import { useComponents } from '../../../ComponentsContext';
+import { EmotionAsPropType } from '../../../../types/prop-types';
 
-const defaultTabStyles = ({ theme }) => css`
+export interface BaseProps {
+  /**
+   * Triggers selected styles of the component
+   */
+  selected?: boolean;
+}
+
+type LinkElProps = AnchorHTMLAttributes<HTMLAnchorElement>;
+type ButtonElProps = ButtonHTMLAttributes<HTMLButtonElement>;
+
+export type TabProps = BaseProps & LinkElProps & ButtonElProps;
+
+const defaultTabStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.kilo} ${theme.spacings.tera};
   color: var(--cui-fg-subtle);
   text-decoration: none;
@@ -43,11 +56,8 @@ const defaultTabStyles = ({ theme }) => css`
   &:active {
     background-color: var(--cui-bg-normal-pressed);
   }
-`;
 
-const selectedTabStyles = ({ theme, selected }) =>
-  selected &&
-  css`
+  &[aria-selected='true'] {
     position: relative;
     color: var(--cui-fg-normal);
 
@@ -61,41 +71,35 @@ const selectedTabStyles = ({ theme, selected }) =>
       height: ${theme.spacings.bit};
       background: var(--cui-border-accent);
     }
-  `;
+  }
+`;
 
-const tabIndex = (selected) => (selected ? undefined : '-1');
+const tabIndex = (selected: boolean) => (selected ? undefined : -1);
 
-const StyledTab = styled('button')(
+const StyledTab = styled('button')<NoTheme>(
   typography('one'),
-  focusVisible,
+  focusVisible('inset'),
   defaultTabStyles,
-  selectedTabStyles,
 );
 
 /**
  * Tab component that represents a single tab inside a Tabs wrapper
  */
-const Tab = forwardRef(({ selected = false, ...props }, ref) => (
-  <StyledTab
-    ref={ref}
-    role="tab"
-    selected={selected}
-    aria-selected={selected}
-    tabIndex={tabIndex(selected)}
-    {...props}
-  />
-));
+export const Tab = forwardRef<HTMLButtonElement, TabProps>(
+  ({ selected = false, ...props }, ref) => {
+    const components = useComponents();
+    const Link = components.Link as EmotionAsPropType;
+    return (
+      <StyledTab
+        as={props.href ? Link : 'button'}
+        ref={ref}
+        role="tab"
+        aria-selected={selected}
+        tabIndex={tabIndex(selected)}
+        {...props}
+      />
+    );
+  },
+);
 
 Tab.displayName = 'Tab';
-
-Tab.propTypes = {
-  /**
-   * Triggers selected styles of the component
-   */
-  selected: PropTypes.bool,
-};
-
-/**
- * @component
- */
-export default Tab;

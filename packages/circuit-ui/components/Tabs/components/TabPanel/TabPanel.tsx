@@ -13,6 +13,15 @@
  * limitations under the License.
  */
 
-import { TabPanel } from './TabPanel';
+import { HTMLAttributes, forwardRef } from 'react';
 
-export default TabPanel;
+export type TabPanelProps = HTMLAttributes<HTMLDivElement>;
+
+/**
+ * TabPanel wrapping content being showed by tabs
+ */
+export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
+  (props, ref) => <div ref={ref} {...props} role="tabpanel" tabIndex={0} />,
+);
+
+TabPanel.displayName = 'TabPanel';

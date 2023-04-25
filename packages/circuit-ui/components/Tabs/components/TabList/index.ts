@@ -13,13 +13,6 @@
  * limitations under the License.
  */
 
-import { forwardRef } from 'react';
+export { TabList } from './TabList';
 
-/**
- * TabPanel wrapping content being showed by tabs
- */
-export const TabPanel = forwardRef((props, ref) => (
-  <div ref={ref} {...props} role="tabpanel" tabIndex="0" />
-));
-
-TabPanel.displayName = 'TabPanel';
+export type { TabListProps } from './TabList';
