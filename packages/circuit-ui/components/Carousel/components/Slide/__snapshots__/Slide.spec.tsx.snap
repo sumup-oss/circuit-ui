@@ -43,6 +43,8 @@ exports[`Slide > styles > should render with backward animation styles 1`] = `
   animation-duration: 640ms;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  -webkit-animation-timing-function: 300ms ease-in-out;
+  animation-timing-function: 300ms ease-in-out;
 }
 
 .circuit-2 {
@@ -52,15 +54,15 @@ exports[`Slide > styles > should render with backward animation styles 1`] = `
 <div>
   <div
     class="circuit-0"
-    width="800px"
   >
     <div
       class="circuit-1"
     >
       <div
         class="circuit-2"
-        width="800px"
-      />
+      >
+        content
+      </div>
     </div>
   </div>
 </div>
@@ -102,15 +104,15 @@ exports[`Slide > styles > should render with default styles 1`] = `
 <div>
   <div
     class="circuit-0"
-    width="100%"
   >
     <div
       class="circuit-1"
     >
       <div
         class="circuit-2"
-        width="100%"
-      />
+      >
+        content
+      </div>
     </div>
   </div>
 </div>
@@ -159,6 +161,8 @@ exports[`Slide > styles > should render with forward animation styles 1`] = `
   animation-duration: 640ms;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  -webkit-animation-timing-function: 300ms ease-in-out;
+  animation-timing-function: 300ms ease-in-out;
 }
 
 .circuit-2 {
@@ -168,15 +172,15 @@ exports[`Slide > styles > should render with forward animation styles 1`] = `
 <div>
   <div
     class="circuit-0"
-    width="800px"
   >
     <div
       class="circuit-1"
     >
       <div
         class="circuit-2"
-        width="800px"
-      />
+      >
+        content
+      </div>
     </div>
   </div>
 </div>

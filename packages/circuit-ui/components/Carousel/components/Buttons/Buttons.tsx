@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { ChevronLeft, ChevronRight, Pause, Play } from '@sumup/icons';
 
-import IconButton from '../../../IconButton';
+import IconButton, { IconButtonProps } from '../../../IconButton';
+import styled, { StyleProps } from '../../../../styles/styled';
 
 const buttonListStyles = css`
   display: flex;
@@ -28,7 +27,7 @@ const buttonListStyles = css`
 
 export const ButtonList = styled('div')(buttonListStyles);
 
-const buttonStyles = ({ theme }) => css`
+const buttonStyles = ({ theme }: StyleProps) => css`
   margin-left: ${theme.spacings.byte};
 
   &:first-of-type {
@@ -42,24 +41,25 @@ Button.defaultProps = {
   size: 'kilo',
 };
 
-export const NextButton = (props) => (
-  <Button label="Next" {...props}>
+type ButtonProps = Omit<IconButtonProps, 'children'>;
+
+export const NextButton = (props: ButtonProps) => (
+  <Button {...props}>
     <ChevronRight size="16" />
   </Button>
 );
 
-export const PrevButton = (props) => (
-  <Button label="Previous" {...props}>
+export const PrevButton = (props: ButtonProps) => (
+  <Button {...props}>
     <ChevronLeft size="16" />
   </Button>
 );
 
-export const PlayButton = ({ paused, ...props }) => (
-  <Button label={paused ? 'Play' : 'Pause'} {...props}>
+export const PlayButton = ({
+  paused,
+  ...props
+}: ButtonProps & { paused?: boolean }) => (
+  <Button {...props}>
     {paused ? <Play size="16" /> : <Pause size="16" />}
   </Button>
 );
-
-PlayButton.propTypes = {
-  paused: PropTypes.bool,
-};

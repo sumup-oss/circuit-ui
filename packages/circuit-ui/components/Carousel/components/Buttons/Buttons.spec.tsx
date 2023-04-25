@@ -17,27 +17,21 @@ import { describe, expect, it } from 'vitest';
 
 import { axe, render } from '../../../../util/test-utils';
 
-import SlideImage from './SlideImage';
+import { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons';
 
-const image = {
-  src: '/images/illustration-waves.jpg',
-  alt: 'Aerial photo of turbulent blue ocean waves',
-};
+const renderButtons = () => (
+  <ButtonList>
+    <PlayButton label="Pause" />
+    <PlayButton label="Play" paused />
+    <PrevButton label="Previous" />
+    <NextButton label="Next" />
+  </ButtonList>
+);
 
-describe('SlideImage', () => {
+describe('Buttons', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const { container } = render(
-        <SlideImage src={image.src} alt={image.alt} />,
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with custom aspect ratio', () => {
-      const { container } = render(
-        <SlideImage src={image.src} alt={image.alt} aspectRatio={2} />,
-      );
+      const { container } = render(renderButtons());
 
       expect(container).toMatchSnapshot();
     });
@@ -45,9 +39,7 @@ describe('SlideImage', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const { container } = render(
-        <SlideImage src={image.src} alt={image.alt} />,
-      );
+      const { container } = render(renderButtons());
       const actual = await axe(container);
 
       expect(actual).toHaveNoViolations();

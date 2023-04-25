@@ -13,40 +13,35 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import Body from '../../../Body';
+import Body, { BodyProps } from '../../../Body';
 import { typography } from '../../../../styles/style-mixins';
+import styled, { StyleProps } from '../../../../styles/styled';
 
-const textStyles = ({ theme }) => css`
+export interface StatusProps extends BodyProps {
+  /**
+   * Current active index of a carousel.
+   */
+  step: number;
+  /**
+   * Total number of slides in a carousel.
+   */
+  total: number;
+}
+
+const textStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilKilo} {
     ${typography('two')(theme)};
   }
 `;
+
 const StyledText = styled(Body)(textStyles);
 
-const Status = ({ step, total, ...props }) => (
-  <StyledText variant="highlight" {...props}>
-    {step + 1} / {total}
-  </StyledText>
-);
-
-Status.propTypes = {
-  /**
-   * Current active index of a carousel.
-   */
-  step: PropTypes.number,
-  /**
-   * Total number of slides in a carousel.
-   */
-  total: PropTypes.number,
-};
-
-Status.defaultProps = {
-  step: 0,
-  total: 0,
-};
-
-export default Status;
+export function Status({ step = 0, total = 0, ...props }: StatusProps) {
+  return (
+    <StyledText variant="highlight" {...props}>
+      {step + 1} / {total}
+    </StyledText>
+  );
+}

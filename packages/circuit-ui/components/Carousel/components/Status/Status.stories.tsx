@@ -13,13 +13,16 @@
  * limitations under the License.
  */
 
-export const ASPECT_RATIO = 1.8;
+import { Status, StatusProps } from './Status';
 
-export const ANIMATION_DURATION = 640;
+export default {
+  title: 'Components/Carousel/Status',
+  component: Status,
+};
 
-export const SLIDE_DURATION = 5000;
+export const Base = (args: StatusProps) => <Status {...args} />;
 
-export const SLIDE_DIRECTIONS = {
-  FORWARD: 'forward',
-  BACK: 'back',
+Base.args = {
+  step: 0,
+  total: 3,
 };

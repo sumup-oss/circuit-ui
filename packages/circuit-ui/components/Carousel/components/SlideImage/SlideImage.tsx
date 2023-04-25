@@ -13,51 +13,48 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 
 import Image from '../../../Image';
 import AspectRatio from '../../../AspectRatio';
 import { ASPECT_RATIO } from '../../constants';
 
-const backgroundStyles = css`
-  background: var(--cui-bg-subtle);
-`;
-const StyledAspectRatio = styled(AspectRatio)(backgroundStyles);
-
-const imageStyles = css`
-  img {
-    object-fit: cover;
-  }
-`;
-const StyledImage = styled(Image)(imageStyles);
-
-const SlideImage = ({ src, alt, aspectRatio, ...props }) => (
-  <StyledAspectRatio aspectRatio={aspectRatio}>
-    <StyledImage src={src} alt={alt} {...props} />
-  </StyledAspectRatio>
-);
-
-SlideImage.propTypes = {
+export interface SlideImageProps {
   /**
    * Specifies the source URL of an image.
    */
-  src: PropTypes.string.isRequired,
+  src: string;
   /**
    * Provides alternative information if a user cannot view the image,
    * e.g. because of slow connection, an error in the src attribute, or if the
    * user uses a screen reader.
    */
-  alt: PropTypes.string.isRequired,
+  alt: string;
   /**
    * Image aspect ratio.
    */
-  aspectRatio: PropTypes.number,
-};
+  aspectRatio?: number;
+}
 
-SlideImage.defaultProps = {
-  aspectRatio: ASPECT_RATIO,
-};
+const StyledAspectRatio = styled(AspectRatio)`
+  background: var(--cui-bg-subtle);
+`;
 
-export default SlideImage;
+const StyledImage = styled(Image)`
+  img {
+    object-fit: cover;
+  }
+`;
+
+export function SlideImage({
+  src,
+  alt,
+  aspectRatio = ASPECT_RATIO,
+  ...props
+}: SlideImageProps) {
+  return (
+    <StyledAspectRatio aspectRatio={aspectRatio}>
+      <StyledImage src={src} alt={alt} {...props} />
+    </StyledAspectRatio>
+  );
+}

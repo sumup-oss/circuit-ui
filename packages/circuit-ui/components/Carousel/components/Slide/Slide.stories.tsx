@@ -16,11 +16,11 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import Headline from '../../../Headline';
+import Headline, { HeadlineProps } from '../../../Headline';
 import Image from '../../../Image';
 import { spacing } from '../../../../styles/style-mixins';
 
-import Slide from './Slide';
+import { Slide, SlideProps } from './Slide';
 
 export default {
   title: 'Components/Carousel/Slide',
@@ -35,12 +35,13 @@ const headingStyles = css`
   left: 25px;
   z-index: 2;
 `;
-const StyledHeadline = styled(Headline)(
+
+const StyledHeadline = styled(Headline)<HeadlineProps>(
   headingStyles,
   spacing({ bottom: 'giga' }),
 );
 
-export const OnlyImage = (args) => (
+export const OnlyImage = (args: SlideProps) => (
   <Slide {...args}>
     <Image
       src="/images/illustration-waves.jpg"
@@ -49,12 +50,12 @@ export const OnlyImage = (args) => (
   </Slide>
 );
 
-export const TextAndImage = (args) => (
+export const TextAndImage = (args: SlideProps) => (
   <Slide {...args}>
     <Image
       src="/images/illustration-waves.jpg"
       alt="Aerial photo of turbulent blue ocean waves"
     />
-    <StyledHeadline>Get The SumUp Card Reader Today!</StyledHeadline>
+    <StyledHeadline as="h2">Get The SumUp Card Reader Today!</StyledHeadline>
   </Slide>
 );

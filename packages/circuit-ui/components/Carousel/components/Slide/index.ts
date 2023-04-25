@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import Status from './Status';
-
-export default Status;
+export { Slide } from './Slide';

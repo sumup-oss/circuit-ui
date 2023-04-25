@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 
 import { axe, render } from '../../../../util/test-utils';
 
-import Status from './Status';
+import { Status } from './Status';
 
 describe('Status', () => {
   describe('styles', () => {

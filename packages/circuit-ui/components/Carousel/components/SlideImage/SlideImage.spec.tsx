@@ -16,39 +16,27 @@
 import { describe, expect, it } from 'vitest';
 
 import { axe, render } from '../../../../util/test-utils';
-import { SLIDE_DIRECTIONS } from '../../constants';
 
-import Slide from './Slide';
+import { SlideImage } from './SlideImage';
 
-describe('Slide', () => {
+const image = {
+  src: '/images/illustration-waves.jpg',
+  alt: 'Aerial photo of turbulent blue ocean waves',
+};
+
+describe('SlideImage', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const { container } = render(<Slide />);
-
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with forward animation styles', () => {
       const { container } = render(
-        <Slide
-          index={0}
-          step={0}
-          slideSize={{ width: 800 }}
-          slideDirection={SLIDE_DIRECTIONS.FORWARD}
-        />,
+        <SlideImage src={image.src} alt={image.alt} />,
       );
 
       expect(container).toMatchSnapshot();
     });
 
-    it('should render with backward animation styles', () => {
+    it('should render with custom aspect ratio', () => {
       const { container } = render(
-        <Slide
-          index={0}
-          prevStep={0}
-          slideSize={{ width: 800 }}
-          slideDirection={SLIDE_DIRECTIONS.BACK}
-        />,
+        <SlideImage src={image.src} alt={image.alt} aspectRatio={2} />,
       );
 
       expect(container).toMatchSnapshot();
@@ -57,7 +45,9 @@ describe('Slide', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const { container } = render(<Slide />);
+      const { container } = render(
+        <SlideImage src={image.src} alt={image.alt} />,
+      );
       const actual = await axe(container);
 
       expect(actual).toHaveNoViolations();

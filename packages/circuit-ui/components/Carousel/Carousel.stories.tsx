@@ -13,18 +13,16 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/prop-types */
-
 import { useState } from 'react';
 
-import Container from './components/Container';
-import Slides from './components/Slides';
-import Slide from './components/Slide';
-import SlideImage from './components/SlideImage';
-import Controls from './components/Controls';
+import { Container } from './components/Container';
+import { Slides } from './components/Slides';
+import { Slide } from './components/Slide';
+import { SlideImage } from './components/SlideImage';
+import { Controls } from './components/Controls';
 import { ButtonList, NextButton, PrevButton } from './components/Buttons';
-import Status from './components/Status';
-import Carousel from './Carousel';
+import { Status } from './components/Status';
+import { Carousel, CarouselProps } from './Carousel';
 import { ASPECT_RATIO, ANIMATION_DURATION, SLIDE_DURATION } from './constants';
 import { SLIDES } from './__fixtures__';
 
@@ -33,7 +31,7 @@ export default {
   component: Carousel,
 };
 
-export const Stateful = (args) => (
+export const Stateful = (args: CarouselProps) => (
   <div style={{ width: '50vw' }}>
     <Carousel {...args} />
   </div>
@@ -47,6 +45,10 @@ Stateful.args = {
   cycle: true,
   autoPlay: true,
   hideControls: false,
+  playButtonLabel: 'Play',
+  pauseButtonLabel: 'Pause',
+  prevButtonLabel: 'Previous',
+  nextButtonLabel: 'Next',
 };
 
 export const Composed = () => {
@@ -75,9 +77,9 @@ export const Composed = () => {
         </Slides>
         <Controls>
           <ButtonList>
-            <PrevButton onClick={goBack} />
+            <PrevButton label="Previous" onClick={goBack} />
             <Status style={{ marginLeft: 8 }} step={step} total={total} />
-            <NextButton onClick={goForward} />
+            <NextButton label="Next" onClick={goForward} />
           </ButtonList>
         </Controls>
       </Container>

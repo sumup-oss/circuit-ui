@@ -13,22 +13,4 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
-
-import * as Buttons from './Buttons';
-
-const { ButtonList, PlayButton, NextButton, PrevButton } = Buttons;
-
-export default {
-  title: 'Components/Carousel/Buttons',
-  component: Buttons,
-};
-
-export const AllButtons = () => (
-  <ButtonList>
-    <PlayButton onClick={action('on play click')} />
-    <PlayButton paused onClick={action('on pause click')} />
-    <PrevButton onClick={action('on previous click')} />
-    <NextButton onClick={action('on next click')} />
-  </ButtonList>
-);
+export { SlideImage } from './SlideImage';

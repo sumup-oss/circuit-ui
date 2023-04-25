@@ -15,7 +15,12 @@
 
 import { SLIDE_DIRECTIONS } from '../../constants';
 
-export function getStackOrder(slideIndex, step, prevStep, slideDirection) {
+export function getStackOrder(
+  slideIndex?: number,
+  step?: number,
+  prevStep?: number,
+  slideDirection?: SLIDE_DIRECTIONS,
+) {
   const isActive = step === slideIndex;
   const wasActive = prevStep === slideIndex;
 
@@ -36,7 +41,12 @@ export function getStackOrder(slideIndex, step, prevStep, slideDirection) {
   return slideIndex ? -slideIndex : 0;
 }
 
-export function shouldAnimate(slideIndex, step, prevStep, slideDirection) {
+export function shouldAnimate(
+  slideIndex?: number,
+  step?: number,
+  prevStep?: number,
+  slideDirection?: SLIDE_DIRECTIONS,
+) {
   const isActive = step === slideIndex;
   const wasActive = prevStep === slideIndex;
 
@@ -51,6 +61,6 @@ export function shouldAnimate(slideIndex, step, prevStep, slideDirection) {
   return false;
 }
 
-export function getDynamicWidth(width) {
+export function getDynamicWidth(width?: number) {
   return width ? `${width}px` : '100%';
 }

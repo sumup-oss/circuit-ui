@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import Container from './Container';
-
-export default Container;
+export { Container } from './Container';

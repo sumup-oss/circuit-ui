@@ -13,25 +13,67 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { HTMLAttributes, ReactNode } from 'react';
 import { css, keyframes } from '@emotion/react';
 
-import { childrenPropType } from '../../../../util/shared-prop-types';
+import styled, { StyleProps } from '../../../../styles/styled';
 import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants';
 
 import * as SlideService from './SlideService';
 
-const baseStyles = ({ index, stackOrder, width }) => css`
+export interface SlideProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   *  Index of a slide in a carousel (required for animation).
+   */
+  index?: number;
+  /**
+   * Current active index of a carousel (required for animation).
+   */
+  step?: number;
+  /**
+   * Previous active index of a carousel (required for animation).
+   */
+  prevStep?: number;
+  /**
+   * Dimensions of a carousel (required for animation).
+   */
+  slideSize?: {
+    width?: number;
+    height?: number;
+  };
+  /**
+   * Indicates slide direction of a carousel (required for animation).
+   */
+  slideDirection?: SLIDE_DIRECTIONS;
+  /**
+   * Indicates duration of animation between slides (in milliseconds)
+   */
+  animationDuration?: number;
+  /**
+   * Content of a slide
+   */
+  children: ReactNode;
+}
+
+const baseStyles = ({
+  index,
+  stackOrder,
+  dynamicWidth,
+}: {
+  index: number;
+  stackOrder: number;
+  dynamicWidth: string;
+}) => css`
   width: 100%;
   flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: ${width};
+  flex-basis: ${dynamicWidth};
   transform: translate3d(${-index * 100}%, 0, 0);
   backface-visibility: hidden;
   position: relative;
   z-index: ${stackOrder};
 `;
+
 const Wrapper = styled('div')(baseStyles);
 
 const slideIn = keyframes`
@@ -42,6 +84,7 @@ const slideIn = keyframes`
     width: 100%;
   }
 `;
+
 const slideOut = keyframes`
   from {
     width: 100%;
@@ -50,11 +93,16 @@ const slideOut = keyframes`
     width: 0%;
   }
 `;
+
 const animationStyles = ({
   theme,
   isAnimating,
   animationDuration,
   animationName,
+}: StyleProps & {
+  isAnimating: boolean;
+  animationDuration: number;
+  animationName: string;
 }) => css`
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
   overflow: hidden;
@@ -64,17 +112,17 @@ const animationStyles = ({
     animation-name: ${animationName};
     animation-duration: ${animationDuration}ms;
     animation-fill-mode: forwards;
-    animation-timing-function: ${theme.transitions.easeInOutCubic};
+    animation-timing-function: ${theme.transitions.slow};
   `};
 `;
 const Inner = styled('div')(animationStyles);
 
-const dynamicWidthStyles = ({ width }) => css`
-  width: ${width};
+const dynamicWidthStyles = ({ dynamicWidth }: { dynamicWidth: string }) => css`
+  width: ${dynamicWidth};
 `;
 const Content = styled('div')(dynamicWidthStyles);
 
-const Slide = ({
+export function Slide({
   index = 0,
   step = 0,
   prevStep,
@@ -83,7 +131,7 @@ const Slide = ({
   animationDuration = ANIMATION_DURATION,
   children,
   ...props
-}) => {
+}: SlideProps) {
   const stackOrder = SlideService.getStackOrder(
     index,
     step,
@@ -104,55 +152,16 @@ const Slide = ({
     <Wrapper
       index={index}
       stackOrder={stackOrder}
-      width={dynamicWidth}
+      dynamicWidth={dynamicWidth}
       {...props}
     >
       <Inner
-        isAnimating={slideSize.width && shouldAnimate}
+        isAnimating={Boolean(slideSize.width && shouldAnimate)}
         animationName={animationName}
         animationDuration={animationDuration}
       >
-        <Content width={dynamicWidth}>{children}</Content>
+        <Content dynamicWidth={dynamicWidth}>{children}</Content>
       </Inner>
     </Wrapper>
   );
-};
-
-Slide.propTypes = {
-  /**
-   *  Index of a slide in a carousel (required for animation).
-   */
-  index: PropTypes.number,
-  /**
-   * Current active index of a carousel (required for animation).
-   */
-  step: PropTypes.number,
-  /**
-   * Previous active index of a carousel (required for animation).
-   */
-  prevStep: PropTypes.number,
-  /**
-   * Dimensions of a carousel (required for animation).
-   */
-  slideSize: PropTypes.shape({
-    width: PropTypes.number,
-    height: PropTypes.number,
-  }),
-  /**
-   * Indicates slide direction of a carousel (required for animation).
-   */
-  slideDirection: PropTypes.oneOf([
-    SLIDE_DIRECTIONS.FORWARD,
-    SLIDE_DIRECTIONS.BACK,
-  ]),
-  /**
-   * Indicates duration of animation between slides (in milliseconds)
-   */
-  animationDuration: PropTypes.number,
-  /**
-   * Content of a slide
-   */
-  children: childrenPropType,
-};
-
-export default Slide;
+}

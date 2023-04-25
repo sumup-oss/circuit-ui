@@ -16,22 +16,44 @@
 import { describe, expect, it } from 'vitest';
 
 import { axe, render } from '../../../../util/test-utils';
+import { SLIDE_DIRECTIONS } from '../../constants';
 
-import { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons';
+import { Slide } from './Slide';
 
-const renderButtons = () => (
-  <ButtonList>
-    <PlayButton />
-    <PlayButton paused />
-    <PrevButton />
-    <NextButton />
-  </ButtonList>
-);
-
-describe('Buttons', () => {
+describe('Slide', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const { container } = render(renderButtons());
+      const { container } = render(<Slide>content</Slide>);
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render with forward animation styles', () => {
+      const { container } = render(
+        <Slide
+          index={0}
+          step={0}
+          slideSize={{ width: 800 }}
+          slideDirection={SLIDE_DIRECTIONS.FORWARD}
+        >
+          content
+        </Slide>,
+      );
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render with backward animation styles', () => {
+      const { container } = render(
+        <Slide
+          index={0}
+          prevStep={0}
+          slideSize={{ width: 800 }}
+          slideDirection={SLIDE_DIRECTIONS.BACK}
+        >
+          content
+        </Slide>,
+      );
 
       expect(container).toMatchSnapshot();
     });
@@ -39,7 +61,7 @@ describe('Buttons', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const { container } = render(renderButtons());
+      const { container } = render(<Slide>content</Slide>);
       const actual = await axe(container);
 
       expect(actual).toHaveNoViolations();

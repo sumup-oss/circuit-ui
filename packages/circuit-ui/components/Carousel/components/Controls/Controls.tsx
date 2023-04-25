@@ -16,7 +16,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-const Controls = styled('div')(
+export const Controls = styled('div')(
   ({ theme }) => css`
     width: 100%;
     display: flex;
@@ -25,5 +25,3 @@ const Controls = styled('div')(
     margin-top: ${theme.spacings.mega};
   `,
 );
-
-export default Controls;

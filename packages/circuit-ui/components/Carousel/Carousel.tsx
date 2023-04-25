@@ -13,25 +13,23 @@
  * limitations under the License.
  */
 
-import { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { ReactNode, useRef, useState } from 'react';
 import { css } from '@emotion/react';
 
 import ProgressBar from '../ProgressBar';
 import Step from '../Step';
-import {
-  childrenPropType,
-  childrenRenderPropType,
-} from '../../util/shared-prop-types';
 import { useComponentSize } from '../../hooks/useComponentSize';
+import styled, { StyleProps } from '../../styles/styled';
+import { ImageProps } from '../Image';
+import { isFunction } from '../../util/type-check';
+import { Actions, State } from '../Step/types';
 
-import Container from './components/Container';
-import Slides from './components/Slides';
-import Slide from './components/Slide';
-import SlideImage from './components/SlideImage';
-import Controls from './components/Controls';
-import Status from './components/Status';
+import { Container } from './components/Container';
+import { Slides } from './components/Slides';
+import { Slide } from './components/Slide';
+import { SlideImage } from './components/SlideImage';
+import { Controls } from './components/Controls';
+import { Status } from './components/Status';
 import {
   ButtonList,
   NextButton,
@@ -45,7 +43,68 @@ import {
   SLIDE_DIRECTIONS,
 } from './constants';
 
-const statusAlignment = ({ theme }) => css`
+export interface CarouselProps {
+  /**
+   * List of slides to be rendered in a carousel.
+   */
+  slides: Item[];
+  /**
+   * Indicates duration of animation between slides (in milliseconds).
+   */
+  animationDuration?: number;
+  /**
+   * Indicates time how long each slide will stay visible (in milliseconds).
+   */
+  slideDuration?: number;
+  /**
+   * Slide image aspect ratio.
+   */
+  aspectRatio?: number;
+  /**
+   * Indicates if carousel should start again after last slide.
+   */
+  cycle?: boolean;
+  /**
+   * Make carousel playing immediately after load.
+   */
+  autoPlay?: boolean;
+  /**
+   * Optionally remove carousel controls bar under a slide.
+   */
+  hideControls?: boolean;
+  /**
+   * Label slide image by returning id string value of a label component (required for accessibility).
+   */
+  getAriaLabelledBy?: (slide: Item, index: number) => string;
+  /**
+   * Label for the play action
+   */
+  playButtonLabel: string;
+  /**
+   * Label for the pause action
+   */
+  pauseButtonLabel: string;
+  /**
+   * Label for the previous action
+   */
+  prevButtonLabel: string;
+  /**
+   * Label for the next action
+   */
+  nextButtonLabel: string;
+  /**
+   * Add additional components inside a carousel.
+   */
+  children?:
+    | ReactNode
+    | ((props: { state: State; actions: Actions }) => ReactNode);
+}
+
+type Item = {
+  image: ImageProps;
+};
+
+const statusAlignment = ({ theme }: StyleProps) => css`
   flex: none;
   margin-right: ${theme.spacings.exa};
 
@@ -59,7 +118,7 @@ const StyledProgressBar = styled(ProgressBar)`
   flex: 1 1 auto;
 `;
 
-const buttonsAlignment = ({ theme }) => css`
+const buttonsAlignment = ({ theme }: StyleProps) => css`
   margin-left: ${theme.spacings.exa};
 
   ${theme.mq.untilKilo} {
@@ -68,22 +127,26 @@ const buttonsAlignment = ({ theme }) => css`
 `;
 const StyledButtonList = styled(ButtonList)(buttonsAlignment);
 
-const Carousel = ({
-  slides = [],
+export function Carousel({
+  slides,
   slideDuration = SLIDE_DURATION,
   animationDuration = ANIMATION_DURATION,
   aspectRatio = ASPECT_RATIO,
   cycle = true,
   autoPlay = true,
   hideControls = false,
-  getAriaLabelledBy = () => {},
+  getAriaLabelledBy,
+  playButtonLabel,
+  pauseButtonLabel,
+  prevButtonLabel,
+  nextButtonLabel,
   children,
   ...props
-}) => {
+}: CarouselProps) {
   const slidesTotal = slides.length;
   const slidesRef = useRef(null);
   const slideSize = useComponentSize(slidesRef);
-  const [slideDirection, setSlideDirection] = useState();
+  const [slideDirection, setSlideDirection] = useState<SLIDE_DIRECTIONS>();
 
   if (!slidesTotal) {
     return null;
@@ -126,7 +189,9 @@ const Carousel = ({
                   src={slide.image.src}
                   alt={slide.image.alt}
                   aspectRatio={aspectRatio}
-                  aria-labelledby={getAriaLabelledBy(slide, index)}
+                  aria-labelledby={
+                    getAriaLabelledBy ? getAriaLabelledBy(slide, index) : null
+                  }
                 />
               </Slide>
             ))}
@@ -153,77 +218,26 @@ const Carousel = ({
               <StyledButtonList>
                 <PlayButton
                   paused={state.paused}
+                  label={state.paused ? playButtonLabel : pauseButtonLabel}
                   {...(state.paused
                     ? getPlayControlProps()
                     : getPauseControlProps())}
                 />
-                <PrevButton {...getPreviousControlProps()} />
-                <NextButton {...getNextControlProps()} />
+                <PrevButton
+                  label={prevButtonLabel}
+                  {...getPreviousControlProps()}
+                />
+                <NextButton
+                  label={nextButtonLabel}
+                  {...getNextControlProps()}
+                />
               </StyledButtonList>
             </Controls>
           )}
 
-          {typeof children === 'function'
-            ? children({ state, actions })
-            : children}
+          {isFunction(children) ? children({ state, actions }) : children}
         </Container>
       )}
     </Step>
   );
-};
-
-Carousel.propTypes = {
-  /**
-   * List of slides to be rendered in a carousel.
-   */
-  slides: PropTypes.arrayOf(
-    PropTypes.shape({
-      image: PropTypes.shape({
-        /**
-         * Specifies the source URL of an image
-         */
-        src: PropTypes.string.isRequired,
-        /**
-         * Provides alternative information if a user cannot view the image,
-         * e.g. because of slow connection, an error in the src attribute, or if the
-         * user uses a screen reader.
-         */
-        alt: PropTypes.string.isRequired,
-      }).isRequired,
-    }),
-  ),
-  /**
-   * Indicates duration of animation between slides (in milliseconds).
-   */
-  animationDuration: PropTypes.number,
-  /**
-   * Indicates time how long each slide will stay visible (in milliseconds).
-   */
-  slideDuration: PropTypes.number,
-  /**
-   * Slide image aspect ratio.
-   */
-  aspectRatio: PropTypes.number,
-  /**
-   * Indicates if carousel should start again after last slide.
-   */
-  cycle: PropTypes.bool,
-  /**
-   * Make carousel playing immediately after load.
-   */
-  autoPlay: PropTypes.bool,
-  /**
-   * Optionally remove carousel controls bar under a slide.
-   */
-  hideControls: PropTypes.bool,
-  /**
-   * Label slide image by returning id string value of a label component (required for accessibility).
-   */
-  getAriaLabelledBy: PropTypes.func,
-  /**
-   * Add additional components inside a carousel.
-   */
-  children: PropTypes.oneOfType([childrenPropType, childrenRenderPropType]),
-};
-
-export default Carousel;
+}

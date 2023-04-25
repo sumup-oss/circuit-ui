@@ -13,16 +13,14 @@
  * limitations under the License.
  */
 
-import Status from './Status';
+export const ASPECT_RATIO = 1.8;
 
-export default {
-  title: 'Components/Carousel/Status',
-  component: Status,
-};
+export const ANIMATION_DURATION = 640;
 
-export const Base = (args) => <Status {...args} />;
+export const SLIDE_DURATION = 5000;
 
-Base.args = {
-  step: 0,
-  total: 3,
-};
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export enum SLIDE_DIRECTIONS {
+  FORWARD = 'forward',
+  BACK = 'back',
+}

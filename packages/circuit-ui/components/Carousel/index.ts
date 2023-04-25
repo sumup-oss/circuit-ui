@@ -13,19 +13,21 @@
  * limitations under the License.
  */
 
-import Container from './components/Container';
-import Controls from './components/Controls';
-import Slide from './components/Slide';
-import Slides from './components/Slides';
-import SlideImage from './components/SlideImage';
-import Status from './components/Status';
+import { Container } from './components/Container';
+import { Controls } from './components/Controls';
+import { Slide } from './components/Slide';
+import { Slides } from './components/Slides';
+import { SlideImage } from './components/SlideImage';
+import { Status } from './components/Status';
 import {
   ButtonList,
   PlayButton,
   NextButton,
   PrevButton,
 } from './components/Buttons';
-import Carousel from './Carousel';
+import { Carousel } from './Carousel';
+
+export type { CarouselProps } from './Carousel';
 
 export const CarouselComposer = {
   Container,
