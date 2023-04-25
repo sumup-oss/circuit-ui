@@ -221,8 +221,9 @@ exports[`Sidebar > should render and match snapshot when open 1`] = `
 <div>
   <nav
     class="circuit-0"
-    open=""
-  />
+  >
+    Content
+  </nav>
   <div
     class="circuit-1"
     data-testid="sidebar-backdrop"
@@ -472,7 +473,9 @@ exports[`Sidebar > should render and match the snapshot when closed 1`] = `
 <div>
   <nav
     class="circuit-0"
-  />
+  >
+    Content
+  </nav>
   <div
     class="circuit-1"
     data-testid="sidebar-backdrop"

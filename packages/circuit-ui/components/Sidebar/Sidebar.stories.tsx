@@ -21,8 +21,7 @@ import { Home, Profile, Sales, Shop } from '@sumup/icons';
 import Button from '../Button';
 
 import { Separator } from './components/Separator';
-
-import Sidebar from '.';
+import { Sidebar, SidebarProps } from './Sidebar';
 
 export default {
   title: 'Navigation/Sidebar',
@@ -44,7 +43,7 @@ const Viewport = styled.div`
   min-height: 500px;
 `;
 
-export const Base = (args) => {
+export const Base = (args: SidebarProps) => {
   const [open, setOpen] = useState(true);
   const [selected, setSelected] = useState(1);
 
@@ -74,7 +73,6 @@ export const Base = (args) => {
           />
           <Sidebar.Aggregator
             key="list"
-            selected={selected === 2}
             label="List"
             defaultIcon={<Sales />}
             selectedIcon={<Sales />}

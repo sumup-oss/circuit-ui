@@ -130,6 +130,7 @@ export type {
   TabProps,
 } from './components/Tabs';
 export { default as Sidebar } from './components/Sidebar';
+export type { SidebarProps } from './components/Sidebar';
 export {
   SidebarContextProvider,
   SidebarContextConsumer,

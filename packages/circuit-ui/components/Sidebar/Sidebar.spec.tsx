@@ -15,13 +15,16 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { act, axe, fireEvent, render } from '../../util/test-utils';
+import { axe, userEvent, render } from '../../util/test-utils';
 
-import Sidebar from './Sidebar';
+import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {
   const baseProps = {
+    children: 'Content',
     closeButtonLabel: 'Close sidebar',
+    open: false,
+    onClose: vi.fn(),
   };
 
   it('should render and match the snapshot when closed', () => {
@@ -44,35 +47,36 @@ describe('Sidebar', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should dispatch onClose when CloseButton is clicked', () => {
+  it('should dispatch onClose when CloseButton is clicked', async () => {
     const props = {
       ...baseProps,
       open: true,
       onClose: vi.fn(),
     };
     const { getByTestId } = render(<Sidebar {...props} />);
-    act(() => {
-      fireEvent.click(getByTestId('sidebar-close-button'));
-    });
+    await userEvent.click(getByTestId('sidebar-close-button'));
     expect(props.onClose).toHaveBeenCalled();
   });
 
-  it('should dispatch onClose when the Backdrop is clicked', () => {
+  it('should dispatch onClose when the Backdrop is clicked', async () => {
     const props = {
       ...baseProps,
       open: true,
       onClose: vi.fn(),
     };
     const { getByTestId } = render(<Sidebar {...props} />);
-    act(() => {
-      fireEvent.click(getByTestId('sidebar-backdrop'));
-    });
+    await userEvent.click(getByTestId('sidebar-backdrop'));
     expect(props.onClose).toHaveBeenCalled();
   });
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const { container } = render(<Sidebar {...baseProps} />);
+      const props = {
+        ...baseProps,
+        open: true,
+        onClose: vi.fn(),
+      };
+      const { container } = render(<Sidebar {...props} />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });

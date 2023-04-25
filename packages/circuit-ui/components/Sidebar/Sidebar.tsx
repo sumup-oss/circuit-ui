@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { Fragment, ReactNode } from 'react';
 import { css } from '@emotion/react';
+
+import styled, { StyleProps } from '../../styles/styled';
 
 import { Aggregator } from './components/Aggregator';
 import { Backdrop } from './components/Backdrop';
@@ -27,9 +27,28 @@ import { NavItem } from './components/NavItem';
 import { NavList } from './components/NavList';
 import { Separator } from './components/Separator';
 
+export interface SidebarProps {
+  /**
+   * The children component passed to the Sidebar
+   */
+  children: ReactNode;
+  /**
+   * Determines whether the Sidebar is open
+   */
+  open: boolean;
+  /**
+   * Accessibility label for the CloseButton
+   */
+  closeButtonLabel: string;
+  /**
+   * A function to handle the sidebar close
+   */
+  onClose: () => void;
+}
+
 const SIDEBAR_WIDTH = 256;
 
-const baseStyles = ({ theme }) => css`
+const baseStyles = ({ theme }: StyleProps) => css`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -45,8 +64,8 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const openStyles = ({ theme, open }) =>
-  open &&
+const openStyles = ({ theme, isOpen }: StyleProps & { isOpen: boolean }) =>
+  isOpen &&
   css`
     transform: translateX(0);
     ${theme.mq.giga} {
@@ -56,39 +75,32 @@ const openStyles = ({ theme, open }) =>
 
 const Drawer = styled('nav')(baseStyles, openStyles);
 
-const Sidebar = ({ children, open, closeButtonLabel, onClose, ...props }) => (
-  <Fragment>
-    <Drawer open={open} {...props}>
-      {children}
-    </Drawer>
-    <Backdrop visible={open} onClick={onClose} data-testid="sidebar-backdrop" />
-    <CloseButton
-      visible={open}
-      label={closeButtonLabel}
-      onClick={onClose}
-      data-testid="sidebar-close-button"
-    />
-  </Fragment>
-);
-
-Sidebar.propTypes = {
-  /**
-   * The children component passed to the Sidebar
-   */
-  children: PropTypes.node,
-  /**
-   * Tells if the Sidebar is open
-   */
-  open: PropTypes.bool,
-  /**
-   * Accessibility label for the CloseButton
-   */
-  closeButtonLabel: PropTypes.string.isRequired,
-  /**
-   * A function to handle the sidebar close
-   */
-  onClose: PropTypes.func,
-};
+export function Sidebar({
+  children,
+  open,
+  closeButtonLabel,
+  onClose,
+  ...props
+}: SidebarProps) {
+  return (
+    <Fragment>
+      <Drawer isOpen={open} {...props}>
+        {children}
+      </Drawer>
+      <Backdrop
+        visible={open}
+        onClick={onClose}
+        data-testid="sidebar-backdrop"
+      />
+      <CloseButton
+        visible={open}
+        label={closeButtonLabel}
+        onClick={onClose}
+        data-testid="sidebar-close-button"
+      />
+    </Fragment>
+  );
+}
 
 Sidebar.Header = Header;
 Sidebar.Footer = Footer;
@@ -96,5 +108,3 @@ Sidebar.NavList = NavList;
 Sidebar.NavItem = NavItem;
 Sidebar.Aggregator = Aggregator;
 Sidebar.Separator = Separator;
-
-export default Sidebar;
