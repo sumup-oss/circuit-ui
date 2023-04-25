@@ -15,7 +15,7 @@
 
 import { useState } from 'react';
 
-import { Toggle, ToggleProps } from './Toggle.jsx';
+import { Toggle, ToggleProps } from './Toggle.js';
 
 export default {
   title: 'Forms/Toggle',

@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { NavItem } from './NavItem.jsx';
+export { NavItem } from './NavItem.js';

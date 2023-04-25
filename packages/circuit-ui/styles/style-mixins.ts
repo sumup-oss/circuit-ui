@@ -16,7 +16,7 @@
 import { css, SerializedStyles } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import { warn } from '../util/logger.jsx';
+import { warn } from '../util/logger.js';
 import { isFunction } from '../util/type-check.js';
 
 type ThemeArgs = Theme | { theme: Theme };

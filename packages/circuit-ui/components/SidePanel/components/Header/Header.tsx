@@ -18,9 +18,9 @@ import { css } from '@emotion/react';
 import { ArrowLeft, Close } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../../../styles/styled.js';
-import { IconButton } from '../../../IconButton/IconButton.jsx';
+import { IconButton } from '../../../IconButton/IconButton.js';
 import Headline from '../../../Headline/index.js';
-import type { SidePanelProps } from '../../SidePanel.jsx';
+import type { SidePanelProps } from '../../SidePanel.js';
 
 type HeaderStickyProps = { isSticky: boolean };
 

@@ -15,12 +15,9 @@
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { render, axe, act } from '../../../../util/test-utils.jsx';
+import { render, axe, act } from '../../../../util/test-utils.js';
 
-import {
-  DesktopSidePanel,
-  DesktopSidePanelProps,
-} from './DesktopSidePanel.jsx';
+import { DesktopSidePanel, DesktopSidePanelProps } from './DesktopSidePanel.js';
 
 describe('DesktopSidePanel', () => {
   const baseProps: DesktopSidePanelProps = {

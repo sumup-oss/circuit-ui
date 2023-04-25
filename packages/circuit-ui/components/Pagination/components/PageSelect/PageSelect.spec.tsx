@@ -22,9 +22,9 @@ import {
   renderToHtml,
   axe,
   RenderFn,
-} from '../../../../util/test-utils.jsx';
+} from '../../../../util/test-utils.js';
 
-import { PageSelect, PageSelectProps } from './PageSelect.jsx';
+import { PageSelect, PageSelectProps } from './PageSelect.js';
 
 describe('PageSelect', () => {
   function renderPageSelect<T>(renderFn: RenderFn<T>, props: PageSelectProps) {

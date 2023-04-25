@@ -22,9 +22,9 @@ import {
   axe,
   render,
   userEvent,
-} from '../../util/test-utils.jsx';
+} from '../../util/test-utils.js';
 
-import { Tag } from './Tag.jsx';
+import { Tag } from './Tag.js';
 
 const DummyIcon = (props: any) => <div data-testid="tag-icon" {...props} />;
 

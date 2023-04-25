@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import TableRow from './TableRow.jsx';
+import TableRow from './TableRow.js';
 
 export default TableRow;

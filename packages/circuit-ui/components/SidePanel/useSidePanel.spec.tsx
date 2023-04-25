@@ -15,10 +15,10 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { renderHook } from '../../util/test-utils.jsx';
+import { renderHook } from '../../util/test-utils.js';
 
-import { useSidePanel } from './useSidePanel.jsx';
-import { SidePanelContext } from './SidePanelContext.jsx';
+import { useSidePanel } from './useSidePanel.js';
+import { SidePanelContext } from './SidePanelContext.js';
 
 const defaultId = '1';
 const testId = 'test';

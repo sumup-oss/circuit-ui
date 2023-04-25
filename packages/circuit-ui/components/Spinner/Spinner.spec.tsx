@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.jsx';
+import { create, renderToHtml, axe } from '../../util/test-utils.js';
 
-import { Spinner, SpinnerProps } from './Spinner.jsx';
+import { Spinner, SpinnerProps } from './Spinner.js';
 
 describe('Spinner', () => {
   /**

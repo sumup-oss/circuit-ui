@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.jsx';
+import { create, renderToHtml, axe } from '../../util/test-utils.js';
 
-import { Hr } from './Hr.jsx';
+import { Hr } from './Hr.js';
 
 describe('Hr', () => {
   /**

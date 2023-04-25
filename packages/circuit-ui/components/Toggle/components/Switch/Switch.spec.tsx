@@ -16,9 +16,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, userEvent } from '../../../../util/test-utils.jsx';
+import { create, render, userEvent } from '../../../../util/test-utils.js';
 
-import { Switch } from './Switch.jsx';
+import { Switch } from './Switch.js';
 
 const defaultProps = {
   checkedLabel: 'on',

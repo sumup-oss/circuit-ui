@@ -16,9 +16,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, userEvent } from '../../util/test-utils.jsx';
+import { render, axe, userEvent } from '../../util/test-utils.js';
 
-import { Checkbox } from './Checkbox.jsx';
+import { Checkbox } from './Checkbox.js';
 
 const defaultProps = {
   label: 'Label',

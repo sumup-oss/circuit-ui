@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { BodyLarge } from './BodyLarge.jsx';
+import { BodyLarge } from './BodyLarge.js';
 
-export type { BodyLargeProps } from './BodyLarge.jsx';
+export type { BodyLargeProps } from './BodyLarge.js';
 
 export default BodyLarge;

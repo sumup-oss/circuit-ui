@@ -15,7 +15,7 @@
 
 import { useState, ChangeEvent } from 'react';
 
-import { SelectorGroup, SelectorGroupProps } from './SelectorGroup.jsx';
+import { SelectorGroup, SelectorGroupProps } from './SelectorGroup.js';
 
 export default {
   title: 'Forms/SelectorGroup',

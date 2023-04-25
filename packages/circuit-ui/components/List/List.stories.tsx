@@ -18,7 +18,7 @@ import { Fragment } from 'react';
 import Body from '../Body/index.js';
 import { spacing } from '../../styles/style-mixins.js';
 
-import { List, ListProps } from './List.jsx';
+import { List, ListProps } from './List.js';
 
 export default {
   title: 'Typography/List',

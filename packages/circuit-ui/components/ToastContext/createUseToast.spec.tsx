@@ -16,10 +16,10 @@
 import { describe, expect, it, vi } from 'vitest';
 import { ReactElement } from 'react';
 
-import { renderHook, act } from '../../util/test-utils.jsx';
+import { renderHook, act } from '../../util/test-utils.js';
 
 import { createUseToast } from './createUseToast.js';
-import { ToastContext } from './ToastContext.jsx';
+import { ToastContext } from './ToastContext.js';
 import type { ToastComponent } from './types.js';
 
 const Toast: ToastComponent = ({ onClose }) => (

@@ -27,7 +27,7 @@ import { focusVisible } from '../../styles/style-mixins.js';
 import { ReturnType } from '../../types/return-type.js';
 import { ClickEvent } from '../../types/events.js';
 import { AsPropType } from '../../types/prop-types.js';
-import { Body, BodyProps } from '../Body/Body.jsx';
+import { Body, BodyProps } from '../Body/Body.js';
 import { useComponents } from '../ComponentsContext/index.js';
 
 export interface BaseProps extends BodyProps {

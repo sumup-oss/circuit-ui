@@ -15,7 +15,7 @@
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { CurrencyInput, CurrencyInputProps } from './CurrencyInput.jsx';
+import { CurrencyInput, CurrencyInputProps } from './CurrencyInput.js';
 
 export default {
   title: 'Forms/Input/CurrencyInput',

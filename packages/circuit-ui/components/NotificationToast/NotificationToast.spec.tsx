@@ -21,15 +21,15 @@ import {
   render,
   waitFor,
   waitForElementToBeRemoved,
-} from '../../util/test-utils.jsx';
+} from '../../util/test-utils.js';
 import Button from '../Button/index.js';
-import { ToastProvider } from '../ToastContext/ToastContext.jsx';
+import { ToastProvider } from '../ToastContext/ToastContext.js';
 
 import {
   NotificationToast,
   NotificationToastProps,
   useNotificationToast,
-} from './NotificationToast.jsx';
+} from './NotificationToast.js';
 
 describe('NotificationToast', () => {
   beforeEach(() => {

@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { PrimaryLink } from './PrimaryLink.jsx';
+export { PrimaryLink } from './PrimaryLink.js';

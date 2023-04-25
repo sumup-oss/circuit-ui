@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render } from '../../util/test-utils.tsx';
+import { render } from '../../util/test-utils.js';
 
 import { RangePicker } from '.';
 

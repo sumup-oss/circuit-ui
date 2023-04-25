@@ -16,7 +16,7 @@
 import { describe, expect, test, vi } from 'vitest';
 import { useRef } from 'react';
 
-import { render, renderHook } from './test-utils.jsx';
+import { render, renderHook } from './test-utils.js';
 import { applyMultipleRefs } from './refs.js';
 
 describe('applyMultipleRefs function', () => {

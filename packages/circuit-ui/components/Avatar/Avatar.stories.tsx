@@ -15,7 +15,7 @@
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { Avatar, AvatarProps } from './Avatar.jsx';
+import { Avatar, AvatarProps } from './Avatar.js';
 
 export default {
   title: 'Components/Avatar',

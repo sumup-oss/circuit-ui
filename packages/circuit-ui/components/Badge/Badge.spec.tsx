@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.jsx';
+import { render, axe } from '../../util/test-utils.js';
 
-import { Badge } from './Badge.jsx';
+import { Badge } from './Badge.js';
 
 describe('Badge', () => {
   /**

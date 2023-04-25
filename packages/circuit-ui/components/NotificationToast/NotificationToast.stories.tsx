@@ -22,7 +22,7 @@ import {
   NotificationToast,
   NotificationToastProps,
   useNotificationToast,
-} from './NotificationToast.jsx';
+} from './NotificationToast.js';
 
 export default {
   title: 'Notification/NotificationToast',

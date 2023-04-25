@@ -18,7 +18,7 @@ import { useState } from 'react';
 import Avatar from '../Avatar/index.js';
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { ImageInputProps } from './ImageInput.jsx';
+import { ImageInputProps } from './ImageInput.js';
 
 import ImageInput from '.';
 

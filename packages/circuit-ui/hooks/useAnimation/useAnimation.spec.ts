@@ -15,7 +15,7 @@
 
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { renderHook, act } from '../../util/test-utils.jsx';
+import { renderHook, act } from '../../util/test-utils.js';
 
 import { useAnimation } from './useAnimation.js';
 

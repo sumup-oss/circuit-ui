@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { NotificationBanner } from './NotificationBanner.jsx';
+import { NotificationBanner } from './NotificationBanner.js';
 
-export type { NotificationBannerProps } from './NotificationBanner.jsx';
+export type { NotificationBannerProps } from './NotificationBanner.js';
 
 export default NotificationBanner;

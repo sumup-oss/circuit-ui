@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render } from '../../../../util/test-utils.tsx';
+import { render } from '../../../../util/test-utils.js';
 
 import { Tab } from './Tab.js';
 

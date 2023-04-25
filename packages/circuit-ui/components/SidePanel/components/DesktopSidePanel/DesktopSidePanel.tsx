@@ -17,7 +17,7 @@ import { css, ClassNames, Global } from '@emotion/react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
 import { StackContext } from '../../../StackContext/index.js';
-import type { SidePanelProps } from '../../SidePanel.jsx';
+import type { SidePanelProps } from '../../SidePanel.js';
 import {
   SIDE_PANEL_WIDTH,
   PORTAL_CLASS_NAME,

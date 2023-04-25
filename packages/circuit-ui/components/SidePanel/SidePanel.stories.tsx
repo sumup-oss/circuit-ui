@@ -26,12 +26,12 @@ import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories';
 import { spacing } from '../../styles/style-mixins.js';
 
-import { SidePanelProvider } from './SidePanelContext.jsx';
+import { SidePanelProvider } from './SidePanelContext.js';
 import {
   useSidePanel,
   ChildrenRenderProps,
   SidePanelHookProps,
-} from './useSidePanel.jsx';
+} from './useSidePanel.js';
 
 export default {
   title: 'Navigation/SidePanel',

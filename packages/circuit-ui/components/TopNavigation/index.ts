@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { TopNavigation, TOP_NAVIGATION_HEIGHT } from './TopNavigation.jsx';
+export { TopNavigation, TOP_NAVIGATION_HEIGHT } from './TopNavigation.js';
 
-export type { TopNavigationProps } from './TopNavigation.jsx';
+export type { TopNavigationProps } from './TopNavigation.js';

@@ -17,7 +17,7 @@ import { useContext, useMemo } from 'react';
 
 import { uniqueId } from '../../util/id.js';
 
-import { ToastContext } from './ToastContext.jsx';
+import { ToastContext } from './ToastContext.js';
 import type { BaseToastProps, ToastComponent } from './types.js';
 
 export function createUseToast<T extends BaseToastProps>(

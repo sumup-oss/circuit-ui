@@ -24,7 +24,7 @@ import {
   RenderFn,
   render,
   userEvent,
-} from '../../util/test-utils.jsx';
+} from '../../util/test-utils.js';
 import { ClickEvent } from '../../types/events.js';
 
 import {
@@ -32,7 +32,7 @@ import {
   PopoverItemProps,
   Popover,
   PopoverProps,
-} from './Popover.jsx';
+} from './Popover.js';
 
 const placements: Placement[] = ['top', 'bottom', 'left', 'right'];
 

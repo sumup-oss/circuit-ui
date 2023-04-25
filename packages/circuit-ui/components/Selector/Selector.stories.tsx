@@ -17,7 +17,7 @@ import { Stack } from '../../../../.storybook/components/index.js';
 import SelectorGroup from '../SelectorGroup/index.js';
 import Body from '../Body/index.js';
 
-import { Selector, SelectorProps } from './Selector.jsx';
+import { Selector, SelectorProps } from './Selector.js';
 
 export default {
   title: 'Forms/Selector',

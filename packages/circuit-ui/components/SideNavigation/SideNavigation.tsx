@@ -21,7 +21,7 @@ import { AccessibilityError } from '../../util/errors.js';
 import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 import { DesktopNavigation } from './components/DesktopNavigation/index.js';
-import { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation.jsx';
+import { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation.js';
 import {
   MobileNavigationProps,
   useMobileNavigation,

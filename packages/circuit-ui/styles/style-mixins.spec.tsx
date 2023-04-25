@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 import { css } from '@emotion/react';
 import { light, Theme } from '@sumup/design-tokens';
 
-import { create } from '../util/test-utils.jsx';
+import { create } from '../util/test-utils.js';
 
 import {
   cx,

@@ -21,7 +21,7 @@ import { Theme } from '@sumup/design-tokens';
 import { spacing } from '../../styles/style-mixins.js';
 import Body from '../Body/index.js';
 
-import { ListItemGroup, ListItemGroupProps } from './ListItemGroup.jsx';
+import { ListItemGroup, ListItemGroupProps } from './ListItemGroup.js';
 
 interface Item {
   id: number;

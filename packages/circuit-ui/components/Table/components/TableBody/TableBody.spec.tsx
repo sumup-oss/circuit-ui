@@ -20,7 +20,7 @@ import {
   render,
   renderToHtml,
   axe,
-} from '../../../../util/test-utils.jsx';
+} from '../../../../util/test-utils.js';
 
 import TableBody from '.';
 

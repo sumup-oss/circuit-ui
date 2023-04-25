@@ -21,10 +21,10 @@ import {
   userEvent,
   render,
   screen,
-} from '../../util/test-utils.jsx';
-import type { InputElement } from '../Input/Input.jsx';
+} from '../../util/test-utils.js';
+import type { InputElement } from '../Input/Input.js';
 
-import { TextArea, TextAreaProps } from './TextArea.jsx';
+import { TextArea, TextAreaProps } from './TextArea.js';
 import { useAutoExpand } from './useAutoExpand.js';
 
 const baseTextareaProps: TextAreaProps = {

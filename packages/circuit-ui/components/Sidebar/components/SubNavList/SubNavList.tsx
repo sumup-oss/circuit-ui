@@ -22,7 +22,7 @@ import {
   getSelectedChildIndex,
   getSecondaryChildren,
   getChildrenLength,
-} from '../../SidebarService.jsx';
+} from '../../SidebarService.js';
 
 // @ts-expect-error Wontfix: this component is deprecated.
 export interface SubNavListProps extends HTMLAttributes<HTMLUListElement> {

@@ -16,9 +16,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render, screen } from '../../util/test-utils.jsx';
+import { axe, render, screen } from '../../util/test-utils.js';
 
-import { SelectorGroup } from './SelectorGroup.jsx';
+import { SelectorGroup } from './SelectorGroup.js';
 
 describe('SelectorGroup', () => {
   const defaultProps = {

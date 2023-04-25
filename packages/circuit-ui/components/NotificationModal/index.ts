@@ -15,4 +15,4 @@
 
 export { useNotificationModal } from './useNotificationModal.js';
 
-export type { NotificationModalProps } from './NotificationModal.jsx';
+export type { NotificationModalProps } from './NotificationModal.js';

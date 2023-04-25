@@ -24,11 +24,11 @@ import {
   axe,
   RenderFn,
   userEvent,
-} from '../../util/test-utils.jsx';
+} from '../../util/test-utils.js';
 import Body from '../Body/index.js';
 import Badge from '../Badge/index.js';
 
-import { ListItem, ListItemProps } from './ListItem.jsx';
+import { ListItem, ListItemProps } from './ListItem.js';
 
 describe('ListItem', () => {
   function renderListItem<T>(renderFn: RenderFn<T>, props: ListItemProps) {

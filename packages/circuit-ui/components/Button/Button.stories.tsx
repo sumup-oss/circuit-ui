@@ -21,7 +21,7 @@ import ButtonGroup from '../ButtonGroup/index.js';
 import IconButton from '../IconButton/index.js';
 import CloseButton from '../CloseButton/index.js';
 
-import { Button, ButtonProps } from './Button.jsx';
+import { Button, ButtonProps } from './Button.js';
 
 export default {
   title: 'Components/Button',

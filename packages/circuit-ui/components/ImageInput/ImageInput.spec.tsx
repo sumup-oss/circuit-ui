@@ -24,9 +24,9 @@ import {
   fireEvent,
   waitFor,
   createEvent,
-} from '../../util/test-utils.jsx';
+} from '../../util/test-utils.js';
 
-import { ImageInput } from './ImageInput.jsx';
+import { ImageInput } from './ImageInput.js';
 
 const defaultProps = {
   label: 'Upload an image',

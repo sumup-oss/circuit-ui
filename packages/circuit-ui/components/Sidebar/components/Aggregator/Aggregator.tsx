@@ -19,7 +19,7 @@ import { css } from '@emotion/react';
 import { ClickEvent } from '../../../../types/events.js';
 import { isEmpty } from '../../../../util/helpers.js';
 import styled, { StyleProps } from '../../../../styles/styled.js';
-import { Child, hasSelectedChild, getIcon } from '../../SidebarService.jsx';
+import { Child, hasSelectedChild, getIcon } from '../../SidebarService.js';
 import { SubNavList } from '../SubNavList/index.js';
 import { NavLabel } from '../NavLabel/index.js';
 import { AccessibilityError } from '../../../../util/errors.js';

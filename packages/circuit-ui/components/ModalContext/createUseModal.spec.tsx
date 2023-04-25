@@ -15,10 +15,10 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { renderHook, act } from '../../util/test-utils.jsx';
+import { renderHook, act } from '../../util/test-utils.js';
 
 import { createUseModal } from './createUseModal.js';
-import { ModalContext } from './ModalContext.jsx';
+import { ModalContext } from './ModalContext.js';
 import type { ModalComponent } from './types.js';
 
 const Modal: ModalComponent = ({ onClose }) => (

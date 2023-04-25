@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, userEvent, axe } from '../../util/test-utils.jsx';
+import { render, userEvent, axe } from '../../util/test-utils.js';
 
 import RadioButton from '.';
 

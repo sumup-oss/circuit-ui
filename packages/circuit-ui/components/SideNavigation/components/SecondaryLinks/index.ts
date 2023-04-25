@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { SecondaryLinks } from './SecondaryLinks.jsx';
+export { SecondaryLinks } from './SecondaryLinks.js';
 
-export type { SecondaryLinksProps } from './SecondaryLinks.jsx';
+export type { SecondaryLinksProps } from './SecondaryLinks.js';

@@ -23,7 +23,7 @@ import {
 
 import styled from '../../styles/styled.js';
 import { typography } from '../../styles/style-mixins.js';
-import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton.jsx';
+import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton.js';
 import {
   FieldWrapper,
   FieldLabelText,

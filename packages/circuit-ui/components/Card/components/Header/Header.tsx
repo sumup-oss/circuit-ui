@@ -21,7 +21,7 @@ import styled, { StyleProps } from '../../../../styles/styled.js';
 import {
   CloseButton,
   CloseButtonProps,
-} from '../../../CloseButton/CloseButton.jsx';
+} from '../../../CloseButton/CloseButton.js';
 import { isArray } from '../../../../util/type-check.js';
 
 type CloseProps =

@@ -22,9 +22,9 @@ import {
   axe,
   RenderFn,
   userEvent,
-} from '../../util/test-utils.jsx';
+} from '../../util/test-utils.js';
 
-import { Pagination, PaginationProps } from './Pagination.jsx';
+import { Pagination, PaginationProps } from './Pagination.js';
 
 describe('Pagination', () => {
   function renderPagination<T>(renderFn: RenderFn<T>, props: PaginationProps) {

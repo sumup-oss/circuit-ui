@@ -21,10 +21,10 @@ import {
   render,
   screen,
   userEvent,
-} from '../../../../util/test-utils.jsx';
+} from '../../../../util/test-utils.js';
 import { PopoverProps } from '../../../Popover';
 
-import { ProfileMenu } from './ProfileMenu.jsx';
+import { ProfileMenu } from './ProfileMenu.js';
 
 describe('ProfileMenu', () => {
   const baseProps = {

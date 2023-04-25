@@ -17,12 +17,12 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Home, Shop } from '@sumup/icons';
 
-import { render, axe, RenderFn } from '../../../../util/test-utils.jsx';
+import { render, axe, RenderFn } from '../../../../util/test-utils.js';
 
 import {
   DesktopNavigation,
   DesktopNavigationProps,
-} from './DesktopNavigation.jsx';
+} from './DesktopNavigation.js';
 
 describe('DesktopNavigation', () => {
   function renderDesktopNavigation<T>(

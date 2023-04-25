@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../../../util/test-utils.jsx';
+import { create, renderToHtml, axe } from '../../../../util/test-utils.js';
 
-import { Separator } from './Separator.jsx';
+import { Separator } from './Separator.js';
 
 describe('Separator', () => {
   /**

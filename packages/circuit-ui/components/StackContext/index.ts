@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { StackContext, useStackContext } from './StackContext.jsx';
+export { StackContext, useStackContext } from './StackContext.js';

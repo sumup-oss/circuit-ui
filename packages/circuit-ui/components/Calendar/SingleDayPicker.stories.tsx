@@ -16,14 +16,14 @@
 import { useState } from 'react';
 import type { Moment } from 'moment';
 
-import { SingleDayPicker, SingleDatePickerProps } from './SingleDayPicker.js';
+import { SingleDayPicker, SingleDayPickerProps } from './SingleDayPicker.js';
 
 export default {
   title: 'Forms/Calendar/SingleDayPicker',
   component: SingleDayPicker,
 };
 
-export const Base = (args: SingleDatePickerProps) => {
+export const Base = (args: SingleDayPickerProps) => {
   const [date, setDate] = useState<Moment | null>(null);
   const [focusedInput, setFocusedInput] = useState(false);
 

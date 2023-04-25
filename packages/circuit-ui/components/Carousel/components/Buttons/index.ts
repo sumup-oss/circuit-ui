@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons.jsx';
+export { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons.js';

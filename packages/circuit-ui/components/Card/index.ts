@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { Card } from './Card.jsx';
+import { Card } from './Card.js';
 
-export type { CardProps } from './Card.jsx';
+export type { CardProps } from './Card.js';
 
 export {
   Header as CardHeader,

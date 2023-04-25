@@ -21,10 +21,10 @@ import {
   renderToHtml,
   axe,
   userEvent,
-} from '../../util/test-utils.jsx';
+} from '../../util/test-utils.js';
 import Badge from '../Badge/index.js';
 
-import Table from './Table.jsx';
+import Table from './Table.js';
 import { HeaderCell, Direction } from './types.js';
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {

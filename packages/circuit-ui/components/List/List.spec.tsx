@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.jsx';
+import { create, renderToHtml, axe } from '../../util/test-utils.js';
 
-import { List, ListProps } from './List.jsx';
+import { List, ListProps } from './List.js';
 
 describe('List', () => {
   /**

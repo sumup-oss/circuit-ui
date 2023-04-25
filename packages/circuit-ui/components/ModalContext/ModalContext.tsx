@@ -24,7 +24,7 @@ import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { Global, css } from '@emotion/react';
 
 import { useStack, StackItem } from '../../hooks/useStack/index.js';
-import { warn } from '../../util/logger.jsx';
+import { warn } from '../../util/logger.js';
 
 import { BaseModalProps, ModalComponent } from './types.js';
 

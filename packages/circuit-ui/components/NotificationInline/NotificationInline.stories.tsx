@@ -21,7 +21,7 @@ import styled from '../../styles/styled.js';
 import {
   NotificationInline,
   NotificationInlineProps,
-} from './NotificationInline.jsx';
+} from './NotificationInline.js';
 
 export default {
   title: 'Notification/NotificationInline',

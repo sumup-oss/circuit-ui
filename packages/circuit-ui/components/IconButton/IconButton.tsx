@@ -20,7 +20,7 @@ import { IconProps } from '@sumup/icons';
 
 import { hideVisually } from '../../styles/style-mixins.js';
 import styled from '../../styles/styled.js';
-import { Button, ButtonProps } from '../Button/Button.jsx';
+import { Button, ButtonProps } from '../Button/Button.js';
 import { AccessibilityError } from '../../util/errors.js';
 
 export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {

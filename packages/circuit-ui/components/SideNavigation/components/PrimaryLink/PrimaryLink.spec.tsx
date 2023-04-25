@@ -24,9 +24,9 @@ import {
   axe,
   RenderFn,
   userEvent,
-} from '../../../../util/test-utils.jsx';
+} from '../../../../util/test-utils.js';
 
-import { PrimaryLink, PrimaryLinkProps } from './PrimaryLink.jsx';
+import { PrimaryLink, PrimaryLinkProps } from './PrimaryLink.js';
 
 describe('PrimaryLink', () => {
   function renderPrimaryLink<T>(

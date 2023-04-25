@@ -17,7 +17,7 @@ import { forwardRef, useRef } from 'react';
 import { css } from '@emotion/react';
 
 import Input from '../Input/index.js';
-import { InputElement, InputProps } from '../Input/Input.jsx';
+import { InputElement, InputProps } from '../Input/Input.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 
 import { useAutoExpand } from './useAutoExpand.js';

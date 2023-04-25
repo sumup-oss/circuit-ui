@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { ProfileMenu } from './ProfileMenu.jsx';
+export { ProfileMenu } from './ProfileMenu.js';
 
-export type { ProfileMenuProps } from './ProfileMenu.jsx';
+export type { ProfileMenuProps } from './ProfileMenu.js';

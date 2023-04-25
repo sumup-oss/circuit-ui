@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { DesktopSidePanel } from './DesktopSidePanel.jsx';
+export { DesktopSidePanel } from './DesktopSidePanel.js';

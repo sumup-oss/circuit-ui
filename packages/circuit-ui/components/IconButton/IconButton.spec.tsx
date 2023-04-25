@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { Close } from '@sumup/icons';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.jsx';
+import { create, renderToHtml, axe } from '../../util/test-utils.js';
 
-import { IconButton } from './IconButton.jsx';
+import { IconButton } from './IconButton.js';
 
 describe('IconButton', () => {
   /**

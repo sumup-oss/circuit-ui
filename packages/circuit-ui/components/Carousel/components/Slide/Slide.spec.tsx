@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render } from '../../../../util/test-utils.tsx';
+import { axe, render } from '../../../../util/test-utils.js';
 import { SLIDE_DIRECTIONS } from '../../constants.js';
 
 import { Slide } from './Slide.js';

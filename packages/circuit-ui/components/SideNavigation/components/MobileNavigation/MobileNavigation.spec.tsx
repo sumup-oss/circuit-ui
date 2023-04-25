@@ -23,12 +23,9 @@ import {
   RenderFn,
   userEvent,
   waitFor,
-} from '../../../../util/test-utils.jsx';
+} from '../../../../util/test-utils.js';
 
-import {
-  MobileNavigation,
-  MobileNavigationProps,
-} from './MobileNavigation.jsx';
+import { MobileNavigation, MobileNavigationProps } from './MobileNavigation.js';
 
 describe('MobileNavigation', () => {
   function renderMobileNavigation<T>(

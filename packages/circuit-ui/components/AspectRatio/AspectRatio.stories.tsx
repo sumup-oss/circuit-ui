@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import styled from '../../styles/styled.ts';
+import styled from '../../styles/styled.js';
 
 import { AspectRatio, AspectRatioProps } from './AspectRatio.js';
 

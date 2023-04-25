@@ -24,7 +24,7 @@ import { AccessibilityError } from '../../util/errors.js';
 import { MobileSidePanel } from './components/MobileSidePanel/index.js';
 import { DesktopSidePanel } from './components/DesktopSidePanel/index.js';
 import { Header } from './components/Header/index.js';
-import type { SidePanelHookProps, Callback } from './useSidePanel.jsx';
+import type { SidePanelHookProps, Callback } from './useSidePanel.js';
 import {
   BODY_MAX_WIDTH,
   HTML_OPEN_CLASS_NAME,

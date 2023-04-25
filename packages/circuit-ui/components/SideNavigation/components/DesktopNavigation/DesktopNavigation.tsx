@@ -21,7 +21,7 @@ import { Theme } from '@sumup/design-tokens';
 import styled, { StyleProps } from '../../../../styles/styled.js';
 import { shadow, hideScrollbar } from '../../../../styles/style-mixins.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
-import { TOP_NAVIGATION_HEIGHT } from '../../../TopNavigation/TopNavigation.jsx';
+import { TOP_NAVIGATION_HEIGHT } from '../../../TopNavigation/TopNavigation.js';
 import Headline from '../../../Headline/index.js';
 import { Skeleton, SkeletonContainer } from '../../../Skeleton/index.js';
 import { PrimaryLinkProps } from '../../types.js';

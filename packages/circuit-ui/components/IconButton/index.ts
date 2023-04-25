@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { IconButton } from './IconButton.jsx';
+import { IconButton } from './IconButton.js';
 
-export type { IconButtonProps } from './IconButton.jsx';
+export type { IconButtonProps } from './IconButton.js';
 
 export default IconButton;

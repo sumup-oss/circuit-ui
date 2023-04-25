@@ -15,6 +15,6 @@
 
 import { createUseModal } from '../ModalContext/index.js';
 
-import { NotificationModal } from './NotificationModal.jsx';
+import { NotificationModal } from './NotificationModal.js';
 
 export const useNotificationModal = createUseModal(NotificationModal);

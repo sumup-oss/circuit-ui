@@ -16,13 +16,13 @@
 import { describe, expect, it } from 'vitest';
 import { useContext } from 'react';
 
-import { act, fireEvent, render } from '../../util/test-utils.tsx';
+import { act, fireEvent, render } from '../../util/test-utils.js';
 
 import {
   SidebarContext,
   SidebarContextProvider,
   SidebarContextConsumer,
-} from './SidebarContext.jsx';
+} from './SidebarContext.js';
 
 const ToggleSidebarButton = () => {
   const { toggleSidebar, isSidebarOpen } = useContext(SidebarContext);

@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { useNotificationToast } from './NotificationToast.jsx';
+export { useNotificationToast } from './NotificationToast.js';
 
-export type { NotificationToastProps } from './NotificationToast.jsx';
+export type { NotificationToastProps } from './NotificationToast.js';

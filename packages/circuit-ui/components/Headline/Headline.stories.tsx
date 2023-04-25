@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Headline, HeadlineProps } from './Headline.jsx';
+import { Headline, HeadlineProps } from './Headline.js';
 
 export default {
   title: 'Typography/Headline',

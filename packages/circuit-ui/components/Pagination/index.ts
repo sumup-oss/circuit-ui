@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Pagination } from './Pagination.jsx';
+import { Pagination } from './Pagination.js';
 
-export type { PaginationProps } from './Pagination.jsx';
+export type { PaginationProps } from './Pagination.js';
 
 export default Pagination;

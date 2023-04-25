@@ -19,7 +19,7 @@ import { Search, Close } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled.js';
 import Input from '../Input/index.js';
-import { InputProps } from '../Input/Input.jsx';
+import { InputProps } from '../Input/Input.js';
 import IconButton from '../IconButton/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 

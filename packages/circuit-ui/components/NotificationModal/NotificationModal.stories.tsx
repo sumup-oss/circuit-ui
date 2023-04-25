@@ -21,7 +21,7 @@ import Button from '../Button/index.js';
 import {
   NotificationModal,
   NotificationModalProps,
-} from './NotificationModal.jsx';
+} from './NotificationModal.js';
 import { useNotificationModal } from './useNotificationModal.js';
 
 export default {

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Image, ImageProps } from './Image.jsx';
+import { Image, ImageProps } from './Image.js';
 
 export default {
   title: 'Components/Image',

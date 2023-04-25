@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ButtonGroup } from './ButtonGroup.jsx';
+import { ButtonGroup } from './ButtonGroup.js';
 
-export type { ButtonGroupProps } from './ButtonGroup.jsx';
+export type { ButtonGroupProps } from './ButtonGroup.js';
 
 export default ButtonGroup;

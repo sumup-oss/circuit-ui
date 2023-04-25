@@ -16,7 +16,7 @@
 import { useState, ChangeEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { Checkbox, CheckboxProps } from './Checkbox.jsx';
+import { Checkbox, CheckboxProps } from './Checkbox.js';
 
 export default {
   title: 'Forms/Checkbox',

@@ -22,9 +22,9 @@ import {
   axe,
   RenderFn,
   userEvent,
-} from '../../../../util/test-utils.jsx';
+} from '../../../../util/test-utils.js';
 
-import { SecondaryLinks, SecondaryLinksProps } from './SecondaryLinks.jsx';
+import { SecondaryLinks, SecondaryLinksProps } from './SecondaryLinks.js';
 
 describe('SecondaryLinks', () => {
   function renderSecondaryLinks<T>(

@@ -19,7 +19,7 @@ import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
 import styled from '../../styles/styled.js';
 import Input from '../Input/index.js';
-import { InputProps } from '../Input/Input.jsx';
+import { InputProps } from '../Input/Input.js';
 
 import { formatPlaceholder } from './CurrencyInputService.js';
 

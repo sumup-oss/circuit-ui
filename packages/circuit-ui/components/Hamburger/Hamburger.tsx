@@ -16,7 +16,7 @@
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
-import { IconButton, IconButtonProps } from '../IconButton/IconButton.jsx';
+import { IconButton, IconButtonProps } from '../IconButton/IconButton.js';
 import { Skeleton } from '../Skeleton/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 

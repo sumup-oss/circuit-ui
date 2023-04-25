@@ -17,10 +17,10 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { Shop } from '@sumup/icons';
 
-import { render, axe, RenderFn, waitFor } from '../../util/test-utils.jsx';
+import { render, axe, RenderFn, waitFor } from '../../util/test-utils.js';
 import { ModalProvider } from '../ModalContext/index.js';
 
-import { SideNavigation, SideNavigationProps } from './SideNavigation.jsx';
+import { SideNavigation, SideNavigationProps } from './SideNavigation.js';
 
 describe('SideNavigation', () => {
   function setMediaMatches(matches: boolean) {

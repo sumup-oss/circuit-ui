@@ -17,10 +17,10 @@ import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 import { css } from '@emotion/react';
 
-import { render, axe, userEvent, screen } from '../../util/test-utils.jsx';
+import { render, axe, userEvent, screen } from '../../util/test-utils.js';
 import { ClickEvent } from '../../types/events.js';
 
-import { Anchor } from './Anchor.jsx';
+import { Anchor } from './Anchor.js';
 
 describe('Anchor', () => {
   const baseProps = { children: 'Anchor' };

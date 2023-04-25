@@ -26,7 +26,7 @@ import Image from '../Image/index.js';
 import { ModalProvider } from '../ModalContext/index.js';
 import { spacing } from '../../styles/style-mixins.js';
 
-import { Modal, ModalProps, useModal } from './Modal.jsx';
+import { Modal, ModalProps, useModal } from './Modal.js';
 
 export default {
   title: 'Components/Modal',

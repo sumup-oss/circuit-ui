@@ -21,7 +21,7 @@ import styled, { StyleProps } from '../../../../styles/styled.js';
 import { ClickEvent } from '../../../../types/events.js';
 import { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
-import { getIcon } from '../../SidebarService.jsx';
+import { getIcon } from '../../SidebarService.js';
 import { NavLabel } from '../NavLabel/index.js';
 
 export interface NavItemProps {

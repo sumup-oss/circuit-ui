@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Hr } from './Hr.jsx';
+import { Hr } from './Hr.js';
 
 export default {
   title: 'Components/Hr',

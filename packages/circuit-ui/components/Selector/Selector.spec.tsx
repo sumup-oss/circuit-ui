@@ -22,9 +22,9 @@ import {
   userEvent,
   renderToHtml,
   axe,
-} from '../../util/test-utils.jsx';
+} from '../../util/test-utils.js';
 
-import { Selector } from './Selector.jsx';
+import { Selector } from './Selector.js';
 
 const defaultProps = {
   name: 'name',

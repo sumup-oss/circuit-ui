@@ -15,7 +15,7 @@
 
 import { Mock, afterAll, describe, expect, it, vi } from 'vitest';
 
-import { create, render } from '../../util/test-utils.jsx';
+import { create, render } from '../../util/test-utils.js';
 
 import Step from './Step.js';
 import { useStep } from './hooks/useStep.js';

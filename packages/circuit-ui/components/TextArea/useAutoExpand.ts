@@ -16,7 +16,7 @@
 
 import { FormEvent, RefObject, useCallback, useEffect } from 'react';
 
-import type { InputElement } from '../Input/Input.jsx';
+import type { InputElement } from '../Input/Input.js';
 import { useComponentSize } from '../../hooks/useComponentSize/index.js';
 
 import type { TextAreaProps } from './index.js';

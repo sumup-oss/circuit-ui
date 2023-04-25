@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { CurrencyInput } from './CurrencyInput.jsx';
+import { CurrencyInput } from './CurrencyInput.js';
 
-export type { CurrencyInputProps } from './CurrencyInput.jsx';
+export type { CurrencyInputProps } from './CurrencyInput.js';
 
 export default CurrencyInput;

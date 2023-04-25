@@ -17,7 +17,7 @@ import { useState } from 'react';
 
 import RadioButtonGroup from '../RadioButtonGroup/index.js';
 
-import { RadioButton, RadioButtonProps } from './RadioButton.jsx';
+import { RadioButton, RadioButtonProps } from './RadioButton.js';
 
 export default {
   title: 'Forms/RadioButton',

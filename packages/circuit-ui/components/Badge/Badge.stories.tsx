@@ -15,7 +15,7 @@
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { Badge, BadgeProps } from './Badge.jsx';
+import { Badge, BadgeProps } from './Badge.js';
 
 export default {
   title: 'Components/Badge',

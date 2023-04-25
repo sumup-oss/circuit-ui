@@ -15,7 +15,7 @@
 
 import { Plus } from '@sumup/icons';
 
-import { IconButton, IconButtonProps } from './IconButton.jsx';
+import { IconButton, IconButtonProps } from './IconButton.js';
 
 export default {
   title: 'Components/Button/IconButton',
