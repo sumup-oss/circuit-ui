@@ -13,41 +13,60 @@
  * limitations under the License.
  */
 
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component, createRef } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { START_DATE, END_DATE } from 'react-dates/constants';
+import type { Moment } from 'moment';
 
 import { RangePickerController } from '../Calendar';
 import Tag from '../Tag';
-import { typography } from '../../styles/style-mixins';
+import type { ClickEvent } from '../../types/events';
+import ButtonGroup from '../ButtonGroup';
 
-const calendarInfoBase = () => css`
-  text-align: right;
-  margin: 0 23px 0; /* based on react dates */
-  padding: 0 0 10px 0;
+export interface CalendarTagTwoStepProps {
+  /**
+   * Callback to receive the set of dates when the user selects them.
+   */
+  onDatesRangeChange: (range: DateRange) => void;
+  /**
+   * Function that's called when the date tag is clicked.
+   */
+  onClick?: (event: ClickEvent) => void;
+  /**
+   * Label for the clear action
+   */
+  clearButtonLabel: string;
+
+  /**
+   * Label for the confirm action
+   */
+  confirmButtonLabel: string;
+}
+
+type CalendarTagTwoStepState = DateRange & {
+  focusedInput: FocusedInput;
+};
+
+type CalendarDate = Moment | null;
+type DateRange = {
+  startDate: CalendarDate;
+  endDate: CalendarDate;
+};
+type FocusedInput = 'startDate' | 'endDate' | null;
+
+const START_DATE = 'startDate';
+const END_DATE = 'endDate';
+
+const buttonGroupStyles = () => css`
+  /* based on react dates */
+  padding: 0 23px 18px 0;
 `;
-
-const CalendarInfo = styled('div')(calendarInfoBase);
-
-const buttonBase = ({ theme, primary }) => css`
-  border: none;
-  background: none;
-
-  ${typography('two')(theme)};
-  margin-left: ${theme.spacings.kilo}};
-  cursor: pointer;
-  color: ${primary ? 'var(--cui-fg-accent)' : 'var(--cui-fg-normal'};
-`;
-
-const InfoButton = styled('span')(buttonBase);
 
 const CalendarWrapper = styled.div`
   margin-top: ${({ theme }) => theme.spacings.byte};
 `;
 
-function toDate(date) {
+function toDate(date: CalendarDate) {
   return date ? date.format('MMM DD') : '';
 }
 
@@ -55,49 +74,31 @@ function toDate(date) {
  * Component composed from a <Tag /> and a <RangePickerController /> that has
  * two step process where the user has to click "Apply" to trigger onChange
  */
-export default class CalendarTagTwoStep extends Component {
-  static propTypes = {
-    /**
-     * Callback to receive the set of dates when the user confirms them.
-     */
-    onDatesRangeChange: PropTypes.func.isRequired,
-
-    /**
-     * Text for the clear button
-     */
-    clearText: PropTypes.string,
-
-    /**
-     * Text for the confirm button
-     */
-    confirmText: PropTypes.string,
-    /**
-     * Function that's called when the date tag is clicked.
-     */
-    onClick: PropTypes.func,
+export class CalendarTagTwoStep extends Component<
+  CalendarTagTwoStepProps,
+  CalendarTagTwoStepState
+> {
+  state = {
+    startDate: null,
+    endDate: null,
+    focusedInput: null,
   };
 
-  static defaultProps = {
-    clearText: 'Clear',
-    confirmText: 'Apply',
-  };
+  tagRef = createRef<HTMLDivElement & HTMLButtonElement>();
 
-  state = { startDate: null, endDate: null, focusedInput: null };
-
-  tagRef = null; // eslint-disable-line react/sort-comp
-
-  handleDatesChange = ({ startDate, endDate }) => {
+  handleDatesChange = ({ startDate, endDate }: DateRange) => {
     this.setState({ startDate, endDate });
 
     this.handleFocusChange(endDate ? START_DATE : END_DATE);
   };
 
-  handleFocusChange = (focusedInput) => this.setState({ focusedInput });
+  handleFocusChange = (focusedInput: FocusedInput) =>
+    this.setState({ focusedInput });
 
   handleClear = () =>
     this.setState({ startDate: null, endDate: null, focusedInput: null });
 
-  handleTagClick = (event) => {
+  handleTagClick = (event: ClickEvent) => {
     if (this.props.onClick) {
       this.props.onClick(event);
     }
@@ -116,12 +117,11 @@ export default class CalendarTagTwoStep extends Component {
     return `${toDate(startDate)} - ${toDate(endDate)}`;
   };
 
-  handleTagRef = (ref) => {
-    this.tagRef = ref;
-  };
-
-  handleOutsideClick = ({ target }) => {
-    if (this.tagRef && !this.tagRef.contains(target)) {
+  handleOutsideClick = ({ target }: MouseEvent) => {
+    if (
+      this.tagRef.current &&
+      !this.tagRef.current.contains(target as HTMLElement)
+    ) {
       this.handleFocusChange(null);
     }
   };
@@ -138,39 +138,52 @@ export default class CalendarTagTwoStep extends Component {
   };
 
   render() {
-    const { clearText, confirmText, onDatesRangeChange, ...props } = this.props;
+    const {
+      clearButtonLabel,
+      confirmButtonLabel,
+      onDatesRangeChange,
+      ...props
+    } = this.props;
     const { focusedInput, startDate, endDate } = this.state;
     const isOpen = focusedInput !== null;
-    const isFilled = !!(startDate && endDate);
+    const isFilled = Boolean(startDate && endDate);
 
     return (
       <div {...props}>
         <Tag
           selected={isOpen || isFilled}
-          ref={this.handleTagRef}
+          ref={this.tagRef}
           onClick={this.handleTagClick}
         >
           {this.getDateRangePreview()}
         </Tag>
         {isOpen && (
           <CalendarWrapper>
+            {/* @ts-expect-error This worked before the component was converted to TypeScript */}
             <RangePickerController
               startDate={startDate}
               endDate={endDate}
               onDatesChange={this.handleDatesChange}
-              focusedInput={focusedInput}
               onOutsideClick={this.handleOutsideClick}
               numberOfMonths={2}
               calendarInfoPosition="bottom"
               renderCalendarInfo={() => (
-                <CalendarInfo>
-                  <InfoButton onClick={this.handleClear}>
-                    {clearText}
-                  </InfoButton>
-                  <InfoButton primary onClick={this.handleConfirm}>
-                    {confirmText}
-                  </InfoButton>
-                </CalendarInfo>
+                <ButtonGroup
+                  css={buttonGroupStyles}
+                  align="right"
+                  actions={{
+                    primary: {
+                      size: 'kilo',
+                      children: confirmButtonLabel,
+                      onClick: this.handleConfirm,
+                    },
+                    secondary: {
+                      size: 'kilo',
+                      children: clearButtonLabel,
+                      onClick: this.handleClear,
+                    },
+                  }}
+                />
               )}
             />
           </CalendarWrapper>

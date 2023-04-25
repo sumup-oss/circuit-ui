@@ -14,35 +14,26 @@
  */
 
 import { useState } from 'react';
+import type { Moment } from 'moment';
 
-import RangePicker from './RangePicker';
+import { SingleDayPicker, SingleDatePickerProps } from './SingleDayPicker';
 
 export default {
-  title: 'Forms/Calendar/RangePicker',
-  component: RangePicker,
-  argTypes: {
-    showClearDates: { control: 'boolean' },
-  },
+  title: 'Forms/Calendar/SingleDayPicker',
+  component: SingleDayPicker,
 };
 
-export const Base = (args) => {
-  const [{ startDate, endDate }, setRange] = useState({});
-  const [focusedInput, setFocusedInput] = useState(null);
+export const Base = (args: SingleDatePickerProps) => {
+  const [date, setDate] = useState<Moment | null>(null);
+  const [focusedInput, setFocusedInput] = useState(false);
 
   return (
-    <RangePicker
+    <SingleDayPicker
       {...args}
-      startDate={startDate}
-      endDate={endDate}
-      onDatesChange={setRange}
-      focusedInput={focusedInput}
-      onFocusChange={setFocusedInput}
-      startDateId="your_unique_start_date_id"
-      endDateId="your_unique_end_date_id"
+      date={date}
+      onDateChange={setDate}
+      focused={focusedInput}
+      onFocusChange={({ focused }) => setFocusedInput(focused)}
     />
   );
-};
-
-Base.args = {
-  showClearDates: true,
 };

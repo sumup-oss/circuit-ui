@@ -13,18 +13,23 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { axe, render } from '../../util/test-utils';
 
-import CalendarTagTwoStep from '.';
+import { CalendarTagTwoStep } from './CalendarTagTwoStep';
 
 describe('CalendarTagTwoStep', () => {
+  const baseProps = {
+    onDatesRangeChange: vi.fn(),
+    confirmButtonLabel: 'Confirm',
+    clearButtonLabel: 'Confirm',
+  };
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const { container } = render(<CalendarTagTwoStep />);
+    const { container } = render(<CalendarTagTwoStep {...baseProps} />);
     expect(container).toMatchSnapshot();
   });
 
@@ -32,7 +37,7 @@ describe('CalendarTagTwoStep', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const { container } = render(<CalendarTagTwoStep />);
+    const { container } = render(<CalendarTagTwoStep {...baseProps} />);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });

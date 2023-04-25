@@ -13,6 +13,15 @@
  * limitations under the License.
  */
 
-import CalendarTag from './CalendarTag';
+import { action } from '@storybook/addon-actions';
 
-export default CalendarTag;
+import { CalendarTag, CalendarTagProps } from './CalendarTag';
+
+export default {
+  title: 'Forms/Calendar/CalendarTag',
+  component: CalendarTag,
+};
+
+export const Base = (args: CalendarTagProps) => (
+  <CalendarTag {...args} onDatesRangeChange={action('onDatesRangeChange')} />
+);

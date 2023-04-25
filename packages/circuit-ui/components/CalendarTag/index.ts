@@ -13,26 +13,8 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
+import { CalendarTag } from './CalendarTag';
 
-import SingleDayPicker from './SingleDayPicker';
+export type { CalendarTagProps } from './CalendarTag';
 
-export default {
-  title: 'Forms/Calendar/SingleDayPicker',
-  component: SingleDayPicker,
-};
-
-export const Base = (args) => {
-  const [date, setDate] = useState(null);
-  const [focusedInput, setFocusedInput] = useState(null);
-
-  return (
-    <SingleDayPicker
-      {...args}
-      date={date}
-      onDateChange={setDate}
-      focused={focusedInput}
-      onFocusChange={({ focused }) => setFocusedInput(focused)}
-    />
-  );
-};
+export default CalendarTag;

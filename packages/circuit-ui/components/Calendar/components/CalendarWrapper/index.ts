@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import CalendarWrapper from './CalendarWrapper';
-
-export default CalendarWrapper;
+export { CalendarWrapper } from './CalendarWrapper';

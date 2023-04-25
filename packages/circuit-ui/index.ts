@@ -38,8 +38,15 @@ export {
   SingleDayPicker,
   CalendarConstants,
 } from './components/Calendar';
+export type {
+  RangePickerProps,
+  RangePickerControllerProps,
+  SingleDayPickerProps,
+} from './components/Calendar';
 export { default as CalendarTag } from './components/CalendarTag';
+export type { CalendarTagProps } from './components/CalendarTag';
 export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep';
+export type { CalendarTagTwoStepProps } from './components/CalendarTagTwoStep';
 export { default as Checkbox } from './components/Checkbox';
 export type { CheckboxProps } from './components/Checkbox';
 export { default as Input } from './components/Input';

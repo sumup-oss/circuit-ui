@@ -13,18 +13,23 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { axe, render } from '../../util/test-utils';
 
 import CalendarTag from '.';
 
 describe('CalendarTag', () => {
+  const baseProps = {
+    onDatesRangeChange: vi.fn(),
+    onClick: vi.fn(),
+  };
+
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const { container } = render(<CalendarTag />);
+    const { container } = render(<CalendarTag {...baseProps} />);
     expect(container).toMatchSnapshot();
   });
 
@@ -32,7 +37,7 @@ describe('CalendarTag', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const { container } = render(<CalendarTag />);
+    const { container } = render(<CalendarTag {...baseProps} />);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });

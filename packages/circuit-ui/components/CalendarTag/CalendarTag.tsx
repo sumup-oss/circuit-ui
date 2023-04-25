@@ -13,39 +13,62 @@
  * limitations under the License.
  */
 
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component, createRef } from 'react';
 import styled from '@emotion/styled';
-import { START_DATE } from 'react-dates/constants';
+import type { Moment } from 'moment';
 
 import { RangePickerController } from '../Calendar';
 import Tag from '../Tag';
+import type { ClickEvent } from '../../types/events';
+
+export interface CalendarTagProps {
+  /**
+   * Callback to receive the set of dates when the user selects them.
+   */
+  onDatesRangeChange: (range: DateRange) => void;
+  /**
+   * Function that's called when the date tag is clicked.
+   */
+  onClick?: (event: ClickEvent) => void;
+}
+
+type CalendarTagState = DateRange & {
+  focusedInput: FocusedInput;
+};
+
+type CalendarDate = Moment | null;
+type DateRange = {
+  startDate: CalendarDate;
+  endDate: CalendarDate;
+};
+type FocusedInput = 'startDate' | 'endDate' | null;
+
+const START_DATE = 'startDate';
 
 const CalendarWrap = styled.div`
   margin-top: ${({ theme }) => theme.spacings.byte};
 `;
 
-function toDate(date) {
+function toDate(date: CalendarDate) {
   return date ? date.format('MMM DD') : '';
 }
 
-class CalendarTag extends Component {
-  static propTypes = {
-    /**
-     * Callback to receive the set of dates when the user selects them.
-     */
-    onDatesRangeChange: PropTypes.func.isRequired,
-    /**
-     * Function that's called when the date tag is clicked.
-     */
-    onClick: PropTypes.func,
+export class CalendarTag extends Component<CalendarTagProps, CalendarTagState> {
+  state = {
+    startDate: null,
+    endDate: null,
+    focusedInput: null,
   };
 
-  state = { startDate: null, endDate: null, focusedInput: null };
+  tagRef = createRef<HTMLDivElement & HTMLButtonElement>();
 
-  tagRef = null; // eslint-disable-line react/sort-comp
-
-  handleDatesChange = ({ startDate, endDate }) => {
+  handleDatesChange = ({
+    startDate,
+    endDate,
+  }: {
+    startDate: CalendarDate;
+    endDate: CalendarDate;
+  }) => {
     this.setState({ startDate, endDate });
 
     if (startDate && endDate) {
@@ -53,11 +76,11 @@ class CalendarTag extends Component {
     }
   };
 
-  handleFocusChange = (focusedInput) => {
+  handleFocusChange = (focusedInput: FocusedInput) => {
     this.setState({ focusedInput });
   };
 
-  handleTagClick = (event) => {
+  handleTagClick = (event: ClickEvent) => {
     if (this.props.onClick) {
       this.props.onClick(event);
     }
@@ -76,12 +99,11 @@ class CalendarTag extends Component {
     return `${toDate(startDate)} - ${toDate(endDate)}`;
   };
 
-  handleTagRef = (ref) => {
-    this.tagRef = ref;
-  };
-
-  handleOutsideClick = ({ target }) => {
-    if (this.tagRef && !this.tagRef.contains(target)) {
+  handleOutsideClick = ({ target }: MouseEvent) => {
+    if (
+      this.tagRef.current &&
+      !this.tagRef.current.contains(target as HTMLElement)
+    ) {
       this.handleFocusChange(null);
     }
   };
@@ -93,16 +115,13 @@ class CalendarTag extends Component {
 
     return (
       <div {...props}>
-        <Tag
-          selected={isOpen}
-          ref={this.handleTagRef}
-          onClick={this.handleTagClick}
-        >
+        <Tag selected={isOpen} ref={this.tagRef} onClick={this.handleTagClick}>
           {this.getDateRangePreview()}
         </Tag>
         {isOpen && (
           <CalendarWrap>
             <RangePickerController
+              initialVisibleMonth={null}
               startDate={startDate}
               endDate={endDate}
               onDatesChange={this.handleDatesChange}
@@ -116,8 +135,3 @@ class CalendarTag extends Component {
     );
   }
 }
-
-/**
- * @component
- */
-export default CalendarTag;

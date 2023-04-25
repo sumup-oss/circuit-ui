@@ -13,22 +13,29 @@
  * limitations under the License.
  */
 
-import { ArrowRight, ArrowLeft } from '@sumup/icons';
-import { DayPickerRangeController } from 'react-dates';
+import styled from '@emotion/styled';
+import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
+import { SingleDatePicker } from 'react-dates';
+import type { SingleDatePickerShape } from 'react-dates';
 import 'react-dates/initialize';
 
 import { CalendarWrapper } from './components';
 
-const RangePickerController = (props) => (
+const CloseIcon = styled(Close)`
+  color: var(--cui-fg-normal);
+`;
+
+export type SingleDayPickerProps = SingleDatePickerShape;
+
+export const SingleDayPicker = (props: SingleDayPickerProps) => (
   <CalendarWrapper>
-    <DayPickerRangeController
+    <SingleDatePicker
       navNext={<ArrowRight size="16" />}
       navPrev={<ArrowLeft size="16" />}
+      customCloseIcon={<CloseIcon size="16" />}
       numberOfMonths={1}
       hideKeyboardShortcutsPanel
       {...props}
     />
   </CalendarWrapper>
 );
-
-export default RangePickerController;
