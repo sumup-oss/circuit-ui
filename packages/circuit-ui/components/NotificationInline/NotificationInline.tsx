@@ -34,12 +34,10 @@ import Button, { ButtonProps } from '../Button';
 import { ClickEvent } from '../../types/events';
 import { isString } from '../../util/type-check';
 import {
-  DEPRECATED_VARIANTS,
   NOTIFICATION_COLORS,
   NOTIFICATION_ICONS,
   NotificationVariant,
 } from '../Notification/constants';
-import { deprecate } from '../../util/logger';
 import { applyMultipleRefs } from '../../util/refs';
 
 const TRANSITION_DURATION = 200;
@@ -203,15 +201,6 @@ export const NotificationInline = forwardRef<
     },
     ref,
   ): JSX.Element => {
-    if (process.env.NODE_ENV !== 'production') {
-      if (DEPRECATED_VARIANTS[variant]) {
-        deprecate(
-          'NotificationInline',
-          `The "${variant}" variant has been deprecated. Use "${DEPRECATED_VARIANTS[variant]}" instead.`,
-        );
-      }
-    }
-
     const contentElement = useRef<HTMLDivElement>(null);
     const [isOpen, setOpen] = useState(isVisible);
     const [height, setHeight] = useState(getHeight(contentElement));
