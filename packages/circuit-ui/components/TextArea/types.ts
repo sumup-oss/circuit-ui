@@ -1,5 +1,5 @@
 /**
- * Copyright 2022, SumUp Ltd.
+ * Copyright 2023, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,9 +13,17 @@
  * limitations under the License.
  */
 
-export { SidePanelProvider } from './SidePanelContext.jsx';
-export { useSidePanel } from './useSidePanel.jsx';
-export { SIDE_PANEL_WIDTH } from './constants.jsx';
+import type { InputProps } from '../Input/index.js';
 
-export type { SidePanelProviderProps } from './SidePanelContext.jsx';
-export type { SidePanelHookProps } from './useSidePanel.jsx';
+export type TextAreaProps = Omit<InputProps, 'rows'> & {
+  /**
+   * The number of visible text lines for the control.
+   * If set to `auto`, the control will auto-expand vertically to show the whole value.
+   */
+  rows?: InputProps['rows'] | 'auto';
+  /**
+   * Define the minimum number of visible text lines for the control.
+   * Works only when `rows` is set to `auto`.
+   */
+  minRows?: InputProps['rows'];
+};

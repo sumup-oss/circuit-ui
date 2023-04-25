@@ -32,14 +32,13 @@ import { Require } from '../../types/util.js';
 import { warn } from '../../util/logger.jsx';
 import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation.jsx';
 
+import { SidePanel, SidePanelProps } from './SidePanel.jsx';
 import {
-  SidePanel,
-  SidePanelProps,
   SIDE_PANEL_WIDTH,
   TRANSITION_DURATION_DESKTOP,
   TRANSITION_DURATION_MOBILE,
-} from './SidePanel.jsx';
-import { SidePanelHookProps } from './useSidePanel.jsx';
+} from './constants.js';
+import type { SidePanelHookProps } from './useSidePanel.jsx';
 
 // It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the side panel is open on mobile.

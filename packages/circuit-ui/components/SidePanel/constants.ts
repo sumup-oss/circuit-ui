@@ -1,5 +1,5 @@
 /**
- * Copyright 2022, SumUp Ltd.
+ * Copyright 2023, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-export { SidePanelProvider } from './SidePanelContext.jsx';
-export { useSidePanel } from './useSidePanel.jsx';
-export { SIDE_PANEL_WIDTH } from './constants.jsx';
-
-export type { SidePanelProviderProps } from './SidePanelContext.jsx';
-export type { SidePanelHookProps } from './useSidePanel.jsx';
+export const HTML_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Html--open';
+export const PORTAL_CLASS_NAME = 'ReactModalPortal__SidePanel';
+export const TRANSITION_DURATION_DESKTOP = 200;
+export const TRANSITION_DURATION_MOBILE = 240;
+export const SIDE_PANEL_WIDTH = '400px';
+export const BODY_MAX_WIDTH = '480px';

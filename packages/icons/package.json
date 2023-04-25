@@ -3,6 +3,7 @@
   "version": "2.22.0",
   "description": "A collection of icons by SumUp",
   "type": "module",
+  "main": "./dist/index.js",
   "exports": {
     ".": "./dist/index.js",
     "./manifest.json": "./manifest.json",

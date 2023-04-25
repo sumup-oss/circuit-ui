@@ -17,12 +17,12 @@ import { css, ClassNames, Global } from '@emotion/react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
 import { StackContext } from '../../../StackContext/index.js';
+import type { SidePanelProps } from '../../SidePanel.jsx';
 import {
-  SidePanelProps,
   HTML_OPEN_CLASS_NAME,
   PORTAL_CLASS_NAME,
   TRANSITION_DURATION_MOBILE,
-} from '../../SidePanel.jsx';
+} from '../../constants.js';
 
 export type MobileSidePanelProps = ReactModalProps &
   Pick<SidePanelProps, 'isBottomPanelClosing' | 'isStacked'>;

@@ -16,10 +16,10 @@
 
 import { FormEvent, RefObject, useCallback, useEffect } from 'react';
 
-import { InputElement } from '../Input/Input.jsx';
+import type { InputElement } from '../Input/Input.jsx';
 import { useComponentSize } from '../../hooks/useComponentSize/index.js';
 
-import { TextAreaProps } from './index.js';
+import type { TextAreaProps } from './index.js';
 
 type ModifiedProps = Omit<TextAreaProps, 'minRows' | 'rows'> & {
   rows: TextAreaProps['minRows'];

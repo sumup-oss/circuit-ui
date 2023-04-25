@@ -22,7 +22,7 @@ import {
   render,
   screen,
 } from '../../util/test-utils.jsx';
-import { InputElement } from '../Input/Input';
+import type { InputElement } from '../Input/Input.jsx';
 
 import { TextArea, TextAreaProps } from './TextArea.jsx';
 import { useAutoExpand } from './useAutoExpand.js';

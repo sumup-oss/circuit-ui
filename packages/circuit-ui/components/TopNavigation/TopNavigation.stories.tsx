@@ -19,7 +19,7 @@ import { Shop, SumUpLogo } from '@sumup/icons';
 import { css } from '@emotion/react';
 
 import { SideNavigation } from '../SideNavigation/index.js';
-import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories';
+import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.jsx';
 import { ModalProvider } from '../ModalContext/index.js';
 
 import { TopNavigation, TopNavigationProps } from './TopNavigation.jsx';

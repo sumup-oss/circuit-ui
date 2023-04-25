@@ -17,12 +17,12 @@ import { css, ClassNames, Global } from '@emotion/react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
 import { StackContext } from '../../../StackContext/index.js';
+import type { SidePanelProps } from '../../SidePanel.jsx';
 import {
-  SidePanelProps,
   SIDE_PANEL_WIDTH,
   PORTAL_CLASS_NAME,
   TRANSITION_DURATION_DESKTOP,
-} from '../../SidePanel.jsx';
+} from '../../constants.js';
 
 export type DesktopSidePanelProps = ReactModalProps &
   Pick<SidePanelProps, 'isInstantOpen' | 'top'>;
