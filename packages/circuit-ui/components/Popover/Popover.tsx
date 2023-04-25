@@ -26,8 +26,6 @@ import {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
 } from 'react';
-import useLatest from 'use-latest';
-import usePrevious from 'use-previous';
 import {
   useFloating,
   flip,
@@ -50,6 +48,8 @@ import Portal from '../Portal/index.js';
 import Hr from '../Hr/index.js';
 import { useStackContext } from '../StackContext/index.js';
 import { isFunction } from '../../util/type-check.js';
+import { useLatest } from '../../hooks/useLatest/index.js';
+import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 export interface BaseProps {
   /**

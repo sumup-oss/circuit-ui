@@ -14,11 +14,11 @@
  */
 
 import { useEffect } from 'react';
-import usePrevious from 'use-previous';
 import { useTheme } from '@emotion/react';
 
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { AccessibilityError } from '../../util/errors.js';
+import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 import { DesktopNavigation } from './components/DesktopNavigation/index.js';
 import { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation.jsx';

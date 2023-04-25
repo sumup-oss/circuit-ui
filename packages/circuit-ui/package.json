@@ -34,9 +34,7 @@
     "moment": "^2.29.4",
     "react-dates": "^21.2.0",
     "react-modal": "^3.16.1",
-    "react-number-format": "^5.1.4",
-    "use-latest": "^1.2.1",
-    "use-previous": "^1.2.0"
+    "react-number-format": "^5.1.4"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.2",
