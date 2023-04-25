@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import * as sharedPropTypes from './util/shared-prop-types';
-
 // Typography
 export { default as Headline } from './components/Headline';
 export type { HeadlineProps } from './components/Headline';
@@ -220,7 +218,6 @@ export {
   center,
 } from './styles/style-mixins';
 
-export { sharedPropTypes };
 export { uniqueId } from './util/id';
 
 // Hooks
