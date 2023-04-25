@@ -15,7 +15,7 @@
 
 import styled from '@emotion/styled';
 
-import AspectRatio from './AspectRatio';
+import { AspectRatio, AspectRatioProps } from './AspectRatio';
 
 const Background = styled('div')`
   background: lightgrey;
@@ -26,7 +26,7 @@ export default {
   component: AspectRatio,
 };
 
-export const Base = (args) => (
+export const Base = (args: AspectRatioProps) => (
   <div style={{ width: '50vw' }}>
     <AspectRatio {...args}>
       <Background />

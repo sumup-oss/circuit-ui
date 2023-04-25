@@ -128,8 +128,6 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
   display: block;
   position: relative;
   overflow: hidden;
-  height: auto;
-  width: 100%;
   height: 0;
   width: 100%;
   padding-top: 56%;
@@ -142,9 +140,6 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
   max-height: 100%;
   width: 100%;
   display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
   position: absolute;
   top: 0;
   right: 0;
@@ -152,9 +147,8 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  max-height: none;
   object-fit: cover;
-  z-index: 2;
+  z-index: 1;
 }
 
 .circuit-6 img {
@@ -814,8 +808,6 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
   display: block;
   position: relative;
   overflow: hidden;
-  height: auto;
-  width: 100%;
   height: 0;
   width: 100%;
   padding-top: 56%;
@@ -828,9 +820,6 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
   max-height: 100%;
   width: 100%;
   display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
   position: absolute;
   top: 0;
   right: 0;
@@ -838,9 +827,8 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  max-height: none;
   object-fit: cover;
-  z-index: 2;
+  z-index: 1;
 }
 
 .circuit-6 img {
@@ -1499,8 +1487,6 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
   display: block;
   position: relative;
   overflow: hidden;
-  height: auto;
-  width: 100%;
   height: 0;
   width: 100%;
   padding-top: 56%;
@@ -1513,9 +1499,6 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
   max-height: 100%;
   width: 100%;
   display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
   position: absolute;
   top: 0;
   right: 0;
@@ -1523,9 +1506,8 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  max-height: none;
   object-fit: cover;
-  z-index: 2;
+  z-index: 1;
 }
 
 .circuit-6 img {
@@ -2155,8 +2137,6 @@ exports[`Carousel > styles > should render with default styles 1`] = `
   display: block;
   position: relative;
   overflow: hidden;
-  height: auto;
-  width: 100%;
   height: 0;
   width: 100%;
   padding-top: 56%;
@@ -2169,9 +2149,6 @@ exports[`Carousel > styles > should render with default styles 1`] = `
   max-height: 100%;
   width: 100%;
   display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
   position: absolute;
   top: 0;
   right: 0;
@@ -2179,9 +2156,8 @@ exports[`Carousel > styles > should render with default styles 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  max-height: none;
   object-fit: cover;
-  z-index: 2;
+  z-index: 1;
 }
 
 .circuit-6 img {
