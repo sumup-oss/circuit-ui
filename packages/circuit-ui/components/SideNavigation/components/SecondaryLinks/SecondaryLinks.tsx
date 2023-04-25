@@ -104,6 +104,7 @@ function SecondaryGroup({
 
 export interface SecondaryLinksProps {
   secondaryGroups: SecondaryGroupProps[];
+  className?: string;
 }
 
 export const SecondaryLinks = forwardRef(

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useId } from 'react';
+import { HTMLAttributes, useId } from 'react';
 import { css, keyframes } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
@@ -21,7 +21,7 @@ import { typography, hideVisually } from '../../styles/style-mixins.js';
 import { ReturnType } from '../../types/return-type.js';
 import { AccessibilityError } from '../../util/errors.js';
 
-interface BaseProps {
+interface BaseProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Choose from 2 style variants. Default: 'primary'.
    */

@@ -34,6 +34,7 @@ export interface SkeletonContainerProps {
    * A reference to the HTML DOM element.
    */
   ref?: Ref<HTMLDivElement>;
+  className?: string;
 }
 
 const containerStyles = css`
@@ -84,6 +85,7 @@ export interface SkeletonProps {
    * A reference to the HTML DOM element.
    */
   ref?: Ref<HTMLSpanElement>;
+  className?: string;
 }
 
 const PULSE_WIDTH = '8rem';
