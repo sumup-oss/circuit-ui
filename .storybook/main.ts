@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/react-webpack5';
+import type { StorybookConfig } from '@storybook/react-vite';
 import type { PluginItem } from '@babel/core';
 import path from 'path';
 import remarkGfm from 'remark-gfm';
@@ -35,7 +35,7 @@ const config: StorybookConfig = {
     disableTelemetry: true,
   },
   framework: {
-    name: '@storybook/react-webpack5',
+    name: '@storybook/react-vite',
     options: {},
   },
   babel: async (options) => ({
