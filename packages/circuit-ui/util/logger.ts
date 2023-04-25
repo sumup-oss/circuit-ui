@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import { ComponentType, forwardRef } from 'react';
-
 import { DeprecationError } from './errors';
 
 /**
@@ -42,30 +40,3 @@ export const deprecate = (componentName: string, message: string): void => {
 
   console.warn(error);
 };
-
-/**
- * Always conditionally render with `process.env.NODE_ENV !== 'production'`
- * to enable dead code elimination.
- */
-export function withDeprecation<Props>(
-  Component: ComponentType<Props>,
-  deprecateFn: (props: Props) => string | null,
-  shouldThrow = false,
-) {
-  const WithDeprecation = forwardRef<unknown, Props>((props, ref) => {
-    const deprecation = deprecateFn(props);
-    const componentName = Component.displayName as string;
-
-    if (deprecation) {
-      if (shouldThrow) {
-        throw new DeprecationError(componentName, deprecation);
-      } else {
-        deprecate(componentName, deprecation);
-      }
-    }
-
-    return <Component {...props} ref={ref} />;
-  });
-
-  return WithDeprecation as unknown as ComponentType<Props>;
-}
