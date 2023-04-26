@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import type { PluginItem } from '@babel/core';
 import path from 'path';
 import remarkGfm from 'remark-gfm';
 
@@ -38,21 +37,6 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  babel: async (options) => ({
-    ...options,
-    presets: [
-      ...(options.presets as PluginItem[]),
-      // HACK: Storybook includes `@babel/preset-react` by default, which
-      // overrides the custom preset configuration in `babel.config.json`.
-      // This override overrides the override.
-      [
-        '@babel/preset-react',
-        { runtime: 'automatic', importSource: '@emotion/react' },
-        'preset-jsx-import-source',
-      ],
-      '@babel/preset-typescript',
-    ],
-  }),
 };
 
 export default config;
