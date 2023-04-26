@@ -24,7 +24,7 @@
     "lint:fix": "npm run lint -- --fix",
     "docs": "npm run docs:start",
     "docs:start": "storybook dev -p 6006",
-    "docs:build": "storybook build -c .storybook -o public --webpack-stats-json && cp -R ./packages/icons/web ./public/icons",
+    "docs:build": "storybook build -c .storybook -o public && cp -R ./packages/icons/web ./public/icons",
     "vercel-build": "npm run copy-docs && npm run build && npm run docs:build",
     "check:security": "audit-ci --critical",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
@@ -68,6 +68,7 @@
     "storybook": "^7.0.7",
     "svgo": "^3.0.2",
     "typescript": "^5.0.4",
+    "vite-plugin-turbosnap": "^1.0.2",
     "vitest": "^0.30.1",
     "vitest-github-actions-reporter": "^0.10.0"
   },
