@@ -13,4 +13,6 @@
  * limitations under the License.
  */
 
-export { Container } from './Container';
+export { Tab } from './Tab';
+
+export type { TabProps } from './Tab';

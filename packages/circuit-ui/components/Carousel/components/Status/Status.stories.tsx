@@ -13,4 +13,16 @@
  * limitations under the License.
  */
 
-export { Container } from './Container';
+import { Status, StatusProps } from './Status';
+
+export default {
+  title: 'Components/Carousel/Status',
+  component: Status,
+};
+
+export const Base = (args: StatusProps) => <Status {...args} />;
+
+Base.args = {
+  step: 0,
+  total: 3,
+};

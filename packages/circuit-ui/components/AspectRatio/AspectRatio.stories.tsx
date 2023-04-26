@@ -13,4 +13,27 @@
  * limitations under the License.
  */
 
-export { Container } from './Container';
+import styled from '@emotion/styled';
+
+import { AspectRatio, AspectRatioProps } from './AspectRatio';
+
+const Background = styled('div')`
+  background: lightgrey;
+`;
+
+export default {
+  title: 'Components/AspectRatio',
+  component: AspectRatio,
+};
+
+export const Base = (args: AspectRatioProps) => (
+  <div style={{ width: '50vw' }}>
+    <AspectRatio {...args}>
+      <Background />
+    </AspectRatio>
+  </div>
+);
+
+Base.args = {
+  aspectRatio: 1.5,
+};

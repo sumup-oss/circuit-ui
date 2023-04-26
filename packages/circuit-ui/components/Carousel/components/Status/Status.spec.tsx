@@ -15,14 +15,25 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render } from '../../../../util/test-utils';
+import { axe, render } from '../../../../util/test-utils';
 
-import { CalendarWrapper } from '.';
+import { Status } from './Status';
 
-describe('CalendarWrapper', () => {
-  it('should render its children', () => {
-    const children = 'children';
-    const { getByText } = render(<CalendarWrapper>{children}</CalendarWrapper>);
-    expect(getByText(children)).toBeVisible();
+describe('Status', () => {
+  describe('styles', () => {
+    it('should render with default styles', () => {
+      const { container } = render(<Status step={1} total={3} />);
+
+      expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe('accessibility', () => {
+    it('should meet accessibility guidelines', async () => {
+      const { container } = render(<Status step={1} total={3} />);
+      const actual = await axe(container);
+
+      expect(actual).toHaveNoViolations();
+    });
   });
 });

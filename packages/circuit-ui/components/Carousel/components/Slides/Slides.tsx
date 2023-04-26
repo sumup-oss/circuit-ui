@@ -15,7 +15,7 @@
 
 import styled from '@emotion/styled';
 
-const Slides = styled.div`
+export const Slides = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -23,5 +23,3 @@ const Slides = styled.div`
   width: 100%;
   height: auto;
 `;
-
-export default Slides;

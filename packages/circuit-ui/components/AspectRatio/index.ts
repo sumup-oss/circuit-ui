@@ -13,4 +13,8 @@
  * limitations under the License.
  */
 
-export { Container } from './Container';
+import { AspectRatio } from './AspectRatio';
+
+export type { AspectRatioProps } from './AspectRatio';
+
+export default AspectRatio;

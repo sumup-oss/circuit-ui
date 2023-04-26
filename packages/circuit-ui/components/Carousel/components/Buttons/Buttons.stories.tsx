@@ -13,15 +13,22 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
+import { action } from '@storybook/addon-actions';
 
-export const Controls = styled('div')(
-  ({ theme }) => css`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: ${theme.spacings.mega};
-  `,
+import * as Buttons from './Buttons';
+
+const { ButtonList, PlayButton, NextButton, PrevButton } = Buttons;
+
+export default {
+  title: 'Components/Carousel/Buttons',
+  component: Buttons,
+};
+
+export const AllButtons = () => (
+  <ButtonList>
+    <PlayButton label="Pause" onClick={action('on play click')} />
+    <PlayButton label="Play" paused onClick={action('on pause click')} />
+    <PrevButton label="Previous" onClick={action('on previous click')} />
+    <NextButton label="Next" onClick={action('on next click')} />
+  </ButtonList>
 );

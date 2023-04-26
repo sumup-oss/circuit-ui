@@ -13,4 +13,8 @@
  * limitations under the License.
  */
 
-export { Container } from './Container';
+import { CalendarTagTwoStep } from './CalendarTagTwoStep';
+
+export type { CalendarTagTwoStepProps } from './CalendarTagTwoStep';
+
+export default CalendarTagTwoStep;

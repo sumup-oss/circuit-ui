@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import Controls from './Controls';
-
-export default Controls;
+export { Controls } from './Controls';

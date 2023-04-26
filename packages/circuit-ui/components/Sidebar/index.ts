@@ -13,4 +13,14 @@
  * limitations under the License.
  */
 
-export { Container } from './Container';
+import {
+  SidebarContext,
+  SidebarContextProvider,
+  SidebarContextConsumer,
+} from './SidebarContext';
+import { Sidebar } from './Sidebar';
+
+export type { SidebarProps } from './Sidebar';
+
+export default Sidebar;
+export { SidebarContext, SidebarContextProvider, SidebarContextConsumer };

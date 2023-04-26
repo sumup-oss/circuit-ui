@@ -254,7 +254,7 @@ interface CalendarWrapperProps {
   children: ReactNode;
 }
 
-export default function CalendarWrapper({ children }: CalendarWrapperProps) {
+export function CalendarWrapper({ children }: CalendarWrapperProps) {
   return (
     <div>
       <Global

@@ -13,4 +13,8 @@
  * limitations under the License.
  */
 
-export { Container } from './Container';
+import { CalendarTag } from './CalendarTag';
+
+export type { CalendarTagProps } from './CalendarTag';
+
+export default CalendarTag;

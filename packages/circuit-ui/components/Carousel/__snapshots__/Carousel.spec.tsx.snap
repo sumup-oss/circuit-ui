@@ -1,0 +1,2869 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Carousel > styles > should not render without slides data 1`] = `<div />`;
+
+exports[`Carousel > styles > should render with children as a function 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.circuit-2 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -moz-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.circuit-3 {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  will-change: width;
+}
+
+.circuit-4 {
+  width: 100%;
+}
+
+.circuit-5 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  width: 100%;
+  padding-top: 56%;
+  background: var(--cui-bg-subtle);
+}
+
+.circuit-6 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.circuit-6 img {
+  object-fit: cover;
+}
+
+.circuit-7 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.circuit-12 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-200%, 0, 0);
+  -moz-transform: translate3d(-200%, 0, 0);
+  -ms-transform: translate3d(-200%, 0, 0);
+  transform: translate3d(-200%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -2;
+}
+
+.circuit-17 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.circuit-18 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-right: 48px;
+}
+
+@media (max-width: 479px) {
+  .circuit-18 {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-18 {
+    margin-right: 12px;
+  }
+}
+
+.circuit-19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.circuit-20 {
+  background-color: var(--cui-bg-highlight);
+  border-radius: 999999px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 4px;
+}
+
+.circuit-20::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--cui-bg-accent-strong);
+  -webkit-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+  height: 100%;
+  width: 1px;
+}
+
+.circuit-20::after {
+  background-color: var(--cui-bg-strong);
+}
+
+.circuit-20::after {
+  border-radius: 999999px;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 5640ms;
+  animation-duration: 5640ms;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.circuit-21 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-left: 8px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-22 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-left: 48px;
+}
+
+@media (max-width: 479px) {
+  .circuit-22 {
+    margin-left: 12px;
+  }
+}
+
+.circuit-23 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
+  padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
+  padding: calc(8px - 1px);
+  margin-left: 8px;
+}
+
+.circuit-23:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-23:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-23:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-23:disabled,
+.circuit-23[disabled] {
+  pointer-events: none;
+}
+
+.circuit-23:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
+}
+
+.circuit-23:active,
+.circuit-23[aria-expanded='true'],
+.circuit-23[aria-pressed='true'] {
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-23:disabled,
+.circuit-23[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-23:first-of-type {
+  margin-left: 0;
+}
+
+.circuit-24 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-1 1s infinite linear;
+  animation: animation-1 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-25 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-26 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: inherit;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+<div>
+  <div
+    aria-label="gallery"
+    class="circuit-0"
+  >
+    <div
+      class="circuit-1"
+    >
+      <div
+        class="circuit-2"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent blue ocean waves"
+                class="circuit-6"
+                src="/images/illustration-waves.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-7"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent turquoise ocean waves"
+                class="circuit-6"
+                src="/images/illustration-waves-2.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-12"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent ocean water with white foam"
+                class="circuit-6"
+                src="/images/illustration-waves-3.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circuit-17"
+    >
+      <strong
+        class="circuit-18"
+      >
+        1
+         / 
+        3
+      </strong>
+      <div
+        aria-hidden="true"
+        class="circuit-19"
+      >
+        <span
+          aria-labelledby=":r2:"
+          class="circuit-20"
+          loop=""
+          role="progressbar"
+        />
+        <span
+          class="circuit-21"
+          id=":r2:"
+        >
+          1 / 3
+        </span>
+      </div>
+      <div
+        class="circuit-22"
+      >
+        <button
+          aria-label="pause"
+          class="circuit-23"
+          title="Pause"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Pause
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="previous"
+          class="circuit-23"
+          title="Previous"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Previous
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="next"
+          class="circuit-23"
+          title="Next"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Next
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <h1>
+      Carousel heading for step #
+      0
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`Carousel > styles > should render with children as a node 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.circuit-2 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -moz-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.circuit-3 {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  will-change: width;
+}
+
+.circuit-4 {
+  width: 100%;
+}
+
+.circuit-5 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  width: 100%;
+  padding-top: 56%;
+  background: var(--cui-bg-subtle);
+}
+
+.circuit-6 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.circuit-6 img {
+  object-fit: cover;
+}
+
+.circuit-7 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.circuit-12 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-200%, 0, 0);
+  -moz-transform: translate3d(-200%, 0, 0);
+  -ms-transform: translate3d(-200%, 0, 0);
+  transform: translate3d(-200%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -2;
+}
+
+.circuit-17 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.circuit-18 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-right: 48px;
+}
+
+@media (max-width: 479px) {
+  .circuit-18 {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-18 {
+    margin-right: 12px;
+  }
+}
+
+.circuit-19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.circuit-20 {
+  background-color: var(--cui-bg-highlight);
+  border-radius: 999999px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 4px;
+}
+
+.circuit-20::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--cui-bg-accent-strong);
+  -webkit-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+  height: 100%;
+  width: 1px;
+}
+
+.circuit-20::after {
+  background-color: var(--cui-bg-strong);
+}
+
+.circuit-20::after {
+  border-radius: 999999px;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 5640ms;
+  animation-duration: 5640ms;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.circuit-21 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-left: 8px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-22 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-left: 48px;
+}
+
+@media (max-width: 479px) {
+  .circuit-22 {
+    margin-left: 12px;
+  }
+}
+
+.circuit-23 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
+  padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
+  padding: calc(8px - 1px);
+  margin-left: 8px;
+}
+
+.circuit-23:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-23:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-23:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-23:disabled,
+.circuit-23[disabled] {
+  pointer-events: none;
+}
+
+.circuit-23:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
+}
+
+.circuit-23:active,
+.circuit-23[aria-expanded='true'],
+.circuit-23[aria-pressed='true'] {
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-23:disabled,
+.circuit-23[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-23:first-of-type {
+  margin-left: 0;
+}
+
+.circuit-24 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-1 1s infinite linear;
+  animation: animation-1 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-25 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-26 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: inherit;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+<div>
+  <div
+    aria-label="gallery"
+    class="circuit-0"
+  >
+    <div
+      class="circuit-1"
+    >
+      <div
+        class="circuit-2"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent blue ocean waves"
+                class="circuit-6"
+                src="/images/illustration-waves.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-7"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent turquoise ocean waves"
+                class="circuit-6"
+                src="/images/illustration-waves-2.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-12"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent ocean water with white foam"
+                class="circuit-6"
+                src="/images/illustration-waves-3.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circuit-17"
+    >
+      <strong
+        class="circuit-18"
+      >
+        1
+         / 
+        3
+      </strong>
+      <div
+        aria-hidden="true"
+        class="circuit-19"
+      >
+        <span
+          aria-labelledby=":r3:"
+          class="circuit-20"
+          loop=""
+          role="progressbar"
+        />
+        <span
+          class="circuit-21"
+          id=":r3:"
+        >
+          1 / 3
+        </span>
+      </div>
+      <div
+        class="circuit-22"
+      >
+        <button
+          aria-label="pause"
+          class="circuit-23"
+          title="Pause"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Pause
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="previous"
+          class="circuit-23"
+          title="Previous"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Previous
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="next"
+          class="circuit-23"
+          title="Next"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Next
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <h1>
+      Carousel heading
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`Carousel > styles > should render with default paused styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.circuit-2 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -moz-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.circuit-3 {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  will-change: width;
+}
+
+.circuit-4 {
+  width: 100%;
+}
+
+.circuit-5 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  width: 100%;
+  padding-top: 56%;
+  background: var(--cui-bg-subtle);
+}
+
+.circuit-6 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.circuit-6 img {
+  object-fit: cover;
+}
+
+.circuit-7 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.circuit-12 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-200%, 0, 0);
+  -moz-transform: translate3d(-200%, 0, 0);
+  -ms-transform: translate3d(-200%, 0, 0);
+  transform: translate3d(-200%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -2;
+}
+
+.circuit-17 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.circuit-18 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-right: 48px;
+}
+
+@media (max-width: 479px) {
+  .circuit-18 {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-18 {
+    margin-right: 12px;
+  }
+}
+
+.circuit-19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.circuit-20 {
+  background-color: var(--cui-bg-highlight);
+  border-radius: 999999px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 4px;
+}
+
+.circuit-20::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--cui-bg-accent-strong);
+  -webkit-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+  height: 100%;
+  width: 1px;
+}
+
+.circuit-20::after {
+  background-color: var(--cui-bg-strong);
+}
+
+.circuit-20::after {
+  border-radius: 999999px;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 5640ms;
+  animation-duration: 5640ms;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.circuit-21 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-left: 8px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-22 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-left: 48px;
+}
+
+@media (max-width: 479px) {
+  .circuit-22 {
+    margin-left: 12px;
+  }
+}
+
+.circuit-23 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
+  padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
+  padding: calc(8px - 1px);
+  margin-left: 8px;
+}
+
+.circuit-23:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-23:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-23:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-23:disabled,
+.circuit-23[disabled] {
+  pointer-events: none;
+}
+
+.circuit-23:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
+}
+
+.circuit-23:active,
+.circuit-23[aria-expanded='true'],
+.circuit-23[aria-pressed='true'] {
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-23:disabled,
+.circuit-23[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-23:first-of-type {
+  margin-left: 0;
+}
+
+.circuit-24 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-1 1s infinite linear;
+  animation: animation-1 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-25 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-26 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: inherit;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+<div>
+  <div
+    aria-label="gallery"
+    class="circuit-0"
+  >
+    <div
+      class="circuit-1"
+    >
+      <div
+        class="circuit-2"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent blue ocean waves"
+                class="circuit-6"
+                src="/images/illustration-waves.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-7"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent turquoise ocean waves"
+                class="circuit-6"
+                src="/images/illustration-waves-2.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-12"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent ocean water with white foam"
+                class="circuit-6"
+                src="/images/illustration-waves-3.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circuit-17"
+    >
+      <strong
+        class="circuit-18"
+      >
+        1
+         / 
+        3
+      </strong>
+      <div
+        aria-hidden="true"
+        class="circuit-19"
+      >
+        <span
+          aria-labelledby=":r1:"
+          class="circuit-20"
+          loop=""
+          role="progressbar"
+        />
+        <span
+          class="circuit-21"
+          id=":r1:"
+        >
+          1 / 3
+        </span>
+      </div>
+      <div
+        class="circuit-22"
+      >
+        <button
+          aria-label="play"
+          class="circuit-23"
+          title="Play"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M15 8c-.001.247-.064.49-.182.703a1.383 1.383 0 0 1-.491.515l-9.334 5.6c-.2.121-.428.184-.66.182a1.306 1.306 0 0 1-.941-.411A1.44 1.44 0 0 1 3 13.6V2.4a1.44 1.44 0 0 1 .392-.989c.25-.262.588-.41.941-.41.232-.003.46.06.66.181l9.334 5.6c.203.124.373.301.49.515.119.214.182.456.183.703z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Play
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="previous"
+          class="circuit-23"
+          title="Previous"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Previous
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="next"
+          class="circuit-23"
+          title="Next"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Next
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Carousel > styles > should render with default styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.circuit-2 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -moz-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.circuit-3 {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  will-change: width;
+}
+
+.circuit-4 {
+  width: 100%;
+}
+
+.circuit-5 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  width: 100%;
+  padding-top: 56%;
+  background: var(--cui-bg-subtle);
+}
+
+.circuit-6 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.circuit-6 img {
+  object-fit: cover;
+}
+
+.circuit-7 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.circuit-12 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-200%, 0, 0);
+  -moz-transform: translate3d(-200%, 0, 0);
+  -ms-transform: translate3d(-200%, 0, 0);
+  transform: translate3d(-200%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -2;
+}
+
+.circuit-17 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.circuit-18 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-right: 48px;
+}
+
+@media (max-width: 479px) {
+  .circuit-18 {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-18 {
+    margin-right: 12px;
+  }
+}
+
+.circuit-19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.circuit-20 {
+  background-color: var(--cui-bg-highlight);
+  border-radius: 999999px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 4px;
+}
+
+.circuit-20::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--cui-bg-accent-strong);
+  -webkit-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+  height: 100%;
+  width: 1px;
+}
+
+.circuit-20::after {
+  background-color: var(--cui-bg-strong);
+}
+
+.circuit-20::after {
+  border-radius: 999999px;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 5640ms;
+  animation-duration: 5640ms;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.circuit-21 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-left: 8px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-22 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-left: 48px;
+}
+
+@media (max-width: 479px) {
+  .circuit-22 {
+    margin-left: 12px;
+  }
+}
+
+.circuit-23 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 999999px;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
+  padding: calc(12px - 1px) calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
+  padding: calc(8px - 1px);
+  margin-left: 8px;
+}
+
+.circuit-23:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-23:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-23:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-23:disabled,
+.circuit-23[disabled] {
+  pointer-events: none;
+}
+
+.circuit-23:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
+}
+
+.circuit-23:active,
+.circuit-23[aria-expanded='true'],
+.circuit-23[aria-pressed='true'] {
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-23:disabled,
+.circuit-23[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-23:first-of-type {
+  margin-left: 0;
+}
+
+.circuit-24 {
+  display: block;
+  border-radius: 100%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  -webkit-animation: animation-1 1s infinite linear;
+  animation: animation-1 1s infinite linear;
+  transform-origin: 50% 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+.circuit-25 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-26 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  visibility: inherit;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
+}
+
+<div>
+  <div
+    aria-label="gallery"
+    class="circuit-0"
+  >
+    <div
+      class="circuit-1"
+    >
+      <div
+        class="circuit-2"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent blue ocean waves"
+                class="circuit-6"
+                src="/images/illustration-waves.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-7"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent turquoise ocean waves"
+                class="circuit-6"
+                src="/images/illustration-waves-2.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-12"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent ocean water with white foam"
+                class="circuit-6"
+                src="/images/illustration-waves-3.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circuit-17"
+    >
+      <strong
+        class="circuit-18"
+      >
+        1
+         / 
+        3
+      </strong>
+      <div
+        aria-hidden="true"
+        class="circuit-19"
+      >
+        <span
+          aria-labelledby=":r0:"
+          class="circuit-20"
+          loop=""
+          role="progressbar"
+        />
+        <span
+          class="circuit-21"
+          id=":r0:"
+        >
+          1 / 3
+        </span>
+      </div>
+      <div
+        class="circuit-22"
+      >
+        <button
+          aria-label="pause"
+          class="circuit-23"
+          title="Pause"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Pause
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="previous"
+          class="circuit-23"
+          title="Previous"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Previous
+            </span>
+          </span>
+        </button>
+        <button
+          aria-label="next"
+          class="circuit-23"
+          title="Next"
+        >
+          <span
+            class="circuit-24"
+          >
+            <span
+              class="circuit-25"
+            />
+          </span>
+          <span
+            class="circuit-26"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
+                fill="currentColor"
+              />
+            </svg>
+            <span
+              class="circuit-25"
+            >
+              Next
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Carousel > styles > should render without controls 1`] = `
+.circuit-0 {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.circuit-2 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -moz-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.circuit-3 {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  will-change: width;
+}
+
+.circuit-4 {
+  width: 100%;
+}
+
+.circuit-5 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  width: 100%;
+  padding-top: 56%;
+  background: var(--cui-bg-subtle);
+}
+
+.circuit-6 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.circuit-6 img {
+  object-fit: cover;
+}
+
+.circuit-7 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.circuit-12 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-200%, 0, 0);
+  -moz-transform: translate3d(-200%, 0, 0);
+  -ms-transform: translate3d(-200%, 0, 0);
+  transform: translate3d(-200%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -2;
+}
+
+<div>
+  <div
+    aria-label="gallery"
+    class="circuit-0"
+  >
+    <div
+      class="circuit-1"
+    >
+      <div
+        class="circuit-2"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent blue ocean waves"
+                class="circuit-6"
+                src="/images/illustration-waves.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-7"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent turquoise ocean waves"
+                class="circuit-6"
+                src="/images/illustration-waves-2.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-12"
+      >
+        <div
+          class="circuit-3"
+        >
+          <div
+            class="circuit-4"
+          >
+            <div
+              class="circuit-5"
+            >
+              <img
+                alt="Aerial photo of turbulent ocean water with white foam"
+                class="circuit-6"
+                src="/images/illustration-waves-3.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

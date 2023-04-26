@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import * as sharedPropTypes from './util/shared-prop-types';
-
 // Typography
 export { default as Headline } from './components/Headline';
 export type { HeadlineProps } from './components/Headline';
@@ -38,8 +36,15 @@ export {
   SingleDayPicker,
   CalendarConstants,
 } from './components/Calendar';
+export type {
+  RangePickerProps,
+  RangePickerControllerProps,
+  SingleDayPickerProps,
+} from './components/Calendar';
 export { default as CalendarTag } from './components/CalendarTag';
+export type { CalendarTagProps } from './components/CalendarTag';
 export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep';
+export type { CalendarTagTwoStepProps } from './components/CalendarTagTwoStep';
 export { default as Checkbox } from './components/Checkbox';
 export type { CheckboxProps } from './components/Checkbox';
 export { default as Input } from './components/Input';
@@ -116,7 +121,14 @@ export type {
   SecondaryLinkProps,
 } from './components/SideNavigation';
 export { Tabs, TabList, TabPanel, Tab } from './components/Tabs';
+export type {
+  TabsProps,
+  TabListProps,
+  TabPanelProps,
+  TabProps,
+} from './components/Tabs';
 export { default as Sidebar } from './components/Sidebar';
+export type { SidebarProps } from './components/Sidebar';
 export {
   SidebarContextProvider,
   SidebarContextConsumer,
@@ -179,7 +191,9 @@ export type {
 export { default as Step, useStep } from './components/Step';
 export type { StepProps, StepOptions } from './components/Step';
 export { default as AspectRatio } from './components/AspectRatio';
+export type { AspectRatioProps } from './components/AspectRatio';
 export { default as Carousel, CarouselComposer } from './components/Carousel';
+export type { CarouselProps } from './components/Carousel';
 export { default as Avatar } from './components/Avatar';
 export type { AvatarProps } from './components/Avatar';
 
@@ -204,7 +218,6 @@ export {
   center,
 } from './styles/style-mixins';
 
-export { sharedPropTypes };
 export { uniqueId } from './util/id';
 
 // Hooks

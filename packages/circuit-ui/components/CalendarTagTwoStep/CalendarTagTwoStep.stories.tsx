@@ -13,4 +13,26 @@
  * limitations under the License.
  */
 
-export { Container } from './Container';
+import { action } from '@storybook/addon-actions';
+
+import {
+  CalendarTagTwoStep,
+  CalendarTagTwoStepProps,
+} from './CalendarTagTwoStep';
+
+export default {
+  title: 'Forms/Calendar/CalendarTagTwoStep',
+  component: CalendarTagTwoStep,
+};
+
+export const Base = (args: CalendarTagTwoStepProps) => (
+  <CalendarTagTwoStep
+    {...args}
+    onDatesRangeChange={action('onDatesRangeChange')}
+  />
+);
+
+Base.args = {
+  clearButtonLabel: 'Clear',
+  confirmButtonLabel: 'Confirm',
+};
