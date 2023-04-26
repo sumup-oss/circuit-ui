@@ -22,7 +22,7 @@ import {
   axe,
 } from '../../../../util/test-utils.js';
 
-import TableBody from '.';
+import TableBody from './index.js';
 
 const fixtureRows = [['Foo', 'Bar']];
 

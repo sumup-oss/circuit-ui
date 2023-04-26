@@ -18,7 +18,7 @@ import { MouseEvent } from 'react';
 
 import { renderHook, act, waitFor } from '../../util/test-utils.js';
 
-import { useCollapsible, getHeight } from './useCollapsible';
+import { useCollapsible, getHeight } from './useCollapsible.js';
 
 describe('useCollapsible', () => {
   it('should return the open state and a toggle callback', () => {

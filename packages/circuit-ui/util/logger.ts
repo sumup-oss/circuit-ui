@@ -20,8 +20,9 @@ import { DeprecationError } from './errors.js';
  * Always wrap in `process.env.NODE_ENV !== 'production'` to enable dead code
  * elimination.
  */
-export const warn = (componentName: string, ...message: unknown[]): void =>
+export function warn(componentName: string, ...message: unknown[]): void {
   console.warn(`[${componentName}]`, ...message);
+}
 
 const DEPRECATED: { [key: string]: true } = {};
 

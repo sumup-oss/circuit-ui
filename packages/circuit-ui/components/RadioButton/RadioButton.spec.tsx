@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, userEvent, axe } from '../../util/test-utils.js';
 
-import RadioButton from '.';
+import RadioButton from './index.js';
 
 describe('RadioButton', () => {
   describe('Styles', () => {

@@ -15,7 +15,7 @@
 
 import { TableCellProps } from './TableCell.js';
 
-import TableCell from '.';
+import TableCell from './index.js';
 
 export default {
   title: 'Components/Table/TableCell',

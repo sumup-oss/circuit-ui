@@ -14,7 +14,7 @@
  */
 
 import styled from '../../../styles/styled.js';
-import { Grid, Row, Col } from '..';
+import { Grid, Row, Col } from '../index.js';
 
 export default {
   title: 'Layout/Grid/Grid',

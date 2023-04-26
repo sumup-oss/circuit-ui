@@ -27,7 +27,7 @@ describe('Header', () => {
     id: 'side-panel-header',
     isSticky: false,
     onBack: undefined,
-    onClose: undefined,
+    onClose: vi.fn(),
   };
 
   const renderComponent = (props: Partial<HeaderProps> = {}) =>

@@ -22,7 +22,7 @@ import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
 import ButtonGroup from '../ButtonGroup/index.js';
 
-import Card, { CardHeader, CardFooter } from '.';
+import Card, { CardHeader, CardFooter } from './index.js';
 
 export default {
   title: 'Components/Card',

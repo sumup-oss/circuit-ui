@@ -23,7 +23,7 @@ import {
   userEvent,
 } from '../../../../util/test-utils.js';
 
-import SortArrow from '.';
+import SortArrow from './index.js';
 
 describe('SortArrow', () => {
   describe('Style tests', () => {

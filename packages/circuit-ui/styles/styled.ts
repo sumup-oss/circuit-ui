@@ -17,7 +17,7 @@ import _styled from '@emotion/styled';
 import type { CreateStyled } from '@emotion/styled';
 import { Theme } from '@sumup/design-tokens';
 
-// eslint-ignore-next-line
+// eslint-disable-next-line
 const styled = (_styled.default || _styled) as CreateStyled;
 
 export default styled;

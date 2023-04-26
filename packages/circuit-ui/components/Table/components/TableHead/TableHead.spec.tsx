@@ -24,7 +24,7 @@ import {
 } from '../../../../util/test-utils.js';
 import { HeaderCell, Direction } from '../../types.js';
 
-import TableHead from '.';
+import TableHead from './index.js';
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {
   const order = direction === 'ascending' ? 'descending' : 'ascending';

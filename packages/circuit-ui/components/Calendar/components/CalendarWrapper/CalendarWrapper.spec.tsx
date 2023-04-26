@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 
 import { render } from '../../../../util/test-utils.js';
 
-import { CalendarWrapper } from '.';
+import { CalendarWrapper } from './index.js';
 
 describe('CalendarWrapper', () => {
   it('should render its children', () => {

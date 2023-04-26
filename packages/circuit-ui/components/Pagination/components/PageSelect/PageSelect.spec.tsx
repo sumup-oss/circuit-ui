@@ -14,12 +14,12 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { fireEvent } from '@testing-library/dom';
 
 import {
   create,
   render,
   renderToHtml,
+  fireEvent,
   axe,
   RenderFn,
 } from '../../../../util/test-utils.js';

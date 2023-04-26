@@ -15,7 +15,7 @@
 
 import { TableHeaderProps } from './TableHeader.js';
 
-import TableHeader from '.';
+import TableHeader from './index.js';
 
 export default {
   title: 'Components/Table/TableHeader',

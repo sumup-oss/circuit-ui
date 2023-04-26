@@ -17,9 +17,9 @@
 import { css } from '@emotion/react';
 import { action } from '@storybook/addon-actions';
 
-import { listItem } from '../../styles/style-mixins';
+import { listItem } from '../../styles/style-mixins.js';
 
-import { useFocusList } from './useFocusList';
+import { useFocusList } from './useFocusList.js';
 
 export default {
   title: 'Hooks/useFocusList',

@@ -21,7 +21,7 @@ import { isString } from '../../util/type-check.js';
 import { TableProps } from './Table.js';
 import { Direction } from './types.js';
 
-import Table from '.';
+import Table from './index.js';
 
 export default {
   title: 'Components/Table',

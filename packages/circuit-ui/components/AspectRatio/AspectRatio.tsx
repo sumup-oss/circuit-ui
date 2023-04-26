@@ -14,8 +14,9 @@
  */
 
 import { Children, forwardRef, cloneElement, ReactElement } from 'react';
-import styled from '@emotion/styled';
 import { ClassNames, css, ClassNamesContent } from '@emotion/react';
+
+import styled from '../../styles/styled.js';
 
 export interface AspectRatioProps {
   children?: ReactElement;

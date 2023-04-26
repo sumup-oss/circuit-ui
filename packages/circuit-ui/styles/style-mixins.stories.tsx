@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-
 import { Stack } from '../../../.storybook/components/index.js';
 import Button from '../components/Button/index.js';
 
+import styled from './styled.js';
 import {
   spacing,
   shadow,

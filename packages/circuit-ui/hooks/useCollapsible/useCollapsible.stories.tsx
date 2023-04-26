@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import Body from '../../components/Body';
-import Button from '../../components/Button';
-import { spacing } from '../../styles/style-mixins';
+import Body from '../../components/Body/index.js';
+import Button from '../../components/Button/index.js';
+import { spacing } from '../../styles/style-mixins.js';
 
-import { CollapsibleOptions, useCollapsible } from './useCollapsible';
+import { CollapsibleOptions, useCollapsible } from './useCollapsible.js';
 
 export default {
   title: 'Hooks/useCollapsible',

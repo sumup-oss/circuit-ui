@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { renderHook, userEvent } from '../../util/test-utils.js';
 
-import { useEscapeKey } from './useEscapeKey';
+import { useEscapeKey } from './useEscapeKey.js';
 
 describe('useEscapeKey', () => {
   it('should call the callback when the escape key is pressed', async () => {

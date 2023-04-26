@@ -34,7 +34,7 @@ import {
   listItem,
   navigationItem,
   center,
-} from './style-mixins';
+} from './style-mixins.js';
 
 describe('Style helpers', () => {
   const byte = (theme: Theme) => css`

@@ -20,7 +20,7 @@ import { Stack } from '../../../../.storybook/components/index.js';
 
 import { ImageInputProps } from './ImageInput.js';
 
-import ImageInput from '.';
+import ImageInput from './index.js';
 
 export default {
   title: 'Forms/ImageInput',

@@ -15,9 +15,9 @@
 
 import { useState, Fragment } from 'react';
 
-import { TabsProps } from './Tabs';
+import type { TabsProps } from './Tabs.js';
 
-import { Tabs, TabList, TabPanel, Tab } from '.';
+import { Tabs, TabList, TabPanel, Tab } from './index.js';
 
 export default {
   title: 'Navigation/Tabs',
