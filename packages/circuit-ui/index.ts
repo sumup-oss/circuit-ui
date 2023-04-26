@@ -36,6 +36,11 @@ export {
   SingleDayPicker,
   CalendarConstants,
 } from './components/Calendar/index.js';
+export type {
+  RangePickerProps,
+  RangePickerControllerProps,
+  SingleDayPickerProps,
+} from './components/Calendar/index.js';
 export { default as CalendarTag } from './components/CalendarTag/index.js';
 export type { CalendarTagProps } from './components/CalendarTag/index.js';
 export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep/index.js';
