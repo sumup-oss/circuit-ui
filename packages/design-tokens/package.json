@@ -32,5 +32,8 @@
     "@types/node": "^18.15.11",
     "@types/prop-types": "^15.7.5",
     "typescript": "^5.0.4"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }
