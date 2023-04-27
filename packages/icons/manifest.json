@@ -361,6 +361,11 @@
       "size": "16"
     },
     {
+      "name": "flip_camera",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "google_pay",
       "category": "Payment method",
       "size": "24"
@@ -861,6 +866,21 @@
       "size": "24"
     },
     {
+      "name": "credit_note",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "delivery_note",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "electronic_invoice",
+      "category": "File",
+      "size": "24"
+    },
+    {
       "name": "file",
       "category": "File",
       "size": "24"
@@ -872,6 +892,11 @@
     },
     {
       "name": "image",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "recurring_invoice",
       "category": "File",
       "size": "24"
     },
@@ -912,6 +937,11 @@
     },
     {
       "name": "cash_stack",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "no_costs",
       "category": "Finance",
       "size": "24"
     },
