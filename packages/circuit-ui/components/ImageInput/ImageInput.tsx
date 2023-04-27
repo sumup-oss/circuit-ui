@@ -43,10 +43,11 @@ export interface ImageInputProps
    */
   label: string;
   /**
-   * The visual component to render as an image input. It should accept an src
-   * prop to render the image.
+   * The visual component to render as an image input.
+   * It should accept a `src` prop to render the image, and `aria-hidden` to
+   * hide it from assistive technology.
    */
-  component: (props: { src?: string; alt: string }) => JSX.Element;
+  component: (props: { 'src'?: string; 'aria-hidden': 'true' }) => JSX.Element;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -458,7 +459,7 @@ export const ImageInput = ({
           onDrop={handleDrop}
         >
           <span css={hideVisually()}>{label}</span>
-          <Component src={src || previewImage} alt="" />
+          <Component src={src || previewImage} aria-hidden="true" />
         </Label>
         {src ? (
           <ActionButton
