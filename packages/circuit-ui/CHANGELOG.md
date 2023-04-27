@@ -1,5 +1,25 @@
 # @sumup/circuit-ui
 
+## 7.0.0-next.1
+
+### Major Changes
+
+- [#2063](https://github.com/sumup-oss/circuit-ui/pull/2063) [`fef5b955`](https://github.com/sumup-oss/circuit-ui/commit/fef5b9554d2ff858fb8587f5624d8ee65dfbb969) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `children` prop from the Checkbox component. Use the `label` prop instead.
+
+- [#2065](https://github.com/sumup-oss/circuit-ui/pull/2065) [`8adb8fee`](https://github.com/sumup-oss/circuit-ui/commit/8adb8feee02bbfef1d1fc6a9c7a9c5a30e25d027) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `sharedPropTypes` export. Type the props using TypeScript instead.
+
+- [#2063](https://github.com/sumup-oss/circuit-ui/pull/2063) [`fef5b955`](https://github.com/sumup-oss/circuit-ui/commit/fef5b9554d2ff858fb8587f5624d8ee65dfbb969) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `confirm`, `notify`, and `alert` variants from the Badge, NotificationInline, and NotificationToast components. Use the `success`, `warning`, and `danger` variants instead.
+
+- [#2065](https://github.com/sumup-oss/circuit-ui/pull/2065) [`8adb8fee`](https://github.com/sumup-oss/circuit-ui/commit/8adb8feee02bbfef1d1fc6a9c7a9c5a30e25d027) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated the Carousel components to TypeScript. Added the required `playButtonLabel`, `pauseButtonLabel`, `prevButtonLabel`, and `nextButtonLabel` props.
+
+- [#2065](https://github.com/sumup-oss/circuit-ui/pull/2065) [`8adb8fee`](https://github.com/sumup-oss/circuit-ui/commit/8adb8feee02bbfef1d1fc6a9c7a9c5a30e25d027) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated the Calendar components to TypeScript. Some props are now required. The CalendarTagTwoStep's `clearText` and `confirmText` props have been renamed to `clearButtonLabel` and `confirmButtonLabel` respectively.
+
+### Minor Changes
+
+- [#2065](https://github.com/sumup-oss/circuit-ui/pull/2065) [`8adb8fee`](https://github.com/sumup-oss/circuit-ui/commit/8adb8feee02bbfef1d1fc6a9c7a9c5a30e25d027) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated the Tabs components to TypeScript.
+
+- [#2065](https://github.com/sumup-oss/circuit-ui/pull/2065) [`8adb8fee`](https://github.com/sumup-oss/circuit-ui/commit/8adb8feee02bbfef1d1fc6a9c7a9c5a30e25d027) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated the Sidebar component to TypeScript.
+
 ## 7.0.0-next.0
 
 ### Major Changes
