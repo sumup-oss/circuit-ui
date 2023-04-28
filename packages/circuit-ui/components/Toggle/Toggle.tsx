@@ -19,10 +19,11 @@ import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
-import { Body, BodyProps } from '../Body/Body';
+import { Body } from '../Body/Body';
 import { AccessibilityError } from '../../util/errors';
-import { FieldWrapper } from '../FieldAtoms';
+import { FieldDescription, FieldWrapper } from '../FieldAtoms';
 import { CLASS_DISABLED } from '../FieldAtoms/constants';
+import { hideVisually } from '../../styles/style-mixins';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
 
@@ -32,29 +33,29 @@ export interface ToggleProps extends SwitchProps {
    */
   label: string;
   /**
-   * Further explanation of the toggle. Can change depending on the state.
+   * @deprecated
+   * Use the `description` prop instead.
    */
   explanation?: string;
+  /**
+   * Further explanation of the toggle. Can change depending on the state.
+   */
+  description?: string;
   /**
    * The ref to the HTML DOM button element
    */
   ref?: Ref<HTMLButtonElement>;
 }
 
-const textWrapperStyles = ({ theme }: StyleProps) => css`
+const labelStyles = ({ theme }: StyleProps) => css`
   display: block;
   margin-left: ${theme.spacings.kilo};
+  cursor: pointer;
 
   ${theme.mq.untilKilo} {
     margin-left: 0;
     margin-right: ${theme.spacings.kilo};
   }
-`;
-
-const ToggleTextWrapper = styled('div')(textWrapperStyles);
-
-const labelStyles = () => css`
-  cursor: pointer;
 
   .${CLASS_DISABLED} & {
     color: var(--cui-fg-normal-disabled);
@@ -63,14 +64,6 @@ const labelStyles = () => css`
 
 // This component is rendered as a `label` element below.
 const ToggleLabel = styled(Body)<{ htmlFor: string }>(labelStyles);
-
-const explanationStyles = () => css`
-  .${CLASS_DISABLED} & {
-    color: var(--cui-fg-subtle-disabled);
-  }
-`;
-
-const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);
 
 const wrapperStyles = (theme: Theme) => css`
   display: flex;
@@ -90,7 +83,8 @@ export const Toggle = forwardRef(
     {
       label,
       explanation,
-      'aria-describedby': descriptionId,
+      description,
+      'aria-describedby': describedBy,
       ...props
     }: ToggleProps,
     ref: ToggleProps['ref'],
@@ -105,9 +99,10 @@ export const Toggle = forwardRef(
 
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
-    const explanationId = explanation ? uniqueId('toggle-explanation_') : '';
+    const descriptionId =
+      description || explanation ? uniqueId('toggle-explanation_') : '';
 
-    const descriptionIds = [descriptionId, explanationId]
+    const descriptionIds = [describedBy, descriptionId]
       .filter(Boolean)
       .join(' ');
     return (
@@ -119,16 +114,19 @@ export const Toggle = forwardRef(
           id={switchId}
           ref={ref}
         />
-        <ToggleTextWrapper>
-          <ToggleLabel as="label" id={labelId} htmlFor={switchId}>
-            {label}
-          </ToggleLabel>
-          {explanation && (
-            <ToggleExplanation size="two" variant="subtle" id={explanationId}>
-              {explanation}
-            </ToggleExplanation>
+        <ToggleLabel as="label" id={labelId} htmlFor={switchId}>
+          {label}
+          {(description || explanation) && (
+            <FieldDescription aria-hidden="true">
+              {description || explanation}
+            </FieldDescription>
           )}
-        </ToggleTextWrapper>
+        </ToggleLabel>
+        {(description || explanation) && (
+          <p id={descriptionId} css={hideVisually}>
+            {description || explanation}
+          </p>
+        )}
       </FieldWrapper>
     );
   },

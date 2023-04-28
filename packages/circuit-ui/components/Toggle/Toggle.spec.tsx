@@ -15,13 +15,13 @@
 
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils';
+import { render, screen, axe } from '../../util/test-utils';
 
 import { Toggle } from './Toggle';
 
 const defaultProps = {
   label: 'Label',
-  explanation: 'A longer explanation',
+  description: 'A longer explanation',
   checkedLabel: 'on',
   uncheckedLabel: 'off',
 };
@@ -49,20 +49,20 @@ describe('Toggle', () => {
     it('should accept a custom description via aria-describedby', () => {
       const customDescription = 'Custom description';
       const customDescriptionId = 'customDescriptionId';
-      const { getByRole } = render(
+      render(
         <>
           <span id={customDescriptionId}>{customDescription}</span>
           <Toggle aria-describedby={customDescriptionId} {...defaultProps} />,
         </>,
       );
-      const toggleEl = getByRole('switch');
+      const toggleEl = screen.getByRole('switch');
 
       expect(toggleEl).toHaveAttribute(
         'aria-describedby',
         expect.stringContaining(customDescriptionId),
       );
       expect(toggleEl).toHaveAccessibleDescription(
-        `${customDescription} ${defaultProps.explanation}`,
+        `${customDescription} ${defaultProps.description}`,
       );
     });
   });
