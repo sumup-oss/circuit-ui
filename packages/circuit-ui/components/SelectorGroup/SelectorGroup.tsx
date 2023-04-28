@@ -26,11 +26,17 @@ import { AccessibilityError } from '../../util/errors';
 export interface SelectorGroupProps {
   /**
    * A collection of available options. Each option must have at least
-   * a value and children.
+   * a value and label.
    */
   options: {
     value: string;
-    children: ReactNode;
+    label?: string;
+    description?: string;
+    /**
+     * @deprecated
+     * Use the `label` and `description` props instead.
+     */
+    children?: ReactNode;
     disabled?: boolean;
   }[];
   /**
@@ -42,7 +48,7 @@ export interface SelectorGroupProps {
    */
   value: string | string[];
   /**
-   * A visually hidden description of the selector group for screen readers.
+   * A description of the selector group.
    */
   label: string;
   /**

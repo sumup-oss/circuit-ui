@@ -13,18 +13,29 @@
  * limitations under the License.
  */
 
-import { Fragment, Ref, InputHTMLAttributes, forwardRef } from 'react';
+import { Fragment, InputHTMLAttributes, ReactNode, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually, focusOutline } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
+import { deprecate } from '../../util/logger';
+import { AccessibilityError } from '../../util/errors';
+import { FieldDescription } from '../FieldAtoms';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
 export interface SelectorProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  /**
+   * A clear and concise description of the input's purpose.
+   */
+  label?: string;
+  /**
+   * A more detailed description of the input's purpose.
+   */
+  description?: string;
   /**
    * Value string for input.
    */
@@ -54,15 +65,17 @@ export interface SelectorProps
    */
   multiple?: boolean;
   /**
-   * The ref to the HTML DOM element
-   */
-  ref?: Ref<HTMLInputElement>;
-  /**
    * @deprecated
    *
    * Use an `onChange` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
+  /**
+   * @deprecated
+   *
+   * Use the `label` and `description` props instead.
+   */
+  children?: ReactNode;
 }
 
 type LabelElProps = Pick<SelectorProps, 'disabled' | 'size'>;
@@ -178,33 +191,57 @@ const SelectorInput = styled('input')(inputStyles);
  * A selector allows users to choose between several mutually-exclusive choices
  * accompanied by descriptions, possibly with tabular data.
  */
-export const Selector = forwardRef(
+export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
   (
     {
       children,
+      label,
+      description,
       value,
       id,
       name,
       disabled,
       multiple,
       onChange,
+      'aria-describedby': describedBy,
       tracking,
       className,
       style,
       size,
       ...props
-    }: SelectorProps,
-    ref: SelectorProps['ref'],
+    },
+    ref,
   ) => {
     const inputId = id || uniqueId('selector_');
+    const descriptionId = description && uniqueId('selector-description_');
+    const descriptionIds = [describedBy, descriptionId]
+      .filter(Boolean)
+      .join(' ');
     const type = multiple ? 'checkbox' : 'radio';
     const handleChange = useClickEvent(onChange, tracking, 'selector');
+
+    if (process.env.NODE_ENV !== 'production' && children) {
+      deprecate(
+        'Selector',
+        'The `children` prop has been deprecated. Use the `label` and `description` props instead.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label &&
+      !children
+    ) {
+      throw new AccessibilityError('Selector', 'The `label` prop is missing.');
+    }
 
     return (
       <Fragment>
         <SelectorInput
           type={type}
           id={inputId}
+          aria-describedby={descriptionIds}
           name={name}
           value={value}
           disabled={disabled}
@@ -221,8 +258,20 @@ export const Selector = forwardRef(
           className={className}
           style={style}
         >
-          {children}
+          <Fragment>
+            {label || children}
+            {description && (
+              <FieldDescription aria-hidden="true">
+                {description}
+              </FieldDescription>
+            )}
+          </Fragment>
         </SelectorLabel>
+        {description && (
+          <p id={descriptionId} css={hideVisually}>
+            {description}
+          </p>
+        )}
       </Fragment>
     );
   },

@@ -1,4 +1,10 @@
-import { Meta, Status, Props, Story, Preview } from '../../../../.storybook/components';
+import {
+  Meta,
+  Status,
+  Props,
+  Story,
+  Preview,
+} from '../../../../.storybook/components';
 import * as Stories from './SelectorGroup.stories';
 
 import { SelectorGroup, Headline, Body, spacing } from '../../index';
@@ -35,13 +41,14 @@ Selectors are semantically either radio buttons or checkboxes. When it comes to 
 
 #### Write clear and concise labels
 
-The `children` prop passed to one of the SelectorGroup's `options` constitutes the Selector's label. This label should be clear and concise, and should not contain any formatted or semantic content (such as headings or lists).
+The `label` prop passed to one of the SelectorGroup's `options` constitutes the Selector's label. This label should be clear and concise, and should not contain any formatted or semantic content (such as headings or lists).
 
 <Preview>
   <SelectorGroup
     options={[
       {
-        children: 'Do this',
+        label: 'Do this',
+        description: 'This is accessible',
         value: 'valid',
       },
       {
@@ -79,7 +86,7 @@ This is because the label in this case is also the input's accessible name, expo
 
 For example, screen reader user arrowing through the options in the example above would hear:
 
-- "Do this, radio button, 1 of 3"
+- "Do this, radio button, 1 of 3, This is accessible"
 - "Bold text avoid doing this, radio button, 2 of 3"
 - "Headline don't do this if you need to add details write a paragraph above the SelectorGroup, radio button, 3 of 3"
 

@@ -15,13 +15,7 @@
 
 import { createRef } from 'react';
 
-import {
-  create,
-  render,
-  userEvent,
-  renderToHtml,
-  axe,
-} from '../../util/test-utils';
+import { render, userEvent, screen, axe } from '../../util/test-utils';
 
 import { Selector } from './Selector';
 
@@ -29,6 +23,7 @@ const defaultProps = {
   name: 'name',
   value: 'value',
   onChange: jest.fn(),
+  label: 'Label',
 };
 
 describe('Selector', () => {
@@ -36,60 +31,42 @@ describe('Selector', () => {
    * Style tests.
    */
   it('should render a default selector', () => {
-    const actual = create(<Selector {...defaultProps}>Label</Selector>);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Selector {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
   it('should render a disabled selector', () => {
-    const actual = create(
-      <Selector {...defaultProps} disabled>
-        Label
-      </Selector>,
-    );
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Selector {...defaultProps} disabled />);
+    expect(container).toMatchSnapshot();
   });
   it('should render a checked selector', () => {
-    const actual = create(
-      <Selector {...defaultProps} checked>
-        Label
-      </Selector>,
-    );
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Selector {...defaultProps} checked />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render a radio input by default', () => {
-    const { getByLabelText } = render(
-      <Selector {...defaultProps}>Label</Selector>,
-    );
-    expect(getByLabelText('Label')).toHaveAttribute('type', 'radio');
+    render(<Selector {...defaultProps} />);
+    expect(screen.getByLabelText('Label')).toHaveAttribute('type', 'radio');
   });
 
   it('should render a checkbox input when multiple options can be selected', () => {
-    const { getByLabelText } = render(
-      <Selector {...defaultProps} multiple>
-        Label
-      </Selector>,
-    );
-    expect(getByLabelText('Label')).toHaveAttribute('type', 'checkbox');
+    render(<Selector {...defaultProps} multiple />);
+    expect(screen.getByLabelText('Label')).toHaveAttribute('type', 'checkbox');
   });
 
   /**
    * Logic tests.
    */
   it('should be unchecked by default', () => {
-    const { getByLabelText } = render(
-      <Selector {...defaultProps}>Label</Selector>,
-    );
-    const inputEl = getByLabelText('Label', {
+    render(<Selector {...defaultProps} />);
+    const inputEl = screen.getByLabelText('Label', {
       exact: false,
     });
     expect(inputEl).not.toHaveAttribute('checked');
   });
 
   it('should call the change handler when clicked', async () => {
-    const { getByLabelText } = render(
-      <Selector {...defaultProps}>Label</Selector>,
-    );
-    const inputEl = getByLabelText('Label', {
+    render(<Selector {...defaultProps} />);
+    const inputEl = screen.getByLabelText('Label', {
       exact: false,
     });
 
@@ -108,14 +85,44 @@ describe('Selector', () => {
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
     });
+
+    it('should accept a custom description via aria-describedby', () => {
+      const description = 'Description';
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      render(
+        <>
+          <span id={customDescriptionId}>{customDescription}</span>
+          <Selector
+            aria-describedby={customDescriptionId}
+            description={description}
+            {...defaultProps}
+          />
+          ,
+        </>,
+      );
+      const inputEl = screen.getByLabelText('Label', {
+        exact: false,
+      });
+
+      expect(inputEl).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(customDescriptionId),
+      );
+      expect(inputEl).toHaveAccessibleDescription(
+        `${customDescription} ${description}`,
+      );
+    });
   });
 
   /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Selector {...defaultProps}>Label</Selector>);
-    const actual = await axe(wrapper);
+    const { container } = render(
+      <Selector {...defaultProps} description="Description" />,
+    );
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

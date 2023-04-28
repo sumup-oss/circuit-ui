@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Selector should render a checked selector 1`] = `
-HTMLCollection [
-  .circuit-0 {
+.circuit-0 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -57,87 +56,88 @@ HTMLCollection [
   border: 2px solid var(--cui-border-accent-disabled);
 }
 
-<input
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  text-align: center;
+  position: relative;
+  border-radius: 8px;
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+  padding: calc(12px) 24px;
+}
+
+.circuit-1::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-normal);
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
+}
+
+.circuit-1:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
+}
+
+.circuit-1:hover::before {
+  border-color: var(--cui-border-normal-hovered);
+}
+
+.circuit-1:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-1:active::before {
+  border-color: var(--cui-border-normal-pressed);
+}
+
+<div>
+  <input
+    aria-describedby=""
     checked=""
     class="circuit-0"
     id="selector_3"
     name="name"
     type="radio"
     value="value"
-  />,
-  .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: var(--cui-bg-normal);
-  color: var(--cui-fg-normal);
-  text-align: center;
-  position: relative;
-  border-radius: 8px;
-  -webkit-transition: box-shadow 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out;
-  padding: calc(12px) 24px;
-}
-
-.circuit-0::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  border: 1px solid var(--cui-border-normal);
-  -webkit-transition: border 120ms ease-in-out;
-  transition: border 120ms ease-in-out;
-}
-
-.circuit-0:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-0:hover::before {
-  border-color: var(--cui-border-normal-hovered);
-}
-
-.circuit-0:active {
-  background-color: var(--cui-bg-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-0:active::before {
-  border-color: var(--cui-border-normal-pressed);
-}
-
-<label
-    class="circuit-0"
+  />
+  <label
+    class="circuit-1"
     for="selector_3"
   >
     Label
-  </label>,
-]
+  </label>
+</div>
 `;
 
 exports[`Selector should render a default selector 1`] = `
-HTMLCollection [
-  .circuit-0 {
+.circuit-0 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -192,86 +192,87 @@ HTMLCollection [
   border: 2px solid var(--cui-border-accent-disabled);
 }
 
-<input
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  text-align: center;
+  position: relative;
+  border-radius: 8px;
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+  padding: calc(12px) 24px;
+}
+
+.circuit-1::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-normal);
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
+}
+
+.circuit-1:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
+}
+
+.circuit-1:hover::before {
+  border-color: var(--cui-border-normal-hovered);
+}
+
+.circuit-1:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-1:active::before {
+  border-color: var(--cui-border-normal-pressed);
+}
+
+<div>
+  <input
+    aria-describedby=""
     class="circuit-0"
     id="selector_1"
     name="name"
     type="radio"
     value="value"
-  />,
-  .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: var(--cui-bg-normal);
-  color: var(--cui-fg-normal);
-  text-align: center;
-  position: relative;
-  border-radius: 8px;
-  -webkit-transition: box-shadow 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out;
-  padding: calc(12px) 24px;
-}
-
-.circuit-0::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  border: 1px solid var(--cui-border-normal);
-  -webkit-transition: border 120ms ease-in-out;
-  transition: border 120ms ease-in-out;
-}
-
-.circuit-0:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-0:hover::before {
-  border-color: var(--cui-border-normal-hovered);
-}
-
-.circuit-0:active {
-  background-color: var(--cui-bg-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-0:active::before {
-  border-color: var(--cui-border-normal-pressed);
-}
-
-<label
-    class="circuit-0"
+  />
+  <label
+    class="circuit-1"
     for="selector_1"
   >
     Label
-  </label>,
-]
+  </label>
+</div>
 `;
 
 exports[`Selector should render a disabled selector 1`] = `
-HTMLCollection [
-  .circuit-0 {
+.circuit-0 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -326,80 +327,82 @@ HTMLCollection [
   border: 2px solid var(--cui-border-accent-disabled);
 }
 
-<input
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--cui-bg-normal);
+  color: var(--cui-fg-normal);
+  text-align: center;
+  position: relative;
+  border-radius: 8px;
+  -webkit-transition: box-shadow 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out;
+  padding: calc(12px) 24px;
+}
+
+.circuit-1::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-normal);
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
+}
+
+.circuit-1:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
+}
+
+.circuit-1:hover::before {
+  border-color: var(--cui-border-normal-hovered);
+}
+
+.circuit-1:active {
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-1:active::before {
+  border-color: var(--cui-border-normal-pressed);
+}
+
+<div>
+  <input
+    aria-describedby=""
     class="circuit-0"
     disabled=""
     id="selector_2"
     name="name"
     type="radio"
     value="value"
-  />,
-  .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: var(--cui-bg-normal);
-  color: var(--cui-fg-normal);
-  text-align: center;
-  position: relative;
-  border-radius: 8px;
-  -webkit-transition: box-shadow 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out;
-  padding: calc(12px) 24px;
-}
-
-.circuit-0::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  border: 1px solid var(--cui-border-normal);
-  -webkit-transition: border 120ms ease-in-out;
-  transition: border 120ms ease-in-out;
-}
-
-.circuit-0:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-0:hover::before {
-  border-color: var(--cui-border-normal-hovered);
-}
-
-.circuit-0:active {
-  background-color: var(--cui-bg-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-0:active::before {
-  border-color: var(--cui-border-normal-pressed);
-}
-
-<label
-    class="circuit-0"
+  />
+  <label
+    class="circuit-1"
     for="selector_2"
   >
     Label
-  </label>,
-]
+  </label>
+</div>
 `;

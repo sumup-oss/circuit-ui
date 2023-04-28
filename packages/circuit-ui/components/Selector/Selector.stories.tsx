@@ -15,7 +15,6 @@
 
 import { Stack } from '../../../../.storybook/components';
 import SelectorGroup from '../SelectorGroup';
-import Body from '../Body';
 
 import { Selector, SelectorProps } from './Selector';
 
@@ -29,47 +28,42 @@ const baseArgs = {
   value: 'default',
 };
 
-export const Base = (args: SelectorProps) => (
-  <Selector {...args}>Select me!</Selector>
-);
+export const Base = (args: SelectorProps) => <Selector {...args} />;
 
 Base.args = {
   ...baseArgs,
   name: 'base',
+  label: 'Select me!',
 };
 
-export const Selected = (args: SelectorProps) => (
-  <Selector {...args}>I am selected!</Selector>
-);
+export const Selected = (args: SelectorProps) => <Selector {...args} />;
 
 Selected.args = {
   ...baseArgs,
   name: 'selected',
+  label: 'I am selected!',
   checked: true,
 };
 
-export const Disabled = (args: SelectorProps) => (
-  <Selector {...args}>I cannot be selected</Selector>
-);
+export const Disabled = (args: SelectorProps) => <Selector {...args} />;
 
 Disabled.args = {
   ...baseArgs,
   name: 'disabled',
+  label: 'I cannot be selected',
   disabled: true,
 };
 
 export const Sizes = (args: SelectorProps) => (
   <Stack>
-    <Selector {...args} size="kilo">
-      Kilo
-    </Selector>
-    <Selector {...args} size="mega">
-      Mega
-    </Selector>
-    <Selector {...args} size="flexible">
-      <Body variant="highlight">Flexible</Body>
-      <Body>Hello World!</Body>
-    </Selector>
+    <Selector {...args} label="Kilo" size="kilo" />
+    <Selector {...args} label="Mega" size="mega" />
+    <Selector
+      {...args}
+      label="Flexible"
+      description="I adapt my width"
+      size="flexible"
+    />
   </Stack>
 );
 
