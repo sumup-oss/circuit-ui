@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.23.0
+
+### Minor Changes
+
+- [#2068](https://github.com/sumup-oss/circuit-ui/pull/2068) [`4a4f8d74`](https://github.com/sumup-oss/circuit-ui/commit/4a4f8d7451418a90b1d15f4fff1f384e4aa64067) Thanks [@oalpatov](https://github.com/oalpatov)! - Added new icons in size 24: `FlipCamera`, `CreditNote`, `DeliveryNote`, `ElectronicInvoice`, `RecurringInvoice`, `NoCosts`
+
 ## 2.22.0
 
 ### Minor Changes
