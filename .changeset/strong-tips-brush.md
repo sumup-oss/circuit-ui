@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-Added new icons: flip_camera, credit_note, delivery_note, electronic_invoice, recurring_invoice, no_costs
+Added new icons in size 24: `FlipCamera`, `CreditNote`, `DeliveryNote`, `ElectronicInvoice`, `RecurringInvoice`, `NoCosts`
