@@ -1,5 +1,26 @@
 # @sumup/circuit-ui
 
+## 7.0.0-next.2
+
+### Major Changes
+
+- [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum Node.js version to 16+. This is the first maintained version with support for ES modules.
+
+- [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - **This package is now pure ESM**. Please [read this](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+
+  - If you use TypeScript, you need to use TypeScript 4.7 or later ([ref](https://github.com/microsoft/TypeScript/issues/46452)).
+  - If you use a bundler, make sure it supports ESM and that you have correctly configured it for ESM. (Next.js supports ESM packages out of the box since [v12](https://nextjs.org/blog/next-12#es-modules-support-and-url-imports)).
+
+- [#2067](https://github.com/sumup-oss/circuit-ui/pull/2067) [`4f78573e`](https://github.com/sumup-oss/circuit-ui/commit/4f78573e94829e87fc250f284159969d4e5d8fc2) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the signature of the ImageInput's `component` prop. The `component` should now accept `aria-hidden` instead of `alt`.
+
+- [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to the `"exports"` field to configure the package entry points. Files that are not explicitly defined in `"exports"` can no longer be imported.
+
+### Patch Changes
+
+- Updated dependencies [[`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f), [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f), [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f)]:
+  - @sumup/design-tokens@6.0.0-next.0
+  - @sumup/icons@3.0.0-next.0
+
 ## 7.0.0-next.1
 
 ### Major Changes
