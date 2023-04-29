@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render } from '../../../../util/test-utils';
+import { axe, render } from '../../../../util/test-utils.js';
 
-import { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons';
+import { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons.js';
 
 const renderButtons = () => (
   <ButtonList>

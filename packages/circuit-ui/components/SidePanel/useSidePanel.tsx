@@ -22,9 +22,9 @@ import {
   useEffect,
 } from 'react';
 
-import { uniqueId } from '../../util/id';
+import { uniqueId } from '../../util/id.js';
 
-import { SidePanelContext, SidePanelContextProps } from './SidePanelContext';
+import { SidePanelContext, SidePanelContextProps } from './SidePanelContext.js';
 
 export type Callback = () => void;
 

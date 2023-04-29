@@ -15,14 +15,14 @@
 
 import { ReactElement } from 'react';
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 
-import styled, { StyleProps } from '../../../../styles/styled';
-import { ClickEvent } from '../../../../types/events';
-import { EmotionAsPropType } from '../../../../types/prop-types';
-import { useComponents } from '../../../ComponentsContext';
-import { getIcon } from '../../SidebarService';
-import { NavLabel } from '../NavLabel';
+import isPropValid from '../../../../styles/is-prop-valid.js';
+import styled, { StyleProps } from '../../../../styles/styled.js';
+import { ClickEvent } from '../../../../types/events.js';
+import { EmotionAsPropType } from '../../../../types/prop-types.js';
+import { useComponents } from '../../../ComponentsContext/index.js';
+import { getIcon } from '../../SidebarService.js';
+import { NavLabel } from '../NavLabel/index.js';
 
 export interface NavItemProps {
   /**

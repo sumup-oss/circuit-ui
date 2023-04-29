@@ -16,10 +16,10 @@
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import { clearfix } from '../../../styles/style-mixins';
-import styled, { NoTheme, StyleProps } from '../../../styles/styled';
-import { GridValue } from '../types';
-import { composeBreakpoints, wrapStyles } from '../utils';
+import { clearfix } from '../../../styles/style-mixins.js';
+import styled, { NoTheme, StyleProps } from '../../../styles/styled.js';
+import { GridValue } from '../types.js';
+import { composeBreakpoints, wrapStyles } from '../utils.js';
 
 const baseStyles = css`
   position: relative;

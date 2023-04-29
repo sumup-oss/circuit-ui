@@ -15,8 +15,8 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../../../util/test-utils';
-import { CardFooter } from '../..';
+import { create, renderToHtml, axe } from '../../../../util/test-utils.js';
+import { CardFooter } from '../../index.js';
 
 describe('CardFooter', () => {
   /**

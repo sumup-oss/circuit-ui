@@ -16,30 +16,30 @@
 import { Fragment } from 'react';
 import ReactModal from 'react-modal';
 import { ClassNames, css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { ChevronDown } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../../../styles/styled';
+import isPropValid from '../../../../styles/is-prop-valid.js';
+import styled, { StyleProps } from '../../../../styles/styled.js';
 import {
   BaseModalProps,
   createUseModal,
   ModalComponent,
-} from '../../../ModalContext';
-import { StackContext } from '../../../StackContext';
-import CloseButton from '../../../CloseButton';
-import { useCollapsible } from '../../../../hooks/useCollapsible';
-import { useFocusList } from '../../../../hooks/useFocusList';
-import { PrimaryLinkProps } from '../../types';
-import { PrimaryLink } from '../PrimaryLink';
-import { SecondaryLinks } from '../SecondaryLinks';
-import { Require } from '../../../../types/util';
-import { ClickEvent } from '../../../../types/events';
+} from '../../../ModalContext/index.js';
+import { StackContext } from '../../../StackContext/index.js';
+import CloseButton from '../../../CloseButton/index.js';
+import { useCollapsible } from '../../../../hooks/useCollapsible/index.js';
+import { useFocusList } from '../../../../hooks/useFocusList/index.js';
+import { PrimaryLinkProps } from '../../types.js';
+import { PrimaryLink } from '../PrimaryLink/index.js';
+import { SecondaryLinks } from '../SecondaryLinks/index.js';
+import { Require } from '../../../../types/util.js';
+import { ClickEvent } from '../../../../types/events.js';
 import {
   ComponentsContext,
   ComponentsContextType,
-} from '../../../ComponentsContext';
-import { defaultComponents } from '../../../ComponentsContext/ComponentsContext';
+} from '../../../ComponentsContext/index.js';
+import { defaultComponents } from '../../../ComponentsContext/ComponentsContext.js';
 
 const TRANSITION_DURATION = 120;
 const HEADER_HEIGHT = 56;

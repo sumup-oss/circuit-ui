@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
 import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
 import { SingleDatePicker } from 'react-dates';
 import type { SingleDatePickerShape } from 'react-dates';
 import 'react-dates/initialize';
 
-import { CalendarWrapper } from './components';
+import styled from '../../styles/styled.js';
+
+import { CalendarWrapper } from './components/index.js';
 
 const CloseIcon = styled(Close)`
   color: var(--cui-fg-normal);

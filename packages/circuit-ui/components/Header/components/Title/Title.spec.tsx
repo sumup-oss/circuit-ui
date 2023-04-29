@@ -21,9 +21,9 @@ import {
   RenderFn,
   renderToHtml,
   axe,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.js';
 
-import Title, { TitleProps } from './Title';
+import Title, { TitleProps } from './Title.js';
 
 describe('Title', () => {
   function renderTitle<T>(renderFn: RenderFn<T>, props: TitleProps) {

@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe, render } from '../../util/test-utils';
+import { create, renderToHtml, axe, render } from '../../util/test-utils.js';
 
-import { Body, BodyProps } from './Body';
+import { Body, BodyProps } from './Body.js';
 
 describe('Body', () => {
   /**

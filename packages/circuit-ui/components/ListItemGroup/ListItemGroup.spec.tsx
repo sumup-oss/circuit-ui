@@ -23,10 +23,10 @@ import {
   axe,
   RenderFn,
   userEvent,
-} from '../../util/test-utils';
-import Body from '../Body';
+} from '../../util/test-utils.js';
+import Body from '../Body/index.js';
 
-import { ListItemGroup, ListItemGroupProps } from './ListItemGroup';
+import { ListItemGroup, ListItemGroupProps } from './ListItemGroup.js';
 
 describe('ListItemGroup', () => {
   function renderListItemGroup<T>(

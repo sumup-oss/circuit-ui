@@ -16,7 +16,7 @@
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import Hr from '../../../Hr';
+import Hr from '../../../Hr/index.js';
 
 const hrStyles = (theme: Theme) => css`
   border: 1px solid ${theme.colors.n700};

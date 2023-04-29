@@ -16,8 +16,8 @@
 import { Fragment, Ref, InputHTMLAttributes, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { hideVisually, focusOutline } from '../../styles/style-mixins';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 

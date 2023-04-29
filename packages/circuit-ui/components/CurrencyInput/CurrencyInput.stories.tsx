@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { Stack } from '../../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components/index.js';
 
-import { CurrencyInput, CurrencyInputProps } from './CurrencyInput';
+import { CurrencyInput, CurrencyInputProps } from './CurrencyInput.js';
 
 export default {
   title: 'Forms/Input/CurrencyInput',

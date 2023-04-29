@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { RadioButtonGroup } from './RadioButtonGroup';
+import { RadioButtonGroup } from './RadioButtonGroup.js';
 
-export type { RadioButtonGroupProps } from './RadioButtonGroup';
+export type { RadioButtonGroupProps } from './RadioButtonGroup.js';
 
 export default RadioButtonGroup;

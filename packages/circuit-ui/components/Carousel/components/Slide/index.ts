@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Slide } from './Slide';
+export { Slide } from './Slide.js';

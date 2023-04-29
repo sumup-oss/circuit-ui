@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 import { css } from '@emotion/react';
 
-import { render, axe } from '../../util/test-utils';
+import { render, axe } from '../../util/test-utils.js';
 
 import Input from '.';
 

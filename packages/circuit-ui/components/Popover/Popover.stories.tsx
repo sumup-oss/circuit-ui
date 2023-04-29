@@ -17,9 +17,9 @@ import { action } from '@storybook/addon-actions';
 import { Add, Edit, Delete } from '@sumup/icons';
 import { useState, ReactNode } from 'react';
 
-import Button from '../Button';
+import Button from '../Button/index.js';
 
-import { Popover, PopoverProps } from './Popover';
+import { Popover, PopoverProps } from './Popover.js';
 
 export default {
   title: 'Components/Popover',

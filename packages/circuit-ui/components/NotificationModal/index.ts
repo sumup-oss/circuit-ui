@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { useNotificationModal } from './useNotificationModal';
+export { useNotificationModal } from './useNotificationModal.js';
 
-export type { NotificationModalProps } from './NotificationModal';
+export type { NotificationModalProps } from './NotificationModal.js';

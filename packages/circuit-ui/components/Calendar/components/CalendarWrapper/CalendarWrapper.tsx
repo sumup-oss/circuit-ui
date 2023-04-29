@@ -22,9 +22,9 @@ import {
   focusVisible,
   disableVisually,
   cx,
-} from '../../../../styles/style-mixins';
+} from '../../../../styles/style-mixins.js';
 
-import calendarInheritStyles from './CalendarImportedStyles';
+import calendarInheritStyles from './CalendarImportedStyles.js';
 
 const dayDefault = css`
   .CalendarDay__default {

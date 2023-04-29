@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { act, renderHook, waitFor } from '../../../util/test-utils';
+import { act, renderHook, waitFor } from '../../../util/test-utils.js';
 
-import { useStep } from './useStep';
+import { useStep } from './useStep.js';
 
 describe('useStep', () => {
   it('should return state based on default values', () => {

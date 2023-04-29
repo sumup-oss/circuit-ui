@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-export { SidePanelProvider } from './SidePanelContext';
-export { useSidePanel } from './useSidePanel';
-export { SIDE_PANEL_WIDTH } from './SidePanel';
+export { SidePanelProvider } from './SidePanelContext.js';
+export { useSidePanel } from './useSidePanel.js';
+export { SIDE_PANEL_WIDTH } from './constants.js';
 
-export type { SidePanelProviderProps } from './SidePanelContext';
-export type { SidePanelHookProps } from './useSidePanel';
+export type { SidePanelProviderProps } from './SidePanelContext.js';
+export type { SidePanelHookProps } from './useSidePanel.js';

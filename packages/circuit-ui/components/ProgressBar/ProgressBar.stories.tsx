@@ -16,7 +16,7 @@
 import { Fragment } from 'react';
 import { css } from '@emotion/react';
 
-import { ProgressBar, ProgressBarProps } from './ProgressBar';
+import { ProgressBar, ProgressBarProps } from './ProgressBar.js';
 
 export default {
   title: 'Components/ProgressBar',

@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { PageList } from './PageList';
+export { PageList } from './PageList.js';

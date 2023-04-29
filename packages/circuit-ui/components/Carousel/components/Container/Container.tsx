@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
+import styled from '../../../../styles/styled.js';
 
 export const Container = styled.div`
   width: 100%;

@@ -21,9 +21,9 @@ import {
   renderToHtml,
   axe,
   userEvent,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.js';
 
-import TableRow from '.';
+import TableRow from './index.js';
 
 const children = 'Foo';
 

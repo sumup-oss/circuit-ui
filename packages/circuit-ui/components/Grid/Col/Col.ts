@@ -14,15 +14,15 @@
  */
 
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 
-import styled, { StyleProps } from '../../../styles/styled';
-import { isNumber, isString } from '../../../util/type-check';
-import { clamp } from '../../../util/helpers';
-import { BreakpointOptions, GridValue } from '../types';
-import { wrapStyles, normalizeToNumber, composeBreakpoints } from '../utils';
-import { MAX_COL_WIDTH, MIN_COL_SPAN } from '../constants';
+import isPropValid from '../../../styles/is-prop-valid.js';
+import styled, { StyleProps } from '../../../styles/styled.js';
+import { isNumber, isString } from '../../../util/type-check.js';
+import { clamp } from '../../../util/helpers.js';
+import { BreakpointOptions, GridValue } from '../types.js';
+import { wrapStyles, normalizeToNumber, composeBreakpoints } from '../utils.js';
+import { MAX_COL_WIDTH, MIN_COL_SPAN } from '../constants.js';
 
 type Option = string | number;
 

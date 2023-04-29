@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, renderToHtml, axe } from '../../util/test-utils';
+import { create, render, renderToHtml, axe } from '../../util/test-utils.js';
 
 import SearchInput from '.';
 

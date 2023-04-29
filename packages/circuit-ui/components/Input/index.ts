@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Input } from './Input';
+import { Input } from './Input.js';
 
-export type { InputProps, InputElement } from './Input';
+export type { InputProps, InputElement } from './Input.js';
 
 export default Input;

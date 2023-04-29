@@ -16,12 +16,12 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render, userEvent, waitFor } from '../../util/test-utils';
+import { axe, render, userEvent, waitFor } from '../../util/test-utils.js';
 
 import {
   NotificationInline,
   NotificationInlineProps,
-} from './NotificationInline';
+} from './NotificationInline.js';
 
 describe('NotificationInline', () => {
   const renderNotificationInline = (props: NotificationInlineProps) =>

@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Backdrop } from './Backdrop';
+export { Backdrop } from './Backdrop.js';
 
-export type { BackdropProps } from './Backdrop';
+export type { BackdropProps } from './Backdrop.js';

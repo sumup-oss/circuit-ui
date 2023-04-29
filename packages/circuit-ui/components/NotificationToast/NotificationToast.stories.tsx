@@ -14,16 +14,15 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-
-import Button from '../Button';
-import { ToastProvider } from '../ToastContext';
+import styled from '../../styles/styled.js';
+import Button from '../Button/index.js';
+import { ToastProvider } from '../ToastContext/index.js';
 
 import {
   NotificationToast,
   NotificationToastProps,
   useNotificationToast,
-} from './NotificationToast';
+} from './NotificationToast.js';
 
 export default {
   title: 'Notification/NotificationToast',

@@ -18,15 +18,21 @@ import { FC } from 'react';
 import { Delete, Add, Download, IconProps } from '@sumup/icons';
 import { Placement } from '@floating-ui/react-dom';
 
-import { act, axe, RenderFn, render, userEvent } from '../../util/test-utils';
-import { ClickEvent } from '../../types/events';
+import {
+  act,
+  axe,
+  RenderFn,
+  render,
+  userEvent,
+} from '../../util/test-utils.js';
+import { ClickEvent } from '../../types/events.js';
 
 import {
   PopoverItem,
   PopoverItemProps,
   Popover,
   PopoverProps,
-} from './Popover';
+} from './Popover.js';
 
 const placements: Placement[] = ['top', 'bottom', 'left', 'right'];
 

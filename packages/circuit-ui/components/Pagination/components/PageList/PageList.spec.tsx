@@ -22,9 +22,9 @@ import {
   axe,
   userEvent,
   RenderFn,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.js';
 
-import { PageList, PageListProps } from './PageList';
+import { PageList, PageListProps } from './PageList.js';
 
 describe('PageList', () => {
   function renderPageList<T>(renderFn: RenderFn<T>, props: PageListProps) {

@@ -15,13 +15,13 @@
 
 import { useState } from 'react';
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 import { Home, Profile, Sales, Shop } from '@sumup/icons';
 
-import Button from '../Button';
+import styled from '../../styles/styled.js';
+import Button from '../Button/index.js';
 
-import { Separator } from './components/Separator';
-import { Sidebar, SidebarProps } from './Sidebar';
+import { Separator } from './components/Separator/index.js';
+import { Sidebar, SidebarProps } from './Sidebar.js';
 
 export default {
   title: 'Navigation/Sidebar',

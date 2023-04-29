@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { SubNavList } from './SubNavList';
+export { SubNavList } from './SubNavList.js';

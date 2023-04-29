@@ -17,10 +17,10 @@ import {
   SidebarContext,
   SidebarContextProvider,
   SidebarContextConsumer,
-} from './SidebarContext';
-import { Sidebar } from './Sidebar';
+} from './SidebarContext.js';
+import { Sidebar } from './Sidebar.js';
 
-export type { SidebarProps } from './Sidebar';
+export type { SidebarProps } from './Sidebar.js';
 
 export default Sidebar;
 export { SidebarContext, SidebarContextProvider, SidebarContextConsumer };

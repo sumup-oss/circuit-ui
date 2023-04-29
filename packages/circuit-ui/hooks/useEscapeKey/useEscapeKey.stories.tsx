@@ -15,10 +15,10 @@
 
 import { useState } from 'react';
 
-import Body from '../../components/Body';
-import Button from '../../components/Button';
+import Body from '../../components/Body/index.js';
+import Button from '../../components/Button/index.js';
 
-import { useEscapeKey } from './useEscapeKey';
+import { useEscapeKey } from './useEscapeKey.js';
 
 export default {
   title: 'Hooks/useEscapeKey',

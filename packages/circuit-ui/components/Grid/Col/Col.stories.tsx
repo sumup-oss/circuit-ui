@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
+import styled from '../../../styles/styled.js';
 
-import { Col, ColProps } from './Col';
+import { Col, ColProps } from './Col.js';
 
 const colControl = {
   control: {

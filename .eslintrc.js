@@ -1,5 +1,16 @@
 module.exports = require('@sumup/foundry/eslint')({
   plugins: ['@sumup/circuit-ui'],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+        project: ['./packages/*/tsconfig.json', './tsconfig.eslint.json'],
+      },
+    },
+  },
   rules: {
     '@sumup/circuit-ui/no-invalid-custom-properties': 'error',
     'react/no-unknown-property': ['error', { ignore: ['css'] }],

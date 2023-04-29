@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Header } from './Header';
+import { Header } from './Header.js';
 
-export type { HeaderProps } from './Header';
+export type { HeaderProps } from './Header.js';
 
 export default Header;

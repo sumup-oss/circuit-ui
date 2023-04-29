@@ -16,11 +16,16 @@
 import { describe, expect, test, vi } from 'vitest';
 import { MutableRefObject, FormEvent } from 'react';
 
-import { renderHook, userEvent, render, screen } from '../../util/test-utils';
-import { InputElement } from '../Input/Input';
+import {
+  renderHook,
+  userEvent,
+  render,
+  screen,
+} from '../../util/test-utils.js';
+import type { InputElement } from '../Input/Input.js';
 
-import { TextArea, TextAreaProps } from './TextArea';
-import { useAutoExpand } from './useAutoExpand';
+import { TextArea, TextAreaProps } from './TextArea.js';
+import { useAutoExpand } from './useAutoExpand.js';
 
 const baseTextareaProps: TextAreaProps = {
   label: 'Test',

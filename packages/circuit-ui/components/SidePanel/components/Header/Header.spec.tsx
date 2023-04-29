@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, userEvent, axe } from '../../../../util/test-utils';
+import { render, userEvent, axe } from '../../../../util/test-utils.js';
 
-import { Header, HeaderProps } from './Header';
+import { Header, HeaderProps } from './Header.js';
 
 describe('Header', () => {
   const baseProps: HeaderProps = {
@@ -27,7 +27,7 @@ describe('Header', () => {
     id: 'side-panel-header',
     isSticky: false,
     onBack: undefined,
-    onClose: undefined,
+    onClose: vi.fn(),
   };
 
   const renderComponent = (props: Partial<HeaderProps> = {}) =>

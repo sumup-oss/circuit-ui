@@ -26,30 +26,30 @@ import {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
 } from 'react';
-import useLatest from 'use-latest';
-import usePrevious from 'use-previous';
 import {
   useFloating,
   flip,
   offset as offsetMiddleware,
   Placement,
 } from '@floating-ui/react-dom';
-import isPropValid from '@emotion/is-prop-valid';
 import { IconProps } from '@sumup/icons';
 
-import { ClickEvent } from '../../types/events';
-import { EmotionAsPropType } from '../../types/prop-types';
-import styled, { StyleProps } from '../../styles/styled';
-import { listItem, shadow, typography } from '../../styles/style-mixins';
-import { useEscapeKey } from '../../hooks/useEscapeKey';
-import { useClickOutside } from '../../hooks/useClickOutside';
-import { useFocusList } from '../../hooks/useFocusList';
-import { isArrowDown, isArrowUp } from '../../util/key-codes';
-import { useComponents } from '../ComponentsContext';
-import Portal from '../Portal';
-import Hr from '../Hr';
-import { useStackContext } from '../StackContext';
-import { isFunction } from '../../util/type-check';
+import isPropValid from '../../styles/is-prop-valid.js';
+import { ClickEvent } from '../../types/events.js';
+import { EmotionAsPropType } from '../../types/prop-types.js';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { listItem, shadow, typography } from '../../styles/style-mixins.js';
+import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
+import { useClickOutside } from '../../hooks/useClickOutside/index.js';
+import { useFocusList } from '../../hooks/useFocusList/index.js';
+import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
+import { useComponents } from '../ComponentsContext/index.js';
+import Portal from '../Portal/index.js';
+import Hr from '../Hr/index.js';
+import { useStackContext } from '../StackContext/index.js';
+import { isFunction } from '../../util/type-check.js';
+import { useLatest } from '../../hooks/useLatest/index.js';
+import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 export interface BaseProps {
   /**

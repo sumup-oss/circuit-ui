@@ -15,7 +15,7 @@
 
 import { useState } from 'react';
 
-import { Hamburger, HamburgerProps } from './Hamburger';
+import { Hamburger, HamburgerProps } from './Hamburger.js';
 
 export default {
   title: 'Navigation/Hamburger',

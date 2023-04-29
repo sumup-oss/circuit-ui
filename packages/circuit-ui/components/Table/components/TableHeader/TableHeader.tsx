@@ -15,14 +15,14 @@
 
 import { ThHTMLAttributes, FC, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 
-import { focusOutline, typography } from '../../../../styles/style-mixins';
-import SortArrow from '../SortArrow';
-import styled, { StyleProps } from '../../../../styles/styled';
-import { CellAlignment, SortParams } from '../../types';
-import { ClickEvent } from '../../../../types/events';
-import { AccessibilityError } from '../../../../util/errors';
+import isPropValid from '../../../../styles/is-prop-valid.js';
+import { focusOutline, typography } from '../../../../styles/style-mixins.js';
+import SortArrow from '../SortArrow/index.js';
+import styled, { StyleProps } from '../../../../styles/styled.js';
+import { CellAlignment, SortParams } from '../../types.js';
+import { ClickEvent } from '../../../../types/events.js';
+import { AccessibilityError } from '../../../../util/errors.js';
 
 export interface TableHeaderProps
   extends ThHTMLAttributes<HTMLTableCellElement> {

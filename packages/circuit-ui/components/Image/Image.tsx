@@ -16,7 +16,7 @@
 import { ImgHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
-import styled from '../../styles/styled';
+import styled from '../../styles/styled.js';
 
 export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**

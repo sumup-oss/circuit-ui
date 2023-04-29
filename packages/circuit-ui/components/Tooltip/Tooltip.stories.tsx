@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
 import { Info } from '@sumup/icons';
 
-import { Tooltip } from './Tooltip';
+import styled from '../../styles/styled.js';
+
+import { Tooltip } from './Tooltip.js';
 
 export default {
   title: 'Components/Tooltip',

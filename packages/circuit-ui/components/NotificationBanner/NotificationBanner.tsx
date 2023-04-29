@@ -25,15 +25,15 @@ import {
 } from 'react';
 import { css } from '@emotion/react';
 
-import Button, { ButtonProps } from '../Button';
-import styled, { NoTheme, StyleProps } from '../../styles/styled';
-import { spacing } from '../../styles/style-mixins';
-import Headline from '../Headline';
-import Body from '../Body';
-import Image, { ImageProps } from '../Image';
-import CloseButton from '../CloseButton';
-import { useAnimation } from '../../hooks/useAnimation';
-import { applyMultipleRefs } from '../../util/refs';
+import Button, { ButtonProps } from '../Button/index.js';
+import styled, { NoTheme, StyleProps } from '../../styles/styled.js';
+import { spacing } from '../../styles/style-mixins.js';
+import Headline from '../Headline/index.js';
+import Body from '../Body/index.js';
+import Image, { ImageProps } from '../Image/index.js';
+import CloseButton from '../CloseButton/index.js';
+import { useAnimation } from '../../hooks/useAnimation/index.js';
+import { applyMultipleRefs } from '../../util/refs.js';
 
 type Action = ButtonProps & {
   variant: 'primary' | 'tertiary';

@@ -19,7 +19,7 @@ import { useState } from 'react';
 import {
   NotificationBanner,
   NotificationBannerProps,
-} from './NotificationBanner';
+} from './NotificationBanner.js';
 
 export default {
   title: 'Notification/NotificationBanner',

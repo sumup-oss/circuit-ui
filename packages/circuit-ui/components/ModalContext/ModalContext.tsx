@@ -23,10 +23,10 @@ import {
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { Global, css } from '@emotion/react';
 
-import { useStack, StackItem } from '../../hooks/useStack';
-import { warn } from '../../util/logger';
+import { useStack, StackItem } from '../../hooks/useStack/index.js';
+import { warn } from '../../util/logger.js';
 
-import { BaseModalProps, ModalComponent } from './types';
+import { BaseModalProps, ModalComponent } from './types.js';
 
 // It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the modal is open.

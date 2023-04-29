@@ -21,15 +21,15 @@ import {
   useId,
 } from 'react';
 
-import styled from '../../styles/styled';
-import { typography } from '../../styles/style-mixins';
-import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
+import styled from '../../styles/styled.js';
+import { typography } from '../../styles/style-mixins.js';
+import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton.js';
 import {
   FieldWrapper,
   FieldLabelText,
   FieldValidationHint,
-} from '../FieldAtoms';
-import { AccessibilityError } from '../../util/errors';
+} from '../FieldAtoms/index.js';
+import { AccessibilityError } from '../../util/errors.js';
 
 export interface RadioButtonGroupProps
   extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {

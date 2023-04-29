@@ -15,12 +15,12 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { act, axe, fireEvent, render } from '../../util/test-utils';
+import { act, axe, fireEvent, render } from '../../util/test-utils.js';
 
-import { TabPanel } from './components/TabPanel';
-import { TabList } from './components/TabList';
-import { Tab } from './components/Tab';
-import { Tabs } from './Tabs';
+import { TabPanel } from './components/TabPanel/index.js';
+import { TabList } from './components/TabList/index.js';
+import { Tab } from './components/Tab/index.js';
+import { Tabs } from './Tabs.js';
 
 describe('Tabs', () => {
   describe('styles', () => {

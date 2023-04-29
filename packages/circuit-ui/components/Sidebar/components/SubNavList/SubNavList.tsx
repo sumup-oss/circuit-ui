@@ -16,13 +16,13 @@
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { StyleProps } from '../../../../styles/styled.js';
 import {
   Child,
   getSelectedChildIndex,
   getSecondaryChildren,
   getChildrenLength,
-} from '../../SidebarService';
+} from '../../SidebarService.js';
 
 // @ts-expect-error Wontfix: this component is deprecated.
 export interface SubNavListProps extends HTMLAttributes<HTMLUListElement> {

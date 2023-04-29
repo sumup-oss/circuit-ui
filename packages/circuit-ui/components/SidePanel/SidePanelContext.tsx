@@ -25,21 +25,20 @@ import {
 import { css, useTheme } from '@emotion/react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
-import styled from '../../styles/styled';
-import { useMedia } from '../../hooks/useMedia';
-import { useStack, StackItem } from '../../hooks/useStack';
-import { Require } from '../../types/util';
-import { warn } from '../../util/logger';
-import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation';
+import styled from '../../styles/styled.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
+import { useStack, StackItem } from '../../hooks/useStack/index.js';
+import { Require } from '../../types/util.js';
+import { warn } from '../../util/logger.js';
+import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation.js';
 
+import { SidePanel, SidePanelProps } from './SidePanel.js';
 import {
-  SidePanel,
-  SidePanelProps,
   SIDE_PANEL_WIDTH,
   TRANSITION_DURATION_DESKTOP,
   TRANSITION_DURATION_MOBILE,
-} from './SidePanel';
-import { SidePanelHookProps } from './useSidePanel';
+} from './constants.js';
+import type { SidePanelHookProps } from './useSidePanel.js';
 
 // It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the side panel is open on mobile.

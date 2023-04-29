@@ -17,7 +17,7 @@ import { forwardRef, useState, useEffect } from 'react';
 import { css } from '@emotion/react';
 import { PatternFormat } from 'react-number-format';
 
-import { Input, InputProps } from '../Input/Input';
+import { Input, InputProps } from '../Input/Input.js';
 
 export interface DateInputProps
   extends Omit<

@@ -15,7 +15,7 @@
 
 import { describe, it, expect } from 'vitest';
 
-import { light } from '..';
+import { light } from '../index.js';
 
 describe('Themes', () => {
   describe('light', () => {

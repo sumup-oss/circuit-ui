@@ -15,9 +15,9 @@
 
 import { createContext, useContext, ReactNode, forwardRef, Ref } from 'react';
 import { css, keyframes } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 
-import styled, { StyleProps } from '../../styles/styled';
+import isPropValid from '../../styles/is-prop-valid.js';
+import styled, { StyleProps } from '../../styles/styled.js';
 
 const SkeletonContext = createContext(false);
 
@@ -34,6 +34,7 @@ export interface SkeletonContainerProps {
    * A reference to the HTML DOM element.
    */
   ref?: Ref<HTMLDivElement>;
+  className?: string;
 }
 
 const containerStyles = css`
@@ -84,6 +85,7 @@ export interface SkeletonProps {
    * A reference to the HTML DOM element.
    */
   ref?: Ref<HTMLSpanElement>;
+  className?: string;
 }
 
 const PULSE_WIDTH = '8rem';

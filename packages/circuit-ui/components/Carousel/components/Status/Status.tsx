@@ -15,9 +15,9 @@
 
 import { css } from '@emotion/react';
 
-import Body, { BodyProps } from '../../../Body';
-import { typography } from '../../../../styles/style-mixins';
-import styled, { StyleProps } from '../../../../styles/styled';
+import { typography } from '../../../../styles/style-mixins.js';
+import styled, { StyleProps } from '../../../../styles/styled.js';
+import Body, { BodyProps } from '../../../Body/index.js';
 
 export interface StatusProps extends BodyProps {
   /**

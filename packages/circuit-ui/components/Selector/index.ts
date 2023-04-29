@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Selector } from './Selector';
+import { Selector } from './Selector.js';
 
-export type { SelectorProps } from './Selector';
+export type { SelectorProps } from './Selector.js';
 
 export default Selector;

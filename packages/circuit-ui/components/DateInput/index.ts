@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { DateInput } from './DateInput';
+import { DateInput } from './DateInput.js';
 
-export type { DateInputProps } from './DateInput';
+export type { DateInputProps } from './DateInput.js';
 
 export default DateInput;

@@ -30,7 +30,7 @@ import {
   Grid,
   Transitions,
   ZIndex,
-} from '../types';
+} from '../types/index.js';
 
 const typePropType = PropTypes.shape({
   fontSize: PropTypes.string,

@@ -18,7 +18,7 @@ import { DayPickerRangeController } from 'react-dates';
 import type { DayPickerRangeControllerShape } from 'react-dates';
 import 'react-dates/initialize';
 
-import { CalendarWrapper } from './components';
+import { CalendarWrapper } from './components/index.js';
 
 export type RangePickerControllerProps = DayPickerRangeControllerShape;
 

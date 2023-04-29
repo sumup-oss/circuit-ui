@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ClickEvent } from '../../types/events';
+import { ClickEvent } from '../../types/events.js';
 
 export type Play = () => void;
 export type Pause = () => void;

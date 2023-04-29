@@ -16,7 +16,6 @@
 /* istanbul ignore file */
 
 import { ReactNode, useState } from 'react';
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {
@@ -26,11 +25,11 @@ import {
   SwipeDirections,
 } from 'react-swipeable';
 
-import Image from '../../Image';
-import Button from '../../Button';
-import Step, { StepProps } from '../Step';
-import { StyleProps } from '../../../styles/styled';
-import { Actions } from '../types';
+import styled, { StyleProps } from '../../../styles/styled.js';
+import Image from '../../Image/index.js';
+import Button from '../../Button/index.js';
+import Step, { StepProps } from '../Step.js';
+import { Actions } from '../types.js';
 
 const SLIDE_WIDTH = 400;
 const ANIMATION_DURATION = 200;

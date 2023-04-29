@@ -16,11 +16,11 @@
 import { Fragment } from 'react';
 import { css } from '@emotion/react';
 
-import TableRow from '../TableRow';
-import TableHeader from '../TableHeader';
-import { mapCellProps, getSortParams } from '../../utils';
-import { Direction, HeaderCell } from '../../types';
-import styled, { StyleProps } from '../../../../styles/styled';
+import TableRow from '../TableRow/index.js';
+import TableHeader from '../TableHeader/index.js';
+import { mapCellProps, getSortParams } from '../../utils.js';
+import { Direction, HeaderCell } from '../../types.js';
+import styled, { StyleProps } from '../../../../styles/styled.js';
 
 type ScrollableOptions =
   | {

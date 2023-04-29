@@ -15,11 +15,14 @@
 
 import { action } from '@storybook/addon-actions';
 
-import { ModalProvider } from '../ModalContext';
-import Button from '../Button';
+import { ModalProvider } from '../ModalContext/index.js';
+import Button from '../Button/index.js';
 
-import { NotificationModal, NotificationModalProps } from './NotificationModal';
-import { useNotificationModal } from './useNotificationModal';
+import {
+  NotificationModal,
+  NotificationModalProps,
+} from './NotificationModal.js';
+import { useNotificationModal } from './useNotificationModal.js';
 
 export default {
   title: 'Notification/NotificationModal',

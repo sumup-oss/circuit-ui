@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Colors } from '../types';
+import { Colors } from '../types/index.js';
 
 export const type = 'light';
 
@@ -122,4 +122,4 @@ export const colors: Colors = {
   ...misc,
 };
 
-export * from './shared';
+export * from './shared.js';

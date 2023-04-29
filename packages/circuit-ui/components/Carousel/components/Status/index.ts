@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Status } from './Status';
+export { Status } from './Status.js';

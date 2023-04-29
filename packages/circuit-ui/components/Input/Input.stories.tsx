@@ -16,11 +16,11 @@
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import SearchInput from '../SearchInput';
-import CurrencyInput from '../CurrencyInput';
-import DateInput from '../DateInput';
+import SearchInput from '../SearchInput/index.js';
+import CurrencyInput from '../CurrencyInput/index.js';
+import DateInput from '../DateInput/index.js';
 
-import { Input, InputProps } from './Input';
+import { Input, InputProps } from './Input.js';
 
 export default {
   title: 'Forms/Input',

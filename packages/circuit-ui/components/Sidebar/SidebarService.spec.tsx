@@ -22,7 +22,7 @@ import {
   getSecondaryChildren,
   getChildrenLength,
   getIcon,
-} from './SidebarService';
+} from './SidebarService.js';
 
 describe('SidebarService', () => {
   describe('hasSelectedChild', () => {

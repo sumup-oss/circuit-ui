@@ -15,10 +15,10 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../util/test-utils';
+import { create, renderToHtml, axe } from '../../util/test-utils.js';
 
-import type { Position, Alignment } from './Tooltip';
-import { Tooltip } from './Tooltip';
+import type { Position, Alignment } from './Tooltip.js';
+import { Tooltip } from './Tooltip.js';
 
 describe('Tooltip', () => {
   /**

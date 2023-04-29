@@ -30,9 +30,9 @@ import {
   act,
   userEvent as baseUserEvent,
   waitFor,
-} from '../../util/test-utils';
-import { uniqueId } from '../../util/id';
-import { useMedia } from '../../hooks/useMedia';
+} from '../../util/test-utils.js';
+import { uniqueId } from '../../util/id.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
 import {
   SidePanelProvider,
@@ -41,7 +41,7 @@ import {
   RemoveSidePanel,
   UpdateSidePanel,
   SidePanelContextProps,
-} from './SidePanelContext';
+} from './SidePanelContext.js';
 
 vi.mock('../../hooks/useMedia');
 

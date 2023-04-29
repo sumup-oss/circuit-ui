@@ -15,10 +15,10 @@
 
 import { Mock, afterAll, describe, expect, it, vi } from 'vitest';
 
-import { create, render } from '../../util/test-utils';
+import { create, render } from '../../util/test-utils.js';
 
-import Step from './Step';
-import { useStep } from './hooks/useStep';
+import Step from './Step.js';
+import { useStep } from './hooks/useStep.js';
 
 vi.mock('./hooks/useStep', () => ({ useStep: vi.fn(() => ({})) }));
 

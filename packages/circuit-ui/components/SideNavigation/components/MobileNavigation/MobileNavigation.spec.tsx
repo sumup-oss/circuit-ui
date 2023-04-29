@@ -16,16 +16,16 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Home, Shop } from '@sumup/icons';
 
-import { ClickEvent } from '../../../../types/events';
+import { ClickEvent } from '../../../../types/events.js';
 import {
   render,
   axe,
   RenderFn,
   userEvent,
   waitFor,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.js';
 
-import { MobileNavigation, MobileNavigationProps } from './MobileNavigation';
+import { MobileNavigation, MobileNavigationProps } from './MobileNavigation.js';
 
 describe('MobileNavigation', () => {
   function renderMobileNavigation<T>(

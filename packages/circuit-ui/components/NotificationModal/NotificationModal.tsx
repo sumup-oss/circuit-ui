@@ -18,16 +18,16 @@ import { FC, ReactNode, SVGProps } from 'react';
 import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
-import { ClickEvent } from '../../types/events';
-import { ModalComponent, BaseModalProps } from '../ModalContext';
-import Image, { ImageProps } from '../Image';
-import Headline from '../Headline';
-import Body from '../Body';
-import { ButtonProps } from '../Button';
-import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
-import CloseButton from '../CloseButton';
-import { cx, spacing } from '../../styles/style-mixins';
-import { CircuitError } from '../../util/errors';
+import { ClickEvent } from '../../types/events.js';
+import { ModalComponent, BaseModalProps } from '../ModalContext/index.js';
+import Image, { ImageProps } from '../Image/index.js';
+import Headline from '../Headline/index.js';
+import Body from '../Body/index.js';
+import { ButtonProps } from '../Button/index.js';
+import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup/index.js';
+import CloseButton from '../CloseButton/index.js';
+import { cx, spacing } from '../../styles/style-mixins.js';
+import { CircuitError } from '../../util/errors.js';
 
 const TRANSITION_DURATION = 200;
 

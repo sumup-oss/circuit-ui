@@ -15,7 +15,7 @@
 
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import * as StepService from './StepService';
+import * as StepService from './StepService.js';
 
 describe('StepService', () => {
   describe('calculateNextStep', () => {

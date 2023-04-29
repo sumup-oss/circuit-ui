@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../../../util/test-utils';
+import { create, renderToHtml, axe } from '../../../../util/test-utils.js';
 
-import { SubNavList } from './SubNavList';
+import { SubNavList } from './SubNavList.js';
 
 describe('SubNavList', () => {
   describe('styles', () => {

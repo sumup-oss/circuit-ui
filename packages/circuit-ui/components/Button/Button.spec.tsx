@@ -24,9 +24,9 @@ import {
   axe,
   RenderFn,
   userEvent,
-} from '../../util/test-utils';
+} from '../../util/test-utils.js';
 
-import { Button, ButtonProps } from './Button';
+import { Button, ButtonProps } from './Button.js';
 
 describe('Button', () => {
   function renderButton<T>(renderFn: RenderFn<T>, props: ButtonProps) {

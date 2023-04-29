@@ -21,10 +21,10 @@ import {
   renderToHtml,
   axe,
   userEvent,
-} from '../../../../util/test-utils';
-import { HeaderCell, Direction } from '../../types';
+} from '../../../../util/test-utils.js';
+import { HeaderCell, Direction } from '../../types.js';
 
-import TableHead from '.';
+import TableHead from './index.js';
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {
   const order = direction === 'ascending' ? 'descending' : 'ascending';

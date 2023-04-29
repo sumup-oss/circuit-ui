@@ -17,16 +17,16 @@ import { describe, expect, it, vi } from 'vitest';
 import { FC } from 'react';
 import { IconProps, Plus } from '@sumup/icons';
 
-import { ClickEvent } from '../../../../types/events';
+import { ClickEvent } from '../../../../types/events.js';
 import {
   create,
   render,
   axe,
   RenderFn,
   userEvent,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.js';
 
-import { PrimaryLink, PrimaryLinkProps } from './PrimaryLink';
+import { PrimaryLink, PrimaryLinkProps } from './PrimaryLink.js';
 
 describe('PrimaryLink', () => {
   function renderPrimaryLink<T>(

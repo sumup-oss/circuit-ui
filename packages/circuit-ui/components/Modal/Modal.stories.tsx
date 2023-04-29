@@ -18,15 +18,15 @@ import { Fragment } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import { Stack } from '../../../../.storybook/components';
-import Button from '../Button';
-import Headline from '../Headline';
-import Body from '../Body';
-import Image from '../Image';
-import { ModalProvider } from '../ModalContext';
-import { spacing } from '../../styles/style-mixins';
+import { Stack } from '../../../../.storybook/components/index.js';
+import Button from '../Button/index.js';
+import Headline from '../Headline/index.js';
+import Body from '../Body/index.js';
+import Image from '../Image/index.js';
+import { ModalProvider } from '../ModalContext/index.js';
+import { spacing } from '../../styles/style-mixins.js';
 
-import { Modal, ModalProps, useModal } from './Modal';
+import { Modal, ModalProps, useModal } from './Modal.js';
 
 export default {
   title: 'Components/Modal',

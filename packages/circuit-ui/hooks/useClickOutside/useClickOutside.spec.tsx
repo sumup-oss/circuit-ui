@@ -16,9 +16,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { useRef, useState } from 'react';
 
-import { render, userEvent } from '../../util/test-utils';
+import { render, userEvent } from '../../util/test-utils.js';
 
-import { useClickOutside } from './useClickOutside';
+import { useClickOutside } from './useClickOutside.js';
 
 describe('useClickOutside', () => {
   function MockComponent({ onClickOutside = vi.fn(), isActive = true }) {

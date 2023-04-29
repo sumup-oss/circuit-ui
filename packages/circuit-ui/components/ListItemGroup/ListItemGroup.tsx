@@ -16,12 +16,12 @@
 import { forwardRef, Ref, HTMLAttributes, ReactNode, useState } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { hideVisually } from '../../styles/style-mixins';
-import { AccessibilityError } from '../../util/errors';
-import { ReturnType } from '../../types/return-type';
-import Body from '../Body';
-import ListItem, { ListItemProps } from '../ListItem';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { hideVisually } from '../../styles/style-mixins.js';
+import { AccessibilityError } from '../../util/errors.js';
+import { ReturnType } from '../../types/return-type.js';
+import Body from '../Body/index.js';
+import ListItem, { ListItemProps } from '../ListItem/index.js';
 
 type Variant = 'plain' | 'inset';
 

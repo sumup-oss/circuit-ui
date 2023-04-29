@@ -22,9 +22,9 @@ import {
   render,
   userEvent,
   RenderFn,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.js';
 
-import { Aggregator, AggregatorProps } from './Aggregator';
+import { Aggregator, AggregatorProps } from './Aggregator.js';
 
 const ProxyComponent = ({ children, selected, visible, ...rest }: any) => (
   <div {...rest}>{children}</div>

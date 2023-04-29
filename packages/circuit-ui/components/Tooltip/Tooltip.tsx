@@ -14,10 +14,10 @@
  */
 
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 
-import type { StyleProps } from '../../styles/styled';
-import { typography, shadow } from '../../styles/style-mixins';
+import styled from '../../styles/styled.js';
+import type { StyleProps } from '../../styles/styled.js';
+import { typography, shadow } from '../../styles/style-mixins.js';
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-block;

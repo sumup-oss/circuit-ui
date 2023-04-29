@@ -14,11 +14,11 @@
  */
 
 import { FC, PropsWithChildren } from 'react';
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { focusOutline } from '../../../../styles/style-mixins';
-import { ClickEvent } from '../../../../types/events';
+import styled from '../../../../styles/styled.js';
+import { focusOutline } from '../../../../styles/style-mixins.js';
+import { ClickEvent } from '../../../../types/events.js';
 
 type TableRowProps = {
   onClick?: (event: ClickEvent<HTMLTableRowElement>) => void;

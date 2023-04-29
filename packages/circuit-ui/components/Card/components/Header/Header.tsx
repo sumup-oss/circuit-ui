@@ -16,13 +16,13 @@
 import { FC, ReactNode, HTMLAttributes, PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
 
-import { ClickEvent } from '../../../../types/events';
-import styled, { StyleProps } from '../../../../styles/styled';
+import { ClickEvent } from '../../../../types/events.js';
+import styled, { StyleProps } from '../../../../styles/styled.js';
 import {
   CloseButton,
   CloseButtonProps,
-} from '../../../CloseButton/CloseButton';
-import { isArray } from '../../../../util/type-check';
+} from '../../../CloseButton/CloseButton.js';
+import { isArray } from '../../../../util/type-check.js';
 
 type CloseProps =
   | {

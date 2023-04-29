@@ -16,8 +16,8 @@
 import { describe, expect, test, vi } from 'vitest';
 import { useRef } from 'react';
 
-import { render, renderHook } from './test-utils';
-import { applyMultipleRefs } from './refs';
+import { render, renderHook } from './test-utils.js';
+import { applyMultipleRefs } from './refs.js';
 
 describe('applyMultipleRefs function', () => {
   test("should populate a reference's `current` member'", () => {

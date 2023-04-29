@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, renderToHtml, axe } from '../../util/test-utils';
+import { create, render, renderToHtml, axe } from '../../util/test-utils.js';
 
-import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
+import { ButtonGroup, ButtonGroupProps } from './ButtonGroup.js';
 
 describe('ButtonGroup', () => {
   const defaultProps: ButtonGroupProps = {

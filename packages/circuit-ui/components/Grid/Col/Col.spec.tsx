@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, renderToHtml, axe } from '../../../util/test-utils';
+import { create, render, renderToHtml, axe } from '../../../util/test-utils.js';
 
-import { Col } from './Col';
+import { Col } from './Col.js';
 
 describe('Col', () => {
   /**

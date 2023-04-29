@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../../../util/test-utils';
+import { create, renderToHtml, axe } from '../../../../util/test-utils.js';
 
-import { CloseButton } from './CloseButton';
+import { CloseButton } from './CloseButton.js';
 
 describe('CloseButton', () => {
   describe('styles', () => {

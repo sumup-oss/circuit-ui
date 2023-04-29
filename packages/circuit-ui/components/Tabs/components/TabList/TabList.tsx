@@ -16,8 +16,8 @@
 import { Children, HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
-import { shadow, hideScrollbar } from '../../../../styles/style-mixins';
-import styled, { StyleProps } from '../../../../styles/styled';
+import styled, { StyleProps } from '../../../../styles/styled.js';
+import { shadow, hideScrollbar } from '../../../../styles/style-mixins.js';
 
 export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
   stretched?: boolean;

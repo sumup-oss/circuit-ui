@@ -17,10 +17,10 @@ import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 import { ArrowLeft, Close } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../../../styles/styled';
-import { IconButton } from '../../../IconButton/IconButton';
-import Headline from '../../../Headline';
-import { SidePanelProps } from '../../SidePanel';
+import styled, { StyleProps } from '../../../../styles/styled.js';
+import { IconButton } from '../../../IconButton/IconButton.js';
+import Headline from '../../../Headline/index.js';
+import type { SidePanelProps } from '../../SidePanel.js';
 
 type HeaderStickyProps = { isSticky: boolean };
 

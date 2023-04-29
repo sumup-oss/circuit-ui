@@ -15,13 +15,13 @@
 
 import { action } from '@storybook/addon-actions';
 
-import Badge from '../Badge';
-import { isString } from '../../util/type-check';
+import Badge from '../Badge/index.js';
+import { isString } from '../../util/type-check.js';
 
-import { TableProps } from './Table';
-import { Direction } from './types';
+import { TableProps } from './Table.js';
+import { Direction } from './types.js';
 
-import Table from '.';
+import Table from './index.js';
 
 export default {
   title: 'Components/Table',

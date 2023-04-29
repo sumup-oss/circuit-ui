@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Select } from './Select';
+import { Select } from './Select.js';
 
-export type { SelectProps, SelectOption } from './Select';
+export type { SelectProps, SelectOption } from './Select.js';
 
 export default Select;

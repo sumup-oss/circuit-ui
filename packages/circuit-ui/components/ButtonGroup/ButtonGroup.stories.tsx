@@ -17,7 +17,7 @@ import { css } from '@emotion/react';
 import { action } from '@storybook/addon-actions';
 import { Theme } from '@sumup/design-tokens';
 
-import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
+import { ButtonGroup, ButtonGroupProps } from './ButtonGroup.js';
 
 export default {
   title: 'Components/ButtonGroup',

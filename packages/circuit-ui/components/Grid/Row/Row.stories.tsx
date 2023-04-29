@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-
-import { Row, Col } from '..';
+import styled from '../../../styles/styled.js';
+import { Row, Col } from '../index.js';
 
 export default {
   title: 'Layout/Grid/Row',

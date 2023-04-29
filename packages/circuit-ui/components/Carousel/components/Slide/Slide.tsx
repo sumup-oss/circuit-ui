@@ -16,10 +16,10 @@
 import { HTMLAttributes, ReactNode } from 'react';
 import { css, keyframes } from '@emotion/react';
 
-import styled, { StyleProps } from '../../../../styles/styled';
-import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants';
+import styled, { StyleProps } from '../../../../styles/styled.js';
+import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants.js';
 
-import * as SlideService from './SlideService';
+import * as SlideService from './SlideService.js';
 
 export interface SlideProps extends HTMLAttributes<HTMLDivElement> {
   /**

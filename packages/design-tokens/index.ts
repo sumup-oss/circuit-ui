@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import * as Types from './types';
-import * as lightBase from './themes/light';
+import type { Theme } from './types/index.js';
+import * as lightBase from './themes/light.js';
 
-export { themePropType } from './utils/theme-prop-type';
+export { themePropType } from './utils/theme-prop-type.js';
 
 // HACK: Copy the theme, otherwise, it gets exported as 'module'.
-const light: Types.Theme = { ...lightBase };
+const light: Theme = { ...lightBase };
 
-export type Theme = Types.Theme;
+export type { Theme };
 export { light };

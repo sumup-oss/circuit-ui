@@ -15,10 +15,10 @@
 
 import { forwardRef, HTMLAttributes, Ref } from 'react';
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
+import isPropValid from '../../styles/is-prop-valid.js';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { AsPropType, EmotionAsPropType } from '../../types/prop-types.js';
 
 type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 

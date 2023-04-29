@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { useEscapeKey } from './useEscapeKey';
+export { useEscapeKey } from './useEscapeKey.js';

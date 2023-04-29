@@ -16,9 +16,12 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Plus } from '@sumup/icons';
 
-import { axe, render, userEvent, waitFor } from '../../util/test-utils';
+import { axe, render, userEvent, waitFor } from '../../util/test-utils.js';
 
-import { NotificationModal, NotificationModalProps } from './NotificationModal';
+import {
+  NotificationModal,
+  NotificationModalProps,
+} from './NotificationModal.js';
 
 describe('NotificationModal', () => {
   const renderNotificationModal = (props: NotificationModalProps) =>

@@ -17,10 +17,10 @@ import { describe, expect, it } from 'vitest';
 import { ChangeEvent, createRef, useState } from 'react';
 import { NumericFormatProps } from 'react-number-format';
 
-import { render, userEvent, axe } from '../../util/test-utils';
-import { InputProps } from '../Input';
+import { render, userEvent, axe } from '../../util/test-utils.js';
+import { InputProps } from '../Input/index.js';
 
-import CurrencyInput, { CurrencyInputProps } from '.';
+import CurrencyInput, { CurrencyInputProps } from './index.js';
 
 // Note: these defaults render a '€' as an input suffix
 const defaultProps = {

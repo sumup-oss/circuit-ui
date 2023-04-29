@@ -22,9 +22,9 @@ import {
   render,
   userEvent,
   RenderFn,
-} from '../../util/test-utils';
+} from '../../util/test-utils.js';
 
-import { Hamburger, HamburgerProps } from './Hamburger';
+import { Hamburger, HamburgerProps } from './Hamburger.js';
 
 describe('Hamburger', () => {
   function renderHamburger<T>(renderFn: RenderFn<T>, props: HamburgerProps) {

@@ -16,7 +16,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { light as theme } from '@sumup/design-tokens';
 
-import { composeBreakpoints, normalizeToNumber, wrapStyles } from './utils';
+import { composeBreakpoints, normalizeToNumber, wrapStyles } from './utils.js';
 
 describe('Grid utils', () => {
   describe('normalizeToNumber', () => {

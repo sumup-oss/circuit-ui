@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, axe } from '../../util/test-utils';
+import { render, axe } from '../../util/test-utils.js';
 
-import { Avatar, AvatarProps } from './Avatar';
+import { Avatar, AvatarProps } from './Avatar.js';
 
 const sizes = ['giga', 'yotta'] as const;
 const variants = ['object', 'identity'] as const;

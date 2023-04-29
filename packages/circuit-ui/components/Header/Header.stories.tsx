@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import Hamburger from '../Hamburger';
+import Hamburger from '../Hamburger/index.js';
 
-import { Header, HeaderProps } from './Header';
+import { Header, HeaderProps } from './Header.js';
 
 export default {
   title: 'Navigation/Header',

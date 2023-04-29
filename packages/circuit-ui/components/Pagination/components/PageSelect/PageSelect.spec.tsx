@@ -14,17 +14,17 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { fireEvent } from '@testing-library/dom';
 
 import {
   create,
   render,
   renderToHtml,
+  fireEvent,
   axe,
   RenderFn,
-} from '../../../../util/test-utils';
+} from '../../../../util/test-utils.js';
 
-import { PageSelect, PageSelectProps } from './PageSelect';
+import { PageSelect, PageSelectProps } from './PageSelect.js';
 
 describe('PageSelect', () => {
   function renderPageSelect<T>(renderFn: RenderFn<T>, props: PageSelectProps) {

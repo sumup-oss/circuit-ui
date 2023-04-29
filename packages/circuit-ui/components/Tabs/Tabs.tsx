@@ -15,11 +15,15 @@
 
 import { Component, Fragment, ReactElement, ReactNode, createRef } from 'react';
 
-import { isArrowLeft, isArrowRight, isArrowDown } from '../../util/key-codes';
+import {
+  isArrowLeft,
+  isArrowRight,
+  isArrowDown,
+} from '../../util/key-codes.js';
 
-import { TabList } from './components/TabList';
-import { Tab } from './components/Tab';
-import { TabPanel } from './components/TabPanel';
+import { TabList } from './components/TabList/index.js';
+import { Tab } from './components/Tab/index.js';
+import { TabPanel } from './components/TabPanel/index.js';
 
 export interface TabsProps {
   /**

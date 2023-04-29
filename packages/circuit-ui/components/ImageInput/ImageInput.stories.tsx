@@ -15,12 +15,12 @@
 
 import { useState } from 'react';
 
-import Avatar from '../Avatar';
-import { Stack } from '../../../../.storybook/components';
+import Avatar from '../Avatar/index.js';
+import { Stack } from '../../../../.storybook/components/index.js';
 
-import { ImageInputProps } from './ImageInput';
+import { ImageInputProps } from './ImageInput.js';
 
-import ImageInput from '.';
+import ImageInput from './index.js';
 
 export default {
   title: 'Forms/ImageInput',

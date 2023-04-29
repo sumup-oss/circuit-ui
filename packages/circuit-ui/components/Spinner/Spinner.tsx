@@ -16,7 +16,7 @@
 import { HTMLAttributes } from 'react';
 import { css, keyframes } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled.js';
 
 const spin = keyframes`
   0% { transform: rotate(0deg); }

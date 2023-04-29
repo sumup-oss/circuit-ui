@@ -23,21 +23,21 @@ import {
   SVGProps,
 } from 'react';
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 
-import styled, { StyleProps } from '../../styles/styled';
+import isPropValid from '../../styles/is-prop-valid.js';
+import styled, { StyleProps } from '../../styles/styled.js';
 import {
   typography,
   focusVisible,
   hideVisually,
-} from '../../styles/style-mixins';
-import { ReturnType } from '../../types/return-type';
-import { ClickEvent } from '../../types/events';
-import { AsPropType, EmotionAsPropType } from '../../types/prop-types';
-import { useComponents } from '../ComponentsContext';
-import Spinner from '../Spinner';
-import { AccessibilityError } from '../../util/errors';
+} from '../../styles/style-mixins.js';
+import { ReturnType } from '../../types/return-type.js';
+import { ClickEvent } from '../../types/events.js';
+import { AsPropType, EmotionAsPropType } from '../../types/prop-types.js';
+import { useComponents } from '../ComponentsContext/index.js';
+import Spinner from '../Spinner/index.js';
+import { AccessibilityError } from '../../util/errors.js';
 
 export interface BaseProps {
   'children': ReactNode;

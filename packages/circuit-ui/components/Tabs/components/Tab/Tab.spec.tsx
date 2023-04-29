@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render } from '../../../../util/test-utils';
+import { render } from '../../../../util/test-utils.js';
 
-import { Tab } from './Tab';
+import { Tab } from './Tab.js';
 
 describe('Tab', () => {
   describe('styles', () => {

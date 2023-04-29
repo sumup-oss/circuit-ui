@@ -17,10 +17,10 @@ import { InputHTMLAttributes, Ref, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../styles/styled';
-import { hideVisually, focusOutline } from '../../styles/style-mixins';
-import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
-import { AccessibilityError } from '../../util/errors';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
+import { FieldValidationHint, FieldWrapper } from '../FieldAtoms/index.js';
+import { AccessibilityError } from '../../util/errors.js';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**

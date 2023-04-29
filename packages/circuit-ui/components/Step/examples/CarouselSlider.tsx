@@ -15,13 +15,12 @@
 
 /* istanbul ignore file */
 
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import Image from '../../Image';
-import Button from '../../Button';
-import Step, { StepProps } from '../Step';
-import { StyleProps } from '../../../styles/styled';
+import styled, { StyleProps } from '../../../styles/styled.js';
+import Image from '../../Image/index.js';
+import Button from '../../Button/index.js';
+import Step, { StepProps } from '../Step.js';
 
 const SLIDE_WIDTH = 400;
 

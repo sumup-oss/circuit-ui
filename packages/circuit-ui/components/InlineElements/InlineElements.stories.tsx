@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { InlineElements } from './InlineElements';
+import styled from '../../styles/styled.js';
+
+import { InlineElements } from './InlineElements.js';
 
 export default {
   title: 'Layout/InlineElements',

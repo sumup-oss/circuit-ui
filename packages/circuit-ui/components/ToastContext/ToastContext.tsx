@@ -22,11 +22,11 @@ import {
 } from 'react';
 import { css } from '@emotion/react';
 
-import { useStack, StackItem } from '../../hooks/useStack';
-import styled, { StyleProps } from '../../styles/styled';
-import { spacing } from '../../styles/style-mixins';
+import { useStack, StackItem } from '../../hooks/useStack/index.js';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { spacing } from '../../styles/style-mixins.js';
 
-import { BaseToastProps, ToastComponent } from './types';
+import { BaseToastProps, ToastComponent } from './types.js';
 
 const DEFAULT_TOAST_DURATION = 6000;
 

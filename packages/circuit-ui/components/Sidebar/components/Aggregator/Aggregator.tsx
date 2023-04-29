@@ -16,13 +16,13 @@
 import { useState, useEffect, ReactElement } from 'react';
 import { css } from '@emotion/react';
 
-import { ClickEvent } from '../../../../types/events';
-import { isEmpty } from '../../../../util/helpers';
-import styled, { StyleProps } from '../../../../styles/styled';
-import { Child, hasSelectedChild, getIcon } from '../../SidebarService';
-import { SubNavList } from '../SubNavList';
-import { NavLabel } from '../NavLabel';
-import { AccessibilityError } from '../../../../util/errors';
+import { ClickEvent } from '../../../../types/events.js';
+import { isEmpty } from '../../../../util/helpers.js';
+import styled, { StyleProps } from '../../../../styles/styled.js';
+import { Child, hasSelectedChild, getIcon } from '../../SidebarService.js';
+import { SubNavList } from '../SubNavList/index.js';
+import { NavLabel } from '../NavLabel/index.js';
+import { AccessibilityError } from '../../../../util/errors.js';
 
 export interface AggregatorProps {
   /**

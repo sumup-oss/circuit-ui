@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { SearchInput } from './SearchInput';
+import { SearchInput } from './SearchInput.js';
 
-export type { SearchInputProps } from './SearchInput';
+export type { SearchInputProps } from './SearchInput.js';
 
 export default SearchInput;

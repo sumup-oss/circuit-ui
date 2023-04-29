@@ -1,7 +1,8 @@
-import type { StorybookConfig } from '@storybook/react-webpack5';
-import type { PluginItem } from '@babel/core';
+import type { StorybookConfig } from '@storybook/react-vite';
 import path from 'path';
 import remarkGfm from 'remark-gfm';
+import { mergeConfig } from 'vite';
+import turbosnap from 'vite-plugin-turbosnap';
 
 const toPath = (_path: string) => path.join(process.cwd(), _path);
 
@@ -35,24 +36,17 @@ const config: StorybookConfig = {
     disableTelemetry: true,
   },
   framework: {
-    name: '@storybook/react-webpack5',
+    name: '@storybook/react-vite',
     options: {},
   },
-  babel: async (options) => ({
-    ...options,
-    presets: [
-      ...(options.presets as PluginItem[]),
-      // HACK: Storybook includes `@babel/preset-react` by default, which
-      // overrides the custom preset configuration in `babel.config.json`.
-      // This override overrides the override.
-      [
-        '@babel/preset-react',
-        { runtime: 'automatic', importSource: '@emotion/react' },
-        'preset-jsx-import-source',
-      ],
-      '@babel/preset-typescript',
-    ],
-  }),
+  async viteFinal(config, { configType }) {
+    return mergeConfig(config, {
+      plugins:
+        configType === 'PRODUCTION'
+          ? [turbosnap({ rootDir: config.root ?? process.cwd() })]
+          : [],
+    });
+  },
 };
 
 export default config;

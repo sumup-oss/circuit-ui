@@ -14,18 +14,18 @@
  */
 
 import { useEffect } from 'react';
-import usePrevious from 'use-previous';
 import { useTheme } from '@emotion/react';
 
-import { useMedia } from '../../hooks/useMedia';
-import { AccessibilityError } from '../../util/errors';
+import { useMedia } from '../../hooks/useMedia/index.js';
+import { AccessibilityError } from '../../util/errors.js';
+import { usePrevious } from '../../hooks/usePrevious/index.js';
 
-import { DesktopNavigation } from './components/DesktopNavigation';
-import { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation';
+import { DesktopNavigation } from './components/DesktopNavigation/index.js';
+import { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation.js';
 import {
   MobileNavigationProps,
   useMobileNavigation,
-} from './components/MobileNavigation';
+} from './components/MobileNavigation/index.js';
 
 export interface SideNavigationProps
   extends MobileNavigationProps,

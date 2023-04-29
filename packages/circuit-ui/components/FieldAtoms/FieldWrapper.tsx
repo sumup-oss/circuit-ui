@@ -16,10 +16,10 @@
 import { forwardRef, HTMLAttributes, Ref } from 'react';
 import { css } from '@emotion/react';
 
-import styled from '../../styles/styled';
-import { EmotionAsPropType } from '../../types/prop-types';
+import styled from '../../styles/styled.js';
+import { EmotionAsPropType } from '../../types/prop-types.js';
 
-import { CLASS_DISABLED } from './constants';
+import { CLASS_DISABLED } from './constants.js';
 
 export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
   as?: EmotionAsPropType;

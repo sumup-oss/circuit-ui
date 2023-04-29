@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Spinner } from './Spinner';
+import { Spinner } from './Spinner.js';
 
-export type { SpinnerProps } from './Spinner';
+export type { SpinnerProps } from './Spinner.js';
 
 export default Spinner;

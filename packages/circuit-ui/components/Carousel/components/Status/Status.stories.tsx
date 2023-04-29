@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Status, StatusProps } from './Status';
+import { Status, StatusProps } from './Status.js';
 
 export default {
   title: 'Components/Carousel/Status',

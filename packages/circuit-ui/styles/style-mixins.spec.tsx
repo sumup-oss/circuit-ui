@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 import { css } from '@emotion/react';
 import { light, Theme } from '@sumup/design-tokens';
 
-import { create } from '../util/test-utils';
+import { create } from '../util/test-utils.js';
 
 import {
   cx,
@@ -34,7 +34,7 @@ import {
   listItem,
   navigationItem,
   center,
-} from './style-mixins';
+} from './style-mixins.js';
 
 describe('Style helpers', () => {
   const byte = (theme: Theme) => css`

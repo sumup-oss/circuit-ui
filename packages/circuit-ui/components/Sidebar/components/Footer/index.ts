@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Footer } from './Footer';
+export { Footer } from './Footer.js';

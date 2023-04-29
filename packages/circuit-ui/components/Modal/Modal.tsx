@@ -18,16 +18,16 @@ import { css, ClassNames } from '@emotion/react';
 import ReactModal from 'react-modal';
 import { Theme } from '@sumup/design-tokens';
 
-import { isFunction } from '../../util/type-check';
+import { isFunction } from '../../util/type-check.js';
 import {
   ModalComponent,
   BaseModalProps,
   createUseModal,
-} from '../ModalContext';
-import CloseButton from '../CloseButton';
-import { StackContext } from '../StackContext';
-import styled, { StyleProps } from '../../styles/styled';
-import { AccessibilityError } from '../../util/errors';
+} from '../ModalContext/index.js';
+import CloseButton from '../CloseButton/index.js';
+import { StackContext } from '../StackContext/index.js';
+import styled, { StyleProps } from '../../styles/styled.js';
+import { AccessibilityError } from '../../util/errors.js';
 
 const TRANSITION_DURATION_MOBILE = 120;
 const TRANSITION_DURATION_DESKTOP = 240;

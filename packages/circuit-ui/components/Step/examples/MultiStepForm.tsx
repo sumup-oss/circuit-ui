@@ -16,16 +16,16 @@
 /* istanbul ignore file */
 
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 
-import Headline from '../../Headline';
-import Button from '../../Button';
-import ButtonGroup from '../../ButtonGroup';
-import Input from '../../Input';
-import Select from '../../Select';
-import ProgressBar from '../../ProgressBar';
-import Step from '../Step';
-import { spacing } from '../../../styles/style-mixins';
+import styled from '../../../styles/styled.js';
+import Headline from '../../Headline/index.js';
+import Button from '../../Button/index.js';
+import ButtonGroup from '../../ButtonGroup/index.js';
+import Input from '../../Input/index.js';
+import Select from '../../Select/index.js';
+import ProgressBar from '../../ProgressBar/index.js';
+import Step from '../Step.js';
+import { spacing } from '../../../styles/style-mixins.js';
 
 interface FormProps {
   onNextClick: () => void;

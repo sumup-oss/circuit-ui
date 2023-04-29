@@ -16,8 +16,8 @@
 import { LabelHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
-import styled from '../../styles/styled';
-import { typography } from '../../styles/style-mixins';
+import styled from '../../styles/styled.js';
+import { typography } from '../../styles/style-mixins.js';
 
 export interface FieldLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /**
