@@ -13,6 +13,12 @@
 
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to the `"exports"` field to configure the package entry points. Files that are not explicitly defined in `"exports"` can no longer be imported.
 
+## 2.23.0
+
+### Minor Changes
+
+- [#2068](https://github.com/sumup-oss/circuit-ui/pull/2068) [`4a4f8d74`](https://github.com/sumup-oss/circuit-ui/commit/4a4f8d7451418a90b1d15f4fff1f384e4aa64067) Thanks [@oalpatov](https://github.com/oalpatov)! - Added new icons in size 24: `CreditNote`, `DeliveryNote`, `ElectronicInvoice`, `FlipCamera`, `NoCosts`, and `RecurringInvoice`.
+
 ## 2.22.0
 
 ### Minor Changes
