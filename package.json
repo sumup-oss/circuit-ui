@@ -79,7 +79,7 @@
     "storybook": "^7.0.5",
     "svgo": "^3.0.2",
     "typescript": "^5.0.4",
-    "webpack": "^5.80.0"
+    "webpack": "^5.81.0"
   },
   "resolutions": {
     "prettier": "^2.6.2"
