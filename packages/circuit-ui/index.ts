@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+// The global styles need to be exported first to ensure the CSS has the right
+// order in the generated stylesheet.
+export { baseStyles as _baseStyles } from './styles/base.js';
+
 // Typography
 export { default as Headline } from './components/Headline/index.js';
 export type { HeadlineProps } from './components/Headline/index.js';

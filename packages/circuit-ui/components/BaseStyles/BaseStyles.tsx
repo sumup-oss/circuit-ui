@@ -13,12 +13,18 @@
  * limitations under the License.
  */
 
-import { FunctionComponent } from 'react';
-import { Global } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
+import { DeprecationError } from '../../util/errors.js';
 
-import { createBaseStyles } from './BaseStylesService.js';
-
-export const BaseStyles: FunctionComponent = () => (
-  <Global styles={(theme: Theme) => createBaseStyles({ theme })} />
-);
+/**
+ * @deprecated This component has been deprecated. The base styles are included
+ * in the global stylesheet (`@sumup/circuit-ui/styles.css`).
+ */
+export function BaseStyles() {
+  if (process.env.NODE_ENV !== 'production') {
+    throw new DeprecationError(
+      'BaseStyles',
+      'This component has been deprecated. The base styles are included in the global stylesheet (`@sumup/circuit-ui/styles.css`).',
+    );
+  }
+  return null;
+}
