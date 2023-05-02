@@ -33,6 +33,12 @@ module.exports = require('@sumup/foundry/eslint')({
       },
     },
     {
+      files: ['packages/circuit-ui/**/*'],
+      settings: {
+        'import/core-modules': ['@linaria/core', '@linaria/react'],
+      },
+    },
+    {
       files: ['packages/icons/scripts/*'],
       rules: {
         'import/no-extraneous-dependencies': 'off',
