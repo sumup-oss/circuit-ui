@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-/* eslint-disable import/no-extraneous-dependencies */
 import { resolve } from 'node:path';
 
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import linaria from '@linaria/vite';
 
