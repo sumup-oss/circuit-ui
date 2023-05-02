@@ -20,6 +20,7 @@ import type { ClickEvent } from '../../types/events.js';
 import styled from '../../styles/styled.js';
 import { RangePickerController } from '../Calendar/index.js';
 import Tag from '../Tag/index.js';
+import { START_DATE } from '../Calendar/constants.js';
 
 export interface CalendarTagProps {
   /**
@@ -42,8 +43,6 @@ type DateRange = {
   endDate: CalendarDate;
 };
 type FocusedInput = 'startDate' | 'endDate' | null;
-
-const START_DATE = 'startDate';
 
 const CalendarWrap = styled.div`
   margin-top: ${({ theme }) => theme.spacings.byte};

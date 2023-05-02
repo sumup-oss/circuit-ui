@@ -22,6 +22,7 @@ import styled from '../../styles/styled.js';
 import { RangePickerController } from '../Calendar/index.js';
 import Tag from '../Tag/index.js';
 import ButtonGroup from '../ButtonGroup/index.js';
+import { END_DATE, START_DATE } from '../Calendar/constants.js';
 
 export interface CalendarTagTwoStepProps {
   /**
@@ -53,9 +54,6 @@ type DateRange = {
   endDate: CalendarDate;
 };
 type FocusedInput = 'startDate' | 'endDate' | null;
-
-const START_DATE = 'startDate';
-const END_DATE = 'endDate';
 
 const buttonGroupStyles = () => css`
   /* based on react dates */
