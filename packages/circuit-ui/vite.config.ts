@@ -14,11 +14,26 @@
  */
 
 /* eslint-disable import/no-extraneous-dependencies */
+import { resolve } from 'node:path';
+
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import linaria from '@linaria/vite';
 
+import { peerDependencies } from './package.json';
+
 export default defineConfig({
+  build: {
+    lib: {
+      entry: resolve(__dirname, 'index.ts'),
+      formats: ['es'],
+      fileName: 'index',
+    },
+    minify: false,
+    rollupOptions: {
+      external: Object.keys(peerDependencies),
+    },
+  },
   plugins: [
     react({
       jsxImportSource: '@emotion/react',

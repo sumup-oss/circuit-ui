@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export default ['packages/**/vitest.config.ts'];
+export default ['packages/**/vitest.config.ts', 'packages/**/vite.config.ts'];
