@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.0.0-next.3
+
+### Patch Changes
+
+- [#2079](https://github.com/sumup-oss/circuit-ui/pull/2079) [`36351df2`](https://github.com/sumup-oss/circuit-ui/commit/36351df262c74e163d4e64806baf59f53b2773b3) Thanks [@connor-baer](https://github.com/connor-baer)! - Added file extensions to imports from `react-dates`.
+
 ## 7.0.0-next.2
 
 ### Major Changes
