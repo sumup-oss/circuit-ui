@@ -31,10 +31,10 @@ const descriptionStyles = css`
 `;
 
 const variants = {
-  stable: { variant: 'confirm', label: 'Stable' },
-  deprecated: { variant: 'alert', label: 'Deprecated' },
-  inReview: { variant: 'notify', label: 'In Review' },
-  experimental: { variant: 'notify', label: 'Experimental' },
+  stable: { variant: 'success', label: 'Stable' },
+  deprecated: { variant: 'danger', label: 'Deprecated' },
+  inReview: { variant: 'warning', label: 'In Review' },
+  experimental: { variant: 'warning', label: 'Experimental' },
 } as const;
 
 const Status = ({ variant: status = 'stable', children }: StatusProps) => {
