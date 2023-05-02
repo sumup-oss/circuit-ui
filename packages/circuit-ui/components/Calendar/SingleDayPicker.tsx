@@ -16,7 +16,7 @@
 import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
 import { SingleDatePicker } from 'react-dates';
 import type { SingleDatePickerShape } from 'react-dates';
-import 'react-dates/initialize';
+import 'react-dates/initialize.js';
 
 import styled from '../../styles/styled.js';
 

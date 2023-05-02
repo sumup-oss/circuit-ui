@@ -16,7 +16,7 @@
 import { ArrowRight, ArrowLeft } from '@sumup/icons';
 import { DayPickerRangeController } from 'react-dates';
 import type { DayPickerRangeControllerShape } from 'react-dates';
-import 'react-dates/initialize';
+import 'react-dates/initialize.js';
 
 import { CalendarWrapper } from './components/index.js';
 
