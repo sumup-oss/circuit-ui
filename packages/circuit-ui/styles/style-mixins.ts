@@ -17,7 +17,7 @@ import { css, SerializedStyles } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
 import { warn } from '../util/logger.js';
-import { isFunction } from '../util/type-check.js';
+import { isFunction, isString } from '../util/type-check.js';
 
 type ThemeArgs = Theme | { theme: Theme };
 
@@ -39,14 +39,25 @@ type StyleFn =
   | null
   | undefined;
 
+type ClassName = string | false | null | undefined;
+
 /**
- * Helper to pass multiple style mixins to the `css` prop.
- * Mixins can be applied conditionally, falsy values are omitted.
+ * Helper to concatenate multiple classnames or to pass multiple style
+ * functions functions to Emotion.js's `css` prop. Values can be applied
+ * conditionally, falsy values are omitted.
  */
-export const cx =
-  (...styleFns: StyleFn[]) =>
-  (theme: Theme): (SerializedStyles | false | null | undefined)[] =>
-    styleFns.map((styleFn) => (isFunction(styleFn) ? styleFn(theme) : styleFn));
+export function cx(...classNames: ClassName[]): string;
+export function cx(
+  ...styleFns: StyleFn[]
+): (theme: Theme) => (SerializedStyles | false | null | undefined)[];
+export function cx<T extends ClassName | StyleFn>(...args: T[]) {
+  if (isString(args[0])) {
+    return args.filter((className) => Boolean(className)).join(' ');
+  }
+
+  return (theme: Theme) =>
+    args.map((styleFn) => (isFunction(styleFn) ? styleFn(theme) : styleFn));
+}
 
 type Spacing = keyof Theme['spacings'];
 

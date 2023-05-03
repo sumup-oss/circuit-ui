@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 import { css } from '@emotion/react';
 import { light, Theme } from '@sumup/design-tokens';
 
-import { create } from '../util/test-utils.js';
+import { render } from '../util/test-utils.js';
 
 import {
   cx,
@@ -48,48 +48,64 @@ describe('Style helpers', () => {
   `;
 
   describe('cx', () => {
-    it('should call each style function with the theme', () => {
-      const actual = create(<div css={cx(byte, kilo)} />);
+    it('should concatenate classnames', () => {
+      const actual = cx('foo', 'bar');
+      expect(actual).toBe('foo bar');
+    });
 
-      expect(actual).toMatchInlineSnapshot(`
+    it('should skip falsy classnames', () => {
+      const actual = cx('foo', false, null, undefined, 'bar');
+      expect(actual).toBe('foo bar');
+    });
+
+    it('should call each style function with the theme', () => {
+      const { container } = render(<div css={cx(byte, kilo)} />);
+
+      expect(container).toMatchInlineSnapshot(`
         .circuit-0 {
           margin: 8px;
           margin: 12px;
         }
 
-        <div
-          class="circuit-0"
-        />
+        <div>
+          <div
+            class="circuit-0"
+          />
+        </div>
       `);
     });
 
     it('should support style objects', () => {
-      const actual = create(<div css={cx(purple)} />);
+      const { container } = render(<div css={cx(purple)} />);
 
-      expect(actual).toMatchInlineSnapshot(`
+      expect(container).toMatchInlineSnapshot(`
         .circuit-0 {
           color: rebeccapurple;
         }
 
-        <div
-          class="circuit-0"
-        />
+        <div>
+          <div
+            class="circuit-0"
+          />
+        </div>
       `);
     });
 
     it('should skip falsy style functions', () => {
       const isKilo = false;
 
-      const actual = create(<div css={cx(byte, isKilo && kilo)} />);
+      const { container } = render(<div css={cx(byte, isKilo && kilo)} />);
 
-      expect(actual).toMatchInlineSnapshot(`
+      expect(container).toMatchInlineSnapshot(`
         .circuit-0 {
           margin: 8px;
         }
 
-        <div
-          class="circuit-0"
-        />
+        <div>
+          <div
+            class="circuit-0"
+          />
+        </div>
       `);
     });
   });
