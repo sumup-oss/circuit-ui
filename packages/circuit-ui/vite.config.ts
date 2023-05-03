@@ -40,6 +40,11 @@ export default defineConfig({
     }),
     linaria({
       include: ['**/*.{ts,tsx}'],
+      classNameSlug: 'cui-[hash]',
+      variableNameSlug: 'cui-[valueSlug]',
+      babelOptions: {
+        presets: ['@babel/preset-typescript', '@babel/preset-react'],
+      },
     }),
   ],
   test: {
