@@ -41,21 +41,16 @@ We also recommend installing and configuring the [`@sumup/eslint-plugin-circuit-
 
 SumUp's default themes are part of the [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) package. In most cases, they should cover your needs. Refer to the [Theme documentation](Features/Theme/Docs) to learn how to use and customize the theme.
 
-To make the theme available to Circuit UI, wrap the root of your application in the `ThemeProvider` from Emotion and add the `BaseStyles` component:
+To make the theme available to Circuit UI, import the global styles (`@sumup/circuit-ui/styles.css`) and wrap the root of your application in the `ThemeProvider` from Emotion:
 
 ```tsx
 // _app.tsx for Next.js or App.js for CRA
+import '@sumup/circuit-ui/styles.css';
 import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { BaseStyles } from '@sumup/circuit-ui';
 
 export default function App() {
-  return (
-    <ThemeProvider theme={light}>
-      <BaseStyles />
-      {/* Your app */}
-    </ThemeProvider>
-  );
+  return <ThemeProvider theme={light}>{/* Your app */}</ThemeProvider>;
 }
 ```
 
@@ -90,9 +85,9 @@ Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and
 
 ```tsx
 // _app.tsx for Next.js or App.js for CRA
+import '@sumup/circuit-ui/styles.css';
 import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { BaseStyles } from '@sumup/circuit-ui';
 import Head from 'next/head'; // Add the meta tag directly in index.html with CRA
 
 const Layout = css`
@@ -104,7 +99,6 @@ const Layout = css`
 export default function App() {
   return (
     <ThemeProvider theme={light}>
-      <BaseStyles />
       <Head>
         <meta
           name="viewport"

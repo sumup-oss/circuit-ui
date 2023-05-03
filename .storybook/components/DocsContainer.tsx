@@ -3,7 +3,6 @@ import { ThemeProvider } from '@emotion/react';
 import { DocsContainer as BaseContainer } from '@storybook/addon-docs';
 
 import * as themes from '../themes';
-import { BaseStyles } from '@sumup/circuit-ui';
 import { light } from '@sumup/design-tokens';
 
 /**
@@ -30,9 +29,7 @@ const DocsContainer: typeof BaseContainer = ({ children, context }) => {
 
   return (
     <BaseContainer context={context} theme={themes.light}>
-      <ThemeProvider theme={light}>
-        <BaseStyles />
-      </ThemeProvider>
+      <ThemeProvider theme={light}></ThemeProvider>
       {children}
     </BaseContainer>
   );
