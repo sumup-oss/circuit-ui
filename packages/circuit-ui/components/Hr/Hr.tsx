@@ -13,20 +13,27 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
+import type { AsPropType } from '../../types/prop-types.js';
+import { clsx } from '../../styles/clsx.js';
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid var(--cui-border-divider);
-  margin-top: ${theme.spacings.mega};
-  margin-bottom: ${theme.spacings.mega};
-`;
+import classes from './Hr.module.css';
+
+export interface HrProps extends HTMLAttributes<HTMLHRElement> {
+  /**
+   * Render the text using any HTML element.
+   */
+  as?: AsPropType;
+}
 
 /**
  * A horizontal rule to visually and semantically separate content.
  */
-export const Hr = styled('hr')(baseStyles);
+export const Hr = forwardRef<HTMLHRElement, HrProps>(
+  ({ className, as: Element = 'hr', ...props }, ref) => (
+    <Element {...props} ref={ref} className={clsx(classes.base, className)} />
+  ),
+);
+
+Hr.displayName = 'Hr';

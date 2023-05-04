@@ -14,7 +14,7 @@ exports[`BaseStylesService > should 1`] = `
 --cui_internal-borderWidth-kilo: 1px;
 --cui_internal-borderWidth-mega: 2px;
 --cui_internal-fontStack-default: aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", Roboto, Helvetica, Arial, sans-serif, \\"Apple Color Emoji\\", \\"Segoe UI Emoji\\", \\"Segoe UI Symbol\\";
---cui_internal-fontStack-mono: Consolas, monaco, monospace;
+--cui_internal-fontStack-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 --cui_internal-fontWeight-regular: 400;
 --cui_internal-fontWeight-bold: 700;
 --cui_internal-grid-default-priority: 0;
