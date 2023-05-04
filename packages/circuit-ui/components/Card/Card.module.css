@@ -1,0 +1,17 @@
+.base {
+  background-color: var(--cui-bg-normal);
+  border-radius: var(--cui_internal-borderRadius-mega);
+  border: var(--cui_internal-borderWidth-mega) solid var(--cui-border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--cui_internal-padding);
+}
+
+.mega {
+  padding: var(--cui_internal-spacings-mega) var(--cui_internal-spacings-mega);
+}
+
+.giga {
+  padding: var(--cui_internal-spacings-mega) var(--cui_internal-spacings-giga);
+}

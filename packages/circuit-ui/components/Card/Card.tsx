@@ -13,41 +13,32 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import isPropValid from '../../styles/is-prop-valid.js';
-import styled, { StyleProps } from '../../styles/styled.js';
+import { clsx } from '../../styles/clsx.js';
+import type { AsPropType } from '../../types/prop-types.js';
 
-export interface CardProps {
+import classes from './Card.module.css';
+
+export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The padding of the Card.
    */
   spacing?: 'mega' | 'giga';
+  /**
+   * Render the text using any HTML element.
+   */
+  as?: AsPropType;
 }
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  background-color: var(--cui-bg-normal);
-  border-radius: ${theme.borderRadius.mega};
-  border: ${theme.borderWidth.mega} solid var(--cui-border-subtle);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
+export const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ className, spacing = 'giga', as: Element = 'div', ...props }, ref) => (
+    <Element
+      {...props}
+      ref={ref}
+      className={clsx(classes.base, classes[spacing], className)}
+    />
+  ),
+);
 
-const spacingStyles = ({ theme, spacing = 'giga' }: StyleProps & CardProps) => {
-  const spacings = {
-    mega: `
-      ${theme.spacings.mega} ${theme.spacings.mega}
-    `,
-    giga: `
-      ${theme.spacings.mega} ${theme.spacings.giga}
-    `,
-  };
-  return css`
-    padding: ${spacings[spacing]};
-  `;
-};
-
-export const Card = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
-})<CardProps>(baseStyles, spacingStyles);
+Card.displayName = 'Card';

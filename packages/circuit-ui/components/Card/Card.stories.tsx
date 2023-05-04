@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
-import { css } from '@emotion/react';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import Headline from '../Headline/index.js';
@@ -30,27 +28,6 @@ export default {
   subcomponents: { CardHeader, CardFooter },
 };
 
-const cardStyles = () => css`
-  width: 400px;
-  min-height: 120px;
-  max-width: 90vw;
-  max-height: 90vh;
-  margin-bottom: 1rem;
-`;
-
-const squareStyles = () => css`
-  width: 150px;
-  min-height: 150px;
-  max-width: 90vw;
-  max-height: 90vh;
-`;
-
-const contentStyles = css`
-  background: var(--cui-bg-highlight);
-  width: 100%;
-  height: 118px;
-`;
-
 const Header = () => (
   <Headline size="four" as="h2">
     Card heading
@@ -59,29 +36,39 @@ const Header = () => (
 
 const Content = () => <Body>This is some text showing in my card</Body>;
 
-export const Base = () => <Card css={cardStyles} />;
+const Box = () => (
+  <div
+    style={{
+      background: 'var(--cui-bg-highlight)',
+      width: '15rem',
+      height: '10rem',
+    }}
+  />
+);
+
+export const Base = () => <Card>Content</Card>;
 
 export const Spacings = () => (
   <Stack>
-    <Card spacing={'mega'} css={squareStyles}>
-      <div css={contentStyles} />
+    <Card spacing="mega">
+      <Box />
     </Card>
-    <Card spacing={'giga'} css={squareStyles}>
-      <div css={contentStyles} />
+    <Card spacing="giga">
+      <Box />
     </Card>
   </Stack>
 );
 
 export const WithHeader = () => (
-  <Fragment>
-    <Card css={cardStyles}>
+  <Stack>
+    <Card>
       <CardHeader>
         <Header />
       </CardHeader>
       <Content />
     </Card>
 
-    <Card css={cardStyles}>
+    <Card>
       <CardHeader
         onClose={action('CloseButton clicked')}
         closeButtonLabel="Close"
@@ -90,12 +77,12 @@ export const WithHeader = () => (
       </CardHeader>
       <Content />
     </Card>
-  </Fragment>
+  </Stack>
 );
 
 export const WithFooter = () => (
-  <Fragment>
-    <Card css={cardStyles}>
+  <Stack>
+    <Card>
       <Content />
       <CardFooter>
         <ButtonGroup
@@ -112,7 +99,7 @@ export const WithFooter = () => (
       </CardFooter>
     </Card>
 
-    <Card css={cardStyles}>
+    <Card>
       <Content />
       <CardFooter align="left">
         <ButtonGroup
@@ -128,5 +115,5 @@ export const WithFooter = () => (
         />
       </CardFooter>
     </Card>
-  </Fragment>
+  </Stack>
 );
