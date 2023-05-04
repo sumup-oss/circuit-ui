@@ -13,10 +13,14 @@
  * limitations under the License.
  */
 
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vite';
 import GithubActionsReporter from 'vitest-github-actions-reporter';
 
+// eslint-disable-next-line import/no-relative-packages
+import { css } from './packages/circuit-ui/vite.config.js';
+
 export default defineConfig({
+  css,
   test: {
     reporters: process.env.GITHUB_ACTIONS
       ? ['default', new GithubActionsReporter()]

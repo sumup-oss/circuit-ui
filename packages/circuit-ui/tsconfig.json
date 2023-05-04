@@ -11,15 +11,16 @@
     "jsxImportSource": "@emotion/react",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "strict": true,
-    "target": "es2017"
+    "target": "es2017",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": [
+    "../../global.d.ts",
     "components/**/*",
     "hooks/**/*",
     "styles/**/*",
