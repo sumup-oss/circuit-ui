@@ -1,0 +1,16 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--cui-bg-normal);
+  border: var(--cui-border-width-mega) solid var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-mega);
+}
+
+.mega {
+  padding: var(--cui-spacings-mega) var(--cui-spacings-mega);
+}
+
+.giga {
+  padding: var(--cui-spacings-mega) var(--cui-spacings-giga);
+}

@@ -1,0 +1,16 @@
+.base {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--cui-spacings-giga);
+}
+
+.no-headline {
+  justify-content: flex-end
+}
+
+.close {
+  margin-top: calc(-1 * var(--cui-spacings-byte));
+  margin-right: calc(-1 * var(--cui-spacings-mega));
+  margin-bottom: calc(-1 * var(--cui-spacings-byte));
+}

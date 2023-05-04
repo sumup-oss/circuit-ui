@@ -13,16 +13,14 @@
  * limitations under the License.
  */
 
-import { FC, ReactNode, HTMLAttributes, PropsWithChildren } from 'react';
-import { css } from '@emotion/react';
+import { ReactNode, HTMLAttributes, forwardRef } from 'react';
 
-import { ClickEvent } from '../../../../types/events.js';
-import styled, { StyleProps } from '../../../../styles/styled.js';
-import {
-  CloseButton,
-  CloseButtonProps,
-} from '../../../CloseButton/CloseButton.js';
+import type { ClickEvent } from '../../../../types/events.js';
+import CloseButton from '../../../CloseButton/index.js';
 import { isArray } from '../../../../util/type-check.js';
+import { clsx } from '../../../../styles/clsx.js';
+
+import classes from './Header.module.css';
 
 type CloseProps =
   | {
@@ -45,52 +43,34 @@ export type CardHeaderProps = {
    */
   children?: ReactNode;
 } & CloseProps &
-  HTMLAttributes<HTMLDivElement>;
-
-type ContainerElProps = Pick<CardHeaderProps, 'children'>;
-
-const baseStyles = ({ theme }: StyleProps) => css`
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: ${theme.spacings.giga};
-`;
-
-const noHeadlineStyles = ({ children }: ContainerElProps) =>
-  isArray(children) &&
-  !children[0] &&
-  css`
-    justify-content: flex-end;
-  `;
-
-const CardHeaderContainer = styled('header')<ContainerElProps>(
-  baseStyles,
-  noHeadlineStyles,
-);
-
-const closeButtonStyles = ({ theme }: StyleProps) => css`
-  margin-top: -${theme.spacings.byte};
-  margin-right: -${theme.spacings.mega};
-  margin-bottom: -${theme.spacings.byte};
-`;
-
-const CardHeaderCloseButton =
-  styled(CloseButton)<CloseButtonProps>(closeButtonStyles);
+  HTMLAttributes<HTMLElement>;
 
 /**
  * Header used in the Card component. Used for styling and alignment
  * purposes only.
  */
-export const CardHeader: FC<PropsWithChildren<CardHeaderProps>> = ({
-  onClose,
-  children,
-  closeButtonLabel,
-  ...props
-}) => (
-  <CardHeaderContainer {...props}>
-    {children}
-    {onClose && closeButtonLabel && (
-      <CardHeaderCloseButton onClick={onClose} label={closeButtonLabel} />
-    )}
-  </CardHeaderContainer>
+export const CardHeader = forwardRef<HTMLElement, CardHeaderProps>(
+  ({ onClose, children, closeButtonLabel, className, ...props }, ref) => {
+    const noHeadline = isArray(children) && !children[0];
+    return (
+      <header
+        className={clsx(
+          classes.base,
+          noHeadline && classes['no-headline'],
+          className,
+        )}
+        ref={ref}
+        {...props}
+      >
+        {children}
+        {onClose && closeButtonLabel && (
+          <CloseButton
+            className={classes.close}
+            onClick={onClose}
+            label={closeButtonLabel}
+          />
+        )}
+      </header>
+    );
+  },
 );
