@@ -28,7 +28,7 @@ import {
   typography,
   BaseStyles,
   Badge,
-} from '@sumup/circuit-ui';
+} from '../../packages/circuit-ui/index.js';
 
 function groupBy(icons: IconsManifest['icons'], key: string) {
   return icons.reduce((groups, icon) => {

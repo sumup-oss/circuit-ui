@@ -16,7 +16,7 @@
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Headline, Card, spacing } from '@sumup/circuit-ui';
+import { Headline, Card, spacing } from '../../packages/circuit-ui/index.js';
 
 // HACK: This prevents the cards from awkwardly wrapping if one of them
 //       only has one line of text.

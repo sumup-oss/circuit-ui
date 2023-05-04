@@ -25,7 +25,7 @@ import {
   TableRow,
   ToastProvider,
   useNotificationToast,
-} from '@sumup/circuit-ui';
+} from '../../packages/circuit-ui/index.js';
 
 type CustomPropertyName = `--cui-${string}`;
 type CustomPropertyValue = string;

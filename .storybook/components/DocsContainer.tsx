@@ -3,7 +3,7 @@ import { ThemeProvider } from '@emotion/react';
 import { DocsContainer as BaseContainer } from '@storybook/addon-docs';
 
 import * as themes from '../themes';
-import { BaseStyles } from '@sumup/circuit-ui';
+import { BaseStyles } from '../../packages/circuit-ui/index.js';
 import { light } from '@sumup/design-tokens';
 
 /**

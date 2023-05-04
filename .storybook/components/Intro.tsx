@@ -14,10 +14,10 @@
  */
 
 import { css, ThemeProvider } from '@emotion/react';
-import { BodyLarge, spacing, cx } from '@sumup/circuit-ui';
+import { BodyLarge, spacing, cx } from '../../packages/circuit-ui/index.js';
 import { light } from '@sumup/design-tokens';
 
-import type { BodyLargeProps } from '@sumup/circuit-ui';
+import type { BodyLargeProps } from '../../packages/circuit-ui/index.js';
 import type { Theme } from '@sumup/design-tokens';
 
 /**
