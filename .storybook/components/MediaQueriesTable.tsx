@@ -15,7 +15,7 @@
 
 import { useTheme, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Table } from '@sumup/circuit-ui';
+import { Table } from '../../packages/circuit-ui/index.js';
 
 const HEADERS = ['Breakpoint name', 'Query'];
 

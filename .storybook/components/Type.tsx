@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 
-import { Body } from '@sumup/circuit-ui';
+import { Body } from '../../packages/circuit-ui/index.js';
 
 interface TypeProps {
   component: ComponentType;

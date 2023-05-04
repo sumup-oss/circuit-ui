@@ -16,7 +16,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { light, Theme } from '@sumup/design-tokens';
-import { Body, spacing } from '@sumup/circuit-ui';
+import { Body, spacing } from '../../packages/circuit-ui/index.js';
 
 interface BorderRadiusProps {
   size: keyof Theme['borderRadius'];

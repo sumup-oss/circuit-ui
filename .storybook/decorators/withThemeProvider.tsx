@@ -1,6 +1,6 @@
 import { css, ThemeProvider, Global } from '@emotion/react';
 import { Decorator } from '@storybook/react';
-import { BaseStyles } from '@sumup/circuit-ui';
+import { BaseStyles } from '../../packages/circuit-ui/index.js';
 import { light } from '@sumup/design-tokens';
 
 const lightTheme = css`

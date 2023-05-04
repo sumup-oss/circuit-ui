@@ -15,7 +15,10 @@
 
 import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Image as BaseImage, ImageProps } from '@sumup/circuit-ui';
+import {
+  Image as BaseImage,
+  ImageProps,
+} from '../../packages/circuit-ui/index.js';
 
 const Image = ({ children, ...props }: ImageProps) => (
   <ThemeProvider theme={light}>

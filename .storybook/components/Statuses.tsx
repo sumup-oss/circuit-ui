@@ -18,7 +18,13 @@ import { Unstyled } from '@storybook/addon-docs';
 import LinkTo from '@storybook/addon-links/react';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Badge, BadgeProps, Body, cx, spacing } from '@sumup/circuit-ui';
+import {
+  Badge,
+  BadgeProps,
+  Body,
+  cx,
+  spacing,
+} from '../../packages/circuit-ui/index.js';
 
 type Variant =
   | 'stable'

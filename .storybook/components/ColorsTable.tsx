@@ -23,7 +23,7 @@ import {
   Table,
   ToastProvider,
   useNotificationToast,
-} from '@sumup/circuit-ui';
+} from '../../packages/circuit-ui/index.js';
 
 function filterCustomProperties(usage: string): string[] {
   return schema
