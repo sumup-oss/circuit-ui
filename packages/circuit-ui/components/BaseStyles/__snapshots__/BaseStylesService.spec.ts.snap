@@ -1,5 +1,106 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`BaseStylesService > should 1`] = `
+"
+    :root,
+    ::selection,
+    ::backdrop {
+      --cui_internal-borderRadius-bit: 4px;
+--cui_internal-borderRadius-byte: 8px;
+--cui_internal-borderRadius-kilo: 12px;
+--cui_internal-borderRadius-mega: 16px;
+--cui_internal-borderRadius-circle: 100%;
+--cui_internal-borderRadius-pill: 999999px;
+--cui_internal-borderWidth-kilo: 1px;
+--cui_internal-borderWidth-mega: 2px;
+--cui_internal-fontStack-default: aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", Roboto, Helvetica, Arial, sans-serif, \\"Apple Color Emoji\\", \\"Segoe UI Emoji\\", \\"Segoe UI Symbol\\";
+--cui_internal-fontStack-mono: Consolas, monaco, monospace;
+--cui_internal-fontWeight-regular: 400;
+--cui_internal-fontWeight-bold: 700;
+--cui_internal-grid-default-priority: 0;
+--cui_internal-grid-default-breakpoint: default;
+--cui_internal-grid-default-cols: 12;
+--cui_internal-grid-default-maxWidth: 880px;
+--cui_internal-grid-default-gutter: 16px;
+--cui_internal-grid-untilKilo-priority: 1;
+--cui_internal-grid-untilKilo-breakpoint: untilKilo;
+--cui_internal-grid-untilKilo-cols: 12;
+--cui_internal-grid-untilKilo-maxWidth: 400px;
+--cui_internal-grid-untilKilo-gutter: 8px;
+--cui_internal-grid-kilo-priority: 2;
+--cui_internal-grid-kilo-breakpoint: kilo;
+--cui_internal-grid-kilo-cols: 12;
+--cui_internal-grid-kilo-maxWidth: 600px;
+--cui_internal-grid-kilo-gutter: 16px;
+--cui_internal-grid-mega-priority: 3;
+--cui_internal-grid-mega-breakpoint: mega;
+--cui_internal-grid-mega-cols: 12;
+--cui_internal-grid-mega-maxWidth: 760px;
+--cui_internal-grid-mega-gutter: 24px;
+--cui_internal-grid-giga-priority: 4;
+--cui_internal-grid-giga-breakpoint: giga;
+--cui_internal-grid-giga-cols: 12;
+--cui_internal-grid-giga-maxWidth: 880px;
+--cui_internal-grid-giga-gutter: 24px;
+--cui_internal-grid-tera-priority: 5;
+--cui_internal-grid-tera-breakpoint: tera;
+--cui_internal-grid-tera-cols: 12;
+--cui_internal-grid-tera-maxWidth: 1200px;
+--cui_internal-grid-tera-gutter: 24px;
+--cui_internal-iconSizes-kilo: 16px;
+--cui_internal-iconSizes-mega: 24px;
+--cui_internal-iconSizes-giga: 32px;
+--cui_internal-iconSizes-tera: 48px;
+--cui_internal-spacings-bit: 4px;
+--cui_internal-spacings-byte: 8px;
+--cui_internal-spacings-kilo: 12px;
+--cui_internal-spacings-mega: 16px;
+--cui_internal-spacings-giga: 24px;
+--cui_internal-spacings-tera: 32px;
+--cui_internal-spacings-peta: 40px;
+--cui_internal-spacings-exa: 48px;
+--cui_internal-spacings-zetta: 56px;
+--cui_internal-transitions-default: 120ms ease-in-out;
+--cui_internal-transitions-slow: 300ms ease-in-out;
+--cui_internal-type: light;
+--cui_internal-typography-headline-one-fontSize: 2rem;
+--cui_internal-typography-headline-one-lineHeight: 2.25rem;
+--cui_internal-typography-headline-two-fontSize: 1.5rem;
+--cui_internal-typography-headline-two-lineHeight: 1.75rem;
+--cui_internal-typography-headline-three-fontSize: 1.25rem;
+--cui_internal-typography-headline-three-lineHeight: 1.5rem;
+--cui_internal-typography-headline-four-fontSize: 1.125rem;
+--cui_internal-typography-headline-four-lineHeight: 1.5rem;
+--cui_internal-typography-title-one-fontSize: 7.5rem;
+--cui_internal-typography-title-one-lineHeight: 7.5rem;
+--cui_internal-typography-title-two-fontSize: 6rem;
+--cui_internal-typography-title-two-lineHeight: 6rem;
+--cui_internal-typography-title-three-fontSize: 4rem;
+--cui_internal-typography-title-three-lineHeight: 4rem;
+--cui_internal-typography-title-four-fontSize: 3.5rem;
+--cui_internal-typography-title-four-lineHeight: 3.5rem;
+--cui_internal-typography-subHeadline-fontSize: 0.875rem;
+--cui_internal-typography-subHeadline-lineHeight: 1.25rem;
+--cui_internal-typography-body-one-fontSize: 1rem;
+--cui_internal-typography-body-one-lineHeight: 1.5rem;
+--cui_internal-typography-body-two-fontSize: 0.875rem;
+--cui_internal-typography-body-two-lineHeight: 1.25rem;
+--cui_internal-typography-bodyLarge-fontSize: 1.25rem;
+--cui_internal-typography-bodyLarge-lineHeight: 1.75rem;
+--cui_internal-zIndex-default: 0;
+--cui_internal-zIndex-absolute: 1;
+--cui_internal-zIndex-input: 20;
+--cui_internal-zIndex-popover: 30;
+--cui_internal-zIndex-tooltip: 40;
+--cui_internal-zIndex-header: 600;
+--cui_internal-zIndex-backdrop: 700;
+--cui_internal-zIndex-navigation: 800;
+--cui_internal-zIndex-modal: 1000;
+--cui_internal-zIndex-toast: 1100;
+    }
+  "
+`;
+
 exports[`BaseStylesService > should return the global base styles 1`] = `
 "
   /**
@@ -22,7 +123,9 @@ exports[`BaseStylesService > should return the global base styles 1`] = `
       url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.eot') format('embedded-opentype');
   }
 
-  :root {
+  :root,
+  ::selection,
+  ::backdrop {
     /* Neutral backgrounds */
     --cui-bg-normal: #ffffff;
     --cui-bg-normal-hovered: #f5f5f5;

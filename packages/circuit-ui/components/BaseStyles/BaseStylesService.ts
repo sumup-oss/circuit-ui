@@ -13,16 +13,15 @@
  * limitations under the License.
  */
 
-import { css, SerializedStyles } from '@emotion/react';
+import { css } from '@emotion/react';
+import type { Theme } from '@sumup/design-tokens';
 
-import { StyleProps } from '../../styles/styled.js';
 import { typography } from '../../styles/style-mixins.js';
+import { isObject } from '../../util/type-check.js';
 
 const FONTS_BASE_URL = 'https://static.sumup.com/fonts/latin-greek-cyrillic';
 
-export const createBaseStyles = ({
-  theme,
-}: StyleProps): SerializedStyles => css`
+export const createBaseStyles = (theme: Theme) => css`
   /**
    * Start downloading custom fonts as soon as possible.
    */
@@ -43,7 +42,9 @@ export const createBaseStyles = ({
       url('${FONTS_BASE_URL}/aktiv-grotest-700.eot') format('embedded-opentype');
   }
 
-  :root {
+  :root,
+  ::selection,
+  ::backdrop {
     /* Neutral backgrounds */
     --cui-bg-normal: #ffffff;
     --cui-bg-normal-hovered: #f5f5f5;
@@ -376,3 +377,35 @@ export const createBaseStyles = ({
     font-family: ${theme.fontStack.mono};
   }
 `;
+
+type Variable = { name: string; value: Value };
+type Value = string | number;
+type Obj = Record<string, unknown>;
+
+function buildVariables(value: Obj, name?: string[]): Variable[];
+function buildVariables(value: Value, name?: string[]): Variable;
+function buildVariables(
+  value: Obj | Value,
+  parts: string[] = [],
+): Variable | Variable[] {
+  if (isObject(value)) {
+    return Object.entries(value).flatMap(([key, nestedValue]) =>
+      buildVariables(nestedValue as Obj, parts.concat(key)),
+    );
+  }
+
+  const name = `--cui_internal-${parts.join('-')}`;
+  return { name, value };
+}
+
+export const createInternalRootVariables = (theme: Theme) => {
+  const { colors, breakpoints, mq, ...rest } = theme;
+  const variables = buildVariables(rest);
+  return css`
+    :root,
+    ::selection,
+    ::backdrop {
+      ${variables.map(({ name, value }) => `${name}: ${value};`).join('\n')}
+    }
+  `;
+};

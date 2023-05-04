@@ -15,10 +15,14 @@
 
 import { FunctionComponent } from 'react';
 import { Global } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 
-import { createBaseStyles } from './BaseStylesService.js';
+import { cx } from '../../styles/style-mixins.js';
+
+import {
+  createBaseStyles,
+  createInternalRootVariables,
+} from './BaseStylesService.js';
 
 export const BaseStyles: FunctionComponent = () => (
-  <Global styles={(theme: Theme) => createBaseStyles({ theme })} />
+  <Global styles={cx(createInternalRootVariables, createBaseStyles)} />
 );

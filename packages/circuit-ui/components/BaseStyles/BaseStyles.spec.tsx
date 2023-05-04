@@ -18,15 +18,20 @@ import { describe, expect, it, vi } from 'vitest';
 import { render } from '../../util/test-utils.js';
 
 import { BaseStyles } from './BaseStyles.js';
-import { createBaseStyles } from './BaseStylesService.js';
+import {
+  createBaseStyles,
+  createInternalRootVariables,
+} from './BaseStylesService.js';
 
 vi.mock('./BaseStylesService', () => ({
   createBaseStyles: vi.fn(),
+  createInternalRootVariables: vi.fn(),
 }));
 
 describe('BaseStyles', () => {
   it('should create the global base stylesheet', () => {
     render(<BaseStyles />);
     expect(createBaseStyles).toHaveBeenCalled();
+    expect(createInternalRootVariables).toHaveBeenCalled();
   });
 });

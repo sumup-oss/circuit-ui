@@ -16,11 +16,19 @@
 import { describe, expect, it } from 'vitest';
 import { light } from '@sumup/design-tokens';
 
-import { createBaseStyles } from './BaseStylesService.js';
+import {
+  createBaseStyles,
+  createInternalRootVariables,
+} from './BaseStylesService.js';
 
 describe('BaseStylesService', () => {
   it('should return the global base styles', () => {
-    const actual = createBaseStyles({ theme: light });
+    const actual = createBaseStyles(light);
+    expect(actual.styles).toMatchSnapshot();
+  });
+
+  it('should', () => {
+    const actual = createInternalRootVariables(light);
     expect(actual.styles).toMatchSnapshot();
   });
 });
