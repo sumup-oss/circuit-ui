@@ -15,7 +15,15 @@
 
 import { Theme as CircuitTheme } from '@sumup/design-tokens';
 
+import 'react';
+
 declare module '@emotion/react' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface Theme extends CircuitTheme {}
+}
+
+declare module 'react' {
+  interface CSSProperties {
+    [key: `--${string}`]: string | number;
+  }
 }
