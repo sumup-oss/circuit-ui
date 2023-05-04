@@ -7,13 +7,12 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
-    "./legacy": "./dist/legacy.js"
+    "./legacy": "./dist/legacy.js",
+    "./styles.css": "./dist/style.css"
   },
   "sideEffects": false,
   "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -26,9 +25,9 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui/README.md",
   "scripts": {
-    "start": "tsc --watch",
-    "clean": "rm -rf ./dist",
-    "build": "tsc --project tsconfig.build.json",
+    "dev": "vite",
+    "start": "npm run dev",
+    "build": "vite build && tsc -p tsconfig.build.json",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "test": "vitest"
@@ -63,7 +62,9 @@
     "react-dates": "^21.8.0",
     "react-dom": "^18.2.0",
     "react-swipeable": "^7.0.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "typescript-plugin-css-modules": "^5.0.1",
+    "vite": "^4.3.4"
   },
   "peerDependencies": {
     "@emotion/is-prop-valid": "1.x",
