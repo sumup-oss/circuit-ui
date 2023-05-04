@@ -1,0 +1,8 @@
+.base {
+  display: block;
+  width: 100%;
+  margin-top: var(--cui-spacings-mega);
+  margin-bottom: var(--cui-spacings-mega);
+  border: 0;
+  border-top: 1px solid var(--cui-border-divider);
+}
