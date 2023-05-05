@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+export { default as utilityClasses } from './styles/utility.js';
+
 // Typography
 export { default as Headline } from './components/Headline/index.js';
 export type { HeadlineProps } from './components/Headline/index.js';
