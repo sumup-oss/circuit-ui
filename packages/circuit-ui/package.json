@@ -37,7 +37,6 @@
     "react-number-format": "^5.1.4"
   },
   "devDependencies": {
-    "@emotion/cache": "^11.4.0",
     "@emotion/is-prop-valid": "^1.1.0",
     "@emotion/jest": "^11.10.5",
     "@emotion/react": "^11.10.6",
@@ -57,18 +56,13 @@
     "@types/react-dom": "^18.0.11",
     "@types/react-modal": "^3.13.1",
     "@types/testing-library__jest-dom": "^5.14.5",
-    "component-playground": "^3.2.1",
-    "cross-env": "^7.0.2",
     "jest-axe": "^7.0.1",
     "react": "^18.2.0",
-    "react-docgen": "^5.4.3",
-    "react-docgen-annotation-resolver": "^2.0.0",
     "react-dom": "^18.2.0",
     "react-swipeable": "^7.0.0",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "@emotion/cache": "11.x",
     "@emotion/is-prop-valid": "1.x",
     "@emotion/react": "11.x",
     "@emotion/styled": "11.x",
