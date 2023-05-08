@@ -22,7 +22,6 @@ import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { deprecate } from '../../util/logger';
 import { AccessibilityError } from '../../util/errors';
-import { FieldDescription } from '../FieldAtoms';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
@@ -143,7 +142,26 @@ const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   return css(sizeMap[size]);
 };
 
-const SelectorLabel = styled('label')<LabelElProps>(baseStyles, sizeStyles);
+type HasDescription = {
+  hasDescription: boolean;
+};
+
+const withDescriptionStyles = ({ hasDescription }: HasDescription) =>
+  hasDescription &&
+  css`
+    text-align: start;
+    align-items: flex-start;
+  `;
+
+const SelectorLabel = styled('label')<LabelElProps & HasDescription>(
+  baseStyles,
+  sizeStyles,
+  withDescriptionStyles,
+);
+
+const Bold = styled('span')`
+  font-weight: ${(p) => p.theme.fontWeight.bold};
+`;
 
 const inputStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
@@ -236,6 +254,8 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       throw new AccessibilityError('Selector', 'The `label` prop is missing.');
     }
 
+    const hasDescription = Boolean(description);
+
     return (
       <Fragment>
         <SelectorInput
@@ -257,17 +277,18 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
           size={size}
           className={className}
           style={style}
+          hasDescription={hasDescription}
         >
-          <Fragment>
-            {label || children}
-            {description && (
-              <FieldDescription aria-hidden="true">
-                {description}
-              </FieldDescription>
-            )}
-          </Fragment>
+          {hasDescription ? (
+            <Fragment>
+              <Bold>{label || children}</Bold>
+              <span aria-hidden="true">{description}</span>
+            </Fragment>
+          ) : (
+            label || children
+          )}
         </SelectorLabel>
-        {description && (
+        {hasDescription && (
           <p id={descriptionId} css={hideVisually}>
             {description}
           </p>

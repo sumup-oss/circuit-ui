@@ -25,17 +25,6 @@ export default {
   subcomponents: { Selector },
 };
 
-const baseArgs = {
-  name: 'selector-group',
-  label: 'Choose your favourite fruit',
-  options: [
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' },
-    { label: 'Mango', value: 'mango' },
-    { label: 'I like all fruits', value: 'all' },
-  ],
-};
-
 export const Base = (args: SelectorGroupProps) => {
   const [value, setValue] = useState<string>('');
 
@@ -50,7 +39,16 @@ export const Base = (args: SelectorGroupProps) => {
   );
 };
 
-Base.args = baseArgs;
+Base.args = {
+  name: 'base',
+  label: 'Choose your favourite fruit',
+  options: [
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
+    { label: 'I like all fruits', value: 'all' },
+  ],
+};
 
 export const Multiple = (args: SelectorGroupProps) => {
   const [value, setValue] = useState<string[]>([]);
@@ -74,4 +72,48 @@ export const Multiple = (args: SelectorGroupProps) => {
   );
 };
 
-Multiple.args = { ...baseArgs, multiple: true };
+Multiple.args = {
+  name: 'multiple',
+  label: 'Choose your favourite fruits',
+  options: [
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
+  ],
+};
+
+export const Descriptions = (args: SelectorGroupProps) => {
+  const [value, setValue] = useState<string>('');
+
+  return (
+    <SelectorGroup
+      {...args}
+      value={value}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
+    />
+  );
+};
+
+Descriptions.args = {
+  name: 'descriptions',
+  label: 'Choose your favourite fruit',
+  options: [
+    {
+      label: 'Apple',
+      description: 'Braeburn, Granny Smith, or Jonagold',
+      value: 'apple',
+    },
+    {
+      label: 'Banana',
+      description: 'Cavendish, Lakatan, or Tindok',
+      value: 'banana',
+    },
+    {
+      label: 'Mango',
+      description: 'Alphonso, Dasheri, or Haden',
+      value: 'mango',
+    },
+  ],
+};

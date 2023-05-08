@@ -34,12 +34,21 @@ describe('Selector', () => {
     const { container } = render(<Selector {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
+
   it('should render a disabled selector', () => {
     const { container } = render(<Selector {...defaultProps} disabled />);
     expect(container).toMatchSnapshot();
   });
+
   it('should render a checked selector', () => {
     const { container } = render(<Selector {...defaultProps} checked />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should render with a description', () => {
+    const { container } = render(
+      <Selector {...defaultProps} description="Description" />,
+    );
     expect(container).toMatchSnapshot();
   });
 
