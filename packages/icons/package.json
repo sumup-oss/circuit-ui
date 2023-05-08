@@ -39,7 +39,7 @@
     "@types/lodash": "^4.14.194",
     "babel-plugin-inline-react-svg": "^2.0.2",
     "dedent": "^0.7.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.4"
