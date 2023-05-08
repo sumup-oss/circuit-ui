@@ -60,7 +60,7 @@
     "@sumup/eslint-plugin-circuit-ui": "^0.0.1",
     "@sumup/foundry": "^6.0.0",
     "@types/jest": "^29.5.0",
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.1.0",
     "audit-ci": "^6.6.1",
     "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
