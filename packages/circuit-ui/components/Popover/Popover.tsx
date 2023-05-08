@@ -295,14 +295,13 @@ export const Popover = ({
 
   const sendEvent = useClickTrigger();
 
-  const { x, y, reference, floating, strategy, refs, update } =
-    useFloating<HTMLElement>({
-      placement,
-      strategy: 'fixed',
-      middleware: offset
-        ? [offsetMiddleware(offset), flip({ fallbackPlacements })]
-        : [flip({ fallbackPlacements })],
-    });
+  const { x, y, strategy, refs, update } = useFloating<HTMLElement>({
+    placement,
+    strategy: 'fixed',
+    middleware: offset
+      ? [offsetMiddleware(offset), flip({ fallbackPlacements })]
+      : [flip({ fallbackPlacements })],
+  });
 
   // This is a performance optimization to prevent event listeners from being
   // re-attached on every render.
@@ -416,7 +415,7 @@ export const Popover = ({
 
   return (
     <Fragment>
-      <TriggerElement ref={reference}>
+      <TriggerElement ref={refs.setReference}>
         <Component
           id={triggerId}
           aria-haspopup={true}
@@ -433,15 +432,15 @@ export const Popover = ({
         />
         <FloatingElement
           {...props}
-          ref={floating}
+          ref={refs.setFloating}
           isOpen={isOpen}
           style={
             isMobile
               ? mobileStyles
               : {
                   position: strategy,
-                  top: y ?? 0,
-                  left: x ?? 0,
+                  top: y,
+                  left: x,
                   zIndex: zIndex || theme.zIndex.popover,
                 }
           }
