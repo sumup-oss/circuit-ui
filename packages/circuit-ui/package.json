@@ -44,7 +44,7 @@
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.8",
     "@emotion/cache": "^11.4.0",
-    "@emotion/is-prop-valid": "^1.1.0",
+    "@emotion/is-prop-valid": "^1.2.1",
     "@emotion/jest": "^11.10.8",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
