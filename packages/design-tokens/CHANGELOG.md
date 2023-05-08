@@ -1,5 +1,15 @@
 # @sumup/design-tokens
 
+## 5.2.0
+
+### Minor Changes
+
+- [`d4898da9`](https://github.com/sumup-oss/circuit-ui/commit/d4898da9a73c70e10691f043408407fbea4b1f7c) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated `fontStack.mono` to include more system fonts.
+
+### Patch Changes
+
+- [#2091](https://github.com/sumup-oss/circuit-ui/pull/2091) [`3334873d`](https://github.com/sumup-oss/circuit-ui/commit/3334873d33430fde670facaa0da311d63b1d259a) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded all dependencies to their latest minor.
+
 ## 5.1.1
 
 ### Patch Changes
