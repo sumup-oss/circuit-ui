@@ -43,60 +43,13 @@ Selectors are semantically either radio buttons or checkboxes. When it comes to 
 
 The `label` prop passed to one of the SelectorGroup's `options` constitutes the Selector's label. This label should be clear and concise, and should not contain any formatted or semantic content (such as headings or lists).
 
-<Preview>
-  <SelectorGroup
-    options={[
-      {
-        label: 'Do this',
-        description: 'This is accessible',
-        value: 'valid',
-      },
-      {
-        children: (
-          <>
-            <Body variant="highlight" css={spacing({ bottom: 'bit' })}>
-              Bold text
-            </Body>
-            <Body>⚠️ Avoid doing this</Body>
-          </>
-        ),
-        value: 'invalid',
-      },
-      {
-        children: (
-          <>
-            <Headline as="h4" size="four" css={spacing({ bottom: 'bit' })}>
-              Headline
-            </Headline>
-            <Body>
-              🚫 Don't do this. If you need to add details, write a paragraph
-              above the SelectorGroup.
-            </Body>
-          </>
-        ),
-        value: 'invalid',
-      },
-    ]}
-    label="Example"
-    css={spacing({ bottom: 'giga' })}
-  />
-</Preview>
-
-This is because the label in this case is also the input's accessible name, exposed to assistive technology as plain text.
-
-For example, screen reader user arrowing through the options in the example above would hear:
-
-- "Do this, radio button, 1 of 3, This is accessible"
-- "Bold text avoid doing this, radio button, 2 of 3"
-- "Headline don't do this if you need to add details write a paragraph above the SelectorGroup, radio button, 3 of 3"
-
-Using non-phrasing content in a label element is also invalid HTML.
+This is because the label in this case is also the input's accessible name, exposed to assistive technology as plain text. Using non-phrasing content in a label element is invalid HTML.
 
 ### Resources
 
 #### Testing label accessibility
 
-Use a tool like [Wave](https://wave.webaim.org/) to turn off styles (in Wave, you can use the "Styles" toggle). _Note: this feature doesn't work on this page since Storybook renders the docs are rendered in an iframe._
+Use a tool like [Wave](https://wave.webaim.org/) to turn off styles (in Wave, you can use the "Styles" toggle). _Note: this feature doesn't work on this page since Storybook renders the docs in an iframe._
 
 This will expose the component's underlying checkboxes or radio buttons. Verify that the labels are appropriate.
 
