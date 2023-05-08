@@ -13,15 +13,8 @@
  * limitations under the License.
  */
 
-import _styled from '@emotion/styled';
-import type { CreateStyled } from '@emotion/styled';
+import styled from '@emotion/styled';
 import { Theme } from '@sumup/design-tokens';
-
-// HACK: Emotion.js doesn't properly expose ESM files. This workaround is needed
-// to make the default export work.
-// See https://github.com/emotion-js/emotion/issues/2730#issuecomment-1298407552
-// eslint-disable-next-line
-const styled = (_styled.default || _styled) as CreateStyled;
 
 export default styled;
 

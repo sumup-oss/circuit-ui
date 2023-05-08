@@ -13,13 +13,6 @@
  * limitations under the License.
  */
 
-import _isPropValid from '@emotion/is-prop-valid';
-
-// HACK: Emotion.js doesn't properly expose ESM files. This workaround is needed
-// to make the default export work.
-// See https://github.com/emotion-js/emotion/issues/2730#issuecomment-1298407552
-const isPropValid = (_isPropValid.default || _isPropValid) as (
-  prop: string,
-) => boolean;
+import isPropValid from '@emotion/is-prop-valid';
 
 export default isPropValid;

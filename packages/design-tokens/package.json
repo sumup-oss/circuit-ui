@@ -26,7 +26,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",

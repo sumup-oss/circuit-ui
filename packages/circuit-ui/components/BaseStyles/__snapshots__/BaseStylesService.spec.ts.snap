@@ -352,7 +352,7 @@ exports[`BaseStylesService > should return the global base styles 1`] = `
 
   pre,
   code {
-    font-family: Consolas, monaco, monospace;
+    font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
   }
 "
 `;

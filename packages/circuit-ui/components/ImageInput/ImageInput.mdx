@@ -17,8 +17,34 @@ The ImageInput component allows users to upload images. It can be used on its ow
 
 Refer to the `Stateful` component story for a simplified code usage example.
 
-- **Do** use the `onChange` callback to immediately trigger an image upload when the user has selected one, even when the component is being used as part of a form. Faster form submissions add to a delightful user experience.
-- **Do not** use the ImageInput component if the image is read-only for the user. Instead, use the visual component from the ImageInput's `component` prop by itself, for example the [Avatar](Components/Avatar).
+### Uploading an image
+
+When an ImageInput is used as part of a form, there are two possible patterns for uploading the image picked by a user:
+
+1. upload the image as soon as the user selected it (`onChange`)
+2. upload the image when the form is submitted (`onSubmit`)
+
+If possible, prefer the first approach: APIs tend to expect image URLs, not blobs, so uploading an image during form submission is likely to require request chaining (a first request uploads the image to an object storage provider and returns an object URL, a second request sends the object URL along with other form data to some backend service). (If the backend service you're working with handles object storage, choose the second approach.)
+
+### Accepting HEIF image uploads
+
+By default, the ImageInput component renders an `<input type="file" accept="image/*" />`.
+
+However, when using `allow="image/*"`, some browsers file pickers will not allow uploading [HEIF images](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format), an image standard widely adopted by Apple and default iPhone photo format (as of October 2022, this is the case in Chrome).
+
+Therefore, it probably makes sense to override the `allow` attribute by passing an `allow` prop to the component ([source](https://github.com/sumup-oss/circuit-ui/blob/be740a23953401e91e8d9dd4988de4e887f2d882/packages/circuit-ui/components/ImageInput/ImageInput.tsx#L439)) as follows:
+
+- **If your service supports HEIF images** (e.g. the uploaded image is attached to a support email, and the recipient can open it using macOS Sierra or later)
+  - **Use `accept="image/*,.heic"`**. This will ensure that a HEIF image is recognised as valid by browser file pickers, including on Chrome.
+  - Tell users what formats are supported (and any other limitations such as file size, dimensions, etc). Use the ImageInput's `validationHint` prop ([example](https://circuit.sumup.com/?path=/story/forms-imageinput--base&args=validationHint:JPEG+and+HEIF+images+are+supported)).
+  - ⚠️ The [Circuit UI ImageInput](https://circuit.sumup.com/?path=/story/forms-imageinput--base)'s image preview will not work, so users might think the file was not correctly uploaded. (Alternatively, there's a ["FileInput" component proposal on Figma](https://www.figma.com/file/2yHC0dK9pFEhLsMxk62XZY/Circuit-UI-Web?node-id=4921-27&t=C4pqPDRuIN3XPz71-4) (🔒 internal link). Contributions welcome!)
+- **If your service doesn't support HEIF images** (e.g. the uploaded image will be displayed—without conversion—on a SumUp online store)
+  - **Use explicit MIME types for all supported formats**, e.g. `accept="image/jpeg,image/png"`. Safari will automatically convert HEIF images to a supported format. (Unfortunately, other browsers won't, so e.g. Chrome users on macOS won't be able to upload HEIF image.)
+  - Tell users what formats are supported (and any other limitations such as file size, dimensions, etc). Use the ImageInput's `validationHint` prop ([example](https://circuit.sumup.com/?path=/story/forms-imageinput--base&args=validationHint:JPEG+and+PNG+images+are+supported)).
+
+Note: since the recommended `accept` value is product-specific, the `ImageInput` implementation will keep `allow="image/*"` as a default.
+
+For details on the testing and rationale behind these recommendations, [refer to this CodeSandbox](https://codesandbox.io/s/heif-files-with-input-type-file-9whw8l).
 
 ## Input states
 

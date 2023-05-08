@@ -1,6 +1,6 @@
 {
   "name": "@sumup/eslint-plugin-circuit-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ESLint rules to lint Circuit UI.",
   "main": "dist/index.js",
   "files": [
@@ -23,7 +23,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^5.57.0"
+    "@typescript-eslint/utils": "^5.59.2"
   },
   "devDependencies": {
     "@tsconfig/node18": "^2.0.0",
