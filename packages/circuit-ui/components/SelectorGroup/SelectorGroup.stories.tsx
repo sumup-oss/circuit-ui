@@ -15,11 +15,14 @@
 
 import { useState, ChangeEvent } from 'react';
 
+import Selector from '../Selector';
+
 import { SelectorGroup, SelectorGroupProps } from './SelectorGroup';
 
 export default {
   title: 'Forms/SelectorGroup',
   component: SelectorGroup,
+  subcomponents: { Selector },
 };
 
 const baseArgs = {

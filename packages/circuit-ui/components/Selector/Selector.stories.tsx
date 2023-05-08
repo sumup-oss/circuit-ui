@@ -14,14 +14,12 @@
  */
 
 import { Stack } from '../../../../.storybook/components';
-import SelectorGroup from '../SelectorGroup';
 
 import { Selector, SelectorProps } from './Selector';
 
 export default {
-  title: 'Forms/Selector',
+  title: 'Forms/SelectorGroup/Selector',
   component: Selector,
-  subcomponents: { SelectorGroup },
 };
 
 const baseArgs = {
