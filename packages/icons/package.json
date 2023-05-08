@@ -4,6 +4,7 @@
   "description": "A collection of icons by SumUp",
   "type": "module",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
     "./manifest.json": "./manifest.json",
