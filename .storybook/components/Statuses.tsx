@@ -13,15 +13,22 @@
  * limitations under the License.
  */
 
+import type { ReactNode } from 'react';
 import { Unstyled } from '@storybook/addon-docs';
 import LinkTo from '@storybook/addon-links/react';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Badge, Body, cx, spacing } from '@sumup/circuit-ui';
-import { ReactNode } from 'react';
+import { Badge, BadgeProps, Body, cx, spacing } from '@sumup/circuit-ui';
+
+type Variant =
+  | 'stable'
+  | 'in-review'
+  | 'experimental'
+  | 'legacy'
+  | 'deprecated';
 
 interface StatusProps {
-  variant: 'stable' | 'deprecated' | 'legacy' | 'inReview' | 'experimental';
+  variant: Variant;
   children?: ReactNode;
 }
 
@@ -31,20 +38,23 @@ const descriptionStyles = css`
   }
 `;
 
-const variants = {
-  stable: { variant: 'success', label: 'Stable', id: 'stable' },
-  experimental: { variant: 'promo', label: 'Experimental', id: 'experimental' },
-  inReview: { variant: 'warning', label: 'In Review', id: 'in-review' },
-  legacy: { variant: 'warning', label: 'Legacy', id: 'legacy' },
-  deprecated: { variant: 'danger', label: 'Deprecated', id: 'deprecated' },
-} as const;
+const variantMap: Record<
+  Variant,
+  { variant: BadgeProps['variant']; label: string }
+> = {
+  'stable': { variant: 'success', label: 'Stable' },
+  'experimental': { variant: 'promo', label: 'Experimental' },
+  'in-review': { variant: 'warning', label: 'In Review' },
+  'legacy': { variant: 'warning', label: 'Legacy' },
+  'deprecated': { variant: 'danger', label: 'Deprecated' },
+};
 
-const Status = ({
+export default function Status({
   variant: status = 'stable',
   children,
   ...props
-}: StatusProps) => {
-  const { variant, label } = variants[status];
+}: StatusProps) {
+  const { variant, label } = variantMap[status];
 
   const kind = 'Introduction/Component-Lifecycle';
   const name = 'Docs';
@@ -68,31 +78,4 @@ const Status = ({
       </Unstyled>
     </ThemeProvider>
   );
-};
-
-/**
- * @deprecated Use `<Status variant="stable" />` instead.
- */
-Status.Stable = (props: Pick<StatusProps, 'children'>) => (
-  <Status variant="stable" {...props} />
-);
-/**
- * @deprecated Use `<Status variant="deprecated" />` instead.
- */
-Status.Deprecated = (props: Pick<StatusProps, 'children'>) => (
-  <Status variant="deprecated" {...props} />
-);
-/**
- * @deprecated Use `<Status variant="inReview" />` instead.
- */
-Status.InReview = (props: Pick<StatusProps, 'children'>) => (
-  <Status variant="inReview" {...props} />
-);
-/**
- * @deprecated Use `<Status variant="experimental" />` instead.
- */
-Status.Experimental = (props: Pick<StatusProps, 'children'>) => (
-  <Status variant="experimental" {...props} />
-);
-
-export default Status;
+}
