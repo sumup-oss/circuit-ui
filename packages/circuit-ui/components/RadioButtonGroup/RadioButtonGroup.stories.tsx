@@ -15,11 +15,15 @@
 
 import { useState, ChangeEvent } from 'react';
 
+import RadioButton from '../RadioButton';
+import { Stack } from '../../../../.storybook/components';
+
 import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 
 export default {
   title: 'Forms/RadioButtonGroup',
   component: RadioButtonGroup,
+  subcomponents: { RadioButton },
   argTypes: {
     name: { control: 'text' },
     value: { control: 'text' },
@@ -40,7 +44,7 @@ export const Base = (args: RadioButtonGroupProps) => {
 };
 
 Base.args = {
-  name: 'radio-button-group',
+  name: 'base',
   label: 'Choose your favourite fruit',
   options: [
     { label: 'Apple', value: 'apple' },
@@ -49,7 +53,41 @@ Base.args = {
   ],
 };
 
-export const Invalid = (args: RadioButtonGroupProps) => {
+export const Validation = (args: RadioButtonGroupProps) => (
+  <Stack>
+    <RadioButtonGroup
+      {...args}
+      name="invalid"
+      validationHint="Please choose an option."
+      invalid
+    />
+    <RadioButtonGroup
+      {...args}
+      value="mango"
+      name="invalid"
+      validationHint="Some people are allergic to mangos."
+      hasWarning
+    />
+    <RadioButtonGroup
+      {...args}
+      value="apple"
+      name="valid"
+      validationHint="Good choice! Apples are delicious."
+      showValid
+    />
+  </Stack>
+);
+
+Validation.args = {
+  label: 'Choose your favourite fruit',
+  options: [
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
+  ],
+};
+
+export const Disabled = (args: RadioButtonGroupProps) => {
   const [value, setValue] = useState<string>();
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -57,54 +95,12 @@ export const Invalid = (args: RadioButtonGroupProps) => {
   return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
 };
 
-Invalid.args = {
-  name: 'radio-button-group',
+Disabled.args = {
+  name: 'disabled',
   label: 'Choose your favourite fruit',
   options: [
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' },
-    { label: 'Mango', value: 'mango' },
+    { label: 'Mango', value: 'mango', disabled: true },
   ],
-  invalid: true,
-  validationHint: 'This field is required.',
-};
-
-export const Valid = (args: RadioButtonGroupProps) => {
-  const [value, setValue] = useState<string>();
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
-  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
-};
-
-Valid.args = {
-  name: 'radio-button-group',
-  label: 'Choose your favourite fruit',
-  options: [
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' },
-    { label: 'Mango', value: 'mango' },
-  ],
-  showValid: true,
-  validationHint: 'You chose an option.',
-};
-
-export const Warning = (args: RadioButtonGroupProps) => {
-  const [value, setValue] = useState<string>();
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
-  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
-};
-
-Warning.args = {
-  name: 'radio-button-group',
-  label: 'Choose your favourite fruit',
-  options: [
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' },
-    { label: 'Mango', value: 'mango' },
-  ],
-  hasWarning: true,
-  validationHint: 'This choice might cause errors.',
 };

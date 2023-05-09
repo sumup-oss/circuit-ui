@@ -146,7 +146,7 @@ const inputBaseStyles = css`
     color: var(--cui-fg-normal-disabled);
 
     &::before {
-      border-color: var(--cui-border-strong-disabled);
+      border-color: var(--cui-border-normal-disabled);
       background-color: var(--cui-bg-normal-disabled);
     }
 

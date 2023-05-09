@@ -15,14 +15,11 @@
 
 import { useState } from 'react';
 
-import RadioButtonGroup from '../RadioButtonGroup';
-
 import { RadioButton, RadioButtonProps } from './RadioButton';
 
 export default {
-  title: 'Forms/RadioButton',
+  title: 'Forms/RadioButtonGroup/RadioButton',
   component: RadioButton,
-  subcomponents: { RadioButtonGroup },
   argTypes: {
     label: { control: 'text' },
     name: { control: 'text' },

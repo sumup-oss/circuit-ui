@@ -151,8 +151,12 @@ exports[`Toggle should render with default styles 1`] = `
 }
 
 .circuit-4 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: block;
   margin-left: 12px;
+  cursor: pointer;
 }
 
 @media (max-width: 479px) {
@@ -162,25 +166,19 @@ exports[`Toggle should render with default styles 1`] = `
   }
 }
 
-.circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  cursor: pointer;
-}
-
-.cui-field-disabled .circuit-5 {
+.cui-field-disabled .circuit-4 {
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-6 {
-  font-weight: 400;
+.circuit-5 {
   font-size: 0.875rem;
   line-height: 1.25rem;
+  display: block;
   color: var(--cui-fg-subtle);
 }
 
-.cui-field-disabled .circuit-6 {
+input:disabled+label>.circuit-5,
+.cui-field-disabled .circuit-5 {
   color: var(--cui-fg-subtle-disabled);
 }
 
@@ -206,23 +204,25 @@ exports[`Toggle should render with default styles 1`] = `
         off
       </span>
     </button>
-    <div
+    <label
       class="circuit-4"
+      for="toggle-switch_1"
+      id="toggle-label_2"
     >
-      <label
+      Label
+      <span
+        aria-hidden="true"
         class="circuit-5"
-        for="toggle-switch_1"
-        id="toggle-label_2"
-      >
-        Label
-      </label>
-      <p
-        class="circuit-6"
-        id="toggle-explanation_3"
       >
         A longer explanation
-      </p>
-    </div>
+      </span>
+    </label>
+    <p
+      class="circuit-3"
+      id="toggle-explanation_3"
+    >
+      A longer explanation
+    </p>
   </div>
 </div>
 `;

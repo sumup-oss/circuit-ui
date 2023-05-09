@@ -1,0 +1,37 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './RadioButtonGroup.stories';
+
+<Meta of={Stories} />
+
+# RadioButtonGroup
+
+<Status.Stable />
+
+The RadioButtonGroup component allows users to select a single option from a group.
+
+<Story of={Stories.Base} />
+<Props />
+
+## When to use it
+
+Use a radio button group when the user has to choose only one option based on a pre-defined list of mutually exclusive options.
+
+## Usage guidelines
+
+- **Do** always associate the radio button with a label that clearly gives context for the user to make a decision
+- **Do** capitalize each item of the list
+- **Do** list the items in a rational order
+- **Do not** punctuate the end of every list item
+- **Do not** mark required fields with asterisks
+
+## Component variations
+
+### Validation States
+
+<Story of={Stories.Validation} />
+
+### Disabled radio button
+
+Use a disabled radio button only if you really need to communicate to the user that an option that existed before is not available for choosing now. Keep in mind that you need to communicate why. One recommendation would be to pair a disabled input with a tooltip to give the appropriate context to the user.
+
+<Story of={Stories.Disabled} />
