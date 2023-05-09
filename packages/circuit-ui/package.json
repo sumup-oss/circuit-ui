@@ -5,7 +5,10 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./legacy": "./dist/legacy.js"
+  },
   "sideEffects": false,
   "files": [
     "dist",
@@ -32,10 +35,6 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
-    "@types/react-dates": "^21.8.3",
-    "moment": "^2.29.4",
-    "prop-types": "^15.8.1",
-    "react-dates": "^21.8.0",
     "react-modal": "^3.16.1",
     "react-number-format": "^5.1.4"
   },
@@ -51,16 +50,17 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/cross-spawn": "^6.0.2",
     "@types/jest-axe": "^3.5.5",
-    "@types/jscodeshift": "^0.11.6",
     "@types/node": "^18.15.11",
     "@types/react": "^18.2.6",
+    "@types/react-dates": "^21.8.3",
     "@types/react-dom": "^18.2.4",
     "@types/react-modal": "^3.16.0",
     "@types/testing-library__jest-dom": "^5.14.5",
     "jest-axe": "^7.0.1",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-dates": "^21.8.0",
     "react-dom": "^18.2.0",
     "react-swipeable": "^7.0.0",
     "typescript": "^5.0.4"
@@ -74,6 +74,10 @@
     "@sumup/intl": "1.x",
     "react": ">=18.0.0 <19.0.0",
     "react-dom": ">=18.0.0 <19.0.0"
+  },
+  "optionalDependencies": {
+    "moment": ">=2.29",
+    "react-dates": ">=21.8"
   },
   "engines": {
     "node": ">=16"
