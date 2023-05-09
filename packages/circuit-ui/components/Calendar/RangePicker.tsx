@@ -38,6 +38,9 @@ const CloseIcon = styled(Close)(
 
 export type RangePickerProps = DateRangePickerShape;
 
+/**
+ * @legacy
+ */
 export const RangePicker = (props: RangePickerProps) => (
   <CalendarWrapper>
     <DateRangePicker

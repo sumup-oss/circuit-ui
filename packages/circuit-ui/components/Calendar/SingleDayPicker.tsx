@@ -30,6 +30,9 @@ const CloseIcon = styled(Close)`
 
 export type SingleDayPickerProps = SingleDatePickerShape;
 
+/**
+ * @legacy
+ */
 export const SingleDayPicker = (props: SingleDayPickerProps) => (
   <CalendarWrapper>
     <SingleDatePicker

@@ -69,6 +69,8 @@ function toDate(date: CalendarDate) {
 }
 
 /**
+ * @legacy
+ *
  * Component composed from a <Tag /> and a <RangePickerController /> that has
  * two step process where the user has to click "Apply" to trigger onChange
  */
