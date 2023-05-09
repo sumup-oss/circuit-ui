@@ -14,13 +14,14 @@
  */
 
 import { Unstyled } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 import { Badge, Body, cx, spacing } from '@sumup/circuit-ui';
 import { ReactNode } from 'react';
 
 interface StatusProps {
-  variant: 'stable' | 'deprecated' | 'inReview' | 'experimental';
+  variant: 'stable' | 'deprecated' | 'legacy' | 'inReview' | 'experimental';
   children?: ReactNode;
 }
 
@@ -31,19 +32,29 @@ const descriptionStyles = css`
 `;
 
 const variants = {
-  stable: { variant: 'success', label: 'Stable' },
-  deprecated: { variant: 'danger', label: 'Deprecated' },
-  inReview: { variant: 'warning', label: 'In Review' },
-  experimental: { variant: 'warning', label: 'Experimental' },
+  stable: { variant: 'success', label: 'Stable', id: 'stable' },
+  experimental: { variant: 'promo', label: 'Experimental', id: 'experimental' },
+  inReview: { variant: 'warning', label: 'In Review', id: 'in-review' },
+  legacy: { variant: 'warning', label: 'Legacy', id: 'legacy' },
+  deprecated: { variant: 'danger', label: 'Deprecated', id: 'deprecated' },
 } as const;
 
-const Status = ({ variant: status = 'stable', children }: StatusProps) => {
+const Status = ({
+  variant: status = 'stable',
+  children,
+  ...props
+}: StatusProps) => {
   const { variant, label } = variants[status];
+
+  const kind = 'Introduction/Component-Lifecycle';
+  const name = 'Docs';
 
   return (
     <ThemeProvider theme={light}>
-      <Unstyled>
-        <Badge variant={variant}>{label}</Badge>
+      <Unstyled {...props}>
+        <LinkTo {...props} kind={kind} name={name}>
+          <Badge variant={variant}>{label}</Badge>
+        </LinkTo>
         {children && (
           <Body
             size="two"
