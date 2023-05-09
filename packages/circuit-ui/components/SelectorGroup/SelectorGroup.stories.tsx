@@ -74,6 +74,7 @@ export const Multiple = (args: SelectorGroupProps) => {
 
 Multiple.args = {
   name: 'multiple',
+  multiple: true,
   label: 'Choose your favourite fruits',
   options: [
     { label: 'Apple', value: 'apple' },
