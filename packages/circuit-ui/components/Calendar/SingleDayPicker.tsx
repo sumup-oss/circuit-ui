@@ -14,8 +14,10 @@
  */
 
 import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { SingleDatePicker } from 'react-dates';
 import type { SingleDatePickerShape } from 'react-dates';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import 'react-dates/initialize.js';
 
 import styled from '../../styles/styled.js';

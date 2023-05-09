@@ -14,8 +14,10 @@
  */
 
 import { ArrowRight, ArrowLeft } from '@sumup/icons';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { DayPickerRangeController } from 'react-dates';
 import type { DayPickerRangeControllerShape } from 'react-dates';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import 'react-dates/initialize.js';
 
 import { CalendarWrapper } from './components/index.js';
