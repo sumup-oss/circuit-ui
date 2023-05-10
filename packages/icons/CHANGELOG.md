@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.24.0
+
+### Minor Changes
+
+- [#2096](https://github.com/sumup-oss/circuit-ui/pull/2096) [`d015d7f4`](https://github.com/sumup-oss/circuit-ui/commit/d015d7f46e7e876fabf2f9ba84f9a0abad03ab0e) Thanks [@cecisousa](https://github.com/cecisousa)! - Added a new icon in size 24: `MoreCircle`.
+
 ## 2.23.0
 
 ### Minor Changes

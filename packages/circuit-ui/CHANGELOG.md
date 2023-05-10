@@ -1,6 +1,18 @@
 # @sumup/circuit-ui
 
-## 6.6.5
+## 6.8.0
+
+### Minor Changes
+
+- [#2071](https://github.com/sumup-oss/circuit-ui/pull/2071) [`abf11b69`](https://github.com/sumup-oss/circuit-ui/commit/abf11b69a483e67cb758b193f4a5ec7b8d2f4203) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an optional `description` prop to the `Toggle` component, and deprecated the legacy `explanation` prop. This aligns with the `Selector ` component's API.
+
+- [#2071](https://github.com/sumup-oss/circuit-ui/pull/2071) [`abf11b69`](https://github.com/sumup-oss/circuit-ui/commit/abf11b69a483e67cb758b193f4a5ec7b8d2f4203) Thanks [@connor-baer](https://github.com/connor-baer)! - Added optional `label` and `description` props to the `Selector` component, and deprecated the legacy `children` prop. The `label` prop will become required in the next major version. This aligns with the `Checkbox ` and `RadioButton` component APIs.
+
+### Patch Changes
+
+- [#2071](https://github.com/sumup-oss/circuit-ui/pull/2071) [`abf11b69`](https://github.com/sumup-oss/circuit-ui/commit/abf11b69a483e67cb758b193f4a5ec7b8d2f4203) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the RadioButton's disabled border color.
+
+## 6.7.0
 
 ### Minor Changes
 
