@@ -156,6 +156,11 @@
       "size": "24"
     },
     {
+      "name": "more_circle",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "pause",
       "category": "Action",
       "size": "24"
