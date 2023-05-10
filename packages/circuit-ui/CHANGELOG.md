@@ -1,6 +1,6 @@
 # @sumup/circuit-ui
 
-## 7.0.0
+## 6.8.0
 
 ### Minor Changes
 
@@ -12,10 +12,7 @@
 
 - [#2071](https://github.com/sumup-oss/circuit-ui/pull/2071) [`abf11b69`](https://github.com/sumup-oss/circuit-ui/commit/abf11b69a483e67cb758b193f4a5ec7b8d2f4203) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the RadioButton's disabled border color.
 
-- Updated dependencies [[`d015d7f4`](https://github.com/sumup-oss/circuit-ui/commit/d015d7f46e7e876fabf2f9ba84f9a0abad03ab0e)]:
-  - @sumup/icons@2.24.0
-
-## 6.6.5
+## 6.7.0
 
 ### Minor Changes
 
