@@ -22,10 +22,10 @@ import { typography, focusVisible } from '../../../../styles/style-mixins';
 
 const defaultTabStyles = ({ theme }) => css`
   padding: ${theme.spacings.kilo} ${theme.spacings.tera};
-  color: ${theme.colors.n700};
+  color: var(--cui-fg-subtle);
   text-decoration: none;
   cursor: pointer;
-  background-color: ${theme.colors.white};
+  background-color: var(--cui-bg-normal);
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -37,11 +37,11 @@ const defaultTabStyles = ({ theme }) => css`
   outline: none;
 
   &:hover {
-    background-color: ${theme.colors.n100};
+    background-color: var(--cui-bg-normal-hovered);
   }
 
   &:active {
-    background-color: ${theme.colors.n200};
+    background-color: var(--cui-bg-normal-pressed);
   }
 `;
 
@@ -49,7 +49,7 @@ const selectedTabStyles = ({ theme, selected }) =>
   selected &&
   css`
     position: relative;
-    color: ${theme.colors.bodyColor};
+    color: var(--cui-fg-normal);
 
     &::after {
       content: ' ';
@@ -59,7 +59,7 @@ const selectedTabStyles = ({ theme, selected }) =>
       right: 0;
       width: 100%;
       height: ${theme.spacings.bit};
-      background: ${theme.colors.p500};
+      background: var(--cui-border-accent);
     }
   `;
 

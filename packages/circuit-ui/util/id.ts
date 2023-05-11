@@ -17,6 +17,11 @@
 
 let idCounter = 0;
 
+/**
+ * @deprecated
+ *
+ * Use the official [`useId` hook](https://beta.reactjs.org/reference/react/useId) instead.
+ */
 export function uniqueId(prefix = ''): string {
   idCounter += 1;
   return `${prefix}${idCounter}`;

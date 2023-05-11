@@ -1,8 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sidebar should render and match snapshot when open 1`] = `
-HTMLCollection [
-  .circuit-0 {
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -46,11 +61,7 @@ HTMLCollection [
   }
 }
 
-<nav
-    class="circuit-0 circuit-1"
-    open=""
-  />,
-  .circuit-0 {
+.circuit-2 {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -65,32 +76,12 @@ HTMLCollection [
 }
 
 @media (min-width: 960px) {
-  .circuit-0 {
+  .circuit-2 {
     visibility: hidden;
   }
 }
 
-<div
-    class="circuit-0"
-    data-testid="sidebar-backdrop"
-  />,
-  @keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-.circuit-0 {
+.circuit-3 {
   font-size: 1rem;
   line-height: 1.5rem;
   display: -webkit-inline-box;
@@ -114,9 +105,9 @@ HTMLCollection [
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -134,45 +125,52 @@ HTMLCollection [
   opacity: 1;
 }
 
-.circuit-0:focus {
+.circuit-3:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-0:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) {
+.circuit-3:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-0:disabled,
-.circuit-0[disabled] {
-  opacity: 0.5;
+.circuit-3:disabled,
+.circuit-3[disabled] {
   pointer-events: none;
-  box-shadow: none;
 }
 
-.circuit-0:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+.circuit-3:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-0:active,
-.circuit-0[aria-expanded='true'],
-.circuit-0[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+.circuit-3:active,
+.circuit-3[aria-expanded='true'],
+.circuit-3[aria-pressed='true'] {
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 960px) {
-  .circuit-0 {
+  .circuit-3 {
     visibility: hidden;
   }
 }
 
-.circuit-1 {
+.circuit-4 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -189,7 +187,7 @@ HTMLCollection [
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-5 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -201,7 +199,7 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-6 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -220,21 +218,30 @@ HTMLCollection [
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-<button
-    class="circuit-0"
+<div>
+  <nav
+    class="circuit-0 circuit-1"
+    open=""
+  />
+  <div
+    class="circuit-2"
+    data-testid="sidebar-backdrop"
+  />
+  <button
+    class="circuit-3"
     data-testid="sidebar-close-button"
     title="Close sidebar"
     type="button"
   >
     <span
-      class="circuit-1"
+      class="circuit-4"
     >
       <span
-        class="circuit-2"
+        class="circuit-5"
       />
     </span>
     <span
-      class="circuit-3"
+      class="circuit-6"
     >
       <svg
         fill="none"
@@ -252,18 +259,33 @@ HTMLCollection [
         />
       </svg>
       <span
-        class="circuit-2"
+        class="circuit-5"
       >
         Close sidebar
       </span>
     </span>
-  </button>,
-]
+  </button>
+</div>
 `;
 
 exports[`Sidebar should render and match the snapshot when closed 1`] = `
-HTMLCollection [
-  .circuit-0 {
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -294,10 +316,7 @@ HTMLCollection [
   }
 }
 
-<nav
-    class="circuit-0 circuit-1"
-  />,
-  .circuit-0 {
+.circuit-2 {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -310,32 +329,12 @@ HTMLCollection [
 }
 
 @media (min-width: 960px) {
-  .circuit-0 {
+  .circuit-2 {
     visibility: hidden;
   }
 }
 
-<div
-    class="circuit-0"
-    data-testid="sidebar-backdrop"
-  />,
-  @keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-.circuit-0 {
+.circuit-3 {
   font-size: 1rem;
   line-height: 1.5rem;
   display: -webkit-inline-box;
@@ -359,9 +358,9 @@ HTMLCollection [
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -377,45 +376,52 @@ HTMLCollection [
   z-index: 800;
 }
 
-.circuit-0:focus {
+.circuit-3:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-0:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible) {
+.circuit-3:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-0:disabled,
-.circuit-0[disabled] {
-  opacity: 0.5;
+.circuit-3:disabled,
+.circuit-3[disabled] {
   pointer-events: none;
-  box-shadow: none;
 }
 
-.circuit-0:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+.circuit-3:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-0:active,
-.circuit-0[aria-expanded='true'],
-.circuit-0[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+.circuit-3:active,
+.circuit-3[aria-expanded='true'],
+.circuit-3[aria-pressed='true'] {
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 960px) {
-  .circuit-0 {
+  .circuit-3 {
     visibility: hidden;
   }
 }
 
-.circuit-1 {
+.circuit-4 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -432,7 +438,7 @@ HTMLCollection [
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-5 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -444,7 +450,7 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-6 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -463,21 +469,29 @@ HTMLCollection [
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-<button
-    class="circuit-0"
+<div>
+  <nav
+    class="circuit-0 circuit-1"
+  />
+  <div
+    class="circuit-2"
+    data-testid="sidebar-backdrop"
+  />
+  <button
+    class="circuit-3"
     data-testid="sidebar-close-button"
     title="Close sidebar"
     type="button"
   >
     <span
-      class="circuit-1"
+      class="circuit-4"
     >
       <span
-        class="circuit-2"
+        class="circuit-5"
       />
     </span>
     <span
-      class="circuit-3"
+      class="circuit-6"
     >
       <svg
         fill="none"
@@ -495,11 +509,11 @@ HTMLCollection [
         />
       </svg>
       <span
-        class="circuit-2"
+        class="circuit-5"
       >
         Close sidebar
       </span>
     </span>
-  </button>,
-]
+  </button>
+</div>
 `;

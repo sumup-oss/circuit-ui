@@ -1,6 +1,6 @@
 # Project #
 
-package-lock.json
+yarn.lock
 .stylelintcache
 .eslintcache
 *.swp
@@ -17,7 +17,8 @@ circuit-ui-global.css
 
 # These are generated in CI from other files.
 docs/packages/
-docs/contributing/overview.stories.mdx
+docs/contributing/1-overview.mdx
+docs/contributing/*-contributing-*.mdx
 
 # Packages #
 

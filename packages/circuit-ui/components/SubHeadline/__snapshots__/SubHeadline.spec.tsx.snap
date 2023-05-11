@@ -6,7 +6,7 @@ exports[`SubHeadline should render as h2 element 1`] = `
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #000;
+  color: var(--cui-fg-normal);
 }
 
 <h2
@@ -22,7 +22,7 @@ exports[`SubHeadline should render as h3 element 1`] = `
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #000;
+  color: var(--cui-fg-normal);
 }
 
 <h3
@@ -38,7 +38,7 @@ exports[`SubHeadline should render as h4 element 1`] = `
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #000;
+  color: var(--cui-fg-normal);
 }
 
 <h4
@@ -54,7 +54,7 @@ exports[`SubHeadline should render as h5 element 1`] = `
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #000;
+  color: var(--cui-fg-normal);
 }
 
 <h5
@@ -70,7 +70,7 @@ exports[`SubHeadline should render as h6 element 1`] = `
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #000;
+  color: var(--cui-fg-normal);
 }
 
 <h6

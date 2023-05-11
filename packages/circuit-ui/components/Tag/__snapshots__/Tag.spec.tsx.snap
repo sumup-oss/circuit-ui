@@ -18,11 +18,11 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
   align-items: center;
   margin: 0;
   word-break: break-word;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-normal);
   border-radius: 8px;
   padding: calc(4px - 1px) 12px;
   cursor: default;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   cursor: pointer;
@@ -30,18 +30,21 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
   text-align: left;
 }
 
-.circuit-1:active {
-  color: #1A1A1A;
+.circuit-1:hover {
+  color: var(--cui-fg-normal-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
 }
 
-.circuit-1:hover {
-  background-color: #E6E6E6;
-  border-color: #999;
+.circuit-1:active {
+  color: var(--cui-fg-normal-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
 }
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -82,11 +85,11 @@ exports[`Tag when is default should render with default styles 1`] = `
   align-items: center;
   margin: 0;
   word-break: break-word;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-normal);
   border-radius: 8px;
   padding: calc(4px - 1px) 12px;
   cursor: default;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
 }
@@ -136,17 +139,17 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   align-items: center;
   margin: 0;
   word-break: break-word;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-normal);
   border-radius: 8px;
   padding: calc(4px - 1px) 12px;
   cursor: default;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   padding-right: calc(4px + 32px);
-  background-color: #3063E9;
-  border-color: #234BC3;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
 }
 
 .circuit-2 {
@@ -173,9 +176,9 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -194,7 +197,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 
 .circuit-2:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus::-moz-focus-inner {
@@ -207,21 +210,28 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 
 .circuit-2:disabled,
 .circuit-2[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-2:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-2:active,
 .circuit-2[aria-expanded='true'],
 .circuit-2[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-3 {
@@ -339,16 +349,16 @@ exports[`Tag when is selected should change the given icon color 1`] = `
   align-items: center;
   margin: 0;
   word-break: break-word;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-normal);
   border-radius: 8px;
   padding: calc(4px - 1px) 12px;
   cursor: default;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #234BC3;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
 }
 
 .circuit-2 {
@@ -392,16 +402,16 @@ exports[`Tag when is selected should render with selected styles 1`] = `
   align-items: center;
   margin: 0;
   word-break: break-word;
-  border: 1px solid #CCC;
+  border: 1px solid var(--cui-border-normal);
   border-radius: 8px;
   padding: calc(4px - 1px) 12px;
   cursor: default;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #234BC3;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+  color: var(--cui-fg-on-strong);
 }
 
 <div

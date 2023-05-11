@@ -12,6 +12,10 @@ exports[`Toggle should render with default styles 1`] = `
   align-items: flex-start;
 }
 
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 @media (max-width: 479px) {
   .circuit-0 {
     -webkit-flex-direction: row-reverse;
@@ -35,7 +39,7 @@ exports[`Toggle should render with default styles 1`] = `
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #CCC;
+  background-color: var(--cui-bg-highlight);
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -48,7 +52,7 @@ exports[`Toggle should render with default styles 1`] = `
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -59,10 +63,40 @@ exports[`Toggle should render with default styles 1`] = `
   box-shadow: none;
 }
 
+.circuit-1:hover {
+  background-color: var(--cui-bg-highlight-hovered);
+}
+
+.circuit-1:active {
+  background-color: var(--cui-bg-highlight-pressed);
+}
+
+.circuit-1[aria-checked='true'] {
+  background-color: var(--cui-bg-accent-strong);
+}
+
+.circuit-1[aria-checked='true']:hover {
+  background-color: var(--cui-bg-accent-strong-hovered);
+}
+
+.circuit-1[aria-checked='true']:active {
+  background-color: var(--cui-bg-accent-strong-pressed);
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  background-color: var(--cui-bg-highlight-disabled);
+}
+
+.circuit-1[aria-checked='true']:disabled,
+.circuit-1[aria-checked='true'][disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+}
+
 .circuit-2 {
   display: block;
-  background-color: #FFF;
-  box-shadow: 0 2px 0 0 #999;
+  background-color: var(--cui-fg-on-strong);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px, -50%, 0);
@@ -74,6 +108,34 @@ exports[`Toggle should render with default styles 1`] = `
   height: 16px;
   width: 16px;
   border-radius: 16px;
+}
+
+[aria-checked='true'] .circuit-2 {
+  -webkit-transform: translate3d(
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
+  -moz-transform: translate3d(
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
+  -ms-transform: translate3d(
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
+  transform: translate3d(
+        calc(40px - 16px - 4px),
+        -50%,
+        0
+      );
+}
+
+.circuit-2:disabled .circuit-2,
+.circuit-2[disabled] .circuit-2 {
+  background-color: var(--cui-fg-on-strong-disabled);
 }
 
 .circuit-3 {
@@ -89,6 +151,9 @@ exports[`Toggle should render with default styles 1`] = `
 }
 
 .circuit-4 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
   display: block;
   margin-left: 12px;
   cursor: pointer;
@@ -101,54 +166,63 @@ exports[`Toggle should render with default styles 1`] = `
   }
 }
 
-.circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
+.cui-field-disabled .circuit-4 {
+  color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-6 {
-  font-weight: 400;
+.circuit-5 {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #666;
+  display: block;
+  color: var(--cui-fg-subtle);
 }
 
-<div
-  class="circuit-0"
->
-  <button
-    aria-checked="false"
-    aria-labelledby="toggle-label_2"
-    class="circuit-1"
-    id="toggle-switch_1"
-    role="switch"
-    type="button"
+input:disabled+label>.circuit-5,
+.cui-field-disabled .circuit-5 {
+  color: var(--cui-fg-subtle-disabled);
+}
+
+<div>
+  <div
+    class="circuit-0"
   >
-    <span
-      class="circuit-2"
-    />
-    <span
-      class="circuit-3"
+    <button
+      aria-checked="false"
+      aria-describedby="toggle-explanation_3"
+      aria-labelledby="toggle-label_2"
+      class="circuit-1"
+      id="toggle-switch_1"
+      role="switch"
+      type="button"
     >
-      off
-    </span>
-  </button>
-  <label
-    class="circuit-4"
-    for="toggle-switch_1"
-    id="toggle-label_2"
-  >
-    <p
-      class="circuit-5"
+      <span
+        class="circuit-2"
+      />
+      <span
+        class="circuit-3"
+      >
+        off
+      </span>
+    </button>
+    <label
+      class="circuit-4"
+      for="toggle-switch_1"
+      id="toggle-label_2"
     >
       Label
-    </p>
+      <span
+        aria-hidden="true"
+        class="circuit-5"
+      >
+        A longer explanation
+      </span>
+    </label>
     <p
-      class="circuit-6"
+      class="circuit-3"
+      id="toggle-explanation_3"
     >
       A longer explanation
     </p>
-  </label>
+  </div>
 </div>
 `;

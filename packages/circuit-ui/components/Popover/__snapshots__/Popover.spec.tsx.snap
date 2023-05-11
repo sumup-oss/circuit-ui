@@ -12,7 +12,7 @@ exports[`Popover Styles should render popover on bottom 1`] = `
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -34,10 +34,10 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 .circuit-3 {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px 0px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
@@ -68,10 +68,10 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 }
 
 .circuit-4 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -88,18 +88,19 @@ exports[`Popover Styles should render popover on bottom 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  text-align: left;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
 .circuit-4:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-4:focus::-moz-focus-inner {
@@ -111,14 +112,14 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -129,7 +130,7 @@ exports[`Popover Styles should render popover on bottom 1`] = `
   display: block;
   width: 100%;
   border: 0;
-  border-top: 1px solid #CCC;
+  border-top: 1px solid var(--cui-border-divider);
   margin-top: 16px;
   margin-bottom: 16px;
   margin: 8px 16px;
@@ -137,10 +138,10 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 }
 
 .circuit-7 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #D23F47;
+  color: var(--cui-fg-danger);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -157,18 +158,19 @@ exports[`Popover Styles should render popover on bottom 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  text-align: left;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
 .circuit-7:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
 .circuit-7:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-7:focus::-moz-focus-inner {
@@ -180,14 +182,821 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 }
 
 .circuit-7:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
+}
+
+<body>
+  <div>
+    <div
+      class="circuit-0"
+    >
+      <button
+        aria-controls="popover_20"
+        aria-expanded="true"
+        aria-haspopup="true"
+        id="trigger_19"
+      >
+        Button
+      </button>
+    </div>
+  </div>
+  <div
+    class="circuit-1"
+    style="z-index: 30;"
+  />
+  <div
+    class="circuit-2"
+    style="position: fixed; top: 0px; left: 0px; z-index: 30;"
+  >
+    <div
+      aria-labelledby="trigger_19"
+      class="circuit-3"
+      id="popover_20"
+      role="menu"
+    >
+      <button
+        class="circuit-4"
+        data-focus-list="21"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-5"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 1a10.994 10.994 0 1 0 .012 0H12zm5 12h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 0 2z"
+            fill="currentColor"
+          />
+        </svg>
+        Add
+      </button>
+      <hr
+        class="circuit-6"
+      />
+      <button
+        class="circuit-7"
+        data-focus-list="21"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-5"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17 3H7a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2zm5 3a1 1 0 0 1-1 1h-1v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7H3a1 1 0 0 1 0-2h18a1 1 0 0 1 1 1zm-11 4a1 1 0 0 0-2 0v8a1 1 0 1 0 2 0v-8zm4 0a1 1 0 0 0-2 0v8a1 1 0 0 0 2 0v-8z"
+            fill="currentColor"
+          />
+        </svg>
+        Remove
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Styles should render popover on left 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+@media (max-width: 479px) {
+  .circuit-1 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--cui-bg-overlay);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-1 {
+    visibility: inherit;
+    opacity: 1;
+  }
+}
+
+.circuit-2 {
+  pointer-events: all;
+}
+
+.circuit-3 {
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px 0px;
+  border: 1px solid var(--cui-border-subtle);
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: var(--cui-bg-elevated);
+  visibility: hidden;
+  opacity: 0;
+  opacity: 1;
+  visibility: inherit;
+}
+
+@media (max-width: 479px) {
+  .circuit-3 {
+    opacity: 1;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-3 {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.circuit-4 {
+  background-color: var(--cui-bg-normal);
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: var(--cui-fg-normal);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.circuit-4:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  cursor: pointer;
+}
+
+.circuit-4:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-4:focus:not(:focus-visible) {
   box-shadow: none;
+}
+
+.circuit-4:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-5 {
+  margin-right: 12px;
+}
+
+.circuit-6 {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--cui-border-divider);
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin: 8px 16px;
+  width: calc(100% - 16px*2);
+}
+
+.circuit-7 {
+  background-color: var(--cui-bg-normal);
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: var(--cui-fg-danger);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.circuit-7:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  cursor: pointer;
+}
+
+.circuit-7:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-7:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-7:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-7:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
+}
+
+<body>
+  <div>
+    <div
+      class="circuit-0"
+    >
+      <button
+        aria-controls="popover_26"
+        aria-expanded="true"
+        aria-haspopup="true"
+        id="trigger_25"
+      >
+        Button
+      </button>
+    </div>
+  </div>
+  <div
+    class="circuit-1"
+    style="z-index: 30;"
+  />
+  <div
+    class="circuit-2"
+    style="position: fixed; top: 0px; left: 0px; z-index: 30;"
+  >
+    <div
+      aria-labelledby="trigger_25"
+      class="circuit-3"
+      id="popover_26"
+      role="menu"
+    >
+      <button
+        class="circuit-4"
+        data-focus-list="27"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-5"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 1a10.994 10.994 0 1 0 .012 0H12zm5 12h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 0 2z"
+            fill="currentColor"
+          />
+        </svg>
+        Add
+      </button>
+      <hr
+        class="circuit-6"
+      />
+      <button
+        class="circuit-7"
+        data-focus-list="27"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-5"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17 3H7a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2zm5 3a1 1 0 0 1-1 1h-1v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7H3a1 1 0 0 1 0-2h18a1 1 0 0 1 1 1zm-11 4a1 1 0 0 0-2 0v8a1 1 0 1 0 2 0v-8zm4 0a1 1 0 0 0-2 0v8a1 1 0 0 0 2 0v-8z"
+            fill="currentColor"
+          />
+        </svg>
+        Remove
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Styles should render popover on right 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+@media (max-width: 479px) {
+  .circuit-1 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--cui-bg-overlay);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-1 {
+    visibility: inherit;
+    opacity: 1;
+  }
+}
+
+.circuit-2 {
+  pointer-events: all;
+}
+
+.circuit-3 {
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px 0px;
+  border: 1px solid var(--cui-border-subtle);
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: var(--cui-bg-elevated);
+  visibility: hidden;
+  opacity: 0;
+  opacity: 1;
+  visibility: inherit;
+}
+
+@media (max-width: 479px) {
+  .circuit-3 {
+    opacity: 1;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-3 {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.circuit-4 {
+  background-color: var(--cui-bg-normal);
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: var(--cui-fg-normal);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.circuit-4:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  cursor: pointer;
+}
+
+.circuit-4:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-4:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-4:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-5 {
+  margin-right: 12px;
+}
+
+.circuit-6 {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--cui-border-divider);
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin: 8px 16px;
+  width: calc(100% - 16px*2);
+}
+
+.circuit-7 {
+  background-color: var(--cui-bg-normal);
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: var(--cui-fg-danger);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.circuit-7:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  cursor: pointer;
+}
+
+.circuit-7:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-7:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-7:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-7:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
+}
+
+<body>
+  <div>
+    <div
+      class="circuit-0"
+    >
+      <button
+        aria-controls="popover_32"
+        aria-expanded="true"
+        aria-haspopup="true"
+        id="trigger_31"
+      >
+        Button
+      </button>
+    </div>
+  </div>
+  <div
+    class="circuit-1"
+    style="z-index: 30;"
+  />
+  <div
+    class="circuit-2"
+    style="position: fixed; top: 0px; left: 0px; z-index: 30;"
+  >
+    <div
+      aria-labelledby="trigger_31"
+      class="circuit-3"
+      id="popover_32"
+      role="menu"
+    >
+      <button
+        class="circuit-4"
+        data-focus-list="33"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-5"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 1a10.994 10.994 0 1 0 .012 0H12zm5 12h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 0 2z"
+            fill="currentColor"
+          />
+        </svg>
+        Add
+      </button>
+      <hr
+        class="circuit-6"
+      />
+      <button
+        class="circuit-7"
+        data-focus-list="33"
+        role="menuitem"
+      >
+        <svg
+          class="circuit-5"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17 3H7a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2zm5 3a1 1 0 0 1-1 1h-1v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7H3a1 1 0 0 1 0-2h18a1 1 0 0 1 1 1zm-11 4a1 1 0 0 0-2 0v8a1 1 0 1 0 2 0v-8zm4 0a1 1 0 0 0-2 0v8a1 1 0 0 0 2 0v-8z"
+            fill="currentColor"
+          />
+        </svg>
+        Remove
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Styles should render popover on top 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+@media (max-width: 479px) {
+  .circuit-1 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--cui-bg-overlay);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-1 {
+    visibility: inherit;
+    opacity: 1;
+  }
+}
+
+.circuit-2 {
+  pointer-events: all;
+}
+
+.circuit-3 {
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px 0px;
+  border: 1px solid var(--cui-border-subtle);
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: var(--cui-bg-elevated);
+  visibility: hidden;
+  opacity: 0;
+  opacity: 1;
+  visibility: inherit;
+}
+
+@media (max-width: 479px) {
+  .circuit-3 {
+    opacity: 1;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .circuit-3 {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.circuit-4 {
+  background-color: var(--cui-bg-normal);
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: var(--cui-fg-normal);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.circuit-4:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  cursor: pointer;
+}
+
+.circuit-4:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-4:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-4:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-5 {
+  margin-right: 12px;
+}
+
+.circuit-6 {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--cui-border-divider);
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin: 8px 16px;
+  width: calc(100% - 16px*2);
+}
+
+.circuit-7 {
+  background-color: var(--cui-bg-normal);
+  padding: 12px 32px 12px 16px;
+  border: 0;
+  color: var(--cui-fg-danger);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.circuit-7:hover {
+  background-color: var(--cui-bg-normal-hovered);
+  cursor: pointer;
+}
+
+.circuit-7:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.circuit-7:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-7:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.circuit-7:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
 }
 
 <body>
@@ -267,807 +1076,6 @@ exports[`Popover Styles should render popover on bottom 1`] = `
 </body>
 `;
 
-exports[`Popover Styles should render popover on left 1`] = `
-.circuit-0 {
-  display: inline-block;
-}
-
-@media (max-width: 479px) {
-  .circuit-1 {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  }
-}
-
-@media (max-width: 479px) {
-  .circuit-1 {
-    visibility: inherit;
-    opacity: 1;
-  }
-}
-
-.circuit-2 {
-  pointer-events: all;
-}
-
-.circuit-3 {
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 8px 0px;
-  border: 1px solid #E6E6E6;
-  box-sizing: border-box;
-  border-radius: 8px;
-  background-color: #FFF;
-  visibility: hidden;
-  opacity: 0;
-  opacity: 1;
-  visibility: inherit;
-}
-
-@media (max-width: 479px) {
-  .circuit-3 {
-    opacity: 1;
-    -webkit-transform: translateY(100%);
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%);
-    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-}
-
-@media (max-width: 479px) {
-  .circuit-3 {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-.circuit-4 {
-  background-color: #FFF;
-  padding: 12px 32px 12px 16px;
-  border: 0;
-  color: #1A1A1A;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-4:hover {
-  background-color: #F5F5F5;
-  cursor: pointer;
-}
-
-.circuit-4:focus {
-  outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
-}
-
-.circuit-4:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-4:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-4:active {
-  background-color: #E6E6E6;
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-5 {
-  margin-right: 12px;
-}
-
-.circuit-6 {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid #CCC;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  margin: 8px 16px;
-  width: calc(100% - 16px*2);
-}
-
-.circuit-7 {
-  background-color: #FFF;
-  padding: 12px 32px 12px 16px;
-  border: 0;
-  color: #D23F47;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-7:hover {
-  background-color: #F5F5F5;
-  cursor: pointer;
-}
-
-.circuit-7:focus {
-  outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
-}
-
-.circuit-7:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-7:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-7:active {
-  background-color: #E6E6E6;
-}
-
-.circuit-7:disabled,
-.circuit-7[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-<body>
-  <div>
-    <div
-      class="circuit-0"
-    >
-      <button
-        aria-controls="popover_18"
-        aria-expanded="true"
-        aria-haspopup="true"
-        id="trigger_17"
-      >
-        Button
-      </button>
-    </div>
-  </div>
-  <div
-    class="circuit-1"
-    style="z-index: 30;"
-  />
-  <div
-    class="circuit-2"
-    style="position: fixed; top: 0px; left: 0px; z-index: 30;"
-  >
-    <div
-      aria-labelledby="trigger_17"
-      class="circuit-3"
-      id="popover_18"
-      role="menu"
-    >
-      <button
-        class="circuit-4"
-        data-focus-list="19"
-        role="menuitem"
-      >
-        <svg
-          class="circuit-5"
-          fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 1a10.994 10.994 0 1 0 .012 0H12zm5 12h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 0 2z"
-            fill="currentColor"
-          />
-        </svg>
-        Add
-      </button>
-      <hr
-        class="circuit-6"
-      />
-      <button
-        class="circuit-7"
-        data-focus-list="19"
-        role="menuitem"
-      >
-        <svg
-          class="circuit-5"
-          fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17 3H7a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2zm5 3a1 1 0 0 1-1 1h-1v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7H3a1 1 0 0 1 0-2h18a1 1 0 0 1 1 1zm-11 4a1 1 0 0 0-2 0v8a1 1 0 1 0 2 0v-8zm4 0a1 1 0 0 0-2 0v8a1 1 0 0 0 2 0v-8z"
-            fill="currentColor"
-          />
-        </svg>
-        Remove
-      </button>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`Popover Styles should render popover on right 1`] = `
-.circuit-0 {
-  display: inline-block;
-}
-
-@media (max-width: 479px) {
-  .circuit-1 {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  }
-}
-
-@media (max-width: 479px) {
-  .circuit-1 {
-    visibility: inherit;
-    opacity: 1;
-  }
-}
-
-.circuit-2 {
-  pointer-events: all;
-}
-
-.circuit-3 {
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 8px 0px;
-  border: 1px solid #E6E6E6;
-  box-sizing: border-box;
-  border-radius: 8px;
-  background-color: #FFF;
-  visibility: hidden;
-  opacity: 0;
-  opacity: 1;
-  visibility: inherit;
-}
-
-@media (max-width: 479px) {
-  .circuit-3 {
-    opacity: 1;
-    -webkit-transform: translateY(100%);
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%);
-    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-}
-
-@media (max-width: 479px) {
-  .circuit-3 {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-.circuit-4 {
-  background-color: #FFF;
-  padding: 12px 32px 12px 16px;
-  border: 0;
-  color: #1A1A1A;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-4:hover {
-  background-color: #F5F5F5;
-  cursor: pointer;
-}
-
-.circuit-4:focus {
-  outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
-}
-
-.circuit-4:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-4:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-4:active {
-  background-color: #E6E6E6;
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-5 {
-  margin-right: 12px;
-}
-
-.circuit-6 {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid #CCC;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  margin: 8px 16px;
-  width: calc(100% - 16px*2);
-}
-
-.circuit-7 {
-  background-color: #FFF;
-  padding: 12px 32px 12px 16px;
-  border: 0;
-  color: #D23F47;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-7:hover {
-  background-color: #F5F5F5;
-  cursor: pointer;
-}
-
-.circuit-7:focus {
-  outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
-}
-
-.circuit-7:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-7:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-7:active {
-  background-color: #E6E6E6;
-}
-
-.circuit-7:disabled,
-.circuit-7[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-<body>
-  <div>
-    <div
-      class="circuit-0"
-    >
-      <button
-        aria-controls="popover_22"
-        aria-expanded="true"
-        aria-haspopup="true"
-        id="trigger_21"
-      >
-        Button
-      </button>
-    </div>
-  </div>
-  <div
-    class="circuit-1"
-    style="z-index: 30;"
-  />
-  <div
-    class="circuit-2"
-    style="position: fixed; top: 0px; left: 0px; z-index: 30;"
-  >
-    <div
-      aria-labelledby="trigger_21"
-      class="circuit-3"
-      id="popover_22"
-      role="menu"
-    >
-      <button
-        class="circuit-4"
-        data-focus-list="23"
-        role="menuitem"
-      >
-        <svg
-          class="circuit-5"
-          fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 1a10.994 10.994 0 1 0 .012 0H12zm5 12h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 0 2z"
-            fill="currentColor"
-          />
-        </svg>
-        Add
-      </button>
-      <hr
-        class="circuit-6"
-      />
-      <button
-        class="circuit-7"
-        data-focus-list="23"
-        role="menuitem"
-      >
-        <svg
-          class="circuit-5"
-          fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17 3H7a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2zm5 3a1 1 0 0 1-1 1h-1v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7H3a1 1 0 0 1 0-2h18a1 1 0 0 1 1 1zm-11 4a1 1 0 0 0-2 0v8a1 1 0 1 0 2 0v-8zm4 0a1 1 0 0 0-2 0v8a1 1 0 0 0 2 0v-8z"
-            fill="currentColor"
-          />
-        </svg>
-        Remove
-      </button>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`Popover Styles should render popover on top 1`] = `
-.circuit-0 {
-  display: inline-block;
-}
-
-@media (max-width: 479px) {
-  .circuit-1 {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-    transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  }
-}
-
-@media (max-width: 479px) {
-  .circuit-1 {
-    visibility: inherit;
-    opacity: 1;
-  }
-}
-
-.circuit-2 {
-  pointer-events: all;
-}
-
-.circuit-3 {
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 8px 0px;
-  border: 1px solid #E6E6E6;
-  box-sizing: border-box;
-  border-radius: 8px;
-  background-color: #FFF;
-  visibility: hidden;
-  opacity: 0;
-  opacity: 1;
-  visibility: inherit;
-}
-
-@media (max-width: 479px) {
-  .circuit-3 {
-    opacity: 1;
-    -webkit-transform: translateY(100%);
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%);
-    -webkit-transition: -webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-    transition: transform 120ms ease-in-out,visibility 120ms ease-in-out;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-}
-
-@media (max-width: 479px) {
-  .circuit-3 {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-.circuit-4 {
-  background-color: #FFF;
-  padding: 12px 32px 12px 16px;
-  border: 0;
-  color: #1A1A1A;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-4:hover {
-  background-color: #F5F5F5;
-  cursor: pointer;
-}
-
-.circuit-4:focus {
-  outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
-}
-
-.circuit-4:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-4:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-4:active {
-  background-color: #E6E6E6;
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-5 {
-  margin-right: 12px;
-}
-
-.circuit-6 {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid #CCC;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  margin: 8px 16px;
-  width: calc(100% - 16px*2);
-}
-
-.circuit-7 {
-  background-color: #FFF;
-  padding: 12px 32px 12px 16px;
-  border: 0;
-  color: #D23F47;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-7:hover {
-  background-color: #F5F5F5;
-  cursor: pointer;
-}
-
-.circuit-7:focus {
-  outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
-}
-
-.circuit-7:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-7:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-7:active {
-  background-color: #E6E6E6;
-}
-
-.circuit-7:disabled,
-.circuit-7[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-<body>
-  <div>
-    <div
-      class="circuit-0"
-    >
-      <button
-        aria-controls="popover_10"
-        aria-expanded="true"
-        aria-haspopup="true"
-        id="trigger_9"
-      >
-        Button
-      </button>
-    </div>
-  </div>
-  <div
-    class="circuit-1"
-    style="z-index: 30;"
-  />
-  <div
-    class="circuit-2"
-    style="position: fixed; top: 0px; left: 0px; z-index: 30;"
-  >
-    <div
-      aria-labelledby="trigger_9"
-      class="circuit-3"
-      id="popover_10"
-      role="menu"
-    >
-      <button
-        class="circuit-4"
-        data-focus-list="11"
-        role="menuitem"
-      >
-        <svg
-          class="circuit-5"
-          fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 1a10.994 10.994 0 1 0 .012 0H12zm5 12h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 0 2z"
-            fill="currentColor"
-          />
-        </svg>
-        Add
-      </button>
-      <hr
-        class="circuit-6"
-      />
-      <button
-        class="circuit-7"
-        data-focus-list="11"
-        role="menuitem"
-      >
-        <svg
-          class="circuit-5"
-          fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17 3H7a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2zm5 3a1 1 0 0 1-1 1h-1v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7H3a1 1 0 0 1 0-2h18a1 1 0 0 1 1 1zm-11 4a1 1 0 0 0-2 0v8a1 1 0 1 0 2 0v-8zm4 0a1 1 0 0 0-2 0v8a1 1 0 0 0 2 0v-8z"
-            fill="currentColor"
-          />
-        </svg>
-        Remove
-      </button>
-    </div>
-  </div>
-</body>
-`;
-
 exports[`Popover Styles should render with closed styles 1`] = `
 .circuit-0 {
   display: inline-block;
@@ -1080,7 +1088,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -1095,10 +1103,10 @@ exports[`Popover Styles should render with closed styles 1`] = `
 .circuit-3 {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px 0px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
 }
@@ -1118,10 +1126,10 @@ exports[`Popover Styles should render with closed styles 1`] = `
 }
 
 .circuit-4 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -1138,18 +1146,19 @@ exports[`Popover Styles should render with closed styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  text-align: left;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
 .circuit-4:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-4:focus::-moz-focus-inner {
@@ -1161,14 +1170,14 @@ exports[`Popover Styles should render with closed styles 1`] = `
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -1179,7 +1188,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
   display: block;
   width: 100%;
   border: 0;
-  border-top: 1px solid #CCC;
+  border-top: 1px solid var(--cui-border-divider);
   margin-top: 16px;
   margin-bottom: 16px;
   margin: 8px 16px;
@@ -1187,10 +1196,10 @@ exports[`Popover Styles should render with closed styles 1`] = `
 }
 
 .circuit-7 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #D23F47;
+  color: var(--cui-fg-danger);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -1207,18 +1216,19 @@ exports[`Popover Styles should render with closed styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  text-align: left;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
 .circuit-7:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
 .circuit-7:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-7:focus::-moz-focus-inner {
@@ -1230,14 +1240,14 @@ exports[`Popover Styles should render with closed styles 1`] = `
 }
 
 .circuit-7:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
 }
 
 <body>
@@ -1246,10 +1256,10 @@ exports[`Popover Styles should render with closed styles 1`] = `
       class="circuit-0"
     >
       <button
-        aria-controls="popover_6"
+        aria-controls="popover_8"
         aria-expanded="false"
         aria-haspopup="true"
-        id="trigger_5"
+        id="trigger_7"
       >
         Button
       </button>
@@ -1264,14 +1274,14 @@ exports[`Popover Styles should render with closed styles 1`] = `
     style="position: fixed; top: 0px; left: 0px; z-index: 30;"
   >
     <div
-      aria-labelledby="trigger_5"
+      aria-labelledby="trigger_7"
       class="circuit-3"
-      id="popover_6"
+      id="popover_8"
       role="menu"
     >
       <button
         class="circuit-4"
-        data-focus-list="7"
+        data-focus-list="9"
         role="menuitem"
       >
         <svg
@@ -1294,7 +1304,7 @@ exports[`Popover Styles should render with closed styles 1`] = `
       />
       <button
         class="circuit-7"
-        data-focus-list="7"
+        data-focus-list="9"
         role="menuitem"
       >
         <svg
@@ -1329,7 +1339,7 @@ exports[`Popover Styles should render with default styles 1`] = `
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
@@ -1351,10 +1361,10 @@ exports[`Popover Styles should render with default styles 1`] = `
 .circuit-3 {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px 0px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
   opacity: 1;
@@ -1385,10 +1395,10 @@ exports[`Popover Styles should render with default styles 1`] = `
 }
 
 .circuit-4 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -1405,18 +1415,19 @@ exports[`Popover Styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  text-align: left;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
 .circuit-4:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-4:focus::-moz-focus-inner {
@@ -1428,14 +1439,14 @@ exports[`Popover Styles should render with default styles 1`] = `
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -1446,7 +1457,7 @@ exports[`Popover Styles should render with default styles 1`] = `
   display: block;
   width: 100%;
   border: 0;
-  border-top: 1px solid #CCC;
+  border-top: 1px solid var(--cui-border-divider);
   margin-top: 16px;
   margin-bottom: 16px;
   margin: 8px 16px;
@@ -1454,10 +1465,10 @@ exports[`Popover Styles should render with default styles 1`] = `
 }
 
 .circuit-7 {
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   padding: 12px 32px 12px 16px;
   border: 0;
-  color: #D23F47;
+  color: var(--cui-fg-danger);
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -1474,18 +1485,19 @@ exports[`Popover Styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  text-align: left;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
 .circuit-7:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
   cursor: pointer;
 }
 
 .circuit-7:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-7:focus::-moz-focus-inner {
@@ -1497,14 +1509,14 @@ exports[`Popover Styles should render with default styles 1`] = `
 }
 
 .circuit-7:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-danger-disabled);
 }
 
 <body>

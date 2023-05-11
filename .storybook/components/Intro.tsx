@@ -40,6 +40,7 @@ function Intro({
   return (
     <ThemeProvider theme={light}>
       <BodyLarge
+        as="div"
         variant="subtle"
         css={cx(childrenBodyLargeStyles, spacing({ bottom: 'giga' }))}
         {...props}

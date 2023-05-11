@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import {
@@ -13,7 +14,6 @@ import {
 } from '@sumup/circuit-ui';
 
 import { Logo } from '../components/Logo';
-import { Link } from '../components/Link';
 
 interface ErrorPageProps {
   statusCode?: number;
@@ -45,17 +45,15 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
         <Headline
           as="h1"
           size="one"
-          noMargin
           css={cx(center, spacing({ bottom: 'giga' }))}
         >
           {title}
         </Headline>
-        <Body noMargin css={spacing({ bottom: 'giga' })}>
+        <Body css={spacing({ bottom: 'giga' })}>
           {statusCode
             ? `An error ${statusCode} occurred while loading the page.`
             : 'An error occurred while rendering the page.'}
         </Body>
-
         <ButtonGroup
           actions={{
             primary: {

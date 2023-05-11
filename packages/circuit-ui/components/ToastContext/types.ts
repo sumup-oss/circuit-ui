@@ -24,7 +24,9 @@ export interface BaseToastProps {
    */
   onClose?: OnClose;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Dispatch user interaction events when calling `setToast` and `removeToast` instead.
    */
   tracking?: TrackingProps;
   /**

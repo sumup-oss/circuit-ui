@@ -30,7 +30,7 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
   justify-content: space-between;
   position: relative;
   border-radius: 16px;
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-subtle);
   overflow: hidden;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
   transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
@@ -55,7 +55,7 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
 
 .circuit-2 {
   font-weight: 700;
-  color: #000;
+  color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
   font-size: 2rem;
   line-height: 2.25rem;
@@ -111,9 +111,9 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -123,7 +123,7 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
 
 .circuit-4:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-4:focus::-moz-focus-inner {
@@ -136,21 +136,28 @@ exports[`NotificationBanner styles should render a promotional banner 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-4:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-4:active,
 .circuit-4[aria-expanded='true'],
 .circuit-4[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 @media (min-width: 768px) {
@@ -296,7 +303,7 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   justify-content: space-between;
   position: relative;
   border-radius: 16px;
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent);
   overflow: hidden;
   -webkit-transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
   transition: opacity 200ms ease-in-out,height 200ms ease-in-out,visibility 200ms ease-in-out;
@@ -321,7 +328,7 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
 
 .circuit-2 {
   font-weight: 700;
-  color: #000;
+  color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
   font-size: 2rem;
   line-height: 2.25rem;
@@ -377,9 +384,9 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -389,7 +396,7 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
 
 .circuit-4:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-4:focus::-moz-focus-inner {
@@ -402,21 +409,28 @@ exports[`NotificationBanner styles should render with default styles 1`] = `
 
 .circuit-4:disabled,
 .circuit-4[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-4:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-4:active,
 .circuit-4[aria-expanded='true'],
 .circuit-4[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 @media (min-width: 768px) {

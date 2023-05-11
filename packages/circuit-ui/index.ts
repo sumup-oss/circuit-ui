@@ -102,6 +102,7 @@ export type { InlineElementsProps } from './components/InlineElements';
 export { default as Hamburger } from './components/Hamburger';
 export type { HamburgerProps } from './components/Hamburger';
 export { default as Header } from './components/Header';
+export type { HeaderProps } from './components/Header';
 export { default as Pagination } from './components/Pagination';
 export type { PaginationProps } from './components/Pagination';
 export {

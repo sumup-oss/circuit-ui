@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { render } from '../../util/test-utils';
+
 import { RangePicker } from '.';
 
 describe('RangePicker', () => {
@@ -20,7 +22,7 @@ describe('RangePicker', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<RangePicker />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<RangePicker />);
+    expect(container).toMatchSnapshot();
   });
 });

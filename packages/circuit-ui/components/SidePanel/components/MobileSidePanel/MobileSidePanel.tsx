@@ -43,7 +43,7 @@ export const MobileSidePanel = ({
         base: cssString`
           height: 100%;
           outline: none;
-          background-color: ${theme.colors.white};
+          background-color: var(--cui-bg-normal);
           transform: ${translate}(100%);
           transition: transform ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
         `,
@@ -66,7 +66,7 @@ export const MobileSidePanel = ({
           background-color: rgba(0, 0, 0, 0);
         `,
         afterOpen: cssString`
-          background-color: ${theme.colors.overlay} !important;
+          background-color: var(--cui-bg-overlay) !important;
         `,
         beforeClose: cssString`
           background-color: rgba(0, 0, 0, 0) !important;

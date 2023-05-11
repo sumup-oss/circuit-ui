@@ -124,6 +124,7 @@ export const spacing = (
  * Adds a drop shadow to an element to visually elevate it above the
  * surrounding content.
  */
+// TODO: Simplify the function signature in the next major.
 export function shadow(options?: never): (args: ThemeArgs) => SerializedStyles;
 export function shadow(args: ThemeArgs): SerializedStyles;
 export function shadow(
@@ -154,6 +155,8 @@ export function typography(
 }
 
 /**
+ * @deprecated Use the `disabled` state of the semantic color tokens instead.
+ *
  * Visually communicates to the user that an element is disabled
  * and prevents user interactions.
  */
@@ -192,31 +195,28 @@ export const center = (): SerializedStyles => css`
 /**
  * Visually communicates to the user that an element is focused.
  */
+// TODO: Simplify the function signature in the next major.
 export function focusOutline(
   options: 'inset',
-): (args: ThemeArgs) => SerializedStyles;
-export function focusOutline(args: ThemeArgs): SerializedStyles;
+): (args?: ThemeArgs) => SerializedStyles;
+export function focusOutline(args?: ThemeArgs): SerializedStyles;
 export function focusOutline(
-  argsOrOptions: ThemeArgs | 'inset',
-): SerializedStyles | ((args: ThemeArgs) => SerializedStyles) {
+  argsOrOptions?: ThemeArgs | 'inset',
+): SerializedStyles | ((args?: ThemeArgs) => SerializedStyles) {
   if (typeof argsOrOptions === 'string') {
-    return (args: ThemeArgs): SerializedStyles => {
-      const theme = getTheme(args);
-      return css`
-        outline: 0;
-        box-shadow: inset 0 0 0 4px ${theme.colors.p300};
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    return (_args?: ThemeArgs): SerializedStyles => css`
+      outline: 0;
+      box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 
-        &::-moz-focus-inner {
-          border: 0;
-        }
-      `;
-    };
+      &::-moz-focus-inner {
+        border: 0;
+      }
+    `;
   }
-
-  const theme = getTheme(argsOrOptions);
   return css`
     outline: 0;
-    box-shadow: 0 0 0 4px ${theme.colors.p300};
+    box-shadow: 0 0 0 4px var(--cui-border-focus);
 
     &::-moz-focus-inner {
       border: 0;
@@ -229,38 +229,36 @@ export function focusOutline(
  * the user agent determines via heuristics that the focus should be
  * made evident on the element.
  */
+// TODO: Simplify the function signature in the next major.
 export function focusVisible(
   options: 'inset',
-): (args: ThemeArgs) => SerializedStyles;
-export function focusVisible(args: ThemeArgs): SerializedStyles;
+): (args?: ThemeArgs) => SerializedStyles;
+export function focusVisible(args?: ThemeArgs): SerializedStyles;
 export function focusVisible(
-  argsOrOptions: ThemeArgs | 'inset',
-): SerializedStyles | ((args: ThemeArgs) => SerializedStyles) {
+  argsOrOptions?: ThemeArgs | 'inset',
+): SerializedStyles | ((args?: ThemeArgs) => SerializedStyles) {
   if (typeof argsOrOptions === 'string') {
-    return (args: ThemeArgs): SerializedStyles => {
-      const theme = getTheme(args);
-      return css`
-        &:focus {
-          outline: 0;
-          box-shadow: inset 0 0 0 4px ${theme.colors.p300};
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    return (_args?: ThemeArgs): SerializedStyles => css`
+      &:focus {
+        outline: 0;
+        box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 
-          &::-moz-focus-inner {
-            border: 0;
-          }
+        &::-moz-focus-inner {
+          border: 0;
         }
+      }
 
-        &:focus:not(:focus-visible) {
-          box-shadow: none;
-        }
-      `;
-    };
+      &:focus:not(:focus-visible) {
+        box-shadow: none;
+      }
+    `;
   }
 
-  const theme = getTheme(argsOrOptions);
   return css`
     &:focus {
       outline: 0;
-      box-shadow: 0 0 0 4px ${theme.colors.p300};
+      box-shadow: 0 0 0 4px var(--cui-border-focus);
 
       &::-moz-focus-inner {
         border: 0;
@@ -304,6 +302,7 @@ export const hideScrollbar = (): SerializedStyles => css`
  * Visually communicates to the user that an element is hovered, focused, or
  * active in the disabled, invalid, and warning states.
  */
+// TODO: Remove `theme` from the function signature in the next major.
 export const inputOutline = (
   args:
     | Theme
@@ -314,63 +313,68 @@ export const inputOutline = (
         hasWarning?: boolean;
       },
 ): SerializedStyles => {
-  const theme = getTheme(args);
   const options = isTheme(args)
     ? { disabled: false, invalid: false, hasWarning: false }
     : args;
 
-  if (options.disabled) {
-    return css`
-      box-shadow: 0 0 0 1px ${theme.colors.n500};
-    `;
-  }
-
-  let colors;
-
   switch (true) {
+    case options.disabled: {
+      return css`
+        box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
+      `;
+    }
     case options.invalid: {
-      colors = {
-        default: theme.colors.alert,
-        hover: theme.colors.r700,
-        focus: theme.colors.alert,
-        active: theme.colors.alert,
-      };
-      break;
+      return css`
+        box-shadow: 0 0 0 1px var(--cui-border-danger);
+
+        &:hover {
+          box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px var(--cui-border-danger);
+        }
+
+        &:active {
+          box-shadow: 0 0 0 1px var(--cui-border-danger-pressed);
+        }
+      `;
     }
     case options.hasWarning: {
-      colors = {
-        default: theme.colors.notify,
-        hover: theme.colors.y700,
-        focus: theme.colors.notify,
-        active: theme.colors.notify,
-      };
-      break;
+      return css`
+        box-shadow: 0 0 0 1px var(--cui-border-warning);
+
+        &:hover {
+          box-shadow: 0 0 0 1px var(--cui-border-warning-hovered);
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px var(--cui-border-warning);
+        }
+
+        &:active {
+          box-shadow: 0 0 0 1px var(--cui-border-warning-pressed);
+        }
+      `;
     }
     default: {
-      colors = {
-        default: theme.colors.n500,
-        hover: theme.colors.n700,
-        focus: theme.colors.p500,
-        active: theme.colors.p500,
-      };
+      return css`
+        box-shadow: 0 0 0 1px var(--cui-border-normal);
+
+        &:hover {
+          box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px var(--cui-border-accent);
+        }
+
+        &:active {
+          box-shadow: 0 0 0 1px var(--cui-border-accent);
+        }
+      `;
     }
   }
-
-  return css`
-    box-shadow: 0 0 0 1px ${colors.default};
-
-    &:hover {
-      box-shadow: 0 0 0 1px ${colors.hover};
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 2px ${colors.focus};
-    }
-
-    &:active {
-      box-shadow: 0 0 0 1px ${colors.active};
-    }
-  `;
 };
 
 /**
@@ -390,28 +394,34 @@ export const listItem = (
   const options = isTheme(args) ? { destructive: false } : args;
 
   return css`
-    background-color: ${theme.colors.white};
+    background-color: var(--cui-bg-normal);
     padding: ${theme.spacings.kilo} ${theme.spacings.tera}
       ${theme.spacings.kilo} ${theme.spacings.mega};
     border: 0;
-    color: ${options.destructive ? theme.colors.alert : theme.colors.bodyColor};
+    color: ${options.destructive
+      ? 'var(--cui-fg-danger)'
+      : 'var(--cui-fg-normal)'};
     text-decoration: none;
     position: relative;
 
     &:hover {
-      background-color: ${theme.colors.n100};
+      background-color: var(--cui-bg-normal-hovered);
       cursor: pointer;
     }
 
-    ${focusVisible('inset')(theme)};
+    ${focusVisible('inset')()};
 
     &:active {
-      background-color: ${theme.colors.n200};
+      background-color: var(--cui-bg-normal-pressed);
     }
 
     &:disabled,
     &[disabled] {
-      ${disableVisually()};
+      pointer-events: none;
+      background-color: var(--cui-bg-normal-disabled);
+      color: ${options.destructive
+        ? 'var(--cui-fg-danger-disabled)'
+        : 'var(--cui-fg-normal-disabled)'};
     }
   `;
 };
@@ -438,10 +448,12 @@ export const navigationItem = (
     align-items: center;
     border: none;
     outline: none;
-    color: ${options.isActive ? theme.colors.p500 : theme.colors.bodyColor};
+    color: ${options.isActive
+      ? 'var(--cui-fg-accent)'
+      : 'var(--cui-fg-normal)'};
     background-color: ${options.isActive
-      ? theme.colors.p100
-      : theme.colors.white};
+      ? 'var(--cui-bg-accent)'
+      : 'var(--cui-bg-normal)'};
     text-align: left;
     cursor: pointer;
     transition: color ${theme.transitions.default},
@@ -449,18 +461,33 @@ export const navigationItem = (
 
     &:hover {
       background-color: ${options.isActive
-        ? theme.colors.p100
-        : theme.colors.n100};
+        ? 'var(--cui-bg-accent-hovered)'
+        : 'var(--cui-bg-normal-hovered)'};
+      color: ${options.isActive
+        ? 'var(--cui-fg-accent-hovered)'
+        : 'var(--cui-fg-normal-hovered)'};
     }
 
     &:active {
-      background-color: ${theme.colors.n200};
+      background-color: ${options.isActive
+        ? 'var(--cui-bg-accent-pressed)'
+        : 'var(--cui-bg-normal-pressed)'};
+      color: ${options.isActive
+        ? 'var(--cui-fg-accent-pressed)'
+        : 'var(--cui-fg-normal-pressed)'};
     }
 
-    ${focusVisible('inset')(theme)};
+    ${focusVisible('inset')()};
 
-    &:disabled {
-      ${disableVisually()};
+    &:disabled,
+    &[disabled] {
+      pointer-events: none;
+      background-color: ${options.isActive
+        ? 'var(--cui-bg-accent-disabled)'
+        : 'var(--cui-bg-normal-disabled)'};
+      color: ${options.isActive
+        ? 'var(--cui-fg-accent-disabled)'
+        : 'var(--cui-fg-normal-disabled)'};
     }
   `;
 };

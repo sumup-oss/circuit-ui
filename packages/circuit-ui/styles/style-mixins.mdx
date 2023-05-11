@@ -1,0 +1,188 @@
+import {
+  Meta,
+  Intro,
+  Status,
+  Props,
+  Story,
+} from '../../../.storybook/components';
+import * as Stories from './style-mixins.stories';
+
+<Meta of={Stories} />
+
+# Style Mixins
+
+<Status.Stable />
+
+<Intro>
+  Style mixins are small helper functions to apply common styles to an HTML
+  element or React component. They work great with [Emotion's `css`
+  prop](https://emotion.sh/docs/css-prop) and [styled
+  components](https://emotion.sh/docs/styled).
+</Intro>
+
+## Usage
+
+```tsx
+import { clearfix, spacing } from '@sumup/circuit-ui';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+
+// Pass the style mixin directly to the `css` prop
+const Basic = () => <div css={clearfix} />;
+
+// Some style mixins accept options
+const Options = () => <div css={spacing('mega')} />;
+
+// Style mixins can also be used in a style function...
+const someStyles = ({ theme }) => css`
+  &:focus {
+    ${focusOutline()};
+  }
+`;
+
+// ...or passed to a styled component directly
+const StyledComponent = styled.div(someStyles, clearfix);
+```
+
+## `cx`
+
+Combines multiple style mixins and calls each one with the `theme`. Modeled after the [`classNames`](https://github.com/JedWatson/classnames) package and [Emotion's (removed) `cx` helper](https://5bb1495273f2cf57a2cf39cc--emotion.netlify.app/docs/cx).
+
+```tsx
+import { cx, clearfix, spacing, disableVisually } from '@sumup/circuit-ui';
+
+// The `cx` helper accepts any number of style mixins.
+const Multiple = () => <div css={cx(clearfix, spacing('mega'))} />;
+
+// Falsy values are skipped which is useful to conditionally apply style mixins.
+const Conditional = ({ disabled }) => (
+  <div css={cx(disabled && disableVisually)} />
+);
+```
+
+## `spacing`
+
+Adds margin to one or more sides of an element. For an overview of the supported values, have a look at the "Spacing" section on the [Theme](Features/Theme/Docs) page.
+
+```ts
+type Spacing = 0 | 'auto' | keyof Theme['spacings'];
+
+function spacing(
+  size:
+    | Spacing
+    | { top?: Spacing; left?: Spacing; bottom?: Spacing; right?: Spacing },
+): (theme: Theme | { theme: Theme }) => SerializedStyles;
+```
+
+```tsx
+// A single spacing string is applied to all sides
+const AllSides = () => <div css={spacing('kilo')} />;
+
+// Specify spacing for individual sides in an object
+const IndividualSides = () => (
+  <div
+    css={spacing({ top: 'kilo', right: 'mega', left: 'giga', bottom: 'kilo' })}
+  />
+);
+
+// The `spacing` mixin supports the special values `0` and `auto`,
+// this can be useful to horizontally center an element
+const HorizontallyCentered = () => (
+  <div css={spacing({ left: 'auto', right: 'auto' })} />
+);
+```
+
+<Story of={Stories.Spacing} />
+
+## `shadow`
+
+Adds a drop shadow to an element to visually elevate it above the surrounding content.
+
+```ts
+function shadow(theme: Theme | { theme: Theme }): SerializedStyles;
+```
+
+<Story of={Stories.Shadow} />
+
+## `clearfix`
+
+Forces an element to self-clear its floated children. Taken from [CSS Tricks](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/).
+
+```ts
+function clearfix(): SerializedStyles;
+```
+
+<Story of={Stories.Clearfix} />
+
+## `focusVisible`
+
+Visually communicates to the user that an element is focused.
+
+```ts
+function focusVisible(theme: Theme | { theme: Theme }): SerializedStyles;
+// or
+function focusVisible('inset'): (theme: Theme | { theme: Theme }) => SerializedStyles;
+```
+
+<Story of={Stories.FocusVisible} />
+
+In cases where the focus outline is needed for conditions other than the focus state, use the `focusOutline` style mixin instead. It has the same API.
+
+## `inputOutline`
+
+Visually communicates to the user that an element is hovered, focused, or active in the disabled, invalid, and warning states.
+
+```ts
+function inputOutline(
+  theme:
+    | Theme
+    | {
+        theme: Theme;
+        disabled?: boolean;
+        invalid?: boolean;
+        hasWarning?: boolean;
+      },
+): SerializedStyles;
+```
+
+<Story of={Stories.InputOutline} />
+
+## `disableVisually`
+
+Visually communicates to the user that an element is disabled and prevents user interactions.
+
+```ts
+function disableVisually(): SerializedStyles;
+```
+
+<Story of={Stories.DisableVisually} />
+
+## `hideVisually`
+
+Visually hides an element while keeping it accessible to users who rely on a screen reader.
+
+```ts
+function hideVisually(): SerializedStyles;
+```
+
+<Story of={Stories.HideVisually} />
+
+## `hideScrollbar`
+
+Hides the browser scrollbar on a scrollable element, e.g. one with overflow.
+
+```ts
+function hideScrollbar(): SerializedStyles;
+```
+
+<Story of={Stories.HideScrollbar} />
+
+## `center`
+
+Centers the content horizontally and vertically.
+
+```ts
+function center(): SerializedStyles;
+```
+
+<Story of={Stories.Center} />

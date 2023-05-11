@@ -84,7 +84,7 @@ const wrapperStyles = () => css`
 const ProgressBarWrapper = styled('div')(wrapperStyles);
 
 const baseStyles = ({ theme }: StyleProps) => css`
-  background-color: ${theme.colors.n200};
+  background-color: var(--cui-bg-highlight);
   border-radius: ${theme.borderRadius.pill};
   position: relative;
   width: 100%;
@@ -97,7 +97,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: ${theme.colors.p500};
+    background-color: var(--cui-bg-accent-strong);
     transition: width 0.05s ease-out;
     height: 100%;
     width: 1px;
@@ -156,13 +156,10 @@ const timedStyles = ({
   }
 `;
 
-const variantStyles = ({
-  theme,
-  variant = 'primary',
-}: StyleProps & Omit<BaseProps, 'label'>) => {
+const variantStyles = ({ variant = 'primary' }: Omit<BaseProps, 'label'>) => {
   const variantMap = {
-    primary: theme.colors.p500,
-    secondary: theme.colors.n900,
+    primary: 'var(--cui-bg-accent-strong)',
+    secondary: 'var(--cui-bg-strong)',
   };
   return css`
     &::after {
@@ -204,10 +201,7 @@ const labelStyles = ({ theme }: StyleProps) => css`
 `;
 
 const labelHiddenStyles = ({ hideLabel }: LabelElProps) =>
-  hideLabel &&
-  css`
-    ${hideVisually()};
-  `;
+  hideLabel && hideVisually();
 
 const ProgressBarLabel = styled('span')<LabelElProps>(
   typography('two'),
@@ -241,13 +235,11 @@ export function ProgressBar({
     throw new AccessibilityError('ProgressBar', 'The `label` prop is missing.');
   }
   const ariaId = uniqueId('progress-bar_');
-  const title = hideLabel ? label : undefined;
   return (
     <ProgressBarWrapper {...props}>
       {max || value ? (
         <TaskProgress
           role="progressbar"
-          title={title}
           aria-valuenow={value}
           aria-valuemin={0}
           aria-valuemax={max}
@@ -260,7 +252,6 @@ export function ProgressBar({
       ) : (
         <TimeProgress
           role="progressbar"
-          title={title}
           aria-labelledby={ariaId}
           duration={duration}
           loop={loop}

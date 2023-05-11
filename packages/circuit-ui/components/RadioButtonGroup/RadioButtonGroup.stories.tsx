@@ -15,11 +15,15 @@
 
 import { useState, ChangeEvent } from 'react';
 
+import RadioButton from '../RadioButton';
+import { Stack } from '../../../../.storybook/components';
+
 import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 
 export default {
-  title: 'Forms/RadioButton/RadioButtonGroup',
+  title: 'Forms/RadioButtonGroup',
   component: RadioButtonGroup,
+  subcomponents: { RadioButton },
   argTypes: {
     name: { control: 'text' },
     value: { control: 'text' },
@@ -87,11 +91,9 @@ Invalid.args = {
     { label: 'Banana', value: 'banana' },
     { label: 'Mango', value: 'mango' },
   ],
-  invalid: true,
-  validationHint: 'This field is required.',
 };
 
-export const Valid = (args: RadioButtonGroupProps) => {
+export const Disabled = (args: RadioButtonGroupProps) => {
   const [value, setValue] = useState<string>();
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -127,6 +129,4 @@ Warning.args = {
     { label: 'Banana', value: 'banana' },
     { label: 'Mango', value: 'mango' },
   ],
-  hasWarning: true,
-  validationHint: 'This choice might cause errors.',
 };

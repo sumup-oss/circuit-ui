@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { act, axe, fireEvent, render } from '../../util/test-utils';
+
 import TabPanel from './components/TabPanel';
 import TabList from './components/TabList';
 import Tab from './components/Tab';
@@ -21,23 +23,23 @@ import Tabs from './Tabs';
 describe('Tabs', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = create(
+      const { container } = render(
         <TabList>
           <Tab>tab #1</Tab>
           <Tab selected>tab #2</Tab>
         </TabList>,
       );
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with stretched styles', () => {
-      const actual = create(
+      const { container } = render(
         <TabList stretched>
           <Tab>tab #1</Tab>
           <Tab selected>tab #2</Tab>
         </TabList>,
       );
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -100,18 +102,18 @@ describe('Tabs', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines for tablist only', async () => {
-      const wrapper = renderToHtml(
+      const { container } = render(
         <TabList>
           <Tab>tab #1</Tab>
           <Tab selected>tab #2</Tab>
         </TabList>,
       );
-      const actual = await axe(wrapper);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
 
     it('should meet accessibility guidelines for full usage', async () => {
-      const wrapper = renderToHtml(
+      const { container } = render(
         <div>
           <TabList>
             <Tab>tab #1</Tab>
@@ -120,11 +122,11 @@ describe('Tabs', () => {
           <TabPanel>Tab content</TabPanel>
         </div>,
       );
-      const actual = await axe(wrapper);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
     it('should meet accessibility guidelines for stateful usage', async () => {
-      const wrapper = renderToHtml(
+      const { container } = render(
         <div>
           <Tabs
             items={[
@@ -136,7 +138,7 @@ describe('Tabs', () => {
           />
         </div>,
       );
-      const actual = await axe(wrapper);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
   });

@@ -15,7 +15,6 @@
 
 import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/react';
-import { Alert, Confirm, Info, NotifyCircle } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
@@ -25,18 +24,23 @@ import CloseButton from '../CloseButton';
 import { ClickEvent } from '../../types/events';
 import { BaseToastProps, createUseToast } from '../ToastContext';
 import { hideVisually } from '../../styles/style-mixins';
+import { deprecate } from '../../util/logger';
+import {
+  DEPRECATED_VARIANTS,
+  NOTIFICATION_COLORS,
+  NOTIFICATION_ICONS,
+  NotificationVariant,
+} from '../Notification/constants';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
 
-type Variant = 'info' | 'confirm' | 'notify' | 'alert';
-
 export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
   BaseToastProps & {
     /**
-     * The toast's variant. Defaults to `info`.
+     * The toast's variant. Default: `info`.
      */
-    variant?: Variant;
+    variant?: NotificationVariant;
     /**
      * An optional headline for structured toast content.
      */
@@ -50,7 +54,9 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
      */
     isVisible: boolean;
     /**
-     * Additional data that is dispatched with the tracking event.
+     * @deprecated
+     *
+     * Use an `onClose` handler to dispatch user interaction events instead.
      */
     tracking?: TrackingProps;
     /**
@@ -65,24 +71,18 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
     iconLabel?: string;
   };
 
-const iconMap = {
-  info: Info,
-  confirm: Confirm,
-  alert: Alert,
-  notify: NotifyCircle,
-};
-
 type NotificationToastWrapperProps = {
-  variant: Variant;
+  variant: NotificationVariant;
 };
 
 const toastWrapperStyles = ({
   theme,
   variant,
 }: NotificationToastWrapperProps & StyleProps) => css`
-  background-color: ${theme.colors.bodyBg};
+  background-color: var(--cui-bg-elevated);
   border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};
+  border: ${theme.borderWidth.mega} solid
+    var(${NOTIFICATION_COLORS[variant].border});
   overflow: hidden;
   will-change: height;
   transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
@@ -113,35 +113,14 @@ const contentStyles = ({ theme }: StyleProps) => css`
 const Content = styled('div')(contentStyles);
 
 const IconWrapper = styled.div(
-  ({ theme, variant }: StyleProps & { variant: Variant }) =>
+  ({ variant }: { variant: NotificationVariant }) =>
     css`
       position: relative;
       align-self: flex-start;
       flex-grow: 0;
       flex-shrink: 0;
       line-height: 0;
-      color: ${theme.colors[variant]};
-    `,
-  // Adds a black background behind the SVG icon to color just the exclamation mark black.
-  ({ theme, variant }: StyleProps & { variant: Variant }) =>
-    variant === 'notify' &&
-    css`
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: calc(100% - 4px);
-        height: calc(100% - 4px);
-        background: ${theme.colors.black};
-        border-radius: ${theme.borderRadius.circle};
-      }
-
-      svg {
-        position: relative;
-        z-index: 1;
-      }
+      color: var(${NOTIFICATION_COLORS[variant].fg});
     `,
 );
 
@@ -167,6 +146,15 @@ export function NotificationToast({
   duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
   ...props
 }: NotificationToastProps): JSX.Element {
+  if (process.env.NODE_ENV !== 'production') {
+    if (DEPRECATED_VARIANTS[variant]) {
+      deprecate(
+        'NotificationToast',
+        `The "${variant}" variant has been deprecated. Use "${DEPRECATED_VARIANTS[variant]}" instead.`,
+      );
+    }
+  }
+
   const contentElement = useRef(null);
   const [isOpen, setOpen] = useState(false);
   const [height, setHeight] = useState(getHeight(contentElement));
@@ -189,7 +177,7 @@ export function NotificationToast({
     });
   }, [isVisible, setAnimating]);
 
-  const Icon = iconMap[variant];
+  const Icon = NOTIFICATION_ICONS[variant];
 
   return (
     <NotificationToastWrapper

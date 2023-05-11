@@ -29,7 +29,6 @@ import { Theme } from '@sumup/design-tokens';
 import styled, { StyleProps } from '../../styles/styled';
 import {
   typography,
-  disableVisually,
   focusVisible,
   hideVisually,
 } from '../../styles/style-mixins';
@@ -44,7 +43,7 @@ import { AccessibilityError } from '../../util/errors';
 export interface BaseProps {
   'children': ReactNode;
   /**
-   * Choose from 3 style variants. Default: 'primary'.
+   * Choose from 3 style variants. Default: 'secondary'.
    */
   'variant'?: 'primary' | 'secondary' | 'tertiary';
   /**
@@ -56,7 +55,7 @@ export interface BaseProps {
    */
   'disabled'?: boolean;
   /**
-   * Change the color from blue to red to signal to the user that the action
+   * Change the color from accent to danger to signal to the user that the action
    * is irreversible or otherwise dangerous.
    */
   'destructive'?: boolean;
@@ -77,7 +76,9 @@ export interface BaseProps {
    */
   'onClick'?: (event: ClickEvent) => void;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onClick` handler to dispatch user interaction events instead.
    */
   'tracking'?: TrackingProps;
   /**
@@ -157,34 +158,6 @@ const Content = styled.span<{ isLoading: boolean }>(
   contentLoadingStyles,
 );
 
-const COLOR_MAP = {
-  default: {
-    default: 'p500',
-    hover: 'p700',
-    active: 'p900',
-  },
-  destructive: {
-    default: 'alert',
-    hover: 'r700',
-    active: 'r900',
-  },
-} as const;
-
-const SECONDARY_COLOR_MAP = {
-  default: {
-    text: 'black',
-    default: 'n500',
-    hover: 'n700',
-    active: 'n800',
-  },
-  destructive: {
-    text: 'alert',
-    default: 'alert',
-    hover: 'r700',
-    active: 'r900',
-  },
-} as const;
-
 type StyledButtonProps = Pick<
   ButtonProps,
   'variant' | 'destructive' | 'size' | 'stretch'
@@ -210,98 +183,191 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
   &:disabled,
   &[disabled] {
-    ${disableVisually()};
+    pointer-events: none;
   }
 `;
 
 const primaryStyles = ({
-  theme,
   variant = 'secondary',
   destructive,
-}: StyledButtonProps & StyleProps) => {
+}: StyledButtonProps) => {
   if (variant !== 'primary') {
     return null;
   }
 
-  const colors = destructive ? COLOR_MAP.destructive : COLOR_MAP.default;
+  if (destructive) {
+    return css`
+      background-color: var(--cui-bg-danger-strong);
+      border-color: transparent;
+      color: var(--cui-fg-on-strong);
+
+      &:hover {
+        background-color: var(--cui-bg-danger-strong-hovered);
+        border-color: transparent;
+        color: var(--cui-fg-on-strong-hovered);
+      }
+
+      &:active,
+      &[aria-expanded='true'],
+      &[aria-pressed='true'] {
+        background-color: var(--cui-bg-danger-strong-pressed);
+        border-color: transparent;
+        color: var(--cui-fg-on-strong-pressed);
+      }
+
+      &:disabled,
+      &[disabled] {
+        background-color: var(--cui-bg-danger-strong-disabled);
+        border-color: transparent;
+        color: var(--cui-fg-on-strong-disabled);
+      }
+    `;
+  }
 
   return css`
-    background-color: ${theme.colors[colors.default]};
-    border-color: ${theme.colors[colors.default]};
-    color: ${theme.colors.white};
+    background-color: var(--cui-bg-accent-strong);
+    border-color: transparent;
+    color: var(--cui-fg-on-strong);
 
     &:hover {
-      background-color: ${theme.colors[colors.hover]};
-      border-color: ${theme.colors[colors.hover]};
+      background-color: var(--cui-bg-accent-strong-hovered);
+      border-color: transparent;
+      color: var(--cui-fg-on-strong-hovered);
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      background-color: ${theme.colors[colors.active]};
-      border-color: ${theme.colors[colors.active]};
+      background-color: var(--cui-bg-accent-strong-pressed);
+      border-color: transparent;
+      color: var(--cui-fg-on-strong-pressed);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background-color: var(--cui-bg-accent-strong-disabled);
+      border-color: transparent;
+      color: var(--cui-fg-on-strong-disabled);
     }
   `;
 };
 
 export const secondaryStyles = ({
-  theme,
   variant = 'secondary',
   destructive,
-}: StyledButtonProps & StyleProps) => {
+}: StyledButtonProps) => {
   if (variant !== 'secondary') {
     return null;
   }
 
-  const colors = destructive
-    ? SECONDARY_COLOR_MAP.destructive
-    : SECONDARY_COLOR_MAP.default;
+  if (destructive) {
+    return css`
+      background-color: var(--cui-bg-normal);
+      border-color: var(--cui-border-danger);
+      color: var(--cui-fg-danger);
+
+      &:hover {
+        background-color: var(--cui-bg-normal-hovered);
+        border-color: var(--cui-border-danger-hovered);
+        color: var(--cui-fg-danger-hovered);
+      }
+
+      &:active,
+      &[aria-expanded='true'],
+      &[aria-pressed='true'] {
+        background-color: var(--cui-bg-normal-pressed);
+        border-color: var(--cui-border-danger-pressed);
+        color: var(--cui-fg-danger-pressed);
+      }
+
+      &:disabled,
+      &[disabled] {
+        background-color: var(--cui-bg-normal-disabled);
+        border-color: var(--cui-border-danger-disabled);
+        color: var(--cui-fg-danger-disabled);
+      }
+    `;
+  }
 
   return css`
-    background-color: ${theme.colors.white};
-    border-color: ${theme.colors[colors.default]};
-    color: ${theme.colors[colors.text]};
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+    color: var(--cui-fg-normal);
 
     &:hover {
-      background-color: ${theme.colors.n100};
-      border-color: ${theme.colors[colors.hover]};
+      background-color: var(--cui-bg-normal-hovered);
+      border-color: var(--cui-border-normal-hovered);
+      color: var(--cui-fg-normal-hovered);
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      background-color: ${theme.colors.n200};
-      border-color: ${theme.colors[colors.active]};
+      background-color: var(--cui-bg-normal-pressed);
+      border-color: var(--cui-border-normal-pressed);
+      color: var(--cui-fg-normal-pressed);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background-color: var(--cui-bg-normal-disabled);
+      border-color: var(--cui-border-normal-disabled);
+      color: var(--cui-fg-normal-disabled);
     }
   `;
 };
 
 export const tertiaryStyles = ({
-  theme,
   variant = 'secondary',
   destructive,
-}: StyledButtonProps & StyleProps) => {
+}: StyledButtonProps) => {
   if (variant !== 'tertiary') {
     return null;
   }
 
-  const colors = destructive ? COLOR_MAP.destructive : COLOR_MAP.default;
+  const colorMap = {
+    default: {
+      idle: 'var(--cui-fg-accent)',
+      hovered: 'var(--cui-fg-accent-hovered)',
+      pressed: 'var(--cui-fg-accent-pressed)',
+      disabled: 'var(--cui-fg-accent-disabled)',
+    },
+    destructive: {
+      idle: 'var(--cui-fg-danger)',
+      hovered: 'var(--cui-fg-danger-hovered)',
+      pressed: 'var(--cui-fg-danger-pressed)',
+      disabled: 'var(--cui-fg-danger-disabled)',
+    },
+  };
+
+  const colors = destructive ? colorMap.destructive : colorMap.default;
 
   return css`
     background-color: transparent;
     border-color: transparent;
-    color: ${theme.colors[colors.default]};
+    color: ${colors.idle};
     padding-left: 0;
     padding-right: 0;
 
     &:hover {
-      color: ${theme.colors[colors.hover]};
+      color: ${colors.hovered};
+      background-color: transparent;
+      border-color: transparent;
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      color: ${theme.colors[colors.active]};
+      color: ${colors.pressed};
+      background-color: transparent;
+      border-color: transparent;
+    }
+
+    &:disabled,
+    &[disabled] {
+      color: ${colors.disabled};
+      background-color: transparent;
+      border-color: transparent;
     }
   `;
 };

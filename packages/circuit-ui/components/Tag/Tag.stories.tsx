@@ -16,41 +16,45 @@
 import { action } from '@storybook/addon-actions';
 import { Checkmark } from '@sumup/icons';
 
-import docs from './Tag.docs.mdx';
 import { Tag, TagProps } from './Tag';
 
 export default {
   title: 'Components/Tag',
   component: Tag,
-  parameters: {
-    docs: { page: docs },
-  },
 };
-export const Base = ({ onRemove, ...args }: TagProps) => (
+export const Base = ({ onRemove, removeButtonLabel, ...args }: TagProps) => (
   <Tag {...args}>Transactions</Tag>
 );
 
-export const Selected = ({ onRemove, ...args }: TagProps) => (
-  <Tag {...args}>Transactions</Tag>
-);
+export const Selected = ({
+  onRemove,
+  removeButtonLabel,
+  ...args
+}: TagProps) => <Tag {...args}>Transactions</Tag>;
 
 Selected.args = { selected: true };
 
-export const WithPrefix = ({ onRemove, ...args }: TagProps) => (
-  <Tag {...args}>Transactions</Tag>
-);
+export const WithPrefix = ({
+  onRemove,
+  removeButtonLabel,
+  ...args
+}: TagProps) => <Tag {...args}>Transactions</Tag>;
 
 WithPrefix.args = { prefix: Checkmark };
 
-export const WithSuffix = ({ onRemove, ...args }: TagProps) => (
-  <Tag {...args}>Transactions</Tag>
-);
+export const WithSuffix = ({
+  onRemove,
+  removeButtonLabel,
+  ...args
+}: TagProps) => <Tag {...args}>Transactions</Tag>;
 
 WithSuffix.args = { suffix: Checkmark };
 
-export const Clickable = ({ onRemove, ...args }: TagProps) => (
-  <Tag {...args}>Transactions</Tag>
-);
+export const Clickable = ({
+  onRemove,
+  removeButtonLabel,
+  ...args
+}: TagProps) => <Tag {...args}>Transactions</Tag>;
 
 Clickable.args = {
   onClick: action('Tag clicked'),

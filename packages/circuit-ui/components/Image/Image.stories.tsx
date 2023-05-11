@@ -13,15 +13,11 @@
  * limitations under the License.
  */
 
-import docs from './Image.docs.mdx';
 import { Image, ImageProps } from './Image';
 
 export default {
   title: 'Components/Image',
   component: Image,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     src: { control: 'text' },
     alt: { control: 'text' },

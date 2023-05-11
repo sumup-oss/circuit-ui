@@ -1,10 +1,38 @@
 # @sumup/design-tokens
 
-## 5.0.0-next.0
+## 5.2.0
+
+### Minor Changes
+
+- [`d4898da9`](https://github.com/sumup-oss/circuit-ui/commit/d4898da9a73c70e10691f043408407fbea4b1f7c) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated `fontStack.mono` to include more system fonts.
+
+### Patch Changes
+
+- [#2091](https://github.com/sumup-oss/circuit-ui/pull/2091) [`3334873d`](https://github.com/sumup-oss/circuit-ui/commit/3334873d33430fde670facaa0da311d63b1d259a) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded all dependencies to their latest minor.
+
+## 5.1.1
+
+### Patch Changes
+
+- [#2051](https://github.com/sumup-oss/circuit-ui/pull/2051) [`6b82b360`](https://github.com/sumup-oss/circuit-ui/commit/6b82b360e517fb4778c613739bb9c90466d24393) Thanks [@connor-baer](https://github.com/connor-baer)! - Refactored the theme to be fully static.
+
+## 5.1.0
+
+### Minor Changes
+
+- [#1951](https://github.com/sumup-oss/circuit-ui/pull/1951) [`197f6851`](https://github.com/sumup-oss/circuit-ui/commit/197f6851c729512904112558cdac019d6fc1ed8e) Thanks [@connor-baer](https://github.com/connor-baer) [@robinmetral](https://github.com/robinmetral)! - Deprecated the legacy color tokens. Migrate to semantic color tokens instead. For context, refer to the [Figma documentation](https://www.figma.com/file/OgPQeoNZ2QoY7hZvy0ybk2/%F0%9F%8C%88-COLOR-TOKENS?node-id=913%3A3903&t=b9BsTOJnzKDomZ9E-4) (internal link). The new tokens are available as CSS custom properties, listed in the [Circuit UI theme documentation](https://circuit.sumup.com/?path=/docs/features-theme--docs).
+
+## 5.0.0
 
 ### Major Changes
 
 - [#1760](https://github.com/sumup-oss/circuit-ui/pull/1760) [`b8f129ee`](https://github.com/sumup-oss/circuit-ui/commit/b8f129eed5673a00a4e4b5deeed4494e5ee93912) Thanks [@robinmetral](https://github.com/robinmetral)! - Switched to rem units for typography design tokens. Do not override the root font-size in your global styles. See [The Surprising Truth About Pixels and Accessibility](https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/).
+
+## 4.0.1
+
+### Patch Changes
+
+- [#1846](https://github.com/sumup-oss/circuit-ui/pull/1846) [`e08e252e`](https://github.com/sumup-oss/circuit-ui/commit/e08e252eeabbc1be44406d25fe8c5b39a95cb99c) Thanks [@robinmetral](https://github.com/robinmetral)! - Adjusted the `confirm`, `notify` and `alert` brand colors.
 
 ## 4.0.0
 

@@ -13,11 +13,11 @@ Visual primitives such as typography, color, and spacing that are shared across 
 Depending on your preference, run one of the following in your terminal:
 
 ```sh
-# With Yarn
-yarn add @sumup/design-tokens
-
 # With npm
 npm install @sumup/design-tokens
+
+# With yarn v1
+yarn add @sumup/design-tokens
 ```
 
 ## Usage

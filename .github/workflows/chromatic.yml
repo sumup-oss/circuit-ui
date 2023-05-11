@@ -6,36 +6,25 @@ jobs:
   chromatic:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Node.js v16
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.x
-
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        id: yarn-cache
+      - name: Setup Node.js v18
+        uses: actions/setup-node@v3
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: 18.x
+          cache: 'npm'
 
       - name: Install dependencies
-        run: yarn --pure-lockfile --prefer-offline
+        run: npm ci
 
       - name: Build packages
-        run: yarn build
+        run: npm run build
 
       - name: Build Storybook
-        run: yarn docs:build
+        run: npm run docs:build
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1
@@ -44,3 +33,5 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: 'public'
           exitOnceUploaded: true
+          onlyChanged: true
+          externals: '.storybook/public/**'

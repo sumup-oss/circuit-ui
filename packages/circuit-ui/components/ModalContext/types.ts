@@ -30,7 +30,9 @@ export interface BaseModalProps
    */
   onClose?: OnClose;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Dispatch user interaction events when calling `setModal` and `removeModal` instead.
    */
   tracking?: TrackingProps;
 }

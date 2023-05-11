@@ -29,7 +29,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   font-size: ${theme.typography.headline.four.fontSize};
   line-height: ${theme.typography.headline.four.lineHeight};
   font-weight: ${theme.fontWeight.bold};
-  color: ${theme.colors.n100};
+  color: var(--cui-fg-on-strong);
   margin-left: ${theme.spacings.mega};
 `;
 

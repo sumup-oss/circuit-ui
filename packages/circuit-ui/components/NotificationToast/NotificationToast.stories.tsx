@@ -24,27 +24,31 @@ import {
   NotificationToastProps,
   useNotificationToast,
 } from './NotificationToast';
-import docs from './NotificationToast.docs.mdx';
 
 export default {
   title: 'Notification/NotificationToast',
-  parameters: {
-    docs: { page: docs },
-  },
   component: NotificationToast,
 };
 
 const TOASTS = [
-  { body: 'An update is available.', variant: 'info', iconLabel: '' },
-  { body: 'Unexpected error occurred.', variant: 'alert', iconLabel: '' },
+  {
+    body: 'An update is available.',
+    variant: 'info',
+    iconLabel: '',
+  },
+  {
+    body: 'Unexpected error occurred.',
+    variant: 'danger',
+    iconLabel: '',
+  },
   {
     body: 'There was a problem with your request.',
-    variant: 'notify',
+    variant: 'warning',
     iconLabel: 'warning',
   },
   {
     body: 'You successfully updated your data.',
-    variant: 'confirm',
+    variant: 'success',
     iconLabel: '',
   },
 ] as NotificationToastProps[];
@@ -73,7 +77,7 @@ export const Base = (toast: NotificationToastProps): JSX.Element => {
   );
 };
 
-const variants = ['info', 'confirm', 'notify', 'alert'] as const;
+const variants = ['info', 'success', 'warning', 'danger'] as const;
 
 const StackToasts = styled.div`
   display: flex;

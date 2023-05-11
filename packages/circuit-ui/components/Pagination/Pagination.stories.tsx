@@ -15,15 +15,11 @@
 
 import { useState } from 'react';
 
-import docs from './Pagination.docs.mdx';
 import { Pagination, PaginationProps } from './Pagination';
 
 export default {
   title: 'Navigation/Pagination',
   component: Pagination,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const baseArgs = {

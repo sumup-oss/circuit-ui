@@ -15,18 +15,11 @@
 
 import { useState } from 'react';
 
-import RadioButtonGroup from '../RadioButtonGroup';
-
 import { RadioButton, RadioButtonProps } from './RadioButton';
-import docs from './RadioButton.docs.mdx';
 
 export default {
-  title: 'Forms/RadioButton',
+  title: 'Forms/RadioButtonGroup/RadioButton',
   component: RadioButton,
-  subcomponents: { RadioButtonGroup },
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     label: { control: 'text' },
     name: { control: 'text' },

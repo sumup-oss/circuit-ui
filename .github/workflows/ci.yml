@@ -7,63 +7,51 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [14, 16]
+        node: [16, 18]
     steps:
-      - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           persist-credentials: false
 
-      # https://github.com/actions/cache/blob/main/examples.md#node---yarn
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        id: yarn-cache
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
 
       - name: Install dependencies
-        run: yarn --pure-lockfile --prefer-offline
+        run: npm ci
 
       - name: Install template dependencies
-        run: cd packages/cna-template/template && yarn --no-lockfile --prefer-offline --ignore-scripts
+        run: cd packages/cna-template/template && npm ci
 
       - name: Check dependency licenses
-        run: yarn check:licenses
+        run: npm run check:licenses
 
       - name: Check SVG sizes
-        run: yarn check:svg-sizes
+        run: npm run check:svg-sizes
 
       - name: Build packages
-        run: yarn build
+        run: npm run build
 
       - name: Lint code
-        run: yarn lint:ci
+        run: npm run lint
 
       - name: Run unit tests
-        run: yarn test:ci
+        run: npm run test:ci
 
       - name: Upload results to Codecov
-        uses: codecov/codecov-action@v1.0.3
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Create release PR or publish to npm
         if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary') && matrix.node == 16
-        uses: changesets/action@master
+        uses: changesets/action@v1
         with:
-          publish: yarn release
+          publish: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

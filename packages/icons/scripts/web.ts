@@ -120,7 +120,7 @@ function buildDeclarationFile(components: Component[]): string {
   return dedent`
     import { FC, SVGProps } from 'react';
 
-    export interface IconProps<Sizes = '16' | '24' | '32'> extends React.SVGProps<SVGSVGElement> {
+    export interface IconProps<Sizes = '16' | '24' | '32'> extends SVGProps<SVGSVGElement> {
       /**
        * Choose between the one of the available sizes. Defaults to '24', if supported, or to the smallest available size.
        */
@@ -130,6 +130,14 @@ function buildDeclarationFile(components: Component[]): string {
     ${declarationStatements.join('\n')}
 
     export { ${exportNames.join(', ')} };
+
+    export type IconsManifest = {
+      icons: {
+        name: string;
+        category: string;
+        size: '16' | '24' | '32';
+      }[];
+    };
   `;
 }
 

@@ -21,7 +21,7 @@ import {
   waitForElementToBeRemoved,
 } from '../../util/test-utils';
 import Button from '../Button';
-import { ToastProvider } from '../ToastContext';
+import { ToastProvider } from '../ToastContext/ToastContext';
 
 import {
   NotificationToast,
@@ -69,8 +69,11 @@ describe('NotificationToast', () => {
 
     const variants: NotificationToastProps['variant'][] = [
       'info',
+      'success',
       'confirm',
+      'warning',
       'notify',
+      'danger',
       'alert',
     ];
 

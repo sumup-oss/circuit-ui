@@ -67,25 +67,25 @@ type ThElProps = Omit<TableHeaderProps, 'sortParams'> & {
 };
 
 const baseStyles = ({ theme, align }: StyleProps & ThElProps) => css`
-  background-color: ${theme.colors.white};
-  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  background-color: var(--cui-bg-normal);
+  border-bottom: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
   padding: ${theme.spacings.giga};
   text-align: ${align};
   transition: background-color ${theme.transitions.default},
     color ${theme.transitions.default};
 `;
 
-const hoveredStyles = ({ theme, isHovered }: StyleProps & ThElProps) =>
+const hoveredStyles = ({ isHovered }: ThElProps) =>
   isHovered &&
   css`
-    background-color: ${theme.colors.n100};
+    background-color: var(--cui-bg-normal-hovered);
   `;
 
 const colStyles = ({ theme, scope }: StyleProps & ThElProps) =>
   scope === 'col' &&
   css`
     ${typography('two')(theme)};
-    color: ${theme.colors.n700};
+    color: var(--cui-fg-subtle);
     font-weight: ${theme.fontWeight.bold};
     padding: ${theme.spacings.byte} ${theme.spacings.giga};
     vertical-align: middle;
@@ -97,14 +97,28 @@ const fixedStyles = ({ theme, fixed }: StyleProps & ThElProps) =>
   css`
     ${theme.mq.untilMega} {
       left: 0;
-      top: auto;
-      position: absolute;
+      position: sticky;
       width: 145px;
       overflow-wrap: break-word;
+      z-index: ${theme.zIndex.absolute};
+
+      &:after {
+        content: '';
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.12),
+          rgba(255, 255, 255, 0)
+        );
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 6px;
+      }
     }
   `;
 
-const sortableStyles = ({ theme, sortable }: StyleProps & ThElProps) =>
+const sortableStyles = ({ sortable }: ThElProps) =>
   sortable &&
   css`
     cursor: pointer;
@@ -122,17 +136,22 @@ const sortableStyles = ({ theme, sortable }: StyleProps & ThElProps) =>
       bottom: 0;
       left: 0;
       z-index: 1;
-      ${focusOutline(theme)};
+      ${focusOutline()};
     }
 
     &:focus-within,
     &:hover {
-      background-color: ${theme.colors.n100};
-      color: ${theme.colors.p500};
+      background-color: var(--cui-bg-normal-hovered);
+      color: var(--cui-fg-accent-hovered);
 
       & > button {
         opacity: 1;
       }
+    }
+
+    &:active {
+      background-color: var(--cui-bg-normal-pressed);
+      color: var(--cui-fg-accent-pressed);
     }
   `;
 

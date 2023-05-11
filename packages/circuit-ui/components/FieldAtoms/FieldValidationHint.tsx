@@ -15,13 +15,12 @@
 
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import isPropValid from '@emotion/is-prop-valid';
-import { Confirm, NotifyCircle, Alert } from '@sumup/icons';
+import { Confirm, Notify, Alert } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
 
-type Color = 'alert' | 'notify' | 'confirm';
+import { CLASS_DISABLED } from './constants';
 
 export interface FieldValidationHintProps
   extends HTMLAttributes<HTMLSpanElement> {
@@ -32,104 +31,94 @@ export interface FieldValidationHintProps
   showValid?: boolean;
 }
 
-const baseStyles = ({ theme }: StyleProps) => css`
+const wrapperStyles = ({ theme }: StyleProps) => css`
   display: block;
   margin-top: ${theme.spacings.bit};
-  color: ${theme.colors.n700};
+  color: var(--cui-fg-subtle);
   transition: color ${theme.transitions.default};
+
+  .${CLASS_DISABLED} & {
+    color: var(--cui-fg-subtle-disabled);
+  }
 `;
 
-const validStyles = ({
-  theme,
-  showValid,
-}: StyleProps & FieldValidationHintProps) =>
+const validStyles = ({ showValid }: FieldValidationHintProps) =>
   showValid &&
   css`
-    color: ${theme.colors.confirm};
+    color: var(--cui-fg-success);
+
+    .${CLASS_DISABLED} & {
+      color: var(--cui-fg-success-disabled);
+    }
   `;
 
-const warningStyles = ({
-  theme,
-  hasWarning,
-}: StyleProps & FieldValidationHintProps) =>
+const warningStyles = ({ hasWarning }: FieldValidationHintProps) =>
   hasWarning &&
   css`
-    color: ${theme.colors.bodyColor};
+    color: var(--cui-fg-warning);
+
+    .${CLASS_DISABLED} & {
+      color: var(--cui-fg-warning-disabled);
+    }
   `;
 
-const invalidStyles = ({
-  theme,
-  invalid,
-}: StyleProps & FieldValidationHintProps) =>
+const invalidStyles = ({ invalid }: FieldValidationHintProps) =>
   invalid &&
   css`
-    color: ${theme.colors.alert};
+    color: var(--cui-fg-danger);
+
+    .${CLASS_DISABLED} & {
+      color: var(--cui-fg-danger-disabled);
+    }
   `;
 
 const Wrapper = styled('span')<FieldValidationHintProps>(
   typography('two'),
-  baseStyles,
+  wrapperStyles,
   validStyles,
   invalidStyles,
   warningStyles,
 );
 
-const IconWrapper = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})(
-  ({ theme, color }: StyleProps & { color: Color }) =>
-    css`
-      display: inline-block;
-      position: relative;
-      width: ${theme.iconSizes.kilo};
-      height: ${theme.iconSizes.kilo};
-      vertical-align: text-top;
-      margin-right: ${theme.spacings.bit};
-      color: ${theme.colors[color]};
-    `,
-  ({ theme, color }: StyleProps & { color: Color }) =>
-    color === 'notify' &&
-    css`
-      &::before {
-        content: '';
-        display: inline-block;
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: calc(100% - 4px);
-        height: calc(100% - 4px);
-        background: ${theme.colors.black};
-        border-radius: ${theme.borderRadius.circle};
-      }
-      svg {
-        position: relative;
-        z-index: 1;
-      }
-    `,
+const iconWrapperStyles = ({ theme }: StyleProps) =>
+  css`
+    display: inline-block;
+    position: relative;
+    width: ${theme.iconSizes.kilo};
+    height: ${theme.iconSizes.kilo};
+    vertical-align: text-top;
+    margin-right: ${theme.spacings.bit};
+  `;
+
+const IconWrapper = styled('div')(
+  iconWrapperStyles,
+  validStyles,
+  invalidStyles,
+  warningStyles,
 );
 
-const getIcon = (state: FieldValidationHintProps) => {
+const getIcon = (props: FieldValidationHintProps) => {
   switch (true) {
-    case state.disabled: {
+    case props.disabled: {
       return null;
     }
-    case state.invalid: {
+    case props.invalid: {
       return (
-        <IconWrapper color="alert">
+        <IconWrapper>
           <Alert role="presentation" size="16" />
         </IconWrapper>
       );
     }
-    case state.hasWarning: {
+    case props.hasWarning: {
       return (
-        <IconWrapper color="notify">
-          <NotifyCircle role="presentation" size="16" />
+        <IconWrapper>
+          <Notify role="presentation" size="16" />
         </IconWrapper>
       );
     }
-    case state.showValid: {
+    case props.showValid: {
       return (
-        <IconWrapper color="confirm">
+        <IconWrapper>
           <Confirm role="presentation" size="16" />
         </IconWrapper>
       );

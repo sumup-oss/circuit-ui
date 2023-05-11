@@ -20,16 +20,12 @@ import SearchInput from '../SearchInput';
 import CurrencyInput from '../CurrencyInput';
 import DateInput from '../DateInput';
 
-import docs from './Input.docs.mdx';
 import { Input, InputProps } from './Input';
 
 export default {
   title: 'Forms/Input',
   component: Input,
   subcomponents: { SearchInput, CurrencyInput, DateInput },
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },

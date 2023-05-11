@@ -1,0 +1,50 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './ProgressBar.stories';
+
+<Meta of={Stories} />
+
+# ProgressBar
+
+<Status.Stable />
+
+A progress bar is a UI element used to visualise the progression of a task or operation. The visual element is always combined with a label describing a status value, either in percentage or fraction format.
+
+<Story of={Stories.Steps} />
+<Props />
+
+## Usage guidelines
+
+The progress bar should be used to indicate the amount of steps or time left to complete a task. It should not, however, be used to indicate the time needed to load a page. For a loading state, use the [Spinner component](Components/Spinner).
+
+## Component variations
+
+### Step or time-based
+
+A progress bar can be used to display the progression of steps in a task or a fixed amount of time. The component adapts automatically based on the props it is passed: when you pass the `max` or `value` props, it renders statically. When you pass the `duration`, `pause`, or `loop` props, it smoothly animates the progress bar from empty to complete.
+
+<Story of={Stories.Steps} />
+<Story of={Stories.Timer} />
+
+### Percentage or fraction label
+
+When you specify the label for the progress bar, it should only be shown as either a fraction (e.g. _1/3_) or percentage (e.g. _33%_).
+
+<Story of={Stories.Labelled} />
+
+### Variants
+
+You can use the progress bar in two variants: `primary` or `secondary`.
+
+<Story of={Stories.Variants} />
+
+### Sizes
+
+You can use the progress bar in one of three sizes: `byte`, `kilo`, or `mega`.
+
+<Story of={Stories.Sizes} />
+
+## Accessibility
+
+> This section is a stub. Contributions welcome!
+
+- The ProgressBar component accepts a `hideLabel` prop that can be used to visually hide the required `label`. Use it with caution: if there is any doubt about what the progress bar could represent, it should have a visible label.

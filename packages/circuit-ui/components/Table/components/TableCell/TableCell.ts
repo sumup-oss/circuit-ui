@@ -42,8 +42,8 @@ const baseStyles = ({
   theme,
   align = 'left',
 }: TableCellProps & StyleProps) => css`
-  background-color: ${theme.colors.white};
-  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  background-color: var(--cui-bg-normal);
+  border-bottom: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
   padding: ${theme.spacings.giga};
   text-align: ${align};
   transition: background-color ${theme.transitions.default};
@@ -76,13 +76,10 @@ const presentationStyles = ({
     }
   `;
 
-const hoverStyles = ({
-  theme,
-  isHovered = false,
-}: TableCellProps & StyleProps) =>
+const hoverStyles = ({ isHovered = false }: TableCellProps) =>
   isHovered &&
   css`
-    background-color: ${theme.colors.n100};
+    background-color: var(--cui-bg-normal-hovered);
   `;
 
 const condensedStyles = ({ condensed, theme }: TableCellProps & StyleProps) =>

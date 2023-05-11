@@ -1,5 +1,53 @@
 # @sumup/icons
 
+## 2.24.0
+
+### Minor Changes
+
+- [#2096](https://github.com/sumup-oss/circuit-ui/pull/2096) [`d015d7f4`](https://github.com/sumup-oss/circuit-ui/commit/d015d7f46e7e876fabf2f9ba84f9a0abad03ab0e) Thanks [@cecisousa](https://github.com/cecisousa)! - Added a new icon in size 24: `MoreCircle`.
+
+## 2.23.0
+
+### Minor Changes
+
+- [#2068](https://github.com/sumup-oss/circuit-ui/pull/2068) [`4a4f8d74`](https://github.com/sumup-oss/circuit-ui/commit/4a4f8d7451418a90b1d15f4fff1f384e4aa64067) Thanks [@oalpatov](https://github.com/oalpatov)! - Added new icons in size 24: `CreditNote`, `DeliveryNote`, `ElectronicInvoice`, `FlipCamera`, `NoCosts`, and `RecurringInvoice`.
+
+## 2.22.0
+
+### Minor Changes
+
+- [#2018](https://github.com/sumup-oss/circuit-ui/pull/2018) [`03a440d4`](https://github.com/sumup-oss/circuit-ui/commit/03a440d42bd740f71bc1ca39995b8b0aae76fcd9) Thanks [@robinmetral](https://github.com/robinmetral)! - Added new icons to the library. Action: `Stop` in size 16 and 24; Device: `CardReaderSoloLite` and `Tablet` in size 24; Miscellaneous: `Basket`, `Briefcase`, `Clothing`, `Customize`, `Health`, `Mcc` and `Services` in size 24; Notification: `Active`, `Paused` and `Stopped` in size 16 and 24; Product and feature: `Promote` in size 24.
+
+## 2.21.0
+
+### Minor Changes
+
+- [#2009](https://github.com/sumup-oss/circuit-ui/pull/2009) [`b51f23a2`](https://github.com/sumup-oss/circuit-ui/commit/b51f23a2a0819ec94bb7150c2e83d768df6ff9be) Thanks [@tavarest](https://github.com/tavarest)! - Added a new size 24 `PaymentLink` icon to the Product and feature category.
+
+## 2.20.0
+
+### Minor Changes
+
+- [#1957](https://github.com/sumup-oss/circuit-ui/pull/1957) [`f8f266df`](https://github.com/sumup-oss/circuit-ui/commit/f8f266df54c69b987d6c1d5b47228e856af741f0) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `IconsManifest` type to the exports. It describes the shape of `@sumup/icons/manifest.json`.
+
+## 2.19.0
+
+### Minor Changes
+
+- [#1940](https://github.com/sumup-oss/circuit-ui/pull/1940) [`fbaa82b7`](https://github.com/sumup-oss/circuit-ui/commit/fbaa82b7efaf9e4955b14af1a20413d4364ce2f4) Thanks [@briannailiev](https://github.com/briannailiev)! - Added icons for the `Bancontact`, `Blik`, `EPS`, `Giropay`, `iDeal`, `MyBank`, `Przelewy24`, and `Satispay` payment methods.
+
+## 2.18.0
+
+### Minor Changes
+
+- [#1928](https://github.com/sumup-oss/circuit-ui/pull/1928) [`1400e62f`](https://github.com/sumup-oss/circuit-ui/commit/1400e62f9434e04c4da811a445a30d9bf3f07930) Thanks [@Marczerwinski](https://github.com/Marczerwinski)! - Added a new size 16 'Favorite' icon
+
+## 2.17.0
+
+### Minor Changes
+
+- [#1906](https://github.com/sumup-oss/circuit-ui/pull/1906) [`5cf691e7`](https://github.com/sumup-oss/circuit-ui/commit/5cf691e78f768d907cb9abf9eff94b990f667df3) Thanks [@rcdutra](https://github.com/rcdutra)! - Added a new card scheme icon for `Faster Payments`.
+
 ## 2.15.0
 
 ### Minor Changes

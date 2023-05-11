@@ -26,15 +26,15 @@ describe('SelectorGroup', () => {
     label: 'Choose an option',
     options: [
       {
-        children: 'Option 1',
+        label: 'Option 1',
         value: 'first',
       },
       {
-        children: 'Option 2',
+        label: 'Option 2',
         value: 'second',
       },
       {
-        children: 'Option 3',
+        label: 'Option 3',
         value: 'third',
       },
     ],

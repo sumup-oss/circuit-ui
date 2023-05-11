@@ -13,9 +13,17 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
+import {
+  ForwardRefExoticComponent,
+  HTMLAttributes,
+  RefAttributes,
+  RefObject,
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { css } from '@emotion/react';
-import { Alert, Confirm, Info, NotifyCircle } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { useAnimation } from '../../hooks/useAnimation';
@@ -26,11 +34,17 @@ import { hideVisually } from '../../styles/style-mixins';
 import Button, { ButtonProps } from '../Button';
 import { ClickEvent } from '../../types/events';
 import { isString } from '../../util/type-check';
+import {
+  DEPRECATED_VARIANTS,
+  NOTIFICATION_COLORS,
+  NOTIFICATION_ICONS,
+  NotificationVariant,
+} from '../Notification/constants';
+import { deprecate } from '../../util/logger';
+import { applyMultipleRefs } from '../../util/refs';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
-
-type Variant = 'info' | 'confirm' | 'notify' | 'alert';
 
 type Action = ButtonProps;
 
@@ -53,7 +67,7 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * The notification's variant. Defaults to `info`.
    */
-  variant?: Variant;
+  variant?: NotificationVariant;
   /**
    * An optional headline for structured content. Can be a string (an `h3`
    * heading label) or object containing a label and heading level.
@@ -77,7 +91,9 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
    */
   isVisible?: boolean;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onClose` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
   /**
@@ -89,12 +105,9 @@ export type BaseProps = HTMLAttributes<HTMLDivElement> & {
 
 export type NotificationInlineProps = BaseProps & CloseProps;
 
-const iconMap = {
-  info: Info,
-  confirm: Confirm,
-  alert: Alert,
-  notify: NotifyCircle,
-};
+type NotificationInlineComponent = ForwardRefExoticComponent<
+  NotificationInlineProps & RefAttributes<HTMLDivElement>
+> & { TIMEOUT: number };
 
 const inlineWrapperStyles = () => css`
   overflow: hidden;
@@ -107,7 +120,7 @@ const inlineWrapperStyles = () => css`
 const NotificationInlineWrapper = styled('div')(inlineWrapperStyles);
 
 type ContentWrapperProps = {
-  variant: Variant;
+  variant: NotificationVariant;
 };
 
 const contentWrapperStyles = ({
@@ -117,10 +130,11 @@ const contentWrapperStyles = ({
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${theme.colors.bodyBg};
+  background-color: var(--cui-bg-normal);
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid ${theme.colors[variant]};
+  border: ${theme.borderWidth.mega} solid
+    var(${NOTIFICATION_COLORS[variant].border});
 `;
 
 const ContentWrapper = styled('div')<ContentWrapperProps>(contentWrapperStyles);
@@ -139,52 +153,31 @@ const actionButtonStyles = ({ theme }: StyleProps & ButtonProps) =>
   css`
     font-weight: bold;
     text-decoration-line: underline;
-    color: ${theme.colors.black};
+    color: var(--cui-fg-normal);
     margin-top: ${theme.spacings.byte};
 
     &:hover {
-      color: ${theme.colors.n800};
+      color: var(--cui-fg-normal-hovered);
     }
 
     &:active,
     &[aria-expanded='true'],
     &[aria-pressed='true'] {
-      color: ${theme.colors.n700};
+      color: var(--cui-fg-normal-pressed);
     }
   `;
 
 const ActionButton = styled(Button)(actionButtonStyles);
 
 const IconWrapper = styled.div(
-  ({ theme, variant }: StyleProps & { variant: Variant }) =>
+  ({ variant }: { variant: NotificationVariant }) =>
     css`
       position: relative;
       align-self: flex-start;
       flex-grow: 0;
       flex-shrink: 0;
       line-height: 0;
-      color: ${theme.colors[variant]};
-    `,
-  // Adds a black background behind the SVG icon to color just the exclamation mark black.
-  ({ theme, variant }: StyleProps & { variant: Variant }) =>
-    variant === 'notify' &&
-    css`
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: calc(100% - 4px);
-        height: calc(100% - 4px);
-        background: ${theme.colors.black};
-        border-radius: ${theme.borderRadius.circle};
-      }
-
-      svg {
-        position: relative;
-        z-index: 1;
-      }
+      color: var(${NOTIFICATION_COLORS[variant].fg});
     `,
 );
 
@@ -199,88 +192,105 @@ const closeButtonStyles = ({ theme }: StyleProps) => css`
 
 const StyledCloseButton = styled(CloseButton)(closeButtonStyles);
 
-export function NotificationInline({
-  variant = 'info',
-  body,
-  headline,
-  action,
-  onClose,
-  closeButtonLabel,
-  iconLabel = '',
-  isVisible = true,
-  tracking,
-  ...props
-}: NotificationInlineProps): JSX.Element {
-  const contentElement = useRef(null);
-  const [isOpen, setOpen] = useState(isVisible);
-  const [height, setHeight] = useState(getHeight(contentElement));
-  const [, setAnimating] = useAnimation();
+export const NotificationInline = forwardRef<
+  HTMLDivElement,
+  NotificationInlineProps
+>(
+  (
+    {
+      variant = 'info',
+      body,
+      headline,
+      action,
+      onClose,
+      closeButtonLabel,
+      iconLabel = '',
+      isVisible = true,
+      tracking,
+      ...props
+    },
+    ref,
+  ): JSX.Element => {
+    if (process.env.NODE_ENV !== 'production') {
+      if (DEPRECATED_VARIANTS[variant]) {
+        deprecate(
+          'NotificationInline',
+          `The "${variant}" variant has been deprecated. Use "${DEPRECATED_VARIANTS[variant]}" instead.`,
+        );
+      }
+    }
 
-  useEffect(() => {
-    setAnimating({
-      duration: TRANSITION_DURATION,
-      onStart: () => {
-        setHeight(getHeight(contentElement));
-        // Delaying the state update until the next animation frame ensures that
-        // the browsers renders the new height before the animation starts.
-        window.requestAnimationFrame(() => {
-          setOpen(isVisible);
-        });
-      },
-      onEnd: () => {
-        setHeight(DEFAULT_HEIGHT);
-      },
-    });
-  }, [isVisible, setAnimating]);
+    const contentElement = useRef<HTMLDivElement>(null);
+    const [isOpen, setOpen] = useState(isVisible);
+    const [height, setHeight] = useState(getHeight(contentElement));
+    const [, setAnimating] = useAnimation();
 
-  const Icon = iconMap[variant];
+    useEffect(() => {
+      setAnimating({
+        duration: TRANSITION_DURATION,
+        onStart: () => {
+          setHeight(getHeight(contentElement));
+          // Delaying the state update until the next animation frame ensures that
+          // the browsers renders the new height before the animation starts.
+          window.requestAnimationFrame(() => {
+            setOpen(isVisible);
+          });
+        },
+        onEnd: () => {
+          setHeight(DEFAULT_HEIGHT);
+        },
+      });
+    }, [isVisible, setAnimating]);
 
-  return (
-    <NotificationInlineWrapper
-      ref={contentElement}
-      style={{
-        opacity: isOpen ? 1 : 0,
-        height: isOpen ? height : 0,
-        visibility: isOpen ? 'visible' : 'hidden',
-      }}
-      {...props}
-    >
-      <ContentWrapper variant={variant}>
-        <IconWrapper variant={variant}>
-          <Icon role="presentation" />
-        </IconWrapper>
-        <span css={hideVisually}>{iconLabel}</span>
-        <Content>
-          {headline && (
-            <Body
-              variant={'highlight'}
-              as={isString(headline) ? 'h3' : headline.as}
-            >
-              {isString(headline) ? headline : headline.label}
-            </Body>
+    const Icon = NOTIFICATION_ICONS[variant];
+
+    return (
+      <NotificationInlineWrapper
+        ref={applyMultipleRefs(ref, contentElement)}
+        style={{
+          opacity: isOpen ? 1 : 0,
+          height: isOpen ? height : 0,
+          visibility: isOpen ? 'visible' : 'hidden',
+        }}
+        {...props}
+      >
+        <ContentWrapper variant={variant}>
+          <IconWrapper variant={variant}>
+            <Icon role="presentation" />
+          </IconWrapper>
+          <span css={hideVisually}>{iconLabel}</span>
+          <Content>
+            {headline && (
+              <Body
+                variant={'highlight'}
+                as={isString(headline) ? 'h3' : headline.as}
+              >
+                {isString(headline) ? headline : headline.label}
+              </Body>
+            )}
+            <Body>{body}</Body>
+            {action && (
+              <ActionButton {...action} variant="tertiary" size="kilo" />
+            )}
+          </Content>
+
+          {onClose && closeButtonLabel && (
+            <StyledCloseButton
+              label={closeButtonLabel}
+              size="kilo"
+              onClick={onClose}
+              tracking={
+                tracking
+                  ? { component: 'notification-close', ...tracking }
+                  : undefined
+              }
+            />
           )}
-          <Body>{body}</Body>
-          {action && (
-            <ActionButton {...action} variant="tertiary" size="kilo" />
-          )}
-        </Content>
-
-        {onClose && closeButtonLabel && (
-          <StyledCloseButton
-            label={closeButtonLabel}
-            size="kilo"
-            onClick={onClose}
-            tracking={
-              tracking
-                ? { component: 'notification-close', ...tracking }
-                : undefined
-            }
-          />
-        )}
-      </ContentWrapper>
-    </NotificationInlineWrapper>
-  );
-}
+        </ContentWrapper>
+      </NotificationInlineWrapper>
+    );
+  },
+) as NotificationInlineComponent;
 
 NotificationInline.TIMEOUT = TRANSITION_DURATION;
 

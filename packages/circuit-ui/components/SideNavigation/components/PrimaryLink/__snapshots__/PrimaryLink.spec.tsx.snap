@@ -20,16 +20,16 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #000;
+  color: var(--cui-fg-normal);
   padding: 24px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
 }
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -41,17 +41,20 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-0:disabled {
-  opacity: 0.5;
+.circuit-0:disabled,
+.circuit-0[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 1279px) {
@@ -67,7 +70,7 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid var(--cui-border-divider);
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }
@@ -83,7 +86,11 @@ exports[`PrimaryLink styles should render with active styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent-hovered);
+}
+
+.circuit-0:active {
+  background-color: var(--cui-bg-accent-pressed);
 }
 
 .circuit-1 {
@@ -171,7 +178,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #000;
+  color: var(--cui-fg-normal);
   padding: 24px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
@@ -179,7 +186,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -191,17 +198,20 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-0:disabled {
-  opacity: 0.5;
+.circuit-0:disabled,
+.circuit-0[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 1279px) {
@@ -217,7 +227,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid var(--cui-border-divider);
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }
@@ -252,7 +262,7 @@ exports[`PrimaryLink styles should render with badge styles 1`] = `
   right: -8px;
   width: 10px;
   height: 10px;
-  background-color: #CA58FF;
+  background-color: var(--cui-fg-promo);
   border-radius: 100%;
 }
 
@@ -327,7 +337,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #000;
+  color: var(--cui-fg-normal);
   padding: 24px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
@@ -335,7 +345,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -347,17 +357,20 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-0:disabled {
-  opacity: 0.5;
+.circuit-0:disabled,
+.circuit-0[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 1279px) {
@@ -373,7 +386,7 @@ exports[`PrimaryLink styles should render with default styles 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid var(--cui-border-divider);
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }
@@ -471,7 +484,7 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #000;
+  color: var(--cui-fg-normal);
   padding: 24px;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
@@ -479,7 +492,7 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
 
 .circuit-0:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -491,17 +504,20 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-0:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-0:disabled {
-  opacity: 0.5;
+.circuit-0:disabled,
+.circuit-0[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 1279px) {
@@ -517,7 +533,7 @@ exports[`PrimaryLink styles should render with open styles 1`] = `
     right: 24px;
     left: 24px;
     width: calc(100% - 2 * 24px);
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid var(--cui-border-divider);
     -webkit-transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
     transition: width 120ms ease-in-out,right 120ms ease-in-out,left 120ms ease-in-out;
   }

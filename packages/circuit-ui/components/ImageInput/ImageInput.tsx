@@ -32,6 +32,7 @@ import { FieldWrapper, FieldLabel, FieldValidationHint } from '../FieldAtoms';
 import IconButton, { IconButtonProps } from '../IconButton';
 import Spinner from '../Spinner';
 import { AccessibilityError } from '../../util/errors';
+import { CLASS_DISABLED } from '../FieldAtoms/constants';
 
 type Size = 'giga' | 'yotta';
 
@@ -45,7 +46,7 @@ export interface ImageInputProps
    * The visual component to render as an image input. It should accept an src
    * prop to render the image.
    */
-  component: ({ src, alt }: { src?: string; alt: string }) => JSX.Element;
+  component: (props: { src?: string; alt: string }) => JSX.Element;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -93,9 +94,9 @@ const InputWrapper = styled.div`
 
 const HiddenInput = styled.input(
   hideVisually,
-  ({ theme }) => css`
+  css`
     &:focus + label > *:last-child {
-      ${focusOutline(theme)};
+      ${focusOutline()};
     }
 
     &:focus:not(:focus-visible) + label > *:last-child {
@@ -122,7 +123,7 @@ const baseLabelStyles = ({ theme }: StyleProps) => css`
     height: 100%;
     border-radius: 12px;
     pointer-events: none;
-    background-color: ${theme.colors.black};
+    background-color: var(--cui-bg-strong);
     opacity: 0;
     transition: opacity ${theme.transitions.default};
   }
@@ -140,14 +141,17 @@ const baseLabelStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const invalidLabelStyles = ({ theme, invalid }: LabelProps & StyleProps) =>
+const invalidLabelStyles = ({ invalid }: LabelProps) =>
   invalid &&
   css`
     > *:last-child {
-      box-shadow: 0 0 0 2px ${theme.colors.alert};
+      box-shadow: 0 0 0 2px var(--cui-border-danger);
     }
     &:hover > *:last-child {
-      box-shadow: 0 0 0 2px ${theme.colors.r700};
+      box-shadow: 0 0 0 2px var(--cui-border-danger-hovered);
+    }
+    &:active > *:last-child {
+      box-shadow: 0 0 0 2px var(--cui-border-danger-pressed);
     }
   `;
 
@@ -183,11 +187,11 @@ const loadingLabelStyles = ({ isLoading }: LabelProps) => {
   `;
 };
 
-const draggingLabelStyles = ({ theme, isDragging }: LabelProps & StyleProps) =>
+const draggingLabelStyles = ({ isDragging }: LabelProps) =>
   isDragging &&
   css`
     *:last-child {
-      ${focusOutline(theme)};
+      ${focusOutline()};
     }
 
     &::before {
@@ -199,17 +203,23 @@ const draggingLabelStyles = ({ theme, isDragging }: LabelProps & StyleProps) =>
     }
   `;
 
-const addButtonStyles = ({ theme }: StyleProps) => css`
+const disabledLabelStyles = css`
+  .${CLASS_DISABLED} & {
+    opacity: 0.4;
+  }
+`;
+
+const addButtonStyles = css`
   &:hover {
     & > button {
-      background-color: ${theme.colors.p700};
-      border-color: ${theme.colors.p700};
+      background-color: var(--cui-bg-danger-hovered);
+      border-color: var(--cui-border-danger-hovered);
     }
   }
   &:active {
     & > button {
-      background-color: ${theme.colors.p900};
-      border-color: ${theme.colors.p900};
+      background-color: var(--cui-bg-danger-pressed);
+      border-color: var(--cui-border-danger-pressed);
     }
   }
 `;
@@ -219,6 +229,7 @@ const Label = styled(FieldLabel)<LabelProps>(
   invalidLabelStyles,
   loadingLabelStyles,
   draggingLabelStyles,
+  disabledLabelStyles,
   addButtonStyles,
 );
 
@@ -264,7 +275,7 @@ const spinnerBaseStyles = ({ theme }: LoadingIconProps & StyleProps) => css`
   visibility: hidden;
   transition: opacity ${theme.transitions.default},
     visibility ${theme.transitions.default};
-  color: ${theme.colors.white};
+  color: var(--cui-fg-on-strong);
   pointer-events: none;
 `;
 
@@ -288,7 +299,6 @@ const LoadingLabel = styled.span(hideVisually);
 export const ImageInput = ({
   label,
   src,
-  alt,
   size = 'yotta',
   'id': customId,
   clearButtonLabel,
@@ -447,7 +457,7 @@ export const ImageInput = ({
           onDrop={handleDrop}
         >
           <span css={hideVisually()}>{label}</span>
-          <Component src={src || previewImage} alt={alt || ''} />
+          <Component src={src || previewImage} alt="" />
         </Label>
         {src ? (
           <ActionButton
@@ -457,7 +467,7 @@ export const ImageInput = ({
             destructive
             label={clearButtonLabel}
             onClick={handleClear}
-            disabled={isLoading}
+            disabled={isLoading || disabled}
             buttonSize={size}
           >
             <Delete size="16" />
@@ -470,7 +480,7 @@ export const ImageInput = ({
             aria-hidden="true"
             tabIndex={-1}
             label="-" // We need to pass a label here to prevent IconButton from throwing
-            disabled={isLoading}
+            disabled={isLoading || disabled}
             buttonSize={size}
           >
             <Plus size="16" />

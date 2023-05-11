@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import { act, axe, render } from '../../../../util/test-utils';
+import {
+  act,
+  axe,
+  render,
+  screen,
+  userEvent,
+} from '../../../../util/test-utils';
 import { PopoverProps } from '../../../Popover';
 
 import { ProfileMenu } from './ProfileMenu';
@@ -56,6 +62,25 @@ describe('ProfileMenu', () => {
       const { container } = render(<ProfileMenu {...baseProps} />);
 
       expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe('Logic', () => {
+    it('should call the onToggle callback with the popover open state', async () => {
+      const onToggle = jest.fn();
+
+      render(<ProfileMenu {...baseProps} onToggle={onToggle} />);
+
+      const profileEl = screen.getByRole('button');
+
+      await userEvent.click(profileEl);
+
+      expect(onToggle).toHaveBeenCalledWith(true);
+
+      await userEvent.click(profileEl);
+
+      expect(onToggle).toHaveBeenCalledWith(false);
+      expect(onToggle).toHaveBeenCalledTimes(2);
     });
   });
 

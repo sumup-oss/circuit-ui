@@ -17,11 +17,7 @@ import { Fragment, InputHTMLAttributes, Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  disableVisually,
-  hideVisually,
-  focusOutline,
-} from '../../styles/style-mixins';
+import { hideVisually, focusOutline } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { AccessibilityError } from '../../util/errors';
@@ -41,15 +37,18 @@ export interface RadioButtonProps
    */
   ref?: Ref<HTMLInputElement>;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onChange` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
+  children?: never;
 }
 
-type LabelElProps = Pick<RadioButtonProps, 'invalid' | 'disabled'>;
+type LabelElProps = Pick<RadioButtonProps, 'invalid'>;
 
 const labelBaseStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.bodyColor};
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -59,8 +58,8 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     box-sizing: border-box;
     height: 18px;
     width: 18px;
-    background-color: ${theme.colors.white};
-    border: 1px solid ${theme.colors.n500};
+    background-color: var(--cui-bg-normal);
+    border: 1px solid var(--cui-border-normal);
     border-radius: 100%;
     content: '';
     display: block;
@@ -75,7 +74,7 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     box-sizing: border-box;
     height: 10px;
     width: 10px;
-    background-color: ${theme.colors.p500};
+    background-color: var(--cui-fg-accent);
     border-radius: 100%;
     content: '';
     display: block;
@@ -89,68 +88,50 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
+const labelInvalidStyles = ({ invalid }: LabelElProps) =>
   invalid &&
   css`
     &:not(:focus)::before {
-      border-color: ${theme.colors.alert};
-      background-color: ${theme.colors.r100};
+      border-color: var(--cui-border-danger);
+      background-color: var(--cui-bg-danger);
     }
 
     &:not(:focus)::after {
-      background-color: ${theme.colors.alert};
-    }
-  `;
-
-const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
-  disabled &&
-  css`
-    ${disableVisually()};
-
-    &::before {
-      ${disableVisually()};
-      border-color: ${theme.colors.n700};
-      background-color: ${theme.colors.n200};
-    }
-
-    &::after {
-      ${disableVisually()};
-      background-color: ${theme.colors.n700};
+      background-color: var(--cui-fg-danger);
     }
   `;
 
 const RadioButtonLabel = styled('label')<LabelElProps>(
   labelBaseStyles,
-  labelDisabledStyles,
   labelInvalidStyles,
 );
 
 type InputElProps = Pick<RadioButtonProps, 'invalid'>;
 
-const inputBaseStyles = ({ theme }: StyleProps) => css`
+const inputBaseStyles = css`
   ${hideVisually()};
 
   &:hover + label::before {
-    border-color: ${theme.colors.n700};
+    border-color: var(--cui-border-normal-hovered);
   }
 
   &:focus + label::before {
-    ${focusOutline(theme)};
-    border-color: ${theme.colors.p500};
+    ${focusOutline()};
+    border-color: var(--cui-border-accent);
   }
 
   &:focus:not(:focus-visible) + label::before {
     box-shadow: none;
-    border-color: ${theme.colors.n500};
+    border-color: var(--cui-border-normal);
   }
 
   &:checked:focus:not(:focus-visible) + label::before {
-    border-color: ${theme.colors.p500};
+    border-color: var(--cui-border-accent);
   }
 
   &:checked + label {
     &::before {
-      border-color: ${theme.colors.p500};
+      border-color: var(--cui-border-accent);
     }
 
     &::after {
@@ -158,18 +139,44 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
       opacity: 1;
     }
   }
+
+  &:disabled + label,
+  &[disabled] + label {
+    pointer-events: none;
+    color: var(--cui-fg-normal-disabled);
+
+    &::before {
+      border-color: var(--cui-border-normal-disabled);
+      background-color: var(--cui-bg-normal-disabled);
+    }
+
+    &::after {
+      background-color: var(--cui-fg-on-strong-disabled);
+    }
+  }
+
+  &:disabled:checked + label,
+  &[disabled]:checked + label {
+    &::before {
+      border-color: var(--cui-border-accent-disabled);
+    }
+
+    &::after {
+      background-color: var(--cui-fg-accent-disabled);
+    }
+  }
 `;
 
-const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
+const inputInvalidStyles = ({ invalid }: InputElProps) =>
   invalid &&
   css`
     &:hover + label::before,
     &:focus + label::before {
-      border-color: ${theme.colors.r700};
+      border-color: var(--cui-border-danger-hovered);
     }
 
     &:checked + label::before {
-      border-color: ${theme.colors.alert};
+      border-color: var(--cui-border-danger);
     }
   `;
 
@@ -229,7 +236,6 @@ export const RadioButton = forwardRef(
         />
         <RadioButtonLabel
           htmlFor={id}
-          disabled={disabled}
           invalid={invalid}
           className={className}
           style={style}

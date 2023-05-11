@@ -21,6 +21,7 @@ import {
   RefObject,
   useEffect,
   HTMLAttributes,
+  forwardRef,
 } from 'react';
 import { css } from '@emotion/react';
 
@@ -33,6 +34,7 @@ import Image, { ImageProps } from '../Image';
 import CloseButton from '../CloseButton';
 import { useAnimation } from '../../hooks/useAnimation';
 import { TrackingProps } from '../../hooks/useClickEvent';
+import { applyMultipleRefs } from '../../util/refs';
 
 type Action = ButtonProps & {
   variant: 'primary' | 'tertiary';
@@ -89,7 +91,9 @@ interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
    */
   action: Action;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onClose` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
   /**
@@ -110,8 +114,8 @@ const bannerWrapperStyles = ({
   position: relative;
   border-radius: ${theme.borderRadius.mega};
   background-color: ${variant === 'system'
-    ? theme.colors.p100
-    : theme.colors.n100};
+    ? 'var(--cui-bg-accent)'
+    : 'var(--cui-bg-subtle)'};
   overflow: hidden;
   transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
     visibility 200ms ease-in-out;
@@ -201,8 +205,8 @@ const closeButtonStyles = ({
   top: ${theme.spacings.byte};
   right: ${theme.spacings.byte};
   background-color: ${notificationVariant === 'system'
-    ? theme.colors.p100
-    : theme.colors.n100};
+    ? 'var(--cui-bg-accent)'
+    : 'var(--cui-bg-subtle)'};
 `;
 
 const StyledCloseButton = styled(CloseButton)(closeButtonStyles);
@@ -211,72 +215,80 @@ const StyledCloseButton = styled(CloseButton)(closeButtonStyles);
  * The NotificationBanner displays a notification with text, a call-to-action,
  * and optionally an image.
  */
-export function NotificationBanner({
-  headline,
-  body,
-  action,
-  variant = 'system',
-  image,
-  onClose,
-  closeButtonLabel,
-  tracking,
-  isVisible = true,
-  ...props
-}: NotificationBannerProps): JSX.Element {
-  const contentElement = useRef(null);
-  const [isOpen, setOpen] = useState(isVisible);
-  const [height, setHeight] = useState(getHeight(contentElement));
-  const [, setAnimating] = useAnimation();
-  useEffect(() => {
-    setAnimating({
-      duration: 200,
-      onStart: () => {
-        setHeight(getHeight(contentElement));
-        // Delaying the state update until the next animation frame ensures
-        // that browsers render the new height before the animation starts.
-        window.requestAnimationFrame(() => {
-          setOpen(isVisible);
-        });
-      },
-      onEnd: () => {
-        setHeight(DEFAULT_HEIGHT);
-      },
-    });
-  }, [isVisible, setAnimating]);
+export const NotificationBanner = forwardRef<
+  HTMLDivElement,
+  NotificationBannerProps
+>(
+  (
+    {
+      headline,
+      body,
+      action,
+      variant = 'system',
+      image,
+      onClose,
+      closeButtonLabel,
+      tracking,
+      isVisible = true,
+      ...props
+    },
+    ref,
+  ): JSX.Element => {
+    const contentElement = useRef<HTMLDivElement>(null);
+    const [isOpen, setOpen] = useState(isVisible);
+    const [height, setHeight] = useState(getHeight(contentElement));
+    const [, setAnimating] = useAnimation();
+    useEffect(() => {
+      setAnimating({
+        duration: 200,
+        onStart: () => {
+          setHeight(getHeight(contentElement));
+          // Delaying the state update until the next animation frame ensures
+          // that browsers render the new height before the animation starts.
+          window.requestAnimationFrame(() => {
+            setOpen(isVisible);
+          });
+        },
+        onEnd: () => {
+          setHeight(DEFAULT_HEIGHT);
+        },
+      });
+    }, [isVisible, setAnimating]);
 
-  return (
-    <NotificationBannerWrapper
-      ref={contentElement}
-      style={{
-        opacity: isOpen ? 1 : 0,
-        height: isOpen ? height : 0,
-        visibility: isOpen ? 'visible' : 'hidden',
-      }}
-      variant={variant}
-      {...props}
-    >
-      <Content>
-        <ResponsiveHeadline as="h2">{headline}</ResponsiveHeadline>
-        <ResponsiveBody>{body}</ResponsiveBody>
-        <ResponsiveButton {...action} />
-      </Content>
-      {image && image.src && <StyledImage {...image} />}
-      {onClose && closeButtonLabel && (
-        <StyledCloseButton
-          notificationVariant={variant}
-          label={closeButtonLabel}
-          size="kilo"
-          onClick={onClose}
-          tracking={
-            tracking
-              ? { component: 'notification-close', ...tracking }
-              : undefined
-          }
-        />
-      )}
-    </NotificationBannerWrapper>
-  );
-}
+    return (
+      <NotificationBannerWrapper
+        ref={applyMultipleRefs(ref, contentElement)}
+        style={{
+          opacity: isOpen ? 1 : 0,
+          height: isOpen ? height : 0,
+          visibility: isOpen ? 'visible' : 'hidden',
+        }}
+        variant={variant}
+        {...props}
+      >
+        <Content>
+          <ResponsiveHeadline as="h2">{headline}</ResponsiveHeadline>
+          <ResponsiveBody>{body}</ResponsiveBody>
+          <ResponsiveButton {...action} />
+        </Content>
+        {image && image.src && <StyledImage {...image} />}
+        {onClose && closeButtonLabel && (
+          <StyledCloseButton
+            notificationVariant={variant}
+            label={closeButtonLabel}
+            size="kilo"
+            onClick={onClose}
+            tracking={
+              tracking
+                ? { component: 'notification-close', ...tracking }
+                : undefined
+            }
+          />
+        )}
+      </NotificationBannerWrapper>
+    );
+  },
+);
 
 export function getHeight(element: RefObject<HTMLElement>): string {
   if (!element || !element.current) {

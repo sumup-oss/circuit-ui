@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import docs from './BodyLarge.docs.mdx';
 import { BodyLargeProps } from './BodyLarge';
 
 import BodyLarge from '.';
@@ -24,9 +23,6 @@ const content =
 export default {
   title: 'Typography/BodyLarge',
   component: BodyLarge,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     as: { control: 'text' },
   },

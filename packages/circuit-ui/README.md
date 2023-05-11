@@ -13,19 +13,19 @@ A React component library designed to help developers build inclusive, performan
 Depending on your preference, run one of the following in your terminal:
 
 ```sh
-# With yarn
-yarn add @sumup/circuit-ui
 # With npm
 npm install --save @sumup/circuit-ui
+# With yarn v1
+yarn add @sumup/circuit-ui
 ```
 
 `@sumup/circuit-ui` has a number of required peer dependencies. If your project doesn't have them already, you can install them by running:
 
 ```sh
-# With yarn
-yarn add react react-dom @emotion/react @emotion/styled @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
 # With npm
 npm install --save react react-dom @emotion/react @emotion/styled @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
+# With yarn v1
+yarn add react react-dom @emotion/react @emotion/styled @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
 ```
 
 ## Usage
@@ -33,6 +33,6 @@ npm install --save react react-dom @emotion/react @emotion/styled @sumup/design-
 Here are a few helpful links for getting started with Circuit UI:
 
 - [Documentation](https://circuit.sumup.com/) - Learn how to use Circuit UI and view the components in Storybook.
-- [Getting started](https://circuit.sumup.com/?path=/docs/introduction-getting-started--page) - Set up a new app with Circuit UI or add it to an existing project.
-- [Theming](https://circuit.sumup.com/?path=/docs/features-theme--page) - Learn about our foundations such as colors, spacing, and typography.
-- [Contribute](https://circuit.sumup.com/?path=/docs/introduction-contributing-overview--page) - File a bug report, suggest a change, or open a pull request.
+- [Getting started](https://circuit.sumup.com/?path=/docs/introduction-getting-started--docs) - Set up a new app with Circuit UI or add it to an existing project.
+- [Theming](https://circuit.sumup.com/?path=/docs/features-theme--docs) - Learn about our foundations such as colors, spacing, and typography.
+- [Contribute](https://circuit.sumup.com/?path=/docs/contributing-overview--docs) - File a bug report, suggest a change, or open a pull request.

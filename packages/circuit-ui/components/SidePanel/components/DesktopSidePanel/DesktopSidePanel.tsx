@@ -41,8 +41,8 @@ export const DesktopSidePanel = ({
         base: cssString`
           height: 100%;
           outline: none;
-          background-color: ${theme.colors.white};
-          box-shadow: inset ${theme.borderWidth.kilo} 0px 0px ${theme.colors.n300};
+          background-color: var(--cui-bg-normal);
+          box-shadow: inset ${theme.borderWidth.kilo} 0px 0px var(--cui-border-divider);
           transform: translateX(100%);
           transition: transform ${TRANSITION_DURATION_DESKTOP}ms ease-in-out;
         `,

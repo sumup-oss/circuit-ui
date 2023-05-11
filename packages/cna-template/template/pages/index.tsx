@@ -34,14 +34,10 @@ const Page: NextPage = () => (
     <Main>
       <Logo />
       <Card>
-        <Headline
-          as="h1"
-          noMargin
-          css={cx(center, spacing({ bottom: 'giga' }))}
-        >
+        <Headline as="h1" css={cx(center, spacing({ bottom: 'giga' }))}>
           {title}
         </Headline>
-        <Body noMargin css={spacing({ bottom: 'giga' })}>
+        <Body css={spacing({ bottom: 'giga' })}>
           This is a{' '}
           <Anchor href="https://nextjs.org" target="_blank">
             Next.js
@@ -52,8 +48,7 @@ const Page: NextPage = () => (
           </Anchor>
           -specific customizations:
         </Body>
-
-        <List noMargin css={spacing({ bottom: 'giga' })}>
+        <List css={spacing({ bottom: 'giga' })}>
           <li>
             <Anchor
               href="https://github.com/sumup-oss/circuit-ui"
@@ -67,7 +62,7 @@ const Page: NextPage = () => (
             <Anchor href="https://emotion.sh/" target="_blank">
               Emotion
             </Anchor>{' '}
-            support (incl. babel plugin)
+            support
           </li>
           <li>
             SumUp&apos;s default tooling provided by{' '}
@@ -77,12 +72,10 @@ const Page: NextPage = () => (
           </li>
           <li>Basic SEO and performance optimizations</li>
         </List>
-
-        <Body noMargin css={cx(center, spacing({ bottom: 'giga' }))}>
+        <Body css={cx(center, spacing({ bottom: 'giga' }))}>
           Now go and build things!
         </Body>
         <Body
-          noMargin
           aria-hidden
           css={cx(
             css`

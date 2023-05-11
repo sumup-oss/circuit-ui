@@ -77,26 +77,6 @@ describe('Table utils', () => {
     });
   });
 
-  describe('getCellChildren()', () => {
-    describe('isString', () => {
-      it('should return it', () => {
-        const props = 'Foo';
-        const expected = props;
-        const actual = utils.getCellChildren(props);
-
-        expect(actual).toBe(expected);
-      });
-    });
-
-    it('should return the children prop', () => {
-      const props = { children: 'Foo' };
-      const expected = 'Foo';
-      const actual = utils.getCellChildren(props);
-
-      expect(actual).toBe(expected);
-    });
-  });
-
   describe('getSortByValue()', () => {
     describe('no sortByValue', () => {
       it('should return the children', () => {

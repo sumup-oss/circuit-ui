@@ -16,8 +16,8 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   align-items: center;
   border: none;
   outline: none;
-  color: #1A1A1A;
-  background-color: #FFF;
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-normal);
   text-align: left;
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
@@ -37,16 +37,18 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
 }
 
 .circuit-2:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-2:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-2:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus::-moz-focus-inner {
@@ -57,10 +59,11 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-.circuit-2:disabled {
-  opacity: 0.5;
+.circuit-2:disabled,
+.circuit-2[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 1280px) {
@@ -91,8 +94,8 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.25px;
-  background-color: #CA58FF;
-  color: #FFF;
+  background-color: var(--cui-bg-promo-strong);
+  color: var(--cui-fg-on-strong);
 }
 
 .circuit-9 {
@@ -106,8 +109,8 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   align-items: center;
   border: none;
   outline: none;
-  color: #3063E9;
-  background-color: #F0F6FF;
+  color: var(--cui-fg-accent);
+  background-color: var(--cui-bg-accent);
   text-align: left;
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
@@ -127,16 +130,18 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
 }
 
 .circuit-9:hover {
-  background-color: #F0F6FF;
+  background-color: var(--cui-bg-accent-hovered);
+  color: var(--cui-fg-accent-hovered);
 }
 
 .circuit-9:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-accent-pressed);
+  color: var(--cui-fg-accent-pressed);
 }
 
 .circuit-9:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-9:focus::-moz-focus-inner {
@@ -147,10 +152,11 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   box-shadow: none;
 }
 
-.circuit-9:disabled {
-  opacity: 0.5;
+.circuit-9:disabled,
+.circuit-9[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-accent-disabled);
+  color: var(--cui-fg-accent-disabled);
 }
 
 @media (min-width: 1280px) {
@@ -178,7 +184,7 @@ exports[`SecondaryLinks styles should render with default styles 1`] = `
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #000;
+  color: var(--cui-fg-normal);
 }
 
 <ul

@@ -1,22 +1,16 @@
-const { extendDefaultPlugins } = require('svgo');
-
 module.exports = {
-  plugins: extendDefaultPlugins([
+  plugins: [
     {
-      name: 'convertColors',
+      name: 'preset-default',
       params: {
-        currentColor: '#212933',
+        overrides: {
+          convertColors: {
+            currentColor: '#212933',
+          },
+          removeViewBox: false,
+        },
       },
     },
-    {
-      name: 'removeViewBox',
-      active: false,
-    },
-    {
-      name: 'prefixIds',
-      params: {
-        prefixIds: true,
-      },
-    },
-  ]),
+    'prefixIds',
+  ],
 };

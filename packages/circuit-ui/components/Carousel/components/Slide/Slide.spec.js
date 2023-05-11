@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { axe, render } from '../../../../util/test-utils';
 import { SLIDE_DIRECTIONS } from '../../constants';
 
 import Slide from './Slide';
@@ -20,13 +21,13 @@ import Slide from './Slide';
 describe('Slide', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = create(<Slide />);
+      const { container } = render(<Slide />);
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with forward animation styles', () => {
-      const actual = create(
+      const { container } = render(
         <Slide
           index={0}
           step={0}
@@ -35,11 +36,11 @@ describe('Slide', () => {
         />,
       );
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with backward animation styles', () => {
-      const actual = create(
+      const { container } = render(
         <Slide
           index={0}
           prevStep={0}
@@ -48,14 +49,14 @@ describe('Slide', () => {
         />,
       );
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Slide />);
-      const actual = await axe(wrapper);
+      const { container } = render(<Slide />);
+      const actual = await axe(container);
 
       expect(actual).toHaveNoViolations();
     });

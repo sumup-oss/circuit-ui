@@ -16,7 +16,6 @@
 import styled from '@emotion/styled';
 
 import { Grid, Row, Col } from '..';
-import docs from '../Grid.docs.mdx';
 
 export default {
   title: 'Layout/Grid/Grid',
@@ -24,7 +23,6 @@ export default {
   parameters: {
     layout: 'fullscreen',
     controls: { hideNoControlsWarning: true },
-    docs: { page: docs },
   },
 };
 
@@ -35,11 +33,11 @@ const StyledCol = styled(Col)`
   height: 48px;
   padding: 12px;
   &:nth-of-type(n) {
-    background-color: ${(p) => p.theme.colors.n300};
+    background-color: var(--cui-bg-highlight);
   }
 
   &:nth-of-type(2n) {
-    background-color: ${(p) => p.theme.colors.n100};
+    background-color: var(--cui-bg-subtle);
   }
 `;
 

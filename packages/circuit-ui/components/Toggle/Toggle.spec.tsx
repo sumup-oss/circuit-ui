@@ -15,13 +15,13 @@
 
 import { createRef } from 'react';
 
-import { create, render, renderToHtml, axe } from '../../util/test-utils';
+import { render, screen, axe } from '../../util/test-utils';
 
 import { Toggle } from './Toggle';
 
 const defaultProps = {
   label: 'Label',
-  explanation: 'A longer explanation',
+  description: 'A longer explanation',
   checkedLabel: 'on',
   uncheckedLabel: 'off',
 };
@@ -31,8 +31,8 @@ describe('Toggle', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Toggle {...defaultProps} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Toggle {...defaultProps} />);
+    expect(container).toMatchSnapshot();
   });
 
   describe('business logic', () => {
@@ -45,6 +45,26 @@ describe('Toggle', () => {
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);
     });
+
+    it('should accept a custom description via aria-describedby', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      render(
+        <>
+          <span id={customDescriptionId}>{customDescription}</span>
+          <Toggle aria-describedby={customDescriptionId} {...defaultProps} />,
+        </>,
+      );
+      const toggleEl = screen.getByRole('switch');
+
+      expect(toggleEl).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(customDescriptionId),
+      );
+      expect(toggleEl).toHaveAccessibleDescription(
+        `${customDescription} ${defaultProps.description}`,
+      );
+    });
   });
 
   /**
@@ -52,8 +72,8 @@ describe('Toggle', () => {
    * See https://inclusive-components.design/toggle-button/
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Toggle {...defaultProps} />);
-    const actual = await axe(wrapper);
+    const { container } = render(<Toggle {...defaultProps} />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

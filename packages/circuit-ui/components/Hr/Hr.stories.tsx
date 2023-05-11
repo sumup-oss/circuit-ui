@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import docs from './Hr.docs.mdx';
 import { Hr } from './Hr';
 
 export default {
@@ -22,7 +21,6 @@ export default {
   parameters: {
     layout: 'fullscreen',
     controls: { hideNoControlsWarning: true },
-    docs: { page: docs },
   },
 };
 

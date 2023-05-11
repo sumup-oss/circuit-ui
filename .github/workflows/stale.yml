@@ -1,0 +1,15 @@
+name: 'Label stale issues and PRs'
+on:
+  schedule:
+    # Every day from Monday through Thursday at 7am UTC
+    - cron: '0 7 * * 1-4'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v8
+        with:
+          stale-issue-label: 'stale'
+          stale-issue-message: 'This issue has been automatically marked as stale because it has not had recent activity. It will be closed in 7 days if no further activity occurs. Add a comment explaining why the issue is still relevant to prevent it from being closed.'
+          stale-pr-message: 'This pull request has been automatically marked as stale because it has not had recent activity. It will be closed in 7 days if no further activity occurs. Add a comment explaining why the pull request is still relevant to prevent it from being closed.'

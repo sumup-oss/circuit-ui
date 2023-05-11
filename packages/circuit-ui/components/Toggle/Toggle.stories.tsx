@@ -15,21 +15,18 @@
 
 import { useState } from 'react';
 
-import docs from './Toggle.docs.mdx';
 import { Toggle, ToggleProps } from './Toggle';
 
 export default {
   title: 'Forms/Toggle',
   component: Toggle,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const baseArgs = {
   label: 'Short label',
   checkedLabel: 'on',
   uncheckedLabel: 'off',
+  disabled: false,
 };
 
 export const Base = (args: ToggleProps) => {
@@ -43,7 +40,7 @@ export const Base = (args: ToggleProps) => {
 
 Base.args = baseArgs;
 
-export const WithExplanation = (args: ToggleProps) => {
+export const WithDescription = (args: ToggleProps) => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
@@ -52,19 +49,12 @@ export const WithExplanation = (args: ToggleProps) => {
   return <Toggle {...args} checked={checked} onChange={handleChange} />;
 };
 
-WithExplanation.args = {
+WithDescription.args = {
   ...baseArgs,
-  explanation: 'Some more detailed text of what this means',
+  description: 'Some more detailed text of what this means',
 };
 
-export const Disabled = (args: ToggleProps) => {
-  const [checked, setChecked] = useState(false);
-
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
-  return <Toggle {...args} checked={checked} onChange={handleChange} />;
-};
+export const Disabled = (args: ToggleProps) => <Toggle {...args} />;
 
 Disabled.args = {
   ...baseArgs,

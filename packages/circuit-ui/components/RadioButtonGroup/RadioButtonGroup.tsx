@@ -137,7 +137,7 @@ export const RadioButtonGroup = forwardRef(
         aria-describedby={descriptionIds}
         aria-orientation="vertical"
         name={name}
-        // @ts-expect-error TypeScript isn't smart enough to recognize the `as` prop.
+        // @ts-expect-error The `as` prop above changes the HTML element.
         ref={ref}
         disabled={disabled}
         {...props}

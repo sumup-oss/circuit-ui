@@ -14,13 +14,13 @@ exports[`RadioButton Styles should render with checked styles 1`] = `
 }
 
 .circuit-0:hover+label::before {
-  border-color: #666;
+  border-color: var(--cui-border-normal-hovered);
 }
 
 .circuit-0:focus+label::before {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:focus+label::before::-moz-focus-inner {
@@ -29,15 +29,15 @@ exports[`RadioButton Styles should render with checked styles 1`] = `
 
 .circuit-0:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: #999;
+  border-color: var(--cui-border-normal);
 }
 
 .circuit-0:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:checked+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:checked+label::after {
@@ -48,8 +48,35 @@ exports[`RadioButton Styles should render with checked styles 1`] = `
   opacity: 1;
 }
 
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border-color: var(--cui-border-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-0:disabled+label::after,
+.circuit-0[disabled]+label::after {
+  background-color: var(--cui-fg-on-strong-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::after,
+.circuit-0[disabled]:checked+label::after {
+  background-color: var(--cui-fg-accent-disabled);
+}
+
 .circuit-1 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -60,8 +87,8 @@ exports[`RadioButton Styles should render with checked styles 1`] = `
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: 100%;
   content: '';
   display: block;
@@ -80,7 +107,7 @@ exports[`RadioButton Styles should render with checked styles 1`] = `
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  background-color: #3063E9;
+  background-color: var(--cui-fg-accent);
   border-radius: 100%;
   content: '';
   display: block;
@@ -127,13 +154,13 @@ exports[`RadioButton Styles should render with default styles 1`] = `
 }
 
 .circuit-0:hover+label::before {
-  border-color: #666;
+  border-color: var(--cui-border-normal-hovered);
 }
 
 .circuit-0:focus+label::before {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:focus+label::before::-moz-focus-inner {
@@ -142,15 +169,15 @@ exports[`RadioButton Styles should render with default styles 1`] = `
 
 .circuit-0:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: #999;
+  border-color: var(--cui-border-normal);
 }
 
 .circuit-0:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:checked+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:checked+label::after {
@@ -161,8 +188,35 @@ exports[`RadioButton Styles should render with default styles 1`] = `
   opacity: 1;
 }
 
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border-color: var(--cui-border-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-0:disabled+label::after,
+.circuit-0[disabled]+label::after {
+  background-color: var(--cui-fg-on-strong-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::after,
+.circuit-0[disabled]:checked+label::after {
+  background-color: var(--cui-fg-accent-disabled);
+}
+
 .circuit-1 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -173,8 +227,8 @@ exports[`RadioButton Styles should render with default styles 1`] = `
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: 100%;
   content: '';
   display: block;
@@ -193,7 +247,7 @@ exports[`RadioButton Styles should render with default styles 1`] = `
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  background-color: #3063E9;
+  background-color: var(--cui-fg-accent);
   border-radius: 100%;
   content: '';
   display: block;
@@ -239,13 +293,13 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
 }
 
 .circuit-0:hover+label::before {
-  border-color: #666;
+  border-color: var(--cui-border-normal-hovered);
 }
 
 .circuit-0:focus+label::before {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:focus+label::before::-moz-focus-inner {
@@ -254,15 +308,15 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
 
 .circuit-0:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: #999;
+  border-color: var(--cui-border-normal);
 }
 
 .circuit-0:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:checked+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:checked+label::after {
@@ -273,23 +327,47 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
   opacity: 1;
 }
 
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border-color: var(--cui-border-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-0:disabled+label::after,
+.circuit-0[disabled]+label::after {
+  background-color: var(--cui-fg-on-strong-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::after,
+.circuit-0[disabled]:checked+label::after {
+  background-color: var(--cui-fg-accent-disabled);
+}
+
 .circuit-1 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1::before {
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: 100%;
   content: '';
   display: block;
@@ -308,7 +386,7 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  background-color: #3063E9;
+  background-color: var(--cui-fg-accent);
   border-radius: 100%;
   content: '';
   display: block;
@@ -324,21 +402,6 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
-.circuit-1::before {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-  border-color: #666;
-  background-color: #E6E6E6;
-}
-
-.circuit-1::after {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-  background-color: #666;
-}
-
 <div>
   <input
     class="circuit-0"
@@ -349,7 +412,6 @@ exports[`RadioButton Styles should render with disabled styles 1`] = `
   />
   <label
     class="circuit-1"
-    disabled=""
     for="radio-button_3"
   >
     Label
@@ -371,13 +433,13 @@ exports[`RadioButton Styles should render with invalid styles 1`] = `
 }
 
 .circuit-0:hover+label::before {
-  border-color: #666;
+  border-color: var(--cui-border-normal-hovered);
 }
 
 .circuit-0:focus+label::before {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:focus+label::before::-moz-focus-inner {
@@ -386,15 +448,15 @@ exports[`RadioButton Styles should render with invalid styles 1`] = `
 
 .circuit-0:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: #999;
+  border-color: var(--cui-border-normal);
 }
 
 .circuit-0:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:checked+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-0:checked+label::after {
@@ -405,17 +467,44 @@ exports[`RadioButton Styles should render with invalid styles 1`] = `
   opacity: 1;
 }
 
+.circuit-0:disabled+label,
+.circuit-0[disabled]+label {
+  pointer-events: none;
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-0:disabled+label::before,
+.circuit-0[disabled]+label::before {
+  border-color: var(--cui-border-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-0:disabled+label::after,
+.circuit-0[disabled]+label::after {
+  background-color: var(--cui-fg-on-strong-disabled);
+}
+
+.circuit-0:disabled:checked+label::before,
+.circuit-0[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+}
+
+.circuit-0:disabled:checked+label::after,
+.circuit-0[disabled]:checked+label::after {
+  background-color: var(--cui-fg-accent-disabled);
+}
+
 .circuit-0:hover+label::before,
 .circuit-0:focus+label::before {
-  border-color: #B22426;
+  border-color: var(--cui-border-danger-hovered);
 }
 
 .circuit-0:checked+label::before {
-  border-color: #D23F47;
+  border-color: var(--cui-border-danger);
 }
 
 .circuit-1 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -426,8 +515,8 @@ exports[`RadioButton Styles should render with invalid styles 1`] = `
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: 100%;
   content: '';
   display: block;
@@ -446,7 +535,7 @@ exports[`RadioButton Styles should render with invalid styles 1`] = `
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  background-color: #3063E9;
+  background-color: var(--cui-fg-accent);
   border-radius: 100%;
   content: '';
   display: block;
@@ -463,12 +552,12 @@ exports[`RadioButton Styles should render with invalid styles 1`] = `
 }
 
 .circuit-1:not(:focus)::before {
-  border-color: #D23F47;
-  background-color: #F4CBCB;
+  border-color: var(--cui-border-danger);
+  background-color: var(--cui-bg-danger);
 }
 
 .circuit-1:not(:focus)::after {
-  background-color: #D23F47;
+  background-color: var(--cui-fg-danger);
 }
 
 <div>

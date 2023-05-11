@@ -32,7 +32,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.bold};
   font-size: ${theme.typography.subHeadline.fontSize};
   line-height: ${theme.typography.subHeadline.lineHeight};
-  color: ${theme.colors.black};
+  color: var(--cui-fg-normal);
 `;
 
 /**

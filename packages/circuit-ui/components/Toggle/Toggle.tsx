@@ -15,12 +15,15 @@
 
 import { Ref, forwardRef } from 'react';
 import { css } from '@emotion/react';
+import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
-import { Body, BodyProps } from '../Body/Body';
+import { Body } from '../Body/Body';
 import { AccessibilityError } from '../../util/errors';
-import { FieldWrapper } from '../FieldAtoms';
+import { FieldDescription, FieldWrapper } from '../FieldAtoms';
+import { CLASS_DISABLED } from '../FieldAtoms/constants';
+import { hideVisually } from '../../styles/style-mixins';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
 
@@ -30,16 +33,21 @@ export interface ToggleProps extends SwitchProps {
    */
   label: string;
   /**
-   * Further explanation of the toggle. Can change depending on the state.
+   * @deprecated
+   * Use the `description` prop instead.
    */
   explanation?: string;
+  /**
+   * Further explanation of the toggle. Can change depending on the state.
+   */
+  description?: string;
   /**
    * The ref to the HTML DOM button element
    */
   ref?: Ref<HTMLButtonElement>;
 }
 
-const textWrapperStyles = ({ theme }: StyleProps) => css`
+const labelStyles = ({ theme }: StyleProps) => css`
   display: block;
   margin-left: ${theme.spacings.kilo};
   cursor: pointer;
@@ -48,19 +56,16 @@ const textWrapperStyles = ({ theme }: StyleProps) => css`
     margin-left: 0;
     margin-right: ${theme.spacings.kilo};
   }
+
+  .${CLASS_DISABLED} & {
+    color: var(--cui-fg-normal-disabled);
+  }
 `;
 
-const ToggleTextWrapper = styled('label')(textWrapperStyles);
+// This component is rendered as a `label` element below.
+const ToggleLabel = styled(Body)<{ htmlFor: string }>(labelStyles);
 
-const explanationStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.n700};
-`;
-
-const ToggleExplanation = styled(Body)<BodyProps>(explanationStyles);
-
-type WrapperElProps = Pick<ToggleProps, 'disabled'>;
-
-const wrapperStyles = ({ theme }: StyleProps) => css`
+const wrapperStyles = (theme: Theme) => css`
   display: flex;
   align-items: flex-start;
 
@@ -70,13 +75,20 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const ToggleWrapper = styled(FieldWrapper)<WrapperElProps>(wrapperStyles);
-
 /**
  * A toggle component with support for labels and additional explanations.
  */
 export const Toggle = forwardRef(
-  ({ label, explanation, ...props }: ToggleProps, ref: ToggleProps['ref']) => {
+  (
+    {
+      label,
+      explanation,
+      description,
+      'aria-describedby': describedBy,
+      ...props
+    }: ToggleProps,
+    ref: ToggleProps['ref'],
+  ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -87,16 +99,35 @@ export const Toggle = forwardRef(
 
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
+    const descriptionId =
+      description || explanation ? uniqueId('toggle-explanation_') : '';
+
+    const descriptionIds = [describedBy, descriptionId]
+      .filter(Boolean)
+      .join(' ');
     return (
-      <ToggleWrapper disabled={props.disabled}>
-        <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
-        <ToggleTextWrapper id={labelId} htmlFor={switchId}>
-          <Body>{label}</Body>
-          {explanation && (
-            <ToggleExplanation size="two">{explanation}</ToggleExplanation>
+      <FieldWrapper disabled={props.disabled} css={wrapperStyles}>
+        <Switch
+          {...props}
+          aria-labelledby={labelId}
+          aria-describedby={descriptionIds}
+          id={switchId}
+          ref={ref}
+        />
+        <ToggleLabel as="label" id={labelId} htmlFor={switchId}>
+          {label}
+          {(description || explanation) && (
+            <FieldDescription aria-hidden="true">
+              {description || explanation}
+            </FieldDescription>
           )}
-        </ToggleTextWrapper>
-      </ToggleWrapper>
+        </ToggleLabel>
+        {(description || explanation) && (
+          <p id={descriptionId} css={hideVisually}>
+            {description || explanation}
+          </p>
+        )}
+      </FieldWrapper>
     );
   },
 );

@@ -84,10 +84,7 @@ function SecondaryLink({
             {label}
           </Body>
         </Skeleton>
-        {badge && (
-          // @ts-expect-error The as prop isn't typed here, safe to ignore
-          <Badge variant="promo" as="span" {...badge} />
-        )}
+        {badge && <Badge variant="promo" as="span" {...badge} />}
       </SecondaryAnchor>
     </li>
   );
@@ -126,6 +123,9 @@ function SecondaryGroup({
 
 export interface SecondaryLinksProps {
   secondaryGroups: SecondaryGroupProps[];
+  /**
+   * @deprecated
+   */
   trackingLabel?: string;
 }
 

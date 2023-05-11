@@ -20,7 +20,7 @@ import { render, axe, userEvent } from '../../util/test-utils';
 import { Checkbox } from './Checkbox';
 
 const defaultProps = {
-  children: 'Label',
+  label: 'Label',
   onChange: jest.fn(),
 };
 
@@ -92,7 +92,7 @@ describe('Checkbox', () => {
         const { getByRole } = render(<Checkbox {...defaultProps} />);
         const inputEl = getByRole('checkbox');
 
-        expect(inputEl).toHaveAccessibleName(defaultProps.children);
+        expect(inputEl).toHaveAccessibleName(defaultProps.label);
       });
 
       it('should optionally have an accessible description', () => {

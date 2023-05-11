@@ -16,24 +16,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import { createSerializer } from '@emotion/jest';
 import { toHaveNoViolations } from 'jest-axe';
-import { fireEvent } from '@testing-library/react';
-
-import {
-  create,
-  render,
-  renderToHtml,
-  act,
-  userEvent,
-  axe,
-} from './util/test-utils';
-
-global.axe = axe;
-global.act = act;
-global.fireEvent = fireEvent;
-global.userEvent = userEvent;
-global.render = render;
-global.renderToHtml = renderToHtml;
-global.create = create;
 
 // Add custom matchers
 expect.extend(toHaveNoViolations);

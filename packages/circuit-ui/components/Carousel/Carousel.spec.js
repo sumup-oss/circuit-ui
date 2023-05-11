@@ -13,60 +13,64 @@
  * limitations under the License.
  */
 
+import { axe, render } from '../../util/test-utils';
+
 import Carousel from './Carousel';
 import { SLIDES } from './__fixtures__';
 
 describe('Carousel', () => {
   describe('styles', () => {
     it('should not render without slides data', () => {
-      const actual = create(<Carousel />);
+      const { container } = render(<Carousel />);
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with default styles', () => {
-      const actual = create(<Carousel slides={SLIDES} />);
+      const { container } = render(<Carousel slides={SLIDES} />);
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with default paused styles', () => {
-      const actual = create(<Carousel slides={SLIDES} autoPlay={false} />);
+      const { container } = render(
+        <Carousel slides={SLIDES} autoPlay={false} />,
+      );
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with children as a function', () => {
-      const actual = create(
+      const { container } = render(
         <Carousel slides={SLIDES}>
           {({ state }) => <h1>Carousel heading for step #{state.step}</h1>}
         </Carousel>,
       );
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with children as a node', () => {
-      const actual = create(
+      const { container } = render(
         <Carousel slides={SLIDES}>
           <h1>Carousel heading</h1>
         </Carousel>,
       );
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it('should render without controls', () => {
-      const actual = create(<Carousel hideControls />);
+      const { container } = render(<Carousel hideControls />);
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Carousel slides={SLIDES} />);
-      const actual = await axe(wrapper);
+      const { container } = render(<Carousel slides={SLIDES} />);
+      const actual = await axe(container);
 
       expect(actual).toHaveNoViolations();
     });

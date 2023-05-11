@@ -156,6 +156,11 @@
       "size": "24"
     },
     {
+      "name": "more_circle",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "pause",
       "category": "Action",
       "size": "24"
@@ -221,6 +226,16 @@
       "size": "16"
     },
     {
+      "name": "stop",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "stop",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "upload",
       "category": "Action",
       "size": "24"
@@ -276,7 +291,17 @@
       "size": "24"
     },
     {
+      "name": "bancontact",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "bitcoin",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "blik",
       "category": "Payment method",
       "size": "24"
     },
@@ -316,6 +341,21 @@
       "size": "24"
     },
     {
+      "name": "eps",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "faster_payments",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "giropay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "filter",
       "category": "Action",
       "size": "24"
@@ -324,6 +364,11 @@
       "name": "filter",
       "category": "Action",
       "size": "16"
+    },
+    {
+      "name": "flip_camera",
+      "category": "Action",
+      "size": "24"
     },
     {
       "name": "google_pay",
@@ -337,6 +382,11 @@
     },
     {
       "name": "hipercard",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "ideal",
       "category": "Payment method",
       "size": "24"
     },
@@ -361,6 +411,11 @@
       "size": "24"
     },
     {
+      "name": "mybank",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "nfc_payment",
       "category": "Payment method",
       "size": "24"
@@ -371,12 +426,27 @@
       "size": "24"
     },
     {
+      "name": "post_finance",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "przelewy24",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "red_compra",
       "category": "Payment method",
       "size": "24"
     },
     {
       "name": "samsung_pay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "satispay",
       "category": "Payment method",
       "size": "24"
     },
@@ -756,6 +826,11 @@
       "size": "24"
     },
     {
+      "name": "card_reader_solo_lite",
+      "category": "Device",
+      "size": "24"
+    },
+    {
       "name": "laptop",
       "category": "Device",
       "size": "24"
@@ -776,6 +851,11 @@
       "size": "24"
     },
     {
+      "name": "tablet",
+      "category": "Device",
+      "size": "24"
+    },
+    {
       "name": "wifi",
       "category": "Device",
       "size": "24"
@@ -791,6 +871,21 @@
       "size": "24"
     },
     {
+      "name": "credit_note",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "delivery_note",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "electronic_invoice",
+      "category": "File",
+      "size": "24"
+    },
+    {
       "name": "file",
       "category": "File",
       "size": "24"
@@ -802,6 +897,11 @@
     },
     {
       "name": "image",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "recurring_invoice",
       "category": "File",
       "size": "24"
     },
@@ -846,12 +946,27 @@
       "size": "24"
     },
     {
+      "name": "no_costs",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
       "name": "barcode",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
+      "name": "basket",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "battery",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "briefcase",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -876,7 +991,17 @@
       "size": "16"
     },
     {
+      "name": "clothing",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "company",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "customize",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -886,12 +1011,22 @@
       "size": "24"
     },
     {
+      "name": "favorite",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
       "name": "gauge",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
       "name": "globe",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "health",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -912,6 +1047,11 @@
     },
     {
       "name": "location",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "mcc",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -952,6 +1092,11 @@
     },
     {
       "name": "secure_payments",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "services",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -1011,6 +1156,16 @@
       "size": "24"
     },
     {
+      "name": "active",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "active",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
       "name": "alert",
       "category": "Notification",
       "size": "24"
@@ -1067,6 +1222,26 @@
     },
     {
       "name": "notify_circle",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "paused",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "paused",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "stopped",
+      "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "stopped",
       "category": "Notification",
       "size": "16"
     },
@@ -1141,6 +1316,11 @@
       "size": "24"
     },
     {
+      "name": "payment_link",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "payment_methods",
       "category": "Product and feature",
       "size": "24"
@@ -1152,6 +1332,11 @@
     },
     {
       "name": "pix",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "promote",
       "category": "Product and feature",
       "size": "24"
     },

@@ -1,0 +1,22 @@
+import { Meta } from '../../.storybook/components';
+
+<Meta title="Contributing/Browser Support" />
+
+# Browser Support (For Contributors)
+
+As a Circuit UI contributor, it is important to keep [`Browser Support`](Introduction/Browser-Support/Docs) in mind.
+
+## Context
+
+Circuit UI is built with [TypeScript](https://www.typescriptlang.org/) (and not [Babel](https://babeljs.io/)). TypeScript has limited options when it comes to transpiling code: [the compiler can only target JavaScript versions](https://www.typescriptlang.org/tsconfig#target), which generally don't match which features are actually supported by a given set of browsers.
+
+Circuit UI's [current browser support policy](Introduction/Browser-Support/Docs) supports [`es2017`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) (a.k.a. `es8`) entirely. Therefore, TypeScript is configured to compile Circuit UI for `es2017` (see [`tsconfig.json`](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/tsconfig.json)).
+
+## What features to avoid
+
+All JavaScript features up to `es2017` can be safely used in Circuit UI. Do not use `es2018` features such as:
+
+- [The spread syntax in object literals](https://caniuse.com/mdn-javascript_operators_spread_spread_in_object_literals) (not supported by Safari iOS 11.0 and Safari macOS 11.1)
+- [`Promise.finally()`](https://caniuse.com/promise-finally) (not supported by Safari iOS 11.0 and Safari macOS 11.1)
+
+Newer JavaScript _syntax_, such as [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining), can be used and will be transpiled by TypeScript.

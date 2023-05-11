@@ -19,13 +19,9 @@ import Body from '../../components/Body';
 import Button from '../../components/Button';
 
 import { useEscapeKey } from './useEscapeKey';
-import docs from './useEscapeKey.docs.mdx';
 
 export default {
   title: 'Hooks/useEscapeKey',
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 export const Example = () => {

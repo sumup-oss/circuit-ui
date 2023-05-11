@@ -16,8 +16,8 @@
 import { useState } from 'react';
 
 import Avatar from '../Avatar';
+import { Stack } from '../../../../.storybook/components';
 
-import docs from './ImageInput.docs.mdx';
 import { ImageInputProps } from './ImageInput';
 
 import ImageInput from '.';
@@ -25,9 +25,6 @@ import ImageInput from '.';
 export default {
   title: 'Forms/ImageInput',
   component: ImageInput,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 export const Base = (args: ImageInputProps): JSX.Element => (
@@ -41,6 +38,7 @@ Base.args = {
   onClear: () => {},
   loadingLabel: 'Uploading',
   component: Avatar,
+  disabled: false,
 };
 
 export const WithImage = (): JSX.Element => (
@@ -55,20 +53,32 @@ export const WithImage = (): JSX.Element => (
   />
 );
 
-export const AsGigaAvatar = (): JSX.Element => (
-  <ImageInput
-    label="Upload an image"
-    clearButtonLabel="Clear"
-    onChange={() => Promise.resolve()}
-    onClear={() => {}}
-    loadingLabel="Uploading"
-    component={({ src, alt }) => <Avatar src={src} alt={alt} size="giga" />}
-    size="giga"
-  />
+export const Sizes = (): JSX.Element => (
+  <Stack>
+    <ImageInput
+      label="Upload an image"
+      clearButtonLabel="Clear"
+      onChange={() => Promise.resolve()}
+      onClear={() => {}}
+      loadingLabel="Uploading"
+      component={(props) => <Avatar {...props} size="yotta" />}
+      size="yotta"
+    />
+    <ImageInput
+      label="Upload an image"
+      clearButtonLabel="Clear"
+      onChange={() => Promise.resolve()}
+      onClear={() => {}}
+      loadingLabel="Uploading"
+      component={(props) => <Avatar {...props} size="giga" />}
+      size="giga"
+    />
+  </Stack>
 );
 
-export const Invalid = (): JSX.Element => (
+export const Invalid = (args: ImageInputProps): JSX.Element => (
   <ImageInput
+    {...args}
     label="Upload an image"
     clearButtonLabel="Clear"
     src="/images/illustration-coffee.jpg"
@@ -76,6 +86,19 @@ export const Invalid = (): JSX.Element => (
     onClear={() => {}}
     invalid
     validationHint="The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB."
+    loadingLabel="Uploading"
+    component={Avatar}
+  />
+);
+
+export const Disabled = (args: ImageInputProps): JSX.Element => (
+  <ImageInput
+    {...args}
+    label="Upload an image"
+    clearButtonLabel="Clear"
+    onChange={() => Promise.resolve()}
+    onClear={() => {}}
+    disabled
     loadingLabel="Uploading"
     component={Avatar}
   />

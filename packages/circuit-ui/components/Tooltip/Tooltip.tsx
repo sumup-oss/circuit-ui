@@ -24,8 +24,8 @@ const baseStyles = ({ theme }: StyleProps) => css`
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: ${theme.colors.n900};
-  color: ${theme.colors.white};
+  background-color: var(--cui-bg-strong);
+  color: var(--cui-fg-on-strong);
   border-radius: ${theme.borderRadius.bit};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
   position: absolute;
@@ -64,7 +64,7 @@ const getPositionStyles = ({
 
     &::after {
       ${position}: 100%;
-      border-${position}-color: ${theme.colors.n900};
+      border-${position}-color: var(--cui-bg-strong);
     }
   `;
 };

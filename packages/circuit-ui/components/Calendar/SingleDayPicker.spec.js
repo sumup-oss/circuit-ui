@@ -13,16 +13,18 @@
  * limitations under the License.
  */
 
+import { render } from '../../util/test-utils';
+
 import { SingleDayPicker } from '.';
 
-const props = { onDateChange: () => {}, onFocusChange: () => {} };
+const props = { onDateChange: jest.fn(), onFocusChange: jest.fn() };
 
 describe('SingleDayPicker', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<SingleDayPicker {...props} />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<SingleDayPicker {...props} />);
+    expect(container).toMatchSnapshot();
   });
 });

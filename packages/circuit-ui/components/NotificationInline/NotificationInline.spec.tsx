@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { createRef } from 'react';
+
 import { axe, render, userEvent, waitFor } from '../../util/test-utils';
 
 import {
@@ -47,8 +49,11 @@ describe('NotificationInline', () => {
 
     const variants: NotificationInlineProps['variant'][] = [
       'info',
+      'success',
       'confirm',
+      'warning',
       'notify',
+      'danger',
       'alert',
     ];
 
@@ -101,6 +106,15 @@ describe('NotificationInline', () => {
         },
       });
       expect(baseElement).toMatchSnapshot();
+    });
+
+    it('should accept a working ref', () => {
+      const ref = createRef<HTMLDivElement>();
+      const { container } = render(
+        <NotificationInline ref={ref} {...baseProps} />,
+      );
+      const wrapper = container.querySelector('div');
+      expect(ref.current).toBe(wrapper);
     });
   });
 

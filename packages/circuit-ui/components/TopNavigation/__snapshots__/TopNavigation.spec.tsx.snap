@@ -31,8 +31,8 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   align-items: center;
   width: 100%;
   height: 57px;
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
 }
 
 @media (min-width: 1280px) {
@@ -88,9 +88,9 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -99,12 +99,12 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   padding: 12px;
   padding: 16px;
   border-radius: 0;
-  border-right: 1px solid #CCC!important;
+  border-right: 1px solid var(--cui-border-divider)!important;
 }
 
 .circuit-3:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-3:focus::-moz-focus-inner {
@@ -117,26 +117,33 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 
 .circuit-3:disabled,
 .circuit-3[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-3:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-3:active,
 .circuit-3[aria-expanded='true'],
 .circuit-3[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-3:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-3:focus::-moz-focus-inner {
@@ -274,7 +281,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 .circuit-10 a:focus,
 .circuit-10 button:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-10 a:focus::-moz-focus-inner,
@@ -288,7 +295,7 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
 }
 
 .circuit-10 svg {
-  color: #000;
+  color: var(--cui-fg-normal);
   height: 24px;
 }
 
@@ -334,8 +341,8 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   align-items: center;
   border: none;
   outline: none;
-  color: #1A1A1A;
-  background-color: #FFF;
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-normal);
   text-align: left;
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
@@ -344,20 +351,22 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   text-decoration: none;
   height: 100%;
   padding: 0 16px;
-  border-left: 1px solid #CCC;
+  border-left: 1px solid var(--cui-border-divider);
 }
 
 .circuit-13:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-13:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-13:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-13:focus::-moz-focus-inner {
@@ -368,10 +377,11 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   box-shadow: none;
 }
 
-.circuit-13:disabled {
-  opacity: 0.5;
+.circuit-13:disabled,
+.circuit-13[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-14 {
@@ -430,28 +440,30 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   align-items: center;
   border: none;
   outline: none;
-  color: #1A1A1A;
-  background-color: #FFF;
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-normal);
   text-align: left;
   cursor: pointer;
   -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
   height: 100%;
   padding: 0 16px;
-  border-left: 1px solid #CCC;
+  border-left: 1px solid var(--cui-border-divider);
 }
 
 .circuit-18:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-18:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
 }
 
 .circuit-18:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 4px #AFD0FE;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-18:focus::-moz-focus-inner {
@@ -462,10 +474,11 @@ exports[`TopNavigation styles should match the snapshot 1`] = `
   box-shadow: none;
 }
 
-.circuit-18:disabled {
-  opacity: 0.5;
+.circuit-18:disabled,
+.circuit-18[disabled] {
   pointer-events: none;
-  box-shadow: none;
+  background-color: var(--cui-bg-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 767px) {

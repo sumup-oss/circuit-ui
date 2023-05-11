@@ -77,7 +77,9 @@ export interface BaseProps {
    */
   disabled?: boolean;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onClick` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
   /**
@@ -98,6 +100,7 @@ const itemWrapperStyles = () => css`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  text-align: left;
 `;
 
 const PopoverItemWrapper = styled('button', {
@@ -138,10 +141,10 @@ const TriggerElement = styled.div`
 
 const menuBaseStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.byte} 0px;
-  border: 1px solid ${theme.colors.n200};
+  border: 1px solid var(--cui-border-subtle);
   box-sizing: border-box;
   border-radius: ${theme.borderRadius.byte};
-  background-color: ${theme.colors.white};
+  background-color: var(--cui-bg-elevated);
   visibility: hidden;
   opacity: 0;
 
@@ -186,7 +189,7 @@ const overlayStyles = ({ theme }: StyleProps) => css`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: ${theme.colors.overlay};
+    background-color: var(--cui-bg-overlay);
     visibility: hidden;
     opacity: 0;
     transition: opacity ${theme.transitions.default},
@@ -226,7 +229,7 @@ export interface PopoverProps {
    */
   isOpen: boolean;
   /**
-   * Function that is called when toggles the Popover.
+   * Function that is called when opening and closing the Popover.
    */
   onToggle: OnToggle;
   /**
@@ -263,7 +266,9 @@ export interface PopoverProps {
     'aria-expanded': boolean;
   }) => JSX.Element;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onToggle` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
 }
@@ -290,14 +295,13 @@ export const Popover = ({
 
   const sendEvent = useClickTrigger();
 
-  const { x, y, reference, floating, strategy, refs, update } =
-    useFloating<HTMLElement>({
-      placement,
-      strategy: 'fixed',
-      middleware: offset
-        ? [offsetMiddleware(offset), flip({ fallbackPlacements })]
-        : [flip({ fallbackPlacements })],
-    });
+  const { x, y, strategy, refs, update } = useFloating<HTMLElement>({
+    placement,
+    strategy: 'fixed',
+    middleware: offset
+      ? [offsetMiddleware(offset), flip({ fallbackPlacements })]
+      : [flip({ fallbackPlacements })],
+  });
 
   // This is a performance optimization to prevent event listeners from being
   // re-attached on every render.
@@ -411,7 +415,7 @@ export const Popover = ({
 
   return (
     <Fragment>
-      <TriggerElement ref={reference}>
+      <TriggerElement ref={refs.setReference}>
         <Component
           id={triggerId}
           aria-haspopup={true}
@@ -428,15 +432,15 @@ export const Popover = ({
         />
         <FloatingElement
           {...props}
-          ref={floating}
+          ref={refs.setFloating}
           isOpen={isOpen}
           style={
             isMobile
               ? mobileStyles
               : {
                   position: strategy,
-                  top: y ?? 0,
-                  left: x ?? 0,
+                  top: y,
+                  left: x,
                   zIndex: zIndex || theme.zIndex.popover,
                 }
           }

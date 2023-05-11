@@ -13,29 +13,31 @@
  * limitations under the License.
  */
 
+import { render } from '../../util/test-utils';
+
 import AspectRatio from './AspectRatio';
 
 describe('AspectRatio', () => {
   it('should render with default styles', () => {
-    const actual = create(
+    const { container } = render(
       <AspectRatio>
         <div />
       </AspectRatio>,
     );
-    expect(actual).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with fixed aspect ratio styles', () => {
-    const actual = create(
+    const { container } = render(
       <AspectRatio aspectRatio={1.618}>
         <div />
       </AspectRatio>,
     );
-    expect(actual).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should not render without children', () => {
-    const actual = create(<AspectRatio spectRatio={1.618} />);
-    expect(actual).toBeNull();
+    const { container } = render(<AspectRatio aspectRatio={1.618} />);
+    expect(container.firstChild).toBeNull();
   });
 });

@@ -61,7 +61,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   padding: calc(12px - 1px) calc(24px - 1px);
   background-color: transparent;
   border-color: transparent;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   padding-left: 0;
   padding-right: 0;
   position: relative;
@@ -75,7 +75,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -88,19 +88,28 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
-  color: #234BC3;
+  color: var(--cui-fg-accent-hovered);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  color: #1A368E;
+  color: var(--cui-fg-accent-pressed);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  color: var(--cui-fg-accent-disabled);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .circuit-2 {
@@ -187,9 +196,9 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #3063E9;
-  border-color: #3063E9;
-  color: #FFF;
+  background-color: var(--cui-bg-accent-strong);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong);
   padding: calc(4px - 1px) calc(16px - 1px);
   position: relative;
   overflow: hidden;
@@ -200,7 +209,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 
 .circuit-7:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-7:focus::-moz-focus-inner {
@@ -213,21 +222,28 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-7:hover {
-  background-color: #234BC3;
-  border-color: #234BC3;
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-hovered);
 }
 
 .circuit-7:active,
 .circuit-7[aria-expanded='true'],
 .circuit-7[aria-pressed='true'] {
-  background-color: #1A368E;
-  border-color: #1A368E;
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-pressed);
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: transparent;
+  color: var(--cui-fg-on-strong-disabled);
 }
 
 li:last-child .circuit-7 {
@@ -261,7 +277,7 @@ li:last-child .circuit-7 {
   padding: calc(4px - 1px) calc(16px - 1px);
   background-color: transparent;
   border-color: transparent;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   padding-left: 0;
   padding-right: 0;
   position: relative;
@@ -273,7 +289,7 @@ li:last-child .circuit-7 {
 
 .circuit-11:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-11:focus::-moz-focus-inner {
@@ -286,19 +302,28 @@ li:last-child .circuit-7 {
 
 .circuit-11:disabled,
 .circuit-11[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-11:hover {
-  color: #234BC3;
+  color: var(--cui-fg-accent-hovered);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .circuit-11:active,
 .circuit-11[aria-expanded='true'],
 .circuit-11[aria-pressed='true'] {
-  color: #1A368E;
+  color: var(--cui-fg-accent-pressed);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.circuit-11:disabled,
+.circuit-11[disabled] {
+  color: var(--cui-fg-accent-disabled);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 li:last-child .circuit-11 {
@@ -332,7 +357,7 @@ li:last-child .circuit-11 {
   padding: calc(12px - 1px) calc(24px - 1px);
   background-color: transparent;
   border-color: transparent;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   padding-left: 0;
   padding-right: 0;
   position: relative;
@@ -346,7 +371,7 @@ li:last-child .circuit-11 {
 
 .circuit-27:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-27:focus::-moz-focus-inner {
@@ -359,19 +384,28 @@ li:last-child .circuit-11 {
 
 .circuit-27:disabled,
 .circuit-27[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-27:hover {
-  color: #234BC3;
+  color: var(--cui-fg-accent-hovered);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .circuit-27:active,
 .circuit-27[aria-expanded='true'],
 .circuit-27[aria-pressed='true'] {
-  color: #1A368E;
+  color: var(--cui-fg-accent-pressed);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.circuit-27:disabled,
+.circuit-27[disabled] {
+  color: var(--cui-fg-accent-disabled);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 <nav
@@ -622,7 +656,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   padding: calc(12px - 1px) calc(24px - 1px);
   background-color: transparent;
   border-color: transparent;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   padding-left: 0;
   padding-right: 0;
   position: relative;
@@ -636,7 +670,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 
 .circuit-1:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-1:focus::-moz-focus-inner {
@@ -649,19 +683,28 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-1:hover {
-  color: #234BC3;
+  color: var(--cui-fg-accent-hovered);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .circuit-1:active,
 .circuit-1[aria-expanded='true'],
 .circuit-1[aria-pressed='true'] {
-  color: #1A368E;
+  color: var(--cui-fg-accent-pressed);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  color: var(--cui-fg-accent-disabled);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .circuit-2 {
@@ -712,6 +755,10 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
+.circuit-6.cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-7 {
   display: block;
   font-size: 0.875rem;
@@ -732,8 +779,12 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   width: 1px;
 }
 
+.cui-field-disabled .circuit-8 {
+  color: var(--cui-fg-normal-disabled);
+}
+
 .circuit-10 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
@@ -746,12 +797,12 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: 12px;
   padding-right: 48px;
@@ -765,7 +816,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   white-space: nowrap;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px #999;
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
 .circuit-11:-moz-focusring {
@@ -778,19 +829,19 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-11:hover {
-  box-shadow: 0 0 0 1px #666;
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
 .circuit-11:focus {
-  box-shadow: 0 0 0 2px #3063E9;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
 .circuit-11:active {
-  box-shadow: 0 0 0 1px #3063E9;
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 .circuit-12 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -807,7 +858,7 @@ select:active~.circuit-12 {
 }
 
 .circuit-13 {
-  color: #666;
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -854,7 +905,7 @@ select:not(:active)~.circuit-13 {
   padding: calc(12px - 1px) calc(24px - 1px);
   background-color: transparent;
   border-color: transparent;
-  color: #3063E9;
+  color: var(--cui-fg-accent);
   padding-left: 0;
   padding-right: 0;
   position: relative;
@@ -868,7 +919,7 @@ select:not(:active)~.circuit-13 {
 
 .circuit-15:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-15:focus::-moz-focus-inner {
@@ -881,19 +932,28 @@ select:not(:active)~.circuit-13 {
 
 .circuit-15:disabled,
 .circuit-15[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-15:hover {
-  color: #234BC3;
+  color: var(--cui-fg-accent-hovered);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .circuit-15:active,
 .circuit-15[aria-expanded='true'],
 .circuit-15[aria-pressed='true'] {
-  color: #1A368E;
+  color: var(--cui-fg-accent-pressed);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.circuit-15:disabled,
+.circuit-15[disabled] {
+  color: var(--cui-fg-accent-disabled);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 <nav
@@ -937,7 +997,7 @@ select:not(:active)~.circuit-13 {
     </span>
   </button>
   <div
-    class="circuit-6"
+    class=" circuit-6"
   >
     <label
       class="circuit-7"

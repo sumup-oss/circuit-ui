@@ -1,0 +1,373 @@
+import {
+  Intro,
+  Meta,
+  Preview,
+  Spacing,
+  IconSize,
+  BorderRadius,
+  BorderWidth,
+  Type,
+  MediaQueriesTable,
+  ColorsTable,
+} from '../../.storybook/components';
+import { Headline, SubHeadline, Body } from '@sumup/circuit-ui';
+
+<Meta title="Features/Theme" />
+
+# Theme
+
+<Intro>
+
+The theme used throughout Circuit UI comes from SumUp's design token library, [`@sumup/design-tokens`](Packages/design-tokens/Docs), which is a required peer dependency of `@sumup/circuit-ui`. Refer to its [documentation](Packages/design-tokens/Docs) for usage instructions.
+
+</Intro>
+
+## Colors
+
+Circuit UI colors have moved from color scales (e.g. `g900`) to semantic color tokens (e.g. `fg-success`). This makes theme customizations easier and more reliable, and enables theming for sub-brands or for supporting multiple color modes. For details and usage guidelines, refer to the [Figma documentation](https://www.figma.com/file/OgPQeoNZ2QoY7hZvy0ybk2/%F0%9F%8C%88-COLOR-TOKENS?node-id=913%3A3903&t=b9BsTOJnzKDomZ9E-4) (_internal link_). Uses of legacy colors (e.g. `color: ${theme.colors.g900};`) should be replaced with semantic color tokens (e.g. `color: --cui-fg-success`).
+
+While legacy colors are part of the JS theme (exported from `@sumup/design-tokens`), semantic color tokens are declared as [CSS custom properties](https://www.w3.org/TR/css-variables-1/) (CSS variables). This has performance benefits over CSS-in-JS theming. The custom properties are declared in the Circuit UI `BaseStyles` from version 6.1.0. Eventually, all design tokens will be declared as CSS custom properties and imported as a CSS stylesheet.
+
+To make it easier to work with custom properties, we recommend using the [`@sumup/eslint-plugin-circuit-ui`](Packages/eslint-plugin-circuit-ui/Docs) ESLint plugin, and turning on the `no-invalid-custom-properties` rule.
+
+### Background colors
+
+<ColorsTable
+  customProperties={[
+    /* Neutral backgrounds */
+    '--cui-bg-normal',
+    '--cui-bg-normal-hovered',
+    '--cui-bg-normal-pressed',
+    '--cui-bg-normal-disabled',
+    '--cui-bg-subtle',
+    '--cui-bg-subtle-hovered',
+    '--cui-bg-subtle-pressed',
+    '--cui-bg-subtle-disabled',
+    '--cui-bg-highlight',
+    '--cui-bg-highlight-hovered',
+    '--cui-bg-highlight-pressed',
+    '--cui-bg-highlight-disabled',
+    '--cui-bg-strong',
+    '--cui-bg-strong-hovered',
+    '--cui-bg-strong-pressed',
+    '--cui-bg-strong-disabled',
+    /* Accent backgrounds */
+    '--cui-bg-accent',
+    '--cui-bg-accent-hovered',
+    '--cui-bg-accent-pressed',
+    '--cui-bg-accent-disabled',
+    '--cui-bg-accent-strong',
+    '--cui-bg-accent-strong-hovered',
+    '--cui-bg-accent-strong-pressed',
+    '--cui-bg-accent-strong-disabled',
+    /* Success backgrounds */
+    '--cui-bg-success',
+    '--cui-bg-success-hovered',
+    '--cui-bg-success-pressed',
+    '--cui-bg-success-disabled',
+    '--cui-bg-success-strong',
+    '--cui-bg-success-strong-hovered',
+    '--cui-bg-success-strong-pressed',
+    '--cui-bg-success-strong-disabled',
+    /* Warning backgrounds */
+    '--cui-bg-warning',
+    '--cui-bg-warning-hovered',
+    '--cui-bg-warning-pressed',
+    '--cui-bg-warning-disabled',
+    '--cui-bg-warning-strong',
+    '--cui-bg-warning-strong-hovered',
+    '--cui-bg-warning-strong-pressed',
+    '--cui-bg-warning-strong-disabled',
+    /* Danger backgrounds */
+    '--cui-bg-danger',
+    '--cui-bg-danger-hovered',
+    '--cui-bg-danger-pressed',
+    '--cui-bg-danger-disabled',
+    '--cui-bg-danger-strong',
+    '--cui-bg-danger-strong-hovered',
+    '--cui-bg-danger-strong-pressed',
+    '--cui-bg-danger-strong-disabled',
+    /* Promo backgrounds */
+    '--cui-bg-promo',
+    '--cui-bg-promo-hovered',
+    '--cui-bg-promo-pressed',
+    '--cui-bg-promo-disabled',
+    '--cui-bg-promo-strong',
+    '--cui-bg-promo-strong-hovered',
+    '--cui-bg-promo-strong-pressed',
+    '--cui-bg-promo-strong-disabled',
+  ]}
+/>
+
+### Foreground colors
+
+<ColorsTable
+  customProperties={[
+    /* Neutral foregrounds */
+    '--cui-fg-normal',
+    '--cui-fg-normal-hovered',
+    '--cui-fg-normal-pressed',
+    '--cui-fg-normal-disabled',
+    '--cui-fg-subtle',
+    '--cui-fg-subtle-hovered',
+    '--cui-fg-subtle-pressed',
+    '--cui-fg-subtle-disabled',
+    '--cui-fg-placeholder',
+    '--cui-fg-placeholder-hovered',
+    '--cui-fg-placeholder-pressed',
+    '--cui-fg-placeholder-disabled',
+    '--cui-fg-on-strong',
+    '--cui-fg-on-strong-hovered',
+    '--cui-fg-on-strong-pressed',
+    '--cui-fg-on-strong-disabled',
+    /* Accent foregrounds */
+    '--cui-fg-accent',
+    '--cui-fg-accent-hovered',
+    '--cui-fg-accent-pressed',
+    '--cui-fg-accent-disabled',
+    /* Success foregrounds */
+    '--cui-fg-success',
+    '--cui-fg-success-hovered',
+    '--cui-fg-success-pressed',
+    '--cui-fg-success-disabled',
+    /* Warning foregrounds */
+    '--cui-fg-warning',
+    '--cui-fg-warning-hovered',
+    '--cui-fg-warning-pressed',
+    '--cui-fg-warning-disabled',
+    /* Danger foregrounds */
+    '--cui-fg-danger',
+    '--cui-fg-danger-hovered',
+    '--cui-fg-danger-pressed',
+    '--cui-fg-danger-disabled',
+    /* Promo foregrounds */
+    '--cui-fg-promo',
+    '--cui-fg-promo-hovered',
+    '--cui-fg-promo-pressed',
+    '--cui-fg-promo-disabled',
+  ]}
+/>
+
+### Border colors
+
+<ColorsTable
+  customProperties={[
+    /* Neutral borders */
+    '--cui-border-normal',
+    '--cui-border-normal-hovered',
+    '--cui-border-normal-pressed',
+    '--cui-border-normal-disabled',
+    '--cui-border-subtle',
+    '--cui-border-subtle-hovered',
+    '--cui-border-subtle-pressed',
+    '--cui-border-subtle-disabled',
+    '--cui-border-divider',
+    '--cui-border-divider-hovered',
+    '--cui-border-divider-pressed',
+    '--cui-border-divider-disabled',
+    '--cui-border-strong',
+    '--cui-border-strong-hovered',
+    '--cui-border-strong-pressed',
+    '--cui-border-strong-disabled',
+    /* Accent borders */
+    '--cui-border-accent',
+    '--cui-border-accent-hovered',
+    '--cui-border-accent-pressed',
+    '--cui-border-accent-disabled',
+    /* Success borders */
+    '--cui-border-success',
+    '--cui-border-success-hovered',
+    '--cui-border-success-pressed',
+    '--cui-border-success-disabled',
+    /* Warning borders */
+    '--cui-border-warning',
+    '--cui-border-warning-hovered',
+    '--cui-border-warning-pressed',
+    '--cui-border-warning-disabled',
+    /* Danger borders */
+    '--cui-border-danger',
+    '--cui-border-danger-hovered',
+    '--cui-border-danger-pressed',
+    '--cui-border-danger-disabled',
+    /* Promo borders */
+    '--cui-border-promo',
+    '--cui-border-promo-hovered',
+    '--cui-border-promo-pressed',
+    '--cui-border-promo-disabled',
+  ]}
+/>
+
+### Special colors
+
+<ColorsTable
+  customProperties={[
+    /* Special colors */
+    '--cui-bg-overlay',
+    '--cui-bg-elevated',
+    '--cui-border-focus',
+  ]}
+/>
+
+## Spacings
+
+```
+theme.spacings.[bit|byte|kilo|mega|giga|tera|peta|exa|zetta]
+```
+
+Use spacings for gutters, margins, and paddings. Don't use it for border width, border radius, icon size, font size, or line height. Use the dedicated theme properties instead.
+
+<Preview>
+  <Spacing spacingName="bit" />
+  <Spacing spacingName="byte" />
+  <Spacing spacingName="kilo" />
+  <Spacing spacingName="mega" />
+  <Spacing spacingName="giga" />
+  <Spacing spacingName="tera" />
+  <Spacing spacingName="peta" />
+  <Spacing spacingName="exa" />
+  <Spacing spacingName="zetta" />
+</Preview>
+
+## Icon sizes
+
+```
+theme.iconSizes.[kilo|mega|giga]
+```
+
+<Preview>
+  <IconSize size="kilo" />
+  <IconSize size="mega" />
+  <IconSize size="giga" />
+</Preview>
+
+## Border radius
+
+```
+theme.borderRadius.[bit|byte|kilo|mega|circle|pill]
+```
+
+<Preview>
+  <BorderRadius size="bit" />
+  <BorderRadius size="byte" />
+  <BorderRadius size="kilo" />
+  <BorderRadius size="mega" />
+  <BorderRadius size="circle" />
+  <BorderRadius size="pill" style={{ height: '16px' }} />
+</Preview>
+
+## Border width
+
+```
+theme.borderWidth.[kilo|mega]
+```
+
+<Preview>
+  <BorderWidth size="kilo" />
+  <BorderWidth size="mega" />
+</Preview>
+
+## Typography
+
+```
+theme.typography.[headline|subHeadline|body].<SIZE_NAME>.[fontSize|lineHeight]
+```
+
+Avoid using `theme.typography` directly in your styles, rather use the specialized components [`Headline`](Typography/Headline/Base), [`SubHeadline`](Typography/SubHeadline/Base), and [`Body`](Typography/Body/Base).
+
+### Headlines
+
+<Preview>
+  <Type size="one" component={Headline} name="headline" />
+  <Type size="two" component={Headline} name="headline" />
+  <Type size="three" component={Headline} name="headline" />
+  <Type size="four" component={Headline} name="headline" />
+</Preview>
+
+### Subheadline
+
+<Preview>
+  <Type component={SubHeadline} name="subHeadline" />
+</Preview>
+
+### Body
+
+<Preview>
+  <Type size="one" component={Body} name="body" />
+  <Type size="two" component={Body} name="body" />
+</Preview>
+
+## Font stack
+
+```
+theme.fontStack.[default|mono]
+```
+
+## Font weight
+
+```
+theme.fontWeight.[regular|bold]
+```
+
+You can only toggle the boldness of `Body`, but not `Headline` or `SubHeadline`.
+
+<Preview>
+  <Type
+    size="one"
+    variant="highlight"
+    component={Body}
+    fontWeight="bold"
+    name="body"
+  />
+  <Type size="one" component={Body} fontWeight="regular" name="body" />
+</Preview>
+
+## Grid
+
+```
+theme.grid.<BREAKPOINT>.[priority|breakpoint|cols|maxWidth|gutter]
+```
+
+Refer to the [grid](Layout/Grid) documentation for an overview of the grid system.
+
+## Breakpoints and media queries
+
+```
+theme.mq.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera]
+theme.breakpoints.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera]
+```
+
+Avoid using `theme.breakpoints` directly, instead use the named media query helpers. The following media queries are available:
+
+<MediaQueriesTable />
+
+### Usage in code
+
+```js
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+
+const ResponsiveDiv = styled.div(
+  ({ theme }) => css`
+    ${theme.mq.mega} {
+      padding-top: ${theme.spacings.peta};
+    }
+  `,
+);
+```
+
+## Transitions
+
+```
+theme.transitions.[default|slow]
+```
+
+For now, there are just two transitions. In the future, when we
+have animations, there may be more :)
+
+## Z-index
+
+```
+theme.zIndex.[default|absolute|input|modal|popover|sidebar|tooltip]
+```
+
+Z-indices for various components to ensure they stack properly.

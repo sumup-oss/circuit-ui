@@ -16,14 +16,11 @@
 import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components';
 import Headline from '../Headline';
 import Body from '../Body';
 import ButtonGroup from '../ButtonGroup';
-
-import docs from './Card.docs.mdx';
 
 import Card, { CardHeader, CardFooter } from '.';
 
@@ -31,9 +28,6 @@ export default {
   title: 'Components/Card',
   component: Card,
   subcomponents: { CardHeader, CardFooter },
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const cardStyles = () => css`
@@ -51,8 +45,8 @@ const squareStyles = () => css`
   max-height: 90vh;
 `;
 
-const contentStyles = (theme: Theme) => css`
-  background: ${theme.colors.n300};
+const contentStyles = css`
+  background: var(--cui-bg-highlight);
   width: 100%;
   height: 118px;
 `;

@@ -23,15 +23,11 @@ import IconButton from '../IconButton';
 import CloseButton from '../CloseButton';
 
 import { Button, ButtonProps } from './Button';
-import docs from './Button.docs.mdx';
 
 export default {
   title: 'Components/Button',
   component: Button,
   subcomponents: { IconButton, CloseButton, ButtonGroup },
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     children: { control: 'text' },
   },
@@ -42,6 +38,7 @@ export const Base = (args: ButtonProps) => <Button {...args} />;
 Base.args = {
   onClick: () => alert('Hello'),
   children: 'Say hello',
+  disabled: false,
 };
 
 export const Variants = (args: ButtonProps) => (

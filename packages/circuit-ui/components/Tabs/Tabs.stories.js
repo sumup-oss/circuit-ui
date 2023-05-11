@@ -15,8 +15,6 @@
 
 import { useState, Fragment } from 'react';
 
-import docs from './Tabs.docs.mdx';
-
 import { Tabs, TabList, TabPanel, Tab } from '.';
 
 export default {
@@ -25,7 +23,6 @@ export default {
   subcomponents: { TabList, TabPanel, Tab },
   parameters: {
     layout: 'fullscreen',
-    docs: { page: docs },
   },
 };
 

@@ -28,7 +28,7 @@ exports[`Themes light should match the snapshot 1`] = `
     "untilTera": "(max-width: 1279px)",
   },
   "colors": {
-    "alert": "#D23F47",
+    "alert": "#DE331D",
     "b100": "#F0F6FF",
     "b200": "#DAEAFF",
     "b300": "#AFD0FE",
@@ -39,7 +39,7 @@ exports[`Themes light should match the snapshot 1`] = `
     "black": "#000",
     "bodyBg": "#FFF",
     "bodyColor": "#1A1A1A",
-    "confirm": "#138849",
+    "confirm": "#018730",
     "g100": "#E4EABB",
     "g200": "#D4DB8F",
     "g300": "#BED630",
@@ -54,7 +54,7 @@ exports[`Themes light should match the snapshot 1`] = `
     "n700": "#666",
     "n800": "#333",
     "n900": "#1A1A1A",
-    "notify": "#F5C625",
+    "notify": "#F5A720",
     "o100": "#EFD0BB",
     "o200": "#F7B97C",
     "o300": "#ED7000",
@@ -92,7 +92,7 @@ exports[`Themes light should match the snapshot 1`] = `
   },
   "fontStack": {
     "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"",
-    "mono": "Consolas, monaco, monospace",
+    "mono": "Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace",
   },
   "fontWeight": {
     "bold": "700",

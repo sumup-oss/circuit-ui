@@ -16,15 +16,11 @@
 import styled from '@emotion/styled';
 import { Info } from '@sumup/icons';
 
-import docs from './Tooltip.docs.mdx';
 import { Tooltip } from './Tooltip';
 
 export default {
   title: 'Components/Tooltip',
   component: Tooltip,
-  parameters: {
-    docs: { page: docs },
-  },
   argTypes: {
     position: {
       options: ['top', 'bottom', 'left', 'right'],

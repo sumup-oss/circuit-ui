@@ -56,9 +56,9 @@ exports[`Buttons styles should render with default styles 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -68,7 +68,7 @@ exports[`Buttons styles should render with default styles 1`] = `
 
 .circuit-3:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-3:focus::-moz-focus-inner {
@@ -81,21 +81,28 @@ exports[`Buttons styles should render with default styles 1`] = `
 
 .circuit-3:disabled,
 .circuit-3[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-3:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-3:active,
 .circuit-3[aria-expanded='true'],
 .circuit-3[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-3:first-of-type {
@@ -150,148 +157,150 @@ exports[`Buttons styles should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
-<div
-  class="circuit-0 circuit-1"
->
-  <button
-    class="circuit-2 circuit-3"
-    title="Pause"
+<div>
+  <div
+    class="circuit-0 circuit-1"
   >
-    <span
-      class="circuit-4"
+    <button
+      class="circuit-2 circuit-3"
+      title="Pause"
     >
       <span
-        class="circuit-5"
-      />
-    </span>
-    <span
-      class="circuit-6"
-    >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+        class="circuit-4"
       >
-        <path
-          clip-rule="evenodd"
-          d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
-          fill="currentColor"
-          fill-rule="evenodd"
+        <span
+          class="circuit-5"
         />
-      </svg>
-      <span
-        class="circuit-5"
-      >
-        Pause
       </span>
-    </span>
-  </button>
-  <button
-    class="circuit-2 circuit-3"
-    title="Play"
-  >
-    <span
-      class="circuit-4"
+      <span
+        class="circuit-6"
+      >
+        <svg
+          fill="none"
+          height="16"
+          role="presentation"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M6 1.7v12.6c0 .186-.105.364-.293.495A1.249 1.249 0 0 1 5 15a1.25 1.25 0 0 1-.707-.205C4.105 14.664 4 14.485 4 14.3V1.7c0-.186.105-.364.293-.495A1.25 1.25 0 0 1 5 1c.265 0 .52.074.707.205.188.131.293.31.293.495zm5-.7c-.265 0-.52.074-.707.205-.188.131-.293.31-.293.495v12.6c0 .186.105.364.293.495.187.131.442.205.707.205.265 0 .52-.074.707-.205.188-.131.293-.31.293-.495V1.7c0-.186-.105-.364-.293-.495A1.249 1.249 0 0 0 11 1z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <span
+          class="circuit-5"
+        >
+          Pause
+        </span>
+      </span>
+    </button>
+    <button
+      class="circuit-2 circuit-3"
+      title="Play"
     >
       <span
-        class="circuit-5"
-      />
-    </span>
-    <span
-      class="circuit-6"
-    >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+        class="circuit-4"
       >
-        <path
-          clip-rule="evenodd"
-          d="M15 8c-.001.247-.064.49-.182.703a1.383 1.383 0 0 1-.491.515l-9.334 5.6c-.2.121-.428.184-.66.182a1.306 1.306 0 0 1-.941-.411A1.44 1.44 0 0 1 3 13.6V2.4a1.44 1.44 0 0 1 .392-.989c.25-.262.588-.41.941-.41.232-.003.46.06.66.181l9.334 5.6c.203.124.373.301.49.515.119.214.182.456.183.703z"
-          fill="currentColor"
-          fill-rule="evenodd"
+        <span
+          class="circuit-5"
         />
-      </svg>
-      <span
-        class="circuit-5"
-      >
-        Play
       </span>
-    </span>
-  </button>
-  <button
-    class="circuit-2 circuit-3"
-    title="Previous"
-  >
-    <span
-      class="circuit-4"
+      <span
+        class="circuit-6"
+      >
+        <svg
+          fill="none"
+          height="16"
+          role="presentation"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M15 8c-.001.247-.064.49-.182.703a1.383 1.383 0 0 1-.491.515l-9.334 5.6c-.2.121-.428.184-.66.182a1.306 1.306 0 0 1-.941-.411A1.44 1.44 0 0 1 3 13.6V2.4a1.44 1.44 0 0 1 .392-.989c.25-.262.588-.41.941-.41.232-.003.46.06.66.181l9.334 5.6c.203.124.373.301.49.515.119.214.182.456.183.703z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <span
+          class="circuit-5"
+        >
+          Play
+        </span>
+      </span>
+    </button>
+    <button
+      class="circuit-2 circuit-3"
+      title="Previous"
     >
       <span
-        class="circuit-5"
-      />
-    </span>
-    <span
-      class="circuit-6"
-    >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+        class="circuit-4"
       >
-        <path
-          d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
-          fill="currentColor"
+        <span
+          class="circuit-5"
         />
-      </svg>
-      <span
-        class="circuit-5"
-      >
-        Previous
       </span>
-    </span>
-  </button>
-  <button
-    class="circuit-2 circuit-3"
-    title="Next"
-  >
-    <span
-      class="circuit-4"
+      <span
+        class="circuit-6"
+      >
+        <svg
+          fill="none"
+          height="16"
+          role="presentation"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 8c0-.266.104-.52.29-.71l4-4c.19-.186.444-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71L7.42 8l3.29 3.29c.186.19.29.445.29.71a1 1 0 0 1-1 1c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 5 8z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-5"
+        >
+          Previous
+        </span>
+      </span>
+    </button>
+    <button
+      class="circuit-2 circuit-3"
+      title="Next"
     >
       <span
-        class="circuit-5"
-      />
-    </span>
-    <span
-      class="circuit-6"
-    >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+        class="circuit-4"
       >
-        <path
-          d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
-          fill="currentColor"
+        <span
+          class="circuit-5"
         />
-      </svg>
-      <span
-        class="circuit-5"
-      >
-        Next
       </span>
-    </span>
-  </button>
+      <span
+        class="circuit-6"
+      >
+        <svg
+          fill="none"
+          height="16"
+          role="presentation"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11 8c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.265.104-.52.29-.71L8.58 8 5.29 4.71A1.013 1.013 0 0 1 5 4a1 1 0 0 1 1-1c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="circuit-5"
+        >
+          Next
+        </span>
+      </span>
+    </button>
+  </div>
 </div>
 `;

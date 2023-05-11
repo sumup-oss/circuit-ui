@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { format } from '@sumup/intl';
+import { formatNumber } from '@sumup/intl';
 
 export function formatPlaceholder(
   placeholder?: string | number,
@@ -21,6 +21,6 @@ export function formatPlaceholder(
   options?: Intl.NumberFormatOptions,
 ): string | undefined {
   return typeof placeholder === 'number'
-    ? format(placeholder, locale, options)
+    ? formatNumber(placeholder, locale, options)
     : placeholder;
 }

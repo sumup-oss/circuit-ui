@@ -13,21 +13,23 @@
  * limitations under the License.
  */
 
+import { axe, render } from '../../../../util/test-utils';
+
 import Status from './Status';
 
 describe('Status', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = create(<Status step={1} total={3} />);
+      const { container } = render(<Status step={1} total={3} />);
 
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Status step={1} total={3} />);
-      const actual = await axe(wrapper);
+      const { container } = render(<Status step={1} total={3} />);
+      const actual = await axe(container);
 
       expect(actual).toHaveNoViolations();
     });

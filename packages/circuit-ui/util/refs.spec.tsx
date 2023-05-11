@@ -47,6 +47,6 @@ describe('applyMultipleRefs function', () => {
     render(<div ref={applyMultipleRefs(refAsObject, refAsFunction)} />);
 
     expect(refAsObject.current).toMatchInlineSnapshot('<div />');
-    expect(refAsFunction).toBeCalled();
+    expect(refAsFunction).toHaveBeenCalled();
   });
 });

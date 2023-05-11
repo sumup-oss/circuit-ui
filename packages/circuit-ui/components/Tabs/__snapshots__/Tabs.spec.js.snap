@@ -5,7 +5,7 @@ exports[`Tabs styles should render with default styles 1`] = `
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   -ms-overflow-style: none;
   scrollbar-width: none;
-  background: #FFF;
+  background: var(--cui-bg-normal);
   height: 48px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -49,11 +49,11 @@ exports[`Tabs styles should render with default styles 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   padding: 12px 32px;
-  color: #666;
+  color: var(--cui-fg-subtle);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -78,7 +78,7 @@ exports[`Tabs styles should render with default styles 1`] = `
 
 .circuit-4:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-4:focus::-moz-focus-inner {
@@ -90,22 +90,22 @@ exports[`Tabs styles should render with default styles 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-6 {
   font-size: 1rem;
   line-height: 1.5rem;
   padding: 12px 32px;
-  color: #666;
+  color: var(--cui-fg-subtle);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -127,12 +127,12 @@ exports[`Tabs styles should render with default styles 1`] = `
   justify-content: center;
   outline: none;
   position: relative;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
 }
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -144,11 +144,11 @@ exports[`Tabs styles should render with default styles 1`] = `
 }
 
 .circuit-6:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-6:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-6::after {
@@ -159,31 +159,33 @@ exports[`Tabs styles should render with default styles 1`] = `
   right: 0;
   width: 100%;
   height: 4px;
-  background: #3063E9;
+  background: var(--cui-border-accent);
 }
 
-<div
-  class="circuit-0 circuit-1"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
-    role="tablist"
+    class="circuit-0 circuit-1"
   >
-    <button
-      aria-selected="false"
-      class="circuit-4 circuit-5"
-      role="tab"
-      tabindex="-1"
+    <div
+      class="circuit-2 circuit-3"
+      role="tablist"
     >
-      tab #1
-    </button>
-    <button
-      aria-selected="true"
-      class="circuit-6 circuit-5"
-      role="tab"
-    >
-      tab #2
-    </button>
+      <button
+        aria-selected="false"
+        class="circuit-4 circuit-5"
+        role="tab"
+        tabindex="-1"
+      >
+        tab #1
+      </button>
+      <button
+        aria-selected="true"
+        class="circuit-6 circuit-5"
+        role="tab"
+      >
+        tab #2
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -193,7 +195,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
   -ms-overflow-style: none;
   scrollbar-width: none;
-  background: #FFF;
+  background: var(--cui-bg-normal);
   height: 48px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -248,11 +250,11 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   font-size: 1rem;
   line-height: 1.5rem;
   padding: 12px 32px;
-  color: #666;
+  color: var(--cui-fg-subtle);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -277,7 +279,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 
 .circuit-4:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-4:focus::-moz-focus-inner {
@@ -289,22 +291,22 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-4:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-6 {
   font-size: 1rem;
   line-height: 1.5rem;
   padding: 12px 32px;
-  color: #666;
+  color: var(--cui-fg-subtle);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -326,12 +328,12 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   justify-content: center;
   outline: none;
   position: relative;
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
 }
 
 .circuit-6:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-6:focus::-moz-focus-inner {
@@ -343,11 +345,11 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 }
 
 .circuit-6:hover {
-  background-color: #F5F5F5;
+  background-color: var(--cui-bg-normal-hovered);
 }
 
 .circuit-6:active {
-  background-color: #E6E6E6;
+  background-color: var(--cui-bg-normal-pressed);
 }
 
 .circuit-6::after {
@@ -358,31 +360,33 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   right: 0;
   width: 100%;
   height: 4px;
-  background: #3063E9;
+  background: var(--cui-border-accent);
 }
 
-<div
-  class="circuit-0 circuit-1"
->
+<div>
   <div
-    class="circuit-2 circuit-3"
-    role="tablist"
+    class="circuit-0 circuit-1"
   >
-    <button
-      aria-selected="false"
-      class="circuit-4 circuit-5"
-      role="tab"
-      tabindex="-1"
+    <div
+      class="circuit-2 circuit-3"
+      role="tablist"
     >
-      tab #1
-    </button>
-    <button
-      aria-selected="true"
-      class="circuit-6 circuit-5"
-      role="tab"
-    >
-      tab #2
-    </button>
+      <button
+        aria-selected="false"
+        class="circuit-4 circuit-5"
+        role="tab"
+        tabindex="-1"
+      >
+        tab #1
+      </button>
+      <button
+        aria-selected="true"
+        class="circuit-6 circuit-5"
+        role="tab"
+      >
+        tab #2
+      </button>
+    </div>
   </div>
 </div>
 `;

@@ -1,28 +1,15 @@
 {
   "presets": [
-    ["@babel/preset-env", { "loose": true }],
+    "@babel/preset-env",
     [
       "@babel/preset-react",
       { "runtime": "automatic", "importSource": "@emotion/react" }
     ]
   ],
-  "plugins": [
-    ["@babel/plugin-proposal-class-properties", { "loose": true }],
-    ["@babel/plugin-proposal-private-methods", { "loose": true }],
-    ["@babel/plugin-proposal-private-property-in-object", { "loose": true }],
-    "@emotion"
-  ],
+  "plugins": ["@emotion"],
   "env": {
     "test": {
-      "plugins": [
-        ["@babel/plugin-proposal-class-properties", { "loose": true }],
-        ["@babel/plugin-proposal-private-methods", { "loose": true }],
-        [
-          "@babel/plugin-proposal-private-property-in-object",
-          { "loose": true }
-        ],
-        "react-docgen"
-      ],
+      "plugins": ["react-docgen"],
       "presets": [
         "@babel/preset-typescript",
         [

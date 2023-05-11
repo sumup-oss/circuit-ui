@@ -68,7 +68,7 @@ describe('Grid utils', () => {
 
       const test = () => composeBreakpoints(fn, theme, breakpoints);
 
-      expect(test).toThrowError(
+      expect(test).toThrow(
         "The breakpoint 'killo' isn't supported by the grid.",
       );
     });
@@ -111,10 +111,10 @@ describe('Grid utils', () => {
 
       composeBreakpoints(fn, theme, breakpoints);
 
-      expect(fn).toBeCalledTimes(3);
-      expect(fn).toBeCalledWith(theme, theme.grid.default, 0);
-      expect(fn).toBeCalledWith(theme, theme.grid.mega, 1);
-      expect(fn).toBeCalledWith(theme, theme.grid.kilo, 2);
+      expect(fn).toHaveBeenCalledTimes(3);
+      expect(fn).toHaveBeenCalledWith(theme, theme.grid.default, 0);
+      expect(fn).toHaveBeenCalledWith(theme, theme.grid.mega, 1);
+      expect(fn).toHaveBeenCalledWith(theme, theme.grid.kilo, 2);
     });
   });
 });

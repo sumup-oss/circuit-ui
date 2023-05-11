@@ -1,5 +1,27 @@
 # @sumup/cna-template
 
+## 3.1.1
+
+### Patch Changes
+
+- [#2059](https://github.com/sumup-oss/circuit-ui/pull/2059) [`86c309c1`](https://github.com/sumup-oss/circuit-ui/commit/86c309c11e63eeca21c0ec22408a70320ff45b83) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `postinstall` script to initialize Foundry.
+
+## 3.1.0
+
+### Minor Changes
+
+- [#1922](https://github.com/sumup-oss/circuit-ui/pull/1922) [`ee12d6b6`](https://github.com/sumup-oss/circuit-ui/commit/ee12d6b6e2ea0beeb7320b4fcbca31fb78e465d3) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded to Node 18.
+
+- [#1922](https://github.com/sumup-oss/circuit-ui/pull/1922) [`ee12d6b6`](https://github.com/sumup-oss/circuit-ui/commit/ee12d6b6e2ea0beeb7320b4fcbca31fb78e465d3) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched from Babel to SWC.
+
+- [#1922](https://github.com/sumup-oss/circuit-ui/pull/1922) [`ee12d6b6`](https://github.com/sumup-oss/circuit-ui/commit/ee12d6b6e2ea0beeb7320b4fcbca31fb78e465d3) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded to Next.js 13.1.
+
+## 3.0.0
+
+### Major Changes
+
+- [#1913](https://github.com/sumup-oss/circuit-ui/pull/1913) [`036c6f5f`](https://github.com/sumup-oss/circuit-ui/commit/036c6f5fc5e4a0f1c23a1c9ef929054d4b4d579b) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the minimum required Node version to v16.
+
 ## 2.1.0
 
 ### Minor Changes

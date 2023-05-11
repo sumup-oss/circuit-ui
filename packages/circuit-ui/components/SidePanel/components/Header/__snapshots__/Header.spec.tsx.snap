@@ -30,26 +30,26 @@ exports[`Header should have a bottom separator when sticky 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   z-index: 600;
-  box-shadow: inset 0px -1px 0px #CCC;
+  box-shadow: inset 0px -1px 0px var(--cui-border-divider);
 }
 
 @media (min-width: 768px) {
   .circuit-0 {
-    box-shadow: inset 1px 0px 0px #CCC;
+    box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   }
 }
 
 @media (min-width: 768px) {
   .circuit-0 {
-    box-shadow: inset 1px -1px 0px #CCC;
+    box-shadow: inset 1px -1px 0px var(--cui-border-divider);
   }
 }
 
 .circuit-1 {
   font-weight: 700;
-  color: #000;
+  color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
   font-size: 1.125rem;
   line-height: 1.5rem;
@@ -87,9 +87,9 @@ exports[`Header should have a bottom separator when sticky 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -103,7 +103,7 @@ exports[`Header should have a bottom separator when sticky 1`] = `
 
 .circuit-2:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus::-moz-focus-inner {
@@ -116,21 +116,28 @@ exports[`Header should have a bottom separator when sticky 1`] = `
 
 .circuit-2:disabled,
 .circuit-2[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-2:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-2:active,
 .circuit-2[aria-expanded='true'],
 .circuit-2[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-3 {
@@ -262,19 +269,19 @@ exports[`Header should match the snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #FFF;
+  background-color: var(--cui-bg-normal);
   z-index: 600;
 }
 
 @media (min-width: 768px) {
   .circuit-0 {
-    box-shadow: inset 1px 0px 0px #CCC;
+    box-shadow: inset 1px 0px 0px var(--cui-border-divider);
   }
 }
 
 .circuit-1 {
   font-weight: 700;
-  color: #000;
+  color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
   font-size: 1.125rem;
   line-height: 1.5rem;
@@ -312,9 +319,9 @@ exports[`Header should match the snapshot 1`] = `
   border-radius: 999999px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: #FFF;
-  border-color: #999;
-  color: #000;
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+  color: var(--cui-fg-normal);
   padding: calc(12px - 1px) calc(24px - 1px);
   position: relative;
   overflow: hidden;
@@ -328,7 +335,7 @@ exports[`Header should match the snapshot 1`] = `
 
 .circuit-2:focus {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
 .circuit-2:focus::-moz-focus-inner {
@@ -341,21 +348,28 @@ exports[`Header should match the snapshot 1`] = `
 
 .circuit-2:disabled,
 .circuit-2[disabled] {
-  opacity: 0.5;
   pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-2:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+  color: var(--cui-fg-normal-hovered);
 }
 
 .circuit-2:active,
 .circuit-2[aria-expanded='true'],
 .circuit-2[aria-pressed='true'] {
-  background-color: #E6E6E6;
-  border-color: #333;
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+  color: var(--cui-fg-normal-pressed);
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-3 {

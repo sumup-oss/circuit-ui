@@ -25,16 +25,12 @@ import Controls from './components/Controls';
 import { ButtonList, NextButton, PrevButton } from './components/Buttons';
 import Status from './components/Status';
 import Carousel from './Carousel';
-import docs from './Carousel.docs.mdx';
 import { ASPECT_RATIO, ANIMATION_DURATION, SLIDE_DURATION } from './constants';
 import { SLIDES } from './__fixtures__';
 
 export default {
   title: 'Components/Carousel',
   component: Carousel,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 export const Stateful = (args) => (

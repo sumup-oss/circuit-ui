@@ -16,7 +16,6 @@
 import { action } from '@storybook/addon-actions';
 
 import Step from './Step';
-import docs from './Step.docs.mdx';
 import CarouselSlider from './examples/CarouselSlider';
 import YesOrNoSlider from './examples/YesOrNoSlider';
 import MultiStepForm from './examples/MultiStepForm';
@@ -32,9 +31,6 @@ const ANIMATION_DURATION = 300;
 export default {
   title: 'Components/Step',
   component: Step,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 const baseArgs = {

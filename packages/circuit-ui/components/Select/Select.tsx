@@ -105,13 +105,15 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    */
   ref?: Ref<HTMLSelectElement>;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onChange` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
 }
 
-const wrapperStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.bodyColor};
+const wrapperStyles = css`
+  color: var(--cui-fg-normal);
   display: block;
   position: relative;
 `;
@@ -125,12 +127,12 @@ type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
 const selectBaseStyles = ({ theme }: StyleProps) => css`
   appearance: none;
   cursor: pointer;
-  background-color: ${theme.colors.white};
+  background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
   border-radius: ${theme.borderRadius.byte};
   box-shadow: none;
-  color: ${theme.colors.bodyColor};
+  color: var(--cui-fg-normal);
   margin: 0;
   padding-top: ${theme.spacings.kilo};
   padding-right: ${theme.spacings.exa};
@@ -195,7 +197,7 @@ const prefixStyles = (theme: Theme) => css`
 `;
 
 const iconBaseStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.n700};
+  color: var(--cui-fg-subtle);
   display: block;
   z-index: ${theme.zIndex.input + 1};
   pointer-events: none;

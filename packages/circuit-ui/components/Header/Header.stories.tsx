@@ -15,14 +15,14 @@
 
 import Hamburger from '../Hamburger';
 
-import Header from '.';
+import { Header, HeaderProps } from './Header';
 
 export default {
   title: 'Navigation/Header',
   component: Header,
 };
 
-export const Base = (args) => (
+export const Base = (args: HeaderProps) => (
   <Header {...args}>
     <Hamburger activeLabel="Close menu" inactiveLabel="Open menu" size="kilo" />
   </Header>

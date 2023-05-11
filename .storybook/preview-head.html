@@ -1,7 +1,87 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+/>
 <style>
-  #root {
+  @font-face {
+    font-family: 'aktiv-grotesk';
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff2')
+        format('woff2'),
+      url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff')
+        format('woff'),
+      url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.eot')
+        format('embedded-opentype');
+  }
+  @font-face {
+    font-family: 'aktiv-grotesk';
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2')
+        format('woff2'),
+      url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff')
+        format('woff'),
+      url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.eot')
+        format('embedded-opentype');
+  }
+  #storybook-root {
     padding: env(safe-area-inset-top) env(safe-area-inset-right)
       env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  html {
+    font-family: 'aktiv-grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol';
+  }
+
+  .sbdocs.sbdocs-content {
+    max-width: 840px;
+  }
+
+  .docs-story {
+    background: var(--cui-bg-normal);
+  }
+
+  /**
+   * The selectors were copied from Storybook to avoid style leakage
+   */
+
+  /* theme.typography.title.four */
+  .sbdocs :is(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)) {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    font-weight: bold;
+  }
+  /* theme.typography.headline.one */
+  .sbdocs :is(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)) {
+    font-size: 2rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+    border: none;
+    margin-bottom: 1rem;
+  }
+  /* theme.typography.headline.two */
+  .sbdocs :is(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)) {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    font-weight: bold;
+  }
+  /* theme.typography.headline.two */
+  .sbdocs :is(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)) {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: bold;
+  }
+  /* theme.typography.body.one */
+  .sbdocs :is(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+  .sbdocs :is(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }
+  .sbdocs :is(a:not(.sb-anchor, .sb-unstyled, .sb-unstyled a)) {
+    text-decoration: underline;
+    text-underline-position: under;
   }
 </style>

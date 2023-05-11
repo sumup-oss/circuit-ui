@@ -113,7 +113,11 @@ export const CurrencyInput = forwardRef(
       maximumFractionDigits,
     });
     // Allow common decimal signs as well as the one from resolveCurrencyFormat()
-    const allowedDecimalSeparators = ['.', ',', decimalDelimiter];
+    const allowedDecimalSeparators = [
+      '.',
+      ',',
+      ...(decimalDelimiter ? [decimalDelimiter] : []),
+    ];
 
     const renderPrefix =
       currencyPosition === 'prefix'

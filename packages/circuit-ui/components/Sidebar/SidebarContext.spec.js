@@ -15,6 +15,8 @@
 
 import { useContext } from 'react';
 
+import { act, fireEvent, render } from '../../util/test-utils';
+
 import {
   SidebarContext,
   SidebarContextProvider,

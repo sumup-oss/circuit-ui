@@ -46,9 +46,6 @@ export function mapCellProps(
     : props;
 }
 
-export const getCellChildren = (props: HeaderCell | RowCell): ReactNode =>
-  mapCellProps(props).children;
-
 export const getSortByValue = (props: RowCell): SortByValue | ReactNode => {
   const cell = mapCellProps(props);
 

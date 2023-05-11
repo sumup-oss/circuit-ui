@@ -14,14 +14,10 @@
  */
 
 import { Title, TitleProps } from './Title';
-import docs from './Title.docs.mdx';
 
 export default {
   title: 'Typography/Title',
   component: Title,
-  parameters: {
-    docs: { page: docs },
-  },
 };
 
 export const Base = (args: TitleProps) => (

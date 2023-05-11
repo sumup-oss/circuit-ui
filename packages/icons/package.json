@@ -1,6 +1,6 @@
 {
   "name": "@sumup/icons",
-  "version": "2.15.0",
+  "version": "2.24.0",
   "description": "A collection of icons by SumUp",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -26,23 +26,23 @@
     "start": "ts-node-dev --respawn --watch web ./scripts/web.ts",
     "build": "ts-node ./scripts/web.ts",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
-    "lint:fix": "yarn lint --fix",
-    "prepublish": "yarn build && cp web/v1/* .",
+    "lint:fix": "npm run lint -- --fix",
+    "prepublish": "npm run build && cp web/v1/* .",
     "postpublish": "rm -f *.svg"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.6",
-    "@babel/preset-env": "^7.19.3",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
-    "@types/babel__core": "^7.1.19",
+    "@types/babel__core": "^7.20.0",
     "@types/dedent": "^0.7.0",
-    "@types/lodash": "^4.14.186",
-    "babel-plugin-inline-react-svg": "^2.0.1",
+    "@types/lodash": "^4.14.194",
+    "babel-plugin-inline-react-svg": "^2.0.2",
     "dedent": "^0.7.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.8.4"
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
     "react": ">=16.0.0 <19.0.0"

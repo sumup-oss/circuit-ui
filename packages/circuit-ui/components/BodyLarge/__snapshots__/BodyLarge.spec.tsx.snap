@@ -5,7 +5,7 @@ exports[`BodyLarge should render as a "alert" variant 1`] = `
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  color: #D23F47;
+  color: var(--cui-fg-danger);
 }
 
 <p
@@ -21,7 +21,7 @@ exports[`BodyLarge should render as a "confirm" variant 1`] = `
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  color: #138849;
+  color: var(--cui-fg-success);
 }
 
 <p
@@ -55,7 +55,7 @@ exports[`BodyLarge should render as a "quote" variant 1`] = `
   line-height: 1.75rem;
   font-style: italic;
   padding-left: 12px;
-  border-left: 2px solid #3063E9;
+  border-left: 2px solid var(--cui-border-accent);
 }
 
 <blockquote
@@ -71,7 +71,7 @@ exports[`BodyLarge should render as a "subtle" variant 1`] = `
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  color: #666;
+  color: var(--cui-fg-subtle);
 }
 
 <p

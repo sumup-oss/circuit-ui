@@ -167,7 +167,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
             max-width: 420px;
             max-height: calc(100vh - ${theme.spacings.mega} * 2);
             outline: none;
-            background-color: ${theme.colors.white};
+            background-color: var(--cui-bg-elevated);
             border-radius: ${theme.borderRadius.mega};
             padding: ${theme.spacings.giga};
             text-align: center;
@@ -197,7 +197,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
             right: 0;
             opacity: 0;
             transition: opacity ${TRANSITION_DURATION}ms ease-in-out;
-            background: ${theme.colors.overlay};
+            background: var(--cui-bg-overlay);
             z-index: ${theme.zIndex.modal};
 
             ${theme.mq.kilo} {

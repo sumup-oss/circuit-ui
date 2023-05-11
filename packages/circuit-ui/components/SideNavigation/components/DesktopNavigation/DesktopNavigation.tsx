@@ -52,6 +52,8 @@ export interface DesktopNavigationProps {
 }
 
 const PRIMARY_NAVIGATION_WIDTH = '48px';
+const PRIMARY_NAVIGATION_OPENED_WIDTH = '220px';
+const LARGE_SCREEN_BREAKPOINT = '1920px'; // max breakpoint in circuit-ui is 1280px therefore we decided to hardcode for now
 
 const wrapperStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilTera} {
@@ -75,18 +77,26 @@ const primaryWrapperStyles = ({ theme }: StyleProps) => css`
   width: ${theme.iconSizes.tera};
   display: flex;
   flex-direction: column;
-  background-color: ${theme.colors.bodyBg};
+  background-color: var(--cui-bg-normal);
   padding-top: ${theme.spacings.kilo};
   overflow-y: auto;
   overflow-x: hidden;
-  box-shadow: 1px 0 ${theme.colors.n300};
+  box-shadow: 1px 0 var(--cui-border-divider);
   transition: width ${theme.transitions.default},
     box-shadow ${theme.transitions.default};
 
   &:hover,
   &:focus-within {
     ${shadow(theme)};
-    width: 220px;
+    width: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
+  }
+
+  @media only screen and (min-width: ${LARGE_SCREEN_BREAKPOINT}) {
+    width: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
+    &:hover,
+    &:focus-within {
+      box-shadow: 1px 0 var(--cui-border-divider);
+    }
   }
 `;
 
@@ -101,11 +111,14 @@ const secondaryWrapperStyles = ({ theme }: StyleProps) => css`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  background-color: ${theme.colors.white};
+  background-color: var(--cui-bg-normal);
   margin-left: ${PRIMARY_NAVIGATION_WIDTH};
   height: calc(100vh - ${TOP_NAVIGATION_HEIGHT});
   width: 200px;
-  border-right: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  border-right: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
+  @media only screen and (min-width: ${LARGE_SCREEN_BREAKPOINT}) {
+    margin-left: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
+  }
 `;
 
 const SecondaryNavigationWrapper = styled.nav(secondaryWrapperStyles);

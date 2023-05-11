@@ -18,16 +18,18 @@ import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
-import {
-  disableVisually,
-  hideVisually,
-  focusOutline,
-} from '../../styles/style-mixins';
+import { hideVisually, focusOutline } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
+import { deprecate } from '../../util/logger';
+import { AccessibilityError } from '../../util/errors';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * A clear and concise description of the input's purpose.
+   */
+  label?: string;
   /**
    * Triggers error styles on the component.
    */
@@ -37,17 +39,25 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   validationHint?: string;
   /**
-   * Additional data that is dispatched with the tracking event.
+   * @deprecated
+   *
+   * Use an `onChange` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
   /**
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLInputElement>;
+  /**
+   * @deprecated
+   *
+   * Use the `label` prop instead.
+   */
+  children?: InputHTMLAttributes<HTMLInputElement>['children'];
 }
 
-const labelBaseStyles = ({ theme }: StyleProps) => css`
-  color: ${theme.colors.bodyColor};
+const labelBaseStyles = css`
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -72,8 +82,8 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     width: 18px;
     box-sizing: border-box;
     box-shadow: 0;
-    background-color: ${theme.colors.white};
-    border: 1px solid ${theme.colors.n500};
+    background-color: var(--cui-bg-normal);
+    border: 1px solid var(--cui-border-normal);
     border-radius: 3px;
     content: '';
     display: block;
@@ -90,7 +100,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     width: 18px;
     padding: 2px;
     box-sizing: border-box;
-    color: ${theme.colors.white};
+    color: var(--cui-fg-on-strong);
     display: block;
     line-height: 0;
     opacity: 0;
@@ -103,21 +113,21 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   }
 
   &:hover + label::before {
-    border-color: ${theme.colors.n700};
+    border-color: var(--cui-border-accent-hovered);
   }
 
   &:focus + label::before {
-    ${focusOutline(theme)};
-    border-color: ${theme.colors.p500};
+    ${focusOutline()};
+    border-color: var(--cui-border-accent);
   }
 
   &:focus:not(:focus-visible) + label::before {
     box-shadow: none;
-    border-color: ${theme.colors.n500};
+    border-color: var(--cui-border-normal);
   }
 
   &:checked:focus:not(:focus-visible) + label::before {
-    border-color: ${theme.colors.p500};
+    border-color: var(--cui-border-accent);
   }
 
   &:checked + label > svg {
@@ -126,37 +136,41 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   }
 
   &:checked + label::before {
-    border-color: ${theme.colors.p500};
-    background-color: ${theme.colors.p500};
+    border-color: var(--cui-border-accent);
+    background-color: var(--cui-bg-accent-strong);
   }
 `;
 
-const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
+const inputInvalidStyles = ({ invalid }: InputElProps) =>
   invalid &&
   css`
     & + label::before {
-      border-color: ${theme.colors.alert};
-      background-color: ${theme.colors.r100};
+      border-color: var(--cui-border-danger);
+      background-color: var(--cui-bg-danger);
     }
 
     &:hover + label::before,
     &:focus + label::before {
-      border-color: ${theme.colors.r700};
+      border-color: var(--cui-border-danger-hovered);
     }
 
     &:checked + label::before {
-      border-color: ${theme.colors.alert};
-      background-color: ${theme.colors.alert};
+      border-color: var(--cui-border-danger);
+      background-color: var(--cui-bg-danger-strong);
     }
   `;
 
-const inputDisabledStyles = ({ theme, disabled }: StyleProps & InputElProps) =>
-  disabled &&
+const inputDisabledStyles = () =>
   css`
-    & + label::before {
-      ${disableVisually()}
-      border-color: ${theme.colors.n700};
-      background-color: ${theme.colors.n200};
+    &:disabled + label,
+    &[disabled] + label {
+      pointer-events: none;
+      color: var(--cui-fg-normal-disabled);
+
+      &::before {
+        border-color: var(--cui-border-normal-disabled);
+        background-color: var(--cui-bg-normal-disabled);
+      }
     }
   `;
 
@@ -173,6 +187,7 @@ export const Checkbox = forwardRef(
   (
     {
       onChange,
+      label,
       children,
       value,
       'id': customId,
@@ -188,6 +203,22 @@ export const Checkbox = forwardRef(
     }: CheckboxProps,
     ref: CheckboxProps['ref'],
   ) => {
+    if (process.env.NODE_ENV !== 'production' && children) {
+      deprecate(
+        'Checkbox',
+        'The `children` prop has been deprecated. Use the `label` prop instead.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label &&
+      !children
+    ) {
+      throw new AccessibilityError('Checkbox', 'The `label` prop is missing.');
+    }
+
     const id = customId || uniqueId('checkbox_');
     const validationHintId = uniqueId('validation_hint-');
     const descriptionIds = `${
@@ -210,7 +241,7 @@ export const Checkbox = forwardRef(
           onChange={handleChange}
         />
         <CheckboxLabel htmlFor={id}>
-          {children}
+          {label || children}
           <Checkmark aria-hidden="true" />
         </CheckboxLabel>
         <FieldValidationHint
