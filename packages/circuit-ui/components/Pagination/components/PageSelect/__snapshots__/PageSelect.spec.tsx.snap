@@ -52,7 +52,7 @@ HTMLCollection [
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;

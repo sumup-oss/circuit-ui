@@ -805,7 +805,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;

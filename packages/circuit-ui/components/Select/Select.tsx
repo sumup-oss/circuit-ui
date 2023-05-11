@@ -130,7 +130,7 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: ${theme.borderRadius.byte};
+  border-radius: ${theme.borderRadius.kilo};
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;

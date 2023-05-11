@@ -42,7 +42,7 @@ exports[`Select Styles should not render with invalid styles when also passed th
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;
@@ -236,7 +236,7 @@ exports[`Select Styles should render with a prefix when passed the prefix prop 1
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;
@@ -435,7 +435,7 @@ exports[`Select Styles should render with a tooltip when passed a validation hin
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;
@@ -661,7 +661,7 @@ exports[`Select Styles should render with a visually-hidden label 1`] = `
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;
@@ -855,7 +855,7 @@ exports[`Select Styles should render with default styles 1`] = `
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;
@@ -1049,7 +1049,7 @@ exports[`Select Styles should render with disabled styles when passed the disabl
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;
@@ -1232,7 +1232,7 @@ exports[`Select Styles should render with invalid styles when passed the invalid
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;
