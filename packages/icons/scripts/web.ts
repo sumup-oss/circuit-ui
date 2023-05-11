@@ -16,8 +16,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import dedent from 'dedent';
-import { entries, flow, groupBy, map } from 'lodash/fp';
+import prettier from 'prettier';
 import { transformSync } from '@babel/core';
 
 import manifest from '../manifest.json';
@@ -26,22 +25,28 @@ const BASE_DIR = path.join(__dirname, '..');
 const ICON_DIR = path.join(BASE_DIR, './web/v2');
 const DIST_DIR = path.join(BASE_DIR, 'dist');
 
-enum IconSize {
-  SIZE_16 = '16',
-  SIZE_24 = '24',
-  SIZE_32 = '32',
-}
-
 type Icon = {
   name: string;
   category: string;
-  size: IconSize;
+  size: '16' | '24' | '32';
+  deprecation?: string;
 };
 
 type Component = {
   name: string;
   icons: Icon[];
+  deprecation?: string;
 };
+
+function createDeprecationComment(deprecation?: string) {
+  if (!deprecation) {
+    return '';
+  }
+  return `
+    /**
+     * @deprecated ${deprecation}
+     */`;
+}
 
 function getComponentName(name: string): string {
   // Split on non-word characters
@@ -78,7 +83,7 @@ function buildComponentFile(component: Component): string {
   /**
    * TODO look into whether we still need the React import here
    */
-  return dedent`
+  return `
     import React from 'react';
     ${iconImports.join('\n')}
 
@@ -86,9 +91,8 @@ function buildComponentFile(component: Component): string {
       ${sizeMap.join('\n')}
     }
 
-    export const ${
-      component.name
-    } = ({ size = '${defaultSize}', ...props }) => {
+    ${createDeprecationComment(component.deprecation)}
+    export function ${component.name}({ size = '${defaultSize}', ...props }) {
       const Icon = sizeMap[size] || sizeMap['${defaultSize}'];
 
       if (
@@ -114,11 +118,13 @@ function buildDeclarationFile(components: Component[]): string {
   const declarationStatements = components.map((component) => {
     const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
     const SizesType = sizes.join(' | ');
-    return `declare const ${component.name}: FC<IconProps<${SizesType}>>;`;
+    return `
+      ${createDeprecationComment(component.deprecation)}
+      declare const ${component.name}: FC<IconProps<${SizesType}>>;`;
   });
   const exportNames = components.map((file) => file.name);
-  return dedent`
-    import { FC, SVGProps } from 'react';
+  return `
+    import type { FC, SVGProps } from 'react';
 
     export interface IconProps<Sizes = '16' | '24' | '32'> extends SVGProps<SVGSVGElement> {
       /**
@@ -136,6 +142,7 @@ function buildDeclarationFile(components: Component[]): string {
         name: string;
         category: string;
         size: '16' | '24' | '32';
+        deprecation?: boolean;
       }[];
     };
   `;
@@ -166,10 +173,11 @@ function transpileModule(fileName: string, code: string): void {
 function writeFile(dir: string, fileName: string, fileContent: string): void {
   const filePath = path.join(dir, fileName);
   const directory = path.dirname(filePath);
+  const formattedContent = prettier.format(fileContent, { filepath: filePath });
   if (directory && directory !== '.') {
     fs.mkdirSync(directory, { recursive: true });
   }
-  return fs.writeFile(filePath, fileContent, { flag: 'w' }, (err) => {
+  return fs.writeFile(filePath, formattedContent, { flag: 'w' }, (err) => {
     if (err) {
       throw err;
     }
@@ -177,14 +185,19 @@ function writeFile(dir: string, fileName: string, fileContent: string): void {
 }
 
 function main(): void {
-  const components = flow(
-    groupBy('name'),
-    entries,
-    map((group: [string, Icon[]]) => ({
-      name: getComponentName(group[0]),
-      icons: group[1],
-    })),
-  )(manifest.icons) as Component[];
+  const icons = manifest.icons as Icon[];
+  const iconsByName = icons.reduce((acc, icon) => {
+    acc[icon.name] = acc[icon.name] || [];
+    acc[icon.name].push(icon);
+    return acc;
+  }, {} as Record<string, Icon[]>);
+  const components = Object.entries(iconsByName).map(
+    ([name, icons]): Component => ({
+      name: getComponentName(name),
+      icons,
+      deprecation: icons.find((icon) => icon.deprecation)?.deprecation,
+    }),
+  );
 
   const indexRaw = buildIndexFile(components);
   const declarationFile = buildDeclarationFile(components);
