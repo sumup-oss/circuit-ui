@@ -14,7 +14,10 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -119,7 +122,10 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -223,7 +229,10 @@ exports[`TextArea should render minRows props as rows when passed if rows is aut
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -340,7 +349,10 @@ exports[`TextArea should render rows props when passed 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -456,7 +468,10 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -533,6 +548,8 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   line-height: 1.25rem;
   display: block;
   margin-top: 4px;
+  margin-right: 4px;
+  margin-left: 4px;
   color: var(--cui-fg-subtle);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
@@ -592,7 +609,10 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -721,7 +741,10 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -854,7 +877,10 @@ exports[`TextArea should render with default styles 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -969,7 +995,10 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -1073,7 +1102,10 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -1205,7 +1237,10 @@ exports[`TextArea should render with readonly styles when passed the readonly pr
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -1322,7 +1357,10 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -1437,7 +1475,10 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -1568,7 +1609,10 @@ exports[`TextArea should render without rows props when passed if rows is auto 1
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,

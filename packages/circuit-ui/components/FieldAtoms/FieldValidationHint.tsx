@@ -15,7 +15,7 @@
 
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import { Confirm, Notify, Alert } from '@sumup/icons';
+import { Confirm, Notify } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { typography } from '../../styles/style-mixins';
@@ -34,6 +34,8 @@ export interface FieldValidationHintProps
 const wrapperStyles = ({ theme }: StyleProps) => css`
   display: block;
   margin-top: ${theme.spacings.bit};
+  margin-right: ${theme.spacings.bit};
+  margin-left: ${theme.spacings.bit};
   color: var(--cui-fg-subtle);
   transition: color ${theme.transitions.default};
 
@@ -43,10 +45,14 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const validStyles = ({ showValid }: FieldValidationHintProps) =>
+const validStyles = ({
+  theme,
+  showValid,
+}: StyleProps & FieldValidationHintProps) =>
   showValid &&
   css`
     color: var(--cui-fg-success);
+    font-weight: ${theme.fontWeight.bold};
 
     [disabled] &,
     .${CLASS_DISABLED} & {
@@ -54,10 +60,14 @@ const validStyles = ({ showValid }: FieldValidationHintProps) =>
     }
   `;
 
-const warningStyles = ({ hasWarning }: FieldValidationHintProps) =>
+const warningStyles = ({
+  theme,
+  hasWarning,
+}: StyleProps & FieldValidationHintProps) =>
   hasWarning &&
   css`
     color: var(--cui-fg-warning);
+    font-weight: ${theme.fontWeight.bold};
 
     [disabled] &,
     .${CLASS_DISABLED} & {
@@ -65,10 +75,14 @@ const warningStyles = ({ hasWarning }: FieldValidationHintProps) =>
     }
   `;
 
-const invalidStyles = ({ invalid }: FieldValidationHintProps) =>
+const invalidStyles = ({
+  theme,
+  invalid,
+}: StyleProps & FieldValidationHintProps) =>
   invalid &&
   css`
     color: var(--cui-fg-danger);
+    font-weight: ${theme.fontWeight.bold};
 
     [disabled] &,
     .${CLASS_DISABLED} & {
@@ -109,7 +123,7 @@ const getIcon = (props: FieldValidationHintProps) => {
     case props.invalid: {
       return (
         <IconWrapper>
-          <Alert role="presentation" size="16" />
+          <Notify role="presentation" size="16" />
         </IconWrapper>
       );
     }

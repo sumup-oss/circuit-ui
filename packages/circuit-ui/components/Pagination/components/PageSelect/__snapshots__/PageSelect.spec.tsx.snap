@@ -15,7 +15,10 @@ HTMLCollection [
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;

@@ -14,7 +14,10 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -143,7 +146,10 @@ exports[`SearchInput should render with default styles 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
