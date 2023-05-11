@@ -152,21 +152,17 @@ export const RadioButtonGroup = forwardRef(
           />
         </Legend>
         {options &&
-          options.map(
-            ({ label: optionLabel, value, className, style, ...rest }) => (
-              <div
-                key={value && value.toString()}
-                className={className}
-                style={style}
-              >
-                <RadioButton
-                  {...{ ...rest, value, name: groupName, required, onChange }}
-                  checked={value === activeValue}
-                  label={optionLabel}
-                />
-              </div>
-            ),
-          )}
+          options.map((option) => (
+            <RadioButton
+              {...option}
+              key={option.label}
+              name={groupName}
+              required={required}
+              onChange={onChange}
+              checked={option.value === activeValue}
+              invalid={invalid}
+            />
+          ))}
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}

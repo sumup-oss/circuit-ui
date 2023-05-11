@@ -1,7 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`RadioButton > Styles > should render with checked styles 1`] = `
-.circuit-0 {
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
+.circuit-1 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -13,34 +17,34 @@ exports[`RadioButton > Styles > should render with checked styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:hover+label::before {
+.circuit-1:hover+label::before {
   border-color: var(--cui-border-normal-hovered);
 }
 
-.circuit-0:focus+label::before {
+.circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:focus+label::before::-moz-focus-inner {
+.circuit-1:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible)+label::before {
+.circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: var(--cui-border-normal);
 }
 
-.circuit-0:checked:focus:not(:focus-visible)+label::before {
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:checked+label::before {
+.circuit-1:checked+label::before {
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:checked+label::after {
+.circuit-1:checked+label::after {
   -webkit-transform: translateY(-50%) scale(1, 1);
   -moz-transform: translateY(-50%) scale(1, 1);
   -ms-transform: translateY(-50%) scale(1, 1);
@@ -48,34 +52,34 @@ exports[`RadioButton > Styles > should render with checked styles 1`] = `
   opacity: 1;
 }
 
-.circuit-0:disabled+label,
-.circuit-0[disabled]+label {
+.circuit-1:disabled+label,
+.circuit-1[disabled]+label {
   pointer-events: none;
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-0:disabled+label::before,
-.circuit-0[disabled]+label::before {
+.circuit-1:disabled+label::before,
+.circuit-1[disabled]+label::before {
   border-color: var(--cui-border-strong-disabled);
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-0:disabled+label::after,
-.circuit-0[disabled]+label::after {
+.circuit-1:disabled+label::after,
+.circuit-1[disabled]+label::after {
   background-color: var(--cui-fg-on-strong-disabled);
 }
 
-.circuit-0:disabled:checked+label::before,
-.circuit-0[disabled]:checked+label::before {
+.circuit-1:disabled:checked+label::before,
+.circuit-1[disabled]:checked+label::before {
   border-color: var(--cui-border-accent-disabled);
 }
 
-.circuit-0:disabled:checked+label::after,
-.circuit-0[disabled]:checked+label::after {
+.circuit-1:disabled:checked+label::after,
+.circuit-1[disabled]:checked+label::after {
   background-color: var(--cui-fg-accent-disabled);
 }
 
-.circuit-1 {
+.circuit-2 {
   color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
@@ -83,7 +87,7 @@ exports[`RadioButton > Styles > should render with checked styles 1`] = `
   cursor: pointer;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   box-sizing: border-box;
   height: 18px;
   width: 18px;
@@ -103,7 +107,7 @@ exports[`RadioButton > Styles > should render with checked styles 1`] = `
   transition: border 120ms ease-in-out;
 }
 
-.circuit-1::after {
+.circuit-2::after {
   box-sizing: border-box;
   height: 10px;
   width: 10px;
@@ -124,24 +128,32 @@ exports[`RadioButton > Styles > should render with checked styles 1`] = `
 }
 
 <div>
-  <input
-    checked=""
-    class="circuit-0"
-    id=":r1:"
-    type="radio"
-    value=""
-  />
-  <label
-    class="circuit-1"
-    for=":r1:"
+  <div
+    class=" circuit-0"
   >
-    Label
-  </label>
+    <input
+      checked=""
+      class="circuit-1"
+      id=":r1:"
+      type="radio"
+      value=""
+    />
+    <label
+      class="circuit-2"
+      for=":r1:"
+    >
+      Label
+    </label>
+  </div>
 </div>
 `;
 
 exports[`RadioButton > Styles > should render with default styles 1`] = `
-.circuit-0 {
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
+.circuit-1 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -153,34 +165,34 @@ exports[`RadioButton > Styles > should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:hover+label::before {
+.circuit-1:hover+label::before {
   border-color: var(--cui-border-normal-hovered);
 }
 
-.circuit-0:focus+label::before {
+.circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:focus+label::before::-moz-focus-inner {
+.circuit-1:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible)+label::before {
+.circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: var(--cui-border-normal);
 }
 
-.circuit-0:checked:focus:not(:focus-visible)+label::before {
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:checked+label::before {
+.circuit-1:checked+label::before {
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:checked+label::after {
+.circuit-1:checked+label::after {
   -webkit-transform: translateY(-50%) scale(1, 1);
   -moz-transform: translateY(-50%) scale(1, 1);
   -ms-transform: translateY(-50%) scale(1, 1);
@@ -188,34 +200,34 @@ exports[`RadioButton > Styles > should render with default styles 1`] = `
   opacity: 1;
 }
 
-.circuit-0:disabled+label,
-.circuit-0[disabled]+label {
+.circuit-1:disabled+label,
+.circuit-1[disabled]+label {
   pointer-events: none;
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-0:disabled+label::before,
-.circuit-0[disabled]+label::before {
+.circuit-1:disabled+label::before,
+.circuit-1[disabled]+label::before {
   border-color: var(--cui-border-strong-disabled);
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-0:disabled+label::after,
-.circuit-0[disabled]+label::after {
+.circuit-1:disabled+label::after,
+.circuit-1[disabled]+label::after {
   background-color: var(--cui-fg-on-strong-disabled);
 }
 
-.circuit-0:disabled:checked+label::before,
-.circuit-0[disabled]:checked+label::before {
+.circuit-1:disabled:checked+label::before,
+.circuit-1[disabled]:checked+label::before {
   border-color: var(--cui-border-accent-disabled);
 }
 
-.circuit-0:disabled:checked+label::after,
-.circuit-0[disabled]:checked+label::after {
+.circuit-1:disabled:checked+label::after,
+.circuit-1[disabled]:checked+label::after {
   background-color: var(--cui-fg-accent-disabled);
 }
 
-.circuit-1 {
+.circuit-2 {
   color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
@@ -223,7 +235,7 @@ exports[`RadioButton > Styles > should render with default styles 1`] = `
   cursor: pointer;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   box-sizing: border-box;
   height: 18px;
   width: 18px;
@@ -243,7 +255,7 @@ exports[`RadioButton > Styles > should render with default styles 1`] = `
   transition: border 120ms ease-in-out;
 }
 
-.circuit-1::after {
+.circuit-2::after {
   box-sizing: border-box;
   height: 10px;
   width: 10px;
@@ -264,23 +276,31 @@ exports[`RadioButton > Styles > should render with default styles 1`] = `
 }
 
 <div>
-  <input
-    class="circuit-0"
-    id=":r0:"
-    type="radio"
-    value=""
-  />
-  <label
-    class="circuit-1"
-    for=":r0:"
+  <div
+    class=" circuit-0"
   >
-    Label
-  </label>
+    <input
+      class="circuit-1"
+      id=":r0:"
+      type="radio"
+      value=""
+    />
+    <label
+      class="circuit-2"
+      for=":r0:"
+    >
+      Label
+    </label>
+  </div>
 </div>
 `;
 
 exports[`RadioButton > Styles > should render with disabled styles 1`] = `
-.circuit-0 {
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
+.circuit-1 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -292,34 +312,34 @@ exports[`RadioButton > Styles > should render with disabled styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:hover+label::before {
+.circuit-1:hover+label::before {
   border-color: var(--cui-border-normal-hovered);
 }
 
-.circuit-0:focus+label::before {
+.circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:focus+label::before::-moz-focus-inner {
+.circuit-1:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible)+label::before {
+.circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: var(--cui-border-normal);
 }
 
-.circuit-0:checked:focus:not(:focus-visible)+label::before {
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:checked+label::before {
+.circuit-1:checked+label::before {
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:checked+label::after {
+.circuit-1:checked+label::after {
   -webkit-transform: translateY(-50%) scale(1, 1);
   -moz-transform: translateY(-50%) scale(1, 1);
   -ms-transform: translateY(-50%) scale(1, 1);
@@ -327,34 +347,34 @@ exports[`RadioButton > Styles > should render with disabled styles 1`] = `
   opacity: 1;
 }
 
-.circuit-0:disabled+label,
-.circuit-0[disabled]+label {
+.circuit-1:disabled+label,
+.circuit-1[disabled]+label {
   pointer-events: none;
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-0:disabled+label::before,
-.circuit-0[disabled]+label::before {
+.circuit-1:disabled+label::before,
+.circuit-1[disabled]+label::before {
   border-color: var(--cui-border-strong-disabled);
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-0:disabled+label::after,
-.circuit-0[disabled]+label::after {
+.circuit-1:disabled+label::after,
+.circuit-1[disabled]+label::after {
   background-color: var(--cui-fg-on-strong-disabled);
 }
 
-.circuit-0:disabled:checked+label::before,
-.circuit-0[disabled]:checked+label::before {
+.circuit-1:disabled:checked+label::before,
+.circuit-1[disabled]:checked+label::before {
   border-color: var(--cui-border-accent-disabled);
 }
 
-.circuit-0:disabled:checked+label::after,
-.circuit-0[disabled]:checked+label::after {
+.circuit-1:disabled:checked+label::after,
+.circuit-1[disabled]:checked+label::after {
   background-color: var(--cui-fg-accent-disabled);
 }
 
-.circuit-1 {
+.circuit-2 {
   color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
@@ -362,7 +382,7 @@ exports[`RadioButton > Styles > should render with disabled styles 1`] = `
   cursor: pointer;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   box-sizing: border-box;
   height: 18px;
   width: 18px;
@@ -382,7 +402,7 @@ exports[`RadioButton > Styles > should render with disabled styles 1`] = `
   transition: border 120ms ease-in-out;
 }
 
-.circuit-1::after {
+.circuit-2::after {
   box-sizing: border-box;
   height: 10px;
   width: 10px;
@@ -403,24 +423,32 @@ exports[`RadioButton > Styles > should render with disabled styles 1`] = `
 }
 
 <div>
-  <input
-    class="circuit-0"
-    disabled=""
-    id=":r2:"
-    type="radio"
-    value=""
-  />
-  <label
-    class="circuit-1"
-    for=":r2:"
+  <div
+    class=" cui-field-disabled circuit-0"
   >
-    Label
-  </label>
+    <input
+      class="circuit-1"
+      disabled=""
+      id=":r2:"
+      type="radio"
+      value=""
+    />
+    <label
+      class="circuit-2"
+      for=":r2:"
+    >
+      Label
+    </label>
+  </div>
 </div>
 `;
 
 exports[`RadioButton > Styles > should render with invalid styles 1`] = `
-.circuit-0 {
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
+.circuit-1 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -432,34 +460,34 @@ exports[`RadioButton > Styles > should render with invalid styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:hover+label::before {
+.circuit-1:hover+label::before {
   border-color: var(--cui-border-normal-hovered);
 }
 
-.circuit-0:focus+label::before {
+.circuit-1:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:focus+label::before::-moz-focus-inner {
+.circuit-1:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:focus:not(:focus-visible)+label::before {
+.circuit-1:focus:not(:focus-visible)+label::before {
   box-shadow: none;
   border-color: var(--cui-border-normal);
 }
 
-.circuit-0:checked:focus:not(:focus-visible)+label::before {
+.circuit-1:checked:focus:not(:focus-visible)+label::before {
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:checked+label::before {
+.circuit-1:checked+label::before {
   border-color: var(--cui-border-accent);
 }
 
-.circuit-0:checked+label::after {
+.circuit-1:checked+label::after {
   -webkit-transform: translateY(-50%) scale(1, 1);
   -moz-transform: translateY(-50%) scale(1, 1);
   -ms-transform: translateY(-50%) scale(1, 1);
@@ -467,43 +495,43 @@ exports[`RadioButton > Styles > should render with invalid styles 1`] = `
   opacity: 1;
 }
 
-.circuit-0:disabled+label,
-.circuit-0[disabled]+label {
+.circuit-1:disabled+label,
+.circuit-1[disabled]+label {
   pointer-events: none;
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-0:disabled+label::before,
-.circuit-0[disabled]+label::before {
+.circuit-1:disabled+label::before,
+.circuit-1[disabled]+label::before {
   border-color: var(--cui-border-strong-disabled);
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-0:disabled+label::after,
-.circuit-0[disabled]+label::after {
+.circuit-1:disabled+label::after,
+.circuit-1[disabled]+label::after {
   background-color: var(--cui-fg-on-strong-disabled);
 }
 
-.circuit-0:disabled:checked+label::before,
-.circuit-0[disabled]:checked+label::before {
+.circuit-1:disabled:checked+label::before,
+.circuit-1[disabled]:checked+label::before {
   border-color: var(--cui-border-accent-disabled);
 }
 
-.circuit-0:disabled:checked+label::after,
-.circuit-0[disabled]:checked+label::after {
+.circuit-1:disabled:checked+label::after,
+.circuit-1[disabled]:checked+label::after {
   background-color: var(--cui-fg-accent-disabled);
 }
 
-.circuit-0:hover+label::before,
-.circuit-0:focus+label::before {
+.circuit-1:hover+label::before,
+.circuit-1:focus+label::before {
   border-color: var(--cui-border-danger-hovered);
 }
 
-.circuit-0:checked+label::before {
+.circuit-1:checked+label::before {
   border-color: var(--cui-border-danger);
 }
 
-.circuit-1 {
+.circuit-2 {
   color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
@@ -511,7 +539,7 @@ exports[`RadioButton > Styles > should render with invalid styles 1`] = `
   cursor: pointer;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   box-sizing: border-box;
   height: 18px;
   width: 18px;
@@ -531,7 +559,7 @@ exports[`RadioButton > Styles > should render with invalid styles 1`] = `
   transition: border 120ms ease-in-out;
 }
 
-.circuit-1::after {
+.circuit-2::after {
   box-sizing: border-box;
   height: 10px;
   width: 10px;
@@ -551,28 +579,32 @@ exports[`RadioButton > Styles > should render with invalid styles 1`] = `
   transition: transform 120ms ease-in-out,opacity 120ms ease-in-out;
 }
 
-.circuit-1:not(:focus)::before {
+.circuit-2:not(:focus)::before {
   border-color: var(--cui-border-danger);
   background-color: var(--cui-bg-danger);
 }
 
-.circuit-1:not(:focus)::after {
+.circuit-2:not(:focus)::after {
   background-color: var(--cui-fg-danger);
 }
 
 <div>
-  <input
-    aria-invalid="true"
-    class="circuit-0"
-    id=":r3:"
-    type="radio"
-    value=""
-  />
-  <label
-    class="circuit-1"
-    for=":r3:"
+  <div
+    class=" circuit-0"
   >
-    Label
-  </label>
+    <input
+      aria-invalid="true"
+      class="circuit-1"
+      id=":r3:"
+      type="radio"
+      value=""
+    />
+    <label
+      class="circuit-2"
+      for=":r3:"
+    >
+      Label
+    </label>
+  </div>
 </div>
 `;
