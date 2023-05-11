@@ -31,13 +31,23 @@ import {
 } from '../FieldAtoms';
 import { AccessibilityError } from '../../util/errors';
 
-type CheckboxOptions = Omit<CheckboxProps, 'onChange' | 'validationHint'> & {
+type CheckboxOptions = Omit<
+  CheckboxProps,
+  'onChange' | 'validationHint' | 'name'
+> & {
   label: string;
   required?: InputHTMLAttributes<HTMLInputElement>['required'];
 };
 
 export interface CheckboxGroupProps
-  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
+  extends Omit<
+    FieldsetHTMLAttributes<HTMLFieldSetElement>,
+    'onChange' | 'name'
+  > {
+  /**
+   * A name for the CheckboxGroup. This name is shared among the individual Checkboxes.
+   */
+  name: string;
   /**
    * A collection of available options. Each option must have at least a label and a value
    * for the respective Checkbox.
@@ -164,15 +174,19 @@ export const CheckboxGroup = forwardRef(
         </Legend>
         <UnorderedList>
           {options.map(
-            (
-              { value: checkboxValue, label: checkboxLabel, required, ...rest },
-              index,
-            ) => (
-              <li key={checkboxValue && `${checkboxValue.toString()}-${index}`}>
+            ({
+              value: checkboxValue,
+              label: checkboxLabel,
+              required,
+              defaultValue,
+              ...rest
+            }) => (
+              <li key={checkboxValue?.toString() || defaultValue?.toString()}>
                 <Checkbox
                   {...{
                     ...rest,
                     value: checkboxValue,
+                    name,
                     required,
                     onChange,
                     validationHint: undefined, // disallow `validationHint` for the single Checkbox
