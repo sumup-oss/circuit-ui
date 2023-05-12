@@ -21,13 +21,13 @@ import {
 } from 'react';
 
 import styled from '../../styles/styled';
-import { typography } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { Checkbox, CheckboxProps } from '../Checkbox/Checkbox';
 import {
-  FieldWrapper,
   FieldLabelText,
   FieldValidationHint,
+  FieldSet,
+  FieldLegend,
 } from '../FieldAtoms';
 import { AccessibilityError } from '../../util/errors';
 
@@ -73,6 +73,11 @@ export interface CheckboxGroupProps
    */
   label: string;
   /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
+  /**
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLFieldSetElement>;
@@ -93,15 +98,15 @@ export interface CheckboxGroupProps
    */
   showValid?: boolean;
   /**
+   * Makes the input group required.
+   */
+  required?: InputHTMLAttributes<HTMLInputElement>['required'];
+  /**
    * Visually hide the label. This should only be used in rare cases and only
    * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
 }
-
-const Legend = styled('legend')<Record<'children', JSX.Element>>(
-  typography('two'),
-);
 
 const UnorderedList = styled.ul`
   list-style-type: none;
@@ -125,6 +130,8 @@ export const CheckboxGroup = forwardRef(
       disabled,
       hasWarning,
       hideLabel,
+      optionalLabel,
+      required,
       'aria-describedby': descriptionId,
       ...props
     }: CheckboxGroupProps,
@@ -140,38 +147,39 @@ export const CheckboxGroup = forwardRef(
         'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
+
     const validationHintId = uniqueId('validation-hint_');
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
 
     return (
-      <FieldWrapper
-        as="fieldset"
+      <FieldSet
         aria-describedby={descriptionIds}
         name={name}
-        // @ts-expect-error TypeScript isn't smart enough to recognize the `as` prop.
         ref={ref}
         disabled={disabled}
         {...props}
       >
-        <Legend>
-          <FieldLabelText label={label} hideLabel={hideLabel} />
-        </Legend>
+        <FieldLegend>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            required={required}
+            optionalLabel={optionalLabel}
+          />
+        </FieldLegend>
         <UnorderedList>
-          {options.map(({ checked, defaultChecked, required, ...option }) => (
+          {options.map((option) => (
             <li key={option.label}>
               <Checkbox
-                {...{
-                  ...option,
-                  name,
-                  required,
-                  onChange,
-                  validationHint: undefined, // disallow `validationHint` for the single Checkbox
-                  checked: value?.includes(option.value) ?? checked,
-                  defaultChecked:
-                    defaultValue?.includes(option.value) ?? defaultChecked,
-                }}
+                {...option}
+                name={name}
+                onChange={onChange}
+                checked={value?.includes(option.value) ?? option.checked}
+                defaultChecked={
+                  defaultValue?.includes(option.value) ?? option.defaultChecked
+                }
               />
             </li>
           ))}
@@ -184,7 +192,7 @@ export const CheckboxGroup = forwardRef(
           hasWarning={hasWarning}
           validationHint={validationHint}
         />
-      </FieldWrapper>
+      </FieldSet>
     );
   },
 );
