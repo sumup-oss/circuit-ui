@@ -1,5 +1,13 @@
 # @sumup/icons
 
+## 2.25.0
+
+### Minor Changes
+
+- [#2099](https://github.com/sumup-oss/circuit-ui/pull/2099) [`9d740bd4`](https://github.com/sumup-oss/circuit-ui/commit/9d740bd49e4a6875f6b78d5e0bbdc96798eee8d7) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the AddItems icon. Use the Add or Items icons instead.
+
+- [#2102](https://github.com/sumup-oss/circuit-ui/pull/2102) [`423f4d3f`](https://github.com/sumup-oss/circuit-ui/commit/423f4d3f1d9a476cbacadf1369ad5d50ce88a53f) Thanks [@ToniPetrov03](https://github.com/ToniPetrov03)! - Added a new icon in size 16: `Transit`.
+
 ## 2.24.0
 
 ### Minor Changes
