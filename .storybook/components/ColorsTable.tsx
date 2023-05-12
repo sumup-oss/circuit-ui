@@ -16,7 +16,7 @@
 import { useEffect, useState } from 'react';
 import { css, ThemeProvider } from '@emotion/react';
 import { Unstyled } from '@storybook/addon-docs';
-import { light } from '@sumup/design-tokens';
+import { light, schema } from '@sumup/design-tokens';
 import {
   Anchor,
   spacing,
@@ -25,10 +25,7 @@ import {
   useNotificationToast,
 } from '@sumup/circuit-ui';
 
-export function filterCustomProperties(
-  schema: { name: string; type: string }[],
-  usage: string,
-): string[] {
+function filterCustomProperties(usage: string): string[] {
   return schema
     .filter(
       (token) =>
@@ -91,17 +88,18 @@ const getRows = (customProperties: string[][]) => {
   ]);
 };
 
-function ColorsTable({ customProperties }: { customProperties: string[] }) {
+function ColorsTable({ usage }: { usage: string }) {
   const [colors, setColors] = useState<string[][]>();
 
   useEffect(() => {
+    const customProperties = filterCustomProperties(usage);
     setColors(
       customProperties.map((property) => [
         property,
         getCustomProperty(property),
       ]),
     );
-  }, []);
+  }, [usage]);
 
   return (
     <ThemeProvider theme={light}>

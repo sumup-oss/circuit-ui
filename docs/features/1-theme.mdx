@@ -9,10 +9,8 @@ import {
   Type,
   MediaQueriesTable,
   ColorsTable,
-  filterCustomProperties,
 } from '../../.storybook/components';
 import { Headline, SubHeadline, Body } from '@sumup/circuit-ui';
-import { schema } from '@sumup/design-tokens';
 
 <Meta title="Features/Theme" />
 
@@ -34,26 +32,15 @@ To make it easier to work with custom properties, we recommend using the [`@sumu
 
 ### Background colors
 
-<ColorsTable customProperties={filterCustomProperties(schema, 'bg')} />
+<ColorsTable usage="bg" />
 
 ### Foreground colors
 
-<ColorsTable customProperties={filterCustomProperties(schema, 'fg')} />
+<ColorsTable usage="fg" />
 
 ### Border colors
 
-<ColorsTable customProperties={filterCustomProperties(schema, 'border')} />
-
-### Special colors
-
-<ColorsTable
-  customProperties={[
-    /* Special colors */
-    '--cui-bg-overlay',
-    '--cui-bg-elevated',
-    '--cui-border-focus',
-  ]}
-/>
+<ColorsTable usage="border" />
 
 ## Spacings
 
