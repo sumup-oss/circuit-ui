@@ -144,6 +144,7 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
   <fieldset
     aria-describedby="validation-hint_1"
     class=" circuit-0"
+    name="Checkbox Group"
   >
     <legend
       class="circuit-1"
@@ -165,6 +166,7 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
             aria-describedby="validation_hint-3"
             class="circuit-6"
             id="checkbox_2"
+            name="Checkbox Group"
             type="checkbox"
             value="first"
           />
@@ -201,6 +203,7 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
             aria-describedby="validation_hint-5"
             class="circuit-6"
             id="checkbox_4"
+            name="Checkbox Group"
             type="checkbox"
             value="second"
           />
@@ -237,6 +240,7 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
             aria-describedby="validation_hint-7"
             class="circuit-6"
             id="checkbox_6"
+            name="Checkbox Group"
             type="checkbox"
             value="third"
           />

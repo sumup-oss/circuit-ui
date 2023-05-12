@@ -20,6 +20,7 @@ import { render, userEvent, axe, screen } from '../../util/test-utils';
 import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup';
 
 const defaultProps: CheckboxGroupProps = {
+  name: 'Checkbox Group',
   options: [
     {
       label: 'Option 1',
