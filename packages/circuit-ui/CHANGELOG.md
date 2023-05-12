@@ -1,5 +1,12 @@
 # @sumup/circuit-ui
 
+## 7.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`fc006c27`](https://github.com/sumup-oss/circuit-ui/commit/fc006c275478dbea66be039160ad20701247448c)]:
+  - @sumup/design-tokens@5.3.0
+
 ## 6.8.0
 
 ### Minor Changes
