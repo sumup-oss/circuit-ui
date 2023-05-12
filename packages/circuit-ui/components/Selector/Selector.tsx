@@ -206,8 +206,7 @@ const inputStyles = ({ theme }: StyleProps) => css`
 const SelectorInput = styled('input')(inputStyles);
 
 /**
- * A selector allows users to choose between several mutually-exclusive choices
- * accompanied by descriptions, possibly with tabular data.
+ * @deprecated Use the {@link SelectorGroup} component instead.
  */
 export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
   (
@@ -237,6 +236,13 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       .join(' ');
     const type = multiple ? 'checkbox' : 'radio';
     const handleChange = useClickEvent(onChange, tracking, 'selector');
+
+    if (process.env.NODE_ENV !== 'production') {
+      deprecate(
+        'Selector',
+        'The Selector component has been deprecated. Use the SelectorGroup component instead.',
+      );
+    }
 
     if (process.env.NODE_ENV !== 'production' && children) {
       deprecate(

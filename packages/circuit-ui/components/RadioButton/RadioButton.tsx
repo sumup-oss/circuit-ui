@@ -21,6 +21,7 @@ import { hideVisually, focusOutline } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { AccessibilityError } from '../../util/errors';
+import { deprecate } from '../../util/logger';
 
 export interface RadioButtonProps
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -186,7 +187,7 @@ const RadioButtonInput = styled('input')<InputElProps>(
 );
 
 /**
- * RadioButton component for forms.
+ * @deprecated Use the {@link RadioButtonGroup} component instead.
  */
 export const RadioButton = forwardRef(
   (
@@ -206,6 +207,13 @@ export const RadioButton = forwardRef(
     }: RadioButtonProps,
     ref: RadioButtonProps['ref'],
   ) => {
+    if (process.env.NODE_ENV !== 'production') {
+      deprecate(
+        'RadioButton',
+        'The RadioButton component has been deprecated. Use the RadioButtonGroup component instead.',
+      );
+    }
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
