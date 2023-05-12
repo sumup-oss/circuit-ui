@@ -20,6 +20,8 @@ npm install react-dates@^21.8 moment@^2.29
 yarn add react-dates@^21.8 moment@^2.29
 ```
 
+Note that `react-dates` isn't compatible with React 18 yet ([ref](https://github.com/react-dates/react-dates/issues/2199)) and might cause a peer dependency error when using npm. Override the warning with `npm install --force` at your own risk.
+
 ## When to use it
 
 Calendars are used when we need our users to pick a specific time period in order to complete a task
