@@ -6,8 +6,8 @@ Moved the SingleDayPicker, RangePicker, CalendarTag, and CalendarTagTwoStep comp
 
 Install the optional peer dependencies...
 
-```sh
-npm add react-dates moment
+```bash
+npm install react-dates@^21.8 moment@^2.29
 ```
 
 ...and update your imports:
