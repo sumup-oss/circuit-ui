@@ -22,7 +22,7 @@ import { Badge, BadgeProps, Body, cx, spacing } from '@sumup/circuit-ui';
 
 type Variant =
   | 'stable'
-  | 'in-review'
+  | 'under-review'
   | 'experimental'
   | 'legacy'
   | 'deprecated';
@@ -44,7 +44,7 @@ const variantMap: Record<
 > = {
   'stable': { variant: 'success', label: 'Stable' },
   'experimental': { variant: 'promo', label: 'Experimental' },
-  'in-review': { variant: 'warning', label: 'In Review' },
+  'under-review': { variant: 'warning', label: 'Under Review' },
   'legacy': { variant: 'warning', label: 'Legacy' },
   'deprecated': { variant: 'danger', label: 'Deprecated' },
 };
