@@ -56,6 +56,30 @@ describe('CheckboxGroup', () => {
       expect(screen.getByLabelText('Option 3')).toHaveAttribute('checked');
     });
 
+    it('should give precedence to the `value` prop over the `checked` attribute of the individual checkboxes', () => {
+      const value = ['second'];
+      render(
+        <CheckboxGroup
+          {...defaultProps}
+          value={value}
+          options={[
+            {
+              label: 'Option 1',
+              value: 'first',
+              checked: true,
+            },
+            {
+              label: 'Option 2',
+              value: 'second',
+              checked: false,
+            },
+          ]}
+        />,
+      );
+      expect(screen.getByLabelText('Option 1')).not.toHaveAttribute('checked');
+      expect(screen.getByLabelText('Option 2')).toHaveAttribute('checked');
+    });
+
     it('should have a required attribute on each option when required is specified', () => {
       const newCheckBoxGroupOption = defaultProps.options.map((option) => ({
         ...option,
