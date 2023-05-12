@@ -1247,6 +1247,11 @@
       "size": "16"
     },
     {
+      "name": "transit",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
       "name": "account",
       "category": "Product and feature",
       "size": "24"
