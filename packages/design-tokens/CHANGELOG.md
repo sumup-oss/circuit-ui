@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 5.3.0
+
+### Minor Changes
+
+- [#2040](https://github.com/sumup-oss/circuit-ui/pull/2040) [`fc006c27`](https://github.com/sumup-oss/circuit-ui/commit/fc006c275478dbea66be039160ad20701247448c) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a `schema` export that describes the shape of the new CSS custom properties.
+
 ## 5.2.0
 
 ### Minor Changes
