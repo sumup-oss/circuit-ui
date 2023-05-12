@@ -15,7 +15,11 @@
 
 import { useState, ChangeEvent } from 'react';
 
-import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup';
+import {
+  CheckboxGroup,
+  CheckboxGroupProps,
+  CheckboxOptions,
+} from './CheckboxGroup';
 
 export default {
   title: 'Forms/Checkbox/CheckboxGroup',
@@ -29,23 +33,20 @@ export default {
 
 const CheckboxGroupWithState = ({
   options,
-  value: initialValue,
+  value: initialValue = [],
   ...props
 }: CheckboxGroupProps) => {
-  const [value, setValue] = useState<CheckboxGroupProps['value']>(initialValue);
+  const [value, setValue] = useState(initialValue);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const onChangeValue = event.target.value;
-    if (value) {
-      const index = value.indexOf(onChangeValue);
-      if (index === -1) {
-        setValue([...value, onChangeValue]);
-      } else {
-        setValue([...value.slice(0, index), ...value.slice(index + 1)]);
+    const eventValue = event.target.value;
+
+    setValue((prevValue) => {
+      if (prevValue.includes(eventValue)) {
+        return prevValue.filter((v) => v !== eventValue);
       }
-    } else {
-      setValue([event.target.value]);
-    }
+      return prevValue.concat(eventValue);
+    });
   };
 
   return (
@@ -57,6 +58,14 @@ const CheckboxGroupWithState = ({
     />
   );
 };
+
+const CheckboxGroupWithoutState = ({
+  options,
+  defaultValue,
+  ...props
+}: CheckboxGroupProps) => (
+  <CheckboxGroup {...props} options={options} defaultValue={defaultValue} />
+);
 
 export const Base = (args: CheckboxGroupProps) => (
   <CheckboxGroupWithState {...args} />
@@ -127,23 +136,22 @@ FullyDisabled.args = {
 
 const CheckboxGroupWithStateInvalid = ({
   options: defaultOptions,
-  value: initialValue,
+  value: initialValue = [],
   validationHint,
+  requiredFields,
   ...props
-}: CheckboxGroupProps) => {
-  const [value, setValue] = useState<CheckboxGroupProps['value']>(initialValue);
+}: CheckboxGroupProps & {
+  requiredFields: CheckboxOptions['value'][];
+}) => {
+  const [value, setValue] = useState(initialValue);
 
-  const requiredFields = ['banana', 'apple'];
-
-  const initialOptions: CheckboxGroupProps['options'] = defaultOptions.map(
-    (option) => {
-      const newOption = { ...option };
-      if (option.value && requiredFields.includes(option.value?.toString())) {
-        newOption.invalid = true;
-      }
-      return newOption;
-    },
-  );
+  const initialOptions = defaultOptions.map((option) => {
+    const newOption = { ...option };
+    if (requiredFields.includes(newOption.value.toString())) {
+      newOption.invalid = true;
+    }
+    return newOption;
+  });
 
   const [options, setOptions] =
     useState<CheckboxGroupProps['options']>(initialOptions);
@@ -151,23 +159,20 @@ const CheckboxGroupWithStateInvalid = ({
   const isInvalid = options.some((option) => option.invalid);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const onChangeValue = event.target.value;
-    if (value) {
-      const index = value.indexOf(onChangeValue);
-      if (index === -1) {
-        setValue([...value, onChangeValue]);
-      } else {
-        setValue([...value.slice(0, index), ...value.slice(index + 1)]);
-      }
-    } else {
-      setValue([event.target.value]);
-    }
+    const eventValue = event.target.value;
 
-    if (requiredFields.includes(onChangeValue)) {
-      setOptions(
-        options.map((option) => {
+    setValue((prevValue) => {
+      if (prevValue.includes(eventValue)) {
+        return prevValue.filter((v) => v !== eventValue);
+      }
+      return prevValue.concat(eventValue);
+    });
+
+    if (requiredFields.includes(eventValue)) {
+      setOptions((prevOptions) =>
+        prevOptions.map((option) => {
           const newOption = { ...option };
-          if (newOption.value === onChangeValue) {
+          if (newOption.value === eventValue) {
             newOption.invalid = !newOption.invalid;
           }
           return newOption;
@@ -188,9 +193,11 @@ const CheckboxGroupWithStateInvalid = ({
   );
 };
 
-export const Invalid = (args: CheckboxGroupProps) => (
-  <CheckboxGroupWithStateInvalid {...args} />
-);
+export const Invalid = (
+  args: CheckboxGroupProps & {
+    requiredFields: CheckboxOptions['value'][];
+  },
+) => <CheckboxGroupWithStateInvalid {...args} />;
 Invalid.args = {
   name: 'checkbox-group-invalid',
   label: 'Choose your favourite fruit',
@@ -203,15 +210,32 @@ Invalid.args = {
     { label: 'Banana', value: 'banana' },
     { label: 'Mango', value: 'mango' },
   ],
+  requiredFields: ['apple', 'banana'],
 };
 
 export const Valid = (args: CheckboxGroupProps) => (
   <CheckboxGroupWithState {...args} />
 );
 Valid.args = {
-  name: 'radio-button-group',
+  name: 'checkbox-button-group',
   label: 'Choose your favourite fruit',
   value: ['banana'],
+  options: [
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
+  ],
+  showValid: true,
+  validationHint: 'You chose an option.',
+};
+
+export const ValidUncontrolled = (args: CheckboxGroupProps) => (
+  <CheckboxGroupWithoutState {...args} />
+);
+ValidUncontrolled.args = {
+  name: 'checkbox-button-group-uncontrolled',
+  label: 'Choose your favourite fruit',
+  defaultValue: ['banana'],
   options: [
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' },
@@ -225,7 +249,7 @@ export const Warning = (args: CheckboxGroupProps) => (
   <CheckboxGroupWithState {...args} />
 );
 Warning.args = {
-  name: 'radio-button-group',
+  name: 'checkbox-button-group',
   label: 'Choose your favourite fruit',
   value: ['banana'],
   options: [

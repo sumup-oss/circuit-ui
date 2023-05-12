@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckboxGroup Styles should render with default styles 1`] = `
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-1 {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -11,12 +15,20 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
   margin-bottom: 4px;
 }
 
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
+}
+
 .circuit-4 {
   list-style-type: none;
 }
 
 .circuit-5 {
   position: relative;
+}
+
+.circuit-5.cui-field-disabled {
+  pointer-events: none;
 }
 
 .circuit-6 {
@@ -36,8 +48,8 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
   width: 18px;
   box-sizing: border-box;
   box-shadow: 0;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: 3px;
   content: '';
   display: block;
@@ -57,7 +69,7 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
   width: 18px;
   padding: 2px;
   box-sizing: border-box;
-  color: #FFF;
+  color: var(--cui-fg-on-strong);
   display: block;
   line-height: 0;
   opacity: 0;
@@ -73,13 +85,13 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
 }
 
 .circuit-6:hover+label::before {
-  border-color: #666;
+  border-color: var(--cui-border-accent-hovered);
 }
 
 .circuit-6:focus+label::before {
   outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-  border-color: #3063E9;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-6:focus+label::before::-moz-focus-inner {
@@ -88,11 +100,11 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
 
 .circuit-6:focus:not(:focus-visible)+label::before {
   box-shadow: none;
-  border-color: #999;
+  border-color: var(--cui-border-normal);
 }
 
 .circuit-6:checked:focus:not(:focus-visible)+label::before {
-  border-color: #3063E9;
+  border-color: var(--cui-border-accent);
 }
 
 .circuit-6:checked+label>svg {
@@ -104,12 +116,24 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
 }
 
 .circuit-6:checked+label::before {
-  border-color: #3063E9;
-  background-color: #3063E9;
+  border-color: var(--cui-border-accent);
+  background-color: var(--cui-bg-accent-strong);
+}
+
+.circuit-6:disabled+label,
+.circuit-6[disabled]+label {
+  pointer-events: none;
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-6:disabled+label::before,
+.circuit-6[disabled]+label::before {
+  border-color: var(--cui-border-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
 }
 
 .circuit-7 {
-  color: #1A1A1A;
+  color: var(--cui-fg-normal);
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -118,9 +142,8 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
 
 <div>
   <fieldset
-    aria-describedby="validation-hint_2"
-    class="circuit-0"
-    name="checkbox-button-group_1"
+    aria-describedby="validation-hint_1"
+    class=" circuit-0"
   >
     <legend
       class="circuit-1"
@@ -139,16 +162,15 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
           class="circuit-5"
         >
           <input
-            aria-describedby="validation_hint-4"
+            aria-describedby="validation_hint-3"
             class="circuit-6"
-            id="checkbox_3"
-            name="checkbox-button-group_1"
+            id="checkbox_2"
             type="checkbox"
             value="first"
           />
           <label
             class="circuit-7"
-            for="checkbox_3"
+            for="checkbox_2"
           >
             Option 1
             <svg
@@ -176,16 +198,15 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
           class="circuit-5"
         >
           <input
-            aria-describedby="validation_hint-6"
+            aria-describedby="validation_hint-5"
             class="circuit-6"
-            id="checkbox_5"
-            name="checkbox-button-group_1"
+            id="checkbox_4"
             type="checkbox"
             value="second"
           />
           <label
             class="circuit-7"
-            for="checkbox_5"
+            for="checkbox_4"
           >
             Option 2
             <svg
@@ -213,16 +234,15 @@ exports[`CheckboxGroup Styles should render with default styles 1`] = `
           class="circuit-5"
         >
           <input
-            aria-describedby="validation_hint-8"
+            aria-describedby="validation_hint-7"
             class="circuit-6"
-            id="checkbox_7"
-            name="checkbox-button-group_1"
+            id="checkbox_6"
             type="checkbox"
             value="third"
           />
           <label
             class="circuit-7"
-            for="checkbox_7"
+            for="checkbox_6"
           >
             Option 3
             <svg

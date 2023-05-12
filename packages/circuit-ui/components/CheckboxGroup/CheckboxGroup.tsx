@@ -31,18 +31,19 @@ import {
 } from '../FieldAtoms';
 import { AccessibilityError } from '../../util/errors';
 
-type CheckboxOptions = Omit<
+export type CheckboxOptions = Omit<
   CheckboxProps,
-  'onChange' | 'validationHint' | 'name'
+  'onChange' | 'validationHint' | 'name' | 'value'
 > & {
   label: string;
+  value: string | number;
   required?: InputHTMLAttributes<HTMLInputElement>['required'];
 };
 
 export interface CheckboxGroupProps
   extends Omit<
     FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    'onChange' | 'name'
+    'onChange' | 'name' | 'defaultValue'
   > {
   /**
    * A name for the CheckboxGroup. This name is shared among the individual Checkboxes.
@@ -55,9 +56,13 @@ export interface CheckboxGroupProps
    */
   options: CheckboxOptions[];
   /**
-   * The values of the Checkboxes that are checked by default.
+   * The values of the Checkboxes that are checked by default (uncontrolled).
    */
-  value?: CheckboxProps['value'][];
+  defaultValue?: CheckboxOptions['value'][];
+  /**
+   * The values of the Checkboxes that are checked by default (controlled).
+   */
+  value?: CheckboxOptions['value'][];
   /**
    * A callback that is called when any of the checkboxes change their values.
    * Passed on to the Checkboxes.
@@ -110,8 +115,9 @@ export const CheckboxGroup = forwardRef(
     {
       options,
       value,
+      defaultValue,
       onChange,
-      'name': customName,
+      name,
       label,
       invalid,
       validationHint,
@@ -134,30 +140,10 @@ export const CheckboxGroup = forwardRef(
         'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-    const name = customName || uniqueId('checkbox-button-group_');
     const validationHintId = uniqueId('validation-hint_');
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
-
-    // Check if any of the Checkboxes are checked by default.
-    let checkedCheckboxes: { [k: string]: boolean } = {};
-    if (value) {
-      checkedCheckboxes = value.reduce(
-        (
-          accumulator: { [k: string]: boolean },
-          checkboxValue: CheckboxProps['value'],
-        ) => {
-          if (checkboxValue) {
-            accumulator[checkboxValue.toString()] = options.some(
-              (option) => checkboxValue === option.value,
-            );
-          }
-          return accumulator;
-        },
-        {},
-      );
-    }
 
     return (
       <FieldWrapper
@@ -173,33 +159,22 @@ export const CheckboxGroup = forwardRef(
           <FieldLabelText label={label} hideLabel={hideLabel} />
         </Legend>
         <UnorderedList>
-          {options.map(
-            ({
-              value: checkboxValue,
-              label: checkboxLabel,
-              required,
-              defaultValue,
-              ...rest
-            }) => (
-              <li key={checkboxValue?.toString() || defaultValue?.toString()}>
-                <Checkbox
-                  {...{
-                    ...rest,
-                    value: checkboxValue,
-                    name,
-                    required,
-                    onChange,
-                    validationHint: undefined, // disallow `validationHint` for the single Checkbox
-                    checked:
-                      !!checkboxValue &&
-                      checkedCheckboxes[checkboxValue.toString()],
-                  }}
-                >
-                  {checkboxLabel}
-                </Checkbox>
-              </li>
-            ),
-          )}
+          {options.map(({ checked, defaultChecked, required, ...option }) => (
+            <li key={option.label}>
+              <Checkbox
+                {...{
+                  ...option,
+                  name,
+                  required,
+                  onChange,
+                  validationHint: undefined, // disallow `validationHint` for the single Checkbox
+                  checked: value?.includes(option.value) ?? checked,
+                  defaultChecked:
+                    defaultValue?.includes(option.value) ?? defaultChecked,
+                }}
+              />
+            </li>
+          ))}
         </UnorderedList>
         <FieldValidationHint
           id={validationHintId}
