@@ -6,11 +6,6 @@
 
 - [#2040](https://github.com/sumup-oss/circuit-ui/pull/2040) [`fc006c27`](https://github.com/sumup-oss/circuit-ui/commit/fc006c275478dbea66be039160ad20701247448c) Thanks [@connor-baer](https://github.com/connor-baer)! - Imported the valid custom properties from `@sumup/design-tokens` which is now a required peer dependency.
 
-### Patch Changes
-
-- Updated dependencies [[`fc006c27`](https://github.com/sumup-oss/circuit-ui/commit/fc006c275478dbea66be039160ad20701247448c)]:
-  - @sumup/design-tokens@5.3.0
-
 ## 0.0.2
 
 ### Patch Changes
