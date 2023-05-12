@@ -4,7 +4,7 @@ This page outlines the process of contributing an icon to the `@sumup/icons` pac
 
 > Note that icons should be added by internal contributors with access to the SumUp [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link). If you don't have access but would like to see an icon added to `@sumup/icons`, please [open an issue](https://github.com/sumup-oss/circuit-ui/issues/new).
 
-## Adding a new icon to `@sumup/icons`
+## Adding a new icon
 
 1. Create a new SVG file for each icon size in [`packages/web/icons/v2/`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/web/v2) with the name `name_size.svg` (e.g. `add_items_24`—this will generate an `<AddItems />` component).
 2. Export the icon as SVG from the [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link). If the icon isn't in the library, make a request with the design team first.
@@ -14,9 +14,9 @@ This page outlines the process of contributing an icon to the `@sumup/icons` pac
 5. Add an icon object to the icons manifest file at [`packages/icons/manifest.json`](https://github.com/sumup-oss/circuit-ui/blob/9146e47a21dcd6880f437d1a47a0c54d5a164bfd/packages/icons/manifest.json). The icons are manually ordered alphabetically by icon category, then name (should match the file name), and finally by size (descending).
 6. Build the icons package (`npx lerna run build --scope=@sumup/icons`) and run the Storybook (`npm run docs`). Verify that your icon renders correctly on the [Icons page](http://localhost:6006/?path=/docs/features-icons--docs) (local link).
 
-## Caveats
+### Caveats
 
-### Do not hardcode the icon's color
+#### Do not hardcode the icon's color
 
 Unless icons are a brand logo (e.g. the Mastercard logo), all SVG fills should always be `currentColor`. This lets developers style icons using CSS instead of overriding fill colors.
 
@@ -29,7 +29,7 @@ Unless icons are a brand logo (e.g. the Mastercard logo), all SVG fills should a
 
 You can test this by running Storybook and changing the icons color on the [Icons page](http://localhost:6006/?path=/docs/features-icons--docs) (local link).
 
-### Correct icon size
+#### Correct icon size
 
 Icons come in three sizes: `16` (16x16), `24` (24x24) and `32` (32x24).
 
@@ -39,7 +39,7 @@ If they don't (e.g. the SVG has `viewBox="0 0 24 25"`), check that you've copied
 
 _(Note: this can also be a symptom of another issue with the icon's placement on the Figma canvas. See "Beware clip-path" below.)_
 
-### Beware clip-path
+#### Beware clip-path
 
 If the SVG includes a `<g clip-path="">` element, there's a chance that the icon wasn't exported properly.
 
@@ -88,3 +88,8 @@ To fix this, copy the icon and paste it on a draft Figma file. Make sure that it
 ```
 
 </details>
+
+## Deprecating an icon
+
+1. Use the `deprecation` field in the icons manifest file at [`packages/icons/manifest.json`](https://github.com/sumup-oss/circuit-ui/blob/9146e47a21dcd6880f437d1a47a0c54d5a164bfd/packages/icons/manifest.json) to add a deprecation notice for the icon. Ideally, the notice should include a reason and recommend an alternative. The field supports markdown syntax. Add a [changeset](https://circuit.sumup.com/?path=/docs/contributing-release-process--docs#changesets) to release the change in a minor version.
+2. In the next major version of `@sumup/icons`, remove the icon from the manifest and delete the SVG.

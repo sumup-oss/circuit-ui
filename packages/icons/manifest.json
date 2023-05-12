@@ -13,7 +13,8 @@
     {
       "name": "add_items",
       "category": "Action",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `Add` or `Items` icons instead."
     },
     {
       "name": "chevron_down",
