@@ -13,17 +13,26 @@
  * limitations under the License.
  */
 
-import { ReactNode, Ref, forwardRef, ChangeEventHandler } from 'react';
+import {
+  ReactNode,
+  Ref,
+  forwardRef,
+  ChangeEventHandler,
+  FieldsetHTMLAttributes,
+  InputHTMLAttributes,
+} from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import Selector from '../Selector';
 import { SelectorSize } from '../Selector/Selector';
-import { hideVisually, typography } from '../../styles/style-mixins';
 import { AccessibilityError } from '../../util/errors';
+import { FieldLabelText, FieldLegend, FieldSet } from '../FieldAtoms';
+import { isEmpty } from '../../util/helpers';
 
-export interface SelectorGroupProps {
+export interface SelectorGroupProps
+  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
    * A collection of available options. Each option must have at least
    * a value and label.
@@ -52,13 +61,17 @@ export interface SelectorGroupProps {
    */
   label: string;
   /**
-   * A unique name for the radio group.
+   * A unique name for the selector group.
    */
   name?: string;
   /**
    * Whether the user can select multiple options.
    */
   multiple?: boolean;
+  /**
+   * Triggers invalid styles on the inputs.
+   */
+  invalid?: boolean;
   /**
    * Size of the Selectors within the group. Default: 'mega'.
    */
@@ -72,6 +85,15 @@ export interface SelectorGroupProps {
    * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
+  /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
+  /**
+   * Makes the input group required.
+   */
+  required?: InputHTMLAttributes<HTMLInputElement>['required'];
   /**
    * The ref to the HTML DOM element.
    */
@@ -106,22 +128,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const Fieldset = styled.fieldset(baseStyles, stretchStyles);
-
-type LegendProps = Pick<SelectorGroupProps, 'hideLabel'>;
-
-const legendStyles = ({ theme }: StyleProps) => css`
-  margin-bottom: ${theme.spacings.bit};
-`;
-
-const legendHiddenStyles = ({ hideLabel }: LegendProps) =>
-  hideLabel && hideVisually();
-
-const Legend = styled('legend')<LegendProps>(
-  typography('two'),
-  legendStyles,
-  legendHiddenStyles,
-);
+const StyledFieldset = styled(FieldSet)(baseStyles, stretchStyles);
 
 const OptionItem = styled.div`
   flex: 1;
@@ -139,14 +146,18 @@ export const SelectorGroup = forwardRef(
     {
       options,
       onChange,
-      value: activeValue,
-      name: customName,
+      'value': activeValue,
+      'name': customName,
+      'aria-describedby': descriptionId,
       label,
+      required,
+      optionalLabel,
+      disabled,
       multiple,
       size,
       stretch,
       hideLabel,
-      ...rest
+      ...props
     }: SelectorGroupProps,
     ref: SelectorGroupProps['ref'],
   ) => {
@@ -162,13 +173,26 @@ export const SelectorGroup = forwardRef(
     }
     const name = customName || uniqueId('selector-group_');
 
-    if (!options) {
+    if (isEmpty(options)) {
       return null;
     }
 
     return (
-      <Fieldset ref={ref} stretch={stretch} {...rest}>
-        <Legend hideLabel={hideLabel}>{label}</Legend>
+      <StyledFieldset
+        name={name}
+        aria-describedby={descriptionId}
+        ref={ref}
+        disabled={disabled}
+        {...props}
+      >
+        <FieldLegend>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
+            required={required}
+          />
+        </FieldLegend>
         {options.map(({ children, value, ...optionRest }) => (
           <OptionItem key={value}>
             <Selector
@@ -180,6 +204,7 @@ export const SelectorGroup = forwardRef(
               css={css`
                 width: 100%;
               `}
+              disabled={disabled}
               checked={
                 multiple ? activeValue.includes(value) : value === activeValue
               }
@@ -189,7 +214,7 @@ export const SelectorGroup = forwardRef(
             </Selector>
           </OptionItem>
         ))}
-      </Fieldset>
+      </StyledFieldset>
     );
   },
 );

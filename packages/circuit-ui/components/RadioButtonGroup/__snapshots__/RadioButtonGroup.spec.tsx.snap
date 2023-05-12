@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButtonGroup Styles should render with default styles 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
 
 .circuit-1 {
+  display: block;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -15,6 +17,7 @@ exports[`RadioButtonGroup Styles should render with default styles 1`] = `
   margin-bottom: 4px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }
@@ -145,7 +148,7 @@ exports[`RadioButtonGroup Styles should render with default styles 1`] = `
   <fieldset
     aria-describedby="validation-hint_2"
     aria-orientation="vertical"
-    class=" circuit-0"
+    class="circuit-0"
     name="radio-button-group_1"
     role="radiogroup"
   >

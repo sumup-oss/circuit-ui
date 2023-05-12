@@ -29,8 +29,7 @@ const baseStyles = () => css`
   display: block;
   color: var(--cui-fg-subtle);
 
-  // TODO: Remove the next line once the Selector component is wrapped in the FieldWrapper component.
-  input:disabled + label > &,
+  [disabled] &,
   .${CLASS_DISABLED} & {
     color: var(--cui-fg-subtle-disabled);
   }

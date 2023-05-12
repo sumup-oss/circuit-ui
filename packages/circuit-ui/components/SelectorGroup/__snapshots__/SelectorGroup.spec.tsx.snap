@@ -21,17 +21,32 @@ exports[`SelectorGroup should render with default styles 1`] = `
   width: auto;
 }
 
+.circuit-0[disabled],
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-0>div:not(:last-child) {
   margin-right: 16px;
 }
 
 .circuit-1 {
+  display: block;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  margin-bottom: 4px;
 }
 
 .circuit-2 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+[disabled] .circuit-2,
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-4 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -40,11 +55,11 @@ exports[`SelectorGroup should render with default styles 1`] = `
   align-self: stretch;
 }
 
-.circuit-2 label {
+.circuit-4 label {
   height: 100%;
 }
 
-.circuit-3 {
+.circuit-5 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -56,50 +71,50 @@ exports[`SelectorGroup should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-3:focus+label::before {
+.circuit-5:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-3:focus+label::before::-moz-focus-inner {
+.circuit-5:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible)+label::before {
+.circuit-5:focus:not(:focus-visible)+label::before {
   box-shadow: none;
 }
 
-.circuit-3:checked+label {
+.circuit-5:checked+label {
   background-color: var(--cui-bg-accent);
 }
 
-.circuit-3:checked+label::before {
+.circuit-5:checked+label::before {
   border: 2px solid var(--cui-border-accent);
 }
 
-.circuit-3:disabled+label,
-.circuit-3[disabled]+label {
+.circuit-5:disabled+label,
+.circuit-5[disabled]+label {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-3:disabled+label::before,
-.circuit-3[disabled]+label::before {
+.circuit-5:disabled+label::before,
+.circuit-5[disabled]+label::before {
   border: 2px solid var(--cui-border-normal-disabled);
 }
 
-.circuit-3:disabled:checked+label,
-.circuit-3[disabled]:checked+label {
+.circuit-5:disabled:checked+label,
+.circuit-5[disabled]:checked+label {
   background-color: var(--cui-bg-accent-disabled);
 }
 
-.circuit-3:disabled:checked+label::before,
-.circuit-3[disabled]:checked+label::before {
+.circuit-5:disabled:checked+label::before,
+.circuit-5[disabled]:checked+label::before {
   border: 2px solid var(--cui-border-accent-disabled);
 }
 
-.circuit-4 {
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -127,7 +142,7 @@ exports[`SelectorGroup should render with default styles 1`] = `
   width: 100%;
 }
 
-.circuit-4::before {
+.circuit-6::before {
   display: block;
   content: '';
   position: absolute;
@@ -143,82 +158,87 @@ exports[`SelectorGroup should render with default styles 1`] = `
   transition: border 120ms ease-in-out;
 }
 
-.circuit-4:hover {
+.circuit-6:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-4:hover::before {
+.circuit-6:hover::before {
   border-color: var(--cui-border-normal-hovered);
 }
 
-.circuit-4:active {
+.circuit-6:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-4:active::before {
+.circuit-6:active::before {
   border-color: var(--cui-border-normal-pressed);
 }
 
 <div>
   <fieldset
     class="circuit-0"
+    name="selector-group_1"
   >
     <legend
       class="circuit-1"
     >
-      Choose an option
+      <span
+        class="circuit-2 circuit-3"
+      >
+        Choose an option
+      </span>
     </legend>
     <div
-      class="circuit-2"
+      class="circuit-4"
     >
       <input
         aria-describedby=""
-        class="circuit-3"
+        class="circuit-5"
         id="selector_2"
         name="selector-group_1"
         type="radio"
         value="first"
       />
       <label
-        class="circuit-4"
+        class="circuit-6"
         for="selector_2"
       >
         Option 1
       </label>
     </div>
     <div
-      class="circuit-2"
+      class="circuit-4"
     >
       <input
         aria-describedby=""
-        class="circuit-3"
+        class="circuit-5"
         id="selector_3"
         name="selector-group_1"
         type="radio"
         value="second"
       />
       <label
-        class="circuit-4"
+        class="circuit-6"
         for="selector_3"
       >
         Option 2
       </label>
     </div>
     <div
-      class="circuit-2"
+      class="circuit-4"
     >
       <input
         aria-describedby=""
-        class="circuit-3"
+        class="circuit-5"
         id="selector_4"
         name="selector-group_1"
         type="radio"
         value="third"
       />
       <label
-        class="circuit-4"
+        class="circuit-6"
         for="selector_4"
       >
         Option 3
@@ -249,17 +269,32 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   width: auto;
 }
 
+.circuit-0[disabled],
+.circuit-0.cui-field-disabled {
+  pointer-events: none;
+}
+
 .circuit-0>div:not(:last-child) {
   margin-right: 16px;
 }
 
 .circuit-1 {
+  display: block;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  margin-bottom: 4px;
 }
 
 .circuit-2 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+[disabled] .circuit-2,
+.cui-field-disabled .circuit-2 {
+  color: var(--cui-fg-normal-disabled);
+}
+
+.circuit-4 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -268,11 +303,11 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   align-self: stretch;
 }
 
-.circuit-2 label {
+.circuit-4 label {
   height: 100%;
 }
 
-.circuit-3 {
+.circuit-5 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -284,50 +319,50 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   width: 1px;
 }
 
-.circuit-3:focus+label::before {
+.circuit-5:focus+label::before {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-3:focus+label::before::-moz-focus-inner {
+.circuit-5:focus+label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:focus:not(:focus-visible)+label::before {
+.circuit-5:focus:not(:focus-visible)+label::before {
   box-shadow: none;
 }
 
-.circuit-3:checked+label {
+.circuit-5:checked+label {
   background-color: var(--cui-bg-accent);
 }
 
-.circuit-3:checked+label::before {
+.circuit-5:checked+label::before {
   border: 2px solid var(--cui-border-accent);
 }
 
-.circuit-3:disabled+label,
-.circuit-3[disabled]+label {
+.circuit-5:disabled+label,
+.circuit-5[disabled]+label {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-3:disabled+label::before,
-.circuit-3[disabled]+label::before {
+.circuit-5:disabled+label::before,
+.circuit-5[disabled]+label::before {
   border: 2px solid var(--cui-border-normal-disabled);
 }
 
-.circuit-3:disabled:checked+label,
-.circuit-3[disabled]:checked+label {
+.circuit-5:disabled:checked+label,
+.circuit-5[disabled]:checked+label {
   background-color: var(--cui-bg-accent-disabled);
 }
 
-.circuit-3:disabled:checked+label::before,
-.circuit-3[disabled]:checked+label::before {
+.circuit-5:disabled:checked+label::before,
+.circuit-5[disabled]:checked+label::before {
   border: 2px solid var(--cui-border-accent-disabled);
 }
 
-.circuit-4 {
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -355,7 +390,7 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   width: 100%;
 }
 
-.circuit-4::before {
+.circuit-6::before {
   display: block;
   content: '';
   position: absolute;
@@ -371,82 +406,87 @@ exports[`SelectorGroup should render with horizontal layout by default 1`] = `
   transition: border 120ms ease-in-out;
 }
 
-.circuit-4:hover {
+.circuit-6:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-4:hover::before {
+.circuit-6:hover::before {
   border-color: var(--cui-border-normal-hovered);
 }
 
-.circuit-4:active {
+.circuit-6:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-4:active::before {
+.circuit-6:active::before {
   border-color: var(--cui-border-normal-pressed);
 }
 
 <div>
   <fieldset
     class="circuit-0"
+    name="selector-group_17"
   >
     <legend
       class="circuit-1"
     >
-      Choose an option
+      <span
+        class="circuit-2 circuit-3"
+      >
+        Choose an option
+      </span>
     </legend>
     <div
-      class="circuit-2"
+      class="circuit-4"
     >
       <input
         aria-describedby=""
-        class="circuit-3"
+        class="circuit-5"
         id="selector_18"
         name="selector-group_17"
         type="radio"
         value="first"
       />
       <label
-        class="circuit-4"
+        class="circuit-6"
         for="selector_18"
       >
         Option 1
       </label>
     </div>
     <div
-      class="circuit-2"
+      class="circuit-4"
     >
       <input
         aria-describedby=""
-        class="circuit-3"
+        class="circuit-5"
         id="selector_19"
         name="selector-group_17"
         type="radio"
         value="second"
       />
       <label
-        class="circuit-4"
+        class="circuit-6"
         for="selector_19"
       >
         Option 2
       </label>
     </div>
     <div
-      class="circuit-2"
+      class="circuit-4"
     >
       <input
         aria-describedby=""
-        class="circuit-3"
+        class="circuit-5"
         id="selector_20"
         name="selector-group_17"
         type="radio"
         value="third"
       />
       <label
-        class="circuit-4"
+        class="circuit-6"
         for="selector_20"
       >
         Option 3

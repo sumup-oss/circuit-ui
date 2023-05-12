@@ -5,6 +5,7 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
   position: relative;
 }
 
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -168,6 +169,7 @@ exports[`Checkbox Styles should render with default styles 1`] = `
   position: relative;
 }
 
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -330,6 +332,7 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
   position: relative;
 }
 
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -493,6 +496,7 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   position: relative;
 }
 
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -638,10 +642,12 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
   color: var(--cui-fg-danger);
 }
 
+[disabled] .circuit-3,
 .cui-field-disabled .circuit-3 {
   color: var(--cui-fg-subtle-disabled);
 }
 
+[disabled] .circuit-3,
 .cui-field-disabled .circuit-3 {
   color: var(--cui-fg-danger-disabled);
 }
