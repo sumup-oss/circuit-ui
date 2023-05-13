@@ -30,20 +30,20 @@ import {
   FieldLegend,
 } from '../FieldAtoms';
 import { AccessibilityError } from '../../util/errors';
+import { isEmpty } from '../../util/helpers';
 
-export type CheckboxOptions = Omit<
+type Options = Omit<
   CheckboxProps,
   'onChange' | 'validationHint' | 'name' | 'value'
 > & {
   label: string;
   value: string | number;
-  required?: InputHTMLAttributes<HTMLInputElement>['required'];
 };
 
 export interface CheckboxGroupProps
   extends Omit<
     FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    'onChange' | 'name' | 'defaultValue'
+    'onChange' | 'onBlur' | 'defaultValue'
   > {
   /**
    * A name for the CheckboxGroup. This name is shared among the individual Checkboxes.
@@ -54,20 +54,25 @@ export interface CheckboxGroupProps
    * for the respective Checkbox.
    * Pass the optional `required` prop to indicate a Checkbox is required.
    */
-  options: CheckboxOptions[];
+  options: Options[];
   /**
    * The values of the Checkboxes that are checked by default (uncontrolled).
    */
-  defaultValue?: CheckboxOptions['value'][];
+  defaultValue?: Options['value'][];
   /**
    * The values of the Checkboxes that are checked by default (controlled).
    */
-  value?: CheckboxOptions['value'][];
+  value?: Options['value'][];
   /**
-   * A callback that is called when any of the checkboxes change their values.
+   * A callback that is called when any of the inputs change their values.
    * Passed on to the Checkboxes.
    */
   onChange: CheckboxProps['onChange'];
+  /**
+   * A callback that is called when any of the inputs lose focus.
+   * Passed on to the Checkboxes.
+   */
+  onBlur?: CheckboxProps['onBlur'];
   /**
    * A description of the selector group.
    */
@@ -122,6 +127,7 @@ export const CheckboxGroup = forwardRef(
       value,
       defaultValue,
       onChange,
+      onBlur,
       name,
       label,
       invalid,
@@ -146,6 +152,10 @@ export const CheckboxGroup = forwardRef(
         'CheckboxGroup',
         'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
+    }
+
+    if (isEmpty(options)) {
+      return null;
     }
 
     const validationHintId = uniqueId('validation-hint_');
@@ -176,9 +186,13 @@ export const CheckboxGroup = forwardRef(
                 {...option}
                 name={name}
                 onChange={onChange}
-                checked={value?.includes(option.value) ?? option.checked}
+                onBlur={onBlur}
+                invalid={invalid || option.invalid}
+                checked={value ? value.includes(option.value) : option.checked}
                 defaultChecked={
-                  defaultValue?.includes(option.value) ?? option.defaultChecked
+                  defaultValue
+                    ? defaultValue.includes(option.value)
+                    : option.defaultChecked
                 }
               />
             </li>

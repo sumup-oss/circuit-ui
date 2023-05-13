@@ -14,7 +14,6 @@
  */
 
 import {
-  ReactNode,
   Ref,
   forwardRef,
   ChangeEventHandler,
@@ -25,37 +24,40 @@ import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
-import Selector from '../Selector';
+import Selector, { SelectorProps } from '../Selector';
 import { SelectorSize } from '../Selector/Selector';
 import { AccessibilityError } from '../../util/errors';
 import { FieldLabelText, FieldLegend, FieldSet } from '../FieldAtoms';
 import { isEmpty } from '../../util/helpers';
 
 export interface SelectorGroupProps
-  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
+  extends Omit<
+    FieldsetHTMLAttributes<HTMLFieldSetElement>,
+    'onChange' | 'onBlur'
+  > {
   /**
    * A collection of available options. Each option must have at least
    * a value and label.
    */
-  options: {
-    value: string;
-    label?: string;
-    description?: string;
-    /**
-     * @deprecated
-     * Use the `label` and `description` props instead.
-     */
-    children?: ReactNode;
-    disabled?: boolean;
-  }[];
+  options: SelectorProps[];
   /**
-   * Controls/Toggles the checked state. Passed on to the Selectors.
+   * A callback that is called when any of the inputs change their values.
+   * Passed on to the Selectors.
    */
   onChange: ChangeEventHandler<HTMLInputElement>;
   /**
-   * The value of the currently checked Selector.
+   * A callback that is called when any of the checkboxes lose focus.
+   * Passed on to the Checkboxes.
    */
-  value: string | string[];
+  onBlur?: ChangeEventHandler<HTMLInputElement>;
+  /**
+   * The value of the currently checked options.
+   */
+  value?: string | string[];
+  /**
+   * The value of the initially checked options.
+   */
+  defaultValue?: string | string[];
   /**
    * A description of the selector group.
    */
@@ -138,6 +140,14 @@ const OptionItem = styled.div`
   }
 `;
 
+function isChecked(
+  option: SelectorProps,
+  value: SelectorGroupProps['value'] = [],
+  multiple?: boolean,
+): boolean {
+  return multiple ? value.includes(option.value) : value === option.value;
+}
+
 /**
  * A group of Selectors.
  */
@@ -146,7 +156,9 @@ export const SelectorGroup = forwardRef(
     {
       options,
       onChange,
-      'value': activeValue,
+      onBlur,
+      value,
+      defaultValue,
       'name': customName,
       'aria-describedby': descriptionId,
       label,
@@ -193,25 +205,28 @@ export const SelectorGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        {options.map(({ children, value, ...optionRest }) => (
-          <OptionItem key={value}>
+        {options.map((option) => (
+          <OptionItem key={option.label}>
             <Selector
               name={name}
               onChange={onChange}
+              onBlur={onBlur}
               multiple={multiple}
-              value={value}
               size={size}
               css={css`
                 width: 100%;
               `}
               disabled={disabled}
               checked={
-                multiple ? activeValue.includes(value) : value === activeValue
+                value ? isChecked(option, value, multiple) : option.checked
               }
-              {...optionRest}
-            >
-              {children}
-            </Selector>
+              defaultChecked={
+                defaultValue
+                  ? isChecked(option, defaultValue, multiple)
+                  : option.defaultChecked
+              }
+              {...option}
+            />
           </OptionItem>
         ))}
       </StyledFieldset>

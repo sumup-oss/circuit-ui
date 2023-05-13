@@ -32,16 +32,25 @@ import { AccessibilityError } from '../../util/errors';
 import { isEmpty } from '../../util/helpers';
 
 export interface RadioButtonGroupProps
-  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
+  extends Omit<
+    FieldsetHTMLAttributes<HTMLFieldSetElement>,
+    'onChange' | 'onBlur'
+  > {
   /**
    * A collection of available options. Each option must have at least a value
    * and a label.
    */
   options: Omit<RadioButtonProps, 'onChange'>[];
   /**
-   * Controls/Toggles the checked state. Passed on to the RadioButtons.
+   * A callback that is called when any of the inputs change their values.
+   * Passed on to the RadioButtons.
    */
   onChange: RadioButtonProps['onChange'];
+  /**
+   * A callback that is called when any of the inputs lose focus.
+   * Passed on to the RadioButtons.
+   */
+  onBlur?: RadioButtonProps['onBlur'];
   /**
    * A visually hidden description of the selector group for screen readers.
    */
@@ -55,6 +64,10 @@ export interface RadioButtonGroupProps
    * The value of the currently checked RadioButton.
    */
   value?: RadioButtonProps['value'];
+  /**
+   * The value of the currently checked RadioButton.
+   */
+  defaultValue?: RadioButtonProps['value'];
   /**
    * The ref to the HTML DOM element
    */
@@ -94,7 +107,9 @@ export const RadioButtonGroup = forwardRef(
     {
       options,
       onChange,
-      'value': activeValue,
+      onBlur,
+      value,
+      defaultValue,
       'name': customName,
       label,
       invalid,
@@ -149,21 +164,24 @@ export const RadioButtonGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        {options.map(
-          ({ label: optionLabel, value, className, style, ...rest }) => (
-            <div
-              key={value && value.toString()}
-              className={className}
-              style={style}
-            >
-              <RadioButton
-                {...{ ...rest, value, name, required, onChange }}
-                checked={value === activeValue}
-                label={optionLabel}
-              />
-            </div>
-          ),
-        )}
+        {options.map(({ className, style, ...option }) => (
+          <div key={option.label} className={className} style={style}>
+            <RadioButton
+              {...option}
+              name={name}
+              onChange={onChange}
+              onBlur={onBlur}
+              required={required}
+              invalid={invalid || option.invalid}
+              checked={value ? option.value === value : option.checked}
+              defaultChecked={
+                defaultValue
+                  ? option.value === defaultValue
+                  : option.defaultChecked
+              }
+            />
+          </div>
+        ))}
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}
