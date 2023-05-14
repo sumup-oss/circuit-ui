@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { Fragment, InputHTMLAttributes, ReactNode, forwardRef } from 'react';
+import {
+  Fragment,
+  InputHTMLAttributes,
+  ReactNode,
+  createContext,
+  forwardRef,
+  useContext,
+} from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -205,6 +212,8 @@ const inputStyles = ({ theme }: StyleProps) => css`
 
 const SelectorInput = styled('input')(inputStyles);
 
+export const SelectorGroupContext = createContext(false);
+
 /**
  * @deprecated Use the {@link SelectorGroup} component instead.
  */
@@ -237,7 +246,9 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
     const type = multiple ? 'checkbox' : 'radio';
     const handleChange = useClickEvent(onChange, tracking, 'selector');
 
-    if (process.env.NODE_ENV !== 'production') {
+    const isInsideGroup = useContext(SelectorGroupContext);
+
+    if (process.env.NODE_ENV !== 'production' && !isInsideGroup) {
       deprecate(
         'Selector',
         'The Selector component has been deprecated. Use the SelectorGroup component instead.',

@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { Fragment, InputHTMLAttributes, Ref, forwardRef } from 'react';
+import {
+  Fragment,
+  InputHTMLAttributes,
+  Ref,
+  createContext,
+  forwardRef,
+  useContext,
+} from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -186,6 +193,8 @@ const RadioButtonInput = styled('input')<InputElProps>(
   inputInvalidStyles,
 );
 
+export const RadioButtonGroupContext = createContext(false);
+
 /**
  * @deprecated Use the {@link RadioButtonGroup} component instead.
  */
@@ -207,7 +216,9 @@ export const RadioButton = forwardRef(
     }: RadioButtonProps,
     ref: RadioButtonProps['ref'],
   ) => {
-    if (process.env.NODE_ENV !== 'production') {
+    const isInsideGroup = useContext(RadioButtonGroupContext);
+
+    if (process.env.NODE_ENV !== 'production' && !isInsideGroup) {
       deprecate(
         'RadioButton',
         'The RadioButton component has been deprecated. Use the RadioButtonGroup component instead.',

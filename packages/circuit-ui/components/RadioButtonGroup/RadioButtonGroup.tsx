@@ -21,7 +21,11 @@ import {
 } from 'react';
 
 import { uniqueId } from '../../util/id';
-import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
+import {
+  RadioButton,
+  RadioButtonProps,
+  RadioButtonGroupContext,
+} from '../RadioButton/RadioButton';
 import {
   FieldLabelText,
   FieldValidationHint,
@@ -164,24 +168,26 @@ export const RadioButtonGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        {options.map(({ className, style, ...option }) => (
-          <div key={option.label} className={className} style={style}>
-            <RadioButton
-              {...option}
-              name={name}
-              onChange={onChange}
-              onBlur={onBlur}
-              required={required}
-              invalid={invalid || option.invalid}
-              checked={value ? option.value === value : option.checked}
-              defaultChecked={
-                defaultValue
-                  ? option.value === defaultValue
-                  : option.defaultChecked
-              }
-            />
-          </div>
-        ))}
+        <RadioButtonGroupContext.Provider value={true}>
+          {options.map(({ className, style, ...option }) => (
+            <div key={option.label} className={className} style={style}>
+              <RadioButton
+                {...option}
+                name={name}
+                onChange={onChange}
+                onBlur={onBlur}
+                required={required}
+                invalid={invalid || option.invalid}
+                checked={value ? option.value === value : option.checked}
+                defaultChecked={
+                  defaultValue
+                    ? option.value === defaultValue
+                    : option.defaultChecked
+                }
+              />
+            </div>
+          ))}
+        </RadioButtonGroupContext.Provider>
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}
