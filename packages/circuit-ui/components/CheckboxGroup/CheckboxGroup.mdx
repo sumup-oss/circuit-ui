@@ -1,0 +1,130 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './CheckboxGroup.stories';
+
+<Meta of={Stories} />
+
+# CheckboxGroup
+
+<Status.Stable />
+
+A checkbox group offers users the choice to select one or multiple options from a predefined list.
+
+<Story of={Stories.Base} />
+<Props />
+
+## When to use it
+
+Use it to ask the users questions with one or multiple alternatives.
+
+## Usage guidelines
+
+- **Do** accompany checkboxes with a descriptive label.
+- **Do** write items in a positive manner. (e.g. _"Send me reports"_ instead of _"Do not send me reports"_)
+- **Do** display the checkbox list vertically, with one choice per line.
+- **Do** sort the items in a reasonable order (e.g. alphabetical, numerical, time-based, or some other clear system)
+- **Do** use sentence case (e.g. _"I agree..."_ not _"You agree..."_)
+- **Do not** use negations (e.g. _“Don’t send me more email”_)
+- **Do not** use checkboxes as action buttons.
+- **Don not** rely on tooltips to explain checkboxes.
+- **Do not** use commas or semicolons at the end of each line.
+
+## Validations
+
+Use the `validationHint` to communicate the expected response(s) to users. Use the `invalid` and `hasWarning` props to require or suggest a change. The `showValid` prop can be used to provide an extra confirmation that the response is valid.
+
+<Story of={Stories.Validations} />
+
+### Disabled
+
+Disabled form fields can be confusing to users, so use them with caution. Use a disabled checkbox only if you need to communicate to the user that an option that existed before is not available for choosing now. Consider not displaying the field at all or add an explanation why the field is disabled.
+
+The checkbox group can be disabled entirely or in part.
+
+<Story of={Stories.Disabled} />
+
+## State
+
+The CheckboxGroup can be used as a controlled or uncontrolled component.
+
+### Controlled
+
+```tsx
+import { useState, ChangeEvent } from 'react';
+import { CheckboxGroup } from '@sumup/circuit-ui';
+
+function Controlled() {
+  const [value, setValue] = useState([]);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const eventValue = event.target.value;
+
+    setValue((prevValue) =>
+      prevValue.includes(eventValue)
+        ? prevValue.filter((v) => v !== eventValue)
+        : prevValue.concat(eventValue),
+    );
+  };
+
+  const options = [
+    // ...
+  ];
+
+  return (
+    <CheckboxGroup
+      label="Favourite fruits"
+      options={options}
+      value={value}
+      onChange={onChange}
+    />
+  );
+}
+```
+
+### Uncontrolled
+
+```tsx
+import { useRef } from 'react';
+import { CheckboxGroup } from '@sumup/circuit-ui';
+
+function Uncontrolled() {
+  const checkboxRefs = useRef({});
+
+  const setCheckboxRef = (input: HTMLInputElement) => {
+    checkboxRefs.current[input.value] = input;
+  };
+
+  const options = [
+    {
+      label: 'Apple',
+      value: 'apple',
+      ref: setCheckboxRef,
+    },
+  ];
+
+  return (
+    <CheckboxGroup
+      label="Favourite fruits"
+      options={options}
+      defaultValue={[]}
+      ref={checkboxGroupRef}
+    />
+  );
+}
+```
+
+## Accessibility
+
+### Best practices
+
+#### Write clear and concise labels
+
+The `label` prop passed to the CheckboxGroup or one of its `options` constitutes the input's label. This label should be clear and concise, and should not contain any formatted or semantic content (such as headings or lists).
+
+The label acts as the input's accessible name, exposed to assistive technology as plain text. Using non-phrasing content in a label element is invalid HTML.
+
+### Resources
+
+#### Related WCAG success criteria
+
+- 2.4.6: [Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html)
+- 4.1.1: [Parsing](https://www.w3.org/WAI/WCAG21/Understanding/parsing)

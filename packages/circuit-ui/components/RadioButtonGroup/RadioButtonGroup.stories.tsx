@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import { useState, ChangeEvent } from 'react';
+import type { ChangeEvent, FocusEvent } from 'react';
+import { action } from '@storybook/addon-actions';
 
-import RadioButton from '../RadioButton';
 import { Stack } from '../../../../.storybook/components';
+import RadioButton from '../RadioButton';
 
 import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 
@@ -25,61 +26,68 @@ export default {
   component: RadioButtonGroup,
   subcomponents: { RadioButton },
   argTypes: {
-    name: { control: 'text' },
     value: { control: 'text' },
-    options: { control: 'array' },
     invalid: { control: 'boolean' },
     showValid: { control: 'boolean' },
     hasWarning: { control: 'boolean' },
-    validationHint: { control: 'text' },
   },
 };
 
-export const Base = (args: RadioButtonGroupProps) => {
-  const [value, setValue] = useState<string>();
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
-  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
-};
+const storyStyles = { flex: '1', alignSelf: 'flex-start' };
+
+export const Base = (args: RadioButtonGroupProps) => (
+  <RadioButtonGroup {...args} />
+);
 
 Base.args = {
-  name: 'base',
+  name: 'fruit',
   label: 'Choose your favourite fruit',
+  defaultValue: 'banana',
   options: [
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' },
     { label: 'Mango', value: 'mango' },
   ],
+  // Storybook displays the default mocked function props poorly,
+  // so we override them for the default story.
+  onChange: (event: ChangeEvent<HTMLInputElement>) =>
+    action('CheckboxGroup')(event),
+  onBlur: (event: FocusEvent<HTMLInputElement>) =>
+    action('CheckboxGroup')(event),
 };
 
-export const Validation = (args: RadioButtonGroupProps) => (
+export const Validations = (args: RadioButtonGroupProps) => (
   <Stack>
     <RadioButtonGroup
       {...args}
       name="invalid"
       validationHint="Please choose an option."
+      required
       invalid
+      style={storyStyles}
     />
     <RadioButtonGroup
       {...args}
-      value="mango"
+      defaultValue="mango"
       name="invalid"
       validationHint="Some people are allergic to mangos."
       hasWarning
+      style={storyStyles}
     />
     <RadioButtonGroup
       {...args}
-      value="apple"
+      defaultValue="apple"
       name="valid"
       validationHint="Good choice! Apples are delicious."
       showValid
+      style={storyStyles}
     />
   </Stack>
 );
 
-Validation.args = {
+Validations.args = {
   label: 'Choose your favourite fruit',
+  optionalLabel: 'Optional',
   options: [
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' },
@@ -87,20 +95,34 @@ Validation.args = {
   ],
 };
 
-export const Disabled = (args: RadioButtonGroupProps) => {
-  const [value, setValue] = useState<string>();
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
-  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
-};
+export const Disabled = (args: RadioButtonGroupProps) => (
+  <Stack>
+    <RadioButtonGroup
+      {...args}
+      name="fully-disabled"
+      disabled
+      options={[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Mango', value: 'mango' },
+      ]}
+      validationHint="All fruits are sold out"
+      style={storyStyles}
+    />
+    <RadioButtonGroup
+      {...args}
+      name="partially-disabled"
+      options={[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Mango', value: 'mango', disabled: true },
+      ]}
+      validationHint="Some fruits are sold out"
+      style={storyStyles}
+    />
+  </Stack>
+);
 
 Disabled.args = {
-  name: 'disabled',
-  label: 'Choose your favourite fruit',
-  options: [
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' },
-    { label: 'Mango', value: 'mango', disabled: true },
-  ],
+  label: 'Select a fruit to order',
 };
