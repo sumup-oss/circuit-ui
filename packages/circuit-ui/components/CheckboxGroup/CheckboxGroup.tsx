@@ -32,6 +32,7 @@ import {
 import { AccessibilityError } from '../../util/errors';
 import { isEmpty } from '../../util/helpers';
 
+// TODO: Remove the label and value overrides in the next major.
 type Options = Omit<
   CheckboxProps,
   'onChange' | 'validationHint' | 'name' | 'value'
@@ -187,6 +188,7 @@ export const CheckboxGroup = forwardRef(
                 name={name}
                 onChange={onChange}
                 onBlur={onBlur}
+                disabled={disabled || option.disabled}
                 invalid={invalid || option.invalid}
                 checked={value ? value.includes(option.value) : option.checked}
                 defaultChecked={

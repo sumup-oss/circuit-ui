@@ -44,7 +44,7 @@ export interface RadioButtonGroupProps
    * A collection of available options. Each option must have at least a value
    * and a label.
    */
-  options: Omit<RadioButtonProps, 'onChange'>[];
+  options: Omit<RadioButtonProps, 'onChange' | 'onBlur' | 'name'>[];
   /**
    * A callback that is called when any of the inputs change their values.
    * Passed on to the RadioButtons.
@@ -177,6 +177,7 @@ export const RadioButtonGroup = forwardRef(
                 onChange={onChange}
                 onBlur={onBlur}
                 required={required}
+                disabled={disabled || option.disabled}
                 invalid={invalid || option.invalid}
                 checked={value ? option.value === value : option.checked}
                 defaultChecked={

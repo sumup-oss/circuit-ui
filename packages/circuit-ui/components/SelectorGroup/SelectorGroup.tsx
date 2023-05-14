@@ -43,7 +43,7 @@ export interface SelectorGroupProps
    * A collection of available options. Each option must have at least
    * a value and label.
    */
-  options: SelectorProps[];
+  options: Omit<SelectorProps, 'onChange' | 'onBlur' | 'name'>[];
   /**
    * A callback that is called when any of the inputs change their values.
    * Passed on to the Selectors.
@@ -74,10 +74,6 @@ export interface SelectorGroupProps
    * Whether the user can select multiple options.
    */
   multiple?: boolean;
-  /**
-   * Triggers invalid styles on the inputs.
-   */
-  invalid?: boolean;
   /**
    * Size of the Selectors within the group. Default: 'mega'.
    */
@@ -213,6 +209,7 @@ export const SelectorGroup = forwardRef(
           {options.map((option) => (
             <OptionItem key={option.label}>
               <Selector
+                {...option}
                 name={name}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -221,7 +218,7 @@ export const SelectorGroup = forwardRef(
                 css={css`
                   width: 100%;
                 `}
-                disabled={disabled}
+                disabled={disabled || option.disabled}
                 checked={
                   value ? isChecked(option, value, multiple) : option.checked
                 }
@@ -230,7 +227,6 @@ export const SelectorGroup = forwardRef(
                     ? isChecked(option, defaultValue, multiple)
                     : option.defaultChecked
                 }
-                {...option}
               />
             </OptionItem>
           ))}
