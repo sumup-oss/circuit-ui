@@ -455,7 +455,7 @@ export const Popover = ({
           >
             {actions.map((action, index) =>
               isDivider(action) ? (
-                <Hr css={dividerStyles} key={index} />
+                <Hr css={dividerStyles} role="presentation" key={index} />
               ) : (
                 <PopoverItem
                   key={index}
