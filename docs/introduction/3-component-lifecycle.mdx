@@ -1,0 +1,61 @@
+import { Meta, Intro, Status } from '../../.storybook/components';
+
+<Meta title="Introduction/Component Lifecycle" />
+
+# Component Lifecycle
+
+<Intro>
+  Circuit UI components move through different stages throughout their
+  lifecycle. Within each stage, components meet different requirements and
+  receive different levels of support.
+</Intro>
+
+## Stable
+
+<Status variant="stable" aria-hidden />
+
+Stable components solve a proven use case. They meet all of our quality standards including accessibility, [browser support](Introduction/Browser-Support/Docs), localization, test coverage, and documentation. Changes to the component API are unlikely and follow [semantic versioning](https://semver.org/).
+
+## Under Review
+
+<Status variant="under-review" aria-hidden />
+
+Our quality requirements evolve over time. Existing components that haven't been updated yet to meet the latest standards are placed under review. You can continue to use them but be aware of the issues that are listed in the components' documentation.
+
+[Contributions](Contributing/Overview/Docs) to resolve the issues are welcome!
+
+## Experimental
+
+<Status variant="experimental" aria-hidden />
+
+Experimental components are under active development. They might not meet our quality standards yet and likely lack sufficient documentation. They don't follow [semantic versioning](https://semver.org/) so breaking changes in minor versions are possible.
+
+This is a good time to provide feedback. [Open an issue](https://github.com/sumup-oss/circuit-ui/issues/new?template=amend-existing-component.md) to suggest improvements.
+
+Experimental components are exported separately from stable components. Import them from `@sumup/circuit-ui/experimental`:
+
+```tsx
+import { Component } from '@sumup/circuit-ui/experimental';
+```
+
+## Legacy
+
+<Status variant="legacy" aria-hidden />
+
+Legacy components are going to be phased out soon, but don't have a stable replacement yet. You can continue to use them in existing code until a stable alternative becomes available. We don't recommend adopting legacy components in new code. Legacy components won't receive any updates apart from bugfixes.
+
+Legacy components are exported separately from stable components. Import them from `@sumup/circuit-ui/legacy`:
+
+```tsx
+import { Component } from '@sumup/circuit-ui/legacy';
+```
+
+Some legacy components require third-party dependencies which aren't bundled with Circuit UI. Refer to each component's documentation for a list of dependencies that need to be installed manually.
+
+## Deprecated
+
+<Status variant="deprecated" aria-hidden />
+
+Deprecated components are going to be removed in the next major release. When used, they log a deprecation warning during local development. Replace them with the alternative that's suggested in the components' documentation. Deprecated components won't receive any updates or bugfixes.
+
+Deprecated components can be exported from `@sumup/circuit-ui` or `@sumup/circuit-ui/legacy`, depending on their previous status.

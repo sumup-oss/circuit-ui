@@ -13,14 +13,22 @@
  * limitations under the License.
  */
 
+import type { ReactNode } from 'react';
 import { Unstyled } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
 import { css, ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
-import { Badge, Body, cx, spacing } from '@sumup/circuit-ui';
-import { ReactNode } from 'react';
+import { Badge, BadgeProps, Body, cx, spacing } from '@sumup/circuit-ui';
+
+type Variant =
+  | 'stable'
+  | 'under-review'
+  | 'experimental'
+  | 'legacy'
+  | 'deprecated';
 
 interface StatusProps {
-  variant: 'stable' | 'deprecated' | 'inReview' | 'experimental';
+  variant: Variant;
   children?: ReactNode;
 }
 
@@ -30,20 +38,33 @@ const descriptionStyles = css`
   }
 `;
 
-const variants = {
-  stable: { variant: 'success', label: 'Stable' },
-  deprecated: { variant: 'danger', label: 'Deprecated' },
-  inReview: { variant: 'warning', label: 'In Review' },
-  experimental: { variant: 'warning', label: 'Experimental' },
-} as const;
+const variantMap: Record<
+  Variant,
+  { variant: BadgeProps['variant']; label: string }
+> = {
+  'stable': { variant: 'success', label: 'Stable' },
+  'experimental': { variant: 'promo', label: 'Experimental' },
+  'under-review': { variant: 'warning', label: 'Under Review' },
+  'legacy': { variant: 'warning', label: 'Legacy' },
+  'deprecated': { variant: 'danger', label: 'Deprecated' },
+};
 
-const Status = ({ variant: status = 'stable', children }: StatusProps) => {
-  const { variant, label } = variants[status];
+export default function Status({
+  variant: status = 'stable',
+  children,
+  ...props
+}: StatusProps) {
+  const { variant, label } = variantMap[status];
+
+  const kind = 'Introduction/Component-Lifecycle';
+  const name = 'Docs';
 
   return (
     <ThemeProvider theme={light}>
-      <Unstyled>
-        <Badge variant={variant}>{label}</Badge>
+      <Unstyled {...props}>
+        <LinkTo {...props} kind={kind} name={name}>
+          <Badge variant={variant}>{label}</Badge>
+        </LinkTo>
         {children && (
           <Body
             size="two"
@@ -57,31 +78,4 @@ const Status = ({ variant: status = 'stable', children }: StatusProps) => {
       </Unstyled>
     </ThemeProvider>
   );
-};
-
-/**
- * @deprecated Use `<Status variant="stable" />` instead.
- */
-Status.Stable = (props: Pick<StatusProps, 'children'>) => (
-  <Status variant="stable" {...props} />
-);
-/**
- * @deprecated Use `<Status variant="deprecated" />` instead.
- */
-Status.Deprecated = (props: Pick<StatusProps, 'children'>) => (
-  <Status variant="deprecated" {...props} />
-);
-/**
- * @deprecated Use `<Status variant="inReview" />` instead.
- */
-Status.InReview = (props: Pick<StatusProps, 'children'>) => (
-  <Status variant="inReview" {...props} />
-);
-/**
- * @deprecated Use `<Status variant="experimental" />` instead.
- */
-Status.Experimental = (props: Pick<StatusProps, 'children'>) => (
-  <Status variant="experimental" {...props} />
-);
-
-export default Status;
+}

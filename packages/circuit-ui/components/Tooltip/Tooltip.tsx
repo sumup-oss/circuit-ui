@@ -145,7 +145,7 @@ export interface TooltipProps {
 }
 
 /**
- * A Tooltip component
+ * @legacy
  */
 export const Tooltip = styled.div<TooltipProps>(
   typography('two'),

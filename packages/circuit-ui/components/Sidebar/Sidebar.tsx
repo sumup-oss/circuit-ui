@@ -75,6 +75,9 @@ const openStyles = ({ theme, isOpen }: StyleProps & { isOpen: boolean }) =>
 
 const Drawer = styled('nav')(baseStyles, openStyles);
 
+/**
+ * @legacy
+ */
 export function Sidebar({
   children,
   open,
@@ -102,9 +105,27 @@ export function Sidebar({
   );
 }
 
+/**
+ * @legacy
+ */
 Sidebar.Header = Header;
+/**
+ * @legacy
+ */
 Sidebar.Footer = Footer;
+/**
+ * @legacy
+ */
 Sidebar.NavList = NavList;
+/**
+ * @legacy
+ */
 Sidebar.NavItem = NavItem;
+/**
+ * @legacy
+ */
 Sidebar.Aggregator = Aggregator;
+/**
+ * @legacy
+ */
 Sidebar.Separator = Separator;

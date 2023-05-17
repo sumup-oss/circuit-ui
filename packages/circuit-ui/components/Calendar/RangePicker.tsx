@@ -15,8 +15,10 @@
 
 import { css } from '@emotion/react';
 import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { DateRangePicker } from 'react-dates';
 import type { DateRangePickerShape } from 'react-dates';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import 'react-dates/initialize.js';
 
 import styled from '../../styles/styled.js';
@@ -36,6 +38,9 @@ const CloseIcon = styled(Close)(
 
 export type RangePickerProps = DateRangePickerShape;
 
+/**
+ * @legacy
+ */
 export const RangePicker = (props: RangePickerProps) => (
   <CalendarWrapper>
     <DateRangePicker

@@ -52,6 +52,9 @@ function toDate(date: CalendarDate) {
   return date ? date.format('MMM DD') : '';
 }
 
+/**
+ * @legacy
+ */
 export class CalendarTag extends Component<CalendarTagProps, CalendarTagState> {
   state = {
     startDate: null,
