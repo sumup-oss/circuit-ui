@@ -113,7 +113,7 @@ export type {
   TabProps,
 } from './components/Tabs/index.js';
 
-// Misc
+// Miscellaneous
 export { default as Spinner } from './components/Spinner/index.js';
 export type { SpinnerProps } from './components/Spinner/index.js';
 export { default as Badge } from './components/Badge/index.js';
@@ -140,8 +140,6 @@ export type {
   PopoverProps,
   PopoverItemProps,
 } from './components/Popover/index.js';
-export { default as Tooltip } from './components/Tooltip/index.js';
-export type { TooltipProps } from './components/Tooltip/index.js';
 export { default as BaseStyles } from './components/BaseStyles/index.js';
 export { ModalProvider } from './components/ModalContext/index.js';
 export type { ModalProviderProps } from './components/ModalContext/index.js';

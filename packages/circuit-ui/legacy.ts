@@ -37,3 +37,7 @@ export {
   SidebarContextProvider,
   SidebarContextConsumer,
 } from './components/Sidebar/index.js';
+
+// Miscellaneous
+export { default as Tooltip } from './components/Tooltip/index.js';
+export type { TooltipProps } from './components/Tooltip/index.js';
