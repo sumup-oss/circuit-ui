@@ -48,7 +48,7 @@ export const createBaseStyles = ({
     --cui-bg-normal: #ffffff;
     --cui-bg-normal-hovered: #f5f5f5;
     --cui-bg-normal-pressed: #e6e6e6;
-    --cui-bg-normal-disabled: rgba(255, 255, 255, 0.4);
+    --cui-bg-normal-disabled: rgba(0, 0, 0, 0.25);
     --cui-bg-subtle: #f5f5f5;
     --cui-bg-subtle-hovered: #e6e6e6;
     --cui-bg-subtle-pressed: #cccccc;
