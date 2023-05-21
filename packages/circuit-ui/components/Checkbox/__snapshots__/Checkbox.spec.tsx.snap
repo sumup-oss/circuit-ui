@@ -110,6 +110,12 @@ exports[`Checkbox Styles should render with checked styles 1`] = `
   background-color: var(--cui-bg-normal-disabled);
 }
 
+.circuit-1:disabled:checked+label::before,
+.circuit-1[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+  background-color: var(--cui-bg-accent-strong-disabled);
+}
+
 .circuit-2 {
   color: var(--cui-fg-normal);
   display: inline-block;
@@ -267,6 +273,12 @@ exports[`Checkbox Styles should render with default styles 1`] = `
   background-color: var(--cui-bg-normal-disabled);
 }
 
+.circuit-1:disabled:checked+label::before,
+.circuit-1[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+  background-color: var(--cui-bg-accent-strong-disabled);
+}
+
 .circuit-2 {
   color: var(--cui-fg-normal);
   display: inline-block;
@@ -421,6 +433,12 @@ exports[`Checkbox Styles should render with disabled styles 1`] = `
 .circuit-1[disabled]+label::before {
   border-color: var(--cui-border-normal-disabled);
   background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-1:disabled:checked+label::before,
+.circuit-1[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+  background-color: var(--cui-bg-accent-strong-disabled);
 }
 
 .circuit-2 {
@@ -593,6 +611,12 @@ exports[`Checkbox Styles should render with invalid styles and an error message 
 .circuit-1[disabled]+label::before {
   border-color: var(--cui-border-normal-disabled);
   background-color: var(--cui-bg-normal-disabled);
+}
+
+.circuit-1:disabled:checked+label::before,
+.circuit-1[disabled]:checked+label::before {
+  border-color: var(--cui-border-accent-disabled);
+  background-color: var(--cui-bg-accent-strong-disabled);
 }
 
 .circuit-2 {
