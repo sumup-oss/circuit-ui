@@ -9,7 +9,7 @@ const lightTheme = css`
     --cui-bg-normal: #ffffff;
     --cui-bg-normal-hovered: #eef0f2;
     --cui-bg-normal-pressed: #d8dde1;
-    --cui-bg-normal-disabled: rgba(0, 0, 0, 0.25);
+    --cui-bg-normal-disabled: rgba(255, 255, 255, 0.4);
     --cui-bg-subtle: #eef0f2;
     --cui-bg-subtle-hovered: #d8dde1;
     --cui-bg-subtle-pressed: #c9d0d6;
