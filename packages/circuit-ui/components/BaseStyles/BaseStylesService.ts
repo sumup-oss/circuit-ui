@@ -29,7 +29,7 @@ export const createBaseStyles = ({
   @font-face {
     font-family: 'aktiv-grotesk';
     font-weight: 400;
-    font-display: swap;
+    font-display: optional;
     src: url('${FONTS_BASE_URL}/aktiv-grotest-400.woff2') format('woff2'),
       url('${FONTS_BASE_URL}/aktiv-grotest-400.woff') format('woff'),
       url('${FONTS_BASE_URL}/aktiv-grotest-400.eot') format('embedded-opentype');
@@ -37,7 +37,7 @@ export const createBaseStyles = ({
   @font-face {
     font-family: 'aktiv-grotesk';
     font-weight: 700;
-    font-display: swap;
+    font-display: optional;
     src: url('${FONTS_BASE_URL}/aktiv-grotest-700.woff2') format('woff2'),
       url('${FONTS_BASE_URL}/aktiv-grotest-700.woff') format('woff'),
       url('${FONTS_BASE_URL}/aktiv-grotest-700.eot') format('embedded-opentype');
