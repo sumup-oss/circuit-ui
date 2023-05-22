@@ -27,6 +27,8 @@ export type CollapsibleOptions = {
   id?: string;
 };
 
+type Overflow = 'visible' | 'hidden';
+
 type ButtonProps = {
   'onClick': (event: ClickEvent) => void;
   'aria-controls': string;
@@ -37,12 +39,12 @@ type ContentProps<T> = {
   'ref': RefObject<T>;
   'id': string;
   'style': {
-    overflowY: 'hidden';
+    overflowY: Overflow;
     willChange: 'height';
     opacity: 1 | 0;
     height: string | 0;
   };
-  'aria-hidden': null | 'true';
+  'aria-hidden': undefined | 'true';
 };
 
 type Collapsible<T> = {
@@ -70,6 +72,9 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
   const contentElement = useRef<T>(null);
   const [isOpen, setOpen] = useState(initialOpen);
   const [height, setHeight] = useState(getHeight(contentElement));
+  const [overflow, setOverflow] = useState<Overflow>(
+    initialOpen ? 'visible' : 'hidden',
+  );
   const [isAnimating, setAnimating] = useAnimation();
 
   const toggleOpen = useCallback(() => {
@@ -77,6 +82,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       duration,
       onStart: () => {
         setHeight(getHeight(contentElement));
+        setOverflow('hidden');
         // Delaying the state update until the next animation frame ensures that
         // the browsers renders the new height before the animation starts.
         window.requestAnimationFrame(() => {
@@ -85,6 +91,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       },
       onEnd: () => {
         setHeight(DEFAULT_HEIGHT);
+        setOverflow('visible');
       },
     });
   }, [setAnimating, duration]);
@@ -107,7 +114,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       'ref': contentElement,
       'id': contentId,
       'style': {
-        overflowY: 'hidden',
+        overflowY: overflow,
         willChange: 'height',
         opacity: isOpen ? 1 : 0,
         height: isOpen ? height : 0,
@@ -115,7 +122,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
         transition: `all ${duration}ms ease-in-out`,
         ...props.style,
       },
-      'aria-hidden': isOpen ? null : 'true',
+      'aria-hidden': isOpen ? undefined : 'true',
     }),
   };
 }
