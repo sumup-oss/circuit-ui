@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-export { FieldWrapper } from './FieldWrapper';
-export { FieldLabel } from './FieldLabel';
+export { FieldWrapper, FieldSet } from './FieldWrappers';
+export { FieldLabel, FieldLegend } from './FieldLabels';
 export { FieldLabelText } from './FieldLabelText';
 export { FieldDescription } from './FieldDescription';
 export { FieldValidationHint } from './FieldValidationHint';

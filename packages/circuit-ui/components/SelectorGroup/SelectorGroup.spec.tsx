@@ -15,81 +15,217 @@
 
 import { createRef } from 'react';
 
-import { axe, render, screen } from '../../util/test-utils';
+import {
+  axe,
+  fireEvent,
+  render,
+  screen,
+  userEvent,
+} from '../../util/test-utils';
 
-import { SelectorGroup } from './SelectorGroup';
+import { SelectorGroup, SelectorGroupProps } from './SelectorGroup';
+
+const defaultProps: SelectorGroupProps = {
+  label: 'label',
+  name: 'selector-group',
+  options: [
+    { label: 'Option 1', value: 'first' },
+    { label: 'Option 2', value: 'second' },
+    { label: 'Option 3', value: 'third' },
+  ],
+};
 
 describe('SelectorGroup', () => {
-  const defaultProps = {
-    onChange: jest.fn(),
-    value: '',
-    label: 'Choose an option',
-    options: [
-      {
-        label: 'Option 1',
-        value: 'first',
-      },
-      {
-        label: 'Option 2',
-        value: 'second',
-      },
-      {
-        label: 'Option 3',
-        value: 'third',
-      },
-    ],
-  };
+  describe('Structure & Semantics', () => {
+    it('should not render if the options are empty', () => {
+      render(<SelectorGroup {...defaultProps} options={[]} />);
+      const groupEl = screen.queryByRole('radiogroup');
+      expect(groupEl).toBeNull();
+    });
 
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const { container } = render(<SelectorGroup {...defaultProps} />);
-    expect(container).toMatchSnapshot();
+    it('should be initially unchecked by default', () => {
+      render(<SelectorGroup {...defaultProps} />);
+      expect(screen.getByLabelText('Option 1')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 2')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 3')).not.toBeChecked();
+    });
+
+    it('should be initially checked (uncontrolled)', () => {
+      const defaultValue = 'first';
+      render(<SelectorGroup {...defaultProps} defaultValue={defaultValue} />);
+      expect(screen.getByLabelText('Option 1')).toBeChecked();
+      expect(screen.getByLabelText('Option 2')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 3')).not.toBeChecked();
+    });
+
+    it('should be initially checked (controlled)', () => {
+      const value = 'second';
+      render(
+        <SelectorGroup {...defaultProps} value={value} onChange={jest.fn()} />,
+      );
+      expect(screen.getByLabelText('Option 1')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 2')).toBeChecked();
+      expect(screen.getByLabelText('Option 3')).not.toBeChecked();
+    });
+
+    it('should have the same name for each option', () => {
+      render(<SelectorGroup {...defaultProps} />);
+      expect(screen.getByLabelText('Option 1')).toHaveAttribute(
+        'name',
+        defaultProps.name,
+      );
+      expect(screen.getByLabelText('Option 2')).toHaveAttribute(
+        'name',
+        defaultProps.name,
+      );
+      expect(screen.getByLabelText('Option 3')).toHaveAttribute(
+        'name',
+        defaultProps.name,
+      );
+    });
+
+    it('should have a label (accessible name)', () => {
+      render(<SelectorGroup {...defaultProps} />);
+      const groupEl = screen.getByRole('radiogroup');
+      expect(groupEl).toHaveAccessibleName(defaultProps.label);
+    });
+
+    it('should accept a custom description via aria-describedby', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      render(
+        <>
+          <span id={customDescriptionId}>{customDescription}</span>
+          <SelectorGroup
+            aria-describedby={customDescriptionId}
+            {...defaultProps}
+          />
+        </>,
+      );
+      const groupEl = screen.getByRole('radiogroup');
+      expect(groupEl).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(customDescriptionId),
+      );
+      expect(groupEl).toHaveAccessibleDescription(customDescription);
+    });
   });
 
-  /**
-   * Logic tests.
-   */
-  it('should check the selected option', () => {
-    const value = 'second';
-    render(<SelectorGroup {...defaultProps} value={value} />);
-    expect(screen.getByLabelText('Option 1')).not.toHaveAttribute('checked');
-    expect(screen.getByLabelText('Option 2')).toHaveAttribute('checked');
-    expect(screen.getByLabelText('Option 3')).not.toHaveAttribute('checked');
+  describe('State & Interactions', () => {
+    it('should give precedence to the `value` prop over the `checked` attribute of the individual options', () => {
+      const value = 'second';
+      const options = [
+        { label: 'Option 1', value: 'first', checked: true },
+        { label: 'Option 2', value: 'second', checked: false },
+      ];
+      render(
+        <SelectorGroup
+          {...defaultProps}
+          value={value}
+          onChange={jest.fn()}
+          options={options}
+        />,
+      );
+      expect(screen.getByLabelText('Option 1')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 2')).toBeChecked();
+    });
+
+    it('should give precedence to the `defaultValue` prop over the `defaultChecked` attribute of the individual options', () => {
+      const defaultValue = 'second';
+      const options = [
+        { label: 'Option 1', value: 'first', defaultChecked: true },
+        { label: 'Option 2', value: 'second', defaultChecked: false },
+      ];
+      render(
+        <SelectorGroup
+          {...defaultProps}
+          defaultValue={defaultValue}
+          onChange={jest.fn()}
+          options={options}
+        />,
+      );
+      expect(screen.getByLabelText('Option 1')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 2')).toBeChecked();
+    });
+
+    it('should call the change handler when clicked', async () => {
+      const onChange = jest.fn();
+      render(<SelectorGroup {...defaultProps} onChange={onChange} />);
+
+      await userEvent.click(screen.getByLabelText('Option 3'));
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call the blur handler when loosing focus', async () => {
+      const onBlur = jest.fn();
+      render(<SelectorGroup {...defaultProps} onBlur={onBlur} />);
+      const inputEl = screen.getByLabelText('Option 1');
+
+      await userEvent.click(inputEl);
+      fireEvent.blur(inputEl);
+
+      expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+
+    it('should forward a ref to the group', () => {
+      const ref = createRef<HTMLFieldSetElement>();
+      render(<SelectorGroup {...defaultProps} ref={ref} />);
+      const groupEl = screen.getByRole('radiogroup');
+      expect(ref.current).toBe(groupEl);
+    });
+
+    it('should disable the options fully', () => {
+      render(<SelectorGroup {...defaultProps} disabled />);
+      expect(screen.getByRole('radiogroup')).toBeDisabled();
+      expect(screen.getByLabelText('Option 1')).toBeDisabled();
+      expect(screen.getByLabelText('Option 2')).toBeDisabled();
+      expect(screen.getByLabelText('Option 3')).toBeDisabled();
+    });
+
+    it('should disable the options partially', () => {
+      const options = [
+        { label: 'Option 1', value: 'first', disabled: true },
+        { label: 'Option 2', value: 'second' },
+      ];
+      render(<SelectorGroup {...defaultProps} options={options} />);
+      expect(screen.getByRole('radiogroup')).not.toBeDisabled();
+      expect(screen.getByLabelText('Option 1')).toBeDisabled();
+      expect(screen.getByLabelText('Option 2')).not.toBeDisabled();
+    });
   });
 
-  it('should check the selected options', () => {
-    const value = ['second', 'third'];
-    render(<SelectorGroup {...defaultProps} value={value} multiple />);
-    expect(screen.getByLabelText('Option 1')).not.toHaveAttribute('checked');
-    expect(screen.getByLabelText('Option 2')).toHaveAttribute('checked');
-    expect(screen.getByLabelText('Option 3')).toHaveAttribute('checked');
+  describe('Validations', () => {
+    it.todo('should announce validation hints to screen reader users');
   });
 
-  it('should accept a working ref', () => {
-    const tref = createRef<HTMLFieldSetElement>();
-    const { container } = render(
-      <SelectorGroup {...defaultProps} ref={tref} />,
-    );
-    const fieldset = container.querySelector('fieldset');
-    expect(tref.current).toBe(fieldset);
-  });
+  describe('Accessibility', () => {
+    it('should have no violations', async () => {
+      const defaultValue = 'second';
+      const { container } = render(
+        <SelectorGroup {...defaultProps} defaultValue={defaultValue} />,
+      );
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
 
-  it('should render with horizontal layout by default', () => {
-    const { container } = render(<SelectorGroup {...defaultProps} />);
-    expect(container).toMatchSnapshot();
-  });
+    it('should have no violations (multiple)', async () => {
+      const defaultValue = ['second'];
+      const { container } = render(
+        <SelectorGroup
+          {...defaultProps}
+          defaultValue={defaultValue}
+          multiple
+        />,
+      );
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const value = 'second';
-    const { container } = render(
-      <SelectorGroup {...defaultProps} value={value} />,
-    );
-    const actual = await axe(container);
-    expect(actual).toHaveNoViolations();
+    it.todo('should render an empty live region on mount');
+
+    it.todo('should render status messages in a live region');
+
+    it.todo('should not render descriptions in a live region');
   });
 });

@@ -17,12 +17,10 @@ import { forwardRef, HTMLAttributes, Ref } from 'react';
 import { css } from '@emotion/react';
 
 import styled from '../../styles/styled';
-import { EmotionAsPropType } from '../../types/prop-types';
 
 import { CLASS_DISABLED } from './constants';
 
 export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
-  as?: EmotionAsPropType;
   /**
    * Trigger disabled styles on the component.
    */
@@ -31,6 +29,7 @@ export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
 
 const wrapperStyles = () =>
   css`
+    &[disabled],
     &.${CLASS_DISABLED} {
       pointer-events: none;
     }
@@ -57,3 +56,8 @@ export const FieldWrapper = forwardRef(
 );
 
 FieldWrapper.displayName = 'FieldWrapper';
+
+/**
+ * @private
+ */
+export const FieldSet = styled('fieldset')(wrapperStyles);

@@ -20,28 +20,41 @@ import {
   forwardRef,
 } from 'react';
 
-import styled from '../../styles/styled';
-import { typography } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
-import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
 import {
-  FieldWrapper,
+  RadioButton,
+  RadioButtonProps,
+  RadioButtonGroupContext,
+} from '../RadioButton/RadioButton';
+import {
   FieldLabelText,
   FieldValidationHint,
+  FieldLegend,
+  FieldSet,
 } from '../FieldAtoms';
 import { AccessibilityError } from '../../util/errors';
+import { isEmpty } from '../../util/helpers';
 
 export interface RadioButtonGroupProps
-  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
+  extends Omit<
+    FieldsetHTMLAttributes<HTMLFieldSetElement>,
+    'onChange' | 'onBlur'
+  > {
   /**
    * A collection of available options. Each option must have at least a value
    * and a label.
    */
-  options: Omit<RadioButtonProps, 'onChange'>[];
+  options: Omit<RadioButtonProps, 'onChange' | 'onBlur' | 'name'>[];
   /**
-   * Controls/Toggles the checked state. Passed on to the RadioButtons.
+   * A callback that is called when any of the inputs change their values.
+   * Passed on to the RadioButtons.
    */
-  onChange: RadioButtonProps['onChange'];
+  onChange?: RadioButtonProps['onChange'];
+  /**
+   * A callback that is called when any of the inputs lose focus.
+   * Passed on to the RadioButtons.
+   */
+  onBlur?: RadioButtonProps['onBlur'];
   /**
    * A visually hidden description of the selector group for screen readers.
    */
@@ -55,6 +68,10 @@ export interface RadioButtonGroupProps
    * The value of the currently checked RadioButton.
    */
   value?: RadioButtonProps['value'];
+  /**
+   * The value of the currently checked RadioButton.
+   */
+  defaultValue?: RadioButtonProps['value'];
   /**
    * The ref to the HTML DOM element
    */
@@ -86,10 +103,6 @@ export interface RadioButtonGroupProps
   hideLabel?: boolean;
 }
 
-type LegendProps = Pick<RadioButtonGroupProps, 'hideLabel'>;
-
-const Legend = styled('legend')<LegendProps>(typography('two'));
-
 /**
  * A group of RadioButtons.
  */
@@ -98,7 +111,9 @@ export const RadioButtonGroup = forwardRef(
     {
       options,
       onChange,
-      'value': activeValue,
+      onBlur,
+      value,
+      defaultValue,
       'name': customName,
       label,
       invalid,
@@ -124,6 +139,11 @@ export const RadioButtonGroup = forwardRef(
         'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
+
+    if (isEmpty(options)) {
+      return null;
+    }
+
     const name = customName || uniqueId('radio-button-group_');
     const validationHintId = uniqueId('validation-hint_');
     const descriptionIds = `${
@@ -131,41 +151,44 @@ export const RadioButtonGroup = forwardRef(
     }${validationHintId}`;
 
     return (
-      <FieldWrapper
-        as="fieldset"
+      <FieldSet
         role="radiogroup"
         aria-describedby={descriptionIds}
         aria-orientation="vertical"
         name={name}
-        // @ts-expect-error The `as` prop above changes the HTML element.
         ref={ref}
         disabled={disabled}
         {...props}
       >
-        <Legend>
+        <FieldLegend>
           <FieldLabelText
             label={label}
             hideLabel={hideLabel}
             optionalLabel={optionalLabel}
             required={required}
           />
-        </Legend>
-        {options &&
-          options.map(
-            ({ label: optionLabel, value, className, style, ...rest }) => (
-              <div
-                key={value && value.toString()}
-                className={className}
-                style={style}
-              >
-                <RadioButton
-                  {...{ ...rest, value, name, required, onChange }}
-                  checked={value === activeValue}
-                  label={optionLabel}
-                />
-              </div>
-            ),
-          )}
+        </FieldLegend>
+        <RadioButtonGroupContext.Provider value={true}>
+          {options.map(({ className, style, ...option }) => (
+            <div key={option.label} className={className} style={style}>
+              <RadioButton
+                {...option}
+                name={name}
+                onChange={onChange}
+                onBlur={onBlur}
+                required={required}
+                disabled={disabled || option.disabled}
+                invalid={invalid || option.invalid}
+                checked={value ? option.value === value : option.checked}
+                defaultChecked={
+                  defaultValue
+                    ? option.value === defaultValue
+                    : option.defaultChecked
+                }
+              />
+            </div>
+          ))}
+        </RadioButtonGroupContext.Provider>
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}
@@ -174,7 +197,7 @@ export const RadioButtonGroup = forwardRef(
           hasWarning={hasWarning}
           validationHint={validationHint}
         />
-      </FieldWrapper>
+      </FieldSet>
     );
   },
 );

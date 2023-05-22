@@ -15,15 +15,15 @@
 
 import styled from '@emotion/styled';
 
-const Stack = styled.div<{}>`
+const Stack = styled.div<{ vertical?: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 
   @media screen and (min-width: 600px) {
-    flex-direction: row;
+    flex-direction: ${(p) => (p.vertical ? 'column' : 'row')};
   }
 `;
 
