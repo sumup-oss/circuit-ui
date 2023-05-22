@@ -56,7 +56,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   width: 220px;
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1900px) {
   .circuit-1 {
     width: 220px;
   }
@@ -217,7 +217,7 @@ exports[`DesktopNavigation styles should render with secondary links 1`] = `
   border-right: 1px solid var(--cui-border-divider);
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1900px) {
   .circuit-7 {
     margin-left: 220px;
   }
@@ -512,7 +512,7 @@ exports[`DesktopNavigation styles should render without secondary links 1`] = `
   width: 220px;
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1900px) {
   .circuit-1 {
     width: 220px;
   }
