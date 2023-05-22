@@ -344,9 +344,9 @@ exports[`ImageInput > Styles > should render with a custom component 1`] = `
           class="circuit-8"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             height="16"
-            role="presentation"
             viewBox="0 0 16 16"
             width="16"
             xmlns="http://www.w3.org/2000/svg"
@@ -779,9 +779,9 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
           class="circuit-9"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             height="16"
-            role="presentation"
             viewBox="0 0 16 16"
             width="16"
             xmlns="http://www.w3.org/2000/svg"
@@ -1172,9 +1172,9 @@ exports[`ImageInput > Styles > should render with an existing image 1`] = `
           class="circuit-9"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             height="16"
-            role="presentation"
             viewBox="0 0 16 16"
             width="16"
             xmlns="http://www.w3.org/2000/svg"
@@ -1601,9 +1601,9 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
           class="circuit-9"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             height="16"
-            role="presentation"
             viewBox="0 0 16 16"
             width="16"
             xmlns="http://www.w3.org/2000/svg"
@@ -2064,9 +2064,9 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
           class="circuit-9"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             height="16"
-            role="presentation"
             viewBox="0 0 16 16"
             width="16"
             xmlns="http://www.w3.org/2000/svg"

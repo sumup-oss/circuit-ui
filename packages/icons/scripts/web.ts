@@ -110,18 +110,20 @@ function buildDeclarationFile(components: Component[]): string {
   const declarationStatements = components.map((component) => {
     const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
     const SizesType = sizes.join(' | ');
-    return `declare const ${component.name}: FC<IconProps<${SizesType}>>;`;
+    return `declare const ${component.name}: IconComponentType<${SizesType}>;`;
   });
   const exportNames = components.map((file) => file.name);
   return dedent`
-    import type { FC, SVGProps } from 'react';
+    import type { FunctionComponent, SVGProps } from 'react';
 
-    export interface IconProps<Sizes = '16' | '24' | '32'> extends SVGProps<SVGSVGElement> {
+    export interface IconProps<Sizes extends string = any> extends SVGProps<SVGSVGElement> {
       /**
-       * Choose between the one of the available sizes. Defaults to '24', if supported, or to the smallest available size.
+       * Choose between one of the available sizes. Defaults to '24', if supported, or to the smallest available size.
        */
       size?: Sizes;
     }
+
+    export type IconComponentType<Sizes extends string = any> = FunctionComponent<IconProps<Sizes>>;
 
     ${declarationStatements.join('\n')}
 

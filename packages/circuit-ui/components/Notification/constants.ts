@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
-import { Alert, Confirm, IconProps, Info, Notify } from '@sumup/icons';
+import { Alert, Confirm, IconComponentType, Info, Notify } from '@sumup/icons';
 
 export type NotificationVariant = 'info' | 'success' | 'warning' | 'danger';
 
 export const NOTIFICATION_ICONS: Record<
   NotificationVariant,
-  FC<IconProps<'16' | '24'>>
+  IconComponentType<'16' | '24'>
 > = {
   info: Info,
   success: Confirm,

@@ -296,9 +296,9 @@ exports[`Modal > should match the snapshot 1`] = `
               class="circuit-6"
             >
               <svg
+                aria-hidden="true"
                 fill="none"
                 height="16"
-                role="presentation"
                 viewBox="0 0 16 16"
                 width="16"
                 xmlns="http://www.w3.org/2000/svg"

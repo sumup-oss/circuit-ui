@@ -294,9 +294,9 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
             class="circuit-10"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -603,9 +603,9 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
             class="circuit-9"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -912,9 +912,9 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
             class="circuit-9"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -1221,9 +1221,9 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
             class="circuit-9"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -1530,9 +1530,9 @@ exports[`NotificationToast > styles > should render with success variant styles 
             class="circuit-9"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -1841,9 +1841,9 @@ exports[`NotificationToast > styles > should render with warning variant styles 
             class="circuit-9"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"

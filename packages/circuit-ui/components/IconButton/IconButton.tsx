@@ -16,7 +16,7 @@
 import { Children, cloneElement, ReactElement, forwardRef, Ref } from 'react';
 import { css, SerializedStyles } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
-import { IconProps } from '@sumup/icons';
+import type { IconProps } from '@sumup/icons';
 
 import { hideVisually } from '../../styles/style-mixins.js';
 import styled from '../../styles/styled.js';
@@ -63,8 +63,8 @@ export const IconButton = forwardRef(
     const child = Children.only(children);
     const iconSize = size === 'kilo' ? '16' : '24';
     const icon = cloneElement(child, {
-      role: 'presentation',
-      size: child.props.size || iconSize,
+      'aria-hidden': 'true',
+      'size': (child.props.size as string) || iconSize,
     });
     if (
       process.env.NODE_ENV !== 'production' &&

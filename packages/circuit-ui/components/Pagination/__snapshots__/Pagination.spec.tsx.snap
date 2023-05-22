@@ -429,9 +429,9 @@ li:last-child .circuit-11 {
       class="circuit-4"
     >
       <svg
+        aria-hidden="true"
         fill="none"
         height="16"
-        role="presentation"
         viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
@@ -573,9 +573,9 @@ li:last-child .circuit-11 {
       class="circuit-4"
     >
       <svg
+        aria-hidden="true"
         fill="none"
         height="16"
-        role="presentation"
         viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
@@ -977,9 +977,9 @@ select:not(:active)~.circuit-12 {
       class="circuit-4"
     >
       <svg
+        aria-hidden="true"
         fill="none"
         height="16"
-        role="presentation"
         viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
@@ -1122,9 +1122,9 @@ select:not(:active)~.circuit-12 {
       class="circuit-4"
     >
       <svg
+        aria-hidden="true"
         fill="none"
         height="16"
-        role="presentation"
         viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"

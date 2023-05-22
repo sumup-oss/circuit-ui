@@ -19,11 +19,10 @@ import {
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
   ReactNode,
-  FC,
-  SVGProps,
 } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
+import type { IconComponentType } from '@sumup/icons';
 
 import isPropValid from '../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../styles/styled.js';
@@ -65,7 +64,7 @@ export interface BaseProps {
   /**
    * Display an icon in addition to the text to help to identify the action.
    */
-  'icon'?: FC<SVGProps<SVGSVGElement>>;
+  'icon'?: IconComponentType;
   /**
    * The HTML button type
    */
@@ -455,7 +454,13 @@ export const Button = forwardRef(
           <LoadingLabel>{loadingLabel}</LoadingLabel>
         </LoadingIcon>
         <Content isLoading={Boolean(isLoading)}>
-          {Icon && <Icon css={iconStyles} role="presentation" />}
+          {Icon && (
+            <Icon
+              css={iconStyles}
+              size={props.size === 'kilo' ? '16' : '24'}
+              aria-hidden="true"
+            />
+          )}
           {children}
         </Content>
       </StyledButton>

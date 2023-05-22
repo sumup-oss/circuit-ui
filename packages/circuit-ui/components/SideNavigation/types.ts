@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { FC, MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
-import { IconProps } from '@sumup/icons';
+import type { MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
+import type { IconComponentType } from '@sumup/icons';
 
 import { BadgeProps } from '../Badge/index.js';
 
@@ -24,7 +24,7 @@ export interface PrimaryLinkProps
    * Display an icon in addition to the text to help to identify the link.
    * On narrow viewports, only the icon is displayed.
    */
-  icon: FC<IconProps>;
+  icon: IconComponentType;
   /**
    * Short label to describe the target of the link.
    */

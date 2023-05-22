@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { useState, FC } from 'react';
-import { FlagDe, FlagUs, FlagFr, IconProps } from '@sumup/icons';
+import { useState } from 'react';
+import { FlagDe, FlagUs, FlagFr, IconComponentType } from '@sumup/icons';
 
 import { Select, SelectProps } from './Select.js';
 
@@ -43,7 +43,7 @@ const baseArgs = {
   ],
 };
 
-const flagIconMap: { [key: string]: FC<IconProps<'16'>> } = {
+const flagIconMap: { [key: string]: IconComponentType<'16'> } = {
   DE: FlagDe,
   US: FlagUs,
   FR: FlagFr,
