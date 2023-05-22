@@ -49,7 +49,7 @@ export interface RadioButtonGroupProps
    * A callback that is called when any of the inputs change their values.
    * Passed on to the RadioButtons.
    */
-  onChange: RadioButtonProps['onChange'];
+  onChange?: RadioButtonProps['onChange'];
   /**
    * A callback that is called when any of the inputs lose focus.
    * Passed on to the RadioButtons.

@@ -15,123 +15,118 @@
 
 import { createRef } from 'react';
 
-import { render, userEvent, screen, axe } from '../../util/test-utils';
+import {
+  render,
+  userEvent,
+  screen,
+  axe,
+  fireEvent,
+} from '../../util/test-utils';
 
 import { Selector } from './Selector';
 
 const defaultProps = {
-  name: 'name',
-  value: 'value',
-  onChange: jest.fn(),
   label: 'Label',
+  name: 'selector',
+  value: 'test',
 };
 
 describe('Selector', () => {
-  /**
-   * Style tests.
-   */
-  it('should render a default selector', () => {
-    const { container } = render(<Selector {...defaultProps} />);
-    expect(container).toMatchSnapshot();
-  });
-
-  it('should render a disabled selector', () => {
-    const { container } = render(<Selector {...defaultProps} disabled />);
-    expect(container).toMatchSnapshot();
-  });
-
-  it('should render a checked selector', () => {
-    const { container } = render(<Selector {...defaultProps} checked />);
-    expect(container).toMatchSnapshot();
-  });
-
-  it('should render with a description', () => {
-    const { container } = render(
-      <Selector {...defaultProps} description="Description" />,
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it('should render a radio input by default', () => {
-    render(<Selector {...defaultProps} />);
-    expect(screen.getByLabelText('Label')).toHaveAttribute('type', 'radio');
-  });
-
-  it('should render a checkbox input when multiple options can be selected', () => {
-    render(<Selector {...defaultProps} multiple />);
-    expect(screen.getByLabelText('Label')).toHaveAttribute('type', 'checkbox');
-  });
-
-  /**
-   * Logic tests.
-   */
-  it('should be unchecked by default', () => {
-    render(<Selector {...defaultProps} />);
-    const inputEl = screen.getByLabelText('Label', {
-      exact: false,
-    });
-    expect(inputEl).not.toHaveAttribute('checked');
-  });
-
-  it('should call the change handler when clicked', async () => {
-    render(<Selector {...defaultProps} />);
-    const inputEl = screen.getByLabelText('Label', {
-      exact: false,
+  describe('Structure & Semantics', () => {
+    it('should render a radio input by default', () => {
+      render(<Selector {...defaultProps} />);
+      const inputEl = screen.getByLabelText('Label');
+      expect(inputEl).toHaveAttribute('type', 'radio');
     });
 
-    await userEvent.click(inputEl);
-
-    expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
-  });
-
-  describe('business logic', () => {
-    /**
-     * Should accept a working ref
-     */
-    it('should accept a working ref', () => {
-      const tref = createRef<HTMLInputElement>();
-      const { container } = render(<Selector {...defaultProps} ref={tref} />);
-      const input = container.querySelector('input');
-      expect(tref.current).toBe(input);
+    it('should render a checkbox input when multiple options can be selected', () => {
+      render(<Selector {...defaultProps} multiple />);
+      const inputEl = screen.getByLabelText('Label');
+      expect(inputEl).toHaveAttribute('type', 'checkbox');
     });
 
-    it('should accept a custom description via aria-describedby', () => {
+    it('should be initially unchecked by default', () => {
+      render(<Selector {...defaultProps} />);
+      const inputEl = screen.getByLabelText('Label');
+      expect(inputEl).not.toBeChecked();
+    });
+
+    it('should be initially checked (uncontrolled)', () => {
+      render(<Selector {...defaultProps} defaultChecked />);
+      const inputEl = screen.getByLabelText('Label');
+      expect(inputEl).toBeChecked();
+    });
+
+    it('should be initially checked (controlled)', () => {
+      render(<Selector {...defaultProps} checked />);
+      const inputEl = screen.getByLabelText('Label');
+      expect(inputEl).toBeChecked();
+    });
+
+    it('should be optionally disabled', () => {
+      render(<Selector {...defaultProps} disabled />);
+      const inputEl = screen.getByLabelText('Label');
+      expect(inputEl).toBeDisabled();
+    });
+
+    it('should have a name', () => {
+      render(<Selector {...defaultProps} />);
+      const inputEl = screen.getByLabelText('Label');
+      expect(inputEl).toHaveAttribute('name', defaultProps.name);
+    });
+
+    it('should have a label (accessible name)', () => {
+      const ref = createRef<HTMLInputElement>();
+      render(<Selector ref={ref} {...defaultProps} />);
+      const inputEl = screen.getByRole('radio');
+      expect(inputEl).toHaveAccessibleName(defaultProps.label);
+    });
+
+    it('should optionally have a description', () => {
       const description = 'Description';
-      const customDescription = 'Custom description';
-      const customDescriptionId = 'customDescriptionId';
-      render(
-        <>
-          <span id={customDescriptionId}>{customDescription}</span>
-          <Selector
-            aria-describedby={customDescriptionId}
-            description={description}
-            {...defaultProps}
-          />
-          ,
-        </>,
-      );
-      const inputEl = screen.getByLabelText('Label', {
-        exact: false,
-      });
-
-      expect(inputEl).toHaveAttribute(
-        'aria-describedby',
-        expect.stringContaining(customDescriptionId),
-      );
-      expect(inputEl).toHaveAccessibleDescription(
-        `${customDescription} ${description}`,
-      );
+      render(<Selector {...defaultProps} description={description} />);
+      const inputEl = screen.getByRole('radio');
+      expect(inputEl).toHaveAccessibleDescription(description);
     });
   });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const { container } = render(
-      <Selector {...defaultProps} description="Description" />,
-    );
-    const actual = await axe(container);
-    expect(actual).toHaveNoViolations();
+  describe('State & Interactions', () => {
+    it('should forward a ref to the input', () => {
+      const ref = createRef<HTMLInputElement>();
+      render(<Selector ref={ref} {...defaultProps} />);
+      const inputEl = screen.getByLabelText('Label');
+      expect(ref.current).toBe(inputEl);
+    });
+
+    it('should call the change handler when clicked', async () => {
+      const onChange = jest.fn();
+      render(<Selector {...defaultProps} onChange={onChange} />);
+      const inputEl = screen.getByLabelText('Label');
+
+      await userEvent.click(inputEl);
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call the blur handler when loosing focus', async () => {
+      const onBlur = jest.fn();
+      render(<Selector {...defaultProps} onBlur={onBlur} />);
+      const inputEl = screen.getByRole('radio');
+
+      await userEvent.click(inputEl);
+      fireEvent.blur(inputEl);
+
+      expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should meet accessibility guidelines', async () => {
+      const { container } = render(
+        <Selector {...defaultProps} description="Description" />,
+      );
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
   });
 });

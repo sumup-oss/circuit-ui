@@ -125,4 +125,5 @@ export const Disabled = (args: RadioButtonGroupProps) => (
 
 Disabled.args = {
   label: 'Select a fruit to order',
+  defaultValue: 'apple',
 };

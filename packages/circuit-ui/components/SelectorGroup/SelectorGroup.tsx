@@ -48,7 +48,7 @@ export interface SelectorGroupProps
    * A callback that is called when any of the inputs change their values.
    * Passed on to the Selectors.
    */
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
   /**
    * A callback that is called when any of the checkboxes lose focus.
    * Passed on to the Checkboxes.
@@ -195,6 +195,8 @@ export const SelectorGroup = forwardRef(
         aria-describedby={descriptionId}
         ref={ref}
         disabled={disabled}
+        role={multiple ? undefined : 'radiogroup'}
+        aria-orientation={multiple ? undefined : 'horizontal'}
         {...props}
       >
         <FieldLegend>

@@ -115,4 +115,5 @@ export const Disabled = (args: CheckboxGroupProps) => (
 
 Disabled.args = {
   label: 'Select some fruits to order',
+  defaultValue: ['apple'],
 };

@@ -68,7 +68,7 @@ export interface CheckboxGroupProps
    * A callback that is called when any of the inputs change their values.
    * Passed on to the Checkboxes.
    */
-  onChange: CheckboxProps['onChange'];
+  onChange?: CheckboxProps['onChange'];
   /**
    * A callback that is called when any of the inputs lose focus.
    * Passed on to the Checkboxes.
