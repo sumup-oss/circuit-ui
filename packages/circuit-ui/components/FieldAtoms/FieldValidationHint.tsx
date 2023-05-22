@@ -37,6 +37,7 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
   color: var(--cui-fg-subtle);
   transition: color ${theme.transitions.default};
 
+  [disabled] &,
   .${CLASS_DISABLED} & {
     color: var(--cui-fg-subtle-disabled);
   }
@@ -47,6 +48,7 @@ const validStyles = ({ showValid }: FieldValidationHintProps) =>
   css`
     color: var(--cui-fg-success);
 
+    [disabled] &,
     .${CLASS_DISABLED} & {
       color: var(--cui-fg-success-disabled);
     }
@@ -57,6 +59,7 @@ const warningStyles = ({ hasWarning }: FieldValidationHintProps) =>
   css`
     color: var(--cui-fg-warning);
 
+    [disabled] &,
     .${CLASS_DISABLED} & {
       color: var(--cui-fg-warning-disabled);
     }
@@ -67,6 +70,7 @@ const invalidStyles = ({ invalid }: FieldValidationHintProps) =>
   css`
     color: var(--cui-fg-danger);
 
+    [disabled] &,
     .${CLASS_DISABLED} & {
       color: var(--cui-fg-danger-disabled);
     }

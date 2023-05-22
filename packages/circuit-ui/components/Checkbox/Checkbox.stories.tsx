@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { useState, ChangeEvent } from 'react';
-import { action } from '@storybook/addon-actions';
+import { useState } from 'react';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
 
@@ -22,66 +21,51 @@ export default {
   title: 'Forms/Checkbox',
   component: Checkbox,
   argTypes: {
-    name: { control: 'text' },
-    value: { control: 'text' },
     disabled: { control: 'boolean' },
   },
 };
 
-const CheckboxWithState = ({
-  checked: initial = false,
-  children,
-  ...props
-}: CheckboxProps) => {
-  const [checked, setChecked] = useState(initial);
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    action('Checkbox clicked')(event);
-    setChecked((prev) => !prev);
+export const Base = (args: CheckboxProps) => <Checkbox {...args} />;
+
+Base.args = {
+  label: 'I have read and agree to the terms and conditions',
+  name: 'consent',
+  value: 'terms',
+};
+
+export const Validations = (args: CheckboxProps) => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = () => {
+    setChecked((prevChecked) => !prevChecked);
   };
+
   return (
-    <Checkbox {...props} checked={checked} onChange={handleChange}>
-      {children || (checked ? 'Checked' : 'Unchecked')}
-    </Checkbox>
+    <Checkbox
+      {...args}
+      checked={checked}
+      onChange={handleChange}
+      validationHint={
+        checked
+          ? undefined
+          : 'Please accept the terms and conditions to continue'
+      }
+      invalid={!checked}
+    />
   );
 };
 
-export const Base = (args: CheckboxProps) => <CheckboxWithState {...args} />;
-
-Base.args = {
-  name: 'base',
-  value: 'true',
+Validations.args = {
+  label: 'I have read and agree to the terms and conditions',
+  name: 'validations',
+  value: 'terms',
 };
 
-export const Invalid = (args: CheckboxProps) => (
-  <CheckboxWithState {...args} validationHint={args.validationHint} invalid />
-);
-
-Invalid.args = {
-  name: 'invalid',
-  value: 'true',
-  validationHint: 'This field is required.',
-};
-
-export const Disabled = (args: CheckboxProps) => (
-  <CheckboxWithState {...args} />
-);
+export const Disabled = (args: CheckboxProps) => <Checkbox {...args} />;
 
 Disabled.args = {
+  label: 'Next day delivery',
   name: 'disabled',
-  value: 'true',
+  validationHint: 'Express shipping is unavailable in your region',
   disabled: true,
 };
-
-export const Multiple = (args: CheckboxProps) => (
-  <>
-    <CheckboxWithState {...args} value="apples" name="fruits">
-      Apples
-    </CheckboxWithState>
-    <CheckboxWithState {...args} value="bananas" name="fruits">
-      Bananas
-    </CheckboxWithState>
-    <CheckboxWithState {...args} value="oranges" name="fruits">
-      Oranges
-    </CheckboxWithState>
-  </>
-);

@@ -15,86 +15,164 @@
 
 import { createRef } from 'react';
 
-import { render, userEvent, axe, screen } from '../../util/test-utils';
+import {
+  render,
+  userEvent,
+  axe,
+  screen,
+  fireEvent,
+} from '../../util/test-utils';
 
 import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup';
 
 const defaultProps: CheckboxGroupProps = {
-  name: 'Checkbox Group',
+  label: 'Label',
+  name: 'checkbox-group',
   options: [
-    {
-      label: 'Option 1',
-      value: 'first',
-    },
-    {
-      label: 'Option 2',
-      value: 'second',
-    },
-    {
-      label: 'Option 3',
-      value: 'third',
-    },
+    { label: 'Option 1', value: 'first' },
+    { label: 'Option 2', value: 'second' },
+    { label: 'Option 3', value: 'third' },
   ],
-  onChange: jest.fn(),
-  label: 'Choose an option',
 };
 
 describe('CheckboxGroup', () => {
-  describe('Styles', () => {
-    it('should render with default styles', () => {
-      const { container } = render(<CheckboxGroup {...defaultProps} />);
-      expect(container).toMatchSnapshot();
+  describe('Structure & Semantics', () => {
+    it('should not render if the options are empty', () => {
+      render(<CheckboxGroup {...defaultProps} options={[]} />);
+      const groupEl = screen.queryByRole('group');
+      expect(groupEl).toBeNull();
+    });
+
+    it('should be initially unchecked by default', () => {
+      render(<CheckboxGroup {...defaultProps} />);
+      expect(screen.getByLabelText('Option 1')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 2')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 3')).not.toBeChecked();
+    });
+
+    it('should be initially checked (uncontrolled)', () => {
+      const defaultValue = ['first', 'second'];
+      render(<CheckboxGroup {...defaultProps} defaultValue={defaultValue} />);
+      expect(screen.getByLabelText('Option 1')).toBeChecked();
+      expect(screen.getByLabelText('Option 2')).toBeChecked();
+      expect(screen.getByLabelText('Option 3')).not.toBeChecked();
+    });
+
+    it('should be initially checked (controlled)', () => {
+      const value = ['first', 'second'];
+      render(
+        <CheckboxGroup {...defaultProps} value={value} onChange={jest.fn()} />,
+      );
+      expect(screen.getByLabelText('Option 1')).toBeChecked();
+      expect(screen.getByLabelText('Option 2')).toBeChecked();
+      expect(screen.getByLabelText('Option 3')).not.toBeChecked();
+    });
+
+    it('should have the same name for each option', () => {
+      render(<CheckboxGroup {...defaultProps} />);
+      expect(screen.getByLabelText('Option 1')).toHaveAttribute(
+        'name',
+        defaultProps.name,
+      );
+      expect(screen.getByLabelText('Option 2')).toHaveAttribute(
+        'name',
+        defaultProps.name,
+      );
+      expect(screen.getByLabelText('Option 3')).toHaveAttribute(
+        'name',
+        defaultProps.name,
+      );
+    });
+
+    it('should have a label (accessible name)', () => {
+      render(<CheckboxGroup {...defaultProps} />);
+      const groupEl = screen.getByRole('group');
+      expect(groupEl).toHaveAccessibleName(defaultProps.label);
+    });
+
+    it('should accept a custom description via aria-describedby', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      render(
+        <>
+          <span id={customDescriptionId}>{customDescription}</span>
+          <CheckboxGroup
+            aria-describedby={customDescriptionId}
+            {...defaultProps}
+          />
+        </>,
+      );
+      const groupEl = screen.getByRole('group');
+      expect(groupEl).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(customDescriptionId),
+      );
+      expect(groupEl).toHaveAccessibleDescription(customDescription);
+    });
+
+    it('should combine the built-in and custom description', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      const description = 'Description';
+      render(
+        <>
+          <span id={customDescriptionId}>{customDescription}</span>
+          <CheckboxGroup
+            validationHint={description}
+            aria-describedby={customDescriptionId}
+            {...defaultProps}
+          />
+        </>,
+      );
+      const groupEl = screen.getByRole('group');
+      expect(groupEl).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(customDescriptionId),
+      );
+      expect(groupEl).toHaveAccessibleDescription(
+        `${customDescription} ${description}`,
+      );
     });
   });
 
-  describe('Logic', () => {
-    it('should check the selected options', () => {
-      const value = ['second', 'third'];
-      render(<CheckboxGroup {...defaultProps} value={value} />);
-      expect(screen.getByLabelText('Option 1')).not.toHaveAttribute('checked');
-      expect(screen.getByLabelText('Option 2')).toHaveAttribute('checked');
-      expect(screen.getByLabelText('Option 3')).toHaveAttribute('checked');
-    });
-
-    it('should give precedence to the `value` prop over the `checked` attribute of the individual checkboxes', () => {
+  describe('State & Interactions', () => {
+    it('should give precedence to the `value` prop over the `checked` attribute of the individual options', () => {
       const value = ['second'];
+      const options = [
+        { label: 'Option 1', value: 'first', checked: true },
+        { label: 'Option 2', value: 'second', checked: false },
+      ];
       render(
         <CheckboxGroup
           {...defaultProps}
           value={value}
-          options={[
-            {
-              label: 'Option 1',
-              value: 'first',
-              checked: true,
-            },
-            {
-              label: 'Option 2',
-              value: 'second',
-              checked: false,
-            },
-          ]}
+          onChange={jest.fn()}
+          options={options}
         />,
       );
-      expect(screen.getByLabelText('Option 1')).not.toHaveAttribute('checked');
-      expect(screen.getByLabelText('Option 2')).toHaveAttribute('checked');
+      expect(screen.getByLabelText('Option 1')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 2')).toBeChecked();
     });
 
-    it('should have a required attribute on each option when required is specified', () => {
-      const newCheckBoxGroupOption = defaultProps.options.map((option) => ({
-        ...option,
-        required: true,
-      }));
-      const newProps: CheckboxGroupProps = { ...defaultProps };
-      newProps.options = newCheckBoxGroupOption;
-
-      render(<CheckboxGroup {...newProps} />);
-      expect(screen.getByLabelText('Option 1')).toHaveAttribute('required');
-      expect(screen.getByLabelText('Option 2')).toHaveAttribute('required');
-      expect(screen.getByLabelText('Option 3')).toHaveAttribute('required');
+    it('should give precedence to the `defaultValue` prop over the `defaultChecked` attribute of the individual options', () => {
+      const defaultValue = ['second'];
+      const options = [
+        { label: 'Option 1', value: 'first', defaultChecked: true },
+        { label: 'Option 2', value: 'second', defaultChecked: false },
+      ];
+      render(
+        <CheckboxGroup
+          {...defaultProps}
+          defaultValue={defaultValue}
+          onChange={jest.fn()}
+          options={options}
+        />,
+      );
+      expect(screen.getByLabelText('Option 1')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 2')).toBeChecked();
     });
 
-    it('should call the onChange handler when clicked', async () => {
+    it('should call the change handler when clicked', async () => {
       const onChange = jest.fn();
       render(<CheckboxGroup {...defaultProps} onChange={onChange} />);
 
@@ -103,13 +181,57 @@ describe('CheckboxGroup', () => {
       expect(onChange).toHaveBeenCalledTimes(1);
     });
 
-    it('should accept a working ref', () => {
-      const tref = createRef<HTMLFieldSetElement>();
-      const { container } = render(
-        <CheckboxGroup {...defaultProps} ref={tref} />,
+    it('should call the blur handler when loosing focus', async () => {
+      const onBlur = jest.fn();
+      render(<CheckboxGroup {...defaultProps} onBlur={onBlur} />);
+      const inputEl = screen.getByLabelText('Option 1');
+
+      await userEvent.click(inputEl);
+      fireEvent.blur(inputEl);
+
+      expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+
+    it('should forward a ref to the group', () => {
+      const ref = createRef<HTMLFieldSetElement>();
+      render(<CheckboxGroup {...defaultProps} ref={ref} />);
+      const groupEl = screen.getByRole('group');
+      expect(ref.current).toBe(groupEl);
+    });
+
+    it('should disable the options fully', () => {
+      render(<CheckboxGroup {...defaultProps} disabled />);
+      expect(screen.getByRole('group')).toBeDisabled();
+      expect(screen.getByLabelText('Option 1')).toBeDisabled();
+      expect(screen.getByLabelText('Option 2')).toBeDisabled();
+      expect(screen.getByLabelText('Option 3')).toBeDisabled();
+    });
+
+    it('should disable the options partially', () => {
+      const options = [
+        { label: 'Option 1', value: 'first', disabled: true },
+        { label: 'Option 2', value: 'second' },
+      ];
+      render(<CheckboxGroup {...defaultProps} options={options} />);
+      expect(screen.getByRole('group')).not.toBeDisabled();
+      expect(screen.getByLabelText('Option 1')).toBeDisabled();
+      expect(screen.getByLabelText('Option 2')).not.toBeDisabled();
+    });
+  });
+
+  describe('Validations', () => {
+    it('should announce validation hints to screen reader users', () => {
+      const validationHint = 'Some options are required';
+      render(
+        <CheckboxGroup
+          invalid
+          validationHint={validationHint}
+          {...defaultProps}
+        />,
       );
-      const fieldset = container.querySelector('fieldset');
-      expect(tref.current).toBe(fieldset);
+      const liveRegionEls = screen.getAllByRole('status');
+      const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
+      expect(groupLiveRegionEl).toHaveTextContent(validationHint);
     });
   });
 
@@ -117,114 +239,24 @@ describe('CheckboxGroup', () => {
     it('should have no violations', async () => {
       const { container } = render(<CheckboxGroup {...defaultProps} />);
       const actual = await axe(container);
-
       expect(actual).toHaveNoViolations();
     });
 
-    describe('Labeling', () => {
-      it('should have an accessible name', () => {
-        render(<CheckboxGroup {...defaultProps} />);
-        const inputEl = screen.getByRole('group');
-
-        expect(inputEl).toHaveAccessibleName(defaultProps.label);
-      });
-
-      it('should optionally have an accessible description', () => {
-        const description = 'Description';
-        render(
-          <CheckboxGroup validationHint={description} {...defaultProps} />,
-        );
-        const inputEl = screen.getByRole('group');
-
-        expect(inputEl).toHaveAccessibleDescription(description);
-      });
-
-      it('should accept a custom description via aria-describedby', () => {
-        const customDescription = 'Custom description';
-        const customDescriptionId = 'customDescriptionId';
-        render(
-          <>
-            <span id={customDescriptionId}>{customDescription}</span>
-            <CheckboxGroup
-              aria-describedby={customDescriptionId}
-              {...defaultProps}
-            />
-            ,
-          </>,
-        );
-        const inputEl = screen.getByRole('group');
-
-        expect(inputEl).toHaveAttribute(
-          'aria-describedby',
-          expect.stringContaining(customDescriptionId),
-        );
-        expect(inputEl).toHaveAccessibleDescription(customDescription);
-      });
-
-      it('should accept a custom description in addition to a validationHint', () => {
-        const customDescription = 'Custom description';
-        const customDescriptionId = 'customDescriptionId';
-        const description = 'Description';
-        render(
-          <>
-            <span id={customDescriptionId}>{customDescription}</span>
-            <CheckboxGroup
-              validationHint={description}
-              aria-describedby={customDescriptionId}
-              {...defaultProps}
-            />
-            ,
-          </>,
-        );
-        const inputEl = screen.getByRole('group');
-
-        expect(inputEl).toHaveAttribute(
-          'aria-describedby',
-          expect.stringContaining(customDescriptionId),
-        );
-        expect(inputEl).toHaveAccessibleDescription(
-          `${customDescription} ${description}`,
-        );
-      });
+    it('should render an empty live region on mount', () => {
+      render(<CheckboxGroup {...defaultProps} />);
+      const liveRegionEls = screen.getAllByRole('status');
+      const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
+      expect(groupLiveRegionEl).toBeEmptyDOMElement();
     });
 
-    describe('Status messages', () => {
-      it('should render an empty live region on mount', () => {
-        render(<CheckboxGroup {...defaultProps} />);
-        const liveRegionEls = screen.getAllByRole('status');
-        const checkboxGroupLiveRegionEl =
-          liveRegionEls[liveRegionEls.length - 1];
-
-        expect(checkboxGroupLiveRegionEl).toBeEmptyDOMElement();
-      });
-
-      it('should render status messages in a live region', () => {
-        const statusMessage = 'Some fields are required';
-        render(
-          <CheckboxGroup
-            invalid
-            validationHint={statusMessage}
-            {...defaultProps}
-          />,
-        );
-        const liveRegionEls = screen.getAllByRole('status');
-        const checkboxGroupLiveRegionEl =
-          liveRegionEls[liveRegionEls.length - 1];
-
-        expect(checkboxGroupLiveRegionEl).toHaveTextContent(statusMessage);
-      });
-
-      it('should not render descriptions in a live region', () => {
-        const statusMessage = 'This field is required';
-        render(
-          <CheckboxGroup validationHint={statusMessage} {...defaultProps} />,
-        );
-        const liveRegionEls = screen.getAllByRole('status');
-        const checkboxGroupLiveRegionEl =
-          liveRegionEls[liveRegionEls.length - 1];
-
-        expect(checkboxGroupLiveRegionEl).toBeEmptyDOMElement();
-      });
+    it('should not render descriptions in a live region', () => {
+      const statusMessage = 'This field is required';
+      render(
+        <CheckboxGroup validationHint={statusMessage} {...defaultProps} />,
+      );
+      const liveRegionEls = screen.getAllByRole('status');
+      const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
+      expect(groupLiveRegionEl).toBeEmptyDOMElement();
     });
   });
 });

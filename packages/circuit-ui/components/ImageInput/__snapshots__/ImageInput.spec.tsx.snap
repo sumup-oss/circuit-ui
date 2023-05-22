@@ -33,6 +33,7 @@ exports[`ImageInput Styles should render with a custom component 1`] = `
   }
 }
 
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -420,6 +421,7 @@ exports[`ImageInput Styles should render with a giga button 1`] = `
   }
 }
 
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -849,6 +851,7 @@ exports[`ImageInput Styles should render with an existing image 1`] = `
   }
 }
 
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -1247,6 +1250,7 @@ exports[`ImageInput Styles should render with default styles 1`] = `
   }
 }
 
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -1670,6 +1674,7 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   }
 }
 
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -1986,10 +1991,12 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
   color: var(--cui-fg-danger);
 }
 
+[disabled] .circuit-13,
 .cui-field-disabled .circuit-13 {
   color: var(--cui-fg-subtle-disabled);
 }
 
+[disabled] .circuit-13,
 .cui-field-disabled .circuit-13 {
   color: var(--cui-fg-danger-disabled);
 }

@@ -21,29 +21,30 @@ import {
 } from 'react';
 
 import styled from '../../styles/styled';
-import { typography } from '../../styles/style-mixins';
 import { uniqueId } from '../../util/id';
 import { Checkbox, CheckboxProps } from '../Checkbox/Checkbox';
 import {
-  FieldWrapper,
   FieldLabelText,
   FieldValidationHint,
+  FieldSet,
+  FieldLegend,
 } from '../FieldAtoms';
 import { AccessibilityError } from '../../util/errors';
+import { isEmpty } from '../../util/helpers';
 
-export type CheckboxOptions = Omit<
+// TODO: Remove the label and value overrides in the next major.
+type Options = Omit<
   CheckboxProps,
   'onChange' | 'validationHint' | 'name' | 'value'
 > & {
   label: string;
   value: string | number;
-  required?: InputHTMLAttributes<HTMLInputElement>['required'];
 };
 
 export interface CheckboxGroupProps
   extends Omit<
     FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    'onChange' | 'name' | 'defaultValue'
+    'onChange' | 'onBlur' | 'defaultValue'
   > {
   /**
    * A name for the CheckboxGroup. This name is shared among the individual Checkboxes.
@@ -54,24 +55,34 @@ export interface CheckboxGroupProps
    * for the respective Checkbox.
    * Pass the optional `required` prop to indicate a Checkbox is required.
    */
-  options: CheckboxOptions[];
+  options: Options[];
   /**
    * The values of the Checkboxes that are checked by default (uncontrolled).
    */
-  defaultValue?: CheckboxOptions['value'][];
+  defaultValue?: Options['value'][];
   /**
    * The values of the Checkboxes that are checked by default (controlled).
    */
-  value?: CheckboxOptions['value'][];
+  value?: Options['value'][];
   /**
-   * A callback that is called when any of the checkboxes change their values.
+   * A callback that is called when any of the inputs change their values.
    * Passed on to the Checkboxes.
    */
-  onChange: CheckboxProps['onChange'];
+  onChange?: CheckboxProps['onChange'];
+  /**
+   * A callback that is called when any of the inputs lose focus.
+   * Passed on to the Checkboxes.
+   */
+  onBlur?: CheckboxProps['onBlur'];
   /**
    * A description of the selector group.
    */
   label: string;
+  /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
   /**
    * The ref to the HTML DOM element.
    */
@@ -93,15 +104,15 @@ export interface CheckboxGroupProps
    */
   showValid?: boolean;
   /**
+   * Makes the input group required.
+   */
+  required?: InputHTMLAttributes<HTMLInputElement>['required'];
+  /**
    * Visually hide the label. This should only be used in rare cases and only
    * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
 }
-
-const Legend = styled('legend')<Record<'children', JSX.Element>>(
-  typography('two'),
-);
 
 const UnorderedList = styled.ul`
   list-style-type: none;
@@ -117,6 +128,7 @@ export const CheckboxGroup = forwardRef(
       value,
       defaultValue,
       onChange,
+      onBlur,
       name,
       label,
       invalid,
@@ -125,6 +137,8 @@ export const CheckboxGroup = forwardRef(
       disabled,
       hasWarning,
       hideLabel,
+      optionalLabel,
+      required,
       'aria-describedby': descriptionId,
       ...props
     }: CheckboxGroupProps,
@@ -140,38 +154,48 @@ export const CheckboxGroup = forwardRef(
         'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
+
+    if (isEmpty(options)) {
+      return null;
+    }
+
     const validationHintId = uniqueId('validation-hint_');
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
 
     return (
-      <FieldWrapper
-        as="fieldset"
+      <FieldSet
         aria-describedby={descriptionIds}
         name={name}
-        // @ts-expect-error TypeScript isn't smart enough to recognize the `as` prop.
         ref={ref}
         disabled={disabled}
         {...props}
       >
-        <Legend>
-          <FieldLabelText label={label} hideLabel={hideLabel} />
-        </Legend>
+        <FieldLegend>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            required={required}
+            optionalLabel={optionalLabel}
+          />
+        </FieldLegend>
         <UnorderedList>
-          {options.map(({ checked, defaultChecked, required, ...option }) => (
+          {options.map((option) => (
             <li key={option.label}>
               <Checkbox
-                {...{
-                  ...option,
-                  name,
-                  required,
-                  onChange,
-                  validationHint: undefined, // disallow `validationHint` for the single Checkbox
-                  checked: value?.includes(option.value) ?? checked,
-                  defaultChecked:
-                    defaultValue?.includes(option.value) ?? defaultChecked,
-                }}
+                {...option}
+                name={name}
+                onChange={onChange}
+                onBlur={onBlur}
+                disabled={disabled || option.disabled}
+                invalid={invalid || option.invalid}
+                checked={value ? value.includes(option.value) : option.checked}
+                defaultChecked={
+                  defaultValue
+                    ? defaultValue.includes(option.value)
+                    : option.defaultChecked
+                }
               />
             </li>
           ))}
@@ -184,7 +208,7 @@ export const CheckboxGroup = forwardRef(
           hasWarning={hasWarning}
           validationHint={validationHint}
         />
-      </FieldWrapper>
+      </FieldSet>
     );
   },
 );

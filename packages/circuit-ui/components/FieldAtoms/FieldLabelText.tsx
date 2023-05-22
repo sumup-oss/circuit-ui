@@ -47,6 +47,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-block;
   margin-bottom: ${theme.spacings.bit};
 
+  [disabled] &,
   .${CLASS_DISABLED} & {
     color: var(--cui-fg-normal-disabled);
   }
@@ -60,6 +61,7 @@ const Text = styled('span')(baseStyles, hiddenStyles);
 const Optional = styled('span')`
   color: var(--cui-fg-subtle);
 
+  [disabled] &,
   .${CLASS_DISABLED} & {
     color: var(--cui-fg-subtle-disabled);
   }

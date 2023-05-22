@@ -1,6 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -16,6 +17,7 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
   margin-bottom: 4px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }
@@ -146,6 +148,7 @@ exports[`CurrencyInput Styles should render a currency as a prefix 1`] = `
 `;
 
 exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -161,6 +164,7 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
   margin-bottom: 4px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }
@@ -295,6 +299,7 @@ exports[`CurrencyInput Styles should render a currency as a suffix 1`] = `
 `;
 
 exports[`CurrencyInput Styles should render with default styles and format 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -310,6 +315,7 @@ exports[`CurrencyInput Styles should render with default styles and format 1`] =
   margin-bottom: 4px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }

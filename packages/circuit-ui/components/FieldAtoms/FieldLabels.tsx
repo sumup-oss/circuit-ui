@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { LabelHTMLAttributes } from 'react';
+import type { HTMLAttributes, LabelHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 
 import styled from '../../styles/styled';
@@ -34,6 +34,16 @@ const baseStyles = css`
  * @private
  */
 export const FieldLabel = styled.label<FieldLabelProps>(
+  baseStyles,
+  typography('two'),
+);
+
+export type FieldLegendProps = HTMLAttributes<HTMLLegendElement>;
+
+/**
+ * @private
+ */
+export const FieldLegend = styled.legend<FieldLegendProps>(
   baseStyles,
   typography('two'),
 );

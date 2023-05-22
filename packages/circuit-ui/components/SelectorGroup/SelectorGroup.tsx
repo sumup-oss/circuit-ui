@@ -13,46 +13,60 @@
  * limitations under the License.
  */
 
-import { ReactNode, Ref, forwardRef, ChangeEventHandler } from 'react';
+import {
+  Ref,
+  forwardRef,
+  FieldsetHTMLAttributes,
+  InputHTMLAttributes,
+} from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
-import Selector from '../Selector';
-import { SelectorSize } from '../Selector/Selector';
-import { hideVisually, typography } from '../../styles/style-mixins';
+import {
+  Selector,
+  SelectorProps,
+  SelectorGroupContext,
+  SelectorSize,
+} from '../Selector/Selector';
 import { AccessibilityError } from '../../util/errors';
+import { FieldLabelText, FieldLegend, FieldSet } from '../FieldAtoms';
+import { isEmpty } from '../../util/helpers';
 
-export interface SelectorGroupProps {
+export interface SelectorGroupProps
+  extends Omit<
+    FieldsetHTMLAttributes<HTMLFieldSetElement>,
+    'onChange' | 'onBlur'
+  > {
   /**
    * A collection of available options. Each option must have at least
    * a value and label.
    */
-  options: {
-    value: string;
-    label?: string;
-    description?: string;
-    /**
-     * @deprecated
-     * Use the `label` and `description` props instead.
-     */
-    children?: ReactNode;
-    disabled?: boolean;
-  }[];
+  options: Omit<SelectorProps, 'onChange' | 'onBlur' | 'name'>[];
   /**
-   * Controls/Toggles the checked state. Passed on to the Selectors.
+   * A callback that is called when any of the inputs change their values.
+   * Passed on to the Selectors.
    */
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange?: SelectorProps['onChange'];
   /**
-   * The value of the currently checked Selector.
+   * A callback that is called when any of the inputs lose focus.
+   * Passed on to the Selectors.
    */
-  value: string | string[];
+  onBlur?: SelectorProps['onBlur'];
+  /**
+   * The value of the currently checked options.
+   */
+  value?: string | string[];
+  /**
+   * The value of the initially checked options.
+   */
+  defaultValue?: string | string[];
   /**
    * A description of the selector group.
    */
   label: string;
   /**
-   * A unique name for the radio group.
+   * A unique name for the selector group.
    */
   name?: string;
   /**
@@ -72,6 +86,15 @@ export interface SelectorGroupProps {
    * if the purpose of the field can be inferred from other context.
    */
   hideLabel?: boolean;
+  /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
+  /**
+   * Makes the input group required.
+   */
+  required?: InputHTMLAttributes<HTMLInputElement>['required'];
   /**
    * The ref to the HTML DOM element.
    */
@@ -106,22 +129,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const Fieldset = styled.fieldset(baseStyles, stretchStyles);
-
-type LegendProps = Pick<SelectorGroupProps, 'hideLabel'>;
-
-const legendStyles = ({ theme }: StyleProps) => css`
-  margin-bottom: ${theme.spacings.bit};
-`;
-
-const legendHiddenStyles = ({ hideLabel }: LegendProps) =>
-  hideLabel && hideVisually();
-
-const Legend = styled('legend')<LegendProps>(
-  typography('two'),
-  legendStyles,
-  legendHiddenStyles,
-);
+const StyledFieldset = styled(FieldSet)(baseStyles, stretchStyles);
 
 const OptionItem = styled.div`
   flex: 1;
@@ -131,6 +139,14 @@ const OptionItem = styled.div`
   }
 `;
 
+function isChecked(
+  option: SelectorProps,
+  value: SelectorGroupProps['value'] = [],
+  multiple?: boolean,
+): boolean {
+  return multiple ? value.includes(option.value) : value === option.value;
+}
+
 /**
  * A group of Selectors.
  */
@@ -139,14 +155,20 @@ export const SelectorGroup = forwardRef(
     {
       options,
       onChange,
-      value: activeValue,
-      name: customName,
+      onBlur,
+      value,
+      defaultValue,
+      'name': customName,
+      'aria-describedby': descriptionId,
       label,
+      required,
+      optionalLabel,
+      disabled,
       multiple,
       size,
       stretch,
       hideLabel,
-      ...rest
+      ...props
     }: SelectorGroupProps,
     ref: SelectorGroupProps['ref'],
   ) => {
@@ -162,34 +184,55 @@ export const SelectorGroup = forwardRef(
     }
     const name = customName || uniqueId('selector-group_');
 
-    if (!options) {
+    if (isEmpty(options)) {
       return null;
     }
 
     return (
-      <Fieldset ref={ref} stretch={stretch} {...rest}>
-        <Legend hideLabel={hideLabel}>{label}</Legend>
-        {options.map(({ children, value, ...optionRest }) => (
-          <OptionItem key={value}>
-            <Selector
-              name={name}
-              onChange={onChange}
-              multiple={multiple}
-              value={value}
-              size={size}
-              css={css`
-                width: 100%;
-              `}
-              checked={
-                multiple ? activeValue.includes(value) : value === activeValue
-              }
-              {...optionRest}
-            >
-              {children}
-            </Selector>
-          </OptionItem>
-        ))}
-      </Fieldset>
+      <StyledFieldset
+        name={name}
+        aria-describedby={descriptionId}
+        ref={ref}
+        disabled={disabled}
+        role={multiple ? undefined : 'radiogroup'}
+        aria-orientation={multiple ? undefined : 'horizontal'}
+        {...props}
+      >
+        <FieldLegend>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
+            required={required}
+          />
+        </FieldLegend>
+        <SelectorGroupContext.Provider value={true}>
+          {options.map((option) => (
+            <OptionItem key={option.label}>
+              <Selector
+                {...option}
+                name={name}
+                onChange={onChange}
+                onBlur={onBlur}
+                multiple={multiple}
+                size={size}
+                css={css`
+                  width: 100%;
+                `}
+                disabled={disabled || option.disabled}
+                checked={
+                  value ? isChecked(option, value, multiple) : option.checked
+                }
+                defaultChecked={
+                  defaultValue
+                    ? isChecked(option, defaultValue, multiple)
+                    : option.defaultChecked
+                }
+              />
+            </OptionItem>
+          ))}
+        </SelectorGroupContext.Provider>
+      </StyledFieldset>
     );
   },
 );

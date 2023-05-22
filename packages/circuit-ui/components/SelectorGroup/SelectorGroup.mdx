@@ -7,15 +7,16 @@ import {
 } from '../../../../.storybook/components';
 import * as Stories from './SelectorGroup.stories';
 
-import { SelectorGroup, Headline, Body, spacing } from '../../index';
-
 <Meta of={Stories} />
 
 # SelectorGroup
 
-<Status variant="stable" />
+<Status variant="inReview">
+  The component lacks support for validation messages. This will be addressed in
+  the next major release.
+</Status>
 
-The SelectorGroup component allows users to select a single or multiple options from a group.
+A selector group offers users the choice to select a single or multiple options from a predefined list.
 
 <Story of={Stories.Base} />
 <Props />
@@ -24,17 +25,101 @@ The SelectorGroup component allows users to select a single or multiple options 
 
 ### Multiple selection
 
-Pass the `multiple` prop to use a checkbox group under the hood instead of the default radio button group.
+Pass the `multiple` prop to allow users to select more than one option. Under the hood, the component switches the default radio buttons for checkboxes.
 
 <Story of={Stories.Multiple} />
 
+### Sizes
+
+The `size` prop determines the padding of the options. There are three available sizes:
+
+- **mega**, the default size
+- **kilo**, used for compact layouts
+- **flexible**, used for more complex content within a selector which may define its own padding. Adds minimal equal padding on all sides.
+
+<Story of={Stories.Sizes} />
+
 ### Descriptions
 
-Use the `description` prop to add details to each option.
+Use the `description` prop to add relevant context to each option.
 
-<Story of={Stories.Descriptions} />
+<Story of={Stories.WithDescriptions} />
 
----
+## Validations
+
+⚠️ Currently, the SelectorGroup component doesn't support validations. This will be addressed in the next major release.
+
+## Disabled
+
+Disabled form fields can be confusing to users, so use them with caution. Use a disabled selector only if you need to communicate to the user that an option that existed before is not available for choosing now. Consider not displaying the field at all or add an explanation why the field is disabled.
+
+The selector group can be disabled entirely or in part.
+
+<Story of={Stories.Disabled} />
+
+## State
+
+The SelectorGroup can be used as a controlled or uncontrolled component.
+
+### Controlled
+
+```tsx
+import { useState, ChangeEvent } from 'react';
+import { SelectorGroup } from '@sumup/circuit-ui';
+
+function Controlled() {
+  const [value, setValue] = useState([]);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+
+  const options = [
+    // ...
+  ];
+
+  return (
+    <SelectorGroup
+      label="Favourite fruit"
+      options={options}
+      value={value}
+      onChange={onChange}
+    />
+  );
+}
+```
+
+### Uncontrolled
+
+```tsx
+import { useRef } from 'react';
+import { SelectorGroup } from '@sumup/circuit-ui';
+
+function Uncontrolled() {
+  const checkboxRefs = useRef({});
+
+  const setCheckboxRef = (input: HTMLInputElement) => {
+    checkboxRefs.current[input.value] = input;
+  };
+
+  const options = [
+    {
+      label: 'Apple',
+      value: 'apple',
+      ref: setCheckboxRef,
+    },
+  ];
+
+  return (
+    <SelectorGroup
+      label="Favourite fruit"
+      options={options}
+      defaultValue={[]}
+      ref={checkboxGroupRef}
+    />
+  );
+}
+```
 
 ## Accessibility
 
@@ -44,9 +129,9 @@ Selectors are semantically either radio buttons or checkboxes. When it comes to 
 
 #### Write clear and concise labels
 
-The `label` prop passed to one of the SelectorGroup's `options` constitutes the Selector's label. This label should be clear and concise, and should not contain any formatted or semantic content (such as headings or lists).
+The `label` prop passed to the SelectorGroup and the `options` prop's `label` property constitute the group's and the input's labels respectively. The labels should be clear and concise, and should not contain any formatted or semantic content (such as headings or lists).
 
-This is because the label in this case is also the input's accessible name, exposed to assistive technology as plain text. Using non-phrasing content in a label element is invalid HTML.
+The label acts as the input's accessible name, exposed to assistive technology as plain text. Using non-phrasing content in a label element is invalid HTML.
 
 ### Resources
 
