@@ -27,7 +27,7 @@ export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
   /**
    * A single icon element.
    */
-  children: ReactElement<IconProps<'16' | '24'>>;
+  children: ReactElement<IconProps>;
   /**
    * Short label to describe the function of the button. Displayed as title
    * on hover, and accessible to screen readers.

@@ -20,10 +20,9 @@ import {
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
   HTMLAttributes,
-  FC,
 } from 'react';
 import { css } from '@emotion/react';
-import { ChevronRight, IconProps } from '@sumup/icons';
+import { ChevronRight, IconComponentType } from '@sumup/icons';
 
 import isPropValid from '../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../styles/styled.js';
@@ -48,7 +47,7 @@ interface BaseProps {
    * Display a leading component.
    * Pass an icon from `@sumup/icons` or a custom component.
    */
-  leadingComponent?: FC<IconProps<'24'>> | ReactNode;
+  leadingComponent?: IconComponentType | ReactNode;
   /**
    * Display a main label.
    */

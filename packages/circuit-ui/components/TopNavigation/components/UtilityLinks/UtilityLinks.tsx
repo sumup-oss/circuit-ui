@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { MouseEvent, KeyboardEvent, FC, AnchorHTMLAttributes } from 'react';
+import type { MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
 import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
-import { IconProps } from '@sumup/icons';
+import type { Theme } from '@sumup/design-tokens';
+import type { IconComponentType } from '@sumup/icons';
 
 import styled, { NoTheme, StyleProps } from '../../../../styles/styled.js';
 import {
@@ -61,7 +61,7 @@ export interface UtilityLinkProps
    * Display an icon in addition to the text to help to identify the link.
    * On narrow viewports, only the icon is displayed.
    */
-  icon: FC<IconProps<'24'>>;
+  icon: IconComponentType;
   /**
    * Short label to describe the target of the link.
    */

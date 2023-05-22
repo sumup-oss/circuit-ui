@@ -16,7 +16,6 @@
 import { css, useTheme } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import {
-  FC,
   Fragment,
   Ref,
   useEffect,
@@ -32,7 +31,7 @@ import {
   offset as offsetMiddleware,
   Placement,
 } from '@floating-ui/react-dom';
-import { IconProps } from '@sumup/icons';
+import type { IconComponentType } from '@sumup/icons';
 
 import isPropValid from '../../styles/is-prop-valid.js';
 import { ClickEvent } from '../../types/events.js';
@@ -63,7 +62,7 @@ export interface BaseProps {
   /**
    * Display an icon in addition to the label. Designed for 24px icons from `@sumup/icons`.
    */
-  icon?: FC<IconProps<'24'>>;
+  icon?: IconComponentType;
   /**
    * Destructive variant, changes the color of label and icon from blue to red to signal to the user that the action
    * is irreversible or otherwise dangerous. Interactive states are the same for destructive variant.

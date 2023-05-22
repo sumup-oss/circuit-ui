@@ -19,11 +19,10 @@ import {
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
   ReactNode,
-  FC,
 } from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
-import { IconProps } from '@sumup/icons';
+import type { IconComponentType } from '@sumup/icons';
 
 import isPropValid from '../../styles/is-prop-valid.js';
 import styled, { StyleProps } from '../../styles/styled.js';
@@ -65,7 +64,7 @@ export interface BaseProps {
   /**
    * Display an icon in addition to the text to help to identify the action.
    */
-  'icon'?: FC<IconProps<'16' | '24'>>;
+  'icon'?: IconComponentType;
   /**
    * The HTML button type
    */
