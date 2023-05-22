@@ -8,5 +8,13 @@
     "@sumup/eslint-plugin-circuit-ui": "0.1.0",
     "@sumup/icons": "2.25.0"
   },
-  "changesets": []
+  "changesets": [
+    "big-scissors-draw",
+    "five-onions-confess",
+    "fresh-lemons-add",
+    "fuzzy-emus-add",
+    "mighty-apples-do",
+    "purple-forks-shop",
+    "red-coins-fly"
+  ]
 }
