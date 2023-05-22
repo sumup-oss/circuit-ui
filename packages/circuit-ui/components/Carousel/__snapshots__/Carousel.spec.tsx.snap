@@ -575,9 +575,9 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -612,9 +612,9 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -647,9 +647,9 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -1249,9 +1249,9 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -1286,9 +1286,9 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -1321,9 +1321,9 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -1922,9 +1922,9 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -1959,9 +1959,9 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -1994,9 +1994,9 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -2566,9 +2566,9 @@ exports[`Carousel > styles > should render with default styles 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -2603,9 +2603,9 @@ exports[`Carousel > styles > should render with default styles 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -2638,9 +2638,9 @@ exports[`Carousel > styles > should render with default styles 1`] = `
             class="circuit-26"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="16"
-              role="presentation"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"

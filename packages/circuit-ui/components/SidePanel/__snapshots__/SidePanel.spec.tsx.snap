@@ -291,9 +291,9 @@ exports[`SidePanel > should match the snapshot 1`] = `
                 class="circuit-8"
               >
                 <svg
+                  aria-hidden="true"
                   fill="none"
                   height="24"
-                  role="presentation"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -624,9 +624,9 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
                 class="circuit-8"
               >
                 <svg
+                  aria-hidden="true"
                   fill="none"
                   height="24"
-                  role="presentation"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"

@@ -241,8 +241,8 @@ exports[`Hamburger > should render with active styles when passed the isActive p
     class="circuit-3"
   >
     <span
+      aria-hidden="true"
       class="circuit-4"
-      role="presentation"
     >
       <span
         class="circuit-5"
@@ -471,8 +471,8 @@ exports[`Hamburger > should render with default styles 1`] = `
     class="circuit-3"
   >
     <span
+      aria-hidden="true"
       class="circuit-4"
-      role="presentation"
     >
       <span
         class="circuit-5"
@@ -701,8 +701,8 @@ exports[`Hamburger > should render with giga styles 1`] = `
     class="circuit-3"
   >
     <span
+      aria-hidden="true"
       class="circuit-4"
-      role="presentation"
     >
       <span
         class="circuit-5"
@@ -931,8 +931,8 @@ exports[`Hamburger > should render with kilo styles 1`] = `
     class="circuit-3"
   >
     <span
+      aria-hidden="true"
       class="circuit-4"
-      role="presentation"
     >
       <span
         class="circuit-5"

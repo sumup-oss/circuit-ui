@@ -458,7 +458,7 @@ export const Button = forwardRef(
             <Icon
               css={iconStyles}
               size={props.size === 'kilo' ? '16' : '24'}
-              role="presentation"
+              aria-hidden="true"
             />
           )}
           {children}

@@ -215,9 +215,9 @@ exports[`Header > should have a bottom separator when sticky 1`] = `
           class="circuit-5"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             height="24"
-            role="presentation"
             viewBox="0 0 24 24"
             width="24"
             xmlns="http://www.w3.org/2000/svg"
@@ -447,9 +447,9 @@ exports[`Header > should match the snapshot 1`] = `
           class="circuit-5"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             height="24"
-            role="presentation"
             viewBox="0 0 24 24"
             width="24"
             xmlns="http://www.w3.org/2000/svg"

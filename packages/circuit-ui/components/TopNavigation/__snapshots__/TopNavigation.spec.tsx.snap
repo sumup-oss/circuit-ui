@@ -571,8 +571,8 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
             class="circuit-6"
           >
             <span
+              aria-hidden="true"
               class="circuit-7"
-              role="presentation"
             >
               <span
                 class="circuit-8"
