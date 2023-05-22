@@ -1,5 +1,29 @@
 # @sumup/circuit-ui
 
+## 6.9.0
+
+### Minor Changes
+
+- [#2105](https://github.com/sumup-oss/circuit-ui/pull/2105) [`9aabce8d`](https://github.com/sumup-oss/circuit-ui/commit/9aabce8d5a43847f00bab9d0f218fcf28367f715) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for the CheckboxGroup, RadioButtonGroup and SelectorGroup components to be used as uncontrolled inputs using the new `defaultValue` prop.
+
+- [#2105](https://github.com/sumup-oss/circuit-ui/pull/2105) [`9aabce8d`](https://github.com/sumup-oss/circuit-ui/commit/9aabce8d5a43847f00bab9d0f218fcf28367f715) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the RadioButton component. Use the RadioButtonGroup component instead.
+
+- [#2105](https://github.com/sumup-oss/circuit-ui/pull/2105) [`9aabce8d`](https://github.com/sumup-oss/circuit-ui/commit/9aabce8d5a43847f00bab9d0f218fcf28367f715) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Selector component. Use the SelectorGroup component instead.
+
+- [#1851](https://github.com/sumup-oss/circuit-ui/pull/1851) [`0e3bdd53`](https://github.com/sumup-oss/circuit-ui/commit/0e3bdd53c86845da58afcc6b27b5360d71d02e00) Thanks [@tranhoangan22](https://github.com/tranhoangan22)! - Added the `CheckboxGroup` component. The `options` prop specifies how the Checkboxes are rendered. Each option in the `options` prop must have a `value` key and a `label` key. The `value` prop indicates which Checkboxes are checked by default. The `validationHint` for the individual Checkboxes are disallowed in favor of a single `validationHint` for the `CheckboxGroup`.
+
+- [#2105](https://github.com/sumup-oss/circuit-ui/pull/2105) [`9aabce8d`](https://github.com/sumup-oss/circuit-ui/commit/9aabce8d5a43847f00bab9d0f218fcf28367f715) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for the `required` and `optionalLabel` props to the SelectorGroup component.
+
+### Patch Changes
+
+- [#2123](https://github.com/sumup-oss/circuit-ui/pull/2123) [`22184900`](https://github.com/sumup-oss/circuit-ui/commit/221849002806c91783afdc54750b8d23210fcf35) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the breakpoint for the expanded SideNavigation on wide viewpoints to account for scroll bars.
+
+- [#2115](https://github.com/sumup-oss/circuit-ui/pull/2115) [`5f955ce5`](https://github.com/sumup-oss/circuit-ui/commit/5f955ce5bc532803185feb25ff9dba4ecc8345d7) Thanks [@pdrmdrs](https://github.com/pdrmdrs)! - Fixed the styles of a checked and disabled Checkbox.
+
+- [#2113](https://github.com/sumup-oss/circuit-ui/pull/2113) [`2bea43ff`](https://github.com/sumup-oss/circuit-ui/commit/2bea43ff074ddfe1148a80da5b64affeb11056c5) Thanks [@robinmetral](https://github.com/robinmetral)! - Marked `Popover` dividers as presentational to ensure that the right number of items is announced by screen readers.
+
+- [#2121](https://github.com/sumup-oss/circuit-ui/pull/2121) [`eb445e65`](https://github.com/sumup-oss/circuit-ui/commit/eb445e655ed5d7d1b482d8a2551e37776acd487f) Thanks [@connor-baer](https://github.com/connor-baer)! - Don't crop content overflow when the `useCollapsible` hook is expanded.
+
 ## 6.8.0
 
 ### Minor Changes
