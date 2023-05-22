@@ -53,7 +53,9 @@ export interface DesktopNavigationProps {
 
 const PRIMARY_NAVIGATION_WIDTH = '48px';
 const PRIMARY_NAVIGATION_OPENED_WIDTH = '220px';
-const LARGE_SCREEN_BREAKPOINT = '1920px'; // max breakpoint in circuit-ui is 1280px therefore we decided to hardcode for now
+// The maximum breakpoint in the design tokens is 1280px, so we need to
+// hardcode this value. It's slightly below 1920px to account for scroll bars.
+const LARGE_SCREEN_BREAKPOINT = '1900px';
 
 const wrapperStyles = ({ theme }: StyleProps) => css`
   ${theme.mq.untilTera} {
