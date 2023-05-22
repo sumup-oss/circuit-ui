@@ -13,6 +13,12 @@
 
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to the `"exports"` field to configure the package entry points. Files that are not explicitly defined in `"exports"` can no longer be imported.
 
+## 5.3.0
+
+### Minor Changes
+
+- [#2040](https://github.com/sumup-oss/circuit-ui/pull/2040) [`fc006c27`](https://github.com/sumup-oss/circuit-ui/commit/fc006c275478dbea66be039160ad20701247448c) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a `schema` export that describes the shape of the new CSS custom properties.
+
 ## 5.2.0
 
 ### Minor Changes

@@ -13,7 +13,8 @@
     {
       "name": "add_items",
       "category": "Action",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `Add` or `Items` icons instead."
     },
     {
       "name": "chevron_down",
@@ -152,6 +153,11 @@
     },
     {
       "name": "more",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "more_circle",
       "category": "Action",
       "size": "24"
     },
@@ -1237,6 +1243,11 @@
     },
     {
       "name": "stopped",
+      "category": "Notification",
+      "size": "16"
+    },
+    {
+      "name": "transit",
       "category": "Notification",
       "size": "16"
     },

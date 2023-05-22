@@ -13,16 +13,34 @@
  * limitations under the License.
  */
 
-import { Fragment, Ref, InputHTMLAttributes, forwardRef, useId } from 'react';
+import {
+  Fragment,
+  InputHTMLAttributes,
+  ReactNode,
+  createContext,
+  forwardRef,
+  useContext,
+  useId,
+} from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
 import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
+import { deprecate } from '../../util/logger.js';
+import { AccessibilityError } from '../../util/errors.js';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
 export interface SelectorProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  /**
+   * A clear and concise description of the input's purpose.
+   */
+  label?: string;
+  /**
+   * A more detailed description of the input's purpose.
+   */
+  description?: string;
   /**
    * Value string for input.
    */
@@ -52,9 +70,11 @@ export interface SelectorProps
    */
   multiple?: boolean;
   /**
-   * The ref to the HTML DOM element
+   * @deprecated
+   *
+   * Use the `label` and `description` props instead.
    */
-  ref?: Ref<HTMLInputElement>;
+  children?: ReactNode;
 }
 
 type LabelElProps = Pick<SelectorProps, 'disabled' | 'size'>;
@@ -122,7 +142,26 @@ const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   return css(sizeMap[size]);
 };
 
-const SelectorLabel = styled('label')<LabelElProps>(baseStyles, sizeStyles);
+type HasDescription = {
+  hasDescription: boolean;
+};
+
+const withDescriptionStyles = ({ hasDescription }: HasDescription) =>
+  hasDescription &&
+  css`
+    text-align: start;
+    align-items: flex-start;
+  `;
+
+const SelectorLabel = styled('label')<LabelElProps & HasDescription>(
+  baseStyles,
+  sizeStyles,
+  withDescriptionStyles,
+);
+
+const Bold = styled('span')`
+  font-weight: ${(p) => p.theme.fontWeight.bold};
+`;
 
 const inputStyles = ({ theme }: StyleProps) => css`
   ${hideVisually()};
@@ -166,36 +205,72 @@ const inputStyles = ({ theme }: StyleProps) => css`
 
 const SelectorInput = styled('input')(inputStyles);
 
+export const SelectorGroupContext = createContext(false);
+
 /**
- * A selector allows users to choose between several mutually-exclusive choices
- * accompanied by descriptions, possibly with tabular data.
+ * @deprecated Use the {@link SelectorGroup} component instead.
  */
-export const Selector = forwardRef(
+export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
   (
     {
       children,
+      label,
+      description,
       value,
-      id: customId,
+      'id': customId,
       name,
       disabled,
       multiple,
       onChange,
+      'aria-describedby': describedBy,
       className,
       style,
       size,
       ...props
-    }: SelectorProps,
-    ref: SelectorProps['ref'],
+    },
+    ref,
   ) => {
-    const id = useId();
-    const inputId = customId || id;
+    const randomId = useId();
+    const inputId = customId || randomId;
+    const descriptionId = useId();
+    const descriptionIds = [describedBy, description && descriptionId]
+      .filter(Boolean)
+      .join(' ');
     const type = multiple ? 'checkbox' : 'radio';
+
+    const isInsideGroup = useContext(SelectorGroupContext);
+
+    if (process.env.NODE_ENV !== 'production' && !isInsideGroup) {
+      deprecate(
+        'Selector',
+        'The Selector component has been deprecated. Use the SelectorGroup component instead.',
+      );
+    }
+
+    if (process.env.NODE_ENV !== 'production' && children) {
+      deprecate(
+        'Selector',
+        'The `children` prop has been deprecated. Use the `label` and `description` props instead.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !label &&
+      !children
+    ) {
+      throw new AccessibilityError('Selector', 'The `label` prop is missing.');
+    }
+
+    const hasDescription = Boolean(description);
 
     return (
       <Fragment>
         <SelectorInput
           type={type}
           id={inputId}
+          aria-describedby={descriptionIds}
           name={name}
           value={value}
           disabled={disabled}
@@ -211,9 +286,22 @@ export const Selector = forwardRef(
           size={size}
           className={className}
           style={style}
+          hasDescription={hasDescription}
         >
-          {children}
+          {hasDescription ? (
+            <Fragment>
+              <Bold>{label || children}</Bold>
+              <span aria-hidden="true">{description}</span>
+            </Fragment>
+          ) : (
+            label || children
+          )}
         </SelectorLabel>
+        {hasDescription && (
+          <p id={descriptionId} css={hideVisually}>
+            {description}
+          </p>
+        )}
       </Fragment>
     );
   },

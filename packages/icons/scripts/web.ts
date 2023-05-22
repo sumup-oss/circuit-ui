@@ -17,11 +17,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import dedent from 'dedent';
+import prettier from 'prettier';
 import { transformSync } from '@babel/core';
 
+// @ts-ignore Import assertions are fine
 import manifest from '../manifest.json' assert { type: 'json' };
 
+// @ts-ignore `import` is fine
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const BASE_DIR = path.join(__dirname, '..');
@@ -32,12 +34,24 @@ type Icon = {
   name: string;
   category: string;
   size: '16' | '24' | '32';
+  deprecation?: string;
 };
 
 type Component = {
   name: string;
   icons: Icon[];
+  deprecation?: string;
 };
+
+function createDeprecationComment(deprecation?: string) {
+  if (!deprecation) {
+    return '';
+  }
+  return `
+    /**
+     * @deprecated ${deprecation}
+     */`;
+}
 
 function getComponentName(name: string): string {
   // Split on non-word characters
@@ -74,7 +88,7 @@ function buildComponentFile(component: Component): string {
   /**
    * TODO: look into whether we still need the React import here
    */
-  return dedent`
+  return `
     import React from 'react';
     ${iconImports.join('\n')}
 
@@ -82,9 +96,8 @@ function buildComponentFile(component: Component): string {
       ${sizeMap.join('\n')}
     }
 
-    export const ${
-      component.name
-    } = ({ size = '${defaultSize}', ...props }) => {
+    ${createDeprecationComment(component.deprecation)}
+    export function ${component.name}({ size = '${defaultSize}', ...props }) {
       const Icon = sizeMap[size] || sizeMap['${defaultSize}'];
 
       if (
@@ -110,10 +123,12 @@ function buildDeclarationFile(components: Component[]): string {
   const declarationStatements = components.map((component) => {
     const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
     const SizesType = sizes.join(' | ');
-    return `declare const ${component.name}: IconComponentType<${SizesType}>;`;
+    return `
+      ${createDeprecationComment(component.deprecation)}
+      declare const ${component.name}: IconComponentType<${SizesType}>;`;
   });
   const exportNames = components.map((file) => file.name);
-  return dedent`
+  return `
     import type { FunctionComponent, SVGProps } from 'react';
 
     export interface IconProps<Sizes extends string = any> extends SVGProps<SVGSVGElement> {
@@ -134,6 +149,7 @@ function buildDeclarationFile(components: Component[]): string {
         name: string;
         category: string;
         size: '16' | '24' | '32';
+        deprecation?: boolean;
       }[];
     };
   `;
@@ -153,10 +169,11 @@ function transpileModule(fileName: string, code: string): void {
 function writeFile(dir: string, fileName: string, fileContent: string): void {
   const filePath = path.join(dir, fileName);
   const directory = path.dirname(filePath);
+  const formattedContent = prettier.format(fileContent, { filepath: filePath });
   if (directory && directory !== '.') {
     fs.mkdirSync(directory, { recursive: true });
   }
-  return fs.writeFile(filePath, fileContent, { flag: 'w' }, (err) => {
+  return fs.writeFile(filePath, formattedContent, { flag: 'w' }, (err) => {
     if (err) {
       throw err;
     }
@@ -170,10 +187,11 @@ function main(): void {
     acc[icon.name].push(icon);
     return acc;
   }, {} as Record<string, Icon[]>);
-  const components: Component[] = Object.entries(iconsByName).map(
-    ([name, icons]) => ({
+  const components = Object.entries(iconsByName).map(
+    ([name, icons]): Component => ({
       name: getComponentName(name),
       icons,
+      deprecation: icons.find((icon) => icon.deprecation)?.deprecation,
     }),
   );
 

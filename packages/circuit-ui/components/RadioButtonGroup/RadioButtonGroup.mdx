@@ -1,0 +1,119 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './RadioButtonGroup.stories';
+
+<Meta of={Stories} />
+
+# RadioButtonGroup
+
+<Status.Stable />
+
+A radio button group offers users the choice to select a single option from a predefined list.
+
+<Story of={Stories.Base} />
+<Props />
+
+## When to use it
+
+Use a radio button group when the user has to choose only one option based on a pre-defined list of mutually exclusive options.
+
+## Usage guidelines
+
+- **Do** capitalize each item of the list
+- **Do** list the items in a rational order
+- **Do not** punctuate the end of every list item
+- **Do not** mark required fields with asterisks
+
+## Validations
+
+Use the `validationHint` to communicate the expected response to users. Use the `invalid` and `hasWarning` props to require or suggest a change. The `showValid` prop can be used to provide an extra confirmation that the response is valid.
+
+<Story of={Stories.Validations} />
+
+## Disabled
+
+Disabled form fields can be confusing to users, so use them with caution. Use a disabled radio button only if you need to communicate to the user that an option that existed before is not available for choosing now. Consider not displaying the field at all or add an explanation why the field is disabled.
+
+The radio button group can be disabled entirely or in part.
+
+<Story of={Stories.Disabled} />
+
+## State
+
+The RadioButtonGroup can be used as a controlled or uncontrolled component.
+
+### Controlled
+
+```tsx
+import { useState, ChangeEvent } from 'react';
+import { RadioButtonGroup } from '@sumup/circuit-ui';
+
+function Controlled() {
+  const [value, setValue] = useState([]);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+
+  const options = [
+    // ...
+  ];
+
+  return (
+    <RadioButtonGroup
+      label="Favourite fruit"
+      options={options}
+      value={value}
+      onChange={onChange}
+    />
+  );
+}
+```
+
+### Uncontrolled
+
+```tsx
+import { useRef } from 'react';
+import { RadioButtonGroup } from '@sumup/circuit-ui';
+
+function Uncontrolled() {
+  const checkboxRefs = useRef({});
+
+  const setCheckboxRef = (input: HTMLInputElement) => {
+    checkboxRefs.current[input.value] = input;
+  };
+
+  const options = [
+    {
+      label: 'Apple',
+      value: 'apple',
+      ref: setCheckboxRef,
+    },
+  ];
+
+  return (
+    <RadioButtonGroup
+      label="Favourite fruit"
+      options={options}
+      defaultValue={[]}
+      ref={checkboxGroupRef}
+    />
+  );
+}
+```
+
+## Accessibility
+
+### Best practices
+
+#### Write clear and concise labels
+
+The `label` prop passed to the RadioButtonGroup and the `options` prop's `label` property constitute the group's and the input's labels respectively. The labels should be clear and concise, and should not contain any formatted or semantic content (such as headings or lists).
+
+The label acts as the input's accessible name, exposed to assistive technology as plain text. Using non-phrasing content in a label element is invalid HTML.
+
+### Resources
+
+#### Related WCAG success criteria
+
+- 2.4.6: [Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html)
+- 4.1.1: [Parsing](https://www.w3.org/WAI/WCAG21/Understanding/parsing)

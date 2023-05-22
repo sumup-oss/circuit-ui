@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2022, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,45 +18,64 @@ import {
   InputHTMLAttributes,
   Ref,
   forwardRef,
-  useId,
 } from 'react';
 
-import {
-  RadioButton,
-  RadioButtonProps,
-  RadioButtonGroupContext,
-} from '../RadioButton/RadioButton.js';
+import styled from '../../styles/styled.js';
+import { uniqueId } from '../../util/id.js';
+import { Checkbox, CheckboxProps } from '../Checkbox/Checkbox.js';
 import {
   FieldLabelText,
   FieldValidationHint,
-  FieldLegend,
   FieldSet,
+  FieldLegend,
 } from '../FieldAtoms/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
 
-export interface RadioButtonGroupProps
+// TODO: Remove the label and value overrides in the next major.
+type Options = Omit<
+  CheckboxProps,
+  'onChange' | 'validationHint' | 'name' | 'value'
+> & {
+  label: string;
+  value: string | number;
+};
+
+export interface CheckboxGroupProps
   extends Omit<
     FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    'onChange' | 'onBlur'
+    'onChange' | 'onBlur' | 'defaultValue'
   > {
   /**
-   * A collection of available options. Each option must have at least a value
-   * and a label.
+   * A name for the CheckboxGroup. This name is shared among the individual Checkboxes.
    */
-  options: Omit<RadioButtonProps, 'onChange' | 'onBlur' | 'name'>[];
+  name: string;
+  /**
+   * A collection of available options. Each option must have at least a label and a value
+   * for the respective Checkbox.
+   * Pass the optional `required` prop to indicate a Checkbox is required.
+   */
+  options: Options[];
+  /**
+   * The values of the Checkboxes that are checked by default (uncontrolled).
+   */
+  defaultValue?: Options['value'][];
+  /**
+   * The values of the Checkboxes that are checked by default (controlled).
+   */
+  value?: Options['value'][];
   /**
    * A callback that is called when any of the inputs change their values.
-   * Passed on to the RadioButtons.
+   * Passed on to the Checkboxes.
    */
-  onChange?: RadioButtonProps['onChange'];
+  onChange?: CheckboxProps['onChange'];
   /**
    * A callback that is called when any of the inputs lose focus.
-   * Passed on to the RadioButtons.
+   * Passed on to the Checkboxes.
    */
-  onBlur?: RadioButtonProps['onBlur'];
+  onBlur?: CheckboxProps['onBlur'];
   /**
-   * A visually hidden description of the selector group for screen readers.
+   * A description of the selector group.
    */
   label: string;
   /**
@@ -65,31 +84,23 @@ export interface RadioButtonGroupProps
    */
   optionalLabel?: string;
   /**
-   * The value of the currently checked RadioButton.
-   */
-  value?: RadioButtonProps['value'];
-  /**
-   * The value of the currently checked RadioButton.
-   */
-  defaultValue?: RadioButtonProps['value'];
-  /**
-   * The ref to the HTML DOM element
+   * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLFieldSetElement>;
   /**
-   * An information, warning or error message, displayed below the input.
+   * An information, warning or error message, displayed below the Checkboxes.
    */
   validationHint?: string;
   /**
-   * Triggers error message below the radio buttons.
+   * Triggers error message below the Checkboxes.
    */
   invalid?: boolean;
   /**
-   * Triggers warning message below the radio buttons.
+   * Triggers warning message below the Checkboxes.
    */
   hasWarning?: boolean;
   /**
-   * Triggers valid message below the radio buttons.
+   * Triggers valid message below the Checkboxes.
    */
   showValid?: boolean;
   /**
@@ -103,18 +114,22 @@ export interface RadioButtonGroupProps
   hideLabel?: boolean;
 }
 
+const UnorderedList = styled.ul`
+  list-style-type: none;
+`;
+
 /**
- * A group of RadioButtons.
+ * A group of Checkboxes.
  */
-export const RadioButtonGroup = forwardRef(
+export const CheckboxGroup = forwardRef(
   (
     {
       options,
-      onChange,
-      onBlur,
       value,
       defaultValue,
-      'name': customName,
+      onChange,
+      onBlur,
+      name,
       label,
       invalid,
       validationHint,
@@ -126,23 +141,16 @@ export const RadioButtonGroup = forwardRef(
       required,
       'aria-describedby': descriptionId,
       ...props
-    }: RadioButtonGroupProps,
-    ref: RadioButtonGroupProps['ref'],
+    }: CheckboxGroupProps,
+    ref: CheckboxGroupProps['ref'],
   ) => {
-    const randomName = useId();
-    const name = customName || randomName;
-    const validationHintId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
-
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
       !label
     ) {
       throw new AccessibilityError(
-        'RadioButtonGroup',
+        'CheckboxGroup',
         'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
@@ -151,11 +159,14 @@ export const RadioButtonGroup = forwardRef(
       return null;
     }
 
+    const validationHintId = uniqueId('validation-hint_');
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
+
     return (
       <FieldSet
-        role="radiogroup"
         aria-describedby={descriptionIds}
-        aria-orientation="vertical"
         name={name}
         ref={ref}
         disabled={disabled}
@@ -165,31 +176,30 @@ export const RadioButtonGroup = forwardRef(
           <FieldLabelText
             label={label}
             hideLabel={hideLabel}
-            optionalLabel={optionalLabel}
             required={required}
+            optionalLabel={optionalLabel}
           />
         </FieldLegend>
-        <RadioButtonGroupContext.Provider value={true}>
-          {options.map(({ className, style, ...option }) => (
-            <div key={option.label} className={className} style={style}>
-              <RadioButton
+        <UnorderedList>
+          {options.map((option) => (
+            <li key={option.label}>
+              <Checkbox
                 {...option}
                 name={name}
                 onChange={onChange}
                 onBlur={onBlur}
-                required={required}
                 disabled={disabled || option.disabled}
                 invalid={invalid || option.invalid}
-                checked={value ? option.value === value : option.checked}
+                checked={value ? value.includes(option.value) : option.checked}
                 defaultChecked={
                   defaultValue
-                    ? option.value === defaultValue
+                    ? defaultValue.includes(option.value)
                     : option.defaultChecked
                 }
               />
-            </div>
+            </li>
           ))}
-        </RadioButtonGroupContext.Provider>
+        </UnorderedList>
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}
@@ -203,4 +213,4 @@ export const RadioButtonGroup = forwardRef(
   },
 );
 
-RadioButtonGroup.displayName = 'RadioButtonGroup';
+CheckboxGroup.displayName = 'CheckboxGroup';

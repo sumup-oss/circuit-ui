@@ -1,6 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Select > Styles > should not render with invalid styles when also passed the disabled prop 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -16,6 +17,7 @@ exports[`Select > Styles > should not render with invalid styles when also passe
   margin-bottom: 4px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }
@@ -180,6 +182,7 @@ select:not(:active)~.circuit-6 {
 `;
 
 exports[`Select > Styles > should render with a prefix when passed the prefix prop 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -195,6 +198,7 @@ exports[`Select > Styles > should render with a prefix when passed the prefix pr
   margin-bottom: 4px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }
@@ -384,6 +388,7 @@ select:not(:active)~.circuit-7 {
 `;
 
 exports[`Select > Styles > should render with a tooltip when passed a validation hint 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -399,6 +404,7 @@ exports[`Select > Styles > should render with a tooltip when passed a validation
   margin-bottom: 4px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }
@@ -504,6 +510,7 @@ select:not(:active)~.circuit-6 {
   transition: color 120ms ease-in-out;
 }
 
+[disabled] .circuit-7,
 .cui-field-disabled .circuit-7 {
   color: var(--cui-fg-subtle-disabled);
 }
@@ -593,6 +600,7 @@ select:not(:active)~.circuit-6 {
 `;
 
 exports[`Select > Styles > should render with a visually-hidden label 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -617,6 +625,7 @@ exports[`Select > Styles > should render with a visually-hidden label 1`] = `
   width: 1px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }
@@ -791,6 +800,7 @@ select:not(:active)~.circuit-6 {
 `;
 
 exports[`Select > Styles > should render with default styles 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -806,6 +816,7 @@ exports[`Select > Styles > should render with default styles 1`] = `
   margin-bottom: 4px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }
@@ -980,6 +991,7 @@ select:not(:active)~.circuit-6 {
 `;
 
 exports[`Select > Styles > should render with disabled styles when passed the disabled prop 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -995,6 +1007,7 @@ exports[`Select > Styles > should render with disabled styles when passed the di
   margin-bottom: 4px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }
@@ -1158,6 +1171,7 @@ select:not(:active)~.circuit-6 {
 `;
 
 exports[`Select > Styles > should render with invalid styles when passed the invalid prop 1`] = `
+.circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
 }
@@ -1173,6 +1187,7 @@ exports[`Select > Styles > should render with invalid styles when passed the inv
   margin-bottom: 4px;
 }
 
+[disabled] .circuit-2,
 .cui-field-disabled .circuit-2 {
   color: var(--cui-fg-normal-disabled);
 }

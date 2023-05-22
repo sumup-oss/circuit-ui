@@ -144,14 +144,14 @@ describe('useCollapsible', () => {
         'ref': { current: null },
         'id': expect.any(String),
         'style': {
-          overflowY: 'hidden',
+          overflowY: 'visible',
           willChange: 'height',
           opacity: 1,
           height: 'auto',
           transition: 'all 200ms ease-in-out',
           visibility: 'visible',
         },
-        'aria-hidden': null,
+        'aria-hidden': undefined,
       });
 
       expect(actual).toEqual(expected);
@@ -192,7 +192,7 @@ describe('useCollapsible', () => {
 
   describe('getHeight', () => {
     it('should return "auto" when the element is falsy', () => {
-      const element = null;
+      const element = { current: null };
       const actual = getHeight(element);
       const expected = 'auto';
       expect(actual).toBe(expected);

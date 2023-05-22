@@ -7,6 +7,7 @@ export const parameters = {
   layout: 'centered',
   previewTabs: { 'storybook/docs/panel': { index: -1 } },
   actions: { argTypesRegex: '^on.*' },
+  controls: { expanded: true },
   options: {
     storySort: {
       order: ['Introduction', 'Features'],

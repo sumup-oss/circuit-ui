@@ -40,7 +40,7 @@ export const Base = (args: ToggleProps) => {
 
 Base.args = baseArgs;
 
-export const WithExplanation = (args: ToggleProps) => {
+export const WithDescription = (args: ToggleProps) => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
@@ -49,9 +49,9 @@ export const WithExplanation = (args: ToggleProps) => {
   return <Toggle {...args} checked={checked} onChange={handleChange} />;
 };
 
-WithExplanation.args = {
+WithDescription.args = {
   ...baseArgs,
-  explanation: 'Some more detailed text of what this means',
+  description: 'Some more detailed text of what this means',
 };
 
 export const Disabled = (args: ToggleProps) => <Toggle {...args} />;

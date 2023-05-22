@@ -16,67 +16,148 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, userEvent } from '../../util/test-utils.js';
+import {
+  render,
+  axe,
+  userEvent,
+  screen,
+  fireEvent,
+} from '../../util/test-utils.js';
 
 import { Checkbox } from './Checkbox.js';
 
 const defaultProps = {
   label: 'Label',
-  onChange: vi.fn(),
+  name: 'checkbox',
+  value: 'test',
 };
 
 describe('Checkbox', () => {
-  describe('Styles', () => {
-    it('should render with default styles', () => {
-      const { container } = render(<Checkbox {...defaultProps} />);
-      expect(container).toMatchSnapshot();
+  describe('Structure & Semantics', () => {
+    it('should be initially unchecked by default', () => {
+      render(<Checkbox {...defaultProps} />);
+      const inputEl = screen.getByRole('checkbox');
+      expect(inputEl).not.toBeChecked();
     });
 
-    it('should render with checked styles', () => {
-      const { container } = render(<Checkbox checked {...defaultProps} />);
-      expect(container).toMatchSnapshot();
+    it('should be initially checked (uncontrolled)', () => {
+      render(<Checkbox {...defaultProps} defaultChecked />);
+      const inputEl = screen.getByRole('checkbox');
+      expect(inputEl).toBeChecked();
     });
 
-    it('should render with disabled styles', () => {
-      const { container } = render(<Checkbox disabled {...defaultProps} />);
-      expect(container).toMatchSnapshot();
+    it('should be initially checked (controlled)', () => {
+      render(<Checkbox {...defaultProps} checked onChange={vi.fn()} />);
+      const inputEl = screen.getByRole('checkbox');
+      expect(inputEl).toBeChecked();
     });
 
-    it('should render with invalid styles and an error message', () => {
-      const { container } = render(
-        <Checkbox
-          invalid
-          validationHint="This field is required."
-          {...defaultProps}
-        />,
+    it('should be optionally disabled', () => {
+      render(<Checkbox {...defaultProps} disabled />);
+      const inputEl = screen.getByRole('checkbox');
+      expect(inputEl).toBeDisabled();
+    });
+
+    it('should have a name', () => {
+      render(<Checkbox {...defaultProps} />);
+      const inputEl = screen.getByRole('checkbox');
+      expect(inputEl).toHaveAttribute('name', defaultProps.name);
+    });
+
+    it('should have a label (accessible name)', () => {
+      const ref = createRef<HTMLInputElement>();
+      render(<Checkbox ref={ref} {...defaultProps} />);
+      const inputEl = screen.getByRole('checkbox');
+      expect(inputEl).toHaveAccessibleName(defaultProps.label);
+    });
+
+    it('should optionally have a description', () => {
+      const validationHint = 'Description';
+      render(<Checkbox validationHint={validationHint} {...defaultProps} />);
+      const inputEl = screen.getByRole('checkbox');
+      expect(inputEl).toHaveAccessibleDescription(validationHint);
+    });
+
+    it('should accept a custom description via aria-describedby', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      render(
+        <>
+          <span id={customDescriptionId}>{customDescription}</span>
+          <Checkbox aria-describedby={customDescriptionId} {...defaultProps} />
+        </>,
       );
-      expect(container).toMatchSnapshot();
+      const inputEl = screen.getByRole('checkbox');
+      expect(inputEl).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(customDescriptionId),
+      );
+      expect(inputEl).toHaveAccessibleDescription(customDescription);
+    });
+
+    it('should combine the built-in and custom description', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      const description = 'Description';
+      render(
+        <>
+          <span id={customDescriptionId}>{customDescription}</span>
+          <Checkbox
+            validationHint={description}
+            aria-describedby={customDescriptionId}
+            {...defaultProps}
+          />
+        </>,
+      );
+      const inputEl = screen.getByRole('checkbox');
+      expect(inputEl).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(customDescriptionId),
+      );
+      expect(inputEl).toHaveAccessibleDescription(
+        `${customDescription} ${description}`,
+      );
     });
   });
 
-  describe('Logic', () => {
-    it('should be unchecked by default', () => {
-      const { getByRole } = render(<Checkbox {...defaultProps} />);
-      const inputEl = getByRole('checkbox');
-
-      expect(inputEl).not.toHaveAttribute('checked');
+  describe('State & Interactions', () => {
+    it('should forward a ref to the input', () => {
+      const ref = createRef<HTMLInputElement>();
+      render(<Checkbox ref={ref} {...defaultProps} />);
+      const inputEl = screen.getByRole('checkbox');
+      expect(ref.current).toBe(inputEl);
     });
 
     it('should call the change handler when clicked', async () => {
-      const { getByRole } = render(<Checkbox {...defaultProps} />);
-      const inputEl = getByRole('checkbox');
+      const onChange = vi.fn();
+      render(<Checkbox {...defaultProps} onChange={onChange} />);
+      const inputEl = screen.getByRole('checkbox');
 
       await userEvent.click(inputEl);
 
-      expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledTimes(1);
     });
 
-    it('should accept a working ref', () => {
-      const tref = createRef<HTMLInputElement>();
-      const { getByRole } = render(<Checkbox ref={tref} {...defaultProps} />);
-      const inputEl = getByRole('checkbox');
+    it('should call the blur handler when loosing focus', async () => {
+      const onBlur = vi.fn();
+      render(<Checkbox {...defaultProps} onBlur={onBlur} />);
+      const inputEl = screen.getByRole('checkbox');
 
-      expect(tref.current).toBe(inputEl);
+      await userEvent.click(inputEl);
+      fireEvent.blur(inputEl);
+
+      expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Validations', () => {
+    it('should announce validation hints to screen reader users', () => {
+      const validationHint = 'This field is required';
+      render(
+        <Checkbox invalid validationHint={validationHint} {...defaultProps} />,
+      );
+      const liveRegionEl = screen.getByRole('status');
+      expect(liveRegionEl).toHaveTextContent(validationHint);
     });
   });
 
@@ -84,104 +165,20 @@ describe('Checkbox', () => {
     it('should have no violations', async () => {
       const { container } = render(<Checkbox {...defaultProps} />);
       const actual = await axe(container);
-
       expect(actual).toHaveNoViolations();
     });
 
-    describe('Labeling', () => {
-      it('should have an accessible name', () => {
-        const { getByRole } = render(<Checkbox {...defaultProps} />);
-        const inputEl = getByRole('checkbox');
-
-        expect(inputEl).toHaveAccessibleName(defaultProps.label);
-      });
-
-      it('should optionally have an accessible description', () => {
-        const description = 'Description';
-        const { getByRole } = render(
-          <Checkbox validationHint={description} {...defaultProps} />,
-        );
-        const inputEl = getByRole('checkbox');
-
-        expect(inputEl).toHaveAccessibleDescription(description);
-      });
-
-      it('should accept a custom description via aria-describedby', () => {
-        const customDescription = 'Custom description';
-        const customDescriptionId = 'customDescriptionId';
-        const { getByRole } = render(
-          <>
-            <span id={customDescriptionId}>{customDescription}</span>
-            <Checkbox
-              aria-describedby={customDescriptionId}
-              {...defaultProps}
-            />
-            ,
-          </>,
-        );
-        const inputEl = getByRole('checkbox');
-
-        expect(inputEl).toHaveAttribute(
-          'aria-describedby',
-          expect.stringContaining(customDescriptionId),
-        );
-        expect(inputEl).toHaveAccessibleDescription(customDescription);
-      });
-
-      it('should accept a custom description in addition to a validationHint', () => {
-        const customDescription = 'Custom description';
-        const customDescriptionId = 'customDescriptionId';
-        const description = 'Description';
-        const { getByRole } = render(
-          <>
-            <span id={customDescriptionId}>{customDescription}</span>
-            <Checkbox
-              validationHint={description}
-              aria-describedby={customDescriptionId}
-              {...defaultProps}
-            />
-            ,
-          </>,
-        );
-        const inputEl = getByRole('checkbox');
-
-        expect(inputEl).toHaveAttribute(
-          'aria-describedby',
-          expect.stringContaining(customDescriptionId),
-        );
-        expect(inputEl).toHaveAccessibleDescription(
-          `${customDescription} ${description}`,
-        );
-      });
+    it('should render an empty live region on mount', () => {
+      render(<Checkbox {...defaultProps} />);
+      const liveRegionEl = screen.getByRole('status');
+      expect(liveRegionEl).toBeEmptyDOMElement();
     });
 
-    describe('Status messages', () => {
-      it('should render an empty live region on mount', () => {
-        const { getByRole } = render(<Checkbox {...defaultProps} />);
-        const liveRegionEl = getByRole('status');
-
-        expect(liveRegionEl).toBeEmptyDOMElement();
-      });
-
-      it('should render status messages in a live region', () => {
-        const statusMessage = 'This field is required';
-        const { getByRole } = render(
-          <Checkbox invalid validationHint={statusMessage} {...defaultProps} />,
-        );
-        const liveRegionEl = getByRole('status');
-
-        expect(liveRegionEl).toHaveTextContent(statusMessage);
-      });
-
-      it('should not render descriptions in a live region', () => {
-        const statusMessage = 'This field is required';
-        const { getByRole } = render(
-          <Checkbox validationHint={statusMessage} {...defaultProps} />,
-        );
-        const liveRegionEl = getByRole('status');
-
-        expect(liveRegionEl).toBeEmptyDOMElement();
-      });
+    it('should not render descriptions in a live region', () => {
+      const statusMessage = 'This field is required';
+      render(<Checkbox validationHint={statusMessage} {...defaultProps} />);
+      const liveRegionEl = screen.getByRole('status');
+      expect(liveRegionEl).toBeEmptyDOMElement();
     });
   });
 });

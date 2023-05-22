@@ -160,6 +160,12 @@ const inputDisabledStyles = () =>
         background-color: var(--cui-bg-normal-disabled);
       }
     }
+
+    &:disabled:checked + label::before,
+    &[disabled]:checked + label::before {
+      border-color: var(--cui-border-accent-disabled);
+      background-color: var(--cui-bg-accent-strong-disabled);
+    }
   `;
 
 const CheckboxInput = styled('input')<InputElProps>(

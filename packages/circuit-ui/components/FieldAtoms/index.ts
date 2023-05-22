@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-export { FieldWrapper } from './FieldWrapper.js';
-export { FieldLabel } from './FieldLabel.js';
+export { FieldWrapper, FieldSet } from './FieldWrappers.js';
+export { FieldLabel, FieldLegend } from './FieldLabels.js';
 export { FieldLabelText } from './FieldLabelText.js';
+export { FieldDescription } from './FieldDescription.js';
 export { FieldValidationHint } from './FieldValidationHint.js';

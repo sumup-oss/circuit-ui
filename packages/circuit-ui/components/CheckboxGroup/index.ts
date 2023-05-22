@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, SumUp Ltd.
+ * Copyright 2022, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,15 +13,8 @@
  * limitations under the License.
  */
 
-import type { Theme } from './types/index.js';
-import * as lightBase from './themes/light.js';
+import { CheckboxGroup } from './CheckboxGroup.js';
 
-export { schema } from './themes/schema.js';
+export type { CheckboxGroupProps } from './CheckboxGroup.js';
 
-export { themePropType } from './utils/theme-prop-type.js';
-
-// HACK: Copy the theme, otherwise, it gets exported as 'module'.
-const light: Theme = { ...lightBase };
-
-export type { Theme };
-export { light };
+export default CheckboxGroup;

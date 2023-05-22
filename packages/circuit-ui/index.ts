@@ -32,6 +32,8 @@ export type { ListProps } from './components/List/index.js';
 // Forms
 export { default as Checkbox } from './components/Checkbox/index.js';
 export type { CheckboxProps } from './components/Checkbox/index.js';
+export { default as CheckboxGroup } from './components/CheckboxGroup/index.js';
+export type { CheckboxGroupProps } from './components/CheckboxGroup/index.js';
 export { default as Input } from './components/Input/index.js';
 export type { InputProps, InputElement } from './components/Input/index.js';
 export { default as RadioButton } from './components/RadioButton/index.js';

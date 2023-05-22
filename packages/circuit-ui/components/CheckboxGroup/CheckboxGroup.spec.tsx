@@ -24,11 +24,11 @@ import {
   fireEvent,
 } from '../../util/test-utils.js';
 
-import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup.js';
+import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup.js';
 
-const defaultProps: RadioButtonGroupProps = {
-  label: 'label',
-  name: 'radio-button-group',
+const defaultProps: CheckboxGroupProps = {
+  label: 'Label',
+  name: 'checkbox-group',
   options: [
     { label: 'Option 1', value: 'first' },
     { label: 'Option 2', value: 'second' },
@@ -36,43 +36,41 @@ const defaultProps: RadioButtonGroupProps = {
   ],
 };
 
-describe('RadioButtonGroup', () => {
+describe('CheckboxGroup', () => {
   describe('Structure & Semantics', () => {
     it('should not render if the options are empty', () => {
-      render(<RadioButtonGroup {...defaultProps} options={[]} />);
-      const groupEl = screen.queryByRole('radiogroup');
+      render(<CheckboxGroup {...defaultProps} options={[]} />);
+      const groupEl = screen.queryByRole('group');
       expect(groupEl).toBeNull();
     });
 
     it('should be initially unchecked by default', () => {
-      render(<RadioButtonGroup {...defaultProps} />);
+      render(<CheckboxGroup {...defaultProps} />);
       expect(screen.getByLabelText('Option 1')).not.toBeChecked();
       expect(screen.getByLabelText('Option 2')).not.toBeChecked();
       expect(screen.getByLabelText('Option 3')).not.toBeChecked();
     });
 
     it('should be initially checked (uncontrolled)', () => {
-      const defaultValue = 'first';
-      render(
-        <RadioButtonGroup {...defaultProps} defaultValue={defaultValue} />,
-      );
+      const defaultValue = ['first', 'second'];
+      render(<CheckboxGroup {...defaultProps} defaultValue={defaultValue} />);
       expect(screen.getByLabelText('Option 1')).toBeChecked();
-      expect(screen.getByLabelText('Option 2')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 2')).toBeChecked();
       expect(screen.getByLabelText('Option 3')).not.toBeChecked();
     });
 
     it('should be initially checked (controlled)', () => {
-      const value = 'second';
+      const value = ['first', 'second'];
       render(
-        <RadioButtonGroup {...defaultProps} value={value} onChange={vi.fn()} />,
+        <CheckboxGroup {...defaultProps} value={value} onChange={vi.fn()} />,
       );
-      expect(screen.getByLabelText('Option 1')).not.toBeChecked();
+      expect(screen.getByLabelText('Option 1')).toBeChecked();
       expect(screen.getByLabelText('Option 2')).toBeChecked();
       expect(screen.getByLabelText('Option 3')).not.toBeChecked();
     });
 
     it('should have the same name for each option', () => {
-      render(<RadioButtonGroup {...defaultProps} />);
+      render(<CheckboxGroup {...defaultProps} />);
       expect(screen.getByLabelText('Option 1')).toHaveAttribute(
         'name',
         defaultProps.name,
@@ -88,8 +86,8 @@ describe('RadioButtonGroup', () => {
     });
 
     it('should have a label (accessible name)', () => {
-      render(<RadioButtonGroup {...defaultProps} />);
-      const groupEl = screen.getByRole('radiogroup');
+      render(<CheckboxGroup {...defaultProps} />);
+      const groupEl = screen.getByRole('group');
       expect(groupEl).toHaveAccessibleName(defaultProps.label);
     });
 
@@ -99,13 +97,13 @@ describe('RadioButtonGroup', () => {
       render(
         <>
           <span id={customDescriptionId}>{customDescription}</span>
-          <RadioButtonGroup
+          <CheckboxGroup
             aria-describedby={customDescriptionId}
             {...defaultProps}
           />
         </>,
       );
-      const groupEl = screen.getByRole('radiogroup');
+      const groupEl = screen.getByRole('group');
       expect(groupEl).toHaveAttribute(
         'aria-describedby',
         expect.stringContaining(customDescriptionId),
@@ -120,14 +118,14 @@ describe('RadioButtonGroup', () => {
       render(
         <>
           <span id={customDescriptionId}>{customDescription}</span>
-          <RadioButtonGroup
+          <CheckboxGroup
             validationHint={description}
             aria-describedby={customDescriptionId}
             {...defaultProps}
           />
         </>,
       );
-      const groupEl = screen.getByRole('radiogroup');
+      const groupEl = screen.getByRole('group');
       expect(groupEl).toHaveAttribute(
         'aria-describedby',
         expect.stringContaining(customDescriptionId),
@@ -140,13 +138,13 @@ describe('RadioButtonGroup', () => {
 
   describe('State & Interactions', () => {
     it('should give precedence to the `value` prop over the `checked` attribute of the individual options', () => {
-      const value = 'second';
+      const value = ['second'];
       const options = [
         { label: 'Option 1', value: 'first', checked: true },
         { label: 'Option 2', value: 'second', checked: false },
       ];
       render(
-        <RadioButtonGroup
+        <CheckboxGroup
           {...defaultProps}
           value={value}
           onChange={vi.fn()}
@@ -158,13 +156,13 @@ describe('RadioButtonGroup', () => {
     });
 
     it('should give precedence to the `defaultValue` prop over the `defaultChecked` attribute of the individual options', () => {
-      const defaultValue = 'second';
+      const defaultValue = ['second'];
       const options = [
         { label: 'Option 1', value: 'first', defaultChecked: true },
         { label: 'Option 2', value: 'second', defaultChecked: false },
       ];
       render(
-        <RadioButtonGroup
+        <CheckboxGroup
           {...defaultProps}
           defaultValue={defaultValue}
           onChange={vi.fn()}
@@ -177,7 +175,7 @@ describe('RadioButtonGroup', () => {
 
     it('should call the change handler when clicked', async () => {
       const onChange = vi.fn();
-      render(<RadioButtonGroup {...defaultProps} onChange={onChange} />);
+      render(<CheckboxGroup {...defaultProps} onChange={onChange} />);
 
       await userEvent.click(screen.getByLabelText('Option 3'));
 
@@ -186,7 +184,7 @@ describe('RadioButtonGroup', () => {
 
     it('should call the blur handler when loosing focus', async () => {
       const onBlur = vi.fn();
-      render(<RadioButtonGroup {...defaultProps} onBlur={onBlur} />);
+      render(<CheckboxGroup {...defaultProps} onBlur={onBlur} />);
       const inputEl = screen.getByLabelText('Option 1');
 
       await userEvent.click(inputEl);
@@ -197,14 +195,14 @@ describe('RadioButtonGroup', () => {
 
     it('should forward a ref to the group', () => {
       const ref = createRef<HTMLFieldSetElement>();
-      render(<RadioButtonGroup {...defaultProps} ref={ref} />);
-      const groupEl = screen.getByRole('radiogroup');
+      render(<CheckboxGroup {...defaultProps} ref={ref} />);
+      const groupEl = screen.getByRole('group');
       expect(ref.current).toBe(groupEl);
     });
 
     it('should disable the options fully', () => {
-      render(<RadioButtonGroup {...defaultProps} disabled />);
-      expect(screen.getByRole('radiogroup')).toBeDisabled();
+      render(<CheckboxGroup {...defaultProps} disabled />);
+      expect(screen.getByRole('group')).toBeDisabled();
       expect(screen.getByLabelText('Option 1')).toBeDisabled();
       expect(screen.getByLabelText('Option 2')).toBeDisabled();
       expect(screen.getByLabelText('Option 3')).toBeDisabled();
@@ -215,8 +213,8 @@ describe('RadioButtonGroup', () => {
         { label: 'Option 1', value: 'first', disabled: true },
         { label: 'Option 2', value: 'second' },
       ];
-      render(<RadioButtonGroup {...defaultProps} options={options} />);
-      expect(screen.getByRole('radiogroup')).not.toBeDisabled();
+      render(<CheckboxGroup {...defaultProps} options={options} />);
+      expect(screen.getByRole('group')).not.toBeDisabled();
       expect(screen.getByLabelText('Option 1')).toBeDisabled();
       expect(screen.getByLabelText('Option 2')).not.toBeDisabled();
     });
@@ -226,7 +224,7 @@ describe('RadioButtonGroup', () => {
     it('should announce validation hints to screen reader users', () => {
       const validationHint = 'Some options are required';
       render(
-        <RadioButtonGroup
+        <CheckboxGroup
           invalid
           validationHint={validationHint}
           {...defaultProps}
@@ -236,50 +234,30 @@ describe('RadioButtonGroup', () => {
       const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
       expect(groupLiveRegionEl).toHaveTextContent(validationHint);
     });
-
-    it('should have a required attribute on each option when required is specified', () => {
-      const { getByLabelText } = render(
-        <RadioButtonGroup {...defaultProps} required />,
-      );
-      expect(getByLabelText('Option 1')).toBeRequired();
-      expect(getByLabelText('Option 2')).toBeRequired();
-      expect(getByLabelText('Option 3')).toBeRequired();
-    });
   });
 
   describe('Accessibility', () => {
     it('should have no violations', async () => {
-      const { container } = render(<RadioButtonGroup {...defaultProps} />);
+      const { container } = render(<CheckboxGroup {...defaultProps} />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
 
     it('should render an empty live region on mount', () => {
-      const { getByRole } = render(<RadioButtonGroup {...defaultProps} />);
-      const liveRegionEl = getByRole('status');
-      expect(liveRegionEl).toBeEmptyDOMElement();
-    });
-
-    it('should render status messages in a live region', () => {
-      const statusMessage = 'This field is required';
-      const { getByRole } = render(
-        <RadioButtonGroup
-          invalid
-          validationHint={statusMessage}
-          {...defaultProps}
-        />,
-      );
-      const liveRegionEl = getByRole('status');
-      expect(liveRegionEl).toHaveTextContent(statusMessage);
+      render(<CheckboxGroup {...defaultProps} />);
+      const liveRegionEls = screen.getAllByRole('status');
+      const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
+      expect(groupLiveRegionEl).toBeEmptyDOMElement();
     });
 
     it('should not render descriptions in a live region', () => {
       const statusMessage = 'This field is required';
-      const { getByRole } = render(
-        <RadioButtonGroup validationHint={statusMessage} {...defaultProps} />,
+      render(
+        <CheckboxGroup validationHint={statusMessage} {...defaultProps} />,
       );
-      const liveRegionEl = getByRole('status');
-      expect(liveRegionEl).toBeEmptyDOMElement();
+      const liveRegionEls = screen.getAllByRole('status');
+      const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
+      expect(groupLiveRegionEl).toBeEmptyDOMElement();
     });
   });
 });

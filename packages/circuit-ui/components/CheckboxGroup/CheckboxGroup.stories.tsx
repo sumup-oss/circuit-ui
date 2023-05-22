@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2022, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,33 +16,23 @@
 import type { ChangeEvent, FocusEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { Stack } from '../../../../.storybook/components';
-import RadioButton from '../RadioButton';
+import { Stack } from '../../../../.storybook/components/index.js';
 
-import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup.js';
+import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup.js';
 
 export default {
-  title: 'Forms/RadioButtonGroup',
-  component: RadioButtonGroup,
-  subcomponents: { RadioButton },
-  argTypes: {
-    value: { control: 'text' },
-    invalid: { control: 'boolean' },
-    showValid: { control: 'boolean' },
-    hasWarning: { control: 'boolean' },
-  },
+  title: 'Forms/CheckboxGroup',
+  component: CheckboxGroup,
 };
 
 const storyStyles = { flex: '1', alignSelf: 'flex-start' };
 
-export const Base = (args: RadioButtonGroupProps) => (
-  <RadioButtonGroup {...args} />
-);
+export const Base = (args: CheckboxGroupProps) => <CheckboxGroup {...args} />;
 
 Base.args = {
-  name: 'fruit',
+  name: 'fruits',
   label: 'Choose your favourite fruit',
-  defaultValue: 'banana',
+  defaultValue: ['mango'],
   options: [
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' },
@@ -56,9 +46,9 @@ Base.args = {
     action('CheckboxGroup')(event),
 };
 
-export const Validations = (args: RadioButtonGroupProps) => (
+export const Validations = (args: CheckboxGroupProps) => (
   <Stack>
-    <RadioButtonGroup
+    <CheckboxGroup
       {...args}
       name="invalid"
       validationHint="Please choose an option."
@@ -66,17 +56,17 @@ export const Validations = (args: RadioButtonGroupProps) => (
       invalid
       style={storyStyles}
     />
-    <RadioButtonGroup
+    <CheckboxGroup
       {...args}
-      defaultValue="mango"
       name="warning"
+      defaultValue={['mango']}
       validationHint="Some people are allergic to mangos."
       hasWarning
       style={storyStyles}
     />
-    <RadioButtonGroup
+    <CheckboxGroup
       {...args}
-      defaultValue="apple"
+      defaultValue={['apple']}
       name="valid"
       validationHint="Good choice! Apples are delicious."
       showValid
@@ -95,9 +85,9 @@ Validations.args = {
   ],
 };
 
-export const Disabled = (args: RadioButtonGroupProps) => (
+export const Disabled = (args: CheckboxGroupProps) => (
   <Stack>
-    <RadioButtonGroup
+    <CheckboxGroup
       {...args}
       name="fully-disabled"
       disabled
@@ -109,7 +99,7 @@ export const Disabled = (args: RadioButtonGroupProps) => (
       validationHint="All fruits are sold out"
       style={storyStyles}
     />
-    <RadioButtonGroup
+    <CheckboxGroup
       {...args}
       name="partially-disabled"
       options={[
@@ -124,6 +114,6 @@ export const Disabled = (args: RadioButtonGroupProps) => (
 );
 
 Disabled.args = {
-  label: 'Select a fruit to order',
-  defaultValue: 'apple',
+  label: 'Select some fruits to order',
+  defaultValue: ['apple'],
 };

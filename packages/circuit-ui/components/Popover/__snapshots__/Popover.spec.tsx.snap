@@ -243,6 +243,7 @@ exports[`Popover > Styles > should render popover on bottom 1`] = `
       </button>
       <hr
         class="circuit-6"
+        role="presentation"
       />
       <button
         class="circuit-7"
@@ -512,6 +513,7 @@ exports[`Popover > Styles > should render popover on left 1`] = `
       </button>
       <hr
         class="circuit-6"
+        role="presentation"
       />
       <button
         class="circuit-7"
@@ -781,6 +783,7 @@ exports[`Popover > Styles > should render popover on right 1`] = `
       </button>
       <hr
         class="circuit-6"
+        role="presentation"
       />
       <button
         class="circuit-7"
@@ -1050,6 +1053,7 @@ exports[`Popover > Styles > should render popover on top 1`] = `
       </button>
       <hr
         class="circuit-6"
+        role="presentation"
       />
       <button
         class="circuit-7"
@@ -1301,6 +1305,7 @@ exports[`Popover > Styles > should render with closed styles 1`] = `
       </button>
       <hr
         class="circuit-6"
+        role="presentation"
       />
       <button
         class="circuit-7"
@@ -1570,6 +1575,7 @@ exports[`Popover > Styles > should render with default styles 1`] = `
       </button>
       <hr
         class="circuit-6"
+        role="presentation"
       />
       <button
         class="circuit-7"

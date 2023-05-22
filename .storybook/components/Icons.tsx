@@ -28,6 +28,7 @@ import {
   Select,
   typography,
   BaseStyles,
+  Badge,
 } from '@sumup/circuit-ui';
 
 function groupBy(icons: IconsManifest['icons'], key: string) {
@@ -72,9 +73,11 @@ const Wrapper = styled.div`
   text-align: center;
   margin-top: ${(p) => p.theme.spacings.giga};
   margin-bottom: ${(p) => p.theme.spacings.giga};
+  position: relative;
 `;
 
-const Size = styled.p`
+const Size = styled.span`
+  display: block;
   color: var(--cui-fg-subtle);
   font-style: italic;
 `;
@@ -95,6 +98,13 @@ const iconStyles = (color: string) =>
       ? 'var(--cui-bg-strong)'
       : 'var(--cui-bg-normal)'};
   `;
+
+const badgeStyles = css`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+`;
 
 const Icons = () => {
   const [search, setSearch] = useState('');
@@ -189,6 +199,15 @@ const Icons = () => {
                       {icon.name}
                       {size === 'all' && <Size>{icon.size}</Size>}
                     </span>
+                    {icon.deprecation && (
+                      <Badge
+                        title={icon.deprecation}
+                        variant="notify"
+                        css={badgeStyles}
+                      >
+                        Deprecated
+                      </Badge>
+                    )}
                   </Wrapper>
                 );
               })}

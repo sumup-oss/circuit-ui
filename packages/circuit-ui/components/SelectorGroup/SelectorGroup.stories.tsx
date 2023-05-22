@@ -13,62 +13,144 @@
  * limitations under the License.
  */
 
-import { useState, ChangeEvent } from 'react';
+import type { ChangeEvent, FocusEvent } from 'react';
+import { action } from '@storybook/addon-actions';
+
+import Selector from '../Selector';
+import { Stack } from '../../../../.storybook/components';
 
 import { SelectorGroup, SelectorGroupProps } from './SelectorGroup.js';
 
 export default {
   title: 'Forms/SelectorGroup',
   component: SelectorGroup,
+  subcomponents: { Selector },
 };
 
-const baseArgs = {
-  name: 'selector-group',
+const storyStyles = { flex: '1', alignSelf: 'flex-start' };
+
+export const Base = (args: SelectorGroupProps) => <SelectorGroup {...args} />;
+
+Base.args = {
+  name: 'fruit',
   label: 'Choose your favourite fruit',
+  defaultValue: 'apple',
   options: [
-    { children: 'Apple', value: 'apple' },
-    { children: 'Banana', value: 'banana' },
-    { children: 'Mango', value: 'mango' },
-    { children: 'I like all fruits', value: 'all' },
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
+  ],
+  // Storybook displays the default mocked function props poorly,
+  // so we override them for the default story.
+  onChange: (event: ChangeEvent<HTMLInputElement>) =>
+    action('CheckboxGroup')(event),
+  onBlur: (event: FocusEvent<HTMLInputElement>) =>
+    action('CheckboxGroup')(event),
+};
+
+export const Multiple = (args: SelectorGroupProps) => (
+  <SelectorGroup {...args} />
+);
+
+Multiple.args = {
+  name: 'multiple',
+  multiple: true,
+  label: 'Choose your favourite fruits',
+  defaultValue: ['apple', 'mango'],
+  options: [
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
   ],
 };
 
-export const Base = (args: SelectorGroupProps) => {
-  const [value, setValue] = useState<string>('');
-
-  return (
+export const Sizes = (args: SelectorGroupProps) => (
+  <Stack vertical>
     <SelectorGroup
       {...args}
-      value={value}
-      onChange={(event) => {
-        setValue(event.target.value);
-      }}
+      name="kilo"
+      label="Kilo"
+      size="kilo"
+      style={storyStyles}
     />
-  );
-};
-
-Base.args = baseArgs;
-
-export const Multiple = (args: SelectorGroupProps) => {
-  const [value, setValue] = useState<string[]>([]);
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    event.persist();
-    setValue((prev) =>
-      prev.includes(event.target.value)
-        ? prev.filter((v) => v !== event.target.value)
-        : [...prev, event.target.value],
-    );
-  };
-
-  return (
     <SelectorGroup
       {...args}
-      value={value}
-      onChange={handleChange}
-      stretch={false}
+      name="mega"
+      label="Mega"
+      size="mega"
+      style={storyStyles}
     />
-  );
+    <SelectorGroup
+      {...args}
+      name="flexible"
+      label="Flexible"
+      size="flexible"
+      style={storyStyles}
+    />
+  </Stack>
+);
+
+Sizes.args = {
+  label: 'Choose your favourite fruits',
+  options: [
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
+  ],
 };
 
-Multiple.args = { ...baseArgs, multiple: true };
+export const WithDescriptions = (args: SelectorGroupProps) => (
+  <SelectorGroup {...args} />
+);
+
+WithDescriptions.args = {
+  name: 'descriptions',
+  label: 'Choose your favourite fruit',
+  options: [
+    {
+      label: 'Apple',
+      description: 'Braeburn, Granny Smith, or Jonagold',
+      value: 'apple',
+    },
+    {
+      label: 'Banana',
+      description: 'Cavendish, Lakatan, or Tindok',
+      value: 'banana',
+    },
+    {
+      label: 'Mango',
+      description: 'Alphonso, Dasheri, or Haden',
+      value: 'mango',
+    },
+  ],
+};
+
+export const Disabled = (args: SelectorGroupProps) => (
+  <Stack>
+    <SelectorGroup
+      {...args}
+      label="Fully disabled"
+      name="fully-disabled"
+      disabled
+      options={[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Mango', value: 'mango' },
+      ]}
+    />
+    <SelectorGroup
+      {...args}
+      label="Partially disabled"
+      name="partially-disabled"
+      options={[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Mango', value: 'mango', disabled: true },
+      ]}
+    />
+  </Stack>
+);
+
+Disabled.args = {
+  label: 'Select a fruit to order',
+};
