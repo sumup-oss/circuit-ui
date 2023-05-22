@@ -16,7 +16,6 @@
 import {
   Ref,
   forwardRef,
-  ChangeEventHandler,
   FieldsetHTMLAttributes,
   InputHTMLAttributes,
 } from 'react';
@@ -48,12 +47,12 @@ export interface SelectorGroupProps
    * A callback that is called when any of the inputs change their values.
    * Passed on to the Selectors.
    */
-  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onChange?: SelectorProps['onChange'];
   /**
-   * A callback that is called when any of the checkboxes lose focus.
-   * Passed on to the Checkboxes.
+   * A callback that is called when any of the inputs lose focus.
+   * Passed on to the Selectors.
    */
-  onBlur?: ChangeEventHandler<HTMLInputElement>;
+  onBlur?: SelectorProps['onBlur'];
   /**
    * The value of the currently checked options.
    */
