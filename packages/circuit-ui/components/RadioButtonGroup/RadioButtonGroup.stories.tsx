@@ -69,7 +69,7 @@ export const Validations = (args: RadioButtonGroupProps) => (
     <RadioButtonGroup
       {...args}
       defaultValue="mango"
-      name="invalid"
+      name="warning"
       validationHint="Some people are allergic to mangos."
       hasWarning
       style={storyStyles}

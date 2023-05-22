@@ -37,6 +37,12 @@ const defaultProps: CheckboxGroupProps = {
 
 describe('CheckboxGroup', () => {
   describe('Structure & Semantics', () => {
+    it('should not render if the options are empty', () => {
+      render(<CheckboxGroup {...defaultProps} options={[]} />);
+      const groupEl = screen.queryByRole('group');
+      expect(groupEl).toBeNull();
+    });
+
     it('should be initially unchecked by default', () => {
       render(<CheckboxGroup {...defaultProps} />);
       expect(screen.getByLabelText('Option 1')).not.toBeChecked();

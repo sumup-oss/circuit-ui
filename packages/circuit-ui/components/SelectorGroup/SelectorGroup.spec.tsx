@@ -37,6 +37,12 @@ const defaultProps: SelectorGroupProps = {
 
 describe('SelectorGroup', () => {
   describe('Structure & Semantics', () => {
+    it('should not render if the options are empty', () => {
+      render(<SelectorGroup {...defaultProps} options={[]} />);
+      const groupEl = screen.queryByRole('radiogroup');
+      expect(groupEl).toBeNull();
+    });
+
     it('should be initially unchecked by default', () => {
       render(<SelectorGroup {...defaultProps} />);
       expect(screen.getByLabelText('Option 1')).not.toBeChecked();
