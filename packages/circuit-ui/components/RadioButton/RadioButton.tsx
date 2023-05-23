@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
-import { Fragment, InputHTMLAttributes, Ref, forwardRef, useId } from 'react';
+import { InputHTMLAttributes, Ref, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
 import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
 import { AccessibilityError } from '../../util/errors.js';
+import { FieldWrapper } from '../FieldAtoms/index.js';
 
 export interface RadioButtonProps
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -210,7 +211,7 @@ export const RadioButton = forwardRef(
     const inputId = customId || id;
 
     return (
-      <Fragment>
+      <FieldWrapper className={className} style={style} disabled={disabled}>
         <RadioButtonInput
           {...props}
           type="radio"
@@ -231,7 +232,7 @@ export const RadioButton = forwardRef(
         >
           {label}
         </RadioButtonLabel>
-      </Fragment>
+      </FieldWrapper>
     );
   },
 );
