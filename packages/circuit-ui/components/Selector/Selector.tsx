@@ -13,20 +13,11 @@
  * limitations under the License.
  */
 
-import {
-  Fragment,
-  InputHTMLAttributes,
-  ReactNode,
-  createContext,
-  forwardRef,
-  useContext,
-  useId,
-} from 'react';
+import { Fragment, InputHTMLAttributes, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
 import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
-import { deprecate } from '../../util/logger.js';
 import { AccessibilityError } from '../../util/errors.js';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
@@ -36,7 +27,7 @@ export interface SelectorProps
   /**
    * A clear and concise description of the input's purpose.
    */
-  label?: string;
+  label: string;
   /**
    * A more detailed description of the input's purpose.
    */
@@ -69,12 +60,7 @@ export interface SelectorProps
    * Whether the user can select multiple options.
    */
   multiple?: boolean;
-  /**
-   * @deprecated
-   *
-   * Use the `label` and `description` props instead.
-   */
-  children?: ReactNode;
+  children?: never;
 }
 
 type LabelElProps = Pick<SelectorProps, 'disabled' | 'size'>;
@@ -205,15 +191,12 @@ const inputStyles = ({ theme }: StyleProps) => css`
 
 const SelectorInput = styled('input')(inputStyles);
 
-export const SelectorGroupContext = createContext(false);
-
 /**
- * @deprecated Use the {@link SelectorGroup} component instead.
+ * @private
  */
 export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
   (
     {
-      children,
       label,
       description,
       value,
@@ -238,27 +221,10 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       .join(' ');
     const type = multiple ? 'checkbox' : 'radio';
 
-    const isInsideGroup = useContext(SelectorGroupContext);
-
-    if (process.env.NODE_ENV !== 'production' && !isInsideGroup) {
-      deprecate(
-        'Selector',
-        'The Selector component has been deprecated. Use the SelectorGroup component instead.',
-      );
-    }
-
-    if (process.env.NODE_ENV !== 'production' && children) {
-      deprecate(
-        'Selector',
-        'The `children` prop has been deprecated. Use the `label` and `description` props instead.',
-      );
-    }
-
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !label &&
-      !children
+      !label
     ) {
       throw new AccessibilityError('Selector', 'The `label` prop is missing.');
     }
@@ -290,11 +256,11 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
         >
           {hasDescription ? (
             <Fragment>
-              <Bold>{label || children}</Bold>
+              <Bold>{label}</Bold>
               <span aria-hidden="true">{description}</span>
             </Fragment>
           ) : (
-            label || children
+            label
           )}
         </SelectorLabel>
         {hasDescription && (

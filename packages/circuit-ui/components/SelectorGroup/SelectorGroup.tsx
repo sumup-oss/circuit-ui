@@ -23,12 +23,7 @@ import {
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
-import {
-  Selector,
-  SelectorProps,
-  SelectorGroupContext,
-  SelectorSize,
-} from '../Selector/Selector.js';
+import { Selector, SelectorProps, SelectorSize } from '../Selector/Selector.js';
 import { AccessibilityError } from '../../util/errors.js';
 import { FieldLabelText, FieldLegend, FieldSet } from '../FieldAtoms/index.js';
 import { isEmpty } from '../../util/helpers.js';
@@ -207,32 +202,30 @@ export const SelectorGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        <SelectorGroupContext.Provider value={true}>
-          {options.map((option) => (
-            <OptionItem key={option.label}>
-              <Selector
-                {...option}
-                name={name}
-                onChange={onChange}
-                onBlur={onBlur}
-                multiple={multiple}
-                size={size}
-                css={css`
-                  width: 100%;
-                `}
-                disabled={disabled || option.disabled}
-                checked={
-                  value ? isChecked(option, value, multiple) : option.checked
-                }
-                defaultChecked={
-                  defaultValue
-                    ? isChecked(option, defaultValue, multiple)
-                    : option.defaultChecked
-                }
-              />
-            </OptionItem>
-          ))}
-        </SelectorGroupContext.Provider>
+        {options.map((option) => (
+          <OptionItem key={option.label}>
+            <Selector
+              {...option}
+              name={name}
+              onChange={onChange}
+              onBlur={onBlur}
+              multiple={multiple}
+              size={size}
+              css={css`
+                width: 100%;
+              `}
+              disabled={disabled || option.disabled}
+              checked={
+                value ? isChecked(option, value, multiple) : option.checked
+              }
+              defaultChecked={
+                defaultValue
+                  ? isChecked(option, defaultValue, multiple)
+                  : option.defaultChecked
+              }
+            />
+          </OptionItem>
+        ))}
       </StyledFieldset>
     );
   },

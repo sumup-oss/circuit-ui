@@ -32,11 +32,6 @@ export interface ToggleProps extends SwitchProps {
    */
   label: string;
   /**
-   * @deprecated
-   * Use the `description` prop instead.
-   */
-  explanation?: string;
-  /**
    * Further explanation of the toggle. Can change depending on the state.
    */
   description?: string;
@@ -81,7 +76,6 @@ export const Toggle = forwardRef(
   (
     {
       label,
-      explanation,
       description,
       'aria-describedby': describedBy,
       ...props
@@ -100,10 +94,7 @@ export const Toggle = forwardRef(
     const labelId = useId();
     const descriptionId = useId();
 
-    const descriptionIds = [
-      describedBy,
-      (description || explanation) && descriptionId,
-    ]
+    const descriptionIds = [describedBy, description && descriptionId]
       .filter(Boolean)
       .join(' ');
 
@@ -118,15 +109,15 @@ export const Toggle = forwardRef(
         />
         <ToggleLabel as="label" id={labelId} htmlFor={switchId}>
           {label}
-          {(description || explanation) && (
+          {description && (
             <FieldDescription aria-hidden="true">
-              {description || explanation}
+              {description}
             </FieldDescription>
           )}
         </ToggleLabel>
-        {(description || explanation) && (
+        {description && (
           <p id={descriptionId} css={hideVisually}>
-            {description || explanation}
+            {description}
           </p>
         )}
       </FieldWrapper>

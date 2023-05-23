@@ -16,8 +16,8 @@
 import type { ChangeEvent, FocusEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { Stack } from '../../../../.storybook/components';
-import RadioButton from '../RadioButton';
+import { Stack } from '../../../../.storybook/components/index.js';
+import { RadioButton } from '../RadioButton/RadioButton.js';
 
 import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup.js';
 

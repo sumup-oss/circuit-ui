@@ -16,8 +16,8 @@
 import type { ChangeEvent, FocusEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import Selector from '../Selector';
-import { Stack } from '../../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components/index.js';
+import { Selector } from '../Selector/Selector.js';
 
 import { SelectorGroup, SelectorGroupProps } from './SelectorGroup.js';
 

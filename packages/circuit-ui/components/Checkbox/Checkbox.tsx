@@ -26,7 +26,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * A clear and concise description of the input's purpose.
    */
-  label?: string;
+  label: string;
   /**
    * Triggers error styles on the component.
    */
