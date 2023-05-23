@@ -13,14 +13,12 @@
  * limitations under the License.
  */
 
-// NOTE: Related issue https://github.com/facebook/react/issues/5867
-
 let idCounter = 0;
 
 /**
  * @deprecated
  *
- * Use the official [`useId` hook](https://beta.reactjs.org/reference/react/useId) instead.
+ * Use the official [`useId` hook](https://react.dev/reference/react/useId) instead.
  */
 export function uniqueId(prefix = ''): string {
   idCounter += 1;

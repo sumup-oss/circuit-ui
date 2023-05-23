@@ -98,6 +98,8 @@ const skipStyles = ({ theme, skip = 0 }: StyleProps & ColProps) =>
     : composeBreakpoints(createSkipStyles, theme, skip);
 
 /**
+ * @legacy
+ *
  * Content wrapping for the Grid component. Allows sizing based on provided
  * props.
  */

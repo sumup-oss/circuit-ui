@@ -37,6 +37,8 @@ const gutterStyles = ({ theme }: StyleProps) =>
   composeBreakpoints(createGutterStyles, theme, theme.grid);
 
 /**
+ * @legacy
+ *
  * Row wrapping for the Col component.
  */
 export const Row = styled('div')<NoTheme>(baseStyles, clearfix, gutterStyles);
