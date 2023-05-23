@@ -82,17 +82,9 @@ export type { ToastProviderProps } from './components/ToastContext/index.js';
 export { default as NotificationInline } from './components/NotificationInline/index.js';
 export type { NotificationInlineProps } from './components/NotificationInline/index.js';
 
-// Layout
-export { Grid, Row, Col } from './components/Grid/index.js';
-export type { ColProps } from './components/Grid/index.js';
-export { default as InlineElements } from './components/InlineElements/index.js';
-export type { InlineElementsProps } from './components/InlineElements/index.js';
-
 // Navigation
 export { default as Hamburger } from './components/Hamburger/index.js';
 export type { HamburgerProps } from './components/Hamburger/index.js';
-export { default as Header } from './components/Header/index.js';
-export type { HeaderProps } from './components/Header/index.js';
 export { default as Pagination } from './components/Pagination/index.js';
 export type { PaginationProps } from './components/Pagination/index.js';
 export {
@@ -206,8 +198,6 @@ export {
   typography,
   center,
 } from './styles/style-mixins.js';
-
-export { uniqueId } from './util/id.js';
 
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';

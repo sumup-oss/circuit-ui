@@ -155,6 +155,8 @@ const inlineMobileStyles = ({
   `;
 
 /**
+ * @legacy
+ *
  * Layout helper that displays child elements inline. Useful for form elements.
  */
 export const InlineElements = styled('div')<InlineElementsProps>(

@@ -23,7 +23,6 @@ import iconsManifest from '@sumup/icons/manifest.json';
 import {
   Headline,
   Body,
-  InlineElements,
   SearchInput,
   Select,
   typography,
@@ -54,7 +53,10 @@ function getComponentName(name: string) {
   return pascalCased.join('');
 }
 
-const Filters = styled(InlineElements)`
+const Filters = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: ${(p) => p.theme.spacings.kilo};
   margin-top: ${(p) => p.theme.spacings.tera};
   margin-bottom: ${(p) => p.theme.spacings.peta};
 `;
@@ -202,7 +204,7 @@ const Icons = () => {
                     {icon.deprecation && (
                       <Badge
                         title={icon.deprecation}
-                        variant="notify"
+                        variant="warning"
                         css={badgeStyles}
                       >
                         Deprecated

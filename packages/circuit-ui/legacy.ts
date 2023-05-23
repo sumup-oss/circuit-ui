@@ -30,7 +30,15 @@ export type { CalendarTagProps } from './components/CalendarTag/index.js';
 export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep/index.js';
 export type { CalendarTagTwoStepProps } from './components/CalendarTagTwoStep/index.js';
 
+// Layout
+export { Grid, Row, Col } from './components/Grid/index.js';
+export type { ColProps } from './components/Grid/index.js';
+export { default as InlineElements } from './components/InlineElements/index.js';
+export type { InlineElementsProps } from './components/InlineElements/index.js';
+
 // Navigation
+export { default as Header } from './components/Header/index.js';
+export type { HeaderProps } from './components/Header/index.js';
 export { default as Sidebar } from './components/Sidebar/index.js';
 export type { SidebarProps } from './components/Sidebar/index.js';
 export {
@@ -41,3 +49,5 @@ export {
 // Miscellaneous
 export { default as Tooltip } from './components/Tooltip/index.js';
 export type { TooltipProps } from './components/Tooltip/index.js';
+
+export { uniqueId } from './util/id.js';
