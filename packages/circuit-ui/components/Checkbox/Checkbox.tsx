@@ -34,11 +34,12 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   label?: string;
   /**
-   * Triggers error styles on the component.
+   * Marks the input as invalid.
    */
   invalid?: boolean;
   /**
-   * Triggers indeterminate styles on the component.
+   * Marks the input as indeterminate. This is presentational only, the value
+   * of an indeterminate checkbox is not included in form submissions.
    */
   indeterminate?: boolean;
   /**
@@ -233,6 +234,15 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     },
     passedRef,
   ) => {
+    const localRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+      if (localRef.current) {
+        localRef.current.indeterminate = indeterminate;
+      }
+      // Because it came from a props, we are keeping the `indeterminate` state even if the `checked` one is changed:
+    }, [props.checked, indeterminate]);
+
     if (process.env.NODE_ENV !== 'production' && children) {
       deprecate(
         'Checkbox',
@@ -254,15 +264,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
-    const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
-    const localRef = useRef<HTMLInputElement>(null);
-    useEffect(() => {
-      if (localRef.current) {
-        localRef.current.indeterminate = indeterminate;
-      }
-      // Because it came from a props, we are keeping the `indeterminate` state even if the `checked` one is changed:
-    }, [props.checked, indeterminate]);
+    const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
     return (
       <CheckboxWrapper className={className} style={style} disabled={disabled}>
@@ -277,7 +280,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           ref={applyMultipleRefs(passedRef, localRef)}
           aria-describedby={descriptionIds}
           onChange={handleChange}
-          {...(indeterminate && { 'aria-checked': 'mixed' })}
+          aria-checked={indeterminate ? 'mixed' : undefined}
         />
         <CheckboxLabel htmlFor={id}>
           {label || children}
