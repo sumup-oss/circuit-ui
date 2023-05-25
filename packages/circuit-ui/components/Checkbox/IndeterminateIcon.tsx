@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { SVGAttributes, ReactElement } from 'react';
+import type { SVGAttributes, ReactElement } from 'react';
 
 export const IndeterminateIcon = (
   props: SVGAttributes<SVGElement>,

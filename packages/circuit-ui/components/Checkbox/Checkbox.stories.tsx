@@ -1,5 +1,5 @@
 /**
- * Copyright 2023, SumUp Ltd.
+ * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,9 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
+import { css } from '@emotion/react';
+import type { Theme } from '@sumup/design-tokens';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
 
@@ -70,21 +72,95 @@ Disabled.args = {
   disabled: true,
 };
 
-export const Indeterminate = (args: CheckboxProps) => (
-  <Checkbox
-    {...args}
-    ref={(el: HTMLInputElement) => {
-      if (el) {
-        // eslint-disable-next-line no-param-reassign
-        el.indeterminate = true;
-      }
-    }}
-  />
-);
+const legendStyles = (theme: Theme) => css`
+  display: block;
+  margin-bottom: ${theme.spacings.bit};
+  font-size: ${theme.typography.body.two.fontSize};
+  line-height: ${theme.typography.body.two.lineHeight};
+`;
+
+const listStyles = css`
+  list-style: none;
+  margin-left: 26px;
+`;
+
+export const Indeterminate = (args: {
+  label: string;
+  name: string;
+  initialValues: CheckboxProps['value'][];
+  parent: CheckboxProps;
+  options: CheckboxProps[];
+}) => {
+  const { label, name, initialValues, parent, options } = args;
+  const [values, setValues] = useState(initialValues);
+
+  const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const eventValue = event.target.value;
+
+    setValues((prevValues) =>
+      prevValues.includes(eventValue)
+        ? prevValues.filter((v) => v !== eventValue)
+        : prevValues.concat(eventValue),
+    );
+  };
+
+  const handleParentChange = () => {
+    setValues((prevValues) =>
+      prevValues.length === options.length
+        ? []
+        : options.map((option) => option.value),
+    );
+  };
+
+  const someChecked = options.some((option) => values.includes(option.value));
+  const allChecked = options.every((option) => values.includes(option.value));
+
+  return (
+    <fieldset name={name}>
+      <legend css={legendStyles}>{label}</legend>
+      <Checkbox
+        {...parent}
+        onChange={handleParentChange}
+        name={name}
+        indeterminate={someChecked && !allChecked}
+        checked={allChecked}
+      />
+      <ul css={listStyles}>
+        {options.map((option) => (
+          <li key={option.label}>
+            <Checkbox
+              {...option}
+              onChange={handleOptionChange}
+              name={name}
+              checked={values.includes(option.value)}
+            />
+          </li>
+        ))}
+      </ul>
+    </fieldset>
+  );
+};
 
 Indeterminate.args = {
-  'name': 'indeterminate',
-  'value': 'any value',
-  'aria-checked': 'mixed',
-  'indeterminate': true,
+  label: 'Choose your favorite fruits',
+  name: 'indeterminate',
+  initialValues: ['mango'],
+  parent: {
+    label: 'All fruits',
+    value: 'all',
+  },
+  options: [
+    {
+      label: 'Apple',
+      value: 'apple',
+    },
+    {
+      label: 'Banana',
+      value: 'banana',
+    },
+    {
+      label: 'Mango',
+      value: 'mango',
+    },
+  ],
 };
