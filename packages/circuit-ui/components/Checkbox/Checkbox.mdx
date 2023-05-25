@@ -39,7 +39,19 @@ Disabled form fields can be confusing to users, so use them with caution. Consid
 <Story of={Stories.Disabled} />
 
 ### Indeterminate
-<Story id={Stories.Indeterminate} />
+
+The indeterminate state of a checkbox can be used to display and control the collective state of a group of nested checkboxes.
+
+A checkbox is a binary input: either it is checked or it is not. A group of checkboxes, however, can be thought of as having three states: all unchecked, all checked or some checked. The mixed state can be represented by the `indeterminate` prop. It is purely presentational and should not be relied upon to submit data since a native form submission won't include an indeterminate checkbox.
+
+When building a checkbox group with a parent checkbox, make sure to adhere to the following best practices:
+
+- The checkbox group should be wrapped in a `fieldset` and labelled using the `legend` element.
+- Validation messages should be associated with the `fieldset` using `aria-describedby` and should be announced to screen readers using a live region.
+- Toggling the state of the parent checkbox should toggle the state of all child options to match the parent's state.
+- Toggling the state of a child option should update the parent's state.
+
+<Story of={Stories.Indeterminate} />
 
 ## State
 
