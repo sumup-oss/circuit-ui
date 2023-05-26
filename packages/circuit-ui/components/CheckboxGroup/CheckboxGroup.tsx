@@ -18,10 +18,10 @@ import {
   InputHTMLAttributes,
   Ref,
   forwardRef,
+  useId,
 } from 'react';
 
 import styled from '../../styles/styled.js';
-import { uniqueId } from '../../util/id.js';
 import { Checkbox, CheckboxProps } from '../Checkbox/Checkbox.js';
 import {
   FieldLabelText,
@@ -144,6 +144,11 @@ export const CheckboxGroup = forwardRef(
     }: CheckboxGroupProps,
     ref: CheckboxGroupProps['ref'],
   ) => {
+    const validationHintId = useId();
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -158,11 +163,6 @@ export const CheckboxGroup = forwardRef(
     if (isEmpty(options)) {
       return null;
     }
-
-    const validationHintId = uniqueId('validation-hint_');
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
 
     return (
       <FieldSet

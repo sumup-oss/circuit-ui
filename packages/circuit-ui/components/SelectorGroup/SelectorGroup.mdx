@@ -11,10 +11,7 @@ import * as Stories from './SelectorGroup.stories';
 
 # SelectorGroup
 
-<Status variant="inReview">
-  The component lacks support for validation messages. This will be addressed in
-  the next major release.
-</Status>
+<Status variant="stable" />
 
 A selector group offers users the choice to select a single or multiple options from a predefined list.
 
@@ -47,7 +44,9 @@ Use the `description` prop to add relevant context to each option.
 
 ## Validations
 
-⚠️ Currently, the SelectorGroup component doesn't support validations. This will be addressed in the next major release.
+Use the `validationHint` to communicate the expected response to users. Use the `invalid` prop to require a change.
+
+<Story of={Stories.Validations} />
 
 ## Disabled
 
@@ -65,10 +64,10 @@ The SelectorGroup can be used as a controlled or uncontrolled component.
 
 ```tsx
 import { useState, ChangeEvent } from 'react';
-import { SelectorGroup } from '@sumup/circuit-ui';
+import { SelectorGroup, SelectorProps } from '@sumup/circuit-ui';
 
 function Controlled() {
-  const [value, setValue] = useState([]);
+  const [value, setValue] = useState<SelectorProps['value']>();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);

@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import type { ChangeEvent, FocusEvent } from 'react';
+import { ChangeEvent, FocusEvent, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import Selector from '../Selector';
-import { Stack } from '../../../../.storybook/components';
+import { Stack } from '../../../../.storybook/components/index.js';
+import { Selector, SelectorProps } from '../Selector/Selector.js';
 
 import { SelectorGroup, SelectorGroupProps } from './SelectorGroup.js';
 
@@ -43,9 +43,9 @@ Base.args = {
   // Storybook displays the default mocked function props poorly,
   // so we override them for the default story.
   onChange: (event: ChangeEvent<HTMLInputElement>) =>
-    action('CheckboxGroup')(event),
+    action('SelectorGroup')(event),
   onBlur: (event: FocusEvent<HTMLInputElement>) =>
-    action('CheckboxGroup')(event),
+    action('SelectorGroup')(event),
 };
 
 export const Multiple = (args: SelectorGroupProps) => (
@@ -125,6 +125,39 @@ WithDescriptions.args = {
   ],
 };
 
+export const Validations = (args: SelectorGroupProps) => {
+  const [value, setValue] = useState<SelectorProps['value']>();
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+
+  const invalid = !value;
+
+  return (
+    <SelectorGroup
+      {...args}
+      value={value}
+      onChange={handleChange}
+      invalid={invalid}
+      validationHint={invalid ? args.validationHint : undefined}
+    />
+  );
+};
+
+Validations.args = {
+  label: 'Choose your favourite fruit',
+  name: 'invalid',
+  optionalLabel: 'Optional',
+  validationHint: 'Please choose an option.',
+  required: true,
+  options: [
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Mango', value: 'mango' },
+  ],
+};
+
 export const Disabled = (args: SelectorGroupProps) => (
   <Stack>
     <SelectorGroup
@@ -153,4 +186,5 @@ export const Disabled = (args: SelectorGroupProps) => (
 
 Disabled.args = {
   label: 'Select a fruit to order',
+  defaultValue: 'apple',
 };

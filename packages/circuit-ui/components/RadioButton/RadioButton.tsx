@@ -13,21 +13,13 @@
  * limitations under the License.
  */
 
-import {
-  Fragment,
-  InputHTMLAttributes,
-  Ref,
-  createContext,
-  forwardRef,
-  useContext,
-  useId,
-} from 'react';
+import { InputHTMLAttributes, Ref, forwardRef, useId } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
 import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
 import { AccessibilityError } from '../../util/errors.js';
-import { deprecate } from '../../util/logger.js';
+import { FieldWrapper } from '../FieldAtoms/index.js';
 
 export interface RadioButtonProps
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -186,10 +178,8 @@ const RadioButtonInput = styled('input')<InputElProps>(
   inputInvalidStyles,
 );
 
-export const RadioButtonGroupContext = createContext(false);
-
 /**
- * @deprecated Use the {@link RadioButtonGroup} component instead.
+ * @private
  */
 export const RadioButton = forwardRef(
   (
@@ -207,15 +197,6 @@ export const RadioButton = forwardRef(
     }: RadioButtonProps,
     ref: RadioButtonProps['ref'],
   ) => {
-    const isInsideGroup = useContext(RadioButtonGroupContext);
-
-    if (process.env.NODE_ENV !== 'production' && !isInsideGroup) {
-      deprecate(
-        'RadioButton',
-        'The RadioButton component has been deprecated. Use the RadioButtonGroup component instead.',
-      );
-    }
-
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -230,7 +211,7 @@ export const RadioButton = forwardRef(
     const inputId = customId || id;
 
     return (
-      <Fragment>
+      <FieldWrapper className={className} style={style} disabled={disabled}>
         <RadioButtonInput
           {...props}
           type="radio"
@@ -251,7 +232,7 @@ export const RadioButton = forwardRef(
         >
           {label}
         </RadioButtonLabel>
-      </Fragment>
+      </FieldWrapper>
     );
   },
 );
