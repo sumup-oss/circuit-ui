@@ -13,19 +13,18 @@
  * limitations under the License.
  */
 
-import {
-  Ref,
-  forwardRef,
-  FieldsetHTMLAttributes,
-  InputHTMLAttributes,
-  useId,
-} from 'react';
+import { Ref, forwardRef, FieldsetHTMLAttributes, useId } from 'react';
 import { css } from '@emotion/react';
 
 import styled, { StyleProps } from '../../styles/styled.js';
 import { Selector, SelectorProps, SelectorSize } from '../Selector/Selector.js';
 import { AccessibilityError } from '../../util/errors.js';
-import { FieldLabelText, FieldLegend, FieldSet } from '../FieldAtoms/index.js';
+import {
+  FieldLabelText,
+  FieldLegend,
+  FieldSet,
+  FieldValidationHint,
+} from '../FieldAtoms/index.js';
 import { isEmpty } from '../../util/helpers.js';
 
 export interface SelectorGroupProps
@@ -87,18 +86,36 @@ export interface SelectorGroupProps
    */
   optionalLabel?: string;
   /**
-   * Makes the input group required.
+   * Marks the input group as required.
    */
-  required?: InputHTMLAttributes<HTMLInputElement>['required'];
+  required?: boolean;
+  /**
+   * An information, warning or error message, displayed below the input.
+   */
+  validationHint?: string;
+  /**
+   * Marks the inputs as invalid.
+   */
+  invalid?: boolean;
   /**
    * The ref to the HTML DOM element.
    */
   ref?: Ref<HTMLFieldSetElement>;
 }
 
-type ContainerProps = Pick<SelectorGroupProps, 'stretch'>;
+type OptionsProps = Pick<SelectorGroupProps, 'stretch'>;
 
-const stretchStyles = ({ stretch = false }: StyleProps & ContainerProps) => {
+const baseStyles = ({ theme }: StyleProps) => css`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  > div:not(:last-child) {
+    margin-right: ${theme.spacings.mega};
+  }
+`;
+
+const stretchStyles = ({ stretch }: StyleProps & OptionsProps) => {
   if (stretch) {
     return css`
       display: flex;
@@ -114,20 +131,11 @@ const stretchStyles = ({ stretch = false }: StyleProps & ContainerProps) => {
   `;
 };
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+const Options = styled.div(baseStyles, stretchStyles);
 
-  > div:not(:last-child) {
-    margin-right: ${theme.spacings.mega};
-  }
-`;
-
-const StyledFieldset = styled(FieldSet)(baseStyles, stretchStyles);
-
-const OptionItem = styled.div`
+const optionStyles = css`
   flex: 1;
+  width: 100%;
   align-self: stretch;
   & label {
     height: 100%;
@@ -161,12 +169,21 @@ export const SelectorGroup = forwardRef(
       disabled,
       multiple,
       size,
-      stretch,
+      stretch = false,
+      validationHint,
+      invalid,
       hideLabel,
       ...props
     }: SelectorGroupProps,
     ref: SelectorGroupProps['ref'],
   ) => {
+    const randomName = useId();
+    const name = customName || randomName;
+    const validationHintId = useId();
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -177,17 +194,15 @@ export const SelectorGroup = forwardRef(
         'The `label` prop is required. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-    const randomName = useId();
-    const name = customName || randomName;
 
     if (isEmpty(options)) {
       return null;
     }
 
     return (
-      <StyledFieldset
+      <FieldSet
         name={name}
-        aria-describedby={descriptionId}
+        aria-describedby={descriptionIds}
         ref={ref}
         disabled={disabled}
         role={multiple ? undefined : 'radiogroup'}
@@ -202,19 +217,19 @@ export const SelectorGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        {options.map((option) => (
-          <OptionItem key={option.label}>
+        <Options stretch={stretch}>
+          {options.map((option) => (
             <Selector
               {...option}
+              key={option.label}
+              css={optionStyles}
               name={name}
               onChange={onChange}
               onBlur={onBlur}
               multiple={multiple}
               size={size}
-              css={css`
-                width: 100%;
-              `}
               disabled={disabled || option.disabled}
+              invalid={invalid || option.invalid}
               checked={
                 value ? isChecked(option, value, multiple) : option.checked
               }
@@ -224,9 +239,15 @@ export const SelectorGroup = forwardRef(
                   : option.defaultChecked
               }
             />
-          </OptionItem>
-        ))}
-      </StyledFieldset>
+          ))}
+        </Options>
+        <FieldValidationHint
+          id={validationHintId}
+          invalid={invalid}
+          disabled={disabled}
+          validationHint={validationHint}
+        />
+      </FieldSet>
     );
   },
 );

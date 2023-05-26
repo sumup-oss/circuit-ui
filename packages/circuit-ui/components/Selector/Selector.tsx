@@ -19,6 +19,7 @@ import { css } from '@emotion/react';
 import styled, { StyleProps } from '../../styles/styled.js';
 import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
 import { AccessibilityError } from '../../util/errors.js';
+import { FieldWrapper } from '../FieldAtoms/FieldWrappers.js';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
@@ -53,6 +54,10 @@ export interface SelectorProps
    */
   checked?: boolean;
   /**
+   *Marks the input as invalid.
+   */
+  invalid?: boolean;
+  /**
    * Whether the selector is disabled or not.
    */
   disabled?: boolean;
@@ -63,7 +68,9 @@ export interface SelectorProps
   children?: never;
 }
 
-type LabelElProps = Pick<SelectorProps, 'disabled' | 'size'>;
+type LabelElProps = Pick<SelectorProps, 'invalid' | 'size'> & {
+  hasDescription: boolean;
+};
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: flex;
@@ -112,6 +119,14 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
+const invalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
+  invalid &&
+  css`
+    &:not(:focus)::before {
+      border: ${theme.borderWidth.mega} solid var(--cui-border-danger);
+    }
+  `;
+
 const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   const sizeMap = {
     kilo: {
@@ -128,19 +143,16 @@ const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
   return css(sizeMap[size]);
 };
 
-type HasDescription = {
-  hasDescription: boolean;
-};
-
-const withDescriptionStyles = ({ hasDescription }: HasDescription) =>
+const withDescriptionStyles = ({ hasDescription }: LabelElProps) =>
   hasDescription &&
   css`
     text-align: start;
     align-items: flex-start;
   `;
 
-const SelectorLabel = styled('label')<LabelElProps & HasDescription>(
+const SelectorLabel = styled('label')<LabelElProps>(
   baseStyles,
+  invalidStyles,
   sizeStyles,
   withDescriptionStyles,
 );
@@ -203,6 +215,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       'id': customId,
       name,
       disabled,
+      invalid,
       multiple,
       onChange,
       'aria-describedby': describedBy,
@@ -232,7 +245,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
     const hasDescription = Boolean(description);
 
     return (
-      <Fragment>
+      <FieldWrapper className={className} style={style} disabled={disabled}>
         <SelectorInput
           type={type}
           id={inputId}
@@ -249,9 +262,8 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
         />
         <SelectorLabel
           htmlFor={inputId}
+          invalid={invalid}
           size={size}
-          className={className}
-          style={style}
           hasDescription={hasDescription}
         >
           {hasDescription ? (
@@ -268,7 +280,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
             {description}
           </p>
         )}
-      </Fragment>
+      </FieldWrapper>
     );
   },
 );
