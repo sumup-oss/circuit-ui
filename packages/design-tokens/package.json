@@ -1,6 +1,6 @@
 {
   "name": "@sumup/design-tokens",
-  "version": "6.0.0-next.0",
+  "version": "6.0.0-next.1",
   "description": "Visual primitives such as typography, color, and spacing that are shared across platforms.",
   "type": "module",
   "main": "./dist/index.js",

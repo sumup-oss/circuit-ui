@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 6.0.0-next.1
+
+### Patch Changes
+
+- [#2084](https://github.com/sumup-oss/circuit-ui/pull/2084) [`9677a305`](https://github.com/sumup-oss/circuit-ui/commit/9677a3052b8ccf2799f8acb2fd0bd2a7a01c33c8) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `types` field to the `package.json` file to fix the type resolution.
+
 ## 6.0.0-next.0
 
 ### Major Changes
