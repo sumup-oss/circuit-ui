@@ -952,6 +952,16 @@
       "size": "24"
     },
     {
+      "name": "transfer_in",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "transfer_out",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
       "name": "barcode",
       "category": "Miscellaneous",
       "size": "24"
@@ -1108,6 +1118,16 @@
     },
     {
       "name": "sim_card",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "thumb_down",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "thumb_up",
       "category": "Miscellaneous",
       "size": "24"
     },
