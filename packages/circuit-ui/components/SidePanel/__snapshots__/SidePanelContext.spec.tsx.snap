@@ -127,80 +127,12 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-6 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-normal);
-  border-color: var(--cui-border-normal);
-  color: var(--cui-fg-normal);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
   padding: calc(12px - 1px);
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
   margin: 4px;
   border-color: transparent!important;
-}
-
-.circuit-6:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-6:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-6:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-6:disabled,
-.circuit-6[disabled] {
-  pointer-events: none;
-}
-
-.circuit-6:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  border-color: var(--cui-border-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-6:active,
-.circuit-6[aria-expanded='true'],
-.circuit-6[aria-pressed='true'] {
-  background-color: var(--cui-bg-normal-pressed);
-  border-color: var(--cui-border-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-6:disabled,
-.circuit-6[disabled] {
-  background-color: var(--cui-bg-normal-disabled);
-  border-color: var(--cui-border-normal-disabled);
-  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -213,11 +145,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
 .circuit-8 {
@@ -233,32 +160,13 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-9 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-11 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-11 {
+  .circuit-9 {
     padding: 0 24px;
   }
 }
@@ -311,19 +219,19 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
               Side panel title
             </h2>
             <button
-              class="circuit-6"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
               title="Close"
               type="button"
             >
               <span
-                class="circuit-7"
+                class="_spinner_892426 circuit-7"
               >
                 <span
-                  class="circuit-8"
+                  class="_hide-visually_73b4bb"
                 />
               </span>
               <span
-                class="circuit-9"
+                class="_content_892426"
               >
                 <svg
                   aria-hidden="true"
@@ -347,7 +255,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             </button>
           </div>
           <div
-            class="circuit-11"
+            class="circuit-9"
           >
             <p
               data-testid="children"
@@ -474,80 +382,12 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-6 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-normal);
-  border-color: var(--cui-border-normal);
-  color: var(--cui-fg-normal);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
   padding: calc(12px - 1px);
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
   margin: 4px;
   border-color: transparent!important;
-}
-
-.circuit-6:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-6:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-6:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-6:disabled,
-.circuit-6[disabled] {
-  pointer-events: none;
-}
-
-.circuit-6:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  border-color: var(--cui-border-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-6:active,
-.circuit-6[aria-expanded='true'],
-.circuit-6[aria-pressed='true'] {
-  background-color: var(--cui-bg-normal-pressed);
-  border-color: var(--cui-border-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-6:disabled,
-.circuit-6[disabled] {
-  background-color: var(--cui-bg-normal-disabled);
-  border-color: var(--cui-border-normal-disabled);
-  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -560,11 +400,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
 .circuit-8 {
@@ -580,32 +415,13 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-9 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-11 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-11 {
+  .circuit-9 {
     padding: 0 24px;
   }
 }
@@ -661,19 +477,19 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
               Side panel title
             </h2>
             <button
-              class="circuit-6"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
               title="Close"
               type="button"
             >
               <span
-                class="circuit-7"
+                class="_spinner_892426 circuit-7"
               >
                 <span
-                  class="circuit-8"
+                  class="_hide-visually_73b4bb"
                 />
               </span>
               <span
-                class="circuit-9"
+                class="_content_892426"
               >
                 <svg
                   aria-hidden="true"
@@ -697,7 +513,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             </button>
           </div>
           <div
-            class="circuit-11"
+            class="circuit-9"
           >
             <p
               data-testid="children"
@@ -820,80 +636,12 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-6 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-normal);
-  border-color: var(--cui-border-normal);
-  color: var(--cui-fg-normal);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
   padding: calc(12px - 1px);
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
   margin: 4px;
   border-color: transparent!important;
-}
-
-.circuit-6:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-6:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-6:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-6:disabled,
-.circuit-6[disabled] {
-  pointer-events: none;
-}
-
-.circuit-6:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  border-color: var(--cui-border-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-6:active,
-.circuit-6[aria-expanded='true'],
-.circuit-6[aria-pressed='true'] {
-  background-color: var(--cui-bg-normal-pressed);
-  border-color: var(--cui-border-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-6:disabled,
-.circuit-6[disabled] {
-  background-color: var(--cui-bg-normal-disabled);
-  border-color: var(--cui-border-normal-disabled);
-  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-7 {
@@ -906,11 +654,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
 .circuit-8 {
@@ -926,32 +669,13 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-9 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-11 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-11 {
+  .circuit-9 {
     padding: 0 24px;
   }
 }
@@ -1010,19 +734,19 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
               Side panel title
             </h2>
             <button
-              class="circuit-6"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
               title="Close"
               type="button"
             >
               <span
-                class="circuit-7"
+                class="_spinner_892426 circuit-7"
               >
                 <span
-                  class="circuit-8"
+                  class="_hide-visually_73b4bb"
                 />
               </span>
               <span
-                class="circuit-9"
+                class="_content_892426"
               >
                 <svg
                   aria-hidden="true"
@@ -1046,7 +770,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             </button>
           </div>
           <div
-            class="circuit-11"
+            class="circuit-9"
           >
             <p
               data-testid="children"

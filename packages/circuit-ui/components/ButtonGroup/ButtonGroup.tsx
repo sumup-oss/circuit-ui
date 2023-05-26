@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { Ref, forwardRef, HTMLAttributes } from 'react';
-import { css } from '@emotion/react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
 import Button, { ButtonProps } from '../Button/index.js';
-import { secondaryStyles, tertiaryStyles } from '../Button/Button.js';
+import { clsx } from '../../styles/clsx.js';
+
+import styles from './ButtonGroup.module.css';
 
 type Action = Omit<ButtonProps, 'variant'>;
 
@@ -35,63 +35,30 @@ export interface ButtonGroupProps
    * Direction to align the buttons. Defaults to `center`.
    */
   align?: 'left' | 'center' | 'right';
-  /**
-   * The ref to the HTML DOM element.
-   */
-  ref?: Ref<HTMLDivElement>;
 }
-
-const alignmentMap = {
-  left: 'flex-end',
-  center: 'center',
-  right: 'flex-start',
-} as const;
-
-type WrapperProps = Omit<ButtonGroupProps, 'actions'>;
-
-const wrapperStyles = ({
-  theme,
-  align = 'center',
-}: StyleProps & WrapperProps) => css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-
-  ${theme.mq.kilo} {
-    flex-direction: row-reverse;
-    justify-content: ${alignmentMap[align]};
-  }
-`;
-
-const Wrapper = styled('div')<WrapperProps>(wrapperStyles);
-
-const secondaryButtonStyles = ({
-  theme,
-  destructive,
-}: ButtonProps & StyleProps) => css`
-  ${theme.mq.kilo} {
-    margin-right: ${theme.spacings.mega};
-    ${secondaryStyles({ variant: 'secondary', destructive })}
-  }
-  ${theme.mq.untilKilo} {
-    margin-right: 0;
-    margin-top: ${theme.spacings.mega};
-    ${tertiaryStyles({ variant: 'tertiary', destructive })}
-  }
-`;
-
-const SecondaryButton = styled(Button)<ButtonProps>(secondaryButtonStyles);
 
 /**
  * The ButtonGroup component groups and formats two buttons.
  */
-export const ButtonGroup = forwardRef(
-  ({ actions, ...props }: ButtonGroupProps, ref: ButtonGroupProps['ref']) => (
-    <Wrapper {...props} ref={ref}>
+export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
+  (
+    { actions, className, align = 'center', ...props }: ButtonGroupProps,
+    ref,
+  ) => (
+    <div
+      {...props}
+      className={clsx(styles.base, styles[align], className)}
+      ref={ref}
+    >
       <Button {...actions.primary} variant="primary" />
-      {actions.secondary && <SecondaryButton {...actions.secondary} />}
-    </Wrapper>
+      {actions.secondary && (
+        <Button
+          {...actions.secondary}
+          className={clsx(styles.secondary, actions.secondary.className)}
+          variant="secondary"
+        />
+      )}
+    </div>
   ),
 );
 

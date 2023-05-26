@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
 import { action } from '@storybook/addon-actions';
-import { Theme } from '@sumup/design-tokens';
+
+import { Stack } from '../../../../.storybook/components/index.js';
 
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup.js';
 
@@ -46,17 +46,11 @@ Base.args = {
 };
 
 export const Alignment = (args: ButtonGroupProps): JSX.Element => (
-  <div
-    css={(theme: Theme) => css`
-      display: flex;
-      flex-direction: column;
-      gap: ${theme.spacings.giga};
-    `}
-  >
+  <Stack vertical>
     <ButtonGroup {...args} align="center" />
     <ButtonGroup {...args} align="left" />
     <ButtonGroup {...args} align="right" />
-  </div>
+  </Stack>
 );
 
 Alignment.args = Base.args;

@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, renderToHtml, axe } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils.js';
 
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup.js';
 
@@ -32,40 +32,24 @@ describe('ButtonGroup', () => {
     },
   };
 
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<ButtonGroup {...defaultProps} />);
+  it('should render two buttons', () => {
+    render(<ButtonGroup {...defaultProps} />);
 
-    expect(actual).toMatchSnapshot();
+    const buttons = screen.getAllByRole('button');
+
+    expect(buttons).toHaveLength(2);
   });
 
-  it.each(['center', 'left', 'right'] as const)(
-    'should render aligned to the %s',
-    (align) => {
-      const actual = create(<ButtonGroup {...defaultProps} align={align} />);
-
-      expect(actual).toMatchSnapshot();
-    },
-  );
-
-  /**
-   * Logic tests
-   */
-  it('should accept a working ref', () => {
-    const tref = createRef<HTMLDivElement>();
-    const { container } = render(<ButtonGroup {...defaultProps} ref={tref} />);
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(<ButtonGroup {...defaultProps} ref={ref} />);
     const div = container.querySelector('div');
-    expect(tref.current).toBe(div);
+    expect(ref.current).toBe(div);
   });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<ButtonGroup {...defaultProps} />);
-    const actual = await axe(wrapper);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<ButtonGroup {...defaultProps} />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

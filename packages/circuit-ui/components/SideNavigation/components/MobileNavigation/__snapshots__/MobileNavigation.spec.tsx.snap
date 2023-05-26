@@ -92,77 +92,9 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
 }
 
 .circuit-4 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-normal);
-  border-color: var(--cui-border-normal);
-  color: var(--cui-fg-normal);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
   padding: calc(12px - 1px);
   border-color: transparent!important;
   background-color: transparent;
-}
-
-.circuit-4:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-4:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-4:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  pointer-events: none;
-}
-
-.circuit-4:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  border-color: var(--cui-border-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-4:active,
-.circuit-4[aria-expanded='true'],
-.circuit-4[aria-pressed='true'] {
-  background-color: var(--cui-bg-normal-pressed);
-  border-color: var(--cui-border-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  background-color: var(--cui-bg-normal-disabled);
-  border-color: var(--cui-border-normal-disabled);
-  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -175,11 +107,6 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
 .circuit-6 {
@@ -195,29 +122,10 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
 }
 
 .circuit-7 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-9 {
   list-style: none;
 }
 
-.circuit-10 {
+.circuit-8 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -243,42 +151,42 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   color: var(--cui-fg-accent);
 }
 
-.circuit-10:focus {
+.circuit-8:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-10:focus::-moz-focus-inner {
+.circuit-8:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-10:focus:not(:focus-visible) {
+.circuit-8:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-10:hover {
+.circuit-8:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-10:active {
+.circuit-8:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-10:disabled,
-.circuit-10[disabled] {
+.circuit-8:disabled,
+.circuit-8[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 1279px) {
-  .circuit-10 {
+  .circuit-8 {
     margin-bottom: 1px;
   }
 
-  .circuit-10::after {
+  .circuit-8::after {
     content: '';
     display: block;
     position: absolute;
@@ -293,7 +201,7 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
 }
 
 @media (min-width: 1280px) {
-  .circuit-10 {
+  .circuit-8 {
     height: 48px;
     width: 220px;
     padding: 12px;
@@ -301,15 +209,15 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   }
 }
 
-.circuit-10:hover {
+.circuit-8:hover {
   background-color: var(--cui-bg-accent-hovered);
 }
 
-.circuit-10:active {
+.circuit-8:active {
   background-color: var(--cui-bg-accent-pressed);
 }
 
-.circuit-11 {
+.circuit-9 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -321,12 +229,12 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   margin-right: 12px;
 }
 
-.circuit-12 {
+.circuit-10 {
   display: inline-block;
   line-height: 0;
 }
 
-.circuit-13 {
+.circuit-11 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -334,13 +242,13 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
 }
 
 @media (max-width: 1279px) {
-  .circuit-13 {
+  .circuit-11 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
 }
 
-.circuit-14 {
+.circuit-12 {
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -357,23 +265,23 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   transition: transform 120ms ease-in-out;
 }
 
-.circuit-15 {
+.circuit-13 {
   list-style: none;
   border-bottom: 1px solid var(--cui-border-divider);
   margin-bottom: -1px;
 }
 
-.circuit-15>*:last-child {
+.circuit-13>*:last-child {
   padding-bottom: 24px;
 }
 
-.circuit-16 {
+.circuit-14 {
   display: inline-block;
   line-height: 0;
   margin: 32px 16px 8px;
 }
 
-.circuit-17 {
+.circuit-15 {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 0.875rem;
@@ -381,11 +289,11 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   color: var(--cui-fg-normal);
 }
 
-.circuit-18 {
+.circuit-16 {
   list-style: none;
 }
 
-.circuit-19 {
+.circuit-17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -416,50 +324,50 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   hyphens: auto;
 }
 
-.circuit-19:hover {
+.circuit-17:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-19:active {
+.circuit-17:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-19:focus {
+.circuit-17:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-19:focus::-moz-focus-inner {
+.circuit-17:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-19:focus:not(:focus-visible) {
+.circuit-17:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-19:disabled,
-.circuit-19[disabled] {
+.circuit-17:disabled,
+.circuit-17[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 1280px) {
-  .circuit-19 {
+  .circuit-17 {
     padding: 12px;
     padding-left: 20px;
   }
 }
 
-.circuit-20 {
+.circuit-18 {
   display: inline-block;
   line-height: 0;
   margin-right: 8px;
 }
 
-.circuit-21 {
+.circuit-19 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -498,19 +406,19 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
             class="circuit-3"
           >
             <button
-              class="circuit-4"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-4"
               title="Close navigation modal"
               type="button"
             >
               <span
-                class="circuit-5"
+                class="_spinner_892426 circuit-5"
               >
                 <span
-                  class="circuit-6"
+                  class="_hide-visually_73b4bb"
                 />
               </span>
               <span
-                class="circuit-7"
+                class="_content_892426"
               >
                 <svg
                   aria-hidden="true"
@@ -539,18 +447,18 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
             aria-label="Primary"
           >
             <ul
-              class="circuit-9"
+              class="circuit-7"
             >
               <li>
                 <button
                   aria-controls=":r1:"
                   aria-current="page"
                   aria-expanded="false"
-                  class="circuit-10"
+                  class="circuit-8"
                   data-focus-list=":r0:"
                 >
                   <span
-                    class="circuit-11"
+                    class="circuit-9"
                   >
                     <svg
                       fill="none"
@@ -569,16 +477,16 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="circuit-12"
+                    class="circuit-10"
                   >
                     <span
-                      class="circuit-13"
+                      class="circuit-11"
                     >
                       Shop
                     </span>
                   </span>
                   <svg
-                    class="circuit-14"
+                    class="circuit-12"
                     fill="none"
                     height="16"
                     role="presentation"
@@ -594,36 +502,36 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
                 </button>
                 <ul
                   aria-hidden="true"
-                  class="circuit-15"
+                  class="circuit-13"
                   id=":r1:"
                   role="list"
                   style="overflow-y: hidden; will-change: height; opacity: 0; height: 0px; visibility: hidden; transition: all 200ms ease-in-out;"
                 >
                   <li>
                     <span
-                      class="circuit-16"
+                      class="circuit-14"
                     >
                       <h3
-                        class="circuit-17"
+                        class="circuit-15"
                       >
                         For Kids
                       </h3>
                     </span>
                     <ul
-                      class="circuit-18"
+                      class="circuit-16"
                       role="list"
                     >
                       <li>
                         <a
-                          class="circuit-19"
+                          class="circuit-17"
                           data-focus-list=":r2:"
                           href="/shop/toys"
                         >
                           <span
-                            class="circuit-20"
+                            class="circuit-18"
                           >
                             <p
-                              class="circuit-21"
+                              class="circuit-19"
                             >
                               Toys
                             </p>
@@ -632,15 +540,15 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
                       </li>
                       <li>
                         <a
-                          class="circuit-19"
+                          class="circuit-17"
                           data-focus-list=":r2:"
                           href="/shop/books"
                         >
                           <span
-                            class="circuit-20"
+                            class="circuit-18"
                           >
                             <p
-                              class="circuit-21"
+                              class="circuit-19"
                             >
                               Books
                             </p>
@@ -752,77 +660,9 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
 }
 
 .circuit-4 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-normal);
-  border-color: var(--cui-border-normal);
-  color: var(--cui-fg-normal);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
   padding: calc(12px - 1px);
   border-color: transparent!important;
   background-color: transparent;
-}
-
-.circuit-4:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-4:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-4:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  pointer-events: none;
-}
-
-.circuit-4:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  border-color: var(--cui-border-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-4:active,
-.circuit-4[aria-expanded='true'],
-.circuit-4[aria-pressed='true'] {
-  background-color: var(--cui-bg-normal-pressed);
-  border-color: var(--cui-border-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  background-color: var(--cui-bg-normal-disabled);
-  border-color: var(--cui-border-normal-disabled);
-  color: var(--cui-fg-normal-disabled);
 }
 
 .circuit-5 {
@@ -835,11 +675,6 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
 .circuit-6 {
@@ -855,29 +690,10 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
 }
 
 .circuit-7 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-9 {
   list-style: none;
 }
 
-.circuit-10 {
+.circuit-8 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -902,42 +718,42 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-10:focus {
+.circuit-8:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-10:focus::-moz-focus-inner {
+.circuit-8:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-10:focus:not(:focus-visible) {
+.circuit-8:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-10:hover {
+.circuit-8:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-10:active {
+.circuit-8:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-10:disabled,
-.circuit-10[disabled] {
+.circuit-8:disabled,
+.circuit-8[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 1279px) {
-  .circuit-10 {
+  .circuit-8 {
     margin-bottom: 1px;
   }
 
-  .circuit-10::after {
+  .circuit-8::after {
     content: '';
     display: block;
     position: absolute;
@@ -952,7 +768,7 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
 }
 
 @media (min-width: 1280px) {
-  .circuit-10 {
+  .circuit-8 {
     height: 48px;
     width: 220px;
     padding: 12px;
@@ -960,7 +776,7 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
   }
 }
 
-.circuit-11 {
+.circuit-9 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -972,19 +788,19 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
   margin-right: 12px;
 }
 
-.circuit-12 {
+.circuit-10 {
   display: inline-block;
   line-height: 0;
 }
 
-.circuit-13 {
+.circuit-11 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
 @media (max-width: 1279px) {
-  .circuit-13 {
+  .circuit-11 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
@@ -1026,19 +842,19 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
             class="circuit-3"
           >
             <button
-              class="circuit-4"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-4"
               title="Close navigation modal"
               type="button"
             >
               <span
-                class="circuit-5"
+                class="_spinner_892426 circuit-5"
               >
                 <span
-                  class="circuit-6"
+                  class="_hide-visually_73b4bb"
                 />
               </span>
               <span
-                class="circuit-7"
+                class="_content_892426"
               >
                 <svg
                   aria-hidden="true"
@@ -1067,16 +883,16 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
             aria-label="Primary"
           >
             <ul
-              class="circuit-9"
+              class="circuit-7"
             >
               <li>
                 <a
-                  class="circuit-10"
+                  class="circuit-8"
                   data-focus-list=":r3:"
                   href="/"
                 >
                   <span
-                    class="circuit-11"
+                    class="circuit-9"
                   >
                     <svg
                       fill="none"
@@ -1093,10 +909,10 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
                     </svg>
                   </span>
                   <span
-                    class="circuit-12"
+                    class="circuit-10"
                   >
                     <span
-                      class="circuit-13"
+                      class="circuit-11"
                     >
                       Home
                     </span>

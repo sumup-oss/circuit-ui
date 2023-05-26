@@ -29,11 +29,8 @@ const buttonStyles = () => css`
 /**
  * A generic close button.
  */
-export const CloseButton = forwardRef(
-  (
-    { label = 'Close', ...props }: CloseButtonProps,
-    ref: CloseButtonProps['ref'],
-  ) => (
+export const CloseButton = forwardRef<any, CloseButtonProps>(
+  ({ label = 'Close', ...props }, ref) => (
     <IconButton
       type="button"
       css={buttonStyles}
