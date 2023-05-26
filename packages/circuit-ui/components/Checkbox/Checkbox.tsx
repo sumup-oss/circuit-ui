@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { InputHTMLAttributes, Ref, forwardRef } from 'react';
+import { InputHTMLAttributes, forwardRef, useEffect, useRef } from 'react';
 import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 
@@ -24,6 +24,9 @@ import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { FieldValidationHint, FieldWrapper } from '../FieldAtoms';
 import { deprecate } from '../../util/logger';
 import { AccessibilityError } from '../../util/errors';
+import { applyMultipleRefs } from '../../util/refs';
+
+import { IndeterminateIcon } from './IndeterminateIcon';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -31,9 +34,14 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   label?: string;
   /**
-   * Triggers error styles on the component.
+   * Marks the input as invalid.
    */
   invalid?: boolean;
+  /**
+   * Marks the input as indeterminate. This is presentational only, the value
+   * of an indeterminate checkbox is not included in form submissions.
+   */
+  indeterminate?: boolean;
   /**
    * An information or error message, displayed below the checkbox.
    */
@@ -44,10 +52,6 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    * Use an `onChange` handler to dispatch user interaction events instead.
    */
   tracking?: TrackingProps;
-  /**
-   * The ref to the HTML DOM element.
-   */
-  ref?: Ref<HTMLInputElement>;
   /**
    * @deprecated
    *
@@ -126,18 +130,29 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
     border-color: var(--cui-border-normal);
   }
 
-  &:checked:focus:not(:focus-visible) + label::before {
+  &:checked:focus:not(:focus-visible) + label::before,
+  &:indeterminate:focus:not(:focus-visible) + label::before {
     border-color: var(--cui-border-accent);
   }
 
-  &:checked + label > svg {
+  &:checked:not(:indeterminate) + label > svg[data-symbol='checked'],
+  &:indeterminate + label > svg[data-symbol='indeterminate'] {
     transform: translateY(-50%) scale(1, 1);
     opacity: 1;
   }
 
-  &:checked + label::before {
+  &:checked + label::before,
+  &:indeterminate + label::before {
     border-color: var(--cui-border-accent);
     background-color: var(--cui-bg-accent-strong);
+  }
+
+  &:checked:disabled + label::before,
+  &:checked[disabled] + label::before,
+  &:indeterminate:disabled + label::before,
+  &:indeterminate[disabled] + label::before {
+    border-color: var(--cui-border-accent-disabled);
+    background-color: var(--cui-bg-accent-strong-disabled);
   }
 `;
 
@@ -154,9 +169,18 @@ const inputInvalidStyles = ({ invalid }: InputElProps) =>
       border-color: var(--cui-border-danger-hovered);
     }
 
-    &:checked + label::before {
+    &:checked + label::before,
+    &:indeterminate + label::before {
       border-color: var(--cui-border-danger);
       background-color: var(--cui-bg-danger-strong);
+    }
+
+    &:checked:disabled + label::before,
+    &:indeterminate:disabled + label::before,
+    &:checked[disabled] + label::before,
+    &:indeterminate[disabled] + label::before {
+      border-color: var(--cui-border-danger-disabled);
+      background-color: var(--cui-bg-danger-strong-disabled);
     }
   `;
 
@@ -166,11 +190,11 @@ const inputDisabledStyles = () =>
     &[disabled] + label {
       pointer-events: none;
       color: var(--cui-fg-normal-disabled);
-
-      &::before {
-        border-color: var(--cui-border-normal-disabled);
-        background-color: var(--cui-bg-normal-disabled);
-      }
+    }
+    &:disabled + label::before,
+    &[disabled] + label::before {
+      border-color: var(--cui-border-normal-disabled);
+      background-color: var(--cui-bg-normal-disabled);
     }
 
     &:disabled:checked + label::before,
@@ -189,7 +213,7 @@ const CheckboxInput = styled('input')<InputElProps>(
 /**
  * Checkbox component for forms.
  */
-export const Checkbox = forwardRef(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       onChange,
@@ -204,11 +228,21 @@ export const Checkbox = forwardRef(
       style,
       invalid,
       tracking,
+      indeterminate = false,
       'aria-describedby': descriptionId,
       ...props
-    }: CheckboxProps,
-    ref: CheckboxProps['ref'],
+    },
+    passedRef,
   ) => {
+    const localRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+      if (localRef.current) {
+        localRef.current.indeterminate = indeterminate;
+      }
+      // Because it came from a props, we are keeping the `indeterminate` state even if the `checked` one is changed:
+    }, [props.checked, indeterminate]);
+
     if (process.env.NODE_ENV !== 'production' && children) {
       deprecate(
         'Checkbox',
@@ -230,6 +264,7 @@ export const Checkbox = forwardRef(
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
+
     const handleChange = useClickEvent(onChange, tracking, 'checkbox');
 
     return (
@@ -242,13 +277,15 @@ export const Checkbox = forwardRef(
           type="checkbox"
           disabled={disabled}
           invalid={invalid}
-          ref={ref}
+          ref={applyMultipleRefs(passedRef, localRef)}
           aria-describedby={descriptionIds}
           onChange={handleChange}
+          aria-checked={indeterminate ? 'mixed' : undefined}
         />
         <CheckboxLabel htmlFor={id}>
           {label || children}
-          <Checkmark aria-hidden="true" />
+          <Checkmark aria-hidden="true" data-symbol="checked" />
+          <IndeterminateIcon aria-hidden="true" data-symbol="indeterminate" />
         </CheckboxLabel>
         <FieldValidationHint
           id={validationHintId}
