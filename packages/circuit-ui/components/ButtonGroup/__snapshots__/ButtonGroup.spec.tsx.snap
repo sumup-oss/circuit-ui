@@ -18,104 +18,6 @@ exports[`ButtonGroup > should render aligned to the center 1`] = `
 }
 
 .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-}
-
-@media (min-width: 480px) {
-  .circuit-0 {
-    -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-  }
-}
-
-.circuit-1 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-accent-strong);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-1:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-1:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-1:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  pointer-events: none;
-}
-
-.circuit-1:hover {
-  background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-hovered);
-}
-
-.circuit-1:active,
-.circuit-1[aria-expanded='true'],
-.circuit-1[aria-pressed='true'] {
-  background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-pressed);
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  background-color: var(--cui-bg-accent-strong-disabled);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-disabled);
-}
-
-.circuit-2 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -125,209 +27,39 @@ exports[`ButtonGroup > should render aligned to the center 1`] = `
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-4 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-5 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-normal);
-  border-color: var(--cui-border-normal);
-  color: var(--cui-fg-normal);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-5:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-5:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-5:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  pointer-events: none;
-}
-
-.circuit-5:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  border-color: var(--cui-border-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
-  background-color: var(--cui-bg-normal-pressed);
-  border-color: var(--cui-border-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  background-color: var(--cui-bg-normal-disabled);
-  border-color: var(--cui-border-normal-disabled);
-  color: var(--cui-fg-normal-disabled);
-}
-
-@media (min-width: 480px) {
-  .circuit-5 {
-    margin-right: 16px;
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-normal);
-    color: var(--cui-fg-normal);
-  }
-
-  .circuit-5:hover {
-    background-color: var(--cui-bg-normal-hovered);
-    border-color: var(--cui-border-normal-hovered);
-    color: var(--cui-fg-normal-hovered);
-  }
-
-  .circuit-5:active,
-  .circuit-5[aria-expanded='true'],
-  .circuit-5[aria-pressed='true'] {
-    background-color: var(--cui-bg-normal-pressed);
-    border-color: var(--cui-border-normal-pressed);
-    color: var(--cui-fg-normal-pressed);
-  }
-
-  .circuit-5:disabled,
-  .circuit-5[disabled] {
-    background-color: var(--cui-bg-normal-disabled);
-    border-color: var(--cui-border-normal-disabled);
-    color: var(--cui-fg-normal-disabled);
-  }
-}
-
-@media (max-width: 479px) {
-  .circuit-5 {
-    margin-right: 0;
-    margin-top: 16px;
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--cui-fg-accent);
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .circuit-5:hover {
-    color: var(--cui-fg-accent-hovered);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .circuit-5:active,
-  .circuit-5[aria-expanded='true'],
-  .circuit-5[aria-pressed='true'] {
-    color: var(--cui-fg-accent-pressed);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .circuit-5:disabled,
-  .circuit-5[disabled] {
-    color: var(--cui-fg-accent-disabled);
-    background-color: transparent;
-    border-color: transparent;
-  }
 }
 
 <div
-  class="circuit-0"
+  class="_base_fd5359 _center_fd5359"
 >
   <button
-    class="circuit-1"
+    class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
   >
     <span
-      class="circuit-2"
+      class="_spinner_892426 circuit-0"
     >
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       />
     </span>
     <span
-      class="circuit-4"
+      class="_content_892426"
     >
       Continue
     </span>
   </button>
   <button
-    class="circuit-5"
+    class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _secondary_fd5359"
   >
     <span
-      class="circuit-2"
+      class="_spinner_892426 circuit-0"
     >
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       />
     </span>
     <span
-      class="circuit-4"
+      class="_content_892426"
     >
       Cancel
     </span>
@@ -353,104 +85,6 @@ exports[`ButtonGroup > should render aligned to the left 1`] = `
 }
 
 .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-}
-
-@media (min-width: 480px) {
-  .circuit-0 {
-    -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    -webkit-justify-content: flex-end;
-    justify-content: flex-end;
-  }
-}
-
-.circuit-1 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-accent-strong);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-1:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-1:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-1:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  pointer-events: none;
-}
-
-.circuit-1:hover {
-  background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-hovered);
-}
-
-.circuit-1:active,
-.circuit-1[aria-expanded='true'],
-.circuit-1[aria-pressed='true'] {
-  background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-pressed);
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  background-color: var(--cui-bg-accent-strong-disabled);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-disabled);
-}
-
-.circuit-2 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -460,209 +94,39 @@ exports[`ButtonGroup > should render aligned to the left 1`] = `
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-4 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-5 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-normal);
-  border-color: var(--cui-border-normal);
-  color: var(--cui-fg-normal);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-5:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-5:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-5:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  pointer-events: none;
-}
-
-.circuit-5:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  border-color: var(--cui-border-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
-  background-color: var(--cui-bg-normal-pressed);
-  border-color: var(--cui-border-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  background-color: var(--cui-bg-normal-disabled);
-  border-color: var(--cui-border-normal-disabled);
-  color: var(--cui-fg-normal-disabled);
-}
-
-@media (min-width: 480px) {
-  .circuit-5 {
-    margin-right: 16px;
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-normal);
-    color: var(--cui-fg-normal);
-  }
-
-  .circuit-5:hover {
-    background-color: var(--cui-bg-normal-hovered);
-    border-color: var(--cui-border-normal-hovered);
-    color: var(--cui-fg-normal-hovered);
-  }
-
-  .circuit-5:active,
-  .circuit-5[aria-expanded='true'],
-  .circuit-5[aria-pressed='true'] {
-    background-color: var(--cui-bg-normal-pressed);
-    border-color: var(--cui-border-normal-pressed);
-    color: var(--cui-fg-normal-pressed);
-  }
-
-  .circuit-5:disabled,
-  .circuit-5[disabled] {
-    background-color: var(--cui-bg-normal-disabled);
-    border-color: var(--cui-border-normal-disabled);
-    color: var(--cui-fg-normal-disabled);
-  }
-}
-
-@media (max-width: 479px) {
-  .circuit-5 {
-    margin-right: 0;
-    margin-top: 16px;
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--cui-fg-accent);
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .circuit-5:hover {
-    color: var(--cui-fg-accent-hovered);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .circuit-5:active,
-  .circuit-5[aria-expanded='true'],
-  .circuit-5[aria-pressed='true'] {
-    color: var(--cui-fg-accent-pressed);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .circuit-5:disabled,
-  .circuit-5[disabled] {
-    color: var(--cui-fg-accent-disabled);
-    background-color: transparent;
-    border-color: transparent;
-  }
 }
 
 <div
-  class="circuit-0"
+  class="_base_fd5359 _left_fd5359"
 >
   <button
-    class="circuit-1"
+    class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
   >
     <span
-      class="circuit-2"
+      class="_spinner_892426 circuit-0"
     >
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       />
     </span>
     <span
-      class="circuit-4"
+      class="_content_892426"
     >
       Continue
     </span>
   </button>
   <button
-    class="circuit-5"
+    class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _secondary_fd5359"
   >
     <span
-      class="circuit-2"
+      class="_spinner_892426 circuit-0"
     >
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       />
     </span>
     <span
-      class="circuit-4"
+      class="_content_892426"
     >
       Cancel
     </span>
@@ -688,104 +152,6 @@ exports[`ButtonGroup > should render aligned to the right 1`] = `
 }
 
 .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-}
-
-@media (min-width: 480px) {
-  .circuit-0 {
-    -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    -webkit-justify-content: flex-start;
-    justify-content: flex-start;
-  }
-}
-
-.circuit-1 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-accent-strong);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-1:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-1:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-1:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  pointer-events: none;
-}
-
-.circuit-1:hover {
-  background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-hovered);
-}
-
-.circuit-1:active,
-.circuit-1[aria-expanded='true'],
-.circuit-1[aria-pressed='true'] {
-  background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-pressed);
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  background-color: var(--cui-bg-accent-strong-disabled);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-disabled);
-}
-
-.circuit-2 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -795,209 +161,39 @@ exports[`ButtonGroup > should render aligned to the right 1`] = `
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-4 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-5 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-normal);
-  border-color: var(--cui-border-normal);
-  color: var(--cui-fg-normal);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-5:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-5:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-5:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  pointer-events: none;
-}
-
-.circuit-5:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  border-color: var(--cui-border-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
-  background-color: var(--cui-bg-normal-pressed);
-  border-color: var(--cui-border-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  background-color: var(--cui-bg-normal-disabled);
-  border-color: var(--cui-border-normal-disabled);
-  color: var(--cui-fg-normal-disabled);
-}
-
-@media (min-width: 480px) {
-  .circuit-5 {
-    margin-right: 16px;
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-normal);
-    color: var(--cui-fg-normal);
-  }
-
-  .circuit-5:hover {
-    background-color: var(--cui-bg-normal-hovered);
-    border-color: var(--cui-border-normal-hovered);
-    color: var(--cui-fg-normal-hovered);
-  }
-
-  .circuit-5:active,
-  .circuit-5[aria-expanded='true'],
-  .circuit-5[aria-pressed='true'] {
-    background-color: var(--cui-bg-normal-pressed);
-    border-color: var(--cui-border-normal-pressed);
-    color: var(--cui-fg-normal-pressed);
-  }
-
-  .circuit-5:disabled,
-  .circuit-5[disabled] {
-    background-color: var(--cui-bg-normal-disabled);
-    border-color: var(--cui-border-normal-disabled);
-    color: var(--cui-fg-normal-disabled);
-  }
-}
-
-@media (max-width: 479px) {
-  .circuit-5 {
-    margin-right: 0;
-    margin-top: 16px;
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--cui-fg-accent);
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .circuit-5:hover {
-    color: var(--cui-fg-accent-hovered);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .circuit-5:active,
-  .circuit-5[aria-expanded='true'],
-  .circuit-5[aria-pressed='true'] {
-    color: var(--cui-fg-accent-pressed);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .circuit-5:disabled,
-  .circuit-5[disabled] {
-    color: var(--cui-fg-accent-disabled);
-    background-color: transparent;
-    border-color: transparent;
-  }
 }
 
 <div
-  class="circuit-0"
+  class="_base_fd5359 _right_fd5359"
 >
   <button
-    class="circuit-1"
+    class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
   >
     <span
-      class="circuit-2"
+      class="_spinner_892426 circuit-0"
     >
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       />
     </span>
     <span
-      class="circuit-4"
+      class="_content_892426"
     >
       Continue
     </span>
   </button>
   <button
-    class="circuit-5"
+    class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _secondary_fd5359"
   >
     <span
-      class="circuit-2"
+      class="_spinner_892426 circuit-0"
     >
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       />
     </span>
     <span
-      class="circuit-4"
+      class="_content_892426"
     >
       Cancel
     </span>
@@ -1023,104 +219,6 @@ exports[`ButtonGroup > should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-}
-
-@media (min-width: 480px) {
-  .circuit-0 {
-    -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-  }
-}
-
-.circuit-1 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-accent-strong);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-1:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-1:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-1:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  pointer-events: none;
-}
-
-.circuit-1:hover {
-  background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-hovered);
-}
-
-.circuit-1:active,
-.circuit-1[aria-expanded='true'],
-.circuit-1[aria-pressed='true'] {
-  background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-pressed);
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  background-color: var(--cui-bg-accent-strong-disabled);
-  border-color: transparent;
-  color: var(--cui-fg-on-strong-disabled);
-}
-
-.circuit-2 {
   display: block;
   border-radius: 100%;
   border: 2px solid currentColor;
@@ -1130,209 +228,39 @@ exports[`ButtonGroup > should render with default styles 1`] = `
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-4 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-5 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  background-color: var(--cui-bg-normal);
-  border-color: var(--cui-border-normal);
-  color: var(--cui-fg-normal);
-  padding: calc(12px - 1px) calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-5:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-5:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-5:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  pointer-events: none;
-}
-
-.circuit-5:hover {
-  background-color: var(--cui-bg-normal-hovered);
-  border-color: var(--cui-border-normal-hovered);
-  color: var(--cui-fg-normal-hovered);
-}
-
-.circuit-5:active,
-.circuit-5[aria-expanded='true'],
-.circuit-5[aria-pressed='true'] {
-  background-color: var(--cui-bg-normal-pressed);
-  border-color: var(--cui-border-normal-pressed);
-  color: var(--cui-fg-normal-pressed);
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  background-color: var(--cui-bg-normal-disabled);
-  border-color: var(--cui-border-normal-disabled);
-  color: var(--cui-fg-normal-disabled);
-}
-
-@media (min-width: 480px) {
-  .circuit-5 {
-    margin-right: 16px;
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-normal);
-    color: var(--cui-fg-normal);
-  }
-
-  .circuit-5:hover {
-    background-color: var(--cui-bg-normal-hovered);
-    border-color: var(--cui-border-normal-hovered);
-    color: var(--cui-fg-normal-hovered);
-  }
-
-  .circuit-5:active,
-  .circuit-5[aria-expanded='true'],
-  .circuit-5[aria-pressed='true'] {
-    background-color: var(--cui-bg-normal-pressed);
-    border-color: var(--cui-border-normal-pressed);
-    color: var(--cui-fg-normal-pressed);
-  }
-
-  .circuit-5:disabled,
-  .circuit-5[disabled] {
-    background-color: var(--cui-bg-normal-disabled);
-    border-color: var(--cui-border-normal-disabled);
-    color: var(--cui-fg-normal-disabled);
-  }
-}
-
-@media (max-width: 479px) {
-  .circuit-5 {
-    margin-right: 0;
-    margin-top: 16px;
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--cui-fg-accent);
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .circuit-5:hover {
-    color: var(--cui-fg-accent-hovered);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .circuit-5:active,
-  .circuit-5[aria-expanded='true'],
-  .circuit-5[aria-pressed='true'] {
-    color: var(--cui-fg-accent-pressed);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .circuit-5:disabled,
-  .circuit-5[disabled] {
-    color: var(--cui-fg-accent-disabled);
-    background-color: transparent;
-    border-color: transparent;
-  }
 }
 
 <div
-  class="circuit-0"
+  class="_base_fd5359 _center_fd5359"
 >
   <button
-    class="circuit-1"
+    class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
   >
     <span
-      class="circuit-2"
+      class="_spinner_892426 circuit-0"
     >
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       />
     </span>
     <span
-      class="circuit-4"
+      class="_content_892426"
     >
       Continue
     </span>
   </button>
   <button
-    class="circuit-5"
+    class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _secondary_fd5359"
   >
     <span
-      class="circuit-2"
+      class="_spinner_892426 circuit-0"
     >
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       />
     </span>
     <span
-      class="circuit-4"
+      class="_content_892426"
     >
       Cancel
     </span>

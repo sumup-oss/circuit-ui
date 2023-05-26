@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Children, cloneElement, ReactElement, forwardRef, Ref } from 'react';
+import { Children, cloneElement, ReactElement, forwardRef } from 'react';
 import { css, SerializedStyles } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 import type { IconProps } from '@sumup/icons';
@@ -54,18 +54,15 @@ const sizeStyles =
  * The IconButton component displays a button with a single icon
  * as its only child.
  */
-export const IconButton = forwardRef(
-  (
-    { children, label, size, ...props }: IconButtonProps,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ref?: Ref<any>,
-  ) => {
+export const IconButton = forwardRef<any, IconButtonProps>(
+  ({ children, label, size, ...props }, ref) => {
     const child = Children.only(children);
     const iconSize = size === 'kilo' ? '16' : '24';
     const icon = cloneElement(child, {
       'aria-hidden': 'true',
       'size': (child.props.size as string) || iconSize,
     });
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -76,6 +73,7 @@ export const IconButton = forwardRef(
         'The `label` prop is missing.',
       );
     }
+
     return (
       <Button title={label} css={sizeStyles(size)} {...props} ref={ref}>
         {icon}

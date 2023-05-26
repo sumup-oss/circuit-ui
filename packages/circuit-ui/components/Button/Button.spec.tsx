@@ -20,7 +20,6 @@ import { Download } from '@sumup/icons';
 import {
   create,
   render,
-  renderToHtml,
   axe,
   RenderFn,
   userEvent,
@@ -36,37 +35,6 @@ describe('Button', () => {
   const baseProps = { children: 'Button' };
 
   describe('styles', () => {
-    it('should render a primary button by default', () => {
-      const wrapper = renderButton(create, baseProps);
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a secondary button', () => {
-      const wrapper = renderButton(create, {
-        ...baseProps,
-        variant: 'secondary',
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a tertiary button', () => {
-      const wrapper = renderButton(create, {
-        ...baseProps,
-        variant: 'tertiary',
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a kilo button', () => {
-      const wrapper = renderButton(create, { ...baseProps, size: 'kilo' });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a giga button', () => {
-      const wrapper = renderButton(create, { ...baseProps, size: 'giga' });
-      expect(wrapper).toMatchSnapshot();
-    });
-
     it('should render a disabled button', () => {
       const wrapper = renderButton(create, { ...baseProps, disabled: true });
       expect(wrapper).toMatchSnapshot();
@@ -112,15 +80,10 @@ describe('Button', () => {
           {children}
         </a>
       );
-      const props = {
-        ...baseProps,
-        'data-testid': 'custom-link-button',
-        'as': CustomLink,
-      };
-      const { getByTestId } = renderButton(render, props);
-      const buttonEl = getByTestId('custom-link-button');
-      expect(buttonEl.tagName).toBe('A');
-      expect(buttonEl).toHaveAttribute('href');
+      const props = { ...baseProps, as: CustomLink };
+      const { getByRole } = renderButton(render, props);
+      const linkEl = getByRole('link');
+      expect(linkEl).toHaveAttribute('href');
     });
 
     it('should render loading button with loading label', () => {
@@ -207,18 +170,18 @@ describe('Button', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Button>Button</Button>);
-      const actual = await axe(wrapper);
+      const { container } = render(<Button>Button</Button>);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
 
     it('should meet accessibility guidelines for Loading button', async () => {
-      const wrapper = renderToHtml(
+      const { container } = render(
         <Button isLoading={true} loadingLabel="Loading">
           Button
         </Button>,
       );
-      const actual = await axe(wrapper);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
 

@@ -1,0 +1,86 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .base {
+    flex-direction: row-reverse;
+  }
+
+  .left {
+    justify-content: flex-end;
+  }
+
+  .center {
+    justify-content: center;
+  }
+
+  .right {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 479px) {
+  .secondary {
+    margin-top: var(--cui_internal-spacings-mega);
+  }
+
+  /* Keep in sync with the .tertiary class in Button.module.css */
+
+  .secondary {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--cui-fg-accent);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .secondary:hover {
+    color: var(--cui-fg-accent-hovered);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .secondary:active,
+  .secondary[aria-expanded='true'],
+  .secondary[aria-pressed='true'] {
+    color: var(--cui-fg-accent-pressed);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .secondary:disabled,
+  .secondary[disabled] {
+    color: var(--cui-fg-accent-disabled);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .secondary.destructive {
+    color: var(--cui-fg-danger);
+  }
+
+  .secondary.destructive:hover {
+    color: var(--cui-fg-danger-hovered);
+  }
+
+  .secondary.destructive:active,
+  .secondary.destructive[aria-expanded='true'],
+  .secondary.destructive[aria-pressed='true'] {
+    color: var(--cui-fg-danger-pressed);
+  }
+
+  .secondary.destructive:disabled,
+  .secondary.destructive[disabled] {
+    color: var(--cui-fg-danger-disabled);
+  }
+}
+
+@media (min-width: 480px) {
+  .secondary {
+    margin-right: var(--cui_internal-spacings-mega);
+  }
+}

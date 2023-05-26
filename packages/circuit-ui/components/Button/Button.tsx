@@ -15,28 +15,21 @@
 
 import {
   forwardRef,
-  Ref,
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
   ReactNode,
 } from 'react';
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 import type { IconComponentType } from '@sumup/icons';
 
-import isPropValid from '../../styles/is-prop-valid.js';
-import styled, { StyleProps } from '../../styles/styled.js';
-import {
-  typography,
-  focusVisible,
-  hideVisually,
-} from '../../styles/style-mixins.js';
-import { ReturnType } from '../../types/return-type.js';
-import { ClickEvent } from '../../types/events.js';
-import { AsPropType, EmotionAsPropType } from '../../types/prop-types.js';
+import type { ClickEvent } from '../../types/events.js';
+import type { AsPropType } from '../../types/prop-types.js';
 import { useComponents } from '../ComponentsContext/index.js';
 import Spinner from '../Spinner/index.js';
 import { AccessibilityError } from '../../util/errors.js';
+import utilityClasses from '../../styles/utility.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './Button.module.css';
 
 export interface BaseProps {
   'children': ReactNode;
@@ -73,11 +66,6 @@ export interface BaseProps {
    * Function that's called when the button is clicked.
    */
   'onClick'?: (event: ClickEvent) => void;
-  /**
-   The ref to the HTML DOM element
-   */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  'ref'?: Ref<any>;
   'data-testid'?: string;
   /**
    * Visually disables the button and shows a loading spinner.
@@ -99,331 +87,28 @@ type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
-const spinnerBaseStyles = ({ theme }: StyleProps) => css`
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity ${theme.transitions.default},
-    visibility ${theme.transitions.default};
-`;
-
-const spinnerLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
-  isLoading &&
-  css`
-    opacity: 1;
-    visibility: inherit;
-  `;
-
-const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
-  spinnerBaseStyles,
-  spinnerLoadingStyles,
-);
-
-const LoadingLabel = styled.span(hideVisually);
-
-const iconStyles = (theme: Theme) => css`
-  flex-shrink: 0;
-  margin-right: ${theme.spacings.byte};
-`;
-
-const contentStyles = ({ theme }: StyleProps) => css`
-  display: inline-flex;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  transform: scale3d(1, 1, 1);
-  transition: opacity ${theme.transitions.default},
-    transform ${theme.transitions.default},
-    visibility ${theme.transitions.default};
-`;
-
-const contentLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
-  isLoading &&
-  css`
-    opacity: 0;
-    visibility: hidden;
-    transform: scale3d(0, 0, 0);
-  `;
-
-const Content = styled.span<{ isLoading: boolean }>(
-  contentStyles,
-  contentLoadingStyles,
-);
-
-type StyledButtonProps = Pick<
-  ButtonProps,
-  'variant' | 'destructive' | 'size' | 'stretch'
->;
-
-const baseStyles = ({ theme }: StyleProps) => css`
-  display: inline-flex;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  font-weight: ${theme.fontWeight.bold};
-  border-width: ${theme.borderWidth.kilo};
-  border-style: solid;
-  border-radius: ${theme.borderRadius.pill};
-  transition: opacity ${theme.transitions.default},
-    color ${theme.transitions.default},
-    background-color ${theme.transitions.default},
-    border-color ${theme.transitions.default};
-
-  &:disabled,
-  &[disabled] {
-    pointer-events: none;
-  }
-`;
-
-const primaryStyles = ({
-  variant = 'secondary',
-  destructive,
-}: StyledButtonProps) => {
-  if (variant !== 'primary') {
-    return null;
-  }
-
-  if (destructive) {
-    return css`
-      background-color: var(--cui-bg-danger-strong);
-      border-color: transparent;
-      color: var(--cui-fg-on-strong);
-
-      &:hover {
-        background-color: var(--cui-bg-danger-strong-hovered);
-        border-color: transparent;
-        color: var(--cui-fg-on-strong-hovered);
-      }
-
-      &:active,
-      &[aria-expanded='true'],
-      &[aria-pressed='true'] {
-        background-color: var(--cui-bg-danger-strong-pressed);
-        border-color: transparent;
-        color: var(--cui-fg-on-strong-pressed);
-      }
-
-      &:disabled,
-      &[disabled] {
-        background-color: var(--cui-bg-danger-strong-disabled);
-        border-color: transparent;
-        color: var(--cui-fg-on-strong-disabled);
-      }
-    `;
-  }
-
-  return css`
-    background-color: var(--cui-bg-accent-strong);
-    border-color: transparent;
-    color: var(--cui-fg-on-strong);
-
-    &:hover {
-      background-color: var(--cui-bg-accent-strong-hovered);
-      border-color: transparent;
-      color: var(--cui-fg-on-strong-hovered);
-    }
-
-    &:active,
-    &[aria-expanded='true'],
-    &[aria-pressed='true'] {
-      background-color: var(--cui-bg-accent-strong-pressed);
-      border-color: transparent;
-      color: var(--cui-fg-on-strong-pressed);
-    }
-
-    &:disabled,
-    &[disabled] {
-      background-color: var(--cui-bg-accent-strong-disabled);
-      border-color: transparent;
-      color: var(--cui-fg-on-strong-disabled);
-    }
-  `;
-};
-
-export const secondaryStyles = ({
-  variant = 'secondary',
-  destructive,
-}: StyledButtonProps) => {
-  if (variant !== 'secondary') {
-    return null;
-  }
-
-  if (destructive) {
-    return css`
-      background-color: var(--cui-bg-normal);
-      border-color: var(--cui-border-danger);
-      color: var(--cui-fg-danger);
-
-      &:hover {
-        background-color: var(--cui-bg-normal-hovered);
-        border-color: var(--cui-border-danger-hovered);
-        color: var(--cui-fg-danger-hovered);
-      }
-
-      &:active,
-      &[aria-expanded='true'],
-      &[aria-pressed='true'] {
-        background-color: var(--cui-bg-normal-pressed);
-        border-color: var(--cui-border-danger-pressed);
-        color: var(--cui-fg-danger-pressed);
-      }
-
-      &:disabled,
-      &[disabled] {
-        background-color: var(--cui-bg-normal-disabled);
-        border-color: var(--cui-border-danger-disabled);
-        color: var(--cui-fg-danger-disabled);
-      }
-    `;
-  }
-
-  return css`
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-normal);
-    color: var(--cui-fg-normal);
-
-    &:hover {
-      background-color: var(--cui-bg-normal-hovered);
-      border-color: var(--cui-border-normal-hovered);
-      color: var(--cui-fg-normal-hovered);
-    }
-
-    &:active,
-    &[aria-expanded='true'],
-    &[aria-pressed='true'] {
-      background-color: var(--cui-bg-normal-pressed);
-      border-color: var(--cui-border-normal-pressed);
-      color: var(--cui-fg-normal-pressed);
-    }
-
-    &:disabled,
-    &[disabled] {
-      background-color: var(--cui-bg-normal-disabled);
-      border-color: var(--cui-border-normal-disabled);
-      color: var(--cui-fg-normal-disabled);
-    }
-  `;
-};
-
-export const tertiaryStyles = ({
-  variant = 'secondary',
-  destructive,
-}: StyledButtonProps) => {
-  if (variant !== 'tertiary') {
-    return null;
-  }
-
-  const colorMap = {
-    default: {
-      idle: 'var(--cui-fg-accent)',
-      hovered: 'var(--cui-fg-accent-hovered)',
-      pressed: 'var(--cui-fg-accent-pressed)',
-      disabled: 'var(--cui-fg-accent-disabled)',
-    },
-    destructive: {
-      idle: 'var(--cui-fg-danger)',
-      hovered: 'var(--cui-fg-danger-hovered)',
-      pressed: 'var(--cui-fg-danger-pressed)',
-      disabled: 'var(--cui-fg-danger-disabled)',
-    },
-  };
-
-  const colors = destructive ? colorMap.destructive : colorMap.default;
-
-  return css`
-    background-color: transparent;
-    border-color: transparent;
-    color: ${colors.idle};
-    padding-left: 0;
-    padding-right: 0;
-
-    &:hover {
-      color: ${colors.hovered};
-      background-color: transparent;
-      border-color: transparent;
-    }
-
-    &:active,
-    &[aria-expanded='true'],
-    &[aria-pressed='true'] {
-      color: ${colors.pressed};
-      background-color: transparent;
-      border-color: transparent;
-    }
-
-    &:disabled,
-    &[disabled] {
-      color: ${colors.disabled};
-      background-color: transparent;
-      border-color: transparent;
-    }
-  `;
-};
-
-const sizeStyles = ({
-  theme,
-  size = 'giga',
-}: StyledButtonProps & StyleProps) => {
-  const sizeMap = {
-    kilo: {
-      padding: `calc(${theme.spacings.bit} - ${theme.borderWidth.kilo}) calc(${theme.spacings.mega} - ${theme.borderWidth.kilo})`,
-    },
-    giga: {
-      padding: `calc(${theme.spacings.kilo} - ${theme.borderWidth.kilo}) calc(${theme.spacings.giga} - ${theme.borderWidth.kilo})`,
-    },
-  };
-
-  return css({
-    ...sizeMap[size],
-  });
-};
-
-const stretchStyles = ({ stretch }: StyledButtonProps) =>
-  stretch &&
-  css`
-    width: 100%;
-  `;
-
-const loadingStyles = css`
-  position: relative;
-  overflow: hidden;
-`;
-
-const StyledButton = styled('button', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<StyledButtonProps>(
-  typography('one'),
-  focusVisible,
-  baseStyles,
-  primaryStyles,
-  secondaryStyles,
-  sizeStyles,
-  tertiaryStyles,
-  stretchStyles,
-  loadingStyles,
-);
-
 /**
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
  */
-export const Button = forwardRef(
+export const Button = forwardRef<any, ButtonProps>(
   (
     {
       children,
       disabled,
+      destructive,
+      variant = 'secondary',
+      size = 'giga',
+      stretch,
       isLoading,
       loadingLabel,
+      className,
       icon: Icon,
       as,
       ...props
-    }: ButtonProps,
-    ref?: BaseProps['ref'],
-  ): ReturnType => {
+    },
+    ref,
+  ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -436,34 +121,47 @@ export const Button = forwardRef(
       );
     }
     const { Link } = useComponents();
-    const linkOrButton = props.href ? Link : 'button';
+
+    const isLink = Boolean(props.href);
+
+    const Element = as || (isLink ? Link : 'button');
 
     return (
-      <StyledButton
+      <Element
         {...props}
         {...(loadingLabel &&
           typeof isLoading === 'boolean' && {
             'aria-live': 'polite',
             'aria-busy': isLoading,
           })}
-        disabled={disabled || isLoading}
+        {...(!isLink && {
+          disabled: disabled || isLoading,
+        })}
+        className={clsx(
+          classes.base,
+          utilityClasses.focusVisible,
+          classes[size],
+          classes[variant],
+          destructive && classes.destructive,
+          stretch && classes.stretch,
+          className,
+        )}
         ref={ref}
-        as={(as || linkOrButton) as EmotionAsPropType}
       >
-        <LoadingIcon isLoading={Boolean(isLoading)} size="byte">
-          <LoadingLabel>{loadingLabel}</LoadingLabel>
-        </LoadingIcon>
-        <Content isLoading={Boolean(isLoading)}>
+        <Spinner className={classes.spinner} size="byte">
+          <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
+        </Spinner>
+        <span className={classes.content}>
           {Icon && (
             <Icon
-              css={iconStyles}
-              size={props.size === 'kilo' ? '16' : '24'}
+              className={classes.icon}
+              size={size === 'kilo' ? '16' : '24'}
               aria-hidden="true"
             />
           )}
           {children}
-        </Content>
-      </StyledButton>
+        </span>
+      </Element>
     );
   },
 );

@@ -18,6 +18,8 @@ import _classes from './utility.module.css';
 // This explicit remapping is needed so TypeScript infers the types correctly
 const classes = {
   hideVisually: _classes['hide-visually'],
+  focusVisible: _classes['focus-visible'],
+  focusVisibleInset: _classes['focus-visible-inset'],
 };
 
 export default classes;

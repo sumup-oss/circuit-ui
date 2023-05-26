@@ -575,80 +575,10 @@ exports[`NotificationInline > styles > should render notification toast with an 
 }
 
 .circuit-6 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 999999px;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  padding: calc(4px - 1px) calc(16px - 1px);
-  background-color: transparent;
-  border-color: transparent;
-  color: var(--cui-fg-accent);
-  padding-left: 0;
-  padding-right: 0;
-  position: relative;
-  overflow: hidden;
   font-weight: bold;
   text-decoration-line: underline;
   color: var(--cui-fg-normal);
   margin-top: 8px;
-}
-
-.circuit-6:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
-}
-
-.circuit-6:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-6:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.circuit-6:disabled,
-.circuit-6[disabled] {
-  pointer-events: none;
-}
-
-.circuit-6:hover {
-  color: var(--cui-fg-accent-hovered);
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.circuit-6:active,
-.circuit-6[aria-expanded='true'],
-.circuit-6[aria-pressed='true'] {
-  color: var(--cui-fg-accent-pressed);
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.circuit-6:disabled,
-.circuit-6[disabled] {
-  color: var(--cui-fg-accent-disabled);
-  background-color: transparent;
-  border-color: transparent;
 }
 
 .circuit-6:hover {
@@ -671,30 +601,6 @@ exports[`NotificationInline > styles > should render notification toast with an 
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
-}
-
-.circuit-9 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
-  visibility: inherit;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: opacity 120ms ease-in-out,-webkit-transform 120ms ease-in-out,visibility 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,transform 120ms ease-in-out,visibility 120ms ease-in-out;
 }
 
 <body>
@@ -735,17 +641,17 @@ exports[`NotificationInline > styles > should render notification toast with an 
             This is an inline message
           </p>
           <button
-            class="circuit-6"
+            class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-6"
           >
             <span
-              class="circuit-7"
+              class="_spinner_892426 circuit-7"
             >
               <span
-                class="circuit-3"
+                class="_hide-visually_73b4bb"
               />
             </span>
             <span
-              class="circuit-9"
+              class="_content_892426"
             >
               Click here
             </span>

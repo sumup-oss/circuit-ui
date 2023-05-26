@@ -9,3 +9,29 @@
   white-space: nowrap;
   width: 1px;
 }
+
+.focus-visible:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.focus-visible:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.focus-visible:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.focus-visible-inset:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.focus-visible-inset:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.focus-visible-inset:focus:not(:focus-visible) {
+  box-shadow: none;
+}
