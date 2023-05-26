@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.10.0
+
+### Minor Changes
+
+- [#1415](https://github.com/sumup-oss/circuit-ui/pull/1415) [`f2c20b88`](https://github.com/sumup-oss/circuit-ui/commit/f2c20b88c31e9358cfe99f0851a43390e304673c) Thanks [@long-lazuli](https://github.com/long-lazuli)! - Added the `indeterminate` prop to the Checkbox component. Use it to display and control the collective state of a group of nested checkboxes.
+
 ## 6.9.0
 
 ### Minor Changes
