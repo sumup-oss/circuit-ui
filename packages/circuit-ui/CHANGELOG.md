@@ -61,6 +61,12 @@
 
 - [#1992](https://github.com/sumup-oss/circuit-ui/pull/1992) [`0b7fb453`](https://github.com/sumup-oss/circuit-ui/commit/0b7fb453e6eb714561ab4ff8311ef3d4853006c5) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the `uniqueId` util. Use the official [`useId` hook](https://beta.reactjs.org/reference/react/useId) instead.
 
+## 6.10.0
+
+### Minor Changes
+
+- [#1415](https://github.com/sumup-oss/circuit-ui/pull/1415) [`f2c20b88`](https://github.com/sumup-oss/circuit-ui/commit/f2c20b88c31e9358cfe99f0851a43390e304673c) Thanks [@long-lazuli](https://github.com/long-lazuli)! - Added the `indeterminate` prop to the Checkbox component. Use it to display and control the collective state of a group of nested checkboxes.
+
 ## 6.9.0
 
 ### Minor Changes

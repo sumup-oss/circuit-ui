@@ -13,6 +13,12 @@
 
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to the `"exports"` field to configure the package entry points. Files that are not explicitly defined in `"exports"` can no longer be imported.
 
+## 2.26.0
+
+### Minor Changes
+
+- [#2126](https://github.com/sumup-oss/circuit-ui/pull/2126) [`a79f8d0d`](https://github.com/sumup-oss/circuit-ui/commit/a79f8d0d9fdfbfc563028add0ceee5624bb49394) Thanks [@hris27](https://github.com/hris27)! - Added new icons in size 24: `TransferIn`, `TransferOut`, `ThumbUp` and `ThumbDown`.
+
 ## 2.25.0
 
 ### Minor Changes
