@@ -8,7 +8,7 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'weekly'
+      interval: 'monthly'
     versioning-strategy: increase
     ignore:
       # Storybook dependencies need to be upgraded manually in unison.
