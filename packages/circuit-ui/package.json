@@ -46,7 +46,7 @@
     "@emotion/is-prop-valid": "^1.2.1",
     "@emotion/jest": "^11.11.0",
     "@emotion/react": "^11.11.0",
-    "@emotion/styled": "^11.10.6",
+    "@emotion/styled": "^11.11.0",
     "@sumup/collector": "^1.6.1",
     "@sumup/design-tokens": "^5.0.0",
     "@sumup/icons": "^2.9.0",
