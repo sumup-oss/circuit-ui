@@ -1,5 +1,13 @@
 # @sumup/icons
 
+## 2.27.0
+
+### Minor Changes
+
+- [#2135](https://github.com/sumup-oss/circuit-ui/pull/2135) [`8a771fa4`](https://github.com/sumup-oss/circuit-ui/commit/8a771fa4af7d400b8b58352d25a98014a2162efa) Thanks [@a5e](https://github.com/a5e)! - Added new icon `ExternalLink` in size 16 and 24.
+
+- [#2141](https://github.com/sumup-oss/circuit-ui/pull/2141) [`1a69d0f3`](https://github.com/sumup-oss/circuit-ui/commit/1a69d0f35d1e36b4901eaec1a046297e6cc45b76) Thanks [@hris27](https://github.com/hris27)! - Added new card scheme icons in size 24 and 32: `Conecs` and `Swile`.
+
 ## 2.26.0
 
 ### Minor Changes
