@@ -117,7 +117,22 @@
       "size": "16"
     },
     {
+      "name": "filter",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "filter",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "flash_on",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "flip_camera",
       "category": "Action",
       "size": "24"
     },
@@ -312,6 +327,11 @@
       "size": "24"
     },
     {
+      "name": "conecs",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "dankort",
       "category": "Payment method",
       "size": "24"
@@ -354,21 +374,6 @@
     {
       "name": "giropay",
       "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "filter",
-      "category": "Action",
-      "size": "24"
-    },
-    {
-      "name": "filter",
-      "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "flip_camera",
-      "category": "Action",
       "size": "24"
     },
     {
@@ -467,6 +472,11 @@
       "size": "24"
     },
     {
+      "name": "swile",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "ticket",
       "category": "Payment method",
       "size": "24"
@@ -518,6 +528,11 @@
     },
     {
       "name": "boleto",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "conecs",
       "category": "Card scheme",
       "size": "32"
     },
@@ -588,6 +603,11 @@
     },
     {
       "name": "sodexo",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "swile",
       "category": "Card scheme",
       "size": "32"
     },
