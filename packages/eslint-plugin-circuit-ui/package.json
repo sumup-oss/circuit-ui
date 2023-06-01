@@ -23,7 +23,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^5.59.6"
+    "@typescript-eslint/utils": "^5.59.8"
   },
   "devDependencies": {
     "@sumup/design-tokens": "^5.3.0",
