@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@sumup/design-tokens": "^5.3.0",
-    "@tsconfig/node18": "^2.0.0",
+    "@tsconfig/node18": "^2.0.1",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
