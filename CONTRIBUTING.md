@@ -1,5 +1,9 @@
 # Contributing
 
+## Don't work at SumUp?
+
+In an effort to give back to the community from which we learn so much, our documentation and code are public. However, the intended use case for Circuit UI is purely internal for our product, so please treat this as a read-only project and inspiration only.
+
 ## Code of Conduct (CoC)
 
 We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](https://github.com/sumup-oss/circuit-ui/tree/main/CODE_OF_CONDUCT.md).
@@ -21,12 +25,8 @@ We appreciate pull requests (PRs) for smaller changes and bug fixes. For larger 
 1. Let others know that you're working on an issue by leaving a comment or assigning it to yourself.
 2. Clone the repository (you might need to fork it first) and branch out from the latest `main` branch.
 3. Code, add, commit, and push your changes in your feature branch.
-4. Submit a pull request and make sure that the CI checks pass. Don't forget to add a [changeset](#changesets) and accept the [contributor license agreement](#contributor-license-agreement-cla).
+4. Submit a pull request and make sure that the CI checks pass. Don't forget to add a [changeset](#changesets).
 5. Collaborate with the codeowners/reviewers to merge your changes to `main`.
-
-### Contributor License Agreement (CLA)
-
-To start contributing to SumUp Open Source projects, please accept our [Contributor License Agreement](https://opensource.sumup.com/cla). Should you have any questions or concerns, please get in touch with [opensource@sumup.com](mailto:opensource@sumup.com).
 
 ## Quick Start
 
