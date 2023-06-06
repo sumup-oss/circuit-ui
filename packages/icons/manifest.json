@@ -297,11 +297,6 @@
       "size": "24"
     },
     {
-      "name": "eftpos",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
       "name": "apple_pay",
       "category": "Payment method",
       "size": "24"
@@ -353,6 +348,11 @@
     },
     {
       "name": "ec",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "eftpos",
       "category": "Payment method",
       "size": "24"
     },
