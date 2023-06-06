@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-Adds EFTPOS icon as a payment method
+Added new payment method icon `Eftpos` in size 24.

@@ -1,21 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" xml:space="preserve">
-<g transform="matrix(0.0442316288 0 0 0.0442316386 12 12)" id="a6hcEePZgoiLx8c4PVo67"  >
-<g style="" vector-effect="non-scaling-stroke"   >
-		<g transform="matrix(1.3333333 0 0 -1.3333333 0 12.2335996942)" id="96g-1_x_I3axtNvSvLa7i"  >
-<linearGradient id="SVGID_0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-58.254887 299.6954 299.6954 58.254887 227.10982 185.06168)"  x1="0" y1="0" x2="1" y2="0">
-<stop offset="0%" style="stop-color:rgb(229,0,86);stop-opacity: 1"/>
-<stop offset="14.1092%" style="stop-color:rgb(229,0,86);stop-opacity: 1"/>
-<stop offset="75%" style="stop-color:rgb(31,0,56);stop-opacity: 1"/>
-<stop offset="100%" style="stop-color:rgb(31,0,56);stop-opacity: 1"/>
-</linearGradient>
-<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: url(#SVGID_0); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-225.7809086936, -226.0615)" d="M 139.953 353.965 C 105.232 326.064 83.008 283.246 83.008 235.237 L 83.008 235.237 C 83.008 151.16199999999998 151.163 83.006 235.238 83.006 L 235.238 83.006 C 292.137 83.006 342.843 114.78999999999999 367.762 160.506 L 367.762 160.506 C 368.545 161.951 368.977 163.526 367.949 164.827 L 367.949 164.827 C 366.154 167.099 363.42900000000003 166.006 361.002 164.555 L 361.002 164.555 C 338.189 150.83 318.676 144.419 290.928 144.419 L 290.928 144.419 C 230.47 144.419 181.45999999999998 187.555 181.45999999999998 240.76600000000002 L 181.45999999999998 240.76600000000002 C 181.45999999999998 282.928 209.86299999999997 319.659 251.861 338.837 L 251.861 338.837 C 240.575 360.36 215.59099999999998 369.11699999999996 191.083 369.11699999999996 L 191.083 369.11699999999996 C 171.203 369.116 151.635 363.35299999999995 139.953 353.965" stroke-linecap="round" />
-</g>
-		<g transform="matrix(1.3333333 0 0 -1.3333333 36.2594541687 -70.2142649113)" id="onryLaNtU21kgrRdqtCs8" clip-path="url(#CLIPPATH_2)"  >
-<clipPath id="CLIPPATH_2" >
-	<path transform="matrix(1 0 0 1 272.6745 -52.6614) translate(-525.65, -235.236)" id="path38" d="M 0 470.472 L 1051.3 470.472 L 1051.3 0 L 0 0 Z" stroke-linecap="round" />
-</clipPath>
-<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(229,0,86); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(113.0225, -8.012)" d="M 0 0 C 0 -50.566 -48.295 -91.558 -107.87 -91.558 C -116.539 -91.558 -140.00900000000001 -90.36600000000001 -156.80700000000002 -82.548 C -161.584 -80.325 -161.09300000000002 -77.526 -157.81 -76.171 C -150.176 -73.022 -90.308 -61.534000000000006 -90.308 0 C -90.308 61.533 -153.841 106.524 -226.04500000000002 74.08 C -199.96200000000002 95.03999999999999 -166.82500000000002 107.582 -130.76000000000002 107.582 C -60.062 107.582 0 59.416 0 0" stroke-linecap="round" />
-</g>
-</g>
-</g>
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M6.938 4.998a8.978 8.978 0 0 0 5.62 15.98c3.355 0 6.346-1.875 7.815-4.57.047-.086.072-.179.011-.256-.105-.134-.266-.07-.41.017-1.345.809-2.495 1.187-4.132 1.187-3.566 0-6.456-2.544-6.456-5.682 0-2.487 1.675-4.653 4.152-5.784-.665-1.27-2.139-1.786-3.584-1.786-1.173 0-2.327.34-3.016.894Z"
+    fill="url(#paint0_linear_101_2)" />
+  <path
+    d="M20.27 9.367c0 2.982-2.849 5.4-6.362 5.4-.512 0-1.896-.07-2.886-.532-.282-.131-.253-.296-.06-.376.45-.186 3.981-.863 3.981-4.492 0-3.63-3.746-6.282-8.005-4.37a8.94 8.94 0 0 1 5.62-1.975c4.17 0 7.711 2.84 7.711 6.345Z"
+    fill="#E50056" />
+  <defs>
+    <linearGradient id="paint0_linear_101_2" x1="12.078" y1="14.959" x2="8.643" y2="-2.716"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E50056" />
+      <stop offset=".141" stop-color="#E50056" />
+      <stop offset=".75" stop-color="#1F0038" />
+      <stop offset="1" stop-color="#1F0038" />
+    </linearGradient>
+  </defs>
 </svg>
+
