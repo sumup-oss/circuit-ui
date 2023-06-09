@@ -552,6 +552,11 @@
       "size": "32"
     },
     {
+      "name": "eftpos",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "elo",
       "category": "Card scheme",
       "size": "32"
