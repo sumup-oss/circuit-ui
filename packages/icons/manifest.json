@@ -352,6 +352,11 @@
       "size": "24"
     },
     {
+      "name": "eftpos",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "elo",
       "category": "Payment method",
       "size": "24"
@@ -543,6 +548,11 @@
     },
     {
       "name": "discover",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "eftpos",
       "category": "Card scheme",
       "size": "32"
     },
