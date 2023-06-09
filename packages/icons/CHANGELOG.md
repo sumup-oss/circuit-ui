@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.28.0
+
+### Minor Changes
+
+- [#2149](https://github.com/sumup-oss/circuit-ui/pull/2149) [`8312c473`](https://github.com/sumup-oss/circuit-ui/commit/8312c47359e6d60b4a15a2541c8c676a94e74b7c) Thanks [@amrdruid](https://github.com/amrdruid)! - Added a new `Eftpos` icon in size 24 to the payment method category and in size 32 to the card scheme category.
+
 ## 2.27.0
 
 ### Minor Changes
