@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.28.1
+
+### Patch Changes
+
+- [#2151](https://github.com/sumup-oss/circuit-ui/pull/2151) [`820051fe`](https://github.com/sumup-oss/circuit-ui/commit/820051fe4c3ed963491d62aec25bc96d2775bdee) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the Visa, Visa Electron and VPay icons.
+
 ## 2.28.0
 
 ### Minor Changes
