@@ -1,0 +1,11 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
+  "plugins": ["stylelint-no-unsupported-browser-features"],
+  "rules": {
+    "media-feature-range-notation": ["prefix"],
+    "plugin/no-unsupported-browser-features": [true, { "severity": "warning" }]
+  },
+  "reportDescriptionlessDisables": true,
+  "reportInvalidScopeDisables": true,
+  "reportNeedlessDisables": true
+}

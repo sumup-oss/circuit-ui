@@ -15,4 +15,5 @@
 
 module.exports = require('@sumup/foundry/lint-staged')({
   '*.svg': ['svgo --config svgo.config.js --pretty'],
+  '*.css': ['stylelint'],
 });
