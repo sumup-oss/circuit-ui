@@ -1,11 +1,11 @@
 # The browsers that are explicitly supported
-chrome >= 63
+chrome >= 73
 firefox >= 67
-safari >= 11.1
-ios_saf >= 11.3
+safari >= 12.1
+ios_saf >= 12.2
 edge >= 79
-opera >= 50
-samsung >= 8.2
+opera >= 60
+samsung >= 11.1
 
 # The features that the script checks for
 supports css-grid and supports object-entries and supports es6-module-dynamic-import

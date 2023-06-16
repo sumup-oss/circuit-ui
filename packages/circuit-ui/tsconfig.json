@@ -17,7 +17,7 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "strict": true,
-    "target": "es2017"
+    "target": "es2019"
   },
   "include": [
     "components/**/*",
